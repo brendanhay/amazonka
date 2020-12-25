@@ -28,81 +28,71 @@ module Network.AWS.Config.DeleteRetentionConfiguration
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRetentionConfiguration' smart constructor.
 newtype DeleteRetentionConfiguration = DeleteRetentionConfiguration'
   { -- | The name of the retention configuration to delete.
-    retentionConfigurationName :: Lude.Text
+    retentionConfigurationName :: Types.RetentionConfigurationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRetentionConfiguration' with the minimum fields required to make a request.
---
--- * 'retentionConfigurationName' - The name of the retention configuration to delete.
+-- | Creates a 'DeleteRetentionConfiguration' value with any optional fields omitted.
 mkDeleteRetentionConfiguration ::
   -- | 'retentionConfigurationName'
-  Lude.Text ->
+  Types.RetentionConfigurationName ->
   DeleteRetentionConfiguration
-mkDeleteRetentionConfiguration pRetentionConfigurationName_ =
-  DeleteRetentionConfiguration'
-    { retentionConfigurationName =
-        pRetentionConfigurationName_
-    }
+mkDeleteRetentionConfiguration retentionConfigurationName =
+  DeleteRetentionConfiguration' {retentionConfigurationName}
 
 -- | The name of the retention configuration to delete.
 --
 -- /Note:/ Consider using 'retentionConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcRetentionConfigurationName :: Lens.Lens' DeleteRetentionConfiguration Lude.Text
-drcRetentionConfigurationName = Lens.lens (retentionConfigurationName :: DeleteRetentionConfiguration -> Lude.Text) (\s a -> s {retentionConfigurationName = a} :: DeleteRetentionConfiguration)
+drcRetentionConfigurationName :: Lens.Lens' DeleteRetentionConfiguration Types.RetentionConfigurationName
+drcRetentionConfigurationName = Lens.field @"retentionConfigurationName"
 {-# DEPRECATED drcRetentionConfigurationName "Use generic-lens or generic-optics with 'retentionConfigurationName' instead." #-}
 
-instance Lude.AWSRequest DeleteRetentionConfiguration where
+instance Core.FromJSON DeleteRetentionConfiguration where
+  toJSON DeleteRetentionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RetentionConfigurationName" Core..= retentionConfigurationName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteRetentionConfiguration where
   type
     Rs DeleteRetentionConfiguration =
       DeleteRetentionConfigurationResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull DeleteRetentionConfigurationResponse'
-
-instance Lude.ToHeaders DeleteRetentionConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DeleteRetentionConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteRetentionConfiguration where
-  toJSON DeleteRetentionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("RetentionConfigurationName" Lude..= retentionConfigurationName)
-          ]
-      )
-
-instance Lude.ToPath DeleteRetentionConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRetentionConfiguration where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DeleteRetentionConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull DeleteRetentionConfigurationResponse'
 
 -- | /See:/ 'mkDeleteRetentionConfigurationResponse' smart constructor.
 data DeleteRetentionConfigurationResponse = DeleteRetentionConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRetentionConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRetentionConfigurationResponse' value with any optional fields omitted.
 mkDeleteRetentionConfigurationResponse ::
   DeleteRetentionConfigurationResponse
 mkDeleteRetentionConfigurationResponse =

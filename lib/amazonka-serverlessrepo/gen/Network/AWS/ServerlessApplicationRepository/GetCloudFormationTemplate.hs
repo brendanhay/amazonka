@@ -20,192 +20,182 @@ module Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate
     mkGetCloudFormationTemplate,
 
     -- ** Request lenses
-    gcftTemplateId,
     gcftApplicationId,
+    gcftTemplateId,
 
     -- * Destructuring the response
     GetCloudFormationTemplateResponse (..),
     mkGetCloudFormationTemplateResponse,
 
     -- ** Response lenses
-    gcftrsCreationTime,
-    gcftrsStatus,
-    gcftrsTemplateId,
-    gcftrsSemanticVersion,
-    gcftrsApplicationId,
-    gcftrsTemplateURL,
-    gcftrsExpirationTime,
-    gcftrsResponseStatus,
+    gcftrrsApplicationId,
+    gcftrrsCreationTime,
+    gcftrrsExpirationTime,
+    gcftrrsSemanticVersion,
+    gcftrrsStatus,
+    gcftrrsTemplateId,
+    gcftrrsTemplateUrl,
+    gcftrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServerlessApplicationRepository.Types as Types
 
 -- | /See:/ 'mkGetCloudFormationTemplate' smart constructor.
 data GetCloudFormationTemplate = GetCloudFormationTemplate'
-  { -- | The UUID returned by CreateCloudFormationTemplate.
+  { -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Core.Text,
+    -- | The UUID returned by CreateCloudFormationTemplate.
     --
     -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
-    templateId :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Lude.Text
+    templateId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCloudFormationTemplate' with the minimum fields required to make a request.
---
--- * 'templateId' - The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- | Creates a 'GetCloudFormationTemplate' value with any optional fields omitted.
 mkGetCloudFormationTemplate ::
-  -- | 'templateId'
-  Lude.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'templateId'
+  Core.Text ->
   GetCloudFormationTemplate
-mkGetCloudFormationTemplate pTemplateId_ pApplicationId_ =
-  GetCloudFormationTemplate'
-    { templateId = pTemplateId_,
-      applicationId = pApplicationId_
-    }
+mkGetCloudFormationTemplate applicationId templateId =
+  GetCloudFormationTemplate' {applicationId, templateId}
+
+-- | The Amazon Resource Name (ARN) of the application.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcftApplicationId :: Lens.Lens' GetCloudFormationTemplate Core.Text
+gcftApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED gcftApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The UUID returned by CreateCloudFormationTemplate.
 --
 -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
 --
 -- /Note:/ Consider using 'templateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftTemplateId :: Lens.Lens' GetCloudFormationTemplate Lude.Text
-gcftTemplateId = Lens.lens (templateId :: GetCloudFormationTemplate -> Lude.Text) (\s a -> s {templateId = a} :: GetCloudFormationTemplate)
+gcftTemplateId :: Lens.Lens' GetCloudFormationTemplate Core.Text
+gcftTemplateId = Lens.field @"templateId"
 {-# DEPRECATED gcftTemplateId "Use generic-lens or generic-optics with 'templateId' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the application.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftApplicationId :: Lens.Lens' GetCloudFormationTemplate Lude.Text
-gcftApplicationId = Lens.lens (applicationId :: GetCloudFormationTemplate -> Lude.Text) (\s a -> s {applicationId = a} :: GetCloudFormationTemplate)
-{-# DEPRECATED gcftApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
-instance Lude.AWSRequest GetCloudFormationTemplate where
+instance Core.AWSRequest GetCloudFormationTemplate where
   type
     Rs GetCloudFormationTemplate =
       GetCloudFormationTemplateResponse
-  request = Req.get serverlessApplicationRepositoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/applications/" Core.<> (Core.toText applicationId)
+                Core.<> ("/templates/")
+                Core.<> (Core.toText templateId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCloudFormationTemplateResponse'
-            Lude.<$> (x Lude..?> "creationTime")
-            Lude.<*> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "templateId")
-            Lude.<*> (x Lude..?> "semanticVersion")
-            Lude.<*> (x Lude..?> "applicationId")
-            Lude.<*> (x Lude..?> "templateUrl")
-            Lude.<*> (x Lude..?> "expirationTime")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "applicationId")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "expirationTime")
+            Core.<*> (x Core..:? "semanticVersion")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "templateId")
+            Core.<*> (x Core..:? "templateUrl")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCloudFormationTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetCloudFormationTemplate where
-  toPath GetCloudFormationTemplate' {..} =
-    Lude.mconcat
-      [ "/applications/",
-        Lude.toBS applicationId,
-        "/templates/",
-        Lude.toBS templateId
-      ]
-
-instance Lude.ToQuery GetCloudFormationTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCloudFormationTemplateResponse' smart constructor.
 data GetCloudFormationTemplateResponse = GetCloudFormationTemplateResponse'
-  { -- | The date and time this resource was created.
-    creationTime :: Lude.Maybe Lude.Text,
-    -- | Status of the template creation workflow.
-    --
-    -- Possible values: PREPARING | ACTIVE | EXPIRED
-    status :: Lude.Maybe Status,
-    -- | The UUID returned by CreateCloudFormationTemplate.
-    --
-    -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
-    templateId :: Lude.Maybe Lude.Text,
-    -- | The semantic version of the application:
-    --
-    -- <https://semver.org/ https://semver.org/>
-    semanticVersion :: Lude.Maybe Lude.Text,
-    -- | The application Amazon Resource Name (ARN).
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | A link to the template that can be used to deploy the application using
-    --
-    --  AWS CloudFormation.
-    templateURL :: Lude.Maybe Lude.Text,
+  { -- | The application Amazon Resource Name (ARN).
+    applicationId :: Core.Maybe Core.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Core.Maybe Core.Text,
     -- | The date and time this template expires. Templates
     --
     --  expire 1 hour after creation.
-    expirationTime :: Lude.Maybe Lude.Text,
+    expirationTime :: Core.Maybe Core.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Core.Maybe Core.Text,
+    -- | Status of the template creation workflow.
+    --
+    -- Possible values: PREPARING | ACTIVE | EXPIRED
+    status :: Core.Maybe Types.Status,
+    -- | The UUID returned by CreateCloudFormationTemplate.
+    --
+    -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+    templateId :: Core.Maybe Core.Text,
+    -- | A link to the template that can be used to deploy the application using
+    --
+    --  AWS CloudFormation.
+    templateUrl :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCloudFormationTemplateResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - The date and time this resource was created.
--- * 'status' - Status of the template creation workflow.
---
--- Possible values: PREPARING | ACTIVE | EXPIRED
---
--- * 'templateId' - The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'templateURL' - A link to the template that can be used to deploy the application using
---
---  AWS CloudFormation.
--- * 'expirationTime' - The date and time this template expires. Templates
---
---  expire 1 hour after creation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCloudFormationTemplateResponse' value with any optional fields omitted.
 mkGetCloudFormationTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCloudFormationTemplateResponse
-mkGetCloudFormationTemplateResponse pResponseStatus_ =
+mkGetCloudFormationTemplateResponse responseStatus =
   GetCloudFormationTemplateResponse'
-    { creationTime = Lude.Nothing,
-      status = Lude.Nothing,
-      templateId = Lude.Nothing,
-      semanticVersion = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      templateURL = Lude.Nothing,
-      expirationTime = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { applicationId = Core.Nothing,
+      creationTime = Core.Nothing,
+      expirationTime = Core.Nothing,
+      semanticVersion = Core.Nothing,
+      status = Core.Nothing,
+      templateId = Core.Nothing,
+      templateUrl = Core.Nothing,
+      responseStatus
     }
+
+-- | The application Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcftrrsApplicationId :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Core.Text)
+gcftrrsApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED gcftrrsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The date and time this resource was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsCreationTime :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Lude.Text)
-gcftrsCreationTime = Lens.lens (creationTime :: GetCloudFormationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTime = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+gcftrrsCreationTime :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Core.Text)
+gcftrrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED gcftrrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The date and time this template expires. Templates
+--
+--  expire 1 hour after creation.
+--
+-- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcftrrsExpirationTime :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Core.Text)
+gcftrrsExpirationTime = Lens.field @"expirationTime"
+{-# DEPRECATED gcftrrsExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+
+-- | The semantic version of the application:
+--
+-- <https://semver.org/ https://semver.org/>
+--
+-- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcftrrsSemanticVersion :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Core.Text)
+gcftrrsSemanticVersion = Lens.field @"semanticVersion"
+{-# DEPRECATED gcftrrsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 -- | Status of the template creation workflow.
 --
@@ -213,56 +203,31 @@ gcftrsCreationTime = Lens.lens (creationTime :: GetCloudFormationTemplateRespons
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsStatus :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Status)
-gcftrsStatus = Lens.lens (status :: GetCloudFormationTemplateResponse -> Lude.Maybe Status) (\s a -> s {status = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+gcftrrsStatus :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Types.Status)
+gcftrrsStatus = Lens.field @"status"
+{-# DEPRECATED gcftrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The UUID returned by CreateCloudFormationTemplate.
 --
 -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
 --
 -- /Note:/ Consider using 'templateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsTemplateId :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Lude.Text)
-gcftrsTemplateId = Lens.lens (templateId :: GetCloudFormationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateId = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsTemplateId "Use generic-lens or generic-optics with 'templateId' instead." #-}
-
--- | The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
---
--- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsSemanticVersion :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Lude.Text)
-gcftrsSemanticVersion = Lens.lens (semanticVersion :: GetCloudFormationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {semanticVersion = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
-
--- | The application Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsApplicationId :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Lude.Text)
-gcftrsApplicationId = Lens.lens (applicationId :: GetCloudFormationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+gcftrrsTemplateId :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Core.Text)
+gcftrrsTemplateId = Lens.field @"templateId"
+{-# DEPRECATED gcftrrsTemplateId "Use generic-lens or generic-optics with 'templateId' instead." #-}
 
 -- | A link to the template that can be used to deploy the application using
 --
 --  AWS CloudFormation.
 --
--- /Note:/ Consider using 'templateURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsTemplateURL :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Lude.Text)
-gcftrsTemplateURL = Lens.lens (templateURL :: GetCloudFormationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateURL = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsTemplateURL "Use generic-lens or generic-optics with 'templateURL' instead." #-}
-
--- | The date and time this template expires. Templates
---
---  expire 1 hour after creation.
---
--- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsExpirationTime :: Lens.Lens' GetCloudFormationTemplateResponse (Lude.Maybe Lude.Text)
-gcftrsExpirationTime = Lens.lens (expirationTime :: GetCloudFormationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {expirationTime = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+-- /Note:/ Consider using 'templateUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcftrrsTemplateUrl :: Lens.Lens' GetCloudFormationTemplateResponse (Core.Maybe Core.Text)
+gcftrrsTemplateUrl = Lens.field @"templateUrl"
+{-# DEPRECATED gcftrrsTemplateUrl "Use generic-lens or generic-optics with 'templateUrl' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcftrsResponseStatus :: Lens.Lens' GetCloudFormationTemplateResponse Lude.Int
-gcftrsResponseStatus = Lens.lens (responseStatus :: GetCloudFormationTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCloudFormationTemplateResponse)
-{-# DEPRECATED gcftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcftrrsResponseStatus :: Lens.Lens' GetCloudFormationTemplateResponse Core.Int
+gcftrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcftrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

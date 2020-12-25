@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.Eac3CodingMode
   ( Eac3CodingMode
       ( Eac3CodingMode',
-        ECMCodingMode10,
-        ECMCodingMode20,
-        ECMCodingMode32
+        Eac3CodingModeCodingMode10,
+        Eac3CodingModeCodingMode20,
+        Eac3CodingModeCodingMode32,
+        fromEac3CodingMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Dolby Digital Plus coding mode. Determines number of channels.
-newtype Eac3CodingMode = Eac3CodingMode' Lude.Text
+newtype Eac3CodingMode = Eac3CodingMode'
+  { fromEac3CodingMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ECMCodingMode10 :: Eac3CodingMode
-pattern ECMCodingMode10 = Eac3CodingMode' "CODING_MODE_1_0"
+pattern Eac3CodingModeCodingMode10 :: Eac3CodingMode
+pattern Eac3CodingModeCodingMode10 = Eac3CodingMode' "CODING_MODE_1_0"
 
-pattern ECMCodingMode20 :: Eac3CodingMode
-pattern ECMCodingMode20 = Eac3CodingMode' "CODING_MODE_2_0"
+pattern Eac3CodingModeCodingMode20 :: Eac3CodingMode
+pattern Eac3CodingModeCodingMode20 = Eac3CodingMode' "CODING_MODE_2_0"
 
-pattern ECMCodingMode32 :: Eac3CodingMode
-pattern ECMCodingMode32 = Eac3CodingMode' "CODING_MODE_3_2"
+pattern Eac3CodingModeCodingMode32 :: Eac3CodingMode
+pattern Eac3CodingModeCodingMode32 = Eac3CodingMode' "CODING_MODE_3_2"
 
 {-# COMPLETE
-  ECMCodingMode10,
-  ECMCodingMode20,
-  ECMCodingMode32,
+  Eac3CodingModeCodingMode10,
+  Eac3CodingModeCodingMode20,
+  Eac3CodingModeCodingMode32,
   Eac3CodingMode'
   #-}

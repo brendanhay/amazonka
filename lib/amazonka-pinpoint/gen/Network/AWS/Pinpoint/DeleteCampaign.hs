@@ -28,123 +28,104 @@ module Network.AWS.Pinpoint.DeleteCampaign
     mkDeleteCampaignResponse,
 
     -- ** Response lenses
-    dcrsCampaignResponse,
-    dcrsResponseStatus,
+    dcrrsCampaignResponse,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCampaign' smart constructor.
 data DeleteCampaign = DeleteCampaign'
   { -- | The unique identifier for the campaign.
-    campaignId :: Lude.Text,
+    campaignId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCampaign' with the minimum fields required to make a request.
---
--- * 'campaignId' - The unique identifier for the campaign.
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'DeleteCampaign' value with any optional fields omitted.
 mkDeleteCampaign ::
   -- | 'campaignId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   DeleteCampaign
-mkDeleteCampaign pCampaignId_ pApplicationId_ =
-  DeleteCampaign'
-    { campaignId = pCampaignId_,
-      applicationId = pApplicationId_
-    }
+mkDeleteCampaign campaignId applicationId =
+  DeleteCampaign' {campaignId, applicationId}
 
 -- | The unique identifier for the campaign.
 --
 -- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcCampaignId :: Lens.Lens' DeleteCampaign Lude.Text
-dcCampaignId = Lens.lens (campaignId :: DeleteCampaign -> Lude.Text) (\s a -> s {campaignId = a} :: DeleteCampaign)
+dcCampaignId :: Lens.Lens' DeleteCampaign Core.Text
+dcCampaignId = Lens.field @"campaignId"
 {-# DEPRECATED dcCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcApplicationId :: Lens.Lens' DeleteCampaign Lude.Text
-dcApplicationId = Lens.lens (applicationId :: DeleteCampaign -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteCampaign)
+dcApplicationId :: Lens.Lens' DeleteCampaign Core.Text
+dcApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED dcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest DeleteCampaign where
+instance Core.AWSRequest DeleteCampaign where
   type Rs DeleteCampaign = DeleteCampaignResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/campaigns/")
+                Core.<> (Core.toText campaignId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteCampaignResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCampaign where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteCampaign where
-  toPath DeleteCampaign' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/campaigns/",
-        Lude.toBS campaignId
-      ]
-
-instance Lude.ToQuery DeleteCampaign where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteCampaignResponse' smart constructor.
 data DeleteCampaignResponse = DeleteCampaignResponse'
-  { campaignResponse :: CampaignResponse,
+  { campaignResponse :: Types.CampaignResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCampaignResponse' with the minimum fields required to make a request.
---
--- * 'campaignResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteCampaignResponse' value with any optional fields omitted.
 mkDeleteCampaignResponse ::
   -- | 'campaignResponse'
-  CampaignResponse ->
+  Types.CampaignResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteCampaignResponse
-mkDeleteCampaignResponse pCampaignResponse_ pResponseStatus_ =
-  DeleteCampaignResponse'
-    { campaignResponse = pCampaignResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteCampaignResponse campaignResponse responseStatus =
+  DeleteCampaignResponse' {campaignResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'campaignResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsCampaignResponse :: Lens.Lens' DeleteCampaignResponse CampaignResponse
-dcrsCampaignResponse = Lens.lens (campaignResponse :: DeleteCampaignResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: DeleteCampaignResponse)
-{-# DEPRECATED dcrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}
+dcrrsCampaignResponse :: Lens.Lens' DeleteCampaignResponse Types.CampaignResponse
+dcrrsCampaignResponse = Lens.field @"campaignResponse"
+{-# DEPRECATED dcrrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DeleteCampaignResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DeleteCampaignResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCampaignResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DeleteCampaignResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

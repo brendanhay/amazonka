@@ -17,15 +17,17 @@ module Network.AWS.IoT.Types.DomainConfigurationSummary
     mkDomainConfigurationSummary,
 
     -- * Lenses
+    dcsDomainConfigurationArn,
     dcsDomainConfigurationName,
-    dcsDomainConfigurationARN,
     dcsServiceType,
   )
 where
 
-import Network.AWS.IoT.Types.ServiceType
+import qualified Network.AWS.IoT.Types.DomainConfigurationArn as Types
+import qualified Network.AWS.IoT.Types.DomainConfigurationName as Types
+import qualified Network.AWS.IoT.Types.ServiceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain. A domain configuration can be associated with an AWS-managed domain (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.
 --
@@ -42,59 +44,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainConfigurationSummary' smart constructor.
 data DomainConfigurationSummary = DomainConfigurationSummary'
-  { -- | The name of the domain configuration. This value must be unique to a region.
-    domainConfigurationName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the domain configuration.
-    domainConfigurationARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the domain configuration.
+    domainConfigurationArn :: Core.Maybe Types.DomainConfigurationArn,
+    -- | The name of the domain configuration. This value must be unique to a region.
+    domainConfigurationName :: Core.Maybe Types.DomainConfigurationName,
     -- | The type of service delivered by the endpoint.
-    serviceType :: Lude.Maybe ServiceType
+    serviceType :: Core.Maybe Types.ServiceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainConfigurationSummary' with the minimum fields required to make a request.
---
--- * 'domainConfigurationName' - The name of the domain configuration. This value must be unique to a region.
--- * 'domainConfigurationARN' - The ARN of the domain configuration.
--- * 'serviceType' - The type of service delivered by the endpoint.
+-- | Creates a 'DomainConfigurationSummary' value with any optional fields omitted.
 mkDomainConfigurationSummary ::
   DomainConfigurationSummary
 mkDomainConfigurationSummary =
   DomainConfigurationSummary'
-    { domainConfigurationName =
-        Lude.Nothing,
-      domainConfigurationARN = Lude.Nothing,
-      serviceType = Lude.Nothing
+    { domainConfigurationArn =
+        Core.Nothing,
+      domainConfigurationName = Core.Nothing,
+      serviceType = Core.Nothing
     }
+
+-- | The ARN of the domain configuration.
+--
+-- /Note:/ Consider using 'domainConfigurationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsDomainConfigurationArn :: Lens.Lens' DomainConfigurationSummary (Core.Maybe Types.DomainConfigurationArn)
+dcsDomainConfigurationArn = Lens.field @"domainConfigurationArn"
+{-# DEPRECATED dcsDomainConfigurationArn "Use generic-lens or generic-optics with 'domainConfigurationArn' instead." #-}
 
 -- | The name of the domain configuration. This value must be unique to a region.
 --
 -- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsDomainConfigurationName :: Lens.Lens' DomainConfigurationSummary (Lude.Maybe Lude.Text)
-dcsDomainConfigurationName = Lens.lens (domainConfigurationName :: DomainConfigurationSummary -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationName = a} :: DomainConfigurationSummary)
+dcsDomainConfigurationName :: Lens.Lens' DomainConfigurationSummary (Core.Maybe Types.DomainConfigurationName)
+dcsDomainConfigurationName = Lens.field @"domainConfigurationName"
 {-# DEPRECATED dcsDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
-
--- | The ARN of the domain configuration.
---
--- /Note:/ Consider using 'domainConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsDomainConfigurationARN :: Lens.Lens' DomainConfigurationSummary (Lude.Maybe Lude.Text)
-dcsDomainConfigurationARN = Lens.lens (domainConfigurationARN :: DomainConfigurationSummary -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationARN = a} :: DomainConfigurationSummary)
-{-# DEPRECATED dcsDomainConfigurationARN "Use generic-lens or generic-optics with 'domainConfigurationARN' instead." #-}
 
 -- | The type of service delivered by the endpoint.
 --
 -- /Note:/ Consider using 'serviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsServiceType :: Lens.Lens' DomainConfigurationSummary (Lude.Maybe ServiceType)
-dcsServiceType = Lens.lens (serviceType :: DomainConfigurationSummary -> Lude.Maybe ServiceType) (\s a -> s {serviceType = a} :: DomainConfigurationSummary)
+dcsServiceType :: Lens.Lens' DomainConfigurationSummary (Core.Maybe Types.ServiceType)
+dcsServiceType = Lens.field @"serviceType"
 {-# DEPRECATED dcsServiceType "Use generic-lens or generic-optics with 'serviceType' instead." #-}
 
-instance Lude.FromJSON DomainConfigurationSummary where
+instance Core.FromJSON DomainConfigurationSummary where
   parseJSON =
-    Lude.withObject
-      "DomainConfigurationSummary"
-      ( \x ->
-          DomainConfigurationSummary'
-            Lude.<$> (x Lude..:? "domainConfigurationName")
-            Lude.<*> (x Lude..:? "domainConfigurationArn")
-            Lude.<*> (x Lude..:? "serviceType")
-      )
+    Core.withObject "DomainConfigurationSummary" Core.$
+      \x ->
+        DomainConfigurationSummary'
+          Core.<$> (x Core..:? "domainConfigurationArn")
+          Core.<*> (x Core..:? "domainConfigurationName")
+          Core.<*> (x Core..:? "serviceType")

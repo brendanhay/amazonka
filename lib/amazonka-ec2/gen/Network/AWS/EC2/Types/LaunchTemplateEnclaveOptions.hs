@@ -22,33 +22,31 @@ module Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
 --
 -- /See:/ 'mkLaunchTemplateEnclaveOptions' smart constructor.
 newtype LaunchTemplateEnclaveOptions = LaunchTemplateEnclaveOptions'
   { -- | If this parameter is set to @true@ , the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateEnclaveOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - If this parameter is set to @true@ , the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+-- | Creates a 'LaunchTemplateEnclaveOptions' value with any optional fields omitted.
 mkLaunchTemplateEnclaveOptions ::
   LaunchTemplateEnclaveOptions
 mkLaunchTemplateEnclaveOptions =
-  LaunchTemplateEnclaveOptions' {enabled = Lude.Nothing}
+  LaunchTemplateEnclaveOptions' {enabled = Core.Nothing}
 
 -- | If this parameter is set to @true@ , the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lteoEnabled :: Lens.Lens' LaunchTemplateEnclaveOptions (Lude.Maybe Lude.Bool)
-lteoEnabled = Lens.lens (enabled :: LaunchTemplateEnclaveOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: LaunchTemplateEnclaveOptions)
+lteoEnabled :: Lens.Lens' LaunchTemplateEnclaveOptions (Core.Maybe Core.Bool)
+lteoEnabled = Lens.field @"enabled"
 {-# DEPRECATED lteoEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromXML LaunchTemplateEnclaveOptions where
+instance Core.FromXML LaunchTemplateEnclaveOptions where
   parseXML x =
-    LaunchTemplateEnclaveOptions' Lude.<$> (x Lude..@? "enabled")
+    LaunchTemplateEnclaveOptions' Core.<$> (x Core..@? "enabled")

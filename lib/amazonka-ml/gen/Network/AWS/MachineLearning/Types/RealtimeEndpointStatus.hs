@@ -13,56 +13,61 @@
 module Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
   ( RealtimeEndpointStatus
       ( RealtimeEndpointStatus',
-        RESNone,
-        RESReady,
-        RESUpdating,
-        RESFailed
+        RealtimeEndpointStatusNone,
+        RealtimeEndpointStatusReady,
+        RealtimeEndpointStatusUpdating,
+        RealtimeEndpointStatusFailed,
+        fromRealtimeEndpointStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RealtimeEndpointStatus = RealtimeEndpointStatus' Lude.Text
+newtype RealtimeEndpointStatus = RealtimeEndpointStatus'
+  { fromRealtimeEndpointStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RESNone :: RealtimeEndpointStatus
-pattern RESNone = RealtimeEndpointStatus' "NONE"
+pattern RealtimeEndpointStatusNone :: RealtimeEndpointStatus
+pattern RealtimeEndpointStatusNone = RealtimeEndpointStatus' "NONE"
 
-pattern RESReady :: RealtimeEndpointStatus
-pattern RESReady = RealtimeEndpointStatus' "READY"
+pattern RealtimeEndpointStatusReady :: RealtimeEndpointStatus
+pattern RealtimeEndpointStatusReady = RealtimeEndpointStatus' "READY"
 
-pattern RESUpdating :: RealtimeEndpointStatus
-pattern RESUpdating = RealtimeEndpointStatus' "UPDATING"
+pattern RealtimeEndpointStatusUpdating :: RealtimeEndpointStatus
+pattern RealtimeEndpointStatusUpdating = RealtimeEndpointStatus' "UPDATING"
 
-pattern RESFailed :: RealtimeEndpointStatus
-pattern RESFailed = RealtimeEndpointStatus' "FAILED"
+pattern RealtimeEndpointStatusFailed :: RealtimeEndpointStatus
+pattern RealtimeEndpointStatusFailed = RealtimeEndpointStatus' "FAILED"
 
 {-# COMPLETE
-  RESNone,
-  RESReady,
-  RESUpdating,
-  RESFailed,
+  RealtimeEndpointStatusNone,
+  RealtimeEndpointStatusReady,
+  RealtimeEndpointStatusUpdating,
+  RealtimeEndpointStatusFailed,
   RealtimeEndpointStatus'
   #-}

@@ -22,8 +22,9 @@ module Network.AWS.Route53.Types.ResourceRecord
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.Value as Types
 
 -- | Information specific to the resource record.
 --
@@ -32,33 +33,29 @@ newtype ResourceRecord = ResourceRecord'
   { -- | The current or new DNS record value, not to exceed 4,000 characters. In the case of a @DELETE@ action, if the current value does not match the actual value, an error is returned. For descriptions about how to format @Value@ for different record types, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html Supported DNS Resource Record Types> in the /Amazon Route 53 Developer Guide/ .
     --
     -- You can specify more than one value for all record types except @CNAME@ and @SOA@ .
-    value :: Lude.Text
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceRecord' with the minimum fields required to make a request.
---
--- * 'value' - The current or new DNS record value, not to exceed 4,000 characters. In the case of a @DELETE@ action, if the current value does not match the actual value, an error is returned. For descriptions about how to format @Value@ for different record types, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html Supported DNS Resource Record Types> in the /Amazon Route 53 Developer Guide/ .
---
--- You can specify more than one value for all record types except @CNAME@ and @SOA@ .
+-- | Creates a 'ResourceRecord' value with any optional fields omitted.
 mkResourceRecord ::
   -- | 'value'
-  Lude.Text ->
+  Types.Value ->
   ResourceRecord
-mkResourceRecord pValue_ = ResourceRecord' {value = pValue_}
+mkResourceRecord value = ResourceRecord' {value}
 
 -- | The current or new DNS record value, not to exceed 4,000 characters. In the case of a @DELETE@ action, if the current value does not match the actual value, an error is returned. For descriptions about how to format @Value@ for different record types, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html Supported DNS Resource Record Types> in the /Amazon Route 53 Developer Guide/ .
 --
 -- You can specify more than one value for all record types except @CNAME@ and @SOA@ .
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrValue :: Lens.Lens' ResourceRecord Lude.Text
-rrValue = Lens.lens (value :: ResourceRecord -> Lude.Text) (\s a -> s {value = a} :: ResourceRecord)
+rrValue :: Lens.Lens' ResourceRecord Types.Value
+rrValue = Lens.field @"value"
 {-# DEPRECATED rrValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML ResourceRecord where
-  parseXML x = ResourceRecord' Lude.<$> (x Lude..@ "Value")
+instance Core.ToXML ResourceRecord where
+  toXML ResourceRecord {..} = Core.toXMLNode "Value" value
 
-instance Lude.ToXML ResourceRecord where
-  toXML ResourceRecord' {..} = Lude.mconcat ["Value" Lude.@= value]
+instance Core.FromXML ResourceRecord where
+  parseXML x = ResourceRecord' Core.<$> (x Core..@ "Value")

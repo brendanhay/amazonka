@@ -17,71 +17,64 @@ module Network.AWS.Firehose.Types.ProcessorParameter
     mkProcessorParameter,
 
     -- * Lenses
-    ppParameterValue,
     ppParameterName,
+    ppParameterValue,
   )
 where
 
-import Network.AWS.Firehose.Types.ProcessorParameterName
+import qualified Network.AWS.Firehose.Types.ParameterValue as Types
+import qualified Network.AWS.Firehose.Types.ProcessorParameterName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the processor parameter.
 --
 -- /See:/ 'mkProcessorParameter' smart constructor.
 data ProcessorParameter = ProcessorParameter'
-  { -- | The parameter value.
-    parameterValue :: Lude.Text,
-    -- | The name of the parameter.
-    parameterName :: ProcessorParameterName
+  { -- | The name of the parameter.
+    parameterName :: Types.ProcessorParameterName,
+    -- | The parameter value.
+    parameterValue :: Types.ParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessorParameter' with the minimum fields required to make a request.
---
--- * 'parameterValue' - The parameter value.
--- * 'parameterName' - The name of the parameter.
+-- | Creates a 'ProcessorParameter' value with any optional fields omitted.
 mkProcessorParameter ::
-  -- | 'parameterValue'
-  Lude.Text ->
   -- | 'parameterName'
-  ProcessorParameterName ->
+  Types.ProcessorParameterName ->
+  -- | 'parameterValue'
+  Types.ParameterValue ->
   ProcessorParameter
-mkProcessorParameter pParameterValue_ pParameterName_ =
-  ProcessorParameter'
-    { parameterValue = pParameterValue_,
-      parameterName = pParameterName_
-    }
-
--- | The parameter value.
---
--- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppParameterValue :: Lens.Lens' ProcessorParameter Lude.Text
-ppParameterValue = Lens.lens (parameterValue :: ProcessorParameter -> Lude.Text) (\s a -> s {parameterValue = a} :: ProcessorParameter)
-{-# DEPRECATED ppParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
+mkProcessorParameter parameterName parameterValue =
+  ProcessorParameter' {parameterName, parameterValue}
 
 -- | The name of the parameter.
 --
 -- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppParameterName :: Lens.Lens' ProcessorParameter ProcessorParameterName
-ppParameterName = Lens.lens (parameterName :: ProcessorParameter -> ProcessorParameterName) (\s a -> s {parameterName = a} :: ProcessorParameter)
+ppParameterName :: Lens.Lens' ProcessorParameter Types.ProcessorParameterName
+ppParameterName = Lens.field @"parameterName"
 {-# DEPRECATED ppParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
-instance Lude.FromJSON ProcessorParameter where
-  parseJSON =
-    Lude.withObject
-      "ProcessorParameter"
-      ( \x ->
-          ProcessorParameter'
-            Lude.<$> (x Lude..: "ParameterValue") Lude.<*> (x Lude..: "ParameterName")
-      )
+-- | The parameter value.
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppParameterValue :: Lens.Lens' ProcessorParameter Types.ParameterValue
+ppParameterValue = Lens.field @"parameterValue"
+{-# DEPRECATED ppParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
-instance Lude.ToJSON ProcessorParameter where
-  toJSON ProcessorParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ParameterValue" Lude..= parameterValue),
-            Lude.Just ("ParameterName" Lude..= parameterName)
+instance Core.FromJSON ProcessorParameter where
+  toJSON ProcessorParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParameterName" Core..= parameterName),
+            Core.Just ("ParameterValue" Core..= parameterValue)
           ]
       )
+
+instance Core.FromJSON ProcessorParameter where
+  parseJSON =
+    Core.withObject "ProcessorParameter" Core.$
+      \x ->
+        ProcessorParameter'
+          Core.<$> (x Core..: "ParameterName") Core.<*> (x Core..: "ParameterValue")

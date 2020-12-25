@@ -21,36 +21,34 @@ module Network.AWS.ECR.Types.DescribeImagesFilter
   )
 where
 
-import Network.AWS.ECR.Types.TagStatus
+import qualified Network.AWS.ECR.Types.TagStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a filter on a 'DescribeImages' operation.
 --
 -- /See:/ 'mkDescribeImagesFilter' smart constructor.
 newtype DescribeImagesFilter = DescribeImagesFilter'
   { -- | The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
-    tagStatus :: Lude.Maybe TagStatus
+    tagStatus :: Core.Maybe Types.TagStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeImagesFilter' with the minimum fields required to make a request.
---
--- * 'tagStatus' - The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
+-- | Creates a 'DescribeImagesFilter' value with any optional fields omitted.
 mkDescribeImagesFilter ::
   DescribeImagesFilter
 mkDescribeImagesFilter =
-  DescribeImagesFilter' {tagStatus = Lude.Nothing}
+  DescribeImagesFilter' {tagStatus = Core.Nothing}
 
 -- | The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 --
 -- /Note:/ Consider using 'tagStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difTagStatus :: Lens.Lens' DescribeImagesFilter (Lude.Maybe TagStatus)
-difTagStatus = Lens.lens (tagStatus :: DescribeImagesFilter -> Lude.Maybe TagStatus) (\s a -> s {tagStatus = a} :: DescribeImagesFilter)
+difTagStatus :: Lens.Lens' DescribeImagesFilter (Core.Maybe Types.TagStatus)
+difTagStatus = Lens.field @"tagStatus"
 {-# DEPRECATED difTagStatus "Use generic-lens or generic-optics with 'tagStatus' instead." #-}
 
-instance Lude.ToJSON DescribeImagesFilter where
-  toJSON DescribeImagesFilter' {..} =
-    Lude.object
-      (Lude.catMaybes [("tagStatus" Lude..=) Lude.<$> tagStatus])
+instance Core.FromJSON DescribeImagesFilter where
+  toJSON DescribeImagesFilter {..} =
+    Core.object
+      (Core.catMaybes [("tagStatus" Core..=) Core.<$> tagStatus])

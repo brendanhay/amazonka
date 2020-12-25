@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.ReservationState
   ( ReservationState
       ( ReservationState',
-        RSActive,
-        RSExpired,
-        RSCanceled,
-        RSDeleted
+        ReservationStateActive,
+        ReservationStateExpired,
+        ReservationStateCanceled,
+        ReservationStateDeleted,
+        fromReservationState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Current reservation state
-newtype ReservationState = ReservationState' Lude.Text
+newtype ReservationState = ReservationState'
+  { fromReservationState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSActive :: ReservationState
-pattern RSActive = ReservationState' "ACTIVE"
+pattern ReservationStateActive :: ReservationState
+pattern ReservationStateActive = ReservationState' "ACTIVE"
 
-pattern RSExpired :: ReservationState
-pattern RSExpired = ReservationState' "EXPIRED"
+pattern ReservationStateExpired :: ReservationState
+pattern ReservationStateExpired = ReservationState' "EXPIRED"
 
-pattern RSCanceled :: ReservationState
-pattern RSCanceled = ReservationState' "CANCELED"
+pattern ReservationStateCanceled :: ReservationState
+pattern ReservationStateCanceled = ReservationState' "CANCELED"
 
-pattern RSDeleted :: ReservationState
-pattern RSDeleted = ReservationState' "DELETED"
+pattern ReservationStateDeleted :: ReservationState
+pattern ReservationStateDeleted = ReservationState' "DELETED"
 
 {-# COMPLETE
-  RSActive,
-  RSExpired,
-  RSCanceled,
-  RSDeleted,
+  ReservationStateActive,
+  ReservationStateExpired,
+  ReservationStateCanceled,
+  ReservationStateDeleted,
   ReservationState'
   #-}

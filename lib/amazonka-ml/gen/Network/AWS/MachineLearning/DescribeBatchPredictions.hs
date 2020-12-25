@@ -23,72 +23,39 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
 
     -- ** Request lenses
     dbpEQ,
+    dbpFilterVariable,
     dbpGE,
-    dbpPrefix,
     dbpGT,
+    dbpLE,
+    dbpLT,
+    dbpLimit,
     dbpNE,
     dbpNextToken,
+    dbpPrefix,
     dbpSortOrder,
-    dbpLimit,
-    dbpLT,
-    dbpFilterVariable,
-    dbpLE,
 
     -- * Destructuring the response
     DescribeBatchPredictionsResponse (..),
     mkDescribeBatchPredictionsResponse,
 
     -- ** Response lenses
-    dbprsResults,
-    dbprsNextToken,
-    dbprsResponseStatus,
+    dbprfrsNextToken,
+    dbprfrsResults,
+    dbprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
   { -- | The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
-    eQ :: Lude.Maybe Lude.Text,
-    -- | The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
-    gE :: Lude.Maybe Lude.Text,
-    -- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
-    --
-    -- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
-    --
-    --     * 2014-09
-    --
-    --
-    --     * 2014-09-09
-    --
-    --
-    --     * 2014-09-09-Holiday
-    prefix :: Lude.Maybe Lude.Text,
-    -- | The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
-    gT :: Lude.Maybe Lude.Text,
-    -- | The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
-    nE :: Lude.Maybe Lude.Text,
-    -- | An ID of the page in the paginated results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
-    --
-    --
-    --     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    --
-    --     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@ .
-    sortOrder :: Lude.Maybe SortOrder,
-    -- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
-    lT :: Lude.Maybe Lude.Text,
+    eq :: Core.Maybe Types.ComparatorValue,
     -- | Use one of the following variables to filter a list of @BatchPrediction@ :
     --
     --
@@ -105,159 +72,70 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     --     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .
     --
     --     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
-    filterVariable :: Lude.Maybe BatchPredictionFilterVariable,
+    filterVariable :: Core.Maybe Types.BatchPredictionFilterVariable,
+    -- | The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+    ge :: Core.Maybe Types.ComparatorValue,
+    -- | The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+    gt :: Core.Maybe Types.ComparatorValue,
     -- | The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
-    lE :: Lude.Maybe Lude.Text
+    le :: Core.Maybe Types.ComparatorValue,
+    -- | The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
+    lt :: Core.Maybe Types.ComparatorValue,
+    -- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
+    limit :: Core.Maybe Core.Natural,
+    -- | The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+    ne :: Core.Maybe Types.ComparatorValue,
+    -- | An ID of the page in the paginated results.
+    nextToken :: Core.Maybe Types.StringType,
+    -- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+    --
+    -- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+    --
+    --     * 2014-09
+    --
+    --
+    --     * 2014-09-09
+    --
+    --
+    --     * 2014-09-09-Holiday
+    prefix :: Core.Maybe Types.ComparatorValue,
+    -- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
+    --
+    --
+    --     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    --     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@ .
+    sortOrder :: Core.Maybe Types.SortOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBatchPredictions' with the minimum fields required to make a request.
---
--- * 'eQ' - The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
--- * 'gE' - The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
--- * 'prefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
---
--- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
---
---     * 2014-09
---
---
---     * 2014-09-09
---
---
---     * 2014-09-09-Holiday
---
---
--- * 'gT' - The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
--- * 'nE' - The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
--- * 'nextToken' - An ID of the page in the paginated results.
--- * 'sortOrder' - A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
---
---
---     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
---     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@ .
--- * 'limit' - The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
--- * 'lT' - The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
--- * 'filterVariable' - Use one of the following variables to filter a list of @BatchPrediction@ :
---
---
---     * @CreatedAt@ - Sets the search criteria to the @BatchPrediction@ creation date.
---
---     * @Status@ - Sets the search criteria to the @BatchPrediction@ status.
---
---     * @Name@ - Sets the search criteria to the contents of the @BatchPrediction@ ____ @Name@ .
---
---     * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.
---
---     * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .
---
---     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .
---
---     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
---
--- * 'lE' - The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
+-- | Creates a 'DescribeBatchPredictions' value with any optional fields omitted.
 mkDescribeBatchPredictions ::
   DescribeBatchPredictions
 mkDescribeBatchPredictions =
   DescribeBatchPredictions'
-    { eQ = Lude.Nothing,
-      gE = Lude.Nothing,
-      prefix = Lude.Nothing,
-      gT = Lude.Nothing,
-      nE = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      limit = Lude.Nothing,
-      lT = Lude.Nothing,
-      filterVariable = Lude.Nothing,
-      lE = Lude.Nothing
+    { eq = Core.Nothing,
+      filterVariable = Core.Nothing,
+      ge = Core.Nothing,
+      gt = Core.Nothing,
+      le = Core.Nothing,
+      lt = Core.Nothing,
+      limit = Core.Nothing,
+      ne = Core.Nothing,
+      nextToken = Core.Nothing,
+      prefix = Core.Nothing,
+      sortOrder = Core.Nothing
     }
 
 -- | The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
 --
--- /Note:/ Consider using 'eQ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpEQ :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpEQ = Lens.lens (eQ :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {eQ = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpEQ "Use generic-lens or generic-optics with 'eQ' instead." #-}
-
--- | The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
---
--- /Note:/ Consider using 'gE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpGE :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpGE = Lens.lens (gE :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {gE = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpGE "Use generic-lens or generic-optics with 'gE' instead." #-}
-
--- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
---
--- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
---
---     * 2014-09
---
---
---     * 2014-09-09
---
---
---     * 2014-09-09-Holiday
---
---
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpPrefix :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpPrefix = Lens.lens (prefix :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
-
--- | The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
---
--- /Note:/ Consider using 'gT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpGT :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpGT = Lens.lens (gT :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {gT = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpGT "Use generic-lens or generic-optics with 'gT' instead." #-}
-
--- | The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
---
--- /Note:/ Consider using 'nE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpNE :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpNE = Lens.lens (nE :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {nE = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpNE "Use generic-lens or generic-optics with 'nE' instead." #-}
-
--- | An ID of the page in the paginated results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpNextToken :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpNextToken = Lens.lens (nextToken :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
---
---
---     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
---     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpSortOrder :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe SortOrder)
-dbpSortOrder = Lens.lens (sortOrder :: DescribeBatchPredictions -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpLimit :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Natural)
-dbpLimit = Lens.lens (limit :: DescribeBatchPredictions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
---
--- /Note:/ Consider using 'lT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpLT :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpLT = Lens.lens (lT :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {lT = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpLT "Use generic-lens or generic-optics with 'lT' instead." #-}
+-- /Note:/ Consider using 'eq' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpEQ :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpEQ = Lens.field @"eq"
+{-# DEPRECATED dbpEQ "Use generic-lens or generic-optics with 'eq' instead." #-}
 
 -- | Use one of the following variables to filter a list of @BatchPrediction@ :
 --
@@ -278,120 +156,187 @@ dbpLT = Lens.lens (lT :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a
 --
 --
 -- /Note:/ Consider using 'filterVariable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpFilterVariable :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe BatchPredictionFilterVariable)
-dbpFilterVariable = Lens.lens (filterVariable :: DescribeBatchPredictions -> Lude.Maybe BatchPredictionFilterVariable) (\s a -> s {filterVariable = a} :: DescribeBatchPredictions)
+dbpFilterVariable :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.BatchPredictionFilterVariable)
+dbpFilterVariable = Lens.field @"filterVariable"
 {-# DEPRECATED dbpFilterVariable "Use generic-lens or generic-optics with 'filterVariable' instead." #-}
+
+-- | The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+--
+-- /Note:/ Consider using 'ge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpGE :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpGE = Lens.field @"ge"
+{-# DEPRECATED dbpGE "Use generic-lens or generic-optics with 'ge' instead." #-}
+
+-- | The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+--
+-- /Note:/ Consider using 'gt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpGT :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpGT = Lens.field @"gt"
+{-# DEPRECATED dbpGT "Use generic-lens or generic-optics with 'gt' instead." #-}
 
 -- | The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
 --
--- /Note:/ Consider using 'lE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpLE :: Lens.Lens' DescribeBatchPredictions (Lude.Maybe Lude.Text)
-dbpLE = Lens.lens (lE :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a -> s {lE = a} :: DescribeBatchPredictions)
-{-# DEPRECATED dbpLE "Use generic-lens or generic-optics with 'lE' instead." #-}
+-- /Note:/ Consider using 'le' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpLE :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpLE = Lens.field @"le"
+{-# DEPRECATED dbpLE "Use generic-lens or generic-optics with 'le' instead." #-}
 
-instance Page.AWSPager DescribeBatchPredictions where
-  page rq rs
-    | Page.stop (rs Lens.^. dbprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dbprsResults) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dbpNextToken Lens..~ rs Lens.^. dbprsNextToken
+-- | The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
+--
+-- /Note:/ Consider using 'lt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpLT :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpLT = Lens.field @"lt"
+{-# DEPRECATED dbpLT "Use generic-lens or generic-optics with 'lt' instead." #-}
 
-instance Lude.AWSRequest DescribeBatchPredictions where
+-- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpLimit :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Core.Natural)
+dbpLimit = Lens.field @"limit"
+{-# DEPRECATED dbpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+--
+-- /Note:/ Consider using 'ne' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpNE :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpNE = Lens.field @"ne"
+{-# DEPRECATED dbpNE "Use generic-lens or generic-optics with 'ne' instead." #-}
+
+-- | An ID of the page in the paginated results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpNextToken :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.StringType)
+dbpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+--
+-- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+--
+--     * 2014-09
+--
+--
+--     * 2014-09-09
+--
+--
+--     * 2014-09-09-Holiday
+--
+--
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpPrefix :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.ComparatorValue)
+dbpPrefix = Lens.field @"prefix"
+{-# DEPRECATED dbpPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
+--
+--
+--     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+--     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpSortOrder :: Lens.Lens' DescribeBatchPredictions (Core.Maybe Types.SortOrder)
+dbpSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED dbpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+
+instance Core.FromJSON DescribeBatchPredictions where
+  toJSON DescribeBatchPredictions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EQ" Core..=) Core.<$> eq,
+            ("FilterVariable" Core..=) Core.<$> filterVariable,
+            ("GE" Core..=) Core.<$> ge,
+            ("GT" Core..=) Core.<$> gt,
+            ("LE" Core..=) Core.<$> le,
+            ("LT" Core..=) Core.<$> lt,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NE" Core..=) Core.<$> ne,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Prefix" Core..=) Core.<$> prefix,
+            ("SortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest DescribeBatchPredictions where
   type Rs DescribeBatchPredictions = DescribeBatchPredictionsResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonML_20141212.DescribeBatchPredictions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBatchPredictionsResponse'
-            Lude.<$> (x Lude..?> "Results" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Results")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeBatchPredictions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.DescribeBatchPredictions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBatchPredictions where
-  toJSON DescribeBatchPredictions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EQ" Lude..=) Lude.<$> eQ,
-            ("GE" Lude..=) Lude.<$> gE,
-            ("Prefix" Lude..=) Lude.<$> prefix,
-            ("GT" Lude..=) Lude.<$> gT,
-            ("NE" Lude..=) Lude.<$> nE,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("LT" Lude..=) Lude.<$> lT,
-            ("FilterVariable" Lude..=) Lude.<$> filterVariable,
-            ("LE" Lude..=) Lude.<$> lE
-          ]
-      )
-
-instance Lude.ToPath DescribeBatchPredictions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBatchPredictions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeBatchPredictions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"results" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the output of a @DescribeBatchPredictions@ operation. The content is essentially a list of @BatchPrediction@ s.
 --
 -- /See:/ 'mkDescribeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-  { -- | A list of @BatchPrediction@ objects that meet the search criteria.
-    results :: Lude.Maybe [BatchPrediction],
-    -- | The ID of the next page in the paginated results that indicates at least one more page follows.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The ID of the next page in the paginated results that indicates at least one more page follows.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of @BatchPrediction@ objects that meet the search criteria.
+    results :: Core.Maybe [Types.BatchPrediction],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeBatchPredictionsResponse' with the minimum fields required to make a request.
---
--- * 'results' - A list of @BatchPrediction@ objects that meet the search criteria.
--- * 'nextToken' - The ID of the next page in the paginated results that indicates at least one more page follows.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBatchPredictionsResponse' value with any optional fields omitted.
 mkDescribeBatchPredictionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBatchPredictionsResponse
-mkDescribeBatchPredictionsResponse pResponseStatus_ =
+mkDescribeBatchPredictionsResponse responseStatus =
   DescribeBatchPredictionsResponse'
-    { results = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      results = Core.Nothing,
+      responseStatus
     }
-
--- | A list of @BatchPrediction@ objects that meet the search criteria.
---
--- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbprsResults :: Lens.Lens' DescribeBatchPredictionsResponse (Lude.Maybe [BatchPrediction])
-dbprsResults = Lens.lens (results :: DescribeBatchPredictionsResponse -> Lude.Maybe [BatchPrediction]) (\s a -> s {results = a} :: DescribeBatchPredictionsResponse)
-{-# DEPRECATED dbprsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The ID of the next page in the paginated results that indicates at least one more page follows.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbprsNextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Lude.Maybe Lude.Text)
-dbprsNextToken = Lens.lens (nextToken :: DescribeBatchPredictionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBatchPredictionsResponse)
-{-# DEPRECATED dbprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dbprfrsNextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Core.Maybe Types.NextToken)
+dbprfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbprfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of @BatchPrediction@ objects that meet the search criteria.
+--
+-- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbprfrsResults :: Lens.Lens' DescribeBatchPredictionsResponse (Core.Maybe [Types.BatchPrediction])
+dbprfrsResults = Lens.field @"results"
+{-# DEPRECATED dbprfrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbprsResponseStatus :: Lens.Lens' DescribeBatchPredictionsResponse Lude.Int
-dbprsResponseStatus = Lens.lens (responseStatus :: DescribeBatchPredictionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBatchPredictionsResponse)
-{-# DEPRECATED dbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbprfrsResponseStatus :: Lens.Lens' DescribeBatchPredictionsResponse Core.Int
+dbprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

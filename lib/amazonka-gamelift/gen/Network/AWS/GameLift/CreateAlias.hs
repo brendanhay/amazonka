@@ -40,8 +40,8 @@ module Network.AWS.GameLift.CreateAlias
     mkCreateAlias,
 
     -- ** Request lenses
-    caRoutingStrategy,
     caName,
+    caRoutingStrategy,
     caDescription,
     caTags,
 
@@ -50,155 +50,137 @@ module Network.AWS.GameLift.CreateAlias
     mkCreateAliasResponse,
 
     -- ** Response lenses
-    carsAlias,
-    carsResponseStatus,
+    carrsAlias,
+    carrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { -- | The routing configuration, including routing type and fleet target, for the alias.
-    routingStrategy :: RoutingStrategy,
-    -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
-    name :: Lude.Text,
+  { -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
+    name :: Types.Name,
+    -- | The routing configuration, including routing type and fleet target, for the alias.
+    routingStrategy :: Types.RoutingStrategy,
     -- | A human-readable description of the alias.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.NonZeroAndMaxString,
     -- | A list of labels to assign to the new alias resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
---
--- * 'routingStrategy' - The routing configuration, including routing type and fleet target, for the alias.
--- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
--- * 'description' - A human-readable description of the alias.
--- * 'tags' - A list of labels to assign to the new alias resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+-- | Creates a 'CreateAlias' value with any optional fields omitted.
 mkCreateAlias ::
-  -- | 'routingStrategy'
-  RoutingStrategy ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'routingStrategy'
+  Types.RoutingStrategy ->
   CreateAlias
-mkCreateAlias pRoutingStrategy_ pName_ =
+mkCreateAlias name routingStrategy =
   CreateAlias'
-    { routingStrategy = pRoutingStrategy_,
-      name = pName_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { name,
+      routingStrategy,
+      description = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The routing configuration, including routing type and fleet target, for the alias.
---
--- /Note:/ Consider using 'routingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caRoutingStrategy :: Lens.Lens' CreateAlias RoutingStrategy
-caRoutingStrategy = Lens.lens (routingStrategy :: CreateAlias -> RoutingStrategy) (\s a -> s {routingStrategy = a} :: CreateAlias)
-{-# DEPRECATED caRoutingStrategy "Use generic-lens or generic-optics with 'routingStrategy' instead." #-}
 
 -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caName :: Lens.Lens' CreateAlias Lude.Text
-caName = Lens.lens (name :: CreateAlias -> Lude.Text) (\s a -> s {name = a} :: CreateAlias)
+caName :: Lens.Lens' CreateAlias Types.Name
+caName = Lens.field @"name"
 {-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The routing configuration, including routing type and fleet target, for the alias.
+--
+-- /Note:/ Consider using 'routingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRoutingStrategy :: Lens.Lens' CreateAlias Types.RoutingStrategy
+caRoutingStrategy = Lens.field @"routingStrategy"
+{-# DEPRECATED caRoutingStrategy "Use generic-lens or generic-optics with 'routingStrategy' instead." #-}
 
 -- | A human-readable description of the alias.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreateAlias (Lude.Maybe Lude.Text)
-caDescription = Lens.lens (description :: CreateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAlias)
+caDescription :: Lens.Lens' CreateAlias (Core.Maybe Types.NonZeroAndMaxString)
+caDescription = Lens.field @"description"
 {-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of labels to assign to the new alias resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateAlias (Lude.Maybe [Tag])
-caTags = Lens.lens (tags :: CreateAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAlias)
+caTags :: Lens.Lens' CreateAlias (Core.Maybe [Types.Tag])
+caTags = Lens.field @"tags"
 {-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateAlias where
+instance Core.FromJSON CreateAlias where
+  toJSON CreateAlias {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("RoutingStrategy" Core..= routingStrategy),
+            ("Description" Core..=) Core.<$> description,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateAlias where
   type Rs CreateAlias = CreateAliasResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.CreateAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateAliasResponse'
-            Lude.<$> (x Lude..?> "Alias") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Alias") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.CreateAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateAlias where
-  toJSON CreateAlias' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RoutingStrategy" Lude..= routingStrategy),
-            Lude.Just ("Name" Lude..= name),
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAlias where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
   { -- | The newly created alias resource.
-    alias :: Lude.Maybe Alias,
+    alias :: Core.Maybe Types.Alias,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
---
--- * 'alias' - The newly created alias resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAliasResponse' value with any optional fields omitted.
 mkCreateAliasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAliasResponse
-mkCreateAliasResponse pResponseStatus_ =
-  CreateAliasResponse'
-    { alias = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateAliasResponse responseStatus =
+  CreateAliasResponse' {alias = Core.Nothing, responseStatus}
 
 -- | The newly created alias resource.
 --
 -- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsAlias :: Lens.Lens' CreateAliasResponse (Lude.Maybe Alias)
-carsAlias = Lens.lens (alias :: CreateAliasResponse -> Lude.Maybe Alias) (\s a -> s {alias = a} :: CreateAliasResponse)
-{-# DEPRECATED carsAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
+carrsAlias :: Lens.Lens' CreateAliasResponse (Core.Maybe Types.Alias)
+carrsAlias = Lens.field @"alias"
+{-# DEPRECATED carrsAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateAliasResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAliasResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+carrsResponseStatus :: Lens.Lens' CreateAliasResponse Core.Int
+carrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED carrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

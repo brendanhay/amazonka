@@ -22,58 +22,55 @@ module Network.AWS.Lightsail.CreateInstancesFromSnapshot
     mkCreateInstancesFromSnapshot,
 
     -- ** Request lenses
-    cifsUseLatestRestorableAutoSnapshot,
-    cifsInstanceSnapshotName,
-    cifsAddOns,
-    cifsUserData,
-    cifsBundleId,
-    cifsRestoreDate,
-    cifsAvailabilityZone,
-    cifsKeyPairName,
     cifsInstanceNames,
-    cifsSourceInstanceName,
+    cifsAvailabilityZone,
+    cifsBundleId,
+    cifsAddOns,
     cifsAttachedDiskMapping,
+    cifsInstanceSnapshotName,
+    cifsKeyPairName,
+    cifsRestoreDate,
+    cifsSourceInstanceName,
     cifsTags,
+    cifsUseLatestRestorableAutoSnapshot,
+    cifsUserData,
 
     -- * Destructuring the response
     CreateInstancesFromSnapshotResponse (..),
     mkCreateInstancesFromSnapshotResponse,
 
     -- ** Response lenses
-    cifsrsOperations,
-    cifsrsResponseStatus,
+    cifsrrsOperations,
+    cifsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateInstancesFromSnapshot' smart constructor.
 data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
-  { -- | A Boolean value to indicate whether to use the latest available automatic snapshot.
-    --
-    -- Constraints:
-    --
-    --     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
-    --
-    --
-    --     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
-    useLatestRestorableAutoSnapshot :: Lude.Maybe Lude.Bool,
+  { -- | The names for your new instances.
+    instanceNames :: [Types.String],
+    -- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
+    availabilityZone :: Types.String,
+    -- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
+    bundleId :: Types.BundleId,
+    -- | An array of objects representing the add-ons to enable for the new instance.
+    addOns :: Core.Maybe [Types.AddOnRequest],
+    -- | An object containing information about one or more disk mappings.
+    attachedDiskMapping :: Core.Maybe (Core.HashMap Types.ResourceName [Types.DiskMap]),
     -- | The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots.
     --
     -- Constraint:
     --
     --     * This parameter cannot be defined together with the @source instance name@ parameter. The @instance snapshot name@ and @source instance name@ parameters are mutually exclusive.
-    instanceSnapshotName :: Lude.Maybe Lude.Text,
-    -- | An array of objects representing the add-ons to enable for the new instance.
-    addOns :: Lude.Maybe [AddOnRequest],
-    -- | You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
-    userData :: Lude.Maybe Lude.Text,
-    -- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
-    bundleId :: Lude.Text,
+    instanceSnapshotName :: Core.Maybe Types.ResourceName,
+    -- | The name for your key pair.
+    keyPairName :: Core.Maybe Types.ResourceName,
     -- | The date of the automatic snapshot to use for the new instance. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
     --
     -- Constraints:
@@ -85,13 +82,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     --
     --
     --     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
-    restoreDate :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
-    availabilityZone :: Lude.Text,
-    -- | The name for your key pair.
-    keyPairName :: Lude.Maybe Lude.Text,
-    -- | The names for your new instances.
-    instanceNames :: [Lude.Text],
+    restoreDate :: Core.Maybe Types.String,
     -- | The name of the source instance from which the source automatic snapshot was created.
     --
     -- Constraints:
@@ -100,107 +91,83 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     --
     --
     --     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
-    sourceInstanceName :: Lude.Maybe Lude.Text,
-    -- | An object containing information about one or more disk mappings.
-    attachedDiskMapping :: Lude.Maybe (Lude.HashMap Lude.Text ([DiskMap])),
+    sourceInstanceName :: Core.Maybe Types.String,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it's created.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | A Boolean value to indicate whether to use the latest available automatic snapshot.
+    --
+    -- Constraints:
+    --
+    --     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+    --
+    --
+    --     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+    useLatestRestorableAutoSnapshot :: Core.Maybe Core.Bool,
+    -- | You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
+    userData :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInstancesFromSnapshot' with the minimum fields required to make a request.
---
--- * 'useLatestRestorableAutoSnapshot' - A Boolean value to indicate whether to use the latest available automatic snapshot.
---
--- Constraints:
---
---     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
---
---
---     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
---
---
--- * 'instanceSnapshotName' - The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots.
---
--- Constraint:
---
---     * This parameter cannot be defined together with the @source instance name@ parameter. The @instance snapshot name@ and @source instance name@ parameters are mutually exclusive.
---
---
--- * 'addOns' - An array of objects representing the add-ons to enable for the new instance.
--- * 'userData' - You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
--- * 'bundleId' - The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
--- * 'restoreDate' - The date of the automatic snapshot to use for the new instance. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
---
--- Constraints:
---
---     * Must be specified in @YYYY-MM-DD@ format.
---
---
---     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.
---
---
---     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
---
---
--- * 'availabilityZone' - The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
--- * 'keyPairName' - The name for your key pair.
--- * 'instanceNames' - The names for your new instances.
--- * 'sourceInstanceName' - The name of the source instance from which the source automatic snapshot was created.
---
--- Constraints:
---
---     * This parameter cannot be defined together with the @instance snapshot name@ parameter. The @source instance name@ and @instance snapshot name@ parameters are mutually exclusive.
---
---
---     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
---
---
--- * 'attachedDiskMapping' - An object containing information about one or more disk mappings.
--- * 'tags' - The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
+-- | Creates a 'CreateInstancesFromSnapshot' value with any optional fields omitted.
 mkCreateInstancesFromSnapshot ::
-  -- | 'bundleId'
-  Lude.Text ->
   -- | 'availabilityZone'
-  Lude.Text ->
+  Types.String ->
+  -- | 'bundleId'
+  Types.BundleId ->
   CreateInstancesFromSnapshot
-mkCreateInstancesFromSnapshot pBundleId_ pAvailabilityZone_ =
+mkCreateInstancesFromSnapshot availabilityZone bundleId =
   CreateInstancesFromSnapshot'
-    { useLatestRestorableAutoSnapshot =
-        Lude.Nothing,
-      instanceSnapshotName = Lude.Nothing,
-      addOns = Lude.Nothing,
-      userData = Lude.Nothing,
-      bundleId = pBundleId_,
-      restoreDate = Lude.Nothing,
-      availabilityZone = pAvailabilityZone_,
-      keyPairName = Lude.Nothing,
-      instanceNames = Lude.mempty,
-      sourceInstanceName = Lude.Nothing,
-      attachedDiskMapping = Lude.Nothing,
-      tags = Lude.Nothing
+    { instanceNames = Core.mempty,
+      availabilityZone,
+      bundleId,
+      addOns = Core.Nothing,
+      attachedDiskMapping = Core.Nothing,
+      instanceSnapshotName = Core.Nothing,
+      keyPairName = Core.Nothing,
+      restoreDate = Core.Nothing,
+      sourceInstanceName = Core.Nothing,
+      tags = Core.Nothing,
+      useLatestRestorableAutoSnapshot = Core.Nothing,
+      userData = Core.Nothing
     }
 
--- | A Boolean value to indicate whether to use the latest available automatic snapshot.
+-- | The names for your new instances.
 --
--- Constraints:
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsInstanceNames :: Lens.Lens' CreateInstancesFromSnapshot [Types.String]
+cifsInstanceNames = Lens.field @"instanceNames"
+{-# DEPRECATED cifsInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
+
+-- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
 --
---     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsAvailabilityZone :: Lens.Lens' CreateInstancesFromSnapshot Types.String
+cifsAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED cifsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
 --
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsBundleId :: Lens.Lens' CreateInstancesFromSnapshot Types.BundleId
+cifsBundleId = Lens.field @"bundleId"
+{-# DEPRECATED cifsBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | An array of objects representing the add-ons to enable for the new instance.
 --
---     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+-- /Note:/ Consider using 'addOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsAddOns :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe [Types.AddOnRequest])
+cifsAddOns = Lens.field @"addOns"
+{-# DEPRECATED cifsAddOns "Use generic-lens or generic-optics with 'addOns' instead." #-}
+
+-- | An object containing information about one or more disk mappings.
 --
---
---
--- /Note:/ Consider using 'useLatestRestorableAutoSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsUseLatestRestorableAutoSnapshot :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe Lude.Bool)
-cifsUseLatestRestorableAutoSnapshot = Lens.lens (useLatestRestorableAutoSnapshot :: CreateInstancesFromSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {useLatestRestorableAutoSnapshot = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsUseLatestRestorableAutoSnapshot "Use generic-lens or generic-optics with 'useLatestRestorableAutoSnapshot' instead." #-}
+-- /Note:/ Consider using 'attachedDiskMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsAttachedDiskMapping :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe (Core.HashMap Types.ResourceName [Types.DiskMap]))
+cifsAttachedDiskMapping = Lens.field @"attachedDiskMapping"
+{-# DEPRECATED cifsAttachedDiskMapping "Use generic-lens or generic-optics with 'attachedDiskMapping' instead." #-}
 
 -- | The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots.
 --
@@ -211,30 +178,16 @@ cifsUseLatestRestorableAutoSnapshot = Lens.lens (useLatestRestorableAutoSnapshot
 --
 --
 -- /Note:/ Consider using 'instanceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsInstanceSnapshotName :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe Lude.Text)
-cifsInstanceSnapshotName = Lens.lens (instanceSnapshotName :: CreateInstancesFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {instanceSnapshotName = a} :: CreateInstancesFromSnapshot)
+cifsInstanceSnapshotName :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Types.ResourceName)
+cifsInstanceSnapshotName = Lens.field @"instanceSnapshotName"
 {-# DEPRECATED cifsInstanceSnapshotName "Use generic-lens or generic-optics with 'instanceSnapshotName' instead." #-}
 
--- | An array of objects representing the add-ons to enable for the new instance.
+-- | The name for your key pair.
 --
--- /Note:/ Consider using 'addOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsAddOns :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe [AddOnRequest])
-cifsAddOns = Lens.lens (addOns :: CreateInstancesFromSnapshot -> Lude.Maybe [AddOnRequest]) (\s a -> s {addOns = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsAddOns "Use generic-lens or generic-optics with 'addOns' instead." #-}
-
--- | You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
---
--- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsUserData :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe Lude.Text)
-cifsUserData = Lens.lens (userData :: CreateInstancesFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {userData = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
-
--- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
---
--- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsBundleId :: Lens.Lens' CreateInstancesFromSnapshot Lude.Text
-cifsBundleId = Lens.lens (bundleId :: CreateInstancesFromSnapshot -> Lude.Text) (\s a -> s {bundleId = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+-- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsKeyPairName :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Types.ResourceName)
+cifsKeyPairName = Lens.field @"keyPairName"
+{-# DEPRECATED cifsKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
 
 -- | The date of the automatic snapshot to use for the new instance. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
 --
@@ -251,30 +204,9 @@ cifsBundleId = Lens.lens (bundleId :: CreateInstancesFromSnapshot -> Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'restoreDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsRestoreDate :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe Lude.Text)
-cifsRestoreDate = Lens.lens (restoreDate :: CreateInstancesFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {restoreDate = a} :: CreateInstancesFromSnapshot)
+cifsRestoreDate :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Types.String)
+cifsRestoreDate = Lens.field @"restoreDate"
 {-# DEPRECATED cifsRestoreDate "Use generic-lens or generic-optics with 'restoreDate' instead." #-}
-
--- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsAvailabilityZone :: Lens.Lens' CreateInstancesFromSnapshot Lude.Text
-cifsAvailabilityZone = Lens.lens (availabilityZone :: CreateInstancesFromSnapshot -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The name for your key pair.
---
--- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsKeyPairName :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe Lude.Text)
-cifsKeyPairName = Lens.lens (keyPairName :: CreateInstancesFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {keyPairName = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
-
--- | The names for your new instances.
---
--- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsInstanceNames :: Lens.Lens' CreateInstancesFromSnapshot [Lude.Text]
-cifsInstanceNames = Lens.lens (instanceNames :: CreateInstancesFromSnapshot -> [Lude.Text]) (\s a -> s {instanceNames = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
 -- | The name of the source instance from which the source automatic snapshot was created.
 --
@@ -288,112 +220,116 @@ cifsInstanceNames = Lens.lens (instanceNames :: CreateInstancesFromSnapshot -> [
 --
 --
 -- /Note:/ Consider using 'sourceInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsSourceInstanceName :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe Lude.Text)
-cifsSourceInstanceName = Lens.lens (sourceInstanceName :: CreateInstancesFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceInstanceName = a} :: CreateInstancesFromSnapshot)
+cifsSourceInstanceName :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Types.String)
+cifsSourceInstanceName = Lens.field @"sourceInstanceName"
 {-# DEPRECATED cifsSourceInstanceName "Use generic-lens or generic-optics with 'sourceInstanceName' instead." #-}
-
--- | An object containing information about one or more disk mappings.
---
--- /Note:/ Consider using 'attachedDiskMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsAttachedDiskMapping :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe (Lude.HashMap Lude.Text ([DiskMap])))
-cifsAttachedDiskMapping = Lens.lens (attachedDiskMapping :: CreateInstancesFromSnapshot -> Lude.Maybe (Lude.HashMap Lude.Text ([DiskMap]))) (\s a -> s {attachedDiskMapping = a} :: CreateInstancesFromSnapshot)
-{-# DEPRECATED cifsAttachedDiskMapping "Use generic-lens or generic-optics with 'attachedDiskMapping' instead." #-}
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsTags :: Lens.Lens' CreateInstancesFromSnapshot (Lude.Maybe [Tag])
-cifsTags = Lens.lens (tags :: CreateInstancesFromSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateInstancesFromSnapshot)
+cifsTags :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe [Types.Tag])
+cifsTags = Lens.field @"tags"
 {-# DEPRECATED cifsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateInstancesFromSnapshot where
+-- | A Boolean value to indicate whether to use the latest available automatic snapshot.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'useLatestRestorableAutoSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsUseLatestRestorableAutoSnapshot :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Core.Bool)
+cifsUseLatestRestorableAutoSnapshot = Lens.field @"useLatestRestorableAutoSnapshot"
+{-# DEPRECATED cifsUseLatestRestorableAutoSnapshot "Use generic-lens or generic-optics with 'useLatestRestorableAutoSnapshot' instead." #-}
+
+-- | You can create a launch script that configures a server with additional user data. For example, @apt-get -y update@ .
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifsUserData :: Lens.Lens' CreateInstancesFromSnapshot (Core.Maybe Types.String)
+cifsUserData = Lens.field @"userData"
+{-# DEPRECATED cifsUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
+
+instance Core.FromJSON CreateInstancesFromSnapshot where
+  toJSON CreateInstancesFromSnapshot {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("instanceNames" Core..= instanceNames),
+            Core.Just ("availabilityZone" Core..= availabilityZone),
+            Core.Just ("bundleId" Core..= bundleId),
+            ("addOns" Core..=) Core.<$> addOns,
+            ("attachedDiskMapping" Core..=) Core.<$> attachedDiskMapping,
+            ("instanceSnapshotName" Core..=) Core.<$> instanceSnapshotName,
+            ("keyPairName" Core..=) Core.<$> keyPairName,
+            ("restoreDate" Core..=) Core.<$> restoreDate,
+            ("sourceInstanceName" Core..=) Core.<$> sourceInstanceName,
+            ("tags" Core..=) Core.<$> tags,
+            ("useLatestRestorableAutoSnapshot" Core..=)
+              Core.<$> useLatestRestorableAutoSnapshot,
+            ("userData" Core..=) Core.<$> userData
+          ]
+      )
+
+instance Core.AWSRequest CreateInstancesFromSnapshot where
   type
     Rs CreateInstancesFromSnapshot =
       CreateInstancesFromSnapshotResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.CreateInstancesFromSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateInstancesFromSnapshotResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateInstancesFromSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.CreateInstancesFromSnapshot" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateInstancesFromSnapshot where
-  toJSON CreateInstancesFromSnapshot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("useLatestRestorableAutoSnapshot" Lude..=)
-              Lude.<$> useLatestRestorableAutoSnapshot,
-            ("instanceSnapshotName" Lude..=) Lude.<$> instanceSnapshotName,
-            ("addOns" Lude..=) Lude.<$> addOns,
-            ("userData" Lude..=) Lude.<$> userData,
-            Lude.Just ("bundleId" Lude..= bundleId),
-            ("restoreDate" Lude..=) Lude.<$> restoreDate,
-            Lude.Just ("availabilityZone" Lude..= availabilityZone),
-            ("keyPairName" Lude..=) Lude.<$> keyPairName,
-            Lude.Just ("instanceNames" Lude..= instanceNames),
-            ("sourceInstanceName" Lude..=) Lude.<$> sourceInstanceName,
-            ("attachedDiskMapping" Lude..=) Lude.<$> attachedDiskMapping,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateInstancesFromSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateInstancesFromSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateInstancesFromSnapshotResponse' smart constructor.
 data CreateInstancesFromSnapshotResponse = CreateInstancesFromSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateInstancesFromSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateInstancesFromSnapshotResponse' value with any optional fields omitted.
 mkCreateInstancesFromSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateInstancesFromSnapshotResponse
-mkCreateInstancesFromSnapshotResponse pResponseStatus_ =
+mkCreateInstancesFromSnapshotResponse responseStatus =
   CreateInstancesFromSnapshotResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsrsOperations :: Lens.Lens' CreateInstancesFromSnapshotResponse (Lude.Maybe [Operation])
-cifsrsOperations = Lens.lens (operations :: CreateInstancesFromSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: CreateInstancesFromSnapshotResponse)
-{-# DEPRECATED cifsrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+cifsrrsOperations :: Lens.Lens' CreateInstancesFromSnapshotResponse (Core.Maybe [Types.Operation])
+cifsrrsOperations = Lens.field @"operations"
+{-# DEPRECATED cifsrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifsrsResponseStatus :: Lens.Lens' CreateInstancesFromSnapshotResponse Lude.Int
-cifsrsResponseStatus = Lens.lens (responseStatus :: CreateInstancesFromSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInstancesFromSnapshotResponse)
-{-# DEPRECATED cifsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cifsrrsResponseStatus :: Lens.Lens' CreateInstancesFromSnapshotResponse Core.Int
+cifsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cifsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

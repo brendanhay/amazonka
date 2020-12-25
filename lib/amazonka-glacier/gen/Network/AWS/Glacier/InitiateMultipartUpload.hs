@@ -26,80 +26,73 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     mkInitiateMultipartUpload,
 
     -- ** Request lenses
-    imuPartSize,
+    imuAccountId,
     imuVaultName,
     imuArchiveDescription,
-    imuAccountId,
+    imuPartSize,
 
     -- * Destructuring the response
     InitiateMultipartUploadResponse (..),
     mkInitiateMultipartUploadResponse,
 
     -- ** Response lenses
-    imursLocation,
-    imursUploadId,
-    imursResponseStatus,
+    imurrsLocation,
+    imurrsUploadId,
+    imurrsResponseStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for initiating a multipart upload to an Amazon S3 Glacier vault.
 --
 -- /See:/ 'mkInitiateMultipartUpload' smart constructor.
 data InitiateMultipartUpload = InitiateMultipartUpload'
-  { -- | The size of each part except the last, in bytes. The last part can be smaller than this part size.
-    partSize :: Lude.Maybe Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
     -- | The name of the vault.
-    vaultName :: Lude.Text,
+    vaultName :: Types.String,
     -- | The archive description that you are uploading in parts.
     --
     -- The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).
-    archiveDescription :: Lude.Maybe Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+    archiveDescription :: Core.Maybe Types.String,
+    -- | The size of each part except the last, in bytes. The last part can be smaller than this part size.
+    partSize :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InitiateMultipartUpload' with the minimum fields required to make a request.
---
--- * 'partSize' - The size of each part except the last, in bytes. The last part can be smaller than this part size.
--- * 'vaultName' - The name of the vault.
--- * 'archiveDescription' - The archive description that you are uploading in parts.
---
--- The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'InitiateMultipartUpload' value with any optional fields omitted.
 mkInitiateMultipartUpload ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   InitiateMultipartUpload
-mkInitiateMultipartUpload pVaultName_ pAccountId_ =
+mkInitiateMultipartUpload accountId vaultName =
   InitiateMultipartUpload'
-    { partSize = Lude.Nothing,
-      vaultName = pVaultName_,
-      archiveDescription = Lude.Nothing,
-      accountId = pAccountId_
+    { accountId,
+      vaultName,
+      archiveDescription = Core.Nothing,
+      partSize = Core.Nothing
     }
 
--- | The size of each part except the last, in bytes. The last part can be smaller than this part size.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
--- /Note:/ Consider using 'partSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imuPartSize :: Lens.Lens' InitiateMultipartUpload (Lude.Maybe Lude.Text)
-imuPartSize = Lens.lens (partSize :: InitiateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {partSize = a} :: InitiateMultipartUpload)
-{-# DEPRECATED imuPartSize "Use generic-lens or generic-optics with 'partSize' instead." #-}
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imuAccountId :: Lens.Lens' InitiateMultipartUpload Types.String
+imuAccountId = Lens.field @"accountId"
+{-# DEPRECATED imuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
 --
 -- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imuVaultName :: Lens.Lens' InitiateMultipartUpload Lude.Text
-imuVaultName = Lens.lens (vaultName :: InitiateMultipartUpload -> Lude.Text) (\s a -> s {vaultName = a} :: InitiateMultipartUpload)
+imuVaultName :: Lens.Lens' InitiateMultipartUpload Types.String
+imuVaultName = Lens.field @"vaultName"
 {-# DEPRECATED imuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The archive description that you are uploading in parts.
@@ -107,99 +100,90 @@ imuVaultName = Lens.lens (vaultName :: InitiateMultipartUpload -> Lude.Text) (\s
 -- The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).
 --
 -- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imuArchiveDescription :: Lens.Lens' InitiateMultipartUpload (Lude.Maybe Lude.Text)
-imuArchiveDescription = Lens.lens (archiveDescription :: InitiateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: InitiateMultipartUpload)
+imuArchiveDescription :: Lens.Lens' InitiateMultipartUpload (Core.Maybe Types.String)
+imuArchiveDescription = Lens.field @"archiveDescription"
 {-# DEPRECATED imuArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | The size of each part except the last, in bytes. The last part can be smaller than this part size.
 --
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imuAccountId :: Lens.Lens' InitiateMultipartUpload Lude.Text
-imuAccountId = Lens.lens (accountId :: InitiateMultipartUpload -> Lude.Text) (\s a -> s {accountId = a} :: InitiateMultipartUpload)
-{-# DEPRECATED imuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+-- /Note:/ Consider using 'partSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imuPartSize :: Lens.Lens' InitiateMultipartUpload (Core.Maybe Types.String)
+imuPartSize = Lens.field @"partSize"
+{-# DEPRECATED imuPartSize "Use generic-lens or generic-optics with 'partSize' instead." #-}
 
-instance Lude.AWSRequest InitiateMultipartUpload where
+instance Core.FromJSON InitiateMultipartUpload where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest InitiateMultipartUpload where
   type Rs InitiateMultipartUpload = InitiateMultipartUploadResponse
-  request = Req.postJSON glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/multipart-uploads")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-archive-description" archiveDescription
+            Core.<> (Core.toHeaders "x-amz-part-size" partSize),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           InitiateMultipartUploadResponse'
-            Lude.<$> (h Lude..#? "Location")
-            Lude.<*> (h Lude..#? "x-amz-multipart-upload-id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-multipart-upload-id" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders InitiateMultipartUpload where
-  toHeaders InitiateMultipartUpload' {..} =
-    Lude.mconcat
-      [ "x-amz-part-size" Lude.=# partSize,
-        "x-amz-archive-description" Lude.=# archiveDescription
-      ]
-
-instance Lude.ToJSON InitiateMultipartUpload where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath InitiateMultipartUpload where
-  toPath InitiateMultipartUpload' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/multipart-uploads"
-      ]
-
-instance Lude.ToQuery InitiateMultipartUpload where
-  toQuery = Lude.const Lude.mempty
 
 -- | The Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'mkInitiateMultipartUploadResponse' smart constructor.
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
   { -- | The relative URI path of the multipart upload ID Amazon S3 Glacier created.
-    location :: Lude.Maybe Lude.Text,
+    location :: Core.Maybe Types.String,
     -- | The ID of the multipart upload. This value is also included as part of the location.
-    uploadId :: Lude.Maybe Lude.Text,
+    uploadId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InitiateMultipartUploadResponse' with the minimum fields required to make a request.
---
--- * 'location' - The relative URI path of the multipart upload ID Amazon S3 Glacier created.
--- * 'uploadId' - The ID of the multipart upload. This value is also included as part of the location.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'InitiateMultipartUploadResponse' value with any optional fields omitted.
 mkInitiateMultipartUploadResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   InitiateMultipartUploadResponse
-mkInitiateMultipartUploadResponse pResponseStatus_ =
+mkInitiateMultipartUploadResponse responseStatus =
   InitiateMultipartUploadResponse'
-    { location = Lude.Nothing,
-      uploadId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { location = Core.Nothing,
+      uploadId = Core.Nothing,
+      responseStatus
     }
 
 -- | The relative URI path of the multipart upload ID Amazon S3 Glacier created.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imursLocation :: Lens.Lens' InitiateMultipartUploadResponse (Lude.Maybe Lude.Text)
-imursLocation = Lens.lens (location :: InitiateMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: InitiateMultipartUploadResponse)
-{-# DEPRECATED imursLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+imurrsLocation :: Lens.Lens' InitiateMultipartUploadResponse (Core.Maybe Types.String)
+imurrsLocation = Lens.field @"location"
+{-# DEPRECATED imurrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The ID of the multipart upload. This value is also included as part of the location.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imursUploadId :: Lens.Lens' InitiateMultipartUploadResponse (Lude.Maybe Lude.Text)
-imursUploadId = Lens.lens (uploadId :: InitiateMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {uploadId = a} :: InitiateMultipartUploadResponse)
-{-# DEPRECATED imursUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+imurrsUploadId :: Lens.Lens' InitiateMultipartUploadResponse (Core.Maybe Types.String)
+imurrsUploadId = Lens.field @"uploadId"
+{-# DEPRECATED imurrsUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imursResponseStatus :: Lens.Lens' InitiateMultipartUploadResponse Lude.Int
-imursResponseStatus = Lens.lens (responseStatus :: InitiateMultipartUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitiateMultipartUploadResponse)
-{-# DEPRECATED imursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+imurrsResponseStatus :: Lens.Lens' InitiateMultipartUploadResponse Core.Int
+imurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED imurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

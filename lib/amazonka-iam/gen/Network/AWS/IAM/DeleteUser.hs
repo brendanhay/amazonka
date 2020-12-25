@@ -55,67 +55,66 @@ module Network.AWS.IAM.DeleteUser
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
   { -- | The name of the user to delete.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text
+    userName :: Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'DeleteUser' value with any optional fields omitted.
 mkDeleteUser ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   DeleteUser
-mkDeleteUser pUserName_ = DeleteUser' {userName = pUserName_}
+mkDeleteUser userName = DeleteUser' {userName}
 
 -- | The name of the user to delete.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUserName :: Lens.Lens' DeleteUser Lude.Text
-duUserName = Lens.lens (userName :: DeleteUser -> Lude.Text) (\s a -> s {userName = a} :: DeleteUser)
+duUserName :: Lens.Lens' DeleteUser Types.UserName
+duUserName = Lens.field @"userName"
 {-# DEPRECATED duUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.AWSRequest DeleteUser where
+instance Core.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteUserResponse'
-
-instance Lude.ToHeaders DeleteUser where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUser where
-  toQuery DeleteUser' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteUser" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteUser")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+            )
+      }
+  response = Response.receiveNull DeleteUserResponse'
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteUserResponse' value with any optional fields omitted.
 mkDeleteUserResponse ::
   DeleteUserResponse
 mkDeleteUserResponse = DeleteUserResponse'

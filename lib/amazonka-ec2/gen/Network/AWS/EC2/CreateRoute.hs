@@ -32,297 +32,288 @@ module Network.AWS.EC2.CreateRoute
     mkCreateRoute,
 
     -- ** Request lenses
-    crVPCPeeringConnectionId,
-    crInstanceId,
-    crEgressOnlyInternetGatewayId,
     crRouteTableId,
-    crDestinationIPv6CidrBlock,
+    crCarrierGatewayId,
+    crDestinationCidrBlock,
+    crDestinationIpv6CidrBlock,
+    crDestinationPrefixListId,
+    crDryRun,
+    crEgressOnlyInternetGatewayId,
+    crGatewayId,
+    crInstanceId,
     crLocalGatewayId,
     crNatGatewayId,
     crNetworkInterfaceId,
     crTransitGatewayId,
-    crGatewayId,
-    crVPCEndpointId,
-    crDestinationPrefixListId,
-    crDryRun,
-    crCarrierGatewayId,
-    crDestinationCidrBlock,
+    crVpcEndpointId,
+    crVpcPeeringConnectionId,
 
     -- * Destructuring the response
     CreateRouteResponse (..),
     mkCreateRouteResponse,
 
     -- ** Response lenses
-    crrsReturn,
-    crrsResponseStatus,
+    crrrsReturn,
+    crrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateRoute' smart constructor.
 data CreateRoute = CreateRoute'
-  { -- | The ID of a VPC peering connection.
-    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
-    -- | The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
-    egressOnlyInternetGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the route table for the route.
-    routeTableId :: Lude.Text,
-    -- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
-    destinationIPv6CidrBlock :: Lude.Maybe Lude.Text,
-    -- | The ID of the local gateway.
-    localGatewayId :: Lude.Maybe Lude.Text,
-    -- | [IPv4 traffic only] The ID of a NAT gateway.
-    natGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of a network interface.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | The ID of a transit gateway.
-    transitGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of an internet gateway or virtual private gateway attached to your VPC.
-    gatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
-    vpcEndpointId :: Lude.Maybe Lude.Text,
-    -- | The ID of a prefix list used for the destination match.
-    destinationPrefixListId :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the route table for the route.
+    routeTableId :: Types.RouteTableId,
     -- | The ID of the carrier gateway.
     --
     -- You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
-    carrierGatewayId :: Lude.Maybe Lude.Text,
+    carrierGatewayId :: Core.Maybe Types.CarrierGatewayId,
     -- | The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
-    destinationCidrBlock :: Lude.Maybe Lude.Text
+    destinationCidrBlock :: Core.Maybe Types.String,
+    -- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+    destinationIpv6CidrBlock :: Core.Maybe Types.String,
+    -- | The ID of a prefix list used for the destination match.
+    destinationPrefixListId :: Core.Maybe Types.PrefixListResourceId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
+    egressOnlyInternetGatewayId :: Core.Maybe Types.EgressOnlyInternetGatewayId,
+    -- | The ID of an internet gateway or virtual private gateway attached to your VPC.
+    gatewayId :: Core.Maybe Types.RouteGatewayId,
+    -- | The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
+    instanceId :: Core.Maybe Types.InstanceId,
+    -- | The ID of the local gateway.
+    localGatewayId :: Core.Maybe Types.LocalGatewayId,
+    -- | [IPv4 traffic only] The ID of a NAT gateway.
+    natGatewayId :: Core.Maybe Types.NatGatewayId,
+    -- | The ID of a network interface.
+    networkInterfaceId :: Core.Maybe Types.NetworkInterfaceId,
+    -- | The ID of a transit gateway.
+    transitGatewayId :: Core.Maybe Types.TransitGatewayId,
+    -- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+    vpcEndpointId :: Core.Maybe Types.VpcEndpointId,
+    -- | The ID of a VPC peering connection.
+    vpcPeeringConnectionId :: Core.Maybe Types.VpcPeeringConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRoute' with the minimum fields required to make a request.
---
--- * 'vpcPeeringConnectionId' - The ID of a VPC peering connection.
--- * 'instanceId' - The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
--- * 'egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
--- * 'routeTableId' - The ID of the route table for the route.
--- * 'destinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'natGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
--- * 'networkInterfaceId' - The ID of a network interface.
--- * 'transitGatewayId' - The ID of a transit gateway.
--- * 'gatewayId' - The ID of an internet gateway or virtual private gateway attached to your VPC.
--- * 'vpcEndpointId' - The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
--- * 'destinationPrefixListId' - The ID of a prefix list used for the destination match.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'carrierGatewayId' - The ID of the carrier gateway.
---
--- You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
--- * 'destinationCidrBlock' - The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+-- | Creates a 'CreateRoute' value with any optional fields omitted.
 mkCreateRoute ::
   -- | 'routeTableId'
-  Lude.Text ->
+  Types.RouteTableId ->
   CreateRoute
-mkCreateRoute pRouteTableId_ =
+mkCreateRoute routeTableId =
   CreateRoute'
-    { vpcPeeringConnectionId = Lude.Nothing,
-      instanceId = Lude.Nothing,
-      egressOnlyInternetGatewayId = Lude.Nothing,
-      routeTableId = pRouteTableId_,
-      destinationIPv6CidrBlock = Lude.Nothing,
-      localGatewayId = Lude.Nothing,
-      natGatewayId = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      transitGatewayId = Lude.Nothing,
-      gatewayId = Lude.Nothing,
-      vpcEndpointId = Lude.Nothing,
-      destinationPrefixListId = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      carrierGatewayId = Lude.Nothing,
-      destinationCidrBlock = Lude.Nothing
+    { routeTableId,
+      carrierGatewayId = Core.Nothing,
+      destinationCidrBlock = Core.Nothing,
+      destinationIpv6CidrBlock = Core.Nothing,
+      destinationPrefixListId = Core.Nothing,
+      dryRun = Core.Nothing,
+      egressOnlyInternetGatewayId = Core.Nothing,
+      gatewayId = Core.Nothing,
+      instanceId = Core.Nothing,
+      localGatewayId = Core.Nothing,
+      natGatewayId = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      transitGatewayId = Core.Nothing,
+      vpcEndpointId = Core.Nothing,
+      vpcPeeringConnectionId = Core.Nothing
     }
-
--- | The ID of a VPC peering connection.
---
--- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crVPCPeeringConnectionId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: CreateRoute)
-{-# DEPRECATED crVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
-
--- | The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crInstanceId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crInstanceId = Lens.lens (instanceId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: CreateRoute)
-{-# DEPRECATED crInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | [IPv6 traffic only] The ID of an egress-only internet gateway.
---
--- /Note:/ Consider using 'egressOnlyInternetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crEgressOnlyInternetGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crEgressOnlyInternetGatewayId = Lens.lens (egressOnlyInternetGatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {egressOnlyInternetGatewayId = a} :: CreateRoute)
-{-# DEPRECATED crEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
 
 -- | The ID of the route table for the route.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRouteTableId :: Lens.Lens' CreateRoute Lude.Text
-crRouteTableId = Lens.lens (routeTableId :: CreateRoute -> Lude.Text) (\s a -> s {routeTableId = a} :: CreateRoute)
+crRouteTableId :: Lens.Lens' CreateRoute Types.RouteTableId
+crRouteTableId = Lens.field @"routeTableId"
 {-# DEPRECATED crRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
-
--- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
---
--- /Note:/ Consider using 'destinationIPv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crDestinationIPv6CidrBlock :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crDestinationIPv6CidrBlock = Lens.lens (destinationIPv6CidrBlock :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationIPv6CidrBlock = a} :: CreateRoute)
-{-# DEPRECATED crDestinationIPv6CidrBlock "Use generic-lens or generic-optics with 'destinationIPv6CidrBlock' instead." #-}
-
--- | The ID of the local gateway.
---
--- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crLocalGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crLocalGatewayId = Lens.lens (localGatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayId = a} :: CreateRoute)
-{-# DEPRECATED crLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
-
--- | [IPv4 traffic only] The ID of a NAT gateway.
---
--- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crNatGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crNatGatewayId = Lens.lens (natGatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {natGatewayId = a} :: CreateRoute)
-{-# DEPRECATED crNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
-
--- | The ID of a network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crNetworkInterfaceId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateRoute)
-{-# DEPRECATED crNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
--- | The ID of a transit gateway.
---
--- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crTransitGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crTransitGatewayId = Lens.lens (transitGatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateRoute)
-{-# DEPRECATED crTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
-
--- | The ID of an internet gateway or virtual private gateway attached to your VPC.
---
--- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crGatewayId = Lens.lens (gatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: CreateRoute)
-{-# DEPRECATED crGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
-
--- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
---
--- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crVPCEndpointId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crVPCEndpointId = Lens.lens (vpcEndpointId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {vpcEndpointId = a} :: CreateRoute)
-{-# DEPRECATED crVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
-
--- | The ID of a prefix list used for the destination match.
---
--- /Note:/ Consider using 'destinationPrefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crDestinationPrefixListId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crDestinationPrefixListId = Lens.lens (destinationPrefixListId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationPrefixListId = a} :: CreateRoute)
-{-# DEPRECATED crDestinationPrefixListId "Use generic-lens or generic-optics with 'destinationPrefixListId' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crDryRun :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Bool)
-crDryRun = Lens.lens (dryRun :: CreateRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateRoute)
-{-# DEPRECATED crDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the carrier gateway.
 --
 -- You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
 --
 -- /Note:/ Consider using 'carrierGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crCarrierGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crCarrierGatewayId = Lens.lens (carrierGatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {carrierGatewayId = a} :: CreateRoute)
+crCarrierGatewayId :: Lens.Lens' CreateRoute (Core.Maybe Types.CarrierGatewayId)
+crCarrierGatewayId = Lens.field @"carrierGatewayId"
 {-# DEPRECATED crCarrierGatewayId "Use generic-lens or generic-optics with 'carrierGatewayId' instead." #-}
 
 -- | The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
 --
 -- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crDestinationCidrBlock :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
-crDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateRoute)
+crDestinationCidrBlock :: Lens.Lens' CreateRoute (Core.Maybe Types.String)
+crDestinationCidrBlock = Lens.field @"destinationCidrBlock"
 {-# DEPRECATED crDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance Lude.AWSRequest CreateRoute where
+-- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+--
+-- /Note:/ Consider using 'destinationIpv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crDestinationIpv6CidrBlock :: Lens.Lens' CreateRoute (Core.Maybe Types.String)
+crDestinationIpv6CidrBlock = Lens.field @"destinationIpv6CidrBlock"
+{-# DEPRECATED crDestinationIpv6CidrBlock "Use generic-lens or generic-optics with 'destinationIpv6CidrBlock' instead." #-}
+
+-- | The ID of a prefix list used for the destination match.
+--
+-- /Note:/ Consider using 'destinationPrefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crDestinationPrefixListId :: Lens.Lens' CreateRoute (Core.Maybe Types.PrefixListResourceId)
+crDestinationPrefixListId = Lens.field @"destinationPrefixListId"
+{-# DEPRECATED crDestinationPrefixListId "Use generic-lens or generic-optics with 'destinationPrefixListId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crDryRun :: Lens.Lens' CreateRoute (Core.Maybe Core.Bool)
+crDryRun = Lens.field @"dryRun"
+{-# DEPRECATED crDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | [IPv6 traffic only] The ID of an egress-only internet gateway.
+--
+-- /Note:/ Consider using 'egressOnlyInternetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crEgressOnlyInternetGatewayId :: Lens.Lens' CreateRoute (Core.Maybe Types.EgressOnlyInternetGatewayId)
+crEgressOnlyInternetGatewayId = Lens.field @"egressOnlyInternetGatewayId"
+{-# DEPRECATED crEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
+
+-- | The ID of an internet gateway or virtual private gateway attached to your VPC.
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crGatewayId :: Lens.Lens' CreateRoute (Core.Maybe Types.RouteGatewayId)
+crGatewayId = Lens.field @"gatewayId"
+{-# DEPRECATED crGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
+
+-- | The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crInstanceId :: Lens.Lens' CreateRoute (Core.Maybe Types.InstanceId)
+crInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED crInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ID of the local gateway.
+--
+-- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crLocalGatewayId :: Lens.Lens' CreateRoute (Core.Maybe Types.LocalGatewayId)
+crLocalGatewayId = Lens.field @"localGatewayId"
+{-# DEPRECATED crLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
+
+-- | [IPv4 traffic only] The ID of a NAT gateway.
+--
+-- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crNatGatewayId :: Lens.Lens' CreateRoute (Core.Maybe Types.NatGatewayId)
+crNatGatewayId = Lens.field @"natGatewayId"
+{-# DEPRECATED crNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
+
+-- | The ID of a network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crNetworkInterfaceId :: Lens.Lens' CreateRoute (Core.Maybe Types.NetworkInterfaceId)
+crNetworkInterfaceId = Lens.field @"networkInterfaceId"
+{-# DEPRECATED crNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The ID of a transit gateway.
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTransitGatewayId :: Lens.Lens' CreateRoute (Core.Maybe Types.TransitGatewayId)
+crTransitGatewayId = Lens.field @"transitGatewayId"
+{-# DEPRECATED crTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
+
+-- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+--
+-- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crVpcEndpointId :: Lens.Lens' CreateRoute (Core.Maybe Types.VpcEndpointId)
+crVpcEndpointId = Lens.field @"vpcEndpointId"
+{-# DEPRECATED crVpcEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
+
+-- | The ID of a VPC peering connection.
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crVpcPeeringConnectionId :: Lens.Lens' CreateRoute (Core.Maybe Types.VpcPeeringConnectionId)
+crVpcPeeringConnectionId = Lens.field @"vpcPeeringConnectionId"
+{-# DEPRECATED crVpcPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
+
+instance Core.AWSRequest CreateRoute where
   type Rs CreateRoute = CreateRouteResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateRoute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "RouteTableId" routeTableId)
+                Core.<> (Core.toQueryValue "CarrierGatewayId" Core.<$> carrierGatewayId)
+                Core.<> ( Core.toQueryValue "DestinationCidrBlock"
+                            Core.<$> destinationCidrBlock
+                        )
+                Core.<> ( Core.toQueryValue "DestinationIpv6CidrBlock"
+                            Core.<$> destinationIpv6CidrBlock
+                        )
+                Core.<> ( Core.toQueryValue "DestinationPrefixListId"
+                            Core.<$> destinationPrefixListId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> ( Core.toQueryValue "EgressOnlyInternetGatewayId"
+                            Core.<$> egressOnlyInternetGatewayId
+                        )
+                Core.<> (Core.toQueryValue "GatewayId" Core.<$> gatewayId)
+                Core.<> (Core.toQueryValue "InstanceId" Core.<$> instanceId)
+                Core.<> (Core.toQueryValue "LocalGatewayId" Core.<$> localGatewayId)
+                Core.<> (Core.toQueryValue "NatGatewayId" Core.<$> natGatewayId)
+                Core.<> ( Core.toQueryValue "NetworkInterfaceId"
+                            Core.<$> networkInterfaceId
+                        )
+                Core.<> (Core.toQueryValue "TransitGatewayId" Core.<$> transitGatewayId)
+                Core.<> (Core.toQueryValue "VpcEndpointId" Core.<$> vpcEndpointId)
+                Core.<> ( Core.toQueryValue "VpcPeeringConnectionId"
+                            Core.<$> vpcPeeringConnectionId
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateRouteResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateRoute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateRoute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateRoute where
-  toQuery CreateRoute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateRoute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VpcPeeringConnectionId" Lude.=: vpcPeeringConnectionId,
-        "InstanceId" Lude.=: instanceId,
-        "EgressOnlyInternetGatewayId" Lude.=: egressOnlyInternetGatewayId,
-        "RouteTableId" Lude.=: routeTableId,
-        "DestinationIpv6CidrBlock" Lude.=: destinationIPv6CidrBlock,
-        "LocalGatewayId" Lude.=: localGatewayId,
-        "NatGatewayId" Lude.=: natGatewayId,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "TransitGatewayId" Lude.=: transitGatewayId,
-        "GatewayId" Lude.=: gatewayId,
-        "VpcEndpointId" Lude.=: vpcEndpointId,
-        "DestinationPrefixListId" Lude.=: destinationPrefixListId,
-        "DryRun" Lude.=: dryRun,
-        "CarrierGatewayId" Lude.=: carrierGatewayId,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock
-      ]
 
 -- | /See:/ 'mkCreateRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRouteResponse' with the minimum fields required to make a request.
---
--- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRouteResponse' value with any optional fields omitted.
 mkCreateRouteResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRouteResponse
-mkCreateRouteResponse pResponseStatus_ =
-  CreateRouteResponse'
-    { return = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateRouteResponse responseStatus =
+  CreateRouteResponse' {return = Core.Nothing, responseStatus}
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsReturn :: Lens.Lens' CreateRouteResponse (Lude.Maybe Lude.Bool)
-crrsReturn = Lens.lens (return :: CreateRouteResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: CreateRouteResponse)
-{-# DEPRECATED crrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+crrrsReturn :: Lens.Lens' CreateRouteResponse (Core.Maybe Core.Bool)
+crrrsReturn = Lens.field @"return"
+{-# DEPRECATED crrrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsResponseStatus :: Lens.Lens' CreateRouteResponse Lude.Int
-crrsResponseStatus = Lens.lens (responseStatus :: CreateRouteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRouteResponse)
-{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crrrsResponseStatus :: Lens.Lens' CreateRouteResponse Core.Int
+crrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

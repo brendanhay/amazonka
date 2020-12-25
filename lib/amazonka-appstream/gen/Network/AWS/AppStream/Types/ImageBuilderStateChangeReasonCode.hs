@@ -13,46 +13,51 @@
 module Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
   ( ImageBuilderStateChangeReasonCode
       ( ImageBuilderStateChangeReasonCode',
-        IBSCRCInternalError,
-        IBSCRCImageUnavailable
+        ImageBuilderStateChangeReasonCodeInternalError,
+        ImageBuilderStateChangeReasonCodeImageUnavailable,
+        fromImageBuilderStateChangeReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageBuilderStateChangeReasonCode = ImageBuilderStateChangeReasonCode' Lude.Text
+newtype ImageBuilderStateChangeReasonCode = ImageBuilderStateChangeReasonCode'
+  { fromImageBuilderStateChangeReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IBSCRCInternalError :: ImageBuilderStateChangeReasonCode
-pattern IBSCRCInternalError = ImageBuilderStateChangeReasonCode' "INTERNAL_ERROR"
+pattern ImageBuilderStateChangeReasonCodeInternalError :: ImageBuilderStateChangeReasonCode
+pattern ImageBuilderStateChangeReasonCodeInternalError = ImageBuilderStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern IBSCRCImageUnavailable :: ImageBuilderStateChangeReasonCode
-pattern IBSCRCImageUnavailable = ImageBuilderStateChangeReasonCode' "IMAGE_UNAVAILABLE"
+pattern ImageBuilderStateChangeReasonCodeImageUnavailable :: ImageBuilderStateChangeReasonCode
+pattern ImageBuilderStateChangeReasonCodeImageUnavailable = ImageBuilderStateChangeReasonCode' "IMAGE_UNAVAILABLE"
 
 {-# COMPLETE
-  IBSCRCInternalError,
-  IBSCRCImageUnavailable,
+  ImageBuilderStateChangeReasonCodeInternalError,
+  ImageBuilderStateChangeReasonCodeImageUnavailable,
   ImageBuilderStateChangeReasonCode'
   #-}

@@ -22,7 +22,7 @@ module Network.AWS.MediaLive.Types.InputDestinationRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Endpoint settings for a PUSH type input.
 --
@@ -31,31 +31,27 @@ newtype InputDestinationRequest = InputDestinationRequest'
   { -- | A unique name for the location the RTMP stream is being pushed
     --
     -- to.
-    streamName :: Lude.Maybe Lude.Text
+    streamName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputDestinationRequest' with the minimum fields required to make a request.
---
--- * 'streamName' - A unique name for the location the RTMP stream is being pushed
---
--- to.
+-- | Creates a 'InputDestinationRequest' value with any optional fields omitted.
 mkInputDestinationRequest ::
   InputDestinationRequest
 mkInputDestinationRequest =
-  InputDestinationRequest' {streamName = Lude.Nothing}
+  InputDestinationRequest' {streamName = Core.Nothing}
 
 -- | A unique name for the location the RTMP stream is being pushed
 --
 -- to.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idrStreamName :: Lens.Lens' InputDestinationRequest (Lude.Maybe Lude.Text)
-idrStreamName = Lens.lens (streamName :: InputDestinationRequest -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: InputDestinationRequest)
+idrStreamName :: Lens.Lens' InputDestinationRequest (Core.Maybe Core.Text)
+idrStreamName = Lens.field @"streamName"
 {-# DEPRECATED idrStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.ToJSON InputDestinationRequest where
-  toJSON InputDestinationRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [("streamName" Lude..=) Lude.<$> streamName])
+instance Core.FromJSON InputDestinationRequest where
+  toJSON InputDestinationRequest {..} =
+    Core.object
+      (Core.catMaybes [("streamName" Core..=) Core.<$> streamName])

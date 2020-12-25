@@ -27,214 +27,200 @@ module Network.AWS.IoT.DescribeThingGroup
     mkDescribeThingGroupResponse,
 
     -- ** Response lenses
-    dtgrsStatus,
-    dtgrsQueryVersion,
-    dtgrsThingGroupARN,
-    dtgrsThingGroupId,
-    dtgrsThingGroupMetadata,
-    dtgrsThingGroupName,
-    dtgrsQueryString,
-    dtgrsVersion,
-    dtgrsThingGroupProperties,
-    dtgrsIndexName,
-    dtgrsResponseStatus,
+    dtgrrsIndexName,
+    dtgrrsQueryString,
+    dtgrrsQueryVersion,
+    dtgrrsStatus,
+    dtgrrsThingGroupArn,
+    dtgrrsThingGroupId,
+    dtgrrsThingGroupMetadata,
+    dtgrrsThingGroupName,
+    dtgrrsThingGroupProperties,
+    dtgrrsVersion,
+    dtgrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeThingGroup' smart constructor.
 newtype DescribeThingGroup = DescribeThingGroup'
   { -- | The name of the thing group.
-    thingGroupName :: Lude.Text
+    thingGroupName :: Types.ThingGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeThingGroup' with the minimum fields required to make a request.
---
--- * 'thingGroupName' - The name of the thing group.
+-- | Creates a 'DescribeThingGroup' value with any optional fields omitted.
 mkDescribeThingGroup ::
   -- | 'thingGroupName'
-  Lude.Text ->
+  Types.ThingGroupName ->
   DescribeThingGroup
-mkDescribeThingGroup pThingGroupName_ =
-  DescribeThingGroup' {thingGroupName = pThingGroupName_}
+mkDescribeThingGroup thingGroupName =
+  DescribeThingGroup' {thingGroupName}
 
 -- | The name of the thing group.
 --
 -- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgThingGroupName :: Lens.Lens' DescribeThingGroup Lude.Text
-dtgThingGroupName = Lens.lens (thingGroupName :: DescribeThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: DescribeThingGroup)
+dtgThingGroupName :: Lens.Lens' DescribeThingGroup Types.ThingGroupName
+dtgThingGroupName = Lens.field @"thingGroupName"
 {-# DEPRECATED dtgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
-instance Lude.AWSRequest DescribeThingGroup where
+instance Core.AWSRequest DescribeThingGroup where
   type Rs DescribeThingGroup = DescribeThingGroupResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/thing-groups/" Core.<> (Core.toText thingGroupName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeThingGroupResponse'
-            Lude.<$> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "queryVersion")
-            Lude.<*> (x Lude..?> "thingGroupArn")
-            Lude.<*> (x Lude..?> "thingGroupId")
-            Lude.<*> (x Lude..?> "thingGroupMetadata")
-            Lude.<*> (x Lude..?> "thingGroupName")
-            Lude.<*> (x Lude..?> "queryString")
-            Lude.<*> (x Lude..?> "version")
-            Lude.<*> (x Lude..?> "thingGroupProperties")
-            Lude.<*> (x Lude..?> "indexName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "indexName")
+            Core.<*> (x Core..:? "queryString")
+            Core.<*> (x Core..:? "queryVersion")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "thingGroupArn")
+            Core.<*> (x Core..:? "thingGroupId")
+            Core.<*> (x Core..:? "thingGroupMetadata")
+            Core.<*> (x Core..:? "thingGroupName")
+            Core.<*> (x Core..:? "thingGroupProperties")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeThingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeThingGroup where
-  toPath DescribeThingGroup' {..} =
-    Lude.mconcat ["/thing-groups/", Lude.toBS thingGroupName]
-
-instance Lude.ToQuery DescribeThingGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeThingGroupResponse' smart constructor.
 data DescribeThingGroupResponse = DescribeThingGroupResponse'
-  { -- | The dynamic thing group status.
-    status :: Lude.Maybe DynamicGroupStatus,
-    -- | The dynamic thing group query version.
-    queryVersion :: Lude.Maybe Lude.Text,
-    -- | The thing group ARN.
-    thingGroupARN :: Lude.Maybe Lude.Text,
-    -- | The thing group ID.
-    thingGroupId :: Lude.Maybe Lude.Text,
-    -- | Thing group metadata.
-    thingGroupMetadata :: Lude.Maybe ThingGroupMetadata,
-    -- | The name of the thing group.
-    thingGroupName :: Lude.Maybe Lude.Text,
+  { -- | The dynamic thing group index name.
+    indexName :: Core.Maybe Types.IndexName,
     -- | The dynamic thing group search query string.
-    queryString :: Lude.Maybe Lude.Text,
-    -- | The version of the thing group.
-    version :: Lude.Maybe Lude.Integer,
+    queryString :: Core.Maybe Types.QueryString,
+    -- | The dynamic thing group query version.
+    queryVersion :: Core.Maybe Types.QueryVersion,
+    -- | The dynamic thing group status.
+    status :: Core.Maybe Types.DynamicGroupStatus,
+    -- | The thing group ARN.
+    thingGroupArn :: Core.Maybe Types.ThingGroupArn,
+    -- | The thing group ID.
+    thingGroupId :: Core.Maybe Types.ThingGroupId,
+    -- | Thing group metadata.
+    thingGroupMetadata :: Core.Maybe Types.ThingGroupMetadata,
+    -- | The name of the thing group.
+    thingGroupName :: Core.Maybe Types.ThingGroupName,
     -- | The thing group properties.
-    thingGroupProperties :: Lude.Maybe ThingGroupProperties,
-    -- | The dynamic thing group index name.
-    indexName :: Lude.Maybe Lude.Text,
+    thingGroupProperties :: Core.Maybe Types.ThingGroupProperties,
+    -- | The version of the thing group.
+    version :: Core.Maybe Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeThingGroupResponse' with the minimum fields required to make a request.
---
--- * 'status' - The dynamic thing group status.
--- * 'queryVersion' - The dynamic thing group query version.
--- * 'thingGroupARN' - The thing group ARN.
--- * 'thingGroupId' - The thing group ID.
--- * 'thingGroupMetadata' - Thing group metadata.
--- * 'thingGroupName' - The name of the thing group.
--- * 'queryString' - The dynamic thing group search query string.
--- * 'version' - The version of the thing group.
--- * 'thingGroupProperties' - The thing group properties.
--- * 'indexName' - The dynamic thing group index name.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeThingGroupResponse' value with any optional fields omitted.
 mkDescribeThingGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeThingGroupResponse
-mkDescribeThingGroupResponse pResponseStatus_ =
+mkDescribeThingGroupResponse responseStatus =
   DescribeThingGroupResponse'
-    { status = Lude.Nothing,
-      queryVersion = Lude.Nothing,
-      thingGroupARN = Lude.Nothing,
-      thingGroupId = Lude.Nothing,
-      thingGroupMetadata = Lude.Nothing,
-      thingGroupName = Lude.Nothing,
-      queryString = Lude.Nothing,
-      version = Lude.Nothing,
-      thingGroupProperties = Lude.Nothing,
-      indexName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { indexName = Core.Nothing,
+      queryString = Core.Nothing,
+      queryVersion = Core.Nothing,
+      status = Core.Nothing,
+      thingGroupArn = Core.Nothing,
+      thingGroupId = Core.Nothing,
+      thingGroupMetadata = Core.Nothing,
+      thingGroupName = Core.Nothing,
+      thingGroupProperties = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | The dynamic thing group status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsStatus :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe DynamicGroupStatus)
-dtgrsStatus = Lens.lens (status :: DescribeThingGroupResponse -> Lude.Maybe DynamicGroupStatus) (\s a -> s {status = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The dynamic thing group query version.
---
--- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsQueryVersion :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Text)
-dtgrsQueryVersion = Lens.lens (queryVersion :: DescribeThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
-
--- | The thing group ARN.
---
--- /Note:/ Consider using 'thingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsThingGroupARN :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Text)
-dtgrsThingGroupARN = Lens.lens (thingGroupARN :: DescribeThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupARN = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsThingGroupARN "Use generic-lens or generic-optics with 'thingGroupARN' instead." #-}
-
--- | The thing group ID.
---
--- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsThingGroupId :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Text)
-dtgrsThingGroupId = Lens.lens (thingGroupId :: DescribeThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupId = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
-
--- | Thing group metadata.
---
--- /Note:/ Consider using 'thingGroupMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsThingGroupMetadata :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe ThingGroupMetadata)
-dtgrsThingGroupMetadata = Lens.lens (thingGroupMetadata :: DescribeThingGroupResponse -> Lude.Maybe ThingGroupMetadata) (\s a -> s {thingGroupMetadata = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsThingGroupMetadata "Use generic-lens or generic-optics with 'thingGroupMetadata' instead." #-}
-
--- | The name of the thing group.
---
--- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsThingGroupName :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Text)
-dtgrsThingGroupName = Lens.lens (thingGroupName :: DescribeThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
-
--- | The dynamic thing group search query string.
---
--- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsQueryString :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Text)
-dtgrsQueryString = Lens.lens (queryString :: DescribeThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryString = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
-
--- | The version of the thing group.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsVersion :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Integer)
-dtgrsVersion = Lens.lens (version :: DescribeThingGroupResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The thing group properties.
---
--- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsThingGroupProperties :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe ThingGroupProperties)
-dtgrsThingGroupProperties = Lens.lens (thingGroupProperties :: DescribeThingGroupResponse -> Lude.Maybe ThingGroupProperties) (\s a -> s {thingGroupProperties = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
 
 -- | The dynamic thing group index name.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsIndexName :: Lens.Lens' DescribeThingGroupResponse (Lude.Maybe Lude.Text)
-dtgrsIndexName = Lens.lens (indexName :: DescribeThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+dtgrrsIndexName :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.IndexName)
+dtgrrsIndexName = Lens.field @"indexName"
+{-# DEPRECATED dtgrrsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
+-- | The dynamic thing group search query string.
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsQueryString :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.QueryString)
+dtgrrsQueryString = Lens.field @"queryString"
+{-# DEPRECATED dtgrrsQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
+-- | The dynamic thing group query version.
+--
+-- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsQueryVersion :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.QueryVersion)
+dtgrrsQueryVersion = Lens.field @"queryVersion"
+{-# DEPRECATED dtgrrsQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
+
+-- | The dynamic thing group status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsStatus :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.DynamicGroupStatus)
+dtgrrsStatus = Lens.field @"status"
+{-# DEPRECATED dtgrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The thing group ARN.
+--
+-- /Note:/ Consider using 'thingGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsThingGroupArn :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.ThingGroupArn)
+dtgrrsThingGroupArn = Lens.field @"thingGroupArn"
+{-# DEPRECATED dtgrrsThingGroupArn "Use generic-lens or generic-optics with 'thingGroupArn' instead." #-}
+
+-- | The thing group ID.
+--
+-- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsThingGroupId :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.ThingGroupId)
+dtgrrsThingGroupId = Lens.field @"thingGroupId"
+{-# DEPRECATED dtgrrsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
+
+-- | Thing group metadata.
+--
+-- /Note:/ Consider using 'thingGroupMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsThingGroupMetadata :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.ThingGroupMetadata)
+dtgrrsThingGroupMetadata = Lens.field @"thingGroupMetadata"
+{-# DEPRECATED dtgrrsThingGroupMetadata "Use generic-lens or generic-optics with 'thingGroupMetadata' instead." #-}
+
+-- | The name of the thing group.
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsThingGroupName :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.ThingGroupName)
+dtgrrsThingGroupName = Lens.field @"thingGroupName"
+{-# DEPRECATED dtgrrsThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
+
+-- | The thing group properties.
+--
+-- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsThingGroupProperties :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Types.ThingGroupProperties)
+dtgrrsThingGroupProperties = Lens.field @"thingGroupProperties"
+{-# DEPRECATED dtgrrsThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
+
+-- | The version of the thing group.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrrsVersion :: Lens.Lens' DescribeThingGroupResponse (Core.Maybe Core.Integer)
+dtgrrsVersion = Lens.field @"version"
+{-# DEPRECATED dtgrrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrsResponseStatus :: Lens.Lens' DescribeThingGroupResponse Lude.Int
-dtgrsResponseStatus = Lens.lens (responseStatus :: DescribeThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeThingGroupResponse)
-{-# DEPRECATED dtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgrrsResponseStatus :: Lens.Lens' DescribeThingGroupResponse Core.Int
+dtgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

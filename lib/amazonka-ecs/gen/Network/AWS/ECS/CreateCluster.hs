@@ -20,10 +20,10 @@ module Network.AWS.ECS.CreateCluster
     mkCreateCluster,
 
     -- ** Request lenses
+    ccCapacityProviders,
+    ccClusterName,
     ccDefaultCapacityProviderStrategy,
     ccSettings,
-    ccClusterName,
-    ccCapacityProviders,
     ccTags,
 
     -- * Destructuring the response
@@ -31,37 +31,37 @@ module Network.AWS.ECS.CreateCluster
     mkCreateClusterResponse,
 
     -- ** Response lenses
-    ccrsCluster,
-    ccrsResponseStatus,
+    ccrrsCluster,
+    ccrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The capacity provider strategy to use by default for the cluster.
+  { -- | The short name of one or more capacity providers to associate with the cluster.
+    --
+    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+    -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+    capacityProviders :: Core.Maybe [Types.String],
+    -- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
+    clusterName :: Core.Maybe Types.ClusterName,
+    -- | The capacity provider strategy to use by default for the cluster.
     --
     -- When creating a service or running a task on a cluster, if no capacity provider or launch type is specified then the default capacity provider strategy for the cluster is used.
     -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
     -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
     -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
     -- If a default capacity provider strategy is not defined for a cluster during creation, it can be defined later with the 'PutClusterCapacityProviders' API operation.
-    defaultCapacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem],
+    defaultCapacityProviderStrategy :: Core.Maybe [Types.CapacityProviderStrategyItem],
     -- | The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
-    settings :: Lude.Maybe [ClusterSetting],
-    -- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
-    clusterName :: Lude.Maybe Lude.Text,
-    -- | The short name of one or more capacity providers to associate with the cluster.
-    --
-    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
-    -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
-    capacityProviders :: Lude.Maybe [Lude.Text],
+    settings :: Core.Maybe [Types.ClusterSetting],
     -- | The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
     --
     -- The following basic restrictions apply to tags:
@@ -85,60 +85,40 @@ data CreateCluster = CreateCluster'
     --
     --
     --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
---
--- * 'defaultCapacityProviderStrategy' - The capacity provider strategy to use by default for the cluster.
---
--- When creating a service or running a task on a cluster, if no capacity provider or launch type is specified then the default capacity provider strategy for the cluster is used.
--- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
--- If a default capacity provider strategy is not defined for a cluster during creation, it can be defined later with the 'PutClusterCapacityProviders' API operation.
--- * 'settings' - The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
--- * 'clusterName' - The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
--- * 'capacityProviders' - The short name of one or more capacity providers to associate with the cluster.
---
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
--- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
--- * 'tags' - The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
---
--- The following basic restrictions apply to tags:
---
---     * Maximum number of tags per resource - 50
---
---
---     * For each resource, each tag key must be unique, and each tag key can have only one value.
---
---
---     * Maximum key length - 128 Unicode characters in UTF-8
---
---
---     * Maximum value length - 256 Unicode characters in UTF-8
---
---
---     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
---
---
---     * Tag keys and values are case-sensitive.
---
---
---     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+-- | Creates a 'CreateCluster' value with any optional fields omitted.
 mkCreateCluster ::
   CreateCluster
 mkCreateCluster =
   CreateCluster'
-    { defaultCapacityProviderStrategy = Lude.Nothing,
-      settings = Lude.Nothing,
-      clusterName = Lude.Nothing,
-      capacityProviders = Lude.Nothing,
-      tags = Lude.Nothing
+    { capacityProviders = Core.Nothing,
+      clusterName = Core.Nothing,
+      defaultCapacityProviderStrategy = Core.Nothing,
+      settings = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The short name of one or more capacity providers to associate with the cluster.
+--
+-- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+-- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+-- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+--
+-- /Note:/ Consider using 'capacityProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCapacityProviders :: Lens.Lens' CreateCluster (Core.Maybe [Types.String])
+ccCapacityProviders = Lens.field @"capacityProviders"
+{-# DEPRECATED ccCapacityProviders "Use generic-lens or generic-optics with 'capacityProviders' instead." #-}
+
+-- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterName :: Lens.Lens' CreateCluster (Core.Maybe Types.ClusterName)
+ccClusterName = Lens.field @"clusterName"
+{-# DEPRECATED ccClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
 -- | The capacity provider strategy to use by default for the cluster.
 --
@@ -149,34 +129,16 @@ mkCreateCluster =
 -- If a default capacity provider strategy is not defined for a cluster during creation, it can be defined later with the 'PutClusterCapacityProviders' API operation.
 --
 -- /Note:/ Consider using 'defaultCapacityProviderStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDefaultCapacityProviderStrategy :: Lens.Lens' CreateCluster (Lude.Maybe [CapacityProviderStrategyItem])
-ccDefaultCapacityProviderStrategy = Lens.lens (defaultCapacityProviderStrategy :: CreateCluster -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {defaultCapacityProviderStrategy = a} :: CreateCluster)
+ccDefaultCapacityProviderStrategy :: Lens.Lens' CreateCluster (Core.Maybe [Types.CapacityProviderStrategyItem])
+ccDefaultCapacityProviderStrategy = Lens.field @"defaultCapacityProviderStrategy"
 {-# DEPRECATED ccDefaultCapacityProviderStrategy "Use generic-lens or generic-optics with 'defaultCapacityProviderStrategy' instead." #-}
 
 -- | The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
 --
 -- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSettings :: Lens.Lens' CreateCluster (Lude.Maybe [ClusterSetting])
-ccSettings = Lens.lens (settings :: CreateCluster -> Lude.Maybe [ClusterSetting]) (\s a -> s {settings = a} :: CreateCluster)
+ccSettings :: Lens.Lens' CreateCluster (Core.Maybe [Types.ClusterSetting])
+ccSettings = Lens.field @"settings"
 {-# DEPRECATED ccSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
-
--- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
---
--- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccClusterName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
-ccClusterName = Lens.lens (clusterName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterName = a} :: CreateCluster)
-{-# DEPRECATED ccClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
-
--- | The short name of one or more capacity providers to associate with the cluster.
---
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
--- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
---
--- /Note:/ Consider using 'capacityProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCapacityProviders :: Lens.Lens' CreateCluster (Lude.Maybe [Lude.Text])
-ccCapacityProviders = Lens.lens (capacityProviders :: CreateCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {capacityProviders = a} :: CreateCluster)
-{-# DEPRECATED ccCapacityProviders "Use generic-lens or generic-optics with 'capacityProviders' instead." #-}
 
 -- | The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
@@ -205,86 +167,74 @@ ccCapacityProviders = Lens.lens (capacityProviders :: CreateCluster -> Lude.Mayb
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTags :: Lens.Lens' CreateCluster (Lude.Maybe [Tag])
-ccTags = Lens.lens (tags :: CreateCluster -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCluster)
+ccTags :: Lens.Lens' CreateCluster (Core.Maybe [Types.Tag])
+ccTags = Lens.field @"tags"
 {-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateCluster where
+instance Core.FromJSON CreateCluster where
+  toJSON CreateCluster {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("capacityProviders" Core..=) Core.<$> capacityProviders,
+            ("clusterName" Core..=) Core.<$> clusterName,
+            ("defaultCapacityProviderStrategy" Core..=)
+              Core.<$> defaultCapacityProviderStrategy,
+            ("settings" Core..=) Core.<$> settings,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateCluster where
   type Rs CreateCluster = CreateClusterResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.CreateCluster"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Lude.<$> (x Lude..?> "cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCluster where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.CreateCluster" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateCluster where
-  toJSON CreateCluster' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("defaultCapacityProviderStrategy" Lude..=)
-              Lude.<$> defaultCapacityProviderStrategy,
-            ("settings" Lude..=) Lude.<$> settings,
-            ("clusterName" Lude..=) Lude.<$> clusterName,
-            ("capacityProviders" Lude..=) Lude.<$> capacityProviders,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCluster where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
   { -- | The full description of your new cluster.
-    cluster :: Lude.Maybe Cluster,
+    cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
---
--- * 'cluster' - The full description of your new cluster.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateClusterResponse' value with any optional fields omitted.
 mkCreateClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateClusterResponse
-mkCreateClusterResponse pResponseStatus_ =
-  CreateClusterResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateClusterResponse responseStatus =
+  CreateClusterResponse' {cluster = Core.Nothing, responseStatus}
 
 -- | The full description of your new cluster.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsCluster :: Lens.Lens' CreateClusterResponse (Lude.Maybe Cluster)
-ccrsCluster = Lens.lens (cluster :: CreateClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: CreateClusterResponse)
-{-# DEPRECATED ccrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+ccrrsCluster :: Lens.Lens' CreateClusterResponse (Core.Maybe Types.Cluster)
+ccrrsCluster = Lens.field @"cluster"
+{-# DEPRECATED ccrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsResponseStatus :: Lens.Lens' CreateClusterResponse Lude.Int
-ccrsResponseStatus = Lens.lens (responseStatus :: CreateClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateClusterResponse)
-{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrsResponseStatus :: Lens.Lens' CreateClusterResponse Core.Int
+ccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

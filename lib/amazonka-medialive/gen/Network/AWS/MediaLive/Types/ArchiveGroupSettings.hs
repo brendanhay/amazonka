@@ -17,69 +17,64 @@ module Network.AWS.MediaLive.Types.ArchiveGroupSettings
     mkArchiveGroupSettings,
 
     -- * Lenses
-    agsRolloverInterval,
     agsDestination,
+    agsRolloverInterval,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Archive Group Settings
 --
 -- /See:/ 'mkArchiveGroupSettings' smart constructor.
 data ArchiveGroupSettings = ArchiveGroupSettings'
-  { -- | Number of seconds to write to archive file before closing and starting a new one.
-    rolloverInterval :: Lude.Maybe Lude.Natural,
-    -- | A directory and base filename where archive files should be written.
-    destination :: OutputLocationRef
+  { -- | A directory and base filename where archive files should be written.
+    destination :: Types.OutputLocationRef,
+    -- | Number of seconds to write to archive file before closing and starting a new one.
+    rolloverInterval :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArchiveGroupSettings' with the minimum fields required to make a request.
---
--- * 'rolloverInterval' - Number of seconds to write to archive file before closing and starting a new one.
--- * 'destination' - A directory and base filename where archive files should be written.
+-- | Creates a 'ArchiveGroupSettings' value with any optional fields omitted.
 mkArchiveGroupSettings ::
   -- | 'destination'
-  OutputLocationRef ->
+  Types.OutputLocationRef ->
   ArchiveGroupSettings
-mkArchiveGroupSettings pDestination_ =
+mkArchiveGroupSettings destination =
   ArchiveGroupSettings'
-    { rolloverInterval = Lude.Nothing,
-      destination = pDestination_
+    { destination,
+      rolloverInterval = Core.Nothing
     }
-
--- | Number of seconds to write to archive file before closing and starting a new one.
---
--- /Note:/ Consider using 'rolloverInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agsRolloverInterval :: Lens.Lens' ArchiveGroupSettings (Lude.Maybe Lude.Natural)
-agsRolloverInterval = Lens.lens (rolloverInterval :: ArchiveGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {rolloverInterval = a} :: ArchiveGroupSettings)
-{-# DEPRECATED agsRolloverInterval "Use generic-lens or generic-optics with 'rolloverInterval' instead." #-}
 
 -- | A directory and base filename where archive files should be written.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agsDestination :: Lens.Lens' ArchiveGroupSettings OutputLocationRef
-agsDestination = Lens.lens (destination :: ArchiveGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: ArchiveGroupSettings)
+agsDestination :: Lens.Lens' ArchiveGroupSettings Types.OutputLocationRef
+agsDestination = Lens.field @"destination"
 {-# DEPRECATED agsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Lude.FromJSON ArchiveGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "ArchiveGroupSettings"
-      ( \x ->
-          ArchiveGroupSettings'
-            Lude.<$> (x Lude..:? "rolloverInterval") Lude.<*> (x Lude..: "destination")
-      )
+-- | Number of seconds to write to archive file before closing and starting a new one.
+--
+-- /Note:/ Consider using 'rolloverInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agsRolloverInterval :: Lens.Lens' ArchiveGroupSettings (Core.Maybe Core.Natural)
+agsRolloverInterval = Lens.field @"rolloverInterval"
+{-# DEPRECATED agsRolloverInterval "Use generic-lens or generic-optics with 'rolloverInterval' instead." #-}
 
-instance Lude.ToJSON ArchiveGroupSettings where
-  toJSON ArchiveGroupSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("rolloverInterval" Lude..=) Lude.<$> rolloverInterval,
-            Lude.Just ("destination" Lude..= destination)
+instance Core.FromJSON ArchiveGroupSettings where
+  toJSON ArchiveGroupSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("destination" Core..= destination),
+            ("rolloverInterval" Core..=) Core.<$> rolloverInterval
           ]
       )
+
+instance Core.FromJSON ArchiveGroupSettings where
+  parseJSON =
+    Core.withObject "ArchiveGroupSettings" Core.$
+      \x ->
+        ArchiveGroupSettings'
+          Core.<$> (x Core..: "destination") Core.<*> (x Core..:? "rolloverInterval")

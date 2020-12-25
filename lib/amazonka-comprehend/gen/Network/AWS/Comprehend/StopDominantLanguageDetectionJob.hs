@@ -31,125 +31,113 @@ module Network.AWS.Comprehend.StopDominantLanguageDetectionJob
     mkStopDominantLanguageDetectionJobResponse,
 
     -- ** Response lenses
-    sdldjfrsJobId,
-    sdldjfrsJobStatus,
-    sdldjfrsResponseStatus,
+    sdldjrfrsJobId,
+    sdldjrfrsJobStatus,
+    sdldjrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopDominantLanguageDetectionJob' smart constructor.
 newtype StopDominantLanguageDetectionJob = StopDominantLanguageDetectionJob'
   { -- | The identifier of the dominant language detection job to stop.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopDominantLanguageDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier of the dominant language detection job to stop.
+-- | Creates a 'StopDominantLanguageDetectionJob' value with any optional fields omitted.
 mkStopDominantLanguageDetectionJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   StopDominantLanguageDetectionJob
-mkStopDominantLanguageDetectionJob pJobId_ =
-  StopDominantLanguageDetectionJob' {jobId = pJobId_}
+mkStopDominantLanguageDetectionJob jobId =
+  StopDominantLanguageDetectionJob' {jobId}
 
 -- | The identifier of the dominant language detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjJobId :: Lens.Lens' StopDominantLanguageDetectionJob Lude.Text
-sdldjJobId = Lens.lens (jobId :: StopDominantLanguageDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopDominantLanguageDetectionJob)
+sdldjJobId :: Lens.Lens' StopDominantLanguageDetectionJob Types.JobId
+sdldjJobId = Lens.field @"jobId"
 {-# DEPRECATED sdldjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest StopDominantLanguageDetectionJob where
+instance Core.FromJSON StopDominantLanguageDetectionJob where
+  toJSON StopDominantLanguageDetectionJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest StopDominantLanguageDetectionJob where
   type
     Rs StopDominantLanguageDetectionJob =
       StopDominantLanguageDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.StopDominantLanguageDetectionJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopDominantLanguageDetectionJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopDominantLanguageDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StopDominantLanguageDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopDominantLanguageDetectionJob where
-  toJSON StopDominantLanguageDetectionJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath StopDominantLanguageDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopDominantLanguageDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopDominantLanguageDetectionJobResponse' smart constructor.
 data StopDominantLanguageDetectionJobResponse = StopDominantLanguageDetectionJobResponse'
   { -- | The identifier of the dominant language detection job to stop.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopDominantLanguageDetectionJob@ operation.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopDominantLanguageDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier of the dominant language detection job to stop.
--- * 'jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopDominantLanguageDetectionJob@ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopDominantLanguageDetectionJobResponse' value with any optional fields omitted.
 mkStopDominantLanguageDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopDominantLanguageDetectionJobResponse
-mkStopDominantLanguageDetectionJobResponse pResponseStatus_ =
+mkStopDominantLanguageDetectionJobResponse responseStatus =
   StopDominantLanguageDetectionJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the dominant language detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjfrsJobId :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Lude.Maybe Lude.Text)
-sdldjfrsJobId = Lens.lens (jobId :: StopDominantLanguageDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopDominantLanguageDetectionJobResponse)
-{-# DEPRECATED sdldjfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+sdldjrfrsJobId :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Core.Maybe Types.JobId)
+sdldjrfrsJobId = Lens.field @"jobId"
+{-# DEPRECATED sdldjrfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopDominantLanguageDetectionJob@ operation.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjfrsJobStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Lude.Maybe JobStatus)
-sdldjfrsJobStatus = Lens.lens (jobStatus :: StopDominantLanguageDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopDominantLanguageDetectionJobResponse)
-{-# DEPRECATED sdldjfrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+sdldjrfrsJobStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse (Core.Maybe Types.JobStatus)
+sdldjrfrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED sdldjrfrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjfrsResponseStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse Lude.Int
-sdldjfrsResponseStatus = Lens.lens (responseStatus :: StopDominantLanguageDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDominantLanguageDetectionJobResponse)
-{-# DEPRECATED sdldjfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdldjrfrsResponseStatus :: Lens.Lens' StopDominantLanguageDetectionJobResponse Core.Int
+sdldjrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sdldjrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,71 +17,64 @@ module Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigT
     mkCustomEmailLambdaVersionConfigType,
 
     -- * Lenses
-    celvctLambdaARN,
     celvctLambdaVersion,
+    celvctLambdaArn,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
+import qualified Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.LambdaArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A custom email sender Lambda configuration type.
 --
 -- /See:/ 'mkCustomEmailLambdaVersionConfigType' smart constructor.
 data CustomEmailLambdaVersionConfigType = CustomEmailLambdaVersionConfigType'
-  { -- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-    lambdaARN :: Lude.Text,
-    -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
-    lambdaVersion :: CustomEmailSenderLambdaVersionType
+  { -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
+    lambdaVersion :: Types.CustomEmailSenderLambdaVersionType,
+    -- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+    lambdaArn :: Types.LambdaArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomEmailLambdaVersionConfigType' with the minimum fields required to make a request.
---
--- * 'lambdaARN' - The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
--- * 'lambdaVersion' - The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
+-- | Creates a 'CustomEmailLambdaVersionConfigType' value with any optional fields omitted.
 mkCustomEmailLambdaVersionConfigType ::
-  -- | 'lambdaARN'
-  Lude.Text ->
   -- | 'lambdaVersion'
-  CustomEmailSenderLambdaVersionType ->
+  Types.CustomEmailSenderLambdaVersionType ->
+  -- | 'lambdaArn'
+  Types.LambdaArn ->
   CustomEmailLambdaVersionConfigType
-mkCustomEmailLambdaVersionConfigType pLambdaARN_ pLambdaVersion_ =
-  CustomEmailLambdaVersionConfigType'
-    { lambdaARN = pLambdaARN_,
-      lambdaVersion = pLambdaVersion_
-    }
-
--- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
---
--- /Note:/ Consider using 'lambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-celvctLambdaARN :: Lens.Lens' CustomEmailLambdaVersionConfigType Lude.Text
-celvctLambdaARN = Lens.lens (lambdaARN :: CustomEmailLambdaVersionConfigType -> Lude.Text) (\s a -> s {lambdaARN = a} :: CustomEmailLambdaVersionConfigType)
-{-# DEPRECATED celvctLambdaARN "Use generic-lens or generic-optics with 'lambdaARN' instead." #-}
+mkCustomEmailLambdaVersionConfigType lambdaVersion lambdaArn =
+  CustomEmailLambdaVersionConfigType' {lambdaVersion, lambdaArn}
 
 -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
 --
 -- /Note:/ Consider using 'lambdaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-celvctLambdaVersion :: Lens.Lens' CustomEmailLambdaVersionConfigType CustomEmailSenderLambdaVersionType
-celvctLambdaVersion = Lens.lens (lambdaVersion :: CustomEmailLambdaVersionConfigType -> CustomEmailSenderLambdaVersionType) (\s a -> s {lambdaVersion = a} :: CustomEmailLambdaVersionConfigType)
+celvctLambdaVersion :: Lens.Lens' CustomEmailLambdaVersionConfigType Types.CustomEmailSenderLambdaVersionType
+celvctLambdaVersion = Lens.field @"lambdaVersion"
 {-# DEPRECATED celvctLambdaVersion "Use generic-lens or generic-optics with 'lambdaVersion' instead." #-}
 
-instance Lude.FromJSON CustomEmailLambdaVersionConfigType where
-  parseJSON =
-    Lude.withObject
-      "CustomEmailLambdaVersionConfigType"
-      ( \x ->
-          CustomEmailLambdaVersionConfigType'
-            Lude.<$> (x Lude..: "LambdaArn") Lude.<*> (x Lude..: "LambdaVersion")
-      )
+-- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+--
+-- /Note:/ Consider using 'lambdaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+celvctLambdaArn :: Lens.Lens' CustomEmailLambdaVersionConfigType Types.LambdaArn
+celvctLambdaArn = Lens.field @"lambdaArn"
+{-# DEPRECATED celvctLambdaArn "Use generic-lens or generic-optics with 'lambdaArn' instead." #-}
 
-instance Lude.ToJSON CustomEmailLambdaVersionConfigType where
-  toJSON CustomEmailLambdaVersionConfigType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LambdaArn" Lude..= lambdaARN),
-            Lude.Just ("LambdaVersion" Lude..= lambdaVersion)
+instance Core.FromJSON CustomEmailLambdaVersionConfigType where
+  toJSON CustomEmailLambdaVersionConfigType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("LambdaVersion" Core..= lambdaVersion),
+            Core.Just ("LambdaArn" Core..= lambdaArn)
           ]
       )
+
+instance Core.FromJSON CustomEmailLambdaVersionConfigType where
+  parseJSON =
+    Core.withObject "CustomEmailLambdaVersionConfigType" Core.$
+      \x ->
+        CustomEmailLambdaVersionConfigType'
+          Core.<$> (x Core..: "LambdaVersion") Core.<*> (x Core..: "LambdaArn")

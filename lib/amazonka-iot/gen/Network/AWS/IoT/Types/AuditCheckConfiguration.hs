@@ -22,40 +22,37 @@ module Network.AWS.IoT.Types.AuditCheckConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Which audit checks are enabled and disabled for this account.
 --
 -- /See:/ 'mkAuditCheckConfiguration' smart constructor.
 newtype AuditCheckConfiguration = AuditCheckConfiguration'
   { -- | True if this audit check is enabled for this account.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuditCheckConfiguration' with the minimum fields required to make a request.
---
--- * 'enabled' - True if this audit check is enabled for this account.
+-- | Creates a 'AuditCheckConfiguration' value with any optional fields omitted.
 mkAuditCheckConfiguration ::
   AuditCheckConfiguration
 mkAuditCheckConfiguration =
-  AuditCheckConfiguration' {enabled = Lude.Nothing}
+  AuditCheckConfiguration' {enabled = Core.Nothing}
 
 -- | True if this audit check is enabled for this account.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-accEnabled :: Lens.Lens' AuditCheckConfiguration (Lude.Maybe Lude.Bool)
-accEnabled = Lens.lens (enabled :: AuditCheckConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AuditCheckConfiguration)
+accEnabled :: Lens.Lens' AuditCheckConfiguration (Core.Maybe Core.Bool)
+accEnabled = Lens.field @"enabled"
 {-# DEPRECATED accEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromJSON AuditCheckConfiguration where
-  parseJSON =
-    Lude.withObject
-      "AuditCheckConfiguration"
-      (\x -> AuditCheckConfiguration' Lude.<$> (x Lude..:? "enabled"))
+instance Core.FromJSON AuditCheckConfiguration where
+  toJSON AuditCheckConfiguration {..} =
+    Core.object
+      (Core.catMaybes [("enabled" Core..=) Core.<$> enabled])
 
-instance Lude.ToJSON AuditCheckConfiguration where
-  toJSON AuditCheckConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [("enabled" Lude..=) Lude.<$> enabled])
+instance Core.FromJSON AuditCheckConfiguration where
+  parseJSON =
+    Core.withObject "AuditCheckConfiguration" Core.$
+      \x -> AuditCheckConfiguration' Core.<$> (x Core..:? "enabled")

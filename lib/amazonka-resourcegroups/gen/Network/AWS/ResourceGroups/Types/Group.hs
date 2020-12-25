@@ -17,14 +17,17 @@ module Network.AWS.ResourceGroups.Types.Group
     mkGroup,
 
     -- * Lenses
+    gGroupArn,
     gName,
-    gGroupARN,
     gDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.Description as Types
+import qualified Network.AWS.ResourceGroups.Types.GroupArn as Types
+import qualified Network.AWS.ResourceGroups.Types.Name as Types
 
 -- | A resource group that contains AWS resources. You can assign resources to the group by associating either of the following elements with the group:
 --
@@ -38,62 +41,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { -- | The name of the resource group.
-    name :: Lude.Text,
-    -- | The ARN of the resource group.
-    groupARN :: Lude.Text,
+  { -- | The ARN of the resource group.
+    groupArn :: Types.GroupArn,
+    -- | The name of the resource group.
+    name :: Types.Name,
     -- | The description of the resource group.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Group' with the minimum fields required to make a request.
---
--- * 'name' - The name of the resource group.
--- * 'groupARN' - The ARN of the resource group.
--- * 'description' - The description of the resource group.
+-- | Creates a 'Group' value with any optional fields omitted.
 mkGroup ::
+  -- | 'groupArn'
+  Types.GroupArn ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'groupARN'
-  Lude.Text ->
+  Types.Name ->
   Group
-mkGroup pName_ pGroupARN_ =
-  Group'
-    { name = pName_,
-      groupARN = pGroupARN_,
-      description = Lude.Nothing
-    }
+mkGroup groupArn name =
+  Group' {groupArn, name, description = Core.Nothing}
+
+-- | The ARN of the resource group.
+--
+-- /Note:/ Consider using 'groupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gGroupArn :: Lens.Lens' Group Types.GroupArn
+gGroupArn = Lens.field @"groupArn"
+{-# DEPRECATED gGroupArn "Use generic-lens or generic-optics with 'groupArn' instead." #-}
 
 -- | The name of the resource group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gName :: Lens.Lens' Group Lude.Text
-gName = Lens.lens (name :: Group -> Lude.Text) (\s a -> s {name = a} :: Group)
+gName :: Lens.Lens' Group Types.Name
+gName = Lens.field @"name"
 {-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ARN of the resource group.
---
--- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gGroupARN :: Lens.Lens' Group Lude.Text
-gGroupARN = Lens.lens (groupARN :: Group -> Lude.Text) (\s a -> s {groupARN = a} :: Group)
-{-# DEPRECATED gGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The description of the resource group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gDescription :: Lens.Lens' Group (Lude.Maybe Lude.Text)
-gDescription = Lens.lens (description :: Group -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Group)
+gDescription :: Lens.Lens' Group (Core.Maybe Types.Description)
+gDescription = Lens.field @"description"
 {-# DEPRECATED gDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON Group where
+instance Core.FromJSON Group where
   parseJSON =
-    Lude.withObject
-      "Group"
-      ( \x ->
-          Group'
-            Lude.<$> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "GroupArn")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "Group" Core.$
+      \x ->
+        Group'
+          Core.<$> (x Core..: "GroupArn")
+          Core.<*> (x Core..: "Name")
+          Core.<*> (x Core..:? "Description")

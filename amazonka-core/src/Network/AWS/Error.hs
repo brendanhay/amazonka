@@ -1,7 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Error
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -20,7 +16,7 @@ import Data.Maybe
 import Data.Monoid
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML
 import Network.AWS.Lens (Choice, Getting, Optic', filtered)
 import Network.AWS.Types

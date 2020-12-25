@@ -23,69 +23,63 @@ module Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.FollowPoint
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.FollowPoint as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings to specify if an action follows another.
 --
 -- /See:/ 'mkFollowModeScheduleActionStartSettings' smart constructor.
 data FollowModeScheduleActionStartSettings = FollowModeScheduleActionStartSettings'
   { -- | The action name of another action that this one refers to.
-    referenceActionName :: Lude.Text,
+    referenceActionName :: Core.Text,
     -- | Identifies whether this action starts relative to the start or relative to the end of the reference action.
-    followPoint :: FollowPoint
+    followPoint :: Types.FollowPoint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FollowModeScheduleActionStartSettings' with the minimum fields required to make a request.
---
--- * 'referenceActionName' - The action name of another action that this one refers to.
--- * 'followPoint' - Identifies whether this action starts relative to the start or relative to the end of the reference action.
+-- | Creates a 'FollowModeScheduleActionStartSettings' value with any optional fields omitted.
 mkFollowModeScheduleActionStartSettings ::
   -- | 'referenceActionName'
-  Lude.Text ->
+  Core.Text ->
   -- | 'followPoint'
-  FollowPoint ->
+  Types.FollowPoint ->
   FollowModeScheduleActionStartSettings
 mkFollowModeScheduleActionStartSettings
-  pReferenceActionName_
-  pFollowPoint_ =
+  referenceActionName
+  followPoint =
     FollowModeScheduleActionStartSettings'
-      { referenceActionName =
-          pReferenceActionName_,
-        followPoint = pFollowPoint_
+      { referenceActionName,
+        followPoint
       }
 
 -- | The action name of another action that this one refers to.
 --
 -- /Note:/ Consider using 'referenceActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fmsassReferenceActionName :: Lens.Lens' FollowModeScheduleActionStartSettings Lude.Text
-fmsassReferenceActionName = Lens.lens (referenceActionName :: FollowModeScheduleActionStartSettings -> Lude.Text) (\s a -> s {referenceActionName = a} :: FollowModeScheduleActionStartSettings)
+fmsassReferenceActionName :: Lens.Lens' FollowModeScheduleActionStartSettings Core.Text
+fmsassReferenceActionName = Lens.field @"referenceActionName"
 {-# DEPRECATED fmsassReferenceActionName "Use generic-lens or generic-optics with 'referenceActionName' instead." #-}
 
 -- | Identifies whether this action starts relative to the start or relative to the end of the reference action.
 --
 -- /Note:/ Consider using 'followPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fmsassFollowPoint :: Lens.Lens' FollowModeScheduleActionStartSettings FollowPoint
-fmsassFollowPoint = Lens.lens (followPoint :: FollowModeScheduleActionStartSettings -> FollowPoint) (\s a -> s {followPoint = a} :: FollowModeScheduleActionStartSettings)
+fmsassFollowPoint :: Lens.Lens' FollowModeScheduleActionStartSettings Types.FollowPoint
+fmsassFollowPoint = Lens.field @"followPoint"
 {-# DEPRECATED fmsassFollowPoint "Use generic-lens or generic-optics with 'followPoint' instead." #-}
 
-instance Lude.FromJSON FollowModeScheduleActionStartSettings where
-  parseJSON =
-    Lude.withObject
-      "FollowModeScheduleActionStartSettings"
-      ( \x ->
-          FollowModeScheduleActionStartSettings'
-            Lude.<$> (x Lude..: "referenceActionName")
-            Lude.<*> (x Lude..: "followPoint")
-      )
-
-instance Lude.ToJSON FollowModeScheduleActionStartSettings where
-  toJSON FollowModeScheduleActionStartSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("referenceActionName" Lude..= referenceActionName),
-            Lude.Just ("followPoint" Lude..= followPoint)
+instance Core.FromJSON FollowModeScheduleActionStartSettings where
+  toJSON FollowModeScheduleActionStartSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("referenceActionName" Core..= referenceActionName),
+            Core.Just ("followPoint" Core..= followPoint)
           ]
       )
+
+instance Core.FromJSON FollowModeScheduleActionStartSettings where
+  parseJSON =
+    Core.withObject "FollowModeScheduleActionStartSettings" Core.$
+      \x ->
+        FollowModeScheduleActionStartSettings'
+          Core.<$> (x Core..: "referenceActionName")
+          Core.<*> (x Core..: "followPoint")

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CostAndUsageReport
     Network.AWS.CostAndUsageReport.DeleteReportDefinition
@@ -78,9 +84,15 @@ library
     Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
     Network.AWS.CostAndUsageReport.Types.AWSRegion
     Network.AWS.CostAndUsageReport.Types.CompressionFormat
+    Network.AWS.CostAndUsageReport.Types.GenericString
+    Network.AWS.CostAndUsageReport.Types.NextToken
     Network.AWS.CostAndUsageReport.Types.ReportDefinition
     Network.AWS.CostAndUsageReport.Types.ReportFormat
+    Network.AWS.CostAndUsageReport.Types.ReportName
     Network.AWS.CostAndUsageReport.Types.ReportVersioning
+    Network.AWS.CostAndUsageReport.Types.ResponseMessage
+    Network.AWS.CostAndUsageReport.Types.S3Bucket
+    Network.AWS.CostAndUsageReport.Types.S3Prefix
     Network.AWS.CostAndUsageReport.Types.SchemaElement
     Network.AWS.CostAndUsageReport.Types.TimeUnit
 

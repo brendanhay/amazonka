@@ -17,46 +17,52 @@ module Network.AWS.AppSync.Types.DataSource
     mkDataSource,
 
     -- * Lenses
-    dsServiceRoleARN,
-    dsRelationalDatabaseConfig,
-    dsDataSourceARN,
+    dsDataSourceArn,
+    dsDescription,
     dsDynamodbConfig,
-    dsName,
+    dsElasticsearchConfig,
     dsHttpConfig,
     dsLambdaConfig,
+    dsName,
+    dsRelationalDatabaseConfig,
+    dsServiceRoleArn,
     dsType,
-    dsDescription,
-    dsElasticsearchConfig,
   )
 where
 
-import Network.AWS.AppSync.Types.DataSourceType
-import Network.AWS.AppSync.Types.DynamodbDataSourceConfig
-import Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
-import Network.AWS.AppSync.Types.HTTPDataSourceConfig
-import Network.AWS.AppSync.Types.LambdaDataSourceConfig
-import Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
+import qualified Network.AWS.AppSync.Types.DataSourceType as Types
+import qualified Network.AWS.AppSync.Types.DynamodbDataSourceConfig as Types
+import qualified Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig as Types
+import qualified Network.AWS.AppSync.Types.HttpDataSourceConfig as Types
+import qualified Network.AWS.AppSync.Types.LambdaDataSourceConfig as Types
+import qualified Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig as Types
+import qualified Network.AWS.AppSync.Types.ResourceName as Types
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a data source.
 --
 -- /See:/ 'mkDataSource' smart constructor.
 data DataSource = DataSource'
-  { -- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
-    serviceRoleARN :: Lude.Maybe Lude.Text,
-    -- | Relational database settings.
-    relationalDatabaseConfig :: Lude.Maybe RelationalDatabaseDataSourceConfig,
-    -- | The data source ARN.
-    dataSourceARN :: Lude.Maybe Lude.Text,
+  { -- | The data source ARN.
+    dataSourceArn :: Core.Maybe Types.String,
+    -- | The description of the data source.
+    description :: Core.Maybe Types.String,
     -- | Amazon DynamoDB settings.
-    dynamodbConfig :: Lude.Maybe DynamodbDataSourceConfig,
-    -- | The name of the data source.
-    name :: Lude.Maybe Lude.Text,
+    dynamodbConfig :: Core.Maybe Types.DynamodbDataSourceConfig,
+    -- | Amazon Elasticsearch Service settings.
+    elasticsearchConfig :: Core.Maybe Types.ElasticsearchDataSourceConfig,
     -- | HTTP endpoint settings.
-    httpConfig :: Lude.Maybe HTTPDataSourceConfig,
+    httpConfig :: Core.Maybe Types.HttpDataSourceConfig,
     -- | AWS Lambda settings.
-    lambdaConfig :: Lude.Maybe LambdaDataSourceConfig,
+    lambdaConfig :: Core.Maybe Types.LambdaDataSourceConfig,
+    -- | The name of the data source.
+    name :: Core.Maybe Types.ResourceName,
+    -- | Relational database settings.
+    relationalDatabaseConfig :: Core.Maybe Types.RelationalDatabaseDataSourceConfig,
+    -- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+    serviceRoleArn :: Core.Maybe Types.String,
     -- | The type of the data source.
     --
     --
@@ -76,111 +82,90 @@ data DataSource = DataSource'
     --
     --
     --     * __RELATIONAL_DATABASE__ : The data source is a relational database.
-    type' :: Lude.Maybe DataSourceType,
-    -- | The description of the data source.
-    description :: Lude.Maybe Lude.Text,
-    -- | Amazon Elasticsearch Service settings.
-    elasticsearchConfig :: Lude.Maybe ElasticsearchDataSourceConfig
+    type' :: Core.Maybe Types.DataSourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataSource' with the minimum fields required to make a request.
---
--- * 'serviceRoleARN' - The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
--- * 'relationalDatabaseConfig' - Relational database settings.
--- * 'dataSourceARN' - The data source ARN.
--- * 'dynamodbConfig' - Amazon DynamoDB settings.
--- * 'name' - The name of the data source.
--- * 'httpConfig' - HTTP endpoint settings.
--- * 'lambdaConfig' - AWS Lambda settings.
--- * 'type'' - The type of the data source.
---
---
---     * __AMAZON_DYNAMODB__ : The data source is an Amazon DynamoDB table.
---
---
---     * __AMAZON_ELASTICSEARCH__ : The data source is an Amazon Elasticsearch Service domain.
---
---
---     * __AWS_LAMBDA__ : The data source is an AWS Lambda function.
---
---
---     * __NONE__ : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
---
---
---     * __HTTP__ : The data source is an HTTP endpoint.
---
---
---     * __RELATIONAL_DATABASE__ : The data source is a relational database.
---
---
--- * 'description' - The description of the data source.
--- * 'elasticsearchConfig' - Amazon Elasticsearch Service settings.
+-- | Creates a 'DataSource' value with any optional fields omitted.
 mkDataSource ::
   DataSource
 mkDataSource =
   DataSource'
-    { serviceRoleARN = Lude.Nothing,
-      relationalDatabaseConfig = Lude.Nothing,
-      dataSourceARN = Lude.Nothing,
-      dynamodbConfig = Lude.Nothing,
-      name = Lude.Nothing,
-      httpConfig = Lude.Nothing,
-      lambdaConfig = Lude.Nothing,
-      type' = Lude.Nothing,
-      description = Lude.Nothing,
-      elasticsearchConfig = Lude.Nothing
+    { dataSourceArn = Core.Nothing,
+      description = Core.Nothing,
+      dynamodbConfig = Core.Nothing,
+      elasticsearchConfig = Core.Nothing,
+      httpConfig = Core.Nothing,
+      lambdaConfig = Core.Nothing,
+      name = Core.Nothing,
+      relationalDatabaseConfig = Core.Nothing,
+      serviceRoleArn = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
---
--- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsServiceRoleARN :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
-dsServiceRoleARN = Lens.lens (serviceRoleARN :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: DataSource)
-{-# DEPRECATED dsServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
-
--- | Relational database settings.
---
--- /Note:/ Consider using 'relationalDatabaseConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsRelationalDatabaseConfig :: Lens.Lens' DataSource (Lude.Maybe RelationalDatabaseDataSourceConfig)
-dsRelationalDatabaseConfig = Lens.lens (relationalDatabaseConfig :: DataSource -> Lude.Maybe RelationalDatabaseDataSourceConfig) (\s a -> s {relationalDatabaseConfig = a} :: DataSource)
-{-# DEPRECATED dsRelationalDatabaseConfig "Use generic-lens or generic-optics with 'relationalDatabaseConfig' instead." #-}
 
 -- | The data source ARN.
 --
--- /Note:/ Consider using 'dataSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDataSourceARN :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
-dsDataSourceARN = Lens.lens (dataSourceARN :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceARN = a} :: DataSource)
-{-# DEPRECATED dsDataSourceARN "Use generic-lens or generic-optics with 'dataSourceARN' instead." #-}
+-- /Note:/ Consider using 'dataSourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDataSourceArn :: Lens.Lens' DataSource (Core.Maybe Types.String)
+dsDataSourceArn = Lens.field @"dataSourceArn"
+{-# DEPRECATED dsDataSourceArn "Use generic-lens or generic-optics with 'dataSourceArn' instead." #-}
+
+-- | The description of the data source.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDescription :: Lens.Lens' DataSource (Core.Maybe Types.String)
+dsDescription = Lens.field @"description"
+{-# DEPRECATED dsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Amazon DynamoDB settings.
 --
 -- /Note:/ Consider using 'dynamodbConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDynamodbConfig :: Lens.Lens' DataSource (Lude.Maybe DynamodbDataSourceConfig)
-dsDynamodbConfig = Lens.lens (dynamodbConfig :: DataSource -> Lude.Maybe DynamodbDataSourceConfig) (\s a -> s {dynamodbConfig = a} :: DataSource)
+dsDynamodbConfig :: Lens.Lens' DataSource (Core.Maybe Types.DynamodbDataSourceConfig)
+dsDynamodbConfig = Lens.field @"dynamodbConfig"
 {-# DEPRECATED dsDynamodbConfig "Use generic-lens or generic-optics with 'dynamodbConfig' instead." #-}
 
--- | The name of the data source.
+-- | Amazon Elasticsearch Service settings.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsName :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
-dsName = Lens.lens (name :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DataSource)
-{-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'elasticsearchConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsElasticsearchConfig :: Lens.Lens' DataSource (Core.Maybe Types.ElasticsearchDataSourceConfig)
+dsElasticsearchConfig = Lens.field @"elasticsearchConfig"
+{-# DEPRECATED dsElasticsearchConfig "Use generic-lens or generic-optics with 'elasticsearchConfig' instead." #-}
 
 -- | HTTP endpoint settings.
 --
 -- /Note:/ Consider using 'httpConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsHttpConfig :: Lens.Lens' DataSource (Lude.Maybe HTTPDataSourceConfig)
-dsHttpConfig = Lens.lens (httpConfig :: DataSource -> Lude.Maybe HTTPDataSourceConfig) (\s a -> s {httpConfig = a} :: DataSource)
+dsHttpConfig :: Lens.Lens' DataSource (Core.Maybe Types.HttpDataSourceConfig)
+dsHttpConfig = Lens.field @"httpConfig"
 {-# DEPRECATED dsHttpConfig "Use generic-lens or generic-optics with 'httpConfig' instead." #-}
 
 -- | AWS Lambda settings.
 --
 -- /Note:/ Consider using 'lambdaConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLambdaConfig :: Lens.Lens' DataSource (Lude.Maybe LambdaDataSourceConfig)
-dsLambdaConfig = Lens.lens (lambdaConfig :: DataSource -> Lude.Maybe LambdaDataSourceConfig) (\s a -> s {lambdaConfig = a} :: DataSource)
+dsLambdaConfig :: Lens.Lens' DataSource (Core.Maybe Types.LambdaDataSourceConfig)
+dsLambdaConfig = Lens.field @"lambdaConfig"
 {-# DEPRECATED dsLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
+
+-- | The name of the data source.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsName :: Lens.Lens' DataSource (Core.Maybe Types.ResourceName)
+dsName = Lens.field @"name"
+{-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Relational database settings.
+--
+-- /Note:/ Consider using 'relationalDatabaseConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRelationalDatabaseConfig :: Lens.Lens' DataSource (Core.Maybe Types.RelationalDatabaseDataSourceConfig)
+dsRelationalDatabaseConfig = Lens.field @"relationalDatabaseConfig"
+{-# DEPRECATED dsRelationalDatabaseConfig "Use generic-lens or generic-optics with 'relationalDatabaseConfig' instead." #-}
+
+-- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+--
+-- /Note:/ Consider using 'serviceRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServiceRoleArn :: Lens.Lens' DataSource (Core.Maybe Types.String)
+dsServiceRoleArn = Lens.field @"serviceRoleArn"
+{-# DEPRECATED dsServiceRoleArn "Use generic-lens or generic-optics with 'serviceRoleArn' instead." #-}
 
 -- | The type of the data source.
 --
@@ -205,38 +190,22 @@ dsLambdaConfig = Lens.lens (lambdaConfig :: DataSource -> Lude.Maybe LambdaDataS
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsType :: Lens.Lens' DataSource (Lude.Maybe DataSourceType)
-dsType = Lens.lens (type' :: DataSource -> Lude.Maybe DataSourceType) (\s a -> s {type' = a} :: DataSource)
+dsType :: Lens.Lens' DataSource (Core.Maybe Types.DataSourceType)
+dsType = Lens.field @"type'"
 {-# DEPRECATED dsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The description of the data source.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDescription :: Lens.Lens' DataSource (Lude.Maybe Lude.Text)
-dsDescription = Lens.lens (description :: DataSource -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DataSource)
-{-# DEPRECATED dsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Amazon Elasticsearch Service settings.
---
--- /Note:/ Consider using 'elasticsearchConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsElasticsearchConfig :: Lens.Lens' DataSource (Lude.Maybe ElasticsearchDataSourceConfig)
-dsElasticsearchConfig = Lens.lens (elasticsearchConfig :: DataSource -> Lude.Maybe ElasticsearchDataSourceConfig) (\s a -> s {elasticsearchConfig = a} :: DataSource)
-{-# DEPRECATED dsElasticsearchConfig "Use generic-lens or generic-optics with 'elasticsearchConfig' instead." #-}
-
-instance Lude.FromJSON DataSource where
+instance Core.FromJSON DataSource where
   parseJSON =
-    Lude.withObject
-      "DataSource"
-      ( \x ->
-          DataSource'
-            Lude.<$> (x Lude..:? "serviceRoleArn")
-            Lude.<*> (x Lude..:? "relationalDatabaseConfig")
-            Lude.<*> (x Lude..:? "dataSourceArn")
-            Lude.<*> (x Lude..:? "dynamodbConfig")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "httpConfig")
-            Lude.<*> (x Lude..:? "lambdaConfig")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..:? "elasticsearchConfig")
-      )
+    Core.withObject "DataSource" Core.$
+      \x ->
+        DataSource'
+          Core.<$> (x Core..:? "dataSourceArn")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "dynamodbConfig")
+          Core.<*> (x Core..:? "elasticsearchConfig")
+          Core.<*> (x Core..:? "httpConfig")
+          Core.<*> (x Core..:? "lambdaConfig")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "relationalDatabaseConfig")
+          Core.<*> (x Core..:? "serviceRoleArn")
+          Core.<*> (x Core..:? "type")

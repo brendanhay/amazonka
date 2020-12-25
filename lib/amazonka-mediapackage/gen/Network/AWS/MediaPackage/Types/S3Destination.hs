@@ -17,87 +17,77 @@ module Network.AWS.MediaPackage.Types.S3Destination
     mkS3Destination,
 
     -- * Lenses
-    sdBucketName,
     sdManifestKey,
-    sdRoleARN,
+    sdBucketName,
+    sdRoleArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration parameters for where in an S3 bucket to place the harvested content
 --
 -- /See:/ 'mkS3Destination' smart constructor.
 data S3Destination = S3Destination'
-  { -- | The name of an S3 bucket within which harvested content will be exported
-    bucketName :: Lude.Text,
-    -- | The key in the specified S3 bucket where the harvested top-level manifest will be placed.
-    manifestKey :: Lude.Text,
+  { -- | The key in the specified S3 bucket where the harvested top-level manifest will be placed.
+    manifestKey :: Core.Text,
+    -- | The name of an S3 bucket within which harvested content will be exported
+    bucketName :: Core.Text,
     -- | The IAM role used to write to the specified S3 bucket
-    roleARN :: Lude.Text
+    roleArn :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Destination' with the minimum fields required to make a request.
---
--- * 'bucketName' - The name of an S3 bucket within which harvested content will be exported
--- * 'manifestKey' - The key in the specified S3 bucket where the harvested top-level manifest will be placed.
--- * 'roleARN' - The IAM role used to write to the specified S3 bucket
+-- | Creates a 'S3Destination' value with any optional fields omitted.
 mkS3Destination ::
-  -- | 'bucketName'
-  Lude.Text ->
   -- | 'manifestKey'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'bucketName'
+  Core.Text ->
+  -- | 'roleArn'
+  Core.Text ->
   S3Destination
-mkS3Destination pBucketName_ pManifestKey_ pRoleARN_ =
-  S3Destination'
-    { bucketName = pBucketName_,
-      manifestKey = pManifestKey_,
-      roleARN = pRoleARN_
-    }
-
--- | The name of an S3 bucket within which harvested content will be exported
---
--- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdBucketName :: Lens.Lens' S3Destination Lude.Text
-sdBucketName = Lens.lens (bucketName :: S3Destination -> Lude.Text) (\s a -> s {bucketName = a} :: S3Destination)
-{-# DEPRECATED sdBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
+mkS3Destination manifestKey bucketName roleArn =
+  S3Destination' {manifestKey, bucketName, roleArn}
 
 -- | The key in the specified S3 bucket where the harvested top-level manifest will be placed.
 --
 -- /Note:/ Consider using 'manifestKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdManifestKey :: Lens.Lens' S3Destination Lude.Text
-sdManifestKey = Lens.lens (manifestKey :: S3Destination -> Lude.Text) (\s a -> s {manifestKey = a} :: S3Destination)
+sdManifestKey :: Lens.Lens' S3Destination Core.Text
+sdManifestKey = Lens.field @"manifestKey"
 {-# DEPRECATED sdManifestKey "Use generic-lens or generic-optics with 'manifestKey' instead." #-}
+
+-- | The name of an S3 bucket within which harvested content will be exported
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdBucketName :: Lens.Lens' S3Destination Core.Text
+sdBucketName = Lens.field @"bucketName"
+{-# DEPRECATED sdBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | The IAM role used to write to the specified S3 bucket
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdRoleARN :: Lens.Lens' S3Destination Lude.Text
-sdRoleARN = Lens.lens (roleARN :: S3Destination -> Lude.Text) (\s a -> s {roleARN = a} :: S3Destination)
-{-# DEPRECATED sdRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdRoleArn :: Lens.Lens' S3Destination Core.Text
+sdRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED sdRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON S3Destination where
-  parseJSON =
-    Lude.withObject
-      "S3Destination"
-      ( \x ->
-          S3Destination'
-            Lude.<$> (x Lude..: "bucketName")
-            Lude.<*> (x Lude..: "manifestKey")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON S3Destination where
-  toJSON S3Destination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("bucketName" Lude..= bucketName),
-            Lude.Just ("manifestKey" Lude..= manifestKey),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON S3Destination where
+  toJSON S3Destination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("manifestKey" Core..= manifestKey),
+            Core.Just ("bucketName" Core..= bucketName),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )
+
+instance Core.FromJSON S3Destination where
+  parseJSON =
+    Core.withObject "S3Destination" Core.$
+      \x ->
+        S3Destination'
+          Core.<$> (x Core..: "manifestKey")
+          Core.<*> (x Core..: "bucketName")
+          Core.<*> (x Core..: "roleArn")

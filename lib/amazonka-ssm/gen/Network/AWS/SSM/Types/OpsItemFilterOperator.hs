@@ -13,56 +13,61 @@
 module Network.AWS.SSM.Types.OpsItemFilterOperator
   ( OpsItemFilterOperator
       ( OpsItemFilterOperator',
-        OIFOEqual,
-        OIFOContains,
-        OIFOGreaterThan,
-        OIFOLessThan
+        OpsItemFilterOperatorEqual,
+        OpsItemFilterOperatorContains,
+        OpsItemFilterOperatorGreaterThan,
+        OpsItemFilterOperatorLessThan,
+        fromOpsItemFilterOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OpsItemFilterOperator = OpsItemFilterOperator' Lude.Text
+newtype OpsItemFilterOperator = OpsItemFilterOperator'
+  { fromOpsItemFilterOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OIFOEqual :: OpsItemFilterOperator
-pattern OIFOEqual = OpsItemFilterOperator' "Equal"
+pattern OpsItemFilterOperatorEqual :: OpsItemFilterOperator
+pattern OpsItemFilterOperatorEqual = OpsItemFilterOperator' "Equal"
 
-pattern OIFOContains :: OpsItemFilterOperator
-pattern OIFOContains = OpsItemFilterOperator' "Contains"
+pattern OpsItemFilterOperatorContains :: OpsItemFilterOperator
+pattern OpsItemFilterOperatorContains = OpsItemFilterOperator' "Contains"
 
-pattern OIFOGreaterThan :: OpsItemFilterOperator
-pattern OIFOGreaterThan = OpsItemFilterOperator' "GreaterThan"
+pattern OpsItemFilterOperatorGreaterThan :: OpsItemFilterOperator
+pattern OpsItemFilterOperatorGreaterThan = OpsItemFilterOperator' "GreaterThan"
 
-pattern OIFOLessThan :: OpsItemFilterOperator
-pattern OIFOLessThan = OpsItemFilterOperator' "LessThan"
+pattern OpsItemFilterOperatorLessThan :: OpsItemFilterOperator
+pattern OpsItemFilterOperatorLessThan = OpsItemFilterOperator' "LessThan"
 
 {-# COMPLETE
-  OIFOEqual,
-  OIFOContains,
-  OIFOGreaterThan,
-  OIFOLessThan,
+  OpsItemFilterOperatorEqual,
+  OpsItemFilterOperatorContains,
+  OpsItemFilterOperatorGreaterThan,
+  OpsItemFilterOperatorLessThan,
   OpsItemFilterOperator'
   #-}

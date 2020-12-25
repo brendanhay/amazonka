@@ -13,181 +13,183 @@
 module Network.AWS.Polly.Types.LanguageCode
   ( LanguageCode
       ( LanguageCode',
-        Arb,
-        CmnCn,
-        CyGb,
-        DaDk,
-        DeDe,
-        EnAu,
-        EnGb,
-        EnGbWls,
-        EnIn,
-        EnUs,
-        EsEs,
-        EsMx,
-        EsUs,
-        FrCa,
-        FrFr,
-        IsIs,
-        ItIt,
-        JaJp,
-        HiIn,
-        KoKr,
-        NbNo,
-        NlNl,
-        PlPl,
-        PtBr,
-        PtPt,
-        RoRo,
-        RuRu,
-        SvSe,
-        TrTr
+        LanguageCodeArb,
+        LanguageCodeCmnCn,
+        LanguageCodeCyGb,
+        LanguageCodeDaDk,
+        LanguageCodeDeDe,
+        LanguageCodeEnAu,
+        LanguageCodeEnGb,
+        LanguageCodeEnGbWls,
+        LanguageCodeEnIn,
+        LanguageCodeEnUs,
+        LanguageCodeEsEs,
+        LanguageCodeEsMx,
+        LanguageCodeEsUs,
+        LanguageCodeFrCa,
+        LanguageCodeFrFr,
+        LanguageCodeIsIs,
+        LanguageCodeItIt,
+        LanguageCodeJaJp,
+        LanguageCodeHiIn,
+        LanguageCodeKoKr,
+        LanguageCodeNbNo,
+        LanguageCodeNlNl,
+        LanguageCodePlPl,
+        LanguageCodePtBr,
+        LanguageCodePtPt,
+        LanguageCodeRoRo,
+        LanguageCodeRuRu,
+        LanguageCodeSvSe,
+        LanguageCodeTrTr,
+        fromLanguageCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LanguageCode = LanguageCode' Lude.Text
+newtype LanguageCode = LanguageCode' {fromLanguageCode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Arb :: LanguageCode
-pattern Arb = LanguageCode' "arb"
+pattern LanguageCodeArb :: LanguageCode
+pattern LanguageCodeArb = LanguageCode' "arb"
 
-pattern CmnCn :: LanguageCode
-pattern CmnCn = LanguageCode' "cmn-CN"
+pattern LanguageCodeCmnCn :: LanguageCode
+pattern LanguageCodeCmnCn = LanguageCode' "cmn-CN"
 
-pattern CyGb :: LanguageCode
-pattern CyGb = LanguageCode' "cy-GB"
+pattern LanguageCodeCyGb :: LanguageCode
+pattern LanguageCodeCyGb = LanguageCode' "cy-GB"
 
-pattern DaDk :: LanguageCode
-pattern DaDk = LanguageCode' "da-DK"
+pattern LanguageCodeDaDk :: LanguageCode
+pattern LanguageCodeDaDk = LanguageCode' "da-DK"
 
-pattern DeDe :: LanguageCode
-pattern DeDe = LanguageCode' "de-DE"
+pattern LanguageCodeDeDe :: LanguageCode
+pattern LanguageCodeDeDe = LanguageCode' "de-DE"
 
-pattern EnAu :: LanguageCode
-pattern EnAu = LanguageCode' "en-AU"
+pattern LanguageCodeEnAu :: LanguageCode
+pattern LanguageCodeEnAu = LanguageCode' "en-AU"
 
-pattern EnGb :: LanguageCode
-pattern EnGb = LanguageCode' "en-GB"
+pattern LanguageCodeEnGb :: LanguageCode
+pattern LanguageCodeEnGb = LanguageCode' "en-GB"
 
-pattern EnGbWls :: LanguageCode
-pattern EnGbWls = LanguageCode' "en-GB-WLS"
+pattern LanguageCodeEnGbWls :: LanguageCode
+pattern LanguageCodeEnGbWls = LanguageCode' "en-GB-WLS"
 
-pattern EnIn :: LanguageCode
-pattern EnIn = LanguageCode' "en-IN"
+pattern LanguageCodeEnIn :: LanguageCode
+pattern LanguageCodeEnIn = LanguageCode' "en-IN"
 
-pattern EnUs :: LanguageCode
-pattern EnUs = LanguageCode' "en-US"
+pattern LanguageCodeEnUs :: LanguageCode
+pattern LanguageCodeEnUs = LanguageCode' "en-US"
 
-pattern EsEs :: LanguageCode
-pattern EsEs = LanguageCode' "es-ES"
+pattern LanguageCodeEsEs :: LanguageCode
+pattern LanguageCodeEsEs = LanguageCode' "es-ES"
 
-pattern EsMx :: LanguageCode
-pattern EsMx = LanguageCode' "es-MX"
+pattern LanguageCodeEsMx :: LanguageCode
+pattern LanguageCodeEsMx = LanguageCode' "es-MX"
 
-pattern EsUs :: LanguageCode
-pattern EsUs = LanguageCode' "es-US"
+pattern LanguageCodeEsUs :: LanguageCode
+pattern LanguageCodeEsUs = LanguageCode' "es-US"
 
-pattern FrCa :: LanguageCode
-pattern FrCa = LanguageCode' "fr-CA"
+pattern LanguageCodeFrCa :: LanguageCode
+pattern LanguageCodeFrCa = LanguageCode' "fr-CA"
 
-pattern FrFr :: LanguageCode
-pattern FrFr = LanguageCode' "fr-FR"
+pattern LanguageCodeFrFr :: LanguageCode
+pattern LanguageCodeFrFr = LanguageCode' "fr-FR"
 
-pattern IsIs :: LanguageCode
-pattern IsIs = LanguageCode' "is-IS"
+pattern LanguageCodeIsIs :: LanguageCode
+pattern LanguageCodeIsIs = LanguageCode' "is-IS"
 
-pattern ItIt :: LanguageCode
-pattern ItIt = LanguageCode' "it-IT"
+pattern LanguageCodeItIt :: LanguageCode
+pattern LanguageCodeItIt = LanguageCode' "it-IT"
 
-pattern JaJp :: LanguageCode
-pattern JaJp = LanguageCode' "ja-JP"
+pattern LanguageCodeJaJp :: LanguageCode
+pattern LanguageCodeJaJp = LanguageCode' "ja-JP"
 
-pattern HiIn :: LanguageCode
-pattern HiIn = LanguageCode' "hi-IN"
+pattern LanguageCodeHiIn :: LanguageCode
+pattern LanguageCodeHiIn = LanguageCode' "hi-IN"
 
-pattern KoKr :: LanguageCode
-pattern KoKr = LanguageCode' "ko-KR"
+pattern LanguageCodeKoKr :: LanguageCode
+pattern LanguageCodeKoKr = LanguageCode' "ko-KR"
 
-pattern NbNo :: LanguageCode
-pattern NbNo = LanguageCode' "nb-NO"
+pattern LanguageCodeNbNo :: LanguageCode
+pattern LanguageCodeNbNo = LanguageCode' "nb-NO"
 
-pattern NlNl :: LanguageCode
-pattern NlNl = LanguageCode' "nl-NL"
+pattern LanguageCodeNlNl :: LanguageCode
+pattern LanguageCodeNlNl = LanguageCode' "nl-NL"
 
-pattern PlPl :: LanguageCode
-pattern PlPl = LanguageCode' "pl-PL"
+pattern LanguageCodePlPl :: LanguageCode
+pattern LanguageCodePlPl = LanguageCode' "pl-PL"
 
-pattern PtBr :: LanguageCode
-pattern PtBr = LanguageCode' "pt-BR"
+pattern LanguageCodePtBr :: LanguageCode
+pattern LanguageCodePtBr = LanguageCode' "pt-BR"
 
-pattern PtPt :: LanguageCode
-pattern PtPt = LanguageCode' "pt-PT"
+pattern LanguageCodePtPt :: LanguageCode
+pattern LanguageCodePtPt = LanguageCode' "pt-PT"
 
-pattern RoRo :: LanguageCode
-pattern RoRo = LanguageCode' "ro-RO"
+pattern LanguageCodeRoRo :: LanguageCode
+pattern LanguageCodeRoRo = LanguageCode' "ro-RO"
 
-pattern RuRu :: LanguageCode
-pattern RuRu = LanguageCode' "ru-RU"
+pattern LanguageCodeRuRu :: LanguageCode
+pattern LanguageCodeRuRu = LanguageCode' "ru-RU"
 
-pattern SvSe :: LanguageCode
-pattern SvSe = LanguageCode' "sv-SE"
+pattern LanguageCodeSvSe :: LanguageCode
+pattern LanguageCodeSvSe = LanguageCode' "sv-SE"
 
-pattern TrTr :: LanguageCode
-pattern TrTr = LanguageCode' "tr-TR"
+pattern LanguageCodeTrTr :: LanguageCode
+pattern LanguageCodeTrTr = LanguageCode' "tr-TR"
 
 {-# COMPLETE
-  Arb,
-  CmnCn,
-  CyGb,
-  DaDk,
-  DeDe,
-  EnAu,
-  EnGb,
-  EnGbWls,
-  EnIn,
-  EnUs,
-  EsEs,
-  EsMx,
-  EsUs,
-  FrCa,
-  FrFr,
-  IsIs,
-  ItIt,
-  JaJp,
-  HiIn,
-  KoKr,
-  NbNo,
-  NlNl,
-  PlPl,
-  PtBr,
-  PtPt,
-  RoRo,
-  RuRu,
-  SvSe,
-  TrTr,
+  LanguageCodeArb,
+  LanguageCodeCmnCn,
+  LanguageCodeCyGb,
+  LanguageCodeDaDk,
+  LanguageCodeDeDe,
+  LanguageCodeEnAu,
+  LanguageCodeEnGb,
+  LanguageCodeEnGbWls,
+  LanguageCodeEnIn,
+  LanguageCodeEnUs,
+  LanguageCodeEsEs,
+  LanguageCodeEsMx,
+  LanguageCodeEsUs,
+  LanguageCodeFrCa,
+  LanguageCodeFrFr,
+  LanguageCodeIsIs,
+  LanguageCodeItIt,
+  LanguageCodeJaJp,
+  LanguageCodeHiIn,
+  LanguageCodeKoKr,
+  LanguageCodeNbNo,
+  LanguageCodeNlNl,
+  LanguageCodePlPl,
+  LanguageCodePtBr,
+  LanguageCodePtPt,
+  LanguageCodeRoRo,
+  LanguageCodeRuRu,
+  LanguageCodeSvSe,
+  LanguageCodeTrTr,
   LanguageCode'
   #-}

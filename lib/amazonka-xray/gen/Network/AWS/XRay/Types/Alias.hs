@@ -17,71 +17,66 @@ module Network.AWS.XRay.Types.Alias
     mkAlias,
 
     -- * Lenses
-    aNames,
     aName,
+    aNames,
     aType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | An alias for an edge.
 --
 -- /See:/ 'mkAlias' smart constructor.
 data Alias = Alias'
-  { -- | A list of names for the alias, including the canonical name.
-    names :: Lude.Maybe [Lude.Text],
-    -- | The canonical name of the alias.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The canonical name of the alias.
+    name :: Core.Maybe Types.String,
+    -- | A list of names for the alias, including the canonical name.
+    names :: Core.Maybe [Types.String],
     -- | The type of the alias.
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Alias' with the minimum fields required to make a request.
---
--- * 'names' - A list of names for the alias, including the canonical name.
--- * 'name' - The canonical name of the alias.
--- * 'type'' - The type of the alias.
+-- | Creates a 'Alias' value with any optional fields omitted.
 mkAlias ::
   Alias
 mkAlias =
   Alias'
-    { names = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing
+    { name = Core.Nothing,
+      names = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | A list of names for the alias, including the canonical name.
---
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aNames :: Lens.Lens' Alias (Lude.Maybe [Lude.Text])
-aNames = Lens.lens (names :: Alias -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: Alias)
-{-# DEPRECATED aNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The canonical name of the alias.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
-aName = Lens.lens (name :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Alias)
+aName :: Lens.Lens' Alias (Core.Maybe Types.String)
+aName = Lens.field @"name"
 {-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A list of names for the alias, including the canonical name.
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNames :: Lens.Lens' Alias (Core.Maybe [Types.String])
+aNames = Lens.field @"names"
+{-# DEPRECATED aNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The type of the alias.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aType :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
-aType = Lens.lens (type' :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Alias)
+aType :: Lens.Lens' Alias (Core.Maybe Types.String)
+aType = Lens.field @"type'"
 {-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Alias where
+instance Core.FromJSON Alias where
   parseJSON =
-    Lude.withObject
-      "Alias"
-      ( \x ->
-          Alias'
-            Lude.<$> (x Lude..:? "Names" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "Alias" Core.$
+      \x ->
+        Alias'
+          Core.<$> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Names")
+          Core.<*> (x Core..:? "Type")

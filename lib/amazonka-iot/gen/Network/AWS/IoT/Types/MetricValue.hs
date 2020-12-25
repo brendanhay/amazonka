@@ -23,75 +23,70 @@ module Network.AWS.IoT.Types.MetricValue
   )
 where
 
+import qualified Network.AWS.IoT.Types.Cidr as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The value to be compared with the @metric@ .
 --
 -- /See:/ 'mkMetricValue' smart constructor.
 data MetricValue = MetricValue'
   { -- | If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
-    cidrs :: Lude.Maybe [Lude.Text],
+    cidrs :: Core.Maybe [Types.Cidr],
     -- | If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
-    count :: Lude.Maybe Lude.Natural,
+    count :: Core.Maybe Core.Natural,
     -- | If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
-    ports :: Lude.Maybe [Lude.Natural]
+    ports :: Core.Maybe [Core.Natural]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricValue' with the minimum fields required to make a request.
---
--- * 'cidrs' - If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
--- * 'count' - If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
--- * 'ports' - If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
+-- | Creates a 'MetricValue' value with any optional fields omitted.
 mkMetricValue ::
   MetricValue
 mkMetricValue =
   MetricValue'
-    { cidrs = Lude.Nothing,
-      count = Lude.Nothing,
-      ports = Lude.Nothing
+    { cidrs = Core.Nothing,
+      count = Core.Nothing,
+      ports = Core.Nothing
     }
 
 -- | If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
 --
 -- /Note:/ Consider using 'cidrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvCidrs :: Lens.Lens' MetricValue (Lude.Maybe [Lude.Text])
-mvCidrs = Lens.lens (cidrs :: MetricValue -> Lude.Maybe [Lude.Text]) (\s a -> s {cidrs = a} :: MetricValue)
+mvCidrs :: Lens.Lens' MetricValue (Core.Maybe [Types.Cidr])
+mvCidrs = Lens.field @"cidrs"
 {-# DEPRECATED mvCidrs "Use generic-lens or generic-optics with 'cidrs' instead." #-}
 
 -- | If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvCount :: Lens.Lens' MetricValue (Lude.Maybe Lude.Natural)
-mvCount = Lens.lens (count :: MetricValue -> Lude.Maybe Lude.Natural) (\s a -> s {count = a} :: MetricValue)
+mvCount :: Lens.Lens' MetricValue (Core.Maybe Core.Natural)
+mvCount = Lens.field @"count"
 {-# DEPRECATED mvCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
 --
 -- /Note:/ Consider using 'ports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvPorts :: Lens.Lens' MetricValue (Lude.Maybe [Lude.Natural])
-mvPorts = Lens.lens (ports :: MetricValue -> Lude.Maybe [Lude.Natural]) (\s a -> s {ports = a} :: MetricValue)
+mvPorts :: Lens.Lens' MetricValue (Core.Maybe [Core.Natural])
+mvPorts = Lens.field @"ports"
 {-# DEPRECATED mvPorts "Use generic-lens or generic-optics with 'ports' instead." #-}
 
-instance Lude.FromJSON MetricValue where
-  parseJSON =
-    Lude.withObject
-      "MetricValue"
-      ( \x ->
-          MetricValue'
-            Lude.<$> (x Lude..:? "cidrs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "count")
-            Lude.<*> (x Lude..:? "ports" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON MetricValue where
-  toJSON MetricValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cidrs" Lude..=) Lude.<$> cidrs,
-            ("count" Lude..=) Lude.<$> count,
-            ("ports" Lude..=) Lude.<$> ports
+instance Core.FromJSON MetricValue where
+  toJSON MetricValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cidrs" Core..=) Core.<$> cidrs,
+            ("count" Core..=) Core.<$> count,
+            ("ports" Core..=) Core.<$> ports
           ]
       )
+
+instance Core.FromJSON MetricValue where
+  parseJSON =
+    Core.withObject "MetricValue" Core.$
+      \x ->
+        MetricValue'
+          Core.<$> (x Core..:? "cidrs")
+          Core.<*> (x Core..:? "count")
+          Core.<*> (x Core..:? "ports")

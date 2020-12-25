@@ -18,82 +18,78 @@ module Network.AWS.SageMaker.Types.ResourceSpec
 
     -- * Lenses
     rsInstanceType,
-    rsSageMakerImageARN,
-    rsSageMakerImageVersionARN,
+    rsSageMakerImageArn,
+    rsSageMakerImageVersionArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AppInstanceType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AppInstanceType as Types
+import qualified Network.AWS.SageMaker.Types.SageMakerImageArn as Types
+import qualified Network.AWS.SageMaker.Types.SageMakerImageVersionArn as Types
 
 -- | Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 --
 -- /See:/ 'mkResourceSpec' smart constructor.
 data ResourceSpec = ResourceSpec'
   { -- | The instance type that the image version runs on.
-    instanceType :: Lude.Maybe AppInstanceType,
+    instanceType :: Core.Maybe Types.AppInstanceType,
     -- | The ARN of the SageMaker image that the image version belongs to.
-    sageMakerImageARN :: Lude.Maybe Lude.Text,
+    sageMakerImageArn :: Core.Maybe Types.SageMakerImageArn,
     -- | The ARN of the image version created on the instance.
-    sageMakerImageVersionARN :: Lude.Maybe Lude.Text
+    sageMakerImageVersionArn :: Core.Maybe Types.SageMakerImageVersionArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceSpec' with the minimum fields required to make a request.
---
--- * 'instanceType' - The instance type that the image version runs on.
--- * 'sageMakerImageARN' - The ARN of the SageMaker image that the image version belongs to.
--- * 'sageMakerImageVersionARN' - The ARN of the image version created on the instance.
+-- | Creates a 'ResourceSpec' value with any optional fields omitted.
 mkResourceSpec ::
   ResourceSpec
 mkResourceSpec =
   ResourceSpec'
-    { instanceType = Lude.Nothing,
-      sageMakerImageARN = Lude.Nothing,
-      sageMakerImageVersionARN = Lude.Nothing
+    { instanceType = Core.Nothing,
+      sageMakerImageArn = Core.Nothing,
+      sageMakerImageVersionArn = Core.Nothing
     }
 
 -- | The instance type that the image version runs on.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsInstanceType :: Lens.Lens' ResourceSpec (Lude.Maybe AppInstanceType)
-rsInstanceType = Lens.lens (instanceType :: ResourceSpec -> Lude.Maybe AppInstanceType) (\s a -> s {instanceType = a} :: ResourceSpec)
+rsInstanceType :: Lens.Lens' ResourceSpec (Core.Maybe Types.AppInstanceType)
+rsInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED rsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The ARN of the SageMaker image that the image version belongs to.
 --
--- /Note:/ Consider using 'sageMakerImageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsSageMakerImageARN :: Lens.Lens' ResourceSpec (Lude.Maybe Lude.Text)
-rsSageMakerImageARN = Lens.lens (sageMakerImageARN :: ResourceSpec -> Lude.Maybe Lude.Text) (\s a -> s {sageMakerImageARN = a} :: ResourceSpec)
-{-# DEPRECATED rsSageMakerImageARN "Use generic-lens or generic-optics with 'sageMakerImageARN' instead." #-}
+-- /Note:/ Consider using 'sageMakerImageArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsSageMakerImageArn :: Lens.Lens' ResourceSpec (Core.Maybe Types.SageMakerImageArn)
+rsSageMakerImageArn = Lens.field @"sageMakerImageArn"
+{-# DEPRECATED rsSageMakerImageArn "Use generic-lens or generic-optics with 'sageMakerImageArn' instead." #-}
 
 -- | The ARN of the image version created on the instance.
 --
--- /Note:/ Consider using 'sageMakerImageVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsSageMakerImageVersionARN :: Lens.Lens' ResourceSpec (Lude.Maybe Lude.Text)
-rsSageMakerImageVersionARN = Lens.lens (sageMakerImageVersionARN :: ResourceSpec -> Lude.Maybe Lude.Text) (\s a -> s {sageMakerImageVersionARN = a} :: ResourceSpec)
-{-# DEPRECATED rsSageMakerImageVersionARN "Use generic-lens or generic-optics with 'sageMakerImageVersionARN' instead." #-}
+-- /Note:/ Consider using 'sageMakerImageVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsSageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Core.Maybe Types.SageMakerImageVersionArn)
+rsSageMakerImageVersionArn = Lens.field @"sageMakerImageVersionArn"
+{-# DEPRECATED rsSageMakerImageVersionArn "Use generic-lens or generic-optics with 'sageMakerImageVersionArn' instead." #-}
 
-instance Lude.FromJSON ResourceSpec where
-  parseJSON =
-    Lude.withObject
-      "ResourceSpec"
-      ( \x ->
-          ResourceSpec'
-            Lude.<$> (x Lude..:? "InstanceType")
-            Lude.<*> (x Lude..:? "SageMakerImageArn")
-            Lude.<*> (x Lude..:? "SageMakerImageVersionArn")
-      )
-
-instance Lude.ToJSON ResourceSpec where
-  toJSON ResourceSpec' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InstanceType" Lude..=) Lude.<$> instanceType,
-            ("SageMakerImageArn" Lude..=) Lude.<$> sageMakerImageARN,
-            ("SageMakerImageVersionArn" Lude..=)
-              Lude.<$> sageMakerImageVersionARN
+instance Core.FromJSON ResourceSpec where
+  toJSON ResourceSpec {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceType" Core..=) Core.<$> instanceType,
+            ("SageMakerImageArn" Core..=) Core.<$> sageMakerImageArn,
+            ("SageMakerImageVersionArn" Core..=)
+              Core.<$> sageMakerImageVersionArn
           ]
       )
+
+instance Core.FromJSON ResourceSpec where
+  parseJSON =
+    Core.withObject "ResourceSpec" Core.$
+      \x ->
+        ResourceSpec'
+          Core.<$> (x Core..:? "InstanceType")
+          Core.<*> (x Core..:? "SageMakerImageArn")
+          Core.<*> (x Core..:? "SageMakerImageVersionArn")

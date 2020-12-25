@@ -13,46 +13,48 @@
 module Network.AWS.CostExplorer.Types.AccountScope
   ( AccountScope
       ( AccountScope',
-        Payer,
-        Linked
+        AccountScopePayer,
+        AccountScopeLinked,
+        fromAccountScope
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AccountScope = AccountScope' Lude.Text
+newtype AccountScope = AccountScope' {fromAccountScope :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Payer :: AccountScope
-pattern Payer = AccountScope' "PAYER"
+pattern AccountScopePayer :: AccountScope
+pattern AccountScopePayer = AccountScope' "PAYER"
 
-pattern Linked :: AccountScope
-pattern Linked = AccountScope' "LINKED"
+pattern AccountScopeLinked :: AccountScope
+pattern AccountScopeLinked = AccountScope' "LINKED"
 
 {-# COMPLETE
-  Payer,
-  Linked,
+  AccountScopePayer,
+  AccountScopeLinked,
   AccountScope'
   #-}

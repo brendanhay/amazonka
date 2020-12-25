@@ -17,84 +17,78 @@ module Network.AWS.MediaConvert.Types.CmfcSettings
     mkCmfcSettings,
 
     -- * Lenses
-    csScte35Esam,
     csAudioDuration,
+    csScte35Esam,
     csScte35Source,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CmfcAudioDuration
-import Network.AWS.MediaConvert.Types.CmfcScte35Esam
-import Network.AWS.MediaConvert.Types.CmfcScte35Source
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.CmfcAudioDuration as Types
+import qualified Network.AWS.MediaConvert.Types.CmfcScte35Esam as Types
+import qualified Network.AWS.MediaConvert.Types.CmfcScte35Source as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for MP4 segments in CMAF
 --
 -- /See:/ 'mkCmfcSettings' smart constructor.
 data CmfcSettings = CmfcSettings'
-  { -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
-    scte35Esam :: Lude.Maybe CmfcScte35Esam,
-    -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
-    audioDuration :: Lude.Maybe CmfcAudioDuration,
+  { -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+    audioDuration :: Core.Maybe Types.CmfcAudioDuration,
+    -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+    scte35Esam :: Core.Maybe Types.CmfcScte35Esam,
     -- | Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-    scte35Source :: Lude.Maybe CmfcScte35Source
+    scte35Source :: Core.Maybe Types.CmfcScte35Source
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CmfcSettings' with the minimum fields required to make a request.
---
--- * 'scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
--- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
--- * 'scte35Source' - Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
+-- | Creates a 'CmfcSettings' value with any optional fields omitted.
 mkCmfcSettings ::
   CmfcSettings
 mkCmfcSettings =
   CmfcSettings'
-    { scte35Esam = Lude.Nothing,
-      audioDuration = Lude.Nothing,
-      scte35Source = Lude.Nothing
+    { audioDuration = Core.Nothing,
+      scte35Esam = Core.Nothing,
+      scte35Source = Core.Nothing
     }
-
--- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
---
--- /Note:/ Consider using 'scte35Esam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csScte35Esam :: Lens.Lens' CmfcSettings (Lude.Maybe CmfcScte35Esam)
-csScte35Esam = Lens.lens (scte35Esam :: CmfcSettings -> Lude.Maybe CmfcScte35Esam) (\s a -> s {scte35Esam = a} :: CmfcSettings)
-{-# DEPRECATED csScte35Esam "Use generic-lens or generic-optics with 'scte35Esam' instead." #-}
 
 -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
 --
 -- /Note:/ Consider using 'audioDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csAudioDuration :: Lens.Lens' CmfcSettings (Lude.Maybe CmfcAudioDuration)
-csAudioDuration = Lens.lens (audioDuration :: CmfcSettings -> Lude.Maybe CmfcAudioDuration) (\s a -> s {audioDuration = a} :: CmfcSettings)
+csAudioDuration :: Lens.Lens' CmfcSettings (Core.Maybe Types.CmfcAudioDuration)
+csAudioDuration = Lens.field @"audioDuration"
 {-# DEPRECATED csAudioDuration "Use generic-lens or generic-optics with 'audioDuration' instead." #-}
+
+-- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+--
+-- /Note:/ Consider using 'scte35Esam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csScte35Esam :: Lens.Lens' CmfcSettings (Core.Maybe Types.CmfcScte35Esam)
+csScte35Esam = Lens.field @"scte35Esam"
+{-# DEPRECATED csScte35Esam "Use generic-lens or generic-optics with 'scte35Esam' instead." #-}
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
 --
 -- /Note:/ Consider using 'scte35Source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csScte35Source :: Lens.Lens' CmfcSettings (Lude.Maybe CmfcScte35Source)
-csScte35Source = Lens.lens (scte35Source :: CmfcSettings -> Lude.Maybe CmfcScte35Source) (\s a -> s {scte35Source = a} :: CmfcSettings)
+csScte35Source :: Lens.Lens' CmfcSettings (Core.Maybe Types.CmfcScte35Source)
+csScte35Source = Lens.field @"scte35Source"
 {-# DEPRECATED csScte35Source "Use generic-lens or generic-optics with 'scte35Source' instead." #-}
 
-instance Lude.FromJSON CmfcSettings where
-  parseJSON =
-    Lude.withObject
-      "CmfcSettings"
-      ( \x ->
-          CmfcSettings'
-            Lude.<$> (x Lude..:? "scte35Esam")
-            Lude.<*> (x Lude..:? "audioDuration")
-            Lude.<*> (x Lude..:? "scte35Source")
-      )
-
-instance Lude.ToJSON CmfcSettings where
-  toJSON CmfcSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("scte35Esam" Lude..=) Lude.<$> scte35Esam,
-            ("audioDuration" Lude..=) Lude.<$> audioDuration,
-            ("scte35Source" Lude..=) Lude.<$> scte35Source
+instance Core.FromJSON CmfcSettings where
+  toJSON CmfcSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioDuration" Core..=) Core.<$> audioDuration,
+            ("scte35Esam" Core..=) Core.<$> scte35Esam,
+            ("scte35Source" Core..=) Core.<$> scte35Source
           ]
       )
+
+instance Core.FromJSON CmfcSettings where
+  parseJSON =
+    Core.withObject "CmfcSettings" Core.$
+      \x ->
+        CmfcSettings'
+          Core.<$> (x Core..:? "audioDuration")
+          Core.<*> (x Core..:? "scte35Esam")
+          Core.<*> (x Core..:? "scte35Source")

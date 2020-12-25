@@ -29,147 +29,137 @@ module Network.AWS.DeviceFarm.GetOfferingStatus
     mkGetOfferingStatusResponse,
 
     -- ** Response lenses
-    gosrsNextPeriod,
-    gosrsCurrent,
-    gosrsNextToken,
-    gosrsResponseStatus,
+    gosrrsCurrent,
+    gosrrsNextPeriod,
+    gosrrsNextToken,
+    gosrrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to retrieve the offering status for the specified customer or account.
 --
 -- /See:/ 'mkGetOfferingStatus' smart constructor.
 newtype GetOfferingStatus = GetOfferingStatus'
   { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetOfferingStatus' with the minimum fields required to make a request.
---
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- | Creates a 'GetOfferingStatus' value with any optional fields omitted.
 mkGetOfferingStatus ::
   GetOfferingStatus
-mkGetOfferingStatus = GetOfferingStatus' {nextToken = Lude.Nothing}
+mkGetOfferingStatus = GetOfferingStatus' {nextToken = Core.Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gosNextToken :: Lens.Lens' GetOfferingStatus (Lude.Maybe Lude.Text)
-gosNextToken = Lens.lens (nextToken :: GetOfferingStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOfferingStatus)
+gosNextToken :: Lens.Lens' GetOfferingStatus (Core.Maybe Types.PaginationToken)
+gosNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gosNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager GetOfferingStatus where
-  page rq rs
-    | Page.stop (rs Lens.^. gosrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gosrsCurrent) = Lude.Nothing
-    | Page.stop (rs Lens.^. gosrsNextPeriod) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gosNextToken Lens..~ rs Lens.^. gosrsNextToken
+instance Core.FromJSON GetOfferingStatus where
+  toJSON GetOfferingStatus {..} =
+    Core.object
+      (Core.catMaybes [("nextToken" Core..=) Core.<$> nextToken])
 
-instance Lude.AWSRequest GetOfferingStatus where
+instance Core.AWSRequest GetOfferingStatus where
   type Rs GetOfferingStatus = GetOfferingStatusResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.GetOfferingStatus")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetOfferingStatusResponse'
-            Lude.<$> (x Lude..?> "nextPeriod" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "current" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "current")
+            Core.<*> (x Core..:? "nextPeriod")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetOfferingStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.GetOfferingStatus" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetOfferingStatus where
-  toJSON GetOfferingStatus' {..} =
-    Lude.object
-      (Lude.catMaybes [("nextToken" Lude..=) Lude.<$> nextToken])
-
-instance Lude.ToPath GetOfferingStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetOfferingStatus where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetOfferingStatus where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"current" Core.. Lens._Just) =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"nextPeriod" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Returns the status result for a device offering.
 --
 -- /See:/ 'mkGetOfferingStatusResponse' smart constructor.
 data GetOfferingStatusResponse = GetOfferingStatusResponse'
-  { -- | When specified, gets the offering status for the next period.
-    nextPeriod :: Lude.Maybe (Lude.HashMap Lude.Text (OfferingStatus)),
-    -- | When specified, gets the offering status for the current period.
-    current :: Lude.Maybe (Lude.HashMap Lude.Text (OfferingStatus)),
+  { -- | When specified, gets the offering status for the current period.
+    current :: Core.Maybe (Core.HashMap Types.OfferingIdentifier Types.OfferingStatus),
+    -- | When specified, gets the offering status for the next period.
+    nextPeriod :: Core.Maybe (Core.HashMap Types.OfferingIdentifier Types.OfferingStatus),
     -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetOfferingStatusResponse' with the minimum fields required to make a request.
---
--- * 'nextPeriod' - When specified, gets the offering status for the next period.
--- * 'current' - When specified, gets the offering status for the current period.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetOfferingStatusResponse' value with any optional fields omitted.
 mkGetOfferingStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetOfferingStatusResponse
-mkGetOfferingStatusResponse pResponseStatus_ =
+mkGetOfferingStatusResponse responseStatus =
   GetOfferingStatusResponse'
-    { nextPeriod = Lude.Nothing,
-      current = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { current = Core.Nothing,
+      nextPeriod = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | When specified, gets the offering status for the next period.
---
--- /Note:/ Consider using 'nextPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gosrsNextPeriod :: Lens.Lens' GetOfferingStatusResponse (Lude.Maybe (Lude.HashMap Lude.Text (OfferingStatus)))
-gosrsNextPeriod = Lens.lens (nextPeriod :: GetOfferingStatusResponse -> Lude.Maybe (Lude.HashMap Lude.Text (OfferingStatus))) (\s a -> s {nextPeriod = a} :: GetOfferingStatusResponse)
-{-# DEPRECATED gosrsNextPeriod "Use generic-lens or generic-optics with 'nextPeriod' instead." #-}
 
 -- | When specified, gets the offering status for the current period.
 --
 -- /Note:/ Consider using 'current' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gosrsCurrent :: Lens.Lens' GetOfferingStatusResponse (Lude.Maybe (Lude.HashMap Lude.Text (OfferingStatus)))
-gosrsCurrent = Lens.lens (current :: GetOfferingStatusResponse -> Lude.Maybe (Lude.HashMap Lude.Text (OfferingStatus))) (\s a -> s {current = a} :: GetOfferingStatusResponse)
-{-# DEPRECATED gosrsCurrent "Use generic-lens or generic-optics with 'current' instead." #-}
+gosrrsCurrent :: Lens.Lens' GetOfferingStatusResponse (Core.Maybe (Core.HashMap Types.OfferingIdentifier Types.OfferingStatus))
+gosrrsCurrent = Lens.field @"current"
+{-# DEPRECATED gosrrsCurrent "Use generic-lens or generic-optics with 'current' instead." #-}
+
+-- | When specified, gets the offering status for the next period.
+--
+-- /Note:/ Consider using 'nextPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosrrsNextPeriod :: Lens.Lens' GetOfferingStatusResponse (Core.Maybe (Core.HashMap Types.OfferingIdentifier Types.OfferingStatus))
+gosrrsNextPeriod = Lens.field @"nextPeriod"
+{-# DEPRECATED gosrrsNextPeriod "Use generic-lens or generic-optics with 'nextPeriod' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gosrsNextToken :: Lens.Lens' GetOfferingStatusResponse (Lude.Maybe Lude.Text)
-gosrsNextToken = Lens.lens (nextToken :: GetOfferingStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOfferingStatusResponse)
-{-# DEPRECATED gosrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gosrrsNextToken :: Lens.Lens' GetOfferingStatusResponse (Core.Maybe Types.PaginationToken)
+gosrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gosrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gosrsResponseStatus :: Lens.Lens' GetOfferingStatusResponse Lude.Int
-gosrsResponseStatus = Lens.lens (responseStatus :: GetOfferingStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOfferingStatusResponse)
-{-# DEPRECATED gosrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gosrrsResponseStatus :: Lens.Lens' GetOfferingStatusResponse Core.Int
+gosrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gosrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

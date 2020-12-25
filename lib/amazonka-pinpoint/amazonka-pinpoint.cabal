@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Pinpoint
     Network.AWS.Pinpoint.CreateApp
@@ -78,11 +84,11 @@ library
     Network.AWS.Pinpoint.CreateSegment
     Network.AWS.Pinpoint.CreateSmsTemplate
     Network.AWS.Pinpoint.CreateVoiceTemplate
-    Network.AWS.Pinpoint.DeleteADMChannel
-    Network.AWS.Pinpoint.DeleteAPNSChannel
-    Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
-    Network.AWS.Pinpoint.DeleteAPNSVoipChannel
-    Network.AWS.Pinpoint.DeleteAPNSVoipSandboxChannel
+    Network.AWS.Pinpoint.DeleteAdmChannel
+    Network.AWS.Pinpoint.DeleteApnsChannel
+    Network.AWS.Pinpoint.DeleteApnsSandboxChannel
+    Network.AWS.Pinpoint.DeleteApnsVoipChannel
+    Network.AWS.Pinpoint.DeleteApnsVoipSandboxChannel
     Network.AWS.Pinpoint.DeleteApp
     Network.AWS.Pinpoint.DeleteBaiduChannel
     Network.AWS.Pinpoint.DeleteCampaign
@@ -90,7 +96,7 @@ library
     Network.AWS.Pinpoint.DeleteEmailTemplate
     Network.AWS.Pinpoint.DeleteEndpoint
     Network.AWS.Pinpoint.DeleteEventStream
-    Network.AWS.Pinpoint.DeleteGCMChannel
+    Network.AWS.Pinpoint.DeleteGcmChannel
     Network.AWS.Pinpoint.DeleteJourney
     Network.AWS.Pinpoint.DeletePushTemplate
     Network.AWS.Pinpoint.DeleteRecommenderConfiguration
@@ -100,11 +106,11 @@ library
     Network.AWS.Pinpoint.DeleteUserEndpoints
     Network.AWS.Pinpoint.DeleteVoiceChannel
     Network.AWS.Pinpoint.DeleteVoiceTemplate
-    Network.AWS.Pinpoint.GetADMChannel
-    Network.AWS.Pinpoint.GetAPNSChannel
-    Network.AWS.Pinpoint.GetAPNSSandboxChannel
-    Network.AWS.Pinpoint.GetAPNSVoipChannel
-    Network.AWS.Pinpoint.GetAPNSVoipSandboxChannel
+    Network.AWS.Pinpoint.GetAdmChannel
+    Network.AWS.Pinpoint.GetApnsChannel
+    Network.AWS.Pinpoint.GetApnsSandboxChannel
+    Network.AWS.Pinpoint.GetApnsVoipChannel
+    Network.AWS.Pinpoint.GetApnsVoipSandboxChannel
     Network.AWS.Pinpoint.GetApp
     Network.AWS.Pinpoint.GetApplicationDateRangeKpi
     Network.AWS.Pinpoint.GetApplicationSettings
@@ -123,7 +129,7 @@ library
     Network.AWS.Pinpoint.GetEventStream
     Network.AWS.Pinpoint.GetExportJob
     Network.AWS.Pinpoint.GetExportJobs
-    Network.AWS.Pinpoint.GetGCMChannel
+    Network.AWS.Pinpoint.GetGcmChannel
     Network.AWS.Pinpoint.GetImportJob
     Network.AWS.Pinpoint.GetImportJobs
     Network.AWS.Pinpoint.GetJourney
@@ -157,11 +163,11 @@ library
     Network.AWS.Pinpoint.TagResource
     Network.AWS.Pinpoint.Types
     Network.AWS.Pinpoint.UntagResource
-    Network.AWS.Pinpoint.UpdateADMChannel
-    Network.AWS.Pinpoint.UpdateAPNSChannel
-    Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
-    Network.AWS.Pinpoint.UpdateAPNSVoipChannel
-    Network.AWS.Pinpoint.UpdateAPNSVoipSandboxChannel
+    Network.AWS.Pinpoint.UpdateAdmChannel
+    Network.AWS.Pinpoint.UpdateApnsChannel
+    Network.AWS.Pinpoint.UpdateApnsSandboxChannel
+    Network.AWS.Pinpoint.UpdateApnsVoipChannel
+    Network.AWS.Pinpoint.UpdateApnsVoipSandboxChannel
     Network.AWS.Pinpoint.UpdateApplicationSettings
     Network.AWS.Pinpoint.UpdateBaiduChannel
     Network.AWS.Pinpoint.UpdateCampaign
@@ -169,7 +175,7 @@ library
     Network.AWS.Pinpoint.UpdateEmailTemplate
     Network.AWS.Pinpoint.UpdateEndpoint
     Network.AWS.Pinpoint.UpdateEndpointsBatch
-    Network.AWS.Pinpoint.UpdateGCMChannel
+    Network.AWS.Pinpoint.UpdateGcmChannel
     Network.AWS.Pinpoint.UpdateJourney
     Network.AWS.Pinpoint.UpdateJourneyState
     Network.AWS.Pinpoint.UpdatePushTemplate

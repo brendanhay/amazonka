@@ -28,68 +28,67 @@ module Network.AWS.IAM.DeleteAccountAlias
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAccountAlias' smart constructor.
 newtype DeleteAccountAlias = DeleteAccountAlias'
   { -- | The name of the account alias to delete.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
-    accountAlias :: Lude.Text
+    accountAlias :: Types.AccountAlias
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountAlias' with the minimum fields required to make a request.
---
--- * 'accountAlias' - The name of the account alias to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- | Creates a 'DeleteAccountAlias' value with any optional fields omitted.
 mkDeleteAccountAlias ::
   -- | 'accountAlias'
-  Lude.Text ->
+  Types.AccountAlias ->
   DeleteAccountAlias
-mkDeleteAccountAlias pAccountAlias_ =
-  DeleteAccountAlias' {accountAlias = pAccountAlias_}
+mkDeleteAccountAlias accountAlias =
+  DeleteAccountAlias' {accountAlias}
 
 -- | The name of the account alias to delete.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 --
 -- /Note:/ Consider using 'accountAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaAccountAlias :: Lens.Lens' DeleteAccountAlias Lude.Text
-daaAccountAlias = Lens.lens (accountAlias :: DeleteAccountAlias -> Lude.Text) (\s a -> s {accountAlias = a} :: DeleteAccountAlias)
+daaAccountAlias :: Lens.Lens' DeleteAccountAlias Types.AccountAlias
+daaAccountAlias = Lens.field @"accountAlias"
 {-# DEPRECATED daaAccountAlias "Use generic-lens or generic-optics with 'accountAlias' instead." #-}
 
-instance Lude.AWSRequest DeleteAccountAlias where
+instance Core.AWSRequest DeleteAccountAlias where
   type Rs DeleteAccountAlias = DeleteAccountAliasResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteAccountAliasResponse'
-
-instance Lude.ToHeaders DeleteAccountAlias where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAccountAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAccountAlias where
-  toQuery DeleteAccountAlias' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteAccountAlias" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "AccountAlias" Lude.=: accountAlias
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteAccountAlias")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "AccountAlias" accountAlias)
+            )
+      }
+  response = Response.receiveNull DeleteAccountAliasResponse'
 
 -- | /See:/ 'mkDeleteAccountAliasResponse' smart constructor.
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAccountAliasResponse' value with any optional fields omitted.
 mkDeleteAccountAliasResponse ::
   DeleteAccountAliasResponse
 mkDeleteAccountAliasResponse = DeleteAccountAliasResponse'

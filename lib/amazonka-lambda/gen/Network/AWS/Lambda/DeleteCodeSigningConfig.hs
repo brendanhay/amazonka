@@ -20,98 +20,87 @@ module Network.AWS.Lambda.DeleteCodeSigningConfig
     mkDeleteCodeSigningConfig,
 
     -- ** Request lenses
-    dcscCodeSigningConfigARN,
+    dcscCodeSigningConfigArn,
 
     -- * Destructuring the response
     DeleteCodeSigningConfigResponse (..),
     mkDeleteCodeSigningConfigResponse,
 
     -- ** Response lenses
-    dcscrsResponseStatus,
+    dcscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCodeSigningConfig' smart constructor.
 newtype DeleteCodeSigningConfig = DeleteCodeSigningConfig'
   { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigARN :: Lude.Text
+    codeSigningConfigArn :: Types.CodeSigningConfigArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCodeSigningConfig' with the minimum fields required to make a request.
---
--- * 'codeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
+-- | Creates a 'DeleteCodeSigningConfig' value with any optional fields omitted.
 mkDeleteCodeSigningConfig ::
-  -- | 'codeSigningConfigARN'
-  Lude.Text ->
+  -- | 'codeSigningConfigArn'
+  Types.CodeSigningConfigArn ->
   DeleteCodeSigningConfig
-mkDeleteCodeSigningConfig pCodeSigningConfigARN_ =
-  DeleteCodeSigningConfig'
-    { codeSigningConfigARN =
-        pCodeSigningConfigARN_
-    }
+mkDeleteCodeSigningConfig codeSigningConfigArn =
+  DeleteCodeSigningConfig' {codeSigningConfigArn}
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
 --
--- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcscCodeSigningConfigARN :: Lens.Lens' DeleteCodeSigningConfig Lude.Text
-dcscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: DeleteCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: DeleteCodeSigningConfig)
-{-# DEPRECATED dcscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
+-- /Note:/ Consider using 'codeSigningConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcscCodeSigningConfigArn :: Lens.Lens' DeleteCodeSigningConfig Types.CodeSigningConfigArn
+dcscCodeSigningConfigArn = Lens.field @"codeSigningConfigArn"
+{-# DEPRECATED dcscCodeSigningConfigArn "Use generic-lens or generic-optics with 'codeSigningConfigArn' instead." #-}
 
-instance Lude.AWSRequest DeleteCodeSigningConfig where
+instance Core.AWSRequest DeleteCodeSigningConfig where
   type Rs DeleteCodeSigningConfig = DeleteCodeSigningConfigResponse
-  request = Req.delete lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-04-22/code-signing-configs/"
+                Core.<> (Core.toText codeSigningConfigArn)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteCodeSigningConfigResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCodeSigningConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteCodeSigningConfig where
-  toPath DeleteCodeSigningConfig' {..} =
-    Lude.mconcat
-      [ "/2020-04-22/code-signing-configs/",
-        Lude.toBS codeSigningConfigARN
-      ]
-
-instance Lude.ToQuery DeleteCodeSigningConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteCodeSigningConfigResponse' smart constructor.
 newtype DeleteCodeSigningConfigResponse = DeleteCodeSigningConfigResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCodeSigningConfigResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteCodeSigningConfigResponse' value with any optional fields omitted.
 mkDeleteCodeSigningConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteCodeSigningConfigResponse
-mkDeleteCodeSigningConfigResponse pResponseStatus_ =
-  DeleteCodeSigningConfigResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteCodeSigningConfigResponse responseStatus =
+  DeleteCodeSigningConfigResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcscrsResponseStatus :: Lens.Lens' DeleteCodeSigningConfigResponse Lude.Int
-dcscrsResponseStatus = Lens.lens (responseStatus :: DeleteCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCodeSigningConfigResponse)
-{-# DEPRECATED dcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcscrrsResponseStatus :: Lens.Lens' DeleteCodeSigningConfigResponse Core.Int
+dcscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

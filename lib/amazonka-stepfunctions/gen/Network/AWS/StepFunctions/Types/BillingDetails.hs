@@ -17,58 +17,53 @@ module Network.AWS.StepFunctions.Types.BillingDetails
     mkBillingDetails,
 
     -- * Lenses
-    bdBilledMemoryUsedInMB,
     bdBilledDurationInMilliseconds,
+    bdBilledMemoryUsedInMB,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that describes workflow billing details.
 --
 -- /See:/ 'mkBillingDetails' smart constructor.
 data BillingDetails = BillingDetails'
-  { -- | Billed memory consumption of your workflow, in MB.
-    billedMemoryUsedInMB :: Lude.Maybe Lude.Natural,
-    -- | Billed duration of your workflow, in milliseconds.
-    billedDurationInMilliseconds :: Lude.Maybe Lude.Natural
+  { -- | Billed duration of your workflow, in milliseconds.
+    billedDurationInMilliseconds :: Core.Maybe Core.Natural,
+    -- | Billed memory consumption of your workflow, in MB.
+    billedMemoryUsedInMB :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BillingDetails' with the minimum fields required to make a request.
---
--- * 'billedMemoryUsedInMB' - Billed memory consumption of your workflow, in MB.
--- * 'billedDurationInMilliseconds' - Billed duration of your workflow, in milliseconds.
+-- | Creates a 'BillingDetails' value with any optional fields omitted.
 mkBillingDetails ::
   BillingDetails
 mkBillingDetails =
   BillingDetails'
-    { billedMemoryUsedInMB = Lude.Nothing,
-      billedDurationInMilliseconds = Lude.Nothing
+    { billedDurationInMilliseconds = Core.Nothing,
+      billedMemoryUsedInMB = Core.Nothing
     }
-
--- | Billed memory consumption of your workflow, in MB.
---
--- /Note:/ Consider using 'billedMemoryUsedInMB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBilledMemoryUsedInMB :: Lens.Lens' BillingDetails (Lude.Maybe Lude.Natural)
-bdBilledMemoryUsedInMB = Lens.lens (billedMemoryUsedInMB :: BillingDetails -> Lude.Maybe Lude.Natural) (\s a -> s {billedMemoryUsedInMB = a} :: BillingDetails)
-{-# DEPRECATED bdBilledMemoryUsedInMB "Use generic-lens or generic-optics with 'billedMemoryUsedInMB' instead." #-}
 
 -- | Billed duration of your workflow, in milliseconds.
 --
 -- /Note:/ Consider using 'billedDurationInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBilledDurationInMilliseconds :: Lens.Lens' BillingDetails (Lude.Maybe Lude.Natural)
-bdBilledDurationInMilliseconds = Lens.lens (billedDurationInMilliseconds :: BillingDetails -> Lude.Maybe Lude.Natural) (\s a -> s {billedDurationInMilliseconds = a} :: BillingDetails)
+bdBilledDurationInMilliseconds :: Lens.Lens' BillingDetails (Core.Maybe Core.Natural)
+bdBilledDurationInMilliseconds = Lens.field @"billedDurationInMilliseconds"
 {-# DEPRECATED bdBilledDurationInMilliseconds "Use generic-lens or generic-optics with 'billedDurationInMilliseconds' instead." #-}
 
-instance Lude.FromJSON BillingDetails where
+-- | Billed memory consumption of your workflow, in MB.
+--
+-- /Note:/ Consider using 'billedMemoryUsedInMB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdBilledMemoryUsedInMB :: Lens.Lens' BillingDetails (Core.Maybe Core.Natural)
+bdBilledMemoryUsedInMB = Lens.field @"billedMemoryUsedInMB"
+{-# DEPRECATED bdBilledMemoryUsedInMB "Use generic-lens or generic-optics with 'billedMemoryUsedInMB' instead." #-}
+
+instance Core.FromJSON BillingDetails where
   parseJSON =
-    Lude.withObject
-      "BillingDetails"
-      ( \x ->
-          BillingDetails'
-            Lude.<$> (x Lude..:? "billedMemoryUsedInMB")
-            Lude.<*> (x Lude..:? "billedDurationInMilliseconds")
-      )
+    Core.withObject "BillingDetails" Core.$
+      \x ->
+        BillingDetails'
+          Core.<$> (x Core..:? "billedDurationInMilliseconds")
+          Core.<*> (x Core..:? "billedMemoryUsedInMB")

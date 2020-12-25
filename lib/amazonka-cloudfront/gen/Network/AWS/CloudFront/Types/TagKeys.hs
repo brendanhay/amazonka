@@ -21,34 +21,32 @@ module Network.AWS.CloudFront.Types.TagKeys
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.TagKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /See:/ 'mkTagKeys' smart constructor.
 newtype TagKeys = TagKeys'
   { -- | A complex type that contains @Tag@ key elements.
-    items :: Lude.Maybe [Lude.Text]
+    items :: Core.Maybe [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagKeys' with the minimum fields required to make a request.
---
--- * 'items' - A complex type that contains @Tag@ key elements.
+-- | Creates a 'TagKeys' value with any optional fields omitted.
 mkTagKeys ::
   TagKeys
-mkTagKeys = TagKeys' {items = Lude.Nothing}
+mkTagKeys = TagKeys' {items = Core.Nothing}
 
 -- | A complex type that contains @Tag@ key elements.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tkItems :: Lens.Lens' TagKeys (Lude.Maybe [Lude.Text])
-tkItems = Lens.lens (items :: TagKeys -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: TagKeys)
+tkItems :: Lens.Lens' TagKeys (Core.Maybe [Types.TagKey])
+tkItems = Lens.field @"items"
 {-# DEPRECATED tkItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.ToXML TagKeys where
-  toXML TagKeys' {..} =
-    Lude.mconcat
-      ["Items" Lude.@= Lude.toXML (Lude.toXMLList "Key" Lude.<$> items)]
+instance Core.ToXML TagKeys where
+  toXML TagKeys {..} =
+    Core.toXMLNode "Items" (Core.toXMLList "Key" Core.<$> items)

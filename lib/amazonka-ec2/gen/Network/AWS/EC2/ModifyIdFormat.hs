@@ -24,8 +24,8 @@ module Network.AWS.EC2.ModifyIdFormat
     mkModifyIdFormat,
 
     -- ** Request lenses
-    mifUseLongIds,
     mifResource,
+    mifUseLongIds,
 
     -- * Destructuring the response
     ModifyIdFormatResponse (..),
@@ -33,81 +33,79 @@ module Network.AWS.EC2.ModifyIdFormat
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
-  { -- | Indicate whether the resource should use longer IDs (17-character IDs).
-    useLongIds :: Lude.Bool,
-    -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
+  { -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
     --
     -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
-    resource :: Lude.Text
+    resource :: Types.String,
+    -- | Indicate whether the resource should use longer IDs (17-character IDs).
+    useLongIds :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyIdFormat' with the minimum fields required to make a request.
---
--- * 'useLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
--- * 'resource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
---
--- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
+-- | Creates a 'ModifyIdFormat' value with any optional fields omitted.
 mkModifyIdFormat ::
-  -- | 'useLongIds'
-  Lude.Bool ->
   -- | 'resource'
-  Lude.Text ->
+  Types.String ->
+  -- | 'useLongIds'
+  Core.Bool ->
   ModifyIdFormat
-mkModifyIdFormat pUseLongIds_ pResource_ =
-  ModifyIdFormat' {useLongIds = pUseLongIds_, resource = pResource_}
-
--- | Indicate whether the resource should use longer IDs (17-character IDs).
---
--- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mifUseLongIds :: Lens.Lens' ModifyIdFormat Lude.Bool
-mifUseLongIds = Lens.lens (useLongIds :: ModifyIdFormat -> Lude.Bool) (\s a -> s {useLongIds = a} :: ModifyIdFormat)
-{-# DEPRECATED mifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
+mkModifyIdFormat resource useLongIds =
+  ModifyIdFormat' {resource, useLongIds}
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
 -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mifResource :: Lens.Lens' ModifyIdFormat Lude.Text
-mifResource = Lens.lens (resource :: ModifyIdFormat -> Lude.Text) (\s a -> s {resource = a} :: ModifyIdFormat)
+mifResource :: Lens.Lens' ModifyIdFormat Types.String
+mifResource = Lens.field @"resource"
 {-# DEPRECATED mifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.AWSRequest ModifyIdFormat where
+-- | Indicate whether the resource should use longer IDs (17-character IDs).
+--
+-- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mifUseLongIds :: Lens.Lens' ModifyIdFormat Core.Bool
+mifUseLongIds = Lens.field @"useLongIds"
+{-# DEPRECATED mifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
+
+instance Core.AWSRequest ModifyIdFormat where
   type Rs ModifyIdFormat = ModifyIdFormatResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull ModifyIdFormatResponse'
-
-instance Lude.ToHeaders ModifyIdFormat where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyIdFormat where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyIdFormat where
-  toQuery ModifyIdFormat' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyIdFormat" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "UseLongIds" Lude.=: useLongIds,
-        "Resource" Lude.=: resource
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyIdFormat")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Resource" resource)
+                Core.<> (Core.toQueryValue "UseLongIds" useLongIds)
+            )
+      }
+  response = Response.receiveNull ModifyIdFormatResponse'
 
 -- | /See:/ 'mkModifyIdFormatResponse' smart constructor.
 data ModifyIdFormatResponse = ModifyIdFormatResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyIdFormatResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifyIdFormatResponse' value with any optional fields omitted.
 mkModifyIdFormatResponse ::
   ModifyIdFormatResponse
 mkModifyIdFormatResponse = ModifyIdFormatResponse'

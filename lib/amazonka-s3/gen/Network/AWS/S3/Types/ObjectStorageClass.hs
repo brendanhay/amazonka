@@ -13,62 +13,67 @@
 module Network.AWS.S3.Types.ObjectStorageClass
   ( ObjectStorageClass
       ( ObjectStorageClass',
-        OSCStandard,
-        OSCStandardIA,
-        OSCReducedRedundancy,
-        OSCGlacier,
-        OSCIntelligentTiering
+        ObjectStorageClassStandard,
+        ObjectStorageClassStandardIa,
+        ObjectStorageClassReducedRedundancy,
+        ObjectStorageClassGlacier,
+        ObjectStorageClassIntelligentTiering,
+        fromObjectStorageClass
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype ObjectStorageClass = ObjectStorageClass' Lude.Text
+newtype ObjectStorageClass = ObjectStorageClass'
+  { fromObjectStorageClass ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OSCStandard :: ObjectStorageClass
-pattern OSCStandard = ObjectStorageClass' "STANDARD"
+pattern ObjectStorageClassStandard :: ObjectStorageClass
+pattern ObjectStorageClassStandard = ObjectStorageClass' "STANDARD"
 
-pattern OSCStandardIA :: ObjectStorageClass
-pattern OSCStandardIA = ObjectStorageClass' "STANDARD_IA"
+pattern ObjectStorageClassStandardIa :: ObjectStorageClass
+pattern ObjectStorageClassStandardIa = ObjectStorageClass' "STANDARD_IA"
 
-pattern OSCReducedRedundancy :: ObjectStorageClass
-pattern OSCReducedRedundancy = ObjectStorageClass' "REDUCED_REDUNDANCY"
+pattern ObjectStorageClassReducedRedundancy :: ObjectStorageClass
+pattern ObjectStorageClassReducedRedundancy = ObjectStorageClass' "REDUCED_REDUNDANCY"
 
-pattern OSCGlacier :: ObjectStorageClass
-pattern OSCGlacier = ObjectStorageClass' "GLACIER"
+pattern ObjectStorageClassGlacier :: ObjectStorageClass
+pattern ObjectStorageClassGlacier = ObjectStorageClass' "GLACIER"
 
-pattern OSCIntelligentTiering :: ObjectStorageClass
-pattern OSCIntelligentTiering = ObjectStorageClass' "INTELLIGENT_TIERING"
+pattern ObjectStorageClassIntelligentTiering :: ObjectStorageClass
+pattern ObjectStorageClassIntelligentTiering = ObjectStorageClass' "INTELLIGENT_TIERING"
 
 {-# COMPLETE
-  OSCStandard,
-  OSCStandardIA,
-  OSCReducedRedundancy,
-  OSCGlacier,
-  OSCIntelligentTiering,
+  ObjectStorageClassStandard,
+  ObjectStorageClassStandardIa,
+  ObjectStorageClassReducedRedundancy,
+  ObjectStorageClassGlacier,
+  ObjectStorageClassIntelligentTiering,
   ObjectStorageClass'
   #-}

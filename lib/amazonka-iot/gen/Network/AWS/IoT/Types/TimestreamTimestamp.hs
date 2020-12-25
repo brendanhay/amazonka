@@ -22,43 +22,40 @@ module Network.AWS.IoT.Types.TimestreamTimestamp
   )
 where
 
+import qualified Network.AWS.IoT.Types.TimestreamTimestampValue as Types
+import qualified Network.AWS.IoT.Types.Unit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
 --
 -- /See:/ 'mkTimestreamTimestamp' smart constructor.
 data TimestreamTimestamp = TimestreamTimestamp'
   { -- | An expression that returns a long epoch time value.
-    value :: Lude.Text,
+    value :: Types.TimestreamTimestampValue,
     -- | The precision of the timestamp value that results from the expression described in @value@ .
     --
     -- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
-    unit :: Lude.Text
+    unit :: Types.Unit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimestreamTimestamp' with the minimum fields required to make a request.
---
--- * 'value' - An expression that returns a long epoch time value.
--- * 'unit' - The precision of the timestamp value that results from the expression described in @value@ .
---
--- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
+-- | Creates a 'TimestreamTimestamp' value with any optional fields omitted.
 mkTimestreamTimestamp ::
   -- | 'value'
-  Lude.Text ->
+  Types.TimestreamTimestampValue ->
   -- | 'unit'
-  Lude.Text ->
+  Types.Unit ->
   TimestreamTimestamp
-mkTimestreamTimestamp pValue_ pUnit_ =
-  TimestreamTimestamp' {value = pValue_, unit = pUnit_}
+mkTimestreamTimestamp value unit =
+  TimestreamTimestamp' {value, unit}
 
 -- | An expression that returns a long epoch time value.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttValue :: Lens.Lens' TimestreamTimestamp Lude.Text
-ttValue = Lens.lens (value :: TimestreamTimestamp -> Lude.Text) (\s a -> s {value = a} :: TimestreamTimestamp)
+ttValue :: Lens.Lens' TimestreamTimestamp Types.TimestreamTimestampValue
+ttValue = Lens.field @"value"
 {-# DEPRECATED ttValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The precision of the timestamp value that results from the expression described in @value@ .
@@ -66,24 +63,22 @@ ttValue = Lens.lens (value :: TimestreamTimestamp -> Lude.Text) (\s a -> s {valu
 -- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttUnit :: Lens.Lens' TimestreamTimestamp Lude.Text
-ttUnit = Lens.lens (unit :: TimestreamTimestamp -> Lude.Text) (\s a -> s {unit = a} :: TimestreamTimestamp)
+ttUnit :: Lens.Lens' TimestreamTimestamp Types.Unit
+ttUnit = Lens.field @"unit"
 {-# DEPRECATED ttUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON TimestreamTimestamp where
-  parseJSON =
-    Lude.withObject
-      "TimestreamTimestamp"
-      ( \x ->
-          TimestreamTimestamp'
-            Lude.<$> (x Lude..: "value") Lude.<*> (x Lude..: "unit")
-      )
-
-instance Lude.ToJSON TimestreamTimestamp where
-  toJSON TimestreamTimestamp' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("value" Lude..= value),
-            Lude.Just ("unit" Lude..= unit)
+instance Core.FromJSON TimestreamTimestamp where
+  toJSON TimestreamTimestamp {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("value" Core..= value),
+            Core.Just ("unit" Core..= unit)
           ]
       )
+
+instance Core.FromJSON TimestreamTimestamp where
+  parseJSON =
+    Core.withObject "TimestreamTimestamp" Core.$
+      \x ->
+        TimestreamTimestamp'
+          Core.<$> (x Core..: "value") Core.<*> (x Core..: "unit")

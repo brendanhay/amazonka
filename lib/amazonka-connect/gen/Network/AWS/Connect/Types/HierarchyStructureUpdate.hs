@@ -18,96 +18,90 @@ module Network.AWS.Connect.Types.HierarchyStructureUpdate
 
     -- * Lenses
     hsuLevelFive,
-    hsuLevelThree,
     hsuLevelFour,
-    hsuLevelTwo,
     hsuLevelOne,
+    hsuLevelThree,
+    hsuLevelTwo,
   )
 where
 
-import Network.AWS.Connect.Types.HierarchyLevelUpdate
+import qualified Network.AWS.Connect.Types.HierarchyLevelUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the level hierarchy to update.
 --
 -- /See:/ 'mkHierarchyStructureUpdate' smart constructor.
 data HierarchyStructureUpdate = HierarchyStructureUpdate'
   { -- | The update for level five.
-    levelFive :: Lude.Maybe HierarchyLevelUpdate,
-    -- | The update for level three.
-    levelThree :: Lude.Maybe HierarchyLevelUpdate,
+    levelFive :: Core.Maybe Types.HierarchyLevelUpdate,
     -- | The update for level four.
-    levelFour :: Lude.Maybe HierarchyLevelUpdate,
-    -- | The update for level two.
-    levelTwo :: Lude.Maybe HierarchyLevelUpdate,
+    levelFour :: Core.Maybe Types.HierarchyLevelUpdate,
     -- | The update for level one.
-    levelOne :: Lude.Maybe HierarchyLevelUpdate
+    levelOne :: Core.Maybe Types.HierarchyLevelUpdate,
+    -- | The update for level three.
+    levelThree :: Core.Maybe Types.HierarchyLevelUpdate,
+    -- | The update for level two.
+    levelTwo :: Core.Maybe Types.HierarchyLevelUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HierarchyStructureUpdate' with the minimum fields required to make a request.
---
--- * 'levelFive' - The update for level five.
--- * 'levelThree' - The update for level three.
--- * 'levelFour' - The update for level four.
--- * 'levelTwo' - The update for level two.
--- * 'levelOne' - The update for level one.
+-- | Creates a 'HierarchyStructureUpdate' value with any optional fields omitted.
 mkHierarchyStructureUpdate ::
   HierarchyStructureUpdate
 mkHierarchyStructureUpdate =
   HierarchyStructureUpdate'
-    { levelFive = Lude.Nothing,
-      levelThree = Lude.Nothing,
-      levelFour = Lude.Nothing,
-      levelTwo = Lude.Nothing,
-      levelOne = Lude.Nothing
+    { levelFive = Core.Nothing,
+      levelFour = Core.Nothing,
+      levelOne = Core.Nothing,
+      levelThree = Core.Nothing,
+      levelTwo = Core.Nothing
     }
 
 -- | The update for level five.
 --
 -- /Note:/ Consider using 'levelFive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsuLevelFive :: Lens.Lens' HierarchyStructureUpdate (Lude.Maybe HierarchyLevelUpdate)
-hsuLevelFive = Lens.lens (levelFive :: HierarchyStructureUpdate -> Lude.Maybe HierarchyLevelUpdate) (\s a -> s {levelFive = a} :: HierarchyStructureUpdate)
+hsuLevelFive :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe Types.HierarchyLevelUpdate)
+hsuLevelFive = Lens.field @"levelFive"
 {-# DEPRECATED hsuLevelFive "Use generic-lens or generic-optics with 'levelFive' instead." #-}
-
--- | The update for level three.
---
--- /Note:/ Consider using 'levelThree' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsuLevelThree :: Lens.Lens' HierarchyStructureUpdate (Lude.Maybe HierarchyLevelUpdate)
-hsuLevelThree = Lens.lens (levelThree :: HierarchyStructureUpdate -> Lude.Maybe HierarchyLevelUpdate) (\s a -> s {levelThree = a} :: HierarchyStructureUpdate)
-{-# DEPRECATED hsuLevelThree "Use generic-lens or generic-optics with 'levelThree' instead." #-}
 
 -- | The update for level four.
 --
 -- /Note:/ Consider using 'levelFour' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsuLevelFour :: Lens.Lens' HierarchyStructureUpdate (Lude.Maybe HierarchyLevelUpdate)
-hsuLevelFour = Lens.lens (levelFour :: HierarchyStructureUpdate -> Lude.Maybe HierarchyLevelUpdate) (\s a -> s {levelFour = a} :: HierarchyStructureUpdate)
+hsuLevelFour :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe Types.HierarchyLevelUpdate)
+hsuLevelFour = Lens.field @"levelFour"
 {-# DEPRECATED hsuLevelFour "Use generic-lens or generic-optics with 'levelFour' instead." #-}
-
--- | The update for level two.
---
--- /Note:/ Consider using 'levelTwo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsuLevelTwo :: Lens.Lens' HierarchyStructureUpdate (Lude.Maybe HierarchyLevelUpdate)
-hsuLevelTwo = Lens.lens (levelTwo :: HierarchyStructureUpdate -> Lude.Maybe HierarchyLevelUpdate) (\s a -> s {levelTwo = a} :: HierarchyStructureUpdate)
-{-# DEPRECATED hsuLevelTwo "Use generic-lens or generic-optics with 'levelTwo' instead." #-}
 
 -- | The update for level one.
 --
 -- /Note:/ Consider using 'levelOne' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsuLevelOne :: Lens.Lens' HierarchyStructureUpdate (Lude.Maybe HierarchyLevelUpdate)
-hsuLevelOne = Lens.lens (levelOne :: HierarchyStructureUpdate -> Lude.Maybe HierarchyLevelUpdate) (\s a -> s {levelOne = a} :: HierarchyStructureUpdate)
+hsuLevelOne :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe Types.HierarchyLevelUpdate)
+hsuLevelOne = Lens.field @"levelOne"
 {-# DEPRECATED hsuLevelOne "Use generic-lens or generic-optics with 'levelOne' instead." #-}
 
-instance Lude.ToJSON HierarchyStructureUpdate where
-  toJSON HierarchyStructureUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LevelFive" Lude..=) Lude.<$> levelFive,
-            ("LevelThree" Lude..=) Lude.<$> levelThree,
-            ("LevelFour" Lude..=) Lude.<$> levelFour,
-            ("LevelTwo" Lude..=) Lude.<$> levelTwo,
-            ("LevelOne" Lude..=) Lude.<$> levelOne
+-- | The update for level three.
+--
+-- /Note:/ Consider using 'levelThree' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsuLevelThree :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe Types.HierarchyLevelUpdate)
+hsuLevelThree = Lens.field @"levelThree"
+{-# DEPRECATED hsuLevelThree "Use generic-lens or generic-optics with 'levelThree' instead." #-}
+
+-- | The update for level two.
+--
+-- /Note:/ Consider using 'levelTwo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsuLevelTwo :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe Types.HierarchyLevelUpdate)
+hsuLevelTwo = Lens.field @"levelTwo"
+{-# DEPRECATED hsuLevelTwo "Use generic-lens or generic-optics with 'levelTwo' instead." #-}
+
+instance Core.FromJSON HierarchyStructureUpdate where
+  toJSON HierarchyStructureUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("LevelFive" Core..=) Core.<$> levelFive,
+            ("LevelFour" Core..=) Core.<$> levelFour,
+            ("LevelOne" Core..=) Core.<$> levelOne,
+            ("LevelThree" Core..=) Core.<$> levelThree,
+            ("LevelTwo" Core..=) Core.<$> levelTwo
           ]
       )

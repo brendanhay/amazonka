@@ -17,16 +17,19 @@ module Network.AWS.MachineLearning.Types.Prediction
     mkPrediction,
 
     -- * Lenses
-    pPredictedValue,
+    pDetails,
     pPredictedLabel,
     pPredictedScores,
-    pDetails,
+    pPredictedValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.DetailsAttributes
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.DetailsAttributes as Types
+import qualified Network.AWS.MachineLearning.Types.DetailsValue as Types
+import qualified Network.AWS.MachineLearning.Types.Label as Types
+import qualified Network.AWS.MachineLearning.Types.PredictedLabel as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The output from a @Predict@ operation:
 --
@@ -46,68 +49,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrediction' smart constructor.
 data Prediction = Prediction'
-  { -- | The prediction value for @REGRESSION@ @MLModel@ .
-    predictedValue :: Lude.Maybe Lude.Double,
+  { details :: Core.Maybe (Core.HashMap Types.DetailsAttributes Types.DetailsValue),
     -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
-    predictedLabel :: Lude.Maybe Lude.Text,
-    predictedScores :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
-    details :: Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text))
+    predictedLabel :: Core.Maybe Types.PredictedLabel,
+    predictedScores :: Core.Maybe (Core.HashMap Types.Label Core.Double),
+    -- | The prediction value for @REGRESSION@ @MLModel@ .
+    predictedValue :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Prediction' with the minimum fields required to make a request.
---
--- * 'predictedValue' - The prediction value for @REGRESSION@ @MLModel@ .
--- * 'predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
--- * 'predictedScores' -
--- * 'details' -
+-- | Creates a 'Prediction' value with any optional fields omitted.
 mkPrediction ::
   Prediction
 mkPrediction =
   Prediction'
-    { predictedValue = Lude.Nothing,
-      predictedLabel = Lude.Nothing,
-      predictedScores = Lude.Nothing,
-      details = Lude.Nothing
+    { details = Core.Nothing,
+      predictedLabel = Core.Nothing,
+      predictedScores = Core.Nothing,
+      predictedValue = Core.Nothing
     }
 
--- | The prediction value for @REGRESSION@ @MLModel@ .
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'predictedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPredictedValue :: Lens.Lens' Prediction (Lude.Maybe Lude.Double)
-pPredictedValue = Lens.lens (predictedValue :: Prediction -> Lude.Maybe Lude.Double) (\s a -> s {predictedValue = a} :: Prediction)
-{-# DEPRECATED pPredictedValue "Use generic-lens or generic-optics with 'predictedValue' instead." #-}
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDetails :: Lens.Lens' Prediction (Core.Maybe (Core.HashMap Types.DetailsAttributes Types.DetailsValue))
+pDetails = Lens.field @"details"
+{-# DEPRECATED pDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
 --
 -- /Note:/ Consider using 'predictedLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPredictedLabel :: Lens.Lens' Prediction (Lude.Maybe Lude.Text)
-pPredictedLabel = Lens.lens (predictedLabel :: Prediction -> Lude.Maybe Lude.Text) (\s a -> s {predictedLabel = a} :: Prediction)
+pPredictedLabel :: Lens.Lens' Prediction (Core.Maybe Types.PredictedLabel)
+pPredictedLabel = Lens.field @"predictedLabel"
 {-# DEPRECATED pPredictedLabel "Use generic-lens or generic-optics with 'predictedLabel' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'predictedScores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPredictedScores :: Lens.Lens' Prediction (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
-pPredictedScores = Lens.lens (predictedScores :: Prediction -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {predictedScores = a} :: Prediction)
+pPredictedScores :: Lens.Lens' Prediction (Core.Maybe (Core.HashMap Types.Label Core.Double))
+pPredictedScores = Lens.field @"predictedScores"
 {-# DEPRECATED pPredictedScores "Use generic-lens or generic-optics with 'predictedScores' instead." #-}
 
--- | Undocumented field.
+-- | The prediction value for @REGRESSION@ @MLModel@ .
 --
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDetails :: Lens.Lens' Prediction (Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text)))
-pDetails = Lens.lens (details :: Prediction -> Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text))) (\s a -> s {details = a} :: Prediction)
-{-# DEPRECATED pDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+-- /Note:/ Consider using 'predictedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPredictedValue :: Lens.Lens' Prediction (Core.Maybe Core.Double)
+pPredictedValue = Lens.field @"predictedValue"
+{-# DEPRECATED pPredictedValue "Use generic-lens or generic-optics with 'predictedValue' instead." #-}
 
-instance Lude.FromJSON Prediction where
+instance Core.FromJSON Prediction where
   parseJSON =
-    Lude.withObject
-      "Prediction"
-      ( \x ->
-          Prediction'
-            Lude.<$> (x Lude..:? "predictedValue")
-            Lude.<*> (x Lude..:? "predictedLabel")
-            Lude.<*> (x Lude..:? "predictedScores" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "details" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Prediction" Core.$
+      \x ->
+        Prediction'
+          Core.<$> (x Core..:? "details")
+          Core.<*> (x Core..:? "predictedLabel")
+          Core.<*> (x Core..:? "predictedScores")
+          Core.<*> (x Core..:? "predictedValue")

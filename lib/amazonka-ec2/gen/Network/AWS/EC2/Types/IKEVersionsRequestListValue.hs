@@ -21,34 +21,29 @@ module Network.AWS.EC2.Types.IKEVersionsRequestListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The IKE version that is permitted for the VPN tunnel.
 --
 -- /See:/ 'mkIKEVersionsRequestListValue' smart constructor.
 newtype IKEVersionsRequestListValue = IKEVersionsRequestListValue'
   { -- | The IKE version.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IKEVersionsRequestListValue' with the minimum fields required to make a request.
---
--- * 'value' - The IKE version.
+-- | Creates a 'IKEVersionsRequestListValue' value with any optional fields omitted.
 mkIKEVersionsRequestListValue ::
   IKEVersionsRequestListValue
 mkIKEVersionsRequestListValue =
-  IKEVersionsRequestListValue' {value = Lude.Nothing}
+  IKEVersionsRequestListValue' {value = Core.Nothing}
 
 -- | The IKE version.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ikevrlvValue :: Lens.Lens' IKEVersionsRequestListValue (Lude.Maybe Lude.Text)
-ikevrlvValue = Lens.lens (value :: IKEVersionsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: IKEVersionsRequestListValue)
+ikevrlvValue :: Lens.Lens' IKEVersionsRequestListValue (Core.Maybe Types.String)
+ikevrlvValue = Lens.field @"value"
 {-# DEPRECATED ikevrlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
-instance Lude.ToQuery IKEVersionsRequestListValue where
-  toQuery IKEVersionsRequestListValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]

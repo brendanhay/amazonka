@@ -22,38 +22,35 @@ module Network.AWS.MediaConvert.Types.DvbSubSourceSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | DVB Sub Source Settings
 --
 -- /See:/ 'mkDvbSubSourceSettings' smart constructor.
 newtype DvbSubSourceSettings = DvbSubSourceSettings'
   { -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-    pid :: Lude.Maybe Lude.Natural
+    pid :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DvbSubSourceSettings' with the minimum fields required to make a request.
---
--- * 'pid' - When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+-- | Creates a 'DvbSubSourceSettings' value with any optional fields omitted.
 mkDvbSubSourceSettings ::
   DvbSubSourceSettings
-mkDvbSubSourceSettings = DvbSubSourceSettings' {pid = Lude.Nothing}
+mkDvbSubSourceSettings = DvbSubSourceSettings' {pid = Core.Nothing}
 
 -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
 --
 -- /Note:/ Consider using 'pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsssPid :: Lens.Lens' DvbSubSourceSettings (Lude.Maybe Lude.Natural)
-dsssPid = Lens.lens (pid :: DvbSubSourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {pid = a} :: DvbSubSourceSettings)
+dsssPid :: Lens.Lens' DvbSubSourceSettings (Core.Maybe Core.Natural)
+dsssPid = Lens.field @"pid"
 {-# DEPRECATED dsssPid "Use generic-lens or generic-optics with 'pid' instead." #-}
 
-instance Lude.FromJSON DvbSubSourceSettings where
-  parseJSON =
-    Lude.withObject
-      "DvbSubSourceSettings"
-      (\x -> DvbSubSourceSettings' Lude.<$> (x Lude..:? "pid"))
+instance Core.FromJSON DvbSubSourceSettings where
+  toJSON DvbSubSourceSettings {..} =
+    Core.object (Core.catMaybes [("pid" Core..=) Core.<$> pid])
 
-instance Lude.ToJSON DvbSubSourceSettings where
-  toJSON DvbSubSourceSettings' {..} =
-    Lude.object (Lude.catMaybes [("pid" Lude..=) Lude.<$> pid])
+instance Core.FromJSON DvbSubSourceSettings where
+  parseJSON =
+    Core.withObject "DvbSubSourceSettings" Core.$
+      \x -> DvbSubSourceSettings' Core.<$> (x Core..:? "pid")

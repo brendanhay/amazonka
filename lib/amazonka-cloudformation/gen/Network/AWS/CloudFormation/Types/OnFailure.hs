@@ -13,51 +13,53 @@
 module Network.AWS.CloudFormation.Types.OnFailure
   ( OnFailure
       ( OnFailure',
-        DoNothing,
-        Rollback,
-        Delete
+        OnFailureDoNothing,
+        OnFailureRollback,
+        OnFailureDelete,
+        fromOnFailure
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OnFailure = OnFailure' Lude.Text
+newtype OnFailure = OnFailure' {fromOnFailure :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DoNothing :: OnFailure
-pattern DoNothing = OnFailure' "DO_NOTHING"
+pattern OnFailureDoNothing :: OnFailure
+pattern OnFailureDoNothing = OnFailure' "DO_NOTHING"
 
-pattern Rollback :: OnFailure
-pattern Rollback = OnFailure' "ROLLBACK"
+pattern OnFailureRollback :: OnFailure
+pattern OnFailureRollback = OnFailure' "ROLLBACK"
 
-pattern Delete :: OnFailure
-pattern Delete = OnFailure' "DELETE"
+pattern OnFailureDelete :: OnFailure
+pattern OnFailureDelete = OnFailure' "DELETE"
 
 {-# COMPLETE
-  DoNothing,
-  Rollback,
-  Delete,
+  OnFailureDoNothing,
+  OnFailureRollback,
+  OnFailureDelete,
   OnFailure'
   #-}

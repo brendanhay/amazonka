@@ -23,59 +23,53 @@ module Network.AWS.Rekognition.Types.TestingData
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.Asset
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Asset as Types
 
 -- | The dataset used for testing. Optionally, if @AutoCreate@ is set, Amazon Rekognition Custom Labels creates a testing dataset using an 80/20 split of the training dataset.
 --
 -- /See:/ 'mkTestingData' smart constructor.
 data TestingData = TestingData'
   { -- | The assets used for testing.
-    assets :: Lude.Maybe [Asset],
+    assets :: Core.Maybe [Types.Asset],
     -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.
-    autoCreate :: Lude.Maybe Lude.Bool
+    autoCreate :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestingData' with the minimum fields required to make a request.
---
--- * 'assets' - The assets used for testing.
--- * 'autoCreate' - If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.
+-- | Creates a 'TestingData' value with any optional fields omitted.
 mkTestingData ::
   TestingData
 mkTestingData =
-  TestingData' {assets = Lude.Nothing, autoCreate = Lude.Nothing}
+  TestingData' {assets = Core.Nothing, autoCreate = Core.Nothing}
 
 -- | The assets used for testing.
 --
 -- /Note:/ Consider using 'assets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAssets :: Lens.Lens' TestingData (Lude.Maybe [Asset])
-tdAssets = Lens.lens (assets :: TestingData -> Lude.Maybe [Asset]) (\s a -> s {assets = a} :: TestingData)
+tdAssets :: Lens.Lens' TestingData (Core.Maybe [Types.Asset])
+tdAssets = Lens.field @"assets"
 {-# DEPRECATED tdAssets "Use generic-lens or generic-optics with 'assets' instead." #-}
 
 -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.
 --
 -- /Note:/ Consider using 'autoCreate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAutoCreate :: Lens.Lens' TestingData (Lude.Maybe Lude.Bool)
-tdAutoCreate = Lens.lens (autoCreate :: TestingData -> Lude.Maybe Lude.Bool) (\s a -> s {autoCreate = a} :: TestingData)
+tdAutoCreate :: Lens.Lens' TestingData (Core.Maybe Core.Bool)
+tdAutoCreate = Lens.field @"autoCreate"
 {-# DEPRECATED tdAutoCreate "Use generic-lens or generic-optics with 'autoCreate' instead." #-}
 
-instance Lude.FromJSON TestingData where
-  parseJSON =
-    Lude.withObject
-      "TestingData"
-      ( \x ->
-          TestingData'
-            Lude.<$> (x Lude..:? "Assets" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AutoCreate")
-      )
-
-instance Lude.ToJSON TestingData where
-  toJSON TestingData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Assets" Lude..=) Lude.<$> assets,
-            ("AutoCreate" Lude..=) Lude.<$> autoCreate
+instance Core.FromJSON TestingData where
+  toJSON TestingData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Assets" Core..=) Core.<$> assets,
+            ("AutoCreate" Core..=) Core.<$> autoCreate
           ]
       )
+
+instance Core.FromJSON TestingData where
+  parseJSON =
+    Core.withObject "TestingData" Core.$
+      \x ->
+        TestingData'
+          Core.<$> (x Core..:? "Assets") Core.<*> (x Core..:? "AutoCreate")

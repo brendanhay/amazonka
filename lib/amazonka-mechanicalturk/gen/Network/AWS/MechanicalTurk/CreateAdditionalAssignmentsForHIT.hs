@@ -22,148 +22,131 @@ module Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
     mkCreateAdditionalAssignmentsForHIT,
 
     -- ** Request lenses
-    caafhitUniqueRequestToken,
     caafhitHITId,
     caafhitNumberOfAdditionalAssignments,
+    caafhitUniqueRequestToken,
 
     -- * Destructuring the response
     CreateAdditionalAssignmentsForHITResponse (..),
     mkCreateAdditionalAssignmentsForHITResponse,
 
     -- ** Response lenses
-    caafhitrsResponseStatus,
+    caafhitrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateAdditionalAssignmentsForHIT' smart constructor.
 data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
-  { -- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
-    uniqueRequestToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the HIT to extend.
-    hITId :: Lude.Text,
+  { -- | The ID of the HIT to extend.
+    hITId :: Types.HITId,
     -- | The number of additional assignments to request for this HIT.
-    numberOfAdditionalAssignments :: Lude.Int
+    numberOfAdditionalAssignments :: Core.Int,
+    -- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
+    uniqueRequestToken :: Core.Maybe Types.IdempotencyToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAdditionalAssignmentsForHIT' with the minimum fields required to make a request.
---
--- * 'uniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
--- * 'hITId' - The ID of the HIT to extend.
--- * 'numberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
+-- | Creates a 'CreateAdditionalAssignmentsForHIT' value with any optional fields omitted.
 mkCreateAdditionalAssignmentsForHIT ::
   -- | 'hITId'
-  Lude.Text ->
+  Types.HITId ->
   -- | 'numberOfAdditionalAssignments'
-  Lude.Int ->
+  Core.Int ->
   CreateAdditionalAssignmentsForHIT
 mkCreateAdditionalAssignmentsForHIT
-  pHITId_
-  pNumberOfAdditionalAssignments_ =
+  hITId
+  numberOfAdditionalAssignments =
     CreateAdditionalAssignmentsForHIT'
-      { uniqueRequestToken =
-          Lude.Nothing,
-        hITId = pHITId_,
-        numberOfAdditionalAssignments =
-          pNumberOfAdditionalAssignments_
+      { hITId,
+        numberOfAdditionalAssignments,
+        uniqueRequestToken = Core.Nothing
       }
-
--- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
---
--- /Note:/ Consider using 'uniqueRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caafhitUniqueRequestToken :: Lens.Lens' CreateAdditionalAssignmentsForHIT (Lude.Maybe Lude.Text)
-caafhitUniqueRequestToken = Lens.lens (uniqueRequestToken :: CreateAdditionalAssignmentsForHIT -> Lude.Maybe Lude.Text) (\s a -> s {uniqueRequestToken = a} :: CreateAdditionalAssignmentsForHIT)
-{-# DEPRECATED caafhitUniqueRequestToken "Use generic-lens or generic-optics with 'uniqueRequestToken' instead." #-}
 
 -- | The ID of the HIT to extend.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caafhitHITId :: Lens.Lens' CreateAdditionalAssignmentsForHIT Lude.Text
-caafhitHITId = Lens.lens (hITId :: CreateAdditionalAssignmentsForHIT -> Lude.Text) (\s a -> s {hITId = a} :: CreateAdditionalAssignmentsForHIT)
+caafhitHITId :: Lens.Lens' CreateAdditionalAssignmentsForHIT Types.HITId
+caafhitHITId = Lens.field @"hITId"
 {-# DEPRECATED caafhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 -- | The number of additional assignments to request for this HIT.
 --
 -- /Note:/ Consider using 'numberOfAdditionalAssignments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caafhitNumberOfAdditionalAssignments :: Lens.Lens' CreateAdditionalAssignmentsForHIT Lude.Int
-caafhitNumberOfAdditionalAssignments = Lens.lens (numberOfAdditionalAssignments :: CreateAdditionalAssignmentsForHIT -> Lude.Int) (\s a -> s {numberOfAdditionalAssignments = a} :: CreateAdditionalAssignmentsForHIT)
+caafhitNumberOfAdditionalAssignments :: Lens.Lens' CreateAdditionalAssignmentsForHIT Core.Int
+caafhitNumberOfAdditionalAssignments = Lens.field @"numberOfAdditionalAssignments"
 {-# DEPRECATED caafhitNumberOfAdditionalAssignments "Use generic-lens or generic-optics with 'numberOfAdditionalAssignments' instead." #-}
 
-instance Lude.AWSRequest CreateAdditionalAssignmentsForHIT where
+-- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
+--
+-- /Note:/ Consider using 'uniqueRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caafhitUniqueRequestToken :: Lens.Lens' CreateAdditionalAssignmentsForHIT (Core.Maybe Types.IdempotencyToken)
+caafhitUniqueRequestToken = Lens.field @"uniqueRequestToken"
+{-# DEPRECATED caafhitUniqueRequestToken "Use generic-lens or generic-optics with 'uniqueRequestToken' instead." #-}
+
+instance Core.FromJSON CreateAdditionalAssignmentsForHIT where
+  toJSON CreateAdditionalAssignmentsForHIT {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HITId" Core..= hITId),
+            Core.Just
+              ( "NumberOfAdditionalAssignments"
+                  Core..= numberOfAdditionalAssignments
+              ),
+            ("UniqueRequestToken" Core..=) Core.<$> uniqueRequestToken
+          ]
+      )
+
+instance Core.AWSRequest CreateAdditionalAssignmentsForHIT where
   type
     Rs CreateAdditionalAssignmentsForHIT =
       CreateAdditionalAssignmentsForHITResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CreateAdditionalAssignmentsForHITResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAdditionalAssignmentsForHIT where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateAdditionalAssignmentsForHIT where
-  toJSON CreateAdditionalAssignmentsForHIT' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UniqueRequestToken" Lude..=) Lude.<$> uniqueRequestToken,
-            Lude.Just ("HITId" Lude..= hITId),
-            Lude.Just
-              ( "NumberOfAdditionalAssignments"
-                  Lude..= numberOfAdditionalAssignments
-              )
-          ]
-      )
-
-instance Lude.ToPath CreateAdditionalAssignmentsForHIT where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAdditionalAssignmentsForHIT where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateAdditionalAssignmentsForHITResponse' smart constructor.
 newtype CreateAdditionalAssignmentsForHITResponse = CreateAdditionalAssignmentsForHITResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAdditionalAssignmentsForHITResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAdditionalAssignmentsForHITResponse' value with any optional fields omitted.
 mkCreateAdditionalAssignmentsForHITResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAdditionalAssignmentsForHITResponse
-mkCreateAdditionalAssignmentsForHITResponse pResponseStatus_ =
-  CreateAdditionalAssignmentsForHITResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCreateAdditionalAssignmentsForHITResponse responseStatus =
+  CreateAdditionalAssignmentsForHITResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caafhitrsResponseStatus :: Lens.Lens' CreateAdditionalAssignmentsForHITResponse Lude.Int
-caafhitrsResponseStatus = Lens.lens (responseStatus :: CreateAdditionalAssignmentsForHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAdditionalAssignmentsForHITResponse)
-{-# DEPRECATED caafhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+caafhitrrsResponseStatus :: Lens.Lens' CreateAdditionalAssignmentsForHITResponse Core.Int
+caafhitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED caafhitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

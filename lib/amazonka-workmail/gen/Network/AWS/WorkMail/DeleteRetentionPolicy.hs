@@ -20,121 +20,106 @@ module Network.AWS.WorkMail.DeleteRetentionPolicy
     mkDeleteRetentionPolicy,
 
     -- ** Request lenses
-    drpId,
     drpOrganizationId,
+    drpId,
 
     -- * Destructuring the response
     DeleteRetentionPolicyResponse (..),
     mkDeleteRetentionPolicyResponse,
 
     -- ** Response lenses
-    drprsResponseStatus,
+    drprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkDeleteRetentionPolicy' smart constructor.
 data DeleteRetentionPolicy = DeleteRetentionPolicy'
-  { -- | The retention policy ID.
-    id :: Lude.Text,
-    -- | The organization ID.
-    organizationId :: Lude.Text
+  { -- | The organization ID.
+    organizationId :: Types.OrganizationId,
+    -- | The retention policy ID.
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRetentionPolicy' with the minimum fields required to make a request.
---
--- * 'id' - The retention policy ID.
--- * 'organizationId' - The organization ID.
+-- | Creates a 'DeleteRetentionPolicy' value with any optional fields omitted.
 mkDeleteRetentionPolicy ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'id'
+  Types.Id ->
   DeleteRetentionPolicy
-mkDeleteRetentionPolicy pId_ pOrganizationId_ =
-  DeleteRetentionPolicy'
-    { id = pId_,
-      organizationId = pOrganizationId_
-    }
-
--- | The retention policy ID.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpId :: Lens.Lens' DeleteRetentionPolicy Lude.Text
-drpId = Lens.lens (id :: DeleteRetentionPolicy -> Lude.Text) (\s a -> s {id = a} :: DeleteRetentionPolicy)
-{-# DEPRECATED drpId "Use generic-lens or generic-optics with 'id' instead." #-}
+mkDeleteRetentionPolicy organizationId id =
+  DeleteRetentionPolicy' {organizationId, id}
 
 -- | The organization ID.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpOrganizationId :: Lens.Lens' DeleteRetentionPolicy Lude.Text
-drpOrganizationId = Lens.lens (organizationId :: DeleteRetentionPolicy -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteRetentionPolicy)
+drpOrganizationId :: Lens.Lens' DeleteRetentionPolicy Types.OrganizationId
+drpOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED drpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest DeleteRetentionPolicy where
+-- | The retention policy ID.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpId :: Lens.Lens' DeleteRetentionPolicy Types.Id
+drpId = Lens.field @"id"
+{-# DEPRECATED drpId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+instance Core.FromJSON DeleteRetentionPolicy where
+  toJSON DeleteRetentionPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("Id" Core..= id)
+          ]
+      )
+
+instance Core.AWSRequest DeleteRetentionPolicy where
   type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.DeleteRetentionPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteRetentionPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRetentionPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.DeleteRetentionPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteRetentionPolicy where
-  toJSON DeleteRetentionPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Id" Lude..= id),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath DeleteRetentionPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRetentionPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteRetentionPolicyResponse' smart constructor.
 newtype DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRetentionPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRetentionPolicyResponse' value with any optional fields omitted.
 mkDeleteRetentionPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRetentionPolicyResponse
-mkDeleteRetentionPolicyResponse pResponseStatus_ =
-  DeleteRetentionPolicyResponse' {responseStatus = pResponseStatus_}
+mkDeleteRetentionPolicyResponse responseStatus =
+  DeleteRetentionPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsResponseStatus :: Lens.Lens' DeleteRetentionPolicyResponse Lude.Int
-drprsResponseStatus = Lens.lens (responseStatus :: DeleteRetentionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRetentionPolicyResponse)
-{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drprrsResponseStatus :: Lens.Lens' DeleteRetentionPolicyResponse Core.Int
+drprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

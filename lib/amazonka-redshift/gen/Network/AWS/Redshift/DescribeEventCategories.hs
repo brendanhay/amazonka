@@ -27,16 +27,16 @@ module Network.AWS.Redshift.DescribeEventCategories
     mkDescribeEventCategoriesResponse,
 
     -- ** Response lenses
-    decrsEventCategoriesMapList,
-    decrsResponseStatus,
+    decrrsEventCategoriesMapList,
+    decrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -45,95 +45,91 @@ newtype DescribeEventCategories = DescribeEventCategories'
   { -- | The source type, such as cluster or parameter group, to which the described event categories apply.
     --
     -- Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.
-    sourceType :: Lude.Maybe Lude.Text
+    sourceType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
---
--- * 'sourceType' - The source type, such as cluster or parameter group, to which the described event categories apply.
---
--- Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.
+-- | Creates a 'DescribeEventCategories' value with any optional fields omitted.
 mkDescribeEventCategories ::
   DescribeEventCategories
 mkDescribeEventCategories =
-  DescribeEventCategories' {sourceType = Lude.Nothing}
+  DescribeEventCategories' {sourceType = Core.Nothing}
 
 -- | The source type, such as cluster or parameter group, to which the described event categories apply.
 --
 -- Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.
 --
 -- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decSourceType :: Lens.Lens' DescribeEventCategories (Lude.Maybe Lude.Text)
-decSourceType = Lens.lens (sourceType :: DescribeEventCategories -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: DescribeEventCategories)
+decSourceType :: Lens.Lens' DescribeEventCategories (Core.Maybe Types.String)
+decSourceType = Lens.field @"sourceType"
 {-# DEPRECATED decSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
-instance Lude.AWSRequest DescribeEventCategories where
+instance Core.AWSRequest DescribeEventCategories where
   type Rs DescribeEventCategories = DescribeEventCategoriesResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEventCategories")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "SourceType" Core.<$> sourceType)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEventCategoriesResult"
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Lude.<$> ( x Lude..@? "EventCategoriesMapList" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "EventCategoriesMap")
+            Core.<$> ( x Core..@? "EventCategoriesMapList"
+                         Core..<@> Core.parseXMLList "EventCategoriesMap"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEventCategories where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEventCategories where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEventCategories where
-  toQuery DescribeEventCategories' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeEventCategories" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SourceType" Lude.=: sourceType
-      ]
 
 -- |
 --
 -- /See:/ 'mkDescribeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
   { -- | A list of event categories descriptions.
-    eventCategoriesMapList :: Lude.Maybe [EventCategoriesMap],
+    eventCategoriesMapList :: Core.Maybe [Types.EventCategoriesMap],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
---
--- * 'eventCategoriesMapList' - A list of event categories descriptions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEventCategoriesResponse' value with any optional fields omitted.
 mkDescribeEventCategoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEventCategoriesResponse
-mkDescribeEventCategoriesResponse pResponseStatus_ =
+mkDescribeEventCategoriesResponse responseStatus =
   DescribeEventCategoriesResponse'
     { eventCategoriesMapList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of event categories descriptions.
 --
 -- /Note:/ Consider using 'eventCategoriesMapList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decrsEventCategoriesMapList :: Lens.Lens' DescribeEventCategoriesResponse (Lude.Maybe [EventCategoriesMap])
-decrsEventCategoriesMapList = Lens.lens (eventCategoriesMapList :: DescribeEventCategoriesResponse -> Lude.Maybe [EventCategoriesMap]) (\s a -> s {eventCategoriesMapList = a} :: DescribeEventCategoriesResponse)
-{-# DEPRECATED decrsEventCategoriesMapList "Use generic-lens or generic-optics with 'eventCategoriesMapList' instead." #-}
+decrrsEventCategoriesMapList :: Lens.Lens' DescribeEventCategoriesResponse (Core.Maybe [Types.EventCategoriesMap])
+decrrsEventCategoriesMapList = Lens.field @"eventCategoriesMapList"
+{-# DEPRECATED decrrsEventCategoriesMapList "Use generic-lens or generic-optics with 'eventCategoriesMapList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decrsResponseStatus :: Lens.Lens' DescribeEventCategoriesResponse Lude.Int
-decrsResponseStatus = Lens.lens (responseStatus :: DescribeEventCategoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventCategoriesResponse)
-{-# DEPRECATED decrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+decrrsResponseStatus :: Lens.Lens' DescribeEventCategoriesResponse Core.Int
+decrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED decrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

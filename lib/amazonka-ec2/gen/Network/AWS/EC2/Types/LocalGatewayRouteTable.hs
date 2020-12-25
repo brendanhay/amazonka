@@ -17,122 +17,118 @@ module Network.AWS.EC2.Types.LocalGatewayRouteTable
     mkLocalGatewayRouteTable,
 
     -- * Lenses
-    lgrtState,
-    lgrtLocalGatewayRouteTableARN,
     lgrtLocalGatewayId,
-    lgrtOutpostARN,
-    lgrtOwnerId,
+    lgrtLocalGatewayRouteTableArn,
     lgrtLocalGatewayRouteTableId,
+    lgrtOutpostArn,
+    lgrtOwnerId,
+    lgrtState,
     lgrtTags,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.LocalGatewayId as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteTableArn as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteTableId as Types
+import qualified Network.AWS.EC2.Types.OutpostArn as Types
+import qualified Network.AWS.EC2.Types.OwnerId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a local gateway route table.
 --
 -- /See:/ 'mkLocalGatewayRouteTable' smart constructor.
 data LocalGatewayRouteTable = LocalGatewayRouteTable'
-  { -- | The state of the local gateway route table.
-    state :: Lude.Maybe Lude.Text,
+  { -- | The ID of the local gateway.
+    localGatewayId :: Core.Maybe Types.LocalGatewayId,
     -- | The Amazon Resource Name (ARN) of the local gateway route table.
-    localGatewayRouteTableARN :: Lude.Maybe Lude.Text,
-    -- | The ID of the local gateway.
-    localGatewayId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostARN :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID that owns the local gateway route table.
-    ownerId :: Lude.Maybe Lude.Text,
+    localGatewayRouteTableArn :: Core.Maybe Types.LocalGatewayRouteTableArn,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    localGatewayRouteTableId :: Core.Maybe Types.LocalGatewayRouteTableId,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
+    outpostArn :: Core.Maybe Types.OutpostArn,
+    -- | The AWS account ID that owns the local gateway route table.
+    ownerId :: Core.Maybe Types.OwnerId,
+    -- | The state of the local gateway route table.
+    state :: Core.Maybe Types.String,
     -- | The tags assigned to the local gateway route table.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalGatewayRouteTable' with the minimum fields required to make a request.
---
--- * 'state' - The state of the local gateway route table.
--- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table.
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'ownerId' - The AWS account ID that owns the local gateway route table.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'tags' - The tags assigned to the local gateway route table.
+-- | Creates a 'LocalGatewayRouteTable' value with any optional fields omitted.
 mkLocalGatewayRouteTable ::
   LocalGatewayRouteTable
 mkLocalGatewayRouteTable =
   LocalGatewayRouteTable'
-    { state = Lude.Nothing,
-      localGatewayRouteTableARN = Lude.Nothing,
-      localGatewayId = Lude.Nothing,
-      outpostARN = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      localGatewayRouteTableId = Lude.Nothing,
-      tags = Lude.Nothing
+    { localGatewayId = Core.Nothing,
+      localGatewayRouteTableArn = Core.Nothing,
+      localGatewayRouteTableId = Core.Nothing,
+      outpostArn = Core.Nothing,
+      ownerId = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The state of the local gateway route table.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtState :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe Lude.Text)
-lgrtState = Lens.lens (state :: LocalGatewayRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: LocalGatewayRouteTable)
-{-# DEPRECATED lgrtState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the local gateway route table.
---
--- /Note:/ Consider using 'localGatewayRouteTableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtLocalGatewayRouteTableARN :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe Lude.Text)
-lgrtLocalGatewayRouteTableARN = Lens.lens (localGatewayRouteTableARN :: LocalGatewayRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableARN = a} :: LocalGatewayRouteTable)
-{-# DEPRECATED lgrtLocalGatewayRouteTableARN "Use generic-lens or generic-optics with 'localGatewayRouteTableARN' instead." #-}
 
 -- | The ID of the local gateway.
 --
 -- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtLocalGatewayId :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe Lude.Text)
-lgrtLocalGatewayId = Lens.lens (localGatewayId :: LocalGatewayRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayId = a} :: LocalGatewayRouteTable)
+lgrtLocalGatewayId :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe Types.LocalGatewayId)
+lgrtLocalGatewayId = Lens.field @"localGatewayId"
 {-# DEPRECATED lgrtLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the Outpost.
+-- | The Amazon Resource Name (ARN) of the local gateway route table.
 --
--- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtOutpostARN :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe Lude.Text)
-lgrtOutpostARN = Lens.lens (outpostARN :: LocalGatewayRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: LocalGatewayRouteTable)
-{-# DEPRECATED lgrtOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
-
--- | The AWS account ID that owns the local gateway route table.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtOwnerId :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe Lude.Text)
-lgrtOwnerId = Lens.lens (ownerId :: LocalGatewayRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: LocalGatewayRouteTable)
-{-# DEPRECATED lgrtOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+-- /Note:/ Consider using 'localGatewayRouteTableArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtLocalGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe Types.LocalGatewayRouteTableArn)
+lgrtLocalGatewayRouteTableArn = Lens.field @"localGatewayRouteTableArn"
+{-# DEPRECATED lgrtLocalGatewayRouteTableArn "Use generic-lens or generic-optics with 'localGatewayRouteTableArn' instead." #-}
 
 -- | The ID of the local gateway route table.
 --
 -- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtLocalGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe Lude.Text)
-lgrtLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: LocalGatewayRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: LocalGatewayRouteTable)
+lgrtLocalGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe Types.LocalGatewayRouteTableId)
+lgrtLocalGatewayRouteTableId = Lens.field @"localGatewayRouteTableId"
 {-# DEPRECATED lgrtLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Outpost.
+--
+-- /Note:/ Consider using 'outpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtOutpostArn :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe Types.OutpostArn)
+lgrtOutpostArn = Lens.field @"outpostArn"
+{-# DEPRECATED lgrtOutpostArn "Use generic-lens or generic-optics with 'outpostArn' instead." #-}
+
+-- | The AWS account ID that owns the local gateway route table.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtOwnerId :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe Types.OwnerId)
+lgrtOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED lgrtOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The state of the local gateway route table.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtState :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe Types.String)
+lgrtState = Lens.field @"state"
+{-# DEPRECATED lgrtState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The tags assigned to the local gateway route table.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrtTags :: Lens.Lens' LocalGatewayRouteTable (Lude.Maybe [Tag])
-lgrtTags = Lens.lens (tags :: LocalGatewayRouteTable -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LocalGatewayRouteTable)
+lgrtTags :: Lens.Lens' LocalGatewayRouteTable (Core.Maybe [Types.Tag])
+lgrtTags = Lens.field @"tags"
 {-# DEPRECATED lgrtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML LocalGatewayRouteTable where
+instance Core.FromXML LocalGatewayRouteTable where
   parseXML x =
     LocalGatewayRouteTable'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "localGatewayRouteTableArn")
-      Lude.<*> (x Lude..@? "localGatewayId")
-      Lude.<*> (x Lude..@? "outpostArn")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> (x Lude..@? "localGatewayRouteTableId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "localGatewayId")
+      Core.<*> (x Core..@? "localGatewayRouteTableArn")
+      Core.<*> (x Core..@? "localGatewayRouteTableId")
+      Core.<*> (x Core..@? "outpostArn")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

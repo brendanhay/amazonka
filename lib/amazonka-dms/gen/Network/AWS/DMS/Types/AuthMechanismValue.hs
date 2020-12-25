@@ -13,51 +13,56 @@
 module Network.AWS.DMS.Types.AuthMechanismValue
   ( AuthMechanismValue
       ( AuthMechanismValue',
-        AMVDefault,
-        AMVMongodbCr,
-        AMVScramSha1
+        AuthMechanismValueDefault,
+        AuthMechanismValueMongodbCr,
+        AuthMechanismValueScramSha1,
+        fromAuthMechanismValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthMechanismValue = AuthMechanismValue' Lude.Text
+newtype AuthMechanismValue = AuthMechanismValue'
+  { fromAuthMechanismValue ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMVDefault :: AuthMechanismValue
-pattern AMVDefault = AuthMechanismValue' "default"
+pattern AuthMechanismValueDefault :: AuthMechanismValue
+pattern AuthMechanismValueDefault = AuthMechanismValue' "default"
 
-pattern AMVMongodbCr :: AuthMechanismValue
-pattern AMVMongodbCr = AuthMechanismValue' "mongodb_cr"
+pattern AuthMechanismValueMongodbCr :: AuthMechanismValue
+pattern AuthMechanismValueMongodbCr = AuthMechanismValue' "mongodb_cr"
 
-pattern AMVScramSha1 :: AuthMechanismValue
-pattern AMVScramSha1 = AuthMechanismValue' "scram_sha_1"
+pattern AuthMechanismValueScramSha1 :: AuthMechanismValue
+pattern AuthMechanismValueScramSha1 = AuthMechanismValue' "scram_sha_1"
 
 {-# COMPLETE
-  AMVDefault,
-  AMVMongodbCr,
-  AMVScramSha1,
+  AuthMechanismValueDefault,
+  AuthMechanismValueMongodbCr,
+  AuthMechanismValueScramSha1,
   AuthMechanismValue'
   #-}

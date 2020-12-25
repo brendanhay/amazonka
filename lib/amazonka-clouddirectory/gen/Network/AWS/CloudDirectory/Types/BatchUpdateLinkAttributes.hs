@@ -17,61 +17,58 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
     mkBatchUpdateLinkAttributes,
 
     -- * Lenses
-    bulaAttributeUpdates,
     bulaTypedLinkSpecifier,
+    bulaAttributeUpdates,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
-import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import qualified Network.AWS.CloudDirectory.Types.LinkAttributeUpdate as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkSpecifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Updates a given typed link’s attributes inside a 'BatchRead' operation. Attributes to be updated must not contribute to the typed link’s identity, as defined by its @IdentityAttributeOrder@ . For more information, see 'UpdateLinkAttributes' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchUpdateLinkAttributes' smart constructor.
 data BatchUpdateLinkAttributes = BatchUpdateLinkAttributes'
-  { -- | The attributes update structure.
-    attributeUpdates :: [LinkAttributeUpdate],
-    -- | Allows a typed link specifier to be accepted as input.
-    typedLinkSpecifier :: TypedLinkSpecifier
+  { -- | Allows a typed link specifier to be accepted as input.
+    typedLinkSpecifier :: Types.TypedLinkSpecifier,
+    -- | The attributes update structure.
+    attributeUpdates :: [Types.LinkAttributeUpdate]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchUpdateLinkAttributes' with the minimum fields required to make a request.
---
--- * 'attributeUpdates' - The attributes update structure.
--- * 'typedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
+-- | Creates a 'BatchUpdateLinkAttributes' value with any optional fields omitted.
 mkBatchUpdateLinkAttributes ::
   -- | 'typedLinkSpecifier'
-  TypedLinkSpecifier ->
+  Types.TypedLinkSpecifier ->
   BatchUpdateLinkAttributes
-mkBatchUpdateLinkAttributes pTypedLinkSpecifier_ =
+mkBatchUpdateLinkAttributes typedLinkSpecifier =
   BatchUpdateLinkAttributes'
-    { attributeUpdates = Lude.mempty,
-      typedLinkSpecifier = pTypedLinkSpecifier_
+    { typedLinkSpecifier,
+      attributeUpdates = Core.mempty
     }
-
--- | The attributes update structure.
---
--- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bulaAttributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [LinkAttributeUpdate]
-bulaAttributeUpdates = Lens.lens (attributeUpdates :: BatchUpdateLinkAttributes -> [LinkAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes)
-{-# DEPRECATED bulaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
 -- | Allows a typed link specifier to be accepted as input.
 --
 -- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bulaTypedLinkSpecifier :: Lens.Lens' BatchUpdateLinkAttributes TypedLinkSpecifier
-bulaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchUpdateLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchUpdateLinkAttributes)
+bulaTypedLinkSpecifier :: Lens.Lens' BatchUpdateLinkAttributes Types.TypedLinkSpecifier
+bulaTypedLinkSpecifier = Lens.field @"typedLinkSpecifier"
 {-# DEPRECATED bulaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance Lude.ToJSON BatchUpdateLinkAttributes where
-  toJSON BatchUpdateLinkAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AttributeUpdates" Lude..= attributeUpdates),
-            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)
+-- | The attributes update structure.
+--
+-- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bulaAttributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [Types.LinkAttributeUpdate]
+bulaAttributeUpdates = Lens.field @"attributeUpdates"
+{-# DEPRECATED bulaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
+
+instance Core.FromJSON BatchUpdateLinkAttributes where
+  toJSON BatchUpdateLinkAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+            Core.Just ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )

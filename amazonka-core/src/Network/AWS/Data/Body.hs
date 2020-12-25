@@ -1,14 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# OPTIONS_GHC -fno-warn-type-defaults #-}
-
 -- |
 -- Module      : Network.AWS.Data.Body
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -18,30 +7,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Body where
 
-import Control.Monad.Trans.Resource
-import Data.Aeson
-import qualified Data.ByteString as BS
-import Data.ByteString.Builder (Builder)
-import qualified Data.ByteString.Char8 as BS8
-import qualified Data.ByteString.Lazy as LBS
-import qualified Data.ByteString.Lazy.Char8 as LBS8
-import Data.Conduit
-import Data.HashMap.Strict (HashMap)
-import Data.String
-import Data.Text (Text)
+import qualified Control.Monad.Trans.Resource as Resource
+import qualified Data.Aeson as Aeson
+import qualified Data.ByteString as ByteString
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.ByteString.Lazy.Char8 as ByteString.Lazy.Char8
+import qualified Data.Conduit as Conduit
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
 import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Log
-import Network.AWS.Data.Query (QueryString)
-import Network.AWS.Data.XML (ToElement, encodeXML)
-import Network.AWS.Lens (AReview, Lens', lens, to, un)
-import Network.HTTP.Conduit
-import Text.XML (Element)
-
-default (Builder)
+import qualified Network.AWS.Hash as Hash
+import qualified Network.AWS.Data.Query as AWS.Query
+import qualified Network.AWS.Data.XML as AWS.XML
+-- import Network.AWS.Lens (AReview, Lens', lens, to, un)
+import qualified Network.HTTP.Conduit as HTTP.Conduit
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
@@ -49,7 +30,7 @@ newtype RsBody = RsBody
   } -- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
-  show = const "RsBody { ConduitM () ByteString (ResourceT IO) () }"
+  showsPrec _ = showString "RsBody { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream ::
   RsBody ->
@@ -80,8 +61,8 @@ defaultChunkSize = 128 * 1024
 -- accept a 'ChunkedBody'. (Currently S3.) This is enforced by the type
 -- signatures emitted by the generator.
 data ChunkedBody = ChunkedBody
-  { _chunkedSize :: !ChunkSize,
-    _chunkedLength :: !Integer,
+  { _chunkedSize :: ChunkSize,
+    _chunkedLength :: Integer,
     _chunkedBody :: ConduitM () ByteString (ResourceT IO) ()
   }
 

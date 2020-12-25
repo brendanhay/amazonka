@@ -35,129 +35,116 @@ module Network.AWS.AlexaBusiness.StartDeviceSync
     mkStartDeviceSync,
 
     -- ** Request lenses
-    sdsDeviceARN,
     sdsFeatures,
-    sdsRoomARN,
+    sdsDeviceArn,
+    sdsRoomArn,
 
     -- * Destructuring the response
     StartDeviceSyncResponse (..),
     mkStartDeviceSyncResponse,
 
     -- ** Response lenses
-    sdsrsResponseStatus,
+    sdsrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartDeviceSync' smart constructor.
 data StartDeviceSync = StartDeviceSync'
-  { -- | The ARN of the device to sync. Required.
-    deviceARN :: Lude.Maybe Lude.Text,
-    -- | Request structure to start the device sync. Required.
-    features :: [Feature],
+  { -- | Request structure to start the device sync. Required.
+    features :: [Types.Feature],
+    -- | The ARN of the device to sync. Required.
+    deviceArn :: Core.Maybe Types.Arn,
     -- | The ARN of the room with which the device to sync is associated. Required.
-    roomARN :: Lude.Maybe Lude.Text
+    roomArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartDeviceSync' with the minimum fields required to make a request.
---
--- * 'deviceARN' - The ARN of the device to sync. Required.
--- * 'features' - Request structure to start the device sync. Required.
--- * 'roomARN' - The ARN of the room with which the device to sync is associated. Required.
+-- | Creates a 'StartDeviceSync' value with any optional fields omitted.
 mkStartDeviceSync ::
   StartDeviceSync
 mkStartDeviceSync =
   StartDeviceSync'
-    { deviceARN = Lude.Nothing,
-      features = Lude.mempty,
-      roomARN = Lude.Nothing
+    { features = Core.mempty,
+      deviceArn = Core.Nothing,
+      roomArn = Core.Nothing
     }
-
--- | The ARN of the device to sync. Required.
---
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsDeviceARN :: Lens.Lens' StartDeviceSync (Lude.Maybe Lude.Text)
-sdsDeviceARN = Lens.lens (deviceARN :: StartDeviceSync -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: StartDeviceSync)
-{-# DEPRECATED sdsDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 -- | Request structure to start the device sync. Required.
 --
 -- /Note:/ Consider using 'features' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsFeatures :: Lens.Lens' StartDeviceSync [Feature]
-sdsFeatures = Lens.lens (features :: StartDeviceSync -> [Feature]) (\s a -> s {features = a} :: StartDeviceSync)
+sdsFeatures :: Lens.Lens' StartDeviceSync [Types.Feature]
+sdsFeatures = Lens.field @"features"
 {-# DEPRECATED sdsFeatures "Use generic-lens or generic-optics with 'features' instead." #-}
+
+-- | The ARN of the device to sync. Required.
+--
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsDeviceArn :: Lens.Lens' StartDeviceSync (Core.Maybe Types.Arn)
+sdsDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED sdsDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
 
 -- | The ARN of the room with which the device to sync is associated. Required.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsRoomARN :: Lens.Lens' StartDeviceSync (Lude.Maybe Lude.Text)
-sdsRoomARN = Lens.lens (roomARN :: StartDeviceSync -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: StartDeviceSync)
-{-# DEPRECATED sdsRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsRoomArn :: Lens.Lens' StartDeviceSync (Core.Maybe Types.Arn)
+sdsRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED sdsRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest StartDeviceSync where
+instance Core.FromJSON StartDeviceSync where
+  toJSON StartDeviceSync {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Features" Core..= features),
+            ("DeviceArn" Core..=) Core.<$> deviceArn,
+            ("RoomArn" Core..=) Core.<$> roomArn
+          ]
+      )
+
+instance Core.AWSRequest StartDeviceSync where
   type Rs StartDeviceSync = StartDeviceSyncResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.StartDeviceSync")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StartDeviceSyncResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StartDeviceSyncResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartDeviceSync where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.StartDeviceSync" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartDeviceSync where
-  toJSON StartDeviceSync' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeviceArn" Lude..=) Lude.<$> deviceARN,
-            Lude.Just ("Features" Lude..= features),
-            ("RoomArn" Lude..=) Lude.<$> roomARN
-          ]
-      )
-
-instance Lude.ToPath StartDeviceSync where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartDeviceSync where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartDeviceSyncResponse' smart constructor.
 newtype StartDeviceSyncResponse = StartDeviceSyncResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartDeviceSyncResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartDeviceSyncResponse' value with any optional fields omitted.
 mkStartDeviceSyncResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartDeviceSyncResponse
-mkStartDeviceSyncResponse pResponseStatus_ =
-  StartDeviceSyncResponse' {responseStatus = pResponseStatus_}
+mkStartDeviceSyncResponse responseStatus =
+  StartDeviceSyncResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsrsResponseStatus :: Lens.Lens' StartDeviceSyncResponse Lude.Int
-sdsrsResponseStatus = Lens.lens (responseStatus :: StartDeviceSyncResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDeviceSyncResponse)
-{-# DEPRECATED sdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdsrrsResponseStatus :: Lens.Lens' StartDeviceSyncResponse Core.Int
+sdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

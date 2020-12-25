@@ -13,52 +13,57 @@
 module Network.AWS.Route53.Types.InsufficientDataHealthStatus
   ( InsufficientDataHealthStatus
       ( InsufficientDataHealthStatus',
-        Healthy,
-        Unhealthy,
-        LastKnownStatus
+        InsufficientDataHealthStatusHealthy,
+        InsufficientDataHealthStatusUnhealthy,
+        InsufficientDataHealthStatusLastKnownStatus,
+        fromInsufficientDataHealthStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype InsufficientDataHealthStatus = InsufficientDataHealthStatus' Lude.Text
+newtype InsufficientDataHealthStatus = InsufficientDataHealthStatus'
+  { fromInsufficientDataHealthStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Healthy :: InsufficientDataHealthStatus
-pattern Healthy = InsufficientDataHealthStatus' "Healthy"
+pattern InsufficientDataHealthStatusHealthy :: InsufficientDataHealthStatus
+pattern InsufficientDataHealthStatusHealthy = InsufficientDataHealthStatus' "Healthy"
 
-pattern Unhealthy :: InsufficientDataHealthStatus
-pattern Unhealthy = InsufficientDataHealthStatus' "Unhealthy"
+pattern InsufficientDataHealthStatusUnhealthy :: InsufficientDataHealthStatus
+pattern InsufficientDataHealthStatusUnhealthy = InsufficientDataHealthStatus' "Unhealthy"
 
-pattern LastKnownStatus :: InsufficientDataHealthStatus
-pattern LastKnownStatus = InsufficientDataHealthStatus' "LastKnownStatus"
+pattern InsufficientDataHealthStatusLastKnownStatus :: InsufficientDataHealthStatus
+pattern InsufficientDataHealthStatusLastKnownStatus = InsufficientDataHealthStatus' "LastKnownStatus"
 
 {-# COMPLETE
-  Healthy,
-  Unhealthy,
-  LastKnownStatus,
+  InsufficientDataHealthStatusHealthy,
+  InsufficientDataHealthStatusUnhealthy,
+  InsufficientDataHealthStatusLastKnownStatus,
   InsufficientDataHealthStatus'
   #-}

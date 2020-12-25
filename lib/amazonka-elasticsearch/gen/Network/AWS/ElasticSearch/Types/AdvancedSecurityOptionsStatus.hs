@@ -17,63 +17,55 @@ module Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
     mkAdvancedSecurityOptionsStatus,
 
     -- * Lenses
-    asosStatus,
     asosOptions,
+    asosStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions as Types
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the status of advanced security options for the specified Elasticsearch domain.
 --
 -- /See:/ 'mkAdvancedSecurityOptionsStatus' smart constructor.
 data AdvancedSecurityOptionsStatus = AdvancedSecurityOptionsStatus'
-  { -- | Status of the advanced security options for the specified Elasticsearch domain.
-    status :: OptionStatus,
-    -- | Specifies advanced security options for the specified Elasticsearch domain.
-    options :: AdvancedSecurityOptions
+  { -- | Specifies advanced security options for the specified Elasticsearch domain.
+    options :: Types.AdvancedSecurityOptions,
+    -- | Status of the advanced security options for the specified Elasticsearch domain.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AdvancedSecurityOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - Status of the advanced security options for the specified Elasticsearch domain.
--- * 'options' - Specifies advanced security options for the specified Elasticsearch domain.
+-- | Creates a 'AdvancedSecurityOptionsStatus' value with any optional fields omitted.
 mkAdvancedSecurityOptionsStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  AdvancedSecurityOptions ->
+  Types.AdvancedSecurityOptions ->
+  -- | 'status'
+  Types.OptionStatus ->
   AdvancedSecurityOptionsStatus
-mkAdvancedSecurityOptionsStatus pStatus_ pOptions_ =
-  AdvancedSecurityOptionsStatus'
-    { status = pStatus_,
-      options = pOptions_
-    }
-
--- | Status of the advanced security options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asosStatus :: Lens.Lens' AdvancedSecurityOptionsStatus OptionStatus
-asosStatus = Lens.lens (status :: AdvancedSecurityOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: AdvancedSecurityOptionsStatus)
-{-# DEPRECATED asosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkAdvancedSecurityOptionsStatus options status =
+  AdvancedSecurityOptionsStatus' {options, status}
 
 -- | Specifies advanced security options for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asosOptions :: Lens.Lens' AdvancedSecurityOptionsStatus AdvancedSecurityOptions
-asosOptions = Lens.lens (options :: AdvancedSecurityOptionsStatus -> AdvancedSecurityOptions) (\s a -> s {options = a} :: AdvancedSecurityOptionsStatus)
+asosOptions :: Lens.Lens' AdvancedSecurityOptionsStatus Types.AdvancedSecurityOptions
+asosOptions = Lens.field @"options"
 {-# DEPRECATED asosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON AdvancedSecurityOptionsStatus where
+-- | Status of the advanced security options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asosStatus :: Lens.Lens' AdvancedSecurityOptionsStatus Types.OptionStatus
+asosStatus = Lens.field @"status"
+{-# DEPRECATED asosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON AdvancedSecurityOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "AdvancedSecurityOptionsStatus"
-      ( \x ->
-          AdvancedSecurityOptionsStatus'
-            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
-      )
+    Core.withObject "AdvancedSecurityOptionsStatus" Core.$
+      \x ->
+        AdvancedSecurityOptionsStatus'
+          Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")

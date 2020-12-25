@@ -13,61 +13,63 @@
 module Network.AWS.Snowball.Types.ClusterState
   ( ClusterState
       ( ClusterState',
-        CSAwaitingQuorum,
-        CSPending,
-        CSInUse,
-        CSComplete,
-        CSCancelled
+        ClusterStateAwaitingQuorum,
+        ClusterStatePending,
+        ClusterStateInUse,
+        ClusterStateComplete,
+        ClusterStateCancelled,
+        fromClusterState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ClusterState = ClusterState' Lude.Text
+newtype ClusterState = ClusterState' {fromClusterState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSAwaitingQuorum :: ClusterState
-pattern CSAwaitingQuorum = ClusterState' "AwaitingQuorum"
+pattern ClusterStateAwaitingQuorum :: ClusterState
+pattern ClusterStateAwaitingQuorum = ClusterState' "AwaitingQuorum"
 
-pattern CSPending :: ClusterState
-pattern CSPending = ClusterState' "Pending"
+pattern ClusterStatePending :: ClusterState
+pattern ClusterStatePending = ClusterState' "Pending"
 
-pattern CSInUse :: ClusterState
-pattern CSInUse = ClusterState' "InUse"
+pattern ClusterStateInUse :: ClusterState
+pattern ClusterStateInUse = ClusterState' "InUse"
 
-pattern CSComplete :: ClusterState
-pattern CSComplete = ClusterState' "Complete"
+pattern ClusterStateComplete :: ClusterState
+pattern ClusterStateComplete = ClusterState' "Complete"
 
-pattern CSCancelled :: ClusterState
-pattern CSCancelled = ClusterState' "Cancelled"
+pattern ClusterStateCancelled :: ClusterState
+pattern ClusterStateCancelled = ClusterState' "Cancelled"
 
 {-# COMPLETE
-  CSAwaitingQuorum,
-  CSPending,
-  CSInUse,
-  CSComplete,
-  CSCancelled,
+  ClusterStateAwaitingQuorum,
+  ClusterStatePending,
+  ClusterStateInUse,
+  ClusterStateComplete,
+  ClusterStateCancelled,
   ClusterState'
   #-}

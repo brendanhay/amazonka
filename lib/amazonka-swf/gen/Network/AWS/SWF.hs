@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,40 @@
 -- This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the /<https:\/\/docs.aws.amazon.com\/amazonswf\/latest\/developerguide\/ Amazon SWF Developer Guide> / .
 module Network.AWS.SWF
   ( -- * Service configuration
-    swfService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** DomainAlreadyExistsFault
+    _DomainAlreadyExistsFault,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** WorkflowExecutionAlreadyStartedFault
+    _WorkflowExecutionAlreadyStartedFault,
+
+    -- ** OperationNotPermittedFault
+    _OperationNotPermittedFault,
+
+    -- ** UnknownResourceFault
+    _UnknownResourceFault,
+
+    -- ** DefaultUndefinedFault
+    _DefaultUndefinedFault,
+
+    -- ** TypeDeprecatedFault
+    _TypeDeprecatedFault,
+
+    -- ** TooManyTagsFault
+    _TooManyTagsFault,
+
+    -- ** TypeAlreadyExistsFault
+    _TypeAlreadyExistsFault,
+
+    -- ** DomainDeprecatedFault
+    _DomainDeprecatedFault,
 
     -- * Waiters
     -- $waiters
@@ -142,481 +171,70 @@ module Network.AWS.SWF
 
     -- * Types
 
-    -- ** ActivityTaskTimeoutType
-    ActivityTaskTimeoutType (..),
+    -- ** FailureReason
+    FailureReason (..),
 
-    -- ** CancelTimerFailedCause
-    CancelTimerFailedCause (..),
+    -- ** WorkflowExecutionCancelRequestedEventAttributes
+    WorkflowExecutionCancelRequestedEventAttributes (..),
+    mkWorkflowExecutionCancelRequestedEventAttributes,
+    wecreaCause,
+    wecreaExternalInitiatedEventId,
+    wecreaExternalWorkflowExecution,
 
-    -- ** CancelWorkflowExecutionFailedCause
-    CancelWorkflowExecutionFailedCause (..),
+    -- ** RequestCancelExternalWorkflowExecutionDecisionAttributes
+    RequestCancelExternalWorkflowExecutionDecisionAttributes (..),
+    mkRequestCancelExternalWorkflowExecutionDecisionAttributes,
+    rcewedaWorkflowId,
+    rcewedaControl,
+    rcewedaRunId,
 
-    -- ** ChildPolicy
-    ChildPolicy (..),
-
-    -- ** CloseStatus
-    CloseStatus (..),
-
-    -- ** CompleteWorkflowExecutionFailedCause
-    CompleteWorkflowExecutionFailedCause (..),
-
-    -- ** ContinueAsNewWorkflowExecutionFailedCause
-    ContinueAsNewWorkflowExecutionFailedCause (..),
-
-    -- ** DecisionTaskTimeoutType
-    DecisionTaskTimeoutType (..),
-
-    -- ** DecisionType
-    DecisionType (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** ExecutionStatus
-    ExecutionStatus (..),
-
-    -- ** FailWorkflowExecutionFailedCause
-    FailWorkflowExecutionFailedCause (..),
-
-    -- ** LambdaFunctionTimeoutType
-    LambdaFunctionTimeoutType (..),
-
-    -- ** RecordMarkerFailedCause
-    RecordMarkerFailedCause (..),
-
-    -- ** RegistrationStatus
-    RegistrationStatus (..),
-
-    -- ** RequestCancelActivityTaskFailedCause
-    RequestCancelActivityTaskFailedCause (..),
-
-    -- ** RequestCancelExternalWorkflowExecutionFailedCause
-    RequestCancelExternalWorkflowExecutionFailedCause (..),
-
-    -- ** ScheduleActivityTaskFailedCause
-    ScheduleActivityTaskFailedCause (..),
-
-    -- ** ScheduleLambdaFunctionFailedCause
-    ScheduleLambdaFunctionFailedCause (..),
-
-    -- ** SignalExternalWorkflowExecutionFailedCause
-    SignalExternalWorkflowExecutionFailedCause (..),
-
-    -- ** StartChildWorkflowExecutionFailedCause
-    StartChildWorkflowExecutionFailedCause (..),
-
-    -- ** StartLambdaFunctionFailedCause
-    StartLambdaFunctionFailedCause (..),
-
-    -- ** StartTimerFailedCause
-    StartTimerFailedCause (..),
-
-    -- ** WorkflowExecutionCancelRequestedCause
-    WorkflowExecutionCancelRequestedCause (..),
-
-    -- ** WorkflowExecutionTerminatedCause
-    WorkflowExecutionTerminatedCause (..),
-
-    -- ** WorkflowExecutionTimeoutType
-    WorkflowExecutionTimeoutType (..),
-
-    -- ** ActivityTaskCancelRequestedEventAttributes
-    ActivityTaskCancelRequestedEventAttributes (..),
-    mkActivityTaskCancelRequestedEventAttributes,
-    atcreaActivityId,
-    atcreaDecisionTaskCompletedEventId,
-
-    -- ** ActivityTaskCanceledEventAttributes
-    ActivityTaskCanceledEventAttributes (..),
-    mkActivityTaskCanceledEventAttributes,
-    aLatestCancelRequestedEventId,
-    aScheduledEventId,
-    aDetails,
-    aStartedEventId,
-
-    -- ** ActivityTaskCompletedEventAttributes
-    ActivityTaskCompletedEventAttributes (..),
-    mkActivityTaskCompletedEventAttributes,
-    atceaScheduledEventId,
-    atceaResult,
-    atceaStartedEventId,
-
-    -- ** ActivityTaskFailedEventAttributes
-    ActivityTaskFailedEventAttributes (..),
-    mkActivityTaskFailedEventAttributes,
-    atfeaScheduledEventId,
-    atfeaReason,
-    atfeaDetails,
-    atfeaStartedEventId,
-
-    -- ** ActivityTaskScheduledEventAttributes
-    ActivityTaskScheduledEventAttributes (..),
-    mkActivityTaskScheduledEventAttributes,
-    atseaControl,
-    atseaActivityType,
-    atseaActivityId,
-    atseaHeartbeatTimeout,
-    atseaScheduleToCloseTimeout,
-    atseaInput,
-    atseaTaskList,
-    atseaTaskPriority,
-    atseaScheduleToStartTimeout,
-    atseaStartToCloseTimeout,
-    atseaDecisionTaskCompletedEventId,
-
-    -- ** ActivityTaskStartedEventAttributes
-    ActivityTaskStartedEventAttributes (..),
-    mkActivityTaskStartedEventAttributes,
-    atseaScheduledEventId,
-    atseaIdentity,
-
-    -- ** ActivityTaskTimedOutEventAttributes
-    ActivityTaskTimedOutEventAttributes (..),
-    mkActivityTaskTimedOutEventAttributes,
-    attoeaScheduledEventId,
-    attoeaTimeoutType,
-    attoeaDetails,
-    attoeaStartedEventId,
-
-    -- ** ActivityType
-    ActivityType (..),
-    mkActivityType,
-    atName,
-    atVersion,
-
-    -- ** ActivityTypeConfiguration
-    ActivityTypeConfiguration (..),
-    mkActivityTypeConfiguration,
-    atcDefaultTaskScheduleToStartTimeout,
-    atcDefaultTaskList,
-    atcDefaultTaskPriority,
-    atcDefaultTaskHeartbeatTimeout,
-    atcDefaultTaskScheduleToCloseTimeout,
-    atcDefaultTaskStartToCloseTimeout,
-
-    -- ** ActivityTypeInfo
-    ActivityTypeInfo (..),
-    mkActivityTypeInfo,
-    atiStatus,
-    atiActivityType,
-    atiDeprecationDate,
-    atiCreationDate,
-    atiDescription,
-
-    -- ** CancelTimerDecisionAttributes
-    CancelTimerDecisionAttributes (..),
-    mkCancelTimerDecisionAttributes,
-    ctdaTimerId,
-
-    -- ** CancelTimerFailedEventAttributes
-    CancelTimerFailedEventAttributes (..),
-    mkCancelTimerFailedEventAttributes,
-    ctfeaCause,
-    ctfeaTimerId,
-    ctfeaDecisionTaskCompletedEventId,
-
-    -- ** CancelWorkflowExecutionDecisionAttributes
-    CancelWorkflowExecutionDecisionAttributes (..),
-    mkCancelWorkflowExecutionDecisionAttributes,
-    cwedaDetails,
-
-    -- ** CancelWorkflowExecutionFailedEventAttributes
-    CancelWorkflowExecutionFailedEventAttributes (..),
-    mkCancelWorkflowExecutionFailedEventAttributes,
-    cCause,
-    cDecisionTaskCompletedEventId,
-
-    -- ** ChildWorkflowExecutionCanceledEventAttributes
-    ChildWorkflowExecutionCanceledEventAttributes (..),
-    mkChildWorkflowExecutionCanceledEventAttributes,
-    cWorkflowType,
-    cDetails,
-    cStartedEventId,
-    cInitiatedEventId,
-    cWorkflowExecution,
-
-    -- ** ChildWorkflowExecutionCompletedEventAttributes
-    ChildWorkflowExecutionCompletedEventAttributes (..),
-    mkChildWorkflowExecutionCompletedEventAttributes,
-    cweceaWorkflowType,
-    cweceaResult,
-    cweceaStartedEventId,
-    cweceaInitiatedEventId,
-    cweceaWorkflowExecution,
-
-    -- ** ChildWorkflowExecutionFailedEventAttributes
-    ChildWorkflowExecutionFailedEventAttributes (..),
-    mkChildWorkflowExecutionFailedEventAttributes,
-    cwefeaWorkflowType,
-    cwefeaReason,
-    cwefeaDetails,
-    cwefeaStartedEventId,
-    cwefeaInitiatedEventId,
-    cwefeaWorkflowExecution,
-
-    -- ** ChildWorkflowExecutionStartedEventAttributes
-    ChildWorkflowExecutionStartedEventAttributes (..),
-    mkChildWorkflowExecutionStartedEventAttributes,
-    cweseaWorkflowType,
-    cweseaInitiatedEventId,
-    cweseaWorkflowExecution,
-
-    -- ** ChildWorkflowExecutionTerminatedEventAttributes
-    ChildWorkflowExecutionTerminatedEventAttributes (..),
-    mkChildWorkflowExecutionTerminatedEventAttributes,
-    cweteaWorkflowType,
-    cweteaStartedEventId,
-    cweteaInitiatedEventId,
-    cweteaWorkflowExecution,
-
-    -- ** ChildWorkflowExecutionTimedOutEventAttributes
-    ChildWorkflowExecutionTimedOutEventAttributes (..),
-    mkChildWorkflowExecutionTimedOutEventAttributes,
-    cwetoeaWorkflowType,
-    cwetoeaTimeoutType,
-    cwetoeaStartedEventId,
-    cwetoeaInitiatedEventId,
-    cwetoeaWorkflowExecution,
-
-    -- ** CloseStatusFilter
-    CloseStatusFilter (..),
-    mkCloseStatusFilter,
-    csfStatus,
-
-    -- ** CompleteWorkflowExecutionDecisionAttributes
-    CompleteWorkflowExecutionDecisionAttributes (..),
-    mkCompleteWorkflowExecutionDecisionAttributes,
-    cwedaResult,
-
-    -- ** CompleteWorkflowExecutionFailedEventAttributes
-    CompleteWorkflowExecutionFailedEventAttributes (..),
-    mkCompleteWorkflowExecutionFailedEventAttributes,
-    cwefeaCause,
-    cwefeaDecisionTaskCompletedEventId,
-
-    -- ** ContinueAsNewWorkflowExecutionDecisionAttributes
-    ContinueAsNewWorkflowExecutionDecisionAttributes (..),
-    mkContinueAsNewWorkflowExecutionDecisionAttributes,
-    canwedaTagList,
-    canwedaTaskStartToCloseTimeout,
-    canwedaLambdaRole,
-    canwedaInput,
-    canwedaWorkflowTypeVersion,
-    canwedaExecutionStartToCloseTimeout,
-    canwedaTaskList,
-    canwedaTaskPriority,
-    canwedaChildPolicy,
-
-    -- ** ContinueAsNewWorkflowExecutionFailedEventAttributes
-    ContinueAsNewWorkflowExecutionFailedEventAttributes (..),
-    mkContinueAsNewWorkflowExecutionFailedEventAttributes,
-    canwefeaCause,
-    canwefeaDecisionTaskCompletedEventId,
-
-    -- ** Decision
-    Decision (..),
-    mkDecision,
-    dRequestCancelExternalWorkflowExecutionDecisionAttributes,
-    dScheduleActivityTaskDecisionAttributes,
-    dSignalExternalWorkflowExecutionDecisionAttributes,
-    dStartTimerDecisionAttributes,
-    dDecisionType,
-    dRecordMarkerDecisionAttributes,
-    dFailWorkflowExecutionDecisionAttributes,
-    dStartChildWorkflowExecutionDecisionAttributes,
-    dCompleteWorkflowExecutionDecisionAttributes,
-    dScheduleLambdaFunctionDecisionAttributes,
-    dRequestCancelActivityTaskDecisionAttributes,
-    dCancelWorkflowExecutionDecisionAttributes,
-    dCancelTimerDecisionAttributes,
-    dContinueAsNewWorkflowExecutionDecisionAttributes,
-
-    -- ** DecisionTaskCompletedEventAttributes
-    DecisionTaskCompletedEventAttributes (..),
-    mkDecisionTaskCompletedEventAttributes,
-    dtceaScheduledEventId,
-    dtceaExecutionContext,
-    dtceaStartedEventId,
+    -- ** LimitedData
+    LimitedData (..),
 
     -- ** DecisionTaskScheduledEventAttributes
     DecisionTaskScheduledEventAttributes (..),
     mkDecisionTaskScheduledEventAttributes,
     dtseaTaskList,
-    dtseaTaskPriority,
     dtseaStartToCloseTimeout,
+    dtseaTaskPriority,
 
-    -- ** DecisionTaskStartedEventAttributes
-    DecisionTaskStartedEventAttributes (..),
-    mkDecisionTaskStartedEventAttributes,
-    dtseaScheduledEventId,
-    dtseaIdentity,
+    -- ** ResourceTagKey
+    ResourceTagKey (..),
 
-    -- ** DecisionTaskTimedOutEventAttributes
-    DecisionTaskTimedOutEventAttributes (..),
-    mkDecisionTaskTimedOutEventAttributes,
-    dttoeaScheduledEventId,
-    dttoeaTimeoutType,
-    dttoeaStartedEventId,
-
-    -- ** DomainConfiguration
-    DomainConfiguration (..),
-    mkDomainConfiguration,
-    dcWorkflowExecutionRetentionPeriodInDays,
-
-    -- ** DomainInfo
-    DomainInfo (..),
-    mkDomainInfo,
-    diStatus,
-    diArn,
-    diName,
-    diDescription,
-
-    -- ** ExecutionTimeFilter
-    ExecutionTimeFilter (..),
-    mkExecutionTimeFilter,
-    etfLatestDate,
-    etfOldestDate,
-
-    -- ** ExternalWorkflowExecutionCancelRequestedEventAttributes
-    ExternalWorkflowExecutionCancelRequestedEventAttributes (..),
-    mkExternalWorkflowExecutionCancelRequestedEventAttributes,
-    ewecreaInitiatedEventId,
-    ewecreaWorkflowExecution,
-
-    -- ** ExternalWorkflowExecutionSignaledEventAttributes
-    ExternalWorkflowExecutionSignaledEventAttributes (..),
-    mkExternalWorkflowExecutionSignaledEventAttributes,
-    eweseaInitiatedEventId,
-    eweseaWorkflowExecution,
-
-    -- ** FailWorkflowExecutionDecisionAttributes
-    FailWorkflowExecutionDecisionAttributes (..),
-    mkFailWorkflowExecutionDecisionAttributes,
-    fwedaReason,
-    fwedaDetails,
-
-    -- ** FailWorkflowExecutionFailedEventAttributes
-    FailWorkflowExecutionFailedEventAttributes (..),
-    mkFailWorkflowExecutionFailedEventAttributes,
-    fwefeaCause,
-    fwefeaDecisionTaskCompletedEventId,
-
-    -- ** HistoryEvent
-    HistoryEvent (..),
-    mkHistoryEvent,
-    heWorkflowExecutionCancelRequestedEventAttributes,
-    heRecordMarkerFailedEventAttributes,
-    heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-    heLambdaFunctionStartedEventAttributes,
-    heDecisionTaskScheduledEventAttributes,
-    heWorkflowExecutionCompletedEventAttributes,
-    heStartTimerFailedEventAttributes,
-    heEventTimestamp,
-    heActivityTaskScheduledEventAttributes,
-    heScheduleActivityTaskFailedEventAttributes,
-    heChildWorkflowExecutionCompletedEventAttributes,
-    heMarkerRecordedEventAttributes,
-    heScheduleLambdaFunctionFailedEventAttributes,
-    heCompleteWorkflowExecutionFailedEventAttributes,
-    heLambdaFunctionCompletedEventAttributes,
-    heRequestCancelExternalWorkflowExecutionFailedEventAttributes,
-    heTimerCanceledEventAttributes,
-    heWorkflowExecutionStartedEventAttributes,
-    heActivityTaskCompletedEventAttributes,
-    heDecisionTaskTimedOutEventAttributes,
-    heCancelTimerFailedEventAttributes,
-    heChildWorkflowExecutionStartedEventAttributes,
-    heEventType,
-    heActivityTaskCanceledEventAttributes,
-    heActivityTaskTimedOutEventAttributes,
-    heDecisionTaskStartedEventAttributes,
-    heWorkflowExecutionTerminatedEventAttributes,
-    heChildWorkflowExecutionCanceledEventAttributes,
-    heRequestCancelActivityTaskFailedEventAttributes,
-    heLambdaFunctionScheduledEventAttributes,
-    heChildWorkflowExecutionTimedOutEventAttributes,
-    heCancelWorkflowExecutionFailedEventAttributes,
-    heStartChildWorkflowExecutionInitiatedEventAttributes,
-    heSignalExternalWorkflowExecutionFailedEventAttributes,
-    heActivityTaskStartedEventAttributes,
-    heStartLambdaFunctionFailedEventAttributes,
-    heChildWorkflowExecutionTerminatedEventAttributes,
-    heLambdaFunctionFailedEventAttributes,
-    heWorkflowExecutionCanceledEventAttributes,
-    heTimerStartedEventAttributes,
-    heActivityTaskCancelRequestedEventAttributes,
-    heWorkflowExecutionTimedOutEventAttributes,
-    heWorkflowExecutionSignaledEventAttributes,
-    heTimerFiredEventAttributes,
-    heActivityTaskFailedEventAttributes,
-    heExternalWorkflowExecutionSignaledEventAttributes,
-    heDecisionTaskCompletedEventAttributes,
-    heStartChildWorkflowExecutionFailedEventAttributes,
-    heChildWorkflowExecutionFailedEventAttributes,
-    heFailWorkflowExecutionFailedEventAttributes,
-    heContinueAsNewWorkflowExecutionFailedEventAttributes,
-    heSignalExternalWorkflowExecutionInitiatedEventAttributes,
-    heLambdaFunctionTimedOutEventAttributes,
-    heEventId,
-    heWorkflowExecutionFailedEventAttributes,
-    heWorkflowExecutionContinuedAsNewEventAttributes,
-    heExternalWorkflowExecutionCancelRequestedEventAttributes,
-
-    -- ** LambdaFunctionCompletedEventAttributes
-    LambdaFunctionCompletedEventAttributes (..),
-    mkLambdaFunctionCompletedEventAttributes,
-    lfceaScheduledEventId,
-    lfceaResult,
-    lfceaStartedEventId,
-
-    -- ** LambdaFunctionFailedEventAttributes
-    LambdaFunctionFailedEventAttributes (..),
-    mkLambdaFunctionFailedEventAttributes,
-    lffeaScheduledEventId,
-    lffeaReason,
-    lffeaDetails,
-    lffeaStartedEventId,
-
-    -- ** LambdaFunctionScheduledEventAttributes
-    LambdaFunctionScheduledEventAttributes (..),
-    mkLambdaFunctionScheduledEventAttributes,
-    lfseaControl,
-    lfseaInput,
-    lfseaName,
-    lfseaId,
-    lfseaStartToCloseTimeout,
-    lfseaDecisionTaskCompletedEventId,
+    -- ** WorkflowExecutionCompletedEventAttributes
+    WorkflowExecutionCompletedEventAttributes (..),
+    mkWorkflowExecutionCompletedEventAttributes,
+    wDecisionTaskCompletedEventId,
+    wResult,
 
     -- ** LambdaFunctionStartedEventAttributes
     LambdaFunctionStartedEventAttributes (..),
     mkLambdaFunctionStartedEventAttributes,
     lfseaScheduledEventId,
 
-    -- ** LambdaFunctionTimedOutEventAttributes
-    LambdaFunctionTimedOutEventAttributes (..),
-    mkLambdaFunctionTimedOutEventAttributes,
-    lftoeaScheduledEventId,
-    lftoeaTimeoutType,
-    lftoeaStartedEventId,
+    -- ** ExecutionTimeFilter
+    ExecutionTimeFilter (..),
+    mkExecutionTimeFilter,
+    etfOldestDate,
+    etfLatestDate,
 
-    -- ** MarkerRecordedEventAttributes
-    MarkerRecordedEventAttributes (..),
-    mkMarkerRecordedEventAttributes,
-    mreaMarkerName,
-    mreaDetails,
-    mreaDecisionTaskCompletedEventId,
+    -- ** StartLambdaFunctionFailedCause
+    StartLambdaFunctionFailedCause (..),
 
-    -- ** PendingTaskCount
-    PendingTaskCount (..),
-    mkPendingTaskCount,
-    ptcTruncated,
-    ptcCount,
+    -- ** StartTimerFailedEventAttributes
+    StartTimerFailedEventAttributes (..),
+    mkStartTimerFailedEventAttributes,
+    stfeaTimerId,
+    stfeaCause,
+    stfeaDecisionTaskCompletedEventId,
 
-    -- ** RecordMarkerDecisionAttributes
-    RecordMarkerDecisionAttributes (..),
-    mkRecordMarkerDecisionAttributes,
-    rmdaMarkerName,
-    rmdaDetails,
+    -- ** RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+    RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (..),
+    mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
+    rceweieaWorkflowId,
+    rceweieaDecisionTaskCompletedEventId,
+    rceweieaControl,
+    rceweieaRunId,
 
     -- ** RecordMarkerFailedEventAttributes
     RecordMarkerFailedEventAttributes (..),
@@ -625,62 +243,106 @@ module Network.AWS.SWF
     rmfeaCause,
     rmfeaDecisionTaskCompletedEventId,
 
-    -- ** RequestCancelActivityTaskDecisionAttributes
-    RequestCancelActivityTaskDecisionAttributes (..),
-    mkRequestCancelActivityTaskDecisionAttributes,
-    rcatdaActivityId,
+    -- ** WorkflowExecutionCount
+    WorkflowExecutionCount (..),
+    mkWorkflowExecutionCount,
+    wecCount,
+    wecTruncated,
 
-    -- ** RequestCancelActivityTaskFailedEventAttributes
-    RequestCancelActivityTaskFailedEventAttributes (..),
-    mkRequestCancelActivityTaskFailedEventAttributes,
-    rcatfeaActivityId,
-    rcatfeaCause,
-    rcatfeaDecisionTaskCompletedEventId,
+    -- ** ActivityTaskScheduledEventAttributes
+    ActivityTaskScheduledEventAttributes (..),
+    mkActivityTaskScheduledEventAttributes,
+    atseaActivityType,
+    atseaActivityId,
+    atseaTaskList,
+    atseaDecisionTaskCompletedEventId,
+    atseaControl,
+    atseaHeartbeatTimeout,
+    atseaInput,
+    atseaScheduleToCloseTimeout,
+    atseaScheduleToStartTimeout,
+    atseaStartToCloseTimeout,
+    atseaTaskPriority,
 
-    -- ** RequestCancelExternalWorkflowExecutionDecisionAttributes
-    RequestCancelExternalWorkflowExecutionDecisionAttributes (..),
-    mkRequestCancelExternalWorkflowExecutionDecisionAttributes,
-    rcewedaControl,
-    rcewedaRunId,
-    rcewedaWorkflowId,
+    -- ** CloseStatusFilter
+    CloseStatusFilter (..),
+    mkCloseStatusFilter,
+    csfStatus,
 
-    -- ** RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    RequestCancelExternalWorkflowExecutionFailedEventAttributes (..),
-    mkRequestCancelExternalWorkflowExecutionFailedEventAttributes,
-    rcewefeaControl,
-    rcewefeaCause,
-    rcewefeaRunId,
-    rcewefeaInitiatedEventId,
-    rcewefeaWorkflowId,
-    rcewefeaDecisionTaskCompletedEventId,
+    -- ** Tag
+    Tag (..),
 
-    -- ** RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (..),
-    mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-    rceweieaControl,
-    rceweieaRunId,
-    rceweieaWorkflowId,
-    rceweieaDecisionTaskCompletedEventId,
-
-    -- ** ResourceTag
-    ResourceTag (..),
-    mkResourceTag,
-    rtValue,
-    rtKey,
+    -- ** WorkflowExecutionTimeoutType
+    WorkflowExecutionTimeoutType (..),
 
     -- ** ScheduleActivityTaskDecisionAttributes
     ScheduleActivityTaskDecisionAttributes (..),
     mkScheduleActivityTaskDecisionAttributes,
-    satdaControl,
     satdaActivityType,
     satdaActivityId,
+    satdaControl,
     satdaHeartbeatTimeout,
-    satdaScheduleToCloseTimeout,
     satdaInput,
-    satdaTaskList,
-    satdaTaskPriority,
+    satdaScheduleToCloseTimeout,
     satdaScheduleToStartTimeout,
     satdaStartToCloseTimeout,
+    satdaTaskList,
+    satdaTaskPriority,
+
+    -- ** CauseMessage
+    CauseMessage (..),
+
+    -- ** MarkerName
+    MarkerName (..),
+
+    -- ** ActivityTypeConfiguration
+    ActivityTypeConfiguration (..),
+    mkActivityTypeConfiguration,
+    atcDefaultTaskHeartbeatTimeout,
+    atcDefaultTaskList,
+    atcDefaultTaskPriority,
+    atcDefaultTaskScheduleToCloseTimeout,
+    atcDefaultTaskScheduleToStartTimeout,
+    atcDefaultTaskStartToCloseTimeout,
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** ActivityType
+    ActivityType (..),
+    mkActivityType,
+    atName,
+    atVersion,
+
+    -- ** WorkflowTypeInfo
+    WorkflowTypeInfo (..),
+    mkWorkflowTypeInfo,
+    wtiWorkflowType,
+    wtiStatus,
+    wtiCreationDate,
+    wtiDeprecationDate,
+    wtiDescription,
+
+    -- ** ChildWorkflowExecutionCompletedEventAttributes
+    ChildWorkflowExecutionCompletedEventAttributes (..),
+    mkChildWorkflowExecutionCompletedEventAttributes,
+    cWorkflowExecution,
+    cWorkflowType,
+    cInitiatedEventId,
+    cStartedEventId,
+    cResult,
+
+    -- ** WorkflowExecutionOpenCounts
+    WorkflowExecutionOpenCounts (..),
+    mkWorkflowExecutionOpenCounts,
+    weocOpenActivityTasks,
+    weocOpenDecisionTasks,
+    weocOpenTimers,
+    weocOpenChildWorkflowExecutions,
+    weocOpenLambdaFunctions,
+
+    -- ** RequestCancelActivityTaskFailedCause
+    RequestCancelActivityTaskFailedCause (..),
 
     -- ** ScheduleActivityTaskFailedEventAttributes
     ScheduleActivityTaskFailedEventAttributes (..),
@@ -690,123 +352,88 @@ module Network.AWS.SWF
     satfeaCause,
     satfeaDecisionTaskCompletedEventId,
 
-    -- ** ScheduleLambdaFunctionDecisionAttributes
-    ScheduleLambdaFunctionDecisionAttributes (..),
-    mkScheduleLambdaFunctionDecisionAttributes,
-    slfdaControl,
-    slfdaInput,
-    slfdaName,
-    slfdaId,
-    slfdaStartToCloseTimeout,
+    -- ** MarkerRecordedEventAttributes
+    MarkerRecordedEventAttributes (..),
+    mkMarkerRecordedEventAttributes,
+    mreaMarkerName,
+    mreaDecisionTaskCompletedEventId,
+    mreaDetails,
 
-    -- ** ScheduleLambdaFunctionFailedEventAttributes
-    ScheduleLambdaFunctionFailedEventAttributes (..),
-    mkScheduleLambdaFunctionFailedEventAttributes,
-    slffeaCause,
-    slffeaName,
-    slffeaId,
-    slffeaDecisionTaskCompletedEventId,
+    -- ** TerminateReason
+    TerminateReason (..),
 
     -- ** SignalExternalWorkflowExecutionDecisionAttributes
     SignalExternalWorkflowExecutionDecisionAttributes (..),
     mkSignalExternalWorkflowExecutionDecisionAttributes,
+    sewedaWorkflowId,
+    sewedaSignalName,
     sewedaControl,
     sewedaInput,
     sewedaRunId,
-    sewedaWorkflowId,
-    sewedaSignalName,
 
-    -- ** SignalExternalWorkflowExecutionFailedEventAttributes
-    SignalExternalWorkflowExecutionFailedEventAttributes (..),
-    mkSignalExternalWorkflowExecutionFailedEventAttributes,
-    sewefeaControl,
-    sewefeaCause,
-    sewefeaRunId,
-    sewefeaInitiatedEventId,
-    sewefeaWorkflowId,
-    sewefeaDecisionTaskCompletedEventId,
+    -- ** WorkflowExecutionTerminatedCause
+    WorkflowExecutionTerminatedCause (..),
 
-    -- ** SignalExternalWorkflowExecutionInitiatedEventAttributes
-    SignalExternalWorkflowExecutionInitiatedEventAttributes (..),
-    mkSignalExternalWorkflowExecutionInitiatedEventAttributes,
-    seweieaControl,
-    seweieaInput,
-    seweieaRunId,
-    seweieaWorkflowId,
-    seweieaSignalName,
-    seweieaDecisionTaskCompletedEventId,
+    -- ** CancelWorkflowExecutionFailedCause
+    CancelWorkflowExecutionFailedCause (..),
 
-    -- ** StartChildWorkflowExecutionDecisionAttributes
-    StartChildWorkflowExecutionDecisionAttributes (..),
-    mkStartChildWorkflowExecutionDecisionAttributes,
-    scwedaControl,
-    scwedaTagList,
-    scwedaTaskStartToCloseTimeout,
-    scwedaLambdaRole,
-    scwedaWorkflowType,
-    scwedaInput,
-    scwedaExecutionStartToCloseTimeout,
-    scwedaTaskList,
-    scwedaTaskPriority,
-    scwedaChildPolicy,
-    scwedaWorkflowId,
+    -- ** Data
+    Data (..),
 
-    -- ** StartChildWorkflowExecutionFailedEventAttributes
-    StartChildWorkflowExecutionFailedEventAttributes (..),
-    mkStartChildWorkflowExecutionFailedEventAttributes,
-    scwefeaControl,
-    scwefeaWorkflowType,
-    scwefeaCause,
-    scwefeaInitiatedEventId,
-    scwefeaWorkflowId,
-    scwefeaDecisionTaskCompletedEventId,
+    -- ** ScheduleLambdaFunctionFailedEventAttributes
+    ScheduleLambdaFunctionFailedEventAttributes (..),
+    mkScheduleLambdaFunctionFailedEventAttributes,
+    slffeaId,
+    slffeaName,
+    slffeaCause,
+    slffeaDecisionTaskCompletedEventId,
 
-    -- ** StartChildWorkflowExecutionInitiatedEventAttributes
-    StartChildWorkflowExecutionInitiatedEventAttributes (..),
-    mkStartChildWorkflowExecutionInitiatedEventAttributes,
-    scweieaControl,
-    scweieaTagList,
-    scweieaTaskStartToCloseTimeout,
-    scweieaLambdaRole,
-    scweieaWorkflowType,
-    scweieaInput,
-    scweieaExecutionStartToCloseTimeout,
-    scweieaTaskList,
-    scweieaTaskPriority,
-    scweieaChildPolicy,
-    scweieaWorkflowId,
-    scweieaDecisionTaskCompletedEventId,
+    -- ** SignalExternalWorkflowExecutionFailedCause
+    SignalExternalWorkflowExecutionFailedCause (..),
 
-    -- ** StartLambdaFunctionFailedEventAttributes
-    StartLambdaFunctionFailedEventAttributes (..),
-    mkStartLambdaFunctionFailedEventAttributes,
-    sScheduledEventId,
-    sCause,
-    sMessage,
+    -- ** RecordMarkerDecisionAttributes
+    RecordMarkerDecisionAttributes (..),
+    mkRecordMarkerDecisionAttributes,
+    rmdaMarkerName,
+    rmdaDetails,
+
+    -- ** CompleteWorkflowExecutionFailedEventAttributes
+    CompleteWorkflowExecutionFailedEventAttributes (..),
+    mkCompleteWorkflowExecutionFailedEventAttributes,
+    cCause,
+    cDecisionTaskCompletedEventId,
 
     -- ** StartTimerDecisionAttributes
     StartTimerDecisionAttributes (..),
     mkStartTimerDecisionAttributes,
-    stdaControl,
     stdaTimerId,
     stdaStartToFireTimeout,
+    stdaControl,
 
-    -- ** StartTimerFailedEventAttributes
-    StartTimerFailedEventAttributes (..),
-    mkStartTimerFailedEventAttributes,
-    stfeaCause,
-    stfeaTimerId,
-    stfeaDecisionTaskCompletedEventId,
+    -- ** DecisionType
+    DecisionType (..),
 
-    -- ** TagFilter
-    TagFilter (..),
-    mkTagFilter,
-    tfTag,
+    -- ** ActivityId
+    ActivityId (..),
 
-    -- ** TaskList
-    TaskList (..),
-    mkTaskList,
-    tlName,
+    -- ** RequestCancelExternalWorkflowExecutionFailedEventAttributes
+    RequestCancelExternalWorkflowExecutionFailedEventAttributes (..),
+    mkRequestCancelExternalWorkflowExecutionFailedEventAttributes,
+    rcewefeaWorkflowId,
+    rcewefeaCause,
+    rcewefeaInitiatedEventId,
+    rcewefeaDecisionTaskCompletedEventId,
+    rcewefeaControl,
+    rcewefeaRunId,
+
+    -- ** ActivityTypeInfo
+    ActivityTypeInfo (..),
+    mkActivityTypeInfo,
+    atiActivityType,
+    atiStatus,
+    atiCreationDate,
+    atiDeprecationDate,
+    atiDescription,
 
     -- ** TimerCanceledEventAttributes
     TimerCanceledEventAttributes (..),
@@ -815,153 +442,41 @@ module Network.AWS.SWF
     tceaStartedEventId,
     tceaDecisionTaskCompletedEventId,
 
-    -- ** TimerFiredEventAttributes
-    TimerFiredEventAttributes (..),
-    mkTimerFiredEventAttributes,
-    tfeaTimerId,
-    tfeaStartedEventId,
-
-    -- ** TimerStartedEventAttributes
-    TimerStartedEventAttributes (..),
-    mkTimerStartedEventAttributes,
-    tseaControl,
-    tseaTimerId,
-    tseaStartToFireTimeout,
-    tseaDecisionTaskCompletedEventId,
-
-    -- ** WorkflowExecution
-    WorkflowExecution (..),
-    mkWorkflowExecution,
-    weRunId,
-    weWorkflowId,
-
-    -- ** WorkflowExecutionCancelRequestedEventAttributes
-    WorkflowExecutionCancelRequestedEventAttributes (..),
-    mkWorkflowExecutionCancelRequestedEventAttributes,
-    wecreaExternalWorkflowExecution,
-    wecreaExternalInitiatedEventId,
-    wecreaCause,
-
-    -- ** WorkflowExecutionCanceledEventAttributes
-    WorkflowExecutionCanceledEventAttributes (..),
-    mkWorkflowExecutionCanceledEventAttributes,
-    wDetails,
-    wDecisionTaskCompletedEventId,
-
-    -- ** WorkflowExecutionCompletedEventAttributes
-    WorkflowExecutionCompletedEventAttributes (..),
-    mkWorkflowExecutionCompletedEventAttributes,
-    weceaResult,
-    weceaDecisionTaskCompletedEventId,
-
-    -- ** WorkflowExecutionConfiguration
-    WorkflowExecutionConfiguration (..),
-    mkWorkflowExecutionConfiguration,
-    wecTaskStartToCloseTimeout,
-    wecLambdaRole,
-    wecExecutionStartToCloseTimeout,
-    wecTaskList,
-    wecTaskPriority,
-    wecChildPolicy,
-
-    -- ** WorkflowExecutionContinuedAsNewEventAttributes
-    WorkflowExecutionContinuedAsNewEventAttributes (..),
-    mkWorkflowExecutionContinuedAsNewEventAttributes,
-    wecaneaTagList,
-    wecaneaTaskStartToCloseTimeout,
-    wecaneaLambdaRole,
-    wecaneaWorkflowType,
-    wecaneaInput,
-    wecaneaExecutionStartToCloseTimeout,
-    wecaneaTaskList,
-    wecaneaTaskPriority,
-    wecaneaChildPolicy,
-    wecaneaNewExecutionRunId,
-    wecaneaDecisionTaskCompletedEventId,
-
-    -- ** WorkflowExecutionCount
-    WorkflowExecutionCount (..),
-    mkWorkflowExecutionCount,
-    wecTruncated,
-    wecCount,
-
-    -- ** WorkflowExecutionFailedEventAttributes
-    WorkflowExecutionFailedEventAttributes (..),
-    mkWorkflowExecutionFailedEventAttributes,
-    wefeaReason,
-    wefeaDetails,
-    wefeaDecisionTaskCompletedEventId,
-
-    -- ** WorkflowExecutionFilter
-    WorkflowExecutionFilter (..),
-    mkWorkflowExecutionFilter,
-    wefWorkflowId,
-
-    -- ** WorkflowExecutionInfo
-    WorkflowExecutionInfo (..),
-    mkWorkflowExecutionInfo,
-    weiParent,
-    weiTagList,
-    weiWorkflowType,
-    weiExecutionStatus,
-    weiExecution,
-    weiCloseStatus,
-    weiCloseTimestamp,
-    weiStartTimestamp,
-    weiCancelRequested,
-
-    -- ** WorkflowExecutionInfos
-    WorkflowExecutionInfos (..),
-    mkWorkflowExecutionInfos,
-    weiExecutionInfos,
-    weiNextPageToken,
-
-    -- ** WorkflowExecutionOpenCounts
-    WorkflowExecutionOpenCounts (..),
-    mkWorkflowExecutionOpenCounts,
-    weocOpenChildWorkflowExecutions,
-    weocOpenActivityTasks,
-    weocOpenLambdaFunctions,
-    weocOpenDecisionTasks,
-    weocOpenTimers,
-
-    -- ** WorkflowExecutionSignaledEventAttributes
-    WorkflowExecutionSignaledEventAttributes (..),
-    mkWorkflowExecutionSignaledEventAttributes,
-    wExternalWorkflowExecution,
-    wExternalInitiatedEventId,
-    wInput,
-    wSignalName,
-
     -- ** WorkflowExecutionStartedEventAttributes
     WorkflowExecutionStartedEventAttributes (..),
     mkWorkflowExecutionStartedEventAttributes,
-    weseaParentInitiatedEventId,
-    weseaTagList,
-    weseaTaskStartToCloseTimeout,
-    weseaLambdaRole,
-    weseaWorkflowType,
-    weseaInput,
-    weseaExecutionStartToCloseTimeout,
-    weseaTaskList,
-    weseaTaskPriority,
-    weseaChildPolicy,
-    weseaParentWorkflowExecution,
-    weseaContinuedExecutionRunId,
+    wChildPolicy,
+    wTaskList,
+    wWorkflowType,
+    wContinuedExecutionRunId,
+    wExecutionStartToCloseTimeout,
+    wInput,
+    wLambdaRole,
+    wParentInitiatedEventId,
+    wParentWorkflowExecution,
+    wTagList,
+    wTaskPriority,
+    wTaskStartToCloseTimeout,
 
-    -- ** WorkflowExecutionTerminatedEventAttributes
-    WorkflowExecutionTerminatedEventAttributes (..),
-    mkWorkflowExecutionTerminatedEventAttributes,
-    weteaCause,
-    weteaReason,
-    weteaChildPolicy,
-    weteaDetails,
+    -- ** WorkflowTypeConfiguration
+    WorkflowTypeConfiguration (..),
+    mkWorkflowTypeConfiguration,
+    wtcDefaultChildPolicy,
+    wtcDefaultExecutionStartToCloseTimeout,
+    wtcDefaultLambdaRole,
+    wtcDefaultTaskList,
+    wtcDefaultTaskPriority,
+    wtcDefaultTaskStartToCloseTimeout,
 
-    -- ** WorkflowExecutionTimedOutEventAttributes
-    WorkflowExecutionTimedOutEventAttributes (..),
-    mkWorkflowExecutionTimedOutEventAttributes,
-    wetoeaTimeoutType,
-    wetoeaChildPolicy,
+    -- ** ActivityTaskTimeoutType
+    ActivityTaskTimeoutType (..),
+
+    -- ** LambdaFunctionCompletedEventAttributes
+    LambdaFunctionCompletedEventAttributes (..),
+    mkLambdaFunctionCompletedEventAttributes,
+    lfceaScheduledEventId,
+    lfceaStartedEventId,
+    lfceaResult,
 
     -- ** WorkflowType
     WorkflowType (..),
@@ -969,15 +484,424 @@ module Network.AWS.SWF
     wtName,
     wtVersion,
 
-    -- ** WorkflowTypeConfiguration
-    WorkflowTypeConfiguration (..),
-    mkWorkflowTypeConfiguration,
-    wtcDefaultLambdaRole,
-    wtcDefaultChildPolicy,
-    wtcDefaultTaskList,
-    wtcDefaultTaskPriority,
-    wtcDefaultExecutionStartToCloseTimeout,
-    wtcDefaultTaskStartToCloseTimeout,
+    -- ** ActivityTaskCompletedEventAttributes
+    ActivityTaskCompletedEventAttributes (..),
+    mkActivityTaskCompletedEventAttributes,
+    aScheduledEventId,
+    aStartedEventId,
+    aResult,
+
+    -- ** ExecutionStatus
+    ExecutionStatus (..),
+
+    -- ** DecisionTaskTimeoutType
+    DecisionTaskTimeoutType (..),
+
+    -- ** DurationInDays
+    DurationInDays (..),
+
+    -- ** WorkflowExecutionCancelRequestedCause
+    WorkflowExecutionCancelRequestedCause (..),
+
+    -- ** StartChildWorkflowExecutionFailedCause
+    StartChildWorkflowExecutionFailedCause (..),
+
+    -- ** DecisionTaskTimedOutEventAttributes
+    DecisionTaskTimedOutEventAttributes (..),
+    mkDecisionTaskTimedOutEventAttributes,
+    dttoeaTimeoutType,
+    dttoeaScheduledEventId,
+    dttoeaStartedEventId,
+
+    -- ** ChildWorkflowExecutionStartedEventAttributes
+    ChildWorkflowExecutionStartedEventAttributes (..),
+    mkChildWorkflowExecutionStartedEventAttributes,
+    cweseaWorkflowExecution,
+    cweseaWorkflowType,
+    cweseaInitiatedEventId,
+
+    -- ** CancelTimerFailedEventAttributes
+    CancelTimerFailedEventAttributes (..),
+    mkCancelTimerFailedEventAttributes,
+    ctfeaTimerId,
+    ctfeaCause,
+    ctfeaDecisionTaskCompletedEventId,
+
+    -- ** FailWorkflowExecutionFailedCause
+    FailWorkflowExecutionFailedCause (..),
+
+    -- ** WorkflowExecutionFilter
+    WorkflowExecutionFilter (..),
+    mkWorkflowExecutionFilter,
+    wefWorkflowId,
+
+    -- ** FunctionInput
+    FunctionInput (..),
+
+    -- ** ActivityTaskCanceledEventAttributes
+    ActivityTaskCanceledEventAttributes (..),
+    mkActivityTaskCanceledEventAttributes,
+    atceaScheduledEventId,
+    atceaStartedEventId,
+    atceaDetails,
+    atceaLatestCancelRequestedEventId,
+
+    -- ** WorkflowExecutionInfos
+    WorkflowExecutionInfos (..),
+    mkWorkflowExecutionInfos,
+    weiExecutionInfos,
+    weiNextPageToken,
+
+    -- ** StartChildWorkflowExecutionDecisionAttributes
+    StartChildWorkflowExecutionDecisionAttributes (..),
+    mkStartChildWorkflowExecutionDecisionAttributes,
+    scwedaWorkflowType,
+    scwedaWorkflowId,
+    scwedaChildPolicy,
+    scwedaControl,
+    scwedaExecutionStartToCloseTimeout,
+    scwedaInput,
+    scwedaLambdaRole,
+    scwedaTagList,
+    scwedaTaskList,
+    scwedaTaskPriority,
+    scwedaTaskStartToCloseTimeout,
+
+    -- ** ContinueAsNewWorkflowExecutionFailedCause
+    ContinueAsNewWorkflowExecutionFailedCause (..),
+
+    -- ** FailWorkflowExecutionDecisionAttributes
+    FailWorkflowExecutionDecisionAttributes (..),
+    mkFailWorkflowExecutionDecisionAttributes,
+    fwedaDetails,
+    fwedaReason,
+
+    -- ** VersionOptional
+    VersionOptional (..),
+
+    -- ** DurationInSecondsOptional
+    DurationInSecondsOptional (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** ActivityTaskTimedOutEventAttributes
+    ActivityTaskTimedOutEventAttributes (..),
+    mkActivityTaskTimedOutEventAttributes,
+    attoeaTimeoutType,
+    attoeaScheduledEventId,
+    attoeaStartedEventId,
+    attoeaDetails,
+
+    -- ** FunctionId
+    FunctionId (..),
+
+    -- ** RequestCancelActivityTaskFailedEventAttributes
+    RequestCancelActivityTaskFailedEventAttributes (..),
+    mkRequestCancelActivityTaskFailedEventAttributes,
+    rcatfeaActivityId,
+    rcatfeaCause,
+    rcatfeaDecisionTaskCompletedEventId,
+
+    -- ** CompleteWorkflowExecutionDecisionAttributes
+    CompleteWorkflowExecutionDecisionAttributes (..),
+    mkCompleteWorkflowExecutionDecisionAttributes,
+    cwedaResult,
+
+    -- ** DecisionTaskStartedEventAttributes
+    DecisionTaskStartedEventAttributes (..),
+    mkDecisionTaskStartedEventAttributes,
+    dtseaScheduledEventId,
+    dtseaIdentity,
+
+    -- ** ChildWorkflowExecutionTimedOutEventAttributes
+    ChildWorkflowExecutionTimedOutEventAttributes (..),
+    mkChildWorkflowExecutionTimedOutEventAttributes,
+    cwetoeaWorkflowExecution,
+    cwetoeaWorkflowType,
+    cwetoeaTimeoutType,
+    cwetoeaInitiatedEventId,
+    cwetoeaStartedEventId,
+
+    -- ** StartChildWorkflowExecutionInitiatedEventAttributes
+    StartChildWorkflowExecutionInitiatedEventAttributes (..),
+    mkStartChildWorkflowExecutionInitiatedEventAttributes,
+    scweieaWorkflowId,
+    scweieaWorkflowType,
+    scweieaTaskList,
+    scweieaDecisionTaskCompletedEventId,
+    scweieaChildPolicy,
+    scweieaControl,
+    scweieaExecutionStartToCloseTimeout,
+    scweieaInput,
+    scweieaLambdaRole,
+    scweieaTagList,
+    scweieaTaskPriority,
+    scweieaTaskStartToCloseTimeout,
+
+    -- ** CancelWorkflowExecutionFailedEventAttributes
+    CancelWorkflowExecutionFailedEventAttributes (..),
+    mkCancelWorkflowExecutionFailedEventAttributes,
+    cwefeaCause,
+    cwefeaDecisionTaskCompletedEventId,
+
+    -- ** WorkflowExecutionTerminatedEventAttributes
+    WorkflowExecutionTerminatedEventAttributes (..),
+    mkWorkflowExecutionTerminatedEventAttributes,
+    weteaChildPolicy,
+    weteaCause,
+    weteaDetails,
+    weteaReason,
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** TaskList
+    TaskList (..),
+    mkTaskList,
+    tlName,
+
+    -- ** TaskPriority
+    TaskPriority (..),
+
+    -- ** WorkflowRunId
+    WorkflowRunId (..),
+
+    -- ** ScheduleLambdaFunctionDecisionAttributes
+    ScheduleLambdaFunctionDecisionAttributes (..),
+    mkScheduleLambdaFunctionDecisionAttributes,
+    slfdaId,
+    slfdaName,
+    slfdaControl,
+    slfdaInput,
+    slfdaStartToCloseTimeout,
+
+    -- ** LambdaFunctionScheduledEventAttributes
+    LambdaFunctionScheduledEventAttributes (..),
+    mkLambdaFunctionScheduledEventAttributes,
+    lfseaId,
+    lfseaName,
+    lfseaDecisionTaskCompletedEventId,
+    lfseaControl,
+    lfseaInput,
+    lfseaStartToCloseTimeout,
+
+    -- ** Name
+    Name (..),
+
+    -- ** ScheduleActivityTaskFailedCause
+    ScheduleActivityTaskFailedCause (..),
+
+    -- ** ChildWorkflowExecutionCanceledEventAttributes
+    ChildWorkflowExecutionCanceledEventAttributes (..),
+    mkChildWorkflowExecutionCanceledEventAttributes,
+    cweceaWorkflowExecution,
+    cweceaWorkflowType,
+    cweceaInitiatedEventId,
+    cweceaStartedEventId,
+    cweceaDetails,
+
+    -- ** WorkflowExecutionInfo
+    WorkflowExecutionInfo (..),
+    mkWorkflowExecutionInfo,
+    weiExecution,
+    weiWorkflowType,
+    weiStartTimestamp,
+    weiExecutionStatus,
+    weiCancelRequested,
+    weiCloseStatus,
+    weiCloseTimestamp,
+    weiParent,
+    weiTagList,
+
+    -- ** SignalExternalWorkflowExecutionFailedEventAttributes
+    SignalExternalWorkflowExecutionFailedEventAttributes (..),
+    mkSignalExternalWorkflowExecutionFailedEventAttributes,
+    sewefeaWorkflowId,
+    sewefeaCause,
+    sewefeaInitiatedEventId,
+    sewefeaDecisionTaskCompletedEventId,
+    sewefeaControl,
+    sewefeaRunId,
+
+    -- ** TagFilter
+    TagFilter (..),
+    mkTagFilter,
+    tfTag,
+
+    -- ** Version
+    Version (..),
+
+    -- ** ScheduleLambdaFunctionFailedCause
+    ScheduleLambdaFunctionFailedCause (..),
+
+    -- ** ChildPolicy
+    ChildPolicy (..),
+
+    -- ** ActivityTaskStartedEventAttributes
+    ActivityTaskStartedEventAttributes (..),
+    mkActivityTaskStartedEventAttributes,
+    atseaScheduledEventId,
+    atseaIdentity,
+
+    -- ** TimerId
+    TimerId (..),
+
+    -- ** DurationInSeconds
+    DurationInSeconds (..),
+
+    -- ** CloseStatus
+    CloseStatus (..),
+
+    -- ** CompleteWorkflowExecutionFailedCause
+    CompleteWorkflowExecutionFailedCause (..),
+
+    -- ** FunctionName
+    FunctionName (..),
+
+    -- ** StartTimerFailedCause
+    StartTimerFailedCause (..),
+
+    -- ** ActivityTaskCancelRequestedEventAttributes
+    ActivityTaskCancelRequestedEventAttributes (..),
+    mkActivityTaskCancelRequestedEventAttributes,
+    atcreaDecisionTaskCompletedEventId,
+    atcreaActivityId,
+
+    -- ** WorkflowExecutionTimedOutEventAttributes
+    WorkflowExecutionTimedOutEventAttributes (..),
+    mkWorkflowExecutionTimedOutEventAttributes,
+    wetoeaTimeoutType,
+    wetoeaChildPolicy,
+
+    -- ** ChildWorkflowExecutionTerminatedEventAttributes
+    ChildWorkflowExecutionTerminatedEventAttributes (..),
+    mkChildWorkflowExecutionTerminatedEventAttributes,
+    cweteaWorkflowExecution,
+    cweteaWorkflowType,
+    cweteaInitiatedEventId,
+    cweteaStartedEventId,
+
+    -- ** WorkflowExecutionCanceledEventAttributes
+    WorkflowExecutionCanceledEventAttributes (..),
+    mkWorkflowExecutionCanceledEventAttributes,
+    weceaDecisionTaskCompletedEventId,
+    weceaDetails,
+
+    -- ** StartLambdaFunctionFailedEventAttributes
+    StartLambdaFunctionFailedEventAttributes (..),
+    mkStartLambdaFunctionFailedEventAttributes,
+    sCause,
+    sMessage,
+    sScheduledEventId,
+
+    -- ** WorkflowExecutionSignaledEventAttributes
+    WorkflowExecutionSignaledEventAttributes (..),
+    mkWorkflowExecutionSignaledEventAttributes,
+    weseaSignalName,
+    weseaExternalInitiatedEventId,
+    weseaExternalWorkflowExecution,
+    weseaInput,
+
+    -- ** RecordMarkerFailedCause
+    RecordMarkerFailedCause (..),
+
+    -- ** RegistrationStatus
+    RegistrationStatus (..),
+
+    -- ** TimerStartedEventAttributes
+    TimerStartedEventAttributes (..),
+    mkTimerStartedEventAttributes,
+    tseaTimerId,
+    tseaStartToFireTimeout,
+    tseaDecisionTaskCompletedEventId,
+    tseaControl,
+
+    -- ** LambdaFunctionFailedEventAttributes
+    LambdaFunctionFailedEventAttributes (..),
+    mkLambdaFunctionFailedEventAttributes,
+    lffeaScheduledEventId,
+    lffeaStartedEventId,
+    lffeaDetails,
+    lffeaReason,
+
+    -- ** RequestCancelActivityTaskDecisionAttributes
+    RequestCancelActivityTaskDecisionAttributes (..),
+    mkRequestCancelActivityTaskDecisionAttributes,
+    rcatdaActivityId,
+
+    -- ** Decision
+    Decision (..),
+    mkDecision,
+    dDecisionType,
+    dCancelTimerDecisionAttributes,
+    dCancelWorkflowExecutionDecisionAttributes,
+    dCompleteWorkflowExecutionDecisionAttributes,
+    dContinueAsNewWorkflowExecutionDecisionAttributes,
+    dFailWorkflowExecutionDecisionAttributes,
+    dRecordMarkerDecisionAttributes,
+    dRequestCancelActivityTaskDecisionAttributes,
+    dRequestCancelExternalWorkflowExecutionDecisionAttributes,
+    dScheduleActivityTaskDecisionAttributes,
+    dScheduleLambdaFunctionDecisionAttributes,
+    dSignalExternalWorkflowExecutionDecisionAttributes,
+    dStartChildWorkflowExecutionDecisionAttributes,
+    dStartTimerDecisionAttributes,
+
+    -- ** ResourceTag
+    ResourceTag (..),
+    mkResourceTag,
+    rtKey,
+    rtValue,
+
+    -- ** TimerFiredEventAttributes
+    TimerFiredEventAttributes (..),
+    mkTimerFiredEventAttributes,
+    tfeaTimerId,
+    tfeaStartedEventId,
+
+    -- ** PageToken
+    PageToken (..),
+
+    -- ** DomainConfiguration
+    DomainConfiguration (..),
+    mkDomainConfiguration,
+    dcWorkflowExecutionRetentionPeriodInDays,
+
+    -- ** ExternalWorkflowExecutionSignaledEventAttributes
+    ExternalWorkflowExecutionSignaledEventAttributes (..),
+    mkExternalWorkflowExecutionSignaledEventAttributes,
+    eweseaWorkflowExecution,
+    eweseaInitiatedEventId,
+
+    -- ** CancelWorkflowExecutionDecisionAttributes
+    CancelWorkflowExecutionDecisionAttributes (..),
+    mkCancelWorkflowExecutionDecisionAttributes,
+    cwedaDetails,
+
+    -- ** ActivityTaskFailedEventAttributes
+    ActivityTaskFailedEventAttributes (..),
+    mkActivityTaskFailedEventAttributes,
+    atfeaScheduledEventId,
+    atfeaStartedEventId,
+    atfeaDetails,
+    atfeaReason,
+
+    -- ** FailWorkflowExecutionFailedEventAttributes
+    FailWorkflowExecutionFailedEventAttributes (..),
+    mkFailWorkflowExecutionFailedEventAttributes,
+    fwefeaCause,
+    fwefeaDecisionTaskCompletedEventId,
+
+    -- ** StartChildWorkflowExecutionFailedEventAttributes
+    StartChildWorkflowExecutionFailedEventAttributes (..),
+    mkStartChildWorkflowExecutionFailedEventAttributes,
+    scwefeaWorkflowType,
+    scwefeaCause,
+    scwefeaWorkflowId,
+    scwefeaInitiatedEventId,
+    scwefeaDecisionTaskCompletedEventId,
+    scwefeaControl,
 
     -- ** WorkflowTypeFilter
     WorkflowTypeFilter (..),
@@ -985,24 +909,289 @@ module Network.AWS.SWF
     wtfName,
     wtfVersion,
 
-    -- ** WorkflowTypeInfo
-    WorkflowTypeInfo (..),
-    mkWorkflowTypeInfo,
-    wtiStatus,
-    wtiWorkflowType,
-    wtiDeprecationDate,
-    wtiCreationDate,
-    wtiDescription,
+    -- ** CancelTimerFailedCause
+    CancelTimerFailedCause (..),
+
+    -- ** DecisionTaskCompletedEventAttributes
+    DecisionTaskCompletedEventAttributes (..),
+    mkDecisionTaskCompletedEventAttributes,
+    dtceaScheduledEventId,
+    dtceaStartedEventId,
+    dtceaExecutionContext,
+
+    -- ** ChildWorkflowExecutionFailedEventAttributes
+    ChildWorkflowExecutionFailedEventAttributes (..),
+    mkChildWorkflowExecutionFailedEventAttributes,
+    cwefeaWorkflowExecution,
+    cwefeaWorkflowType,
+    cwefeaInitiatedEventId,
+    cwefeaStartedEventId,
+    cwefeaDetails,
+    cwefeaReason,
+
+    -- ** DomainInfo
+    DomainInfo (..),
+    mkDomainInfo,
+    diName,
+    diStatus,
+    diArn,
+    diDescription,
+
+    -- ** HistoryEvent
+    HistoryEvent (..),
+    mkHistoryEvent,
+    heEventTimestamp,
+    heEventType,
+    heEventId,
+    heActivityTaskCancelRequestedEventAttributes,
+    heActivityTaskCanceledEventAttributes,
+    heActivityTaskCompletedEventAttributes,
+    heActivityTaskFailedEventAttributes,
+    heActivityTaskScheduledEventAttributes,
+    heActivityTaskStartedEventAttributes,
+    heActivityTaskTimedOutEventAttributes,
+    heCancelTimerFailedEventAttributes,
+    heCancelWorkflowExecutionFailedEventAttributes,
+    heChildWorkflowExecutionCanceledEventAttributes,
+    heChildWorkflowExecutionCompletedEventAttributes,
+    heChildWorkflowExecutionFailedEventAttributes,
+    heChildWorkflowExecutionStartedEventAttributes,
+    heChildWorkflowExecutionTerminatedEventAttributes,
+    heChildWorkflowExecutionTimedOutEventAttributes,
+    heCompleteWorkflowExecutionFailedEventAttributes,
+    heContinueAsNewWorkflowExecutionFailedEventAttributes,
+    heDecisionTaskCompletedEventAttributes,
+    heDecisionTaskScheduledEventAttributes,
+    heDecisionTaskStartedEventAttributes,
+    heDecisionTaskTimedOutEventAttributes,
+    heExternalWorkflowExecutionCancelRequestedEventAttributes,
+    heExternalWorkflowExecutionSignaledEventAttributes,
+    heFailWorkflowExecutionFailedEventAttributes,
+    heLambdaFunctionCompletedEventAttributes,
+    heLambdaFunctionFailedEventAttributes,
+    heLambdaFunctionScheduledEventAttributes,
+    heLambdaFunctionStartedEventAttributes,
+    heLambdaFunctionTimedOutEventAttributes,
+    heMarkerRecordedEventAttributes,
+    heRecordMarkerFailedEventAttributes,
+    heRequestCancelActivityTaskFailedEventAttributes,
+    heRequestCancelExternalWorkflowExecutionFailedEventAttributes,
+    heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
+    heScheduleActivityTaskFailedEventAttributes,
+    heScheduleLambdaFunctionFailedEventAttributes,
+    heSignalExternalWorkflowExecutionFailedEventAttributes,
+    heSignalExternalWorkflowExecutionInitiatedEventAttributes,
+    heStartChildWorkflowExecutionFailedEventAttributes,
+    heStartChildWorkflowExecutionInitiatedEventAttributes,
+    heStartLambdaFunctionFailedEventAttributes,
+    heStartTimerFailedEventAttributes,
+    heTimerCanceledEventAttributes,
+    heTimerFiredEventAttributes,
+    heTimerStartedEventAttributes,
+    heWorkflowExecutionCancelRequestedEventAttributes,
+    heWorkflowExecutionCanceledEventAttributes,
+    heWorkflowExecutionCompletedEventAttributes,
+    heWorkflowExecutionContinuedAsNewEventAttributes,
+    heWorkflowExecutionFailedEventAttributes,
+    heWorkflowExecutionSignaledEventAttributes,
+    heWorkflowExecutionStartedEventAttributes,
+    heWorkflowExecutionTerminatedEventAttributes,
+    heWorkflowExecutionTimedOutEventAttributes,
+
+    -- ** WorkflowId
+    WorkflowId (..),
+
+    -- ** LambdaFunctionTimeoutType
+    LambdaFunctionTimeoutType (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Identity
+    Identity (..),
+
+    -- ** ContinueAsNewWorkflowExecutionFailedEventAttributes
+    ContinueAsNewWorkflowExecutionFailedEventAttributes (..),
+    mkContinueAsNewWorkflowExecutionFailedEventAttributes,
+    canwefeaCause,
+    canwefeaDecisionTaskCompletedEventId,
+
+    -- ** SignalExternalWorkflowExecutionInitiatedEventAttributes
+    SignalExternalWorkflowExecutionInitiatedEventAttributes (..),
+    mkSignalExternalWorkflowExecutionInitiatedEventAttributes,
+    seweieaWorkflowId,
+    seweieaSignalName,
+    seweieaDecisionTaskCompletedEventId,
+    seweieaControl,
+    seweieaInput,
+    seweieaRunId,
+
+    -- ** TaskToken
+    TaskToken (..),
+
+    -- ** CancelTimerDecisionAttributes
+    CancelTimerDecisionAttributes (..),
+    mkCancelTimerDecisionAttributes,
+    ctdaTimerId,
+
+    -- ** SignalName
+    SignalName (..),
+
+    -- ** WorkflowExecutionFailedEventAttributes
+    WorkflowExecutionFailedEventAttributes (..),
+    mkWorkflowExecutionFailedEventAttributes,
+    wefeaDecisionTaskCompletedEventId,
+    wefeaDetails,
+    wefeaReason,
+
+    -- ** WorkflowExecutionConfiguration
+    WorkflowExecutionConfiguration (..),
+    mkWorkflowExecutionConfiguration,
+    wecTaskStartToCloseTimeout,
+    wecExecutionStartToCloseTimeout,
+    wecTaskList,
+    wecChildPolicy,
+    wecLambdaRole,
+    wecTaskPriority,
+
+    -- ** WorkflowExecution
+    WorkflowExecution (..),
+    mkWorkflowExecution,
+    weWorkflowId,
+    weRunId,
+
+    -- ** RequestCancelExternalWorkflowExecutionFailedCause
+    RequestCancelExternalWorkflowExecutionFailedCause (..),
+
+    -- ** ContinueAsNewWorkflowExecutionDecisionAttributes
+    ContinueAsNewWorkflowExecutionDecisionAttributes (..),
+    mkContinueAsNewWorkflowExecutionDecisionAttributes,
+    canwedaChildPolicy,
+    canwedaExecutionStartToCloseTimeout,
+    canwedaInput,
+    canwedaLambdaRole,
+    canwedaTagList,
+    canwedaTaskList,
+    canwedaTaskPriority,
+    canwedaTaskStartToCloseTimeout,
+    canwedaWorkflowTypeVersion,
+
+    -- ** ExternalWorkflowExecutionCancelRequestedEventAttributes
+    ExternalWorkflowExecutionCancelRequestedEventAttributes (..),
+    mkExternalWorkflowExecutionCancelRequestedEventAttributes,
+    ewecreaWorkflowExecution,
+    ewecreaInitiatedEventId,
+
+    -- ** PendingTaskCount
+    PendingTaskCount (..),
+    mkPendingTaskCount,
+    ptcCount,
+    ptcTruncated,
+
+    -- ** LambdaFunctionTimedOutEventAttributes
+    LambdaFunctionTimedOutEventAttributes (..),
+    mkLambdaFunctionTimedOutEventAttributes,
+    lftoeaScheduledEventId,
+    lftoeaStartedEventId,
+    lftoeaTimeoutType,
+
+    -- ** WorkflowExecutionContinuedAsNewEventAttributes
+    WorkflowExecutionContinuedAsNewEventAttributes (..),
+    mkWorkflowExecutionContinuedAsNewEventAttributes,
+    wecaneaDecisionTaskCompletedEventId,
+    wecaneaNewExecutionRunId,
+    wecaneaTaskList,
+    wecaneaChildPolicy,
+    wecaneaWorkflowType,
+    wecaneaExecutionStartToCloseTimeout,
+    wecaneaInput,
+    wecaneaLambdaRole,
+    wecaneaTagList,
+    wecaneaTaskPriority,
+    wecaneaTaskStartToCloseTimeout,
+
+    -- ** Domain
+    Domain (..),
+
+    -- ** NextPageToken
+    NextPageToken (..),
+
+    -- ** Control
+    Control (..),
+
+    -- ** RunId
+    RunId (..),
+
+    -- ** StartToCloseTimeout
+    StartToCloseTimeout (..),
+
+    -- ** WorkflowExecutionRetentionPeriodInDays
+    WorkflowExecutionRetentionPeriodInDays (..),
+
+    -- ** Result
+    Result (..),
+
+    -- ** ExecutionContext
+    ExecutionContext (..),
+
+    -- ** HeartbeatTimeout
+    HeartbeatTimeout (..),
+
+    -- ** Input
+    Input (..),
+
+    -- ** ScheduleToCloseTimeout
+    ScheduleToCloseTimeout (..),
+
+    -- ** ScheduleToStartTimeout
+    ScheduleToStartTimeout (..),
+
+    -- ** DefaultTaskHeartbeatTimeout
+    DefaultTaskHeartbeatTimeout (..),
+
+    -- ** DefaultTaskPriority
+    DefaultTaskPriority (..),
+
+    -- ** DefaultTaskScheduleToCloseTimeout
+    DefaultTaskScheduleToCloseTimeout (..),
+
+    -- ** DefaultTaskScheduleToStartTimeout
+    DefaultTaskScheduleToStartTimeout (..),
+
+    -- ** DefaultTaskStartToCloseTimeout
+    DefaultTaskStartToCloseTimeout (..),
+
+    -- ** Details
+    Details (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** StartToFireTimeout
+    StartToFireTimeout (..),
+
+    -- ** ContinuedExecutionRunId
+    ContinuedExecutionRunId (..),
+
+    -- ** ExecutionStartToCloseTimeout
+    ExecutionStartToCloseTimeout (..),
+
+    -- ** TaskStartToCloseTimeout
+    TaskStartToCloseTimeout (..),
+
+    -- ** DefaultExecutionStartToCloseTimeout
+    DefaultExecutionStartToCloseTimeout (..),
+
+    -- ** Value
+    Value (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

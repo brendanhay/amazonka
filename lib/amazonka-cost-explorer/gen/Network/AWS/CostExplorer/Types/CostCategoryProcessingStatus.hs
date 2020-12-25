@@ -17,59 +17,54 @@ module Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
     mkCostCategoryProcessingStatus,
 
     -- * Lenses
-    ccpsStatus,
     ccpsComponent,
+    ccpsStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types.CostCategoryStatus
-import Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
+import qualified Network.AWS.CostExplorer.Types.CostCategoryStatus as Types
+import qualified Network.AWS.CostExplorer.Types.CostCategoryStatusComponent as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The list of processing statuses for Cost Management products for a specific cost category.
 --
 -- /See:/ 'mkCostCategoryProcessingStatus' smart constructor.
 data CostCategoryProcessingStatus = CostCategoryProcessingStatus'
-  { -- | The process status for a specific cost category.
-    status :: Lude.Maybe CostCategoryStatus,
-    -- | The Cost Management product name of the applied status.
-    component :: Lude.Maybe CostCategoryStatusComponent
+  { -- | The Cost Management product name of the applied status.
+    component :: Core.Maybe Types.CostCategoryStatusComponent,
+    -- | The process status for a specific cost category.
+    status :: Core.Maybe Types.CostCategoryStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CostCategoryProcessingStatus' with the minimum fields required to make a request.
---
--- * 'status' - The process status for a specific cost category.
--- * 'component' - The Cost Management product name of the applied status.
+-- | Creates a 'CostCategoryProcessingStatus' value with any optional fields omitted.
 mkCostCategoryProcessingStatus ::
   CostCategoryProcessingStatus
 mkCostCategoryProcessingStatus =
   CostCategoryProcessingStatus'
-    { status = Lude.Nothing,
-      component = Lude.Nothing
+    { component = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The process status for a specific cost category.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpsStatus :: Lens.Lens' CostCategoryProcessingStatus (Lude.Maybe CostCategoryStatus)
-ccpsStatus = Lens.lens (status :: CostCategoryProcessingStatus -> Lude.Maybe CostCategoryStatus) (\s a -> s {status = a} :: CostCategoryProcessingStatus)
-{-# DEPRECATED ccpsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Cost Management product name of the applied status.
 --
 -- /Note:/ Consider using 'component' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpsComponent :: Lens.Lens' CostCategoryProcessingStatus (Lude.Maybe CostCategoryStatusComponent)
-ccpsComponent = Lens.lens (component :: CostCategoryProcessingStatus -> Lude.Maybe CostCategoryStatusComponent) (\s a -> s {component = a} :: CostCategoryProcessingStatus)
+ccpsComponent :: Lens.Lens' CostCategoryProcessingStatus (Core.Maybe Types.CostCategoryStatusComponent)
+ccpsComponent = Lens.field @"component"
 {-# DEPRECATED ccpsComponent "Use generic-lens or generic-optics with 'component' instead." #-}
 
-instance Lude.FromJSON CostCategoryProcessingStatus where
+-- | The process status for a specific cost category.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpsStatus :: Lens.Lens' CostCategoryProcessingStatus (Core.Maybe Types.CostCategoryStatus)
+ccpsStatus = Lens.field @"status"
+{-# DEPRECATED ccpsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON CostCategoryProcessingStatus where
   parseJSON =
-    Lude.withObject
-      "CostCategoryProcessingStatus"
-      ( \x ->
-          CostCategoryProcessingStatus'
-            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "Component")
-      )
+    Core.withObject "CostCategoryProcessingStatus" Core.$
+      \x ->
+        CostCategoryProcessingStatus'
+          Core.<$> (x Core..:? "Component") Core.<*> (x Core..:? "Status")

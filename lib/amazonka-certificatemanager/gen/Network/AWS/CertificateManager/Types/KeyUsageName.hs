@@ -13,91 +13,93 @@
 module Network.AWS.CertificateManager.Types.KeyUsageName
   ( KeyUsageName
       ( KeyUsageName',
-        KUNDigitalSignature,
-        KUNNonRepudiation,
-        KUNKeyEncipherment,
-        KUNDataEncipherment,
-        KUNKeyAgreement,
-        KUNCertificateSigning,
-        KUNCrlSigning,
-        KUNEncipherOnly,
-        KUNDecipherOnly,
-        KUNAny,
-        KUNCustom
+        KeyUsageNameDigitalSignature,
+        KeyUsageNameNonRepudiation,
+        KeyUsageNameKeyEncipherment,
+        KeyUsageNameDataEncipherment,
+        KeyUsageNameKeyAgreement,
+        KeyUsageNameCertificateSigning,
+        KeyUsageNameCrlSigning,
+        KeyUsageNameEncipherOnly,
+        KeyUsageNameDecipherOnly,
+        KeyUsageNameAny,
+        KeyUsageNameCustom,
+        fromKeyUsageName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype KeyUsageName = KeyUsageName' Lude.Text
+newtype KeyUsageName = KeyUsageName' {fromKeyUsageName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern KUNDigitalSignature :: KeyUsageName
-pattern KUNDigitalSignature = KeyUsageName' "DIGITAL_SIGNATURE"
+pattern KeyUsageNameDigitalSignature :: KeyUsageName
+pattern KeyUsageNameDigitalSignature = KeyUsageName' "DIGITAL_SIGNATURE"
 
-pattern KUNNonRepudiation :: KeyUsageName
-pattern KUNNonRepudiation = KeyUsageName' "NON_REPUDIATION"
+pattern KeyUsageNameNonRepudiation :: KeyUsageName
+pattern KeyUsageNameNonRepudiation = KeyUsageName' "NON_REPUDIATION"
 
-pattern KUNKeyEncipherment :: KeyUsageName
-pattern KUNKeyEncipherment = KeyUsageName' "KEY_ENCIPHERMENT"
+pattern KeyUsageNameKeyEncipherment :: KeyUsageName
+pattern KeyUsageNameKeyEncipherment = KeyUsageName' "KEY_ENCIPHERMENT"
 
-pattern KUNDataEncipherment :: KeyUsageName
-pattern KUNDataEncipherment = KeyUsageName' "DATA_ENCIPHERMENT"
+pattern KeyUsageNameDataEncipherment :: KeyUsageName
+pattern KeyUsageNameDataEncipherment = KeyUsageName' "DATA_ENCIPHERMENT"
 
-pattern KUNKeyAgreement :: KeyUsageName
-pattern KUNKeyAgreement = KeyUsageName' "KEY_AGREEMENT"
+pattern KeyUsageNameKeyAgreement :: KeyUsageName
+pattern KeyUsageNameKeyAgreement = KeyUsageName' "KEY_AGREEMENT"
 
-pattern KUNCertificateSigning :: KeyUsageName
-pattern KUNCertificateSigning = KeyUsageName' "CERTIFICATE_SIGNING"
+pattern KeyUsageNameCertificateSigning :: KeyUsageName
+pattern KeyUsageNameCertificateSigning = KeyUsageName' "CERTIFICATE_SIGNING"
 
-pattern KUNCrlSigning :: KeyUsageName
-pattern KUNCrlSigning = KeyUsageName' "CRL_SIGNING"
+pattern KeyUsageNameCrlSigning :: KeyUsageName
+pattern KeyUsageNameCrlSigning = KeyUsageName' "CRL_SIGNING"
 
-pattern KUNEncipherOnly :: KeyUsageName
-pattern KUNEncipherOnly = KeyUsageName' "ENCIPHER_ONLY"
+pattern KeyUsageNameEncipherOnly :: KeyUsageName
+pattern KeyUsageNameEncipherOnly = KeyUsageName' "ENCIPHER_ONLY"
 
-pattern KUNDecipherOnly :: KeyUsageName
-pattern KUNDecipherOnly = KeyUsageName' "DECIPHER_ONLY"
+pattern KeyUsageNameDecipherOnly :: KeyUsageName
+pattern KeyUsageNameDecipherOnly = KeyUsageName' "DECIPHER_ONLY"
 
-pattern KUNAny :: KeyUsageName
-pattern KUNAny = KeyUsageName' "ANY"
+pattern KeyUsageNameAny :: KeyUsageName
+pattern KeyUsageNameAny = KeyUsageName' "ANY"
 
-pattern KUNCustom :: KeyUsageName
-pattern KUNCustom = KeyUsageName' "CUSTOM"
+pattern KeyUsageNameCustom :: KeyUsageName
+pattern KeyUsageNameCustom = KeyUsageName' "CUSTOM"
 
 {-# COMPLETE
-  KUNDigitalSignature,
-  KUNNonRepudiation,
-  KUNKeyEncipherment,
-  KUNDataEncipherment,
-  KUNKeyAgreement,
-  KUNCertificateSigning,
-  KUNCrlSigning,
-  KUNEncipherOnly,
-  KUNDecipherOnly,
-  KUNAny,
-  KUNCustom,
+  KeyUsageNameDigitalSignature,
+  KeyUsageNameNonRepudiation,
+  KeyUsageNameKeyEncipherment,
+  KeyUsageNameDataEncipherment,
+  KeyUsageNameKeyAgreement,
+  KeyUsageNameCertificateSigning,
+  KeyUsageNameCrlSigning,
+  KeyUsageNameEncipherOnly,
+  KeyUsageNameDecipherOnly,
+  KeyUsageNameAny,
+  KeyUsageNameCustom,
   KeyUsageName'
   #-}

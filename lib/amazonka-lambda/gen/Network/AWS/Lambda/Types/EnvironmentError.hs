@@ -22,52 +22,49 @@ module Network.AWS.Lambda.Types.EnvironmentError
   )
 where
 
+import qualified Network.AWS.Lambda.Types.SensitiveString as Types
+import qualified Network.AWS.Lambda.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Error messages for environment variables that couldn't be applied.
 --
 -- /See:/ 'mkEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
   { -- | The error code.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.String,
     -- | The error message.
-    message :: Lude.Maybe (Lude.Sensitive Lude.Text)
+    message :: Core.Maybe Types.SensitiveString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentError' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code.
--- * 'message' - The error message.
+-- | Creates a 'EnvironmentError' value with any optional fields omitted.
 mkEnvironmentError ::
   EnvironmentError
 mkEnvironmentError =
   EnvironmentError'
-    { errorCode = Lude.Nothing,
-      message = Lude.Nothing
+    { errorCode = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eeErrorCode :: Lens.Lens' EnvironmentError (Lude.Maybe Lude.Text)
-eeErrorCode = Lens.lens (errorCode :: EnvironmentError -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: EnvironmentError)
+eeErrorCode :: Lens.Lens' EnvironmentError (Core.Maybe Types.String)
+eeErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED eeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eeMessage :: Lens.Lens' EnvironmentError (Lude.Maybe (Lude.Sensitive Lude.Text))
-eeMessage = Lens.lens (message :: EnvironmentError -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {message = a} :: EnvironmentError)
+eeMessage :: Lens.Lens' EnvironmentError (Core.Maybe Types.SensitiveString)
+eeMessage = Lens.field @"message"
 {-# DEPRECATED eeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON EnvironmentError where
+instance Core.FromJSON EnvironmentError where
   parseJSON =
-    Lude.withObject
-      "EnvironmentError"
-      ( \x ->
-          EnvironmentError'
-            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "EnvironmentError" Core.$
+      \x ->
+        EnvironmentError'
+          Core.<$> (x Core..:? "ErrorCode") Core.<*> (x Core..:? "Message")

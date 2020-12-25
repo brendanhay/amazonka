@@ -18,15 +18,16 @@ module Network.AWS.ECS.Types.ProxyConfiguration
 
     -- * Lenses
     pContainerName,
-    pType,
     pProperties,
+    pType,
   )
 where
 
-import Network.AWS.ECS.Types.KeyValuePair
-import Network.AWS.ECS.Types.ProxyConfigurationType
+import qualified Network.AWS.ECS.Types.KeyValuePair as Types
+import qualified Network.AWS.ECS.Types.ProxyConfigurationType as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration details for the App Mesh proxy.
 --
@@ -35,9 +36,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkProxyConfiguration' smart constructor.
 data ProxyConfiguration = ProxyConfiguration'
   { -- | The name of the container that will serve as the App Mesh proxy.
-    containerName :: Lude.Text,
-    -- | The proxy type. The only supported value is @APPMESH@ .
-    type' :: Lude.Maybe ProxyConfigurationType,
+    containerName :: Types.String,
     -- | The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
     --
     --
@@ -60,61 +59,31 @@ data ProxyConfiguration = ProxyConfiguration'
     --
     --
     --     * @EgressIgnoredIPs@ - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the @ProxyEgressPort@ . It can be an empty list.
-    properties :: Lude.Maybe [KeyValuePair]
+    properties :: Core.Maybe [Types.KeyValuePair],
+    -- | The proxy type. The only supported value is @APPMESH@ .
+    type' :: Core.Maybe Types.ProxyConfigurationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProxyConfiguration' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container that will serve as the App Mesh proxy.
--- * 'type'' - The proxy type. The only supported value is @APPMESH@ .
--- * 'properties' - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
---
---
---     * @IgnoredUID@ - (Required) The user ID (UID) of the proxy container as defined by the @user@ parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If @IgnoredGID@ is specified, this field can be empty.
---
---
---     * @IgnoredGID@ - (Required) The group ID (GID) of the proxy container as defined by the @user@ parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If @IgnoredUID@ is specified, this field can be empty.
---
---
---     * @AppPorts@ - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the @ProxyIngressPort@ and @ProxyEgressPort@ .
---
---
---     * @ProxyIngressPort@ - (Required) Specifies the port that incoming traffic to the @AppPorts@ is directed to.
---
---
---     * @ProxyEgressPort@ - (Required) Specifies the port that outgoing traffic from the @AppPorts@ is directed to.
---
---
---     * @EgressIgnoredPorts@ - (Required) The egress traffic going to the specified ports is ignored and not redirected to the @ProxyEgressPort@ . It can be an empty list.
---
---
---     * @EgressIgnoredIPs@ - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the @ProxyEgressPort@ . It can be an empty list.
+-- | Creates a 'ProxyConfiguration' value with any optional fields omitted.
 mkProxyConfiguration ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.String ->
   ProxyConfiguration
-mkProxyConfiguration pContainerName_ =
+mkProxyConfiguration containerName =
   ProxyConfiguration'
-    { containerName = pContainerName_,
-      type' = Lude.Nothing,
-      properties = Lude.Nothing
+    { containerName,
+      properties = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The name of the container that will serve as the App Mesh proxy.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pContainerName :: Lens.Lens' ProxyConfiguration Lude.Text
-pContainerName = Lens.lens (containerName :: ProxyConfiguration -> Lude.Text) (\s a -> s {containerName = a} :: ProxyConfiguration)
+pContainerName :: Lens.Lens' ProxyConfiguration Types.String
+pContainerName = Lens.field @"containerName"
 {-# DEPRECATED pContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
-
--- | The proxy type. The only supported value is @APPMESH@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' ProxyConfiguration (Lude.Maybe ProxyConfigurationType)
-pType = Lens.lens (type' :: ProxyConfiguration -> Lude.Maybe ProxyConfigurationType) (\s a -> s {type' = a} :: ProxyConfiguration)
-{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
 --
@@ -142,27 +111,32 @@ pType = Lens.lens (type' :: ProxyConfiguration -> Lude.Maybe ProxyConfigurationT
 --
 --
 -- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pProperties :: Lens.Lens' ProxyConfiguration (Lude.Maybe [KeyValuePair])
-pProperties = Lens.lens (properties :: ProxyConfiguration -> Lude.Maybe [KeyValuePair]) (\s a -> s {properties = a} :: ProxyConfiguration)
+pProperties :: Lens.Lens' ProxyConfiguration (Core.Maybe [Types.KeyValuePair])
+pProperties = Lens.field @"properties"
 {-# DEPRECATED pProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance Lude.FromJSON ProxyConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ProxyConfiguration"
-      ( \x ->
-          ProxyConfiguration'
-            Lude.<$> (x Lude..: "containerName")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "properties" Lude..!= Lude.mempty)
-      )
+-- | The proxy type. The only supported value is @APPMESH@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pType :: Lens.Lens' ProxyConfiguration (Core.Maybe Types.ProxyConfigurationType)
+pType = Lens.field @"type'"
+{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON ProxyConfiguration where
-  toJSON ProxyConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("containerName" Lude..= containerName),
-            ("type" Lude..=) Lude.<$> type',
-            ("properties" Lude..=) Lude.<$> properties
+instance Core.FromJSON ProxyConfiguration where
+  toJSON ProxyConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerName" Core..= containerName),
+            ("properties" Core..=) Core.<$> properties,
+            ("type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON ProxyConfiguration where
+  parseJSON =
+    Core.withObject "ProxyConfiguration" Core.$
+      \x ->
+        ProxyConfiguration'
+          Core.<$> (x Core..: "containerName")
+          Core.<*> (x Core..:? "properties")
+          Core.<*> (x Core..:? "type")

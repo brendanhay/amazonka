@@ -13,67 +13,72 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
   ( DvbSubtitleFontColor
       ( DvbSubtitleFontColor',
-        DSFCWhite,
-        DSFCBlack,
-        DSFCYellow,
-        DSFCRed,
-        DSFCGreen,
-        DSFCBlue
+        DvbSubtitleFontColorWhite,
+        DvbSubtitleFontColorBlack,
+        DvbSubtitleFontColorYellow,
+        DvbSubtitleFontColorRed,
+        DvbSubtitleFontColorGreen,
+        DvbSubtitleFontColorBlue,
+        fromDvbSubtitleFontColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-newtype DvbSubtitleFontColor = DvbSubtitleFontColor' Lude.Text
+newtype DvbSubtitleFontColor = DvbSubtitleFontColor'
+  { fromDvbSubtitleFontColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSFCWhite :: DvbSubtitleFontColor
-pattern DSFCWhite = DvbSubtitleFontColor' "WHITE"
+pattern DvbSubtitleFontColorWhite :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColorWhite = DvbSubtitleFontColor' "WHITE"
 
-pattern DSFCBlack :: DvbSubtitleFontColor
-pattern DSFCBlack = DvbSubtitleFontColor' "BLACK"
+pattern DvbSubtitleFontColorBlack :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColorBlack = DvbSubtitleFontColor' "BLACK"
 
-pattern DSFCYellow :: DvbSubtitleFontColor
-pattern DSFCYellow = DvbSubtitleFontColor' "YELLOW"
+pattern DvbSubtitleFontColorYellow :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColorYellow = DvbSubtitleFontColor' "YELLOW"
 
-pattern DSFCRed :: DvbSubtitleFontColor
-pattern DSFCRed = DvbSubtitleFontColor' "RED"
+pattern DvbSubtitleFontColorRed :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColorRed = DvbSubtitleFontColor' "RED"
 
-pattern DSFCGreen :: DvbSubtitleFontColor
-pattern DSFCGreen = DvbSubtitleFontColor' "GREEN"
+pattern DvbSubtitleFontColorGreen :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColorGreen = DvbSubtitleFontColor' "GREEN"
 
-pattern DSFCBlue :: DvbSubtitleFontColor
-pattern DSFCBlue = DvbSubtitleFontColor' "BLUE"
+pattern DvbSubtitleFontColorBlue :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColorBlue = DvbSubtitleFontColor' "BLUE"
 
 {-# COMPLETE
-  DSFCWhite,
-  DSFCBlack,
-  DSFCYellow,
-  DSFCRed,
-  DSFCGreen,
-  DSFCBlue,
+  DvbSubtitleFontColorWhite,
+  DvbSubtitleFontColorBlack,
+  DvbSubtitleFontColorYellow,
+  DvbSubtitleFontColorRed,
+  DvbSubtitleFontColorGreen,
+  DvbSubtitleFontColorBlue,
   DvbSubtitleFontColor'
   #-}

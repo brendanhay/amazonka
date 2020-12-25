@@ -22,157 +22,153 @@ module Network.AWS.ElasticSearch.GetUpgradeHistory
     mkGetUpgradeHistory,
 
     -- ** Request lenses
-    guhNextToken,
     guhDomainName,
     guhMaxResults,
+    guhNextToken,
 
     -- * Destructuring the response
     GetUpgradeHistoryResponse (..),
     mkGetUpgradeHistoryResponse,
 
     -- ** Response lenses
-    guhrsNextToken,
-    guhrsUpgradeHistories,
-    guhrsResponseStatus,
+    guhrrsNextToken,
+    guhrrsUpgradeHistories,
+    guhrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for request parameters to @'GetUpgradeHistory' @ operation.
 --
 -- /See:/ 'mkGetUpgradeHistory' smart constructor.
 data GetUpgradeHistory = GetUpgradeHistory'
-  { nextToken :: Lude.Maybe Lude.Text,
-    domainName :: Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int
+  { domainName :: Types.DomainName,
+    maxResults :: Core.Maybe Core.Int,
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUpgradeHistory' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'domainName' -
--- * 'maxResults' -
+-- | Creates a 'GetUpgradeHistory' value with any optional fields omitted.
 mkGetUpgradeHistory ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   GetUpgradeHistory
-mkGetUpgradeHistory pDomainName_ =
+mkGetUpgradeHistory domainName =
   GetUpgradeHistory'
-    { nextToken = Lude.Nothing,
-      domainName = pDomainName_,
-      maxResults = Lude.Nothing
+    { domainName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guhNextToken :: Lens.Lens' GetUpgradeHistory (Lude.Maybe Lude.Text)
-guhNextToken = Lens.lens (nextToken :: GetUpgradeHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetUpgradeHistory)
-{-# DEPRECATED guhNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guhDomainName :: Lens.Lens' GetUpgradeHistory Lude.Text
-guhDomainName = Lens.lens (domainName :: GetUpgradeHistory -> Lude.Text) (\s a -> s {domainName = a} :: GetUpgradeHistory)
+guhDomainName :: Lens.Lens' GetUpgradeHistory Types.DomainName
+guhDomainName = Lens.field @"domainName"
 {-# DEPRECATED guhDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guhMaxResults :: Lens.Lens' GetUpgradeHistory (Lude.Maybe Lude.Int)
-guhMaxResults = Lens.lens (maxResults :: GetUpgradeHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetUpgradeHistory)
+guhMaxResults :: Lens.Lens' GetUpgradeHistory (Core.Maybe Core.Int)
+guhMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED guhMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetUpgradeHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. guhrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. guhrsUpgradeHistories) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& guhNextToken Lens..~ rs Lens.^. guhrsNextToken
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guhNextToken :: Lens.Lens' GetUpgradeHistory (Core.Maybe Types.NextToken)
+guhNextToken = Lens.field @"nextToken"
+{-# DEPRECATED guhNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetUpgradeHistory where
+instance Core.AWSRequest GetUpgradeHistory where
   type Rs GetUpgradeHistory = GetUpgradeHistoryResponse
-  request = Req.get elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-01-01/es/upgradeDomain/" Core.<> (Core.toText domainName)
+                Core.<> ("/history")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetUpgradeHistoryResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "UpgradeHistories" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "UpgradeHistories")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetUpgradeHistory where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetUpgradeHistory where
-  toPath GetUpgradeHistory' {..} =
-    Lude.mconcat
-      ["/2015-01-01/es/upgradeDomain/", Lude.toBS domainName, "/history"]
-
-instance Lude.ToQuery GetUpgradeHistory where
-  toQuery GetUpgradeHistory' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager GetUpgradeHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"upgradeHistories" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Container for response returned by @'GetUpgradeHistory' @ operation.
 --
 -- /See:/ 'mkGetUpgradeHistoryResponse' smart constructor.
 data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
   { -- | Pagination token that needs to be supplied to the next call to get the next page of results
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | A list of @'UpgradeHistory' @ objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of @'GetUpgradeHistoryResponse' @ object.
-    upgradeHistories :: Lude.Maybe [UpgradeHistory],
+    upgradeHistories :: Core.Maybe [Types.UpgradeHistory],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetUpgradeHistoryResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Pagination token that needs to be supplied to the next call to get the next page of results
--- * 'upgradeHistories' - A list of @'UpgradeHistory' @ objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of @'GetUpgradeHistoryResponse' @ object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetUpgradeHistoryResponse' value with any optional fields omitted.
 mkGetUpgradeHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetUpgradeHistoryResponse
-mkGetUpgradeHistoryResponse pResponseStatus_ =
+mkGetUpgradeHistoryResponse responseStatus =
   GetUpgradeHistoryResponse'
-    { nextToken = Lude.Nothing,
-      upgradeHistories = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      upgradeHistories = Core.Nothing,
+      responseStatus
     }
 
 -- | Pagination token that needs to be supplied to the next call to get the next page of results
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guhrsNextToken :: Lens.Lens' GetUpgradeHistoryResponse (Lude.Maybe Lude.Text)
-guhrsNextToken = Lens.lens (nextToken :: GetUpgradeHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetUpgradeHistoryResponse)
-{-# DEPRECATED guhrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+guhrrsNextToken :: Lens.Lens' GetUpgradeHistoryResponse (Core.Maybe Types.String)
+guhrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED guhrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @'UpgradeHistory' @ objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of @'GetUpgradeHistoryResponse' @ object.
 --
 -- /Note:/ Consider using 'upgradeHistories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guhrsUpgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Lude.Maybe [UpgradeHistory])
-guhrsUpgradeHistories = Lens.lens (upgradeHistories :: GetUpgradeHistoryResponse -> Lude.Maybe [UpgradeHistory]) (\s a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse)
-{-# DEPRECATED guhrsUpgradeHistories "Use generic-lens or generic-optics with 'upgradeHistories' instead." #-}
+guhrrsUpgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Core.Maybe [Types.UpgradeHistory])
+guhrrsUpgradeHistories = Lens.field @"upgradeHistories"
+{-# DEPRECATED guhrrsUpgradeHistories "Use generic-lens or generic-optics with 'upgradeHistories' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guhrsResponseStatus :: Lens.Lens' GetUpgradeHistoryResponse Lude.Int
-guhrsResponseStatus = Lens.lens (responseStatus :: GetUpgradeHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUpgradeHistoryResponse)
-{-# DEPRECATED guhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+guhrrsResponseStatus :: Lens.Lens' GetUpgradeHistoryResponse Core.Int
+guhrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED guhrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

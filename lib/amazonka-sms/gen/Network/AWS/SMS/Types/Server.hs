@@ -17,112 +17,106 @@ module Network.AWS.SMS.Types.Server
     mkServer,
 
     -- * Lenses
-    sServerType,
-    sServerId,
-    sReplicationJobTerminated,
-    sVmServer,
     sReplicationJobId,
+    sReplicationJobTerminated,
+    sServerId,
+    sServerType,
+    sVmServer,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ServerType
-import Network.AWS.SMS.Types.VMServer
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ReplicationJobId as Types
+import qualified Network.AWS.SMS.Types.ServerId as Types
+import qualified Network.AWS.SMS.Types.ServerType as Types
+import qualified Network.AWS.SMS.Types.VmServer as Types
 
 -- | Represents a server.
 --
 -- /See:/ 'mkServer' smart constructor.
 data Server = Server'
-  { -- | The type of server.
-    serverType :: Lude.Maybe ServerType,
-    -- | The ID of the server.
-    serverId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the replication job.
+    replicationJobId :: Core.Maybe Types.ReplicationJobId,
     -- | Indicates whether the replication job is deleted or failed.
-    replicationJobTerminated :: Lude.Maybe Lude.Bool,
+    replicationJobTerminated :: Core.Maybe Core.Bool,
+    -- | The ID of the server.
+    serverId :: Core.Maybe Types.ServerId,
+    -- | The type of server.
+    serverType :: Core.Maybe Types.ServerType,
     -- | Information about the VM server.
-    vmServer :: Lude.Maybe VMServer,
-    -- | The ID of the replication job.
-    replicationJobId :: Lude.Maybe Lude.Text
+    vmServer :: Core.Maybe Types.VmServer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Server' with the minimum fields required to make a request.
---
--- * 'serverType' - The type of server.
--- * 'serverId' - The ID of the server.
--- * 'replicationJobTerminated' - Indicates whether the replication job is deleted or failed.
--- * 'vmServer' - Information about the VM server.
--- * 'replicationJobId' - The ID of the replication job.
+-- | Creates a 'Server' value with any optional fields omitted.
 mkServer ::
   Server
 mkServer =
   Server'
-    { serverType = Lude.Nothing,
-      serverId = Lude.Nothing,
-      replicationJobTerminated = Lude.Nothing,
-      vmServer = Lude.Nothing,
-      replicationJobId = Lude.Nothing
+    { replicationJobId = Core.Nothing,
+      replicationJobTerminated = Core.Nothing,
+      serverId = Core.Nothing,
+      serverType = Core.Nothing,
+      vmServer = Core.Nothing
     }
-
--- | The type of server.
---
--- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sServerType :: Lens.Lens' Server (Lude.Maybe ServerType)
-sServerType = Lens.lens (serverType :: Server -> Lude.Maybe ServerType) (\s a -> s {serverType = a} :: Server)
-{-# DEPRECATED sServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
-
--- | The ID of the server.
---
--- /Note:/ Consider using 'serverId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sServerId :: Lens.Lens' Server (Lude.Maybe Lude.Text)
-sServerId = Lens.lens (serverId :: Server -> Lude.Maybe Lude.Text) (\s a -> s {serverId = a} :: Server)
-{-# DEPRECATED sServerId "Use generic-lens or generic-optics with 'serverId' instead." #-}
-
--- | Indicates whether the replication job is deleted or failed.
---
--- /Note:/ Consider using 'replicationJobTerminated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sReplicationJobTerminated :: Lens.Lens' Server (Lude.Maybe Lude.Bool)
-sReplicationJobTerminated = Lens.lens (replicationJobTerminated :: Server -> Lude.Maybe Lude.Bool) (\s a -> s {replicationJobTerminated = a} :: Server)
-{-# DEPRECATED sReplicationJobTerminated "Use generic-lens or generic-optics with 'replicationJobTerminated' instead." #-}
-
--- | Information about the VM server.
---
--- /Note:/ Consider using 'vmServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sVmServer :: Lens.Lens' Server (Lude.Maybe VMServer)
-sVmServer = Lens.lens (vmServer :: Server -> Lude.Maybe VMServer) (\s a -> s {vmServer = a} :: Server)
-{-# DEPRECATED sVmServer "Use generic-lens or generic-optics with 'vmServer' instead." #-}
 
 -- | The ID of the replication job.
 --
 -- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sReplicationJobId :: Lens.Lens' Server (Lude.Maybe Lude.Text)
-sReplicationJobId = Lens.lens (replicationJobId :: Server -> Lude.Maybe Lude.Text) (\s a -> s {replicationJobId = a} :: Server)
+sReplicationJobId :: Lens.Lens' Server (Core.Maybe Types.ReplicationJobId)
+sReplicationJobId = Lens.field @"replicationJobId"
 {-# DEPRECATED sReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
-instance Lude.FromJSON Server where
-  parseJSON =
-    Lude.withObject
-      "Server"
-      ( \x ->
-          Server'
-            Lude.<$> (x Lude..:? "serverType")
-            Lude.<*> (x Lude..:? "serverId")
-            Lude.<*> (x Lude..:? "replicationJobTerminated")
-            Lude.<*> (x Lude..:? "vmServer")
-            Lude.<*> (x Lude..:? "replicationJobId")
-      )
+-- | Indicates whether the replication job is deleted or failed.
+--
+-- /Note:/ Consider using 'replicationJobTerminated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sReplicationJobTerminated :: Lens.Lens' Server (Core.Maybe Core.Bool)
+sReplicationJobTerminated = Lens.field @"replicationJobTerminated"
+{-# DEPRECATED sReplicationJobTerminated "Use generic-lens or generic-optics with 'replicationJobTerminated' instead." #-}
 
-instance Lude.ToJSON Server where
-  toJSON Server' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serverType" Lude..=) Lude.<$> serverType,
-            ("serverId" Lude..=) Lude.<$> serverId,
-            ("replicationJobTerminated" Lude..=)
-              Lude.<$> replicationJobTerminated,
-            ("vmServer" Lude..=) Lude.<$> vmServer,
-            ("replicationJobId" Lude..=) Lude.<$> replicationJobId
+-- | The ID of the server.
+--
+-- /Note:/ Consider using 'serverId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sServerId :: Lens.Lens' Server (Core.Maybe Types.ServerId)
+sServerId = Lens.field @"serverId"
+{-# DEPRECATED sServerId "Use generic-lens or generic-optics with 'serverId' instead." #-}
+
+-- | The type of server.
+--
+-- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sServerType :: Lens.Lens' Server (Core.Maybe Types.ServerType)
+sServerType = Lens.field @"serverType"
+{-# DEPRECATED sServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
+
+-- | Information about the VM server.
+--
+-- /Note:/ Consider using 'vmServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVmServer :: Lens.Lens' Server (Core.Maybe Types.VmServer)
+sVmServer = Lens.field @"vmServer"
+{-# DEPRECATED sVmServer "Use generic-lens or generic-optics with 'vmServer' instead." #-}
+
+instance Core.FromJSON Server where
+  toJSON Server {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("replicationJobId" Core..=) Core.<$> replicationJobId,
+            ("replicationJobTerminated" Core..=)
+              Core.<$> replicationJobTerminated,
+            ("serverId" Core..=) Core.<$> serverId,
+            ("serverType" Core..=) Core.<$> serverType,
+            ("vmServer" Core..=) Core.<$> vmServer
           ]
       )
+
+instance Core.FromJSON Server where
+  parseJSON =
+    Core.withObject "Server" Core.$
+      \x ->
+        Server'
+          Core.<$> (x Core..:? "replicationJobId")
+          Core.<*> (x Core..:? "replicationJobTerminated")
+          Core.<*> (x Core..:? "serverId")
+          Core.<*> (x Core..:? "serverType")
+          Core.<*> (x Core..:? "vmServer")

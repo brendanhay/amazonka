@@ -22,7 +22,8 @@ module Network.AWS.SWF.Types.TagFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Tag as Types
 
 -- | Used to filter the workflow executions in visibility APIs based on a tag.
 --
@@ -31,31 +32,27 @@ newtype TagFilter = TagFilter'
   { -- | Specifies the tag that must be associated with the execution for it to meet the filter criteria.
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
-    tag :: Lude.Text
+    tag :: Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
---
--- * 'tag' - Specifies the tag that must be associated with the execution for it to meet the filter criteria.
---
--- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
+-- | Creates a 'TagFilter' value with any optional fields omitted.
 mkTagFilter ::
   -- | 'tag'
-  Lude.Text ->
+  Types.Tag ->
   TagFilter
-mkTagFilter pTag_ = TagFilter' {tag = pTag_}
+mkTagFilter tag = TagFilter' {tag}
 
 -- | Specifies the tag that must be associated with the execution for it to meet the filter criteria.
 --
 -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
 --
 -- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfTag :: Lens.Lens' TagFilter Lude.Text
-tfTag = Lens.lens (tag :: TagFilter -> Lude.Text) (\s a -> s {tag = a} :: TagFilter)
+tfTag :: Lens.Lens' TagFilter Types.Tag
+tfTag = Lens.field @"tag"
 {-# DEPRECATED tfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
 
-instance Lude.ToJSON TagFilter where
-  toJSON TagFilter' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("tag" Lude..= tag)])
+instance Core.FromJSON TagFilter where
+  toJSON TagFilter {..} =
+    Core.object (Core.catMaybes [Core.Just ("tag" Core..= tag)])

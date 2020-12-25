@@ -21,40 +21,38 @@ module Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
   )
 where
 
-import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkSpecifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Detaches a typed link from a specified source and target object inside a 'BatchRead' operation. For more information, see 'DetachTypedLink' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchDetachTypedLink' smart constructor.
 newtype BatchDetachTypedLink = BatchDetachTypedLink'
   { -- | Used to accept a typed link specifier as input.
-    typedLinkSpecifier :: TypedLinkSpecifier
+    typedLinkSpecifier :: Types.TypedLinkSpecifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'BatchDetachTypedLink' with the minimum fields required to make a request.
---
--- * 'typedLinkSpecifier' - Used to accept a typed link specifier as input.
+-- | Creates a 'BatchDetachTypedLink' value with any optional fields omitted.
 mkBatchDetachTypedLink ::
   -- | 'typedLinkSpecifier'
-  TypedLinkSpecifier ->
+  Types.TypedLinkSpecifier ->
   BatchDetachTypedLink
-mkBatchDetachTypedLink pTypedLinkSpecifier_ =
-  BatchDetachTypedLink' {typedLinkSpecifier = pTypedLinkSpecifier_}
+mkBatchDetachTypedLink typedLinkSpecifier =
+  BatchDetachTypedLink' {typedLinkSpecifier}
 
 -- | Used to accept a typed link specifier as input.
 --
 -- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtlTypedLinkSpecifier :: Lens.Lens' BatchDetachTypedLink TypedLinkSpecifier
-bdtlTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchDetachTypedLink -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchDetachTypedLink)
+bdtlTypedLinkSpecifier :: Lens.Lens' BatchDetachTypedLink Types.TypedLinkSpecifier
+bdtlTypedLinkSpecifier = Lens.field @"typedLinkSpecifier"
 {-# DEPRECATED bdtlTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance Lude.ToJSON BatchDetachTypedLink where
-  toJSON BatchDetachTypedLink' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)]
+instance Core.FromJSON BatchDetachTypedLink where
+  toJSON BatchDetachTypedLink {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TypedLinkSpecifier" Core..= typedLinkSpecifier)]
       )

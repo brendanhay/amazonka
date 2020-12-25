@@ -17,162 +17,154 @@ module Network.AWS.EC2.Types.SnapshotInfo
     mkSnapshotInfo,
 
     -- * Lenses
-    siState,
-    siProgress,
-    siStartTime,
-    siVolumeSize,
+    siDescription,
     siEncrypted,
     siOwnerId,
-    siVolumeId,
-    siDescription,
-    siTags,
+    siProgress,
     siSnapshotId,
+    siStartTime,
+    siState,
+    siTags,
+    siVolumeId,
+    siVolumeSize,
   )
 where
 
-import Network.AWS.EC2.Types.SnapshotState
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.Description as Types
+import qualified Network.AWS.EC2.Types.OwnerId as Types
+import qualified Network.AWS.EC2.Types.Progress as Types
+import qualified Network.AWS.EC2.Types.SnapshotId as Types
+import qualified Network.AWS.EC2.Types.SnapshotState as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.VolumeId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a snapshot.
 --
 -- /See:/ 'mkSnapshotInfo' smart constructor.
 data SnapshotInfo = SnapshotInfo'
-  { -- | Current state of the snapshot.
-    state :: Lude.Maybe SnapshotState,
-    -- | Progress this snapshot has made towards completing.
-    progress :: Lude.Maybe Lude.Text,
-    -- | Time this snapshot was started. This is the same for all snapshots initiated by the same request.
-    startTime :: Lude.Maybe Lude.DateTime,
-    -- | Size of the volume from which this snapshot was created.
-    volumeSize :: Lude.Maybe Lude.Int,
+  { -- | Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
+    description :: Core.Maybe Types.Description,
     -- | Indicates whether the snapshot is encrypted.
-    encrypted :: Lude.Maybe Lude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | Account id used when creating this snapshot.
-    ownerId :: Lude.Maybe Lude.Text,
-    -- | Source volume from which this snapshot was created.
-    volumeId :: Lude.Maybe Lude.Text,
-    -- | Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
-    description :: Lude.Maybe Lude.Text,
-    -- | Tags associated with this snapshot.
-    tags :: Lude.Maybe [Tag],
+    ownerId :: Core.Maybe Types.OwnerId,
+    -- | Progress this snapshot has made towards completing.
+    progress :: Core.Maybe Types.Progress,
     -- | Snapshot id that can be used to describe this snapshot.
-    snapshotId :: Lude.Maybe Lude.Text
+    snapshotId :: Core.Maybe Types.SnapshotId,
+    -- | Time this snapshot was started. This is the same for all snapshots initiated by the same request.
+    startTime :: Core.Maybe Core.UTCTime,
+    -- | Current state of the snapshot.
+    state :: Core.Maybe Types.SnapshotState,
+    -- | Tags associated with this snapshot.
+    tags :: Core.Maybe [Types.Tag],
+    -- | Source volume from which this snapshot was created.
+    volumeId :: Core.Maybe Types.VolumeId,
+    -- | Size of the volume from which this snapshot was created.
+    volumeSize :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SnapshotInfo' with the minimum fields required to make a request.
---
--- * 'state' - Current state of the snapshot.
--- * 'progress' - Progress this snapshot has made towards completing.
--- * 'startTime' - Time this snapshot was started. This is the same for all snapshots initiated by the same request.
--- * 'volumeSize' - Size of the volume from which this snapshot was created.
--- * 'encrypted' - Indicates whether the snapshot is encrypted.
--- * 'ownerId' - Account id used when creating this snapshot.
--- * 'volumeId' - Source volume from which this snapshot was created.
--- * 'description' - Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
--- * 'tags' - Tags associated with this snapshot.
--- * 'snapshotId' - Snapshot id that can be used to describe this snapshot.
+-- | Creates a 'SnapshotInfo' value with any optional fields omitted.
 mkSnapshotInfo ::
   SnapshotInfo
 mkSnapshotInfo =
   SnapshotInfo'
-    { state = Lude.Nothing,
-      progress = Lude.Nothing,
-      startTime = Lude.Nothing,
-      volumeSize = Lude.Nothing,
-      encrypted = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      volumeId = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      snapshotId = Lude.Nothing
+    { description = Core.Nothing,
+      encrypted = Core.Nothing,
+      ownerId = Core.Nothing,
+      progress = Core.Nothing,
+      snapshotId = Core.Nothing,
+      startTime = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      volumeId = Core.Nothing,
+      volumeSize = Core.Nothing
     }
 
--- | Current state of the snapshot.
+-- | Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
 --
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siState :: Lens.Lens' SnapshotInfo (Lude.Maybe SnapshotState)
-siState = Lens.lens (state :: SnapshotInfo -> Lude.Maybe SnapshotState) (\s a -> s {state = a} :: SnapshotInfo)
-{-# DEPRECATED siState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | Progress this snapshot has made towards completing.
---
--- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siProgress :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Text)
-siProgress = Lens.lens (progress :: SnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {progress = a} :: SnapshotInfo)
-{-# DEPRECATED siProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
-
--- | Time this snapshot was started. This is the same for all snapshots initiated by the same request.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siStartTime :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.DateTime)
-siStartTime = Lens.lens (startTime :: SnapshotInfo -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: SnapshotInfo)
-{-# DEPRECATED siStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | Size of the volume from which this snapshot was created.
---
--- /Note:/ Consider using 'volumeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siVolumeSize :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Int)
-siVolumeSize = Lens.lens (volumeSize :: SnapshotInfo -> Lude.Maybe Lude.Int) (\s a -> s {volumeSize = a} :: SnapshotInfo)
-{-# DEPRECATED siVolumeSize "Use generic-lens or generic-optics with 'volumeSize' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDescription :: Lens.Lens' SnapshotInfo (Core.Maybe Types.Description)
+siDescription = Lens.field @"description"
+{-# DEPRECATED siDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Indicates whether the snapshot is encrypted.
 --
 -- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siEncrypted :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Bool)
-siEncrypted = Lens.lens (encrypted :: SnapshotInfo -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: SnapshotInfo)
+siEncrypted :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Bool)
+siEncrypted = Lens.field @"encrypted"
 {-# DEPRECATED siEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | Account id used when creating this snapshot.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siOwnerId :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Text)
-siOwnerId = Lens.lens (ownerId :: SnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: SnapshotInfo)
+siOwnerId :: Lens.Lens' SnapshotInfo (Core.Maybe Types.OwnerId)
+siOwnerId = Lens.field @"ownerId"
 {-# DEPRECATED siOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
--- | Source volume from which this snapshot was created.
+-- | Progress this snapshot has made towards completing.
 --
--- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siVolumeId :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Text)
-siVolumeId = Lens.lens (volumeId :: SnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: SnapshotInfo)
-{-# DEPRECATED siVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
-
--- | Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siDescription :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Text)
-siDescription = Lens.lens (description :: SnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SnapshotInfo)
-{-# DEPRECATED siDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Tags associated with this snapshot.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTags :: Lens.Lens' SnapshotInfo (Lude.Maybe [Tag])
-siTags = Lens.lens (tags :: SnapshotInfo -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SnapshotInfo)
-{-# DEPRECATED siTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siProgress :: Lens.Lens' SnapshotInfo (Core.Maybe Types.Progress)
+siProgress = Lens.field @"progress"
+{-# DEPRECATED siProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | Snapshot id that can be used to describe this snapshot.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSnapshotId :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.Text)
-siSnapshotId = Lens.lens (snapshotId :: SnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: SnapshotInfo)
+siSnapshotId :: Lens.Lens' SnapshotInfo (Core.Maybe Types.SnapshotId)
+siSnapshotId = Lens.field @"snapshotId"
 {-# DEPRECATED siSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance Lude.FromXML SnapshotInfo where
+-- | Time this snapshot was started. This is the same for all snapshots initiated by the same request.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStartTime :: Lens.Lens' SnapshotInfo (Core.Maybe Core.UTCTime)
+siStartTime = Lens.field @"startTime"
+{-# DEPRECATED siStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | Current state of the snapshot.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siState :: Lens.Lens' SnapshotInfo (Core.Maybe Types.SnapshotState)
+siState = Lens.field @"state"
+{-# DEPRECATED siState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | Tags associated with this snapshot.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siTags :: Lens.Lens' SnapshotInfo (Core.Maybe [Types.Tag])
+siTags = Lens.field @"tags"
+{-# DEPRECATED siTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | Source volume from which this snapshot was created.
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siVolumeId :: Lens.Lens' SnapshotInfo (Core.Maybe Types.VolumeId)
+siVolumeId = Lens.field @"volumeId"
+{-# DEPRECATED siVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+
+-- | Size of the volume from which this snapshot was created.
+--
+-- /Note:/ Consider using 'volumeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siVolumeSize :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Int)
+siVolumeSize = Lens.field @"volumeSize"
+{-# DEPRECATED siVolumeSize "Use generic-lens or generic-optics with 'volumeSize' instead." #-}
+
+instance Core.FromXML SnapshotInfo where
   parseXML x =
     SnapshotInfo'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "progress")
-      Lude.<*> (x Lude..@? "startTime")
-      Lude.<*> (x Lude..@? "volumeSize")
-      Lude.<*> (x Lude..@? "encrypted")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> (x Lude..@? "volumeId")
-      Lude.<*> (x Lude..@? "description")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "snapshotId")
+      Core.<$> (x Core..@? "description")
+      Core.<*> (x Core..@? "encrypted")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "progress")
+      Core.<*> (x Core..@? "snapshotId")
+      Core.<*> (x Core..@? "startTime")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "volumeId")
+      Core.<*> (x Core..@? "volumeSize")

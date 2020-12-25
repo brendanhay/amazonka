@@ -20,116 +20,104 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     mkDescribeInterconnects,
 
     -- ** Request lenses
-    dInterconnectId,
+    diInterconnectId,
 
     -- * Destructuring the response
     DescribeInterconnectsResponse (..),
     mkDescribeInterconnectsResponse,
 
     -- ** Response lenses
-    disrsInterconnects,
-    disrsResponseStatus,
+    drsInterconnects,
+    drsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeInterconnects' smart constructor.
 newtype DescribeInterconnects = DescribeInterconnects'
   { -- | The ID of the interconnect.
-    interconnectId :: Lude.Maybe Lude.Text
+    interconnectId :: Core.Maybe Types.InterconnectId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInterconnects' with the minimum fields required to make a request.
---
--- * 'interconnectId' - The ID of the interconnect.
+-- | Creates a 'DescribeInterconnects' value with any optional fields omitted.
 mkDescribeInterconnects ::
   DescribeInterconnects
 mkDescribeInterconnects =
-  DescribeInterconnects' {interconnectId = Lude.Nothing}
+  DescribeInterconnects' {interconnectId = Core.Nothing}
 
 -- | The ID of the interconnect.
 --
 -- /Note:/ Consider using 'interconnectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInterconnectId :: Lens.Lens' DescribeInterconnects (Lude.Maybe Lude.Text)
-dInterconnectId = Lens.lens (interconnectId :: DescribeInterconnects -> Lude.Maybe Lude.Text) (\s a -> s {interconnectId = a} :: DescribeInterconnects)
-{-# DEPRECATED dInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
+diInterconnectId :: Lens.Lens' DescribeInterconnects (Core.Maybe Types.InterconnectId)
+diInterconnectId = Lens.field @"interconnectId"
+{-# DEPRECATED diInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
 
-instance Lude.AWSRequest DescribeInterconnects where
+instance Core.FromJSON DescribeInterconnects where
+  toJSON DescribeInterconnects {..} =
+    Core.object
+      ( Core.catMaybes
+          [("interconnectId" Core..=) Core.<$> interconnectId]
+      )
+
+instance Core.AWSRequest DescribeInterconnects where
   type Rs DescribeInterconnects = DescribeInterconnectsResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.DescribeInterconnects")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeInterconnectsResponse'
-            Lude.<$> (x Lude..?> "interconnects" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "interconnects")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeInterconnects where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DescribeInterconnects" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeInterconnects where
-  toJSON DescribeInterconnects' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("interconnectId" Lude..=) Lude.<$> interconnectId]
-      )
-
-instance Lude.ToPath DescribeInterconnects where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInterconnects where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeInterconnectsResponse' smart constructor.
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
   { -- | The interconnects.
-    interconnects :: Lude.Maybe [Interconnect],
+    interconnects :: Core.Maybe [Types.Interconnect],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInterconnectsResponse' with the minimum fields required to make a request.
---
--- * 'interconnects' - The interconnects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInterconnectsResponse' value with any optional fields omitted.
 mkDescribeInterconnectsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInterconnectsResponse
-mkDescribeInterconnectsResponse pResponseStatus_ =
+mkDescribeInterconnectsResponse responseStatus =
   DescribeInterconnectsResponse'
-    { interconnects = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { interconnects = Core.Nothing,
+      responseStatus
     }
 
 -- | The interconnects.
 --
 -- /Note:/ Consider using 'interconnects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsInterconnects :: Lens.Lens' DescribeInterconnectsResponse (Lude.Maybe [Interconnect])
-disrsInterconnects = Lens.lens (interconnects :: DescribeInterconnectsResponse -> Lude.Maybe [Interconnect]) (\s a -> s {interconnects = a} :: DescribeInterconnectsResponse)
-{-# DEPRECATED disrsInterconnects "Use generic-lens or generic-optics with 'interconnects' instead." #-}
+drsInterconnects :: Lens.Lens' DescribeInterconnectsResponse (Core.Maybe [Types.Interconnect])
+drsInterconnects = Lens.field @"interconnects"
+{-# DEPRECATED drsInterconnects "Use generic-lens or generic-optics with 'interconnects' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DescribeInterconnectsResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DescribeInterconnectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInterconnectsResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeInterconnectsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

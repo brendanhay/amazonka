@@ -17,17 +17,18 @@ module Network.AWS.ElastiCache.Types.CacheSecurityGroup
     mkCacheSecurityGroup,
 
     -- * Lenses
-    csgCacheSecurityGroupName,
-    csgARN,
-    csgOwnerId,
-    csgEC2SecurityGroups,
-    csgDescription,
+    cARN,
+    cCacheSecurityGroupName,
+    cDescription,
+    cEC2SecurityGroups,
+    cOwnerId,
   )
 where
 
-import Network.AWS.ElastiCache.Types.EC2SecurityGroup
+import qualified Network.AWS.ElastiCache.Types.EC2SecurityGroup as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of one of the following operations:
 --
@@ -44,80 +45,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheSecurityGroup' smart constructor.
 data CacheSecurityGroup = CacheSecurityGroup'
-  { -- | The name of the cache security group.
-    cacheSecurityGroupName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the cache security group,
-    arn :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID of the cache security group owner.
-    ownerId :: Lude.Maybe Lude.Text,
-    -- | A list of Amazon EC2 security groups that are associated with this cache security group.
-    ec2SecurityGroups :: Lude.Maybe [EC2SecurityGroup],
+  { -- | The ARN of the cache security group,
+    arn :: Core.Maybe Types.String,
+    -- | The name of the cache security group.
+    cacheSecurityGroupName :: Core.Maybe Types.String,
     -- | The description of the cache security group.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | A list of Amazon EC2 security groups that are associated with this cache security group.
+    eC2SecurityGroups :: Core.Maybe [Types.EC2SecurityGroup],
+    -- | The AWS account ID of the cache security group owner.
+    ownerId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheSecurityGroup' with the minimum fields required to make a request.
---
--- * 'cacheSecurityGroupName' - The name of the cache security group.
--- * 'arn' - The ARN of the cache security group,
--- * 'ownerId' - The AWS account ID of the cache security group owner.
--- * 'ec2SecurityGroups' - A list of Amazon EC2 security groups that are associated with this cache security group.
--- * 'description' - The description of the cache security group.
+-- | Creates a 'CacheSecurityGroup' value with any optional fields omitted.
 mkCacheSecurityGroup ::
   CacheSecurityGroup
 mkCacheSecurityGroup =
   CacheSecurityGroup'
-    { cacheSecurityGroupName = Lude.Nothing,
-      arn = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      ec2SecurityGroups = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      cacheSecurityGroupName = Core.Nothing,
+      description = Core.Nothing,
+      eC2SecurityGroups = Core.Nothing,
+      ownerId = Core.Nothing
     }
-
--- | The name of the cache security group.
---
--- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgCacheSecurityGroupName :: Lens.Lens' CacheSecurityGroup (Lude.Maybe Lude.Text)
-csgCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: CacheSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: CacheSecurityGroup)
-{-# DEPRECATED csgCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
 -- | The ARN of the cache security group,
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgARN :: Lens.Lens' CacheSecurityGroup (Lude.Maybe Lude.Text)
-csgARN = Lens.lens (arn :: CacheSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CacheSecurityGroup)
-{-# DEPRECATED csgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+cARN :: Lens.Lens' CacheSecurityGroup (Core.Maybe Types.String)
+cARN = Lens.field @"arn"
+{-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The AWS account ID of the cache security group owner.
+-- | The name of the cache security group.
 --
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgOwnerId :: Lens.Lens' CacheSecurityGroup (Lude.Maybe Lude.Text)
-csgOwnerId = Lens.lens (ownerId :: CacheSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: CacheSecurityGroup)
-{-# DEPRECATED csgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | A list of Amazon EC2 security groups that are associated with this cache security group.
---
--- /Note:/ Consider using 'ec2SecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgEC2SecurityGroups :: Lens.Lens' CacheSecurityGroup (Lude.Maybe [EC2SecurityGroup])
-csgEC2SecurityGroups = Lens.lens (ec2SecurityGroups :: CacheSecurityGroup -> Lude.Maybe [EC2SecurityGroup]) (\s a -> s {ec2SecurityGroups = a} :: CacheSecurityGroup)
-{-# DEPRECATED csgEC2SecurityGroups "Use generic-lens or generic-optics with 'ec2SecurityGroups' instead." #-}
+-- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCacheSecurityGroupName :: Lens.Lens' CacheSecurityGroup (Core.Maybe Types.String)
+cCacheSecurityGroupName = Lens.field @"cacheSecurityGroupName"
+{-# DEPRECATED cCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
 -- | The description of the cache security group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgDescription :: Lens.Lens' CacheSecurityGroup (Lude.Maybe Lude.Text)
-csgDescription = Lens.lens (description :: CacheSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CacheSecurityGroup)
-{-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cDescription :: Lens.Lens' CacheSecurityGroup (Core.Maybe Types.String)
+cDescription = Lens.field @"description"
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML CacheSecurityGroup where
+-- | A list of Amazon EC2 security groups that are associated with this cache security group.
+--
+-- /Note:/ Consider using 'eC2SecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEC2SecurityGroups :: Lens.Lens' CacheSecurityGroup (Core.Maybe [Types.EC2SecurityGroup])
+cEC2SecurityGroups = Lens.field @"eC2SecurityGroups"
+{-# DEPRECATED cEC2SecurityGroups "Use generic-lens or generic-optics with 'eC2SecurityGroups' instead." #-}
+
+-- | The AWS account ID of the cache security group owner.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOwnerId :: Lens.Lens' CacheSecurityGroup (Core.Maybe Types.String)
+cOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED cOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+instance Core.FromXML CacheSecurityGroup where
   parseXML x =
     CacheSecurityGroup'
-      Lude.<$> (x Lude..@? "CacheSecurityGroupName")
-      Lude.<*> (x Lude..@? "ARN")
-      Lude.<*> (x Lude..@? "OwnerId")
-      Lude.<*> ( x Lude..@? "EC2SecurityGroups" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "EC2SecurityGroup")
+      Core.<$> (x Core..@? "ARN")
+      Core.<*> (x Core..@? "CacheSecurityGroupName")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> ( x Core..@? "EC2SecurityGroups"
+                   Core..<@> Core.parseXMLList "EC2SecurityGroup"
                )
-      Lude.<*> (x Lude..@? "Description")
+      Core.<*> (x Core..@? "OwnerId")

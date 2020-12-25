@@ -13,61 +13,66 @@
 module Network.AWS.StorageGateway.Types.HostEnvironment
   ( HostEnvironment
       ( HostEnvironment',
-        VMware,
-        HyperV,
-        EC2,
-        Kvm,
-        Other
+        HostEnvironmentVmware,
+        HostEnvironmentHyperV,
+        HostEnvironmentEC2,
+        HostEnvironmentKvm,
+        HostEnvironmentOther,
+        fromHostEnvironment
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HostEnvironment = HostEnvironment' Lude.Text
+newtype HostEnvironment = HostEnvironment'
+  { fromHostEnvironment ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VMware :: HostEnvironment
-pattern VMware = HostEnvironment' "VMWARE"
+pattern HostEnvironmentVmware :: HostEnvironment
+pattern HostEnvironmentVmware = HostEnvironment' "VMWARE"
 
-pattern HyperV :: HostEnvironment
-pattern HyperV = HostEnvironment' "HYPER-V"
+pattern HostEnvironmentHyperV :: HostEnvironment
+pattern HostEnvironmentHyperV = HostEnvironment' "HYPER-V"
 
-pattern EC2 :: HostEnvironment
-pattern EC2 = HostEnvironment' "EC2"
+pattern HostEnvironmentEC2 :: HostEnvironment
+pattern HostEnvironmentEC2 = HostEnvironment' "EC2"
 
-pattern Kvm :: HostEnvironment
-pattern Kvm = HostEnvironment' "KVM"
+pattern HostEnvironmentKvm :: HostEnvironment
+pattern HostEnvironmentKvm = HostEnvironment' "KVM"
 
-pattern Other :: HostEnvironment
-pattern Other = HostEnvironment' "OTHER"
+pattern HostEnvironmentOther :: HostEnvironment
+pattern HostEnvironmentOther = HostEnvironment' "OTHER"
 
 {-# COMPLETE
-  VMware,
-  HyperV,
-  EC2,
-  Kvm,
-  Other,
+  HostEnvironmentVmware,
+  HostEnvironmentHyperV,
+  HostEnvironmentEC2,
+  HostEnvironmentKvm,
+  HostEnvironmentOther,
   HostEnvironment'
   #-}

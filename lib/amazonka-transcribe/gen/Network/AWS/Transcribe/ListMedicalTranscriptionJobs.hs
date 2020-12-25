@@ -20,188 +20,171 @@ module Network.AWS.Transcribe.ListMedicalTranscriptionJobs
     mkListMedicalTranscriptionJobs,
 
     -- ** Request lenses
-    lmtjStatus,
-    lmtjNextToken,
     lmtjJobNameContains,
     lmtjMaxResults,
+    lmtjNextToken,
+    lmtjStatus,
 
     -- * Destructuring the response
     ListMedicalTranscriptionJobsResponse (..),
     mkListMedicalTranscriptionJobsResponse,
 
     -- ** Response lenses
-    lmtjrsStatus,
-    lmtjrsNextToken,
-    lmtjrsMedicalTranscriptionJobSummaries,
-    lmtjrsResponseStatus,
+    lmtjrrsMedicalTranscriptionJobSummaries,
+    lmtjrrsNextToken,
+    lmtjrrsStatus,
+    lmtjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkListMedicalTranscriptionJobs' smart constructor.
 data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
-  { -- | When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
-    status :: Lude.Maybe TranscriptionJobStatus,
-    -- | If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
-    jobNameContains :: Lude.Maybe Lude.Text,
+  { -- | When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
+    jobNameContains :: Core.Maybe Types.JobNameContains,
     -- | The maximum number of medical transcription jobs to return in the response. IF there are fewer results in the list, this response contains only the actual results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
+    status :: Core.Maybe Types.TranscriptionJobStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMedicalTranscriptionJobs' with the minimum fields required to make a request.
---
--- * 'status' - When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
--- * 'nextToken' - If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
--- * 'jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
--- * 'maxResults' - The maximum number of medical transcription jobs to return in the response. IF there are fewer results in the list, this response contains only the actual results.
+-- | Creates a 'ListMedicalTranscriptionJobs' value with any optional fields omitted.
 mkListMedicalTranscriptionJobs ::
   ListMedicalTranscriptionJobs
 mkListMedicalTranscriptionJobs =
   ListMedicalTranscriptionJobs'
-    { status = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      jobNameContains = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { jobNameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjStatus :: Lens.Lens' ListMedicalTranscriptionJobs (Lude.Maybe TranscriptionJobStatus)
-lmtjStatus = Lens.lens (status :: ListMedicalTranscriptionJobs -> Lude.Maybe TranscriptionJobStatus) (\s a -> s {status = a} :: ListMedicalTranscriptionJobs)
-{-# DEPRECATED lmtjStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjNextToken :: Lens.Lens' ListMedicalTranscriptionJobs (Lude.Maybe Lude.Text)
-lmtjNextToken = Lens.lens (nextToken :: ListMedicalTranscriptionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMedicalTranscriptionJobs)
-{-# DEPRECATED lmtjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
 --
 -- /Note:/ Consider using 'jobNameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjJobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Lude.Maybe Lude.Text)
-lmtjJobNameContains = Lens.lens (jobNameContains :: ListMedicalTranscriptionJobs -> Lude.Maybe Lude.Text) (\s a -> s {jobNameContains = a} :: ListMedicalTranscriptionJobs)
+lmtjJobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Types.JobNameContains)
+lmtjJobNameContains = Lens.field @"jobNameContains"
 {-# DEPRECATED lmtjJobNameContains "Use generic-lens or generic-optics with 'jobNameContains' instead." #-}
 
 -- | The maximum number of medical transcription jobs to return in the response. IF there are fewer results in the list, this response contains only the actual results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjMaxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Lude.Maybe Lude.Natural)
-lmtjMaxResults = Lens.lens (maxResults :: ListMedicalTranscriptionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMedicalTranscriptionJobs)
+lmtjMaxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Core.Natural)
+lmtjMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lmtjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListMedicalTranscriptionJobs where
+-- | If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtjNextToken :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Types.NextToken)
+lmtjNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmtjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtjStatus :: Lens.Lens' ListMedicalTranscriptionJobs (Core.Maybe Types.TranscriptionJobStatus)
+lmtjStatus = Lens.field @"status"
+{-# DEPRECATED lmtjStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON ListMedicalTranscriptionJobs where
+  toJSON ListMedicalTranscriptionJobs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("JobNameContains" Core..=) Core.<$> jobNameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Status" Core..=) Core.<$> status
+          ]
+      )
+
+instance Core.AWSRequest ListMedicalTranscriptionJobs where
   type
     Rs ListMedicalTranscriptionJobs =
       ListMedicalTranscriptionJobsResponse
-  request = Req.postJSON transcribeService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Transcribe.ListMedicalTranscriptionJobs")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMedicalTranscriptionJobsResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> ( x Lude..?> "MedicalTranscriptionJobSummaries"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "MedicalTranscriptionJobSummaries")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListMedicalTranscriptionJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.ListMedicalTranscriptionJobs" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListMedicalTranscriptionJobs where
-  toJSON ListMedicalTranscriptionJobs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("JobNameContains" Lude..=) Lude.<$> jobNameContains,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListMedicalTranscriptionJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListMedicalTranscriptionJobs where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListMedicalTranscriptionJobsResponse' smart constructor.
 data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse'
-  { -- | The requested status of the medical transcription jobs returned.
-    status :: Lude.Maybe TranscriptionJobStatus,
+  { -- | A list of objects containing summary information for a transcription job.
+    medicalTranscriptionJobSummaries :: Core.Maybe [Types.MedicalTranscriptionJobSummary],
     -- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of objects containing summary information for a transcription job.
-    medicalTranscriptionJobSummaries :: Lude.Maybe [MedicalTranscriptionJobSummary],
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The requested status of the medical transcription jobs returned.
+    status :: Core.Maybe Types.TranscriptionJobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListMedicalTranscriptionJobsResponse' with the minimum fields required to make a request.
---
--- * 'status' - The requested status of the medical transcription jobs returned.
--- * 'nextToken' - The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
--- * 'medicalTranscriptionJobSummaries' - A list of objects containing summary information for a transcription job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMedicalTranscriptionJobsResponse' value with any optional fields omitted.
 mkListMedicalTranscriptionJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMedicalTranscriptionJobsResponse
-mkListMedicalTranscriptionJobsResponse pResponseStatus_ =
+mkListMedicalTranscriptionJobsResponse responseStatus =
   ListMedicalTranscriptionJobsResponse'
-    { status = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      medicalTranscriptionJobSummaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { medicalTranscriptionJobSummaries =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The requested status of the medical transcription jobs returned.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjrsStatus :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Lude.Maybe TranscriptionJobStatus)
-lmtjrsStatus = Lens.lens (status :: ListMedicalTranscriptionJobsResponse -> Lude.Maybe TranscriptionJobStatus) (\s a -> s {status = a} :: ListMedicalTranscriptionJobsResponse)
-{-# DEPRECATED lmtjrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjrsNextToken :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Lude.Maybe Lude.Text)
-lmtjrsNextToken = Lens.lens (nextToken :: ListMedicalTranscriptionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMedicalTranscriptionJobsResponse)
-{-# DEPRECATED lmtjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of objects containing summary information for a transcription job.
 --
 -- /Note:/ Consider using 'medicalTranscriptionJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjrsMedicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Lude.Maybe [MedicalTranscriptionJobSummary])
-lmtjrsMedicalTranscriptionJobSummaries = Lens.lens (medicalTranscriptionJobSummaries :: ListMedicalTranscriptionJobsResponse -> Lude.Maybe [MedicalTranscriptionJobSummary]) (\s a -> s {medicalTranscriptionJobSummaries = a} :: ListMedicalTranscriptionJobsResponse)
-{-# DEPRECATED lmtjrsMedicalTranscriptionJobSummaries "Use generic-lens or generic-optics with 'medicalTranscriptionJobSummaries' instead." #-}
+lmtjrrsMedicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Core.Maybe [Types.MedicalTranscriptionJobSummary])
+lmtjrrsMedicalTranscriptionJobSummaries = Lens.field @"medicalTranscriptionJobSummaries"
+{-# DEPRECATED lmtjrrsMedicalTranscriptionJobSummaries "Use generic-lens or generic-optics with 'medicalTranscriptionJobSummaries' instead." #-}
+
+-- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtjrrsNextToken :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Core.Maybe Types.NextToken)
+lmtjrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmtjrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The requested status of the medical transcription jobs returned.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtjrrsStatus :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Core.Maybe Types.TranscriptionJobStatus)
+lmtjrrsStatus = Lens.field @"status"
+{-# DEPRECATED lmtjrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmtjrsResponseStatus :: Lens.Lens' ListMedicalTranscriptionJobsResponse Lude.Int
-lmtjrsResponseStatus = Lens.lens (responseStatus :: ListMedicalTranscriptionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMedicalTranscriptionJobsResponse)
-{-# DEPRECATED lmtjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmtjrrsResponseStatus :: Lens.Lens' ListMedicalTranscriptionJobsResponse Core.Int
+lmtjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmtjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

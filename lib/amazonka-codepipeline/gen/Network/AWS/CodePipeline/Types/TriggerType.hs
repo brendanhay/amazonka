@@ -13,66 +13,68 @@
 module Network.AWS.CodePipeline.Types.TriggerType
   ( TriggerType
       ( TriggerType',
-        CreatePipeline,
-        StartPipelineExecution,
-        PollForSourceChanges,
-        Webhook,
-        CloudWatchEvent,
-        PutActionRevision
+        TriggerTypeCreatePipeline,
+        TriggerTypeStartPipelineExecution,
+        TriggerTypePollForSourceChanges,
+        TriggerTypeWebhook,
+        TriggerTypeCloudWatchEvent,
+        TriggerTypePutActionRevision,
+        fromTriggerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TriggerType = TriggerType' Lude.Text
+newtype TriggerType = TriggerType' {fromTriggerType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreatePipeline :: TriggerType
-pattern CreatePipeline = TriggerType' "CreatePipeline"
+pattern TriggerTypeCreatePipeline :: TriggerType
+pattern TriggerTypeCreatePipeline = TriggerType' "CreatePipeline"
 
-pattern StartPipelineExecution :: TriggerType
-pattern StartPipelineExecution = TriggerType' "StartPipelineExecution"
+pattern TriggerTypeStartPipelineExecution :: TriggerType
+pattern TriggerTypeStartPipelineExecution = TriggerType' "StartPipelineExecution"
 
-pattern PollForSourceChanges :: TriggerType
-pattern PollForSourceChanges = TriggerType' "PollForSourceChanges"
+pattern TriggerTypePollForSourceChanges :: TriggerType
+pattern TriggerTypePollForSourceChanges = TriggerType' "PollForSourceChanges"
 
-pattern Webhook :: TriggerType
-pattern Webhook = TriggerType' "Webhook"
+pattern TriggerTypeWebhook :: TriggerType
+pattern TriggerTypeWebhook = TriggerType' "Webhook"
 
-pattern CloudWatchEvent :: TriggerType
-pattern CloudWatchEvent = TriggerType' "CloudWatchEvent"
+pattern TriggerTypeCloudWatchEvent :: TriggerType
+pattern TriggerTypeCloudWatchEvent = TriggerType' "CloudWatchEvent"
 
-pattern PutActionRevision :: TriggerType
-pattern PutActionRevision = TriggerType' "PutActionRevision"
+pattern TriggerTypePutActionRevision :: TriggerType
+pattern TriggerTypePutActionRevision = TriggerType' "PutActionRevision"
 
 {-# COMPLETE
-  CreatePipeline,
-  StartPipelineExecution,
-  PollForSourceChanges,
-  Webhook,
-  CloudWatchEvent,
-  PutActionRevision,
+  TriggerTypeCreatePipeline,
+  TriggerTypeStartPipelineExecution,
+  TriggerTypePollForSourceChanges,
+  TriggerTypeWebhook,
+  TriggerTypeCloudWatchEvent,
+  TriggerTypePutActionRevision,
   TriggerType'
   #-}

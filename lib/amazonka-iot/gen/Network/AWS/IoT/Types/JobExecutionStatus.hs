@@ -13,76 +13,81 @@
 module Network.AWS.IoT.Types.JobExecutionStatus
   ( JobExecutionStatus
       ( JobExecutionStatus',
-        JESQueued,
-        JESInProgress,
-        JESSucceeded,
-        JESFailed,
-        JESTimedOut,
-        JESRejected,
-        JESRemoved,
-        JESCanceled
+        JobExecutionStatusQueued,
+        JobExecutionStatusInProgress,
+        JobExecutionStatusSucceeded,
+        JobExecutionStatusFailed,
+        JobExecutionStatusTimedOut,
+        JobExecutionStatusRejected,
+        JobExecutionStatusRemoved,
+        JobExecutionStatusCanceled,
+        fromJobExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobExecutionStatus = JobExecutionStatus' Lude.Text
+newtype JobExecutionStatus = JobExecutionStatus'
+  { fromJobExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JESQueued :: JobExecutionStatus
-pattern JESQueued = JobExecutionStatus' "QUEUED"
+pattern JobExecutionStatusQueued :: JobExecutionStatus
+pattern JobExecutionStatusQueued = JobExecutionStatus' "QUEUED"
 
-pattern JESInProgress :: JobExecutionStatus
-pattern JESInProgress = JobExecutionStatus' "IN_PROGRESS"
+pattern JobExecutionStatusInProgress :: JobExecutionStatus
+pattern JobExecutionStatusInProgress = JobExecutionStatus' "IN_PROGRESS"
 
-pattern JESSucceeded :: JobExecutionStatus
-pattern JESSucceeded = JobExecutionStatus' "SUCCEEDED"
+pattern JobExecutionStatusSucceeded :: JobExecutionStatus
+pattern JobExecutionStatusSucceeded = JobExecutionStatus' "SUCCEEDED"
 
-pattern JESFailed :: JobExecutionStatus
-pattern JESFailed = JobExecutionStatus' "FAILED"
+pattern JobExecutionStatusFailed :: JobExecutionStatus
+pattern JobExecutionStatusFailed = JobExecutionStatus' "FAILED"
 
-pattern JESTimedOut :: JobExecutionStatus
-pattern JESTimedOut = JobExecutionStatus' "TIMED_OUT"
+pattern JobExecutionStatusTimedOut :: JobExecutionStatus
+pattern JobExecutionStatusTimedOut = JobExecutionStatus' "TIMED_OUT"
 
-pattern JESRejected :: JobExecutionStatus
-pattern JESRejected = JobExecutionStatus' "REJECTED"
+pattern JobExecutionStatusRejected :: JobExecutionStatus
+pattern JobExecutionStatusRejected = JobExecutionStatus' "REJECTED"
 
-pattern JESRemoved :: JobExecutionStatus
-pattern JESRemoved = JobExecutionStatus' "REMOVED"
+pattern JobExecutionStatusRemoved :: JobExecutionStatus
+pattern JobExecutionStatusRemoved = JobExecutionStatus' "REMOVED"
 
-pattern JESCanceled :: JobExecutionStatus
-pattern JESCanceled = JobExecutionStatus' "CANCELED"
+pattern JobExecutionStatusCanceled :: JobExecutionStatus
+pattern JobExecutionStatusCanceled = JobExecutionStatus' "CANCELED"
 
 {-# COMPLETE
-  JESQueued,
-  JESInProgress,
-  JESSucceeded,
-  JESFailed,
-  JESTimedOut,
-  JESRejected,
-  JESRemoved,
-  JESCanceled,
+  JobExecutionStatusQueued,
+  JobExecutionStatusInProgress,
+  JobExecutionStatusSucceeded,
+  JobExecutionStatusFailed,
+  JobExecutionStatusTimedOut,
+  JobExecutionStatusRejected,
+  JobExecutionStatusRemoved,
+  JobExecutionStatusCanceled,
   JobExecutionStatus'
   #-}

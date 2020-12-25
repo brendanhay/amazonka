@@ -22,33 +22,31 @@ module Network.AWS.S3.Types.RequestProgress
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Container for specifying if periodic @QueryProgress@ messages should be sent.
 --
 -- /See:/ 'mkRequestProgress' smart constructor.
 newtype RequestProgress = RequestProgress'
   { -- | Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestProgress' with the minimum fields required to make a request.
---
--- * 'enabled' - Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
+-- | Creates a 'RequestProgress' value with any optional fields omitted.
 mkRequestProgress ::
   RequestProgress
-mkRequestProgress = RequestProgress' {enabled = Lude.Nothing}
+mkRequestProgress = RequestProgress' {enabled = Core.Nothing}
 
 -- | Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpEnabled :: Lens.Lens' RequestProgress (Lude.Maybe Lude.Bool)
-rpEnabled = Lens.lens (enabled :: RequestProgress -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: RequestProgress)
+rpEnabled :: Lens.Lens' RequestProgress (Core.Maybe Core.Bool)
+rpEnabled = Lens.field @"enabled"
 {-# DEPRECATED rpEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.ToXML RequestProgress where
-  toXML RequestProgress' {..} =
-    Lude.mconcat ["Enabled" Lude.@= enabled]
+instance Core.ToXML RequestProgress where
+  toXML RequestProgress {..} =
+    Core.toXMLNode "Enabled" Core.<$> enabled

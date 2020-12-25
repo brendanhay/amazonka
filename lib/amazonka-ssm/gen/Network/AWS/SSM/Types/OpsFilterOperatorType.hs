@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.OpsFilterOperatorType
   ( OpsFilterOperatorType
       ( OpsFilterOperatorType',
-        Equal,
-        NotEqual,
-        BeginWith,
-        LessThan,
-        GreaterThan,
-        Exists
+        OpsFilterOperatorTypeEqual,
+        OpsFilterOperatorTypeNotEqual,
+        OpsFilterOperatorTypeBeginWith,
+        OpsFilterOperatorTypeLessThan,
+        OpsFilterOperatorTypeGreaterThan,
+        OpsFilterOperatorTypeExists,
+        fromOpsFilterOperatorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OpsFilterOperatorType = OpsFilterOperatorType' Lude.Text
+newtype OpsFilterOperatorType = OpsFilterOperatorType'
+  { fromOpsFilterOperatorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Equal :: OpsFilterOperatorType
-pattern Equal = OpsFilterOperatorType' "Equal"
+pattern OpsFilterOperatorTypeEqual :: OpsFilterOperatorType
+pattern OpsFilterOperatorTypeEqual = OpsFilterOperatorType' "Equal"
 
-pattern NotEqual :: OpsFilterOperatorType
-pattern NotEqual = OpsFilterOperatorType' "NotEqual"
+pattern OpsFilterOperatorTypeNotEqual :: OpsFilterOperatorType
+pattern OpsFilterOperatorTypeNotEqual = OpsFilterOperatorType' "NotEqual"
 
-pattern BeginWith :: OpsFilterOperatorType
-pattern BeginWith = OpsFilterOperatorType' "BeginWith"
+pattern OpsFilterOperatorTypeBeginWith :: OpsFilterOperatorType
+pattern OpsFilterOperatorTypeBeginWith = OpsFilterOperatorType' "BeginWith"
 
-pattern LessThan :: OpsFilterOperatorType
-pattern LessThan = OpsFilterOperatorType' "LessThan"
+pattern OpsFilterOperatorTypeLessThan :: OpsFilterOperatorType
+pattern OpsFilterOperatorTypeLessThan = OpsFilterOperatorType' "LessThan"
 
-pattern GreaterThan :: OpsFilterOperatorType
-pattern GreaterThan = OpsFilterOperatorType' "GreaterThan"
+pattern OpsFilterOperatorTypeGreaterThan :: OpsFilterOperatorType
+pattern OpsFilterOperatorTypeGreaterThan = OpsFilterOperatorType' "GreaterThan"
 
-pattern Exists :: OpsFilterOperatorType
-pattern Exists = OpsFilterOperatorType' "Exists"
+pattern OpsFilterOperatorTypeExists :: OpsFilterOperatorType
+pattern OpsFilterOperatorTypeExists = OpsFilterOperatorType' "Exists"
 
 {-# COMPLETE
-  Equal,
-  NotEqual,
-  BeginWith,
-  LessThan,
-  GreaterThan,
-  Exists,
+  OpsFilterOperatorTypeEqual,
+  OpsFilterOperatorTypeNotEqual,
+  OpsFilterOperatorTypeBeginWith,
+  OpsFilterOperatorTypeLessThan,
+  OpsFilterOperatorTypeGreaterThan,
+  OpsFilterOperatorTypeExists,
   OpsFilterOperatorType'
   #-}

@@ -13,71 +13,76 @@
 module Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
   ( ActiveDirectoryStatus
       ( ActiveDirectoryStatus',
-        AccessDenied,
-        Detached,
-        Joined,
-        Joining,
-        NetworkError,
-        Timeout,
-        UnknownError
+        ActiveDirectoryStatusAccessDenied,
+        ActiveDirectoryStatusDetached,
+        ActiveDirectoryStatusJoined,
+        ActiveDirectoryStatusJoining,
+        ActiveDirectoryStatusNetworkError,
+        ActiveDirectoryStatusTimeout,
+        ActiveDirectoryStatusUnknownError,
+        fromActiveDirectoryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActiveDirectoryStatus = ActiveDirectoryStatus' Lude.Text
+newtype ActiveDirectoryStatus = ActiveDirectoryStatus'
+  { fromActiveDirectoryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AccessDenied :: ActiveDirectoryStatus
-pattern AccessDenied = ActiveDirectoryStatus' "ACCESS_DENIED"
+pattern ActiveDirectoryStatusAccessDenied :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusAccessDenied = ActiveDirectoryStatus' "ACCESS_DENIED"
 
-pattern Detached :: ActiveDirectoryStatus
-pattern Detached = ActiveDirectoryStatus' "DETACHED"
+pattern ActiveDirectoryStatusDetached :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusDetached = ActiveDirectoryStatus' "DETACHED"
 
-pattern Joined :: ActiveDirectoryStatus
-pattern Joined = ActiveDirectoryStatus' "JOINED"
+pattern ActiveDirectoryStatusJoined :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusJoined = ActiveDirectoryStatus' "JOINED"
 
-pattern Joining :: ActiveDirectoryStatus
-pattern Joining = ActiveDirectoryStatus' "JOINING"
+pattern ActiveDirectoryStatusJoining :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusJoining = ActiveDirectoryStatus' "JOINING"
 
-pattern NetworkError :: ActiveDirectoryStatus
-pattern NetworkError = ActiveDirectoryStatus' "NETWORK_ERROR"
+pattern ActiveDirectoryStatusNetworkError :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusNetworkError = ActiveDirectoryStatus' "NETWORK_ERROR"
 
-pattern Timeout :: ActiveDirectoryStatus
-pattern Timeout = ActiveDirectoryStatus' "TIMEOUT"
+pattern ActiveDirectoryStatusTimeout :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusTimeout = ActiveDirectoryStatus' "TIMEOUT"
 
-pattern UnknownError :: ActiveDirectoryStatus
-pattern UnknownError = ActiveDirectoryStatus' "UNKNOWN_ERROR"
+pattern ActiveDirectoryStatusUnknownError :: ActiveDirectoryStatus
+pattern ActiveDirectoryStatusUnknownError = ActiveDirectoryStatus' "UNKNOWN_ERROR"
 
 {-# COMPLETE
-  AccessDenied,
-  Detached,
-  Joined,
-  Joining,
-  NetworkError,
-  Timeout,
-  UnknownError,
+  ActiveDirectoryStatusAccessDenied,
+  ActiveDirectoryStatusDetached,
+  ActiveDirectoryStatusJoined,
+  ActiveDirectoryStatusJoining,
+  ActiveDirectoryStatusNetworkError,
+  ActiveDirectoryStatusTimeout,
+  ActiveDirectoryStatusUnknownError,
   ActiveDirectoryStatus'
   #-}

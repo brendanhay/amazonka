@@ -13,46 +13,48 @@
 module Network.AWS.CostExplorer.Types.TermInYears
   ( TermInYears
       ( TermInYears',
-        OneYear,
-        ThreeYears
+        TermInYearsOneYear,
+        TermInYearsThreeYears,
+        fromTermInYears
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TermInYears = TermInYears' Lude.Text
+newtype TermInYears = TermInYears' {fromTermInYears :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OneYear :: TermInYears
-pattern OneYear = TermInYears' "ONE_YEAR"
+pattern TermInYearsOneYear :: TermInYears
+pattern TermInYearsOneYear = TermInYears' "ONE_YEAR"
 
-pattern ThreeYears :: TermInYears
-pattern ThreeYears = TermInYears' "THREE_YEARS"
+pattern TermInYearsThreeYears :: TermInYears
+pattern TermInYearsThreeYears = TermInYears' "THREE_YEARS"
 
 {-# COMPLETE
-  OneYear,
-  ThreeYears,
+  TermInYearsOneYear,
+  TermInYearsThreeYears,
   TermInYears'
   #-}

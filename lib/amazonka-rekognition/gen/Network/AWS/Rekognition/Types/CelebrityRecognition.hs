@@ -23,52 +23,47 @@ module Network.AWS.Rekognition.Types.CelebrityRecognition
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.CelebrityDetail
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.CelebrityDetail as Types
 
 -- | Information about a detected celebrity and the time the celebrity was detected in a stored video. For more information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.
 --
 -- /See:/ 'mkCelebrityRecognition' smart constructor.
 data CelebrityRecognition = CelebrityRecognition'
   { -- | Information about a recognized celebrity.
-    celebrity :: Lude.Maybe CelebrityDetail,
+    celebrity :: Core.Maybe Types.CelebrityDetail,
     -- | The time, in milliseconds from the start of the video, that the celebrity was recognized.
-    timestamp :: Lude.Maybe Lude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CelebrityRecognition' with the minimum fields required to make a request.
---
--- * 'celebrity' - Information about a recognized celebrity.
--- * 'timestamp' - The time, in milliseconds from the start of the video, that the celebrity was recognized.
+-- | Creates a 'CelebrityRecognition' value with any optional fields omitted.
 mkCelebrityRecognition ::
   CelebrityRecognition
 mkCelebrityRecognition =
   CelebrityRecognition'
-    { celebrity = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { celebrity = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | Information about a recognized celebrity.
 --
 -- /Note:/ Consider using 'celebrity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crCelebrity :: Lens.Lens' CelebrityRecognition (Lude.Maybe CelebrityDetail)
-crCelebrity = Lens.lens (celebrity :: CelebrityRecognition -> Lude.Maybe CelebrityDetail) (\s a -> s {celebrity = a} :: CelebrityRecognition)
+crCelebrity :: Lens.Lens' CelebrityRecognition (Core.Maybe Types.CelebrityDetail)
+crCelebrity = Lens.field @"celebrity"
 {-# DEPRECATED crCelebrity "Use generic-lens or generic-optics with 'celebrity' instead." #-}
 
 -- | The time, in milliseconds from the start of the video, that the celebrity was recognized.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crTimestamp :: Lens.Lens' CelebrityRecognition (Lude.Maybe Lude.Integer)
-crTimestamp = Lens.lens (timestamp :: CelebrityRecognition -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: CelebrityRecognition)
+crTimestamp :: Lens.Lens' CelebrityRecognition (Core.Maybe Core.Integer)
+crTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED crTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON CelebrityRecognition where
+instance Core.FromJSON CelebrityRecognition where
   parseJSON =
-    Lude.withObject
-      "CelebrityRecognition"
-      ( \x ->
-          CelebrityRecognition'
-            Lude.<$> (x Lude..:? "Celebrity") Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "CelebrityRecognition" Core.$
+      \x ->
+        CelebrityRecognition'
+          Core.<$> (x Core..:? "Celebrity") Core.<*> (x Core..:? "Timestamp")

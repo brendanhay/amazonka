@@ -26,12 +26,36 @@ source-repository head
   subdir:   amazonka-core
 
 common base
-  default-language: Haskell2010
+  default-language:   Haskell2010
   ghc-options:
     -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
-    -fwarn-incomplete-record-updates
+    -fwarn-incomplete-record-updates -Wmissing-deriving-strategies
 
-  build-depends:    base >=4.12 && <5
+  default-extensions:
+    NoImplicitPrelude
+    DataKinds
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    NamedFieldPuns
+    OverloadedStrings
+    PatternSynonyms
+    RankNTypes
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    StrictData
+    TupleSections
+    TypeApplications
+    TypeFamilies
+    ViewPatterns
+
+  build-depends:      base >=4.12 && <5
 
 library
   import:          base
@@ -39,13 +63,10 @@ library
   exposed-modules:
     Network.AWS.Data.Base64
     Network.AWS.Data.Body
-    Network.AWS.Data.ByteString
-    Network.AWS.Data.Crypto
     Network.AWS.Data.Headers
     Network.AWS.Data.JSON
-    Network.AWS.Data.Log
-    Network.AWS.Data.Path
     Network.AWS.Data.Query
+    Network.AWS.Hash
     Network.AWS.Data.Sensitive
     Network.AWS.Data.Text
     Network.AWS.Data.Time
@@ -112,6 +133,7 @@ test-suite tests
     Test.AWS.Data.Path
     Test.AWS.Data.Query
     Test.AWS.Data.Time
+    Test.AWS.Data.XML
     Test.AWS.Error
     Test.AWS.Sign.V2Header.BaseSpec
     Test.AWS.Sign.V4

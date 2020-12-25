@@ -20,129 +20,120 @@ module Network.AWS.CloudSearch.DefineIndexField
     mkDefineIndexField,
 
     -- ** Request lenses
-    difgIndexField,
     difgDomainName,
+    difgIndexField,
 
     -- * Destructuring the response
     DefineIndexFieldResponse (..),
     mkDefineIndexFieldResponse,
 
     -- ** Response lenses
-    diffrsIndexField,
-    diffrsResponseStatus,
+    difrfrsIndexField,
+    difrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DefineIndexField' @ operation. Specifies the name of the domain you want to update and the index field configuration.
 --
 -- /See:/ 'mkDefineIndexField' smart constructor.
 data DefineIndexField = DefineIndexField'
-  { -- | The index field and field options you want to configure.
-    indexField :: IndexField,
-    domainName :: Lude.Text
+  { domainName :: Types.DomainName,
+    -- | The index field and field options you want to configure.
+    indexField :: Types.IndexField
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefineIndexField' with the minimum fields required to make a request.
---
--- * 'indexField' - The index field and field options you want to configure.
--- * 'domainName' -
+-- | Creates a 'DefineIndexField' value with any optional fields omitted.
 mkDefineIndexField ::
-  -- | 'indexField'
-  IndexField ->
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
+  -- | 'indexField'
+  Types.IndexField ->
   DefineIndexField
-mkDefineIndexField pIndexField_ pDomainName_ =
-  DefineIndexField'
-    { indexField = pIndexField_,
-      domainName = pDomainName_
-    }
-
--- | The index field and field options you want to configure.
---
--- /Note:/ Consider using 'indexField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difgIndexField :: Lens.Lens' DefineIndexField IndexField
-difgIndexField = Lens.lens (indexField :: DefineIndexField -> IndexField) (\s a -> s {indexField = a} :: DefineIndexField)
-{-# DEPRECATED difgIndexField "Use generic-lens or generic-optics with 'indexField' instead." #-}
+mkDefineIndexField domainName indexField =
+  DefineIndexField' {domainName, indexField}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difgDomainName :: Lens.Lens' DefineIndexField Lude.Text
-difgDomainName = Lens.lens (domainName :: DefineIndexField -> Lude.Text) (\s a -> s {domainName = a} :: DefineIndexField)
+difgDomainName :: Lens.Lens' DefineIndexField Types.DomainName
+difgDomainName = Lens.field @"domainName"
 {-# DEPRECATED difgDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DefineIndexField where
+-- | The index field and field options you want to configure.
+--
+-- /Note:/ Consider using 'indexField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+difgIndexField :: Lens.Lens' DefineIndexField Types.IndexField
+difgIndexField = Lens.field @"indexField"
+{-# DEPRECATED difgIndexField "Use generic-lens or generic-optics with 'indexField' instead." #-}
+
+instance Core.AWSRequest DefineIndexField where
   type Rs DefineIndexField = DefineIndexFieldResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DefineIndexField")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "IndexField" indexField)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DefineIndexFieldResult"
       ( \s h x ->
           DefineIndexFieldResponse'
-            Lude.<$> (x Lude..@ "IndexField") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "IndexField") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DefineIndexField where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DefineIndexField where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DefineIndexField where
-  toQuery DefineIndexField' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DefineIndexField" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "IndexField" Lude.=: indexField,
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @'DefineIndexField' @ request. Contains the status of the newly-configured index field.
 --
 -- /See:/ 'mkDefineIndexFieldResponse' smart constructor.
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-  { indexField :: IndexFieldStatus,
+  { indexField :: Types.IndexFieldStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DefineIndexFieldResponse' with the minimum fields required to make a request.
---
--- * 'indexField' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DefineIndexFieldResponse' value with any optional fields omitted.
 mkDefineIndexFieldResponse ::
   -- | 'indexField'
-  IndexFieldStatus ->
+  Types.IndexFieldStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DefineIndexFieldResponse
-mkDefineIndexFieldResponse pIndexField_ pResponseStatus_ =
-  DefineIndexFieldResponse'
-    { indexField = pIndexField_,
-      responseStatus = pResponseStatus_
-    }
+mkDefineIndexFieldResponse indexField responseStatus =
+  DefineIndexFieldResponse' {indexField, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'indexField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diffrsIndexField :: Lens.Lens' DefineIndexFieldResponse IndexFieldStatus
-diffrsIndexField = Lens.lens (indexField :: DefineIndexFieldResponse -> IndexFieldStatus) (\s a -> s {indexField = a} :: DefineIndexFieldResponse)
-{-# DEPRECATED diffrsIndexField "Use generic-lens or generic-optics with 'indexField' instead." #-}
+difrfrsIndexField :: Lens.Lens' DefineIndexFieldResponse Types.IndexFieldStatus
+difrfrsIndexField = Lens.field @"indexField"
+{-# DEPRECATED difrfrsIndexField "Use generic-lens or generic-optics with 'indexField' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diffrsResponseStatus :: Lens.Lens' DefineIndexFieldResponse Lude.Int
-diffrsResponseStatus = Lens.lens (responseStatus :: DefineIndexFieldResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineIndexFieldResponse)
-{-# DEPRECATED diffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+difrfrsResponseStatus :: Lens.Lens' DefineIndexFieldResponse Core.Int
+difrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED difrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

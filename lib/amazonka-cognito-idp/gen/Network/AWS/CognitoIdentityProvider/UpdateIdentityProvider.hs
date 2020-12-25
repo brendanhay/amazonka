@@ -21,181 +21,160 @@ module Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
 
     -- ** Request lenses
     uipUserPoolId,
-    uipIdpIdentifiers,
-    uipAttributeMapping,
-    uipProviderDetails,
     uipProviderName,
+    uipAttributeMapping,
+    uipIdpIdentifiers,
+    uipProviderDetails,
 
     -- * Destructuring the response
     UpdateIdentityProviderResponse (..),
     mkUpdateIdentityProviderResponse,
 
     -- ** Response lenses
-    uiprsIdentityProvider,
-    uiprsResponseStatus,
+    uiprrsIdentityProvider,
+    uiprrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateIdentityProvider' smart constructor.
 data UpdateIdentityProvider = UpdateIdentityProvider'
   { -- | The user pool ID.
-    userPoolId :: Lude.Text,
-    -- | A list of identity provider identifiers.
-    idpIdentifiers :: Lude.Maybe [Lude.Text],
-    -- | The identity provider attribute mapping to be changed.
-    attributeMapping :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The identity provider details to be updated, such as @MetadataURL@ and @MetadataFile@ .
-    providerDetails :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    userPoolId :: Types.UserPoolId,
     -- | The identity provider name.
-    providerName :: Lude.Text
+    providerName :: Types.ProviderNameType,
+    -- | The identity provider attribute mapping to be changed.
+    attributeMapping :: Core.Maybe (Core.HashMap Types.AttributeMappingKeyType Types.StringType),
+    -- | A list of identity provider identifiers.
+    idpIdentifiers :: Core.Maybe [Types.IdpIdentifierType],
+    -- | The identity provider details to be updated, such as @MetadataURL@ and @MetadataFile@ .
+    providerDetails :: Core.Maybe (Core.HashMap Types.StringType Types.StringType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateIdentityProvider' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID.
--- * 'idpIdentifiers' - A list of identity provider identifiers.
--- * 'attributeMapping' - The identity provider attribute mapping to be changed.
--- * 'providerDetails' - The identity provider details to be updated, such as @MetadataURL@ and @MetadataFile@ .
--- * 'providerName' - The identity provider name.
+-- | Creates a 'UpdateIdentityProvider' value with any optional fields omitted.
 mkUpdateIdentityProvider ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'providerName'
-  Lude.Text ->
+  Types.ProviderNameType ->
   UpdateIdentityProvider
-mkUpdateIdentityProvider pUserPoolId_ pProviderName_ =
+mkUpdateIdentityProvider userPoolId providerName =
   UpdateIdentityProvider'
-    { userPoolId = pUserPoolId_,
-      idpIdentifiers = Lude.Nothing,
-      attributeMapping = Lude.Nothing,
-      providerDetails = Lude.Nothing,
-      providerName = pProviderName_
+    { userPoolId,
+      providerName,
+      attributeMapping = Core.Nothing,
+      idpIdentifiers = Core.Nothing,
+      providerDetails = Core.Nothing
     }
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipUserPoolId :: Lens.Lens' UpdateIdentityProvider Lude.Text
-uipUserPoolId = Lens.lens (userPoolId :: UpdateIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateIdentityProvider)
+uipUserPoolId :: Lens.Lens' UpdateIdentityProvider Types.UserPoolId
+uipUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED uipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
-
--- | A list of identity provider identifiers.
---
--- /Note:/ Consider using 'idpIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipIdpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Lude.Maybe [Lude.Text])
-uipIdpIdentifiers = Lens.lens (idpIdentifiers :: UpdateIdentityProvider -> Lude.Maybe [Lude.Text]) (\s a -> s {idpIdentifiers = a} :: UpdateIdentityProvider)
-{-# DEPRECATED uipIdpIdentifiers "Use generic-lens or generic-optics with 'idpIdentifiers' instead." #-}
-
--- | The identity provider attribute mapping to be changed.
---
--- /Note:/ Consider using 'attributeMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipAttributeMapping :: Lens.Lens' UpdateIdentityProvider (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-uipAttributeMapping = Lens.lens (attributeMapping :: UpdateIdentityProvider -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributeMapping = a} :: UpdateIdentityProvider)
-{-# DEPRECATED uipAttributeMapping "Use generic-lens or generic-optics with 'attributeMapping' instead." #-}
-
--- | The identity provider details to be updated, such as @MetadataURL@ and @MetadataFile@ .
---
--- /Note:/ Consider using 'providerDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipProviderDetails :: Lens.Lens' UpdateIdentityProvider (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-uipProviderDetails = Lens.lens (providerDetails :: UpdateIdentityProvider -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {providerDetails = a} :: UpdateIdentityProvider)
-{-# DEPRECATED uipProviderDetails "Use generic-lens or generic-optics with 'providerDetails' instead." #-}
 
 -- | The identity provider name.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipProviderName :: Lens.Lens' UpdateIdentityProvider Lude.Text
-uipProviderName = Lens.lens (providerName :: UpdateIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: UpdateIdentityProvider)
+uipProviderName :: Lens.Lens' UpdateIdentityProvider Types.ProviderNameType
+uipProviderName = Lens.field @"providerName"
 {-# DEPRECATED uipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance Lude.AWSRequest UpdateIdentityProvider where
+-- | The identity provider attribute mapping to be changed.
+--
+-- /Note:/ Consider using 'attributeMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipAttributeMapping :: Lens.Lens' UpdateIdentityProvider (Core.Maybe (Core.HashMap Types.AttributeMappingKeyType Types.StringType))
+uipAttributeMapping = Lens.field @"attributeMapping"
+{-# DEPRECATED uipAttributeMapping "Use generic-lens or generic-optics with 'attributeMapping' instead." #-}
+
+-- | A list of identity provider identifiers.
+--
+-- /Note:/ Consider using 'idpIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipIdpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Core.Maybe [Types.IdpIdentifierType])
+uipIdpIdentifiers = Lens.field @"idpIdentifiers"
+{-# DEPRECATED uipIdpIdentifiers "Use generic-lens or generic-optics with 'idpIdentifiers' instead." #-}
+
+-- | The identity provider details to be updated, such as @MetadataURL@ and @MetadataFile@ .
+--
+-- /Note:/ Consider using 'providerDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipProviderDetails :: Lens.Lens' UpdateIdentityProvider (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+uipProviderDetails = Lens.field @"providerDetails"
+{-# DEPRECATED uipProviderDetails "Use generic-lens or generic-optics with 'providerDetails' instead." #-}
+
+instance Core.FromJSON UpdateIdentityProvider where
+  toJSON UpdateIdentityProvider {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("ProviderName" Core..= providerName),
+            ("AttributeMapping" Core..=) Core.<$> attributeMapping,
+            ("IdpIdentifiers" Core..=) Core.<$> idpIdentifiers,
+            ("ProviderDetails" Core..=) Core.<$> providerDetails
+          ]
+      )
+
+instance Core.AWSRequest UpdateIdentityProvider where
   type Rs UpdateIdentityProvider = UpdateIdentityProviderResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.UpdateIdentityProvider"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateIdentityProviderResponse'
-            Lude.<$> (x Lude..:> "IdentityProvider")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "IdentityProvider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateIdentityProvider where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.UpdateIdentityProvider" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateIdentityProvider where
-  toJSON UpdateIdentityProvider' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            ("IdpIdentifiers" Lude..=) Lude.<$> idpIdentifiers,
-            ("AttributeMapping" Lude..=) Lude.<$> attributeMapping,
-            ("ProviderDetails" Lude..=) Lude.<$> providerDetails,
-            Lude.Just ("ProviderName" Lude..= providerName)
-          ]
-      )
-
-instance Lude.ToPath UpdateIdentityProvider where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateIdentityProvider where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateIdentityProviderResponse' smart constructor.
 data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
   { -- | The identity provider object.
-    identityProvider :: IdentityProviderType,
+    identityProvider :: Types.IdentityProviderType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateIdentityProviderResponse' with the minimum fields required to make a request.
---
--- * 'identityProvider' - The identity provider object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateIdentityProviderResponse' value with any optional fields omitted.
 mkUpdateIdentityProviderResponse ::
   -- | 'identityProvider'
-  IdentityProviderType ->
+  Types.IdentityProviderType ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateIdentityProviderResponse
-mkUpdateIdentityProviderResponse
-  pIdentityProvider_
-  pResponseStatus_ =
-    UpdateIdentityProviderResponse'
-      { identityProvider =
-          pIdentityProvider_,
-        responseStatus = pResponseStatus_
-      }
+mkUpdateIdentityProviderResponse identityProvider responseStatus =
+  UpdateIdentityProviderResponse' {identityProvider, responseStatus}
 
 -- | The identity provider object.
 --
 -- /Note:/ Consider using 'identityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiprsIdentityProvider :: Lens.Lens' UpdateIdentityProviderResponse IdentityProviderType
-uiprsIdentityProvider = Lens.lens (identityProvider :: UpdateIdentityProviderResponse -> IdentityProviderType) (\s a -> s {identityProvider = a} :: UpdateIdentityProviderResponse)
-{-# DEPRECATED uiprsIdentityProvider "Use generic-lens or generic-optics with 'identityProvider' instead." #-}
+uiprrsIdentityProvider :: Lens.Lens' UpdateIdentityProviderResponse Types.IdentityProviderType
+uiprrsIdentityProvider = Lens.field @"identityProvider"
+{-# DEPRECATED uiprrsIdentityProvider "Use generic-lens or generic-optics with 'identityProvider' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiprsResponseStatus :: Lens.Lens' UpdateIdentityProviderResponse Lude.Int
-uiprsResponseStatus = Lens.lens (responseStatus :: UpdateIdentityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateIdentityProviderResponse)
-{-# DEPRECATED uiprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uiprrsResponseStatus :: Lens.Lens' UpdateIdentityProviderResponse Core.Int
+uiprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uiprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

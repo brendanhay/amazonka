@@ -28,111 +28,99 @@ module Network.AWS.DataPipeline.RemoveTags
     mkRemoveTagsResponse,
 
     -- ** Response lenses
-    rtrsResponseStatus,
+    rtrrsResponseStatus,
   )
 where
 
-import Network.AWS.DataPipeline.Types
+import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for RemoveTags.
 --
 -- /See:/ 'mkRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
   { -- | The ID of the pipeline.
-    pipelineId :: Lude.Text,
+    pipelineId :: Types.PipelineId,
     -- | The keys of the tags to remove.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
---
--- * 'pipelineId' - The ID of the pipeline.
--- * 'tagKeys' - The keys of the tags to remove.
+-- | Creates a 'RemoveTags' value with any optional fields omitted.
 mkRemoveTags ::
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.PipelineId ->
   RemoveTags
-mkRemoveTags pPipelineId_ =
-  RemoveTags' {pipelineId = pPipelineId_, tagKeys = Lude.mempty}
+mkRemoveTags pipelineId =
+  RemoveTags' {pipelineId, tagKeys = Core.mempty}
 
 -- | The ID of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtPipelineId :: Lens.Lens' RemoveTags Lude.Text
-rtPipelineId = Lens.lens (pipelineId :: RemoveTags -> Lude.Text) (\s a -> s {pipelineId = a} :: RemoveTags)
+rtPipelineId :: Lens.Lens' RemoveTags Types.PipelineId
+rtPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED rtPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The keys of the tags to remove.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTagKeys :: Lens.Lens' RemoveTags [Lude.Text]
-rtTagKeys = Lens.lens (tagKeys :: RemoveTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTags)
+rtTagKeys :: Lens.Lens' RemoveTags [Types.String]
+rtTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED rtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest RemoveTags where
+instance Core.FromJSON RemoveTags where
+  toJSON RemoveTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineId" Core..= pipelineId),
+            Core.Just ("tagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest RemoveTags where
   type Rs RemoveTags = RemoveTagsResponse
-  request = Req.postJSON dataPipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DataPipeline.RemoveTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RemoveTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RemoveTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DataPipeline.RemoveTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTags where
-  toJSON RemoveTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineId" Lude..= pipelineId),
-            Lude.Just ("tagKeys" Lude..= tagKeys)
-          ]
-      )
-
-instance Lude.ToPath RemoveTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of RemoveTags.
 --
 -- /See:/ 'mkRemoveTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveTagsResponse' value with any optional fields omitted.
 mkRemoveTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveTagsResponse
-mkRemoveTagsResponse pResponseStatus_ =
-  RemoveTagsResponse' {responseStatus = pResponseStatus_}
+mkRemoveTagsResponse responseStatus =
+  RemoveTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResponseStatus :: Lens.Lens' RemoveTagsResponse Lude.Int
-rtrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsResponse)
-{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrrsResponseStatus :: Lens.Lens' RemoveTagsResponse Core.Int
+rtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,59 +17,53 @@ module Network.AWS.SageMaker.Types.ExperimentSource
     mkExperimentSource,
 
     -- * Lenses
+    esSourceArn,
     esSourceType,
-    esSourceARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.SourceArn as Types
+import qualified Network.AWS.SageMaker.Types.SourceType as Types
 
 -- | The source of the experiment.
 --
 -- /See:/ 'mkExperimentSource' smart constructor.
 data ExperimentSource = ExperimentSource'
-  { -- | The source type.
-    sourceType :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the source.
-    sourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the source.
+    sourceArn :: Types.SourceArn,
+    -- | The source type.
+    sourceType :: Core.Maybe Types.SourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExperimentSource' with the minimum fields required to make a request.
---
--- * 'sourceType' - The source type.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
+-- | Creates a 'ExperimentSource' value with any optional fields omitted.
 mkExperimentSource ::
-  -- | 'sourceARN'
-  Lude.Text ->
+  -- | 'sourceArn'
+  Types.SourceArn ->
   ExperimentSource
-mkExperimentSource pSourceARN_ =
-  ExperimentSource'
-    { sourceType = Lude.Nothing,
-      sourceARN = pSourceARN_
-    }
+mkExperimentSource sourceArn =
+  ExperimentSource' {sourceArn, sourceType = Core.Nothing}
+
+-- | The Amazon Resource Name (ARN) of the source.
+--
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSourceArn :: Lens.Lens' ExperimentSource Types.SourceArn
+esSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED esSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
 
 -- | The source type.
 --
 -- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSourceType :: Lens.Lens' ExperimentSource (Lude.Maybe Lude.Text)
-esSourceType = Lens.lens (sourceType :: ExperimentSource -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: ExperimentSource)
+esSourceType :: Lens.Lens' ExperimentSource (Core.Maybe Types.SourceType)
+esSourceType = Lens.field @"sourceType"
 {-# DEPRECATED esSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the source.
---
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSourceARN :: Lens.Lens' ExperimentSource Lude.Text
-esSourceARN = Lens.lens (sourceARN :: ExperimentSource -> Lude.Text) (\s a -> s {sourceARN = a} :: ExperimentSource)
-{-# DEPRECATED esSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
-
-instance Lude.FromJSON ExperimentSource where
+instance Core.FromJSON ExperimentSource where
   parseJSON =
-    Lude.withObject
-      "ExperimentSource"
-      ( \x ->
-          ExperimentSource'
-            Lude.<$> (x Lude..:? "SourceType") Lude.<*> (x Lude..: "SourceArn")
-      )
+    Core.withObject "ExperimentSource" Core.$
+      \x ->
+        ExperimentSource'
+          Core.<$> (x Core..: "SourceArn") Core.<*> (x Core..:? "SourceType")

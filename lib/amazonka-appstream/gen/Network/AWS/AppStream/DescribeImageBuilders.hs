@@ -22,170 +22,157 @@ module Network.AWS.AppStream.DescribeImageBuilders
     mkDescribeImageBuilders,
 
     -- ** Request lenses
-    dibNextToken,
-    dibNames,
     dibMaxResults,
+    dibNames,
+    dibNextToken,
 
     -- * Destructuring the response
     DescribeImageBuildersResponse (..),
     mkDescribeImageBuildersResponse,
 
     -- ** Response lenses
-    dibrsImageBuilders,
-    dibrsNextToken,
-    dibrsResponseStatus,
+    dibrfrsImageBuilders,
+    dibrfrsNextToken,
+    dibrfrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeImageBuilders' smart constructor.
 data DescribeImageBuilders = DescribeImageBuilders'
-  { -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The maximum size of each page of results.
+    maxResults :: Core.Maybe Core.Int,
     -- | The names of the image builders to describe.
-    names :: Lude.Maybe [Lude.Text],
-    -- | The maximum size of each page of results.
-    maxResults :: Lude.Maybe Lude.Int
+    names :: Core.Maybe [Types.String],
+    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeImageBuilders' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
--- * 'names' - The names of the image builders to describe.
--- * 'maxResults' - The maximum size of each page of results.
+-- | Creates a 'DescribeImageBuilders' value with any optional fields omitted.
 mkDescribeImageBuilders ::
   DescribeImageBuilders
 mkDescribeImageBuilders =
   DescribeImageBuilders'
-    { nextToken = Lude.Nothing,
-      names = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      names = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibNextToken :: Lens.Lens' DescribeImageBuilders (Lude.Maybe Lude.Text)
-dibNextToken = Lens.lens (nextToken :: DescribeImageBuilders -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImageBuilders)
-{-# DEPRECATED dibNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The names of the image builders to describe.
---
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibNames :: Lens.Lens' DescribeImageBuilders (Lude.Maybe [Lude.Text])
-dibNames = Lens.lens (names :: DescribeImageBuilders -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeImageBuilders)
-{-# DEPRECATED dibNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The maximum size of each page of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibMaxResults :: Lens.Lens' DescribeImageBuilders (Lude.Maybe Lude.Int)
-dibMaxResults = Lens.lens (maxResults :: DescribeImageBuilders -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeImageBuilders)
+dibMaxResults :: Lens.Lens' DescribeImageBuilders (Core.Maybe Core.Int)
+dibMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dibMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeImageBuilders where
-  page rq rs
-    | Page.stop (rs Lens.^. dibrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dibrsImageBuilders) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dibNextToken Lens..~ rs Lens.^. dibrsNextToken
+-- | The names of the image builders to describe.
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dibNames :: Lens.Lens' DescribeImageBuilders (Core.Maybe [Types.String])
+dibNames = Lens.field @"names"
+{-# DEPRECATED dibNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance Lude.AWSRequest DescribeImageBuilders where
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dibNextToken :: Lens.Lens' DescribeImageBuilders (Core.Maybe Types.String)
+dibNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dibNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeImageBuilders where
+  toJSON DescribeImageBuilders {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Names" Core..=) Core.<$> names,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeImageBuilders where
   type Rs DescribeImageBuilders = DescribeImageBuildersResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.DescribeImageBuilders")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeImageBuildersResponse'
-            Lude.<$> (x Lude..?> "ImageBuilders" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ImageBuilders")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeImageBuilders where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.DescribeImageBuilders" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeImageBuilders where
-  toJSON DescribeImageBuilders' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Names" Lude..=) Lude.<$> names,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeImageBuilders where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeImageBuilders where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeImageBuilders where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"imageBuilders" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeImageBuildersResponse' smart constructor.
 data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
   { -- | Information about the image builders.
-    imageBuilders :: Lude.Maybe [ImageBuilder],
+    imageBuilders :: Core.Maybe [Types.ImageBuilder],
     -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeImageBuildersResponse' with the minimum fields required to make a request.
---
--- * 'imageBuilders' - Information about the image builders.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeImageBuildersResponse' value with any optional fields omitted.
 mkDescribeImageBuildersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeImageBuildersResponse
-mkDescribeImageBuildersResponse pResponseStatus_ =
+mkDescribeImageBuildersResponse responseStatus =
   DescribeImageBuildersResponse'
-    { imageBuilders = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { imageBuilders = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the image builders.
 --
 -- /Note:/ Consider using 'imageBuilders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibrsImageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Lude.Maybe [ImageBuilder])
-dibrsImageBuilders = Lens.lens (imageBuilders :: DescribeImageBuildersResponse -> Lude.Maybe [ImageBuilder]) (\s a -> s {imageBuilders = a} :: DescribeImageBuildersResponse)
-{-# DEPRECATED dibrsImageBuilders "Use generic-lens or generic-optics with 'imageBuilders' instead." #-}
+dibrfrsImageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Core.Maybe [Types.ImageBuilder])
+dibrfrsImageBuilders = Lens.field @"imageBuilders"
+{-# DEPRECATED dibrfrsImageBuilders "Use generic-lens or generic-optics with 'imageBuilders' instead." #-}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibrsNextToken :: Lens.Lens' DescribeImageBuildersResponse (Lude.Maybe Lude.Text)
-dibrsNextToken = Lens.lens (nextToken :: DescribeImageBuildersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImageBuildersResponse)
-{-# DEPRECATED dibrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dibrfrsNextToken :: Lens.Lens' DescribeImageBuildersResponse (Core.Maybe Types.String)
+dibrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dibrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibrsResponseStatus :: Lens.Lens' DescribeImageBuildersResponse Lude.Int
-dibrsResponseStatus = Lens.lens (responseStatus :: DescribeImageBuildersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImageBuildersResponse)
-{-# DEPRECATED dibrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dibrfrsResponseStatus :: Lens.Lens' DescribeImageBuildersResponse Core.Int
+dibrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dibrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,111 +27,99 @@ module Network.AWS.SMS.GetAppValidationOutput
     mkGetAppValidationOutputResponse,
 
     -- ** Response lenses
-    gavorsValidationOutputList,
-    gavorsResponseStatus,
+    gavorrsValidationOutputList,
+    gavorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkGetAppValidationOutput' smart constructor.
 newtype GetAppValidationOutput = GetAppValidationOutput'
   { -- | The ID of the application.
-    appId :: Lude.Text
+    appId :: Types.AppIdWithValidation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAppValidationOutput' with the minimum fields required to make a request.
---
--- * 'appId' - The ID of the application.
+-- | Creates a 'GetAppValidationOutput' value with any optional fields omitted.
 mkGetAppValidationOutput ::
   -- | 'appId'
-  Lude.Text ->
+  Types.AppIdWithValidation ->
   GetAppValidationOutput
-mkGetAppValidationOutput pAppId_ =
-  GetAppValidationOutput' {appId = pAppId_}
+mkGetAppValidationOutput appId = GetAppValidationOutput' {appId}
 
 -- | The ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gavoAppId :: Lens.Lens' GetAppValidationOutput Lude.Text
-gavoAppId = Lens.lens (appId :: GetAppValidationOutput -> Lude.Text) (\s a -> s {appId = a} :: GetAppValidationOutput)
+gavoAppId :: Lens.Lens' GetAppValidationOutput Types.AppIdWithValidation
+gavoAppId = Lens.field @"appId"
 {-# DEPRECATED gavoAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance Lude.AWSRequest GetAppValidationOutput where
+instance Core.FromJSON GetAppValidationOutput where
+  toJSON GetAppValidationOutput {..} =
+    Core.object (Core.catMaybes [Core.Just ("appId" Core..= appId)])
+
+instance Core.AWSRequest GetAppValidationOutput where
   type Rs GetAppValidationOutput = GetAppValidationOutputResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAppValidationOutputResponse'
-            Lude.<$> (x Lude..?> "validationOutputList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "validationOutputList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAppValidationOutput where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetAppValidationOutput where
-  toJSON GetAppValidationOutput' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("appId" Lude..= appId)])
-
-instance Lude.ToPath GetAppValidationOutput where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAppValidationOutput where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAppValidationOutputResponse' smart constructor.
 data GetAppValidationOutputResponse = GetAppValidationOutputResponse'
   { -- | The validation output.
-    validationOutputList :: Lude.Maybe [ValidationOutput],
+    validationOutputList :: Core.Maybe [Types.ValidationOutput],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetAppValidationOutputResponse' with the minimum fields required to make a request.
---
--- * 'validationOutputList' - The validation output.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAppValidationOutputResponse' value with any optional fields omitted.
 mkGetAppValidationOutputResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAppValidationOutputResponse
-mkGetAppValidationOutputResponse pResponseStatus_ =
+mkGetAppValidationOutputResponse responseStatus =
   GetAppValidationOutputResponse'
     { validationOutputList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The validation output.
 --
 -- /Note:/ Consider using 'validationOutputList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gavorsValidationOutputList :: Lens.Lens' GetAppValidationOutputResponse (Lude.Maybe [ValidationOutput])
-gavorsValidationOutputList = Lens.lens (validationOutputList :: GetAppValidationOutputResponse -> Lude.Maybe [ValidationOutput]) (\s a -> s {validationOutputList = a} :: GetAppValidationOutputResponse)
-{-# DEPRECATED gavorsValidationOutputList "Use generic-lens or generic-optics with 'validationOutputList' instead." #-}
+gavorrsValidationOutputList :: Lens.Lens' GetAppValidationOutputResponse (Core.Maybe [Types.ValidationOutput])
+gavorrsValidationOutputList = Lens.field @"validationOutputList"
+{-# DEPRECATED gavorrsValidationOutputList "Use generic-lens or generic-optics with 'validationOutputList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gavorsResponseStatus :: Lens.Lens' GetAppValidationOutputResponse Lude.Int
-gavorsResponseStatus = Lens.lens (responseStatus :: GetAppValidationOutputResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppValidationOutputResponse)
-{-# DEPRECATED gavorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gavorrsResponseStatus :: Lens.Lens' GetAppValidationOutputResponse Core.Int
+gavorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gavorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

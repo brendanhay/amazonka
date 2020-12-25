@@ -21,20 +21,20 @@ module Network.AWS.S3.Types.ContinuationEvent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- |
 --
 -- /See:/ 'mkContinuationEvent' smart constructor.
 data ContinuationEvent = ContinuationEvent'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContinuationEvent' with the minimum fields required to make a request.
+-- | Creates a 'ContinuationEvent' value with any optional fields omitted.
 mkContinuationEvent ::
   ContinuationEvent
 mkContinuationEvent = ContinuationEvent'
 
-instance Lude.FromXML ContinuationEvent where
-  parseXML = Lude.const (Lude.pure ContinuationEvent')
+instance Core.FromXML ContinuationEvent where
+  parseXML x = Core.pure ContinuationEvent'

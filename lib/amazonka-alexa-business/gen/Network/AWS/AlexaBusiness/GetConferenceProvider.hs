@@ -20,7 +20,7 @@ module Network.AWS.AlexaBusiness.GetConferenceProvider
     mkGetConferenceProvider,
 
     -- ** Request lenses
-    gcpConferenceProviderARN,
+    gcpConferenceProviderArn,
 
     -- * Destructuring the response
     GetConferenceProviderResponse (..),
@@ -32,111 +32,97 @@ module Network.AWS.AlexaBusiness.GetConferenceProvider
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetConferenceProvider' smart constructor.
 newtype GetConferenceProvider = GetConferenceProvider'
   { -- | The ARN of the newly created conference provider.
-    conferenceProviderARN :: Lude.Text
+    conferenceProviderArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConferenceProvider' with the minimum fields required to make a request.
---
--- * 'conferenceProviderARN' - The ARN of the newly created conference provider.
+-- | Creates a 'GetConferenceProvider' value with any optional fields omitted.
 mkGetConferenceProvider ::
-  -- | 'conferenceProviderARN'
-  Lude.Text ->
+  -- | 'conferenceProviderArn'
+  Types.Arn ->
   GetConferenceProvider
-mkGetConferenceProvider pConferenceProviderARN_ =
-  GetConferenceProvider'
-    { conferenceProviderARN =
-        pConferenceProviderARN_
-    }
+mkGetConferenceProvider conferenceProviderArn =
+  GetConferenceProvider' {conferenceProviderArn}
 
 -- | The ARN of the newly created conference provider.
 --
--- /Note:/ Consider using 'conferenceProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpConferenceProviderARN :: Lens.Lens' GetConferenceProvider Lude.Text
-gcpConferenceProviderARN = Lens.lens (conferenceProviderARN :: GetConferenceProvider -> Lude.Text) (\s a -> s {conferenceProviderARN = a} :: GetConferenceProvider)
-{-# DEPRECATED gcpConferenceProviderARN "Use generic-lens or generic-optics with 'conferenceProviderARN' instead." #-}
+-- /Note:/ Consider using 'conferenceProviderArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpConferenceProviderArn :: Lens.Lens' GetConferenceProvider Types.Arn
+gcpConferenceProviderArn = Lens.field @"conferenceProviderArn"
+{-# DEPRECATED gcpConferenceProviderArn "Use generic-lens or generic-optics with 'conferenceProviderArn' instead." #-}
 
-instance Lude.AWSRequest GetConferenceProvider where
+instance Core.FromJSON GetConferenceProvider where
+  toJSON GetConferenceProvider {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ConferenceProviderArn" Core..= conferenceProviderArn)
+          ]
+      )
+
+instance Core.AWSRequest GetConferenceProvider where
   type Rs GetConferenceProvider = GetConferenceProviderResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.GetConferenceProvider")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetConferenceProviderResponse'
-            Lude.<$> (x Lude..?> "ConferenceProvider")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConferenceProvider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetConferenceProvider where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetConferenceProvider" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetConferenceProvider where
-  toJSON GetConferenceProvider' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("ConferenceProviderArn" Lude..= conferenceProviderARN)
-          ]
-      )
-
-instance Lude.ToPath GetConferenceProvider where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetConferenceProvider where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetConferenceProviderResponse' smart constructor.
 data GetConferenceProviderResponse = GetConferenceProviderResponse'
   { -- | The conference provider.
-    conferenceProvider :: Lude.Maybe ConferenceProvider,
+    conferenceProvider :: Core.Maybe Types.ConferenceProvider,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConferenceProviderResponse' with the minimum fields required to make a request.
---
--- * 'conferenceProvider' - The conference provider.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetConferenceProviderResponse' value with any optional fields omitted.
 mkGetConferenceProviderResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetConferenceProviderResponse
-mkGetConferenceProviderResponse pResponseStatus_ =
+mkGetConferenceProviderResponse responseStatus =
   GetConferenceProviderResponse'
-    { conferenceProvider = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { conferenceProvider = Core.Nothing,
+      responseStatus
     }
 
 -- | The conference provider.
 --
 -- /Note:/ Consider using 'conferenceProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsConferenceProvider :: Lens.Lens' GetConferenceProviderResponse (Lude.Maybe ConferenceProvider)
-grsConferenceProvider = Lens.lens (conferenceProvider :: GetConferenceProviderResponse -> Lude.Maybe ConferenceProvider) (\s a -> s {conferenceProvider = a} :: GetConferenceProviderResponse)
+grsConferenceProvider :: Lens.Lens' GetConferenceProviderResponse (Core.Maybe Types.ConferenceProvider)
+grsConferenceProvider = Lens.field @"conferenceProvider"
 {-# DEPRECATED grsConferenceProvider "Use generic-lens or generic-optics with 'conferenceProvider' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetConferenceProviderResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetConferenceProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConferenceProviderResponse)
+grsResponseStatus :: Lens.Lens' GetConferenceProviderResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

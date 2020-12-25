@@ -17,67 +17,77 @@ module Network.AWS.CodeBuild.Types.S3ReportExportConfig
     mkS3ReportExportConfig,
 
     -- * Lenses
-    srecPackaging,
-    srecPath,
     srecBucket,
     srecEncryptionDisabled,
     srecEncryptionKey,
+    srecPackaging,
+    srecPath,
   )
 where
 
-import Network.AWS.CodeBuild.Types.ReportPackagingType
+import qualified Network.AWS.CodeBuild.Types.Bucket as Types
+import qualified Network.AWS.CodeBuild.Types.EncryptionKey as Types
+import qualified Network.AWS.CodeBuild.Types.ReportPackagingType as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the S3 bucket where the raw data of a report are exported.
 --
 -- /See:/ 'mkS3ReportExportConfig' smart constructor.
 data S3ReportExportConfig = S3ReportExportConfig'
-  { -- | The type of build output artifact to create. Valid values include:
+  { -- | The name of the S3 bucket where the raw data of a report are exported.
+    bucket :: Core.Maybe Types.Bucket,
+    -- | A boolean value that specifies if the results of a report are encrypted.
+    encryptionDisabled :: Core.Maybe Core.Bool,
+    -- | The encryption key for the report's encrypted raw data.
+    encryptionKey :: Core.Maybe Types.EncryptionKey,
+    -- | The type of build output artifact to create. Valid values include:
     --
     --
     --     * @NONE@ : AWS CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
     --
     --
     --     * @ZIP@ : AWS CodeBuild creates a ZIP file with the raw data in the output bucket.
-    packaging :: Lude.Maybe ReportPackagingType,
+    packaging :: Core.Maybe Types.ReportPackagingType,
     -- | The path to the exported report's raw data results.
-    path :: Lude.Maybe Lude.Text,
-    -- | The name of the S3 bucket where the raw data of a report are exported.
-    bucket :: Lude.Maybe Lude.Text,
-    -- | A boolean value that specifies if the results of a report are encrypted.
-    encryptionDisabled :: Lude.Maybe Lude.Bool,
-    -- | The encryption key for the report's encrypted raw data.
-    encryptionKey :: Lude.Maybe Lude.Text
+    path :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3ReportExportConfig' with the minimum fields required to make a request.
---
--- * 'packaging' - The type of build output artifact to create. Valid values include:
---
---
---     * @NONE@ : AWS CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
---
---
---     * @ZIP@ : AWS CodeBuild creates a ZIP file with the raw data in the output bucket.
---
---
--- * 'path' - The path to the exported report's raw data results.
--- * 'bucket' - The name of the S3 bucket where the raw data of a report are exported.
--- * 'encryptionDisabled' - A boolean value that specifies if the results of a report are encrypted.
--- * 'encryptionKey' - The encryption key for the report's encrypted raw data.
+-- | Creates a 'S3ReportExportConfig' value with any optional fields omitted.
 mkS3ReportExportConfig ::
   S3ReportExportConfig
 mkS3ReportExportConfig =
   S3ReportExportConfig'
-    { packaging = Lude.Nothing,
-      path = Lude.Nothing,
-      bucket = Lude.Nothing,
-      encryptionDisabled = Lude.Nothing,
-      encryptionKey = Lude.Nothing
+    { bucket = Core.Nothing,
+      encryptionDisabled = Core.Nothing,
+      encryptionKey = Core.Nothing,
+      packaging = Core.Nothing,
+      path = Core.Nothing
     }
+
+-- | The name of the S3 bucket where the raw data of a report are exported.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srecBucket :: Lens.Lens' S3ReportExportConfig (Core.Maybe Types.Bucket)
+srecBucket = Lens.field @"bucket"
+{-# DEPRECATED srecBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | A boolean value that specifies if the results of a report are encrypted.
+--
+-- /Note:/ Consider using 'encryptionDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srecEncryptionDisabled :: Lens.Lens' S3ReportExportConfig (Core.Maybe Core.Bool)
+srecEncryptionDisabled = Lens.field @"encryptionDisabled"
+{-# DEPRECATED srecEncryptionDisabled "Use generic-lens or generic-optics with 'encryptionDisabled' instead." #-}
+
+-- | The encryption key for the report's encrypted raw data.
+--
+-- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srecEncryptionKey :: Lens.Lens' S3ReportExportConfig (Core.Maybe Types.EncryptionKey)
+srecEncryptionKey = Lens.field @"encryptionKey"
+{-# DEPRECATED srecEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
 
 -- | The type of build output artifact to create. Valid values include:
 --
@@ -90,59 +100,36 @@ mkS3ReportExportConfig =
 --
 --
 -- /Note:/ Consider using 'packaging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srecPackaging :: Lens.Lens' S3ReportExportConfig (Lude.Maybe ReportPackagingType)
-srecPackaging = Lens.lens (packaging :: S3ReportExportConfig -> Lude.Maybe ReportPackagingType) (\s a -> s {packaging = a} :: S3ReportExportConfig)
+srecPackaging :: Lens.Lens' S3ReportExportConfig (Core.Maybe Types.ReportPackagingType)
+srecPackaging = Lens.field @"packaging"
 {-# DEPRECATED srecPackaging "Use generic-lens or generic-optics with 'packaging' instead." #-}
 
 -- | The path to the exported report's raw data results.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srecPath :: Lens.Lens' S3ReportExportConfig (Lude.Maybe Lude.Text)
-srecPath = Lens.lens (path :: S3ReportExportConfig -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: S3ReportExportConfig)
+srecPath :: Lens.Lens' S3ReportExportConfig (Core.Maybe Types.String)
+srecPath = Lens.field @"path"
 {-# DEPRECATED srecPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | The name of the S3 bucket where the raw data of a report are exported.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srecBucket :: Lens.Lens' S3ReportExportConfig (Lude.Maybe Lude.Text)
-srecBucket = Lens.lens (bucket :: S3ReportExportConfig -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: S3ReportExportConfig)
-{-# DEPRECATED srecBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | A boolean value that specifies if the results of a report are encrypted.
---
--- /Note:/ Consider using 'encryptionDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srecEncryptionDisabled :: Lens.Lens' S3ReportExportConfig (Lude.Maybe Lude.Bool)
-srecEncryptionDisabled = Lens.lens (encryptionDisabled :: S3ReportExportConfig -> Lude.Maybe Lude.Bool) (\s a -> s {encryptionDisabled = a} :: S3ReportExportConfig)
-{-# DEPRECATED srecEncryptionDisabled "Use generic-lens or generic-optics with 'encryptionDisabled' instead." #-}
-
--- | The encryption key for the report's encrypted raw data.
---
--- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srecEncryptionKey :: Lens.Lens' S3ReportExportConfig (Lude.Maybe Lude.Text)
-srecEncryptionKey = Lens.lens (encryptionKey :: S3ReportExportConfig -> Lude.Maybe Lude.Text) (\s a -> s {encryptionKey = a} :: S3ReportExportConfig)
-{-# DEPRECATED srecEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
-
-instance Lude.FromJSON S3ReportExportConfig where
-  parseJSON =
-    Lude.withObject
-      "S3ReportExportConfig"
-      ( \x ->
-          S3ReportExportConfig'
-            Lude.<$> (x Lude..:? "packaging")
-            Lude.<*> (x Lude..:? "path")
-            Lude.<*> (x Lude..:? "bucket")
-            Lude.<*> (x Lude..:? "encryptionDisabled")
-            Lude.<*> (x Lude..:? "encryptionKey")
-      )
-
-instance Lude.ToJSON S3ReportExportConfig where
-  toJSON S3ReportExportConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("packaging" Lude..=) Lude.<$> packaging,
-            ("path" Lude..=) Lude.<$> path,
-            ("bucket" Lude..=) Lude.<$> bucket,
-            ("encryptionDisabled" Lude..=) Lude.<$> encryptionDisabled,
-            ("encryptionKey" Lude..=) Lude.<$> encryptionKey
+instance Core.FromJSON S3ReportExportConfig where
+  toJSON S3ReportExportConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bucket" Core..=) Core.<$> bucket,
+            ("encryptionDisabled" Core..=) Core.<$> encryptionDisabled,
+            ("encryptionKey" Core..=) Core.<$> encryptionKey,
+            ("packaging" Core..=) Core.<$> packaging,
+            ("path" Core..=) Core.<$> path
           ]
       )
+
+instance Core.FromJSON S3ReportExportConfig where
+  parseJSON =
+    Core.withObject "S3ReportExportConfig" Core.$
+      \x ->
+        S3ReportExportConfig'
+          Core.<$> (x Core..:? "bucket")
+          Core.<*> (x Core..:? "encryptionDisabled")
+          Core.<*> (x Core..:? "encryptionKey")
+          Core.<*> (x Core..:? "packaging")
+          Core.<*> (x Core..:? "path")

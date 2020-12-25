@@ -99,161 +99,142 @@ module Network.AWS.CloudWatchEvents.PutTargets
 
     -- ** Request lenses
     ptRule,
-    ptEventBusName,
     ptTargets,
+    ptEventBusName,
 
     -- * Destructuring the response
     PutTargetsResponse (..),
     mkPutTargetsResponse,
 
     -- ** Response lenses
-    ptrsFailedEntryCount,
-    ptrsFailedEntries,
-    ptrsResponseStatus,
+    ptrrsFailedEntries,
+    ptrrsFailedEntryCount,
+    ptrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutTargets' smart constructor.
 data PutTargets = PutTargets'
   { -- | The name of the rule.
-    rule :: Lude.Text,
-    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-    eventBusName :: Lude.Maybe Lude.Text,
+    rule :: Types.RuleName,
     -- | The targets to update or add to the rule.
-    targets :: Lude.NonEmpty Target
+    targets :: Core.NonEmpty Types.Target,
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+    eventBusName :: Core.Maybe Types.EventBusNameOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutTargets' with the minimum fields required to make a request.
---
--- * 'rule' - The name of the rule.
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
--- * 'targets' - The targets to update or add to the rule.
+-- | Creates a 'PutTargets' value with any optional fields omitted.
 mkPutTargets ::
   -- | 'rule'
-  Lude.Text ->
+  Types.RuleName ->
   -- | 'targets'
-  Lude.NonEmpty Target ->
+  Core.NonEmpty Types.Target ->
   PutTargets
-mkPutTargets pRule_ pTargets_ =
-  PutTargets'
-    { rule = pRule_,
-      eventBusName = Lude.Nothing,
-      targets = pTargets_
-    }
+mkPutTargets rule targets =
+  PutTargets' {rule, targets, eventBusName = Core.Nothing}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptRule :: Lens.Lens' PutTargets Lude.Text
-ptRule = Lens.lens (rule :: PutTargets -> Lude.Text) (\s a -> s {rule = a} :: PutTargets)
+ptRule :: Lens.Lens' PutTargets Types.RuleName
+ptRule = Lens.field @"rule"
 {-# DEPRECATED ptRule "Use generic-lens or generic-optics with 'rule' instead." #-}
-
--- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptEventBusName :: Lens.Lens' PutTargets (Lude.Maybe Lude.Text)
-ptEventBusName = Lens.lens (eventBusName :: PutTargets -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: PutTargets)
-{-# DEPRECATED ptEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The targets to update or add to the rule.
 --
 -- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptTargets :: Lens.Lens' PutTargets (Lude.NonEmpty Target)
-ptTargets = Lens.lens (targets :: PutTargets -> Lude.NonEmpty Target) (\s a -> s {targets = a} :: PutTargets)
+ptTargets :: Lens.Lens' PutTargets (Core.NonEmpty Types.Target)
+ptTargets = Lens.field @"targets"
 {-# DEPRECATED ptTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
-instance Lude.AWSRequest PutTargets where
+-- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptEventBusName :: Lens.Lens' PutTargets (Core.Maybe Types.EventBusNameOrArn)
+ptEventBusName = Lens.field @"eventBusName"
+{-# DEPRECATED ptEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+
+instance Core.FromJSON PutTargets where
+  toJSON PutTargets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Rule" Core..= rule),
+            Core.Just ("Targets" Core..= targets),
+            ("EventBusName" Core..=) Core.<$> eventBusName
+          ]
+      )
+
+instance Core.AWSRequest PutTargets where
   type Rs PutTargets = PutTargetsResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.PutTargets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutTargetsResponse'
-            Lude.<$> (x Lude..?> "FailedEntryCount")
-            Lude.<*> (x Lude..?> "FailedEntries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedEntries")
+            Core.<*> (x Core..:? "FailedEntryCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutTargets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.PutTargets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutTargets where
-  toJSON PutTargets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Rule" Lude..= rule),
-            ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            Lude.Just ("Targets" Lude..= targets)
-          ]
-      )
-
-instance Lude.ToPath PutTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutTargets where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
-  { -- | The number of failed entries.
-    failedEntryCount :: Lude.Maybe Lude.Int,
-    -- | The failed target entries.
-    failedEntries :: Lude.Maybe [PutTargetsResultEntry],
+  { -- | The failed target entries.
+    failedEntries :: Core.Maybe [Types.PutTargetsResultEntry],
+    -- | The number of failed entries.
+    failedEntryCount :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutTargetsResponse' with the minimum fields required to make a request.
---
--- * 'failedEntryCount' - The number of failed entries.
--- * 'failedEntries' - The failed target entries.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutTargetsResponse' value with any optional fields omitted.
 mkPutTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutTargetsResponse
-mkPutTargetsResponse pResponseStatus_ =
+mkPutTargetsResponse responseStatus =
   PutTargetsResponse'
-    { failedEntryCount = Lude.Nothing,
-      failedEntries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedEntries = Core.Nothing,
+      failedEntryCount = Core.Nothing,
+      responseStatus
     }
-
--- | The number of failed entries.
---
--- /Note:/ Consider using 'failedEntryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptrsFailedEntryCount :: Lens.Lens' PutTargetsResponse (Lude.Maybe Lude.Int)
-ptrsFailedEntryCount = Lens.lens (failedEntryCount :: PutTargetsResponse -> Lude.Maybe Lude.Int) (\s a -> s {failedEntryCount = a} :: PutTargetsResponse)
-{-# DEPRECATED ptrsFailedEntryCount "Use generic-lens or generic-optics with 'failedEntryCount' instead." #-}
 
 -- | The failed target entries.
 --
 -- /Note:/ Consider using 'failedEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptrsFailedEntries :: Lens.Lens' PutTargetsResponse (Lude.Maybe [PutTargetsResultEntry])
-ptrsFailedEntries = Lens.lens (failedEntries :: PutTargetsResponse -> Lude.Maybe [PutTargetsResultEntry]) (\s a -> s {failedEntries = a} :: PutTargetsResponse)
-{-# DEPRECATED ptrsFailedEntries "Use generic-lens or generic-optics with 'failedEntries' instead." #-}
+ptrrsFailedEntries :: Lens.Lens' PutTargetsResponse (Core.Maybe [Types.PutTargetsResultEntry])
+ptrrsFailedEntries = Lens.field @"failedEntries"
+{-# DEPRECATED ptrrsFailedEntries "Use generic-lens or generic-optics with 'failedEntries' instead." #-}
+
+-- | The number of failed entries.
+--
+-- /Note:/ Consider using 'failedEntryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrrsFailedEntryCount :: Lens.Lens' PutTargetsResponse (Core.Maybe Core.Int)
+ptrrsFailedEntryCount = Lens.field @"failedEntryCount"
+{-# DEPRECATED ptrrsFailedEntryCount "Use generic-lens or generic-optics with 'failedEntryCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptrsResponseStatus :: Lens.Lens' PutTargetsResponse Lude.Int
-ptrsResponseStatus = Lens.lens (responseStatus :: PutTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutTargetsResponse)
-{-# DEPRECATED ptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ptrrsResponseStatus :: Lens.Lens' PutTargetsResponse Core.Int
+ptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

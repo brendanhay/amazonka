@@ -18,72 +18,66 @@ module Network.AWS.CognitoIdentityProvider.Types.EventRiskType
 
     -- * Lenses
     ertCompromisedCredentialsDetected,
-    ertRiskLevel,
     ertRiskDecision,
+    ertRiskLevel,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType
-import Network.AWS.CognitoIdentityProvider.Types.RiskLevelType
+import qualified Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.RiskLevelType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The event risk type.
 --
 -- /See:/ 'mkEventRiskType' smart constructor.
 data EventRiskType = EventRiskType'
   { -- | Indicates whether compromised credentials were detected during an authentication event.
-    compromisedCredentialsDetected :: Lude.Maybe Lude.Bool,
-    -- | The risk level.
-    riskLevel :: Lude.Maybe RiskLevelType,
+    compromisedCredentialsDetected :: Core.Maybe Core.Bool,
     -- | The risk decision.
-    riskDecision :: Lude.Maybe RiskDecisionType
+    riskDecision :: Core.Maybe Types.RiskDecisionType,
+    -- | The risk level.
+    riskLevel :: Core.Maybe Types.RiskLevelType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventRiskType' with the minimum fields required to make a request.
---
--- * 'compromisedCredentialsDetected' - Indicates whether compromised credentials were detected during an authentication event.
--- * 'riskLevel' - The risk level.
--- * 'riskDecision' - The risk decision.
+-- | Creates a 'EventRiskType' value with any optional fields omitted.
 mkEventRiskType ::
   EventRiskType
 mkEventRiskType =
   EventRiskType'
-    { compromisedCredentialsDetected = Lude.Nothing,
-      riskLevel = Lude.Nothing,
-      riskDecision = Lude.Nothing
+    { compromisedCredentialsDetected = Core.Nothing,
+      riskDecision = Core.Nothing,
+      riskLevel = Core.Nothing
     }
 
 -- | Indicates whether compromised credentials were detected during an authentication event.
 --
 -- /Note:/ Consider using 'compromisedCredentialsDetected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ertCompromisedCredentialsDetected :: Lens.Lens' EventRiskType (Lude.Maybe Lude.Bool)
-ertCompromisedCredentialsDetected = Lens.lens (compromisedCredentialsDetected :: EventRiskType -> Lude.Maybe Lude.Bool) (\s a -> s {compromisedCredentialsDetected = a} :: EventRiskType)
+ertCompromisedCredentialsDetected :: Lens.Lens' EventRiskType (Core.Maybe Core.Bool)
+ertCompromisedCredentialsDetected = Lens.field @"compromisedCredentialsDetected"
 {-# DEPRECATED ertCompromisedCredentialsDetected "Use generic-lens or generic-optics with 'compromisedCredentialsDetected' instead." #-}
-
--- | The risk level.
---
--- /Note:/ Consider using 'riskLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ertRiskLevel :: Lens.Lens' EventRiskType (Lude.Maybe RiskLevelType)
-ertRiskLevel = Lens.lens (riskLevel :: EventRiskType -> Lude.Maybe RiskLevelType) (\s a -> s {riskLevel = a} :: EventRiskType)
-{-# DEPRECATED ertRiskLevel "Use generic-lens or generic-optics with 'riskLevel' instead." #-}
 
 -- | The risk decision.
 --
 -- /Note:/ Consider using 'riskDecision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ertRiskDecision :: Lens.Lens' EventRiskType (Lude.Maybe RiskDecisionType)
-ertRiskDecision = Lens.lens (riskDecision :: EventRiskType -> Lude.Maybe RiskDecisionType) (\s a -> s {riskDecision = a} :: EventRiskType)
+ertRiskDecision :: Lens.Lens' EventRiskType (Core.Maybe Types.RiskDecisionType)
+ertRiskDecision = Lens.field @"riskDecision"
 {-# DEPRECATED ertRiskDecision "Use generic-lens or generic-optics with 'riskDecision' instead." #-}
 
-instance Lude.FromJSON EventRiskType where
+-- | The risk level.
+--
+-- /Note:/ Consider using 'riskLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ertRiskLevel :: Lens.Lens' EventRiskType (Core.Maybe Types.RiskLevelType)
+ertRiskLevel = Lens.field @"riskLevel"
+{-# DEPRECATED ertRiskLevel "Use generic-lens or generic-optics with 'riskLevel' instead." #-}
+
+instance Core.FromJSON EventRiskType where
   parseJSON =
-    Lude.withObject
-      "EventRiskType"
-      ( \x ->
-          EventRiskType'
-            Lude.<$> (x Lude..:? "CompromisedCredentialsDetected")
-            Lude.<*> (x Lude..:? "RiskLevel")
-            Lude.<*> (x Lude..:? "RiskDecision")
-      )
+    Core.withObject "EventRiskType" Core.$
+      \x ->
+        EventRiskType'
+          Core.<$> (x Core..:? "CompromisedCredentialsDetected")
+          Core.<*> (x Core..:? "RiskDecision")
+          Core.<*> (x Core..:? "RiskLevel")

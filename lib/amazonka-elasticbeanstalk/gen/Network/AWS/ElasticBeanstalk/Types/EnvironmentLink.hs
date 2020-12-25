@@ -17,53 +17,51 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
     mkEnvironmentLink,
 
     -- * Lenses
-    elLinkName,
     elEnvironmentName,
+    elLinkName,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
 -- /See:/ 'mkEnvironmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
-  { -- | The name of the link.
-    linkName :: Lude.Maybe Lude.Text,
-    -- | The name of the linked environment (the dependency).
-    environmentName :: Lude.Maybe Lude.Text
+  { -- | The name of the linked environment (the dependency).
+    environmentName :: Core.Maybe Types.String,
+    -- | The name of the link.
+    linkName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentLink' with the minimum fields required to make a request.
---
--- * 'linkName' - The name of the link.
--- * 'environmentName' - The name of the linked environment (the dependency).
+-- | Creates a 'EnvironmentLink' value with any optional fields omitted.
 mkEnvironmentLink ::
   EnvironmentLink
 mkEnvironmentLink =
   EnvironmentLink'
-    { linkName = Lude.Nothing,
-      environmentName = Lude.Nothing
+    { environmentName = Core.Nothing,
+      linkName = Core.Nothing
     }
-
--- | The name of the link.
---
--- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elLinkName :: Lens.Lens' EnvironmentLink (Lude.Maybe Lude.Text)
-elLinkName = Lens.lens (linkName :: EnvironmentLink -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: EnvironmentLink)
-{-# DEPRECATED elLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 -- | The name of the linked environment (the dependency).
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elEnvironmentName :: Lens.Lens' EnvironmentLink (Lude.Maybe Lude.Text)
-elEnvironmentName = Lens.lens (environmentName :: EnvironmentLink -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: EnvironmentLink)
+elEnvironmentName :: Lens.Lens' EnvironmentLink (Core.Maybe Types.String)
+elEnvironmentName = Lens.field @"environmentName"
 {-# DEPRECATED elEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
-instance Lude.FromXML EnvironmentLink where
+-- | The name of the link.
+--
+-- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elLinkName :: Lens.Lens' EnvironmentLink (Core.Maybe Types.String)
+elLinkName = Lens.field @"linkName"
+{-# DEPRECATED elLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
+
+instance Core.FromXML EnvironmentLink where
   parseXML x =
     EnvironmentLink'
-      Lude.<$> (x Lude..@? "LinkName") Lude.<*> (x Lude..@? "EnvironmentName")
+      Core.<$> (x Core..@? "EnvironmentName") Core.<*> (x Core..@? "LinkName")

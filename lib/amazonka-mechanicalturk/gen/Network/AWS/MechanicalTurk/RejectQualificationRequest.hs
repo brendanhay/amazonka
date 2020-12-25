@@ -30,120 +30,105 @@ module Network.AWS.MechanicalTurk.RejectQualificationRequest
     mkRejectQualificationRequestResponse,
 
     -- ** Response lenses
-    rqrrsResponseStatus,
+    rqrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRejectQualificationRequest' smart constructor.
 data RejectQualificationRequest = RejectQualificationRequest'
   { -- | The ID of the Qualification request, as returned by the @ListQualificationRequests@ operation.
-    qualificationRequestId :: Lude.Text,
+    qualificationRequestId :: Types.String,
     -- | A text message explaining why the request was rejected, to be shown to the Worker who made the request.
-    reason :: Lude.Maybe Lude.Text
+    reason :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RejectQualificationRequest' with the minimum fields required to make a request.
---
--- * 'qualificationRequestId' - The ID of the Qualification request, as returned by the @ListQualificationRequests@ operation.
--- * 'reason' - A text message explaining why the request was rejected, to be shown to the Worker who made the request.
+-- | Creates a 'RejectQualificationRequest' value with any optional fields omitted.
 mkRejectQualificationRequest ::
   -- | 'qualificationRequestId'
-  Lude.Text ->
+  Types.String ->
   RejectQualificationRequest
-mkRejectQualificationRequest pQualificationRequestId_ =
+mkRejectQualificationRequest qualificationRequestId =
   RejectQualificationRequest'
-    { qualificationRequestId =
-        pQualificationRequestId_,
-      reason = Lude.Nothing
+    { qualificationRequestId,
+      reason = Core.Nothing
     }
 
 -- | The ID of the Qualification request, as returned by the @ListQualificationRequests@ operation.
 --
 -- /Note:/ Consider using 'qualificationRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rqrQualificationRequestId :: Lens.Lens' RejectQualificationRequest Lude.Text
-rqrQualificationRequestId = Lens.lens (qualificationRequestId :: RejectQualificationRequest -> Lude.Text) (\s a -> s {qualificationRequestId = a} :: RejectQualificationRequest)
+rqrQualificationRequestId :: Lens.Lens' RejectQualificationRequest Types.String
+rqrQualificationRequestId = Lens.field @"qualificationRequestId"
 {-# DEPRECATED rqrQualificationRequestId "Use generic-lens or generic-optics with 'qualificationRequestId' instead." #-}
 
 -- | A text message explaining why the request was rejected, to be shown to the Worker who made the request.
 --
 -- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rqrReason :: Lens.Lens' RejectQualificationRequest (Lude.Maybe Lude.Text)
-rqrReason = Lens.lens (reason :: RejectQualificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: RejectQualificationRequest)
+rqrReason :: Lens.Lens' RejectQualificationRequest (Core.Maybe Types.String)
+rqrReason = Lens.field @"reason"
 {-# DEPRECATED rqrReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance Lude.AWSRequest RejectQualificationRequest where
+instance Core.FromJSON RejectQualificationRequest where
+  toJSON RejectQualificationRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("QualificationRequestId" Core..= qualificationRequestId),
+            ("Reason" Core..=) Core.<$> reason
+          ]
+      )
+
+instance Core.AWSRequest RejectQualificationRequest where
   type
     Rs RejectQualificationRequest =
       RejectQualificationRequestResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.RejectQualificationRequest"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           RejectQualificationRequestResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RejectQualificationRequest where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.RejectQualificationRequest" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RejectQualificationRequest where
-  toJSON RejectQualificationRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("QualificationRequestId" Lude..= qualificationRequestId),
-            ("Reason" Lude..=) Lude.<$> reason
-          ]
-      )
-
-instance Lude.ToPath RejectQualificationRequest where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RejectQualificationRequest where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRejectQualificationRequestResponse' smart constructor.
 newtype RejectQualificationRequestResponse = RejectQualificationRequestResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RejectQualificationRequestResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RejectQualificationRequestResponse' value with any optional fields omitted.
 mkRejectQualificationRequestResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RejectQualificationRequestResponse
-mkRejectQualificationRequestResponse pResponseStatus_ =
-  RejectQualificationRequestResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkRejectQualificationRequestResponse responseStatus =
+  RejectQualificationRequestResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rqrrsResponseStatus :: Lens.Lens' RejectQualificationRequestResponse Lude.Int
-rqrrsResponseStatus = Lens.lens (responseStatus :: RejectQualificationRequestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectQualificationRequestResponse)
-{-# DEPRECATED rqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rqrrrsResponseStatus :: Lens.Lens' RejectQualificationRequestResponse Core.Int
+rqrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rqrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

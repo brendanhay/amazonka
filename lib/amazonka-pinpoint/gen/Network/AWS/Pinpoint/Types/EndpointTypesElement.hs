@@ -13,96 +13,101 @@
 module Network.AWS.Pinpoint.Types.EndpointTypesElement
   ( EndpointTypesElement
       ( EndpointTypesElement',
-        ETEPush,
-        ETEGCM,
-        ETEAPNS,
-        ETEAPNSSandbox,
-        ETEAPNSVoip,
-        ETEAPNSVoipSandbox,
-        ETEADM,
-        ETESms,
-        ETEVoice,
-        ETEEmail,
-        ETEBaidu,
-        ETECustom
+        EndpointTypesElementPush,
+        EndpointTypesElementGcm,
+        EndpointTypesElementApns,
+        EndpointTypesElementApnsSandbox,
+        EndpointTypesElementApnsVoip,
+        EndpointTypesElementApnsVoipSandbox,
+        EndpointTypesElementAdm,
+        EndpointTypesElementSms,
+        EndpointTypesElementVoice,
+        EndpointTypesElementEmail,
+        EndpointTypesElementBaidu,
+        EndpointTypesElementCustom,
+        fromEndpointTypesElement
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EndpointTypesElement = EndpointTypesElement' Lude.Text
+newtype EndpointTypesElement = EndpointTypesElement'
+  { fromEndpointTypesElement ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ETEPush :: EndpointTypesElement
-pattern ETEPush = EndpointTypesElement' "PUSH"
+pattern EndpointTypesElementPush :: EndpointTypesElement
+pattern EndpointTypesElementPush = EndpointTypesElement' "PUSH"
 
-pattern ETEGCM :: EndpointTypesElement
-pattern ETEGCM = EndpointTypesElement' "GCM"
+pattern EndpointTypesElementGcm :: EndpointTypesElement
+pattern EndpointTypesElementGcm = EndpointTypesElement' "GCM"
 
-pattern ETEAPNS :: EndpointTypesElement
-pattern ETEAPNS = EndpointTypesElement' "APNS"
+pattern EndpointTypesElementApns :: EndpointTypesElement
+pattern EndpointTypesElementApns = EndpointTypesElement' "APNS"
 
-pattern ETEAPNSSandbox :: EndpointTypesElement
-pattern ETEAPNSSandbox = EndpointTypesElement' "APNS_SANDBOX"
+pattern EndpointTypesElementApnsSandbox :: EndpointTypesElement
+pattern EndpointTypesElementApnsSandbox = EndpointTypesElement' "APNS_SANDBOX"
 
-pattern ETEAPNSVoip :: EndpointTypesElement
-pattern ETEAPNSVoip = EndpointTypesElement' "APNS_VOIP"
+pattern EndpointTypesElementApnsVoip :: EndpointTypesElement
+pattern EndpointTypesElementApnsVoip = EndpointTypesElement' "APNS_VOIP"
 
-pattern ETEAPNSVoipSandbox :: EndpointTypesElement
-pattern ETEAPNSVoipSandbox = EndpointTypesElement' "APNS_VOIP_SANDBOX"
+pattern EndpointTypesElementApnsVoipSandbox :: EndpointTypesElement
+pattern EndpointTypesElementApnsVoipSandbox = EndpointTypesElement' "APNS_VOIP_SANDBOX"
 
-pattern ETEADM :: EndpointTypesElement
-pattern ETEADM = EndpointTypesElement' "ADM"
+pattern EndpointTypesElementAdm :: EndpointTypesElement
+pattern EndpointTypesElementAdm = EndpointTypesElement' "ADM"
 
-pattern ETESms :: EndpointTypesElement
-pattern ETESms = EndpointTypesElement' "SMS"
+pattern EndpointTypesElementSms :: EndpointTypesElement
+pattern EndpointTypesElementSms = EndpointTypesElement' "SMS"
 
-pattern ETEVoice :: EndpointTypesElement
-pattern ETEVoice = EndpointTypesElement' "VOICE"
+pattern EndpointTypesElementVoice :: EndpointTypesElement
+pattern EndpointTypesElementVoice = EndpointTypesElement' "VOICE"
 
-pattern ETEEmail :: EndpointTypesElement
-pattern ETEEmail = EndpointTypesElement' "EMAIL"
+pattern EndpointTypesElementEmail :: EndpointTypesElement
+pattern EndpointTypesElementEmail = EndpointTypesElement' "EMAIL"
 
-pattern ETEBaidu :: EndpointTypesElement
-pattern ETEBaidu = EndpointTypesElement' "BAIDU"
+pattern EndpointTypesElementBaidu :: EndpointTypesElement
+pattern EndpointTypesElementBaidu = EndpointTypesElement' "BAIDU"
 
-pattern ETECustom :: EndpointTypesElement
-pattern ETECustom = EndpointTypesElement' "CUSTOM"
+pattern EndpointTypesElementCustom :: EndpointTypesElement
+pattern EndpointTypesElementCustom = EndpointTypesElement' "CUSTOM"
 
 {-# COMPLETE
-  ETEPush,
-  ETEGCM,
-  ETEAPNS,
-  ETEAPNSSandbox,
-  ETEAPNSVoip,
-  ETEAPNSVoipSandbox,
-  ETEADM,
-  ETESms,
-  ETEVoice,
-  ETEEmail,
-  ETEBaidu,
-  ETECustom,
+  EndpointTypesElementPush,
+  EndpointTypesElementGcm,
+  EndpointTypesElementApns,
+  EndpointTypesElementApnsSandbox,
+  EndpointTypesElementApnsVoip,
+  EndpointTypesElementApnsVoipSandbox,
+  EndpointTypesElementAdm,
+  EndpointTypesElementSms,
+  EndpointTypesElementVoice,
+  EndpointTypesElementEmail,
+  EndpointTypesElementBaidu,
+  EndpointTypesElementCustom,
   EndpointTypesElement'
   #-}

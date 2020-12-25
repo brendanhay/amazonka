@@ -17,24 +17,23 @@ module Network.AWS.CloudFront.Types.LambdaFunctionAssociation
     mkLambdaFunctionAssociation,
 
     -- * Lenses
-    lfaIncludeBody,
     lfaLambdaFunctionARN,
     lfaEventType,
+    lfaIncludeBody,
   )
 where
 
-import Network.AWS.CloudFront.Types.EventType
+import qualified Network.AWS.CloudFront.Types.EventType as Types
+import qualified Network.AWS.CloudFront.Types.LambdaFunctionARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains a Lambda function association.
 --
 -- /See:/ 'mkLambdaFunctionAssociation' smart constructor.
 data LambdaFunctionAssociation = LambdaFunctionAssociation'
-  { -- | A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
-    includeBody :: Lude.Maybe Lude.Bool,
-    -- | The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
-    lambdaFunctionARN :: Lude.Text,
+  { -- | The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+    lambdaFunctionARN :: Types.LambdaFunctionARN,
     -- | Specifies the event type that triggers a Lambda function invocation. You can specify the following values:
     --
     --
@@ -49,54 +48,32 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
     --
     --     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
     -- If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-    eventType :: EventType
+    eventType :: Types.EventType,
+    -- | A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
+    includeBody :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionAssociation' with the minimum fields required to make a request.
---
--- * 'includeBody' - A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
--- * 'lambdaFunctionARN' - The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
--- * 'eventType' - Specifies the event type that triggers a Lambda function invocation. You can specify the following values:
---
---
---     * @viewer-request@ : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
---
---
---     * @origin-request@ : The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
---
---
---     * @origin-response@ : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
---
---
---     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
--- If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+-- | Creates a 'LambdaFunctionAssociation' value with any optional fields omitted.
 mkLambdaFunctionAssociation ::
   -- | 'lambdaFunctionARN'
-  Lude.Text ->
+  Types.LambdaFunctionARN ->
   -- | 'eventType'
-  EventType ->
+  Types.EventType ->
   LambdaFunctionAssociation
-mkLambdaFunctionAssociation pLambdaFunctionARN_ pEventType_ =
+mkLambdaFunctionAssociation lambdaFunctionARN eventType =
   LambdaFunctionAssociation'
-    { includeBody = Lude.Nothing,
-      lambdaFunctionARN = pLambdaFunctionARN_,
-      eventType = pEventType_
+    { lambdaFunctionARN,
+      eventType,
+      includeBody = Core.Nothing
     }
-
--- | A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
---
--- /Note:/ Consider using 'includeBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaIncludeBody :: Lens.Lens' LambdaFunctionAssociation (Lude.Maybe Lude.Bool)
-lfaIncludeBody = Lens.lens (includeBody :: LambdaFunctionAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {includeBody = a} :: LambdaFunctionAssociation)
-{-# DEPRECATED lfaIncludeBody "Use generic-lens or generic-optics with 'includeBody' instead." #-}
 
 -- | The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
 --
 -- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaLambdaFunctionARN :: Lens.Lens' LambdaFunctionAssociation Lude.Text
-lfaLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: LambdaFunctionAssociation -> Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: LambdaFunctionAssociation)
+lfaLambdaFunctionARN :: Lens.Lens' LambdaFunctionAssociation Types.LambdaFunctionARN
+lfaLambdaFunctionARN = Lens.field @"lambdaFunctionARN"
 {-# DEPRECATED lfaLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
 
 -- | Specifies the event type that triggers a Lambda function invocation. You can specify the following values:
@@ -117,21 +94,26 @@ lfaLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: LambdaFunctionAssociation
 --
 --
 -- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaEventType :: Lens.Lens' LambdaFunctionAssociation EventType
-lfaEventType = Lens.lens (eventType :: LambdaFunctionAssociation -> EventType) (\s a -> s {eventType = a} :: LambdaFunctionAssociation)
+lfaEventType :: Lens.Lens' LambdaFunctionAssociation Types.EventType
+lfaEventType = Lens.field @"eventType"
 {-# DEPRECATED lfaEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
-instance Lude.FromXML LambdaFunctionAssociation where
+-- | A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
+--
+-- /Note:/ Consider using 'includeBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfaIncludeBody :: Lens.Lens' LambdaFunctionAssociation (Core.Maybe Core.Bool)
+lfaIncludeBody = Lens.field @"includeBody"
+{-# DEPRECATED lfaIncludeBody "Use generic-lens or generic-optics with 'includeBody' instead." #-}
+
+instance Core.ToXML LambdaFunctionAssociation where
+  toXML LambdaFunctionAssociation {..} =
+    Core.toXMLNode "LambdaFunctionARN" lambdaFunctionARN
+      Core.<> Core.toXMLNode "EventType" eventType
+      Core.<> Core.toXMLNode "IncludeBody" Core.<$> includeBody
+
+instance Core.FromXML LambdaFunctionAssociation where
   parseXML x =
     LambdaFunctionAssociation'
-      Lude.<$> (x Lude..@? "IncludeBody")
-      Lude.<*> (x Lude..@ "LambdaFunctionARN")
-      Lude.<*> (x Lude..@ "EventType")
-
-instance Lude.ToXML LambdaFunctionAssociation where
-  toXML LambdaFunctionAssociation' {..} =
-    Lude.mconcat
-      [ "IncludeBody" Lude.@= includeBody,
-        "LambdaFunctionARN" Lude.@= lambdaFunctionARN,
-        "EventType" Lude.@= eventType
-      ]
+      Core.<$> (x Core..@ "LambdaFunctionARN")
+      Core.<*> (x Core..@ "EventType")
+      Core.<*> (x Core..@? "IncludeBody")

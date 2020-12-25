@@ -21,41 +21,38 @@ module Network.AWS.Greengrass.Types.FunctionDefaultConfig
   )
 where
 
-import Network.AWS.Greengrass.Types.FunctionDefaultExecutionConfig
+import qualified Network.AWS.Greengrass.Types.FunctionDefaultExecutionConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The default configuration that applies to all Lambda functions in the group. Individual Lambda functions can override these settings.
 --
 -- /See:/ 'mkFunctionDefaultConfig' smart constructor.
 newtype FunctionDefaultConfig = FunctionDefaultConfig'
-  { execution :: Lude.Maybe FunctionDefaultExecutionConfig
+  { execution :: Core.Maybe Types.FunctionDefaultExecutionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FunctionDefaultConfig' with the minimum fields required to make a request.
---
--- * 'execution' -
+-- | Creates a 'FunctionDefaultConfig' value with any optional fields omitted.
 mkFunctionDefaultConfig ::
   FunctionDefaultConfig
 mkFunctionDefaultConfig =
-  FunctionDefaultConfig' {execution = Lude.Nothing}
+  FunctionDefaultConfig' {execution = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdcExecution :: Lens.Lens' FunctionDefaultConfig (Lude.Maybe FunctionDefaultExecutionConfig)
-fdcExecution = Lens.lens (execution :: FunctionDefaultConfig -> Lude.Maybe FunctionDefaultExecutionConfig) (\s a -> s {execution = a} :: FunctionDefaultConfig)
+fdcExecution :: Lens.Lens' FunctionDefaultConfig (Core.Maybe Types.FunctionDefaultExecutionConfig)
+fdcExecution = Lens.field @"execution"
 {-# DEPRECATED fdcExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
 
-instance Lude.FromJSON FunctionDefaultConfig where
-  parseJSON =
-    Lude.withObject
-      "FunctionDefaultConfig"
-      (\x -> FunctionDefaultConfig' Lude.<$> (x Lude..:? "Execution"))
+instance Core.FromJSON FunctionDefaultConfig where
+  toJSON FunctionDefaultConfig {..} =
+    Core.object
+      (Core.catMaybes [("Execution" Core..=) Core.<$> execution])
 
-instance Lude.ToJSON FunctionDefaultConfig where
-  toJSON FunctionDefaultConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [("Execution" Lude..=) Lude.<$> execution])
+instance Core.FromJSON FunctionDefaultConfig where
+  parseJSON =
+    Core.withObject "FunctionDefaultConfig" Core.$
+      \x -> FunctionDefaultConfig' Core.<$> (x Core..:? "Execution")

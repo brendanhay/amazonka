@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior
   ( M3u8NielsenId3Behavior
       ( M3u8NielsenId3Behavior',
-        MNoPassthrough,
-        MPassthrough
+        M3u8NielsenId3BehaviorNoPassthrough,
+        M3u8NielsenId3BehaviorPassthrough,
+        fromM3u8NielsenId3Behavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M3u8 Nielsen Id3 Behavior
-newtype M3u8NielsenId3Behavior = M3u8NielsenId3Behavior' Lude.Text
+newtype M3u8NielsenId3Behavior = M3u8NielsenId3Behavior'
+  { fromM3u8NielsenId3Behavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MNoPassthrough :: M3u8NielsenId3Behavior
-pattern MNoPassthrough = M3u8NielsenId3Behavior' "NO_PASSTHROUGH"
+pattern M3u8NielsenId3BehaviorNoPassthrough :: M3u8NielsenId3Behavior
+pattern M3u8NielsenId3BehaviorNoPassthrough = M3u8NielsenId3Behavior' "NO_PASSTHROUGH"
 
-pattern MPassthrough :: M3u8NielsenId3Behavior
-pattern MPassthrough = M3u8NielsenId3Behavior' "PASSTHROUGH"
+pattern M3u8NielsenId3BehaviorPassthrough :: M3u8NielsenId3Behavior
+pattern M3u8NielsenId3BehaviorPassthrough = M3u8NielsenId3Behavior' "PASSTHROUGH"
 
 {-# COMPLETE
-  MNoPassthrough,
-  MPassthrough,
+  M3u8NielsenId3BehaviorNoPassthrough,
+  M3u8NielsenId3BehaviorPassthrough,
   M3u8NielsenId3Behavior'
   #-}

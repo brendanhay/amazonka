@@ -17,69 +17,63 @@ module Network.AWS.ElasticTranscoder.Types.TimeSpan
     mkTimeSpan,
 
     -- * Lenses
-    tsStartTime,
     tsDuration,
+    tsStartTime,
   )
 where
 
+import qualified Network.AWS.ElasticTranscoder.Types.Time as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings that determine when a clip begins and how long it lasts.
 --
 -- /See:/ 'mkTimeSpan' smart constructor.
 data TimeSpan = TimeSpan'
-  { -- | The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
-    startTime :: Lude.Maybe Lude.Text,
-    -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+  { -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
     --
     -- If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
-    duration :: Lude.Maybe Lude.Text
+    duration :: Core.Maybe Types.Time,
+    -- | The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+    startTime :: Core.Maybe Types.Time
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimeSpan' with the minimum fields required to make a request.
---
--- * 'startTime' - The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
--- * 'duration' - The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
---
--- If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
+-- | Creates a 'TimeSpan' value with any optional fields omitted.
 mkTimeSpan ::
   TimeSpan
 mkTimeSpan =
-  TimeSpan' {startTime = Lude.Nothing, duration = Lude.Nothing}
-
--- | The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsStartTime :: Lens.Lens' TimeSpan (Lude.Maybe Lude.Text)
-tsStartTime = Lens.lens (startTime :: TimeSpan -> Lude.Maybe Lude.Text) (\s a -> s {startTime = a} :: TimeSpan)
-{-# DEPRECATED tsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+  TimeSpan' {duration = Core.Nothing, startTime = Core.Nothing}
 
 -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
 --
 -- If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsDuration :: Lens.Lens' TimeSpan (Lude.Maybe Lude.Text)
-tsDuration = Lens.lens (duration :: TimeSpan -> Lude.Maybe Lude.Text) (\s a -> s {duration = a} :: TimeSpan)
+tsDuration :: Lens.Lens' TimeSpan (Core.Maybe Types.Time)
+tsDuration = Lens.field @"duration"
 {-# DEPRECATED tsDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance Lude.FromJSON TimeSpan where
-  parseJSON =
-    Lude.withObject
-      "TimeSpan"
-      ( \x ->
-          TimeSpan'
-            Lude.<$> (x Lude..:? "StartTime") Lude.<*> (x Lude..:? "Duration")
-      )
+-- | The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsStartTime :: Lens.Lens' TimeSpan (Core.Maybe Types.Time)
+tsStartTime = Lens.field @"startTime"
+{-# DEPRECATED tsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
-instance Lude.ToJSON TimeSpan where
-  toJSON TimeSpan' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StartTime" Lude..=) Lude.<$> startTime,
-            ("Duration" Lude..=) Lude.<$> duration
+instance Core.FromJSON TimeSpan where
+  toJSON TimeSpan {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Duration" Core..=) Core.<$> duration,
+            ("StartTime" Core..=) Core.<$> startTime
           ]
       )
+
+instance Core.FromJSON TimeSpan where
+  parseJSON =
+    Core.withObject "TimeSpan" Core.$
+      \x ->
+        TimeSpan'
+          Core.<$> (x Core..:? "Duration") Core.<*> (x Core..:? "StartTime")

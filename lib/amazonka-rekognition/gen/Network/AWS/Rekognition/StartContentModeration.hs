@@ -24,172 +24,157 @@ module Network.AWS.Rekognition.StartContentModeration
     mkStartContentModeration,
 
     -- ** Request lenses
-    scmJobTag,
-    scmNotificationChannel,
     scmVideo,
     scmClientRequestToken,
+    scmJobTag,
     scmMinConfidence,
+    scmNotificationChannel,
 
     -- * Destructuring the response
     StartContentModerationResponse (..),
     mkStartContentModerationResponse,
 
     -- ** Response lenses
-    scmrsJobId,
-    scmrsResponseStatus,
+    scmrrsJobId,
+    scmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartContentModeration' smart constructor.
 data StartContentModeration = StartContentModeration'
-  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
-    jobTag :: Lude.Maybe Lude.Text,
-    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.
-    notificationChannel :: Lude.Maybe NotificationChannel,
-    -- | The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.
-    video :: Video,
+  { -- | The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.
+    video :: Types.Video,
     -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartContentModeration@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-    clientRequestToken :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
+    -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Core.Maybe Types.JobTag,
     -- | Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , @GetContentModeration@ returns labels with confidence values greater than or equal to 50 percent.
-    minConfidence :: Lude.Maybe Lude.Double
+    minConfidence :: Core.Maybe Core.Double,
+    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.
+    notificationChannel :: Core.Maybe Types.NotificationChannel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartContentModeration' with the minimum fields required to make a request.
---
--- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
--- * 'notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.
--- * 'video' - The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartContentModeration@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
--- * 'minConfidence' - Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , @GetContentModeration@ returns labels with confidence values greater than or equal to 50 percent.
+-- | Creates a 'StartContentModeration' value with any optional fields omitted.
 mkStartContentModeration ::
   -- | 'video'
-  Video ->
+  Types.Video ->
   StartContentModeration
-mkStartContentModeration pVideo_ =
+mkStartContentModeration video =
   StartContentModeration'
-    { jobTag = Lude.Nothing,
-      notificationChannel = Lude.Nothing,
-      video = pVideo_,
-      clientRequestToken = Lude.Nothing,
-      minConfidence = Lude.Nothing
+    { video,
+      clientRequestToken = Core.Nothing,
+      jobTag = Core.Nothing,
+      minConfidence = Core.Nothing,
+      notificationChannel = Core.Nothing
     }
-
--- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
---
--- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmJobTag :: Lens.Lens' StartContentModeration (Lude.Maybe Lude.Text)
-scmJobTag = Lens.lens (jobTag :: StartContentModeration -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartContentModeration)
-{-# DEPRECATED scmJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
-
--- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.
---
--- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmNotificationChannel :: Lens.Lens' StartContentModeration (Lude.Maybe NotificationChannel)
-scmNotificationChannel = Lens.lens (notificationChannel :: StartContentModeration -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartContentModeration)
-{-# DEPRECATED scmNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
 -- | The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmVideo :: Lens.Lens' StartContentModeration Video
-scmVideo = Lens.lens (video :: StartContentModeration -> Video) (\s a -> s {video = a} :: StartContentModeration)
+scmVideo :: Lens.Lens' StartContentModeration Types.Video
+scmVideo = Lens.field @"video"
 {-# DEPRECATED scmVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartContentModeration@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmClientRequestToken :: Lens.Lens' StartContentModeration (Lude.Maybe Lude.Text)
-scmClientRequestToken = Lens.lens (clientRequestToken :: StartContentModeration -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartContentModeration)
+scmClientRequestToken :: Lens.Lens' StartContentModeration (Core.Maybe Types.ClientRequestToken)
+scmClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED scmClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+--
+-- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scmJobTag :: Lens.Lens' StartContentModeration (Core.Maybe Types.JobTag)
+scmJobTag = Lens.field @"jobTag"
+{-# DEPRECATED scmJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
 
 -- | Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , @GetContentModeration@ returns labels with confidence values greater than or equal to 50 percent.
 --
 -- /Note:/ Consider using 'minConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmMinConfidence :: Lens.Lens' StartContentModeration (Lude.Maybe Lude.Double)
-scmMinConfidence = Lens.lens (minConfidence :: StartContentModeration -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: StartContentModeration)
+scmMinConfidence :: Lens.Lens' StartContentModeration (Core.Maybe Core.Double)
+scmMinConfidence = Lens.field @"minConfidence"
 {-# DEPRECATED scmMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
 
-instance Lude.AWSRequest StartContentModeration where
+-- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.
+--
+-- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scmNotificationChannel :: Lens.Lens' StartContentModeration (Core.Maybe Types.NotificationChannel)
+scmNotificationChannel = Lens.field @"notificationChannel"
+{-# DEPRECATED scmNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
+
+instance Core.FromJSON StartContentModeration where
+  toJSON StartContentModeration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Video" Core..= video),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("JobTag" Core..=) Core.<$> jobTag,
+            ("MinConfidence" Core..=) Core.<$> minConfidence,
+            ("NotificationChannel" Core..=) Core.<$> notificationChannel
+          ]
+      )
+
+instance Core.AWSRequest StartContentModeration where
   type Rs StartContentModeration = StartContentModerationResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.StartContentModeration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartContentModerationResponse'
-            Lude.<$> (x Lude..?> "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartContentModeration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.StartContentModeration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartContentModeration where
-  toJSON StartContentModeration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("JobTag" Lude..=) Lude.<$> jobTag,
-            ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            Lude.Just ("Video" Lude..= video),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("MinConfidence" Lude..=) Lude.<$> minConfidence
-          ]
-      )
-
-instance Lude.ToPath StartContentModeration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartContentModeration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartContentModerationResponse' smart constructor.
 data StartContentModerationResponse = StartContentModerationResponse'
   { -- | The identifier for the unsafe content analysis job. Use @JobId@ to identify the job in a subsequent call to @GetContentModeration@ .
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartContentModerationResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier for the unsafe content analysis job. Use @JobId@ to identify the job in a subsequent call to @GetContentModeration@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartContentModerationResponse' value with any optional fields omitted.
 mkStartContentModerationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartContentModerationResponse
-mkStartContentModerationResponse pResponseStatus_ =
+mkStartContentModerationResponse responseStatus =
   StartContentModerationResponse'
-    { jobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier for the unsafe content analysis job. Use @JobId@ to identify the job in a subsequent call to @GetContentModeration@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmrsJobId :: Lens.Lens' StartContentModerationResponse (Lude.Maybe Lude.Text)
-scmrsJobId = Lens.lens (jobId :: StartContentModerationResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartContentModerationResponse)
-{-# DEPRECATED scmrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+scmrrsJobId :: Lens.Lens' StartContentModerationResponse (Core.Maybe Types.JobId)
+scmrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED scmrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmrsResponseStatus :: Lens.Lens' StartContentModerationResponse Lude.Int
-scmrsResponseStatus = Lens.lens (responseStatus :: StartContentModerationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartContentModerationResponse)
-{-# DEPRECATED scmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scmrrsResponseStatus :: Lens.Lens' StartContentModerationResponse Core.Int
+scmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

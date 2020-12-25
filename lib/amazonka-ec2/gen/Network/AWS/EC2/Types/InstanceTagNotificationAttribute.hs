@@ -22,52 +22,48 @@ module Network.AWS.EC2.Types.InstanceTagNotificationAttribute
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the registered tag keys for the current Region.
 --
 -- /See:/ 'mkInstanceTagNotificationAttribute' smart constructor.
 data InstanceTagNotificationAttribute = InstanceTagNotificationAttribute'
   { -- | Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications. @true@ indicates that all tag keys in the current Region are registered.
-    includeAllTagsOfInstance :: Lude.Maybe Lude.Bool,
+    includeAllTagsOfInstance :: Core.Maybe Core.Bool,
     -- | The registered tag keys.
-    instanceTagKeys :: Lude.Maybe [Lude.Text]
+    instanceTagKeys :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceTagNotificationAttribute' with the minimum fields required to make a request.
---
--- * 'includeAllTagsOfInstance' - Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications. @true@ indicates that all tag keys in the current Region are registered.
--- * 'instanceTagKeys' - The registered tag keys.
+-- | Creates a 'InstanceTagNotificationAttribute' value with any optional fields omitted.
 mkInstanceTagNotificationAttribute ::
   InstanceTagNotificationAttribute
 mkInstanceTagNotificationAttribute =
   InstanceTagNotificationAttribute'
     { includeAllTagsOfInstance =
-        Lude.Nothing,
-      instanceTagKeys = Lude.Nothing
+        Core.Nothing,
+      instanceTagKeys = Core.Nothing
     }
 
 -- | Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications. @true@ indicates that all tag keys in the current Region are registered.
 --
 -- /Note:/ Consider using 'includeAllTagsOfInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itnaIncludeAllTagsOfInstance :: Lens.Lens' InstanceTagNotificationAttribute (Lude.Maybe Lude.Bool)
-itnaIncludeAllTagsOfInstance = Lens.lens (includeAllTagsOfInstance :: InstanceTagNotificationAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {includeAllTagsOfInstance = a} :: InstanceTagNotificationAttribute)
+itnaIncludeAllTagsOfInstance :: Lens.Lens' InstanceTagNotificationAttribute (Core.Maybe Core.Bool)
+itnaIncludeAllTagsOfInstance = Lens.field @"includeAllTagsOfInstance"
 {-# DEPRECATED itnaIncludeAllTagsOfInstance "Use generic-lens or generic-optics with 'includeAllTagsOfInstance' instead." #-}
 
 -- | The registered tag keys.
 --
 -- /Note:/ Consider using 'instanceTagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itnaInstanceTagKeys :: Lens.Lens' InstanceTagNotificationAttribute (Lude.Maybe [Lude.Text])
-itnaInstanceTagKeys = Lens.lens (instanceTagKeys :: InstanceTagNotificationAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceTagKeys = a} :: InstanceTagNotificationAttribute)
+itnaInstanceTagKeys :: Lens.Lens' InstanceTagNotificationAttribute (Core.Maybe [Types.String])
+itnaInstanceTagKeys = Lens.field @"instanceTagKeys"
 {-# DEPRECATED itnaInstanceTagKeys "Use generic-lens or generic-optics with 'instanceTagKeys' instead." #-}
 
-instance Lude.FromXML InstanceTagNotificationAttribute where
+instance Core.FromXML InstanceTagNotificationAttribute where
   parseXML x =
     InstanceTagNotificationAttribute'
-      Lude.<$> (x Lude..@? "includeAllTagsOfInstance")
-      Lude.<*> ( x Lude..@? "instanceTagKeySet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "includeAllTagsOfInstance")
+      Core.<*> (x Core..@? "instanceTagKeySet" Core..<@> Core.parseXMLList "item")

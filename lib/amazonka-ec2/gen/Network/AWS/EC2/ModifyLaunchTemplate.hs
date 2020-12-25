@@ -20,166 +20,160 @@ module Network.AWS.EC2.ModifyLaunchTemplate
     mkModifyLaunchTemplate,
 
     -- ** Request lenses
-    mltLaunchTemplateName,
     mltClientToken,
-    mltLaunchTemplateId,
     mltDefaultVersion,
     mltDryRun,
+    mltLaunchTemplateId,
+    mltLaunchTemplateName,
 
     -- * Destructuring the response
     ModifyLaunchTemplateResponse (..),
     mkModifyLaunchTemplateResponse,
 
     -- ** Response lenses
-    mltrsLaunchTemplate,
-    mltrsResponseStatus,
+    mltrrsLaunchTemplate,
+    mltrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyLaunchTemplate' smart constructor.
 data ModifyLaunchTemplate = ModifyLaunchTemplate'
-  { -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
-    launchTemplateName :: Lude.Maybe Lude.Text,
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
     --
     -- Constraint: Maximum 128 ASCII characters.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
-    launchTemplateId :: Lude.Maybe Lude.Text,
+    clientToken :: Core.Maybe Types.ClientToken,
     -- | The version number of the launch template to set as the default version.
-    defaultVersion :: Lude.Maybe Lude.Text,
+    defaultVersion :: Core.Maybe Types.DefaultVersion,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateId :: Core.Maybe Types.LaunchTemplateId,
+    -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateName :: Core.Maybe Types.LaunchTemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyLaunchTemplate' with the minimum fields required to make a request.
---
--- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
--- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- Constraint: Maximum 128 ASCII characters.
--- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
--- * 'defaultVersion' - The version number of the launch template to set as the default version.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyLaunchTemplate' value with any optional fields omitted.
 mkModifyLaunchTemplate ::
   ModifyLaunchTemplate
 mkModifyLaunchTemplate =
   ModifyLaunchTemplate'
-    { launchTemplateName = Lude.Nothing,
-      clientToken = Lude.Nothing,
-      launchTemplateId = Lude.Nothing,
-      defaultVersion = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { clientToken = Core.Nothing,
+      defaultVersion = Core.Nothing,
+      dryRun = Core.Nothing,
+      launchTemplateId = Core.Nothing,
+      launchTemplateName = Core.Nothing
     }
-
--- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
---
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltLaunchTemplateName :: Lens.Lens' ModifyLaunchTemplate (Lude.Maybe Lude.Text)
-mltLaunchTemplateName = Lens.lens (launchTemplateName :: ModifyLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: ModifyLaunchTemplate)
-{-# DEPRECATED mltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraint: Maximum 128 ASCII characters.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltClientToken :: Lens.Lens' ModifyLaunchTemplate (Lude.Maybe Lude.Text)
-mltClientToken = Lens.lens (clientToken :: ModifyLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ModifyLaunchTemplate)
+mltClientToken :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Types.ClientToken)
+mltClientToken = Lens.field @"clientToken"
 {-# DEPRECATED mltClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
---
--- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltLaunchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Lude.Maybe Lude.Text)
-mltLaunchTemplateId = Lens.lens (launchTemplateId :: ModifyLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: ModifyLaunchTemplate)
-{-# DEPRECATED mltLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
 
 -- | The version number of the launch template to set as the default version.
 --
 -- /Note:/ Consider using 'defaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltDefaultVersion :: Lens.Lens' ModifyLaunchTemplate (Lude.Maybe Lude.Text)
-mltDefaultVersion = Lens.lens (defaultVersion :: ModifyLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersion = a} :: ModifyLaunchTemplate)
+mltDefaultVersion :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Types.DefaultVersion)
+mltDefaultVersion = Lens.field @"defaultVersion"
 {-# DEPRECATED mltDefaultVersion "Use generic-lens or generic-optics with 'defaultVersion' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltDryRun :: Lens.Lens' ModifyLaunchTemplate (Lude.Maybe Lude.Bool)
-mltDryRun = Lens.lens (dryRun :: ModifyLaunchTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyLaunchTemplate)
+mltDryRun :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Core.Bool)
+mltDryRun = Lens.field @"dryRun"
 {-# DEPRECATED mltDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ModifyLaunchTemplate where
+-- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
+--
+-- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mltLaunchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Types.LaunchTemplateId)
+mltLaunchTemplateId = Lens.field @"launchTemplateId"
+{-# DEPRECATED mltLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+
+-- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mltLaunchTemplateName :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Types.LaunchTemplateName)
+mltLaunchTemplateName = Lens.field @"launchTemplateName"
+{-# DEPRECATED mltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
+
+instance Core.AWSRequest ModifyLaunchTemplate where
   type Rs ModifyLaunchTemplate = ModifyLaunchTemplateResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyLaunchTemplate")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "SetDefaultVersion" Core.<$> defaultVersion)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "LaunchTemplateId" Core.<$> launchTemplateId)
+                Core.<> ( Core.toQueryValue "LaunchTemplateName"
+                            Core.<$> launchTemplateName
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyLaunchTemplateResponse'
-            Lude.<$> (x Lude..@? "launchTemplate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "launchTemplate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyLaunchTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyLaunchTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyLaunchTemplate where
-  toQuery ModifyLaunchTemplate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyLaunchTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "LaunchTemplateName" Lude.=: launchTemplateName,
-        "ClientToken" Lude.=: clientToken,
-        "LaunchTemplateId" Lude.=: launchTemplateId,
-        "SetDefaultVersion" Lude.=: defaultVersion,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkModifyLaunchTemplateResponse' smart constructor.
 data ModifyLaunchTemplateResponse = ModifyLaunchTemplateResponse'
   { -- | Information about the launch template.
-    launchTemplate :: Lude.Maybe LaunchTemplate,
+    launchTemplate :: Core.Maybe Types.LaunchTemplate,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ModifyLaunchTemplateResponse' with the minimum fields required to make a request.
---
--- * 'launchTemplate' - Information about the launch template.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyLaunchTemplateResponse' value with any optional fields omitted.
 mkModifyLaunchTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyLaunchTemplateResponse
-mkModifyLaunchTemplateResponse pResponseStatus_ =
+mkModifyLaunchTemplateResponse responseStatus =
   ModifyLaunchTemplateResponse'
-    { launchTemplate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { launchTemplate = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the launch template.
 --
 -- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltrsLaunchTemplate :: Lens.Lens' ModifyLaunchTemplateResponse (Lude.Maybe LaunchTemplate)
-mltrsLaunchTemplate = Lens.lens (launchTemplate :: ModifyLaunchTemplateResponse -> Lude.Maybe LaunchTemplate) (\s a -> s {launchTemplate = a} :: ModifyLaunchTemplateResponse)
-{-# DEPRECATED mltrsLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
+mltrrsLaunchTemplate :: Lens.Lens' ModifyLaunchTemplateResponse (Core.Maybe Types.LaunchTemplate)
+mltrrsLaunchTemplate = Lens.field @"launchTemplate"
+{-# DEPRECATED mltrrsLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mltrsResponseStatus :: Lens.Lens' ModifyLaunchTemplateResponse Lude.Int
-mltrsResponseStatus = Lens.lens (responseStatus :: ModifyLaunchTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyLaunchTemplateResponse)
-{-# DEPRECATED mltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mltrrsResponseStatus :: Lens.Lens' ModifyLaunchTemplateResponse Core.Int
+mltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

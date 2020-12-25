@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.FileSystemAccessMode
   ( FileSystemAccessMode
       ( FileSystemAccessMode',
-        RW,
-        RO
+        FileSystemAccessModeRW,
+        FileSystemAccessModeRO,
+        fromFileSystemAccessMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FileSystemAccessMode = FileSystemAccessMode' Lude.Text
+newtype FileSystemAccessMode = FileSystemAccessMode'
+  { fromFileSystemAccessMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RW :: FileSystemAccessMode
-pattern RW = FileSystemAccessMode' "rw"
+pattern FileSystemAccessModeRW :: FileSystemAccessMode
+pattern FileSystemAccessModeRW = FileSystemAccessMode' "rw"
 
-pattern RO :: FileSystemAccessMode
-pattern RO = FileSystemAccessMode' "ro"
+pattern FileSystemAccessModeRO :: FileSystemAccessMode
+pattern FileSystemAccessModeRO = FileSystemAccessMode' "ro"
 
 {-# COMPLETE
-  RW,
-  RO,
+  FileSystemAccessModeRW,
+  FileSystemAccessModeRO,
   FileSystemAccessMode'
   #-}

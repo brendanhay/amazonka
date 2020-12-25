@@ -20,7 +20,7 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     mkSetPlatformApplicationAttributes,
 
     -- ** Request lenses
-    spaaPlatformApplicationARN,
+    spaaPlatformApplicationArn,
     spaaAttributes,
 
     -- * Destructuring the response
@@ -30,17 +30,17 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for SetPlatformApplicationAttributes action.
 --
 -- /See:/ 'mkSetPlatformApplicationAttributes' smart constructor.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
   { -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-    platformApplicationARN :: Lude.Text,
+    platformApplicationArn :: Types.String,
     -- | A map of the platform application attributes. Attributes in this map include the following:
     --
     --
@@ -69,59 +69,28 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
     --
     --
     --     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
-    attributes :: Lude.HashMap Lude.Text (Lude.Text)
+    attributes :: Core.HashMap Types.String Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetPlatformApplicationAttributes' with the minimum fields required to make a request.
---
--- * 'platformApplicationARN' - PlatformApplicationArn for SetPlatformApplicationAttributes action.
--- * 'attributes' - A map of the platform application attributes. Attributes in this map include the following:
---
---
---     * @PlatformCredential@ – The credential received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformCredential@ is @private key@ . For @GCM@ (Firebase Cloud Messaging), @PlatformCredential@ is @API key@ . For @ADM@ , @PlatformCredential@ is @client secret@ .
---
---
---     * @PlatformPrincipal@ – The principal received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformPrincipal@ is @SSL certificate@ . For @GCM@ (Firebase Cloud Messaging), there is no @PlatformPrincipal@ . For @ADM@ , @PlatformPrincipal@ is @client id@ .
---
---
---     * @EventEndpointCreated@ – Topic ARN to which @EndpointCreated@ event notifications are sent.
---
---
---     * @EventEndpointDeleted@ – Topic ARN to which @EndpointDeleted@ event notifications are sent.
---
---
---     * @EventEndpointUpdated@ – Topic ARN to which @EndpointUpdate@ event notifications are sent.
---
---
---     * @EventDeliveryFailure@ – Topic ARN to which @DeliveryFailure@ event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
---
---
---     * @SuccessFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
---
---
---     * @FailureFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
---
---
---     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
+-- | Creates a 'SetPlatformApplicationAttributes' value with any optional fields omitted.
 mkSetPlatformApplicationAttributes ::
-  -- | 'platformApplicationARN'
-  Lude.Text ->
+  -- | 'platformApplicationArn'
+  Types.String ->
   SetPlatformApplicationAttributes
-mkSetPlatformApplicationAttributes pPlatformApplicationARN_ =
+mkSetPlatformApplicationAttributes platformApplicationArn =
   SetPlatformApplicationAttributes'
-    { platformApplicationARN =
-        pPlatformApplicationARN_,
-      attributes = Lude.mempty
+    { platformApplicationArn,
+      attributes = Core.mempty
     }
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 --
--- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spaaPlatformApplicationARN :: Lens.Lens' SetPlatformApplicationAttributes Lude.Text
-spaaPlatformApplicationARN = Lens.lens (platformApplicationARN :: SetPlatformApplicationAttributes -> Lude.Text) (\s a -> s {platformApplicationARN = a} :: SetPlatformApplicationAttributes)
-{-# DEPRECATED spaaPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
+-- /Note:/ Consider using 'platformApplicationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spaaPlatformApplicationArn :: Lens.Lens' SetPlatformApplicationAttributes Types.String
+spaaPlatformApplicationArn = Lens.field @"platformApplicationArn"
+{-# DEPRECATED spaaPlatformApplicationArn "Use generic-lens or generic-optics with 'platformApplicationArn' instead." #-}
 
 -- | A map of the platform application attributes. Attributes in this map include the following:
 --
@@ -155,41 +124,45 @@ spaaPlatformApplicationARN = Lens.lens (platformApplicationARN :: SetPlatformApp
 --
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spaaAttributes :: Lens.Lens' SetPlatformApplicationAttributes (Lude.HashMap Lude.Text (Lude.Text))
-spaaAttributes = Lens.lens (attributes :: SetPlatformApplicationAttributes -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: SetPlatformApplicationAttributes)
+spaaAttributes :: Lens.Lens' SetPlatformApplicationAttributes (Core.HashMap Types.String Types.String)
+spaaAttributes = Lens.field @"attributes"
 {-# DEPRECATED spaaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.AWSRequest SetPlatformApplicationAttributes where
+instance Core.AWSRequest SetPlatformApplicationAttributes where
   type
     Rs SetPlatformApplicationAttributes =
       SetPlatformApplicationAttributesResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetPlatformApplicationAttributes")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "PlatformApplicationArn" platformApplicationArn)
+                Core.<> ( Core.toQueryValue
+                            "Attributes"
+                            (Core.toQueryMap "entry" "key" "value" attributes)
+                        )
+            )
+      }
   response =
-    Res.receiveNull SetPlatformApplicationAttributesResponse'
-
-instance Lude.ToHeaders SetPlatformApplicationAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetPlatformApplicationAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetPlatformApplicationAttributes where
-  toQuery SetPlatformApplicationAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("SetPlatformApplicationAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "PlatformApplicationArn" Lude.=: platformApplicationARN,
-        "Attributes"
-          Lude.=: Lude.toQueryMap "entry" "key" "value" attributes
-      ]
+    Response.receiveNull SetPlatformApplicationAttributesResponse'
 
 -- | /See:/ 'mkSetPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetPlatformApplicationAttributesResponse' value with any optional fields omitted.
 mkSetPlatformApplicationAttributesResponse ::
   SetPlatformApplicationAttributesResponse
 mkSetPlatformApplicationAttributesResponse =

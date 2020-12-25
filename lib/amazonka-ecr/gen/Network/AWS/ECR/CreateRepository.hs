@@ -20,9 +20,9 @@ module Network.AWS.ECR.CreateRepository
     mkCreateRepository,
 
     -- ** Request lenses
-    crImageScanningConfiguration,
-    crEncryptionConfiguration,
     crRepositoryName,
+    crEncryptionConfiguration,
+    crImageScanningConfiguration,
     crImageTagMutability,
     crTags,
 
@@ -31,165 +31,150 @@ module Network.AWS.ECR.CreateRepository
     mkCreateRepositoryResponse,
 
     -- ** Response lenses
-    crrsRepository,
-    crrsResponseStatus,
+    crrrsRepository,
+    crrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { -- | The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
-    imageScanningConfiguration :: Lude.Maybe ImageScanningConfiguration,
+  { -- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
+    repositoryName :: Types.RepositoryName,
     -- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
-    -- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
-    repositoryName :: Lude.Text,
+    encryptionConfiguration :: Core.Maybe Types.EncryptionConfiguration,
+    -- | The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+    imageScanningConfiguration :: Core.Maybe Types.ImageScanningConfiguration,
     -- | The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-    imageTagMutability :: Lude.Maybe ImageTagMutability,
+    imageTagMutability :: Core.Maybe Types.ImageTagMutability,
     -- | The metadata that you apply to the repository to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRepository' with the minimum fields required to make a request.
---
--- * 'imageScanningConfiguration' - The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
--- * 'encryptionConfiguration' - The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
--- * 'repositoryName' - The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
--- * 'imageTagMutability' - The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
--- * 'tags' - The metadata that you apply to the repository to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+-- | Creates a 'CreateRepository' value with any optional fields omitted.
 mkCreateRepository ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   CreateRepository
-mkCreateRepository pRepositoryName_ =
+mkCreateRepository repositoryName =
   CreateRepository'
-    { imageScanningConfiguration = Lude.Nothing,
-      encryptionConfiguration = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      imageTagMutability = Lude.Nothing,
-      tags = Lude.Nothing
+    { repositoryName,
+      encryptionConfiguration = Core.Nothing,
+      imageScanningConfiguration = Core.Nothing,
+      imageTagMutability = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
---
--- /Note:/ Consider using 'imageScanningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crImageScanningConfiguration :: Lens.Lens' CreateRepository (Lude.Maybe ImageScanningConfiguration)
-crImageScanningConfiguration = Lens.lens (imageScanningConfiguration :: CreateRepository -> Lude.Maybe ImageScanningConfiguration) (\s a -> s {imageScanningConfiguration = a} :: CreateRepository)
-{-# DEPRECATED crImageScanningConfiguration "Use generic-lens or generic-optics with 'imageScanningConfiguration' instead." #-}
-
--- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
---
--- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crEncryptionConfiguration :: Lens.Lens' CreateRepository (Lude.Maybe EncryptionConfiguration)
-crEncryptionConfiguration = Lens.lens (encryptionConfiguration :: CreateRepository -> Lude.Maybe EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: CreateRepository)
-{-# DEPRECATED crEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
 
 -- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRepositoryName :: Lens.Lens' CreateRepository Lude.Text
-crRepositoryName = Lens.lens (repositoryName :: CreateRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateRepository)
+crRepositoryName :: Lens.Lens' CreateRepository Types.RepositoryName
+crRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED crRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+--
+-- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crEncryptionConfiguration :: Lens.Lens' CreateRepository (Core.Maybe Types.EncryptionConfiguration)
+crEncryptionConfiguration = Lens.field @"encryptionConfiguration"
+{-# DEPRECATED crEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
+
+-- | The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+--
+-- /Note:/ Consider using 'imageScanningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crImageScanningConfiguration :: Lens.Lens' CreateRepository (Core.Maybe Types.ImageScanningConfiguration)
+crImageScanningConfiguration = Lens.field @"imageScanningConfiguration"
+{-# DEPRECATED crImageScanningConfiguration "Use generic-lens or generic-optics with 'imageScanningConfiguration' instead." #-}
 
 -- | The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 --
 -- /Note:/ Consider using 'imageTagMutability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crImageTagMutability :: Lens.Lens' CreateRepository (Lude.Maybe ImageTagMutability)
-crImageTagMutability = Lens.lens (imageTagMutability :: CreateRepository -> Lude.Maybe ImageTagMutability) (\s a -> s {imageTagMutability = a} :: CreateRepository)
+crImageTagMutability :: Lens.Lens' CreateRepository (Core.Maybe Types.ImageTagMutability)
+crImageTagMutability = Lens.field @"imageTagMutability"
 {-# DEPRECATED crImageTagMutability "Use generic-lens or generic-optics with 'imageTagMutability' instead." #-}
 
 -- | The metadata that you apply to the repository to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crTags :: Lens.Lens' CreateRepository (Lude.Maybe [Tag])
-crTags = Lens.lens (tags :: CreateRepository -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRepository)
+crTags :: Lens.Lens' CreateRepository (Core.Maybe [Types.Tag])
+crTags = Lens.field @"tags"
 {-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateRepository where
+instance Core.FromJSON CreateRepository where
+  toJSON CreateRepository {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            ("encryptionConfiguration" Core..=)
+              Core.<$> encryptionConfiguration,
+            ("imageScanningConfiguration" Core..=)
+              Core.<$> imageScanningConfiguration,
+            ("imageTagMutability" Core..=) Core.<$> imageTagMutability,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateRepository where
   type Rs CreateRepository = CreateRepositoryResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.CreateRepository"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateRepositoryResponse'
-            Lude.<$> (x Lude..?> "repository") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "repository") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateRepository where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.CreateRepository" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateRepository where
-  toJSON CreateRepository' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("imageScanningConfiguration" Lude..=)
-              Lude.<$> imageScanningConfiguration,
-            ("encryptionConfiguration" Lude..=)
-              Lude.<$> encryptionConfiguration,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            ("imageTagMutability" Lude..=) Lude.<$> imageTagMutability,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateRepository where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateRepository where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
   { -- | The repository that was created.
-    repository :: Lude.Maybe Repository,
+    repository :: Core.Maybe Types.Repository,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.
---
--- * 'repository' - The repository that was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRepositoryResponse' value with any optional fields omitted.
 mkCreateRepositoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRepositoryResponse
-mkCreateRepositoryResponse pResponseStatus_ =
+mkCreateRepositoryResponse responseStatus =
   CreateRepositoryResponse'
-    { repository = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { repository = Core.Nothing,
+      responseStatus
     }
 
 -- | The repository that was created.
 --
 -- /Note:/ Consider using 'repository' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsRepository :: Lens.Lens' CreateRepositoryResponse (Lude.Maybe Repository)
-crrsRepository = Lens.lens (repository :: CreateRepositoryResponse -> Lude.Maybe Repository) (\s a -> s {repository = a} :: CreateRepositoryResponse)
-{-# DEPRECATED crrsRepository "Use generic-lens or generic-optics with 'repository' instead." #-}
+crrrsRepository :: Lens.Lens' CreateRepositoryResponse (Core.Maybe Types.Repository)
+crrrsRepository = Lens.field @"repository"
+{-# DEPRECATED crrrsRepository "Use generic-lens or generic-optics with 'repository' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsResponseStatus :: Lens.Lens' CreateRepositoryResponse Lude.Int
-crrsResponseStatus = Lens.lens (responseStatus :: CreateRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRepositoryResponse)
-{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crrrsResponseStatus :: Lens.Lens' CreateRepositoryResponse Core.Int
+crrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

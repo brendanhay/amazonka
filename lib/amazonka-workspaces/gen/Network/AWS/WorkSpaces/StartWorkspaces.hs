@@ -29,116 +29,101 @@ module Network.AWS.WorkSpaces.StartWorkspaces
     mkStartWorkspacesResponse,
 
     -- ** Response lenses
-    swrsFailedRequests,
-    swrsResponseStatus,
+    srsFailedRequests,
+    srsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkStartWorkspaces' smart constructor.
 newtype StartWorkspaces = StartWorkspaces'
   { -- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
-    startWorkspaceRequests :: Lude.NonEmpty StartRequest
+    startWorkspaceRequests :: Core.NonEmpty Types.StartRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartWorkspaces' with the minimum fields required to make a request.
---
--- * 'startWorkspaceRequests' - The WorkSpaces to start. You can specify up to 25 WorkSpaces.
+-- | Creates a 'StartWorkspaces' value with any optional fields omitted.
 mkStartWorkspaces ::
   -- | 'startWorkspaceRequests'
-  Lude.NonEmpty StartRequest ->
+  Core.NonEmpty Types.StartRequest ->
   StartWorkspaces
-mkStartWorkspaces pStartWorkspaceRequests_ =
-  StartWorkspaces'
-    { startWorkspaceRequests =
-        pStartWorkspaceRequests_
-    }
+mkStartWorkspaces startWorkspaceRequests =
+  StartWorkspaces' {startWorkspaceRequests}
 
 -- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
 --
 -- /Note:/ Consider using 'startWorkspaceRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swStartWorkspaceRequests :: Lens.Lens' StartWorkspaces (Lude.NonEmpty StartRequest)
-swStartWorkspaceRequests = Lens.lens (startWorkspaceRequests :: StartWorkspaces -> Lude.NonEmpty StartRequest) (\s a -> s {startWorkspaceRequests = a} :: StartWorkspaces)
+swStartWorkspaceRequests :: Lens.Lens' StartWorkspaces (Core.NonEmpty Types.StartRequest)
+swStartWorkspaceRequests = Lens.field @"startWorkspaceRequests"
 {-# DEPRECATED swStartWorkspaceRequests "Use generic-lens or generic-optics with 'startWorkspaceRequests' instead." #-}
 
-instance Lude.AWSRequest StartWorkspaces where
+instance Core.FromJSON StartWorkspaces where
+  toJSON StartWorkspaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("StartWorkspaceRequests" Core..= startWorkspaceRequests)
+          ]
+      )
+
+instance Core.AWSRequest StartWorkspaces where
   type Rs StartWorkspaces = StartWorkspacesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.StartWorkspaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartWorkspacesResponse'
-            Lude.<$> (x Lude..?> "FailedRequests" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedRequests")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartWorkspaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.StartWorkspaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartWorkspaces where
-  toJSON StartWorkspaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("StartWorkspaceRequests" Lude..= startWorkspaceRequests)
-          ]
-      )
-
-instance Lude.ToPath StartWorkspaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartWorkspaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartWorkspacesResponse' smart constructor.
 data StartWorkspacesResponse = StartWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be started.
-    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [Types.FailedWorkspaceChangeRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartWorkspacesResponse' with the minimum fields required to make a request.
---
--- * 'failedRequests' - Information about the WorkSpaces that could not be started.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartWorkspacesResponse' value with any optional fields omitted.
 mkStartWorkspacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartWorkspacesResponse
-mkStartWorkspacesResponse pResponseStatus_ =
+mkStartWorkspacesResponse responseStatus =
   StartWorkspacesResponse'
-    { failedRequests = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedRequests = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the WorkSpaces that could not be started.
 --
 -- /Note:/ Consider using 'failedRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swrsFailedRequests :: Lens.Lens' StartWorkspacesResponse (Lude.Maybe [FailedWorkspaceChangeRequest])
-swrsFailedRequests = Lens.lens (failedRequests :: StartWorkspacesResponse -> Lude.Maybe [FailedWorkspaceChangeRequest]) (\s a -> s {failedRequests = a} :: StartWorkspacesResponse)
-{-# DEPRECATED swrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
+srsFailedRequests :: Lens.Lens' StartWorkspacesResponse (Core.Maybe [Types.FailedWorkspaceChangeRequest])
+srsFailedRequests = Lens.field @"failedRequests"
+{-# DEPRECATED srsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swrsResponseStatus :: Lens.Lens' StartWorkspacesResponse Lude.Int
-swrsResponseStatus = Lens.lens (responseStatus :: StartWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartWorkspacesResponse)
-{-# DEPRECATED swrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartWorkspacesResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

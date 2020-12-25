@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.CandidateStatus
   ( CandidateStatus
       ( CandidateStatus',
-        CSCompleted,
-        CSInProgress,
-        CSFailed,
-        CSStopped,
-        CSStopping
+        CandidateStatusCompleted,
+        CandidateStatusInProgress,
+        CandidateStatusFailed,
+        CandidateStatusStopped,
+        CandidateStatusStopping,
+        fromCandidateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CandidateStatus = CandidateStatus' Lude.Text
+newtype CandidateStatus = CandidateStatus'
+  { fromCandidateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSCompleted :: CandidateStatus
-pattern CSCompleted = CandidateStatus' "Completed"
+pattern CandidateStatusCompleted :: CandidateStatus
+pattern CandidateStatusCompleted = CandidateStatus' "Completed"
 
-pattern CSInProgress :: CandidateStatus
-pattern CSInProgress = CandidateStatus' "InProgress"
+pattern CandidateStatusInProgress :: CandidateStatus
+pattern CandidateStatusInProgress = CandidateStatus' "InProgress"
 
-pattern CSFailed :: CandidateStatus
-pattern CSFailed = CandidateStatus' "Failed"
+pattern CandidateStatusFailed :: CandidateStatus
+pattern CandidateStatusFailed = CandidateStatus' "Failed"
 
-pattern CSStopped :: CandidateStatus
-pattern CSStopped = CandidateStatus' "Stopped"
+pattern CandidateStatusStopped :: CandidateStatus
+pattern CandidateStatusStopped = CandidateStatus' "Stopped"
 
-pattern CSStopping :: CandidateStatus
-pattern CSStopping = CandidateStatus' "Stopping"
+pattern CandidateStatusStopping :: CandidateStatus
+pattern CandidateStatusStopping = CandidateStatus' "Stopping"
 
 {-# COMPLETE
-  CSCompleted,
-  CSInProgress,
-  CSFailed,
-  CSStopped,
-  CSStopping,
+  CandidateStatusCompleted,
+  CandidateStatusInProgress,
+  CandidateStatusFailed,
+  CandidateStatusStopped,
+  CandidateStatusStopping,
   CandidateStatus'
   #-}

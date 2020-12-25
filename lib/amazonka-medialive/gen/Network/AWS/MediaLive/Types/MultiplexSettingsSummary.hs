@@ -22,38 +22,34 @@ module Network.AWS.MediaLive.Types.MultiplexSettingsSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary configuration for a Multiplex event.
 --
 -- /See:/ 'mkMultiplexSettingsSummary' smart constructor.
 newtype MultiplexSettingsSummary = MultiplexSettingsSummary'
   { -- | Transport stream bit rate.
-    transportStreamBitrate :: Lude.Maybe Lude.Natural
+    transportStreamBitrate :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexSettingsSummary' with the minimum fields required to make a request.
---
--- * 'transportStreamBitrate' - Transport stream bit rate.
+-- | Creates a 'MultiplexSettingsSummary' value with any optional fields omitted.
 mkMultiplexSettingsSummary ::
   MultiplexSettingsSummary
 mkMultiplexSettingsSummary =
-  MultiplexSettingsSummary' {transportStreamBitrate = Lude.Nothing}
+  MultiplexSettingsSummary' {transportStreamBitrate = Core.Nothing}
 
 -- | Transport stream bit rate.
 --
 -- /Note:/ Consider using 'transportStreamBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTransportStreamBitrate :: Lens.Lens' MultiplexSettingsSummary (Lude.Maybe Lude.Natural)
-mTransportStreamBitrate = Lens.lens (transportStreamBitrate :: MultiplexSettingsSummary -> Lude.Maybe Lude.Natural) (\s a -> s {transportStreamBitrate = a} :: MultiplexSettingsSummary)
+mTransportStreamBitrate :: Lens.Lens' MultiplexSettingsSummary (Core.Maybe Core.Natural)
+mTransportStreamBitrate = Lens.field @"transportStreamBitrate"
 {-# DEPRECATED mTransportStreamBitrate "Use generic-lens or generic-optics with 'transportStreamBitrate' instead." #-}
 
-instance Lude.FromJSON MultiplexSettingsSummary where
+instance Core.FromJSON MultiplexSettingsSummary where
   parseJSON =
-    Lude.withObject
-      "MultiplexSettingsSummary"
-      ( \x ->
-          MultiplexSettingsSummary'
-            Lude.<$> (x Lude..:? "transportStreamBitrate")
-      )
+    Core.withObject "MultiplexSettingsSummary" Core.$
+      \x ->
+        MultiplexSettingsSummary'
+          Core.<$> (x Core..:? "transportStreamBitrate")

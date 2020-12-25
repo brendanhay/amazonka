@@ -17,59 +17,54 @@ module Network.AWS.GuardDuty.Types.UsageDataSourceResult
     mkUsageDataSourceResult,
 
     -- * Lenses
-    udsrTotal,
     udsrDataSource,
+    udsrTotal,
   )
 where
 
-import Network.AWS.GuardDuty.Types.DataSource
-import Network.AWS.GuardDuty.Types.Total
+import qualified Network.AWS.GuardDuty.Types.DataSource as Types
+import qualified Network.AWS.GuardDuty.Types.Total as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information on the result of usage based on data source type.
 --
 -- /See:/ 'mkUsageDataSourceResult' smart constructor.
 data UsageDataSourceResult = UsageDataSourceResult'
-  { -- | Represents the total of usage for the specified data source.
-    total :: Lude.Maybe Total,
-    -- | The data source type that generated usage.
-    dataSource :: Lude.Maybe DataSource
+  { -- | The data source type that generated usage.
+    dataSource :: Core.Maybe Types.DataSource,
+    -- | Represents the total of usage for the specified data source.
+    total :: Core.Maybe Types.Total
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UsageDataSourceResult' with the minimum fields required to make a request.
---
--- * 'total' - Represents the total of usage for the specified data source.
--- * 'dataSource' - The data source type that generated usage.
+-- | Creates a 'UsageDataSourceResult' value with any optional fields omitted.
 mkUsageDataSourceResult ::
   UsageDataSourceResult
 mkUsageDataSourceResult =
   UsageDataSourceResult'
-    { total = Lude.Nothing,
-      dataSource = Lude.Nothing
+    { dataSource = Core.Nothing,
+      total = Core.Nothing
     }
-
--- | Represents the total of usage for the specified data source.
---
--- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsrTotal :: Lens.Lens' UsageDataSourceResult (Lude.Maybe Total)
-udsrTotal = Lens.lens (total :: UsageDataSourceResult -> Lude.Maybe Total) (\s a -> s {total = a} :: UsageDataSourceResult)
-{-# DEPRECATED udsrTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | The data source type that generated usage.
 --
 -- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsrDataSource :: Lens.Lens' UsageDataSourceResult (Lude.Maybe DataSource)
-udsrDataSource = Lens.lens (dataSource :: UsageDataSourceResult -> Lude.Maybe DataSource) (\s a -> s {dataSource = a} :: UsageDataSourceResult)
+udsrDataSource :: Lens.Lens' UsageDataSourceResult (Core.Maybe Types.DataSource)
+udsrDataSource = Lens.field @"dataSource"
 {-# DEPRECATED udsrDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
-instance Lude.FromJSON UsageDataSourceResult where
+-- | Represents the total of usage for the specified data source.
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsrTotal :: Lens.Lens' UsageDataSourceResult (Core.Maybe Types.Total)
+udsrTotal = Lens.field @"total"
+{-# DEPRECATED udsrTotal "Use generic-lens or generic-optics with 'total' instead." #-}
+
+instance Core.FromJSON UsageDataSourceResult where
   parseJSON =
-    Lude.withObject
-      "UsageDataSourceResult"
-      ( \x ->
-          UsageDataSourceResult'
-            Lude.<$> (x Lude..:? "total") Lude.<*> (x Lude..:? "dataSource")
-      )
+    Core.withObject "UsageDataSourceResult" Core.$
+      \x ->
+        UsageDataSourceResult'
+          Core.<$> (x Core..:? "dataSource") Core.<*> (x Core..:? "total")

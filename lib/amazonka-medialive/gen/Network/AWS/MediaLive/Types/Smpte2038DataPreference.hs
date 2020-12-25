@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Smpte2038DataPreference
   ( Smpte2038DataPreference
       ( Smpte2038DataPreference',
-        Ignore,
-        Prefer
+        Smpte2038DataPreferenceIgnore,
+        Smpte2038DataPreferencePrefer,
+        fromSmpte2038DataPreference
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Smpte2038 Data Preference
-newtype Smpte2038DataPreference = Smpte2038DataPreference' Lude.Text
+newtype Smpte2038DataPreference = Smpte2038DataPreference'
+  { fromSmpte2038DataPreference ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ignore :: Smpte2038DataPreference
-pattern Ignore = Smpte2038DataPreference' "IGNORE"
+pattern Smpte2038DataPreferenceIgnore :: Smpte2038DataPreference
+pattern Smpte2038DataPreferenceIgnore = Smpte2038DataPreference' "IGNORE"
 
-pattern Prefer :: Smpte2038DataPreference
-pattern Prefer = Smpte2038DataPreference' "PREFER"
+pattern Smpte2038DataPreferencePrefer :: Smpte2038DataPreference
+pattern Smpte2038DataPreferencePrefer = Smpte2038DataPreference' "PREFER"
 
 {-# COMPLETE
-  Ignore,
-  Prefer,
+  Smpte2038DataPreferenceIgnore,
+  Smpte2038DataPreferencePrefer,
   Smpte2038DataPreference'
   #-}

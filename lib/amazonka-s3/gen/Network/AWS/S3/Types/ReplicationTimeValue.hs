@@ -22,8 +22,8 @@ module Network.AWS.S3.Types.ReplicationTimeValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics @EventThreshold@ .
 --
@@ -32,33 +32,29 @@ newtype ReplicationTimeValue = ReplicationTimeValue'
   { -- | Contains an integer specifying time in minutes.
     --
     -- Valid values: 15 minutes.
-    minutes :: Lude.Maybe Lude.Int
+    minutes :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationTimeValue' with the minimum fields required to make a request.
---
--- * 'minutes' - Contains an integer specifying time in minutes.
---
--- Valid values: 15 minutes.
+-- | Creates a 'ReplicationTimeValue' value with any optional fields omitted.
 mkReplicationTimeValue ::
   ReplicationTimeValue
 mkReplicationTimeValue =
-  ReplicationTimeValue' {minutes = Lude.Nothing}
+  ReplicationTimeValue' {minutes = Core.Nothing}
 
 -- | Contains an integer specifying time in minutes.
 --
 -- Valid values: 15 minutes.
 --
 -- /Note:/ Consider using 'minutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtvMinutes :: Lens.Lens' ReplicationTimeValue (Lude.Maybe Lude.Int)
-rtvMinutes = Lens.lens (minutes :: ReplicationTimeValue -> Lude.Maybe Lude.Int) (\s a -> s {minutes = a} :: ReplicationTimeValue)
+rtvMinutes :: Lens.Lens' ReplicationTimeValue (Core.Maybe Core.Int)
+rtvMinutes = Lens.field @"minutes"
 {-# DEPRECATED rtvMinutes "Use generic-lens or generic-optics with 'minutes' instead." #-}
 
-instance Lude.FromXML ReplicationTimeValue where
-  parseXML x = ReplicationTimeValue' Lude.<$> (x Lude..@? "Minutes")
+instance Core.ToXML ReplicationTimeValue where
+  toXML ReplicationTimeValue {..} =
+    Core.toXMLNode "Minutes" Core.<$> minutes
 
-instance Lude.ToXML ReplicationTimeValue where
-  toXML ReplicationTimeValue' {..} =
-    Lude.mconcat ["Minutes" Lude.@= minutes]
+instance Core.FromXML ReplicationTimeValue where
+  parseXML x = ReplicationTimeValue' Core.<$> (x Core..@? "Minutes")

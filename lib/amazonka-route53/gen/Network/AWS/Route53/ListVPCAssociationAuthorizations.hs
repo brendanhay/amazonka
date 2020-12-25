@@ -24,188 +24,175 @@ module Network.AWS.Route53.ListVPCAssociationAuthorizations
     mkListVPCAssociationAuthorizations,
 
     -- ** Request lenses
-    lvaaHostedZoneId,
-    lvaaNextToken,
-    lvaaMaxResults,
+    lvpcaaHostedZoneId,
+    lvpcaaMaxResults,
+    lvpcaaNextToken,
 
     -- * Destructuring the response
     ListVPCAssociationAuthorizationsResponse (..),
     mkListVPCAssociationAuthorizationsResponse,
 
     -- ** Response lenses
-    lvaarsHostedZoneId,
-    lvaarsVPCs,
-    lvaarsNextToken,
-    lvaarsResponseStatus,
+    lvpcaarrsHostedZoneId,
+    lvpcaarrsVPCs,
+    lvpcaarrsNextToken,
+    lvpcaarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains information about that can be associated with your hosted zone.
 --
 -- /See:/ 'mkListVPCAssociationAuthorizations' smart constructor.
 data ListVPCAssociationAuthorizations = ListVPCAssociationAuthorizations'
   { -- | The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
-    hostedZoneId :: ResourceId,
-    -- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
-    nextToken :: Lude.Maybe Lude.Text,
+    hostedZoneId :: Types.HostedZoneId,
     -- | /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for @MaxResults@ , Route 53 returns up to 50 VPCs per page.
-    maxResults :: Lude.Maybe Lude.Text
+    maxResults :: Core.Maybe Types.MaxResults,
+    -- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListVPCAssociationAuthorizations' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
--- * 'nextToken' - /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
--- * 'maxResults' - /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for @MaxResults@ , Route 53 returns up to 50 VPCs per page.
+-- | Creates a 'ListVPCAssociationAuthorizations' value with any optional fields omitted.
 mkListVPCAssociationAuthorizations ::
   -- | 'hostedZoneId'
-  ResourceId ->
+  Types.HostedZoneId ->
   ListVPCAssociationAuthorizations
-mkListVPCAssociationAuthorizations pHostedZoneId_ =
+mkListVPCAssociationAuthorizations hostedZoneId =
   ListVPCAssociationAuthorizations'
-    { hostedZoneId = pHostedZoneId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { hostedZoneId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaaHostedZoneId :: Lens.Lens' ListVPCAssociationAuthorizations ResourceId
-lvaaHostedZoneId = Lens.lens (hostedZoneId :: ListVPCAssociationAuthorizations -> ResourceId) (\s a -> s {hostedZoneId = a} :: ListVPCAssociationAuthorizations)
-{-# DEPRECATED lvaaHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
-
--- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaaNextToken :: Lens.Lens' ListVPCAssociationAuthorizations (Lude.Maybe Lude.Text)
-lvaaNextToken = Lens.lens (nextToken :: ListVPCAssociationAuthorizations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVPCAssociationAuthorizations)
-{-# DEPRECATED lvaaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lvpcaaHostedZoneId :: Lens.Lens' ListVPCAssociationAuthorizations Types.HostedZoneId
+lvpcaaHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED lvpcaaHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for @MaxResults@ , Route 53 returns up to 50 VPCs per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaaMaxResults :: Lens.Lens' ListVPCAssociationAuthorizations (Lude.Maybe Lude.Text)
-lvaaMaxResults = Lens.lens (maxResults :: ListVPCAssociationAuthorizations -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListVPCAssociationAuthorizations)
-{-# DEPRECATED lvaaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lvpcaaMaxResults :: Lens.Lens' ListVPCAssociationAuthorizations (Core.Maybe Types.MaxResults)
+lvpcaaMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lvpcaaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListVPCAssociationAuthorizations where
-  page rq rs
-    | Page.stop (rs Lens.^. lvaarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lvaarsVPCs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lvaaNextToken Lens..~ rs Lens.^. lvaarsNextToken
+-- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvpcaaNextToken :: Lens.Lens' ListVPCAssociationAuthorizations (Core.Maybe Types.PaginationToken)
+lvpcaaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lvpcaaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListVPCAssociationAuthorizations where
+instance Core.AWSRequest ListVPCAssociationAuthorizations where
   type
     Rs ListVPCAssociationAuthorizations =
       ListVPCAssociationAuthorizationsResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2013-04-01/hostedzone/" Core.<> (Core.toText hostedZoneId)
+                Core.<> ("/authorizevpcassociation")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxresults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nexttoken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListVPCAssociationAuthorizationsResponse'
-            Lude.<$> (x Lude..@ "HostedZoneId")
-            Lude.<*> ( x Lude..@? "VPCs" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLNonEmpty "VPC"
-                     )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "HostedZoneId")
+            Core.<*> (x Core..@ "VPCs" Core..<@> Core.parseXMLNonEmpty "VPC")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListVPCAssociationAuthorizations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListVPCAssociationAuthorizations where
-  toPath ListVPCAssociationAuthorizations' {..} =
-    Lude.mconcat
-      [ "/2013-04-01/hostedzone/",
-        Lude.toBS hostedZoneId,
-        "/authorizevpcassociation"
-      ]
-
-instance Lude.ToQuery ListVPCAssociationAuthorizations where
-  toQuery ListVPCAssociationAuthorizations' {..} =
-    Lude.mconcat
-      ["nexttoken" Lude.=: nextToken, "maxresults" Lude.=: maxResults]
+instance Pager.AWSPager ListVPCAssociationAuthorizations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"vPCs") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | A complex type that contains the response information for the request.
 --
 -- /See:/ 'mkListVPCAssociationAuthorizationsResponse' smart constructor.
 data ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizationsResponse'
   { -- | The ID of the hosted zone that you can associate the listed VPCs with.
-    hostedZoneId :: ResourceId,
+    hostedZoneId :: Types.ResourceId,
     -- | The list of VPCs that are authorized to be associated with the specified hosted zone.
-    vpcs :: Lude.NonEmpty VPC,
+    vPCs :: Core.NonEmpty Types.VPC,
     -- | When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListVPCAssociationAuthorizationsResponse' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - The ID of the hosted zone that you can associate the listed VPCs with.
--- * 'vpcs' - The list of VPCs that are authorized to be associated with the specified hosted zone.
--- * 'nextToken' - When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListVPCAssociationAuthorizationsResponse' value with any optional fields omitted.
 mkListVPCAssociationAuthorizationsResponse ::
   -- | 'hostedZoneId'
-  ResourceId ->
-  -- | 'vpcs'
-  Lude.NonEmpty VPC ->
+  Types.ResourceId ->
+  -- | 'vPCs'
+  Core.NonEmpty Types.VPC ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListVPCAssociationAuthorizationsResponse
 mkListVPCAssociationAuthorizationsResponse
-  pHostedZoneId_
-  pVPCs_
-  pResponseStatus_ =
+  hostedZoneId
+  vPCs
+  responseStatus =
     ListVPCAssociationAuthorizationsResponse'
-      { hostedZoneId =
-          pHostedZoneId_,
-        vpcs = pVPCs_,
-        nextToken = Lude.Nothing,
-        responseStatus = pResponseStatus_
+      { hostedZoneId,
+        vPCs,
+        nextToken = Core.Nothing,
+        responseStatus
       }
 
 -- | The ID of the hosted zone that you can associate the listed VPCs with.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaarsHostedZoneId :: Lens.Lens' ListVPCAssociationAuthorizationsResponse ResourceId
-lvaarsHostedZoneId = Lens.lens (hostedZoneId :: ListVPCAssociationAuthorizationsResponse -> ResourceId) (\s a -> s {hostedZoneId = a} :: ListVPCAssociationAuthorizationsResponse)
-{-# DEPRECATED lvaarsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+lvpcaarrsHostedZoneId :: Lens.Lens' ListVPCAssociationAuthorizationsResponse Types.ResourceId
+lvpcaarrsHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED lvpcaarrsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The list of VPCs that are authorized to be associated with the specified hosted zone.
 --
--- /Note:/ Consider using 'vpcs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaarsVPCs :: Lens.Lens' ListVPCAssociationAuthorizationsResponse (Lude.NonEmpty VPC)
-lvaarsVPCs = Lens.lens (vpcs :: ListVPCAssociationAuthorizationsResponse -> Lude.NonEmpty VPC) (\s a -> s {vpcs = a} :: ListVPCAssociationAuthorizationsResponse)
-{-# DEPRECATED lvaarsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
+-- /Note:/ Consider using 'vPCs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvpcaarrsVPCs :: Lens.Lens' ListVPCAssociationAuthorizationsResponse (Core.NonEmpty Types.VPC)
+lvpcaarrsVPCs = Lens.field @"vPCs"
+{-# DEPRECATED lvpcaarrsVPCs "Use generic-lens or generic-optics with 'vPCs' instead." #-}
 
 -- | When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaarsNextToken :: Lens.Lens' ListVPCAssociationAuthorizationsResponse (Lude.Maybe Lude.Text)
-lvaarsNextToken = Lens.lens (nextToken :: ListVPCAssociationAuthorizationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVPCAssociationAuthorizationsResponse)
-{-# DEPRECATED lvaarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lvpcaarrsNextToken :: Lens.Lens' ListVPCAssociationAuthorizationsResponse (Core.Maybe Types.PaginationToken)
+lvpcaarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lvpcaarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvaarsResponseStatus :: Lens.Lens' ListVPCAssociationAuthorizationsResponse Lude.Int
-lvaarsResponseStatus = Lens.lens (responseStatus :: ListVPCAssociationAuthorizationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVPCAssociationAuthorizationsResponse)
-{-# DEPRECATED lvaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lvpcaarrsResponseStatus :: Lens.Lens' ListVPCAssociationAuthorizationsResponse Core.Int
+lvpcaarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lvpcaarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

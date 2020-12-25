@@ -13,56 +13,58 @@
 module Network.AWS.ECS.Types.ClusterField
   ( ClusterField
       ( ClusterField',
-        CFAttachments,
-        CFSettings,
-        CFStatistics,
-        CFTags
+        ClusterFieldAttachments,
+        ClusterFieldSettings,
+        ClusterFieldStatistics,
+        ClusterFieldTags,
+        fromClusterField
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ClusterField = ClusterField' Lude.Text
+newtype ClusterField = ClusterField' {fromClusterField :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CFAttachments :: ClusterField
-pattern CFAttachments = ClusterField' "ATTACHMENTS"
+pattern ClusterFieldAttachments :: ClusterField
+pattern ClusterFieldAttachments = ClusterField' "ATTACHMENTS"
 
-pattern CFSettings :: ClusterField
-pattern CFSettings = ClusterField' "SETTINGS"
+pattern ClusterFieldSettings :: ClusterField
+pattern ClusterFieldSettings = ClusterField' "SETTINGS"
 
-pattern CFStatistics :: ClusterField
-pattern CFStatistics = ClusterField' "STATISTICS"
+pattern ClusterFieldStatistics :: ClusterField
+pattern ClusterFieldStatistics = ClusterField' "STATISTICS"
 
-pattern CFTags :: ClusterField
-pattern CFTags = ClusterField' "TAGS"
+pattern ClusterFieldTags :: ClusterField
+pattern ClusterFieldTags = ClusterField' "TAGS"
 
 {-# COMPLETE
-  CFAttachments,
-  CFSettings,
-  CFStatistics,
-  CFTags,
+  ClusterFieldAttachments,
+  ClusterFieldSettings,
+  ClusterFieldStatistics,
+  ClusterFieldTags,
   ClusterField'
   #-}

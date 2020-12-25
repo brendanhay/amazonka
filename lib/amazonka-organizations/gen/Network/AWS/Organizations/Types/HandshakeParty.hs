@@ -23,8 +23,9 @@ module Network.AWS.Organizations.Types.HandshakeParty
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.HandshakePartyType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.HandshakePartyId as Types
+import qualified Network.AWS.Organizations.Types.HandshakePartyType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies a participant in a handshake.
 --
@@ -33,56 +34,48 @@ data HandshakeParty = HandshakeParty'
   { -- | The unique identifier (ID) for the party.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
-    id :: Lude.Sensitive Lude.Text,
+    id :: Types.HandshakePartyId,
     -- | The type of party.
-    type' :: HandshakePartyType
+    type' :: Types.HandshakePartyType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HandshakeParty' with the minimum fields required to make a request.
---
--- * 'id' - The unique identifier (ID) for the party.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
--- * 'type'' - The type of party.
+-- | Creates a 'HandshakeParty' value with any optional fields omitted.
 mkHandshakeParty ::
   -- | 'id'
-  Lude.Sensitive Lude.Text ->
-  -- | 'type''
-  HandshakePartyType ->
+  Types.HandshakePartyId ->
+  -- | 'type\''
+  Types.HandshakePartyType ->
   HandshakeParty
-mkHandshakeParty pId_ pType_ =
-  HandshakeParty' {id = pId_, type' = pType_}
+mkHandshakeParty id type' = HandshakeParty' {id, type'}
 
 -- | The unique identifier (ID) for the party.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpId :: Lens.Lens' HandshakeParty (Lude.Sensitive Lude.Text)
-hpId = Lens.lens (id :: HandshakeParty -> Lude.Sensitive Lude.Text) (\s a -> s {id = a} :: HandshakeParty)
+hpId :: Lens.Lens' HandshakeParty Types.HandshakePartyId
+hpId = Lens.field @"id"
 {-# DEPRECATED hpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of party.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpType :: Lens.Lens' HandshakeParty HandshakePartyType
-hpType = Lens.lens (type' :: HandshakeParty -> HandshakePartyType) (\s a -> s {type' = a} :: HandshakeParty)
+hpType :: Lens.Lens' HandshakeParty Types.HandshakePartyType
+hpType = Lens.field @"type'"
 {-# DEPRECATED hpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON HandshakeParty where
-  parseJSON =
-    Lude.withObject
-      "HandshakeParty"
-      ( \x ->
-          HandshakeParty'
-            Lude.<$> (x Lude..: "Id") Lude.<*> (x Lude..: "Type")
+instance Core.FromJSON HandshakeParty where
+  toJSON HandshakeParty {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Id" Core..= id), Core.Just ("Type" Core..= type')]
       )
 
-instance Lude.ToJSON HandshakeParty where
-  toJSON HandshakeParty' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Id" Lude..= id), Lude.Just ("Type" Lude..= type')]
-      )
+instance Core.FromJSON HandshakeParty where
+  parseJSON =
+    Core.withObject "HandshakeParty" Core.$
+      \x ->
+        HandshakeParty'
+          Core.<$> (x Core..: "Id") Core.<*> (x Core..: "Type")

@@ -17,112 +17,107 @@ module Network.AWS.WorkDocs.Types.ShareResult
     mkShareResult,
 
     -- * Lenses
-    srStatus,
-    srPrincipalId,
     srInviteePrincipalId,
+    srPrincipalId,
     srRole,
-    srStatusMessage,
     srShareId,
+    srStatus,
+    srStatusMessage,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.RoleType
-import Network.AWS.WorkDocs.Types.ShareStatusType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.InviteePrincipalId as Types
+import qualified Network.AWS.WorkDocs.Types.PrincipalId as Types
+import qualified Network.AWS.WorkDocs.Types.RoleType as Types
+import qualified Network.AWS.WorkDocs.Types.ShareId as Types
+import qualified Network.AWS.WorkDocs.Types.ShareStatusType as Types
+import qualified Network.AWS.WorkDocs.Types.StatusMessage as Types
 
 -- | Describes the share results of a resource.
 --
 -- /See:/ 'mkShareResult' smart constructor.
 data ShareResult = ShareResult'
-  { -- | The status.
-    status :: Lude.Maybe ShareStatusType,
+  { -- | The ID of the invited user.
+    inviteePrincipalId :: Core.Maybe Types.InviteePrincipalId,
     -- | The ID of the principal.
-    principalId :: Lude.Maybe Lude.Text,
-    -- | The ID of the invited user.
-    inviteePrincipalId :: Lude.Maybe Lude.Text,
+    principalId :: Core.Maybe Types.PrincipalId,
     -- | The role.
-    role' :: Lude.Maybe RoleType,
-    -- | The status message.
-    statusMessage :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    role' :: Core.Maybe Types.RoleType,
     -- | The ID of the resource that was shared.
-    shareId :: Lude.Maybe Lude.Text
+    shareId :: Core.Maybe Types.ShareId,
+    -- | The status.
+    status :: Core.Maybe Types.ShareStatusType,
+    -- | The status message.
+    statusMessage :: Core.Maybe Types.StatusMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShareResult' with the minimum fields required to make a request.
---
--- * 'status' - The status.
--- * 'principalId' - The ID of the principal.
--- * 'inviteePrincipalId' - The ID of the invited user.
--- * 'role'' - The role.
--- * 'statusMessage' - The status message.
--- * 'shareId' - The ID of the resource that was shared.
+-- | Creates a 'ShareResult' value with any optional fields omitted.
 mkShareResult ::
   ShareResult
 mkShareResult =
   ShareResult'
-    { status = Lude.Nothing,
-      principalId = Lude.Nothing,
-      inviteePrincipalId = Lude.Nothing,
-      role' = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      shareId = Lude.Nothing
+    { inviteePrincipalId = Core.Nothing,
+      principalId = Core.Nothing,
+      role' = Core.Nothing,
+      shareId = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing
     }
-
--- | The status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srStatus :: Lens.Lens' ShareResult (Lude.Maybe ShareStatusType)
-srStatus = Lens.lens (status :: ShareResult -> Lude.Maybe ShareStatusType) (\s a -> s {status = a} :: ShareResult)
-{-# DEPRECATED srStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The ID of the principal.
---
--- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srPrincipalId :: Lens.Lens' ShareResult (Lude.Maybe Lude.Text)
-srPrincipalId = Lens.lens (principalId :: ShareResult -> Lude.Maybe Lude.Text) (\s a -> s {principalId = a} :: ShareResult)
-{-# DEPRECATED srPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The ID of the invited user.
 --
 -- /Note:/ Consider using 'inviteePrincipalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srInviteePrincipalId :: Lens.Lens' ShareResult (Lude.Maybe Lude.Text)
-srInviteePrincipalId = Lens.lens (inviteePrincipalId :: ShareResult -> Lude.Maybe Lude.Text) (\s a -> s {inviteePrincipalId = a} :: ShareResult)
+srInviteePrincipalId :: Lens.Lens' ShareResult (Core.Maybe Types.InviteePrincipalId)
+srInviteePrincipalId = Lens.field @"inviteePrincipalId"
 {-# DEPRECATED srInviteePrincipalId "Use generic-lens or generic-optics with 'inviteePrincipalId' instead." #-}
+
+-- | The ID of the principal.
+--
+-- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srPrincipalId :: Lens.Lens' ShareResult (Core.Maybe Types.PrincipalId)
+srPrincipalId = Lens.field @"principalId"
+{-# DEPRECATED srPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The role.
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srRole :: Lens.Lens' ShareResult (Lude.Maybe RoleType)
-srRole = Lens.lens (role' :: ShareResult -> Lude.Maybe RoleType) (\s a -> s {role' = a} :: ShareResult)
+srRole :: Lens.Lens' ShareResult (Core.Maybe Types.RoleType)
+srRole = Lens.field @"role'"
 {-# DEPRECATED srRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | The status message.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srStatusMessage :: Lens.Lens' ShareResult (Lude.Maybe (Lude.Sensitive Lude.Text))
-srStatusMessage = Lens.lens (statusMessage :: ShareResult -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {statusMessage = a} :: ShareResult)
-{-# DEPRECATED srStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The ID of the resource that was shared.
 --
 -- /Note:/ Consider using 'shareId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srShareId :: Lens.Lens' ShareResult (Lude.Maybe Lude.Text)
-srShareId = Lens.lens (shareId :: ShareResult -> Lude.Maybe Lude.Text) (\s a -> s {shareId = a} :: ShareResult)
+srShareId :: Lens.Lens' ShareResult (Core.Maybe Types.ShareId)
+srShareId = Lens.field @"shareId"
 {-# DEPRECATED srShareId "Use generic-lens or generic-optics with 'shareId' instead." #-}
 
-instance Lude.FromJSON ShareResult where
+-- | The status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srStatus :: Lens.Lens' ShareResult (Core.Maybe Types.ShareStatusType)
+srStatus = Lens.field @"status"
+{-# DEPRECATED srStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The status message.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srStatusMessage :: Lens.Lens' ShareResult (Core.Maybe Types.StatusMessage)
+srStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED srStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+instance Core.FromJSON ShareResult where
   parseJSON =
-    Lude.withObject
-      "ShareResult"
-      ( \x ->
-          ShareResult'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "PrincipalId")
-            Lude.<*> (x Lude..:? "InviteePrincipalId")
-            Lude.<*> (x Lude..:? "Role")
-            Lude.<*> (x Lude..:? "StatusMessage")
-            Lude.<*> (x Lude..:? "ShareId")
-      )
+    Core.withObject "ShareResult" Core.$
+      \x ->
+        ShareResult'
+          Core.<$> (x Core..:? "InviteePrincipalId")
+          Core.<*> (x Core..:? "PrincipalId")
+          Core.<*> (x Core..:? "Role")
+          Core.<*> (x Core..:? "ShareId")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StatusMessage")

@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.PatchProperty
   ( PatchProperty
       ( PatchProperty',
-        PPProduct,
-        PPProductFamily,
-        PPClassification,
-        PPMsrcSeverity,
-        PPPriority,
-        PPSeverity
+        PatchPropertyProduct,
+        PatchPropertyProductFamily,
+        PatchPropertyClassification,
+        PatchPropertyMsrcSeverity,
+        PatchPropertyPriority,
+        PatchPropertySeverity,
+        fromPatchProperty
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PatchProperty = PatchProperty' Lude.Text
+newtype PatchProperty = PatchProperty'
+  { fromPatchProperty ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PPProduct :: PatchProperty
-pattern PPProduct = PatchProperty' "PRODUCT"
+pattern PatchPropertyProduct :: PatchProperty
+pattern PatchPropertyProduct = PatchProperty' "PRODUCT"
 
-pattern PPProductFamily :: PatchProperty
-pattern PPProductFamily = PatchProperty' "PRODUCT_FAMILY"
+pattern PatchPropertyProductFamily :: PatchProperty
+pattern PatchPropertyProductFamily = PatchProperty' "PRODUCT_FAMILY"
 
-pattern PPClassification :: PatchProperty
-pattern PPClassification = PatchProperty' "CLASSIFICATION"
+pattern PatchPropertyClassification :: PatchProperty
+pattern PatchPropertyClassification = PatchProperty' "CLASSIFICATION"
 
-pattern PPMsrcSeverity :: PatchProperty
-pattern PPMsrcSeverity = PatchProperty' "MSRC_SEVERITY"
+pattern PatchPropertyMsrcSeverity :: PatchProperty
+pattern PatchPropertyMsrcSeverity = PatchProperty' "MSRC_SEVERITY"
 
-pattern PPPriority :: PatchProperty
-pattern PPPriority = PatchProperty' "PRIORITY"
+pattern PatchPropertyPriority :: PatchProperty
+pattern PatchPropertyPriority = PatchProperty' "PRIORITY"
 
-pattern PPSeverity :: PatchProperty
-pattern PPSeverity = PatchProperty' "SEVERITY"
+pattern PatchPropertySeverity :: PatchProperty
+pattern PatchPropertySeverity = PatchProperty' "SEVERITY"
 
 {-# COMPLETE
-  PPProduct,
-  PPProductFamily,
-  PPClassification,
-  PPMsrcSeverity,
-  PPPriority,
-  PPSeverity,
+  PatchPropertyProduct,
+  PatchPropertyProductFamily,
+  PatchPropertyClassification,
+  PatchPropertyMsrcSeverity,
+  PatchPropertyPriority,
+  PatchPropertySeverity,
   PatchProperty'
   #-}

@@ -17,117 +17,102 @@ module Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary
     mkApplicationSummary,
 
     -- * Lenses
-    asCreationTime,
-    asHomePageURL,
+    asDescription,
+    asAuthor,
     asApplicationId,
     asName,
-    asAuthor,
+    asCreationTime,
+    asHomePageUrl,
     asLabels,
-    asDescription,
     asSpdxLicenseId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary of details about the application.
 --
 -- /See:/ 'mkApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { -- | The date and time this resource was created.
-    creationTime :: Lude.Maybe Lude.Text,
-    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
-    homePageURL :: Lude.Maybe Lude.Text,
-    -- | The application Amazon Resource Name (ARN).
-    applicationId :: Lude.Text,
-    -- | The name of the application.
+  { -- | The description of the application.
     --
-    -- Minimum length=1. Maximum length=140
-    -- Pattern: "[a-zA-Z0-9\\-]+";
-    name :: Lude.Text,
+    -- Minimum length=1. Maximum length=256
+    description :: Core.Text,
     -- | The name of the author publishing the app.
     --
     -- Minimum length=1. Maximum length=127.
     -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
-    author :: Lude.Text,
+    author :: Core.Text,
+    -- | The application Amazon Resource Name (ARN).
+    applicationId :: Core.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    -- Pattern: "[a-zA-Z0-9\\-]+";
+    name :: Core.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Core.Maybe Core.Text,
+    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
+    homePageUrl :: Core.Maybe Core.Text,
     -- | Labels to improve discovery of apps in search results.
     --
     -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
     -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-    labels :: Lude.Maybe [Lude.Text],
-    -- | The description of the application.
-    --
-    -- Minimum length=1. Maximum length=256
-    description :: Lude.Text,
+    labels :: Core.Maybe [Core.Text],
     -- | A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
-    spdxLicenseId :: Lude.Maybe Lude.Text
+    spdxLicenseId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationSummary' with the minimum fields required to make a request.
+-- | Creates a 'ApplicationSummary' value with any optional fields omitted.
+mkApplicationSummary ::
+  -- | 'description'
+  Core.Text ->
+  -- | 'author'
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
+  -- | 'name'
+  Core.Text ->
+  ApplicationSummary
+mkApplicationSummary description author applicationId name =
+  ApplicationSummary'
+    { description,
+      author,
+      applicationId,
+      name,
+      creationTime = Core.Nothing,
+      homePageUrl = Core.Nothing,
+      labels = Core.Nothing,
+      spdxLicenseId = Core.Nothing
+    }
+
+-- | The description of the application.
 --
--- * 'creationTime' - The date and time this resource was created.
--- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'name' - The name of the application.
+-- Minimum length=1. Maximum length=256
 --
--- Minimum length=1. Maximum length=140
--- Pattern: "[a-zA-Z0-9\\-]+";
--- * 'author' - The name of the author publishing the app.
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asDescription :: Lens.Lens' ApplicationSummary Core.Text
+asDescription = Lens.field @"description"
+{-# DEPRECATED asDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The name of the author publishing the app.
 --
 -- Minimum length=1. Maximum length=127.
 -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
--- * 'labels' - Labels to improve discovery of apps in search results.
 --
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
--- * 'spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
-mkApplicationSummary ::
-  -- | 'applicationId'
-  Lude.Text ->
-  -- | 'name'
-  Lude.Text ->
-  -- | 'author'
-  Lude.Text ->
-  -- | 'description'
-  Lude.Text ->
-  ApplicationSummary
-mkApplicationSummary pApplicationId_ pName_ pAuthor_ pDescription_ =
-  ApplicationSummary'
-    { creationTime = Lude.Nothing,
-      homePageURL = Lude.Nothing,
-      applicationId = pApplicationId_,
-      name = pName_,
-      author = pAuthor_,
-      labels = Lude.Nothing,
-      description = pDescription_,
-      spdxLicenseId = Lude.Nothing
-    }
-
--- | The date and time this resource was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCreationTime :: Lens.Lens' ApplicationSummary (Lude.Maybe Lude.Text)
-asCreationTime = Lens.lens (creationTime :: ApplicationSummary -> Lude.Maybe Lude.Text) (\s a -> s {creationTime = a} :: ApplicationSummary)
-{-# DEPRECATED asCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | A URL with more information about the application, for example the location of your GitHub repository for the application.
---
--- /Note:/ Consider using 'homePageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asHomePageURL :: Lens.Lens' ApplicationSummary (Lude.Maybe Lude.Text)
-asHomePageURL = Lens.lens (homePageURL :: ApplicationSummary -> Lude.Maybe Lude.Text) (\s a -> s {homePageURL = a} :: ApplicationSummary)
-{-# DEPRECATED asHomePageURL "Use generic-lens or generic-optics with 'homePageURL' instead." #-}
+-- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAuthor :: Lens.Lens' ApplicationSummary Core.Text
+asAuthor = Lens.field @"author"
+{-# DEPRECATED asAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
 
 -- | The application Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asApplicationId :: Lens.Lens' ApplicationSummary Lude.Text
-asApplicationId = Lens.lens (applicationId :: ApplicationSummary -> Lude.Text) (\s a -> s {applicationId = a} :: ApplicationSummary)
+asApplicationId :: Lens.Lens' ApplicationSummary Core.Text
+asApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED asApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The name of the application.
@@ -136,19 +121,23 @@ asApplicationId = Lens.lens (applicationId :: ApplicationSummary -> Lude.Text) (
 -- Pattern: "[a-zA-Z0-9\\-]+";
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asName :: Lens.Lens' ApplicationSummary Lude.Text
-asName = Lens.lens (name :: ApplicationSummary -> Lude.Text) (\s a -> s {name = a} :: ApplicationSummary)
+asName :: Lens.Lens' ApplicationSummary Core.Text
+asName = Lens.field @"name"
 {-# DEPRECATED asName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The name of the author publishing the app.
+-- | The date and time this resource was created.
 --
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCreationTime :: Lens.Lens' ApplicationSummary (Core.Maybe Core.Text)
+asCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED asCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | A URL with more information about the application, for example the location of your GitHub repository for the application.
 --
--- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAuthor :: Lens.Lens' ApplicationSummary Lude.Text
-asAuthor = Lens.lens (author :: ApplicationSummary -> Lude.Text) (\s a -> s {author = a} :: ApplicationSummary)
-{-# DEPRECATED asAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
+-- /Note:/ Consider using 'homePageUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asHomePageUrl :: Lens.Lens' ApplicationSummary (Core.Maybe Core.Text)
+asHomePageUrl = Lens.field @"homePageUrl"
+{-# DEPRECATED asHomePageUrl "Use generic-lens or generic-optics with 'homePageUrl' instead." #-}
 
 -- | Labels to improve discovery of apps in search results.
 --
@@ -156,38 +145,27 @@ asAuthor = Lens.lens (author :: ApplicationSummary -> Lude.Text) (\s a -> s {aut
 -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLabels :: Lens.Lens' ApplicationSummary (Lude.Maybe [Lude.Text])
-asLabels = Lens.lens (labels :: ApplicationSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: ApplicationSummary)
+asLabels :: Lens.Lens' ApplicationSummary (Core.Maybe [Core.Text])
+asLabels = Lens.field @"labels"
 {-# DEPRECATED asLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
-
--- | The description of the application.
---
--- Minimum length=1. Maximum length=256
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asDescription :: Lens.Lens' ApplicationSummary Lude.Text
-asDescription = Lens.lens (description :: ApplicationSummary -> Lude.Text) (\s a -> s {description = a} :: ApplicationSummary)
-{-# DEPRECATED asDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
 --
 -- /Note:/ Consider using 'spdxLicenseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSpdxLicenseId :: Lens.Lens' ApplicationSummary (Lude.Maybe Lude.Text)
-asSpdxLicenseId = Lens.lens (spdxLicenseId :: ApplicationSummary -> Lude.Maybe Lude.Text) (\s a -> s {spdxLicenseId = a} :: ApplicationSummary)
+asSpdxLicenseId :: Lens.Lens' ApplicationSummary (Core.Maybe Core.Text)
+asSpdxLicenseId = Lens.field @"spdxLicenseId"
 {-# DEPRECATED asSpdxLicenseId "Use generic-lens or generic-optics with 'spdxLicenseId' instead." #-}
 
-instance Lude.FromJSON ApplicationSummary where
+instance Core.FromJSON ApplicationSummary where
   parseJSON =
-    Lude.withObject
-      "ApplicationSummary"
-      ( \x ->
-          ApplicationSummary'
-            Lude.<$> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "homePageUrl")
-            Lude.<*> (x Lude..: "applicationId")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "author")
-            Lude.<*> (x Lude..:? "labels" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "description")
-            Lude.<*> (x Lude..:? "spdxLicenseId")
-      )
+    Core.withObject "ApplicationSummary" Core.$
+      \x ->
+        ApplicationSummary'
+          Core.<$> (x Core..: "description")
+          Core.<*> (x Core..: "author")
+          Core.<*> (x Core..: "applicationId")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "homePageUrl")
+          Core.<*> (x Core..:? "labels")
+          Core.<*> (x Core..:? "spdxLicenseId")

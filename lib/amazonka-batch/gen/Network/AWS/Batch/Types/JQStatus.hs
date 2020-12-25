@@ -13,66 +13,68 @@
 module Network.AWS.Batch.Types.JQStatus
   ( JQStatus
       ( JQStatus',
-        Creating,
-        Updating,
-        Deleting,
-        Deleted,
-        Valid,
-        Invalid
+        JQStatusCreating,
+        JQStatusUpdating,
+        JQStatusDeleting,
+        JQStatusDeleted,
+        JQStatusValid,
+        JQStatusInvalid,
+        fromJQStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JQStatus = JQStatus' Lude.Text
+newtype JQStatus = JQStatus' {fromJQStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: JQStatus
-pattern Creating = JQStatus' "CREATING"
+pattern JQStatusCreating :: JQStatus
+pattern JQStatusCreating = JQStatus' "CREATING"
 
-pattern Updating :: JQStatus
-pattern Updating = JQStatus' "UPDATING"
+pattern JQStatusUpdating :: JQStatus
+pattern JQStatusUpdating = JQStatus' "UPDATING"
 
-pattern Deleting :: JQStatus
-pattern Deleting = JQStatus' "DELETING"
+pattern JQStatusDeleting :: JQStatus
+pattern JQStatusDeleting = JQStatus' "DELETING"
 
-pattern Deleted :: JQStatus
-pattern Deleted = JQStatus' "DELETED"
+pattern JQStatusDeleted :: JQStatus
+pattern JQStatusDeleted = JQStatus' "DELETED"
 
-pattern Valid :: JQStatus
-pattern Valid = JQStatus' "VALID"
+pattern JQStatusValid :: JQStatus
+pattern JQStatusValid = JQStatus' "VALID"
 
-pattern Invalid :: JQStatus
-pattern Invalid = JQStatus' "INVALID"
+pattern JQStatusInvalid :: JQStatus
+pattern JQStatusInvalid = JQStatus' "INVALID"
 
 {-# COMPLETE
-  Creating,
-  Updating,
-  Deleting,
-  Deleted,
-  Valid,
-  Invalid,
+  JQStatusCreating,
+  JQStatusUpdating,
+  JQStatusDeleting,
+  JQStatusDeleted,
+  JQStatusValid,
+  JQStatusInvalid,
   JQStatus'
   #-}

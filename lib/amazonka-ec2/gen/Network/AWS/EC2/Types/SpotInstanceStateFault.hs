@@ -22,48 +22,47 @@ module Network.AWS.EC2.Types.SpotInstanceStateFault
   )
 where
 
+import qualified Network.AWS.EC2.Types.Code as Types
+import qualified Network.AWS.EC2.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Spot Instance state change.
 --
 -- /See:/ 'mkSpotInstanceStateFault' smart constructor.
 data SpotInstanceStateFault = SpotInstanceStateFault'
   { -- | The reason code for the Spot Instance state change.
-    code :: Lude.Maybe Lude.Text,
+    code :: Core.Maybe Types.Code,
     -- | The message for the Spot Instance state change.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpotInstanceStateFault' with the minimum fields required to make a request.
---
--- * 'code' - The reason code for the Spot Instance state change.
--- * 'message' - The message for the Spot Instance state change.
+-- | Creates a 'SpotInstanceStateFault' value with any optional fields omitted.
 mkSpotInstanceStateFault ::
   SpotInstanceStateFault
 mkSpotInstanceStateFault =
   SpotInstanceStateFault'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The reason code for the Spot Instance state change.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisfCode :: Lens.Lens' SpotInstanceStateFault (Lude.Maybe Lude.Text)
-sisfCode = Lens.lens (code :: SpotInstanceStateFault -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: SpotInstanceStateFault)
+sisfCode :: Lens.Lens' SpotInstanceStateFault (Core.Maybe Types.Code)
+sisfCode = Lens.field @"code"
 {-# DEPRECATED sisfCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The message for the Spot Instance state change.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisfMessage :: Lens.Lens' SpotInstanceStateFault (Lude.Maybe Lude.Text)
-sisfMessage = Lens.lens (message :: SpotInstanceStateFault -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: SpotInstanceStateFault)
+sisfMessage :: Lens.Lens' SpotInstanceStateFault (Core.Maybe Types.Message)
+sisfMessage = Lens.field @"message"
 {-# DEPRECATED sisfMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML SpotInstanceStateFault where
+instance Core.FromXML SpotInstanceStateFault where
   parseXML x =
     SpotInstanceStateFault'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

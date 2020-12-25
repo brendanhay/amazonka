@@ -13,57 +13,62 @@
 module Network.AWS.AppStream.Types.FleetAttribute
   ( FleetAttribute
       ( FleetAttribute',
-        VPCConfiguration,
-        VPCConfigurationSecurityGroupIds,
-        DomainJoinInfo,
-        IAMRoleARN
+        FleetAttributeVpcConfiguration,
+        FleetAttributeVpcConfigurationSecurityGroupIds,
+        FleetAttributeDomainJoinInfo,
+        FleetAttributeIamRoleArn,
+        fromFleetAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The fleet attribute.
-newtype FleetAttribute = FleetAttribute' Lude.Text
+newtype FleetAttribute = FleetAttribute'
+  { fromFleetAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VPCConfiguration :: FleetAttribute
-pattern VPCConfiguration = FleetAttribute' "VPC_CONFIGURATION"
+pattern FleetAttributeVpcConfiguration :: FleetAttribute
+pattern FleetAttributeVpcConfiguration = FleetAttribute' "VPC_CONFIGURATION"
 
-pattern VPCConfigurationSecurityGroupIds :: FleetAttribute
-pattern VPCConfigurationSecurityGroupIds = FleetAttribute' "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+pattern FleetAttributeVpcConfigurationSecurityGroupIds :: FleetAttribute
+pattern FleetAttributeVpcConfigurationSecurityGroupIds = FleetAttribute' "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
 
-pattern DomainJoinInfo :: FleetAttribute
-pattern DomainJoinInfo = FleetAttribute' "DOMAIN_JOIN_INFO"
+pattern FleetAttributeDomainJoinInfo :: FleetAttribute
+pattern FleetAttributeDomainJoinInfo = FleetAttribute' "DOMAIN_JOIN_INFO"
 
-pattern IAMRoleARN :: FleetAttribute
-pattern IAMRoleARN = FleetAttribute' "IAM_ROLE_ARN"
+pattern FleetAttributeIamRoleArn :: FleetAttribute
+pattern FleetAttributeIamRoleArn = FleetAttribute' "IAM_ROLE_ARN"
 
 {-# COMPLETE
-  VPCConfiguration,
-  VPCConfigurationSecurityGroupIds,
-  DomainJoinInfo,
-  IAMRoleARN,
+  FleetAttributeVpcConfiguration,
+  FleetAttributeVpcConfigurationSecurityGroupIds,
+  FleetAttributeDomainJoinInfo,
+  FleetAttributeIamRoleArn,
   FleetAttribute'
   #-}

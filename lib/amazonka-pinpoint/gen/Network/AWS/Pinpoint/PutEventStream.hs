@@ -28,125 +28,109 @@ module Network.AWS.Pinpoint.PutEventStream
     mkPutEventStreamResponse,
 
     -- ** Response lenses
-    pesrsEventStream,
-    pesrsResponseStatus,
+    pesrrsEventStream,
+    pesrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutEventStream' smart constructor.
 data PutEventStream = PutEventStream'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    writeEventStream :: WriteEventStream
+    applicationId :: Core.Text,
+    writeEventStream :: Types.WriteEventStream
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEventStream' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'writeEventStream' -
+-- | Creates a 'PutEventStream' value with any optional fields omitted.
 mkPutEventStream ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'writeEventStream'
-  WriteEventStream ->
+  Types.WriteEventStream ->
   PutEventStream
-mkPutEventStream pApplicationId_ pWriteEventStream_ =
-  PutEventStream'
-    { applicationId = pApplicationId_,
-      writeEventStream = pWriteEventStream_
-    }
+mkPutEventStream applicationId writeEventStream =
+  PutEventStream' {applicationId, writeEventStream}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesApplicationId :: Lens.Lens' PutEventStream Lude.Text
-pesApplicationId = Lens.lens (applicationId :: PutEventStream -> Lude.Text) (\s a -> s {applicationId = a} :: PutEventStream)
+pesApplicationId :: Lens.Lens' PutEventStream Core.Text
+pesApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED pesApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'writeEventStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesWriteEventStream :: Lens.Lens' PutEventStream WriteEventStream
-pesWriteEventStream = Lens.lens (writeEventStream :: PutEventStream -> WriteEventStream) (\s a -> s {writeEventStream = a} :: PutEventStream)
+pesWriteEventStream :: Lens.Lens' PutEventStream Types.WriteEventStream
+pesWriteEventStream = Lens.field @"writeEventStream"
 {-# DEPRECATED pesWriteEventStream "Use generic-lens or generic-optics with 'writeEventStream' instead." #-}
 
-instance Lude.AWSRequest PutEventStream where
+instance Core.FromJSON PutEventStream where
+  toJSON PutEventStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WriteEventStream" Core..= writeEventStream)]
+      )
+
+instance Core.AWSRequest PutEventStream where
   type Rs PutEventStream = PutEventStreamResponse
-  request = Req.postJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/eventstream")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutEventStreamResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutEventStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutEventStream where
-  toJSON PutEventStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("WriteEventStream" Lude..= writeEventStream)]
-      )
-
-instance Lude.ToPath PutEventStream where
-  toPath PutEventStream' {..} =
-    Lude.mconcat
-      ["/v1/apps/", Lude.toBS applicationId, "/eventstream"]
-
-instance Lude.ToQuery PutEventStream where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutEventStreamResponse' smart constructor.
 data PutEventStreamResponse = PutEventStreamResponse'
-  { eventStream :: EventStream,
+  { eventStream :: Types.EventStream,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEventStreamResponse' with the minimum fields required to make a request.
---
--- * 'eventStream' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutEventStreamResponse' value with any optional fields omitted.
 mkPutEventStreamResponse ::
   -- | 'eventStream'
-  EventStream ->
+  Types.EventStream ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutEventStreamResponse
-mkPutEventStreamResponse pEventStream_ pResponseStatus_ =
-  PutEventStreamResponse'
-    { eventStream = pEventStream_,
-      responseStatus = pResponseStatus_
-    }
+mkPutEventStreamResponse eventStream responseStatus =
+  PutEventStreamResponse' {eventStream, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'eventStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsEventStream :: Lens.Lens' PutEventStreamResponse EventStream
-pesrsEventStream = Lens.lens (eventStream :: PutEventStreamResponse -> EventStream) (\s a -> s {eventStream = a} :: PutEventStreamResponse)
-{-# DEPRECATED pesrsEventStream "Use generic-lens or generic-optics with 'eventStream' instead." #-}
+pesrrsEventStream :: Lens.Lens' PutEventStreamResponse Types.EventStream
+pesrrsEventStream = Lens.field @"eventStream"
+{-# DEPRECATED pesrrsEventStream "Use generic-lens or generic-optics with 'eventStream' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsResponseStatus :: Lens.Lens' PutEventStreamResponse Lude.Int
-pesrsResponseStatus = Lens.lens (responseStatus :: PutEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventStreamResponse)
-{-# DEPRECATED pesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pesrrsResponseStatus :: Lens.Lens' PutEventStreamResponse Core.Int
+pesrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

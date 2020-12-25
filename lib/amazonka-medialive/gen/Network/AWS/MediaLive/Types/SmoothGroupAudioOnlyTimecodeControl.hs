@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl
   ( SmoothGroupAudioOnlyTimecodeControl
       ( SmoothGroupAudioOnlyTimecodeControl',
-        SGAOTCPassthrough,
-        SGAOTCUseConfiguredClock
+        SmoothGroupAudioOnlyTimecodeControlPassthrough,
+        SmoothGroupAudioOnlyTimecodeControlUseConfiguredClock,
+        fromSmoothGroupAudioOnlyTimecodeControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Smooth Group Audio Only Timecode Control
-newtype SmoothGroupAudioOnlyTimecodeControl = SmoothGroupAudioOnlyTimecodeControl' Lude.Text
+newtype SmoothGroupAudioOnlyTimecodeControl = SmoothGroupAudioOnlyTimecodeControl'
+  { fromSmoothGroupAudioOnlyTimecodeControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SGAOTCPassthrough :: SmoothGroupAudioOnlyTimecodeControl
-pattern SGAOTCPassthrough = SmoothGroupAudioOnlyTimecodeControl' "PASSTHROUGH"
+pattern SmoothGroupAudioOnlyTimecodeControlPassthrough :: SmoothGroupAudioOnlyTimecodeControl
+pattern SmoothGroupAudioOnlyTimecodeControlPassthrough = SmoothGroupAudioOnlyTimecodeControl' "PASSTHROUGH"
 
-pattern SGAOTCUseConfiguredClock :: SmoothGroupAudioOnlyTimecodeControl
-pattern SGAOTCUseConfiguredClock = SmoothGroupAudioOnlyTimecodeControl' "USE_CONFIGURED_CLOCK"
+pattern SmoothGroupAudioOnlyTimecodeControlUseConfiguredClock :: SmoothGroupAudioOnlyTimecodeControl
+pattern SmoothGroupAudioOnlyTimecodeControlUseConfiguredClock = SmoothGroupAudioOnlyTimecodeControl' "USE_CONFIGURED_CLOCK"
 
 {-# COMPLETE
-  SGAOTCPassthrough,
-  SGAOTCUseConfiguredClock,
+  SmoothGroupAudioOnlyTimecodeControlPassthrough,
+  SmoothGroupAudioOnlyTimecodeControlUseConfiguredClock,
   SmoothGroupAudioOnlyTimecodeControl'
   #-}

@@ -17,133 +17,120 @@ module Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendation
     mkSavingsPlansPurchaseRecommendation,
 
     -- * Lenses
-    spprSavingsPlansPurchaseRecommendationDetails,
-    spprTermInYears,
     spprAccountScope,
-    spprSavingsPlansType,
     spprLookbackPeriodInDays,
     spprPaymentOption,
+    spprSavingsPlansPurchaseRecommendationDetails,
     spprSavingsPlansPurchaseRecommendationSummary,
+    spprSavingsPlansType,
+    spprTermInYears,
   )
 where
 
-import Network.AWS.CostExplorer.Types.AccountScope
-import Network.AWS.CostExplorer.Types.LookbackPeriodInDays
-import Network.AWS.CostExplorer.Types.PaymentOption
-import Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
-import Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
-import Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
-import Network.AWS.CostExplorer.Types.TermInYears
+import qualified Network.AWS.CostExplorer.Types.AccountScope as Types
+import qualified Network.AWS.CostExplorer.Types.LookbackPeriodInDays as Types
+import qualified Network.AWS.CostExplorer.Types.PaymentOption as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary as Types
+import qualified Network.AWS.CostExplorer.Types.SupportedSavingsPlansType as Types
+import qualified Network.AWS.CostExplorer.Types.TermInYears as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains your request parameters, Savings Plan Recommendations Summary, and Details.
 --
 -- /See:/ 'mkSavingsPlansPurchaseRecommendation' smart constructor.
 data SavingsPlansPurchaseRecommendation = SavingsPlansPurchaseRecommendation'
-  { -- | Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
-    savingsPlansPurchaseRecommendationDetails :: Lude.Maybe [SavingsPlansPurchaseRecommendationDetail],
-    -- | The Savings Plans recommendation term in years, used to generate the recommendation.
-    termInYears :: Lude.Maybe TermInYears,
-    -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
-    accountScope :: Lude.Maybe AccountScope,
-    -- | The requested Savings Plans recommendation type.
-    savingsPlansType :: Lude.Maybe SupportedSavingsPlansType,
+  { -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+    accountScope :: Core.Maybe Types.AccountScope,
     -- | The lookback period in days, used to generate the recommendation.
-    lookbackPeriodInDays :: Lude.Maybe LookbackPeriodInDays,
+    lookbackPeriodInDays :: Core.Maybe Types.LookbackPeriodInDays,
     -- | The payment option used to generate the recommendation.
-    paymentOption :: Lude.Maybe PaymentOption,
+    paymentOption :: Core.Maybe Types.PaymentOption,
+    -- | Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
+    savingsPlansPurchaseRecommendationDetails :: Core.Maybe [Types.SavingsPlansPurchaseRecommendationDetail],
     -- | Summary metrics for your Savings Plans Recommendations.
-    savingsPlansPurchaseRecommendationSummary :: Lude.Maybe SavingsPlansPurchaseRecommendationSummary
+    savingsPlansPurchaseRecommendationSummary :: Core.Maybe Types.SavingsPlansPurchaseRecommendationSummary,
+    -- | The requested Savings Plans recommendation type.
+    savingsPlansType :: Core.Maybe Types.SupportedSavingsPlansType,
+    -- | The Savings Plans recommendation term in years, used to generate the recommendation.
+    termInYears :: Core.Maybe Types.TermInYears
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SavingsPlansPurchaseRecommendation' with the minimum fields required to make a request.
---
--- * 'savingsPlansPurchaseRecommendationDetails' - Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
--- * 'termInYears' - The Savings Plans recommendation term in years, used to generate the recommendation.
--- * 'accountScope' - The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
--- * 'savingsPlansType' - The requested Savings Plans recommendation type.
--- * 'lookbackPeriodInDays' - The lookback period in days, used to generate the recommendation.
--- * 'paymentOption' - The payment option used to generate the recommendation.
--- * 'savingsPlansPurchaseRecommendationSummary' - Summary metrics for your Savings Plans Recommendations.
+-- | Creates a 'SavingsPlansPurchaseRecommendation' value with any optional fields omitted.
 mkSavingsPlansPurchaseRecommendation ::
   SavingsPlansPurchaseRecommendation
 mkSavingsPlansPurchaseRecommendation =
   SavingsPlansPurchaseRecommendation'
-    { savingsPlansPurchaseRecommendationDetails =
-        Lude.Nothing,
-      termInYears = Lude.Nothing,
-      accountScope = Lude.Nothing,
-      savingsPlansType = Lude.Nothing,
-      lookbackPeriodInDays = Lude.Nothing,
-      paymentOption = Lude.Nothing,
-      savingsPlansPurchaseRecommendationSummary = Lude.Nothing
+    { accountScope = Core.Nothing,
+      lookbackPeriodInDays = Core.Nothing,
+      paymentOption = Core.Nothing,
+      savingsPlansPurchaseRecommendationDetails = Core.Nothing,
+      savingsPlansPurchaseRecommendationSummary = Core.Nothing,
+      savingsPlansType = Core.Nothing,
+      termInYears = Core.Nothing
     }
-
--- | Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
---
--- /Note:/ Consider using 'savingsPlansPurchaseRecommendationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprSavingsPlansPurchaseRecommendationDetails :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe [SavingsPlansPurchaseRecommendationDetail])
-spprSavingsPlansPurchaseRecommendationDetails = Lens.lens (savingsPlansPurchaseRecommendationDetails :: SavingsPlansPurchaseRecommendation -> Lude.Maybe [SavingsPlansPurchaseRecommendationDetail]) (\s a -> s {savingsPlansPurchaseRecommendationDetails = a} :: SavingsPlansPurchaseRecommendation)
-{-# DEPRECATED spprSavingsPlansPurchaseRecommendationDetails "Use generic-lens or generic-optics with 'savingsPlansPurchaseRecommendationDetails' instead." #-}
-
--- | The Savings Plans recommendation term in years, used to generate the recommendation.
---
--- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprTermInYears :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe TermInYears)
-spprTermInYears = Lens.lens (termInYears :: SavingsPlansPurchaseRecommendation -> Lude.Maybe TermInYears) (\s a -> s {termInYears = a} :: SavingsPlansPurchaseRecommendation)
-{-# DEPRECATED spprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
 
 -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
 --
 -- /Note:/ Consider using 'accountScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprAccountScope :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe AccountScope)
-spprAccountScope = Lens.lens (accountScope :: SavingsPlansPurchaseRecommendation -> Lude.Maybe AccountScope) (\s a -> s {accountScope = a} :: SavingsPlansPurchaseRecommendation)
+spprAccountScope :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe Types.AccountScope)
+spprAccountScope = Lens.field @"accountScope"
 {-# DEPRECATED spprAccountScope "Use generic-lens or generic-optics with 'accountScope' instead." #-}
-
--- | The requested Savings Plans recommendation type.
---
--- /Note:/ Consider using 'savingsPlansType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprSavingsPlansType :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe SupportedSavingsPlansType)
-spprSavingsPlansType = Lens.lens (savingsPlansType :: SavingsPlansPurchaseRecommendation -> Lude.Maybe SupportedSavingsPlansType) (\s a -> s {savingsPlansType = a} :: SavingsPlansPurchaseRecommendation)
-{-# DEPRECATED spprSavingsPlansType "Use generic-lens or generic-optics with 'savingsPlansType' instead." #-}
 
 -- | The lookback period in days, used to generate the recommendation.
 --
 -- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprLookbackPeriodInDays :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe LookbackPeriodInDays)
-spprLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: SavingsPlansPurchaseRecommendation -> Lude.Maybe LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: SavingsPlansPurchaseRecommendation)
+spprLookbackPeriodInDays :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe Types.LookbackPeriodInDays)
+spprLookbackPeriodInDays = Lens.field @"lookbackPeriodInDays"
 {-# DEPRECATED spprLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
 
 -- | The payment option used to generate the recommendation.
 --
 -- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprPaymentOption :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe PaymentOption)
-spprPaymentOption = Lens.lens (paymentOption :: SavingsPlansPurchaseRecommendation -> Lude.Maybe PaymentOption) (\s a -> s {paymentOption = a} :: SavingsPlansPurchaseRecommendation)
+spprPaymentOption :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe Types.PaymentOption)
+spprPaymentOption = Lens.field @"paymentOption"
 {-# DEPRECATED spprPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
+
+-- | Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
+--
+-- /Note:/ Consider using 'savingsPlansPurchaseRecommendationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprSavingsPlansPurchaseRecommendationDetails :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe [Types.SavingsPlansPurchaseRecommendationDetail])
+spprSavingsPlansPurchaseRecommendationDetails = Lens.field @"savingsPlansPurchaseRecommendationDetails"
+{-# DEPRECATED spprSavingsPlansPurchaseRecommendationDetails "Use generic-lens or generic-optics with 'savingsPlansPurchaseRecommendationDetails' instead." #-}
 
 -- | Summary metrics for your Savings Plans Recommendations.
 --
 -- /Note:/ Consider using 'savingsPlansPurchaseRecommendationSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprSavingsPlansPurchaseRecommendationSummary :: Lens.Lens' SavingsPlansPurchaseRecommendation (Lude.Maybe SavingsPlansPurchaseRecommendationSummary)
-spprSavingsPlansPurchaseRecommendationSummary = Lens.lens (savingsPlansPurchaseRecommendationSummary :: SavingsPlansPurchaseRecommendation -> Lude.Maybe SavingsPlansPurchaseRecommendationSummary) (\s a -> s {savingsPlansPurchaseRecommendationSummary = a} :: SavingsPlansPurchaseRecommendation)
+spprSavingsPlansPurchaseRecommendationSummary :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe Types.SavingsPlansPurchaseRecommendationSummary)
+spprSavingsPlansPurchaseRecommendationSummary = Lens.field @"savingsPlansPurchaseRecommendationSummary"
 {-# DEPRECATED spprSavingsPlansPurchaseRecommendationSummary "Use generic-lens or generic-optics with 'savingsPlansPurchaseRecommendationSummary' instead." #-}
 
-instance Lude.FromJSON SavingsPlansPurchaseRecommendation where
+-- | The requested Savings Plans recommendation type.
+--
+-- /Note:/ Consider using 'savingsPlansType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprSavingsPlansType :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe Types.SupportedSavingsPlansType)
+spprSavingsPlansType = Lens.field @"savingsPlansType"
+{-# DEPRECATED spprSavingsPlansType "Use generic-lens or generic-optics with 'savingsPlansType' instead." #-}
+
+-- | The Savings Plans recommendation term in years, used to generate the recommendation.
+--
+-- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprTermInYears :: Lens.Lens' SavingsPlansPurchaseRecommendation (Core.Maybe Types.TermInYears)
+spprTermInYears = Lens.field @"termInYears"
+{-# DEPRECATED spprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
+
+instance Core.FromJSON SavingsPlansPurchaseRecommendation where
   parseJSON =
-    Lude.withObject
-      "SavingsPlansPurchaseRecommendation"
-      ( \x ->
-          SavingsPlansPurchaseRecommendation'
-            Lude.<$> ( x Lude..:? "SavingsPlansPurchaseRecommendationDetails"
-                         Lude..!= Lude.mempty
-                     )
-            Lude.<*> (x Lude..:? "TermInYears")
-            Lude.<*> (x Lude..:? "AccountScope")
-            Lude.<*> (x Lude..:? "SavingsPlansType")
-            Lude.<*> (x Lude..:? "LookbackPeriodInDays")
-            Lude.<*> (x Lude..:? "PaymentOption")
-            Lude.<*> (x Lude..:? "SavingsPlansPurchaseRecommendationSummary")
-      )
+    Core.withObject "SavingsPlansPurchaseRecommendation" Core.$
+      \x ->
+        SavingsPlansPurchaseRecommendation'
+          Core.<$> (x Core..:? "AccountScope")
+          Core.<*> (x Core..:? "LookbackPeriodInDays")
+          Core.<*> (x Core..:? "PaymentOption")
+          Core.<*> (x Core..:? "SavingsPlansPurchaseRecommendationDetails")
+          Core.<*> (x Core..:? "SavingsPlansPurchaseRecommendationSummary")
+          Core.<*> (x Core..:? "SavingsPlansType")
+          Core.<*> (x Core..:? "TermInYears")

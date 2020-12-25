@@ -17,189 +17,177 @@ module Network.AWS.MediaConvert.Types.JobSettings
     mkJobSettings,
 
     -- * Lenses
-    jsNielsenNonLinearWatermark,
+    jsAdAvailOffset,
+    jsAvailBlanking,
     jsEsam,
     jsInputs,
-    jsTimedMetadataInsertion,
-    jsNielsenConfiguration,
-    jsAvailBlanking,
     jsMotionImageInserter,
-    jsTimecodeConfig,
+    jsNielsenConfiguration,
+    jsNielsenNonLinearWatermark,
     jsOutputGroups,
-    jsAdAvailOffset,
+    jsTimecodeConfig,
+    jsTimedMetadataInsertion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AvailBlanking
-import Network.AWS.MediaConvert.Types.EsamSettings
-import Network.AWS.MediaConvert.Types.Input
-import Network.AWS.MediaConvert.Types.MotionImageInserter
-import Network.AWS.MediaConvert.Types.NielsenConfiguration
-import Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings
-import Network.AWS.MediaConvert.Types.OutputGroup
-import Network.AWS.MediaConvert.Types.TimecodeConfig
-import Network.AWS.MediaConvert.Types.TimedMetadataInsertion
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AvailBlanking as Types
+import qualified Network.AWS.MediaConvert.Types.EsamSettings as Types
+import qualified Network.AWS.MediaConvert.Types.Input as Types
+import qualified Network.AWS.MediaConvert.Types.MotionImageInserter as Types
+import qualified Network.AWS.MediaConvert.Types.NielsenConfiguration as Types
+import qualified Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings as Types
+import qualified Network.AWS.MediaConvert.Types.OutputGroup as Types
+import qualified Network.AWS.MediaConvert.Types.TimecodeConfig as Types
+import qualified Network.AWS.MediaConvert.Types.TimedMetadataInsertion as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | JobSettings contains all the transcode settings for a job.
 --
 -- /See:/ 'mkJobSettings' smart constructor.
 data JobSettings = JobSettings'
-  { -- | Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
-    nielsenNonLinearWatermark :: Lude.Maybe NielsenNonLinearWatermarkSettings,
-    -- | Settings for Event Signaling And Messaging (ESAM).
-    esam :: Lude.Maybe EsamSettings,
-    -- | Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
-    inputs :: Lude.Maybe [Input],
-    -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
-    timedMetadataInsertion :: Lude.Maybe TimedMetadataInsertion,
-    -- | Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
-    nielsenConfiguration :: Lude.Maybe NielsenConfiguration,
+  { -- | When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
+    adAvailOffset :: Core.Maybe Core.Int,
     -- | Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
-    availBlanking :: Lude.Maybe AvailBlanking,
+    availBlanking :: Core.Maybe Types.AvailBlanking,
+    -- | Settings for Event Signaling And Messaging (ESAM).
+    esam :: Core.Maybe Types.EsamSettings,
+    -- | Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
+    inputs :: Core.Maybe [Types.Input],
     -- | Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
-    motionImageInserter :: Lude.Maybe MotionImageInserter,
-    -- | Contains settings used to acquire and adjust timecode information from inputs.
-    timecodeConfig :: Lude.Maybe TimecodeConfig,
+    motionImageInserter :: Core.Maybe Types.MotionImageInserter,
+    -- | Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
+    nielsenConfiguration :: Core.Maybe Types.NielsenConfiguration,
+    -- | Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+    nielsenNonLinearWatermark :: Core.Maybe Types.NielsenNonLinearWatermarkSettings,
     -- | (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
-    outputGroups :: Lude.Maybe [OutputGroup],
-    -- | When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
-    adAvailOffset :: Lude.Maybe Lude.Int
+    outputGroups :: Core.Maybe [Types.OutputGroup],
+    -- | Contains settings used to acquire and adjust timecode information from inputs.
+    timecodeConfig :: Core.Maybe Types.TimecodeConfig,
+    -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
+    timedMetadataInsertion :: Core.Maybe Types.TimedMetadataInsertion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobSettings' with the minimum fields required to make a request.
---
--- * 'nielsenNonLinearWatermark' - Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
--- * 'esam' - Settings for Event Signaling And Messaging (ESAM).
--- * 'inputs' - Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
--- * 'timedMetadataInsertion' - Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
--- * 'nielsenConfiguration' - Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
--- * 'availBlanking' - Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
--- * 'motionImageInserter' - Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
--- * 'timecodeConfig' - Contains settings used to acquire and adjust timecode information from inputs.
--- * 'outputGroups' - (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
--- * 'adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
+-- | Creates a 'JobSettings' value with any optional fields omitted.
 mkJobSettings ::
   JobSettings
 mkJobSettings =
   JobSettings'
-    { nielsenNonLinearWatermark = Lude.Nothing,
-      esam = Lude.Nothing,
-      inputs = Lude.Nothing,
-      timedMetadataInsertion = Lude.Nothing,
-      nielsenConfiguration = Lude.Nothing,
-      availBlanking = Lude.Nothing,
-      motionImageInserter = Lude.Nothing,
-      timecodeConfig = Lude.Nothing,
-      outputGroups = Lude.Nothing,
-      adAvailOffset = Lude.Nothing
+    { adAvailOffset = Core.Nothing,
+      availBlanking = Core.Nothing,
+      esam = Core.Nothing,
+      inputs = Core.Nothing,
+      motionImageInserter = Core.Nothing,
+      nielsenConfiguration = Core.Nothing,
+      nielsenNonLinearWatermark = Core.Nothing,
+      outputGroups = Core.Nothing,
+      timecodeConfig = Core.Nothing,
+      timedMetadataInsertion = Core.Nothing
     }
 
--- | Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+-- | When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
 --
--- /Note:/ Consider using 'nielsenNonLinearWatermark' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsNielsenNonLinearWatermark :: Lens.Lens' JobSettings (Lude.Maybe NielsenNonLinearWatermarkSettings)
-jsNielsenNonLinearWatermark = Lens.lens (nielsenNonLinearWatermark :: JobSettings -> Lude.Maybe NielsenNonLinearWatermarkSettings) (\s a -> s {nielsenNonLinearWatermark = a} :: JobSettings)
-{-# DEPRECATED jsNielsenNonLinearWatermark "Use generic-lens or generic-optics with 'nielsenNonLinearWatermark' instead." #-}
+-- /Note:/ Consider using 'adAvailOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsAdAvailOffset :: Lens.Lens' JobSettings (Core.Maybe Core.Int)
+jsAdAvailOffset = Lens.field @"adAvailOffset"
+{-# DEPRECATED jsAdAvailOffset "Use generic-lens or generic-optics with 'adAvailOffset' instead." #-}
+
+-- | Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+--
+-- /Note:/ Consider using 'availBlanking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsAvailBlanking :: Lens.Lens' JobSettings (Core.Maybe Types.AvailBlanking)
+jsAvailBlanking = Lens.field @"availBlanking"
+{-# DEPRECATED jsAvailBlanking "Use generic-lens or generic-optics with 'availBlanking' instead." #-}
 
 -- | Settings for Event Signaling And Messaging (ESAM).
 --
 -- /Note:/ Consider using 'esam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsEsam :: Lens.Lens' JobSettings (Lude.Maybe EsamSettings)
-jsEsam = Lens.lens (esam :: JobSettings -> Lude.Maybe EsamSettings) (\s a -> s {esam = a} :: JobSettings)
+jsEsam :: Lens.Lens' JobSettings (Core.Maybe Types.EsamSettings)
+jsEsam = Lens.field @"esam"
 {-# DEPRECATED jsEsam "Use generic-lens or generic-optics with 'esam' instead." #-}
 
 -- | Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
 --
 -- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsInputs :: Lens.Lens' JobSettings (Lude.Maybe [Input])
-jsInputs = Lens.lens (inputs :: JobSettings -> Lude.Maybe [Input]) (\s a -> s {inputs = a} :: JobSettings)
+jsInputs :: Lens.Lens' JobSettings (Core.Maybe [Types.Input])
+jsInputs = Lens.field @"inputs"
 {-# DEPRECATED jsInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
-
--- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
---
--- /Note:/ Consider using 'timedMetadataInsertion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsTimedMetadataInsertion :: Lens.Lens' JobSettings (Lude.Maybe TimedMetadataInsertion)
-jsTimedMetadataInsertion = Lens.lens (timedMetadataInsertion :: JobSettings -> Lude.Maybe TimedMetadataInsertion) (\s a -> s {timedMetadataInsertion = a} :: JobSettings)
-{-# DEPRECATED jsTimedMetadataInsertion "Use generic-lens or generic-optics with 'timedMetadataInsertion' instead." #-}
-
--- | Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
---
--- /Note:/ Consider using 'nielsenConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsNielsenConfiguration :: Lens.Lens' JobSettings (Lude.Maybe NielsenConfiguration)
-jsNielsenConfiguration = Lens.lens (nielsenConfiguration :: JobSettings -> Lude.Maybe NielsenConfiguration) (\s a -> s {nielsenConfiguration = a} :: JobSettings)
-{-# DEPRECATED jsNielsenConfiguration "Use generic-lens or generic-optics with 'nielsenConfiguration' instead." #-}
-
--- | Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
---
--- /Note:/ Consider using 'availBlanking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsAvailBlanking :: Lens.Lens' JobSettings (Lude.Maybe AvailBlanking)
-jsAvailBlanking = Lens.lens (availBlanking :: JobSettings -> Lude.Maybe AvailBlanking) (\s a -> s {availBlanking = a} :: JobSettings)
-{-# DEPRECATED jsAvailBlanking "Use generic-lens or generic-optics with 'availBlanking' instead." #-}
 
 -- | Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
 --
 -- /Note:/ Consider using 'motionImageInserter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsMotionImageInserter :: Lens.Lens' JobSettings (Lude.Maybe MotionImageInserter)
-jsMotionImageInserter = Lens.lens (motionImageInserter :: JobSettings -> Lude.Maybe MotionImageInserter) (\s a -> s {motionImageInserter = a} :: JobSettings)
+jsMotionImageInserter :: Lens.Lens' JobSettings (Core.Maybe Types.MotionImageInserter)
+jsMotionImageInserter = Lens.field @"motionImageInserter"
 {-# DEPRECATED jsMotionImageInserter "Use generic-lens or generic-optics with 'motionImageInserter' instead." #-}
 
--- | Contains settings used to acquire and adjust timecode information from inputs.
+-- | Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
 --
--- /Note:/ Consider using 'timecodeConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsTimecodeConfig :: Lens.Lens' JobSettings (Lude.Maybe TimecodeConfig)
-jsTimecodeConfig = Lens.lens (timecodeConfig :: JobSettings -> Lude.Maybe TimecodeConfig) (\s a -> s {timecodeConfig = a} :: JobSettings)
-{-# DEPRECATED jsTimecodeConfig "Use generic-lens or generic-optics with 'timecodeConfig' instead." #-}
+-- /Note:/ Consider using 'nielsenConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsNielsenConfiguration :: Lens.Lens' JobSettings (Core.Maybe Types.NielsenConfiguration)
+jsNielsenConfiguration = Lens.field @"nielsenConfiguration"
+{-# DEPRECATED jsNielsenConfiguration "Use generic-lens or generic-optics with 'nielsenConfiguration' instead." #-}
+
+-- | Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+--
+-- /Note:/ Consider using 'nielsenNonLinearWatermark' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsNielsenNonLinearWatermark :: Lens.Lens' JobSettings (Core.Maybe Types.NielsenNonLinearWatermarkSettings)
+jsNielsenNonLinearWatermark = Lens.field @"nielsenNonLinearWatermark"
+{-# DEPRECATED jsNielsenNonLinearWatermark "Use generic-lens or generic-optics with 'nielsenNonLinearWatermark' instead." #-}
 
 -- | (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
 --
 -- /Note:/ Consider using 'outputGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsOutputGroups :: Lens.Lens' JobSettings (Lude.Maybe [OutputGroup])
-jsOutputGroups = Lens.lens (outputGroups :: JobSettings -> Lude.Maybe [OutputGroup]) (\s a -> s {outputGroups = a} :: JobSettings)
+jsOutputGroups :: Lens.Lens' JobSettings (Core.Maybe [Types.OutputGroup])
+jsOutputGroups = Lens.field @"outputGroups"
 {-# DEPRECATED jsOutputGroups "Use generic-lens or generic-optics with 'outputGroups' instead." #-}
 
--- | When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
+-- | Contains settings used to acquire and adjust timecode information from inputs.
 --
--- /Note:/ Consider using 'adAvailOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsAdAvailOffset :: Lens.Lens' JobSettings (Lude.Maybe Lude.Int)
-jsAdAvailOffset = Lens.lens (adAvailOffset :: JobSettings -> Lude.Maybe Lude.Int) (\s a -> s {adAvailOffset = a} :: JobSettings)
-{-# DEPRECATED jsAdAvailOffset "Use generic-lens or generic-optics with 'adAvailOffset' instead." #-}
+-- /Note:/ Consider using 'timecodeConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsTimecodeConfig :: Lens.Lens' JobSettings (Core.Maybe Types.TimecodeConfig)
+jsTimecodeConfig = Lens.field @"timecodeConfig"
+{-# DEPRECATED jsTimecodeConfig "Use generic-lens or generic-optics with 'timecodeConfig' instead." #-}
 
-instance Lude.FromJSON JobSettings where
-  parseJSON =
-    Lude.withObject
-      "JobSettings"
-      ( \x ->
-          JobSettings'
-            Lude.<$> (x Lude..:? "nielsenNonLinearWatermark")
-            Lude.<*> (x Lude..:? "esam")
-            Lude.<*> (x Lude..:? "inputs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "timedMetadataInsertion")
-            Lude.<*> (x Lude..:? "nielsenConfiguration")
-            Lude.<*> (x Lude..:? "availBlanking")
-            Lude.<*> (x Lude..:? "motionImageInserter")
-            Lude.<*> (x Lude..:? "timecodeConfig")
-            Lude.<*> (x Lude..:? "outputGroups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "adAvailOffset")
-      )
+-- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
+--
+-- /Note:/ Consider using 'timedMetadataInsertion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsTimedMetadataInsertion :: Lens.Lens' JobSettings (Core.Maybe Types.TimedMetadataInsertion)
+jsTimedMetadataInsertion = Lens.field @"timedMetadataInsertion"
+{-# DEPRECATED jsTimedMetadataInsertion "Use generic-lens or generic-optics with 'timedMetadataInsertion' instead." #-}
 
-instance Lude.ToJSON JobSettings where
-  toJSON JobSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nielsenNonLinearWatermark" Lude..=)
-              Lude.<$> nielsenNonLinearWatermark,
-            ("esam" Lude..=) Lude.<$> esam,
-            ("inputs" Lude..=) Lude.<$> inputs,
-            ("timedMetadataInsertion" Lude..=) Lude.<$> timedMetadataInsertion,
-            ("nielsenConfiguration" Lude..=) Lude.<$> nielsenConfiguration,
-            ("availBlanking" Lude..=) Lude.<$> availBlanking,
-            ("motionImageInserter" Lude..=) Lude.<$> motionImageInserter,
-            ("timecodeConfig" Lude..=) Lude.<$> timecodeConfig,
-            ("outputGroups" Lude..=) Lude.<$> outputGroups,
-            ("adAvailOffset" Lude..=) Lude.<$> adAvailOffset
+instance Core.FromJSON JobSettings where
+  toJSON JobSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("adAvailOffset" Core..=) Core.<$> adAvailOffset,
+            ("availBlanking" Core..=) Core.<$> availBlanking,
+            ("esam" Core..=) Core.<$> esam,
+            ("inputs" Core..=) Core.<$> inputs,
+            ("motionImageInserter" Core..=) Core.<$> motionImageInserter,
+            ("nielsenConfiguration" Core..=) Core.<$> nielsenConfiguration,
+            ("nielsenNonLinearWatermark" Core..=)
+              Core.<$> nielsenNonLinearWatermark,
+            ("outputGroups" Core..=) Core.<$> outputGroups,
+            ("timecodeConfig" Core..=) Core.<$> timecodeConfig,
+            ("timedMetadataInsertion" Core..=)
+              Core.<$> timedMetadataInsertion
           ]
       )
+
+instance Core.FromJSON JobSettings where
+  parseJSON =
+    Core.withObject "JobSettings" Core.$
+      \x ->
+        JobSettings'
+          Core.<$> (x Core..:? "adAvailOffset")
+          Core.<*> (x Core..:? "availBlanking")
+          Core.<*> (x Core..:? "esam")
+          Core.<*> (x Core..:? "inputs")
+          Core.<*> (x Core..:? "motionImageInserter")
+          Core.<*> (x Core..:? "nielsenConfiguration")
+          Core.<*> (x Core..:? "nielsenNonLinearWatermark")
+          Core.<*> (x Core..:? "outputGroups")
+          Core.<*> (x Core..:? "timecodeConfig")
+          Core.<*> (x Core..:? "timedMetadataInsertion")

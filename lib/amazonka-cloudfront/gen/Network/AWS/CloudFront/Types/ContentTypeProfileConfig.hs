@@ -22,61 +22,56 @@ module Network.AWS.CloudFront.Types.ContentTypeProfileConfig
   )
 where
 
-import Network.AWS.CloudFront.Types.ContentTypeProfiles
+import qualified Network.AWS.CloudFront.Types.ContentTypeProfiles as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration for a field-level encryption content type-profile mapping.
 --
 -- /See:/ 'mkContentTypeProfileConfig' smart constructor.
 data ContentTypeProfileConfig = ContentTypeProfileConfig'
   { -- | The setting in a field-level encryption content type-profile mapping that specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-    forwardWhenContentTypeIsUnknown :: Lude.Bool,
+    forwardWhenContentTypeIsUnknown :: Core.Bool,
     -- | The configuration for a field-level encryption content type-profile.
-    contentTypeProfiles :: Lude.Maybe ContentTypeProfiles
+    contentTypeProfiles :: Core.Maybe Types.ContentTypeProfiles
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContentTypeProfileConfig' with the minimum fields required to make a request.
---
--- * 'forwardWhenContentTypeIsUnknown' - The setting in a field-level encryption content type-profile mapping that specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
--- * 'contentTypeProfiles' - The configuration for a field-level encryption content type-profile.
+-- | Creates a 'ContentTypeProfileConfig' value with any optional fields omitted.
 mkContentTypeProfileConfig ::
   -- | 'forwardWhenContentTypeIsUnknown'
-  Lude.Bool ->
+  Core.Bool ->
   ContentTypeProfileConfig
-mkContentTypeProfileConfig pForwardWhenContentTypeIsUnknown_ =
+mkContentTypeProfileConfig forwardWhenContentTypeIsUnknown =
   ContentTypeProfileConfig'
-    { forwardWhenContentTypeIsUnknown =
-        pForwardWhenContentTypeIsUnknown_,
-      contentTypeProfiles = Lude.Nothing
+    { forwardWhenContentTypeIsUnknown,
+      contentTypeProfiles = Core.Nothing
     }
 
 -- | The setting in a field-level encryption content type-profile mapping that specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
 --
 -- /Note:/ Consider using 'forwardWhenContentTypeIsUnknown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpcForwardWhenContentTypeIsUnknown :: Lens.Lens' ContentTypeProfileConfig Lude.Bool
-ctpcForwardWhenContentTypeIsUnknown = Lens.lens (forwardWhenContentTypeIsUnknown :: ContentTypeProfileConfig -> Lude.Bool) (\s a -> s {forwardWhenContentTypeIsUnknown = a} :: ContentTypeProfileConfig)
+ctpcForwardWhenContentTypeIsUnknown :: Lens.Lens' ContentTypeProfileConfig Core.Bool
+ctpcForwardWhenContentTypeIsUnknown = Lens.field @"forwardWhenContentTypeIsUnknown"
 {-# DEPRECATED ctpcForwardWhenContentTypeIsUnknown "Use generic-lens or generic-optics with 'forwardWhenContentTypeIsUnknown' instead." #-}
 
 -- | The configuration for a field-level encryption content type-profile.
 --
 -- /Note:/ Consider using 'contentTypeProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpcContentTypeProfiles :: Lens.Lens' ContentTypeProfileConfig (Lude.Maybe ContentTypeProfiles)
-ctpcContentTypeProfiles = Lens.lens (contentTypeProfiles :: ContentTypeProfileConfig -> Lude.Maybe ContentTypeProfiles) (\s a -> s {contentTypeProfiles = a} :: ContentTypeProfileConfig)
+ctpcContentTypeProfiles :: Lens.Lens' ContentTypeProfileConfig (Core.Maybe Types.ContentTypeProfiles)
+ctpcContentTypeProfiles = Lens.field @"contentTypeProfiles"
 {-# DEPRECATED ctpcContentTypeProfiles "Use generic-lens or generic-optics with 'contentTypeProfiles' instead." #-}
 
-instance Lude.FromXML ContentTypeProfileConfig where
+instance Core.ToXML ContentTypeProfileConfig where
+  toXML ContentTypeProfileConfig {..} =
+    Core.toXMLNode
+      "ForwardWhenContentTypeIsUnknown"
+      forwardWhenContentTypeIsUnknown
+      Core.<> Core.toXMLNode "ContentTypeProfiles" Core.<$> contentTypeProfiles
+
+instance Core.FromXML ContentTypeProfileConfig where
   parseXML x =
     ContentTypeProfileConfig'
-      Lude.<$> (x Lude..@ "ForwardWhenContentTypeIsUnknown")
-      Lude.<*> (x Lude..@? "ContentTypeProfiles")
-
-instance Lude.ToXML ContentTypeProfileConfig where
-  toXML ContentTypeProfileConfig' {..} =
-    Lude.mconcat
-      [ "ForwardWhenContentTypeIsUnknown"
-          Lude.@= forwardWhenContentTypeIsUnknown,
-        "ContentTypeProfiles" Lude.@= contentTypeProfiles
-      ]
+      Core.<$> (x Core..@ "ForwardWhenContentTypeIsUnknown")
+      Core.<*> (x Core..@? "ContentTypeProfiles")

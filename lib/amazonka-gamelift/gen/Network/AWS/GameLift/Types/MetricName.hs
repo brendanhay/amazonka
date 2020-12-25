@@ -13,91 +13,93 @@
 module Network.AWS.GameLift.Types.MetricName
   ( MetricName
       ( MetricName',
-        ActivatingGameSessions,
-        ActiveGameSessions,
-        ActiveInstances,
-        AvailableGameSessions,
-        AvailablePlayerSessions,
-        CurrentPlayerSessions,
-        IdleInstances,
-        PercentAvailableGameSessions,
-        PercentIdleInstances,
-        QueueDepth,
-        WaitTime
+        MetricNameActivatingGameSessions,
+        MetricNameActiveGameSessions,
+        MetricNameActiveInstances,
+        MetricNameAvailableGameSessions,
+        MetricNameAvailablePlayerSessions,
+        MetricNameCurrentPlayerSessions,
+        MetricNameIdleInstances,
+        MetricNamePercentAvailableGameSessions,
+        MetricNamePercentIdleInstances,
+        MetricNameQueueDepth,
+        MetricNameWaitTime,
+        fromMetricName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MetricName = MetricName' Lude.Text
+newtype MetricName = MetricName' {fromMetricName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ActivatingGameSessions :: MetricName
-pattern ActivatingGameSessions = MetricName' "ActivatingGameSessions"
+pattern MetricNameActivatingGameSessions :: MetricName
+pattern MetricNameActivatingGameSessions = MetricName' "ActivatingGameSessions"
 
-pattern ActiveGameSessions :: MetricName
-pattern ActiveGameSessions = MetricName' "ActiveGameSessions"
+pattern MetricNameActiveGameSessions :: MetricName
+pattern MetricNameActiveGameSessions = MetricName' "ActiveGameSessions"
 
-pattern ActiveInstances :: MetricName
-pattern ActiveInstances = MetricName' "ActiveInstances"
+pattern MetricNameActiveInstances :: MetricName
+pattern MetricNameActiveInstances = MetricName' "ActiveInstances"
 
-pattern AvailableGameSessions :: MetricName
-pattern AvailableGameSessions = MetricName' "AvailableGameSessions"
+pattern MetricNameAvailableGameSessions :: MetricName
+pattern MetricNameAvailableGameSessions = MetricName' "AvailableGameSessions"
 
-pattern AvailablePlayerSessions :: MetricName
-pattern AvailablePlayerSessions = MetricName' "AvailablePlayerSessions"
+pattern MetricNameAvailablePlayerSessions :: MetricName
+pattern MetricNameAvailablePlayerSessions = MetricName' "AvailablePlayerSessions"
 
-pattern CurrentPlayerSessions :: MetricName
-pattern CurrentPlayerSessions = MetricName' "CurrentPlayerSessions"
+pattern MetricNameCurrentPlayerSessions :: MetricName
+pattern MetricNameCurrentPlayerSessions = MetricName' "CurrentPlayerSessions"
 
-pattern IdleInstances :: MetricName
-pattern IdleInstances = MetricName' "IdleInstances"
+pattern MetricNameIdleInstances :: MetricName
+pattern MetricNameIdleInstances = MetricName' "IdleInstances"
 
-pattern PercentAvailableGameSessions :: MetricName
-pattern PercentAvailableGameSessions = MetricName' "PercentAvailableGameSessions"
+pattern MetricNamePercentAvailableGameSessions :: MetricName
+pattern MetricNamePercentAvailableGameSessions = MetricName' "PercentAvailableGameSessions"
 
-pattern PercentIdleInstances :: MetricName
-pattern PercentIdleInstances = MetricName' "PercentIdleInstances"
+pattern MetricNamePercentIdleInstances :: MetricName
+pattern MetricNamePercentIdleInstances = MetricName' "PercentIdleInstances"
 
-pattern QueueDepth :: MetricName
-pattern QueueDepth = MetricName' "QueueDepth"
+pattern MetricNameQueueDepth :: MetricName
+pattern MetricNameQueueDepth = MetricName' "QueueDepth"
 
-pattern WaitTime :: MetricName
-pattern WaitTime = MetricName' "WaitTime"
+pattern MetricNameWaitTime :: MetricName
+pattern MetricNameWaitTime = MetricName' "WaitTime"
 
 {-# COMPLETE
-  ActivatingGameSessions,
-  ActiveGameSessions,
-  ActiveInstances,
-  AvailableGameSessions,
-  AvailablePlayerSessions,
-  CurrentPlayerSessions,
-  IdleInstances,
-  PercentAvailableGameSessions,
-  PercentIdleInstances,
-  QueueDepth,
-  WaitTime,
+  MetricNameActivatingGameSessions,
+  MetricNameActiveGameSessions,
+  MetricNameActiveInstances,
+  MetricNameAvailableGameSessions,
+  MetricNameAvailablePlayerSessions,
+  MetricNameCurrentPlayerSessions,
+  MetricNameIdleInstances,
+  MetricNamePercentAvailableGameSessions,
+  MetricNamePercentIdleInstances,
+  MetricNameQueueDepth,
+  MetricNameWaitTime,
   MetricName'
   #-}

@@ -24,185 +24,169 @@ module Network.AWS.MediaConvert.ListPresets
     -- ** Request lenses
     lpCategory,
     lpListBy,
+    lpMaxResults,
     lpNextToken,
     lpOrder,
-    lpMaxResults,
 
     -- * Destructuring the response
     ListPresetsResponse (..),
     mkListPresetsResponse,
 
     -- ** Response lenses
-    lprsPresets,
-    lprsNextToken,
-    lprsResponseStatus,
+    lprrsNextToken,
+    lprrsPresets,
+    lprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListPresets' smart constructor.
 data ListPresets = ListPresets'
   { -- | Optionally, specify a preset category to limit responses to only presets from that category.
-    category :: Lude.Maybe Lude.Text,
+    category :: Core.Maybe Core.Text,
     -- | Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
-    listBy :: Lude.Maybe PresetListBy,
-    -- | Use this string, provided with the response to a previous request, to request the next batch of presets.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-    order :: Lude.Maybe Order,
+    listBy :: Core.Maybe Types.PresetListBy,
     -- | Optional. Number of presets, up to twenty, that will be returned at one time
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Use this string, provided with the response to a previous request, to request the next batch of presets.
+    nextToken :: Core.Maybe Core.Text,
+    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+    order :: Core.Maybe Types.Order
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPresets' with the minimum fields required to make a request.
---
--- * 'category' - Optionally, specify a preset category to limit responses to only presets from that category.
--- * 'listBy' - Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
--- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of presets.
--- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
--- * 'maxResults' - Optional. Number of presets, up to twenty, that will be returned at one time
+-- | Creates a 'ListPresets' value with any optional fields omitted.
 mkListPresets ::
   ListPresets
 mkListPresets =
   ListPresets'
-    { category = Lude.Nothing,
-      listBy = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      order = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { category = Core.Nothing,
+      listBy = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      order = Core.Nothing
     }
 
 -- | Optionally, specify a preset category to limit responses to only presets from that category.
 --
 -- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpCategory :: Lens.Lens' ListPresets (Lude.Maybe Lude.Text)
-lpCategory = Lens.lens (category :: ListPresets -> Lude.Maybe Lude.Text) (\s a -> s {category = a} :: ListPresets)
+lpCategory :: Lens.Lens' ListPresets (Core.Maybe Core.Text)
+lpCategory = Lens.field @"category"
 {-# DEPRECATED lpCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
 --
 -- /Note:/ Consider using 'listBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpListBy :: Lens.Lens' ListPresets (Lude.Maybe PresetListBy)
-lpListBy = Lens.lens (listBy :: ListPresets -> Lude.Maybe PresetListBy) (\s a -> s {listBy = a} :: ListPresets)
+lpListBy :: Lens.Lens' ListPresets (Core.Maybe Types.PresetListBy)
+lpListBy = Lens.field @"listBy"
 {-# DEPRECATED lpListBy "Use generic-lens or generic-optics with 'listBy' instead." #-}
+
+-- | Optional. Number of presets, up to twenty, that will be returned at one time
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpMaxResults :: Lens.Lens' ListPresets (Core.Maybe Core.Natural)
+lpMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Use this string, provided with the response to a previous request, to request the next batch of presets.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpNextToken :: Lens.Lens' ListPresets (Lude.Maybe Lude.Text)
-lpNextToken = Lens.lens (nextToken :: ListPresets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPresets)
+lpNextToken :: Lens.Lens' ListPresets (Core.Maybe Core.Text)
+lpNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
 --
 -- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpOrder :: Lens.Lens' ListPresets (Lude.Maybe Order)
-lpOrder = Lens.lens (order :: ListPresets -> Lude.Maybe Order) (\s a -> s {order = a} :: ListPresets)
+lpOrder :: Lens.Lens' ListPresets (Core.Maybe Types.Order)
+lpOrder = Lens.field @"order"
 {-# DEPRECATED lpOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
--- | Optional. Number of presets, up to twenty, that will be returned at one time
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpMaxResults :: Lens.Lens' ListPresets (Lude.Maybe Lude.Natural)
-lpMaxResults = Lens.lens (maxResults :: ListPresets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPresets)
-{-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListPresets where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsPresets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
-
-instance Lude.AWSRequest ListPresets where
+instance Core.AWSRequest ListPresets where
   type Rs ListPresets = ListPresetsResponse
-  request = Req.get mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2017-08-29/presets",
+        Core._rqQuery =
+          Core.toQueryValue "category" Core.<$> category
+            Core.<> (Core.toQueryValue "listBy" Core.<$> listBy)
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "order" Core.<$> order),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPresetsResponse'
-            Lude.<$> (x Lude..?> "presets" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "presets")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListPresets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListPresets where
-  toPath = Lude.const "/2017-08-29/presets"
-
-instance Lude.ToQuery ListPresets where
-  toQuery ListPresets' {..} =
-    Lude.mconcat
-      [ "category" Lude.=: category,
-        "listBy" Lude.=: listBy,
-        "nextToken" Lude.=: nextToken,
-        "order" Lude.=: order,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListPresets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"presets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
-  { -- | List of presets
-    presets :: Lude.Maybe [Preset],
-    -- | Use this string to request the next batch of presets.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Use this string to request the next batch of presets.
+    nextToken :: Core.Maybe Core.Text,
+    -- | List of presets
+    presets :: Core.Maybe [Types.Preset],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListPresetsResponse' with the minimum fields required to make a request.
---
--- * 'presets' - List of presets
--- * 'nextToken' - Use this string to request the next batch of presets.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPresetsResponse' value with any optional fields omitted.
 mkListPresetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPresetsResponse
-mkListPresetsResponse pResponseStatus_ =
+mkListPresetsResponse responseStatus =
   ListPresetsResponse'
-    { presets = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      presets = Core.Nothing,
+      responseStatus
     }
-
--- | List of presets
---
--- /Note:/ Consider using 'presets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsPresets :: Lens.Lens' ListPresetsResponse (Lude.Maybe [Preset])
-lprsPresets = Lens.lens (presets :: ListPresetsResponse -> Lude.Maybe [Preset]) (\s a -> s {presets = a} :: ListPresetsResponse)
-{-# DEPRECATED lprsPresets "Use generic-lens or generic-optics with 'presets' instead." #-}
 
 -- | Use this string to request the next batch of presets.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsNextToken :: Lens.Lens' ListPresetsResponse (Lude.Maybe Lude.Text)
-lprsNextToken = Lens.lens (nextToken :: ListPresetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPresetsResponse)
-{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lprrsNextToken :: Lens.Lens' ListPresetsResponse (Core.Maybe Core.Text)
+lprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | List of presets
+--
+-- /Note:/ Consider using 'presets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsPresets :: Lens.Lens' ListPresetsResponse (Core.Maybe [Types.Preset])
+lprrsPresets = Lens.field @"presets"
+{-# DEPRECATED lprrsPresets "Use generic-lens or generic-optics with 'presets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' ListPresetsResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: ListPresetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPresetsResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' ListPresetsResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

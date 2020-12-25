@@ -22,36 +22,34 @@ module Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes whether S3 data event logs will be automatically enabled for new members of the organization.
 --
 -- /See:/ 'mkOrganizationS3LogsConfiguration' smart constructor.
 newtype OrganizationS3LogsConfiguration = OrganizationS3LogsConfiguration'
   { -- | A value that contains information on whether S3 data event logs will be enabled automatically as a data source for the organization.
-    autoEnable :: Lude.Bool
+    autoEnable :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrganizationS3LogsConfiguration' with the minimum fields required to make a request.
---
--- * 'autoEnable' - A value that contains information on whether S3 data event logs will be enabled automatically as a data source for the organization.
+-- | Creates a 'OrganizationS3LogsConfiguration' value with any optional fields omitted.
 mkOrganizationS3LogsConfiguration ::
   -- | 'autoEnable'
-  Lude.Bool ->
+  Core.Bool ->
   OrganizationS3LogsConfiguration
-mkOrganizationS3LogsConfiguration pAutoEnable_ =
-  OrganizationS3LogsConfiguration' {autoEnable = pAutoEnable_}
+mkOrganizationS3LogsConfiguration autoEnable =
+  OrganizationS3LogsConfiguration' {autoEnable}
 
 -- | A value that contains information on whether S3 data event logs will be enabled automatically as a data source for the organization.
 --
 -- /Note:/ Consider using 'autoEnable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oslcAutoEnable :: Lens.Lens' OrganizationS3LogsConfiguration Lude.Bool
-oslcAutoEnable = Lens.lens (autoEnable :: OrganizationS3LogsConfiguration -> Lude.Bool) (\s a -> s {autoEnable = a} :: OrganizationS3LogsConfiguration)
+oslcAutoEnable :: Lens.Lens' OrganizationS3LogsConfiguration Core.Bool
+oslcAutoEnable = Lens.field @"autoEnable"
 {-# DEPRECATED oslcAutoEnable "Use generic-lens or generic-optics with 'autoEnable' instead." #-}
 
-instance Lude.ToJSON OrganizationS3LogsConfiguration where
-  toJSON OrganizationS3LogsConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("autoEnable" Lude..= autoEnable)])
+instance Core.FromJSON OrganizationS3LogsConfiguration where
+  toJSON OrganizationS3LogsConfiguration {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("autoEnable" Core..= autoEnable)])

@@ -18,14 +18,15 @@ module Network.AWS.EC2.Types.SpotPlacement
 
     -- * Lenses
     spAvailabilityZone,
-    spTenancy,
     spGroupName,
+    spTenancy,
   )
 where
 
-import Network.AWS.EC2.Types.Tenancy
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tenancy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes Spot Instance placement.
 --
@@ -34,29 +35,23 @@ data SpotPlacement = SpotPlacement'
   { -- | The Availability Zone.
     --
     -- [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
-    tenancy :: Lude.Maybe Tenancy,
+    availabilityZone :: Core.Maybe Types.String,
     -- | The name of the placement group.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.String,
+    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
+    tenancy :: Core.Maybe Types.Tenancy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpotPlacement' with the minimum fields required to make a request.
---
--- * 'availabilityZone' - The Availability Zone.
---
--- [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
--- * 'tenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
--- * 'groupName' - The name of the placement group.
+-- | Creates a 'SpotPlacement' value with any optional fields omitted.
 mkSpotPlacement ::
   SpotPlacement
 mkSpotPlacement =
   SpotPlacement'
-    { availabilityZone = Lude.Nothing,
-      tenancy = Lude.Nothing,
-      groupName = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      groupName = Core.Nothing,
+      tenancy = Core.Nothing
     }
 
 -- | The Availability Zone.
@@ -64,35 +59,27 @@ mkSpotPlacement =
 -- [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spAvailabilityZone :: Lens.Lens' SpotPlacement (Lude.Maybe Lude.Text)
-spAvailabilityZone = Lens.lens (availabilityZone :: SpotPlacement -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: SpotPlacement)
+spAvailabilityZone :: Lens.Lens' SpotPlacement (Core.Maybe Types.String)
+spAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED spAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
---
--- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spTenancy :: Lens.Lens' SpotPlacement (Lude.Maybe Tenancy)
-spTenancy = Lens.lens (tenancy :: SpotPlacement -> Lude.Maybe Tenancy) (\s a -> s {tenancy = a} :: SpotPlacement)
-{-# DEPRECATED spTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
 
 -- | The name of the placement group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spGroupName :: Lens.Lens' SpotPlacement (Lude.Maybe Lude.Text)
-spGroupName = Lens.lens (groupName :: SpotPlacement -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: SpotPlacement)
+spGroupName :: Lens.Lens' SpotPlacement (Core.Maybe Types.String)
+spGroupName = Lens.field @"groupName"
 {-# DEPRECATED spGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromXML SpotPlacement where
+-- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
+--
+-- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spTenancy :: Lens.Lens' SpotPlacement (Core.Maybe Types.Tenancy)
+spTenancy = Lens.field @"tenancy"
+{-# DEPRECATED spTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
+
+instance Core.FromXML SpotPlacement where
   parseXML x =
     SpotPlacement'
-      Lude.<$> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "tenancy")
-      Lude.<*> (x Lude..@? "groupName")
-
-instance Lude.ToQuery SpotPlacement where
-  toQuery SpotPlacement' {..} =
-    Lude.mconcat
-      [ "AvailabilityZone" Lude.=: availabilityZone,
-        "Tenancy" Lude.=: tenancy,
-        "GroupName" Lude.=: groupName
-      ]
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "groupName")
+      Core.<*> (x Core..@? "tenancy")

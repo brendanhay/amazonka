@@ -17,18 +17,19 @@ module Network.AWS.RDS.Types.DBSubnetGroup
     mkDBSubnetGroup,
 
     -- * Lenses
-    dbsgDBSubnetGroupName,
-    dbsgVPCId,
-    dbsgSubnets,
-    dbsgDBSubnetGroupDescription,
-    dbsgDBSubnetGroupARN,
-    dbsgSubnetGroupStatus,
+    dDBSubnetGroupArn,
+    dDBSubnetGroupDescription,
+    dDBSubnetGroupName,
+    dSubnetGroupStatus,
+    dSubnets,
+    dVpcId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.Subnet
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
+import qualified Network.AWS.RDS.Types.Subnet as Types
 
 -- | Contains the details of an Amazon RDS DB subnet group.
 --
@@ -36,92 +37,83 @@ import Network.AWS.RDS.Types.Subnet
 --
 -- /See:/ 'mkDBSubnetGroup' smart constructor.
 data DBSubnetGroup = DBSubnetGroup'
-  { -- | The name of the DB subnet group.
-    dbSubnetGroupName :: Lude.Maybe Lude.Text,
-    -- | Provides the VpcId of the DB subnet group.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | Contains a list of @Subnet@ elements.
-    subnets :: Lude.Maybe [Subnet],
+  { -- | The Amazon Resource Name (ARN) for the DB subnet group.
+    dBSubnetGroupArn :: Core.Maybe Types.String,
     -- | Provides the description of the DB subnet group.
-    dbSubnetGroupDescription :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) for the DB subnet group.
-    dbSubnetGroupARN :: Lude.Maybe Lude.Text,
+    dBSubnetGroupDescription :: Core.Maybe Types.String,
+    -- | The name of the DB subnet group.
+    dBSubnetGroupName :: Core.Maybe Types.String,
     -- | Provides the status of the DB subnet group.
-    subnetGroupStatus :: Lude.Maybe Lude.Text
+    subnetGroupStatus :: Core.Maybe Types.String,
+    -- | Contains a list of @Subnet@ elements.
+    subnets :: Core.Maybe [Types.Subnet],
+    -- | Provides the VpcId of the DB subnet group.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBSubnetGroup' with the minimum fields required to make a request.
---
--- * 'dbSubnetGroupName' - The name of the DB subnet group.
--- * 'vpcId' - Provides the VpcId of the DB subnet group.
--- * 'subnets' - Contains a list of @Subnet@ elements.
--- * 'dbSubnetGroupDescription' - Provides the description of the DB subnet group.
--- * 'dbSubnetGroupARN' - The Amazon Resource Name (ARN) for the DB subnet group.
--- * 'subnetGroupStatus' - Provides the status of the DB subnet group.
+-- | Creates a 'DBSubnetGroup' value with any optional fields omitted.
 mkDBSubnetGroup ::
   DBSubnetGroup
 mkDBSubnetGroup =
   DBSubnetGroup'
-    { dbSubnetGroupName = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      subnets = Lude.Nothing,
-      dbSubnetGroupDescription = Lude.Nothing,
-      dbSubnetGroupARN = Lude.Nothing,
-      subnetGroupStatus = Lude.Nothing
+    { dBSubnetGroupArn = Core.Nothing,
+      dBSubnetGroupDescription = Core.Nothing,
+      dBSubnetGroupName = Core.Nothing,
+      subnetGroupStatus = Core.Nothing,
+      subnets = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | The name of the DB subnet group.
---
--- /Note:/ Consider using 'dbSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbsgDBSubnetGroupName :: Lens.Lens' DBSubnetGroup (Lude.Maybe Lude.Text)
-dbsgDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: DBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupName = a} :: DBSubnetGroup)
-{-# DEPRECATED dbsgDBSubnetGroupName "Use generic-lens or generic-optics with 'dbSubnetGroupName' instead." #-}
-
--- | Provides the VpcId of the DB subnet group.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbsgVPCId :: Lens.Lens' DBSubnetGroup (Lude.Maybe Lude.Text)
-dbsgVPCId = Lens.lens (vpcId :: DBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DBSubnetGroup)
-{-# DEPRECATED dbsgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | Contains a list of @Subnet@ elements.
---
--- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbsgSubnets :: Lens.Lens' DBSubnetGroup (Lude.Maybe [Subnet])
-dbsgSubnets = Lens.lens (subnets :: DBSubnetGroup -> Lude.Maybe [Subnet]) (\s a -> s {subnets = a} :: DBSubnetGroup)
-{-# DEPRECATED dbsgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
-
--- | Provides the description of the DB subnet group.
---
--- /Note:/ Consider using 'dbSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbsgDBSubnetGroupDescription :: Lens.Lens' DBSubnetGroup (Lude.Maybe Lude.Text)
-dbsgDBSubnetGroupDescription = Lens.lens (dbSubnetGroupDescription :: DBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupDescription = a} :: DBSubnetGroup)
-{-# DEPRECATED dbsgDBSubnetGroupDescription "Use generic-lens or generic-optics with 'dbSubnetGroupDescription' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the DB subnet group.
 --
--- /Note:/ Consider using 'dbSubnetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbsgDBSubnetGroupARN :: Lens.Lens' DBSubnetGroup (Lude.Maybe Lude.Text)
-dbsgDBSubnetGroupARN = Lens.lens (dbSubnetGroupARN :: DBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupARN = a} :: DBSubnetGroup)
-{-# DEPRECATED dbsgDBSubnetGroupARN "Use generic-lens or generic-optics with 'dbSubnetGroupARN' instead." #-}
+-- /Note:/ Consider using 'dBSubnetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDBSubnetGroupArn :: Lens.Lens' DBSubnetGroup (Core.Maybe Types.String)
+dDBSubnetGroupArn = Lens.field @"dBSubnetGroupArn"
+{-# DEPRECATED dDBSubnetGroupArn "Use generic-lens or generic-optics with 'dBSubnetGroupArn' instead." #-}
+
+-- | Provides the description of the DB subnet group.
+--
+-- /Note:/ Consider using 'dBSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDBSubnetGroupDescription :: Lens.Lens' DBSubnetGroup (Core.Maybe Types.String)
+dDBSubnetGroupDescription = Lens.field @"dBSubnetGroupDescription"
+{-# DEPRECATED dDBSubnetGroupDescription "Use generic-lens or generic-optics with 'dBSubnetGroupDescription' instead." #-}
+
+-- | The name of the DB subnet group.
+--
+-- /Note:/ Consider using 'dBSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDBSubnetGroupName :: Lens.Lens' DBSubnetGroup (Core.Maybe Types.String)
+dDBSubnetGroupName = Lens.field @"dBSubnetGroupName"
+{-# DEPRECATED dDBSubnetGroupName "Use generic-lens or generic-optics with 'dBSubnetGroupName' instead." #-}
 
 -- | Provides the status of the DB subnet group.
 --
 -- /Note:/ Consider using 'subnetGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbsgSubnetGroupStatus :: Lens.Lens' DBSubnetGroup (Lude.Maybe Lude.Text)
-dbsgSubnetGroupStatus = Lens.lens (subnetGroupStatus :: DBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {subnetGroupStatus = a} :: DBSubnetGroup)
-{-# DEPRECATED dbsgSubnetGroupStatus "Use generic-lens or generic-optics with 'subnetGroupStatus' instead." #-}
+dSubnetGroupStatus :: Lens.Lens' DBSubnetGroup (Core.Maybe Types.String)
+dSubnetGroupStatus = Lens.field @"subnetGroupStatus"
+{-# DEPRECATED dSubnetGroupStatus "Use generic-lens or generic-optics with 'subnetGroupStatus' instead." #-}
 
-instance Lude.FromXML DBSubnetGroup where
+-- | Contains a list of @Subnet@ elements.
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSubnets :: Lens.Lens' DBSubnetGroup (Core.Maybe [Types.Subnet])
+dSubnets = Lens.field @"subnets"
+{-# DEPRECATED dSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+
+-- | Provides the VpcId of the DB subnet group.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVpcId :: Lens.Lens' DBSubnetGroup (Core.Maybe Types.String)
+dVpcId = Lens.field @"vpcId"
+{-# DEPRECATED dVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML DBSubnetGroup where
   parseXML x =
     DBSubnetGroup'
-      Lude.<$> (x Lude..@? "DBSubnetGroupName")
-      Lude.<*> (x Lude..@? "VpcId")
-      Lude.<*> ( x Lude..@? "Subnets" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Subnet")
-               )
-      Lude.<*> (x Lude..@? "DBSubnetGroupDescription")
-      Lude.<*> (x Lude..@? "DBSubnetGroupArn")
-      Lude.<*> (x Lude..@? "SubnetGroupStatus")
+      Core.<$> (x Core..@? "DBSubnetGroupArn")
+      Core.<*> (x Core..@? "DBSubnetGroupDescription")
+      Core.<*> (x Core..@? "DBSubnetGroupName")
+      Core.<*> (x Core..@? "SubnetGroupStatus")
+      Core.<*> (x Core..@? "Subnets" Core..<@> Core.parseXMLList "Subnet")
+      Core.<*> (x Core..@? "VpcId")

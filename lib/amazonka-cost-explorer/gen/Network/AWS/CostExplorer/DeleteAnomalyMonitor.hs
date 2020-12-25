@@ -20,103 +20,91 @@ module Network.AWS.CostExplorer.DeleteAnomalyMonitor
     mkDeleteAnomalyMonitor,
 
     -- ** Request lenses
-    damMonitorARN,
+    damMonitorArn,
 
     -- * Destructuring the response
     DeleteAnomalyMonitorResponse (..),
     mkDeleteAnomalyMonitorResponse,
 
     -- ** Response lenses
-    damrsResponseStatus,
+    damrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAnomalyMonitor' smart constructor.
 newtype DeleteAnomalyMonitor = DeleteAnomalyMonitor'
   { -- | The unique identifier of the cost anomaly monitor that you want to delete.
-    monitorARN :: Lude.Text
+    monitorArn :: Types.MonitorArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAnomalyMonitor' with the minimum fields required to make a request.
---
--- * 'monitorARN' - The unique identifier of the cost anomaly monitor that you want to delete.
+-- | Creates a 'DeleteAnomalyMonitor' value with any optional fields omitted.
 mkDeleteAnomalyMonitor ::
-  -- | 'monitorARN'
-  Lude.Text ->
+  -- | 'monitorArn'
+  Types.MonitorArn ->
   DeleteAnomalyMonitor
-mkDeleteAnomalyMonitor pMonitorARN_ =
-  DeleteAnomalyMonitor' {monitorARN = pMonitorARN_}
+mkDeleteAnomalyMonitor monitorArn =
+  DeleteAnomalyMonitor' {monitorArn}
 
 -- | The unique identifier of the cost anomaly monitor that you want to delete.
 --
--- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-damMonitorARN :: Lens.Lens' DeleteAnomalyMonitor Lude.Text
-damMonitorARN = Lens.lens (monitorARN :: DeleteAnomalyMonitor -> Lude.Text) (\s a -> s {monitorARN = a} :: DeleteAnomalyMonitor)
-{-# DEPRECATED damMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
+-- /Note:/ Consider using 'monitorArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damMonitorArn :: Lens.Lens' DeleteAnomalyMonitor Types.MonitorArn
+damMonitorArn = Lens.field @"monitorArn"
+{-# DEPRECATED damMonitorArn "Use generic-lens or generic-optics with 'monitorArn' instead." #-}
 
-instance Lude.AWSRequest DeleteAnomalyMonitor where
+instance Core.FromJSON DeleteAnomalyMonitor where
+  toJSON DeleteAnomalyMonitor {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("MonitorArn" Core..= monitorArn)])
+
+instance Core.AWSRequest DeleteAnomalyMonitor where
   type Rs DeleteAnomalyMonitor = DeleteAnomalyMonitorResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSInsightsIndexService.DeleteAnomalyMonitor")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteAnomalyMonitorResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAnomalyMonitor where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.DeleteAnomalyMonitor" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAnomalyMonitor where
-  toJSON DeleteAnomalyMonitor' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("MonitorArn" Lude..= monitorARN)])
-
-instance Lude.ToPath DeleteAnomalyMonitor where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAnomalyMonitor where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAnomalyMonitorResponse' smart constructor.
 newtype DeleteAnomalyMonitorResponse = DeleteAnomalyMonitorResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAnomalyMonitorResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAnomalyMonitorResponse' value with any optional fields omitted.
 mkDeleteAnomalyMonitorResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAnomalyMonitorResponse
-mkDeleteAnomalyMonitorResponse pResponseStatus_ =
-  DeleteAnomalyMonitorResponse' {responseStatus = pResponseStatus_}
+mkDeleteAnomalyMonitorResponse responseStatus =
+  DeleteAnomalyMonitorResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-damrsResponseStatus :: Lens.Lens' DeleteAnomalyMonitorResponse Lude.Int
-damrsResponseStatus = Lens.lens (responseStatus :: DeleteAnomalyMonitorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAnomalyMonitorResponse)
-{-# DEPRECATED damrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+damrrsResponseStatus :: Lens.Lens' DeleteAnomalyMonitorResponse Core.Int
+damrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED damrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

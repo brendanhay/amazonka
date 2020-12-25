@@ -13,46 +13,51 @@
 module Network.AWS.Glacier.Types.EncryptionType
   ( EncryptionType
       ( EncryptionType',
-        AWSKMS,
-        AES256
+        EncryptionTypeAwsKms,
+        EncryptionTypeAES256,
+        fromEncryptionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EncryptionType = EncryptionType' Lude.Text
+newtype EncryptionType = EncryptionType'
+  { fromEncryptionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AWSKMS :: EncryptionType
-pattern AWSKMS = EncryptionType' "aws:kms"
+pattern EncryptionTypeAwsKms :: EncryptionType
+pattern EncryptionTypeAwsKms = EncryptionType' "aws:kms"
 
-pattern AES256 :: EncryptionType
-pattern AES256 = EncryptionType' "AES256"
+pattern EncryptionTypeAES256 :: EncryptionType
+pattern EncryptionTypeAES256 = EncryptionType' "AES256"
 
 {-# COMPLETE
-  AWSKMS,
-  AES256,
+  EncryptionTypeAwsKms,
+  EncryptionTypeAES256,
   EncryptionType'
   #-}

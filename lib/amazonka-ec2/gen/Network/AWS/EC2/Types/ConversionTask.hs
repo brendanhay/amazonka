@@ -17,125 +17,118 @@ module Network.AWS.EC2.Types.ConversionTask
     mkConversionTask,
 
     -- * Lenses
-    cImportInstance,
-    cState,
-    cStatusMessage,
-    cImportVolume,
-    cConversionTaskId,
-    cExpirationTime,
-    cTags,
+    ctConversionTaskId,
+    ctExpirationTime,
+    ctImportInstance,
+    ctImportVolume,
+    ctState,
+    ctStatusMessage,
+    ctTags,
   )
 where
 
-import Network.AWS.EC2.Types.ConversionTaskState
-import Network.AWS.EC2.Types.ImportInstanceTaskDetails
-import Network.AWS.EC2.Types.ImportVolumeTaskDetails
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.ConversionTaskId as Types
+import qualified Network.AWS.EC2.Types.ConversionTaskState as Types
+import qualified Network.AWS.EC2.Types.ExpirationTime as Types
+import qualified Network.AWS.EC2.Types.ImportInstanceTaskDetails as Types
+import qualified Network.AWS.EC2.Types.ImportVolumeTaskDetails as Types
+import qualified Network.AWS.EC2.Types.StatusMessage as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a conversion task.
 --
 -- /See:/ 'mkConversionTask' smart constructor.
 data ConversionTask = ConversionTask'
-  { -- | If the task is for importing an instance, this contains information about the import instance task.
-    importInstance :: Lude.Maybe ImportInstanceTaskDetails,
-    -- | The state of the conversion task.
-    state :: Lude.Maybe ConversionTaskState,
-    -- | The status message related to the conversion task.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | If the task is for importing a volume, this contains information about the import volume task.
-    importVolume :: Lude.Maybe ImportVolumeTaskDetails,
-    -- | The ID of the conversion task.
-    conversionTaskId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the conversion task.
+    conversionTaskId :: Core.Maybe Types.ConversionTaskId,
     -- | The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task.
-    expirationTime :: Lude.Maybe Lude.Text,
+    expirationTime :: Core.Maybe Types.ExpirationTime,
+    -- | If the task is for importing an instance, this contains information about the import instance task.
+    importInstance :: Core.Maybe Types.ImportInstanceTaskDetails,
+    -- | If the task is for importing a volume, this contains information about the import volume task.
+    importVolume :: Core.Maybe Types.ImportVolumeTaskDetails,
+    -- | The state of the conversion task.
+    state :: Core.Maybe Types.ConversionTaskState,
+    -- | The status message related to the conversion task.
+    statusMessage :: Core.Maybe Types.StatusMessage,
     -- | Any tags assigned to the task.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConversionTask' with the minimum fields required to make a request.
---
--- * 'importInstance' - If the task is for importing an instance, this contains information about the import instance task.
--- * 'state' - The state of the conversion task.
--- * 'statusMessage' - The status message related to the conversion task.
--- * 'importVolume' - If the task is for importing a volume, this contains information about the import volume task.
--- * 'conversionTaskId' - The ID of the conversion task.
--- * 'expirationTime' - The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task.
--- * 'tags' - Any tags assigned to the task.
+-- | Creates a 'ConversionTask' value with any optional fields omitted.
 mkConversionTask ::
   ConversionTask
 mkConversionTask =
   ConversionTask'
-    { importInstance = Lude.Nothing,
-      state = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      importVolume = Lude.Nothing,
-      conversionTaskId = Lude.Nothing,
-      expirationTime = Lude.Nothing,
-      tags = Lude.Nothing
+    { conversionTaskId = Core.Nothing,
+      expirationTime = Core.Nothing,
+      importInstance = Core.Nothing,
+      importVolume = Core.Nothing,
+      state = Core.Nothing,
+      statusMessage = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | If the task is for importing an instance, this contains information about the import instance task.
---
--- /Note:/ Consider using 'importInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cImportInstance :: Lens.Lens' ConversionTask (Lude.Maybe ImportInstanceTaskDetails)
-cImportInstance = Lens.lens (importInstance :: ConversionTask -> Lude.Maybe ImportInstanceTaskDetails) (\s a -> s {importInstance = a} :: ConversionTask)
-{-# DEPRECATED cImportInstance "Use generic-lens or generic-optics with 'importInstance' instead." #-}
-
--- | The state of the conversion task.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cState :: Lens.Lens' ConversionTask (Lude.Maybe ConversionTaskState)
-cState = Lens.lens (state :: ConversionTask -> Lude.Maybe ConversionTaskState) (\s a -> s {state = a} :: ConversionTask)
-{-# DEPRECATED cState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The status message related to the conversion task.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cStatusMessage :: Lens.Lens' ConversionTask (Lude.Maybe Lude.Text)
-cStatusMessage = Lens.lens (statusMessage :: ConversionTask -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ConversionTask)
-{-# DEPRECATED cStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | If the task is for importing a volume, this contains information about the import volume task.
---
--- /Note:/ Consider using 'importVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cImportVolume :: Lens.Lens' ConversionTask (Lude.Maybe ImportVolumeTaskDetails)
-cImportVolume = Lens.lens (importVolume :: ConversionTask -> Lude.Maybe ImportVolumeTaskDetails) (\s a -> s {importVolume = a} :: ConversionTask)
-{-# DEPRECATED cImportVolume "Use generic-lens or generic-optics with 'importVolume' instead." #-}
 
 -- | The ID of the conversion task.
 --
 -- /Note:/ Consider using 'conversionTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConversionTaskId :: Lens.Lens' ConversionTask (Lude.Maybe Lude.Text)
-cConversionTaskId = Lens.lens (conversionTaskId :: ConversionTask -> Lude.Maybe Lude.Text) (\s a -> s {conversionTaskId = a} :: ConversionTask)
-{-# DEPRECATED cConversionTaskId "Use generic-lens or generic-optics with 'conversionTaskId' instead." #-}
+ctConversionTaskId :: Lens.Lens' ConversionTask (Core.Maybe Types.ConversionTaskId)
+ctConversionTaskId = Lens.field @"conversionTaskId"
+{-# DEPRECATED ctConversionTaskId "Use generic-lens or generic-optics with 'conversionTaskId' instead." #-}
 
 -- | The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task.
 --
 -- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cExpirationTime :: Lens.Lens' ConversionTask (Lude.Maybe Lude.Text)
-cExpirationTime = Lens.lens (expirationTime :: ConversionTask -> Lude.Maybe Lude.Text) (\s a -> s {expirationTime = a} :: ConversionTask)
-{-# DEPRECATED cExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+ctExpirationTime :: Lens.Lens' ConversionTask (Core.Maybe Types.ExpirationTime)
+ctExpirationTime = Lens.field @"expirationTime"
+{-# DEPRECATED ctExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+
+-- | If the task is for importing an instance, this contains information about the import instance task.
+--
+-- /Note:/ Consider using 'importInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctImportInstance :: Lens.Lens' ConversionTask (Core.Maybe Types.ImportInstanceTaskDetails)
+ctImportInstance = Lens.field @"importInstance"
+{-# DEPRECATED ctImportInstance "Use generic-lens or generic-optics with 'importInstance' instead." #-}
+
+-- | If the task is for importing a volume, this contains information about the import volume task.
+--
+-- /Note:/ Consider using 'importVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctImportVolume :: Lens.Lens' ConversionTask (Core.Maybe Types.ImportVolumeTaskDetails)
+ctImportVolume = Lens.field @"importVolume"
+{-# DEPRECATED ctImportVolume "Use generic-lens or generic-optics with 'importVolume' instead." #-}
+
+-- | The state of the conversion task.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctState :: Lens.Lens' ConversionTask (Core.Maybe Types.ConversionTaskState)
+ctState = Lens.field @"state"
+{-# DEPRECATED ctState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The status message related to the conversion task.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctStatusMessage :: Lens.Lens' ConversionTask (Core.Maybe Types.StatusMessage)
+ctStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED ctStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | Any tags assigned to the task.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' ConversionTask (Lude.Maybe [Tag])
-cTags = Lens.lens (tags :: ConversionTask -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ConversionTask)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ctTags :: Lens.Lens' ConversionTask (Core.Maybe [Types.Tag])
+ctTags = Lens.field @"tags"
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ConversionTask where
+instance Core.FromXML ConversionTask where
   parseXML x =
     ConversionTask'
-      Lude.<$> (x Lude..@? "importInstance")
-      Lude.<*> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "statusMessage")
-      Lude.<*> (x Lude..@? "importVolume")
-      Lude.<*> (x Lude..@? "conversionTaskId")
-      Lude.<*> (x Lude..@? "expirationTime")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "conversionTaskId")
+      Core.<*> (x Core..@? "expirationTime")
+      Core.<*> (x Core..@? "importInstance")
+      Core.<*> (x Core..@? "importVolume")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "statusMessage")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

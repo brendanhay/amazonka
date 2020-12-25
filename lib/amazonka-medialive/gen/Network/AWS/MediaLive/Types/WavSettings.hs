@@ -24,75 +24,69 @@ module Network.AWS.MediaLive.Types.WavSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.WavCodingMode
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.WavCodingMode as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Wav Settings
 --
 -- /See:/ 'mkWavSettings' smart constructor.
 data WavSettings = WavSettings'
   { -- | Bits per sample.
-    bitDepth :: Lude.Maybe Lude.Double,
+    bitDepth :: Core.Maybe Core.Double,
     -- | The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
-    codingMode :: Lude.Maybe WavCodingMode,
+    codingMode :: Core.Maybe Types.WavCodingMode,
     -- | Sample rate in Hz.
-    sampleRate :: Lude.Maybe Lude.Double
+    sampleRate :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WavSettings' with the minimum fields required to make a request.
---
--- * 'bitDepth' - Bits per sample.
--- * 'codingMode' - The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
--- * 'sampleRate' - Sample rate in Hz.
+-- | Creates a 'WavSettings' value with any optional fields omitted.
 mkWavSettings ::
   WavSettings
 mkWavSettings =
   WavSettings'
-    { bitDepth = Lude.Nothing,
-      codingMode = Lude.Nothing,
-      sampleRate = Lude.Nothing
+    { bitDepth = Core.Nothing,
+      codingMode = Core.Nothing,
+      sampleRate = Core.Nothing
     }
 
 -- | Bits per sample.
 --
 -- /Note:/ Consider using 'bitDepth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wsBitDepth :: Lens.Lens' WavSettings (Lude.Maybe Lude.Double)
-wsBitDepth = Lens.lens (bitDepth :: WavSettings -> Lude.Maybe Lude.Double) (\s a -> s {bitDepth = a} :: WavSettings)
+wsBitDepth :: Lens.Lens' WavSettings (Core.Maybe Core.Double)
+wsBitDepth = Lens.field @"bitDepth"
 {-# DEPRECATED wsBitDepth "Use generic-lens or generic-optics with 'bitDepth' instead." #-}
 
 -- | The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
 --
 -- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wsCodingMode :: Lens.Lens' WavSettings (Lude.Maybe WavCodingMode)
-wsCodingMode = Lens.lens (codingMode :: WavSettings -> Lude.Maybe WavCodingMode) (\s a -> s {codingMode = a} :: WavSettings)
+wsCodingMode :: Lens.Lens' WavSettings (Core.Maybe Types.WavCodingMode)
+wsCodingMode = Lens.field @"codingMode"
 {-# DEPRECATED wsCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | Sample rate in Hz.
 --
 -- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wsSampleRate :: Lens.Lens' WavSettings (Lude.Maybe Lude.Double)
-wsSampleRate = Lens.lens (sampleRate :: WavSettings -> Lude.Maybe Lude.Double) (\s a -> s {sampleRate = a} :: WavSettings)
+wsSampleRate :: Lens.Lens' WavSettings (Core.Maybe Core.Double)
+wsSampleRate = Lens.field @"sampleRate"
 {-# DEPRECATED wsSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
-instance Lude.FromJSON WavSettings where
-  parseJSON =
-    Lude.withObject
-      "WavSettings"
-      ( \x ->
-          WavSettings'
-            Lude.<$> (x Lude..:? "bitDepth")
-            Lude.<*> (x Lude..:? "codingMode")
-            Lude.<*> (x Lude..:? "sampleRate")
-      )
-
-instance Lude.ToJSON WavSettings where
-  toJSON WavSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("bitDepth" Lude..=) Lude.<$> bitDepth,
-            ("codingMode" Lude..=) Lude.<$> codingMode,
-            ("sampleRate" Lude..=) Lude.<$> sampleRate
+instance Core.FromJSON WavSettings where
+  toJSON WavSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bitDepth" Core..=) Core.<$> bitDepth,
+            ("codingMode" Core..=) Core.<$> codingMode,
+            ("sampleRate" Core..=) Core.<$> sampleRate
           ]
       )
+
+instance Core.FromJSON WavSettings where
+  parseJSON =
+    Core.withObject "WavSettings" Core.$
+      \x ->
+        WavSettings'
+          Core.<$> (x Core..:? "bitDepth")
+          Core.<*> (x Core..:? "codingMode")
+          Core.<*> (x Core..:? "sampleRate")

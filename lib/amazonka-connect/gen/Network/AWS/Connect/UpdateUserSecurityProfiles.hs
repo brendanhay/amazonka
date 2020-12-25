@@ -20,9 +20,9 @@ module Network.AWS.Connect.UpdateUserSecurityProfiles
     mkUpdateUserSecurityProfiles,
 
     -- ** Request lenses
-    uuspInstanceId,
     uuspSecurityProfileIds,
     uuspUserId,
+    uuspInstanceId,
 
     -- * Destructuring the response
     UpdateUserSecurityProfilesResponse (..),
@@ -30,110 +30,95 @@ module Network.AWS.Connect.UpdateUserSecurityProfiles
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateUserSecurityProfiles' smart constructor.
 data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The identifiers of the security profiles for the user.
-    securityProfileIds :: Lude.NonEmpty Lude.Text,
+  { -- | The identifiers of the security profiles for the user.
+    securityProfileIds :: Core.NonEmpty Types.SecurityProfileId,
     -- | The identifier of the user account.
-    userId :: Lude.Text
+    userId :: Types.UserId,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserSecurityProfiles' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'securityProfileIds' - The identifiers of the security profiles for the user.
--- * 'userId' - The identifier of the user account.
+-- | Creates a 'UpdateUserSecurityProfiles' value with any optional fields omitted.
 mkUpdateUserSecurityProfiles ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'securityProfileIds'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.SecurityProfileId ->
   -- | 'userId'
-  Lude.Text ->
+  Types.UserId ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   UpdateUserSecurityProfiles
-mkUpdateUserSecurityProfiles
-  pInstanceId_
-  pSecurityProfileIds_
-  pUserId_ =
-    UpdateUserSecurityProfiles'
-      { instanceId = pInstanceId_,
-        securityProfileIds = pSecurityProfileIds_,
-        userId = pUserId_
-      }
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuspInstanceId :: Lens.Lens' UpdateUserSecurityProfiles Lude.Text
-uuspInstanceId = Lens.lens (instanceId :: UpdateUserSecurityProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserSecurityProfiles)
-{-# DEPRECATED uuspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+mkUpdateUserSecurityProfiles securityProfileIds userId instanceId =
+  UpdateUserSecurityProfiles'
+    { securityProfileIds,
+      userId,
+      instanceId
+    }
 
 -- | The identifiers of the security profiles for the user.
 --
 -- /Note:/ Consider using 'securityProfileIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuspSecurityProfileIds :: Lens.Lens' UpdateUserSecurityProfiles (Lude.NonEmpty Lude.Text)
-uuspSecurityProfileIds = Lens.lens (securityProfileIds :: UpdateUserSecurityProfiles -> Lude.NonEmpty Lude.Text) (\s a -> s {securityProfileIds = a} :: UpdateUserSecurityProfiles)
+uuspSecurityProfileIds :: Lens.Lens' UpdateUserSecurityProfiles (Core.NonEmpty Types.SecurityProfileId)
+uuspSecurityProfileIds = Lens.field @"securityProfileIds"
 {-# DEPRECATED uuspSecurityProfileIds "Use generic-lens or generic-optics with 'securityProfileIds' instead." #-}
 
 -- | The identifier of the user account.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuspUserId :: Lens.Lens' UpdateUserSecurityProfiles Lude.Text
-uuspUserId = Lens.lens (userId :: UpdateUserSecurityProfiles -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserSecurityProfiles)
+uuspUserId :: Lens.Lens' UpdateUserSecurityProfiles Types.UserId
+uuspUserId = Lens.field @"userId"
 {-# DEPRECATED uuspUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest UpdateUserSecurityProfiles where
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuspInstanceId :: Lens.Lens' UpdateUserSecurityProfiles Types.InstanceId
+uuspInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED uuspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON UpdateUserSecurityProfiles where
+  toJSON UpdateUserSecurityProfiles {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SecurityProfileIds" Core..= securityProfileIds)]
+      )
+
+instance Core.AWSRequest UpdateUserSecurityProfiles where
   type
     Rs UpdateUserSecurityProfiles =
       UpdateUserSecurityProfilesResponse
-  request = Req.postJSON connectService
-  response = Res.receiveNull UpdateUserSecurityProfilesResponse'
-
-instance Lude.ToHeaders UpdateUserSecurityProfiles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateUserSecurityProfiles where
-  toJSON UpdateUserSecurityProfiles' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("SecurityProfileIds" Lude..= securityProfileIds)]
-      )
-
-instance Lude.ToPath UpdateUserSecurityProfiles where
-  toPath UpdateUserSecurityProfiles' {..} =
-    Lude.mconcat
-      [ "/users/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS userId,
-        "/security-profiles"
-      ]
-
-instance Lude.ToQuery UpdateUserSecurityProfiles where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/users/" Core.<> (Core.toText instanceId) Core.<> ("/")
+                Core.<> (Core.toText userId)
+                Core.<> ("/security-profiles")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateUserSecurityProfilesResponse'
 
 -- | /See:/ 'mkUpdateUserSecurityProfilesResponse' smart constructor.
 data UpdateUserSecurityProfilesResponse = UpdateUserSecurityProfilesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserSecurityProfilesResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateUserSecurityProfilesResponse' value with any optional fields omitted.
 mkUpdateUserSecurityProfilesResponse ::
   UpdateUserSecurityProfilesResponse
 mkUpdateUserSecurityProfilesResponse =

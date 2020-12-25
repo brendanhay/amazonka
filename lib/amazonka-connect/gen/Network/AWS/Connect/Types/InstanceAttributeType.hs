@@ -13,71 +13,76 @@
 module Network.AWS.Connect.Types.InstanceAttributeType
   ( InstanceAttributeType
       ( InstanceAttributeType',
-        InboundCalls,
-        OutboundCalls,
-        ContactflowLogs,
-        ContactLens,
-        AutoResolveBestVoices,
-        UseCustomTtsVoices,
-        EarlyMedia
+        InstanceAttributeTypeInboundCalls,
+        InstanceAttributeTypeOutboundCalls,
+        InstanceAttributeTypeContactflowLogs,
+        InstanceAttributeTypeContactLens,
+        InstanceAttributeTypeAutoResolveBestVoices,
+        InstanceAttributeTypeUseCustomTtsVoices,
+        InstanceAttributeTypeEarlyMedia,
+        fromInstanceAttributeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceAttributeType = InstanceAttributeType' Lude.Text
+newtype InstanceAttributeType = InstanceAttributeType'
+  { fromInstanceAttributeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InboundCalls :: InstanceAttributeType
-pattern InboundCalls = InstanceAttributeType' "INBOUND_CALLS"
+pattern InstanceAttributeTypeInboundCalls :: InstanceAttributeType
+pattern InstanceAttributeTypeInboundCalls = InstanceAttributeType' "INBOUND_CALLS"
 
-pattern OutboundCalls :: InstanceAttributeType
-pattern OutboundCalls = InstanceAttributeType' "OUTBOUND_CALLS"
+pattern InstanceAttributeTypeOutboundCalls :: InstanceAttributeType
+pattern InstanceAttributeTypeOutboundCalls = InstanceAttributeType' "OUTBOUND_CALLS"
 
-pattern ContactflowLogs :: InstanceAttributeType
-pattern ContactflowLogs = InstanceAttributeType' "CONTACTFLOW_LOGS"
+pattern InstanceAttributeTypeContactflowLogs :: InstanceAttributeType
+pattern InstanceAttributeTypeContactflowLogs = InstanceAttributeType' "CONTACTFLOW_LOGS"
 
-pattern ContactLens :: InstanceAttributeType
-pattern ContactLens = InstanceAttributeType' "CONTACT_LENS"
+pattern InstanceAttributeTypeContactLens :: InstanceAttributeType
+pattern InstanceAttributeTypeContactLens = InstanceAttributeType' "CONTACT_LENS"
 
-pattern AutoResolveBestVoices :: InstanceAttributeType
-pattern AutoResolveBestVoices = InstanceAttributeType' "AUTO_RESOLVE_BEST_VOICES"
+pattern InstanceAttributeTypeAutoResolveBestVoices :: InstanceAttributeType
+pattern InstanceAttributeTypeAutoResolveBestVoices = InstanceAttributeType' "AUTO_RESOLVE_BEST_VOICES"
 
-pattern UseCustomTtsVoices :: InstanceAttributeType
-pattern UseCustomTtsVoices = InstanceAttributeType' "USE_CUSTOM_TTS_VOICES"
+pattern InstanceAttributeTypeUseCustomTtsVoices :: InstanceAttributeType
+pattern InstanceAttributeTypeUseCustomTtsVoices = InstanceAttributeType' "USE_CUSTOM_TTS_VOICES"
 
-pattern EarlyMedia :: InstanceAttributeType
-pattern EarlyMedia = InstanceAttributeType' "EARLY_MEDIA"
+pattern InstanceAttributeTypeEarlyMedia :: InstanceAttributeType
+pattern InstanceAttributeTypeEarlyMedia = InstanceAttributeType' "EARLY_MEDIA"
 
 {-# COMPLETE
-  InboundCalls,
-  OutboundCalls,
-  ContactflowLogs,
-  ContactLens,
-  AutoResolveBestVoices,
-  UseCustomTtsVoices,
-  EarlyMedia,
+  InstanceAttributeTypeInboundCalls,
+  InstanceAttributeTypeOutboundCalls,
+  InstanceAttributeTypeContactflowLogs,
+  InstanceAttributeTypeContactLens,
+  InstanceAttributeTypeAutoResolveBestVoices,
+  InstanceAttributeTypeUseCustomTtsVoices,
+  InstanceAttributeTypeEarlyMedia,
   InstanceAttributeType'
   #-}

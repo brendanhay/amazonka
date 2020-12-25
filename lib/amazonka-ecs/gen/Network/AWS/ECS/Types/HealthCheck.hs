@@ -18,15 +18,16 @@ module Network.AWS.ECS.Types.HealthCheck
 
     -- * Lenses
     hcCommand,
-    hcStartPeriod,
-    hcRetries,
     hcInterval,
+    hcRetries,
+    hcStartPeriod,
     hcTimeout,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile).
 --
@@ -72,38 +73,29 @@ data HealthCheck = HealthCheck'
     --
     -- @[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]@
     -- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
-    command :: [Lude.Text],
-    -- | The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
-    startPeriod :: Lude.Maybe Lude.Int,
-    -- | The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
-    retries :: Lude.Maybe Lude.Int,
+    command :: [Types.String],
     -- | The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
-    interval :: Lude.Maybe Lude.Int,
+    interval :: Core.Maybe Core.Int,
+    -- | The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+    retries :: Core.Maybe Core.Int,
+    -- | The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
+    startPeriod :: Core.Maybe Core.Int,
     -- | The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
-    timeout :: Lude.Maybe Lude.Int
+    timeout :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
---
--- * 'command' - A string array representing the command that the container runs to determine if it is healthy. The string array must start with @CMD@ to execute the command arguments directly, or @CMD-SHELL@ to run the command with the container's default shell. For example:
---
--- @[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]@
--- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
--- * 'startPeriod' - The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
--- * 'retries' - The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
--- * 'interval' - The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
--- * 'timeout' - The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+-- | Creates a 'HealthCheck' value with any optional fields omitted.
 mkHealthCheck ::
   HealthCheck
 mkHealthCheck =
   HealthCheck'
-    { command = Lude.mempty,
-      startPeriod = Lude.Nothing,
-      retries = Lude.Nothing,
-      interval = Lude.Nothing,
-      timeout = Lude.Nothing
+    { command = Core.mempty,
+      interval = Core.Nothing,
+      retries = Core.Nothing,
+      startPeriod = Core.Nothing,
+      timeout = Core.Nothing
     }
 
 -- | A string array representing the command that the container runs to determine if it is healthy. The string array must start with @CMD@ to execute the command arguments directly, or @CMD-SHELL@ to run the command with the container's default shell. For example:
@@ -112,59 +104,57 @@ mkHealthCheck =
 -- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
 --
 -- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcCommand :: Lens.Lens' HealthCheck [Lude.Text]
-hcCommand = Lens.lens (command :: HealthCheck -> [Lude.Text]) (\s a -> s {command = a} :: HealthCheck)
+hcCommand :: Lens.Lens' HealthCheck [Types.String]
+hcCommand = Lens.field @"command"
 {-# DEPRECATED hcCommand "Use generic-lens or generic-optics with 'command' instead." #-}
-
--- | The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
---
--- /Note:/ Consider using 'startPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcStartPeriod :: Lens.Lens' HealthCheck (Lude.Maybe Lude.Int)
-hcStartPeriod = Lens.lens (startPeriod :: HealthCheck -> Lude.Maybe Lude.Int) (\s a -> s {startPeriod = a} :: HealthCheck)
-{-# DEPRECATED hcStartPeriod "Use generic-lens or generic-optics with 'startPeriod' instead." #-}
-
--- | The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
---
--- /Note:/ Consider using 'retries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcRetries :: Lens.Lens' HealthCheck (Lude.Maybe Lude.Int)
-hcRetries = Lens.lens (retries :: HealthCheck -> Lude.Maybe Lude.Int) (\s a -> s {retries = a} :: HealthCheck)
-{-# DEPRECATED hcRetries "Use generic-lens or generic-optics with 'retries' instead." #-}
 
 -- | The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 --
 -- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcInterval :: Lens.Lens' HealthCheck (Lude.Maybe Lude.Int)
-hcInterval = Lens.lens (interval :: HealthCheck -> Lude.Maybe Lude.Int) (\s a -> s {interval = a} :: HealthCheck)
+hcInterval :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
+hcInterval = Lens.field @"interval"
 {-# DEPRECATED hcInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
+
+-- | The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+--
+-- /Note:/ Consider using 'retries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcRetries :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
+hcRetries = Lens.field @"retries"
+{-# DEPRECATED hcRetries "Use generic-lens or generic-optics with 'retries' instead." #-}
+
+-- | The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
+--
+-- /Note:/ Consider using 'startPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcStartPeriod :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
+hcStartPeriod = Lens.field @"startPeriod"
+{-# DEPRECATED hcStartPeriod "Use generic-lens or generic-optics with 'startPeriod' instead." #-}
 
 -- | The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
 --
 -- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcTimeout :: Lens.Lens' HealthCheck (Lude.Maybe Lude.Int)
-hcTimeout = Lens.lens (timeout :: HealthCheck -> Lude.Maybe Lude.Int) (\s a -> s {timeout = a} :: HealthCheck)
+hcTimeout :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
+hcTimeout = Lens.field @"timeout"
 {-# DEPRECATED hcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
-instance Lude.FromJSON HealthCheck where
-  parseJSON =
-    Lude.withObject
-      "HealthCheck"
-      ( \x ->
-          HealthCheck'
-            Lude.<$> (x Lude..:? "command" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "startPeriod")
-            Lude.<*> (x Lude..:? "retries")
-            Lude.<*> (x Lude..:? "interval")
-            Lude.<*> (x Lude..:? "timeout")
-      )
-
-instance Lude.ToJSON HealthCheck where
-  toJSON HealthCheck' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("command" Lude..= command),
-            ("startPeriod" Lude..=) Lude.<$> startPeriod,
-            ("retries" Lude..=) Lude.<$> retries,
-            ("interval" Lude..=) Lude.<$> interval,
-            ("timeout" Lude..=) Lude.<$> timeout
+instance Core.FromJSON HealthCheck where
+  toJSON HealthCheck {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("command" Core..= command),
+            ("interval" Core..=) Core.<$> interval,
+            ("retries" Core..=) Core.<$> retries,
+            ("startPeriod" Core..=) Core.<$> startPeriod,
+            ("timeout" Core..=) Core.<$> timeout
           ]
       )
+
+instance Core.FromJSON HealthCheck where
+  parseJSON =
+    Core.withObject "HealthCheck" Core.$
+      \x ->
+        HealthCheck'
+          Core.<$> (x Core..:? "command" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "interval")
+          Core.<*> (x Core..:? "retries")
+          Core.<*> (x Core..:? "startPeriod")
+          Core.<*> (x Core..:? "timeout")

@@ -17,60 +17,55 @@ module Network.AWS.Discovery.Types.OrderByElement
     mkOrderByElement,
 
     -- * Lenses
-    obeSortOrder,
     obeFieldName,
+    obeSortOrder,
   )
 where
 
-import Network.AWS.Discovery.Types.OrderString
+import qualified Network.AWS.Discovery.Types.OrderString as Types
+import qualified Network.AWS.Discovery.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A field and direction for ordered output.
 --
 -- /See:/ 'mkOrderByElement' smart constructor.
 data OrderByElement = OrderByElement'
-  { -- | Ordering direction.
-    sortOrder :: Lude.Maybe OrderString,
-    -- | The field on which to order.
-    fieldName :: Lude.Text
+  { -- | The field on which to order.
+    fieldName :: Types.String,
+    -- | Ordering direction.
+    sortOrder :: Core.Maybe Types.OrderString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrderByElement' with the minimum fields required to make a request.
---
--- * 'sortOrder' - Ordering direction.
--- * 'fieldName' - The field on which to order.
+-- | Creates a 'OrderByElement' value with any optional fields omitted.
 mkOrderByElement ::
   -- | 'fieldName'
-  Lude.Text ->
+  Types.String ->
   OrderByElement
-mkOrderByElement pFieldName_ =
-  OrderByElement'
-    { sortOrder = Lude.Nothing,
-      fieldName = pFieldName_
-    }
-
--- | Ordering direction.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-obeSortOrder :: Lens.Lens' OrderByElement (Lude.Maybe OrderString)
-obeSortOrder = Lens.lens (sortOrder :: OrderByElement -> Lude.Maybe OrderString) (\s a -> s {sortOrder = a} :: OrderByElement)
-{-# DEPRECATED obeSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+mkOrderByElement fieldName =
+  OrderByElement' {fieldName, sortOrder = Core.Nothing}
 
 -- | The field on which to order.
 --
 -- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-obeFieldName :: Lens.Lens' OrderByElement Lude.Text
-obeFieldName = Lens.lens (fieldName :: OrderByElement -> Lude.Text) (\s a -> s {fieldName = a} :: OrderByElement)
+obeFieldName :: Lens.Lens' OrderByElement Types.String
+obeFieldName = Lens.field @"fieldName"
 {-# DEPRECATED obeFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
-instance Lude.ToJSON OrderByElement where
-  toJSON OrderByElement' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
-            Lude.Just ("fieldName" Lude..= fieldName)
+-- | Ordering direction.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+obeSortOrder :: Lens.Lens' OrderByElement (Core.Maybe Types.OrderString)
+obeSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED obeSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+
+instance Core.FromJSON OrderByElement where
+  toJSON OrderByElement {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("fieldName" Core..= fieldName),
+            ("sortOrder" Core..=) Core.<$> sortOrder
           ]
       )

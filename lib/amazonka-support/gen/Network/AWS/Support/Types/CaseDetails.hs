@@ -17,24 +17,35 @@ module Network.AWS.Support.Types.CaseDetails
     mkCaseDetails,
 
     -- * Lenses
-    cdSubject,
-    cdStatus,
-    cdRecentCommunications,
-    cdSeverityCode,
     cdCaseId,
+    cdCategoryCode,
     cdCcEmailAddresses,
     cdDisplayId,
-    cdSubmittedBy,
     cdLanguage,
-    cdTimeCreated,
-    cdCategoryCode,
+    cdRecentCommunications,
     cdServiceCode,
+    cdSeverityCode,
+    cdStatus,
+    cdSubject,
+    cdSubmittedBy,
+    cdTimeCreated,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Support.Types.RecentCaseCommunications
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.CaseId as Types
+import qualified Network.AWS.Support.Types.CategoryCode as Types
+import qualified Network.AWS.Support.Types.CcEmailAddress as Types
+import qualified Network.AWS.Support.Types.DisplayId as Types
+import qualified Network.AWS.Support.Types.Language as Types
+import qualified Network.AWS.Support.Types.RecentCaseCommunications as Types
+import qualified Network.AWS.Support.Types.ServiceCode as Types
+import qualified Network.AWS.Support.Types.SeverityCode as Types
+import qualified Network.AWS.Support.Types.Status as Types
+import qualified Network.AWS.Support.Types.Subject as Types
+import qualified Network.AWS.Support.Types.SubmittedBy as Types
+import qualified Network.AWS.Support.Types.TimeCreated as Types
 
 -- | A JSON-formatted object that contains the metadata for a support case. It is contained in the response from a 'DescribeCases' request. __CaseDetails__ contains the following fields:
 --
@@ -97,8 +108,22 @@ import Network.AWS.Support.Types.RecentCaseCommunications
 --
 -- /See:/ 'mkCaseDetails' smart constructor.
 data CaseDetails = CaseDetails'
-  { -- | The subject line for the case in the AWS Support Center.
-    subject :: Lude.Maybe Lude.Text,
+  { -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+    caseId :: Core.Maybe Types.CaseId,
+    -- | The category of problem for the AWS Support case.
+    categoryCode :: Core.Maybe Types.CategoryCode,
+    -- | The email addresses that receive copies of communication about the case.
+    ccEmailAddresses :: Core.Maybe [Types.CcEmailAddress],
+    -- | The ID displayed for the case in the AWS Support Center. This is a numeric string.
+    displayId :: Core.Maybe Types.DisplayId,
+    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+    language :: Core.Maybe Types.Language,
+    -- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
+    recentCommunications :: Core.Maybe Types.RecentCaseCommunications,
+    -- | The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
+    serviceCode :: Core.Maybe Types.ServiceCode,
+    -- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
+    severityCode :: Core.Maybe Types.SeverityCode,
     -- | The status of the case.
     --
     -- Valid values:
@@ -119,90 +144,91 @@ data CaseDetails = CaseDetails'
     --
     --
     --     * @work-in-progress@
-    status :: Lude.Maybe Lude.Text,
-    -- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
-    recentCommunications :: Lude.Maybe RecentCaseCommunications,
-    -- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
-    severityCode :: Lude.Maybe Lude.Text,
-    -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Lude.Maybe Lude.Text,
-    -- | The email addresses that receive copies of communication about the case.
-    ccEmailAddresses :: Lude.Maybe [Lude.Text],
-    -- | The ID displayed for the case in the AWS Support Center. This is a numeric string.
-    displayId :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.Status,
+    -- | The subject line for the case in the AWS Support Center.
+    subject :: Core.Maybe Types.Subject,
     -- | The email address of the account that submitted the case.
-    submittedBy :: Lude.Maybe Lude.Text,
-    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-    language :: Lude.Maybe Lude.Text,
+    submittedBy :: Core.Maybe Types.SubmittedBy,
     -- | The time that the case was created in the AWS Support Center.
-    timeCreated :: Lude.Maybe Lude.Text,
-    -- | The category of problem for the AWS Support case.
-    categoryCode :: Lude.Maybe Lude.Text,
-    -- | The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
-    serviceCode :: Lude.Maybe Lude.Text
+    timeCreated :: Core.Maybe Types.TimeCreated
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaseDetails' with the minimum fields required to make a request.
---
--- * 'subject' - The subject line for the case in the AWS Support Center.
--- * 'status' - The status of the case.
---
--- Valid values:
---
---     * @opened@
---
---
---     * @pending-customer-action@
---
---
---     * @reopened@
---
---
---     * @resolved@
---
---
---     * @unassigned@
---
---
---     * @work-in-progress@
---
---
--- * 'recentCommunications' - The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
--- * 'severityCode' - The code for the severity level returned by the call to 'DescribeSeverityLevels' .
--- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
--- * 'ccEmailAddresses' - The email addresses that receive copies of communication about the case.
--- * 'displayId' - The ID displayed for the case in the AWS Support Center. This is a numeric string.
--- * 'submittedBy' - The email address of the account that submitted the case.
--- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
--- * 'timeCreated' - The time that the case was created in the AWS Support Center.
--- * 'categoryCode' - The category of problem for the AWS Support case.
--- * 'serviceCode' - The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
+-- | Creates a 'CaseDetails' value with any optional fields omitted.
 mkCaseDetails ::
   CaseDetails
 mkCaseDetails =
   CaseDetails'
-    { subject = Lude.Nothing,
-      status = Lude.Nothing,
-      recentCommunications = Lude.Nothing,
-      severityCode = Lude.Nothing,
-      caseId = Lude.Nothing,
-      ccEmailAddresses = Lude.Nothing,
-      displayId = Lude.Nothing,
-      submittedBy = Lude.Nothing,
-      language = Lude.Nothing,
-      timeCreated = Lude.Nothing,
-      categoryCode = Lude.Nothing,
-      serviceCode = Lude.Nothing
+    { caseId = Core.Nothing,
+      categoryCode = Core.Nothing,
+      ccEmailAddresses = Core.Nothing,
+      displayId = Core.Nothing,
+      language = Core.Nothing,
+      recentCommunications = Core.Nothing,
+      serviceCode = Core.Nothing,
+      severityCode = Core.Nothing,
+      status = Core.Nothing,
+      subject = Core.Nothing,
+      submittedBy = Core.Nothing,
+      timeCreated = Core.Nothing
     }
 
--- | The subject line for the case in the AWS Support Center.
+-- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdSubject :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdSubject = Lens.lens (subject :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {subject = a} :: CaseDetails)
-{-# DEPRECATED cdSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
+-- /Note:/ Consider using 'caseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCaseId :: Lens.Lens' CaseDetails (Core.Maybe Types.CaseId)
+cdCaseId = Lens.field @"caseId"
+{-# DEPRECATED cdCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
+
+-- | The category of problem for the AWS Support case.
+--
+-- /Note:/ Consider using 'categoryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCategoryCode :: Lens.Lens' CaseDetails (Core.Maybe Types.CategoryCode)
+cdCategoryCode = Lens.field @"categoryCode"
+{-# DEPRECATED cdCategoryCode "Use generic-lens or generic-optics with 'categoryCode' instead." #-}
+
+-- | The email addresses that receive copies of communication about the case.
+--
+-- /Note:/ Consider using 'ccEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCcEmailAddresses :: Lens.Lens' CaseDetails (Core.Maybe [Types.CcEmailAddress])
+cdCcEmailAddresses = Lens.field @"ccEmailAddresses"
+{-# DEPRECATED cdCcEmailAddresses "Use generic-lens or generic-optics with 'ccEmailAddresses' instead." #-}
+
+-- | The ID displayed for the case in the AWS Support Center. This is a numeric string.
+--
+-- /Note:/ Consider using 'displayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDisplayId :: Lens.Lens' CaseDetails (Core.Maybe Types.DisplayId)
+cdDisplayId = Lens.field @"displayId"
+{-# DEPRECATED cdDisplayId "Use generic-lens or generic-optics with 'displayId' instead." #-}
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLanguage :: Lens.Lens' CaseDetails (Core.Maybe Types.Language)
+cdLanguage = Lens.field @"language"
+{-# DEPRECATED cdLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
+
+-- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
+--
+-- /Note:/ Consider using 'recentCommunications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRecentCommunications :: Lens.Lens' CaseDetails (Core.Maybe Types.RecentCaseCommunications)
+cdRecentCommunications = Lens.field @"recentCommunications"
+{-# DEPRECATED cdRecentCommunications "Use generic-lens or generic-optics with 'recentCommunications' instead." #-}
+
+-- | The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
+--
+-- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdServiceCode :: Lens.Lens' CaseDetails (Core.Maybe Types.ServiceCode)
+cdServiceCode = Lens.field @"serviceCode"
+{-# DEPRECATED cdServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
+
+-- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
+--
+-- /Note:/ Consider using 'severityCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSeverityCode :: Lens.Lens' CaseDetails (Core.Maybe Types.SeverityCode)
+cdSeverityCode = Lens.field @"severityCode"
+{-# DEPRECATED cdSeverityCode "Use generic-lens or generic-optics with 'severityCode' instead." #-}
 
 -- | The status of the case.
 --
@@ -228,96 +254,45 @@ cdSubject = Lens.lens (subject :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> 
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdStatus :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdStatus = Lens.lens (status :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: CaseDetails)
+cdStatus :: Lens.Lens' CaseDetails (Core.Maybe Types.Status)
+cdStatus = Lens.field @"status"
 {-# DEPRECATED cdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
+-- | The subject line for the case in the AWS Support Center.
 --
--- /Note:/ Consider using 'recentCommunications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdRecentCommunications :: Lens.Lens' CaseDetails (Lude.Maybe RecentCaseCommunications)
-cdRecentCommunications = Lens.lens (recentCommunications :: CaseDetails -> Lude.Maybe RecentCaseCommunications) (\s a -> s {recentCommunications = a} :: CaseDetails)
-{-# DEPRECATED cdRecentCommunications "Use generic-lens or generic-optics with 'recentCommunications' instead." #-}
-
--- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
---
--- /Note:/ Consider using 'severityCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdSeverityCode :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdSeverityCode = Lens.lens (severityCode :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {severityCode = a} :: CaseDetails)
-{-# DEPRECATED cdSeverityCode "Use generic-lens or generic-optics with 'severityCode' instead." #-}
-
--- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
---
--- /Note:/ Consider using 'caseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCaseId :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdCaseId = Lens.lens (caseId :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {caseId = a} :: CaseDetails)
-{-# DEPRECATED cdCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
-
--- | The email addresses that receive copies of communication about the case.
---
--- /Note:/ Consider using 'ccEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCcEmailAddresses :: Lens.Lens' CaseDetails (Lude.Maybe [Lude.Text])
-cdCcEmailAddresses = Lens.lens (ccEmailAddresses :: CaseDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {ccEmailAddresses = a} :: CaseDetails)
-{-# DEPRECATED cdCcEmailAddresses "Use generic-lens or generic-optics with 'ccEmailAddresses' instead." #-}
-
--- | The ID displayed for the case in the AWS Support Center. This is a numeric string.
---
--- /Note:/ Consider using 'displayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDisplayId :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdDisplayId = Lens.lens (displayId :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {displayId = a} :: CaseDetails)
-{-# DEPRECATED cdDisplayId "Use generic-lens or generic-optics with 'displayId' instead." #-}
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSubject :: Lens.Lens' CaseDetails (Core.Maybe Types.Subject)
+cdSubject = Lens.field @"subject"
+{-# DEPRECATED cdSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The email address of the account that submitted the case.
 --
 -- /Note:/ Consider using 'submittedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdSubmittedBy :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdSubmittedBy = Lens.lens (submittedBy :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {submittedBy = a} :: CaseDetails)
+cdSubmittedBy :: Lens.Lens' CaseDetails (Core.Maybe Types.SubmittedBy)
+cdSubmittedBy = Lens.field @"submittedBy"
 {-# DEPRECATED cdSubmittedBy "Use generic-lens or generic-optics with 'submittedBy' instead." #-}
-
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
---
--- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdLanguage :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdLanguage = Lens.lens (language :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: CaseDetails)
-{-# DEPRECATED cdLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | The time that the case was created in the AWS Support Center.
 --
 -- /Note:/ Consider using 'timeCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTimeCreated :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdTimeCreated = Lens.lens (timeCreated :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {timeCreated = a} :: CaseDetails)
+cdTimeCreated :: Lens.Lens' CaseDetails (Core.Maybe Types.TimeCreated)
+cdTimeCreated = Lens.field @"timeCreated"
 {-# DEPRECATED cdTimeCreated "Use generic-lens or generic-optics with 'timeCreated' instead." #-}
 
--- | The category of problem for the AWS Support case.
---
--- /Note:/ Consider using 'categoryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCategoryCode :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdCategoryCode = Lens.lens (categoryCode :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {categoryCode = a} :: CaseDetails)
-{-# DEPRECATED cdCategoryCode "Use generic-lens or generic-optics with 'categoryCode' instead." #-}
-
--- | The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
---
--- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdServiceCode :: Lens.Lens' CaseDetails (Lude.Maybe Lude.Text)
-cdServiceCode = Lens.lens (serviceCode :: CaseDetails -> Lude.Maybe Lude.Text) (\s a -> s {serviceCode = a} :: CaseDetails)
-{-# DEPRECATED cdServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
-
-instance Lude.FromJSON CaseDetails where
+instance Core.FromJSON CaseDetails where
   parseJSON =
-    Lude.withObject
-      "CaseDetails"
-      ( \x ->
-          CaseDetails'
-            Lude.<$> (x Lude..:? "subject")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "recentCommunications")
-            Lude.<*> (x Lude..:? "severityCode")
-            Lude.<*> (x Lude..:? "caseId")
-            Lude.<*> (x Lude..:? "ccEmailAddresses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "displayId")
-            Lude.<*> (x Lude..:? "submittedBy")
-            Lude.<*> (x Lude..:? "language")
-            Lude.<*> (x Lude..:? "timeCreated")
-            Lude.<*> (x Lude..:? "categoryCode")
-            Lude.<*> (x Lude..:? "serviceCode")
-      )
+    Core.withObject "CaseDetails" Core.$
+      \x ->
+        CaseDetails'
+          Core.<$> (x Core..:? "caseId")
+          Core.<*> (x Core..:? "categoryCode")
+          Core.<*> (x Core..:? "ccEmailAddresses")
+          Core.<*> (x Core..:? "displayId")
+          Core.<*> (x Core..:? "language")
+          Core.<*> (x Core..:? "recentCommunications")
+          Core.<*> (x Core..:? "serviceCode")
+          Core.<*> (x Core..:? "severityCode")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "subject")
+          Core.<*> (x Core..:? "submittedBy")
+          Core.<*> (x Core..:? "timeCreated")

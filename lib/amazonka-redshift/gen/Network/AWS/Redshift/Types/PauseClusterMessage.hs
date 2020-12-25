@@ -22,40 +22,35 @@ module Network.AWS.Redshift.Types.PauseClusterMessage
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a pause cluster operation. For example, a scheduled action to run the @PauseCluster@ API operation.
 --
 -- /See:/ 'mkPauseClusterMessage' smart constructor.
 newtype PauseClusterMessage = PauseClusterMessage'
   { -- | The identifier of the cluster to be paused.
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PauseClusterMessage' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The identifier of the cluster to be paused.
+-- | Creates a 'PauseClusterMessage' value with any optional fields omitted.
 mkPauseClusterMessage ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   PauseClusterMessage
-mkPauseClusterMessage pClusterIdentifier_ =
-  PauseClusterMessage' {clusterIdentifier = pClusterIdentifier_}
+mkPauseClusterMessage clusterIdentifier =
+  PauseClusterMessage' {clusterIdentifier}
 
 -- | The identifier of the cluster to be paused.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcmClusterIdentifier :: Lens.Lens' PauseClusterMessage Lude.Text
-pcmClusterIdentifier = Lens.lens (clusterIdentifier :: PauseClusterMessage -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: PauseClusterMessage)
+pcmClusterIdentifier :: Lens.Lens' PauseClusterMessage Types.String
+pcmClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED pcmClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.FromXML PauseClusterMessage where
+instance Core.FromXML PauseClusterMessage where
   parseXML x =
-    PauseClusterMessage' Lude.<$> (x Lude..@ "ClusterIdentifier")
-
-instance Lude.ToQuery PauseClusterMessage where
-  toQuery PauseClusterMessage' {..} =
-    Lude.mconcat ["ClusterIdentifier" Lude.=: clusterIdentifier]
+    PauseClusterMessage' Core.<$> (x Core..@ "ClusterIdentifier")

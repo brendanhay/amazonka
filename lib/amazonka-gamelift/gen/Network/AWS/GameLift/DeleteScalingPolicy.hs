@@ -51,8 +51,8 @@ module Network.AWS.GameLift.DeleteScalingPolicy
     mkDeleteScalingPolicy,
 
     -- ** Request lenses
-    dName,
-    dFleetId,
+    dspName,
+    dspFleetId,
 
     -- * Destructuring the response
     DeleteScalingPolicyResponse (..),
@@ -60,88 +60,78 @@ module Network.AWS.GameLift.DeleteScalingPolicy
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
   { -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
-    name :: Lude.Text,
+    name :: Types.NonZeroAndMaxString,
     -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+    fleetId :: Types.FleetIdOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScalingPolicy' with the minimum fields required to make a request.
---
--- * 'name' - A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
--- * 'fleetId' - A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
+-- | Creates a 'DeleteScalingPolicy' value with any optional fields omitted.
 mkDeleteScalingPolicy ::
   -- | 'name'
-  Lude.Text ->
+  Types.NonZeroAndMaxString ->
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   DeleteScalingPolicy
-mkDeleteScalingPolicy pName_ pFleetId_ =
-  DeleteScalingPolicy' {name = pName_, fleetId = pFleetId_}
+mkDeleteScalingPolicy name fleetId =
+  DeleteScalingPolicy' {name, fleetId}
 
 -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' DeleteScalingPolicy Lude.Text
-dName = Lens.lens (name :: DeleteScalingPolicy -> Lude.Text) (\s a -> s {name = a} :: DeleteScalingPolicy)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+dspName :: Lens.Lens' DeleteScalingPolicy Types.NonZeroAndMaxString
+dspName = Lens.field @"name"
+{-# DEPRECATED dspName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFleetId :: Lens.Lens' DeleteScalingPolicy Lude.Text
-dFleetId = Lens.lens (fleetId :: DeleteScalingPolicy -> Lude.Text) (\s a -> s {fleetId = a} :: DeleteScalingPolicy)
-{-# DEPRECATED dFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+dspFleetId :: Lens.Lens' DeleteScalingPolicy Types.FleetIdOrArn
+dspFleetId = Lens.field @"fleetId"
+{-# DEPRECATED dspFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest DeleteScalingPolicy where
+instance Core.FromJSON DeleteScalingPolicy where
+  toJSON DeleteScalingPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("FleetId" Core..= fleetId)
+          ]
+      )
+
+instance Core.AWSRequest DeleteScalingPolicy where
   type Rs DeleteScalingPolicy = DeleteScalingPolicyResponse
-  request = Req.postJSON gameLiftService
-  response = Res.receiveNull DeleteScalingPolicyResponse'
-
-instance Lude.ToHeaders DeleteScalingPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteScalingPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteScalingPolicy where
-  toJSON DeleteScalingPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("FleetId" Lude..= fleetId)
-          ]
-      )
-
-instance Lude.ToPath DeleteScalingPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteScalingPolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeleteScalingPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteScalingPolicyResponse'
 
 -- | /See:/ 'mkDeleteScalingPolicyResponse' smart constructor.
 data DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScalingPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteScalingPolicyResponse' value with any optional fields omitted.
 mkDeleteScalingPolicyResponse ::
   DeleteScalingPolicyResponse
 mkDeleteScalingPolicyResponse = DeleteScalingPolicyResponse'

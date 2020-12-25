@@ -28,75 +28,64 @@ module Network.AWS.EMR.StopNotebookExecution
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopNotebookExecution' smart constructor.
 newtype StopNotebookExecution = StopNotebookExecution'
   { -- | The unique identifier of the notebook execution.
-    notebookExecutionId :: Lude.Text
+    notebookExecutionId :: Types.XmlStringMaxLen256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopNotebookExecution' with the minimum fields required to make a request.
---
--- * 'notebookExecutionId' - The unique identifier of the notebook execution.
+-- | Creates a 'StopNotebookExecution' value with any optional fields omitted.
 mkStopNotebookExecution ::
   -- | 'notebookExecutionId'
-  Lude.Text ->
+  Types.XmlStringMaxLen256 ->
   StopNotebookExecution
-mkStopNotebookExecution pNotebookExecutionId_ =
-  StopNotebookExecution'
-    { notebookExecutionId =
-        pNotebookExecutionId_
-    }
+mkStopNotebookExecution notebookExecutionId =
+  StopNotebookExecution' {notebookExecutionId}
 
 -- | The unique identifier of the notebook execution.
 --
 -- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneNotebookExecutionId :: Lens.Lens' StopNotebookExecution Lude.Text
-sneNotebookExecutionId = Lens.lens (notebookExecutionId :: StopNotebookExecution -> Lude.Text) (\s a -> s {notebookExecutionId = a} :: StopNotebookExecution)
+sneNotebookExecutionId :: Lens.Lens' StopNotebookExecution Types.XmlStringMaxLen256
+sneNotebookExecutionId = Lens.field @"notebookExecutionId"
 {-# DEPRECATED sneNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
 
-instance Lude.AWSRequest StopNotebookExecution where
+instance Core.FromJSON StopNotebookExecution where
+  toJSON StopNotebookExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NotebookExecutionId" Core..= notebookExecutionId)]
+      )
+
+instance Core.AWSRequest StopNotebookExecution where
   type Rs StopNotebookExecution = StopNotebookExecutionResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull StopNotebookExecutionResponse'
-
-instance Lude.ToHeaders StopNotebookExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.StopNotebookExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopNotebookExecution where
-  toJSON StopNotebookExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("NotebookExecutionId" Lude..= notebookExecutionId)]
-      )
-
-instance Lude.ToPath StopNotebookExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopNotebookExecution where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.StopNotebookExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopNotebookExecutionResponse'
 
 -- | /See:/ 'mkStopNotebookExecutionResponse' smart constructor.
 data StopNotebookExecutionResponse = StopNotebookExecutionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopNotebookExecutionResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopNotebookExecutionResponse' value with any optional fields omitted.
 mkStopNotebookExecutionResponse ::
   StopNotebookExecutionResponse
 mkStopNotebookExecutionResponse = StopNotebookExecutionResponse'

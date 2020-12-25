@@ -29,63 +29,56 @@ module Network.AWS.ServerlessApplicationRepository.DeleteApplication
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServerlessApplicationRepository.Types as Types
 
 -- | /See:/ 'mkDeleteApplication' smart constructor.
 newtype DeleteApplication = DeleteApplication'
   { -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Lude.Text
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
---
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- | Creates a 'DeleteApplication' value with any optional fields omitted.
 mkDeleteApplication ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   DeleteApplication
-mkDeleteApplication pApplicationId_ =
-  DeleteApplication' {applicationId = pApplicationId_}
+mkDeleteApplication applicationId =
+  DeleteApplication' {applicationId}
 
 -- | The Amazon Resource Name (ARN) of the application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daApplicationId :: Lens.Lens' DeleteApplication Lude.Text
-daApplicationId = Lens.lens (applicationId :: DeleteApplication -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteApplication)
+daApplicationId :: Lens.Lens' DeleteApplication Core.Text
+daApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED daApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest DeleteApplication where
+instance Core.AWSRequest DeleteApplication where
   type Rs DeleteApplication = DeleteApplicationResponse
-  request = Req.delete serverlessApplicationRepositoryService
-  response = Res.receiveNull DeleteApplicationResponse'
-
-instance Lude.ToHeaders DeleteApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteApplication where
-  toPath DeleteApplication' {..} =
-    Lude.mconcat ["/applications/", Lude.toBS applicationId]
-
-instance Lude.ToQuery DeleteApplication where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/applications/" Core.<> (Core.toText applicationId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteApplicationResponse'
 
 -- | /See:/ 'mkDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteApplicationResponse' value with any optional fields omitted.
 mkDeleteApplicationResponse ::
   DeleteApplicationResponse
 mkDeleteApplicationResponse = DeleteApplicationResponse'

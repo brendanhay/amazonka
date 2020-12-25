@@ -13,51 +13,56 @@
 module Network.AWS.Route53AutoNaming.Types.HealthCheckType
   ( HealthCheckType
       ( HealthCheckType',
-        HTTP,
-        HTTPS,
-        TCP
+        HealthCheckTypeHttp,
+        HealthCheckTypeHttps,
+        HealthCheckTypeTcp,
+        fromHealthCheckType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HealthCheckType = HealthCheckType' Lude.Text
+newtype HealthCheckType = HealthCheckType'
+  { fromHealthCheckType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTTP :: HealthCheckType
-pattern HTTP = HealthCheckType' "HTTP"
+pattern HealthCheckTypeHttp :: HealthCheckType
+pattern HealthCheckTypeHttp = HealthCheckType' "HTTP"
 
-pattern HTTPS :: HealthCheckType
-pattern HTTPS = HealthCheckType' "HTTPS"
+pattern HealthCheckTypeHttps :: HealthCheckType
+pattern HealthCheckTypeHttps = HealthCheckType' "HTTPS"
 
-pattern TCP :: HealthCheckType
-pattern TCP = HealthCheckType' "TCP"
+pattern HealthCheckTypeTcp :: HealthCheckType
+pattern HealthCheckTypeTcp = HealthCheckType' "TCP"
 
 {-# COMPLETE
-  HTTP,
-  HTTPS,
-  TCP,
+  HealthCheckTypeHttp,
+  HealthCheckTypeHttps,
+  HealthCheckTypeTcp,
   HealthCheckType'
   #-}

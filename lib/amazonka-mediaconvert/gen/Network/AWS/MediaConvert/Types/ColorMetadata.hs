@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.ColorMetadata
   ( ColorMetadata
       ( ColorMetadata',
-        Ignore,
-        Insert
+        ColorMetadataIgnore,
+        ColorMetadataInsert,
+        fromColorMetadata
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose Insert (INSERT) for this setting to include color metadata in this output. Choose Ignore (IGNORE) to exclude color metadata from this output. If you don't specify a value, the service sets this to Insert by default.
-newtype ColorMetadata = ColorMetadata' Lude.Text
+newtype ColorMetadata = ColorMetadata'
+  { fromColorMetadata ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ignore :: ColorMetadata
-pattern Ignore = ColorMetadata' "IGNORE"
+pattern ColorMetadataIgnore :: ColorMetadata
+pattern ColorMetadataIgnore = ColorMetadata' "IGNORE"
 
-pattern Insert :: ColorMetadata
-pattern Insert = ColorMetadata' "INSERT"
+pattern ColorMetadataInsert :: ColorMetadata
+pattern ColorMetadataInsert = ColorMetadata' "INSERT"
 
 {-# COMPLETE
-  Ignore,
-  Insert,
+  ColorMetadataIgnore,
+  ColorMetadataInsert,
   ColorMetadata'
   #-}

@@ -17,59 +17,54 @@ module Network.AWS.Support.Types.RecentCaseCommunications
     mkRecentCaseCommunications,
 
     -- * Lenses
-    rccNextToken,
     rccCommunications,
+    rccNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Support.Types.Communication
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.Communication as Types
+import qualified Network.AWS.Support.Types.NextToken as Types
 
 -- | The five most recent communications associated with the case.
 --
 -- /See:/ 'mkRecentCaseCommunications' smart constructor.
 data RecentCaseCommunications = RecentCaseCommunications'
-  { -- | A resumption point for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The five most recent communications associated with the case.
-    communications :: Lude.Maybe [Communication]
+  { -- | The five most recent communications associated with the case.
+    communications :: Core.Maybe [Types.Communication],
+    -- | A resumption point for pagination.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecentCaseCommunications' with the minimum fields required to make a request.
---
--- * 'nextToken' - A resumption point for pagination.
--- * 'communications' - The five most recent communications associated with the case.
+-- | Creates a 'RecentCaseCommunications' value with any optional fields omitted.
 mkRecentCaseCommunications ::
   RecentCaseCommunications
 mkRecentCaseCommunications =
   RecentCaseCommunications'
-    { nextToken = Lude.Nothing,
-      communications = Lude.Nothing
+    { communications = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | A resumption point for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rccNextToken :: Lens.Lens' RecentCaseCommunications (Lude.Maybe Lude.Text)
-rccNextToken = Lens.lens (nextToken :: RecentCaseCommunications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: RecentCaseCommunications)
-{-# DEPRECATED rccNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The five most recent communications associated with the case.
 --
 -- /Note:/ Consider using 'communications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rccCommunications :: Lens.Lens' RecentCaseCommunications (Lude.Maybe [Communication])
-rccCommunications = Lens.lens (communications :: RecentCaseCommunications -> Lude.Maybe [Communication]) (\s a -> s {communications = a} :: RecentCaseCommunications)
+rccCommunications :: Lens.Lens' RecentCaseCommunications (Core.Maybe [Types.Communication])
+rccCommunications = Lens.field @"communications"
 {-# DEPRECATED rccCommunications "Use generic-lens or generic-optics with 'communications' instead." #-}
 
-instance Lude.FromJSON RecentCaseCommunications where
+-- | A resumption point for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rccNextToken :: Lens.Lens' RecentCaseCommunications (Core.Maybe Types.NextToken)
+rccNextToken = Lens.field @"nextToken"
+{-# DEPRECATED rccNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON RecentCaseCommunications where
   parseJSON =
-    Lude.withObject
-      "RecentCaseCommunications"
-      ( \x ->
-          RecentCaseCommunications'
-            Lude.<$> (x Lude..:? "nextToken")
-            Lude.<*> (x Lude..:? "communications" Lude..!= Lude.mempty)
-      )
+    Core.withObject "RecentCaseCommunications" Core.$
+      \x ->
+        RecentCaseCommunications'
+          Core.<$> (x Core..:? "communications") Core.<*> (x Core..:? "nextToken")

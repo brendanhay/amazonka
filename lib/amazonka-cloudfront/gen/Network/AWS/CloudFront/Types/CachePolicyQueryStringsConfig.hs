@@ -22,10 +22,10 @@ module Network.AWS.CloudFront.Types.CachePolicyQueryStringsConfig
   )
 where
 
-import Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
-import Network.AWS.CloudFront.Types.QueryStringNames
+import qualified Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior as Types
+import qualified Network.AWS.CloudFront.Types.QueryStringNames as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 --
@@ -44,40 +44,22 @@ data CachePolicyQueryStringsConfig = CachePolicyQueryStringsConfig'
     --
     --
     --     * @all@ – All query strings in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-    queryStringBehavior :: CachePolicyQueryStringBehavior,
+    queryStringBehavior :: Types.CachePolicyQueryStringBehavior,
     -- | Contains the specific query strings in viewer requests that either /__are__ / or /__are not__ / included in the cache key and automatically included in requests that CloudFront sends to the origin. The behavior depends on whether the @QueryStringBehavior@ field in the @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed query strings /__are__ / included) or @allExcept@ (the listed query strings /__are not__ / included, but all other query strings are).
-    queryStrings :: Lude.Maybe QueryStringNames
+    queryStrings :: Core.Maybe Types.QueryStringNames
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CachePolicyQueryStringsConfig' with the minimum fields required to make a request.
---
--- * 'queryStringBehavior' - Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
---
---
---     * @none@ – Query strings in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any query strings that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.
---
---
---     * @whitelist@ – The query strings in viewer requests that are listed in the @QueryStringNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
---
---
---     * @allExcept@ – All query strings in viewer requests that are /__not__ / listed in the @QueryStringNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
---
---
---     * @all@ – All query strings in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
---
---
--- * 'queryStrings' - Contains the specific query strings in viewer requests that either /__are__ / or /__are not__ / included in the cache key and automatically included in requests that CloudFront sends to the origin. The behavior depends on whether the @QueryStringBehavior@ field in the @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed query strings /__are__ / included) or @allExcept@ (the listed query strings /__are not__ / included, but all other query strings are).
+-- | Creates a 'CachePolicyQueryStringsConfig' value with any optional fields omitted.
 mkCachePolicyQueryStringsConfig ::
   -- | 'queryStringBehavior'
-  CachePolicyQueryStringBehavior ->
+  Types.CachePolicyQueryStringBehavior ->
   CachePolicyQueryStringsConfig
-mkCachePolicyQueryStringsConfig pQueryStringBehavior_ =
+mkCachePolicyQueryStringsConfig queryStringBehavior =
   CachePolicyQueryStringsConfig'
-    { queryStringBehavior =
-        pQueryStringBehavior_,
-      queryStrings = Lude.Nothing
+    { queryStringBehavior,
+      queryStrings = Core.Nothing
     }
 
 -- | Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
@@ -97,26 +79,24 @@ mkCachePolicyQueryStringsConfig pQueryStringBehavior_ =
 --
 --
 -- /Note:/ Consider using 'queryStringBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpqscQueryStringBehavior :: Lens.Lens' CachePolicyQueryStringsConfig CachePolicyQueryStringBehavior
-cpqscQueryStringBehavior = Lens.lens (queryStringBehavior :: CachePolicyQueryStringsConfig -> CachePolicyQueryStringBehavior) (\s a -> s {queryStringBehavior = a} :: CachePolicyQueryStringsConfig)
+cpqscQueryStringBehavior :: Lens.Lens' CachePolicyQueryStringsConfig Types.CachePolicyQueryStringBehavior
+cpqscQueryStringBehavior = Lens.field @"queryStringBehavior"
 {-# DEPRECATED cpqscQueryStringBehavior "Use generic-lens or generic-optics with 'queryStringBehavior' instead." #-}
 
 -- | Contains the specific query strings in viewer requests that either /__are__ / or /__are not__ / included in the cache key and automatically included in requests that CloudFront sends to the origin. The behavior depends on whether the @QueryStringBehavior@ field in the @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed query strings /__are__ / included) or @allExcept@ (the listed query strings /__are not__ / included, but all other query strings are).
 --
 -- /Note:/ Consider using 'queryStrings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpqscQueryStrings :: Lens.Lens' CachePolicyQueryStringsConfig (Lude.Maybe QueryStringNames)
-cpqscQueryStrings = Lens.lens (queryStrings :: CachePolicyQueryStringsConfig -> Lude.Maybe QueryStringNames) (\s a -> s {queryStrings = a} :: CachePolicyQueryStringsConfig)
+cpqscQueryStrings :: Lens.Lens' CachePolicyQueryStringsConfig (Core.Maybe Types.QueryStringNames)
+cpqscQueryStrings = Lens.field @"queryStrings"
 {-# DEPRECATED cpqscQueryStrings "Use generic-lens or generic-optics with 'queryStrings' instead." #-}
 
-instance Lude.FromXML CachePolicyQueryStringsConfig where
+instance Core.ToXML CachePolicyQueryStringsConfig where
+  toXML CachePolicyQueryStringsConfig {..} =
+    Core.toXMLNode "QueryStringBehavior" queryStringBehavior
+      Core.<> Core.toXMLNode "QueryStrings" Core.<$> queryStrings
+
+instance Core.FromXML CachePolicyQueryStringsConfig where
   parseXML x =
     CachePolicyQueryStringsConfig'
-      Lude.<$> (x Lude..@ "QueryStringBehavior")
-      Lude.<*> (x Lude..@? "QueryStrings")
-
-instance Lude.ToXML CachePolicyQueryStringsConfig where
-  toXML CachePolicyQueryStringsConfig' {..} =
-    Lude.mconcat
-      [ "QueryStringBehavior" Lude.@= queryStringBehavior,
-        "QueryStrings" Lude.@= queryStrings
-      ]
+      Core.<$> (x Core..@ "QueryStringBehavior")
+      Core.<*> (x Core..@? "QueryStrings")

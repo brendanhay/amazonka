@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264EntropyEncoding
   ( H264EntropyEncoding
       ( H264EntropyEncoding',
-        Cabac,
-        Cavlc
+        H264EntropyEncodingCabac,
+        H264EntropyEncodingCavlc,
+        fromH264EntropyEncoding
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Entropy Encoding
-newtype H264EntropyEncoding = H264EntropyEncoding' Lude.Text
+newtype H264EntropyEncoding = H264EntropyEncoding'
+  { fromH264EntropyEncoding ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Cabac :: H264EntropyEncoding
-pattern Cabac = H264EntropyEncoding' "CABAC"
+pattern H264EntropyEncodingCabac :: H264EntropyEncoding
+pattern H264EntropyEncodingCabac = H264EntropyEncoding' "CABAC"
 
-pattern Cavlc :: H264EntropyEncoding
-pattern Cavlc = H264EntropyEncoding' "CAVLC"
+pattern H264EntropyEncodingCavlc :: H264EntropyEncoding
+pattern H264EntropyEncodingCavlc = H264EntropyEncoding' "CAVLC"
 
 {-# COMPLETE
-  Cabac,
-  Cavlc,
+  H264EntropyEncodingCabac,
+  H264EntropyEncodingCavlc,
   H264EntropyEncoding'
   #-}

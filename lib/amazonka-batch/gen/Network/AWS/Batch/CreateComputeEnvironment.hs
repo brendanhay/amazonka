@@ -24,10 +24,10 @@ module Network.AWS.Batch.CreateComputeEnvironment
 
     -- ** Request lenses
     cceComputeEnvironmentName,
-    cceState,
-    cceComputeResources,
     cceType,
     cceServiceRole,
+    cceComputeResources,
+    cceState,
     cceTags,
 
     -- * Destructuring the response
@@ -35,100 +35,71 @@ module Network.AWS.Batch.CreateComputeEnvironment
     mkCreateComputeEnvironmentResponse,
 
     -- ** Response lenses
-    ccersComputeEnvironmentName,
-    ccersComputeEnvironmentARN,
-    ccersResponseStatus,
+    ccerrsComputeEnvironmentArn,
+    ccerrsComputeEnvironmentName,
+    ccerrsResponseStatus,
   )
 where
 
-import Network.AWS.Batch.Types
+import qualified Network.AWS.Batch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
   { -- | The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
-    computeEnvironmentName :: Lude.Text,
-    -- | The state of the compute environment. If the state is @ENABLED@ , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
-    state :: Lude.Maybe CEState,
-    -- | Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
-    computeResources :: Lude.Maybe ComputeResource,
+    computeEnvironmentName :: Types.String,
     -- | The type of the compute environment. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
-    type' :: CEType,
+    type' :: Types.CEType,
     -- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
     --
     -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
-    serviceRole :: Lude.Text,
+    serviceRole :: Types.String,
+    -- | Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
+    computeResources :: Core.Maybe Types.ComputeResource,
+    -- | The state of the compute environment. If the state is @ENABLED@ , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+    state :: Core.Maybe Types.CEState,
     -- | The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
     --
     -- These tags can be updated or removed using the <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource> and <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource> API operations. These tags do not propagate to the underlying compute resources.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateComputeEnvironment' with the minimum fields required to make a request.
---
--- * 'computeEnvironmentName' - The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
--- * 'state' - The state of the compute environment. If the state is @ENABLED@ , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
--- * 'computeResources' - Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
--- * 'type'' - The type of the compute environment. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
--- * 'serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
---
--- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
--- * 'tags' - The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
---
--- These tags can be updated or removed using the <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource> and <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource> API operations. These tags do not propagate to the underlying compute resources.
+-- | Creates a 'CreateComputeEnvironment' value with any optional fields omitted.
 mkCreateComputeEnvironment ::
   -- | 'computeEnvironmentName'
-  Lude.Text ->
-  -- | 'type''
-  CEType ->
+  Types.String ->
+  -- | 'type\''
+  Types.CEType ->
   -- | 'serviceRole'
-  Lude.Text ->
+  Types.String ->
   CreateComputeEnvironment
-mkCreateComputeEnvironment
-  pComputeEnvironmentName_
-  pType_
-  pServiceRole_ =
-    CreateComputeEnvironment'
-      { computeEnvironmentName =
-          pComputeEnvironmentName_,
-        state = Lude.Nothing,
-        computeResources = Lude.Nothing,
-        type' = pType_,
-        serviceRole = pServiceRole_,
-        tags = Lude.Nothing
-      }
+mkCreateComputeEnvironment computeEnvironmentName type' serviceRole =
+  CreateComputeEnvironment'
+    { computeEnvironmentName,
+      type',
+      serviceRole,
+      computeResources = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing
+    }
 
 -- | The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 --
 -- /Note:/ Consider using 'computeEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cceComputeEnvironmentName :: Lens.Lens' CreateComputeEnvironment Lude.Text
-cceComputeEnvironmentName = Lens.lens (computeEnvironmentName :: CreateComputeEnvironment -> Lude.Text) (\s a -> s {computeEnvironmentName = a} :: CreateComputeEnvironment)
+cceComputeEnvironmentName :: Lens.Lens' CreateComputeEnvironment Types.String
+cceComputeEnvironmentName = Lens.field @"computeEnvironmentName"
 {-# DEPRECATED cceComputeEnvironmentName "Use generic-lens or generic-optics with 'computeEnvironmentName' instead." #-}
-
--- | The state of the compute environment. If the state is @ENABLED@ , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cceState :: Lens.Lens' CreateComputeEnvironment (Lude.Maybe CEState)
-cceState = Lens.lens (state :: CreateComputeEnvironment -> Lude.Maybe CEState) (\s a -> s {state = a} :: CreateComputeEnvironment)
-{-# DEPRECATED cceState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
---
--- /Note:/ Consider using 'computeResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cceComputeResources :: Lens.Lens' CreateComputeEnvironment (Lude.Maybe ComputeResource)
-cceComputeResources = Lens.lens (computeResources :: CreateComputeEnvironment -> Lude.Maybe ComputeResource) (\s a -> s {computeResources = a} :: CreateComputeEnvironment)
-{-# DEPRECATED cceComputeResources "Use generic-lens or generic-optics with 'computeResources' instead." #-}
 
 -- | The type of the compute environment. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cceType :: Lens.Lens' CreateComputeEnvironment CEType
-cceType = Lens.lens (type' :: CreateComputeEnvironment -> CEType) (\s a -> s {type' = a} :: CreateComputeEnvironment)
+cceType :: Lens.Lens' CreateComputeEnvironment Types.CEType
+cceType = Lens.field @"type'"
 {-# DEPRECATED cceType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
@@ -136,106 +107,110 @@ cceType = Lens.lens (type' :: CreateComputeEnvironment -> CEType) (\s a -> s {ty
 -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
 --
 -- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cceServiceRole :: Lens.Lens' CreateComputeEnvironment Lude.Text
-cceServiceRole = Lens.lens (serviceRole :: CreateComputeEnvironment -> Lude.Text) (\s a -> s {serviceRole = a} :: CreateComputeEnvironment)
+cceServiceRole :: Lens.Lens' CreateComputeEnvironment Types.String
+cceServiceRole = Lens.field @"serviceRole"
 {-# DEPRECATED cceServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
+
+-- | Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments> in the /AWS Batch User Guide/ .
+--
+-- /Note:/ Consider using 'computeResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cceComputeResources :: Lens.Lens' CreateComputeEnvironment (Core.Maybe Types.ComputeResource)
+cceComputeResources = Lens.field @"computeResources"
+{-# DEPRECATED cceComputeResources "Use generic-lens or generic-optics with 'computeResources' instead." #-}
+
+-- | The state of the compute environment. If the state is @ENABLED@ , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cceState :: Lens.Lens' CreateComputeEnvironment (Core.Maybe Types.CEState)
+cceState = Lens.field @"state"
+{-# DEPRECATED cceState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
 --
 -- These tags can be updated or removed using the <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource> and <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource> API operations. These tags do not propagate to the underlying compute resources.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cceTags :: Lens.Lens' CreateComputeEnvironment (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cceTags = Lens.lens (tags :: CreateComputeEnvironment -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateComputeEnvironment)
+cceTags :: Lens.Lens' CreateComputeEnvironment (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+cceTags = Lens.field @"tags"
 {-# DEPRECATED cceTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateComputeEnvironment where
+instance Core.FromJSON CreateComputeEnvironment where
+  toJSON CreateComputeEnvironment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("computeEnvironmentName" Core..= computeEnvironmentName),
+            Core.Just ("type" Core..= type'),
+            Core.Just ("serviceRole" Core..= serviceRole),
+            ("computeResources" Core..=) Core.<$> computeResources,
+            ("state" Core..=) Core.<$> state,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateComputeEnvironment where
   type Rs CreateComputeEnvironment = CreateComputeEnvironmentResponse
-  request = Req.postJSON batchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/createcomputeenvironment",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateComputeEnvironmentResponse'
-            Lude.<$> (x Lude..?> "computeEnvironmentName")
-            Lude.<*> (x Lude..?> "computeEnvironmentArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "computeEnvironmentArn")
+            Core.<*> (x Core..:? "computeEnvironmentName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateComputeEnvironment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateComputeEnvironment where
-  toJSON CreateComputeEnvironment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("computeEnvironmentName" Lude..= computeEnvironmentName),
-            ("state" Lude..=) Lude.<$> state,
-            ("computeResources" Lude..=) Lude.<$> computeResources,
-            Lude.Just ("type" Lude..= type'),
-            Lude.Just ("serviceRole" Lude..= serviceRole),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateComputeEnvironment where
-  toPath = Lude.const "/v1/createcomputeenvironment"
-
-instance Lude.ToQuery CreateComputeEnvironment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateComputeEnvironmentResponse' smart constructor.
 data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
-  { -- | The name of the compute environment.
-    computeEnvironmentName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironmentARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironmentArn :: Core.Maybe Types.ComputeEnvironmentArn,
+    -- | The name of the compute environment.
+    computeEnvironmentName :: Core.Maybe Types.ComputeEnvironmentName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateComputeEnvironmentResponse' with the minimum fields required to make a request.
---
--- * 'computeEnvironmentName' - The name of the compute environment.
--- * 'computeEnvironmentARN' - The Amazon Resource Name (ARN) of the compute environment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateComputeEnvironmentResponse' value with any optional fields omitted.
 mkCreateComputeEnvironmentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateComputeEnvironmentResponse
-mkCreateComputeEnvironmentResponse pResponseStatus_ =
+mkCreateComputeEnvironmentResponse responseStatus =
   CreateComputeEnvironmentResponse'
-    { computeEnvironmentName =
-        Lude.Nothing,
-      computeEnvironmentARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { computeEnvironmentArn =
+        Core.Nothing,
+      computeEnvironmentName = Core.Nothing,
+      responseStatus
     }
+
+-- | The Amazon Resource Name (ARN) of the compute environment.
+--
+-- /Note:/ Consider using 'computeEnvironmentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccerrsComputeEnvironmentArn :: Lens.Lens' CreateComputeEnvironmentResponse (Core.Maybe Types.ComputeEnvironmentArn)
+ccerrsComputeEnvironmentArn = Lens.field @"computeEnvironmentArn"
+{-# DEPRECATED ccerrsComputeEnvironmentArn "Use generic-lens or generic-optics with 'computeEnvironmentArn' instead." #-}
 
 -- | The name of the compute environment.
 --
 -- /Note:/ Consider using 'computeEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccersComputeEnvironmentName :: Lens.Lens' CreateComputeEnvironmentResponse (Lude.Maybe Lude.Text)
-ccersComputeEnvironmentName = Lens.lens (computeEnvironmentName :: CreateComputeEnvironmentResponse -> Lude.Maybe Lude.Text) (\s a -> s {computeEnvironmentName = a} :: CreateComputeEnvironmentResponse)
-{-# DEPRECATED ccersComputeEnvironmentName "Use generic-lens or generic-optics with 'computeEnvironmentName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the compute environment.
---
--- /Note:/ Consider using 'computeEnvironmentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccersComputeEnvironmentARN :: Lens.Lens' CreateComputeEnvironmentResponse (Lude.Maybe Lude.Text)
-ccersComputeEnvironmentARN = Lens.lens (computeEnvironmentARN :: CreateComputeEnvironmentResponse -> Lude.Maybe Lude.Text) (\s a -> s {computeEnvironmentARN = a} :: CreateComputeEnvironmentResponse)
-{-# DEPRECATED ccersComputeEnvironmentARN "Use generic-lens or generic-optics with 'computeEnvironmentARN' instead." #-}
+ccerrsComputeEnvironmentName :: Lens.Lens' CreateComputeEnvironmentResponse (Core.Maybe Types.ComputeEnvironmentName)
+ccerrsComputeEnvironmentName = Lens.field @"computeEnvironmentName"
+{-# DEPRECATED ccerrsComputeEnvironmentName "Use generic-lens or generic-optics with 'computeEnvironmentName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccersResponseStatus :: Lens.Lens' CreateComputeEnvironmentResponse Lude.Int
-ccersResponseStatus = Lens.lens (responseStatus :: CreateComputeEnvironmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateComputeEnvironmentResponse)
-{-# DEPRECATED ccersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccerrsResponseStatus :: Lens.Lens' CreateComputeEnvironmentResponse Core.Int
+ccerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,59 +23,51 @@ module Network.AWS.Route53AutoNaming.ListNamespaces
 
     -- ** Request lenses
     lnFilters,
-    lnNextToken,
     lnMaxResults,
+    lnNextToken,
 
     -- * Destructuring the response
     ListNamespacesResponse (..),
     mkListNamespacesResponse,
 
     -- ** Response lenses
-    lnrsNamespaces,
-    lnrsNextToken,
-    lnrsResponseStatus,
+    lnrrsNamespaces,
+    lnrrsNextToken,
+    lnrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkListNamespaces' smart constructor.
 data ListNamespaces = ListNamespaces'
   { -- | A complex type that contains specifications for the namespaces that you want to list.
     --
     -- If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
-    filters :: Lude.Maybe [NamespaceFilter],
+    filters :: Core.Maybe [Types.NamespaceFilter],
+    -- | The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
+    maxResults :: Core.Maybe Core.Natural,
     -- | For the first @ListNamespaces@ request, omit this value.
     --
     -- If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListNamespaces' with the minimum fields required to make a request.
---
--- * 'filters' - A complex type that contains specifications for the namespaces that you want to list.
---
--- If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
--- * 'nextToken' - For the first @ListNamespaces@ request, omit this value.
---
--- If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
--- * 'maxResults' - The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
+-- | Creates a 'ListNamespaces' value with any optional fields omitted.
 mkListNamespaces ::
   ListNamespaces
 mkListNamespaces =
   ListNamespaces'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | A complex type that contains specifications for the namespaces that you want to list.
@@ -83,119 +75,112 @@ mkListNamespaces =
 -- If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnFilters :: Lens.Lens' ListNamespaces (Lude.Maybe [NamespaceFilter])
-lnFilters = Lens.lens (filters :: ListNamespaces -> Lude.Maybe [NamespaceFilter]) (\s a -> s {filters = a} :: ListNamespaces)
+lnFilters :: Lens.Lens' ListNamespaces (Core.Maybe [Types.NamespaceFilter])
+lnFilters = Lens.field @"filters"
 {-# DEPRECATED lnFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lnMaxResults :: Lens.Lens' ListNamespaces (Core.Maybe Core.Natural)
+lnMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | For the first @ListNamespaces@ request, omit this value.
 --
 -- If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnNextToken :: Lens.Lens' ListNamespaces (Lude.Maybe Lude.Text)
-lnNextToken = Lens.lens (nextToken :: ListNamespaces -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListNamespaces)
+lnNextToken :: Lens.Lens' ListNamespaces (Core.Maybe Types.NextToken)
+lnNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnMaxResults :: Lens.Lens' ListNamespaces (Lude.Maybe Lude.Natural)
-lnMaxResults = Lens.lens (maxResults :: ListNamespaces -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListNamespaces)
-{-# DEPRECATED lnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+instance Core.FromJSON ListNamespaces where
+  toJSON ListNamespaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Page.AWSPager ListNamespaces where
-  page rq rs
-    | Page.stop (rs Lens.^. lnrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lnrsNamespaces) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lnNextToken Lens..~ rs Lens.^. lnrsNextToken
-
-instance Lude.AWSRequest ListNamespaces where
+instance Core.AWSRequest ListNamespaces where
   type Rs ListNamespaces = ListNamespacesResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.ListNamespaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListNamespacesResponse'
-            Lude.<$> (x Lude..?> "Namespaces" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Namespaces")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListNamespaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.ListNamespaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListNamespaces where
-  toJSON ListNamespaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListNamespaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListNamespaces where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListNamespaces where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"namespaces" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListNamespacesResponse' smart constructor.
 data ListNamespacesResponse = ListNamespacesResponse'
   { -- | An array that contains one @NamespaceSummary@ object for each namespace that matches the specified filter criteria.
-    namespaces :: Lude.Maybe [NamespaceSummary],
+    namespaces :: Core.Maybe [Types.NamespaceSummary],
     -- | If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListNamespacesResponse' with the minimum fields required to make a request.
---
--- * 'namespaces' - An array that contains one @NamespaceSummary@ object for each namespace that matches the specified filter criteria.
--- * 'nextToken' - If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListNamespacesResponse' value with any optional fields omitted.
 mkListNamespacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListNamespacesResponse
-mkListNamespacesResponse pResponseStatus_ =
+mkListNamespacesResponse responseStatus =
   ListNamespacesResponse'
-    { namespaces = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { namespaces = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array that contains one @NamespaceSummary@ object for each namespace that matches the specified filter criteria.
 --
 -- /Note:/ Consider using 'namespaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnrsNamespaces :: Lens.Lens' ListNamespacesResponse (Lude.Maybe [NamespaceSummary])
-lnrsNamespaces = Lens.lens (namespaces :: ListNamespacesResponse -> Lude.Maybe [NamespaceSummary]) (\s a -> s {namespaces = a} :: ListNamespacesResponse)
-{-# DEPRECATED lnrsNamespaces "Use generic-lens or generic-optics with 'namespaces' instead." #-}
+lnrrsNamespaces :: Lens.Lens' ListNamespacesResponse (Core.Maybe [Types.NamespaceSummary])
+lnrrsNamespaces = Lens.field @"namespaces"
+{-# DEPRECATED lnrrsNamespaces "Use generic-lens or generic-optics with 'namespaces' instead." #-}
 
 -- | If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnrsNextToken :: Lens.Lens' ListNamespacesResponse (Lude.Maybe Lude.Text)
-lnrsNextToken = Lens.lens (nextToken :: ListNamespacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListNamespacesResponse)
-{-# DEPRECATED lnrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lnrrsNextToken :: Lens.Lens' ListNamespacesResponse (Core.Maybe Types.NextToken)
+lnrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lnrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnrsResponseStatus :: Lens.Lens' ListNamespacesResponse Lude.Int
-lnrsResponseStatus = Lens.lens (responseStatus :: ListNamespacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListNamespacesResponse)
-{-# DEPRECATED lnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lnrrsResponseStatus :: Lens.Lens' ListNamespacesResponse Core.Int
+lnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

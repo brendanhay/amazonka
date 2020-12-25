@@ -23,48 +23,43 @@ module Network.AWS.MQ.Types.PendingLogs
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The list of information about logs to be enabled for the specified broker.
 --
 -- /See:/ 'mkPendingLogs' smart constructor.
 data PendingLogs = PendingLogs'
   { -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
-    audit :: Lude.Maybe Lude.Bool,
+    audit :: Core.Maybe Core.Bool,
     -- | Enables general logging.
-    general :: Lude.Maybe Lude.Bool
+    general :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PendingLogs' with the minimum fields required to make a request.
---
--- * 'audit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
--- * 'general' - Enables general logging.
+-- | Creates a 'PendingLogs' value with any optional fields omitted.
 mkPendingLogs ::
   PendingLogs
 mkPendingLogs =
-  PendingLogs' {audit = Lude.Nothing, general = Lude.Nothing}
+  PendingLogs' {audit = Core.Nothing, general = Core.Nothing}
 
 -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
 --
 -- /Note:/ Consider using 'audit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plAudit :: Lens.Lens' PendingLogs (Lude.Maybe Lude.Bool)
-plAudit = Lens.lens (audit :: PendingLogs -> Lude.Maybe Lude.Bool) (\s a -> s {audit = a} :: PendingLogs)
+plAudit :: Lens.Lens' PendingLogs (Core.Maybe Core.Bool)
+plAudit = Lens.field @"audit"
 {-# DEPRECATED plAudit "Use generic-lens or generic-optics with 'audit' instead." #-}
 
 -- | Enables general logging.
 --
 -- /Note:/ Consider using 'general' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plGeneral :: Lens.Lens' PendingLogs (Lude.Maybe Lude.Bool)
-plGeneral = Lens.lens (general :: PendingLogs -> Lude.Maybe Lude.Bool) (\s a -> s {general = a} :: PendingLogs)
+plGeneral :: Lens.Lens' PendingLogs (Core.Maybe Core.Bool)
+plGeneral = Lens.field @"general"
 {-# DEPRECATED plGeneral "Use generic-lens or generic-optics with 'general' instead." #-}
 
-instance Lude.FromJSON PendingLogs where
+instance Core.FromJSON PendingLogs where
   parseJSON =
-    Lude.withObject
-      "PendingLogs"
-      ( \x ->
-          PendingLogs'
-            Lude.<$> (x Lude..:? "audit") Lude.<*> (x Lude..:? "general")
-      )
+    Core.withObject "PendingLogs" Core.$
+      \x ->
+        PendingLogs'
+          Core.<$> (x Core..:? "audit") Core.<*> (x Core..:? "general")

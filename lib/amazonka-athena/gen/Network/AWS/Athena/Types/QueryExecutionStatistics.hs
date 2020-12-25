@@ -17,124 +17,114 @@ module Network.AWS.Athena.Types.QueryExecutionStatistics
     mkQueryExecutionStatistics,
 
     -- * Lenses
-    qesTotalExecutionTimeInMillis,
+    qesDataManifestLocation,
+    qesDataScannedInBytes,
     qesEngineExecutionTimeInMillis,
     qesQueryPlanningTimeInMillis,
-    qesDataScannedInBytes,
     qesQueryQueueTimeInMillis,
-    qesDataManifestLocation,
     qesServiceProcessingTimeInMillis,
+    qesTotalExecutionTimeInMillis,
   )
 where
 
+import qualified Network.AWS.Athena.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.
 --
 -- /See:/ 'mkQueryExecutionStatistics' smart constructor.
 data QueryExecutionStatistics = QueryExecutionStatistics'
-  { -- | The number of milliseconds that Athena took to run the query.
-    totalExecutionTimeInMillis :: Lude.Maybe Lude.Integer,
-    -- | The number of milliseconds that the query took to execute.
-    engineExecutionTimeInMillis :: Lude.Maybe Lude.Integer,
-    -- | The number of milliseconds that Athena took to plan the query processing flow. This includes the time spent retrieving table partitions from the data source. Note that because the query engine performs the query planning, query planning time is a subset of engine processing time.
-    queryPlanningTimeInMillis :: Lude.Maybe Lude.Integer,
+  { -- | The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History> in the /Amazon Athena User Guide/ .
+    dataManifestLocation :: Core.Maybe Types.String,
     -- | The number of bytes in the data that was queried.
-    dataScannedInBytes :: Lude.Maybe Lude.Integer,
+    dataScannedInBytes :: Core.Maybe Core.Integer,
+    -- | The number of milliseconds that the query took to execute.
+    engineExecutionTimeInMillis :: Core.Maybe Core.Integer,
+    -- | The number of milliseconds that Athena took to plan the query processing flow. This includes the time spent retrieving table partitions from the data source. Note that because the query engine performs the query planning, query planning time is a subset of engine processing time.
+    queryPlanningTimeInMillis :: Core.Maybe Core.Integer,
     -- | The number of milliseconds that the query was in your query queue waiting for resources. Note that if transient errors occur, Athena might automatically add the query back to the queue.
-    queryQueueTimeInMillis :: Lude.Maybe Lude.Integer,
-    -- | The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History> in the /Amazon Athena User Guide/ .
-    dataManifestLocation :: Lude.Maybe Lude.Text,
+    queryQueueTimeInMillis :: Core.Maybe Core.Integer,
     -- | The number of milliseconds that Athena took to finalize and publish the query results after the query engine finished running the query.
-    serviceProcessingTimeInMillis :: Lude.Maybe Lude.Integer
+    serviceProcessingTimeInMillis :: Core.Maybe Core.Integer,
+    -- | The number of milliseconds that Athena took to run the query.
+    totalExecutionTimeInMillis :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueryExecutionStatistics' with the minimum fields required to make a request.
---
--- * 'totalExecutionTimeInMillis' - The number of milliseconds that Athena took to run the query.
--- * 'engineExecutionTimeInMillis' - The number of milliseconds that the query took to execute.
--- * 'queryPlanningTimeInMillis' - The number of milliseconds that Athena took to plan the query processing flow. This includes the time spent retrieving table partitions from the data source. Note that because the query engine performs the query planning, query planning time is a subset of engine processing time.
--- * 'dataScannedInBytes' - The number of bytes in the data that was queried.
--- * 'queryQueueTimeInMillis' - The number of milliseconds that the query was in your query queue waiting for resources. Note that if transient errors occur, Athena might automatically add the query back to the queue.
--- * 'dataManifestLocation' - The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History> in the /Amazon Athena User Guide/ .
--- * 'serviceProcessingTimeInMillis' - The number of milliseconds that Athena took to finalize and publish the query results after the query engine finished running the query.
+-- | Creates a 'QueryExecutionStatistics' value with any optional fields omitted.
 mkQueryExecutionStatistics ::
   QueryExecutionStatistics
 mkQueryExecutionStatistics =
   QueryExecutionStatistics'
-    { totalExecutionTimeInMillis =
-        Lude.Nothing,
-      engineExecutionTimeInMillis = Lude.Nothing,
-      queryPlanningTimeInMillis = Lude.Nothing,
-      dataScannedInBytes = Lude.Nothing,
-      queryQueueTimeInMillis = Lude.Nothing,
-      dataManifestLocation = Lude.Nothing,
-      serviceProcessingTimeInMillis = Lude.Nothing
+    { dataManifestLocation = Core.Nothing,
+      dataScannedInBytes = Core.Nothing,
+      engineExecutionTimeInMillis = Core.Nothing,
+      queryPlanningTimeInMillis = Core.Nothing,
+      queryQueueTimeInMillis = Core.Nothing,
+      serviceProcessingTimeInMillis = Core.Nothing,
+      totalExecutionTimeInMillis = Core.Nothing
     }
 
--- | The number of milliseconds that Athena took to run the query.
+-- | The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History> in the /Amazon Athena User Guide/ .
 --
--- /Note:/ Consider using 'totalExecutionTimeInMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesTotalExecutionTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Integer)
-qesTotalExecutionTimeInMillis = Lens.lens (totalExecutionTimeInMillis :: QueryExecutionStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalExecutionTimeInMillis = a} :: QueryExecutionStatistics)
-{-# DEPRECATED qesTotalExecutionTimeInMillis "Use generic-lens or generic-optics with 'totalExecutionTimeInMillis' instead." #-}
+-- /Note:/ Consider using 'dataManifestLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesDataManifestLocation :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Types.String)
+qesDataManifestLocation = Lens.field @"dataManifestLocation"
+{-# DEPRECATED qesDataManifestLocation "Use generic-lens or generic-optics with 'dataManifestLocation' instead." #-}
+
+-- | The number of bytes in the data that was queried.
+--
+-- /Note:/ Consider using 'dataScannedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesDataScannedInBytes :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Core.Integer)
+qesDataScannedInBytes = Lens.field @"dataScannedInBytes"
+{-# DEPRECATED qesDataScannedInBytes "Use generic-lens or generic-optics with 'dataScannedInBytes' instead." #-}
 
 -- | The number of milliseconds that the query took to execute.
 --
 -- /Note:/ Consider using 'engineExecutionTimeInMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesEngineExecutionTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Integer)
-qesEngineExecutionTimeInMillis = Lens.lens (engineExecutionTimeInMillis :: QueryExecutionStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {engineExecutionTimeInMillis = a} :: QueryExecutionStatistics)
+qesEngineExecutionTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Core.Integer)
+qesEngineExecutionTimeInMillis = Lens.field @"engineExecutionTimeInMillis"
 {-# DEPRECATED qesEngineExecutionTimeInMillis "Use generic-lens or generic-optics with 'engineExecutionTimeInMillis' instead." #-}
 
 -- | The number of milliseconds that Athena took to plan the query processing flow. This includes the time spent retrieving table partitions from the data source. Note that because the query engine performs the query planning, query planning time is a subset of engine processing time.
 --
 -- /Note:/ Consider using 'queryPlanningTimeInMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesQueryPlanningTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Integer)
-qesQueryPlanningTimeInMillis = Lens.lens (queryPlanningTimeInMillis :: QueryExecutionStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {queryPlanningTimeInMillis = a} :: QueryExecutionStatistics)
+qesQueryPlanningTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Core.Integer)
+qesQueryPlanningTimeInMillis = Lens.field @"queryPlanningTimeInMillis"
 {-# DEPRECATED qesQueryPlanningTimeInMillis "Use generic-lens or generic-optics with 'queryPlanningTimeInMillis' instead." #-}
-
--- | The number of bytes in the data that was queried.
---
--- /Note:/ Consider using 'dataScannedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesDataScannedInBytes :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Integer)
-qesDataScannedInBytes = Lens.lens (dataScannedInBytes :: QueryExecutionStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {dataScannedInBytes = a} :: QueryExecutionStatistics)
-{-# DEPRECATED qesDataScannedInBytes "Use generic-lens or generic-optics with 'dataScannedInBytes' instead." #-}
 
 -- | The number of milliseconds that the query was in your query queue waiting for resources. Note that if transient errors occur, Athena might automatically add the query back to the queue.
 --
 -- /Note:/ Consider using 'queryQueueTimeInMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesQueryQueueTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Integer)
-qesQueryQueueTimeInMillis = Lens.lens (queryQueueTimeInMillis :: QueryExecutionStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {queryQueueTimeInMillis = a} :: QueryExecutionStatistics)
+qesQueryQueueTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Core.Integer)
+qesQueryQueueTimeInMillis = Lens.field @"queryQueueTimeInMillis"
 {-# DEPRECATED qesQueryQueueTimeInMillis "Use generic-lens or generic-optics with 'queryQueueTimeInMillis' instead." #-}
-
--- | The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History> in the /Amazon Athena User Guide/ .
---
--- /Note:/ Consider using 'dataManifestLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesDataManifestLocation :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Text)
-qesDataManifestLocation = Lens.lens (dataManifestLocation :: QueryExecutionStatistics -> Lude.Maybe Lude.Text) (\s a -> s {dataManifestLocation = a} :: QueryExecutionStatistics)
-{-# DEPRECATED qesDataManifestLocation "Use generic-lens or generic-optics with 'dataManifestLocation' instead." #-}
 
 -- | The number of milliseconds that Athena took to finalize and publish the query results after the query engine finished running the query.
 --
 -- /Note:/ Consider using 'serviceProcessingTimeInMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qesServiceProcessingTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Lude.Maybe Lude.Integer)
-qesServiceProcessingTimeInMillis = Lens.lens (serviceProcessingTimeInMillis :: QueryExecutionStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {serviceProcessingTimeInMillis = a} :: QueryExecutionStatistics)
+qesServiceProcessingTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Core.Integer)
+qesServiceProcessingTimeInMillis = Lens.field @"serviceProcessingTimeInMillis"
 {-# DEPRECATED qesServiceProcessingTimeInMillis "Use generic-lens or generic-optics with 'serviceProcessingTimeInMillis' instead." #-}
 
-instance Lude.FromJSON QueryExecutionStatistics where
+-- | The number of milliseconds that Athena took to run the query.
+--
+-- /Note:/ Consider using 'totalExecutionTimeInMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesTotalExecutionTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Core.Maybe Core.Integer)
+qesTotalExecutionTimeInMillis = Lens.field @"totalExecutionTimeInMillis"
+{-# DEPRECATED qesTotalExecutionTimeInMillis "Use generic-lens or generic-optics with 'totalExecutionTimeInMillis' instead." #-}
+
+instance Core.FromJSON QueryExecutionStatistics where
   parseJSON =
-    Lude.withObject
-      "QueryExecutionStatistics"
-      ( \x ->
-          QueryExecutionStatistics'
-            Lude.<$> (x Lude..:? "TotalExecutionTimeInMillis")
-            Lude.<*> (x Lude..:? "EngineExecutionTimeInMillis")
-            Lude.<*> (x Lude..:? "QueryPlanningTimeInMillis")
-            Lude.<*> (x Lude..:? "DataScannedInBytes")
-            Lude.<*> (x Lude..:? "QueryQueueTimeInMillis")
-            Lude.<*> (x Lude..:? "DataManifestLocation")
-            Lude.<*> (x Lude..:? "ServiceProcessingTimeInMillis")
-      )
+    Core.withObject "QueryExecutionStatistics" Core.$
+      \x ->
+        QueryExecutionStatistics'
+          Core.<$> (x Core..:? "DataManifestLocation")
+          Core.<*> (x Core..:? "DataScannedInBytes")
+          Core.<*> (x Core..:? "EngineExecutionTimeInMillis")
+          Core.<*> (x Core..:? "QueryPlanningTimeInMillis")
+          Core.<*> (x Core..:? "QueryQueueTimeInMillis")
+          Core.<*> (x Core..:? "ServiceProcessingTimeInMillis")
+          Core.<*> (x Core..:? "TotalExecutionTimeInMillis")

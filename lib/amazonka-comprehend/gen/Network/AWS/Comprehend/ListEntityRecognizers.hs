@@ -24,169 +24,160 @@ module Network.AWS.Comprehend.ListEntityRecognizers
     mkListEntityRecognizers,
 
     -- ** Request lenses
-    lerNextToken,
     lerFilter,
     lerMaxResults,
+    lerNextToken,
 
     -- * Destructuring the response
     ListEntityRecognizersResponse (..),
     mkListEntityRecognizersResponse,
 
     -- ** Response lenses
-    lerrsNextToken,
-    lerrsEntityRecognizerPropertiesList,
-    lerrsResponseStatus,
+    lerrrsEntityRecognizerPropertiesList,
+    lerrrsNextToken,
+    lerrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListEntityRecognizers' smart constructor.
 data ListEntityRecognizers = ListEntityRecognizers'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Filters the list of entities returned. You can filter on @Status@ , @SubmitTimeBefore@ , or @SubmitTimeAfter@ . You can only set one filter at a time.
-    filter :: Lude.Maybe EntityRecognizerFilter,
+  { -- | Filters the list of entities returned. You can filter on @Status@ , @SubmitTimeBefore@ , or @SubmitTimeAfter@ . You can only set one filter at a time.
+    filter :: Core.Maybe Types.EntityRecognizerFilter,
     -- | The maximum number of results to return on each page. The default is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListEntityRecognizers' with the minimum fields required to make a request.
---
--- * 'nextToken' - Identifies the next page of results to return.
--- * 'filter' - Filters the list of entities returned. You can filter on @Status@ , @SubmitTimeBefore@ , or @SubmitTimeAfter@ . You can only set one filter at a time.
--- * 'maxResults' - The maximum number of results to return on each page. The default is 100.
+-- | Creates a 'ListEntityRecognizers' value with any optional fields omitted.
 mkListEntityRecognizers ::
   ListEntityRecognizers
 mkListEntityRecognizers =
   ListEntityRecognizers'
-    { nextToken = Lude.Nothing,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Identifies the next page of results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lerNextToken :: Lens.Lens' ListEntityRecognizers (Lude.Maybe Lude.Text)
-lerNextToken = Lens.lens (nextToken :: ListEntityRecognizers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEntityRecognizers)
-{-# DEPRECATED lerNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the list of entities returned. You can filter on @Status@ , @SubmitTimeBefore@ , or @SubmitTimeAfter@ . You can only set one filter at a time.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lerFilter :: Lens.Lens' ListEntityRecognizers (Lude.Maybe EntityRecognizerFilter)
-lerFilter = Lens.lens (filter :: ListEntityRecognizers -> Lude.Maybe EntityRecognizerFilter) (\s a -> s {filter = a} :: ListEntityRecognizers)
+lerFilter :: Lens.Lens' ListEntityRecognizers (Core.Maybe Types.EntityRecognizerFilter)
+lerFilter = Lens.field @"filter"
 {-# DEPRECATED lerFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return on each page. The default is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lerMaxResults :: Lens.Lens' ListEntityRecognizers (Lude.Maybe Lude.Natural)
-lerMaxResults = Lens.lens (maxResults :: ListEntityRecognizers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEntityRecognizers)
+lerMaxResults :: Lens.Lens' ListEntityRecognizers (Core.Maybe Core.Natural)
+lerMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lerMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListEntityRecognizers where
-  page rq rs
-    | Page.stop (rs Lens.^. lerrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lerrsEntityRecognizerPropertiesList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lerNextToken Lens..~ rs Lens.^. lerrsNextToken
-
-instance Lude.AWSRequest ListEntityRecognizers where
-  type Rs ListEntityRecognizers = ListEntityRecognizersResponse
-  request = Req.postJSON comprehendService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListEntityRecognizersResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "EntityRecognizerPropertiesList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListEntityRecognizers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.ListEntityRecognizers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListEntityRecognizers where
-  toJSON ListEntityRecognizers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Filter" Lude..=) Lude.<$> filter,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListEntityRecognizers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListEntityRecognizers where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListEntityRecognizersResponse' smart constructor.
-data ListEntityRecognizersResponse = ListEntityRecognizersResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The list of properties of an entity recognizer.
-    entityRecognizerPropertiesList :: Lude.Maybe [EntityRecognizerProperties],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListEntityRecognizersResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Identifies the next page of results to return.
--- * 'entityRecognizerPropertiesList' - The list of properties of an entity recognizer.
--- * 'responseStatus' - The response status code.
-mkListEntityRecognizersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListEntityRecognizersResponse
-mkListEntityRecognizersResponse pResponseStatus_ =
-  ListEntityRecognizersResponse'
-    { nextToken = Lude.Nothing,
-      entityRecognizerPropertiesList = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | Identifies the next page of results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lerrsNextToken :: Lens.Lens' ListEntityRecognizersResponse (Lude.Maybe Lude.Text)
-lerrsNextToken = Lens.lens (nextToken :: ListEntityRecognizersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEntityRecognizersResponse)
-{-# DEPRECATED lerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lerNextToken :: Lens.Lens' ListEntityRecognizers (Core.Maybe Types.String)
+lerNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lerNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListEntityRecognizers where
+  toJSON ListEntityRecognizers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filter" Core..=) Core.<$> filter,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListEntityRecognizers where
+  type Rs ListEntityRecognizers = ListEntityRecognizersResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.ListEntityRecognizers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListEntityRecognizersResponse'
+            Core.<$> (x Core..:? "EntityRecognizerPropertiesList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListEntityRecognizers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"entityRecognizerPropertiesList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListEntityRecognizersResponse' smart constructor.
+data ListEntityRecognizersResponse = ListEntityRecognizersResponse'
+  { -- | The list of properties of an entity recognizer.
+    entityRecognizerPropertiesList :: Core.Maybe [Types.EntityRecognizerProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListEntityRecognizersResponse' value with any optional fields omitted.
+mkListEntityRecognizersResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListEntityRecognizersResponse
+mkListEntityRecognizersResponse responseStatus =
+  ListEntityRecognizersResponse'
+    { entityRecognizerPropertiesList =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | The list of properties of an entity recognizer.
 --
 -- /Note:/ Consider using 'entityRecognizerPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lerrsEntityRecognizerPropertiesList :: Lens.Lens' ListEntityRecognizersResponse (Lude.Maybe [EntityRecognizerProperties])
-lerrsEntityRecognizerPropertiesList = Lens.lens (entityRecognizerPropertiesList :: ListEntityRecognizersResponse -> Lude.Maybe [EntityRecognizerProperties]) (\s a -> s {entityRecognizerPropertiesList = a} :: ListEntityRecognizersResponse)
-{-# DEPRECATED lerrsEntityRecognizerPropertiesList "Use generic-lens or generic-optics with 'entityRecognizerPropertiesList' instead." #-}
+lerrrsEntityRecognizerPropertiesList :: Lens.Lens' ListEntityRecognizersResponse (Core.Maybe [Types.EntityRecognizerProperties])
+lerrrsEntityRecognizerPropertiesList = Lens.field @"entityRecognizerPropertiesList"
+{-# DEPRECATED lerrrsEntityRecognizerPropertiesList "Use generic-lens or generic-optics with 'entityRecognizerPropertiesList' instead." #-}
+
+-- | Identifies the next page of results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lerrrsNextToken :: Lens.Lens' ListEntityRecognizersResponse (Core.Maybe Types.String)
+lerrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lerrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lerrsResponseStatus :: Lens.Lens' ListEntityRecognizersResponse Lude.Int
-lerrsResponseStatus = Lens.lens (responseStatus :: ListEntityRecognizersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEntityRecognizersResponse)
-{-# DEPRECATED lerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lerrrsResponseStatus :: Lens.Lens' ListEntityRecognizersResponse Core.Int
+lerrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lerrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

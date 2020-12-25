@@ -17,158 +17,108 @@ module Network.AWS.MediaLive.Types.AudioDescription
     mkAudioDescription,
 
     -- * Lenses
-    adLanguageCode,
-    adAudioType,
-    adAudioNormalizationSettings,
     adAudioSelectorName,
     adName,
-    adLanguageCodeControl,
-    adCodecSettings,
-    adStreamName,
-    adRemixSettings,
+    adAudioNormalizationSettings,
+    adAudioType,
     adAudioTypeControl,
+    adCodecSettings,
+    adLanguageCode,
+    adLanguageCodeControl,
+    adRemixSettings,
+    adStreamName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioCodecSettings
-import Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
-import Network.AWS.MediaLive.Types.AudioDescriptionLanguageCodeControl
-import Network.AWS.MediaLive.Types.AudioNormalizationSettings
-import Network.AWS.MediaLive.Types.AudioType
-import Network.AWS.MediaLive.Types.RemixSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AudioCodecSettings as Types
+import qualified Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl as Types
+import qualified Network.AWS.MediaLive.Types.AudioDescriptionLanguageCodeControl as Types
+import qualified Network.AWS.MediaLive.Types.AudioNormalizationSettings as Types
+import qualified Network.AWS.MediaLive.Types.AudioType as Types
+import qualified Network.AWS.MediaLive.Types.RemixSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Description
 --
 -- /See:/ 'mkAudioDescription' smart constructor.
 data AudioDescription = AudioDescription'
-  { -- | RFC 5646 language code representing the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
-    languageCode :: Lude.Maybe Lude.Text,
-    -- | Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
-    audioType :: Lude.Maybe AudioType,
-    -- | Advanced audio normalization settings.
-    audioNormalizationSettings :: Lude.Maybe AudioNormalizationSettings,
-    -- | The name of the AudioSelector used as the source for this AudioDescription.
-    audioSelectorName :: Lude.Text,
+  { -- | The name of the AudioSelector used as the source for this AudioDescription.
+    audioSelectorName :: Core.Text,
     -- | The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.
-    name :: Lude.Text,
-    -- | Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
-    languageCodeControl :: Lude.Maybe AudioDescriptionLanguageCodeControl,
-    -- | Audio codec settings.
-    codecSettings :: Lude.Maybe AudioCodecSettings,
-    -- | Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
-    streamName :: Lude.Maybe Lude.Text,
-    -- | Settings that control how input audio channels are remixed into the output audio channels.
-    remixSettings :: Lude.Maybe RemixSettings,
+    name :: Core.Text,
+    -- | Advanced audio normalization settings.
+    audioNormalizationSettings :: Core.Maybe Types.AudioNormalizationSettings,
+    -- | Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+    audioType :: Core.Maybe Types.AudioType,
     -- | Determines how audio type is determined.
     --
     --   followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output.
     --   useConfigured: The value in Audio Type is included in the output.
     -- Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
-    audioTypeControl :: Lude.Maybe AudioDescriptionAudioTypeControl
+    audioTypeControl :: Core.Maybe Types.AudioDescriptionAudioTypeControl,
+    -- | Audio codec settings.
+    codecSettings :: Core.Maybe Types.AudioCodecSettings,
+    -- | RFC 5646 language code representing the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
+    languageCode :: Core.Maybe Core.Text,
+    -- | Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
+    languageCodeControl :: Core.Maybe Types.AudioDescriptionLanguageCodeControl,
+    -- | Settings that control how input audio channels are remixed into the output audio channels.
+    remixSettings :: Core.Maybe Types.RemixSettings,
+    -- | Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
+    streamName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioDescription' with the minimum fields required to make a request.
---
--- * 'languageCode' - RFC 5646 language code representing the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
--- * 'audioType' - Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
--- * 'audioNormalizationSettings' - Advanced audio normalization settings.
--- * 'audioSelectorName' - The name of the AudioSelector used as the source for this AudioDescription.
--- * 'name' - The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.
--- * 'languageCodeControl' - Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
--- * 'codecSettings' - Audio codec settings.
--- * 'streamName' - Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
--- * 'remixSettings' - Settings that control how input audio channels are remixed into the output audio channels.
--- * 'audioTypeControl' - Determines how audio type is determined.
---
---   followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output.
---   useConfigured: The value in Audio Type is included in the output.
--- Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
+-- | Creates a 'AudioDescription' value with any optional fields omitted.
 mkAudioDescription ::
   -- | 'audioSelectorName'
-  Lude.Text ->
+  Core.Text ->
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   AudioDescription
-mkAudioDescription pAudioSelectorName_ pName_ =
+mkAudioDescription audioSelectorName name =
   AudioDescription'
-    { languageCode = Lude.Nothing,
-      audioType = Lude.Nothing,
-      audioNormalizationSettings = Lude.Nothing,
-      audioSelectorName = pAudioSelectorName_,
-      name = pName_,
-      languageCodeControl = Lude.Nothing,
-      codecSettings = Lude.Nothing,
-      streamName = Lude.Nothing,
-      remixSettings = Lude.Nothing,
-      audioTypeControl = Lude.Nothing
+    { audioSelectorName,
+      name,
+      audioNormalizationSettings = Core.Nothing,
+      audioType = Core.Nothing,
+      audioTypeControl = Core.Nothing,
+      codecSettings = Core.Nothing,
+      languageCode = Core.Nothing,
+      languageCodeControl = Core.Nothing,
+      remixSettings = Core.Nothing,
+      streamName = Core.Nothing
     }
-
--- | RFC 5646 language code representing the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adLanguageCode :: Lens.Lens' AudioDescription (Lude.Maybe Lude.Text)
-adLanguageCode = Lens.lens (languageCode :: AudioDescription -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: AudioDescription)
-{-# DEPRECATED adLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
---
--- /Note:/ Consider using 'audioType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAudioType :: Lens.Lens' AudioDescription (Lude.Maybe AudioType)
-adAudioType = Lens.lens (audioType :: AudioDescription -> Lude.Maybe AudioType) (\s a -> s {audioType = a} :: AudioDescription)
-{-# DEPRECATED adAudioType "Use generic-lens or generic-optics with 'audioType' instead." #-}
-
--- | Advanced audio normalization settings.
---
--- /Note:/ Consider using 'audioNormalizationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAudioNormalizationSettings :: Lens.Lens' AudioDescription (Lude.Maybe AudioNormalizationSettings)
-adAudioNormalizationSettings = Lens.lens (audioNormalizationSettings :: AudioDescription -> Lude.Maybe AudioNormalizationSettings) (\s a -> s {audioNormalizationSettings = a} :: AudioDescription)
-{-# DEPRECATED adAudioNormalizationSettings "Use generic-lens or generic-optics with 'audioNormalizationSettings' instead." #-}
 
 -- | The name of the AudioSelector used as the source for this AudioDescription.
 --
 -- /Note:/ Consider using 'audioSelectorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAudioSelectorName :: Lens.Lens' AudioDescription Lude.Text
-adAudioSelectorName = Lens.lens (audioSelectorName :: AudioDescription -> Lude.Text) (\s a -> s {audioSelectorName = a} :: AudioDescription)
+adAudioSelectorName :: Lens.Lens' AudioDescription Core.Text
+adAudioSelectorName = Lens.field @"audioSelectorName"
 {-# DEPRECATED adAudioSelectorName "Use generic-lens or generic-optics with 'audioSelectorName' instead." #-}
 
 -- | The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adName :: Lens.Lens' AudioDescription Lude.Text
-adName = Lens.lens (name :: AudioDescription -> Lude.Text) (\s a -> s {name = a} :: AudioDescription)
+adName :: Lens.Lens' AudioDescription Core.Text
+adName = Lens.field @"name"
 {-# DEPRECATED adName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
+-- | Advanced audio normalization settings.
 --
--- /Note:/ Consider using 'languageCodeControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adLanguageCodeControl :: Lens.Lens' AudioDescription (Lude.Maybe AudioDescriptionLanguageCodeControl)
-adLanguageCodeControl = Lens.lens (languageCodeControl :: AudioDescription -> Lude.Maybe AudioDescriptionLanguageCodeControl) (\s a -> s {languageCodeControl = a} :: AudioDescription)
-{-# DEPRECATED adLanguageCodeControl "Use generic-lens or generic-optics with 'languageCodeControl' instead." #-}
+-- /Note:/ Consider using 'audioNormalizationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAudioNormalizationSettings :: Lens.Lens' AudioDescription (Core.Maybe Types.AudioNormalizationSettings)
+adAudioNormalizationSettings = Lens.field @"audioNormalizationSettings"
+{-# DEPRECATED adAudioNormalizationSettings "Use generic-lens or generic-optics with 'audioNormalizationSettings' instead." #-}
 
--- | Audio codec settings.
+-- | Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
 --
--- /Note:/ Consider using 'codecSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adCodecSettings :: Lens.Lens' AudioDescription (Lude.Maybe AudioCodecSettings)
-adCodecSettings = Lens.lens (codecSettings :: AudioDescription -> Lude.Maybe AudioCodecSettings) (\s a -> s {codecSettings = a} :: AudioDescription)
-{-# DEPRECATED adCodecSettings "Use generic-lens or generic-optics with 'codecSettings' instead." #-}
-
--- | Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adStreamName :: Lens.Lens' AudioDescription (Lude.Maybe Lude.Text)
-adStreamName = Lens.lens (streamName :: AudioDescription -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: AudioDescription)
-{-# DEPRECATED adStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
-
--- | Settings that control how input audio channels are remixed into the output audio channels.
---
--- /Note:/ Consider using 'remixSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adRemixSettings :: Lens.Lens' AudioDescription (Lude.Maybe RemixSettings)
-adRemixSettings = Lens.lens (remixSettings :: AudioDescription -> Lude.Maybe RemixSettings) (\s a -> s {remixSettings = a} :: AudioDescription)
-{-# DEPRECATED adRemixSettings "Use generic-lens or generic-optics with 'remixSettings' instead." #-}
+-- /Note:/ Consider using 'audioType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAudioType :: Lens.Lens' AudioDescription (Core.Maybe Types.AudioType)
+adAudioType = Lens.field @"audioType"
+{-# DEPRECATED adAudioType "Use generic-lens or generic-optics with 'audioType' instead." #-}
 
 -- | Determines how audio type is determined.
 --
@@ -177,42 +127,75 @@ adRemixSettings = Lens.lens (remixSettings :: AudioDescription -> Lude.Maybe Rem
 -- Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
 --
 -- /Note:/ Consider using 'audioTypeControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAudioTypeControl :: Lens.Lens' AudioDescription (Lude.Maybe AudioDescriptionAudioTypeControl)
-adAudioTypeControl = Lens.lens (audioTypeControl :: AudioDescription -> Lude.Maybe AudioDescriptionAudioTypeControl) (\s a -> s {audioTypeControl = a} :: AudioDescription)
+adAudioTypeControl :: Lens.Lens' AudioDescription (Core.Maybe Types.AudioDescriptionAudioTypeControl)
+adAudioTypeControl = Lens.field @"audioTypeControl"
 {-# DEPRECATED adAudioTypeControl "Use generic-lens or generic-optics with 'audioTypeControl' instead." #-}
 
-instance Lude.FromJSON AudioDescription where
-  parseJSON =
-    Lude.withObject
-      "AudioDescription"
-      ( \x ->
-          AudioDescription'
-            Lude.<$> (x Lude..:? "languageCode")
-            Lude.<*> (x Lude..:? "audioType")
-            Lude.<*> (x Lude..:? "audioNormalizationSettings")
-            Lude.<*> (x Lude..: "audioSelectorName")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "languageCodeControl")
-            Lude.<*> (x Lude..:? "codecSettings")
-            Lude.<*> (x Lude..:? "streamName")
-            Lude.<*> (x Lude..:? "remixSettings")
-            Lude.<*> (x Lude..:? "audioTypeControl")
-      )
+-- | Audio codec settings.
+--
+-- /Note:/ Consider using 'codecSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adCodecSettings :: Lens.Lens' AudioDescription (Core.Maybe Types.AudioCodecSettings)
+adCodecSettings = Lens.field @"codecSettings"
+{-# DEPRECATED adCodecSettings "Use generic-lens or generic-optics with 'codecSettings' instead." #-}
 
-instance Lude.ToJSON AudioDescription where
-  toJSON AudioDescription' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("languageCode" Lude..=) Lude.<$> languageCode,
-            ("audioType" Lude..=) Lude.<$> audioType,
-            ("audioNormalizationSettings" Lude..=)
-              Lude.<$> audioNormalizationSettings,
-            Lude.Just ("audioSelectorName" Lude..= audioSelectorName),
-            Lude.Just ("name" Lude..= name),
-            ("languageCodeControl" Lude..=) Lude.<$> languageCodeControl,
-            ("codecSettings" Lude..=) Lude.<$> codecSettings,
-            ("streamName" Lude..=) Lude.<$> streamName,
-            ("remixSettings" Lude..=) Lude.<$> remixSettings,
-            ("audioTypeControl" Lude..=) Lude.<$> audioTypeControl
+-- | RFC 5646 language code representing the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLanguageCode :: Lens.Lens' AudioDescription (Core.Maybe Core.Text)
+adLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED adLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
+--
+-- /Note:/ Consider using 'languageCodeControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLanguageCodeControl :: Lens.Lens' AudioDescription (Core.Maybe Types.AudioDescriptionLanguageCodeControl)
+adLanguageCodeControl = Lens.field @"languageCodeControl"
+{-# DEPRECATED adLanguageCodeControl "Use generic-lens or generic-optics with 'languageCodeControl' instead." #-}
+
+-- | Settings that control how input audio channels are remixed into the output audio channels.
+--
+-- /Note:/ Consider using 'remixSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adRemixSettings :: Lens.Lens' AudioDescription (Core.Maybe Types.RemixSettings)
+adRemixSettings = Lens.field @"remixSettings"
+{-# DEPRECATED adRemixSettings "Use generic-lens or generic-optics with 'remixSettings' instead." #-}
+
+-- | Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary).
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adStreamName :: Lens.Lens' AudioDescription (Core.Maybe Core.Text)
+adStreamName = Lens.field @"streamName"
+{-# DEPRECATED adStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+
+instance Core.FromJSON AudioDescription where
+  toJSON AudioDescription {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("audioSelectorName" Core..= audioSelectorName),
+            Core.Just ("name" Core..= name),
+            ("audioNormalizationSettings" Core..=)
+              Core.<$> audioNormalizationSettings,
+            ("audioType" Core..=) Core.<$> audioType,
+            ("audioTypeControl" Core..=) Core.<$> audioTypeControl,
+            ("codecSettings" Core..=) Core.<$> codecSettings,
+            ("languageCode" Core..=) Core.<$> languageCode,
+            ("languageCodeControl" Core..=) Core.<$> languageCodeControl,
+            ("remixSettings" Core..=) Core.<$> remixSettings,
+            ("streamName" Core..=) Core.<$> streamName
           ]
       )
+
+instance Core.FromJSON AudioDescription where
+  parseJSON =
+    Core.withObject "AudioDescription" Core.$
+      \x ->
+        AudioDescription'
+          Core.<$> (x Core..: "audioSelectorName")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..:? "audioNormalizationSettings")
+          Core.<*> (x Core..:? "audioType")
+          Core.<*> (x Core..:? "audioTypeControl")
+          Core.<*> (x Core..:? "codecSettings")
+          Core.<*> (x Core..:? "languageCode")
+          Core.<*> (x Core..:? "languageCodeControl")
+          Core.<*> (x Core..:? "remixSettings")
+          Core.<*> (x Core..:? "streamName")

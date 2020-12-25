@@ -20,78 +20,79 @@ module Network.AWS.SNS.GetEndpointAttributes
     mkGetEndpointAttributes,
 
     -- ** Request lenses
-    geaEndpointARN,
+    geaEndpointArn,
 
     -- * Destructuring the response
     GetEndpointAttributesResponse (..),
     mkGetEndpointAttributesResponse,
 
     -- ** Response lenses
-    gearsAttributes,
-    gearsResponseStatus,
+    gearrsAttributes,
+    gearrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for GetEndpointAttributes action.
 --
 -- /See:/ 'mkGetEndpointAttributes' smart constructor.
 newtype GetEndpointAttributes = GetEndpointAttributes'
   { -- | EndpointArn for GetEndpointAttributes input.
-    endpointARN :: Lude.Text
+    endpointArn :: Types.EndpointArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetEndpointAttributes' with the minimum fields required to make a request.
---
--- * 'endpointARN' - EndpointArn for GetEndpointAttributes input.
+-- | Creates a 'GetEndpointAttributes' value with any optional fields omitted.
 mkGetEndpointAttributes ::
-  -- | 'endpointARN'
-  Lude.Text ->
+  -- | 'endpointArn'
+  Types.EndpointArn ->
   GetEndpointAttributes
-mkGetEndpointAttributes pEndpointARN_ =
-  GetEndpointAttributes' {endpointARN = pEndpointARN_}
+mkGetEndpointAttributes endpointArn =
+  GetEndpointAttributes' {endpointArn}
 
 -- | EndpointArn for GetEndpointAttributes input.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geaEndpointARN :: Lens.Lens' GetEndpointAttributes Lude.Text
-geaEndpointARN = Lens.lens (endpointARN :: GetEndpointAttributes -> Lude.Text) (\s a -> s {endpointARN = a} :: GetEndpointAttributes)
-{-# DEPRECATED geaEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geaEndpointArn :: Lens.Lens' GetEndpointAttributes Types.EndpointArn
+geaEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED geaEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
-instance Lude.AWSRequest GetEndpointAttributes where
+instance Core.AWSRequest GetEndpointAttributes where
   type Rs GetEndpointAttributes = GetEndpointAttributesResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetEndpointAttributes")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "EndpointArn" endpointArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetEndpointAttributesResult"
       ( \s h x ->
           GetEndpointAttributesResponse'
-            Lude.<$> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+            Core.<$> ( x Core..@? "Attributes"
+                         Core..<@> Core.parseXMLMap "entry" "key" "value"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetEndpointAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetEndpointAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetEndpointAttributes where
-  toQuery GetEndpointAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetEndpointAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "EndpointArn" Lude.=: endpointARN
-      ]
 
 -- | Response from GetEndpointAttributes of the EndpointArn.
 --
@@ -107,36 +108,22 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     --
     --
     --     * @Token@ – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    attributes :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetEndpointAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - Attributes include the following:
---
---
---     * @CustomUserData@ – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
---
---
---     * @Enabled@ – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.
---
---
---     * @Token@ – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetEndpointAttributesResponse' value with any optional fields omitted.
 mkGetEndpointAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetEndpointAttributesResponse
-mkGetEndpointAttributesResponse pResponseStatus_ =
+mkGetEndpointAttributesResponse responseStatus =
   GetEndpointAttributesResponse'
-    { attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributes = Core.Nothing,
+      responseStatus
     }
 
 -- | Attributes include the following:
@@ -153,13 +140,13 @@ mkGetEndpointAttributesResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gearsAttributes :: Lens.Lens' GetEndpointAttributesResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gearsAttributes = Lens.lens (attributes :: GetEndpointAttributesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: GetEndpointAttributesResponse)
-{-# DEPRECATED gearsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+gearrsAttributes :: Lens.Lens' GetEndpointAttributesResponse (Core.Maybe (Core.HashMap Types.String Types.String))
+gearrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED gearrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gearsResponseStatus :: Lens.Lens' GetEndpointAttributesResponse Lude.Int
-gearsResponseStatus = Lens.lens (responseStatus :: GetEndpointAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEndpointAttributesResponse)
-{-# DEPRECATED gearsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gearrsResponseStatus :: Lens.Lens' GetEndpointAttributesResponse Core.Int
+gearrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gearrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

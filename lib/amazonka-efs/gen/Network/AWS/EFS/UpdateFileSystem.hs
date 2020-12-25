@@ -20,110 +20,105 @@ module Network.AWS.EFS.UpdateFileSystem
     mkUpdateFileSystem,
 
     -- ** Request lenses
-    ufsProvisionedThroughputInMibps,
     ufsFileSystemId,
+    ufsProvisionedThroughputInMibps,
     ufsThroughputMode,
 
     -- * Destructuring the response
-    FileSystemDescription (..),
-    mkFileSystemDescription,
+    Types.FileSystemDescription (..),
+    Types.mkFileSystemDescription,
 
     -- ** Response lenses
-    fsdCreationTime,
-    fsdNumberOfMountTargets,
-    fsdProvisionedThroughputInMibps,
-    fsdPerformanceMode,
-    fsdSizeInBytes,
-    fsdFileSystemId,
-    fsdFileSystemARN,
-    fsdEncrypted,
-    fsdThroughputMode,
-    fsdOwnerId,
-    fsdKMSKeyId,
-    fsdName,
-    fsdCreationToken,
-    fsdLifeCycleState,
-    fsdTags,
+    Types.fsdOwnerId,
+    Types.fsdCreationToken,
+    Types.fsdFileSystemId,
+    Types.fsdCreationTime,
+    Types.fsdLifeCycleState,
+    Types.fsdNumberOfMountTargets,
+    Types.fsdSizeInBytes,
+    Types.fsdPerformanceMode,
+    Types.fsdTags,
+    Types.fsdEncrypted,
+    Types.fsdFileSystemArn,
+    Types.fsdKmsKeyId,
+    Types.fsdName,
+    Types.fsdProvisionedThroughputInMibps,
+    Types.fsdThroughputMode,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateFileSystem' smart constructor.
 data UpdateFileSystem = UpdateFileSystem'
-  { -- | (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. Valid values are 1-1024. Required if @ThroughputMode@ is changed to @provisioned@ on update. If you're not updating the amount of provisioned throughput for your file system, you don't need to provide this value in your request.
-    provisionedThroughputInMibps :: Lude.Maybe Lude.Double,
-    -- | The ID of the file system that you want to update.
-    fileSystemId :: Lude.Text,
+  { -- | The ID of the file system that you want to update.
+    fileSystemId :: Types.FileSystemId,
+    -- | (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. Valid values are 1-1024. Required if @ThroughputMode@ is changed to @provisioned@ on update. If you're not updating the amount of provisioned throughput for your file system, you don't need to provide this value in your request.
+    provisionedThroughputInMibps :: Core.Maybe Core.Double,
     -- | (Optional) The throughput mode that you want your file system to use. If you're not updating your throughput mode, you don't need to provide this value in your request. If you are changing the @ThroughputMode@ to @provisioned@ , you must also set a value for @ProvisionedThroughputInMibps@ .
-    throughputMode :: Lude.Maybe ThroughputMode
+    throughputMode :: Core.Maybe Types.ThroughputMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFileSystem' with the minimum fields required to make a request.
---
--- * 'provisionedThroughputInMibps' - (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. Valid values are 1-1024. Required if @ThroughputMode@ is changed to @provisioned@ on update. If you're not updating the amount of provisioned throughput for your file system, you don't need to provide this value in your request.
--- * 'fileSystemId' - The ID of the file system that you want to update.
--- * 'throughputMode' - (Optional) The throughput mode that you want your file system to use. If you're not updating your throughput mode, you don't need to provide this value in your request. If you are changing the @ThroughputMode@ to @provisioned@ , you must also set a value for @ProvisionedThroughputInMibps@ .
+-- | Creates a 'UpdateFileSystem' value with any optional fields omitted.
 mkUpdateFileSystem ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   UpdateFileSystem
-mkUpdateFileSystem pFileSystemId_ =
+mkUpdateFileSystem fileSystemId =
   UpdateFileSystem'
-    { provisionedThroughputInMibps = Lude.Nothing,
-      fileSystemId = pFileSystemId_,
-      throughputMode = Lude.Nothing
+    { fileSystemId,
+      provisionedThroughputInMibps = Core.Nothing,
+      throughputMode = Core.Nothing
     }
-
--- | (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. Valid values are 1-1024. Required if @ThroughputMode@ is changed to @provisioned@ on update. If you're not updating the amount of provisioned throughput for your file system, you don't need to provide this value in your request.
---
--- /Note:/ Consider using 'provisionedThroughputInMibps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufsProvisionedThroughputInMibps :: Lens.Lens' UpdateFileSystem (Lude.Maybe Lude.Double)
-ufsProvisionedThroughputInMibps = Lens.lens (provisionedThroughputInMibps :: UpdateFileSystem -> Lude.Maybe Lude.Double) (\s a -> s {provisionedThroughputInMibps = a} :: UpdateFileSystem)
-{-# DEPRECATED ufsProvisionedThroughputInMibps "Use generic-lens or generic-optics with 'provisionedThroughputInMibps' instead." #-}
 
 -- | The ID of the file system that you want to update.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufsFileSystemId :: Lens.Lens' UpdateFileSystem Lude.Text
-ufsFileSystemId = Lens.lens (fileSystemId :: UpdateFileSystem -> Lude.Text) (\s a -> s {fileSystemId = a} :: UpdateFileSystem)
+ufsFileSystemId :: Lens.Lens' UpdateFileSystem Types.FileSystemId
+ufsFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED ufsFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+
+-- | (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. Valid values are 1-1024. Required if @ThroughputMode@ is changed to @provisioned@ on update. If you're not updating the amount of provisioned throughput for your file system, you don't need to provide this value in your request.
+--
+-- /Note:/ Consider using 'provisionedThroughputInMibps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufsProvisionedThroughputInMibps :: Lens.Lens' UpdateFileSystem (Core.Maybe Core.Double)
+ufsProvisionedThroughputInMibps = Lens.field @"provisionedThroughputInMibps"
+{-# DEPRECATED ufsProvisionedThroughputInMibps "Use generic-lens or generic-optics with 'provisionedThroughputInMibps' instead." #-}
 
 -- | (Optional) The throughput mode that you want your file system to use. If you're not updating your throughput mode, you don't need to provide this value in your request. If you are changing the @ThroughputMode@ to @provisioned@ , you must also set a value for @ProvisionedThroughputInMibps@ .
 --
 -- /Note:/ Consider using 'throughputMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufsThroughputMode :: Lens.Lens' UpdateFileSystem (Lude.Maybe ThroughputMode)
-ufsThroughputMode = Lens.lens (throughputMode :: UpdateFileSystem -> Lude.Maybe ThroughputMode) (\s a -> s {throughputMode = a} :: UpdateFileSystem)
+ufsThroughputMode :: Lens.Lens' UpdateFileSystem (Core.Maybe Types.ThroughputMode)
+ufsThroughputMode = Lens.field @"throughputMode"
 {-# DEPRECATED ufsThroughputMode "Use generic-lens or generic-optics with 'throughputMode' instead." #-}
 
-instance Lude.AWSRequest UpdateFileSystem where
-  type Rs UpdateFileSystem = FileSystemDescription
-  request = Req.putJSON efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders UpdateFileSystem where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateFileSystem where
-  toJSON UpdateFileSystem' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProvisionedThroughputInMibps" Lude..=)
-              Lude.<$> provisionedThroughputInMibps,
-            ("ThroughputMode" Lude..=) Lude.<$> throughputMode
+instance Core.FromJSON UpdateFileSystem where
+  toJSON UpdateFileSystem {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ProvisionedThroughputInMibps" Core..=)
+              Core.<$> provisionedThroughputInMibps,
+            ("ThroughputMode" Core..=) Core.<$> throughputMode
           ]
       )
 
-instance Lude.ToPath UpdateFileSystem where
-  toPath UpdateFileSystem' {..} =
-    Lude.mconcat
-      ["/2015-02-01/file-systems/", Lude.toBS fileSystemId]
-
-instance Lude.ToQuery UpdateFileSystem where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateFileSystem where
+  type Rs UpdateFileSystem = Types.FileSystemDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

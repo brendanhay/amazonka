@@ -17,138 +17,130 @@ module Network.AWS.IoT.Types.JobSummary
     mkJobSummary,
 
     -- * Lenses
-    jsStatus,
+    jsCompletedAt,
+    jsCreatedAt,
+    jsJobArn,
     jsJobId,
     jsLastUpdatedAt,
-    jsJobARN,
-    jsCreatedAt,
-    jsThingGroupId,
-    jsCompletedAt,
+    jsStatus,
     jsTargetSelection,
+    jsThingGroupId,
   )
 where
 
-import Network.AWS.IoT.Types.JobStatus
-import Network.AWS.IoT.Types.TargetSelection
+import qualified Network.AWS.IoT.Types.JobArn as Types
+import qualified Network.AWS.IoT.Types.JobId as Types
+import qualified Network.AWS.IoT.Types.JobStatus as Types
+import qualified Network.AWS.IoT.Types.TargetSelection as Types
+import qualified Network.AWS.IoT.Types.ThingGroupId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The job summary.
 --
 -- /See:/ 'mkJobSummary' smart constructor.
 data JobSummary = JobSummary'
-  { -- | The job summary status.
-    status :: Lude.Maybe JobStatus,
-    -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Lude.Maybe Lude.Text,
-    -- | The time, in seconds since the epoch, when the job was last updated.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The job ARN.
-    jobARN :: Lude.Maybe Lude.Text,
+  { -- | The time, in seconds since the epoch, when the job completed.
+    completedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The time, in seconds since the epoch, when the job was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the thing group.
-    thingGroupId :: Lude.Maybe Lude.Text,
-    -- | The time, in seconds since the epoch, when the job completed.
-    completedAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The job ARN.
+    jobArn :: Core.Maybe Types.JobArn,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Core.Maybe Types.JobId,
+    -- | The time, in seconds since the epoch, when the job was last updated.
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The job summary status.
+    status :: Core.Maybe Types.JobStatus,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
-    targetSelection :: Lude.Maybe TargetSelection
+    targetSelection :: Core.Maybe Types.TargetSelection,
+    -- | The ID of the thing group.
+    thingGroupId :: Core.Maybe Types.ThingGroupId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'JobSummary' with the minimum fields required to make a request.
---
--- * 'status' - The job summary status.
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
--- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
--- * 'jobARN' - The job ARN.
--- * 'createdAt' - The time, in seconds since the epoch, when the job was created.
--- * 'thingGroupId' - The ID of the thing group.
--- * 'completedAt' - The time, in seconds since the epoch, when the job completed.
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
+-- | Creates a 'JobSummary' value with any optional fields omitted.
 mkJobSummary ::
   JobSummary
 mkJobSummary =
   JobSummary'
-    { status = Lude.Nothing,
-      jobId = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      jobARN = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      thingGroupId = Lude.Nothing,
-      completedAt = Lude.Nothing,
-      targetSelection = Lude.Nothing
+    { completedAt = Core.Nothing,
+      createdAt = Core.Nothing,
+      jobArn = Core.Nothing,
+      jobId = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      status = Core.Nothing,
+      targetSelection = Core.Nothing,
+      thingGroupId = Core.Nothing
     }
 
--- | The job summary status.
+-- | The time, in seconds since the epoch, when the job completed.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsStatus :: Lens.Lens' JobSummary (Lude.Maybe JobStatus)
-jsStatus = Lens.lens (status :: JobSummary -> Lude.Maybe JobStatus) (\s a -> s {status = a} :: JobSummary)
-{-# DEPRECATED jsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsCompletedAt :: Lens.Lens' JobSummary (Core.Maybe Core.NominalDiffTime)
+jsCompletedAt = Lens.field @"completedAt"
+{-# DEPRECATED jsCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
+
+-- | The time, in seconds since the epoch, when the job was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsCreatedAt :: Lens.Lens' JobSummary (Core.Maybe Core.NominalDiffTime)
+jsCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED jsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The job ARN.
+--
+-- /Note:/ Consider using 'jobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsJobArn :: Lens.Lens' JobSummary (Core.Maybe Types.JobArn)
+jsJobArn = Lens.field @"jobArn"
+{-# DEPRECATED jsJobArn "Use generic-lens or generic-optics with 'jobArn' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsJobId :: Lens.Lens' JobSummary (Lude.Maybe Lude.Text)
-jsJobId = Lens.lens (jobId :: JobSummary -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: JobSummary)
+jsJobId :: Lens.Lens' JobSummary (Core.Maybe Types.JobId)
+jsJobId = Lens.field @"jobId"
 {-# DEPRECATED jsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsLastUpdatedAt :: Lens.Lens' JobSummary (Lude.Maybe Lude.Timestamp)
-jsLastUpdatedAt = Lens.lens (lastUpdatedAt :: JobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: JobSummary)
+jsLastUpdatedAt :: Lens.Lens' JobSummary (Core.Maybe Core.NominalDiffTime)
+jsLastUpdatedAt = Lens.field @"lastUpdatedAt"
 {-# DEPRECATED jsLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
--- | The job ARN.
+-- | The job summary status.
 --
--- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsJobARN :: Lens.Lens' JobSummary (Lude.Maybe Lude.Text)
-jsJobARN = Lens.lens (jobARN :: JobSummary -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: JobSummary)
-{-# DEPRECATED jsJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
-
--- | The time, in seconds since the epoch, when the job was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsCreatedAt :: Lens.Lens' JobSummary (Lude.Maybe Lude.Timestamp)
-jsCreatedAt = Lens.lens (createdAt :: JobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: JobSummary)
-{-# DEPRECATED jsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The ID of the thing group.
---
--- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsThingGroupId :: Lens.Lens' JobSummary (Lude.Maybe Lude.Text)
-jsThingGroupId = Lens.lens (thingGroupId :: JobSummary -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupId = a} :: JobSummary)
-{-# DEPRECATED jsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
-
--- | The time, in seconds since the epoch, when the job completed.
---
--- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsCompletedAt :: Lens.Lens' JobSummary (Lude.Maybe Lude.Timestamp)
-jsCompletedAt = Lens.lens (completedAt :: JobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedAt = a} :: JobSummary)
-{-# DEPRECATED jsCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsStatus :: Lens.Lens' JobSummary (Core.Maybe Types.JobStatus)
+jsStatus = Lens.field @"status"
+{-# DEPRECATED jsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
 --
 -- /Note:/ Consider using 'targetSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsTargetSelection :: Lens.Lens' JobSummary (Lude.Maybe TargetSelection)
-jsTargetSelection = Lens.lens (targetSelection :: JobSummary -> Lude.Maybe TargetSelection) (\s a -> s {targetSelection = a} :: JobSummary)
+jsTargetSelection :: Lens.Lens' JobSummary (Core.Maybe Types.TargetSelection)
+jsTargetSelection = Lens.field @"targetSelection"
 {-# DEPRECATED jsTargetSelection "Use generic-lens or generic-optics with 'targetSelection' instead." #-}
 
-instance Lude.FromJSON JobSummary where
+-- | The ID of the thing group.
+--
+-- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsThingGroupId :: Lens.Lens' JobSummary (Core.Maybe Types.ThingGroupId)
+jsThingGroupId = Lens.field @"thingGroupId"
+{-# DEPRECATED jsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
+
+instance Core.FromJSON JobSummary where
   parseJSON =
-    Lude.withObject
-      "JobSummary"
-      ( \x ->
-          JobSummary'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "jobId")
-            Lude.<*> (x Lude..:? "lastUpdatedAt")
-            Lude.<*> (x Lude..:? "jobArn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "thingGroupId")
-            Lude.<*> (x Lude..:? "completedAt")
-            Lude.<*> (x Lude..:? "targetSelection")
-      )
+    Core.withObject "JobSummary" Core.$
+      \x ->
+        JobSummary'
+          Core.<$> (x Core..:? "completedAt")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "jobArn")
+          Core.<*> (x Core..:? "jobId")
+          Core.<*> (x Core..:? "lastUpdatedAt")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "targetSelection")
+          Core.<*> (x Core..:? "thingGroupId")

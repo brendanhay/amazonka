@@ -17,110 +17,107 @@ module Network.AWS.AlexaBusiness.Types.RoomData
     mkRoomData,
 
     -- * Lenses
-    rdProfileARN,
-    rdProviderCalendarId,
-    rdProfileName,
-    rdRoomARN,
-    rdRoomName,
     rdDescription,
+    rdProfileArn,
+    rdProfileName,
+    rdProviderCalendarId,
+    rdRoomArn,
+    rdRoomName,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.Description as Types
+import qualified Network.AWS.AlexaBusiness.Types.ProfileArn as Types
+import qualified Network.AWS.AlexaBusiness.Types.ProfileName as Types
+import qualified Network.AWS.AlexaBusiness.Types.ProviderCalendarId as Types
+import qualified Network.AWS.AlexaBusiness.Types.RoomArn as Types
+import qualified Network.AWS.AlexaBusiness.Types.RoomName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The data of a room.
 --
 -- /See:/ 'mkRoomData' smart constructor.
 data RoomData = RoomData'
-  { -- | The profile ARN of a room.
-    profileARN :: Lude.Maybe Lude.Text,
-    -- | The provider calendar ARN of a room.
-    providerCalendarId :: Lude.Maybe Lude.Text,
+  { -- | The description of a room.
+    description :: Core.Maybe Types.Description,
+    -- | The profile ARN of a room.
+    profileArn :: Core.Maybe Types.ProfileArn,
     -- | The profile name of a room.
-    profileName :: Lude.Maybe Lude.Text,
+    profileName :: Core.Maybe Types.ProfileName,
+    -- | The provider calendar ARN of a room.
+    providerCalendarId :: Core.Maybe Types.ProviderCalendarId,
     -- | The ARN of a room.
-    roomARN :: Lude.Maybe Lude.Text,
+    roomArn :: Core.Maybe Types.RoomArn,
     -- | The name of a room.
-    roomName :: Lude.Maybe Lude.Text,
-    -- | The description of a room.
-    description :: Lude.Maybe Lude.Text
+    roomName :: Core.Maybe Types.RoomName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RoomData' with the minimum fields required to make a request.
---
--- * 'profileARN' - The profile ARN of a room.
--- * 'providerCalendarId' - The provider calendar ARN of a room.
--- * 'profileName' - The profile name of a room.
--- * 'roomARN' - The ARN of a room.
--- * 'roomName' - The name of a room.
--- * 'description' - The description of a room.
+-- | Creates a 'RoomData' value with any optional fields omitted.
 mkRoomData ::
   RoomData
 mkRoomData =
   RoomData'
-    { profileARN = Lude.Nothing,
-      providerCalendarId = Lude.Nothing,
-      profileName = Lude.Nothing,
-      roomARN = Lude.Nothing,
-      roomName = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      profileArn = Core.Nothing,
+      profileName = Core.Nothing,
+      providerCalendarId = Core.Nothing,
+      roomArn = Core.Nothing,
+      roomName = Core.Nothing
     }
-
--- | The profile ARN of a room.
---
--- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdProfileARN :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
-rdProfileARN = Lens.lens (profileARN :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: RoomData)
-{-# DEPRECATED rdProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
-
--- | The provider calendar ARN of a room.
---
--- /Note:/ Consider using 'providerCalendarId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdProviderCalendarId :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
-rdProviderCalendarId = Lens.lens (providerCalendarId :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {providerCalendarId = a} :: RoomData)
-{-# DEPRECATED rdProviderCalendarId "Use generic-lens or generic-optics with 'providerCalendarId' instead." #-}
-
--- | The profile name of a room.
---
--- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdProfileName :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
-rdProfileName = Lens.lens (profileName :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {profileName = a} :: RoomData)
-{-# DEPRECATED rdProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
-
--- | The ARN of a room.
---
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRoomARN :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
-rdRoomARN = Lens.lens (roomARN :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: RoomData)
-{-# DEPRECATED rdRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
-
--- | The name of a room.
---
--- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRoomName :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
-rdRoomName = Lens.lens (roomName :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {roomName = a} :: RoomData)
-{-# DEPRECATED rdRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
 
 -- | The description of a room.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdDescription :: Lens.Lens' RoomData (Lude.Maybe Lude.Text)
-rdDescription = Lens.lens (description :: RoomData -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RoomData)
+rdDescription :: Lens.Lens' RoomData (Core.Maybe Types.Description)
+rdDescription = Lens.field @"description"
 {-# DEPRECATED rdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON RoomData where
+-- | The profile ARN of a room.
+--
+-- /Note:/ Consider using 'profileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProfileArn :: Lens.Lens' RoomData (Core.Maybe Types.ProfileArn)
+rdProfileArn = Lens.field @"profileArn"
+{-# DEPRECATED rdProfileArn "Use generic-lens or generic-optics with 'profileArn' instead." #-}
+
+-- | The profile name of a room.
+--
+-- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProfileName :: Lens.Lens' RoomData (Core.Maybe Types.ProfileName)
+rdProfileName = Lens.field @"profileName"
+{-# DEPRECATED rdProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
+
+-- | The provider calendar ARN of a room.
+--
+-- /Note:/ Consider using 'providerCalendarId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdProviderCalendarId :: Lens.Lens' RoomData (Core.Maybe Types.ProviderCalendarId)
+rdProviderCalendarId = Lens.field @"providerCalendarId"
+{-# DEPRECATED rdProviderCalendarId "Use generic-lens or generic-optics with 'providerCalendarId' instead." #-}
+
+-- | The ARN of a room.
+--
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoomArn :: Lens.Lens' RoomData (Core.Maybe Types.RoomArn)
+rdRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED rdRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
+
+-- | The name of a room.
+--
+-- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoomName :: Lens.Lens' RoomData (Core.Maybe Types.RoomName)
+rdRoomName = Lens.field @"roomName"
+{-# DEPRECATED rdRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
+
+instance Core.FromJSON RoomData where
   parseJSON =
-    Lude.withObject
-      "RoomData"
-      ( \x ->
-          RoomData'
-            Lude.<$> (x Lude..:? "ProfileArn")
-            Lude.<*> (x Lude..:? "ProviderCalendarId")
-            Lude.<*> (x Lude..:? "ProfileName")
-            Lude.<*> (x Lude..:? "RoomArn")
-            Lude.<*> (x Lude..:? "RoomName")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "RoomData" Core.$
+      \x ->
+        RoomData'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "ProfileArn")
+          Core.<*> (x Core..:? "ProfileName")
+          Core.<*> (x Core..:? "ProviderCalendarId")
+          Core.<*> (x Core..:? "RoomArn")
+          Core.<*> (x Core..:? "RoomName")

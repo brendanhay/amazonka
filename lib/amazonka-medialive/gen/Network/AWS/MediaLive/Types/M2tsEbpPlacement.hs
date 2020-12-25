@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsEbpPlacement
   ( M2tsEbpPlacement
       ( M2tsEbpPlacement',
-        VideoAndAudioPids,
-        VideoPid
+        M2tsEbpPlacementVideoAndAudioPids,
+        M2tsEbpPlacementVideoPid,
+        fromM2tsEbpPlacement
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Ebp Placement
-newtype M2tsEbpPlacement = M2tsEbpPlacement' Lude.Text
+newtype M2tsEbpPlacement = M2tsEbpPlacement'
+  { fromM2tsEbpPlacement ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VideoAndAudioPids :: M2tsEbpPlacement
-pattern VideoAndAudioPids = M2tsEbpPlacement' "VIDEO_AND_AUDIO_PIDS"
+pattern M2tsEbpPlacementVideoAndAudioPids :: M2tsEbpPlacement
+pattern M2tsEbpPlacementVideoAndAudioPids = M2tsEbpPlacement' "VIDEO_AND_AUDIO_PIDS"
 
-pattern VideoPid :: M2tsEbpPlacement
-pattern VideoPid = M2tsEbpPlacement' "VIDEO_PID"
+pattern M2tsEbpPlacementVideoPid :: M2tsEbpPlacement
+pattern M2tsEbpPlacementVideoPid = M2tsEbpPlacement' "VIDEO_PID"
 
 {-# COMPLETE
-  VideoAndAudioPids,
-  VideoPid,
+  M2tsEbpPlacementVideoAndAudioPids,
+  M2tsEbpPlacementVideoPid,
   M2tsEbpPlacement'
   #-}

@@ -13,46 +13,48 @@
 module Network.AWS.GuardDuty.Types.AdminStatus
   ( AdminStatus
       ( AdminStatus',
-        Enabled,
-        DisableInProgress
+        AdminStatusEnabled,
+        AdminStatusDisableInProgress,
+        fromAdminStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AdminStatus = AdminStatus' Lude.Text
+newtype AdminStatus = AdminStatus' {fromAdminStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: AdminStatus
-pattern Enabled = AdminStatus' "ENABLED"
+pattern AdminStatusEnabled :: AdminStatus
+pattern AdminStatusEnabled = AdminStatus' "ENABLED"
 
-pattern DisableInProgress :: AdminStatus
-pattern DisableInProgress = AdminStatus' "DISABLE_IN_PROGRESS"
+pattern AdminStatusDisableInProgress :: AdminStatus
+pattern AdminStatusDisableInProgress = AdminStatus' "DISABLE_IN_PROGRESS"
 
 {-# COMPLETE
-  Enabled,
-  DisableInProgress,
+  AdminStatusEnabled,
+  AdminStatusDisableInProgress,
   AdminStatus'
   #-}

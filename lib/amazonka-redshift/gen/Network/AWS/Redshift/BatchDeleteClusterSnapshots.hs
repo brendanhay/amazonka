@@ -27,121 +27,117 @@ module Network.AWS.Redshift.BatchDeleteClusterSnapshots
     mkBatchDeleteClusterSnapshotsResponse,
 
     -- ** Response lenses
-    bdcsrsResources,
-    bdcsrsErrors,
-    bdcsrsResponseStatus,
+    bdcsrrsErrors,
+    bdcsrrsResources,
+    bdcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDeleteClusterSnapshots' smart constructor.
 newtype BatchDeleteClusterSnapshots = BatchDeleteClusterSnapshots'
   { -- | A list of identifiers for the snapshots that you want to delete.
-    identifiers :: [DeleteClusterSnapshotMessage]
+    identifiers :: [Types.DeleteClusterSnapshotMessage]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteClusterSnapshots' with the minimum fields required to make a request.
---
--- * 'identifiers' - A list of identifiers for the snapshots that you want to delete.
+-- | Creates a 'BatchDeleteClusterSnapshots' value with any optional fields omitted.
 mkBatchDeleteClusterSnapshots ::
   BatchDeleteClusterSnapshots
 mkBatchDeleteClusterSnapshots =
-  BatchDeleteClusterSnapshots' {identifiers = Lude.mempty}
+  BatchDeleteClusterSnapshots' {identifiers = Core.mempty}
 
 -- | A list of identifiers for the snapshots that you want to delete.
 --
 -- /Note:/ Consider using 'identifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcsIdentifiers :: Lens.Lens' BatchDeleteClusterSnapshots [DeleteClusterSnapshotMessage]
-bdcsIdentifiers = Lens.lens (identifiers :: BatchDeleteClusterSnapshots -> [DeleteClusterSnapshotMessage]) (\s a -> s {identifiers = a} :: BatchDeleteClusterSnapshots)
+bdcsIdentifiers :: Lens.Lens' BatchDeleteClusterSnapshots [Types.DeleteClusterSnapshotMessage]
+bdcsIdentifiers = Lens.field @"identifiers"
 {-# DEPRECATED bdcsIdentifiers "Use generic-lens or generic-optics with 'identifiers' instead." #-}
 
-instance Lude.AWSRequest BatchDeleteClusterSnapshots where
+instance Core.AWSRequest BatchDeleteClusterSnapshots where
   type
     Rs BatchDeleteClusterSnapshots =
       BatchDeleteClusterSnapshotsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BatchDeleteClusterSnapshots")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "Identifiers"
+                            (Core.toQueryList "DeleteClusterSnapshotMessage" identifiers)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "BatchDeleteClusterSnapshotsResult"
       ( \s h x ->
           BatchDeleteClusterSnapshotsResponse'
-            Lude.<$> ( x Lude..@? "Resources" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "String")
+            Core.<$> ( x Core..@? "Errors"
+                         Core..<@> Core.parseXMLList "SnapshotErrorMessage"
                      )
-            Lude.<*> ( x Lude..@? "Errors" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "SnapshotErrorMessage")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Resources" Core..<@> Core.parseXMLList "String")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDeleteClusterSnapshots where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BatchDeleteClusterSnapshots where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDeleteClusterSnapshots where
-  toQuery BatchDeleteClusterSnapshots' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("BatchDeleteClusterSnapshots" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Identifiers"
-          Lude.=: Lude.toQueryList "DeleteClusterSnapshotMessage" identifiers
-      ]
 
 -- | /See:/ 'mkBatchDeleteClusterSnapshotsResponse' smart constructor.
 data BatchDeleteClusterSnapshotsResponse = BatchDeleteClusterSnapshotsResponse'
-  { -- | A list of the snapshot identifiers that were deleted.
-    resources :: Lude.Maybe [Lude.Text],
-    -- | A list of any errors returned.
-    errors :: Lude.Maybe [SnapshotErrorMessage],
+  { -- | A list of any errors returned.
+    errors :: Core.Maybe [Types.SnapshotErrorMessage],
+    -- | A list of the snapshot identifiers that were deleted.
+    resources :: Core.Maybe [Types.String],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteClusterSnapshotsResponse' with the minimum fields required to make a request.
---
--- * 'resources' - A list of the snapshot identifiers that were deleted.
--- * 'errors' - A list of any errors returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDeleteClusterSnapshotsResponse' value with any optional fields omitted.
 mkBatchDeleteClusterSnapshotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDeleteClusterSnapshotsResponse
-mkBatchDeleteClusterSnapshotsResponse pResponseStatus_ =
+mkBatchDeleteClusterSnapshotsResponse responseStatus =
   BatchDeleteClusterSnapshotsResponse'
-    { resources = Lude.Nothing,
-      errors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { errors = Core.Nothing,
+      resources = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the snapshot identifiers that were deleted.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcsrsResources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Lude.Maybe [Lude.Text])
-bdcsrsResources = Lens.lens (resources :: BatchDeleteClusterSnapshotsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse)
-{-# DEPRECATED bdcsrsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | A list of any errors returned.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcsrsErrors :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Lude.Maybe [SnapshotErrorMessage])
-bdcsrsErrors = Lens.lens (errors :: BatchDeleteClusterSnapshotsResponse -> Lude.Maybe [SnapshotErrorMessage]) (\s a -> s {errors = a} :: BatchDeleteClusterSnapshotsResponse)
-{-# DEPRECATED bdcsrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+bdcsrrsErrors :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Core.Maybe [Types.SnapshotErrorMessage])
+bdcsrrsErrors = Lens.field @"errors"
+{-# DEPRECATED bdcsrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+
+-- | A list of the snapshot identifiers that were deleted.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcsrrsResources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Core.Maybe [Types.String])
+bdcsrrsResources = Lens.field @"resources"
+{-# DEPRECATED bdcsrrsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcsrsResponseStatus :: Lens.Lens' BatchDeleteClusterSnapshotsResponse Lude.Int
-bdcsrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteClusterSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteClusterSnapshotsResponse)
-{-# DEPRECATED bdcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdcsrrsResponseStatus :: Lens.Lens' BatchDeleteClusterSnapshotsResponse Core.Int
+bdcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

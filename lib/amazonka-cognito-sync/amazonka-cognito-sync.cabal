@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CognitoSync
     Network.AWS.CognitoSync.BulkPublish
@@ -88,17 +94,34 @@ library
     Network.AWS.CognitoSync.Waiters
 
   other-modules:
+    Network.AWS.CognitoSync.Types.ApplicationArn
+    Network.AWS.CognitoSync.Types.AssumeRoleArn
     Network.AWS.CognitoSync.Types.BulkPublishStatus
+    Network.AWS.CognitoSync.Types.ClientContext
+    Network.AWS.CognitoSync.Types.CognitoEventType
     Network.AWS.CognitoSync.Types.CognitoStreams
     Network.AWS.CognitoSync.Types.Dataset
+    Network.AWS.CognitoSync.Types.DatasetName
+    Network.AWS.CognitoSync.Types.DeviceId
+    Network.AWS.CognitoSync.Types.IdentityId
+    Network.AWS.CognitoSync.Types.IdentityPoolId
     Network.AWS.CognitoSync.Types.IdentityPoolUsage
     Network.AWS.CognitoSync.Types.IdentityUsage
+    Network.AWS.CognitoSync.Types.LambdaFunctionArn
+    Network.AWS.CognitoSync.Types.LastModifiedBy
+    Network.AWS.CognitoSync.Types.NextToken
     Network.AWS.CognitoSync.Types.Operation
     Network.AWS.CognitoSync.Types.Platform
     Network.AWS.CognitoSync.Types.PushSync
+    Network.AWS.CognitoSync.Types.PushToken
     Network.AWS.CognitoSync.Types.Record
+    Network.AWS.CognitoSync.Types.RecordKey
     Network.AWS.CognitoSync.Types.RecordPatch
     Network.AWS.CognitoSync.Types.StreamingStatus
+    Network.AWS.CognitoSync.Types.StreamName
+    Network.AWS.CognitoSync.Types.String
+    Network.AWS.CognitoSync.Types.SyncSessionToken
+    Network.AWS.CognitoSync.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

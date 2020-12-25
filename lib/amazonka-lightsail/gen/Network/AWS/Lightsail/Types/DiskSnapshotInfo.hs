@@ -22,34 +22,31 @@ module Network.AWS.Lightsail.Types.DiskSnapshotInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a disk snapshot.
 --
 -- /See:/ 'mkDiskSnapshotInfo' smart constructor.
 newtype DiskSnapshotInfo = DiskSnapshotInfo'
   { -- | The size of the disk in GB (e.g., @32@ ).
-    sizeInGb :: Lude.Maybe Lude.Int
+    sizeInGb :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiskSnapshotInfo' with the minimum fields required to make a request.
---
--- * 'sizeInGb' - The size of the disk in GB (e.g., @32@ ).
+-- | Creates a 'DiskSnapshotInfo' value with any optional fields omitted.
 mkDiskSnapshotInfo ::
   DiskSnapshotInfo
-mkDiskSnapshotInfo = DiskSnapshotInfo' {sizeInGb = Lude.Nothing}
+mkDiskSnapshotInfo = DiskSnapshotInfo' {sizeInGb = Core.Nothing}
 
 -- | The size of the disk in GB (e.g., @32@ ).
 --
 -- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiSizeInGb :: Lens.Lens' DiskSnapshotInfo (Lude.Maybe Lude.Int)
-dsiSizeInGb = Lens.lens (sizeInGb :: DiskSnapshotInfo -> Lude.Maybe Lude.Int) (\s a -> s {sizeInGb = a} :: DiskSnapshotInfo)
+dsiSizeInGb :: Lens.Lens' DiskSnapshotInfo (Core.Maybe Core.Int)
+dsiSizeInGb = Lens.field @"sizeInGb"
 {-# DEPRECATED dsiSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
 
-instance Lude.FromJSON DiskSnapshotInfo where
+instance Core.FromJSON DiskSnapshotInfo where
   parseJSON =
-    Lude.withObject
-      "DiskSnapshotInfo"
-      (\x -> DiskSnapshotInfo' Lude.<$> (x Lude..:? "sizeInGb"))
+    Core.withObject "DiskSnapshotInfo" Core.$
+      \x -> DiskSnapshotInfo' Core.<$> (x Core..:? "sizeInGb")

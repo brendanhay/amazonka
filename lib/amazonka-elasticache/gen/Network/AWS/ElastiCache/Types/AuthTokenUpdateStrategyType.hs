@@ -13,51 +13,56 @@
 module Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
   ( AuthTokenUpdateStrategyType
       ( AuthTokenUpdateStrategyType',
-        Set,
-        Rotate,
-        Delete
+        AuthTokenUpdateStrategyTypeSet,
+        AuthTokenUpdateStrategyTypeRotate,
+        AuthTokenUpdateStrategyTypeDelete,
+        fromAuthTokenUpdateStrategyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthTokenUpdateStrategyType = AuthTokenUpdateStrategyType' Lude.Text
+newtype AuthTokenUpdateStrategyType = AuthTokenUpdateStrategyType'
+  { fromAuthTokenUpdateStrategyType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Set :: AuthTokenUpdateStrategyType
-pattern Set = AuthTokenUpdateStrategyType' "SET"
+pattern AuthTokenUpdateStrategyTypeSet :: AuthTokenUpdateStrategyType
+pattern AuthTokenUpdateStrategyTypeSet = AuthTokenUpdateStrategyType' "SET"
 
-pattern Rotate :: AuthTokenUpdateStrategyType
-pattern Rotate = AuthTokenUpdateStrategyType' "ROTATE"
+pattern AuthTokenUpdateStrategyTypeRotate :: AuthTokenUpdateStrategyType
+pattern AuthTokenUpdateStrategyTypeRotate = AuthTokenUpdateStrategyType' "ROTATE"
 
-pattern Delete :: AuthTokenUpdateStrategyType
-pattern Delete = AuthTokenUpdateStrategyType' "DELETE"
+pattern AuthTokenUpdateStrategyTypeDelete :: AuthTokenUpdateStrategyType
+pattern AuthTokenUpdateStrategyTypeDelete = AuthTokenUpdateStrategyType' "DELETE"
 
 {-# COMPLETE
-  Set,
-  Rotate,
-  Delete,
+  AuthTokenUpdateStrategyTypeSet,
+  AuthTokenUpdateStrategyTypeRotate,
+  AuthTokenUpdateStrategyTypeDelete,
   AuthTokenUpdateStrategyType'
   #-}

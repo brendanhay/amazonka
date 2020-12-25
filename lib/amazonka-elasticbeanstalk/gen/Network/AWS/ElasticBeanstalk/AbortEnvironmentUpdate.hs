@@ -20,8 +20,8 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     mkAbortEnvironmentUpdate,
 
     -- ** Request lenses
-    aeuEnvironmentName,
     aeuEnvironmentId,
+    aeuEnvironmentName,
 
     -- * Destructuring the response
     AbortEnvironmentUpdateResponse (..),
@@ -29,76 +29,76 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkAbortEnvironmentUpdate' smart constructor.
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-  { -- | This specifies the name of the environment with the in-progress update that you want to cancel.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | This specifies the ID of the environment with the in-progress update that you want to cancel.
-    environmentId :: Lude.Maybe Lude.Text
+  { -- | This specifies the ID of the environment with the in-progress update that you want to cancel.
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | This specifies the name of the environment with the in-progress update that you want to cancel.
+    environmentName :: Core.Maybe Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortEnvironmentUpdate' with the minimum fields required to make a request.
---
--- * 'environmentName' - This specifies the name of the environment with the in-progress update that you want to cancel.
--- * 'environmentId' - This specifies the ID of the environment with the in-progress update that you want to cancel.
+-- | Creates a 'AbortEnvironmentUpdate' value with any optional fields omitted.
 mkAbortEnvironmentUpdate ::
   AbortEnvironmentUpdate
 mkAbortEnvironmentUpdate =
   AbortEnvironmentUpdate'
-    { environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
-
--- | This specifies the name of the environment with the in-progress update that you want to cancel.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeuEnvironmentName :: Lens.Lens' AbortEnvironmentUpdate (Lude.Maybe Lude.Text)
-aeuEnvironmentName = Lens.lens (environmentName :: AbortEnvironmentUpdate -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: AbortEnvironmentUpdate)
-{-# DEPRECATED aeuEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | This specifies the ID of the environment with the in-progress update that you want to cancel.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeuEnvironmentId :: Lens.Lens' AbortEnvironmentUpdate (Lude.Maybe Lude.Text)
-aeuEnvironmentId = Lens.lens (environmentId :: AbortEnvironmentUpdate -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: AbortEnvironmentUpdate)
+aeuEnvironmentId :: Lens.Lens' AbortEnvironmentUpdate (Core.Maybe Types.EnvironmentId)
+aeuEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED aeuEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest AbortEnvironmentUpdate where
+-- | This specifies the name of the environment with the in-progress update that you want to cancel.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeuEnvironmentName :: Lens.Lens' AbortEnvironmentUpdate (Core.Maybe Types.EnvironmentName)
+aeuEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED aeuEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+
+instance Core.AWSRequest AbortEnvironmentUpdate where
   type Rs AbortEnvironmentUpdate = AbortEnvironmentUpdateResponse
-  request = Req.postQuery elasticBeanstalkService
-  response = Res.receiveNull AbortEnvironmentUpdateResponse'
-
-instance Lude.ToHeaders AbortEnvironmentUpdate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AbortEnvironmentUpdate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AbortEnvironmentUpdate where
-  toQuery AbortEnvironmentUpdate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AbortEnvironmentUpdate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AbortEnvironmentUpdate")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+            )
+      }
+  response = Response.receiveNull AbortEnvironmentUpdateResponse'
 
 -- | /See:/ 'mkAbortEnvironmentUpdateResponse' smart constructor.
 data AbortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortEnvironmentUpdateResponse' with the minimum fields required to make a request.
+-- | Creates a 'AbortEnvironmentUpdateResponse' value with any optional fields omitted.
 mkAbortEnvironmentUpdateResponse ::
   AbortEnvironmentUpdateResponse
 mkAbortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'

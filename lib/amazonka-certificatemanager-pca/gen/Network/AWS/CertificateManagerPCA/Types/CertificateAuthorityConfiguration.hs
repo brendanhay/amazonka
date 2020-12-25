@@ -17,99 +17,91 @@ module Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
     mkCertificateAuthorityConfiguration,
 
     -- * Lenses
-    cacSubject,
-    cacSigningAlgorithm,
     cacKeyAlgorithm,
+    cacSigningAlgorithm,
+    cacSubject,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
-import Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
-import Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
+import qualified Network.AWS.CertificateManagerPCA.Types.ASN1Subject as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains configuration information for your private certificate authority (CA). This includes information about the class of public key algorithm and the key pair that your private CA creates when it issues a certificate. It also includes the signature algorithm that it uses when issuing certificates, and its X.500 distinguished name. You must specify this information when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action.
 --
 -- /See:/ 'mkCertificateAuthorityConfiguration' smart constructor.
 data CertificateAuthorityConfiguration = CertificateAuthorityConfiguration'
-  { -- | Structure that contains X.500 distinguished name information for your private CA.
-    subject :: ASN1Subject,
+  { -- | Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
+    keyAlgorithm :: Types.KeyAlgorithm,
     -- | Name of the algorithm your private CA uses to sign certificate requests.
     --
     -- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign certificates when they are issued.
-    signingAlgorithm :: SigningAlgorithm,
-    -- | Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
-    keyAlgorithm :: KeyAlgorithm
+    signingAlgorithm :: Types.SigningAlgorithm,
+    -- | Structure that contains X.500 distinguished name information for your private CA.
+    subject :: Types.ASN1Subject
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CertificateAuthorityConfiguration' with the minimum fields required to make a request.
---
--- * 'subject' - Structure that contains X.500 distinguished name information for your private CA.
--- * 'signingAlgorithm' - Name of the algorithm your private CA uses to sign certificate requests.
---
--- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign certificates when they are issued.
--- * 'keyAlgorithm' - Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
+-- | Creates a 'CertificateAuthorityConfiguration' value with any optional fields omitted.
 mkCertificateAuthorityConfiguration ::
-  -- | 'subject'
-  ASN1Subject ->
-  -- | 'signingAlgorithm'
-  SigningAlgorithm ->
   -- | 'keyAlgorithm'
-  KeyAlgorithm ->
+  Types.KeyAlgorithm ->
+  -- | 'signingAlgorithm'
+  Types.SigningAlgorithm ->
+  -- | 'subject'
+  Types.ASN1Subject ->
   CertificateAuthorityConfiguration
 mkCertificateAuthorityConfiguration
-  pSubject_
-  pSigningAlgorithm_
-  pKeyAlgorithm_ =
+  keyAlgorithm
+  signingAlgorithm
+  subject =
     CertificateAuthorityConfiguration'
-      { subject = pSubject_,
-        signingAlgorithm = pSigningAlgorithm_,
-        keyAlgorithm = pKeyAlgorithm_
+      { keyAlgorithm,
+        signingAlgorithm,
+        subject
       }
 
--- | Structure that contains X.500 distinguished name information for your private CA.
+-- | Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
 --
--- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacSubject :: Lens.Lens' CertificateAuthorityConfiguration ASN1Subject
-cacSubject = Lens.lens (subject :: CertificateAuthorityConfiguration -> ASN1Subject) (\s a -> s {subject = a} :: CertificateAuthorityConfiguration)
-{-# DEPRECATED cacSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
+-- /Note:/ Consider using 'keyAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacKeyAlgorithm :: Lens.Lens' CertificateAuthorityConfiguration Types.KeyAlgorithm
+cacKeyAlgorithm = Lens.field @"keyAlgorithm"
+{-# DEPRECATED cacKeyAlgorithm "Use generic-lens or generic-optics with 'keyAlgorithm' instead." #-}
 
 -- | Name of the algorithm your private CA uses to sign certificate requests.
 --
 -- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign certificates when they are issued.
 --
 -- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacSigningAlgorithm :: Lens.Lens' CertificateAuthorityConfiguration SigningAlgorithm
-cacSigningAlgorithm = Lens.lens (signingAlgorithm :: CertificateAuthorityConfiguration -> SigningAlgorithm) (\s a -> s {signingAlgorithm = a} :: CertificateAuthorityConfiguration)
+cacSigningAlgorithm :: Lens.Lens' CertificateAuthorityConfiguration Types.SigningAlgorithm
+cacSigningAlgorithm = Lens.field @"signingAlgorithm"
 {-# DEPRECATED cacSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
 
--- | Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
+-- | Structure that contains X.500 distinguished name information for your private CA.
 --
--- /Note:/ Consider using 'keyAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacKeyAlgorithm :: Lens.Lens' CertificateAuthorityConfiguration KeyAlgorithm
-cacKeyAlgorithm = Lens.lens (keyAlgorithm :: CertificateAuthorityConfiguration -> KeyAlgorithm) (\s a -> s {keyAlgorithm = a} :: CertificateAuthorityConfiguration)
-{-# DEPRECATED cacKeyAlgorithm "Use generic-lens or generic-optics with 'keyAlgorithm' instead." #-}
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacSubject :: Lens.Lens' CertificateAuthorityConfiguration Types.ASN1Subject
+cacSubject = Lens.field @"subject"
+{-# DEPRECATED cacSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
-instance Lude.FromJSON CertificateAuthorityConfiguration where
-  parseJSON =
-    Lude.withObject
-      "CertificateAuthorityConfiguration"
-      ( \x ->
-          CertificateAuthorityConfiguration'
-            Lude.<$> (x Lude..: "Subject")
-            Lude.<*> (x Lude..: "SigningAlgorithm")
-            Lude.<*> (x Lude..: "KeyAlgorithm")
-      )
-
-instance Lude.ToJSON CertificateAuthorityConfiguration where
-  toJSON CertificateAuthorityConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Subject" Lude..= subject),
-            Lude.Just ("SigningAlgorithm" Lude..= signingAlgorithm),
-            Lude.Just ("KeyAlgorithm" Lude..= keyAlgorithm)
+instance Core.FromJSON CertificateAuthorityConfiguration where
+  toJSON CertificateAuthorityConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyAlgorithm" Core..= keyAlgorithm),
+            Core.Just ("SigningAlgorithm" Core..= signingAlgorithm),
+            Core.Just ("Subject" Core..= subject)
           ]
       )
+
+instance Core.FromJSON CertificateAuthorityConfiguration where
+  parseJSON =
+    Core.withObject "CertificateAuthorityConfiguration" Core.$
+      \x ->
+        CertificateAuthorityConfiguration'
+          Core.<$> (x Core..: "KeyAlgorithm")
+          Core.<*> (x Core..: "SigningAlgorithm")
+          Core.<*> (x Core..: "Subject")

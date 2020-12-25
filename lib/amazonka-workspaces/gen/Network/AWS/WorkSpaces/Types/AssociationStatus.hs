@@ -13,61 +13,66 @@
 module Network.AWS.WorkSpaces.Types.AssociationStatus
   ( AssociationStatus
       ( AssociationStatus',
-        NotAssociated,
-        AssociatedWithOwnerAccount,
-        AssociatedWithSharedAccount,
-        PendingAssociation,
-        PendingDisassociation
+        AssociationStatusNotAssociated,
+        AssociationStatusAssociatedWithOwnerAccount,
+        AssociationStatusAssociatedWithSharedAccount,
+        AssociationStatusPendingAssociation,
+        AssociationStatusPendingDisassociation,
+        fromAssociationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssociationStatus = AssociationStatus' Lude.Text
+newtype AssociationStatus = AssociationStatus'
+  { fromAssociationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotAssociated :: AssociationStatus
-pattern NotAssociated = AssociationStatus' "NOT_ASSOCIATED"
+pattern AssociationStatusNotAssociated :: AssociationStatus
+pattern AssociationStatusNotAssociated = AssociationStatus' "NOT_ASSOCIATED"
 
-pattern AssociatedWithOwnerAccount :: AssociationStatus
-pattern AssociatedWithOwnerAccount = AssociationStatus' "ASSOCIATED_WITH_OWNER_ACCOUNT"
+pattern AssociationStatusAssociatedWithOwnerAccount :: AssociationStatus
+pattern AssociationStatusAssociatedWithOwnerAccount = AssociationStatus' "ASSOCIATED_WITH_OWNER_ACCOUNT"
 
-pattern AssociatedWithSharedAccount :: AssociationStatus
-pattern AssociatedWithSharedAccount = AssociationStatus' "ASSOCIATED_WITH_SHARED_ACCOUNT"
+pattern AssociationStatusAssociatedWithSharedAccount :: AssociationStatus
+pattern AssociationStatusAssociatedWithSharedAccount = AssociationStatus' "ASSOCIATED_WITH_SHARED_ACCOUNT"
 
-pattern PendingAssociation :: AssociationStatus
-pattern PendingAssociation = AssociationStatus' "PENDING_ASSOCIATION"
+pattern AssociationStatusPendingAssociation :: AssociationStatus
+pattern AssociationStatusPendingAssociation = AssociationStatus' "PENDING_ASSOCIATION"
 
-pattern PendingDisassociation :: AssociationStatus
-pattern PendingDisassociation = AssociationStatus' "PENDING_DISASSOCIATION"
+pattern AssociationStatusPendingDisassociation :: AssociationStatus
+pattern AssociationStatusPendingDisassociation = AssociationStatus' "PENDING_DISASSOCIATION"
 
 {-# COMPLETE
-  NotAssociated,
-  AssociatedWithOwnerAccount,
-  AssociatedWithSharedAccount,
-  PendingAssociation,
-  PendingDisassociation,
+  AssociationStatusNotAssociated,
+  AssociationStatusAssociatedWithOwnerAccount,
+  AssociationStatusAssociatedWithSharedAccount,
+  AssociationStatusPendingAssociation,
+  AssociationStatusPendingDisassociation,
   AssociationStatus'
   #-}

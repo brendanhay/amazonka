@@ -22,211 +22,196 @@ module Network.AWS.AppStream.DescribeSessions
     mkDescribeSessions,
 
     -- ** Request lenses
-    dssUserId,
-    dssNextToken,
-    dssLimit,
-    dssAuthenticationType,
-    dssFleetName,
-    dssStackName,
+    dsStackName,
+    dsFleetName,
+    dsAuthenticationType,
+    dsLimit,
+    dsNextToken,
+    dsUserId,
 
     -- * Destructuring the response
     DescribeSessionsResponse (..),
     mkDescribeSessionsResponse,
 
     -- ** Response lenses
-    dsrsNextToken,
-    dsrsSessions,
-    dsrsResponseStatus,
+    dsrfrsNextToken,
+    dsrfrsSessions,
+    dsrfrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { -- | The user identifier (ID). If you specify a user ID, you must also specify the authentication type.
-    userId :: Lude.Maybe Lude.Text,
-    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The size of each page of results. The default value is 20 and the maximum value is 50.
-    limit :: Lude.Maybe Lude.Int,
-    -- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
-    authenticationType :: Lude.Maybe AuthenticationType,
+  { -- | The name of the stack. This value is case-sensitive.
+    stackName :: Types.String,
     -- | The name of the fleet. This value is case-sensitive.
-    fleetName :: Lude.Text,
-    -- | The name of the stack. This value is case-sensitive.
-    stackName :: Lude.Text
+    fleetName :: Types.String,
+    -- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
+    authenticationType :: Core.Maybe Types.AuthenticationType,
+    -- | The size of each page of results. The default value is 20 and the maximum value is 50.
+    limit :: Core.Maybe Core.Int,
+    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Core.Maybe Types.String,
+    -- | The user identifier (ID). If you specify a user ID, you must also specify the authentication type.
+    userId :: Core.Maybe Types.UserId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSessions' with the minimum fields required to make a request.
---
--- * 'userId' - The user identifier (ID). If you specify a user ID, you must also specify the authentication type.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
--- * 'limit' - The size of each page of results. The default value is 20 and the maximum value is 50.
--- * 'authenticationType' - The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
--- * 'fleetName' - The name of the fleet. This value is case-sensitive.
--- * 'stackName' - The name of the stack. This value is case-sensitive.
+-- | Creates a 'DescribeSessions' value with any optional fields omitted.
 mkDescribeSessions ::
-  -- | 'fleetName'
-  Lude.Text ->
   -- | 'stackName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'fleetName'
+  Types.String ->
   DescribeSessions
-mkDescribeSessions pFleetName_ pStackName_ =
+mkDescribeSessions stackName fleetName =
   DescribeSessions'
-    { userId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      authenticationType = Lude.Nothing,
-      fleetName = pFleetName_,
-      stackName = pStackName_
+    { stackName,
+      fleetName,
+      authenticationType = Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      userId = Core.Nothing
     }
-
--- | The user identifier (ID). If you specify a user ID, you must also specify the authentication type.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssUserId :: Lens.Lens' DescribeSessions (Lude.Maybe Lude.Text)
-dssUserId = Lens.lens (userId :: DescribeSessions -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: DescribeSessions)
-{-# DEPRECATED dssUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssNextToken :: Lens.Lens' DescribeSessions (Lude.Maybe Lude.Text)
-dssNextToken = Lens.lens (nextToken :: DescribeSessions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSessions)
-{-# DEPRECATED dssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The size of each page of results. The default value is 20 and the maximum value is 50.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssLimit :: Lens.Lens' DescribeSessions (Lude.Maybe Lude.Int)
-dssLimit = Lens.lens (limit :: DescribeSessions -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: DescribeSessions)
-{-# DEPRECATED dssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
---
--- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssAuthenticationType :: Lens.Lens' DescribeSessions (Lude.Maybe AuthenticationType)
-dssAuthenticationType = Lens.lens (authenticationType :: DescribeSessions -> Lude.Maybe AuthenticationType) (\s a -> s {authenticationType = a} :: DescribeSessions)
-{-# DEPRECATED dssAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
-
--- | The name of the fleet. This value is case-sensitive.
---
--- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssFleetName :: Lens.Lens' DescribeSessions Lude.Text
-dssFleetName = Lens.lens (fleetName :: DescribeSessions -> Lude.Text) (\s a -> s {fleetName = a} :: DescribeSessions)
-{-# DEPRECATED dssFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
 
 -- | The name of the stack. This value is case-sensitive.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssStackName :: Lens.Lens' DescribeSessions Lude.Text
-dssStackName = Lens.lens (stackName :: DescribeSessions -> Lude.Text) (\s a -> s {stackName = a} :: DescribeSessions)
-{-# DEPRECATED dssStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+dsStackName :: Lens.Lens' DescribeSessions Types.String
+dsStackName = Lens.field @"stackName"
+{-# DEPRECATED dsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Page.AWSPager DescribeSessions where
-  page rq rs
-    | Page.stop (rs Lens.^. dsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsrsSessions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dssNextToken Lens..~ rs Lens.^. dsrsNextToken
+-- | The name of the fleet. This value is case-sensitive.
+--
+-- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFleetName :: Lens.Lens' DescribeSessions Types.String
+dsFleetName = Lens.field @"fleetName"
+{-# DEPRECATED dsFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
 
-instance Lude.AWSRequest DescribeSessions where
+-- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsAuthenticationType :: Lens.Lens' DescribeSessions (Core.Maybe Types.AuthenticationType)
+dsAuthenticationType = Lens.field @"authenticationType"
+{-# DEPRECATED dsAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
+
+-- | The size of each page of results. The default value is 20 and the maximum value is 50.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsLimit :: Lens.Lens' DescribeSessions (Core.Maybe Core.Int)
+dsLimit = Lens.field @"limit"
+{-# DEPRECATED dsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNextToken :: Lens.Lens' DescribeSessions (Core.Maybe Types.String)
+dsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The user identifier (ID). If you specify a user ID, you must also specify the authentication type.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsUserId :: Lens.Lens' DescribeSessions (Core.Maybe Types.UserId)
+dsUserId = Lens.field @"userId"
+{-# DEPRECATED dsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+instance Core.FromJSON DescribeSessions where
+  toJSON DescribeSessions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StackName" Core..= stackName),
+            Core.Just ("FleetName" Core..= fleetName),
+            ("AuthenticationType" Core..=) Core.<$> authenticationType,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("UserId" Core..=) Core.<$> userId
+          ]
+      )
+
+instance Core.AWSRequest DescribeSessions where
   type Rs DescribeSessions = DescribeSessionsResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.DescribeSessions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSessionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Sessions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Sessions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSessions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.DescribeSessions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSessions where
-  toJSON DescribeSessions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UserId" Lude..=) Lude.<$> userId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("AuthenticationType" Lude..=) Lude.<$> authenticationType,
-            Lude.Just ("FleetName" Lude..= fleetName),
-            Lude.Just ("StackName" Lude..= stackName)
-          ]
-      )
-
-instance Lude.ToPath DescribeSessions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSessions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeSessions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"sessions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
   { -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | Information about the streaming sessions.
-    sessions :: Lude.Maybe [Session],
+    sessions :: Core.Maybe [Types.Session],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSessionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
--- * 'sessions' - Information about the streaming sessions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSessionsResponse' value with any optional fields omitted.
 mkDescribeSessionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSessionsResponse
-mkDescribeSessionsResponse pResponseStatus_ =
+mkDescribeSessionsResponse responseStatus =
   DescribeSessionsResponse'
-    { nextToken = Lude.Nothing,
-      sessions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      sessions = Core.Nothing,
+      responseStatus
     }
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsNextToken :: Lens.Lens' DescribeSessionsResponse (Lude.Maybe Lude.Text)
-dsrsNextToken = Lens.lens (nextToken :: DescribeSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSessionsResponse)
-{-# DEPRECATED dsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsrfrsNextToken :: Lens.Lens' DescribeSessionsResponse (Core.Maybe Types.String)
+dsrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the streaming sessions.
 --
 -- /Note:/ Consider using 'sessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSessions :: Lens.Lens' DescribeSessionsResponse (Lude.Maybe [Session])
-dsrsSessions = Lens.lens (sessions :: DescribeSessionsResponse -> Lude.Maybe [Session]) (\s a -> s {sessions = a} :: DescribeSessionsResponse)
-{-# DEPRECATED dsrsSessions "Use generic-lens or generic-optics with 'sessions' instead." #-}
+dsrfrsSessions :: Lens.Lens' DescribeSessionsResponse (Core.Maybe [Types.Session])
+dsrfrsSessions = Lens.field @"sessions"
+{-# DEPRECATED dsrfrsSessions "Use generic-lens or generic-optics with 'sessions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeSessionsResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSessionsResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrfrsResponseStatus :: Lens.Lens' DescribeSessionsResponse Core.Int
+dsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

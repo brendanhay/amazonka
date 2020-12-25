@@ -29,203 +29,186 @@ module Network.AWS.MQ.UpdateConfiguration
     mkUpdateConfigurationResponse,
 
     -- ** Response lenses
-    ucrsARN,
-    ucrsLatestRevision,
-    ucrsCreated,
-    ucrsWarnings,
-    ucrsName,
-    ucrsId,
-    ucrsResponseStatus,
+    ucrrsArn,
+    ucrrsCreated,
+    ucrrsId,
+    ucrrsLatestRevision,
+    ucrrsName,
+    ucrrsWarnings,
+    ucrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Updates the specified configuration.
 --
 -- /See:/ 'mkUpdateConfiguration' smart constructor.
 data UpdateConfiguration = UpdateConfiguration'
   { -- | The unique ID that Amazon MQ generates for the configuration.
-    configurationId :: Lude.Text,
+    configurationId :: Core.Text,
     -- | Required. The base64-encoded XML configuration.
-    data' :: Lude.Maybe Lude.Text,
+    data' :: Core.Maybe Core.Text,
     -- | The description of the configuration.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConfiguration' with the minimum fields required to make a request.
---
--- * 'configurationId' - The unique ID that Amazon MQ generates for the configuration.
--- * 'data'' - Required. The base64-encoded XML configuration.
--- * 'description' - The description of the configuration.
+-- | Creates a 'UpdateConfiguration' value with any optional fields omitted.
 mkUpdateConfiguration ::
   -- | 'configurationId'
-  Lude.Text ->
+  Core.Text ->
   UpdateConfiguration
-mkUpdateConfiguration pConfigurationId_ =
+mkUpdateConfiguration configurationId =
   UpdateConfiguration'
-    { configurationId = pConfigurationId_,
-      data' = Lude.Nothing,
-      description = Lude.Nothing
+    { configurationId,
+      data' = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The unique ID that Amazon MQ generates for the configuration.
 --
 -- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucConfigurationId :: Lens.Lens' UpdateConfiguration Lude.Text
-ucConfigurationId = Lens.lens (configurationId :: UpdateConfiguration -> Lude.Text) (\s a -> s {configurationId = a} :: UpdateConfiguration)
+ucConfigurationId :: Lens.Lens' UpdateConfiguration Core.Text
+ucConfigurationId = Lens.field @"configurationId"
 {-# DEPRECATED ucConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | Required. The base64-encoded XML configuration.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucData :: Lens.Lens' UpdateConfiguration (Lude.Maybe Lude.Text)
-ucData = Lens.lens (data' :: UpdateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: UpdateConfiguration)
+ucData :: Lens.Lens' UpdateConfiguration (Core.Maybe Core.Text)
+ucData = Lens.field @"data'"
 {-# DEPRECATED ucData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The description of the configuration.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDescription :: Lens.Lens' UpdateConfiguration (Lude.Maybe Lude.Text)
-ucDescription = Lens.lens (description :: UpdateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateConfiguration)
+ucDescription :: Lens.Lens' UpdateConfiguration (Core.Maybe Core.Text)
+ucDescription = Lens.field @"description"
 {-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateConfiguration where
+instance Core.FromJSON UpdateConfiguration where
+  toJSON UpdateConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("data" Core..=) Core.<$> data',
+            ("description" Core..=) Core.<$> description
+          ]
+      )
+
+instance Core.AWSRequest UpdateConfiguration where
   type Rs UpdateConfiguration = UpdateConfigurationResponse
-  request = Req.putJSON mqService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/v1/configurations/" Core.<> (Core.toText configurationId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateConfigurationResponse'
-            Lude.<$> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "latestRevision")
-            Lude.<*> (x Lude..?> "created")
-            Lude.<*> (x Lude..?> "warnings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "latestRevision")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "warnings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateConfiguration where
-  toJSON UpdateConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("data" Lude..=) Lude.<$> data',
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath UpdateConfiguration where
-  toPath UpdateConfiguration' {..} =
-    Lude.mconcat ["/v1/configurations/", Lude.toBS configurationId]
-
-instance Lude.ToQuery UpdateConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateConfigurationResponse' smart constructor.
 data UpdateConfigurationResponse = UpdateConfigurationResponse'
   { -- | Required. The Amazon Resource Name (ARN) of the configuration.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The latest revision of the configuration.
-    latestRevision :: Lude.Maybe ConfigurationRevision,
+    arn :: Core.Maybe Core.Text,
     -- | Required. The date and time of the configuration.
-    created :: Lude.Maybe Lude.Timestamp,
-    -- | The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
-    warnings :: Lude.Maybe [SanitizationWarning],
-    -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-    name :: Lude.Maybe Lude.Text,
+    created :: Core.Maybe Core.UTCTime,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
+    -- | The latest revision of the configuration.
+    latestRevision :: Core.Maybe Types.ConfigurationRevision,
+    -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+    name :: Core.Maybe Core.Text,
+    -- | The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
+    warnings :: Core.Maybe [Types.SanitizationWarning],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'arn' - Required. The Amazon Resource Name (ARN) of the configuration.
--- * 'latestRevision' - The latest revision of the configuration.
--- * 'created' - Required. The date and time of the configuration.
--- * 'warnings' - The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
--- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
--- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConfigurationResponse' value with any optional fields omitted.
 mkUpdateConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConfigurationResponse
-mkUpdateConfigurationResponse pResponseStatus_ =
+mkUpdateConfigurationResponse responseStatus =
   UpdateConfigurationResponse'
-    { arn = Lude.Nothing,
-      latestRevision = Lude.Nothing,
-      created = Lude.Nothing,
-      warnings = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      created = Core.Nothing,
+      id = Core.Nothing,
+      latestRevision = Core.Nothing,
+      name = Core.Nothing,
+      warnings = Core.Nothing,
+      responseStatus
     }
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsARN :: Lens.Lens' UpdateConfigurationResponse (Lude.Maybe Lude.Text)
-ucrsARN = Lens.lens (arn :: UpdateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The latest revision of the configuration.
---
--- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsLatestRevision :: Lens.Lens' UpdateConfigurationResponse (Lude.Maybe ConfigurationRevision)
-ucrsLatestRevision = Lens.lens (latestRevision :: UpdateConfigurationResponse -> Lude.Maybe ConfigurationRevision) (\s a -> s {latestRevision = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
+ucrrsArn :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
+ucrrsArn = Lens.field @"arn"
+{-# DEPRECATED ucrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Required. The date and time of the configuration.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsCreated :: Lens.Lens' UpdateConfigurationResponse (Lude.Maybe Lude.Timestamp)
-ucrsCreated = Lens.lens (created :: UpdateConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
-
--- | The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
---
--- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsWarnings :: Lens.Lens' UpdateConfigurationResponse (Lude.Maybe [SanitizationWarning])
-ucrsWarnings = Lens.lens (warnings :: UpdateConfigurationResponse -> Lude.Maybe [SanitizationWarning]) (\s a -> s {warnings = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
-
--- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsName :: Lens.Lens' UpdateConfigurationResponse (Lude.Maybe Lude.Text)
-ucrsName = Lens.lens (name :: UpdateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+ucrrsCreated :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.UTCTime)
+ucrrsCreated = Lens.field @"created"
+{-# DEPRECATED ucrrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsId :: Lens.Lens' UpdateConfigurationResponse (Lude.Maybe Lude.Text)
-ucrsId = Lens.lens (id :: UpdateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+ucrrsId :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
+ucrrsId = Lens.field @"id"
+{-# DEPRECATED ucrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The latest revision of the configuration.
+--
+-- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrrsLatestRevision :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Types.ConfigurationRevision)
+ucrrsLatestRevision = Lens.field @"latestRevision"
+{-# DEPRECATED ucrrsLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
+
+-- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrrsName :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
+ucrrsName = Lens.field @"name"
+{-# DEPRECATED ucrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
+--
+-- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrrsWarnings :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe [Types.SanitizationWarning])
+ucrrsWarnings = Lens.field @"warnings"
+{-# DEPRECATED ucrrsWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsResponseStatus :: Lens.Lens' UpdateConfigurationResponse Lude.Int
-ucrsResponseStatus = Lens.lens (responseStatus :: UpdateConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConfigurationResponse)
-{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucrrsResponseStatus :: Lens.Lens' UpdateConfigurationResponse Core.Int
+ucrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

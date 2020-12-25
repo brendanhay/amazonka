@@ -17,218 +17,206 @@ module Network.AWS.AlexaBusiness.Types.Profile
     mkProfile,
 
     -- * Lenses
-    pSetupModeDisabled,
-    pPSTNEnabled,
-    pAddressBookARN,
-    pDistanceUnit,
-    pLocale,
     pAddress,
-    pProfileARN,
-    pWakeWord,
+    pAddressBookArn,
+    pDistanceUnit,
+    pIsDefault,
+    pLocale,
+    pMaxVolumeLimit,
     pMeetingRoomConfiguration,
+    pPSTNEnabled,
+    pProfileArn,
     pProfileName,
+    pSetupModeDisabled,
     pTemperatureUnit,
     pTimezone,
-    pMaxVolumeLimit,
-    pIsDefault,
+    pWakeWord,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.DistanceUnit
-import Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration
-import Network.AWS.AlexaBusiness.Types.TemperatureUnit
-import Network.AWS.AlexaBusiness.Types.WakeWord
+import qualified Network.AWS.AlexaBusiness.Types.Address as Types
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.DeviceLocale as Types
+import qualified Network.AWS.AlexaBusiness.Types.DistanceUnit as Types
+import qualified Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration as Types
+import qualified Network.AWS.AlexaBusiness.Types.ProfileName as Types
+import qualified Network.AWS.AlexaBusiness.Types.TemperatureUnit as Types
+import qualified Network.AWS.AlexaBusiness.Types.Timezone as Types
+import qualified Network.AWS.AlexaBusiness.Types.WakeWord as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A room profile with attributes.
 --
 -- /See:/ 'mkProfile' smart constructor.
 data Profile = Profile'
-  { -- | The setup mode of a room profile.
-    setupModeDisabled :: Lude.Maybe Lude.Bool,
-    -- | The PSTN setting of a room profile.
-    pSTNEnabled :: Lude.Maybe Lude.Bool,
+  { -- | The address of a room profile.
+    address :: Core.Maybe Types.Address,
     -- | The ARN of the address book.
-    addressBookARN :: Lude.Maybe Lude.Text,
+    addressBookArn :: Core.Maybe Types.Arn,
     -- | The distance unit of a room profile.
-    distanceUnit :: Lude.Maybe DistanceUnit,
-    -- | The locale of a room profile. (This is currently available only to a limited preview audience.)
-    locale :: Lude.Maybe Lude.Text,
-    -- | The address of a room profile.
-    address :: Lude.Maybe Lude.Text,
-    -- | The ARN of a room profile.
-    profileARN :: Lude.Maybe Lude.Text,
-    -- | The wake word of a room profile.
-    wakeWord :: Lude.Maybe WakeWord,
-    -- | Meeting room settings of a room profile.
-    meetingRoomConfiguration :: Lude.Maybe MeetingRoomConfiguration,
-    -- | The name of a room profile.
-    profileName :: Lude.Maybe Lude.Text,
-    -- | The temperature unit of a room profile.
-    temperatureUnit :: Lude.Maybe TemperatureUnit,
-    -- | The time zone of a room profile.
-    timezone :: Lude.Maybe Lude.Text,
-    -- | The max volume limit of a room profile.
-    maxVolumeLimit :: Lude.Maybe Lude.Int,
+    distanceUnit :: Core.Maybe Types.DistanceUnit,
     -- | Retrieves if the profile is default or not.
-    isDefault :: Lude.Maybe Lude.Bool
+    isDefault :: Core.Maybe Core.Bool,
+    -- | The locale of a room profile. (This is currently available only to a limited preview audience.)
+    locale :: Core.Maybe Types.DeviceLocale,
+    -- | The max volume limit of a room profile.
+    maxVolumeLimit :: Core.Maybe Core.Int,
+    -- | Meeting room settings of a room profile.
+    meetingRoomConfiguration :: Core.Maybe Types.MeetingRoomConfiguration,
+    -- | The PSTN setting of a room profile.
+    pSTNEnabled :: Core.Maybe Core.Bool,
+    -- | The ARN of a room profile.
+    profileArn :: Core.Maybe Types.Arn,
+    -- | The name of a room profile.
+    profileName :: Core.Maybe Types.ProfileName,
+    -- | The setup mode of a room profile.
+    setupModeDisabled :: Core.Maybe Core.Bool,
+    -- | The temperature unit of a room profile.
+    temperatureUnit :: Core.Maybe Types.TemperatureUnit,
+    -- | The time zone of a room profile.
+    timezone :: Core.Maybe Types.Timezone,
+    -- | The wake word of a room profile.
+    wakeWord :: Core.Maybe Types.WakeWord
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Profile' with the minimum fields required to make a request.
---
--- * 'setupModeDisabled' - The setup mode of a room profile.
--- * 'pSTNEnabled' - The PSTN setting of a room profile.
--- * 'addressBookARN' - The ARN of the address book.
--- * 'distanceUnit' - The distance unit of a room profile.
--- * 'locale' - The locale of a room profile. (This is currently available only to a limited preview audience.)
--- * 'address' - The address of a room profile.
--- * 'profileARN' - The ARN of a room profile.
--- * 'wakeWord' - The wake word of a room profile.
--- * 'meetingRoomConfiguration' - Meeting room settings of a room profile.
--- * 'profileName' - The name of a room profile.
--- * 'temperatureUnit' - The temperature unit of a room profile.
--- * 'timezone' - The time zone of a room profile.
--- * 'maxVolumeLimit' - The max volume limit of a room profile.
--- * 'isDefault' - Retrieves if the profile is default or not.
+-- | Creates a 'Profile' value with any optional fields omitted.
 mkProfile ::
   Profile
 mkProfile =
   Profile'
-    { setupModeDisabled = Lude.Nothing,
-      pSTNEnabled = Lude.Nothing,
-      addressBookARN = Lude.Nothing,
-      distanceUnit = Lude.Nothing,
-      locale = Lude.Nothing,
-      address = Lude.Nothing,
-      profileARN = Lude.Nothing,
-      wakeWord = Lude.Nothing,
-      meetingRoomConfiguration = Lude.Nothing,
-      profileName = Lude.Nothing,
-      temperatureUnit = Lude.Nothing,
-      timezone = Lude.Nothing,
-      maxVolumeLimit = Lude.Nothing,
-      isDefault = Lude.Nothing
+    { address = Core.Nothing,
+      addressBookArn = Core.Nothing,
+      distanceUnit = Core.Nothing,
+      isDefault = Core.Nothing,
+      locale = Core.Nothing,
+      maxVolumeLimit = Core.Nothing,
+      meetingRoomConfiguration = Core.Nothing,
+      pSTNEnabled = Core.Nothing,
+      profileArn = Core.Nothing,
+      profileName = Core.Nothing,
+      setupModeDisabled = Core.Nothing,
+      temperatureUnit = Core.Nothing,
+      timezone = Core.Nothing,
+      wakeWord = Core.Nothing
     }
-
--- | The setup mode of a room profile.
---
--- /Note:/ Consider using 'setupModeDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSetupModeDisabled :: Lens.Lens' Profile (Lude.Maybe Lude.Bool)
-pSetupModeDisabled = Lens.lens (setupModeDisabled :: Profile -> Lude.Maybe Lude.Bool) (\s a -> s {setupModeDisabled = a} :: Profile)
-{-# DEPRECATED pSetupModeDisabled "Use generic-lens or generic-optics with 'setupModeDisabled' instead." #-}
-
--- | The PSTN setting of a room profile.
---
--- /Note:/ Consider using 'pSTNEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPSTNEnabled :: Lens.Lens' Profile (Lude.Maybe Lude.Bool)
-pPSTNEnabled = Lens.lens (pSTNEnabled :: Profile -> Lude.Maybe Lude.Bool) (\s a -> s {pSTNEnabled = a} :: Profile)
-{-# DEPRECATED pPSTNEnabled "Use generic-lens or generic-optics with 'pSTNEnabled' instead." #-}
-
--- | The ARN of the address book.
---
--- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAddressBookARN :: Lens.Lens' Profile (Lude.Maybe Lude.Text)
-pAddressBookARN = Lens.lens (addressBookARN :: Profile -> Lude.Maybe Lude.Text) (\s a -> s {addressBookARN = a} :: Profile)
-{-# DEPRECATED pAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
-
--- | The distance unit of a room profile.
---
--- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDistanceUnit :: Lens.Lens' Profile (Lude.Maybe DistanceUnit)
-pDistanceUnit = Lens.lens (distanceUnit :: Profile -> Lude.Maybe DistanceUnit) (\s a -> s {distanceUnit = a} :: Profile)
-{-# DEPRECATED pDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
-
--- | The locale of a room profile. (This is currently available only to a limited preview audience.)
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLocale :: Lens.Lens' Profile (Lude.Maybe Lude.Text)
-pLocale = Lens.lens (locale :: Profile -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: Profile)
-{-# DEPRECATED pLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The address of a room profile.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAddress :: Lens.Lens' Profile (Lude.Maybe Lude.Text)
-pAddress = Lens.lens (address :: Profile -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: Profile)
+pAddress :: Lens.Lens' Profile (Core.Maybe Types.Address)
+pAddress = Lens.field @"address"
 {-# DEPRECATED pAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
--- | The ARN of a room profile.
+-- | The ARN of the address book.
 --
--- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pProfileARN :: Lens.Lens' Profile (Lude.Maybe Lude.Text)
-pProfileARN = Lens.lens (profileARN :: Profile -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: Profile)
-{-# DEPRECATED pProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
+-- /Note:/ Consider using 'addressBookArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAddressBookArn :: Lens.Lens' Profile (Core.Maybe Types.Arn)
+pAddressBookArn = Lens.field @"addressBookArn"
+{-# DEPRECATED pAddressBookArn "Use generic-lens or generic-optics with 'addressBookArn' instead." #-}
 
--- | The wake word of a room profile.
+-- | The distance unit of a room profile.
 --
--- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pWakeWord :: Lens.Lens' Profile (Lude.Maybe WakeWord)
-pWakeWord = Lens.lens (wakeWord :: Profile -> Lude.Maybe WakeWord) (\s a -> s {wakeWord = a} :: Profile)
-{-# DEPRECATED pWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
+-- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDistanceUnit :: Lens.Lens' Profile (Core.Maybe Types.DistanceUnit)
+pDistanceUnit = Lens.field @"distanceUnit"
+{-# DEPRECATED pDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
+
+-- | Retrieves if the profile is default or not.
+--
+-- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsDefault :: Lens.Lens' Profile (Core.Maybe Core.Bool)
+pIsDefault = Lens.field @"isDefault"
+{-# DEPRECATED pIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
+
+-- | The locale of a room profile. (This is currently available only to a limited preview audience.)
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLocale :: Lens.Lens' Profile (Core.Maybe Types.DeviceLocale)
+pLocale = Lens.field @"locale"
+{-# DEPRECATED pLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+-- | The max volume limit of a room profile.
+--
+-- /Note:/ Consider using 'maxVolumeLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMaxVolumeLimit :: Lens.Lens' Profile (Core.Maybe Core.Int)
+pMaxVolumeLimit = Lens.field @"maxVolumeLimit"
+{-# DEPRECATED pMaxVolumeLimit "Use generic-lens or generic-optics with 'maxVolumeLimit' instead." #-}
 
 -- | Meeting room settings of a room profile.
 --
 -- /Note:/ Consider using 'meetingRoomConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMeetingRoomConfiguration :: Lens.Lens' Profile (Lude.Maybe MeetingRoomConfiguration)
-pMeetingRoomConfiguration = Lens.lens (meetingRoomConfiguration :: Profile -> Lude.Maybe MeetingRoomConfiguration) (\s a -> s {meetingRoomConfiguration = a} :: Profile)
+pMeetingRoomConfiguration :: Lens.Lens' Profile (Core.Maybe Types.MeetingRoomConfiguration)
+pMeetingRoomConfiguration = Lens.field @"meetingRoomConfiguration"
 {-# DEPRECATED pMeetingRoomConfiguration "Use generic-lens or generic-optics with 'meetingRoomConfiguration' instead." #-}
+
+-- | The PSTN setting of a room profile.
+--
+-- /Note:/ Consider using 'pSTNEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPSTNEnabled :: Lens.Lens' Profile (Core.Maybe Core.Bool)
+pPSTNEnabled = Lens.field @"pSTNEnabled"
+{-# DEPRECATED pPSTNEnabled "Use generic-lens or generic-optics with 'pSTNEnabled' instead." #-}
+
+-- | The ARN of a room profile.
+--
+-- /Note:/ Consider using 'profileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pProfileArn :: Lens.Lens' Profile (Core.Maybe Types.Arn)
+pProfileArn = Lens.field @"profileArn"
+{-# DEPRECATED pProfileArn "Use generic-lens or generic-optics with 'profileArn' instead." #-}
 
 -- | The name of a room profile.
 --
 -- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pProfileName :: Lens.Lens' Profile (Lude.Maybe Lude.Text)
-pProfileName = Lens.lens (profileName :: Profile -> Lude.Maybe Lude.Text) (\s a -> s {profileName = a} :: Profile)
+pProfileName :: Lens.Lens' Profile (Core.Maybe Types.ProfileName)
+pProfileName = Lens.field @"profileName"
 {-# DEPRECATED pProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
+
+-- | The setup mode of a room profile.
+--
+-- /Note:/ Consider using 'setupModeDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSetupModeDisabled :: Lens.Lens' Profile (Core.Maybe Core.Bool)
+pSetupModeDisabled = Lens.field @"setupModeDisabled"
+{-# DEPRECATED pSetupModeDisabled "Use generic-lens or generic-optics with 'setupModeDisabled' instead." #-}
 
 -- | The temperature unit of a room profile.
 --
 -- /Note:/ Consider using 'temperatureUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pTemperatureUnit :: Lens.Lens' Profile (Lude.Maybe TemperatureUnit)
-pTemperatureUnit = Lens.lens (temperatureUnit :: Profile -> Lude.Maybe TemperatureUnit) (\s a -> s {temperatureUnit = a} :: Profile)
+pTemperatureUnit :: Lens.Lens' Profile (Core.Maybe Types.TemperatureUnit)
+pTemperatureUnit = Lens.field @"temperatureUnit"
 {-# DEPRECATED pTemperatureUnit "Use generic-lens or generic-optics with 'temperatureUnit' instead." #-}
 
 -- | The time zone of a room profile.
 --
 -- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pTimezone :: Lens.Lens' Profile (Lude.Maybe Lude.Text)
-pTimezone = Lens.lens (timezone :: Profile -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: Profile)
+pTimezone :: Lens.Lens' Profile (Core.Maybe Types.Timezone)
+pTimezone = Lens.field @"timezone"
 {-# DEPRECATED pTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
--- | The max volume limit of a room profile.
+-- | The wake word of a room profile.
 --
--- /Note:/ Consider using 'maxVolumeLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMaxVolumeLimit :: Lens.Lens' Profile (Lude.Maybe Lude.Int)
-pMaxVolumeLimit = Lens.lens (maxVolumeLimit :: Profile -> Lude.Maybe Lude.Int) (\s a -> s {maxVolumeLimit = a} :: Profile)
-{-# DEPRECATED pMaxVolumeLimit "Use generic-lens or generic-optics with 'maxVolumeLimit' instead." #-}
+-- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pWakeWord :: Lens.Lens' Profile (Core.Maybe Types.WakeWord)
+pWakeWord = Lens.field @"wakeWord"
+{-# DEPRECATED pWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
 
--- | Retrieves if the profile is default or not.
---
--- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pIsDefault :: Lens.Lens' Profile (Lude.Maybe Lude.Bool)
-pIsDefault = Lens.lens (isDefault :: Profile -> Lude.Maybe Lude.Bool) (\s a -> s {isDefault = a} :: Profile)
-{-# DEPRECATED pIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
-
-instance Lude.FromJSON Profile where
+instance Core.FromJSON Profile where
   parseJSON =
-    Lude.withObject
-      "Profile"
-      ( \x ->
-          Profile'
-            Lude.<$> (x Lude..:? "SetupModeDisabled")
-            Lude.<*> (x Lude..:? "PSTNEnabled")
-            Lude.<*> (x Lude..:? "AddressBookArn")
-            Lude.<*> (x Lude..:? "DistanceUnit")
-            Lude.<*> (x Lude..:? "Locale")
-            Lude.<*> (x Lude..:? "Address")
-            Lude.<*> (x Lude..:? "ProfileArn")
-            Lude.<*> (x Lude..:? "WakeWord")
-            Lude.<*> (x Lude..:? "MeetingRoomConfiguration")
-            Lude.<*> (x Lude..:? "ProfileName")
-            Lude.<*> (x Lude..:? "TemperatureUnit")
-            Lude.<*> (x Lude..:? "Timezone")
-            Lude.<*> (x Lude..:? "MaxVolumeLimit")
-            Lude.<*> (x Lude..:? "IsDefault")
-      )
+    Core.withObject "Profile" Core.$
+      \x ->
+        Profile'
+          Core.<$> (x Core..:? "Address")
+          Core.<*> (x Core..:? "AddressBookArn")
+          Core.<*> (x Core..:? "DistanceUnit")
+          Core.<*> (x Core..:? "IsDefault")
+          Core.<*> (x Core..:? "Locale")
+          Core.<*> (x Core..:? "MaxVolumeLimit")
+          Core.<*> (x Core..:? "MeetingRoomConfiguration")
+          Core.<*> (x Core..:? "PSTNEnabled")
+          Core.<*> (x Core..:? "ProfileArn")
+          Core.<*> (x Core..:? "ProfileName")
+          Core.<*> (x Core..:? "SetupModeDisabled")
+          Core.<*> (x Core..:? "TemperatureUnit")
+          Core.<*> (x Core..:? "Timezone")
+          Core.<*> (x Core..:? "WakeWord")

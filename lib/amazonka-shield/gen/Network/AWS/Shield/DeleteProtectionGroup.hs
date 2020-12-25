@@ -27,96 +27,86 @@ module Network.AWS.Shield.DeleteProtectionGroup
     mkDeleteProtectionGroupResponse,
 
     -- ** Response lenses
-    dpgrsResponseStatus,
+    dpgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDeleteProtectionGroup' smart constructor.
 newtype DeleteProtectionGroup = DeleteProtectionGroup'
   { -- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
-    protectionGroupId :: Lude.Text
+    protectionGroupId :: Types.ProtectionGroupId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProtectionGroup' with the minimum fields required to make a request.
---
--- * 'protectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+-- | Creates a 'DeleteProtectionGroup' value with any optional fields omitted.
 mkDeleteProtectionGroup ::
   -- | 'protectionGroupId'
-  Lude.Text ->
+  Types.ProtectionGroupId ->
   DeleteProtectionGroup
-mkDeleteProtectionGroup pProtectionGroupId_ =
-  DeleteProtectionGroup' {protectionGroupId = pProtectionGroupId_}
+mkDeleteProtectionGroup protectionGroupId =
+  DeleteProtectionGroup' {protectionGroupId}
 
 -- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
 --
 -- /Note:/ Consider using 'protectionGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgProtectionGroupId :: Lens.Lens' DeleteProtectionGroup Lude.Text
-dpgProtectionGroupId = Lens.lens (protectionGroupId :: DeleteProtectionGroup -> Lude.Text) (\s a -> s {protectionGroupId = a} :: DeleteProtectionGroup)
+dpgProtectionGroupId :: Lens.Lens' DeleteProtectionGroup Types.ProtectionGroupId
+dpgProtectionGroupId = Lens.field @"protectionGroupId"
 {-# DEPRECATED dpgProtectionGroupId "Use generic-lens or generic-optics with 'protectionGroupId' instead." #-}
 
-instance Lude.AWSRequest DeleteProtectionGroup where
+instance Core.FromJSON DeleteProtectionGroup where
+  toJSON DeleteProtectionGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ProtectionGroupId" Core..= protectionGroupId)]
+      )
+
+instance Core.AWSRequest DeleteProtectionGroup where
   type Rs DeleteProtectionGroup = DeleteProtectionGroupResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShield_20160616.DeleteProtectionGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteProtectionGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProtectionGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.DeleteProtectionGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProtectionGroup where
-  toJSON DeleteProtectionGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ProtectionGroupId" Lude..= protectionGroupId)]
-      )
-
-instance Lude.ToPath DeleteProtectionGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProtectionGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProtectionGroupResponse' smart constructor.
 newtype DeleteProtectionGroupResponse = DeleteProtectionGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProtectionGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProtectionGroupResponse' value with any optional fields omitted.
 mkDeleteProtectionGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProtectionGroupResponse
-mkDeleteProtectionGroupResponse pResponseStatus_ =
-  DeleteProtectionGroupResponse' {responseStatus = pResponseStatus_}
+mkDeleteProtectionGroupResponse responseStatus =
+  DeleteProtectionGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgrsResponseStatus :: Lens.Lens' DeleteProtectionGroupResponse Lude.Int
-dpgrsResponseStatus = Lens.lens (responseStatus :: DeleteProtectionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProtectionGroupResponse)
-{-# DEPRECATED dpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpgrrsResponseStatus :: Lens.Lens' DeleteProtectionGroupResponse Core.Int
+dpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

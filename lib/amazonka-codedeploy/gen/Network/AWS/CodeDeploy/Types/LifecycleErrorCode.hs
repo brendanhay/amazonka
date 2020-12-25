@@ -13,66 +13,71 @@
 module Network.AWS.CodeDeploy.Types.LifecycleErrorCode
   ( LifecycleErrorCode
       ( LifecycleErrorCode',
-        Success,
-        ScriptMissing,
-        ScriptNotExecutable,
-        ScriptTimedOut,
-        ScriptFailed,
-        UnknownError
+        LifecycleErrorCodeSuccess,
+        LifecycleErrorCodeScriptMissing,
+        LifecycleErrorCodeScriptNotExecutable,
+        LifecycleErrorCodeScriptTimedOut,
+        LifecycleErrorCodeScriptFailed,
+        LifecycleErrorCodeUnknownError,
+        fromLifecycleErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LifecycleErrorCode = LifecycleErrorCode' Lude.Text
+newtype LifecycleErrorCode = LifecycleErrorCode'
+  { fromLifecycleErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Success :: LifecycleErrorCode
-pattern Success = LifecycleErrorCode' "Success"
+pattern LifecycleErrorCodeSuccess :: LifecycleErrorCode
+pattern LifecycleErrorCodeSuccess = LifecycleErrorCode' "Success"
 
-pattern ScriptMissing :: LifecycleErrorCode
-pattern ScriptMissing = LifecycleErrorCode' "ScriptMissing"
+pattern LifecycleErrorCodeScriptMissing :: LifecycleErrorCode
+pattern LifecycleErrorCodeScriptMissing = LifecycleErrorCode' "ScriptMissing"
 
-pattern ScriptNotExecutable :: LifecycleErrorCode
-pattern ScriptNotExecutable = LifecycleErrorCode' "ScriptNotExecutable"
+pattern LifecycleErrorCodeScriptNotExecutable :: LifecycleErrorCode
+pattern LifecycleErrorCodeScriptNotExecutable = LifecycleErrorCode' "ScriptNotExecutable"
 
-pattern ScriptTimedOut :: LifecycleErrorCode
-pattern ScriptTimedOut = LifecycleErrorCode' "ScriptTimedOut"
+pattern LifecycleErrorCodeScriptTimedOut :: LifecycleErrorCode
+pattern LifecycleErrorCodeScriptTimedOut = LifecycleErrorCode' "ScriptTimedOut"
 
-pattern ScriptFailed :: LifecycleErrorCode
-pattern ScriptFailed = LifecycleErrorCode' "ScriptFailed"
+pattern LifecycleErrorCodeScriptFailed :: LifecycleErrorCode
+pattern LifecycleErrorCodeScriptFailed = LifecycleErrorCode' "ScriptFailed"
 
-pattern UnknownError :: LifecycleErrorCode
-pattern UnknownError = LifecycleErrorCode' "UnknownError"
+pattern LifecycleErrorCodeUnknownError :: LifecycleErrorCode
+pattern LifecycleErrorCodeUnknownError = LifecycleErrorCode' "UnknownError"
 
 {-# COMPLETE
-  Success,
-  ScriptMissing,
-  ScriptNotExecutable,
-  ScriptTimedOut,
-  ScriptFailed,
-  UnknownError,
+  LifecycleErrorCodeSuccess,
+  LifecycleErrorCodeScriptMissing,
+  LifecycleErrorCodeScriptNotExecutable,
+  LifecycleErrorCodeScriptTimedOut,
+  LifecycleErrorCodeScriptFailed,
+  LifecycleErrorCodeUnknownError,
   LifecycleErrorCode'
   #-}

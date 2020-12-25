@@ -17,96 +17,90 @@ module Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription
     mkReferenceDataSourceDescription,
 
     -- * Lenses
-    rdsdReferenceSchema,
-    rdsdS3ReferenceDataSourceDescription,
     rdsdReferenceId,
     rdsdTableName,
+    rdsdS3ReferenceDataSourceDescription,
+    rdsdReferenceSchema,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
-import Network.AWS.KinesisAnalytics.Types.SourceSchema
+import qualified Network.AWS.KinesisAnalytics.Types.Id as Types
+import qualified Network.AWS.KinesisAnalytics.Types.InAppTableName as Types
+import qualified Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription as Types
+import qualified Network.AWS.KinesisAnalytics.Types.SourceSchema as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the reference data source configured for an application.
 --
 -- /See:/ 'mkReferenceDataSourceDescription' smart constructor.
 data ReferenceDataSourceDescription = ReferenceDataSourceDescription'
-  { -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-    referenceSchema :: Lude.Maybe SourceSchema,
-    -- | Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.
-    s3ReferenceDataSourceDescription :: S3ReferenceDataSourceDescription,
-    -- | ID of the reference data source. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> operation.
-    referenceId :: Lude.Text,
+  { -- | ID of the reference data source. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> operation.
+    referenceId :: Types.Id,
     -- | The in-application table name created by the specific reference data source configuration.
-    tableName :: Lude.Text
+    tableName :: Types.InAppTableName,
+    -- | Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.
+    s3ReferenceDataSourceDescription :: Types.S3ReferenceDataSourceDescription,
+    -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+    referenceSchema :: Core.Maybe Types.SourceSchema
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReferenceDataSourceDescription' with the minimum fields required to make a request.
---
--- * 'referenceSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
--- * 's3ReferenceDataSourceDescription' - Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.
--- * 'referenceId' - ID of the reference data source. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> operation.
--- * 'tableName' - The in-application table name created by the specific reference data source configuration.
+-- | Creates a 'ReferenceDataSourceDescription' value with any optional fields omitted.
 mkReferenceDataSourceDescription ::
-  -- | 's3ReferenceDataSourceDescription'
-  S3ReferenceDataSourceDescription ->
   -- | 'referenceId'
-  Lude.Text ->
+  Types.Id ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.InAppTableName ->
+  -- | 's3ReferenceDataSourceDescription'
+  Types.S3ReferenceDataSourceDescription ->
   ReferenceDataSourceDescription
 mkReferenceDataSourceDescription
-  pS3ReferenceDataSourceDescription_
-  pReferenceId_
-  pTableName_ =
+  referenceId
+  tableName
+  s3ReferenceDataSourceDescription =
     ReferenceDataSourceDescription'
-      { referenceSchema = Lude.Nothing,
-        s3ReferenceDataSourceDescription =
-          pS3ReferenceDataSourceDescription_,
-        referenceId = pReferenceId_,
-        tableName = pTableName_
+      { referenceId,
+        tableName,
+        s3ReferenceDataSourceDescription,
+        referenceSchema = Core.Nothing
       }
-
--- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
---
--- /Note:/ Consider using 'referenceSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdReferenceSchema :: Lens.Lens' ReferenceDataSourceDescription (Lude.Maybe SourceSchema)
-rdsdReferenceSchema = Lens.lens (referenceSchema :: ReferenceDataSourceDescription -> Lude.Maybe SourceSchema) (\s a -> s {referenceSchema = a} :: ReferenceDataSourceDescription)
-{-# DEPRECATED rdsdReferenceSchema "Use generic-lens or generic-optics with 'referenceSchema' instead." #-}
-
--- | Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.
---
--- /Note:/ Consider using 's3ReferenceDataSourceDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdS3ReferenceDataSourceDescription :: Lens.Lens' ReferenceDataSourceDescription S3ReferenceDataSourceDescription
-rdsdS3ReferenceDataSourceDescription = Lens.lens (s3ReferenceDataSourceDescription :: ReferenceDataSourceDescription -> S3ReferenceDataSourceDescription) (\s a -> s {s3ReferenceDataSourceDescription = a} :: ReferenceDataSourceDescription)
-{-# DEPRECATED rdsdS3ReferenceDataSourceDescription "Use generic-lens or generic-optics with 's3ReferenceDataSourceDescription' instead." #-}
 
 -- | ID of the reference data source. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> operation.
 --
 -- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdReferenceId :: Lens.Lens' ReferenceDataSourceDescription Lude.Text
-rdsdReferenceId = Lens.lens (referenceId :: ReferenceDataSourceDescription -> Lude.Text) (\s a -> s {referenceId = a} :: ReferenceDataSourceDescription)
+rdsdReferenceId :: Lens.Lens' ReferenceDataSourceDescription Types.Id
+rdsdReferenceId = Lens.field @"referenceId"
 {-# DEPRECATED rdsdReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
 -- | The in-application table name created by the specific reference data source configuration.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdTableName :: Lens.Lens' ReferenceDataSourceDescription Lude.Text
-rdsdTableName = Lens.lens (tableName :: ReferenceDataSourceDescription -> Lude.Text) (\s a -> s {tableName = a} :: ReferenceDataSourceDescription)
+rdsdTableName :: Lens.Lens' ReferenceDataSourceDescription Types.InAppTableName
+rdsdTableName = Lens.field @"tableName"
 {-# DEPRECATED rdsdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.FromJSON ReferenceDataSourceDescription where
+-- | Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.
+--
+-- /Note:/ Consider using 's3ReferenceDataSourceDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsdS3ReferenceDataSourceDescription :: Lens.Lens' ReferenceDataSourceDescription Types.S3ReferenceDataSourceDescription
+rdsdS3ReferenceDataSourceDescription = Lens.field @"s3ReferenceDataSourceDescription"
+{-# DEPRECATED rdsdS3ReferenceDataSourceDescription "Use generic-lens or generic-optics with 's3ReferenceDataSourceDescription' instead." #-}
+
+-- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+--
+-- /Note:/ Consider using 'referenceSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsdReferenceSchema :: Lens.Lens' ReferenceDataSourceDescription (Core.Maybe Types.SourceSchema)
+rdsdReferenceSchema = Lens.field @"referenceSchema"
+{-# DEPRECATED rdsdReferenceSchema "Use generic-lens or generic-optics with 'referenceSchema' instead." #-}
+
+instance Core.FromJSON ReferenceDataSourceDescription where
   parseJSON =
-    Lude.withObject
-      "ReferenceDataSourceDescription"
-      ( \x ->
-          ReferenceDataSourceDescription'
-            Lude.<$> (x Lude..:? "ReferenceSchema")
-            Lude.<*> (x Lude..: "S3ReferenceDataSourceDescription")
-            Lude.<*> (x Lude..: "ReferenceId")
-            Lude.<*> (x Lude..: "TableName")
-      )
+    Core.withObject "ReferenceDataSourceDescription" Core.$
+      \x ->
+        ReferenceDataSourceDescription'
+          Core.<$> (x Core..: "ReferenceId")
+          Core.<*> (x Core..: "TableName")
+          Core.<*> (x Core..: "S3ReferenceDataSourceDescription")
+          Core.<*> (x Core..:? "ReferenceSchema")

@@ -23,75 +23,70 @@ module Network.AWS.AppSync.Types.DeltaSyncConfig
   )
 where
 
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Delta Sync configuration.
 --
 -- /See:/ 'mkDeltaSyncConfig' smart constructor.
 data DeltaSyncConfig = DeltaSyncConfig'
   { -- | The number of minutes an Item is stored in the datasource.
-    baseTableTTL :: Lude.Maybe Lude.Integer,
+    baseTableTTL :: Core.Maybe Core.Integer,
     -- | The Delta Sync table name.
-    deltaSyncTableName :: Lude.Maybe Lude.Text,
+    deltaSyncTableName :: Core.Maybe Types.String,
     -- | The number of minutes a Delta Sync log entry is stored in the Delta Sync table.
-    deltaSyncTableTTL :: Lude.Maybe Lude.Integer
+    deltaSyncTableTTL :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeltaSyncConfig' with the minimum fields required to make a request.
---
--- * 'baseTableTTL' - The number of minutes an Item is stored in the datasource.
--- * 'deltaSyncTableName' - The Delta Sync table name.
--- * 'deltaSyncTableTTL' - The number of minutes a Delta Sync log entry is stored in the Delta Sync table.
+-- | Creates a 'DeltaSyncConfig' value with any optional fields omitted.
 mkDeltaSyncConfig ::
   DeltaSyncConfig
 mkDeltaSyncConfig =
   DeltaSyncConfig'
-    { baseTableTTL = Lude.Nothing,
-      deltaSyncTableName = Lude.Nothing,
-      deltaSyncTableTTL = Lude.Nothing
+    { baseTableTTL = Core.Nothing,
+      deltaSyncTableName = Core.Nothing,
+      deltaSyncTableTTL = Core.Nothing
     }
 
 -- | The number of minutes an Item is stored in the datasource.
 --
 -- /Note:/ Consider using 'baseTableTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscBaseTableTTL :: Lens.Lens' DeltaSyncConfig (Lude.Maybe Lude.Integer)
-dscBaseTableTTL = Lens.lens (baseTableTTL :: DeltaSyncConfig -> Lude.Maybe Lude.Integer) (\s a -> s {baseTableTTL = a} :: DeltaSyncConfig)
+dscBaseTableTTL :: Lens.Lens' DeltaSyncConfig (Core.Maybe Core.Integer)
+dscBaseTableTTL = Lens.field @"baseTableTTL"
 {-# DEPRECATED dscBaseTableTTL "Use generic-lens or generic-optics with 'baseTableTTL' instead." #-}
 
 -- | The Delta Sync table name.
 --
 -- /Note:/ Consider using 'deltaSyncTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscDeltaSyncTableName :: Lens.Lens' DeltaSyncConfig (Lude.Maybe Lude.Text)
-dscDeltaSyncTableName = Lens.lens (deltaSyncTableName :: DeltaSyncConfig -> Lude.Maybe Lude.Text) (\s a -> s {deltaSyncTableName = a} :: DeltaSyncConfig)
+dscDeltaSyncTableName :: Lens.Lens' DeltaSyncConfig (Core.Maybe Types.String)
+dscDeltaSyncTableName = Lens.field @"deltaSyncTableName"
 {-# DEPRECATED dscDeltaSyncTableName "Use generic-lens or generic-optics with 'deltaSyncTableName' instead." #-}
 
 -- | The number of minutes a Delta Sync log entry is stored in the Delta Sync table.
 --
 -- /Note:/ Consider using 'deltaSyncTableTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscDeltaSyncTableTTL :: Lens.Lens' DeltaSyncConfig (Lude.Maybe Lude.Integer)
-dscDeltaSyncTableTTL = Lens.lens (deltaSyncTableTTL :: DeltaSyncConfig -> Lude.Maybe Lude.Integer) (\s a -> s {deltaSyncTableTTL = a} :: DeltaSyncConfig)
+dscDeltaSyncTableTTL :: Lens.Lens' DeltaSyncConfig (Core.Maybe Core.Integer)
+dscDeltaSyncTableTTL = Lens.field @"deltaSyncTableTTL"
 {-# DEPRECATED dscDeltaSyncTableTTL "Use generic-lens or generic-optics with 'deltaSyncTableTTL' instead." #-}
 
-instance Lude.FromJSON DeltaSyncConfig where
-  parseJSON =
-    Lude.withObject
-      "DeltaSyncConfig"
-      ( \x ->
-          DeltaSyncConfig'
-            Lude.<$> (x Lude..:? "baseTableTTL")
-            Lude.<*> (x Lude..:? "deltaSyncTableName")
-            Lude.<*> (x Lude..:? "deltaSyncTableTTL")
-      )
-
-instance Lude.ToJSON DeltaSyncConfig where
-  toJSON DeltaSyncConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("baseTableTTL" Lude..=) Lude.<$> baseTableTTL,
-            ("deltaSyncTableName" Lude..=) Lude.<$> deltaSyncTableName,
-            ("deltaSyncTableTTL" Lude..=) Lude.<$> deltaSyncTableTTL
+instance Core.FromJSON DeltaSyncConfig where
+  toJSON DeltaSyncConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("baseTableTTL" Core..=) Core.<$> baseTableTTL,
+            ("deltaSyncTableName" Core..=) Core.<$> deltaSyncTableName,
+            ("deltaSyncTableTTL" Core..=) Core.<$> deltaSyncTableTTL
           ]
       )
+
+instance Core.FromJSON DeltaSyncConfig where
+  parseJSON =
+    Core.withObject "DeltaSyncConfig" Core.$
+      \x ->
+        DeltaSyncConfig'
+          Core.<$> (x Core..:? "baseTableTTL")
+          Core.<*> (x Core..:? "deltaSyncTableName")
+          Core.<*> (x Core..:? "deltaSyncTableTTL")

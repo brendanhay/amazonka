@@ -23,7 +23,9 @@ module Network.AWS.WAF.Types.RuleSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ResourceId as Types
+import qualified Network.AWS.WAF.Types.ResourceName as Types
 
 -- | Contains the identifier and the friendly name or description of the @Rule@ .
 --
@@ -32,49 +34,41 @@ data RuleSummary = RuleSummary'
   { -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
     --
     -- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
-    ruleId :: Lude.Text,
+    ruleId :: Types.ResourceId,
     -- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
-    name :: Lude.Text
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RuleSummary' with the minimum fields required to make a request.
---
--- * 'ruleId' - A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
---
--- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
--- * 'name' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
+-- | Creates a 'RuleSummary' value with any optional fields omitted.
 mkRuleSummary ::
   -- | 'ruleId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   RuleSummary
-mkRuleSummary pRuleId_ pName_ =
-  RuleSummary' {ruleId = pRuleId_, name = pName_}
+mkRuleSummary ruleId name = RuleSummary' {ruleId, name}
 
 -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
 --
 -- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsRuleId :: Lens.Lens' RuleSummary Lude.Text
-rsRuleId = Lens.lens (ruleId :: RuleSummary -> Lude.Text) (\s a -> s {ruleId = a} :: RuleSummary)
+rsRuleId :: Lens.Lens' RuleSummary Types.ResourceId
+rsRuleId = Lens.field @"ruleId"
 {-# DEPRECATED rsRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
 -- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsName :: Lens.Lens' RuleSummary Lude.Text
-rsName = Lens.lens (name :: RuleSummary -> Lude.Text) (\s a -> s {name = a} :: RuleSummary)
+rsName :: Lens.Lens' RuleSummary Types.ResourceName
+rsName = Lens.field @"name"
 {-# DEPRECATED rsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON RuleSummary where
+instance Core.FromJSON RuleSummary where
   parseJSON =
-    Lude.withObject
-      "RuleSummary"
-      ( \x ->
-          RuleSummary'
-            Lude.<$> (x Lude..: "RuleId") Lude.<*> (x Lude..: "Name")
-      )
+    Core.withObject "RuleSummary" Core.$
+      \x ->
+        RuleSummary'
+          Core.<$> (x Core..: "RuleId") Core.<*> (x Core..: "Name")

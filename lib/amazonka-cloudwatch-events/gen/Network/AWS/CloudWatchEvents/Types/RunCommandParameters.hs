@@ -21,48 +21,44 @@ module Network.AWS.CloudWatchEvents.Types.RunCommandParameters
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+import qualified Network.AWS.CloudWatchEvents.Types.RunCommandTarget as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
 --
 -- /See:/ 'mkRunCommandParameters' smart constructor.
 newtype RunCommandParameters = RunCommandParameters'
   { -- | Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
-    runCommandTargets :: Lude.NonEmpty RunCommandTarget
+    runCommandTargets :: Core.NonEmpty Types.RunCommandTarget
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RunCommandParameters' with the minimum fields required to make a request.
---
--- * 'runCommandTargets' - Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+-- | Creates a 'RunCommandParameters' value with any optional fields omitted.
 mkRunCommandParameters ::
   -- | 'runCommandTargets'
-  Lude.NonEmpty RunCommandTarget ->
+  Core.NonEmpty Types.RunCommandTarget ->
   RunCommandParameters
-mkRunCommandParameters pRunCommandTargets_ =
-  RunCommandParameters' {runCommandTargets = pRunCommandTargets_}
+mkRunCommandParameters runCommandTargets =
+  RunCommandParameters' {runCommandTargets}
 
 -- | Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 --
 -- /Note:/ Consider using 'runCommandTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcpRunCommandTargets :: Lens.Lens' RunCommandParameters (Lude.NonEmpty RunCommandTarget)
-rcpRunCommandTargets = Lens.lens (runCommandTargets :: RunCommandParameters -> Lude.NonEmpty RunCommandTarget) (\s a -> s {runCommandTargets = a} :: RunCommandParameters)
+rcpRunCommandTargets :: Lens.Lens' RunCommandParameters (Core.NonEmpty Types.RunCommandTarget)
+rcpRunCommandTargets = Lens.field @"runCommandTargets"
 {-# DEPRECATED rcpRunCommandTargets "Use generic-lens or generic-optics with 'runCommandTargets' instead." #-}
 
-instance Lude.FromJSON RunCommandParameters where
-  parseJSON =
-    Lude.withObject
-      "RunCommandParameters"
-      ( \x ->
-          RunCommandParameters' Lude.<$> (x Lude..: "RunCommandTargets")
+instance Core.FromJSON RunCommandParameters where
+  toJSON RunCommandParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RunCommandTargets" Core..= runCommandTargets)]
       )
 
-instance Lude.ToJSON RunCommandParameters where
-  toJSON RunCommandParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("RunCommandTargets" Lude..= runCommandTargets)]
-      )
+instance Core.FromJSON RunCommandParameters where
+  parseJSON =
+    Core.withObject "RunCommandParameters" Core.$
+      \x ->
+        RunCommandParameters' Core.<$> (x Core..: "RunCommandTargets")

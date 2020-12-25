@@ -23,53 +23,48 @@ module Network.AWS.LexModels.Types.BuiltinIntentMetadata
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.Locale
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.Locale as Types
+import qualified Network.AWS.LexModels.Types.Signature as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides metadata for a built-in intent.
 --
 -- /See:/ 'mkBuiltinIntentMetadata' smart constructor.
 data BuiltinIntentMetadata = BuiltinIntentMetadata'
   { -- | A unique identifier for the built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-    signature :: Lude.Maybe Lude.Text,
+    signature :: Core.Maybe Types.Signature,
     -- | A list of identifiers for the locales that the intent supports.
-    supportedLocales :: Lude.Maybe [Locale]
+    supportedLocales :: Core.Maybe [Types.Locale]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuiltinIntentMetadata' with the minimum fields required to make a request.
---
--- * 'signature' - A unique identifier for the built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
--- * 'supportedLocales' - A list of identifiers for the locales that the intent supports.
+-- | Creates a 'BuiltinIntentMetadata' value with any optional fields omitted.
 mkBuiltinIntentMetadata ::
   BuiltinIntentMetadata
 mkBuiltinIntentMetadata =
   BuiltinIntentMetadata'
-    { signature = Lude.Nothing,
-      supportedLocales = Lude.Nothing
+    { signature = Core.Nothing,
+      supportedLocales = Core.Nothing
     }
 
 -- | A unique identifier for the built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 --
 -- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bimSignature :: Lens.Lens' BuiltinIntentMetadata (Lude.Maybe Lude.Text)
-bimSignature = Lens.lens (signature :: BuiltinIntentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: BuiltinIntentMetadata)
+bimSignature :: Lens.Lens' BuiltinIntentMetadata (Core.Maybe Types.Signature)
+bimSignature = Lens.field @"signature"
 {-# DEPRECATED bimSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | A list of identifiers for the locales that the intent supports.
 --
 -- /Note:/ Consider using 'supportedLocales' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bimSupportedLocales :: Lens.Lens' BuiltinIntentMetadata (Lude.Maybe [Locale])
-bimSupportedLocales = Lens.lens (supportedLocales :: BuiltinIntentMetadata -> Lude.Maybe [Locale]) (\s a -> s {supportedLocales = a} :: BuiltinIntentMetadata)
+bimSupportedLocales :: Lens.Lens' BuiltinIntentMetadata (Core.Maybe [Types.Locale])
+bimSupportedLocales = Lens.field @"supportedLocales"
 {-# DEPRECATED bimSupportedLocales "Use generic-lens or generic-optics with 'supportedLocales' instead." #-}
 
-instance Lude.FromJSON BuiltinIntentMetadata where
+instance Core.FromJSON BuiltinIntentMetadata where
   parseJSON =
-    Lude.withObject
-      "BuiltinIntentMetadata"
-      ( \x ->
-          BuiltinIntentMetadata'
-            Lude.<$> (x Lude..:? "signature")
-            Lude.<*> (x Lude..:? "supportedLocales" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BuiltinIntentMetadata" Core.$
+      \x ->
+        BuiltinIntentMetadata'
+          Core.<$> (x Core..:? "signature") Core.<*> (x Core..:? "supportedLocales")

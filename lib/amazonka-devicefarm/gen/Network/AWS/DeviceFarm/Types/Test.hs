@@ -17,33 +17,74 @@ module Network.AWS.DeviceFarm.Types.Test
     mkTest,
 
     -- * Lenses
-    tStatus,
-    tCounters,
     tArn,
+    tCounters,
     tCreated,
-    tStopped,
-    tResult,
-    tName,
     tDeviceMinutes,
-    tType,
     tMessage,
+    tName,
+    tResult,
     tStarted,
+    tStatus,
+    tStopped,
+    tType,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.Counters
-import Network.AWS.DeviceFarm.Types.DeviceMinutes
-import Network.AWS.DeviceFarm.Types.ExecutionResult
-import Network.AWS.DeviceFarm.Types.ExecutionStatus
-import Network.AWS.DeviceFarm.Types.TestType
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.Counters as Types
+import qualified Network.AWS.DeviceFarm.Types.DeviceMinutes as Types
+import qualified Network.AWS.DeviceFarm.Types.ExecutionResult as Types
+import qualified Network.AWS.DeviceFarm.Types.ExecutionStatus as Types
+import qualified Network.AWS.DeviceFarm.Types.Message as Types
+import qualified Network.AWS.DeviceFarm.Types.Name as Types
+import qualified Network.AWS.DeviceFarm.Types.TestType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a condition that is evaluated.
 --
 -- /See:/ 'mkTest' smart constructor.
 data Test = Test'
-  { -- | The test's status.
+  { -- | The test's ARN.
+    arn :: Core.Maybe Types.Arn,
+    -- | The test's result counters.
+    counters :: Core.Maybe Types.Counters,
+    -- | When the test was created.
+    created :: Core.Maybe Core.NominalDiffTime,
+    -- | Represents the total (metered or unmetered) minutes used by the test.
+    deviceMinutes :: Core.Maybe Types.DeviceMinutes,
+    -- | A message about the test's result.
+    message :: Core.Maybe Types.Message,
+    -- | The test's name.
+    name :: Core.Maybe Types.Name,
+    -- | The test's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
+    result :: Core.Maybe Types.ExecutionResult,
+    -- | The test's start time.
+    started :: Core.Maybe Core.NominalDiffTime,
+    -- | The test's status.
     --
     -- Allowed values include:
     --
@@ -72,43 +113,9 @@ data Test = Test'
     --
     --
     --     * STOPPING
-    status :: Lude.Maybe ExecutionStatus,
-    -- | The test's result counters.
-    counters :: Lude.Maybe Counters,
-    -- | The test's ARN.
-    arn :: Lude.Maybe Lude.Text,
-    -- | When the test was created.
-    created :: Lude.Maybe Lude.Timestamp,
+    status :: Core.Maybe Types.ExecutionStatus,
     -- | The test's stop time.
-    stopped :: Lude.Maybe Lude.Timestamp,
-    -- | The test's result.
-    --
-    -- Allowed values include:
-    --
-    --     * PENDING
-    --
-    --
-    --     * PASSED
-    --
-    --
-    --     * WARNED
-    --
-    --
-    --     * FAILED
-    --
-    --
-    --     * SKIPPED
-    --
-    --
-    --     * ERRORED
-    --
-    --
-    --     * STOPPED
-    result :: Lude.Maybe ExecutionResult,
-    -- | The test's name.
-    name :: Lude.Maybe Lude.Text,
-    -- | Represents the total (metered or unmetered) minutes used by the test.
-    deviceMinutes :: Lude.Maybe DeviceMinutes,
+    stopped :: Core.Maybe Core.NominalDiffTime,
     -- | The test's type.
     --
     -- Must be one of the following values:
@@ -165,53 +172,72 @@ data Test = Test'
     --
     --
     --     * XCTEST_UI
-    type' :: Lude.Maybe TestType,
-    -- | A message about the test's result.
-    message :: Lude.Maybe Lude.Text,
-    -- | The test's start time.
-    started :: Lude.Maybe Lude.Timestamp
+    type' :: Core.Maybe Types.TestType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Test' with the minimum fields required to make a request.
+-- | Creates a 'Test' value with any optional fields omitted.
+mkTest ::
+  Test
+mkTest =
+  Test'
+    { arn = Core.Nothing,
+      counters = Core.Nothing,
+      created = Core.Nothing,
+      deviceMinutes = Core.Nothing,
+      message = Core.Nothing,
+      name = Core.Nothing,
+      result = Core.Nothing,
+      started = Core.Nothing,
+      status = Core.Nothing,
+      stopped = Core.Nothing,
+      type' = Core.Nothing
+    }
+
+-- | The test's ARN.
 --
--- * 'status' - The test's status.
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tArn :: Lens.Lens' Test (Core.Maybe Types.Arn)
+tArn = Lens.field @"arn"
+{-# DEPRECATED tArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The test's result counters.
 --
--- Allowed values include:
+-- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCounters :: Lens.Lens' Test (Core.Maybe Types.Counters)
+tCounters = Lens.field @"counters"
+{-# DEPRECATED tCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
+
+-- | When the test was created.
 --
---     * PENDING
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCreated :: Lens.Lens' Test (Core.Maybe Core.NominalDiffTime)
+tCreated = Lens.field @"created"
+{-# DEPRECATED tCreated "Use generic-lens or generic-optics with 'created' instead." #-}
+
+-- | Represents the total (metered or unmetered) minutes used by the test.
 --
+-- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDeviceMinutes :: Lens.Lens' Test (Core.Maybe Types.DeviceMinutes)
+tDeviceMinutes = Lens.field @"deviceMinutes"
+{-# DEPRECATED tDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
+
+-- | A message about the test's result.
 --
---     * PENDING_CONCURRENCY
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tMessage :: Lens.Lens' Test (Core.Maybe Types.Message)
+tMessage = Lens.field @"message"
+{-# DEPRECATED tMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The test's name.
 --
---
---     * PENDING_DEVICE
---
---
---     * PROCESSING
---
---
---     * SCHEDULING
---
---
---     * PREPARING
---
---
---     * RUNNING
---
---
---     * COMPLETED
---
---
---     * STOPPING
---
---
--- * 'counters' - The test's result counters.
--- * 'arn' - The test's ARN.
--- * 'created' - When the test was created.
--- * 'stopped' - The test's stop time.
--- * 'result' - The test's result.
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Test (Core.Maybe Types.Name)
+tName = Lens.field @"name"
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The test's result.
 --
 -- Allowed values include:
 --
@@ -236,84 +262,18 @@ data Test = Test'
 --     * STOPPED
 --
 --
--- * 'name' - The test's name.
--- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test.
--- * 'type'' - The test's type.
 --
--- Must be one of the following values:
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tResult :: Lens.Lens' Test (Core.Maybe Types.ExecutionResult)
+tResult = Lens.field @"result"
+{-# DEPRECATED tResult "Use generic-lens or generic-optics with 'result' instead." #-}
+
+-- | The test's start time.
 --
---     * BUILTIN_FUZZ
---
---
---     * BUILTIN_EXPLORER
---
---
---     * APPIUM_JAVA_JUNIT
---
---
---     * APPIUM_JAVA_TESTNG
---
---
---     * APPIUM_PYTHON
---
---
---     * APPIUM_NODE
---
---
---     * APPIUM_RUBY
---
---
---     * APPIUM_WEB_JAVA_JUNIT
---
---
---     * APPIUM_WEB_JAVA_TESTNG
---
---
---     * APPIUM_WEB_PYTHON
---
---
---     * APPIUM_WEB_NODE
---
---
---     * APPIUM_WEB_RUBY
---
---
---     * CALABASH
---
---
---     * INSTRUMENTATION
---
---
---     * UIAUTOMATION
---
---
---     * UIAUTOMATOR
---
---
---     * XCTEST
---
---
---     * XCTEST_UI
---
---
--- * 'message' - A message about the test's result.
--- * 'started' - The test's start time.
-mkTest ::
-  Test
-mkTest =
-  Test'
-    { status = Lude.Nothing,
-      counters = Lude.Nothing,
-      arn = Lude.Nothing,
-      created = Lude.Nothing,
-      stopped = Lude.Nothing,
-      result = Lude.Nothing,
-      name = Lude.Nothing,
-      deviceMinutes = Lude.Nothing,
-      type' = Lude.Nothing,
-      message = Lude.Nothing,
-      started = Lude.Nothing
-    }
+-- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStarted :: Lens.Lens' Test (Core.Maybe Core.NominalDiffTime)
+tStarted = Lens.field @"started"
+{-# DEPRECATED tStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
 -- | The test's status.
 --
@@ -348,82 +308,16 @@ mkTest =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tStatus :: Lens.Lens' Test (Lude.Maybe ExecutionStatus)
-tStatus = Lens.lens (status :: Test -> Lude.Maybe ExecutionStatus) (\s a -> s {status = a} :: Test)
+tStatus :: Lens.Lens' Test (Core.Maybe Types.ExecutionStatus)
+tStatus = Lens.field @"status"
 {-# DEPRECATED tStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The test's result counters.
---
--- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tCounters :: Lens.Lens' Test (Lude.Maybe Counters)
-tCounters = Lens.lens (counters :: Test -> Lude.Maybe Counters) (\s a -> s {counters = a} :: Test)
-{-# DEPRECATED tCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
-
--- | The test's ARN.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tArn :: Lens.Lens' Test (Lude.Maybe Lude.Text)
-tArn = Lens.lens (arn :: Test -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Test)
-{-# DEPRECATED tArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | When the test was created.
---
--- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tCreated :: Lens.Lens' Test (Lude.Maybe Lude.Timestamp)
-tCreated = Lens.lens (created :: Test -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Test)
-{-# DEPRECATED tCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The test's stop time.
 --
 -- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tStopped :: Lens.Lens' Test (Lude.Maybe Lude.Timestamp)
-tStopped = Lens.lens (stopped :: Test -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopped = a} :: Test)
+tStopped :: Lens.Lens' Test (Core.Maybe Core.NominalDiffTime)
+tStopped = Lens.field @"stopped"
 {-# DEPRECATED tStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
-
--- | The test's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tResult :: Lens.Lens' Test (Lude.Maybe ExecutionResult)
-tResult = Lens.lens (result :: Test -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: Test)
-{-# DEPRECATED tResult "Use generic-lens or generic-optics with 'result' instead." #-}
-
--- | The test's name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tName :: Lens.Lens' Test (Lude.Maybe Lude.Text)
-tName = Lens.lens (name :: Test -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Test)
-{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Represents the total (metered or unmetered) minutes used by the test.
---
--- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tDeviceMinutes :: Lens.Lens' Test (Lude.Maybe DeviceMinutes)
-tDeviceMinutes = Lens.lens (deviceMinutes :: Test -> Lude.Maybe DeviceMinutes) (\s a -> s {deviceMinutes = a} :: Test)
-{-# DEPRECATED tDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
 
 -- | The test's type.
 --
@@ -485,39 +379,23 @@ tDeviceMinutes = Lens.lens (deviceMinutes :: Test -> Lude.Maybe DeviceMinutes) (
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tType :: Lens.Lens' Test (Lude.Maybe TestType)
-tType = Lens.lens (type' :: Test -> Lude.Maybe TestType) (\s a -> s {type' = a} :: Test)
+tType :: Lens.Lens' Test (Core.Maybe Types.TestType)
+tType = Lens.field @"type'"
 {-# DEPRECATED tType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | A message about the test's result.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tMessage :: Lens.Lens' Test (Lude.Maybe Lude.Text)
-tMessage = Lens.lens (message :: Test -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Test)
-{-# DEPRECATED tMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The test's start time.
---
--- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tStarted :: Lens.Lens' Test (Lude.Maybe Lude.Timestamp)
-tStarted = Lens.lens (started :: Test -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: Test)
-{-# DEPRECATED tStarted "Use generic-lens or generic-optics with 'started' instead." #-}
-
-instance Lude.FromJSON Test where
+instance Core.FromJSON Test where
   parseJSON =
-    Lude.withObject
-      "Test"
-      ( \x ->
-          Test'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "counters")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "created")
-            Lude.<*> (x Lude..:? "stopped")
-            Lude.<*> (x Lude..:? "result")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "deviceMinutes")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "message")
-            Lude.<*> (x Lude..:? "started")
-      )
+    Core.withObject "Test" Core.$
+      \x ->
+        Test'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "counters")
+          Core.<*> (x Core..:? "created")
+          Core.<*> (x Core..:? "deviceMinutes")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "result")
+          Core.<*> (x Core..:? "started")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "stopped")
+          Core.<*> (x Core..:? "type")

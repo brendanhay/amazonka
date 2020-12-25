@@ -23,16 +23,16 @@ module Network.AWS.EC2.ModifyImageAttribute
     mkModifyImageAttribute,
 
     -- ** Request lenses
-    miaAttribute,
-    miaUserIds,
-    miaUserGroups,
-    miaValue,
-    miaLaunchPermission,
     miaImageId,
-    miaOperationType,
-    miaProductCodes,
+    miaAttribute,
     miaDescription,
     miaDryRun,
+    miaLaunchPermission,
+    miaOperationType,
+    miaProductCodes,
+    miaUserGroups,
+    miaUserIds,
+    miaValue,
 
     -- * Destructuring the response
     ModifyImageAttributeResponse (..),
@@ -40,175 +40,166 @@ module Network.AWS.EC2.ModifyImageAttribute
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ModifyImageAttribute.
 --
 -- /See:/ 'mkModifyImageAttribute' smart constructor.
 data ModifyImageAttribute = ModifyImageAttribute'
-  { -- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
-    attribute :: Lude.Maybe Lude.Text,
-    -- | The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
-    userIds :: Lude.Maybe [Lude.Text],
-    -- | The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
-    userGroups :: Lude.Maybe [Lude.Text],
-    -- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
-    value :: Lude.Maybe Lude.Text,
-    -- | A new launch permission for the AMI.
-    launchPermission :: Lude.Maybe LaunchPermissionModifications,
-    -- | The ID of the AMI.
-    imageId :: Lude.Text,
-    -- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
-    operationType :: Lude.Maybe OperationType,
-    -- | The DevPay product codes. After you add a product code to an AMI, it can't be removed.
-    productCodes :: Lude.Maybe [Lude.Text],
+  { -- | The ID of the AMI.
+    imageId :: Types.ImageId,
+    -- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
+    attribute :: Core.Maybe Types.Attribute,
     -- | A new description for the AMI.
-    description :: Lude.Maybe AttributeValue,
+    description :: Core.Maybe Types.AttributeValue,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | A new launch permission for the AMI.
+    launchPermission :: Core.Maybe Types.LaunchPermissionModifications,
+    -- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+    operationType :: Core.Maybe Types.OperationType,
+    -- | The DevPay product codes. After you add a product code to an AMI, it can't be removed.
+    productCodes :: Core.Maybe [Types.String],
+    -- | The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+    userGroups :: Core.Maybe [Types.String],
+    -- | The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+    userIds :: Core.Maybe [Types.String],
+    -- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyImageAttribute' with the minimum fields required to make a request.
---
--- * 'attribute' - The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
--- * 'userIds' - The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
--- * 'userGroups' - The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
--- * 'value' - The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
--- * 'launchPermission' - A new launch permission for the AMI.
--- * 'imageId' - The ID of the AMI.
--- * 'operationType' - The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
--- * 'productCodes' - The DevPay product codes. After you add a product code to an AMI, it can't be removed.
--- * 'description' - A new description for the AMI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyImageAttribute' value with any optional fields omitted.
 mkModifyImageAttribute ::
   -- | 'imageId'
-  Lude.Text ->
+  Types.ImageId ->
   ModifyImageAttribute
-mkModifyImageAttribute pImageId_ =
+mkModifyImageAttribute imageId =
   ModifyImageAttribute'
-    { attribute = Lude.Nothing,
-      userIds = Lude.Nothing,
-      userGroups = Lude.Nothing,
-      value = Lude.Nothing,
-      launchPermission = Lude.Nothing,
-      imageId = pImageId_,
-      operationType = Lude.Nothing,
-      productCodes = Lude.Nothing,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { imageId,
+      attribute = Core.Nothing,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      launchPermission = Core.Nothing,
+      operationType = Core.Nothing,
+      productCodes = Core.Nothing,
+      userGroups = Core.Nothing,
+      userIds = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaAttribute :: Lens.Lens' ModifyImageAttribute (Lude.Maybe Lude.Text)
-miaAttribute = Lens.lens (attribute :: ModifyImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {attribute = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
-
--- | The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
---
--- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaUserIds :: Lens.Lens' ModifyImageAttribute (Lude.Maybe [Lude.Text])
-miaUserIds = Lens.lens (userIds :: ModifyImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
-
--- | The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
---
--- /Note:/ Consider using 'userGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaUserGroups :: Lens.Lens' ModifyImageAttribute (Lude.Maybe [Lude.Text])
-miaUserGroups = Lens.lens (userGroups :: ModifyImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userGroups = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaUserGroups "Use generic-lens or generic-optics with 'userGroups' instead." #-}
-
--- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaValue :: Lens.Lens' ModifyImageAttribute (Lude.Maybe Lude.Text)
-miaValue = Lens.lens (value :: ModifyImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | A new launch permission for the AMI.
---
--- /Note:/ Consider using 'launchPermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaLaunchPermission :: Lens.Lens' ModifyImageAttribute (Lude.Maybe LaunchPermissionModifications)
-miaLaunchPermission = Lens.lens (launchPermission :: ModifyImageAttribute -> Lude.Maybe LaunchPermissionModifications) (\s a -> s {launchPermission = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaLaunchPermission "Use generic-lens or generic-optics with 'launchPermission' instead." #-}
 
 -- | The ID of the AMI.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaImageId :: Lens.Lens' ModifyImageAttribute Lude.Text
-miaImageId = Lens.lens (imageId :: ModifyImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: ModifyImageAttribute)
+miaImageId :: Lens.Lens' ModifyImageAttribute Types.ImageId
+miaImageId = Lens.field @"imageId"
 {-# DEPRECATED miaImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
--- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+-- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
 --
--- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaOperationType :: Lens.Lens' ModifyImageAttribute (Lude.Maybe OperationType)
-miaOperationType = Lens.lens (operationType :: ModifyImageAttribute -> Lude.Maybe OperationType) (\s a -> s {operationType = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaOperationType "Use generic-lens or generic-optics with 'operationType' instead." #-}
-
--- | The DevPay product codes. After you add a product code to an AMI, it can't be removed.
---
--- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaProductCodes :: Lens.Lens' ModifyImageAttribute (Lude.Maybe [Lude.Text])
-miaProductCodes = Lens.lens (productCodes :: ModifyImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {productCodes = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaAttribute :: Lens.Lens' ModifyImageAttribute (Core.Maybe Types.Attribute)
+miaAttribute = Lens.field @"attribute"
+{-# DEPRECATED miaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | A new description for the AMI.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaDescription :: Lens.Lens' ModifyImageAttribute (Lude.Maybe AttributeValue)
-miaDescription = Lens.lens (description :: ModifyImageAttribute -> Lude.Maybe AttributeValue) (\s a -> s {description = a} :: ModifyImageAttribute)
+miaDescription :: Lens.Lens' ModifyImageAttribute (Core.Maybe Types.AttributeValue)
+miaDescription = Lens.field @"description"
 {-# DEPRECATED miaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaDryRun :: Lens.Lens' ModifyImageAttribute (Lude.Maybe Lude.Bool)
-miaDryRun = Lens.lens (dryRun :: ModifyImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyImageAttribute)
+miaDryRun :: Lens.Lens' ModifyImageAttribute (Core.Maybe Core.Bool)
+miaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED miaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ModifyImageAttribute where
+-- | A new launch permission for the AMI.
+--
+-- /Note:/ Consider using 'launchPermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaLaunchPermission :: Lens.Lens' ModifyImageAttribute (Core.Maybe Types.LaunchPermissionModifications)
+miaLaunchPermission = Lens.field @"launchPermission"
+{-# DEPRECATED miaLaunchPermission "Use generic-lens or generic-optics with 'launchPermission' instead." #-}
+
+-- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+--
+-- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaOperationType :: Lens.Lens' ModifyImageAttribute (Core.Maybe Types.OperationType)
+miaOperationType = Lens.field @"operationType"
+{-# DEPRECATED miaOperationType "Use generic-lens or generic-optics with 'operationType' instead." #-}
+
+-- | The DevPay product codes. After you add a product code to an AMI, it can't be removed.
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaProductCodes :: Lens.Lens' ModifyImageAttribute (Core.Maybe [Types.String])
+miaProductCodes = Lens.field @"productCodes"
+{-# DEPRECATED miaProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
+
+-- | The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+--
+-- /Note:/ Consider using 'userGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaUserGroups :: Lens.Lens' ModifyImageAttribute (Core.Maybe [Types.String])
+miaUserGroups = Lens.field @"userGroups"
+{-# DEPRECATED miaUserGroups "Use generic-lens or generic-optics with 'userGroups' instead." #-}
+
+-- | The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaUserIds :: Lens.Lens' ModifyImageAttribute (Core.Maybe [Types.String])
+miaUserIds = Lens.field @"userIds"
+{-# DEPRECATED miaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
+
+-- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaValue :: Lens.Lens' ModifyImageAttribute (Core.Maybe Types.Value)
+miaValue = Lens.field @"value"
+{-# DEPRECATED miaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.AWSRequest ModifyImageAttribute where
   type Rs ModifyImageAttribute = ModifyImageAttributeResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull ModifyImageAttributeResponse'
-
-instance Lude.ToHeaders ModifyImageAttribute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyImageAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyImageAttribute where
-  toQuery ModifyImageAttribute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyImageAttribute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Attribute" Lude.=: attribute,
-        Lude.toQuery (Lude.toQueryList "UserId" Lude.<$> userIds),
-        Lude.toQuery (Lude.toQueryList "UserGroup" Lude.<$> userGroups),
-        "Value" Lude.=: value,
-        "LaunchPermission" Lude.=: launchPermission,
-        "ImageId" Lude.=: imageId,
-        "OperationType" Lude.=: operationType,
-        Lude.toQuery
-          (Lude.toQueryList "ProductCode" Lude.<$> productCodes),
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyImageAttribute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "ImageId" imageId)
+                Core.<> (Core.toQueryValue "Attribute" Core.<$> attribute)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "LaunchPermission" Core.<$> launchPermission)
+                Core.<> (Core.toQueryValue "OperationType" Core.<$> operationType)
+                Core.<> (Core.toQueryList "ProductCode" Core.<$> productCodes)
+                Core.<> (Core.toQueryList "UserGroup" Core.<$> userGroups)
+                Core.<> (Core.toQueryList "UserId" Core.<$> userIds)
+                Core.<> (Core.toQueryValue "Value" Core.<$> value)
+            )
+      }
+  response = Response.receiveNull ModifyImageAttributeResponse'
 
 -- | /See:/ 'mkModifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyImageAttributeResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifyImageAttributeResponse' value with any optional fields omitted.
 mkModifyImageAttributeResponse ::
   ModifyImageAttributeResponse
 mkModifyImageAttributeResponse = ModifyImageAttributeResponse'

@@ -17,55 +17,52 @@ module Network.AWS.AlexaBusiness.Types.ConferencePreference
     mkConferencePreference,
 
     -- * Lenses
-    cpDefaultConferenceProviderARN,
+    cpDefaultConferenceProviderArn,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The default conference provider that is used if no other scheduled meetings are detected.
 --
 -- /See:/ 'mkConferencePreference' smart constructor.
 newtype ConferencePreference = ConferencePreference'
   { -- | The ARN of the default conference provider.
-    defaultConferenceProviderARN :: Lude.Maybe Lude.Text
+    defaultConferenceProviderArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConferencePreference' with the minimum fields required to make a request.
---
--- * 'defaultConferenceProviderARN' - The ARN of the default conference provider.
+-- | Creates a 'ConferencePreference' value with any optional fields omitted.
 mkConferencePreference ::
   ConferencePreference
 mkConferencePreference =
   ConferencePreference'
-    { defaultConferenceProviderARN =
-        Lude.Nothing
+    { defaultConferenceProviderArn =
+        Core.Nothing
     }
 
 -- | The ARN of the default conference provider.
 --
--- /Note:/ Consider using 'defaultConferenceProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDefaultConferenceProviderARN :: Lens.Lens' ConferencePreference (Lude.Maybe Lude.Text)
-cpDefaultConferenceProviderARN = Lens.lens (defaultConferenceProviderARN :: ConferencePreference -> Lude.Maybe Lude.Text) (\s a -> s {defaultConferenceProviderARN = a} :: ConferencePreference)
-{-# DEPRECATED cpDefaultConferenceProviderARN "Use generic-lens or generic-optics with 'defaultConferenceProviderARN' instead." #-}
+-- /Note:/ Consider using 'defaultConferenceProviderArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDefaultConferenceProviderArn :: Lens.Lens' ConferencePreference (Core.Maybe Types.Arn)
+cpDefaultConferenceProviderArn = Lens.field @"defaultConferenceProviderArn"
+{-# DEPRECATED cpDefaultConferenceProviderArn "Use generic-lens or generic-optics with 'defaultConferenceProviderArn' instead." #-}
 
-instance Lude.FromJSON ConferencePreference where
-  parseJSON =
-    Lude.withObject
-      "ConferencePreference"
-      ( \x ->
-          ConferencePreference'
-            Lude.<$> (x Lude..:? "DefaultConferenceProviderArn")
-      )
-
-instance Lude.ToJSON ConferencePreference where
-  toJSON ConferencePreference' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DefaultConferenceProviderArn" Lude..=)
-              Lude.<$> defaultConferenceProviderARN
+instance Core.FromJSON ConferencePreference where
+  toJSON ConferencePreference {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultConferenceProviderArn" Core..=)
+              Core.<$> defaultConferenceProviderArn
           ]
       )
+
+instance Core.FromJSON ConferencePreference where
+  parseJSON =
+    Core.withObject "ConferencePreference" Core.$
+      \x ->
+        ConferencePreference'
+          Core.<$> (x Core..:? "DefaultConferenceProviderArn")

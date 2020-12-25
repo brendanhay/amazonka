@@ -13,66 +13,71 @@
 module Network.AWS.EC2.Types.OfferingTypeValues
   ( OfferingTypeValues
       ( OfferingTypeValues',
-        HeavyUtilization,
-        MediumUtilization,
-        LightUtilization,
-        NoUpfront,
-        PartialUpfront,
-        AllUpfront
+        OfferingTypeValuesHeavyUtilization,
+        OfferingTypeValuesMediumUtilization,
+        OfferingTypeValuesLightUtilization,
+        OfferingTypeValuesNoUpfront,
+        OfferingTypeValuesPartialUpfront,
+        OfferingTypeValuesAllUpfront,
+        fromOfferingTypeValues
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OfferingTypeValues = OfferingTypeValues' Lude.Text
+newtype OfferingTypeValues = OfferingTypeValues'
+  { fromOfferingTypeValues ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HeavyUtilization :: OfferingTypeValues
-pattern HeavyUtilization = OfferingTypeValues' "Heavy Utilization"
+pattern OfferingTypeValuesHeavyUtilization :: OfferingTypeValues
+pattern OfferingTypeValuesHeavyUtilization = OfferingTypeValues' "Heavy Utilization"
 
-pattern MediumUtilization :: OfferingTypeValues
-pattern MediumUtilization = OfferingTypeValues' "Medium Utilization"
+pattern OfferingTypeValuesMediumUtilization :: OfferingTypeValues
+pattern OfferingTypeValuesMediumUtilization = OfferingTypeValues' "Medium Utilization"
 
-pattern LightUtilization :: OfferingTypeValues
-pattern LightUtilization = OfferingTypeValues' "Light Utilization"
+pattern OfferingTypeValuesLightUtilization :: OfferingTypeValues
+pattern OfferingTypeValuesLightUtilization = OfferingTypeValues' "Light Utilization"
 
-pattern NoUpfront :: OfferingTypeValues
-pattern NoUpfront = OfferingTypeValues' "No Upfront"
+pattern OfferingTypeValuesNoUpfront :: OfferingTypeValues
+pattern OfferingTypeValuesNoUpfront = OfferingTypeValues' "No Upfront"
 
-pattern PartialUpfront :: OfferingTypeValues
-pattern PartialUpfront = OfferingTypeValues' "Partial Upfront"
+pattern OfferingTypeValuesPartialUpfront :: OfferingTypeValues
+pattern OfferingTypeValuesPartialUpfront = OfferingTypeValues' "Partial Upfront"
 
-pattern AllUpfront :: OfferingTypeValues
-pattern AllUpfront = OfferingTypeValues' "All Upfront"
+pattern OfferingTypeValuesAllUpfront :: OfferingTypeValues
+pattern OfferingTypeValuesAllUpfront = OfferingTypeValues' "All Upfront"
 
 {-# COMPLETE
-  HeavyUtilization,
-  MediumUtilization,
-  LightUtilization,
-  NoUpfront,
-  PartialUpfront,
-  AllUpfront,
+  OfferingTypeValuesHeavyUtilization,
+  OfferingTypeValuesMediumUtilization,
+  OfferingTypeValuesLightUtilization,
+  OfferingTypeValuesNoUpfront,
+  OfferingTypeValuesPartialUpfront,
+  OfferingTypeValuesAllUpfront,
   OfferingTypeValues'
   #-}

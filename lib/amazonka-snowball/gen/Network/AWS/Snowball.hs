@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,43 @@
 -- AWS Snow Family is a petabyte-scale data transport solution that uses secure devices to transfer large amounts of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). The Snow commands described here provide access to the same functionality that is available in the AWS Snow Family Management Console, which enables you to create and manage jobs for a Snow device. To transfer data locally with a Snow device, you'll need to use the Snowball Edge client or the Amazon S3 API Interface for Snowball or AWS OpsHub for Snow Family. For more information, see the <https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide> .
 module Network.AWS.Snowball
   ( -- * Service configuration
-    snowballService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidResourceException
+    _InvalidResourceException,
+
+    -- ** UnsupportedAddressException
+    _UnsupportedAddressException,
+
+    -- ** ReturnShippingLabelAlreadyExistsException
+    _ReturnShippingLabelAlreadyExistsException,
+
+    -- ** KMSRequestFailedException
+    _KMSRequestFailedException,
+
+    -- ** InvalidJobStateException
+    _InvalidJobStateException,
+
+    -- ** InvalidInputCombinationException
+    _InvalidInputCombinationException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** Ec2RequestFailedException
+    _Ec2RequestFailedException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** ClusterLimitExceededException
+    _ClusterLimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -93,181 +125,195 @@ module Network.AWS.Snowball
 
     -- * Types
 
-    -- ** ClusterState
-    ClusterState (..),
-
-    -- ** JobState
-    JobState (..),
-
     -- ** JobType
     JobType (..),
 
-    -- ** ShipmentState
-    ShipmentState (..),
+    -- ** KmsKeyARN
+    KmsKeyARN (..),
 
-    -- ** ShippingLabelStatus
-    ShippingLabelStatus (..),
-
-    -- ** ShippingOption
-    ShippingOption (..),
-
-    -- ** SnowballCapacity
-    SnowballCapacity (..),
-
-    -- ** SnowballType
-    SnowballType (..),
-
-    -- ** Address
-    Address (..),
-    mkAddress,
-    aIsRestricted,
-    aStreet3,
-    aLandmark,
-    aPostalCode,
-    aCountry,
-    aStateOrProvince,
-    aStreet2,
-    aAddressId,
-    aCity,
-    aPhoneNumber,
-    aCompany,
-    aName,
-    aPrefectureOrDistrict,
-    aStreet1,
-
-    -- ** ClusterListEntry
-    ClusterListEntry (..),
-    mkClusterListEntry,
-    cleClusterState,
-    cleClusterId,
-    cleCreationDate,
-    cleDescription,
-
-    -- ** ClusterMetadata
-    ClusterMetadata (..),
-    mkClusterMetadata,
-    cmJobType,
-    cmKMSKeyARN,
-    cmClusterState,
-    cmNotification,
-    cmForwardingAddressId,
-    cmAddressId,
-    cmSnowballType,
-    cmShippingOption,
-    cmResources,
-    cmClusterId,
-    cmCreationDate,
-    cmDescription,
-    cmTaxDocuments,
-    cmRoleARN,
-
-    -- ** CompatibleImage
-    CompatibleImage (..),
-    mkCompatibleImage,
-    ciName,
-    ciAMIId,
-
-    -- ** DataTransfer
-    DataTransfer (..),
-    mkDataTransfer,
-    dtTotalObjects,
-    dtTotalBytes,
-    dtObjectsTransferred,
-    dtBytesTransferred,
-
-    -- ** DeviceConfiguration
-    DeviceConfiguration (..),
-    mkDeviceConfiguration,
-    dcSnowconeDeviceConfiguration,
-
-    -- ** EC2AMIResource
-    EC2AMIResource (..),
-    mkEC2AMIResource,
-    earSnowballAMIId,
-    earAMIId,
-
-    -- ** EventTriggerDefinition
-    EventTriggerDefinition (..),
-    mkEventTriggerDefinition,
-    etdEventResourceARN,
+    -- ** GSTIN
+    GSTIN (..),
 
     -- ** INDTaxDocuments
     INDTaxDocuments (..),
     mkINDTaxDocuments,
     indtdGSTIN,
 
-    -- ** JobListEntry
-    JobListEntry (..),
-    mkJobListEntry,
-    jleJobType,
-    jleJobId,
-    jleJobState,
-    jleSnowballType,
-    jleCreationDate,
-    jleDescription,
-    jleIsMaster,
+    -- ** S3Resource
+    S3Resource (..),
+    mkS3Resource,
+    srBucketArn,
+    srKeyRange,
 
-    -- ** JobLogs
-    JobLogs (..),
-    mkJobLogs,
-    jlJobFailureLogURI,
-    jlJobCompletionReportURI,
-    jlJobSuccessLogURI,
+    -- ** SnsTopicARN
+    SnsTopicARN (..),
+
+    -- ** JobId
+    JobId (..),
 
     -- ** JobMetadata
     JobMetadata (..),
     mkJobMetadata,
-    jmJobType,
-    jmKMSKeyARN,
-    jmJobId,
-    jmJobLogInfo,
-    jmNotification,
-    jmJobState,
-    jmForwardingAddressId,
-    jmShippingDetails,
     jmAddressId,
-    jmSnowballType,
-    jmDataTransferProgress,
-    jmResources,
     jmClusterId,
     jmCreationDate,
-    jmDeviceConfiguration,
+    jmDataTransferProgress,
     jmDescription,
-    jmTaxDocuments,
+    jmDeviceConfiguration,
+    jmForwardingAddressId,
+    jmJobId,
+    jmJobLogInfo,
+    jmJobState,
+    jmJobType,
+    jmKmsKeyARN,
+    jmNotification,
+    jmResources,
     jmRoleARN,
+    jmShippingDetails,
     jmSnowballCapacityPreference,
+    jmSnowballType,
+    jmTaxDocuments,
 
-    -- ** JobResource
-    JobResource (..),
-    mkJobResource,
-    jrEC2AMIResources,
-    jrLambdaResources,
-    jrS3Resources,
-
-    -- ** KeyRange
-    KeyRange (..),
-    mkKeyRange,
-    krEndMarker,
-    krBeginMarker,
+    -- ** ClusterState
+    ClusterState (..),
 
     -- ** LambdaResource
     LambdaResource (..),
     mkLambdaResource,
     lrEventTriggers,
-    lrLambdaARN,
+    lrLambdaArn,
 
     -- ** Notification
     Notification (..),
     mkNotification,
-    nNotifyAll,
-    nSNSTopicARN,
     nJobStatesToNotify,
+    nNotifyAll,
+    nSnsTopicARN,
 
-    -- ** S3Resource
-    S3Resource (..),
-    mkS3Resource,
-    srKeyRange,
-    srBucketARN,
+    -- ** String
+    String (..),
+
+    -- ** JobResource
+    JobResource (..),
+    mkJobResource,
+    jrEc2AmiResources,
+    jrLambdaResources,
+    jrS3Resources,
+
+    -- ** JobLogs
+    JobLogs (..),
+    mkJobLogs,
+    jlJobCompletionReportURI,
+    jlJobFailureLogURI,
+    jlJobSuccessLogURI,
+
+    -- ** JobState
+    JobState (..),
+
+    -- ** ShippingDetails
+    ShippingDetails (..),
+    mkShippingDetails,
+    sdInboundShipment,
+    sdOutboundShipment,
+    sdShippingOption,
+
+    -- ** AddressId
+    AddressId (..),
+
+    -- ** Address
+    Address (..),
+    mkAddress,
+    aAddressId,
+    aCity,
+    aCompany,
+    aCountry,
+    aIsRestricted,
+    aLandmark,
+    aName,
+    aPhoneNumber,
+    aPostalCode,
+    aPrefectureOrDistrict,
+    aStateOrProvince,
+    aStreet1,
+    aStreet2,
+    aStreet3,
+
+    -- ** SnowballType
+    SnowballType (..),
+
+    -- ** WirelessConnection
+    WirelessConnection (..),
+    mkWirelessConnection,
+    wcIsWifiEnabled,
+
+    -- ** CompatibleImage
+    CompatibleImage (..),
+    mkCompatibleImage,
+    ciAmiId,
+    ciName,
+
+    -- ** ShippingOption
+    ShippingOption (..),
+
+    -- ** ClusterListEntry
+    ClusterListEntry (..),
+    mkClusterListEntry,
+    cleClusterId,
+    cleClusterState,
+    cleCreationDate,
+    cleDescription,
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** ClusterMetadata
+    ClusterMetadata (..),
+    mkClusterMetadata,
+    cmAddressId,
+    cmClusterId,
+    cmClusterState,
+    cmCreationDate,
+    cmDescription,
+    cmForwardingAddressId,
+    cmJobType,
+    cmKmsKeyARN,
+    cmNotification,
+    cmResources,
+    cmRoleARN,
+    cmShippingOption,
+    cmSnowballType,
+    cmTaxDocuments,
+
+    -- ** ShipmentState
+    ShipmentState (..),
+
+    -- ** ClusterId
+    ClusterId (..),
+
+    -- ** SnowconeDeviceConfiguration
+    SnowconeDeviceConfiguration (..),
+    mkSnowconeDeviceConfiguration,
+    sdcWirelessConnection,
+
+    -- ** SnowballCapacity
+    SnowballCapacity (..),
+
+    -- ** ShippingLabelStatus
+    ShippingLabelStatus (..),
+
+    -- ** KeyRange
+    KeyRange (..),
+    mkKeyRange,
+    krBeginMarker,
+    krEndMarker,
+
+    -- ** AmiId
+    AmiId (..),
+
+    -- ** DeviceConfiguration
+    DeviceConfiguration (..),
+    mkDeviceConfiguration,
+    dcSnowconeDeviceConfiguration,
 
     -- ** Shipment
     Shipment (..),
@@ -275,37 +321,69 @@ module Network.AWS.Snowball
     sStatus,
     sTrackingNumber,
 
-    -- ** ShippingDetails
-    ShippingDetails (..),
-    mkShippingDetails,
-    sdShippingOption,
-    sdOutboundShipment,
-    sdInboundShipment,
+    -- ** Ec2AmiResource
+    Ec2AmiResource (..),
+    mkEc2AmiResource,
+    earAmiId,
+    earSnowballAmiId,
 
-    -- ** SnowconeDeviceConfiguration
-    SnowconeDeviceConfiguration (..),
-    mkSnowconeDeviceConfiguration,
-    sdcWirelessConnection,
+    -- ** DataTransfer
+    DataTransfer (..),
+    mkDataTransfer,
+    dtBytesTransferred,
+    dtObjectsTransferred,
+    dtTotalBytes,
+    dtTotalObjects,
 
     -- ** TaxDocuments
     TaxDocuments (..),
     mkTaxDocuments,
     tdIND,
 
-    -- ** WirelessConnection
-    WirelessConnection (..),
-    mkWirelessConnection,
-    wcIsWifiEnabled,
+    -- ** EventTriggerDefinition
+    EventTriggerDefinition (..),
+    mkEventTriggerDefinition,
+    etdEventResourceARN,
+
+    -- ** JobListEntry
+    JobListEntry (..),
+    mkJobListEntry,
+    jleCreationDate,
+    jleDescription,
+    jleIsMaster,
+    jleJobId,
+    jleJobState,
+    jleJobType,
+    jleSnowballType,
+
+    -- ** RoleARN
+    RoleARN (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ForwardingAddressId
+    ForwardingAddressId (..),
+
+    -- ** UpdatesURI
+    UpdatesURI (..),
+
+    -- ** BucketArn
+    BucketArn (..),
+
+    -- ** LambdaArn
+    LambdaArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

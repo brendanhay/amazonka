@@ -13,46 +13,48 @@
 module Network.AWS.EC2.Types.RouteState
   ( RouteState
       ( RouteState',
-        RActive,
-        RBlackhole
+        RouteStateActive,
+        RouteStateBlackhole,
+        fromRouteState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RouteState = RouteState' Lude.Text
+newtype RouteState = RouteState' {fromRouteState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RActive :: RouteState
-pattern RActive = RouteState' "active"
+pattern RouteStateActive :: RouteState
+pattern RouteStateActive = RouteState' "active"
 
-pattern RBlackhole :: RouteState
-pattern RBlackhole = RouteState' "blackhole"
+pattern RouteStateBlackhole :: RouteState
+pattern RouteStateBlackhole = RouteState' "blackhole"
 
 {-# COMPLETE
-  RActive,
-  RBlackhole,
+  RouteStateActive,
+  RouteStateBlackhole,
   RouteState'
   #-}

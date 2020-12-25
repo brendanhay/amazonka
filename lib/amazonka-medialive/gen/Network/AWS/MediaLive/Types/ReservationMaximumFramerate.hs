@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.ReservationMaximumFramerate
   ( ReservationMaximumFramerate
       ( ReservationMaximumFramerate',
-        Max30Fps,
-        Max60Fps
+        ReservationMaximumFramerateMax30Fps,
+        ReservationMaximumFramerateMax60Fps,
+        fromReservationMaximumFramerate
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Maximum framerate in frames per second (Outputs only)
-newtype ReservationMaximumFramerate = ReservationMaximumFramerate' Lude.Text
+newtype ReservationMaximumFramerate = ReservationMaximumFramerate'
+  { fromReservationMaximumFramerate ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Max30Fps :: ReservationMaximumFramerate
-pattern Max30Fps = ReservationMaximumFramerate' "MAX_30_FPS"
+pattern ReservationMaximumFramerateMax30Fps :: ReservationMaximumFramerate
+pattern ReservationMaximumFramerateMax30Fps = ReservationMaximumFramerate' "MAX_30_FPS"
 
-pattern Max60Fps :: ReservationMaximumFramerate
-pattern Max60Fps = ReservationMaximumFramerate' "MAX_60_FPS"
+pattern ReservationMaximumFramerateMax60Fps :: ReservationMaximumFramerate
+pattern ReservationMaximumFramerateMax60Fps = ReservationMaximumFramerate' "MAX_60_FPS"
 
 {-# COMPLETE
-  Max30Fps,
-  Max60Fps,
+  ReservationMaximumFramerateMax30Fps,
+  ReservationMaximumFramerateMax60Fps,
   ReservationMaximumFramerate'
   #-}

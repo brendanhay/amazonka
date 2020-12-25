@@ -27,106 +27,91 @@ module Network.AWS.DeviceFarm.StopJob
     mkStopJobResponse,
 
     -- ** Response lenses
-    sjrsJob,
-    sjrsResponseStatus,
+    sjrrsJob,
+    sjrrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopJob' smart constructor.
 newtype StopJob = StopJob'
   { -- | Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.
-    arn :: Lude.Text
+    arn :: Types.AmazonResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopJob' with the minimum fields required to make a request.
---
--- * 'arn' - Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.
+-- | Creates a 'StopJob' value with any optional fields omitted.
 mkStopJob ::
   -- | 'arn'
-  Lude.Text ->
+  Types.AmazonResourceName ->
   StopJob
-mkStopJob pArn_ = StopJob' {arn = pArn_}
+mkStopJob arn = StopJob' {arn}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sjArn :: Lens.Lens' StopJob Lude.Text
-sjArn = Lens.lens (arn :: StopJob -> Lude.Text) (\s a -> s {arn = a} :: StopJob)
+sjArn :: Lens.Lens' StopJob Types.AmazonResourceName
+sjArn = Lens.field @"arn"
 {-# DEPRECATED sjArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.AWSRequest StopJob where
+instance Core.FromJSON StopJob where
+  toJSON StopJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+
+instance Core.AWSRequest StopJob where
   type Rs StopJob = StopJobResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.StopJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopJobResponse'
-            Lude.<$> (x Lude..?> "job") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "job") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.StopJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopJob where
-  toJSON StopJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
-
-instance Lude.ToPath StopJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopJobResponse' smart constructor.
 data StopJobResponse = StopJobResponse'
   { -- | The job that was stopped.
-    job :: Lude.Maybe Job,
+    job :: Core.Maybe Types.Job,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopJobResponse' with the minimum fields required to make a request.
---
--- * 'job' - The job that was stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopJobResponse' value with any optional fields omitted.
 mkStopJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopJobResponse
-mkStopJobResponse pResponseStatus_ =
-  StopJobResponse'
-    { job = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStopJobResponse responseStatus =
+  StopJobResponse' {job = Core.Nothing, responseStatus}
 
 -- | The job that was stopped.
 --
 -- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sjrsJob :: Lens.Lens' StopJobResponse (Lude.Maybe Job)
-sjrsJob = Lens.lens (job :: StopJobResponse -> Lude.Maybe Job) (\s a -> s {job = a} :: StopJobResponse)
-{-# DEPRECATED sjrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
+sjrrsJob :: Lens.Lens' StopJobResponse (Core.Maybe Types.Job)
+sjrrsJob = Lens.field @"job"
+{-# DEPRECATED sjrrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sjrsResponseStatus :: Lens.Lens' StopJobResponse Lude.Int
-sjrsResponseStatus = Lens.lens (responseStatus :: StopJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopJobResponse)
-{-# DEPRECATED sjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sjrrsResponseStatus :: Lens.Lens' StopJobResponse Core.Int
+sjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

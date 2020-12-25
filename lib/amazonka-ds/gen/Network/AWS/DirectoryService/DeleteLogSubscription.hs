@@ -27,96 +27,84 @@ module Network.AWS.DirectoryService.DeleteLogSubscription
     mkDeleteLogSubscriptionResponse,
 
     -- ** Response lenses
-    dlsrsResponseStatus,
+    dlsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLogSubscription' smart constructor.
 newtype DeleteLogSubscription = DeleteLogSubscription'
   { -- | Identifier of the directory whose log subscription you want to delete.
-    directoryId :: Lude.Text
+    directoryId :: Types.DirectoryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLogSubscription' with the minimum fields required to make a request.
---
--- * 'directoryId' - Identifier of the directory whose log subscription you want to delete.
+-- | Creates a 'DeleteLogSubscription' value with any optional fields omitted.
 mkDeleteLogSubscription ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   DeleteLogSubscription
-mkDeleteLogSubscription pDirectoryId_ =
-  DeleteLogSubscription' {directoryId = pDirectoryId_}
+mkDeleteLogSubscription directoryId =
+  DeleteLogSubscription' {directoryId}
 
 -- | Identifier of the directory whose log subscription you want to delete.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsDirectoryId :: Lens.Lens' DeleteLogSubscription Lude.Text
-dlsDirectoryId = Lens.lens (directoryId :: DeleteLogSubscription -> Lude.Text) (\s a -> s {directoryId = a} :: DeleteLogSubscription)
+dlsDirectoryId :: Lens.Lens' DeleteLogSubscription Types.DirectoryId
+dlsDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED dlsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Lude.AWSRequest DeleteLogSubscription where
+instance Core.FromJSON DeleteLogSubscription where
+  toJSON DeleteLogSubscription {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DirectoryId" Core..= directoryId)])
+
+instance Core.AWSRequest DeleteLogSubscription where
   type Rs DeleteLogSubscription = DeleteLogSubscriptionResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.DeleteLogSubscription")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteLogSubscriptionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLogSubscription where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.DeleteLogSubscription" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLogSubscription where
-  toJSON DeleteLogSubscription' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DirectoryId" Lude..= directoryId)])
-
-instance Lude.ToPath DeleteLogSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLogSubscription where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteLogSubscriptionResponse' smart constructor.
 newtype DeleteLogSubscriptionResponse = DeleteLogSubscriptionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLogSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLogSubscriptionResponse' value with any optional fields omitted.
 mkDeleteLogSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLogSubscriptionResponse
-mkDeleteLogSubscriptionResponse pResponseStatus_ =
-  DeleteLogSubscriptionResponse' {responseStatus = pResponseStatus_}
+mkDeleteLogSubscriptionResponse responseStatus =
+  DeleteLogSubscriptionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsResponseStatus :: Lens.Lens' DeleteLogSubscriptionResponse Lude.Int
-dlsrsResponseStatus = Lens.lens (responseStatus :: DeleteLogSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLogSubscriptionResponse)
-{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlsrrsResponseStatus :: Lens.Lens' DeleteLogSubscriptionResponse Core.Int
+dlsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

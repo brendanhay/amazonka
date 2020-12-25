@@ -22,55 +22,50 @@ module Network.AWS.CodeDeploy.Types.RevisionInfo
   )
 where
 
-import Network.AWS.CodeDeploy.Types.GenericRevisionInfo
-import Network.AWS.CodeDeploy.Types.RevisionLocation
+import qualified Network.AWS.CodeDeploy.Types.GenericRevisionInfo as Types
+import qualified Network.AWS.CodeDeploy.Types.RevisionLocation as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an application revision.
 --
 -- /See:/ 'mkRevisionInfo' smart constructor.
 data RevisionInfo = RevisionInfo'
   { -- | Information about an application revision, including usage details and associated deployment groups.
-    genericRevisionInfo :: Lude.Maybe GenericRevisionInfo,
+    genericRevisionInfo :: Core.Maybe Types.GenericRevisionInfo,
     -- | Information about the location and type of an application revision.
-    revisionLocation :: Lude.Maybe RevisionLocation
+    revisionLocation :: Core.Maybe Types.RevisionLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RevisionInfo' with the minimum fields required to make a request.
---
--- * 'genericRevisionInfo' - Information about an application revision, including usage details and associated deployment groups.
--- * 'revisionLocation' - Information about the location and type of an application revision.
+-- | Creates a 'RevisionInfo' value with any optional fields omitted.
 mkRevisionInfo ::
   RevisionInfo
 mkRevisionInfo =
   RevisionInfo'
-    { genericRevisionInfo = Lude.Nothing,
-      revisionLocation = Lude.Nothing
+    { genericRevisionInfo = Core.Nothing,
+      revisionLocation = Core.Nothing
     }
 
 -- | Information about an application revision, including usage details and associated deployment groups.
 --
 -- /Note:/ Consider using 'genericRevisionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riGenericRevisionInfo :: Lens.Lens' RevisionInfo (Lude.Maybe GenericRevisionInfo)
-riGenericRevisionInfo = Lens.lens (genericRevisionInfo :: RevisionInfo -> Lude.Maybe GenericRevisionInfo) (\s a -> s {genericRevisionInfo = a} :: RevisionInfo)
+riGenericRevisionInfo :: Lens.Lens' RevisionInfo (Core.Maybe Types.GenericRevisionInfo)
+riGenericRevisionInfo = Lens.field @"genericRevisionInfo"
 {-# DEPRECATED riGenericRevisionInfo "Use generic-lens or generic-optics with 'genericRevisionInfo' instead." #-}
 
 -- | Information about the location and type of an application revision.
 --
 -- /Note:/ Consider using 'revisionLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRevisionLocation :: Lens.Lens' RevisionInfo (Lude.Maybe RevisionLocation)
-riRevisionLocation = Lens.lens (revisionLocation :: RevisionInfo -> Lude.Maybe RevisionLocation) (\s a -> s {revisionLocation = a} :: RevisionInfo)
+riRevisionLocation :: Lens.Lens' RevisionInfo (Core.Maybe Types.RevisionLocation)
+riRevisionLocation = Lens.field @"revisionLocation"
 {-# DEPRECATED riRevisionLocation "Use generic-lens or generic-optics with 'revisionLocation' instead." #-}
 
-instance Lude.FromJSON RevisionInfo where
+instance Core.FromJSON RevisionInfo where
   parseJSON =
-    Lude.withObject
-      "RevisionInfo"
-      ( \x ->
-          RevisionInfo'
-            Lude.<$> (x Lude..:? "genericRevisionInfo")
-            Lude.<*> (x Lude..:? "revisionLocation")
-      )
+    Core.withObject "RevisionInfo" Core.$
+      \x ->
+        RevisionInfo'
+          Core.<$> (x Core..:? "genericRevisionInfo")
+          Core.<*> (x Core..:? "revisionLocation")

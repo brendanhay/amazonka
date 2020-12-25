@@ -13,51 +13,56 @@
 module Network.AWS.GameLift.Types.BalancingStrategy
   ( BalancingStrategy
       ( BalancingStrategy',
-        SpotOnly,
-        SpotPreferred,
-        OnDemandOnly
+        BalancingStrategySpotOnly,
+        BalancingStrategySpotPreferred,
+        BalancingStrategyOnDemandOnly,
+        fromBalancingStrategy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BalancingStrategy = BalancingStrategy' Lude.Text
+newtype BalancingStrategy = BalancingStrategy'
+  { fromBalancingStrategy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SpotOnly :: BalancingStrategy
-pattern SpotOnly = BalancingStrategy' "SPOT_ONLY"
+pattern BalancingStrategySpotOnly :: BalancingStrategy
+pattern BalancingStrategySpotOnly = BalancingStrategy' "SPOT_ONLY"
 
-pattern SpotPreferred :: BalancingStrategy
-pattern SpotPreferred = BalancingStrategy' "SPOT_PREFERRED"
+pattern BalancingStrategySpotPreferred :: BalancingStrategy
+pattern BalancingStrategySpotPreferred = BalancingStrategy' "SPOT_PREFERRED"
 
-pattern OnDemandOnly :: BalancingStrategy
-pattern OnDemandOnly = BalancingStrategy' "ON_DEMAND_ONLY"
+pattern BalancingStrategyOnDemandOnly :: BalancingStrategy
+pattern BalancingStrategyOnDemandOnly = BalancingStrategy' "ON_DEMAND_ONLY"
 
 {-# COMPLETE
-  SpotOnly,
-  SpotPreferred,
-  OnDemandOnly,
+  BalancingStrategySpotOnly,
+  BalancingStrategySpotPreferred,
+  BalancingStrategyOnDemandOnly,
   BalancingStrategy'
   #-}

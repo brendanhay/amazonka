@@ -27,119 +27,110 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     mkReadPipelineResponse,
 
     -- ** Response lenses
-    rrsWarnings,
     rrsPipeline,
+    rrsWarnings,
     rrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @ReadPipelineRequest@ structure.
 --
 -- /See:/ 'mkReadPipeline' smart constructor.
 newtype ReadPipeline = ReadPipeline'
   { -- | The identifier of the pipeline to read.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReadPipeline' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the pipeline to read.
+-- | Creates a 'ReadPipeline' value with any optional fields omitted.
 mkReadPipeline ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   ReadPipeline
-mkReadPipeline pId_ = ReadPipeline' {id = pId_}
+mkReadPipeline id = ReadPipeline' {id}
 
 -- | The identifier of the pipeline to read.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rId :: Lens.Lens' ReadPipeline Lude.Text
-rId = Lens.lens (id :: ReadPipeline -> Lude.Text) (\s a -> s {id = a} :: ReadPipeline)
+rId :: Lens.Lens' ReadPipeline Types.Id
+rId = Lens.field @"id"
 {-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest ReadPipeline where
+instance Core.AWSRequest ReadPipeline where
   type Rs ReadPipeline = ReadPipelineResponse
-  request = Req.get elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/2012-09-25/pipelines/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ReadPipelineResponse'
-            Lude.<$> (x Lude..?> "Warnings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Pipeline")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Pipeline")
+            Core.<*> (x Core..:? "Warnings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ReadPipeline where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ReadPipeline where
-  toPath ReadPipeline' {..} =
-    Lude.mconcat ["/2012-09-25/pipelines/", Lude.toBS id]
-
-instance Lude.ToQuery ReadPipeline where
-  toQuery = Lude.const Lude.mempty
 
 -- | The @ReadPipelineResponse@ structure.
 --
 -- /See:/ 'mkReadPipelineResponse' smart constructor.
 data ReadPipelineResponse = ReadPipelineResponse'
-  { -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
+  { -- | A section of the response body that provides information about the pipeline.
+    pipeline :: Core.Maybe Types.Pipeline,
+    -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
     --
     -- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
-    warnings :: Lude.Maybe [Warning],
-    -- | A section of the response body that provides information about the pipeline.
-    pipeline :: Lude.Maybe Pipeline,
+    warnings :: Core.Maybe [Types.Warning],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReadPipelineResponse' with the minimum fields required to make a request.
---
--- * 'warnings' - Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
---
--- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
--- * 'pipeline' - A section of the response body that provides information about the pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ReadPipelineResponse' value with any optional fields omitted.
 mkReadPipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ReadPipelineResponse
-mkReadPipelineResponse pResponseStatus_ =
+mkReadPipelineResponse responseStatus =
   ReadPipelineResponse'
-    { warnings = Lude.Nothing,
-      pipeline = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { pipeline = Core.Nothing,
+      warnings = Core.Nothing,
+      responseStatus
     }
+
+-- | A section of the response body that provides information about the pipeline.
+--
+-- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsPipeline :: Lens.Lens' ReadPipelineResponse (Core.Maybe Types.Pipeline)
+rrsPipeline = Lens.field @"pipeline"
+{-# DEPRECATED rrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
 --
 -- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 --
 -- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsWarnings :: Lens.Lens' ReadPipelineResponse (Lude.Maybe [Warning])
-rrsWarnings = Lens.lens (warnings :: ReadPipelineResponse -> Lude.Maybe [Warning]) (\s a -> s {warnings = a} :: ReadPipelineResponse)
+rrsWarnings :: Lens.Lens' ReadPipelineResponse (Core.Maybe [Types.Warning])
+rrsWarnings = Lens.field @"warnings"
 {-# DEPRECATED rrsWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
-
--- | A section of the response body that provides information about the pipeline.
---
--- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsPipeline :: Lens.Lens' ReadPipelineResponse (Lude.Maybe Pipeline)
-rrsPipeline = Lens.lens (pipeline :: ReadPipelineResponse -> Lude.Maybe Pipeline) (\s a -> s {pipeline = a} :: ReadPipelineResponse)
-{-# DEPRECATED rrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' ReadPipelineResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: ReadPipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReadPipelineResponse)
+rrsResponseStatus :: Lens.Lens' ReadPipelineResponse Core.Int
+rrsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,13 @@
 -- Provides AWS Marketplace business intelligence data on-demand.
 module Network.AWS.MarketplaceAnalytics
   ( -- * Service configuration
-    marketplaceAnalyticsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** MarketplaceCommerceAnalyticsException
+    _MarketplaceCommerceAnalyticsException,
 
     -- * Waiters
     -- $waiters
@@ -33,21 +35,40 @@ module Network.AWS.MarketplaceAnalytics
 
     -- * Types
 
-    -- ** DataSetType
-    DataSetType (..),
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
 
     -- ** SupportDataSetType
     SupportDataSetType (..),
+
+    -- ** OptionalValue
+    OptionalValue (..),
+
+    -- ** RoleNameArn
+    RoleNameArn (..),
+
+    -- ** DestinationS3Prefix
+    DestinationS3Prefix (..),
+
+    -- ** DataSetType
+    DataSetType (..),
+
+    -- ** DestinationS3BucketName
+    DestinationS3BucketName (..),
+
+    -- ** DataSetRequestId
+    DataSetRequestId (..),
+
+    -- ** OptionalKey
+    OptionalKey (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

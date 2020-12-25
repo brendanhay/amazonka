@@ -31,112 +31,97 @@ module Network.AWS.Firehose.TagDeliveryStream
     mkTagDeliveryStreamResponse,
 
     -- ** Response lenses
-    tdsrsResponseStatus,
+    tdsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagDeliveryStream' smart constructor.
 data TagDeliveryStream = TagDeliveryStream'
   { -- | The name of the delivery stream to which you want to add the tags.
-    deliveryStreamName :: Lude.Text,
+    deliveryStreamName :: Types.DeliveryStreamName,
     -- | A set of key-value pairs to use to create the tags.
-    tags :: Lude.NonEmpty Tag
+    tags :: Core.NonEmpty Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagDeliveryStream' with the minimum fields required to make a request.
---
--- * 'deliveryStreamName' - The name of the delivery stream to which you want to add the tags.
--- * 'tags' - A set of key-value pairs to use to create the tags.
+-- | Creates a 'TagDeliveryStream' value with any optional fields omitted.
 mkTagDeliveryStream ::
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
   -- | 'tags'
-  Lude.NonEmpty Tag ->
+  Core.NonEmpty Types.Tag ->
   TagDeliveryStream
-mkTagDeliveryStream pDeliveryStreamName_ pTags_ =
-  TagDeliveryStream'
-    { deliveryStreamName = pDeliveryStreamName_,
-      tags = pTags_
-    }
+mkTagDeliveryStream deliveryStreamName tags =
+  TagDeliveryStream' {deliveryStreamName, tags}
 
 -- | The name of the delivery stream to which you want to add the tags.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsDeliveryStreamName :: Lens.Lens' TagDeliveryStream Lude.Text
-tdsDeliveryStreamName = Lens.lens (deliveryStreamName :: TagDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: TagDeliveryStream)
+tdsDeliveryStreamName :: Lens.Lens' TagDeliveryStream Types.DeliveryStreamName
+tdsDeliveryStreamName = Lens.field @"deliveryStreamName"
 {-# DEPRECATED tdsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | A set of key-value pairs to use to create the tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsTags :: Lens.Lens' TagDeliveryStream (Lude.NonEmpty Tag)
-tdsTags = Lens.lens (tags :: TagDeliveryStream -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: TagDeliveryStream)
+tdsTags :: Lens.Lens' TagDeliveryStream (Core.NonEmpty Types.Tag)
+tdsTags = Lens.field @"tags"
 {-# DEPRECATED tdsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagDeliveryStream where
+instance Core.FromJSON TagDeliveryStream where
+  toJSON TagDeliveryStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest TagDeliveryStream where
   type Rs TagDeliveryStream = TagDeliveryStreamResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Firehose_20150804.TagDeliveryStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          TagDeliveryStreamResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          TagDeliveryStreamResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TagDeliveryStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.TagDeliveryStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagDeliveryStream where
-  toJSON TagDeliveryStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath TagDeliveryStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagDeliveryStream where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTagDeliveryStreamResponse' smart constructor.
 newtype TagDeliveryStreamResponse = TagDeliveryStreamResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagDeliveryStreamResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagDeliveryStreamResponse' value with any optional fields omitted.
 mkTagDeliveryStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagDeliveryStreamResponse
-mkTagDeliveryStreamResponse pResponseStatus_ =
-  TagDeliveryStreamResponse' {responseStatus = pResponseStatus_}
+mkTagDeliveryStreamResponse responseStatus =
+  TagDeliveryStreamResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsrsResponseStatus :: Lens.Lens' TagDeliveryStreamResponse Lude.Int
-tdsrsResponseStatus = Lens.lens (responseStatus :: TagDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagDeliveryStreamResponse)
-{-# DEPRECATED tdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tdsrrsResponseStatus :: Lens.Lens' TagDeliveryStreamResponse Core.Int
+tdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

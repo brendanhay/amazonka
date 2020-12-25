@@ -13,61 +13,66 @@
 module Network.AWS.ElasticBeanstalk.Types.PlatformStatus
   ( PlatformStatus
       ( PlatformStatus',
-        PSCreating,
-        PSFailed,
-        PSReady,
-        PSDeleting,
-        PSDeleted
+        PlatformStatusCreating,
+        PlatformStatusFailed,
+        PlatformStatusReady,
+        PlatformStatusDeleting,
+        PlatformStatusDeleted,
+        fromPlatformStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PlatformStatus = PlatformStatus' Lude.Text
+newtype PlatformStatus = PlatformStatus'
+  { fromPlatformStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PSCreating :: PlatformStatus
-pattern PSCreating = PlatformStatus' "Creating"
+pattern PlatformStatusCreating :: PlatformStatus
+pattern PlatformStatusCreating = PlatformStatus' "Creating"
 
-pattern PSFailed :: PlatformStatus
-pattern PSFailed = PlatformStatus' "Failed"
+pattern PlatformStatusFailed :: PlatformStatus
+pattern PlatformStatusFailed = PlatformStatus' "Failed"
 
-pattern PSReady :: PlatformStatus
-pattern PSReady = PlatformStatus' "Ready"
+pattern PlatformStatusReady :: PlatformStatus
+pattern PlatformStatusReady = PlatformStatus' "Ready"
 
-pattern PSDeleting :: PlatformStatus
-pattern PSDeleting = PlatformStatus' "Deleting"
+pattern PlatformStatusDeleting :: PlatformStatus
+pattern PlatformStatusDeleting = PlatformStatus' "Deleting"
 
-pattern PSDeleted :: PlatformStatus
-pattern PSDeleted = PlatformStatus' "Deleted"
+pattern PlatformStatusDeleted :: PlatformStatus
+pattern PlatformStatusDeleted = PlatformStatus' "Deleted"
 
 {-# COMPLETE
-  PSCreating,
-  PSFailed,
-  PSReady,
-  PSDeleting,
-  PSDeleted,
+  PlatformStatusCreating,
+  PlatformStatusFailed,
+  PlatformStatusReady,
+  PlatformStatusDeleting,
+  PlatformStatusDeleted,
   PlatformStatus'
   #-}

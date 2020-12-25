@@ -17,72 +17,60 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoDescription
     mkEnvironmentInfoDescription,
 
     -- * Lenses
-    eidSampleTimestamp,
-    eidEC2InstanceId,
+    eidEc2InstanceId,
     eidInfoType,
     eidMessage,
+    eidSampleTimestamp,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType
+import qualified Network.AWS.ElasticBeanstalk.Types.Ec2InstanceId as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
 -- /See:/ 'mkEnvironmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
-  { -- | The time stamp when this information was retrieved.
-    sampleTimestamp :: Lude.Maybe Lude.DateTime,
-    -- | The Amazon EC2 Instance ID for this information.
-    ec2InstanceId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon EC2 Instance ID for this information.
+    ec2InstanceId :: Core.Maybe Types.Ec2InstanceId,
     -- | The type of information retrieved.
-    infoType :: Lude.Maybe EnvironmentInfoType,
+    infoType :: Core.Maybe Types.EnvironmentInfoType,
     -- | The retrieved information. Currently contains a presigned Amazon S3 URL. The files are deleted after 15 minutes.
     --
     -- Anyone in possession of this URL can access the files before they are deleted. Make the URL available only to trusted parties.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message,
+    -- | The time stamp when this information was retrieved.
+    sampleTimestamp :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnvironmentInfoDescription' with the minimum fields required to make a request.
---
--- * 'sampleTimestamp' - The time stamp when this information was retrieved.
--- * 'ec2InstanceId' - The Amazon EC2 Instance ID for this information.
--- * 'infoType' - The type of information retrieved.
--- * 'message' - The retrieved information. Currently contains a presigned Amazon S3 URL. The files are deleted after 15 minutes.
---
--- Anyone in possession of this URL can access the files before they are deleted. Make the URL available only to trusted parties.
+-- | Creates a 'EnvironmentInfoDescription' value with any optional fields omitted.
 mkEnvironmentInfoDescription ::
   EnvironmentInfoDescription
 mkEnvironmentInfoDescription =
   EnvironmentInfoDescription'
-    { sampleTimestamp = Lude.Nothing,
-      ec2InstanceId = Lude.Nothing,
-      infoType = Lude.Nothing,
-      message = Lude.Nothing
+    { ec2InstanceId = Core.Nothing,
+      infoType = Core.Nothing,
+      message = Core.Nothing,
+      sampleTimestamp = Core.Nothing
     }
-
--- | The time stamp when this information was retrieved.
---
--- /Note:/ Consider using 'sampleTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidSampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Lude.Maybe Lude.DateTime)
-eidSampleTimestamp = Lens.lens (sampleTimestamp :: EnvironmentInfoDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {sampleTimestamp = a} :: EnvironmentInfoDescription)
-{-# DEPRECATED eidSampleTimestamp "Use generic-lens or generic-optics with 'sampleTimestamp' instead." #-}
 
 -- | The Amazon EC2 Instance ID for this information.
 --
 -- /Note:/ Consider using 'ec2InstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidEC2InstanceId :: Lens.Lens' EnvironmentInfoDescription (Lude.Maybe Lude.Text)
-eidEC2InstanceId = Lens.lens (ec2InstanceId :: EnvironmentInfoDescription -> Lude.Maybe Lude.Text) (\s a -> s {ec2InstanceId = a} :: EnvironmentInfoDescription)
-{-# DEPRECATED eidEC2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
+eidEc2InstanceId :: Lens.Lens' EnvironmentInfoDescription (Core.Maybe Types.Ec2InstanceId)
+eidEc2InstanceId = Lens.field @"ec2InstanceId"
+{-# DEPRECATED eidEc2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
 
 -- | The type of information retrieved.
 --
 -- /Note:/ Consider using 'infoType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidInfoType :: Lens.Lens' EnvironmentInfoDescription (Lude.Maybe EnvironmentInfoType)
-eidInfoType = Lens.lens (infoType :: EnvironmentInfoDescription -> Lude.Maybe EnvironmentInfoType) (\s a -> s {infoType = a} :: EnvironmentInfoDescription)
+eidInfoType :: Lens.Lens' EnvironmentInfoDescription (Core.Maybe Types.EnvironmentInfoType)
+eidInfoType = Lens.field @"infoType"
 {-# DEPRECATED eidInfoType "Use generic-lens or generic-optics with 'infoType' instead." #-}
 
 -- | The retrieved information. Currently contains a presigned Amazon S3 URL. The files are deleted after 15 minutes.
@@ -90,14 +78,21 @@ eidInfoType = Lens.lens (infoType :: EnvironmentInfoDescription -> Lude.Maybe En
 -- Anyone in possession of this URL can access the files before they are deleted. Make the URL available only to trusted parties.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidMessage :: Lens.Lens' EnvironmentInfoDescription (Lude.Maybe Lude.Text)
-eidMessage = Lens.lens (message :: EnvironmentInfoDescription -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EnvironmentInfoDescription)
+eidMessage :: Lens.Lens' EnvironmentInfoDescription (Core.Maybe Types.Message)
+eidMessage = Lens.field @"message"
 {-# DEPRECATED eidMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML EnvironmentInfoDescription where
+-- | The time stamp when this information was retrieved.
+--
+-- /Note:/ Consider using 'sampleTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eidSampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Core.Maybe Core.UTCTime)
+eidSampleTimestamp = Lens.field @"sampleTimestamp"
+{-# DEPRECATED eidSampleTimestamp "Use generic-lens or generic-optics with 'sampleTimestamp' instead." #-}
+
+instance Core.FromXML EnvironmentInfoDescription where
   parseXML x =
     EnvironmentInfoDescription'
-      Lude.<$> (x Lude..@? "SampleTimestamp")
-      Lude.<*> (x Lude..@? "Ec2InstanceId")
-      Lude.<*> (x Lude..@? "InfoType")
-      Lude.<*> (x Lude..@? "Message")
+      Core.<$> (x Core..@? "Ec2InstanceId")
+      Core.<*> (x Core..@? "InfoType")
+      Core.<*> (x Core..@? "Message")
+      Core.<*> (x Core..@? "SampleTimestamp")

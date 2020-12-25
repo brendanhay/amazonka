@@ -28,115 +28,108 @@ module Network.AWS.KinesisVideo.DescribeSignalingChannel
     mkDescribeSignalingChannelResponse,
 
     -- ** Response lenses
-    dscrsChannelInfo,
-    dscrsResponseStatus,
+    drsChannelInfo,
+    drsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeSignalingChannel' smart constructor.
 data DescribeSignalingChannel = DescribeSignalingChannel'
   { -- | The ARN of the signaling channel that you want to describe.
-    channelARN :: Lude.Maybe Lude.Text,
+    channelARN :: Core.Maybe Types.ResourceARN,
     -- | The name of the signaling channel that you want to describe.
-    channelName :: Lude.Maybe Lude.Text
+    channelName :: Core.Maybe Types.ChannelName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSignalingChannel' with the minimum fields required to make a request.
---
--- * 'channelARN' - The ARN of the signaling channel that you want to describe.
--- * 'channelName' - The name of the signaling channel that you want to describe.
+-- | Creates a 'DescribeSignalingChannel' value with any optional fields omitted.
 mkDescribeSignalingChannel ::
   DescribeSignalingChannel
 mkDescribeSignalingChannel =
   DescribeSignalingChannel'
-    { channelARN = Lude.Nothing,
-      channelName = Lude.Nothing
+    { channelARN = Core.Nothing,
+      channelName = Core.Nothing
     }
 
 -- | The ARN of the signaling channel that you want to describe.
 --
 -- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dChannelARN :: Lens.Lens' DescribeSignalingChannel (Lude.Maybe Lude.Text)
-dChannelARN = Lens.lens (channelARN :: DescribeSignalingChannel -> Lude.Maybe Lude.Text) (\s a -> s {channelARN = a} :: DescribeSignalingChannel)
+dChannelARN :: Lens.Lens' DescribeSignalingChannel (Core.Maybe Types.ResourceARN)
+dChannelARN = Lens.field @"channelARN"
 {-# DEPRECATED dChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
 
 -- | The name of the signaling channel that you want to describe.
 --
 -- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dChannelName :: Lens.Lens' DescribeSignalingChannel (Lude.Maybe Lude.Text)
-dChannelName = Lens.lens (channelName :: DescribeSignalingChannel -> Lude.Maybe Lude.Text) (\s a -> s {channelName = a} :: DescribeSignalingChannel)
+dChannelName :: Lens.Lens' DescribeSignalingChannel (Core.Maybe Types.ChannelName)
+dChannelName = Lens.field @"channelName"
 {-# DEPRECATED dChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
-instance Lude.AWSRequest DescribeSignalingChannel where
-  type Rs DescribeSignalingChannel = DescribeSignalingChannelResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeSignalingChannelResponse'
-            Lude.<$> (x Lude..?> "ChannelInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeSignalingChannel where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DescribeSignalingChannel where
-  toJSON DescribeSignalingChannel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ChannelARN" Lude..=) Lude.<$> channelARN,
-            ("ChannelName" Lude..=) Lude.<$> channelName
+instance Core.FromJSON DescribeSignalingChannel where
+  toJSON DescribeSignalingChannel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ChannelARN" Core..=) Core.<$> channelARN,
+            ("ChannelName" Core..=) Core.<$> channelName
           ]
       )
 
-instance Lude.ToPath DescribeSignalingChannel where
-  toPath = Lude.const "/describeSignalingChannel"
-
-instance Lude.ToQuery DescribeSignalingChannel where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeSignalingChannel where
+  type Rs DescribeSignalingChannel = DescribeSignalingChannelResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/describeSignalingChannel",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeSignalingChannelResponse'
+            Core.<$> (x Core..:? "ChannelInfo") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkDescribeSignalingChannelResponse' smart constructor.
 data DescribeSignalingChannelResponse = DescribeSignalingChannelResponse'
   { -- | A structure that encapsulates the specified signaling channel's metadata and properties.
-    channelInfo :: Lude.Maybe ChannelInfo,
+    channelInfo :: Core.Maybe Types.ChannelInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSignalingChannelResponse' with the minimum fields required to make a request.
---
--- * 'channelInfo' - A structure that encapsulates the specified signaling channel's metadata and properties.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSignalingChannelResponse' value with any optional fields omitted.
 mkDescribeSignalingChannelResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSignalingChannelResponse
-mkDescribeSignalingChannelResponse pResponseStatus_ =
+mkDescribeSignalingChannelResponse responseStatus =
   DescribeSignalingChannelResponse'
-    { channelInfo = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { channelInfo = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that encapsulates the specified signaling channel's metadata and properties.
 --
 -- /Note:/ Consider using 'channelInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsChannelInfo :: Lens.Lens' DescribeSignalingChannelResponse (Lude.Maybe ChannelInfo)
-dscrsChannelInfo = Lens.lens (channelInfo :: DescribeSignalingChannelResponse -> Lude.Maybe ChannelInfo) (\s a -> s {channelInfo = a} :: DescribeSignalingChannelResponse)
-{-# DEPRECATED dscrsChannelInfo "Use generic-lens or generic-optics with 'channelInfo' instead." #-}
+drsChannelInfo :: Lens.Lens' DescribeSignalingChannelResponse (Core.Maybe Types.ChannelInfo)
+drsChannelInfo = Lens.field @"channelInfo"
+{-# DEPRECATED drsChannelInfo "Use generic-lens or generic-optics with 'channelInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DescribeSignalingChannelResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DescribeSignalingChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSignalingChannelResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeSignalingChannelResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

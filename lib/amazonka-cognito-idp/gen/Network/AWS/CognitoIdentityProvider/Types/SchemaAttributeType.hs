@@ -17,110 +17,73 @@ module Network.AWS.CognitoIdentityProvider.Types.SchemaAttributeType
     mkSchemaAttributeType,
 
     -- * Lenses
-    satNumberAttributeConstraints,
-    satRequired,
     satAttributeDataType,
-    satStringAttributeConstraints,
-    satName,
     satDeveloperOnlyAttribute,
     satMutable,
+    satName,
+    satNumberAttributeConstraints,
+    satRequired,
+    satStringAttributeConstraints,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AttributeDataType
-import Network.AWS.CognitoIdentityProvider.Types.NumberAttributeConstraintsType
-import Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AttributeDataType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.Name as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.NumberAttributeConstraintsType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the schema attribute.
 --
 -- /See:/ 'mkSchemaAttributeType' smart constructor.
 data SchemaAttributeType = SchemaAttributeType'
-  { -- | Specifies the constraints for an attribute of the number type.
-    numberAttributeConstraints :: Lude.Maybe NumberAttributeConstraintsType,
-    -- | Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-    required :: Lude.Maybe Lude.Bool,
-    -- | The attribute data type.
-    attributeDataType :: Lude.Maybe AttributeDataType,
-    -- | Specifies the constraints for an attribute of the string type.
-    stringAttributeConstraints :: Lude.Maybe StringAttributeConstraintsType,
-    -- | A schema attribute of the name type.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The attribute data type.
+    attributeDataType :: Core.Maybe Types.AttributeDataType,
     -- | Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.
-    developerOnlyAttribute :: Lude.Maybe Lude.Bool,
+    developerOnlyAttribute :: Core.Maybe Core.Bool,
     -- | Specifies whether the value of the attribute can be changed.
     --
     -- For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
-    mutable :: Lude.Maybe Lude.Bool
+    mutable :: Core.Maybe Core.Bool,
+    -- | A schema attribute of the name type.
+    name :: Core.Maybe Types.Name,
+    -- | Specifies the constraints for an attribute of the number type.
+    numberAttributeConstraints :: Core.Maybe Types.NumberAttributeConstraintsType,
+    -- | Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+    required :: Core.Maybe Core.Bool,
+    -- | Specifies the constraints for an attribute of the string type.
+    stringAttributeConstraints :: Core.Maybe Types.StringAttributeConstraintsType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaAttributeType' with the minimum fields required to make a request.
---
--- * 'numberAttributeConstraints' - Specifies the constraints for an attribute of the number type.
--- * 'required' - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
--- * 'attributeDataType' - The attribute data type.
--- * 'stringAttributeConstraints' - Specifies the constraints for an attribute of the string type.
--- * 'name' - A schema attribute of the name type.
--- * 'developerOnlyAttribute' - Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.
--- * 'mutable' - Specifies whether the value of the attribute can be changed.
---
--- For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
+-- | Creates a 'SchemaAttributeType' value with any optional fields omitted.
 mkSchemaAttributeType ::
   SchemaAttributeType
 mkSchemaAttributeType =
   SchemaAttributeType'
-    { numberAttributeConstraints = Lude.Nothing,
-      required = Lude.Nothing,
-      attributeDataType = Lude.Nothing,
-      stringAttributeConstraints = Lude.Nothing,
-      name = Lude.Nothing,
-      developerOnlyAttribute = Lude.Nothing,
-      mutable = Lude.Nothing
+    { attributeDataType = Core.Nothing,
+      developerOnlyAttribute = Core.Nothing,
+      mutable = Core.Nothing,
+      name = Core.Nothing,
+      numberAttributeConstraints = Core.Nothing,
+      required = Core.Nothing,
+      stringAttributeConstraints = Core.Nothing
     }
-
--- | Specifies the constraints for an attribute of the number type.
---
--- /Note:/ Consider using 'numberAttributeConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satNumberAttributeConstraints :: Lens.Lens' SchemaAttributeType (Lude.Maybe NumberAttributeConstraintsType)
-satNumberAttributeConstraints = Lens.lens (numberAttributeConstraints :: SchemaAttributeType -> Lude.Maybe NumberAttributeConstraintsType) (\s a -> s {numberAttributeConstraints = a} :: SchemaAttributeType)
-{-# DEPRECATED satNumberAttributeConstraints "Use generic-lens or generic-optics with 'numberAttributeConstraints' instead." #-}
-
--- | Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
---
--- /Note:/ Consider using 'required' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satRequired :: Lens.Lens' SchemaAttributeType (Lude.Maybe Lude.Bool)
-satRequired = Lens.lens (required :: SchemaAttributeType -> Lude.Maybe Lude.Bool) (\s a -> s {required = a} :: SchemaAttributeType)
-{-# DEPRECATED satRequired "Use generic-lens or generic-optics with 'required' instead." #-}
 
 -- | The attribute data type.
 --
 -- /Note:/ Consider using 'attributeDataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satAttributeDataType :: Lens.Lens' SchemaAttributeType (Lude.Maybe AttributeDataType)
-satAttributeDataType = Lens.lens (attributeDataType :: SchemaAttributeType -> Lude.Maybe AttributeDataType) (\s a -> s {attributeDataType = a} :: SchemaAttributeType)
+satAttributeDataType :: Lens.Lens' SchemaAttributeType (Core.Maybe Types.AttributeDataType)
+satAttributeDataType = Lens.field @"attributeDataType"
 {-# DEPRECATED satAttributeDataType "Use generic-lens or generic-optics with 'attributeDataType' instead." #-}
-
--- | Specifies the constraints for an attribute of the string type.
---
--- /Note:/ Consider using 'stringAttributeConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satStringAttributeConstraints :: Lens.Lens' SchemaAttributeType (Lude.Maybe StringAttributeConstraintsType)
-satStringAttributeConstraints = Lens.lens (stringAttributeConstraints :: SchemaAttributeType -> Lude.Maybe StringAttributeConstraintsType) (\s a -> s {stringAttributeConstraints = a} :: SchemaAttributeType)
-{-# DEPRECATED satStringAttributeConstraints "Use generic-lens or generic-optics with 'stringAttributeConstraints' instead." #-}
-
--- | A schema attribute of the name type.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satName :: Lens.Lens' SchemaAttributeType (Lude.Maybe Lude.Text)
-satName = Lens.lens (name :: SchemaAttributeType -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SchemaAttributeType)
-{-# DEPRECATED satName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.
 --
 -- /Note:/ Consider using 'developerOnlyAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satDeveloperOnlyAttribute :: Lens.Lens' SchemaAttributeType (Lude.Maybe Lude.Bool)
-satDeveloperOnlyAttribute = Lens.lens (developerOnlyAttribute :: SchemaAttributeType -> Lude.Maybe Lude.Bool) (\s a -> s {developerOnlyAttribute = a} :: SchemaAttributeType)
+satDeveloperOnlyAttribute :: Lens.Lens' SchemaAttributeType (Core.Maybe Core.Bool)
+satDeveloperOnlyAttribute = Lens.field @"developerOnlyAttribute"
 {-# DEPRECATED satDeveloperOnlyAttribute "Use generic-lens or generic-optics with 'developerOnlyAttribute' instead." #-}
 
 -- | Specifies whether the value of the attribute can be changed.
@@ -128,37 +91,63 @@ satDeveloperOnlyAttribute = Lens.lens (developerOnlyAttribute :: SchemaAttribute
 -- For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
 --
 -- /Note:/ Consider using 'mutable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satMutable :: Lens.Lens' SchemaAttributeType (Lude.Maybe Lude.Bool)
-satMutable = Lens.lens (mutable :: SchemaAttributeType -> Lude.Maybe Lude.Bool) (\s a -> s {mutable = a} :: SchemaAttributeType)
+satMutable :: Lens.Lens' SchemaAttributeType (Core.Maybe Core.Bool)
+satMutable = Lens.field @"mutable"
 {-# DEPRECATED satMutable "Use generic-lens or generic-optics with 'mutable' instead." #-}
 
-instance Lude.FromJSON SchemaAttributeType where
-  parseJSON =
-    Lude.withObject
-      "SchemaAttributeType"
-      ( \x ->
-          SchemaAttributeType'
-            Lude.<$> (x Lude..:? "NumberAttributeConstraints")
-            Lude.<*> (x Lude..:? "Required")
-            Lude.<*> (x Lude..:? "AttributeDataType")
-            Lude.<*> (x Lude..:? "StringAttributeConstraints")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "DeveloperOnlyAttribute")
-            Lude.<*> (x Lude..:? "Mutable")
-      )
+-- | A schema attribute of the name type.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satName :: Lens.Lens' SchemaAttributeType (Core.Maybe Types.Name)
+satName = Lens.field @"name"
+{-# DEPRECATED satName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON SchemaAttributeType where
-  toJSON SchemaAttributeType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NumberAttributeConstraints" Lude..=)
-              Lude.<$> numberAttributeConstraints,
-            ("Required" Lude..=) Lude.<$> required,
-            ("AttributeDataType" Lude..=) Lude.<$> attributeDataType,
-            ("StringAttributeConstraints" Lude..=)
-              Lude.<$> stringAttributeConstraints,
-            ("Name" Lude..=) Lude.<$> name,
-            ("DeveloperOnlyAttribute" Lude..=) Lude.<$> developerOnlyAttribute,
-            ("Mutable" Lude..=) Lude.<$> mutable
+-- | Specifies the constraints for an attribute of the number type.
+--
+-- /Note:/ Consider using 'numberAttributeConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satNumberAttributeConstraints :: Lens.Lens' SchemaAttributeType (Core.Maybe Types.NumberAttributeConstraintsType)
+satNumberAttributeConstraints = Lens.field @"numberAttributeConstraints"
+{-# DEPRECATED satNumberAttributeConstraints "Use generic-lens or generic-optics with 'numberAttributeConstraints' instead." #-}
+
+-- | Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+--
+-- /Note:/ Consider using 'required' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satRequired :: Lens.Lens' SchemaAttributeType (Core.Maybe Core.Bool)
+satRequired = Lens.field @"required"
+{-# DEPRECATED satRequired "Use generic-lens or generic-optics with 'required' instead." #-}
+
+-- | Specifies the constraints for an attribute of the string type.
+--
+-- /Note:/ Consider using 'stringAttributeConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satStringAttributeConstraints :: Lens.Lens' SchemaAttributeType (Core.Maybe Types.StringAttributeConstraintsType)
+satStringAttributeConstraints = Lens.field @"stringAttributeConstraints"
+{-# DEPRECATED satStringAttributeConstraints "Use generic-lens or generic-optics with 'stringAttributeConstraints' instead." #-}
+
+instance Core.FromJSON SchemaAttributeType where
+  toJSON SchemaAttributeType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeDataType" Core..=) Core.<$> attributeDataType,
+            ("DeveloperOnlyAttribute" Core..=) Core.<$> developerOnlyAttribute,
+            ("Mutable" Core..=) Core.<$> mutable,
+            ("Name" Core..=) Core.<$> name,
+            ("NumberAttributeConstraints" Core..=)
+              Core.<$> numberAttributeConstraints,
+            ("Required" Core..=) Core.<$> required,
+            ("StringAttributeConstraints" Core..=)
+              Core.<$> stringAttributeConstraints
           ]
       )
+
+instance Core.FromJSON SchemaAttributeType where
+  parseJSON =
+    Core.withObject "SchemaAttributeType" Core.$
+      \x ->
+        SchemaAttributeType'
+          Core.<$> (x Core..:? "AttributeDataType")
+          Core.<*> (x Core..:? "DeveloperOnlyAttribute")
+          Core.<*> (x Core..:? "Mutable")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "NumberAttributeConstraints")
+          Core.<*> (x Core..:? "Required")
+          Core.<*> (x Core..:? "StringAttributeConstraints")

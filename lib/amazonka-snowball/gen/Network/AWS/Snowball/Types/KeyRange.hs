@@ -17,63 +17,59 @@ module Network.AWS.Snowball.Types.KeyRange
     mkKeyRange,
 
     -- * Lenses
-    krEndMarker,
     krBeginMarker,
+    krEndMarker,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.String as Types
 
 -- | Contains a key range. For export jobs, a @S3Resource@ object can have an optional @KeyRange@ value. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 --
 -- /See:/ 'mkKeyRange' smart constructor.
 data KeyRange = KeyRange'
-  { -- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
-    endMarker :: Lude.Maybe Lude.Text,
-    -- | The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
-    beginMarker :: Lude.Maybe Lude.Text
+  { -- | The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
+    beginMarker :: Core.Maybe Types.String,
+    -- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
+    endMarker :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyRange' with the minimum fields required to make a request.
---
--- * 'endMarker' - The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
--- * 'beginMarker' - The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
+-- | Creates a 'KeyRange' value with any optional fields omitted.
 mkKeyRange ::
   KeyRange
 mkKeyRange =
-  KeyRange' {endMarker = Lude.Nothing, beginMarker = Lude.Nothing}
-
--- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
---
--- /Note:/ Consider using 'endMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-krEndMarker :: Lens.Lens' KeyRange (Lude.Maybe Lude.Text)
-krEndMarker = Lens.lens (endMarker :: KeyRange -> Lude.Maybe Lude.Text) (\s a -> s {endMarker = a} :: KeyRange)
-{-# DEPRECATED krEndMarker "Use generic-lens or generic-optics with 'endMarker' instead." #-}
+  KeyRange' {beginMarker = Core.Nothing, endMarker = Core.Nothing}
 
 -- | The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 --
 -- /Note:/ Consider using 'beginMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-krBeginMarker :: Lens.Lens' KeyRange (Lude.Maybe Lude.Text)
-krBeginMarker = Lens.lens (beginMarker :: KeyRange -> Lude.Maybe Lude.Text) (\s a -> s {beginMarker = a} :: KeyRange)
+krBeginMarker :: Lens.Lens' KeyRange (Core.Maybe Types.String)
+krBeginMarker = Lens.field @"beginMarker"
 {-# DEPRECATED krBeginMarker "Use generic-lens or generic-optics with 'beginMarker' instead." #-}
 
-instance Lude.FromJSON KeyRange where
-  parseJSON =
-    Lude.withObject
-      "KeyRange"
-      ( \x ->
-          KeyRange'
-            Lude.<$> (x Lude..:? "EndMarker") Lude.<*> (x Lude..:? "BeginMarker")
-      )
+-- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
+--
+-- /Note:/ Consider using 'endMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+krEndMarker :: Lens.Lens' KeyRange (Core.Maybe Types.String)
+krEndMarker = Lens.field @"endMarker"
+{-# DEPRECATED krEndMarker "Use generic-lens or generic-optics with 'endMarker' instead." #-}
 
-instance Lude.ToJSON KeyRange where
-  toJSON KeyRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EndMarker" Lude..=) Lude.<$> endMarker,
-            ("BeginMarker" Lude..=) Lude.<$> beginMarker
+instance Core.FromJSON KeyRange where
+  toJSON KeyRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BeginMarker" Core..=) Core.<$> beginMarker,
+            ("EndMarker" Core..=) Core.<$> endMarker
           ]
       )
+
+instance Core.FromJSON KeyRange where
+  parseJSON =
+    Core.withObject "KeyRange" Core.$
+      \x ->
+        KeyRange'
+          Core.<$> (x Core..:? "BeginMarker") Core.<*> (x Core..:? "EndMarker")

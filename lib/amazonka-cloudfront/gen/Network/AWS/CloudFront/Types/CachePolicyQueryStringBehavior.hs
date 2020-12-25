@@ -13,56 +13,61 @@
 module Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
   ( CachePolicyQueryStringBehavior
       ( CachePolicyQueryStringBehavior',
-        CPQSBNone,
-        CPQSBWhitelist,
-        CPQSBAllExcept,
-        CPQSBAll
+        CachePolicyQueryStringBehaviorNone,
+        CachePolicyQueryStringBehaviorWhitelist,
+        CachePolicyQueryStringBehaviorAllExcept,
+        CachePolicyQueryStringBehaviorAll,
+        fromCachePolicyQueryStringBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CachePolicyQueryStringBehavior = CachePolicyQueryStringBehavior' Lude.Text
+newtype CachePolicyQueryStringBehavior = CachePolicyQueryStringBehavior'
+  { fromCachePolicyQueryStringBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPQSBNone :: CachePolicyQueryStringBehavior
-pattern CPQSBNone = CachePolicyQueryStringBehavior' "none"
+pattern CachePolicyQueryStringBehaviorNone :: CachePolicyQueryStringBehavior
+pattern CachePolicyQueryStringBehaviorNone = CachePolicyQueryStringBehavior' "none"
 
-pattern CPQSBWhitelist :: CachePolicyQueryStringBehavior
-pattern CPQSBWhitelist = CachePolicyQueryStringBehavior' "whitelist"
+pattern CachePolicyQueryStringBehaviorWhitelist :: CachePolicyQueryStringBehavior
+pattern CachePolicyQueryStringBehaviorWhitelist = CachePolicyQueryStringBehavior' "whitelist"
 
-pattern CPQSBAllExcept :: CachePolicyQueryStringBehavior
-pattern CPQSBAllExcept = CachePolicyQueryStringBehavior' "allExcept"
+pattern CachePolicyQueryStringBehaviorAllExcept :: CachePolicyQueryStringBehavior
+pattern CachePolicyQueryStringBehaviorAllExcept = CachePolicyQueryStringBehavior' "allExcept"
 
-pattern CPQSBAll :: CachePolicyQueryStringBehavior
-pattern CPQSBAll = CachePolicyQueryStringBehavior' "all"
+pattern CachePolicyQueryStringBehaviorAll :: CachePolicyQueryStringBehavior
+pattern CachePolicyQueryStringBehaviorAll = CachePolicyQueryStringBehavior' "all"
 
 {-# COMPLETE
-  CPQSBNone,
-  CPQSBWhitelist,
-  CPQSBAllExcept,
-  CPQSBAll,
+  CachePolicyQueryStringBehaviorNone,
+  CachePolicyQueryStringBehaviorWhitelist,
+  CachePolicyQueryStringBehaviorAllExcept,
+  CachePolicyQueryStringBehaviorAll,
   CachePolicyQueryStringBehavior'
   #-}

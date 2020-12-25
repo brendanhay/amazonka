@@ -22,33 +22,35 @@ module Network.AWS.EC2.DescribeTransitGatewayAttachments
     mkDescribeTransitGatewayAttachments,
 
     -- ** Request lenses
+    dtgaDryRun,
     dtgaFilters,
+    dtgaMaxResults,
     dtgaNextToken,
     dtgaTransitGatewayAttachmentIds,
-    dtgaDryRun,
-    dtgaMaxResults,
 
     -- * Destructuring the response
     DescribeTransitGatewayAttachmentsResponse (..),
     mkDescribeTransitGatewayAttachmentsResponse,
 
     -- ** Response lenses
-    dtgarsNextToken,
-    dtgarsTransitGatewayAttachments,
-    dtgarsResponseStatus,
+    dtgarrsNextToken,
+    dtgarrsTransitGatewayAttachments,
+    dtgarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTransitGatewayAttachments' smart constructor.
 data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
-  { -- | One or more filters. The possible values are:
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | One or more filters. The possible values are:
     --
     --
     --     * @association.state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
@@ -76,65 +78,35 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
     --
     --
     --     * @transit-gateway-owner-id@ - The ID of the AWS account that owns the transit gateway.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The IDs of the attachments.
-    transitGatewayAttachmentIds :: Lude.Maybe [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | The IDs of the attachments.
+    transitGatewayAttachmentIds :: Core.Maybe [Types.TransitGatewayAttachmentId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTransitGatewayAttachments' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters. The possible values are:
---
---
---     * @association.state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
---
---
---     * @association.transit-gateway-route-table-id@ - The ID of the route table for the transit gateway.
---
---
---     * @resource-id@ - The ID of the resource.
---
---
---     * @resource-owner-id@ - The ID of the AWS account that owns the resource.
---
---
---     * @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
---
---
---     * @state@ - The state of the attachment. Valid values are @available@ | @deleted@ | @deleting@ | @failed@ | @failing@ | @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@ | @rollingBack@ | @rejected@ | @rejecting@ .
---
---
---     * @transit-gateway-attachment-id@ - The ID of the attachment.
---
---
---     * @transit-gateway-id@ - The ID of the transit gateway.
---
---
---     * @transit-gateway-owner-id@ - The ID of the AWS account that owns the transit gateway.
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'transitGatewayAttachmentIds' - The IDs of the attachments.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeTransitGatewayAttachments' value with any optional fields omitted.
 mkDescribeTransitGatewayAttachments ::
   DescribeTransitGatewayAttachments
 mkDescribeTransitGatewayAttachments =
   DescribeTransitGatewayAttachments'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      transitGatewayAttachmentIds = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      transitGatewayAttachmentIds = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgaDryRun :: Lens.Lens' DescribeTransitGatewayAttachments (Core.Maybe Core.Bool)
+dtgaDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dtgaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters. The possible values are:
 --
@@ -168,132 +140,126 @@ mkDescribeTransitGatewayAttachments =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgaFilters :: Lens.Lens' DescribeTransitGatewayAttachments (Lude.Maybe [Filter])
-dtgaFilters = Lens.lens (filters :: DescribeTransitGatewayAttachments -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTransitGatewayAttachments)
+dtgaFilters :: Lens.Lens' DescribeTransitGatewayAttachments (Core.Maybe [Types.Filter])
+dtgaFilters = Lens.field @"filters"
 {-# DEPRECATED dtgaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgaMaxResults :: Lens.Lens' DescribeTransitGatewayAttachments (Core.Maybe Core.Natural)
+dtgaMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dtgaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The token for the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgaNextToken :: Lens.Lens' DescribeTransitGatewayAttachments (Lude.Maybe Lude.Text)
-dtgaNextToken = Lens.lens (nextToken :: DescribeTransitGatewayAttachments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayAttachments)
+dtgaNextToken :: Lens.Lens' DescribeTransitGatewayAttachments (Core.Maybe Types.String)
+dtgaNextToken = Lens.field @"nextToken"
 {-# DEPRECATED dtgaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The IDs of the attachments.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgaTransitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayAttachments (Lude.Maybe [Lude.Text])
-dtgaTransitGatewayAttachmentIds = Lens.lens (transitGatewayAttachmentIds :: DescribeTransitGatewayAttachments -> Lude.Maybe [Lude.Text]) (\s a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayAttachments)
+dtgaTransitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayAttachments (Core.Maybe [Types.TransitGatewayAttachmentId])
+dtgaTransitGatewayAttachmentIds = Lens.field @"transitGatewayAttachmentIds"
 {-# DEPRECATED dtgaTransitGatewayAttachmentIds "Use generic-lens or generic-optics with 'transitGatewayAttachmentIds' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgaDryRun :: Lens.Lens' DescribeTransitGatewayAttachments (Lude.Maybe Lude.Bool)
-dtgaDryRun = Lens.lens (dryRun :: DescribeTransitGatewayAttachments -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeTransitGatewayAttachments)
-{-# DEPRECATED dtgaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgaMaxResults :: Lens.Lens' DescribeTransitGatewayAttachments (Lude.Maybe Lude.Natural)
-dtgaMaxResults = Lens.lens (maxResults :: DescribeTransitGatewayAttachments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTransitGatewayAttachments)
-{-# DEPRECATED dtgaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager DescribeTransitGatewayAttachments where
-  page rq rs
-    | Page.stop (rs Lens.^. dtgarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtgarsTransitGatewayAttachments) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dtgaNextToken Lens..~ rs Lens.^. dtgarsNextToken
-
-instance Lude.AWSRequest DescribeTransitGatewayAttachments where
+instance Core.AWSRequest DescribeTransitGatewayAttachments where
   type
     Rs DescribeTransitGatewayAttachments =
       DescribeTransitGatewayAttachmentsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeTransitGatewayAttachments")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "TransitGatewayAttachmentIds"
+                            Core.<$> transitGatewayAttachmentIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayAttachmentsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "transitGatewayAttachments" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "transitGatewayAttachments"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTransitGatewayAttachments where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeTransitGatewayAttachments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTransitGatewayAttachments where
-  toQuery DescribeTransitGatewayAttachments' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeTransitGatewayAttachments" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        Lude.toQuery
-          ( Lude.toQueryList "TransitGatewayAttachmentIds"
-              Lude.<$> transitGatewayAttachmentIds
-          ),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeTransitGatewayAttachments where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"transitGatewayAttachments" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeTransitGatewayAttachmentsResponse' smart constructor.
 data DescribeTransitGatewayAttachmentsResponse = DescribeTransitGatewayAttachmentsResponse'
   { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | Information about the attachments.
-    transitGatewayAttachments :: Lude.Maybe [TransitGatewayAttachment],
+    transitGatewayAttachments :: Core.Maybe [Types.TransitGatewayAttachment],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTransitGatewayAttachmentsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'transitGatewayAttachments' - Information about the attachments.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTransitGatewayAttachmentsResponse' value with any optional fields omitted.
 mkDescribeTransitGatewayAttachmentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTransitGatewayAttachmentsResponse
-mkDescribeTransitGatewayAttachmentsResponse pResponseStatus_ =
+mkDescribeTransitGatewayAttachmentsResponse responseStatus =
   DescribeTransitGatewayAttachmentsResponse'
     { nextToken =
-        Lude.Nothing,
-      transitGatewayAttachments = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      transitGatewayAttachments = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgarsNextToken :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse (Lude.Maybe Lude.Text)
-dtgarsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayAttachmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayAttachmentsResponse)
-{-# DEPRECATED dtgarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtgarrsNextToken :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse (Core.Maybe Types.String)
+dtgarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtgarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the attachments.
 --
 -- /Note:/ Consider using 'transitGatewayAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgarsTransitGatewayAttachments :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse (Lude.Maybe [TransitGatewayAttachment])
-dtgarsTransitGatewayAttachments = Lens.lens (transitGatewayAttachments :: DescribeTransitGatewayAttachmentsResponse -> Lude.Maybe [TransitGatewayAttachment]) (\s a -> s {transitGatewayAttachments = a} :: DescribeTransitGatewayAttachmentsResponse)
-{-# DEPRECATED dtgarsTransitGatewayAttachments "Use generic-lens or generic-optics with 'transitGatewayAttachments' instead." #-}
+dtgarrsTransitGatewayAttachments :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse (Core.Maybe [Types.TransitGatewayAttachment])
+dtgarrsTransitGatewayAttachments = Lens.field @"transitGatewayAttachments"
+{-# DEPRECATED dtgarrsTransitGatewayAttachments "Use generic-lens or generic-optics with 'transitGatewayAttachments' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgarsResponseStatus :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse Lude.Int
-dtgarsResponseStatus = Lens.lens (responseStatus :: DescribeTransitGatewayAttachmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTransitGatewayAttachmentsResponse)
-{-# DEPRECATED dtgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgarrsResponseStatus :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse Core.Int
+dtgarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

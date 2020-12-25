@@ -24,52 +24,53 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     mkGetAccountPasswordPolicyResponse,
 
     -- ** Response lenses
-    gapprsPasswordPolicy,
-    gapprsResponseStatus,
+    gapprrsPasswordPolicy,
+    gapprrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAccountPasswordPolicy' smart constructor.
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccountPasswordPolicy' with the minimum fields required to make a request.
+-- | Creates a 'GetAccountPasswordPolicy' value with any optional fields omitted.
 mkGetAccountPasswordPolicy ::
   GetAccountPasswordPolicy
 mkGetAccountPasswordPolicy = GetAccountPasswordPolicy'
 
-instance Lude.AWSRequest GetAccountPasswordPolicy where
+instance Core.AWSRequest GetAccountPasswordPolicy where
   type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
-  request = Req.postQuery iamService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetAccountPasswordPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetAccountPasswordPolicyResult"
       ( \s h x ->
           GetAccountPasswordPolicyResponse'
-            Lude.<$> (x Lude..@ "PasswordPolicy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetAccountPasswordPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetAccountPasswordPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAccountPasswordPolicy where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("GetAccountPasswordPolicy" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@ "PasswordPolicy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Contains the response to a successful 'GetAccountPasswordPolicy' request.
@@ -77,42 +78,33 @@ instance Lude.ToQuery GetAccountPasswordPolicy where
 -- /See:/ 'mkGetAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
   { -- | A structure that contains details about the account's password policy.
-    passwordPolicy :: PasswordPolicy,
+    passwordPolicy :: Types.PasswordPolicy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccountPasswordPolicyResponse' with the minimum fields required to make a request.
---
--- * 'passwordPolicy' - A structure that contains details about the account's password policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAccountPasswordPolicyResponse' value with any optional fields omitted.
 mkGetAccountPasswordPolicyResponse ::
   -- | 'passwordPolicy'
-  PasswordPolicy ->
+  Types.PasswordPolicy ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAccountPasswordPolicyResponse
-mkGetAccountPasswordPolicyResponse
-  pPasswordPolicy_
-  pResponseStatus_ =
-    GetAccountPasswordPolicyResponse'
-      { passwordPolicy =
-          pPasswordPolicy_,
-        responseStatus = pResponseStatus_
-      }
+mkGetAccountPasswordPolicyResponse passwordPolicy responseStatus =
+  GetAccountPasswordPolicyResponse' {passwordPolicy, responseStatus}
 
 -- | A structure that contains details about the account's password policy.
 --
 -- /Note:/ Consider using 'passwordPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gapprsPasswordPolicy :: Lens.Lens' GetAccountPasswordPolicyResponse PasswordPolicy
-gapprsPasswordPolicy = Lens.lens (passwordPolicy :: GetAccountPasswordPolicyResponse -> PasswordPolicy) (\s a -> s {passwordPolicy = a} :: GetAccountPasswordPolicyResponse)
-{-# DEPRECATED gapprsPasswordPolicy "Use generic-lens or generic-optics with 'passwordPolicy' instead." #-}
+gapprrsPasswordPolicy :: Lens.Lens' GetAccountPasswordPolicyResponse Types.PasswordPolicy
+gapprrsPasswordPolicy = Lens.field @"passwordPolicy"
+{-# DEPRECATED gapprrsPasswordPolicy "Use generic-lens or generic-optics with 'passwordPolicy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gapprsResponseStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Lude.Int
-gapprsResponseStatus = Lens.lens (responseStatus :: GetAccountPasswordPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountPasswordPolicyResponse)
-{-# DEPRECATED gapprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gapprrsResponseStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Core.Int
+gapprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gapprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

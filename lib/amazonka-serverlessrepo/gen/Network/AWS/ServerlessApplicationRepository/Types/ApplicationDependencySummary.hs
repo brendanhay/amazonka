@@ -17,62 +17,53 @@ module Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySu
     mkApplicationDependencySummary,
 
     -- * Lenses
-    adsSemanticVersion,
     adsApplicationId,
+    adsSemanticVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A nested application summary.
 --
 -- /See:/ 'mkApplicationDependencySummary' smart constructor.
 data ApplicationDependencySummary = ApplicationDependencySummary'
-  { -- | The semantic version of the nested application.
-    semanticVersion :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the nested application.
-    applicationId :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the nested application.
+    applicationId :: Core.Text,
+    -- | The semantic version of the nested application.
+    semanticVersion :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationDependencySummary' with the minimum fields required to make a request.
---
--- * 'semanticVersion' - The semantic version of the nested application.
--- * 'applicationId' - The Amazon Resource Name (ARN) of the nested application.
+-- | Creates a 'ApplicationDependencySummary' value with any optional fields omitted.
 mkApplicationDependencySummary ::
-  -- | 'semanticVersion'
-  Lude.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'semanticVersion'
+  Core.Text ->
   ApplicationDependencySummary
-mkApplicationDependencySummary pSemanticVersion_ pApplicationId_ =
-  ApplicationDependencySummary'
-    { semanticVersion =
-        pSemanticVersion_,
-      applicationId = pApplicationId_
-    }
-
--- | The semantic version of the nested application.
---
--- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsSemanticVersion :: Lens.Lens' ApplicationDependencySummary Lude.Text
-adsSemanticVersion = Lens.lens (semanticVersion :: ApplicationDependencySummary -> Lude.Text) (\s a -> s {semanticVersion = a} :: ApplicationDependencySummary)
-{-# DEPRECATED adsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
+mkApplicationDependencySummary applicationId semanticVersion =
+  ApplicationDependencySummary' {applicationId, semanticVersion}
 
 -- | The Amazon Resource Name (ARN) of the nested application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsApplicationId :: Lens.Lens' ApplicationDependencySummary Lude.Text
-adsApplicationId = Lens.lens (applicationId :: ApplicationDependencySummary -> Lude.Text) (\s a -> s {applicationId = a} :: ApplicationDependencySummary)
+adsApplicationId :: Lens.Lens' ApplicationDependencySummary Core.Text
+adsApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED adsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.FromJSON ApplicationDependencySummary where
+-- | The semantic version of the nested application.
+--
+-- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adsSemanticVersion :: Lens.Lens' ApplicationDependencySummary Core.Text
+adsSemanticVersion = Lens.field @"semanticVersion"
+{-# DEPRECATED adsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
+
+instance Core.FromJSON ApplicationDependencySummary where
   parseJSON =
-    Lude.withObject
-      "ApplicationDependencySummary"
-      ( \x ->
-          ApplicationDependencySummary'
-            Lude.<$> (x Lude..: "semanticVersion") Lude.<*> (x Lude..: "applicationId")
-      )
+    Core.withObject "ApplicationDependencySummary" Core.$
+      \x ->
+        ApplicationDependencySummary'
+          Core.<$> (x Core..: "applicationId") Core.<*> (x Core..: "semanticVersion")

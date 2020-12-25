@@ -17,83 +17,78 @@ module Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria
     mkAutoMLJobCompletionCriteria,
 
     -- * Lenses
+    amljccMaxAutoMLJobRuntimeInSeconds,
     amljccMaxCandidates,
     amljccMaxRuntimePerTrainingJobInSeconds,
-    amljccMaxAutoMLJobRuntimeInSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | How long a job is allowed to run, or how many candidates a job is allowed to generate.
 --
 -- /See:/ 'mkAutoMLJobCompletionCriteria' smart constructor.
 data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
-  { -- | The maximum number of times a training job is allowed to run.
-    maxCandidates :: Lude.Maybe Lude.Natural,
+  { -- | The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
+    maxAutoMLJobRuntimeInSeconds :: Core.Maybe Core.Natural,
+    -- | The maximum number of times a training job is allowed to run.
+    maxCandidates :: Core.Maybe Core.Natural,
     -- | The maximum time, in seconds, a job is allowed to run.
-    maxRuntimePerTrainingJobInSeconds :: Lude.Maybe Lude.Natural,
-    -- | The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
-    maxAutoMLJobRuntimeInSeconds :: Lude.Maybe Lude.Natural
+    maxRuntimePerTrainingJobInSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLJobCompletionCriteria' with the minimum fields required to make a request.
---
--- * 'maxCandidates' - The maximum number of times a training job is allowed to run.
--- * 'maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, a job is allowed to run.
--- * 'maxAutoMLJobRuntimeInSeconds' - The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
+-- | Creates a 'AutoMLJobCompletionCriteria' value with any optional fields omitted.
 mkAutoMLJobCompletionCriteria ::
   AutoMLJobCompletionCriteria
 mkAutoMLJobCompletionCriteria =
   AutoMLJobCompletionCriteria'
-    { maxCandidates = Lude.Nothing,
-      maxRuntimePerTrainingJobInSeconds = Lude.Nothing,
-      maxAutoMLJobRuntimeInSeconds = Lude.Nothing
+    { maxAutoMLJobRuntimeInSeconds =
+        Core.Nothing,
+      maxCandidates = Core.Nothing,
+      maxRuntimePerTrainingJobInSeconds = Core.Nothing
     }
+
+-- | The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
+--
+-- /Note:/ Consider using 'maxAutoMLJobRuntimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljccMaxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Core.Maybe Core.Natural)
+amljccMaxAutoMLJobRuntimeInSeconds = Lens.field @"maxAutoMLJobRuntimeInSeconds"
+{-# DEPRECATED amljccMaxAutoMLJobRuntimeInSeconds "Use generic-lens or generic-optics with 'maxAutoMLJobRuntimeInSeconds' instead." #-}
 
 -- | The maximum number of times a training job is allowed to run.
 --
 -- /Note:/ Consider using 'maxCandidates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljccMaxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Lude.Maybe Lude.Natural)
-amljccMaxCandidates = Lens.lens (maxCandidates :: AutoMLJobCompletionCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {maxCandidates = a} :: AutoMLJobCompletionCriteria)
+amljccMaxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Core.Maybe Core.Natural)
+amljccMaxCandidates = Lens.field @"maxCandidates"
 {-# DEPRECATED amljccMaxCandidates "Use generic-lens or generic-optics with 'maxCandidates' instead." #-}
 
 -- | The maximum time, in seconds, a job is allowed to run.
 --
 -- /Note:/ Consider using 'maxRuntimePerTrainingJobInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljccMaxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Lude.Maybe Lude.Natural)
-amljccMaxRuntimePerTrainingJobInSeconds = Lens.lens (maxRuntimePerTrainingJobInSeconds :: AutoMLJobCompletionCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
+amljccMaxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Core.Maybe Core.Natural)
+amljccMaxRuntimePerTrainingJobInSeconds = Lens.field @"maxRuntimePerTrainingJobInSeconds"
 {-# DEPRECATED amljccMaxRuntimePerTrainingJobInSeconds "Use generic-lens or generic-optics with 'maxRuntimePerTrainingJobInSeconds' instead." #-}
 
--- | The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
---
--- /Note:/ Consider using 'maxAutoMLJobRuntimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljccMaxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Lude.Maybe Lude.Natural)
-amljccMaxAutoMLJobRuntimeInSeconds = Lens.lens (maxAutoMLJobRuntimeInSeconds :: AutoMLJobCompletionCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {maxAutoMLJobRuntimeInSeconds = a} :: AutoMLJobCompletionCriteria)
-{-# DEPRECATED amljccMaxAutoMLJobRuntimeInSeconds "Use generic-lens or generic-optics with 'maxAutoMLJobRuntimeInSeconds' instead." #-}
-
-instance Lude.FromJSON AutoMLJobCompletionCriteria where
-  parseJSON =
-    Lude.withObject
-      "AutoMLJobCompletionCriteria"
-      ( \x ->
-          AutoMLJobCompletionCriteria'
-            Lude.<$> (x Lude..:? "MaxCandidates")
-            Lude.<*> (x Lude..:? "MaxRuntimePerTrainingJobInSeconds")
-            Lude.<*> (x Lude..:? "MaxAutoMLJobRuntimeInSeconds")
-      )
-
-instance Lude.ToJSON AutoMLJobCompletionCriteria where
-  toJSON AutoMLJobCompletionCriteria' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxCandidates" Lude..=) Lude.<$> maxCandidates,
-            ("MaxRuntimePerTrainingJobInSeconds" Lude..=)
-              Lude.<$> maxRuntimePerTrainingJobInSeconds,
-            ("MaxAutoMLJobRuntimeInSeconds" Lude..=)
-              Lude.<$> maxAutoMLJobRuntimeInSeconds
+instance Core.FromJSON AutoMLJobCompletionCriteria where
+  toJSON AutoMLJobCompletionCriteria {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxAutoMLJobRuntimeInSeconds" Core..=)
+              Core.<$> maxAutoMLJobRuntimeInSeconds,
+            ("MaxCandidates" Core..=) Core.<$> maxCandidates,
+            ("MaxRuntimePerTrainingJobInSeconds" Core..=)
+              Core.<$> maxRuntimePerTrainingJobInSeconds
           ]
       )
+
+instance Core.FromJSON AutoMLJobCompletionCriteria where
+  parseJSON =
+    Core.withObject "AutoMLJobCompletionCriteria" Core.$
+      \x ->
+        AutoMLJobCompletionCriteria'
+          Core.<$> (x Core..:? "MaxAutoMLJobRuntimeInSeconds")
+          Core.<*> (x Core..:? "MaxCandidates")
+          Core.<*> (x Core..:? "MaxRuntimePerTrainingJobInSeconds")

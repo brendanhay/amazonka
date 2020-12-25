@@ -13,51 +13,56 @@
 module Network.AWS.AWSHealth.Types.EventScopeCode
   ( EventScopeCode
       ( EventScopeCode',
-        Public,
-        AccountSpecific,
-        None
+        EventScopeCodePublic,
+        EventScopeCodeAccountSpecific,
+        EventScopeCodeNone,
+        fromEventScopeCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventScopeCode = EventScopeCode' Lude.Text
+newtype EventScopeCode = EventScopeCode'
+  { fromEventScopeCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Public :: EventScopeCode
-pattern Public = EventScopeCode' "PUBLIC"
+pattern EventScopeCodePublic :: EventScopeCode
+pattern EventScopeCodePublic = EventScopeCode' "PUBLIC"
 
-pattern AccountSpecific :: EventScopeCode
-pattern AccountSpecific = EventScopeCode' "ACCOUNT_SPECIFIC"
+pattern EventScopeCodeAccountSpecific :: EventScopeCode
+pattern EventScopeCodeAccountSpecific = EventScopeCode' "ACCOUNT_SPECIFIC"
 
-pattern None :: EventScopeCode
-pattern None = EventScopeCode' "NONE"
+pattern EventScopeCodeNone :: EventScopeCode
+pattern EventScopeCodeNone = EventScopeCode' "NONE"
 
 {-# COMPLETE
-  Public,
-  AccountSpecific,
-  None,
+  EventScopeCodePublic,
+  EventScopeCodeAccountSpecific,
+  EventScopeCodeNone,
   EventScopeCode'
   #-}

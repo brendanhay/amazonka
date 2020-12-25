@@ -36,152 +36,138 @@ module Network.AWS.S3.GetBucketWebsite
     mkGetBucketWebsiteResponse,
 
     -- ** Response lenses
-    gbwrsRedirectAllRequestsTo,
-    gbwrsErrorDocument,
-    gbwrsIndexDocument,
-    gbwrsRoutingRules,
-    gbwrsResponseStatus,
+    gbwrrsErrorDocument,
+    gbwrrsIndexDocument,
+    gbwrrsRedirectAllRequestsTo,
+    gbwrrsRoutingRules,
+    gbwrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketWebsite' smart constructor.
 data GetBucketWebsite = GetBucketWebsite'
   { -- | The bucket name for which to get the website configuration.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketWebsite' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name for which to get the website configuration.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketWebsite' value with any optional fields omitted.
 mkGetBucketWebsite ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketWebsite
-mkGetBucketWebsite pBucket_ =
-  GetBucketWebsite'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkGetBucketWebsite bucket =
+  GetBucketWebsite' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name for which to get the website configuration.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwBucket :: Lens.Lens' GetBucketWebsite BucketName
-gbwBucket = Lens.lens (bucket :: GetBucketWebsite -> BucketName) (\s a -> s {bucket = a} :: GetBucketWebsite)
+gbwBucket :: Lens.Lens' GetBucketWebsite Types.BucketName
+gbwBucket = Lens.field @"bucket"
 {-# DEPRECATED gbwBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwExpectedBucketOwner :: Lens.Lens' GetBucketWebsite (Lude.Maybe Lude.Text)
-gbwExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketWebsite -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketWebsite)
+gbwExpectedBucketOwner :: Lens.Lens' GetBucketWebsite (Core.Maybe Types.ExpectedBucketOwner)
+gbwExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbwExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketWebsite where
+instance Core.AWSRequest GetBucketWebsite where
   type Rs GetBucketWebsite = GetBucketWebsiteResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("website", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketWebsiteResponse'
-            Lude.<$> (x Lude..@? "RedirectAllRequestsTo")
-            Lude.<*> (x Lude..@? "ErrorDocument")
-            Lude.<*> (x Lude..@? "IndexDocument")
-            Lude.<*> ( x Lude..@? "RoutingRules" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "RoutingRule")
+            Core.<$> (x Core..@? "ErrorDocument")
+            Core.<*> (x Core..@? "IndexDocument")
+            Core.<*> (x Core..@? "RedirectAllRequestsTo")
+            Core.<*> ( x Core..@? "RoutingRules"
+                         Core..<@> Core.parseXMLList "RoutingRule"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketWebsite where
-  toHeaders GetBucketWebsite' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketWebsite where
-  toPath GetBucketWebsite' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketWebsite where
-  toQuery = Lude.const (Lude.mconcat ["website"])
 
 -- | /See:/ 'mkGetBucketWebsiteResponse' smart constructor.
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-  { -- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
-    redirectAllRequestsTo :: Lude.Maybe RedirectAllRequestsTo,
-    -- | The object key name of the website error document to use for 4XX class errors.
-    errorDocument :: Lude.Maybe ErrorDocument,
+  { -- | The object key name of the website error document to use for 4XX class errors.
+    errorDocument :: Core.Maybe Types.ErrorDocument,
     -- | The name of the index document for the website (for example @index.html@ ).
-    indexDocument :: Lude.Maybe IndexDocument,
+    indexDocument :: Core.Maybe Types.IndexDocument,
+    -- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+    redirectAllRequestsTo :: Core.Maybe Types.RedirectAllRequestsTo,
     -- | Rules that define when a redirect is applied and the redirect behavior.
-    routingRules :: Lude.Maybe [RoutingRule],
+    routingRules :: Core.Maybe [Types.RoutingRule],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketWebsiteResponse' with the minimum fields required to make a request.
---
--- * 'redirectAllRequestsTo' - Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
--- * 'errorDocument' - The object key name of the website error document to use for 4XX class errors.
--- * 'indexDocument' - The name of the index document for the website (for example @index.html@ ).
--- * 'routingRules' - Rules that define when a redirect is applied and the redirect behavior.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketWebsiteResponse' value with any optional fields omitted.
 mkGetBucketWebsiteResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketWebsiteResponse
-mkGetBucketWebsiteResponse pResponseStatus_ =
+mkGetBucketWebsiteResponse responseStatus =
   GetBucketWebsiteResponse'
-    { redirectAllRequestsTo = Lude.Nothing,
-      errorDocument = Lude.Nothing,
-      indexDocument = Lude.Nothing,
-      routingRules = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { errorDocument = Core.Nothing,
+      indexDocument = Core.Nothing,
+      redirectAllRequestsTo = Core.Nothing,
+      routingRules = Core.Nothing,
+      responseStatus
     }
-
--- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
---
--- /Note:/ Consider using 'redirectAllRequestsTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwrsRedirectAllRequestsTo :: Lens.Lens' GetBucketWebsiteResponse (Lude.Maybe RedirectAllRequestsTo)
-gbwrsRedirectAllRequestsTo = Lens.lens (redirectAllRequestsTo :: GetBucketWebsiteResponse -> Lude.Maybe RedirectAllRequestsTo) (\s a -> s {redirectAllRequestsTo = a} :: GetBucketWebsiteResponse)
-{-# DEPRECATED gbwrsRedirectAllRequestsTo "Use generic-lens or generic-optics with 'redirectAllRequestsTo' instead." #-}
 
 -- | The object key name of the website error document to use for 4XX class errors.
 --
 -- /Note:/ Consider using 'errorDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwrsErrorDocument :: Lens.Lens' GetBucketWebsiteResponse (Lude.Maybe ErrorDocument)
-gbwrsErrorDocument = Lens.lens (errorDocument :: GetBucketWebsiteResponse -> Lude.Maybe ErrorDocument) (\s a -> s {errorDocument = a} :: GetBucketWebsiteResponse)
-{-# DEPRECATED gbwrsErrorDocument "Use generic-lens or generic-optics with 'errorDocument' instead." #-}
+gbwrrsErrorDocument :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe Types.ErrorDocument)
+gbwrrsErrorDocument = Lens.field @"errorDocument"
+{-# DEPRECATED gbwrrsErrorDocument "Use generic-lens or generic-optics with 'errorDocument' instead." #-}
 
 -- | The name of the index document for the website (for example @index.html@ ).
 --
 -- /Note:/ Consider using 'indexDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwrsIndexDocument :: Lens.Lens' GetBucketWebsiteResponse (Lude.Maybe IndexDocument)
-gbwrsIndexDocument = Lens.lens (indexDocument :: GetBucketWebsiteResponse -> Lude.Maybe IndexDocument) (\s a -> s {indexDocument = a} :: GetBucketWebsiteResponse)
-{-# DEPRECATED gbwrsIndexDocument "Use generic-lens or generic-optics with 'indexDocument' instead." #-}
+gbwrrsIndexDocument :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe Types.IndexDocument)
+gbwrrsIndexDocument = Lens.field @"indexDocument"
+{-# DEPRECATED gbwrrsIndexDocument "Use generic-lens or generic-optics with 'indexDocument' instead." #-}
+
+-- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+--
+-- /Note:/ Consider using 'redirectAllRequestsTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbwrrsRedirectAllRequestsTo :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe Types.RedirectAllRequestsTo)
+gbwrrsRedirectAllRequestsTo = Lens.field @"redirectAllRequestsTo"
+{-# DEPRECATED gbwrrsRedirectAllRequestsTo "Use generic-lens or generic-optics with 'redirectAllRequestsTo' instead." #-}
 
 -- | Rules that define when a redirect is applied and the redirect behavior.
 --
 -- /Note:/ Consider using 'routingRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwrsRoutingRules :: Lens.Lens' GetBucketWebsiteResponse (Lude.Maybe [RoutingRule])
-gbwrsRoutingRules = Lens.lens (routingRules :: GetBucketWebsiteResponse -> Lude.Maybe [RoutingRule]) (\s a -> s {routingRules = a} :: GetBucketWebsiteResponse)
-{-# DEPRECATED gbwrsRoutingRules "Use generic-lens or generic-optics with 'routingRules' instead." #-}
+gbwrrsRoutingRules :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe [Types.RoutingRule])
+gbwrrsRoutingRules = Lens.field @"routingRules"
+{-# DEPRECATED gbwrrsRoutingRules "Use generic-lens or generic-optics with 'routingRules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwrsResponseStatus :: Lens.Lens' GetBucketWebsiteResponse Lude.Int
-gbwrsResponseStatus = Lens.lens (responseStatus :: GetBucketWebsiteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketWebsiteResponse)
-{-# DEPRECATED gbwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbwrrsResponseStatus :: Lens.Lens' GetBucketWebsiteResponse Core.Int
+gbwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

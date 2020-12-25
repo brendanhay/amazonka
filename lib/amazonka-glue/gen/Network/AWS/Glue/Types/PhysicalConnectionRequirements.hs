@@ -17,82 +17,78 @@ module Network.AWS.Glue.Types.PhysicalConnectionRequirements
     mkPhysicalConnectionRequirements,
 
     -- * Lenses
+    pcrAvailabilityZone,
     pcrSecurityGroupIdList,
     pcrSubnetId,
-    pcrAvailabilityZone,
   )
 where
 
+import qualified Network.AWS.Glue.Types.AvailabilityZone as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
+import qualified Network.AWS.Glue.Types.SubnetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the physical requirements for a connection.
 --
 -- /See:/ 'mkPhysicalConnectionRequirements' smart constructor.
 data PhysicalConnectionRequirements = PhysicalConnectionRequirements'
-  { -- | The security group ID list used by the connection.
-    securityGroupIdList :: Lude.Maybe [Lude.Text],
+  { -- | The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
+    availabilityZone :: Core.Maybe Types.AvailabilityZone,
+    -- | The security group ID list used by the connection.
+    securityGroupIdList :: Core.Maybe [Types.NameString],
     -- | The subnet ID used by the connection.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
-    availabilityZone :: Lude.Maybe Lude.Text
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PhysicalConnectionRequirements' with the minimum fields required to make a request.
---
--- * 'securityGroupIdList' - The security group ID list used by the connection.
--- * 'subnetId' - The subnet ID used by the connection.
--- * 'availabilityZone' - The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
+-- | Creates a 'PhysicalConnectionRequirements' value with any optional fields omitted.
 mkPhysicalConnectionRequirements ::
   PhysicalConnectionRequirements
 mkPhysicalConnectionRequirements =
   PhysicalConnectionRequirements'
-    { securityGroupIdList =
-        Lude.Nothing,
-      subnetId = Lude.Nothing,
-      availabilityZone = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      securityGroupIdList = Core.Nothing,
+      subnetId = Core.Nothing
     }
+
+-- | The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrAvailabilityZone :: Lens.Lens' PhysicalConnectionRequirements (Core.Maybe Types.AvailabilityZone)
+pcrAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED pcrAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The security group ID list used by the connection.
 --
 -- /Note:/ Consider using 'securityGroupIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrSecurityGroupIdList :: Lens.Lens' PhysicalConnectionRequirements (Lude.Maybe [Lude.Text])
-pcrSecurityGroupIdList = Lens.lens (securityGroupIdList :: PhysicalConnectionRequirements -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIdList = a} :: PhysicalConnectionRequirements)
+pcrSecurityGroupIdList :: Lens.Lens' PhysicalConnectionRequirements (Core.Maybe [Types.NameString])
+pcrSecurityGroupIdList = Lens.field @"securityGroupIdList"
 {-# DEPRECATED pcrSecurityGroupIdList "Use generic-lens or generic-optics with 'securityGroupIdList' instead." #-}
 
 -- | The subnet ID used by the connection.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrSubnetId :: Lens.Lens' PhysicalConnectionRequirements (Lude.Maybe Lude.Text)
-pcrSubnetId = Lens.lens (subnetId :: PhysicalConnectionRequirements -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: PhysicalConnectionRequirements)
+pcrSubnetId :: Lens.Lens' PhysicalConnectionRequirements (Core.Maybe Types.SubnetId)
+pcrSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED pcrSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
--- | The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrAvailabilityZone :: Lens.Lens' PhysicalConnectionRequirements (Lude.Maybe Lude.Text)
-pcrAvailabilityZone = Lens.lens (availabilityZone :: PhysicalConnectionRequirements -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: PhysicalConnectionRequirements)
-{-# DEPRECATED pcrAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
-instance Lude.FromJSON PhysicalConnectionRequirements where
-  parseJSON =
-    Lude.withObject
-      "PhysicalConnectionRequirements"
-      ( \x ->
-          PhysicalConnectionRequirements'
-            Lude.<$> (x Lude..:? "SecurityGroupIdList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SubnetId")
-            Lude.<*> (x Lude..:? "AvailabilityZone")
-      )
-
-instance Lude.ToJSON PhysicalConnectionRequirements where
-  toJSON PhysicalConnectionRequirements' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SecurityGroupIdList" Lude..=) Lude.<$> securityGroupIdList,
-            ("SubnetId" Lude..=) Lude.<$> subnetId,
-            ("AvailabilityZone" Lude..=) Lude.<$> availabilityZone
+instance Core.FromJSON PhysicalConnectionRequirements where
+  toJSON PhysicalConnectionRequirements {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AvailabilityZone" Core..=) Core.<$> availabilityZone,
+            ("SecurityGroupIdList" Core..=) Core.<$> securityGroupIdList,
+            ("SubnetId" Core..=) Core.<$> subnetId
           ]
       )
+
+instance Core.FromJSON PhysicalConnectionRequirements where
+  parseJSON =
+    Core.withObject "PhysicalConnectionRequirements" Core.$
+      \x ->
+        PhysicalConnectionRequirements'
+          Core.<$> (x Core..:? "AvailabilityZone")
+          Core.<*> (x Core..:? "SecurityGroupIdList")
+          Core.<*> (x Core..:? "SubnetId")

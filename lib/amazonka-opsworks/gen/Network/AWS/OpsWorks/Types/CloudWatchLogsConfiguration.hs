@@ -23,62 +23,56 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Amazon CloudWatch logs configuration for a layer.
 --
 -- /See:/ 'mkCloudWatchLogsConfiguration' smart constructor.
 data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
   { -- | Whether CloudWatch Logs is enabled for a layer.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | A list of configuration options for CloudWatch Logs.
-    logStreams :: Lude.Maybe [CloudWatchLogsLogStream]
+    logStreams :: Core.Maybe [Types.CloudWatchLogsLogStream]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchLogsConfiguration' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether CloudWatch Logs is enabled for a layer.
--- * 'logStreams' - A list of configuration options for CloudWatch Logs.
+-- | Creates a 'CloudWatchLogsConfiguration' value with any optional fields omitted.
 mkCloudWatchLogsConfiguration ::
   CloudWatchLogsConfiguration
 mkCloudWatchLogsConfiguration =
   CloudWatchLogsConfiguration'
-    { enabled = Lude.Nothing,
-      logStreams = Lude.Nothing
+    { enabled = Core.Nothing,
+      logStreams = Core.Nothing
     }
 
 -- | Whether CloudWatch Logs is enabled for a layer.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwlcEnabled :: Lens.Lens' CloudWatchLogsConfiguration (Lude.Maybe Lude.Bool)
-cwlcEnabled = Lens.lens (enabled :: CloudWatchLogsConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: CloudWatchLogsConfiguration)
+cwlcEnabled :: Lens.Lens' CloudWatchLogsConfiguration (Core.Maybe Core.Bool)
+cwlcEnabled = Lens.field @"enabled"
 {-# DEPRECATED cwlcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | A list of configuration options for CloudWatch Logs.
 --
 -- /Note:/ Consider using 'logStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwlcLogStreams :: Lens.Lens' CloudWatchLogsConfiguration (Lude.Maybe [CloudWatchLogsLogStream])
-cwlcLogStreams = Lens.lens (logStreams :: CloudWatchLogsConfiguration -> Lude.Maybe [CloudWatchLogsLogStream]) (\s a -> s {logStreams = a} :: CloudWatchLogsConfiguration)
+cwlcLogStreams :: Lens.Lens' CloudWatchLogsConfiguration (Core.Maybe [Types.CloudWatchLogsLogStream])
+cwlcLogStreams = Lens.field @"logStreams"
 {-# DEPRECATED cwlcLogStreams "Use generic-lens or generic-optics with 'logStreams' instead." #-}
 
-instance Lude.FromJSON CloudWatchLogsConfiguration where
-  parseJSON =
-    Lude.withObject
-      "CloudWatchLogsConfiguration"
-      ( \x ->
-          CloudWatchLogsConfiguration'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "LogStreams" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON CloudWatchLogsConfiguration where
-  toJSON CloudWatchLogsConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("LogStreams" Lude..=) Lude.<$> logStreams
+instance Core.FromJSON CloudWatchLogsConfiguration where
+  toJSON CloudWatchLogsConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("LogStreams" Core..=) Core.<$> logStreams
           ]
       )
+
+instance Core.FromJSON CloudWatchLogsConfiguration where
+  parseJSON =
+    Core.withObject "CloudWatchLogsConfiguration" Core.$
+      \x ->
+        CloudWatchLogsConfiguration'
+          Core.<$> (x Core..:? "Enabled") Core.<*> (x Core..:? "LogStreams")

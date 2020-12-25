@@ -21,35 +21,33 @@ module Network.AWS.DataPipeline.Types.Query
   )
 where
 
-import Network.AWS.DataPipeline.Types.Selector
+import qualified Network.AWS.DataPipeline.Types.Selector as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines the query to run against an object.
 --
 -- /See:/ 'mkQuery' smart constructor.
 newtype Query = Query'
   { -- | List of selectors that define the query. An object must satisfy all of the selectors to match the query.
-    selectors :: Lude.Maybe [Selector]
+    selectors :: Core.Maybe [Types.Selector]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Query' with the minimum fields required to make a request.
---
--- * 'selectors' - List of selectors that define the query. An object must satisfy all of the selectors to match the query.
+-- | Creates a 'Query' value with any optional fields omitted.
 mkQuery ::
   Query
-mkQuery = Query' {selectors = Lude.Nothing}
+mkQuery = Query' {selectors = Core.Nothing}
 
 -- | List of selectors that define the query. An object must satisfy all of the selectors to match the query.
 --
 -- /Note:/ Consider using 'selectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qSelectors :: Lens.Lens' Query (Lude.Maybe [Selector])
-qSelectors = Lens.lens (selectors :: Query -> Lude.Maybe [Selector]) (\s a -> s {selectors = a} :: Query)
+qSelectors :: Lens.Lens' Query (Core.Maybe [Types.Selector])
+qSelectors = Lens.field @"selectors"
 {-# DEPRECATED qSelectors "Use generic-lens or generic-optics with 'selectors' instead." #-}
 
-instance Lude.ToJSON Query where
-  toJSON Query' {..} =
-    Lude.object
-      (Lude.catMaybes [("selectors" Lude..=) Lude.<$> selectors])
+instance Core.FromJSON Query where
+  toJSON Query {..} =
+    Core.object
+      (Core.catMaybes [("selectors" Core..=) Core.<$> selectors])

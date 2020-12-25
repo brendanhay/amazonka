@@ -17,67 +17,63 @@ module Network.AWS.DataPipeline.Types.ParameterObject
     mkParameterObject,
 
     -- * Lenses
-    poAttributes,
     poId,
+    poAttributes,
   )
 where
 
-import Network.AWS.DataPipeline.Types.ParameterAttribute
+import qualified Network.AWS.DataPipeline.Types.Id as Types
+import qualified Network.AWS.DataPipeline.Types.ParameterAttribute as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a parameter object.
 --
 -- /See:/ 'mkParameterObject' smart constructor.
 data ParameterObject = ParameterObject'
-  { -- | The attributes of the parameter object.
-    attributes :: [ParameterAttribute],
-    -- | The ID of the parameter object.
-    id :: Lude.Text
+  { -- | The ID of the parameter object.
+    id :: Types.Id,
+    -- | The attributes of the parameter object.
+    attributes :: [Types.ParameterAttribute]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterObject' with the minimum fields required to make a request.
---
--- * 'attributes' - The attributes of the parameter object.
--- * 'id' - The ID of the parameter object.
+-- | Creates a 'ParameterObject' value with any optional fields omitted.
 mkParameterObject ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   ParameterObject
-mkParameterObject pId_ =
-  ParameterObject' {attributes = Lude.mempty, id = pId_}
-
--- | The attributes of the parameter object.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poAttributes :: Lens.Lens' ParameterObject [ParameterAttribute]
-poAttributes = Lens.lens (attributes :: ParameterObject -> [ParameterAttribute]) (\s a -> s {attributes = a} :: ParameterObject)
-{-# DEPRECATED poAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+mkParameterObject id =
+  ParameterObject' {id, attributes = Core.mempty}
 
 -- | The ID of the parameter object.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poId :: Lens.Lens' ParameterObject Lude.Text
-poId = Lens.lens (id :: ParameterObject -> Lude.Text) (\s a -> s {id = a} :: ParameterObject)
+poId :: Lens.Lens' ParameterObject Types.Id
+poId = Lens.field @"id"
 {-# DEPRECATED poId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON ParameterObject where
-  parseJSON =
-    Lude.withObject
-      "ParameterObject"
-      ( \x ->
-          ParameterObject'
-            Lude.<$> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "id")
-      )
+-- | The attributes of the parameter object.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poAttributes :: Lens.Lens' ParameterObject [Types.ParameterAttribute]
+poAttributes = Lens.field @"attributes"
+{-# DEPRECATED poAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.ToJSON ParameterObject where
-  toJSON ParameterObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("attributes" Lude..= attributes),
-            Lude.Just ("id" Lude..= id)
+instance Core.FromJSON ParameterObject where
+  toJSON ParameterObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("attributes" Core..= attributes)
           ]
       )
+
+instance Core.FromJSON ParameterObject where
+  parseJSON =
+    Core.withObject "ParameterObject" Core.$
+      \x ->
+        ParameterObject'
+          Core.<$> (x Core..: "id")
+          Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)

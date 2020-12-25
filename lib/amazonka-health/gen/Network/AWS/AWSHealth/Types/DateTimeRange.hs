@@ -17,52 +17,49 @@ module Network.AWS.AWSHealth.Types.DateTimeRange
     mkDateTimeRange,
 
     -- * Lenses
-    dtrTo,
     dtrFrom,
+    dtrTo,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A range of dates and times that is used by the <https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html EventFilter> and <https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html EntityFilter> objects. If @from@ is set and @to@ is set: match items where the timestamp (@startTime@ , @endTime@ , or @lastUpdatedTime@ ) is between @from@ and @to@ inclusive. If @from@ is set and @to@ is not set: match items where the timestamp value is equal to or after @from@ . If @from@ is not set and @to@ is set: match items where the timestamp value is equal to or before @to@ .
 --
 -- /See:/ 'mkDateTimeRange' smart constructor.
 data DateTimeRange = DateTimeRange'
-  { -- | The ending date and time of a time range.
-    to :: Lude.Maybe Lude.Timestamp,
-    -- | The starting date and time of a time range.
-    from :: Lude.Maybe Lude.Timestamp
+  { -- | The starting date and time of a time range.
+    from :: Core.Maybe Core.NominalDiffTime,
+    -- | The ending date and time of a time range.
+    to :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DateTimeRange' with the minimum fields required to make a request.
---
--- * 'to' - The ending date and time of a time range.
--- * 'from' - The starting date and time of a time range.
+-- | Creates a 'DateTimeRange' value with any optional fields omitted.
 mkDateTimeRange ::
   DateTimeRange
 mkDateTimeRange =
-  DateTimeRange' {to = Lude.Nothing, from = Lude.Nothing}
-
--- | The ending date and time of a time range.
---
--- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrTo :: Lens.Lens' DateTimeRange (Lude.Maybe Lude.Timestamp)
-dtrTo = Lens.lens (to :: DateTimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {to = a} :: DateTimeRange)
-{-# DEPRECATED dtrTo "Use generic-lens or generic-optics with 'to' instead." #-}
+  DateTimeRange' {from = Core.Nothing, to = Core.Nothing}
 
 -- | The starting date and time of a time range.
 --
 -- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrFrom :: Lens.Lens' DateTimeRange (Lude.Maybe Lude.Timestamp)
-dtrFrom = Lens.lens (from :: DateTimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {from = a} :: DateTimeRange)
+dtrFrom :: Lens.Lens' DateTimeRange (Core.Maybe Core.NominalDiffTime)
+dtrFrom = Lens.field @"from"
 {-# DEPRECATED dtrFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
-instance Lude.ToJSON DateTimeRange where
-  toJSON DateTimeRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("to" Lude..=) Lude.<$> to, ("from" Lude..=) Lude.<$> from]
+-- | The ending date and time of a time range.
+--
+-- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrTo :: Lens.Lens' DateTimeRange (Core.Maybe Core.NominalDiffTime)
+dtrTo = Lens.field @"to"
+{-# DEPRECATED dtrTo "Use generic-lens or generic-optics with 'to' instead." #-}
+
+instance Core.FromJSON DateTimeRange where
+  toJSON DateTimeRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [("from" Core..=) Core.<$> from, ("to" Core..=) Core.<$> to]
       )

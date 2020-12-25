@@ -13,66 +13,71 @@
 module Network.AWS.DirectoryService.Types.CertificateState
   ( CertificateState
       ( CertificateState',
-        Registering,
-        Registered,
-        RegisterFailed,
-        Deregistering,
-        Deregistered,
-        DeregisterFailed
+        CertificateStateRegistering,
+        CertificateStateRegistered,
+        CertificateStateRegisterFailed,
+        CertificateStateDeregistering,
+        CertificateStateDeregistered,
+        CertificateStateDeregisterFailed,
+        fromCertificateState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CertificateState = CertificateState' Lude.Text
+newtype CertificateState = CertificateState'
+  { fromCertificateState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Registering :: CertificateState
-pattern Registering = CertificateState' "Registering"
+pattern CertificateStateRegistering :: CertificateState
+pattern CertificateStateRegistering = CertificateState' "Registering"
 
-pattern Registered :: CertificateState
-pattern Registered = CertificateState' "Registered"
+pattern CertificateStateRegistered :: CertificateState
+pattern CertificateStateRegistered = CertificateState' "Registered"
 
-pattern RegisterFailed :: CertificateState
-pattern RegisterFailed = CertificateState' "RegisterFailed"
+pattern CertificateStateRegisterFailed :: CertificateState
+pattern CertificateStateRegisterFailed = CertificateState' "RegisterFailed"
 
-pattern Deregistering :: CertificateState
-pattern Deregistering = CertificateState' "Deregistering"
+pattern CertificateStateDeregistering :: CertificateState
+pattern CertificateStateDeregistering = CertificateState' "Deregistering"
 
-pattern Deregistered :: CertificateState
-pattern Deregistered = CertificateState' "Deregistered"
+pattern CertificateStateDeregistered :: CertificateState
+pattern CertificateStateDeregistered = CertificateState' "Deregistered"
 
-pattern DeregisterFailed :: CertificateState
-pattern DeregisterFailed = CertificateState' "DeregisterFailed"
+pattern CertificateStateDeregisterFailed :: CertificateState
+pattern CertificateStateDeregisterFailed = CertificateState' "DeregisterFailed"
 
 {-# COMPLETE
-  Registering,
-  Registered,
-  RegisterFailed,
-  Deregistering,
-  Deregistered,
-  DeregisterFailed,
+  CertificateStateRegistering,
+  CertificateStateRegistered,
+  CertificateStateRegisterFailed,
+  CertificateStateDeregistering,
+  CertificateStateDeregistered,
+  CertificateStateDeregisterFailed,
   CertificateState'
   #-}

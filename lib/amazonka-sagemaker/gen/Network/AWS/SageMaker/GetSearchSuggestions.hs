@@ -20,135 +20,119 @@ module Network.AWS.SageMaker.GetSearchSuggestions
     mkGetSearchSuggestions,
 
     -- ** Request lenses
-    gssSuggestionQuery,
     gssResource,
+    gssSuggestionQuery,
 
     -- * Destructuring the response
     GetSearchSuggestionsResponse (..),
     mkGetSearchSuggestionsResponse,
 
     -- ** Response lenses
-    gssrsPropertyNameSuggestions,
-    gssrsResponseStatus,
+    gssrrsPropertyNameSuggestions,
+    gssrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkGetSearchSuggestions' smart constructor.
 data GetSearchSuggestions = GetSearchSuggestions'
-  { -- | Limits the property names that are included in the response.
-    suggestionQuery :: Lude.Maybe SuggestionQuery,
-    -- | The name of the Amazon SageMaker resource to search for.
-    resource :: ResourceType
+  { -- | The name of the Amazon SageMaker resource to search for.
+    resource :: Types.ResourceType,
+    -- | Limits the property names that are included in the response.
+    suggestionQuery :: Core.Maybe Types.SuggestionQuery
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSearchSuggestions' with the minimum fields required to make a request.
---
--- * 'suggestionQuery' - Limits the property names that are included in the response.
--- * 'resource' - The name of the Amazon SageMaker resource to search for.
+-- | Creates a 'GetSearchSuggestions' value with any optional fields omitted.
 mkGetSearchSuggestions ::
   -- | 'resource'
-  ResourceType ->
+  Types.ResourceType ->
   GetSearchSuggestions
-mkGetSearchSuggestions pResource_ =
-  GetSearchSuggestions'
-    { suggestionQuery = Lude.Nothing,
-      resource = pResource_
-    }
-
--- | Limits the property names that are included in the response.
---
--- /Note:/ Consider using 'suggestionQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssSuggestionQuery :: Lens.Lens' GetSearchSuggestions (Lude.Maybe SuggestionQuery)
-gssSuggestionQuery = Lens.lens (suggestionQuery :: GetSearchSuggestions -> Lude.Maybe SuggestionQuery) (\s a -> s {suggestionQuery = a} :: GetSearchSuggestions)
-{-# DEPRECATED gssSuggestionQuery "Use generic-lens or generic-optics with 'suggestionQuery' instead." #-}
+mkGetSearchSuggestions resource =
+  GetSearchSuggestions' {resource, suggestionQuery = Core.Nothing}
 
 -- | The name of the Amazon SageMaker resource to search for.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssResource :: Lens.Lens' GetSearchSuggestions ResourceType
-gssResource = Lens.lens (resource :: GetSearchSuggestions -> ResourceType) (\s a -> s {resource = a} :: GetSearchSuggestions)
+gssResource :: Lens.Lens' GetSearchSuggestions Types.ResourceType
+gssResource = Lens.field @"resource"
 {-# DEPRECATED gssResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.AWSRequest GetSearchSuggestions where
+-- | Limits the property names that are included in the response.
+--
+-- /Note:/ Consider using 'suggestionQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssSuggestionQuery :: Lens.Lens' GetSearchSuggestions (Core.Maybe Types.SuggestionQuery)
+gssSuggestionQuery = Lens.field @"suggestionQuery"
+{-# DEPRECATED gssSuggestionQuery "Use generic-lens or generic-optics with 'suggestionQuery' instead." #-}
+
+instance Core.FromJSON GetSearchSuggestions where
+  toJSON GetSearchSuggestions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Resource" Core..= resource),
+            ("SuggestionQuery" Core..=) Core.<$> suggestionQuery
+          ]
+      )
+
+instance Core.AWSRequest GetSearchSuggestions where
   type Rs GetSearchSuggestions = GetSearchSuggestionsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.GetSearchSuggestions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSearchSuggestionsResponse'
-            Lude.<$> (x Lude..?> "PropertyNameSuggestions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PropertyNameSuggestions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSearchSuggestions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.GetSearchSuggestions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSearchSuggestions where
-  toJSON GetSearchSuggestions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SuggestionQuery" Lude..=) Lude.<$> suggestionQuery,
-            Lude.Just ("Resource" Lude..= resource)
-          ]
-      )
-
-instance Lude.ToPath GetSearchSuggestions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSearchSuggestions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSearchSuggestionsResponse' smart constructor.
 data GetSearchSuggestionsResponse = GetSearchSuggestionsResponse'
   { -- | A list of property names for a @Resource@ that match a @SuggestionQuery@ .
-    propertyNameSuggestions :: Lude.Maybe [PropertyNameSuggestion],
+    propertyNameSuggestions :: Core.Maybe [Types.PropertyNameSuggestion],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSearchSuggestionsResponse' with the minimum fields required to make a request.
---
--- * 'propertyNameSuggestions' - A list of property names for a @Resource@ that match a @SuggestionQuery@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSearchSuggestionsResponse' value with any optional fields omitted.
 mkGetSearchSuggestionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSearchSuggestionsResponse
-mkGetSearchSuggestionsResponse pResponseStatus_ =
+mkGetSearchSuggestionsResponse responseStatus =
   GetSearchSuggestionsResponse'
     { propertyNameSuggestions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of property names for a @Resource@ that match a @SuggestionQuery@ .
 --
 -- /Note:/ Consider using 'propertyNameSuggestions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssrsPropertyNameSuggestions :: Lens.Lens' GetSearchSuggestionsResponse (Lude.Maybe [PropertyNameSuggestion])
-gssrsPropertyNameSuggestions = Lens.lens (propertyNameSuggestions :: GetSearchSuggestionsResponse -> Lude.Maybe [PropertyNameSuggestion]) (\s a -> s {propertyNameSuggestions = a} :: GetSearchSuggestionsResponse)
-{-# DEPRECATED gssrsPropertyNameSuggestions "Use generic-lens or generic-optics with 'propertyNameSuggestions' instead." #-}
+gssrrsPropertyNameSuggestions :: Lens.Lens' GetSearchSuggestionsResponse (Core.Maybe [Types.PropertyNameSuggestion])
+gssrrsPropertyNameSuggestions = Lens.field @"propertyNameSuggestions"
+{-# DEPRECATED gssrrsPropertyNameSuggestions "Use generic-lens or generic-optics with 'propertyNameSuggestions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssrsResponseStatus :: Lens.Lens' GetSearchSuggestionsResponse Lude.Int
-gssrsResponseStatus = Lens.lens (responseStatus :: GetSearchSuggestionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSearchSuggestionsResponse)
-{-# DEPRECATED gssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gssrrsResponseStatus :: Lens.Lens' GetSearchSuggestionsResponse Core.Int
+gssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

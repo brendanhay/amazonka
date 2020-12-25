@@ -17,54 +17,54 @@ module Network.AWS.RDS.Types.DBClusterOptionGroupStatus
     mkDBClusterOptionGroupStatus,
 
     -- * Lenses
-    dcogsStatus,
-    dcogsDBClusterOptionGroupName,
+    dbcogsDBClusterOptionGroupName,
+    dbcogsStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.DBClusterOptionGroupName as Types
+import qualified Network.AWS.RDS.Types.Status as Types
 
 -- | Contains status information for a DB cluster option group.
 --
 -- /See:/ 'mkDBClusterOptionGroupStatus' smart constructor.
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
-  { -- | Specifies the status of the DB cluster option group.
-    status :: Lude.Maybe Lude.Text,
-    -- | Specifies the name of the DB cluster option group.
-    dbClusterOptionGroupName :: Lude.Maybe Lude.Text
+  { -- | Specifies the name of the DB cluster option group.
+    dBClusterOptionGroupName :: Core.Maybe Types.DBClusterOptionGroupName,
+    -- | Specifies the status of the DB cluster option group.
+    status :: Core.Maybe Types.Status
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBClusterOptionGroupStatus' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the DB cluster option group.
--- * 'dbClusterOptionGroupName' - Specifies the name of the DB cluster option group.
+-- | Creates a 'DBClusterOptionGroupStatus' value with any optional fields omitted.
 mkDBClusterOptionGroupStatus ::
   DBClusterOptionGroupStatus
 mkDBClusterOptionGroupStatus =
   DBClusterOptionGroupStatus'
-    { status = Lude.Nothing,
-      dbClusterOptionGroupName = Lude.Nothing
+    { dBClusterOptionGroupName =
+        Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | Specifies the name of the DB cluster option group.
+--
+-- /Note:/ Consider using 'dBClusterOptionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcogsDBClusterOptionGroupName :: Lens.Lens' DBClusterOptionGroupStatus (Core.Maybe Types.DBClusterOptionGroupName)
+dbcogsDBClusterOptionGroupName = Lens.field @"dBClusterOptionGroupName"
+{-# DEPRECATED dbcogsDBClusterOptionGroupName "Use generic-lens or generic-optics with 'dBClusterOptionGroupName' instead." #-}
 
 -- | Specifies the status of the DB cluster option group.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcogsStatus :: Lens.Lens' DBClusterOptionGroupStatus (Lude.Maybe Lude.Text)
-dcogsStatus = Lens.lens (status :: DBClusterOptionGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBClusterOptionGroupStatus)
-{-# DEPRECATED dcogsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dbcogsStatus :: Lens.Lens' DBClusterOptionGroupStatus (Core.Maybe Types.Status)
+dbcogsStatus = Lens.field @"status"
+{-# DEPRECATED dbcogsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Specifies the name of the DB cluster option group.
---
--- /Note:/ Consider using 'dbClusterOptionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcogsDBClusterOptionGroupName :: Lens.Lens' DBClusterOptionGroupStatus (Lude.Maybe Lude.Text)
-dcogsDBClusterOptionGroupName = Lens.lens (dbClusterOptionGroupName :: DBClusterOptionGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterOptionGroupName = a} :: DBClusterOptionGroupStatus)
-{-# DEPRECATED dcogsDBClusterOptionGroupName "Use generic-lens or generic-optics with 'dbClusterOptionGroupName' instead." #-}
-
-instance Lude.FromXML DBClusterOptionGroupStatus where
+instance Core.FromXML DBClusterOptionGroupStatus where
   parseXML x =
     DBClusterOptionGroupStatus'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "DBClusterOptionGroupName")
+      Core.<$> (x Core..@? "DBClusterOptionGroupName")
+      Core.<*> (x Core..@? "Status")

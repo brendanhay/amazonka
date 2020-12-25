@@ -25,51 +25,52 @@ module Network.AWS.IAM.DeleteAccountPasswordPolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAccountPasswordPolicy' smart constructor.
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountPasswordPolicy' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAccountPasswordPolicy' value with any optional fields omitted.
 mkDeleteAccountPasswordPolicy ::
   DeleteAccountPasswordPolicy
 mkDeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
 
-instance Lude.AWSRequest DeleteAccountPasswordPolicy where
+instance Core.AWSRequest DeleteAccountPasswordPolicy where
   type
     Rs DeleteAccountPasswordPolicy =
       DeleteAccountPasswordPolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteAccountPasswordPolicyResponse'
-
-instance Lude.ToHeaders DeleteAccountPasswordPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAccountPasswordPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAccountPasswordPolicy where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action"
-              Lude.=: ("DeleteAccountPasswordPolicy" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
-          ]
-      )
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteAccountPasswordPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+            )
+      }
+  response =
+    Response.receiveNull DeleteAccountPasswordPolicyResponse'
 
 -- | /See:/ 'mkDeleteAccountPasswordPolicyResponse' smart constructor.
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountPasswordPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAccountPasswordPolicyResponse' value with any optional fields omitted.
 mkDeleteAccountPasswordPolicyResponse ::
   DeleteAccountPasswordPolicyResponse
 mkDeleteAccountPasswordPolicyResponse =

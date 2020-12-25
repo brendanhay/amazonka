@@ -18,82 +18,79 @@ module Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType
 
     -- * Lenses
     netSubject,
+    netHtmlBody,
     netTextBody,
-    netHTMLBody,
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.EmailNotificationSubjectType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.HtmlBody as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.TextBody as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The notify email type.
 --
 -- /See:/ 'mkNotifyEmailType' smart constructor.
 data NotifyEmailType = NotifyEmailType'
   { -- | The subject.
-    subject :: Lude.Text,
-    -- | The text body.
-    textBody :: Lude.Maybe Lude.Text,
+    subject :: Types.EmailNotificationSubjectType,
     -- | The HTML body.
-    htmlBody :: Lude.Maybe Lude.Text
+    htmlBody :: Core.Maybe Types.HtmlBody,
+    -- | The text body.
+    textBody :: Core.Maybe Types.TextBody
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotifyEmailType' with the minimum fields required to make a request.
---
--- * 'subject' - The subject.
--- * 'textBody' - The text body.
--- * 'htmlBody' - The HTML body.
+-- | Creates a 'NotifyEmailType' value with any optional fields omitted.
 mkNotifyEmailType ::
   -- | 'subject'
-  Lude.Text ->
+  Types.EmailNotificationSubjectType ->
   NotifyEmailType
-mkNotifyEmailType pSubject_ =
+mkNotifyEmailType subject =
   NotifyEmailType'
-    { subject = pSubject_,
-      textBody = Lude.Nothing,
-      htmlBody = Lude.Nothing
+    { subject,
+      htmlBody = Core.Nothing,
+      textBody = Core.Nothing
     }
 
 -- | The subject.
 --
 -- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-netSubject :: Lens.Lens' NotifyEmailType Lude.Text
-netSubject = Lens.lens (subject :: NotifyEmailType -> Lude.Text) (\s a -> s {subject = a} :: NotifyEmailType)
+netSubject :: Lens.Lens' NotifyEmailType Types.EmailNotificationSubjectType
+netSubject = Lens.field @"subject"
 {-# DEPRECATED netSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
-
--- | The text body.
---
--- /Note:/ Consider using 'textBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-netTextBody :: Lens.Lens' NotifyEmailType (Lude.Maybe Lude.Text)
-netTextBody = Lens.lens (textBody :: NotifyEmailType -> Lude.Maybe Lude.Text) (\s a -> s {textBody = a} :: NotifyEmailType)
-{-# DEPRECATED netTextBody "Use generic-lens or generic-optics with 'textBody' instead." #-}
 
 -- | The HTML body.
 --
 -- /Note:/ Consider using 'htmlBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-netHTMLBody :: Lens.Lens' NotifyEmailType (Lude.Maybe Lude.Text)
-netHTMLBody = Lens.lens (htmlBody :: NotifyEmailType -> Lude.Maybe Lude.Text) (\s a -> s {htmlBody = a} :: NotifyEmailType)
-{-# DEPRECATED netHTMLBody "Use generic-lens or generic-optics with 'htmlBody' instead." #-}
+netHtmlBody :: Lens.Lens' NotifyEmailType (Core.Maybe Types.HtmlBody)
+netHtmlBody = Lens.field @"htmlBody"
+{-# DEPRECATED netHtmlBody "Use generic-lens or generic-optics with 'htmlBody' instead." #-}
 
-instance Lude.FromJSON NotifyEmailType where
-  parseJSON =
-    Lude.withObject
-      "NotifyEmailType"
-      ( \x ->
-          NotifyEmailType'
-            Lude.<$> (x Lude..: "Subject")
-            Lude.<*> (x Lude..:? "TextBody")
-            Lude.<*> (x Lude..:? "HtmlBody")
-      )
+-- | The text body.
+--
+-- /Note:/ Consider using 'textBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+netTextBody :: Lens.Lens' NotifyEmailType (Core.Maybe Types.TextBody)
+netTextBody = Lens.field @"textBody"
+{-# DEPRECATED netTextBody "Use generic-lens or generic-optics with 'textBody' instead." #-}
 
-instance Lude.ToJSON NotifyEmailType where
-  toJSON NotifyEmailType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Subject" Lude..= subject),
-            ("TextBody" Lude..=) Lude.<$> textBody,
-            ("HtmlBody" Lude..=) Lude.<$> htmlBody
+instance Core.FromJSON NotifyEmailType where
+  toJSON NotifyEmailType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Subject" Core..= subject),
+            ("HtmlBody" Core..=) Core.<$> htmlBody,
+            ("TextBody" Core..=) Core.<$> textBody
           ]
       )
+
+instance Core.FromJSON NotifyEmailType where
+  parseJSON =
+    Core.withObject "NotifyEmailType" Core.$
+      \x ->
+        NotifyEmailType'
+          Core.<$> (x Core..: "Subject")
+          Core.<*> (x Core..:? "HtmlBody")
+          Core.<*> (x Core..:? "TextBody")

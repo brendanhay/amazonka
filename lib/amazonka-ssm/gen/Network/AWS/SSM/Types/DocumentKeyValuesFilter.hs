@@ -17,13 +17,15 @@ module Network.AWS.SSM.Types.DocumentKeyValuesFilter
     mkDocumentKeyValuesFilter,
 
     -- * Lenses
-    dkvfValues,
     dkvfKey,
+    dkvfValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.DocumentKeyValuesFilterValue as Types
+import qualified Network.AWS.SSM.Types.Key as Types
 
 -- | One or more filters. Use a filter to return a more specific list of documents.
 --
@@ -104,43 +106,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentKeyValuesFilter' smart constructor.
 data DocumentKeyValuesFilter = DocumentKeyValuesFilter'
-  { -- | The value for the filter key.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The name of the filter key.
-    key :: Lude.Maybe Lude.Text
+  { -- | The name of the filter key.
+    key :: Core.Maybe Types.Key,
+    -- | The value for the filter key.
+    values :: Core.Maybe [Types.DocumentKeyValuesFilterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DocumentKeyValuesFilter' with the minimum fields required to make a request.
---
--- * 'values' - The value for the filter key.
--- * 'key' - The name of the filter key.
+-- | Creates a 'DocumentKeyValuesFilter' value with any optional fields omitted.
 mkDocumentKeyValuesFilter ::
   DocumentKeyValuesFilter
 mkDocumentKeyValuesFilter =
   DocumentKeyValuesFilter'
-    { values = Lude.Nothing,
-      key = Lude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
-
--- | The value for the filter key.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkvfValues :: Lens.Lens' DocumentKeyValuesFilter (Lude.Maybe [Lude.Text])
-dkvfValues = Lens.lens (values :: DocumentKeyValuesFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: DocumentKeyValuesFilter)
-{-# DEPRECATED dkvfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The name of the filter key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkvfKey :: Lens.Lens' DocumentKeyValuesFilter (Lude.Maybe Lude.Text)
-dkvfKey = Lens.lens (key :: DocumentKeyValuesFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: DocumentKeyValuesFilter)
+dkvfKey :: Lens.Lens' DocumentKeyValuesFilter (Core.Maybe Types.Key)
+dkvfKey = Lens.field @"key"
 {-# DEPRECATED dkvfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON DocumentKeyValuesFilter where
-  toJSON DocumentKeyValuesFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+-- | The value for the filter key.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkvfValues :: Lens.Lens' DocumentKeyValuesFilter (Core.Maybe [Types.DocumentKeyValuesFilterValue])
+dkvfValues = Lens.field @"values"
+{-# DEPRECATED dkvfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON DocumentKeyValuesFilter where
+  toJSON DocumentKeyValuesFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )

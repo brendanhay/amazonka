@@ -31,124 +31,121 @@ module Network.AWS.CloudFormation.ListExports
     mkListExportsResponse,
 
     -- ** Response lenses
-    lersNextToken,
-    lersExports,
-    lersResponseStatus,
+    lerrsExports,
+    lerrsNextToken,
+    lerrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListExports' smart constructor.
 newtype ListExports = ListExports'
   { -- | A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListExports' with the minimum fields required to make a request.
---
--- * 'nextToken' - A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
+-- | Creates a 'ListExports' value with any optional fields omitted.
 mkListExports ::
   ListExports
-mkListExports = ListExports' {nextToken = Lude.Nothing}
+mkListExports = ListExports' {nextToken = Core.Nothing}
 
 -- | A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leNextToken :: Lens.Lens' ListExports (Lude.Maybe Lude.Text)
-leNextToken = Lens.lens (nextToken :: ListExports -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExports)
+leNextToken :: Lens.Lens' ListExports (Core.Maybe Types.NextToken)
+leNextToken = Lens.field @"nextToken"
 {-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListExports where
-  page rq rs
-    | Page.stop (rs Lens.^. lersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lersExports) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& leNextToken Lens..~ rs Lens.^. lersNextToken
-
-instance Lude.AWSRequest ListExports where
+instance Core.AWSRequest ListExports where
   type Rs ListExports = ListExportsResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListExports")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListExportsResult"
       ( \s h x ->
           ListExportsResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "Exports" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Exports" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListExports where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListExports where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListExports where
-  toQuery ListExports' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListExports" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken
-      ]
+instance Pager.AWSPager ListExports where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"exports" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { -- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The output for the 'ListExports' action.
-    exports :: Lude.Maybe [Export],
+  { -- | The output for the 'ListExports' action.
+    exports :: Core.Maybe [Types.Export],
+    -- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListExportsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
--- * 'exports' - The output for the 'ListExports' action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListExportsResponse' value with any optional fields omitted.
 mkListExportsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListExportsResponse
-mkListExportsResponse pResponseStatus_ =
+mkListExportsResponse responseStatus =
   ListExportsResponse'
-    { nextToken = Lude.Nothing,
-      exports = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exports = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersNextToken :: Lens.Lens' ListExportsResponse (Lude.Maybe Lude.Text)
-lersNextToken = Lens.lens (nextToken :: ListExportsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExportsResponse)
-{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The output for the 'ListExports' action.
 --
 -- /Note:/ Consider using 'exports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersExports :: Lens.Lens' ListExportsResponse (Lude.Maybe [Export])
-lersExports = Lens.lens (exports :: ListExportsResponse -> Lude.Maybe [Export]) (\s a -> s {exports = a} :: ListExportsResponse)
-{-# DEPRECATED lersExports "Use generic-lens or generic-optics with 'exports' instead." #-}
+lerrsExports :: Lens.Lens' ListExportsResponse (Core.Maybe [Types.Export])
+lerrsExports = Lens.field @"exports"
+{-# DEPRECATED lerrsExports "Use generic-lens or generic-optics with 'exports' instead." #-}
+
+-- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lerrsNextToken :: Lens.Lens' ListExportsResponse (Core.Maybe Types.NextToken)
+lerrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersResponseStatus :: Lens.Lens' ListExportsResponse Lude.Int
-lersResponseStatus = Lens.lens (responseStatus :: ListExportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListExportsResponse)
-{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lerrsResponseStatus :: Lens.Lens' ListExportsResponse Core.Int
+lerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

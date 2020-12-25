@@ -21,7 +21,7 @@ module Network.AWS.Comprehend.CreateEndpoint
 
     -- ** Request lenses
     ceEndpointName,
-    ceModelARN,
+    ceModelArn,
     ceDesiredInferenceUnits,
     ceClientRequestToken,
     ceTags,
@@ -31,165 +31,149 @@ module Network.AWS.Comprehend.CreateEndpoint
     mkCreateEndpointResponse,
 
     -- ** Response lenses
-    cersEndpointARN,
-    cersResponseStatus,
+    cerrsEndpointArn,
+    cerrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
   { -- | This is the descriptive suffix that becomes part of the @EndpointArn@ used for all subsequent requests to this resource.
-    endpointName :: Lude.Text,
+    endpointName :: Types.ComprehendEndpointName,
     -- | The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.
-    modelARN :: Lude.Text,
+    modelArn :: Types.ComprehendModelArn,
     -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
-    desiredInferenceUnits :: Lude.Natural,
+    desiredInferenceUnits :: Core.Natural,
     -- | An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
-    clientRequestToken :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Core.Maybe Types.ClientRequestTokenString,
     -- | Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEndpoint' with the minimum fields required to make a request.
---
--- * 'endpointName' - This is the descriptive suffix that becomes part of the @EndpointArn@ used for all subsequent requests to this resource.
--- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.
--- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
--- * 'clientRequestToken' - An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
--- * 'tags' - Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+-- | Creates a 'CreateEndpoint' value with any optional fields omitted.
 mkCreateEndpoint ::
   -- | 'endpointName'
-  Lude.Text ->
-  -- | 'modelARN'
-  Lude.Text ->
+  Types.ComprehendEndpointName ->
+  -- | 'modelArn'
+  Types.ComprehendModelArn ->
   -- | 'desiredInferenceUnits'
-  Lude.Natural ->
+  Core.Natural ->
   CreateEndpoint
-mkCreateEndpoint pEndpointName_ pModelARN_ pDesiredInferenceUnits_ =
+mkCreateEndpoint endpointName modelArn desiredInferenceUnits =
   CreateEndpoint'
-    { endpointName = pEndpointName_,
-      modelARN = pModelARN_,
-      desiredInferenceUnits = pDesiredInferenceUnits_,
-      clientRequestToken = Lude.Nothing,
-      tags = Lude.Nothing
+    { endpointName,
+      modelArn,
+      desiredInferenceUnits,
+      clientRequestToken = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | This is the descriptive suffix that becomes part of the @EndpointArn@ used for all subsequent requests to this resource.
 --
 -- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceEndpointName :: Lens.Lens' CreateEndpoint Lude.Text
-ceEndpointName = Lens.lens (endpointName :: CreateEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: CreateEndpoint)
+ceEndpointName :: Lens.Lens' CreateEndpoint Types.ComprehendEndpointName
+ceEndpointName = Lens.field @"endpointName"
 {-# DEPRECATED ceEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.
 --
--- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceModelARN :: Lens.Lens' CreateEndpoint Lude.Text
-ceModelARN = Lens.lens (modelARN :: CreateEndpoint -> Lude.Text) (\s a -> s {modelARN = a} :: CreateEndpoint)
-{-# DEPRECATED ceModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
+-- /Note:/ Consider using 'modelArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceModelArn :: Lens.Lens' CreateEndpoint Types.ComprehendModelArn
+ceModelArn = Lens.field @"modelArn"
+{-# DEPRECATED ceModelArn "Use generic-lens or generic-optics with 'modelArn' instead." #-}
 
 -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
 --
 -- /Note:/ Consider using 'desiredInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceDesiredInferenceUnits :: Lens.Lens' CreateEndpoint Lude.Natural
-ceDesiredInferenceUnits = Lens.lens (desiredInferenceUnits :: CreateEndpoint -> Lude.Natural) (\s a -> s {desiredInferenceUnits = a} :: CreateEndpoint)
+ceDesiredInferenceUnits :: Lens.Lens' CreateEndpoint Core.Natural
+ceDesiredInferenceUnits = Lens.field @"desiredInferenceUnits"
 {-# DEPRECATED ceDesiredInferenceUnits "Use generic-lens or generic-optics with 'desiredInferenceUnits' instead." #-}
 
 -- | An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceClientRequestToken :: Lens.Lens' CreateEndpoint (Lude.Maybe Lude.Text)
-ceClientRequestToken = Lens.lens (clientRequestToken :: CreateEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateEndpoint)
+ceClientRequestToken :: Lens.Lens' CreateEndpoint (Core.Maybe Types.ClientRequestTokenString)
+ceClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED ceClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceTags :: Lens.Lens' CreateEndpoint (Lude.Maybe [Tag])
-ceTags = Lens.lens (tags :: CreateEndpoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEndpoint)
+ceTags :: Lens.Lens' CreateEndpoint (Core.Maybe [Types.Tag])
+ceTags = Lens.field @"tags"
 {-# DEPRECATED ceTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateEndpoint where
+instance Core.FromJSON CreateEndpoint where
+  toJSON CreateEndpoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointName" Core..= endpointName),
+            Core.Just ("ModelArn" Core..= modelArn),
+            Core.Just ("DesiredInferenceUnits" Core..= desiredInferenceUnits),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateEndpoint where
   type Rs CreateEndpoint = CreateEndpointResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Comprehend_20171127.CreateEndpoint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateEndpointResponse'
-            Lude.<$> (x Lude..?> "EndpointArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EndpointArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.CreateEndpoint" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateEndpoint where
-  toJSON CreateEndpoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EndpointName" Lude..= endpointName),
-            Lude.Just ("ModelArn" Lude..= modelARN),
-            Lude.Just ("DesiredInferenceUnits" Lude..= desiredInferenceUnits),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
   { -- | The Amazon Resource Number (ARN) of the endpoint being created.
-    endpointARN :: Lude.Maybe Lude.Text,
+    endpointArn :: Core.Maybe Types.EndpointArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEndpointResponse' with the minimum fields required to make a request.
---
--- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint being created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateEndpointResponse' value with any optional fields omitted.
 mkCreateEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateEndpointResponse
-mkCreateEndpointResponse pResponseStatus_ =
+mkCreateEndpointResponse responseStatus =
   CreateEndpointResponse'
-    { endpointARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { endpointArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Number (ARN) of the endpoint being created.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cersEndpointARN :: Lens.Lens' CreateEndpointResponse (Lude.Maybe Lude.Text)
-cersEndpointARN = Lens.lens (endpointARN :: CreateEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {endpointARN = a} :: CreateEndpointResponse)
-{-# DEPRECATED cersEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cerrsEndpointArn :: Lens.Lens' CreateEndpointResponse (Core.Maybe Types.EndpointArn)
+cerrsEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED cerrsEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cersResponseStatus :: Lens.Lens' CreateEndpointResponse Lude.Int
-cersResponseStatus = Lens.lens (responseStatus :: CreateEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEndpointResponse)
-{-# DEPRECATED cersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cerrsResponseStatus :: Lens.Lens' CreateEndpointResponse Core.Int
+cerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

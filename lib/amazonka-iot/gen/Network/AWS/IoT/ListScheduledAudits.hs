@@ -22,140 +22,135 @@ module Network.AWS.IoT.ListScheduledAudits
     mkListScheduledAudits,
 
     -- ** Request lenses
-    lsaNextToken,
     lsaMaxResults,
+    lsaNextToken,
 
     -- * Destructuring the response
     ListScheduledAuditsResponse (..),
     mkListScheduledAuditsResponse,
 
     -- ** Response lenses
-    lsarsScheduledAudits,
-    lsarsNextToken,
-    lsarsResponseStatus,
+    lsarrsNextToken,
+    lsarrsScheduledAudits,
+    lsarrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListScheduledAudits' smart constructor.
 data ListScheduledAudits = ListScheduledAudits'
-  { -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListScheduledAudits' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results.
--- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- | Creates a 'ListScheduledAudits' value with any optional fields omitted.
 mkListScheduledAudits ::
   ListScheduledAudits
 mkListScheduledAudits =
   ListScheduledAudits'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsaNextToken :: Lens.Lens' ListScheduledAudits (Lude.Maybe Lude.Text)
-lsaNextToken = Lens.lens (nextToken :: ListScheduledAudits -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListScheduledAudits)
-{-# DEPRECATED lsaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsaMaxResults :: Lens.Lens' ListScheduledAudits (Lude.Maybe Lude.Natural)
-lsaMaxResults = Lens.lens (maxResults :: ListScheduledAudits -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListScheduledAudits)
+lsaMaxResults :: Lens.Lens' ListScheduledAudits (Core.Maybe Core.Natural)
+lsaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lsaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListScheduledAudits where
-  page rq rs
-    | Page.stop (rs Lens.^. lsarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsarsScheduledAudits) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsaNextToken Lens..~ rs Lens.^. lsarsNextToken
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsaNextToken :: Lens.Lens' ListScheduledAudits (Core.Maybe Types.NextToken)
+lsaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListScheduledAudits where
+instance Core.AWSRequest ListScheduledAudits where
   type Rs ListScheduledAudits = ListScheduledAuditsResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/audit/scheduledaudits",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListScheduledAuditsResponse'
-            Lude.<$> (x Lude..?> "scheduledAudits" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "scheduledAudits")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListScheduledAudits where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListScheduledAudits where
-  toPath = Lude.const "/audit/scheduledaudits"
-
-instance Lude.ToQuery ListScheduledAudits where
-  toQuery ListScheduledAudits' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListScheduledAudits where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"scheduledAudits" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListScheduledAuditsResponse' smart constructor.
 data ListScheduledAuditsResponse = ListScheduledAuditsResponse'
-  { -- | The list of scheduled audits.
-    scheduledAudits :: Lude.Maybe [ScheduledAuditMetadata],
-    -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The list of scheduled audits.
+    scheduledAudits :: Core.Maybe [Types.ScheduledAuditMetadata],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListScheduledAuditsResponse' with the minimum fields required to make a request.
---
--- * 'scheduledAudits' - The list of scheduled audits.
--- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListScheduledAuditsResponse' value with any optional fields omitted.
 mkListScheduledAuditsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListScheduledAuditsResponse
-mkListScheduledAuditsResponse pResponseStatus_ =
+mkListScheduledAuditsResponse responseStatus =
   ListScheduledAuditsResponse'
-    { scheduledAudits = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      scheduledAudits = Core.Nothing,
+      responseStatus
     }
-
--- | The list of scheduled audits.
---
--- /Note:/ Consider using 'scheduledAudits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsarsScheduledAudits :: Lens.Lens' ListScheduledAuditsResponse (Lude.Maybe [ScheduledAuditMetadata])
-lsarsScheduledAudits = Lens.lens (scheduledAudits :: ListScheduledAuditsResponse -> Lude.Maybe [ScheduledAuditMetadata]) (\s a -> s {scheduledAudits = a} :: ListScheduledAuditsResponse)
-{-# DEPRECATED lsarsScheduledAudits "Use generic-lens or generic-optics with 'scheduledAudits' instead." #-}
 
 -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsarsNextToken :: Lens.Lens' ListScheduledAuditsResponse (Lude.Maybe Lude.Text)
-lsarsNextToken = Lens.lens (nextToken :: ListScheduledAuditsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListScheduledAuditsResponse)
-{-# DEPRECATED lsarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsarrsNextToken :: Lens.Lens' ListScheduledAuditsResponse (Core.Maybe Types.NextToken)
+lsarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The list of scheduled audits.
+--
+-- /Note:/ Consider using 'scheduledAudits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsarrsScheduledAudits :: Lens.Lens' ListScheduledAuditsResponse (Core.Maybe [Types.ScheduledAuditMetadata])
+lsarrsScheduledAudits = Lens.field @"scheduledAudits"
+{-# DEPRECATED lsarrsScheduledAudits "Use generic-lens or generic-optics with 'scheduledAudits' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsarsResponseStatus :: Lens.Lens' ListScheduledAuditsResponse Lude.Int
-lsarsResponseStatus = Lens.lens (responseStatus :: ListScheduledAuditsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListScheduledAuditsResponse)
-{-# DEPRECATED lsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsarrsResponseStatus :: Lens.Lens' ListScheduledAuditsResponse Core.Int
+lsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

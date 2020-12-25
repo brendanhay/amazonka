@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.AssociationStatusCode
   ( AssociationStatusCode
       ( AssociationStatusCode',
-        ASCAssociating,
-        ASCAssociated,
-        ASCAssociationFailed,
-        ASCDisassociating,
-        ASCDisassociated
+        AssociationStatusCodeAssociating,
+        AssociationStatusCodeAssociated,
+        AssociationStatusCodeAssociationFailed,
+        AssociationStatusCodeDisassociating,
+        AssociationStatusCodeDisassociated,
+        fromAssociationStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssociationStatusCode = AssociationStatusCode' Lude.Text
+newtype AssociationStatusCode = AssociationStatusCode'
+  { fromAssociationStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASCAssociating :: AssociationStatusCode
-pattern ASCAssociating = AssociationStatusCode' "associating"
+pattern AssociationStatusCodeAssociating :: AssociationStatusCode
+pattern AssociationStatusCodeAssociating = AssociationStatusCode' "associating"
 
-pattern ASCAssociated :: AssociationStatusCode
-pattern ASCAssociated = AssociationStatusCode' "associated"
+pattern AssociationStatusCodeAssociated :: AssociationStatusCode
+pattern AssociationStatusCodeAssociated = AssociationStatusCode' "associated"
 
-pattern ASCAssociationFailed :: AssociationStatusCode
-pattern ASCAssociationFailed = AssociationStatusCode' "association-failed"
+pattern AssociationStatusCodeAssociationFailed :: AssociationStatusCode
+pattern AssociationStatusCodeAssociationFailed = AssociationStatusCode' "association-failed"
 
-pattern ASCDisassociating :: AssociationStatusCode
-pattern ASCDisassociating = AssociationStatusCode' "disassociating"
+pattern AssociationStatusCodeDisassociating :: AssociationStatusCode
+pattern AssociationStatusCodeDisassociating = AssociationStatusCode' "disassociating"
 
-pattern ASCDisassociated :: AssociationStatusCode
-pattern ASCDisassociated = AssociationStatusCode' "disassociated"
+pattern AssociationStatusCodeDisassociated :: AssociationStatusCode
+pattern AssociationStatusCodeDisassociated = AssociationStatusCode' "disassociated"
 
 {-# COMPLETE
-  ASCAssociating,
-  ASCAssociated,
-  ASCAssociationFailed,
-  ASCDisassociating,
-  ASCDisassociated,
+  AssociationStatusCodeAssociating,
+  AssociationStatusCodeAssociated,
+  AssociationStatusCodeAssociationFailed,
+  AssociationStatusCodeDisassociating,
+  AssociationStatusCodeDisassociated,
   AssociationStatusCode'
   #-}

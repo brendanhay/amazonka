@@ -23,51 +23,45 @@ module Network.AWS.Rekognition.Types.Geometry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.Point
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
+import qualified Network.AWS.Rekognition.Types.Point as Types
 
 -- | Information about where an object ('DetectCustomLabels' ) or text ('DetectText' ) is located on an image.
 --
 -- /See:/ 'mkGeometry' smart constructor.
 data Geometry = Geometry'
   { -- | An axis-aligned coarse representation of the detected item's location on the image.
-    boundingBox :: Lude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | Within the bounding box, a fine-grained polygon around the detected item.
-    polygon :: Lude.Maybe [Point]
+    polygon :: Core.Maybe [Types.Point]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Geometry' with the minimum fields required to make a request.
---
--- * 'boundingBox' - An axis-aligned coarse representation of the detected item's location on the image.
--- * 'polygon' - Within the bounding box, a fine-grained polygon around the detected item.
+-- | Creates a 'Geometry' value with any optional fields omitted.
 mkGeometry ::
   Geometry
 mkGeometry =
-  Geometry' {boundingBox = Lude.Nothing, polygon = Lude.Nothing}
+  Geometry' {boundingBox = Core.Nothing, polygon = Core.Nothing}
 
 -- | An axis-aligned coarse representation of the detected item's location on the image.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gBoundingBox :: Lens.Lens' Geometry (Lude.Maybe BoundingBox)
-gBoundingBox = Lens.lens (boundingBox :: Geometry -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: Geometry)
+gBoundingBox :: Lens.Lens' Geometry (Core.Maybe Types.BoundingBox)
+gBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED gBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
 -- | Within the bounding box, a fine-grained polygon around the detected item.
 --
 -- /Note:/ Consider using 'polygon' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gPolygon :: Lens.Lens' Geometry (Lude.Maybe [Point])
-gPolygon = Lens.lens (polygon :: Geometry -> Lude.Maybe [Point]) (\s a -> s {polygon = a} :: Geometry)
+gPolygon :: Lens.Lens' Geometry (Core.Maybe [Types.Point])
+gPolygon = Lens.field @"polygon"
 {-# DEPRECATED gPolygon "Use generic-lens or generic-optics with 'polygon' instead." #-}
 
-instance Lude.FromJSON Geometry where
+instance Core.FromJSON Geometry where
   parseJSON =
-    Lude.withObject
-      "Geometry"
-      ( \x ->
-          Geometry'
-            Lude.<$> (x Lude..:? "BoundingBox")
-            Lude.<*> (x Lude..:? "Polygon" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Geometry" Core.$
+      \x ->
+        Geometry'
+          Core.<$> (x Core..:? "BoundingBox") Core.<*> (x Core..:? "Polygon")

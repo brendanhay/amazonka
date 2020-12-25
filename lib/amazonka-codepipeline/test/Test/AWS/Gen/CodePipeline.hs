@@ -486,7 +486,7 @@ responseGetPipeline =
   res
     "GetPipelineResponse"
     "fixture/GetPipelineResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy GetPipeline)
 
 responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
@@ -494,7 +494,7 @@ responsePutJobFailureResult =
   res
     "PutJobFailureResultResponse"
     "fixture/PutJobFailureResultResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutJobFailureResult)
 
 responsePutApprovalResult :: PutApprovalResultResponse -> TestTree
@@ -502,7 +502,7 @@ responsePutApprovalResult =
   res
     "PutApprovalResultResponse"
     "fixture/PutApprovalResultResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutApprovalResult)
 
 responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
@@ -510,7 +510,7 @@ responseAcknowledgeThirdPartyJob =
   res
     "AcknowledgeThirdPartyJobResponse"
     "fixture/AcknowledgeThirdPartyJobResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy AcknowledgeThirdPartyJob)
 
 responsePutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResultResponse -> TestTree
@@ -518,7 +518,7 @@ responsePutThirdPartyJobFailureResult =
   res
     "PutThirdPartyJobFailureResultResponse"
     "fixture/PutThirdPartyJobFailureResultResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -526,7 +526,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
@@ -534,7 +534,7 @@ responseRegisterWebhookWithThirdParty =
   res
     "RegisterWebhookWithThirdPartyResponse"
     "fixture/RegisterWebhookWithThirdPartyResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy RegisterWebhookWithThirdParty)
 
 responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
@@ -542,7 +542,7 @@ responsePollForThirdPartyJobs =
   res
     "PollForThirdPartyJobsResponse"
     "fixture/PollForThirdPartyJobsResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PollForThirdPartyJobs)
 
 responsePollForJobs :: PollForJobsResponse -> TestTree
@@ -550,7 +550,7 @@ responsePollForJobs =
   res
     "PollForJobsResponse"
     "fixture/PollForJobsResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PollForJobs)
 
 responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
@@ -558,7 +558,7 @@ responseStartPipelineExecution =
   res
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy StartPipelineExecution)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
@@ -566,7 +566,7 @@ responseUpdatePipeline =
   res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeletePipeline =
   res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy DeletePipeline)
 
 responseGetPipelineState :: GetPipelineStateResponse -> TestTree
@@ -582,7 +582,7 @@ responseGetPipelineState =
   res
     "GetPipelineStateResponse"
     "fixture/GetPipelineStateResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy GetPipelineState)
 
 responseGetJobDetails :: GetJobDetailsResponse -> TestTree
@@ -590,7 +590,7 @@ responseGetJobDetails =
   res
     "GetJobDetailsResponse"
     "fixture/GetJobDetailsResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy GetJobDetails)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
@@ -598,7 +598,7 @@ responseListPipelines =
   res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListPipelines)
 
 responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
@@ -606,7 +606,7 @@ responseRetryStageExecution =
   res
     "RetryStageExecutionResponse"
     "fixture/RetryStageExecutionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy RetryStageExecution)
 
 responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetPipelineExecution =
   res
     "GetPipelineExecutionResponse"
     "fixture/GetPipelineExecutionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy GetPipelineExecution)
 
 responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
@@ -622,7 +622,7 @@ responsePutJobSuccessResult =
   res
     "PutJobSuccessResultResponse"
     "fixture/PutJobSuccessResultResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutJobSuccessResult)
 
 responseDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdPartyResponse -> TestTree
@@ -630,7 +630,7 @@ responseDeregisterWebhookWithThirdParty =
   res
     "DeregisterWebhookWithThirdPartyResponse"
     "fixture/DeregisterWebhookWithThirdPartyResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterWebhookWithThirdParty)
 
 responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
@@ -638,7 +638,7 @@ responseDeleteCustomActionType =
   res
     "DeleteCustomActionTypeResponse"
     "fixture/DeleteCustomActionTypeResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCustomActionType)
 
 responsePutActionRevision :: PutActionRevisionResponse -> TestTree
@@ -646,7 +646,7 @@ responsePutActionRevision =
   res
     "PutActionRevisionResponse"
     "fixture/PutActionRevisionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutActionRevision)
 
 responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
@@ -654,7 +654,7 @@ responseDisableStageTransition =
   res
     "DisableStageTransitionResponse"
     "fixture/DisableStageTransitionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy DisableStageTransition)
 
 responseListActionTypes :: ListActionTypesResponse -> TestTree
@@ -662,7 +662,7 @@ responseListActionTypes =
   res
     "ListActionTypesResponse"
     "fixture/ListActionTypesResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListActionTypes)
 
 responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
@@ -670,7 +670,7 @@ responseAcknowledgeJob =
   res
     "AcknowledgeJobResponse"
     "fixture/AcknowledgeJobResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy AcknowledgeJob)
 
 responseEnableStageTransition :: EnableStageTransitionResponse -> TestTree
@@ -678,7 +678,7 @@ responseEnableStageTransition =
   res
     "EnableStageTransitionResponse"
     "fixture/EnableStageTransitionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy EnableStageTransition)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
@@ -686,7 +686,7 @@ responseDeleteWebhook =
   res
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWebhook)
 
 responsePutWebhook :: PutWebhookResponse -> TestTree
@@ -694,7 +694,7 @@ responsePutWebhook =
   res
     "PutWebhookResponse"
     "fixture/PutWebhookResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutWebhook)
 
 responseListWebhooks :: ListWebhooksResponse -> TestTree
@@ -702,7 +702,7 @@ responseListWebhooks =
   res
     "ListWebhooksResponse"
     "fixture/ListWebhooksResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListWebhooks)
 
 responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
@@ -710,7 +710,7 @@ responseListActionExecutions =
   res
     "ListActionExecutionsResponse"
     "fixture/ListActionExecutionsResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListActionExecutions)
 
 responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
@@ -718,7 +718,7 @@ responseStopPipelineExecution =
   res
     "StopPipelineExecutionResponse"
     "fixture/StopPipelineExecutionResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy StopPipelineExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -726,7 +726,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -734,7 +734,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
@@ -742,7 +742,7 @@ responseCreatePipeline =
   res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy CreatePipeline)
 
 responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
@@ -750,7 +750,7 @@ responseGetThirdPartyJobDetails =
   res
     "GetThirdPartyJobDetailsResponse"
     "fixture/GetThirdPartyJobDetailsResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy GetThirdPartyJobDetails)
 
 responsePutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResultResponse -> TestTree
@@ -758,7 +758,7 @@ responsePutThirdPartyJobSuccessResult =
   res
     "PutThirdPartyJobSuccessResultResponse"
     "fixture/PutThirdPartyJobSuccessResultResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutThirdPartyJobSuccessResult)
 
 responseCreateCustomActionType :: CreateCustomActionTypeResponse -> TestTree
@@ -766,7 +766,7 @@ responseCreateCustomActionType =
   res
     "CreateCustomActionTypeResponse"
     "fixture/CreateCustomActionTypeResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy CreateCustomActionType)
 
 responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
@@ -774,5 +774,5 @@ responseListPipelineExecutions =
   res
     "ListPipelineExecutionsResponse"
     "fixture/ListPipelineExecutionsResponse.proto"
-    codePipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListPipelineExecutions)

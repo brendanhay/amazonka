@@ -13,46 +13,48 @@
 module Network.AWS.Batch.Types.CEState
   ( CEState
       ( CEState',
-        Enabled,
-        Disabled
+        CEStateEnabled,
+        CEStateDisabled,
+        fromCEState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CEState = CEState' Lude.Text
+newtype CEState = CEState' {fromCEState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: CEState
-pattern Enabled = CEState' "ENABLED"
+pattern CEStateEnabled :: CEState
+pattern CEStateEnabled = CEState' "ENABLED"
 
-pattern Disabled :: CEState
-pattern Disabled = CEState' "DISABLED"
+pattern CEStateDisabled :: CEState
+pattern CEStateDisabled = CEState' "DISABLED"
 
 {-# COMPLETE
-  Enabled,
-  Disabled,
+  CEStateEnabled,
+  CEStateDisabled,
   CEState'
   #-}

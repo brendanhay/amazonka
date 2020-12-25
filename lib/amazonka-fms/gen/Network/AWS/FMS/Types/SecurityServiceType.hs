@@ -13,71 +13,76 @@
 module Network.AWS.FMS.Types.SecurityServiceType
   ( SecurityServiceType
       ( SecurityServiceType',
-        Waf,
-        WAFV2,
-        ShieldAdvanced,
-        SecurityGroupsCommon,
-        SecurityGroupsContentAudit,
-        SecurityGroupsUsageAudit,
-        NetworkFirewall
+        SecurityServiceTypeWaf,
+        SecurityServiceTypeWAFV2,
+        SecurityServiceTypeShieldAdvanced,
+        SecurityServiceTypeSecurityGroupsCommon,
+        SecurityServiceTypeSecurityGroupsContentAudit,
+        SecurityServiceTypeSecurityGroupsUsageAudit,
+        SecurityServiceTypeNetworkFirewall,
+        fromSecurityServiceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SecurityServiceType = SecurityServiceType' Lude.Text
+newtype SecurityServiceType = SecurityServiceType'
+  { fromSecurityServiceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Waf :: SecurityServiceType
-pattern Waf = SecurityServiceType' "WAF"
+pattern SecurityServiceTypeWaf :: SecurityServiceType
+pattern SecurityServiceTypeWaf = SecurityServiceType' "WAF"
 
-pattern WAFV2 :: SecurityServiceType
-pattern WAFV2 = SecurityServiceType' "WAFV2"
+pattern SecurityServiceTypeWAFV2 :: SecurityServiceType
+pattern SecurityServiceTypeWAFV2 = SecurityServiceType' "WAFV2"
 
-pattern ShieldAdvanced :: SecurityServiceType
-pattern ShieldAdvanced = SecurityServiceType' "SHIELD_ADVANCED"
+pattern SecurityServiceTypeShieldAdvanced :: SecurityServiceType
+pattern SecurityServiceTypeShieldAdvanced = SecurityServiceType' "SHIELD_ADVANCED"
 
-pattern SecurityGroupsCommon :: SecurityServiceType
-pattern SecurityGroupsCommon = SecurityServiceType' "SECURITY_GROUPS_COMMON"
+pattern SecurityServiceTypeSecurityGroupsCommon :: SecurityServiceType
+pattern SecurityServiceTypeSecurityGroupsCommon = SecurityServiceType' "SECURITY_GROUPS_COMMON"
 
-pattern SecurityGroupsContentAudit :: SecurityServiceType
-pattern SecurityGroupsContentAudit = SecurityServiceType' "SECURITY_GROUPS_CONTENT_AUDIT"
+pattern SecurityServiceTypeSecurityGroupsContentAudit :: SecurityServiceType
+pattern SecurityServiceTypeSecurityGroupsContentAudit = SecurityServiceType' "SECURITY_GROUPS_CONTENT_AUDIT"
 
-pattern SecurityGroupsUsageAudit :: SecurityServiceType
-pattern SecurityGroupsUsageAudit = SecurityServiceType' "SECURITY_GROUPS_USAGE_AUDIT"
+pattern SecurityServiceTypeSecurityGroupsUsageAudit :: SecurityServiceType
+pattern SecurityServiceTypeSecurityGroupsUsageAudit = SecurityServiceType' "SECURITY_GROUPS_USAGE_AUDIT"
 
-pattern NetworkFirewall :: SecurityServiceType
-pattern NetworkFirewall = SecurityServiceType' "NETWORK_FIREWALL"
+pattern SecurityServiceTypeNetworkFirewall :: SecurityServiceType
+pattern SecurityServiceTypeNetworkFirewall = SecurityServiceType' "NETWORK_FIREWALL"
 
 {-# COMPLETE
-  Waf,
-  WAFV2,
-  ShieldAdvanced,
-  SecurityGroupsCommon,
-  SecurityGroupsContentAudit,
-  SecurityGroupsUsageAudit,
-  NetworkFirewall,
+  SecurityServiceTypeWaf,
+  SecurityServiceTypeWAFV2,
+  SecurityServiceTypeShieldAdvanced,
+  SecurityServiceTypeSecurityGroupsCommon,
+  SecurityServiceTypeSecurityGroupsContentAudit,
+  SecurityServiceTypeSecurityGroupsUsageAudit,
+  SecurityServiceTypeNetworkFirewall,
   SecurityServiceType'
   #-}

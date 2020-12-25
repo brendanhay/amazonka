@@ -22,54 +22,42 @@ module Network.AWS.EC2.Types.PurchaseRequest
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a request to purchase Scheduled Instances.
 --
 -- /See:/ 'mkPurchaseRequest' smart constructor.
 data PurchaseRequest = PurchaseRequest'
   { -- | The number of instances.
-    instanceCount :: Lude.Int,
+    instanceCount :: Core.Int,
     -- | The purchase token.
-    purchaseToken :: Lude.Text
+    purchaseToken :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurchaseRequest' with the minimum fields required to make a request.
---
--- * 'instanceCount' - The number of instances.
--- * 'purchaseToken' - The purchase token.
+-- | Creates a 'PurchaseRequest' value with any optional fields omitted.
 mkPurchaseRequest ::
   -- | 'instanceCount'
-  Lude.Int ->
+  Core.Int ->
   -- | 'purchaseToken'
-  Lude.Text ->
+  Types.String ->
   PurchaseRequest
-mkPurchaseRequest pInstanceCount_ pPurchaseToken_ =
-  PurchaseRequest'
-    { instanceCount = pInstanceCount_,
-      purchaseToken = pPurchaseToken_
-    }
+mkPurchaseRequest instanceCount purchaseToken =
+  PurchaseRequest' {instanceCount, purchaseToken}
 
 -- | The number of instances.
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prInstanceCount :: Lens.Lens' PurchaseRequest Lude.Int
-prInstanceCount = Lens.lens (instanceCount :: PurchaseRequest -> Lude.Int) (\s a -> s {instanceCount = a} :: PurchaseRequest)
+prInstanceCount :: Lens.Lens' PurchaseRequest Core.Int
+prInstanceCount = Lens.field @"instanceCount"
 {-# DEPRECATED prInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The purchase token.
 --
 -- /Note:/ Consider using 'purchaseToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prPurchaseToken :: Lens.Lens' PurchaseRequest Lude.Text
-prPurchaseToken = Lens.lens (purchaseToken :: PurchaseRequest -> Lude.Text) (\s a -> s {purchaseToken = a} :: PurchaseRequest)
+prPurchaseToken :: Lens.Lens' PurchaseRequest Types.String
+prPurchaseToken = Lens.field @"purchaseToken"
 {-# DEPRECATED prPurchaseToken "Use generic-lens or generic-optics with 'purchaseToken' instead." #-}
-
-instance Lude.ToQuery PurchaseRequest where
-  toQuery PurchaseRequest' {..} =
-    Lude.mconcat
-      [ "InstanceCount" Lude.=: instanceCount,
-        "PurchaseToken" Lude.=: purchaseToken
-      ]

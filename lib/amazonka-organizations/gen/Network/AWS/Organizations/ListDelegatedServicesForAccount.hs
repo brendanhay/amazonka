@@ -25,174 +25,163 @@ module Network.AWS.Organizations.ListDelegatedServicesForAccount
 
     -- ** Request lenses
     ldsfaAccountId,
-    ldsfaNextToken,
     ldsfaMaxResults,
+    ldsfaNextToken,
 
     -- * Destructuring the response
     ListDelegatedServicesForAccountResponse (..),
     mkListDelegatedServicesForAccountResponse,
 
     -- ** Response lenses
-    ldsfarsDelegatedServices,
-    ldsfarsNextToken,
-    ldsfarsResponseStatus,
+    ldsfarrsDelegatedServices,
+    ldsfarrsNextToken,
+    ldsfarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDelegatedServicesForAccount' smart constructor.
 data ListDelegatedServicesForAccount = ListDelegatedServicesForAccount'
   { -- | The account ID number of a delegated administrator account in the organization.
-    accountId :: Lude.Text,
-    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-    nextToken :: Lude.Maybe Lude.Text,
+    accountId :: Types.AccountId,
     -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDelegatedServicesForAccount' with the minimum fields required to make a request.
---
--- * 'accountId' - The account ID number of a delegated administrator account in the organization.
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- | Creates a 'ListDelegatedServicesForAccount' value with any optional fields omitted.
 mkListDelegatedServicesForAccount ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   ListDelegatedServicesForAccount
-mkListDelegatedServicesForAccount pAccountId_ =
+mkListDelegatedServicesForAccount accountId =
   ListDelegatedServicesForAccount'
-    { accountId = pAccountId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { accountId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The account ID number of a delegated administrator account in the organization.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsfaAccountId :: Lens.Lens' ListDelegatedServicesForAccount Lude.Text
-ldsfaAccountId = Lens.lens (accountId :: ListDelegatedServicesForAccount -> Lude.Text) (\s a -> s {accountId = a} :: ListDelegatedServicesForAccount)
+ldsfaAccountId :: Lens.Lens' ListDelegatedServicesForAccount Types.AccountId
+ldsfaAccountId = Lens.field @"accountId"
 {-# DEPRECATED ldsfaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsfaNextToken :: Lens.Lens' ListDelegatedServicesForAccount (Lude.Maybe Lude.Text)
-ldsfaNextToken = Lens.lens (nextToken :: ListDelegatedServicesForAccount -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDelegatedServicesForAccount)
-{-# DEPRECATED ldsfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsfaMaxResults :: Lens.Lens' ListDelegatedServicesForAccount (Lude.Maybe Lude.Natural)
-ldsfaMaxResults = Lens.lens (maxResults :: ListDelegatedServicesForAccount -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDelegatedServicesForAccount)
+ldsfaMaxResults :: Lens.Lens' ListDelegatedServicesForAccount (Core.Maybe Core.Natural)
+ldsfaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldsfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListDelegatedServicesForAccount where
-  page rq rs
-    | Page.stop (rs Lens.^. ldsfarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldsfarsDelegatedServices) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldsfaNextToken Lens..~ rs Lens.^. ldsfarsNextToken
+-- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsfaNextToken :: Lens.Lens' ListDelegatedServicesForAccount (Core.Maybe Types.NextToken)
+ldsfaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldsfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListDelegatedServicesForAccount where
+instance Core.FromJSON ListDelegatedServicesForAccount where
+  toJSON ListDelegatedServicesForAccount {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListDelegatedServicesForAccount where
   type
     Rs ListDelegatedServicesForAccount =
       ListDelegatedServicesForAccountResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.ListDelegatedServicesForAccount"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDelegatedServicesForAccountResponse'
-            Lude.<$> (x Lude..?> "DelegatedServices" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DelegatedServices")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDelegatedServicesForAccount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListDelegatedServicesForAccount where
-  toJSON ListDelegatedServicesForAccount' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListDelegatedServicesForAccount where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDelegatedServicesForAccount where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListDelegatedServicesForAccount where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"delegatedServices" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDelegatedServicesForAccountResponse' smart constructor.
 data ListDelegatedServicesForAccountResponse = ListDelegatedServicesForAccountResponse'
   { -- | The services for which the account is a delegated administrator.
-    delegatedServices :: Lude.Maybe [DelegatedService],
+    delegatedServices :: Core.Maybe [Types.DelegatedService],
     -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDelegatedServicesForAccountResponse' with the minimum fields required to make a request.
---
--- * 'delegatedServices' - The services for which the account is a delegated administrator.
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDelegatedServicesForAccountResponse' value with any optional fields omitted.
 mkListDelegatedServicesForAccountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDelegatedServicesForAccountResponse
-mkListDelegatedServicesForAccountResponse pResponseStatus_ =
+mkListDelegatedServicesForAccountResponse responseStatus =
   ListDelegatedServicesForAccountResponse'
     { delegatedServices =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The services for which the account is a delegated administrator.
 --
 -- /Note:/ Consider using 'delegatedServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsfarsDelegatedServices :: Lens.Lens' ListDelegatedServicesForAccountResponse (Lude.Maybe [DelegatedService])
-ldsfarsDelegatedServices = Lens.lens (delegatedServices :: ListDelegatedServicesForAccountResponse -> Lude.Maybe [DelegatedService]) (\s a -> s {delegatedServices = a} :: ListDelegatedServicesForAccountResponse)
-{-# DEPRECATED ldsfarsDelegatedServices "Use generic-lens or generic-optics with 'delegatedServices' instead." #-}
+ldsfarrsDelegatedServices :: Lens.Lens' ListDelegatedServicesForAccountResponse (Core.Maybe [Types.DelegatedService])
+ldsfarrsDelegatedServices = Lens.field @"delegatedServices"
+{-# DEPRECATED ldsfarrsDelegatedServices "Use generic-lens or generic-optics with 'delegatedServices' instead." #-}
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsfarsNextToken :: Lens.Lens' ListDelegatedServicesForAccountResponse (Lude.Maybe Lude.Text)
-ldsfarsNextToken = Lens.lens (nextToken :: ListDelegatedServicesForAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDelegatedServicesForAccountResponse)
-{-# DEPRECATED ldsfarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldsfarrsNextToken :: Lens.Lens' ListDelegatedServicesForAccountResponse (Core.Maybe Types.NextToken)
+ldsfarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldsfarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsfarsResponseStatus :: Lens.Lens' ListDelegatedServicesForAccountResponse Lude.Int
-ldsfarsResponseStatus = Lens.lens (responseStatus :: ListDelegatedServicesForAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDelegatedServicesForAccountResponse)
-{-# DEPRECATED ldsfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldsfarrsResponseStatus :: Lens.Lens' ListDelegatedServicesForAccountResponse Core.Int
+ldsfarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldsfarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

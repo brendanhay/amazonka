@@ -21,37 +21,36 @@ module Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a global secondary index to be deleted from an existing table.
 --
 -- /See:/ 'mkDeleteGlobalSecondaryIndexAction' smart constructor.
 newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
   { -- | The name of the global secondary index to be deleted.
-    indexName :: Lude.Text
+    indexName :: Types.IndexName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGlobalSecondaryIndexAction' with the minimum fields required to make a request.
---
--- * 'indexName' - The name of the global secondary index to be deleted.
+-- | Creates a 'DeleteGlobalSecondaryIndexAction' value with any optional fields omitted.
 mkDeleteGlobalSecondaryIndexAction ::
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
   DeleteGlobalSecondaryIndexAction
-mkDeleteGlobalSecondaryIndexAction pIndexName_ =
-  DeleteGlobalSecondaryIndexAction' {indexName = pIndexName_}
+mkDeleteGlobalSecondaryIndexAction indexName =
+  DeleteGlobalSecondaryIndexAction' {indexName}
 
 -- | The name of the global secondary index to be deleted.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsiaIndexName :: Lens.Lens' DeleteGlobalSecondaryIndexAction Lude.Text
-dgsiaIndexName = Lens.lens (indexName :: DeleteGlobalSecondaryIndexAction -> Lude.Text) (\s a -> s {indexName = a} :: DeleteGlobalSecondaryIndexAction)
+dgsiaIndexName :: Lens.Lens' DeleteGlobalSecondaryIndexAction Types.IndexName
+dgsiaIndexName = Lens.field @"indexName"
 {-# DEPRECATED dgsiaIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.ToJSON DeleteGlobalSecondaryIndexAction where
-  toJSON DeleteGlobalSecondaryIndexAction' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("IndexName" Lude..= indexName)])
+instance Core.FromJSON DeleteGlobalSecondaryIndexAction where
+  toJSON DeleteGlobalSecondaryIndexAction {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("IndexName" Core..= indexName)])

@@ -17,143 +17,134 @@ module Network.AWS.EC2.Types.ExportTask
     mkExportTask,
 
     -- * Lenses
+    etDescription,
     etExportTaskId,
-    etState,
     etExportToS3Task,
     etInstanceExportDetails,
+    etState,
     etStatusMessage,
-    etDescription,
     etTags,
   )
 where
 
-import Network.AWS.EC2.Types.ExportTaskState
-import Network.AWS.EC2.Types.ExportToS3Task
-import Network.AWS.EC2.Types.InstanceExportDetails
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.ExportTaskState as Types
+import qualified Network.AWS.EC2.Types.ExportToS3Task as Types
+import qualified Network.AWS.EC2.Types.InstanceExportDetails as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance export task.
 --
 -- /See:/ 'mkExportTask' smart constructor.
 data ExportTask = ExportTask'
-  { -- | The ID of the export task.
-    exportTaskId :: Lude.Text,
-    -- | The state of the export task.
-    state :: ExportTaskState,
+  { -- | A description of the resource being exported.
+    description :: Types.String,
+    -- | The ID of the export task.
+    exportTaskId :: Types.String,
     -- | Information about the export task.
-    exportToS3Task :: ExportToS3Task,
+    exportToS3Task :: Types.ExportToS3Task,
     -- | Information about the instance to export.
-    instanceExportDetails :: InstanceExportDetails,
+    instanceExportDetails :: Types.InstanceExportDetails,
+    -- | The state of the export task.
+    state :: Types.ExportTaskState,
     -- | The status message related to the export task.
-    statusMessage :: Lude.Text,
-    -- | A description of the resource being exported.
-    description :: Lude.Text,
+    statusMessage :: Types.String,
     -- | The tags for the export task.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
---
--- * 'exportTaskId' - The ID of the export task.
--- * 'state' - The state of the export task.
--- * 'exportToS3Task' - Information about the export task.
--- * 'instanceExportDetails' - Information about the instance to export.
--- * 'statusMessage' - The status message related to the export task.
--- * 'description' - A description of the resource being exported.
--- * 'tags' - The tags for the export task.
+-- | Creates a 'ExportTask' value with any optional fields omitted.
 mkExportTask ::
-  -- | 'exportTaskId'
-  Lude.Text ->
-  -- | 'state'
-  ExportTaskState ->
-  -- | 'exportToS3Task'
-  ExportToS3Task ->
-  -- | 'instanceExportDetails'
-  InstanceExportDetails ->
-  -- | 'statusMessage'
-  Lude.Text ->
   -- | 'description'
-  Lude.Text ->
+  Types.String ->
+  -- | 'exportTaskId'
+  Types.String ->
+  -- | 'exportToS3Task'
+  Types.ExportToS3Task ->
+  -- | 'instanceExportDetails'
+  Types.InstanceExportDetails ->
+  -- | 'state'
+  Types.ExportTaskState ->
+  -- | 'statusMessage'
+  Types.String ->
   ExportTask
 mkExportTask
-  pExportTaskId_
-  pState_
-  pExportToS3Task_
-  pInstanceExportDetails_
-  pStatusMessage_
-  pDescription_ =
+  description
+  exportTaskId
+  exportToS3Task
+  instanceExportDetails
+  state
+  statusMessage =
     ExportTask'
-      { exportTaskId = pExportTaskId_,
-        state = pState_,
-        exportToS3Task = pExportToS3Task_,
-        instanceExportDetails = pInstanceExportDetails_,
-        statusMessage = pStatusMessage_,
-        description = pDescription_,
-        tags = Lude.Nothing
+      { description,
+        exportTaskId,
+        exportToS3Task,
+        instanceExportDetails,
+        state,
+        statusMessage,
+        tags = Core.Nothing
       }
+
+-- | A description of the resource being exported.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etDescription :: Lens.Lens' ExportTask Types.String
+etDescription = Lens.field @"description"
+{-# DEPRECATED etDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the export task.
 --
 -- /Note:/ Consider using 'exportTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etExportTaskId :: Lens.Lens' ExportTask Lude.Text
-etExportTaskId = Lens.lens (exportTaskId :: ExportTask -> Lude.Text) (\s a -> s {exportTaskId = a} :: ExportTask)
+etExportTaskId :: Lens.Lens' ExportTask Types.String
+etExportTaskId = Lens.field @"exportTaskId"
 {-# DEPRECATED etExportTaskId "Use generic-lens or generic-optics with 'exportTaskId' instead." #-}
-
--- | The state of the export task.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etState :: Lens.Lens' ExportTask ExportTaskState
-etState = Lens.lens (state :: ExportTask -> ExportTaskState) (\s a -> s {state = a} :: ExportTask)
-{-# DEPRECATED etState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Information about the export task.
 --
 -- /Note:/ Consider using 'exportToS3Task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etExportToS3Task :: Lens.Lens' ExportTask ExportToS3Task
-etExportToS3Task = Lens.lens (exportToS3Task :: ExportTask -> ExportToS3Task) (\s a -> s {exportToS3Task = a} :: ExportTask)
+etExportToS3Task :: Lens.Lens' ExportTask Types.ExportToS3Task
+etExportToS3Task = Lens.field @"exportToS3Task"
 {-# DEPRECATED etExportToS3Task "Use generic-lens or generic-optics with 'exportToS3Task' instead." #-}
 
 -- | Information about the instance to export.
 --
 -- /Note:/ Consider using 'instanceExportDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etInstanceExportDetails :: Lens.Lens' ExportTask InstanceExportDetails
-etInstanceExportDetails = Lens.lens (instanceExportDetails :: ExportTask -> InstanceExportDetails) (\s a -> s {instanceExportDetails = a} :: ExportTask)
+etInstanceExportDetails :: Lens.Lens' ExportTask Types.InstanceExportDetails
+etInstanceExportDetails = Lens.field @"instanceExportDetails"
 {-# DEPRECATED etInstanceExportDetails "Use generic-lens or generic-optics with 'instanceExportDetails' instead." #-}
+
+-- | The state of the export task.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etState :: Lens.Lens' ExportTask Types.ExportTaskState
+etState = Lens.field @"state"
+{-# DEPRECATED etState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The status message related to the export task.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etStatusMessage :: Lens.Lens' ExportTask Lude.Text
-etStatusMessage = Lens.lens (statusMessage :: ExportTask -> Lude.Text) (\s a -> s {statusMessage = a} :: ExportTask)
+etStatusMessage :: Lens.Lens' ExportTask Types.String
+etStatusMessage = Lens.field @"statusMessage"
 {-# DEPRECATED etStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | A description of the resource being exported.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etDescription :: Lens.Lens' ExportTask Lude.Text
-etDescription = Lens.lens (description :: ExportTask -> Lude.Text) (\s a -> s {description = a} :: ExportTask)
-{-# DEPRECATED etDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the export task.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTags :: Lens.Lens' ExportTask (Lude.Maybe [Tag])
-etTags = Lens.lens (tags :: ExportTask -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ExportTask)
+etTags :: Lens.Lens' ExportTask (Core.Maybe [Types.Tag])
+etTags = Lens.field @"tags"
 {-# DEPRECATED etTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ExportTask where
+instance Core.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Lude.<$> (x Lude..@ "exportTaskId")
-      Lude.<*> (x Lude..@ "state")
-      Lude.<*> (x Lude..@ "exportToS3")
-      Lude.<*> (x Lude..@ "instanceExport")
-      Lude.<*> (x Lude..@ "statusMessage")
-      Lude.<*> (x Lude..@ "description")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@ "description")
+      Core.<*> (x Core..@ "exportTaskId")
+      Core.<*> (x Core..@ "exportToS3")
+      Core.<*> (x Core..@ "instanceExport")
+      Core.<*> (x Core..@ "state")
+      Core.<*> (x Core..@ "statusMessage")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

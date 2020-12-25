@@ -38,7 +38,7 @@ module Network.AWS.GameLift.DeleteAlias
     mkDeleteAlias,
 
     -- ** Request lenses
-    dAliasId,
+    daAliasId,
 
     -- * Destructuring the response
     DeleteAliasResponse (..),
@@ -46,71 +46,62 @@ module Network.AWS.GameLift.DeleteAlias
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteAlias' smart constructor.
 newtype DeleteAlias = DeleteAlias'
   { -- | A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
-    aliasId :: Lude.Text
+    aliasId :: Types.AliasIdOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
---
--- * 'aliasId' - A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
+-- | Creates a 'DeleteAlias' value with any optional fields omitted.
 mkDeleteAlias ::
   -- | 'aliasId'
-  Lude.Text ->
+  Types.AliasIdOrArn ->
   DeleteAlias
-mkDeleteAlias pAliasId_ = DeleteAlias' {aliasId = pAliasId_}
+mkDeleteAlias aliasId = DeleteAlias' {aliasId}
 
 -- | A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAliasId :: Lens.Lens' DeleteAlias Lude.Text
-dAliasId = Lens.lens (aliasId :: DeleteAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteAlias)
-{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+daAliasId :: Lens.Lens' DeleteAlias Types.AliasIdOrArn
+daAliasId = Lens.field @"aliasId"
+{-# DEPRECATED daAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance Lude.AWSRequest DeleteAlias where
+instance Core.FromJSON DeleteAlias where
+  toJSON DeleteAlias {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AliasId" Core..= aliasId)])
+
+instance Core.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
-  request = Req.postJSON gameLiftService
-  response = Res.receiveNull DeleteAliasResponse'
-
-instance Lude.ToHeaders DeleteAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAlias where
-  toJSON DeleteAlias' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
-
-instance Lude.ToPath DeleteAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAlias where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeleteAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAliasResponse'
 
 -- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAliasResponse' value with any optional fields omitted.
 mkDeleteAliasResponse ::
   DeleteAliasResponse
 mkDeleteAliasResponse = DeleteAliasResponse'

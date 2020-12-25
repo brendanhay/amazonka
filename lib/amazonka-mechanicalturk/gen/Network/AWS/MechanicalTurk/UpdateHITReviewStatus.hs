@@ -20,58 +20,54 @@ module Network.AWS.MechanicalTurk.UpdateHITReviewStatus
     mkUpdateHITReviewStatus,
 
     -- ** Request lenses
-    uhitrsRevert,
     uhitrsHITId,
+    uhitrsRevert,
 
     -- * Destructuring the response
     UpdateHITReviewStatusResponse (..),
     mkUpdateHITReviewStatusResponse,
 
     -- ** Response lenses
-    uhitrsrsResponseStatus,
+    uhitrsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateHITReviewStatus' smart constructor.
 data UpdateHITReviewStatus = UpdateHITReviewStatus'
-  { -- | Specifies how to update the HIT status. Default is @False@ .
+  { -- | The ID of the HIT to update.
+    hITId :: Types.HITId,
+    -- | Specifies how to update the HIT status. Default is @False@ .
     --
     --
     --     * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@
     --
     --
     --     * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
-    revert :: Lude.Maybe Lude.Bool,
-    -- | The ID of the HIT to update.
-    hITId :: Lude.Text
+    revert :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateHITReviewStatus' with the minimum fields required to make a request.
---
--- * 'revert' - Specifies how to update the HIT status. Default is @False@ .
---
---
---     * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@
---
---
---     * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
---
---
--- * 'hITId' - The ID of the HIT to update.
+-- | Creates a 'UpdateHITReviewStatus' value with any optional fields omitted.
 mkUpdateHITReviewStatus ::
   -- | 'hITId'
-  Lude.Text ->
+  Types.HITId ->
   UpdateHITReviewStatus
-mkUpdateHITReviewStatus pHITId_ =
-  UpdateHITReviewStatus' {revert = Lude.Nothing, hITId = pHITId_}
+mkUpdateHITReviewStatus hITId =
+  UpdateHITReviewStatus' {hITId, revert = Core.Nothing}
+
+-- | The ID of the HIT to update.
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhitrsHITId :: Lens.Lens' UpdateHITReviewStatus Types.HITId
+uhitrsHITId = Lens.field @"hITId"
+{-# DEPRECATED uhitrsHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 -- | Specifies how to update the HIT status. Default is @False@ .
 --
@@ -84,76 +80,61 @@ mkUpdateHITReviewStatus pHITId_ =
 --
 --
 -- /Note:/ Consider using 'revert' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhitrsRevert :: Lens.Lens' UpdateHITReviewStatus (Lude.Maybe Lude.Bool)
-uhitrsRevert = Lens.lens (revert :: UpdateHITReviewStatus -> Lude.Maybe Lude.Bool) (\s a -> s {revert = a} :: UpdateHITReviewStatus)
+uhitrsRevert :: Lens.Lens' UpdateHITReviewStatus (Core.Maybe Core.Bool)
+uhitrsRevert = Lens.field @"revert"
 {-# DEPRECATED uhitrsRevert "Use generic-lens or generic-optics with 'revert' instead." #-}
 
--- | The ID of the HIT to update.
---
--- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhitrsHITId :: Lens.Lens' UpdateHITReviewStatus Lude.Text
-uhitrsHITId = Lens.lens (hITId :: UpdateHITReviewStatus -> Lude.Text) (\s a -> s {hITId = a} :: UpdateHITReviewStatus)
-{-# DEPRECATED uhitrsHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
+instance Core.FromJSON UpdateHITReviewStatus where
+  toJSON UpdateHITReviewStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HITId" Core..= hITId),
+            ("Revert" Core..=) Core.<$> revert
+          ]
+      )
 
-instance Lude.AWSRequest UpdateHITReviewStatus where
+instance Core.AWSRequest UpdateHITReviewStatus where
   type Rs UpdateHITReviewStatus = UpdateHITReviewStatusResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.UpdateHITReviewStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateHITReviewStatusResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateHITReviewStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateHITReviewStatus where
-  toJSON UpdateHITReviewStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Revert" Lude..=) Lude.<$> revert,
-            Lude.Just ("HITId" Lude..= hITId)
-          ]
-      )
-
-instance Lude.ToPath UpdateHITReviewStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateHITReviewStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateHITReviewStatusResponse' smart constructor.
 newtype UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateHITReviewStatusResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateHITReviewStatusResponse' value with any optional fields omitted.
 mkUpdateHITReviewStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateHITReviewStatusResponse
-mkUpdateHITReviewStatusResponse pResponseStatus_ =
-  UpdateHITReviewStatusResponse' {responseStatus = pResponseStatus_}
+mkUpdateHITReviewStatusResponse responseStatus =
+  UpdateHITReviewStatusResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhitrsrsResponseStatus :: Lens.Lens' UpdateHITReviewStatusResponse Lude.Int
-uhitrsrsResponseStatus = Lens.lens (responseStatus :: UpdateHITReviewStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateHITReviewStatusResponse)
-{-# DEPRECATED uhitrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uhitrsrrsResponseStatus :: Lens.Lens' UpdateHITReviewStatusResponse Core.Int
+uhitrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uhitrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

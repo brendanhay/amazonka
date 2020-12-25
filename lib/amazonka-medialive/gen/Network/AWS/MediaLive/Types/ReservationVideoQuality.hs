@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.ReservationVideoQuality
   ( ReservationVideoQuality
       ( ReservationVideoQuality',
-        Standard,
-        Enhanced,
-        Premium
+        ReservationVideoQualityStandard,
+        ReservationVideoQualityEnhanced,
+        ReservationVideoQualityPremium,
+        fromReservationVideoQuality
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Video quality, e.g. 'STANDARD' (Outputs only)
-newtype ReservationVideoQuality = ReservationVideoQuality' Lude.Text
+newtype ReservationVideoQuality = ReservationVideoQuality'
+  { fromReservationVideoQuality ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: ReservationVideoQuality
-pattern Standard = ReservationVideoQuality' "STANDARD"
+pattern ReservationVideoQualityStandard :: ReservationVideoQuality
+pattern ReservationVideoQualityStandard = ReservationVideoQuality' "STANDARD"
 
-pattern Enhanced :: ReservationVideoQuality
-pattern Enhanced = ReservationVideoQuality' "ENHANCED"
+pattern ReservationVideoQualityEnhanced :: ReservationVideoQuality
+pattern ReservationVideoQualityEnhanced = ReservationVideoQuality' "ENHANCED"
 
-pattern Premium :: ReservationVideoQuality
-pattern Premium = ReservationVideoQuality' "PREMIUM"
+pattern ReservationVideoQualityPremium :: ReservationVideoQuality
+pattern ReservationVideoQualityPremium = ReservationVideoQuality' "PREMIUM"
 
 {-# COMPLETE
-  Standard,
-  Enhanced,
-  Premium,
+  ReservationVideoQualityStandard,
+  ReservationVideoQualityEnhanced,
+  ReservationVideoQualityPremium,
   ReservationVideoQuality'
   #-}

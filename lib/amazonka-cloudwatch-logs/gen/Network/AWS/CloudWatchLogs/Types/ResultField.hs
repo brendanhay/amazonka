@@ -22,8 +22,10 @@ module Network.AWS.CloudWatchLogs.Types.ResultField
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.Field as Types
+import qualified Network.AWS.CloudWatchLogs.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains one field from one log event returned by a CloudWatch Logs Insights query, along with the value of that field.
 --
@@ -32,41 +34,36 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkResultField' smart constructor.
 data ResultField = ResultField'
   { -- | The log event field.
-    field :: Lude.Maybe Lude.Text,
+    field :: Core.Maybe Types.Field,
     -- | The value of this field.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResultField' with the minimum fields required to make a request.
---
--- * 'field' - The log event field.
--- * 'value' - The value of this field.
+-- | Creates a 'ResultField' value with any optional fields omitted.
 mkResultField ::
   ResultField
 mkResultField =
-  ResultField' {field = Lude.Nothing, value = Lude.Nothing}
+  ResultField' {field = Core.Nothing, value = Core.Nothing}
 
 -- | The log event field.
 --
 -- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfField :: Lens.Lens' ResultField (Lude.Maybe Lude.Text)
-rfField = Lens.lens (field :: ResultField -> Lude.Maybe Lude.Text) (\s a -> s {field = a} :: ResultField)
+rfField :: Lens.Lens' ResultField (Core.Maybe Types.Field)
+rfField = Lens.field @"field"
 {-# DEPRECATED rfField "Use generic-lens or generic-optics with 'field' instead." #-}
 
 -- | The value of this field.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfValue :: Lens.Lens' ResultField (Lude.Maybe Lude.Text)
-rfValue = Lens.lens (value :: ResultField -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ResultField)
+rfValue :: Lens.Lens' ResultField (Core.Maybe Types.Value)
+rfValue = Lens.field @"value"
 {-# DEPRECATED rfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromJSON ResultField where
+instance Core.FromJSON ResultField where
   parseJSON =
-    Lude.withObject
-      "ResultField"
-      ( \x ->
-          ResultField'
-            Lude.<$> (x Lude..:? "field") Lude.<*> (x Lude..:? "value")
-      )
+    Core.withObject "ResultField" Core.$
+      \x ->
+        ResultField'
+          Core.<$> (x Core..:? "field") Core.<*> (x Core..:? "value")

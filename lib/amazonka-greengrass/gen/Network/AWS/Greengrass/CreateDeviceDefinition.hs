@@ -30,222 +30,204 @@ module Network.AWS.Greengrass.CreateDeviceDefinition
     mkCreateDeviceDefinitionResponse,
 
     -- ** Response lenses
-    cddrsLatestVersionARN,
-    cddrsARN,
-    cddrsName,
-    cddrsCreationTimestamp,
-    cddrsId,
-    cddrsLatestVersion,
-    cddrsLastUpdatedTimestamp,
-    cddrsResponseStatus,
+    cddrrsArn,
+    cddrrsCreationTimestamp,
+    cddrrsId,
+    cddrrsLastUpdatedTimestamp,
+    cddrrsLatestVersion,
+    cddrrsLatestVersionArn,
+    cddrrsName,
+    cddrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDeviceDefinition' smart constructor.
 data CreateDeviceDefinition = CreateDeviceDefinition'
   { -- | A client token used to correlate requests and responses.
-    amznClientToken :: Lude.Maybe Lude.Text,
+    amznClientToken :: Core.Maybe Core.Text,
     -- | Information about the initial version of the device definition.
-    initialVersion :: Lude.Maybe DeviceDefinitionVersion,
+    initialVersion :: Core.Maybe Types.DeviceDefinitionVersion,
     -- | The name of the device definition.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Tag(s) to add to the new resource.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDeviceDefinition' with the minimum fields required to make a request.
---
--- * 'amznClientToken' - A client token used to correlate requests and responses.
--- * 'initialVersion' - Information about the initial version of the device definition.
--- * 'name' - The name of the device definition.
--- * 'tags' - Tag(s) to add to the new resource.
+-- | Creates a 'CreateDeviceDefinition' value with any optional fields omitted.
 mkCreateDeviceDefinition ::
   CreateDeviceDefinition
 mkCreateDeviceDefinition =
   CreateDeviceDefinition'
-    { amznClientToken = Lude.Nothing,
-      initialVersion = Lude.Nothing,
-      name = Lude.Nothing,
-      tags = Lude.Nothing
+    { amznClientToken = Core.Nothing,
+      initialVersion = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
 --
 -- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddAmznClientToken :: Lens.Lens' CreateDeviceDefinition (Lude.Maybe Lude.Text)
-cddAmznClientToken = Lens.lens (amznClientToken :: CreateDeviceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateDeviceDefinition)
+cddAmznClientToken :: Lens.Lens' CreateDeviceDefinition (Core.Maybe Core.Text)
+cddAmznClientToken = Lens.field @"amznClientToken"
 {-# DEPRECATED cddAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | Information about the initial version of the device definition.
 --
 -- /Note:/ Consider using 'initialVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddInitialVersion :: Lens.Lens' CreateDeviceDefinition (Lude.Maybe DeviceDefinitionVersion)
-cddInitialVersion = Lens.lens (initialVersion :: CreateDeviceDefinition -> Lude.Maybe DeviceDefinitionVersion) (\s a -> s {initialVersion = a} :: CreateDeviceDefinition)
+cddInitialVersion :: Lens.Lens' CreateDeviceDefinition (Core.Maybe Types.DeviceDefinitionVersion)
+cddInitialVersion = Lens.field @"initialVersion"
 {-# DEPRECATED cddInitialVersion "Use generic-lens or generic-optics with 'initialVersion' instead." #-}
 
 -- | The name of the device definition.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddName :: Lens.Lens' CreateDeviceDefinition (Lude.Maybe Lude.Text)
-cddName = Lens.lens (name :: CreateDeviceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateDeviceDefinition)
+cddName :: Lens.Lens' CreateDeviceDefinition (Core.Maybe Core.Text)
+cddName = Lens.field @"name"
 {-# DEPRECATED cddName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) to add to the new resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddTags :: Lens.Lens' CreateDeviceDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cddTags = Lens.lens (tags :: CreateDeviceDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDeviceDefinition)
+cddTags :: Lens.Lens' CreateDeviceDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+cddTags = Lens.field @"tags"
 {-# DEPRECATED cddTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDeviceDefinition where
-  type Rs CreateDeviceDefinition = CreateDeviceDefinitionResponse
-  request = Req.postJSON greengrassService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateDeviceDefinitionResponse'
-            Lude.<$> (x Lude..?> "LatestVersionArn")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (x Lude..?> "LatestVersion")
-            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateDeviceDefinition where
-  toHeaders CreateDeviceDefinition' {..} =
-    Lude.mconcat
-      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToJSON CreateDeviceDefinition where
-  toJSON CreateDeviceDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InitialVersion" Lude..=) Lude.<$> initialVersion,
-            ("Name" Lude..=) Lude.<$> name,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateDeviceDefinition where
+  toJSON CreateDeviceDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InitialVersion" Core..=) Core.<$> initialVersion,
+            ("Name" Core..=) Core.<$> name,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateDeviceDefinition where
-  toPath = Lude.const "/greengrass/definition/devices"
-
-instance Lude.ToQuery CreateDeviceDefinition where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateDeviceDefinition where
+  type Rs CreateDeviceDefinition = CreateDeviceDefinitionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/greengrass/definition/devices",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "X-Amzn-Client-Token" amznClientToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDeviceDefinitionResponse'
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "LastUpdatedTimestamp")
+            Core.<*> (x Core..:? "LatestVersion")
+            Core.<*> (x Core..:? "LatestVersionArn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateDeviceDefinitionResponse' smart constructor.
 data CreateDeviceDefinitionResponse = CreateDeviceDefinitionResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the definition.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the definition.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ID of the definition.
-    id :: Lude.Maybe Lude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last updated.
-    lastUpdatedTimestamp :: Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp :: Core.Maybe Core.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Core.Maybe Core.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Core.Maybe Core.Text,
+    -- | The name of the definition.
+    name :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDeviceDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'arn' - The ARN of the definition.
--- * 'name' - The name of the definition.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
--- * 'id' - The ID of the definition.
--- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDeviceDefinitionResponse' value with any optional fields omitted.
 mkCreateDeviceDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDeviceDefinitionResponse
-mkCreateDeviceDefinitionResponse pResponseStatus_ =
+mkCreateDeviceDefinitionResponse responseStatus =
   CreateDeviceDefinitionResponse'
-    { latestVersionARN = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      id = Lude.Nothing,
-      latestVersion = Lude.Nothing,
-      lastUpdatedTimestamp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing,
+      latestVersion = Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      name = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsLatestVersionARN :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsLatestVersionARN = Lens.lens (latestVersionARN :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsARN :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsARN = Lens.lens (arn :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsName :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsName = Lens.lens (name :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+cddrrsArn :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsArn = Lens.field @"arn"
+{-# DEPRECATED cddrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsCreationTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+cddrrsCreationTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED cddrrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsId :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsId = Lens.lens (id :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The ID of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsLatestVersion :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsLatestVersion = Lens.lens (latestVersion :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+cddrrsId :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsId = Lens.field @"id"
+{-# DEPRECATED cddrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsLastUpdatedTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Lude.Maybe Lude.Text)
-cddrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: CreateDeviceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+cddrrsLastUpdatedTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsLastUpdatedTimestamp = Lens.field @"lastUpdatedTimestamp"
+{-# DEPRECATED cddrrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+
+-- | The ID of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddrrsLatestVersion :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsLatestVersion = Lens.field @"latestVersion"
+{-# DEPRECATED cddrrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+
+-- | The ARN of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddrrsLatestVersionArn :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsLatestVersionArn = Lens.field @"latestVersionArn"
+{-# DEPRECATED cddrrsLatestVersionArn "Use generic-lens or generic-optics with 'latestVersionArn' instead." #-}
+
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddrrsName :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
+cddrrsName = Lens.field @"name"
+{-# DEPRECATED cddrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddrsResponseStatus :: Lens.Lens' CreateDeviceDefinitionResponse Lude.Int
-cddrsResponseStatus = Lens.lens (responseStatus :: CreateDeviceDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDeviceDefinitionResponse)
-{-# DEPRECATED cddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cddrrsResponseStatus :: Lens.Lens' CreateDeviceDefinitionResponse Core.Int
+cddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

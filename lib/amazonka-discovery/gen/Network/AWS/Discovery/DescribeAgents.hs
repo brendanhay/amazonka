@@ -24,66 +24,59 @@ module Network.AWS.Discovery.DescribeAgents
     -- ** Request lenses
     daAgentIds,
     daFilters,
-    daNextToken,
     daMaxResults,
+    daNextToken,
 
     -- * Destructuring the response
     DescribeAgentsResponse (..),
     mkDescribeAgentsResponse,
 
     -- ** Response lenses
-    dasrsAgentsInfo,
-    dasrsNextToken,
-    dasrsResponseStatus,
+    darfrsAgentsInfo,
+    darfrsNextToken,
+    darfrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
   { -- | The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
-    agentIds :: Lude.Maybe [Lude.Text],
+    agentIds :: Core.Maybe [Types.AgentId],
     -- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:
     --
     -- @{"key": "collectionStatus", "value": "STARTED"}@
-    filters :: Lude.Maybe [Filter],
-    -- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAgents' with the minimum fields required to make a request.
---
--- * 'agentIds' - The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
--- * 'filters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:
---
--- @{"key": "collectionStatus", "value": "STARTED"}@
--- * 'nextToken' - Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
--- * 'maxResults' - The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
+-- | Creates a 'DescribeAgents' value with any optional fields omitted.
 mkDescribeAgents ::
   DescribeAgents
 mkDescribeAgents =
   DescribeAgents'
-    { agentIds = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { agentIds = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
 --
 -- /Note:/ Consider using 'agentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAgentIds :: Lens.Lens' DescribeAgents (Lude.Maybe [Lude.Text])
-daAgentIds = Lens.lens (agentIds :: DescribeAgents -> Lude.Maybe [Lude.Text]) (\s a -> s {agentIds = a} :: DescribeAgents)
+daAgentIds :: Lens.Lens' DescribeAgents (Core.Maybe [Types.AgentId])
+daAgentIds = Lens.field @"agentIds"
 {-# DEPRECATED daAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
 
 -- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:
@@ -91,120 +84,111 @@ daAgentIds = Lens.lens (agentIds :: DescribeAgents -> Lude.Maybe [Lude.Text]) (\
 -- @{"key": "collectionStatus", "value": "STARTED"}@
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daFilters :: Lens.Lens' DescribeAgents (Lude.Maybe [Filter])
-daFilters = Lens.lens (filters :: DescribeAgents -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeAgents)
+daFilters :: Lens.Lens' DescribeAgents (Core.Maybe [Types.Filter])
+daFilters = Lens.field @"filters"
 {-# DEPRECATED daFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daNextToken :: Lens.Lens' DescribeAgents (Lude.Maybe Lude.Text)
-daNextToken = Lens.lens (nextToken :: DescribeAgents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAgents)
-{-# DEPRECATED daNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daMaxResults :: Lens.Lens' DescribeAgents (Lude.Maybe Lude.Int)
-daMaxResults = Lens.lens (maxResults :: DescribeAgents -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeAgents)
+daMaxResults :: Lens.Lens' DescribeAgents (Core.Maybe Core.Int)
+daMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED daMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeAgents where
-  page rq rs
-    | Page.stop (rs Lens.^. dasrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dasrsAgentsInfo) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& daNextToken Lens..~ rs Lens.^. dasrsNextToken
+-- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daNextToken :: Lens.Lens' DescribeAgents (Core.Maybe Types.NextToken)
+daNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeAgents where
+instance Core.FromJSON DescribeAgents where
+  toJSON DescribeAgents {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("agentIds" Core..=) Core.<$> agentIds,
+            ("filters" Core..=) Core.<$> filters,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeAgents where
   type Rs DescribeAgents = DescribeAgentsResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSPoseidonService_V2015_11_01.DescribeAgents")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAgentsResponse'
-            Lude.<$> (x Lude..?> "agentsInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "agentsInfo")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAgents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.DescribeAgents" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAgents where
-  toJSON DescribeAgents' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("agentIds" Lude..=) Lude.<$> agentIds,
-            ("filters" Lude..=) Lude.<$> filters,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeAgents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAgents where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeAgents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"agentsInfo" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
   { -- | Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
-    agentsInfo :: Lude.Maybe [AgentInfo],
+    agentsInfo :: Core.Maybe [Types.AgentInfo],
     -- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAgentsResponse' with the minimum fields required to make a request.
---
--- * 'agentsInfo' - Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
--- * 'nextToken' - Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAgentsResponse' value with any optional fields omitted.
 mkDescribeAgentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAgentsResponse
-mkDescribeAgentsResponse pResponseStatus_ =
+mkDescribeAgentsResponse responseStatus =
   DescribeAgentsResponse'
-    { agentsInfo = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { agentsInfo = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
 --
 -- /Note:/ Consider using 'agentsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsAgentsInfo :: Lens.Lens' DescribeAgentsResponse (Lude.Maybe [AgentInfo])
-dasrsAgentsInfo = Lens.lens (agentsInfo :: DescribeAgentsResponse -> Lude.Maybe [AgentInfo]) (\s a -> s {agentsInfo = a} :: DescribeAgentsResponse)
-{-# DEPRECATED dasrsAgentsInfo "Use generic-lens or generic-optics with 'agentsInfo' instead." #-}
+darfrsAgentsInfo :: Lens.Lens' DescribeAgentsResponse (Core.Maybe [Types.AgentInfo])
+darfrsAgentsInfo = Lens.field @"agentsInfo"
+{-# DEPRECATED darfrsAgentsInfo "Use generic-lens or generic-optics with 'agentsInfo' instead." #-}
 
 -- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsNextToken :: Lens.Lens' DescribeAgentsResponse (Lude.Maybe Lude.Text)
-dasrsNextToken = Lens.lens (nextToken :: DescribeAgentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAgentsResponse)
-{-# DEPRECATED dasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+darfrsNextToken :: Lens.Lens' DescribeAgentsResponse (Core.Maybe Types.NextToken)
+darfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED darfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsResponseStatus :: Lens.Lens' DescribeAgentsResponse Lude.Int
-dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAgentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAgentsResponse)
-{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darfrsResponseStatus :: Lens.Lens' DescribeAgentsResponse Core.Int
+darfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,221 +20,207 @@ module Network.AWS.CloudFormation.DeleteStackInstances
     mkDeleteStackInstances,
 
     -- ** Request lenses
-    dAccounts,
-    dRegions,
-    dOperationPreferences,
-    dOperationId,
-    dRetainStacks,
-    dDeploymentTargets,
-    dStackSetName,
+    dsiStackSetName,
+    dsiRegions,
+    dsiRetainStacks,
+    dsiAccounts,
+    dsiDeploymentTargets,
+    dsiOperationId,
+    dsiOperationPreferences,
 
     -- * Destructuring the response
     DeleteStackInstancesResponse (..),
     mkDeleteStackInstancesResponse,
 
     -- ** Response lenses
-    dsisrsOperationId,
-    dsisrsResponseStatus,
+    dsirrsOperationId,
+    dsirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteStackInstances' smart constructor.
 data DeleteStackInstances = DeleteStackInstances'
-  { -- | [@Self-managed@ permissions] The names of the AWS accounts that you want to delete stack instances for.
+  { -- | The name or unique ID of the stack set that you want to delete stack instances for.
+    stackSetName :: Types.StackSetName,
+    -- | The Regions where you want to delete stack set instances.
+    regions :: [Types.Region],
+    -- | Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
+    retainStacks :: Core.Bool,
+    -- | [@Self-managed@ permissions] The names of the AWS accounts that you want to delete stack instances for.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
-    accounts :: Lude.Maybe [Lude.Text],
-    -- | The Regions where you want to delete stack set instances.
-    regions :: [Lude.Text],
-    -- | Preferences for how AWS CloudFormation performs this stack set operation.
-    operationPreferences :: Lude.Maybe StackSetOperationPreferences,
+    accounts :: Core.Maybe [Types.Account],
+    -- | [@Service-managed@ permissions] The AWS Organizations accounts from which to delete stack instances.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+    deploymentTargets :: Core.Maybe Types.DeploymentTargets,
     -- | The unique identifier for this stack set operation.
     --
     -- If you don't specify an operation ID, the SDK generates one automatically.
     -- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
     -- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
-    operationId :: Lude.Maybe Lude.Text,
-    -- | Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
-    --
-    -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
-    retainStacks :: Lude.Bool,
-    -- | [@Service-managed@ permissions] The AWS Organizations accounts from which to delete stack instances.
-    --
-    -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
-    deploymentTargets :: Lude.Maybe DeploymentTargets,
-    -- | The name or unique ID of the stack set that you want to delete stack instances for.
-    stackSetName :: Lude.Text
+    operationId :: Core.Maybe Types.OperationId,
+    -- | Preferences for how AWS CloudFormation performs this stack set operation.
+    operationPreferences :: Core.Maybe Types.StackSetOperationPreferences
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStackInstances' with the minimum fields required to make a request.
---
--- * 'accounts' - [@Self-managed@ permissions] The names of the AWS accounts that you want to delete stack instances for.
---
--- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
--- * 'regions' - The Regions where you want to delete stack set instances.
--- * 'operationPreferences' - Preferences for how AWS CloudFormation performs this stack set operation.
--- * 'operationId' - The unique identifier for this stack set operation.
---
--- If you don't specify an operation ID, the SDK generates one automatically.
--- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
--- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
--- * 'retainStacks' - Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
---
--- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
--- * 'deploymentTargets' - [@Service-managed@ permissions] The AWS Organizations accounts from which to delete stack instances.
---
--- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
--- * 'stackSetName' - The name or unique ID of the stack set that you want to delete stack instances for.
+-- | Creates a 'DeleteStackInstances' value with any optional fields omitted.
 mkDeleteStackInstances ::
-  -- | 'retainStacks'
-  Lude.Bool ->
   -- | 'stackSetName'
-  Lude.Text ->
+  Types.StackSetName ->
+  -- | 'retainStacks'
+  Core.Bool ->
   DeleteStackInstances
-mkDeleteStackInstances pRetainStacks_ pStackSetName_ =
+mkDeleteStackInstances stackSetName retainStacks =
   DeleteStackInstances'
-    { accounts = Lude.Nothing,
-      regions = Lude.mempty,
-      operationPreferences = Lude.Nothing,
-      operationId = Lude.Nothing,
-      retainStacks = pRetainStacks_,
-      deploymentTargets = Lude.Nothing,
-      stackSetName = pStackSetName_
+    { stackSetName,
+      regions = Core.mempty,
+      retainStacks,
+      accounts = Core.Nothing,
+      deploymentTargets = Core.Nothing,
+      operationId = Core.Nothing,
+      operationPreferences = Core.Nothing
     }
 
--- | [@Self-managed@ permissions] The names of the AWS accounts that you want to delete stack instances for.
+-- | The name or unique ID of the stack set that you want to delete stack instances for.
 --
--- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
---
--- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccounts :: Lens.Lens' DeleteStackInstances (Lude.Maybe [Lude.Text])
-dAccounts = Lens.lens (accounts :: DeleteStackInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {accounts = a} :: DeleteStackInstances)
-{-# DEPRECATED dAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiStackSetName :: Lens.Lens' DeleteStackInstances Types.StackSetName
+dsiStackSetName = Lens.field @"stackSetName"
+{-# DEPRECATED dsiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | The Regions where you want to delete stack set instances.
 --
 -- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRegions :: Lens.Lens' DeleteStackInstances [Lude.Text]
-dRegions = Lens.lens (regions :: DeleteStackInstances -> [Lude.Text]) (\s a -> s {regions = a} :: DeleteStackInstances)
-{-# DEPRECATED dRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
-
--- | Preferences for how AWS CloudFormation performs this stack set operation.
---
--- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOperationPreferences :: Lens.Lens' DeleteStackInstances (Lude.Maybe StackSetOperationPreferences)
-dOperationPreferences = Lens.lens (operationPreferences :: DeleteStackInstances -> Lude.Maybe StackSetOperationPreferences) (\s a -> s {operationPreferences = a} :: DeleteStackInstances)
-{-# DEPRECATED dOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
-
--- | The unique identifier for this stack set operation.
---
--- If you don't specify an operation ID, the SDK generates one automatically.
--- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
--- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
---
--- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOperationId :: Lens.Lens' DeleteStackInstances (Lude.Maybe Lude.Text)
-dOperationId = Lens.lens (operationId :: DeleteStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: DeleteStackInstances)
-{-# DEPRECATED dOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+dsiRegions :: Lens.Lens' DeleteStackInstances [Types.Region]
+dsiRegions = Lens.field @"regions"
+{-# DEPRECATED dsiRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
 
 -- | Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
 --
 -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
 --
 -- /Note:/ Consider using 'retainStacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRetainStacks :: Lens.Lens' DeleteStackInstances Lude.Bool
-dRetainStacks = Lens.lens (retainStacks :: DeleteStackInstances -> Lude.Bool) (\s a -> s {retainStacks = a} :: DeleteStackInstances)
-{-# DEPRECATED dRetainStacks "Use generic-lens or generic-optics with 'retainStacks' instead." #-}
+dsiRetainStacks :: Lens.Lens' DeleteStackInstances Core.Bool
+dsiRetainStacks = Lens.field @"retainStacks"
+{-# DEPRECATED dsiRetainStacks "Use generic-lens or generic-optics with 'retainStacks' instead." #-}
+
+-- | [@Self-managed@ permissions] The names of the AWS accounts that you want to delete stack instances for.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+--
+-- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiAccounts :: Lens.Lens' DeleteStackInstances (Core.Maybe [Types.Account])
+dsiAccounts = Lens.field @"accounts"
+{-# DEPRECATED dsiAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
 -- | [@Service-managed@ permissions] The AWS Organizations accounts from which to delete stack instances.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
 --
 -- /Note:/ Consider using 'deploymentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeploymentTargets :: Lens.Lens' DeleteStackInstances (Lude.Maybe DeploymentTargets)
-dDeploymentTargets = Lens.lens (deploymentTargets :: DeleteStackInstances -> Lude.Maybe DeploymentTargets) (\s a -> s {deploymentTargets = a} :: DeleteStackInstances)
-{-# DEPRECATED dDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
+dsiDeploymentTargets :: Lens.Lens' DeleteStackInstances (Core.Maybe Types.DeploymentTargets)
+dsiDeploymentTargets = Lens.field @"deploymentTargets"
+{-# DEPRECATED dsiDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
 
--- | The name or unique ID of the stack set that you want to delete stack instances for.
+-- | The unique identifier for this stack set operation.
 --
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStackSetName :: Lens.Lens' DeleteStackInstances Lude.Text
-dStackSetName = Lens.lens (stackSetName :: DeleteStackInstances -> Lude.Text) (\s a -> s {stackSetName = a} :: DeleteStackInstances)
-{-# DEPRECATED dStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+-- If you don't specify an operation ID, the SDK generates one automatically.
+-- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
+-- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiOperationId :: Lens.Lens' DeleteStackInstances (Core.Maybe Types.OperationId)
+dsiOperationId = Lens.field @"operationId"
+{-# DEPRECATED dsiOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
-instance Lude.AWSRequest DeleteStackInstances where
+-- | Preferences for how AWS CloudFormation performs this stack set operation.
+--
+-- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiOperationPreferences :: Lens.Lens' DeleteStackInstances (Core.Maybe Types.StackSetOperationPreferences)
+dsiOperationPreferences = Lens.field @"operationPreferences"
+{-# DEPRECATED dsiOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
+
+instance Core.AWSRequest DeleteStackInstances where
   type Rs DeleteStackInstances = DeleteStackInstancesResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteStackInstances")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackSetName" stackSetName)
+                Core.<> (Core.toQueryValue "Regions" (Core.toQueryList "member" regions))
+                Core.<> (Core.toQueryValue "RetainStacks" retainStacks)
+                Core.<> ( Core.toQueryValue
+                            "Accounts"
+                            (Core.toQueryList "member" Core.<$> accounts)
+                        )
+                Core.<> (Core.toQueryValue "DeploymentTargets" Core.<$> deploymentTargets)
+                Core.<> (Core.toQueryValue "OperationId" Core.<$> operationId)
+                Core.<> ( Core.toQueryValue "OperationPreferences"
+                            Core.<$> operationPreferences
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteStackInstancesResult"
       ( \s h x ->
           DeleteStackInstancesResponse'
-            Lude.<$> (x Lude..@? "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteStackInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteStackInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStackInstances where
-  toQuery DeleteStackInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteStackInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "Accounts"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> accounts),
-        "Regions" Lude.=: Lude.toQueryList "member" regions,
-        "OperationPreferences" Lude.=: operationPreferences,
-        "OperationId" Lude.=: operationId,
-        "RetainStacks" Lude.=: retainStacks,
-        "DeploymentTargets" Lude.=: deploymentTargets,
-        "StackSetName" Lude.=: stackSetName
-      ]
 
 -- | /See:/ 'mkDeleteStackInstancesResponse' smart constructor.
 data DeleteStackInstancesResponse = DeleteStackInstancesResponse'
   { -- | The unique identifier for this stack set operation.
-    operationId :: Lude.Maybe Lude.Text,
+    operationId :: Core.Maybe Types.OperationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStackInstancesResponse' with the minimum fields required to make a request.
---
--- * 'operationId' - The unique identifier for this stack set operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteStackInstancesResponse' value with any optional fields omitted.
 mkDeleteStackInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteStackInstancesResponse
-mkDeleteStackInstancesResponse pResponseStatus_ =
+mkDeleteStackInstancesResponse responseStatus =
   DeleteStackInstancesResponse'
-    { operationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier for this stack set operation.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsisrsOperationId :: Lens.Lens' DeleteStackInstancesResponse (Lude.Maybe Lude.Text)
-dsisrsOperationId = Lens.lens (operationId :: DeleteStackInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: DeleteStackInstancesResponse)
-{-# DEPRECATED dsisrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+dsirrsOperationId :: Lens.Lens' DeleteStackInstancesResponse (Core.Maybe Types.OperationId)
+dsirrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED dsirrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsisrsResponseStatus :: Lens.Lens' DeleteStackInstancesResponse Lude.Int
-dsisrsResponseStatus = Lens.lens (responseStatus :: DeleteStackInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStackInstancesResponse)
-{-# DEPRECATED dsisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsirrsResponseStatus :: Lens.Lens' DeleteStackInstancesResponse Core.Int
+dsirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

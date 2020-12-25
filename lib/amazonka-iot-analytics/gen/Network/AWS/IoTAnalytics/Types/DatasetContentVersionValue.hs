@@ -21,45 +21,42 @@ module Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.DatasetName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The dataset whose latest contents are used as input to the notebook or application.
 --
 -- /See:/ 'mkDatasetContentVersionValue' smart constructor.
 newtype DatasetContentVersionValue = DatasetContentVersionValue'
   { -- | The name of the dataset whose latest contents are used as input to the notebook or application.
-    datasetName :: Lude.Text
+    datasetName :: Types.DatasetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatasetContentVersionValue' with the minimum fields required to make a request.
---
--- * 'datasetName' - The name of the dataset whose latest contents are used as input to the notebook or application.
+-- | Creates a 'DatasetContentVersionValue' value with any optional fields omitted.
 mkDatasetContentVersionValue ::
   -- | 'datasetName'
-  Lude.Text ->
+  Types.DatasetName ->
   DatasetContentVersionValue
-mkDatasetContentVersionValue pDatasetName_ =
-  DatasetContentVersionValue' {datasetName = pDatasetName_}
+mkDatasetContentVersionValue datasetName =
+  DatasetContentVersionValue' {datasetName}
 
 -- | The name of the dataset whose latest contents are used as input to the notebook or application.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvvDatasetName :: Lens.Lens' DatasetContentVersionValue Lude.Text
-dcvvDatasetName = Lens.lens (datasetName :: DatasetContentVersionValue -> Lude.Text) (\s a -> s {datasetName = a} :: DatasetContentVersionValue)
+dcvvDatasetName :: Lens.Lens' DatasetContentVersionValue Types.DatasetName
+dcvvDatasetName = Lens.field @"datasetName"
 {-# DEPRECATED dcvvDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance Lude.FromJSON DatasetContentVersionValue where
-  parseJSON =
-    Lude.withObject
-      "DatasetContentVersionValue"
-      ( \x ->
-          DatasetContentVersionValue' Lude.<$> (x Lude..: "datasetName")
-      )
+instance Core.FromJSON DatasetContentVersionValue where
+  toJSON DatasetContentVersionValue {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("datasetName" Core..= datasetName)])
 
-instance Lude.ToJSON DatasetContentVersionValue where
-  toJSON DatasetContentVersionValue' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("datasetName" Lude..= datasetName)])
+instance Core.FromJSON DatasetContentVersionValue where
+  parseJSON =
+    Core.withObject "DatasetContentVersionValue" Core.$
+      \x ->
+        DatasetContentVersionValue' Core.<$> (x Core..: "datasetName")

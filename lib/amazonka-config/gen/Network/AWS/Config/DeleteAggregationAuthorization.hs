@@ -20,8 +20,8 @@ module Network.AWS.Config.DeleteAggregationAuthorization
     mkDeleteAggregationAuthorization,
 
     -- ** Request lenses
-    daaAuthorizedAWSRegion,
     daaAuthorizedAccountId,
+    daaAuthorizedAwsRegion,
 
     -- * Destructuring the response
     DeleteAggregationAuthorizationResponse (..),
@@ -29,96 +29,87 @@ module Network.AWS.Config.DeleteAggregationAuthorization
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAggregationAuthorization' smart constructor.
 data DeleteAggregationAuthorization = DeleteAggregationAuthorization'
-  { -- | The region authorized to collect aggregated data.
-    authorizedAWSRegion :: Lude.Text,
-    -- | The 12-digit account ID of the account authorized to aggregate data.
-    authorizedAccountId :: Lude.Text
+  { -- | The 12-digit account ID of the account authorized to aggregate data.
+    authorizedAccountId :: Types.AccountId,
+    -- | The region authorized to collect aggregated data.
+    authorizedAwsRegion :: Types.AuthorizedAwsRegion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAggregationAuthorization' with the minimum fields required to make a request.
---
--- * 'authorizedAWSRegion' - The region authorized to collect aggregated data.
--- * 'authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
+-- | Creates a 'DeleteAggregationAuthorization' value with any optional fields omitted.
 mkDeleteAggregationAuthorization ::
-  -- | 'authorizedAWSRegion'
-  Lude.Text ->
   -- | 'authorizedAccountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'authorizedAwsRegion'
+  Types.AuthorizedAwsRegion ->
   DeleteAggregationAuthorization
 mkDeleteAggregationAuthorization
-  pAuthorizedAWSRegion_
-  pAuthorizedAccountId_ =
+  authorizedAccountId
+  authorizedAwsRegion =
     DeleteAggregationAuthorization'
-      { authorizedAWSRegion =
-          pAuthorizedAWSRegion_,
-        authorizedAccountId = pAuthorizedAccountId_
+      { authorizedAccountId,
+        authorizedAwsRegion
       }
-
--- | The region authorized to collect aggregated data.
---
--- /Note:/ Consider using 'authorizedAWSRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaAuthorizedAWSRegion :: Lens.Lens' DeleteAggregationAuthorization Lude.Text
-daaAuthorizedAWSRegion = Lens.lens (authorizedAWSRegion :: DeleteAggregationAuthorization -> Lude.Text) (\s a -> s {authorizedAWSRegion = a} :: DeleteAggregationAuthorization)
-{-# DEPRECATED daaAuthorizedAWSRegion "Use generic-lens or generic-optics with 'authorizedAWSRegion' instead." #-}
 
 -- | The 12-digit account ID of the account authorized to aggregate data.
 --
 -- /Note:/ Consider using 'authorizedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaAuthorizedAccountId :: Lens.Lens' DeleteAggregationAuthorization Lude.Text
-daaAuthorizedAccountId = Lens.lens (authorizedAccountId :: DeleteAggregationAuthorization -> Lude.Text) (\s a -> s {authorizedAccountId = a} :: DeleteAggregationAuthorization)
+daaAuthorizedAccountId :: Lens.Lens' DeleteAggregationAuthorization Types.AccountId
+daaAuthorizedAccountId = Lens.field @"authorizedAccountId"
 {-# DEPRECATED daaAuthorizedAccountId "Use generic-lens or generic-optics with 'authorizedAccountId' instead." #-}
 
-instance Lude.AWSRequest DeleteAggregationAuthorization where
+-- | The region authorized to collect aggregated data.
+--
+-- /Note:/ Consider using 'authorizedAwsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaAuthorizedAwsRegion :: Lens.Lens' DeleteAggregationAuthorization Types.AuthorizedAwsRegion
+daaAuthorizedAwsRegion = Lens.field @"authorizedAwsRegion"
+{-# DEPRECATED daaAuthorizedAwsRegion "Use generic-lens or generic-optics with 'authorizedAwsRegion' instead." #-}
+
+instance Core.FromJSON DeleteAggregationAuthorization where
+  toJSON DeleteAggregationAuthorization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AuthorizedAccountId" Core..= authorizedAccountId),
+            Core.Just ("AuthorizedAwsRegion" Core..= authorizedAwsRegion)
+          ]
+      )
+
+instance Core.AWSRequest DeleteAggregationAuthorization where
   type
     Rs DeleteAggregationAuthorization =
       DeleteAggregationAuthorizationResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull DeleteAggregationAuthorizationResponse'
-
-instance Lude.ToHeaders DeleteAggregationAuthorization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DeleteAggregationAuthorization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAggregationAuthorization where
-  toJSON DeleteAggregationAuthorization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AuthorizedAwsRegion" Lude..= authorizedAWSRegion),
-            Lude.Just ("AuthorizedAccountId" Lude..= authorizedAccountId)
-          ]
-      )
-
-instance Lude.ToPath DeleteAggregationAuthorization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAggregationAuthorization where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DeleteAggregationAuthorization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull DeleteAggregationAuthorizationResponse'
 
 -- | /See:/ 'mkDeleteAggregationAuthorizationResponse' smart constructor.
 data DeleteAggregationAuthorizationResponse = DeleteAggregationAuthorizationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAggregationAuthorizationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAggregationAuthorizationResponse' value with any optional fields omitted.
 mkDeleteAggregationAuthorizationResponse ::
   DeleteAggregationAuthorizationResponse
 mkDeleteAggregationAuthorizationResponse =

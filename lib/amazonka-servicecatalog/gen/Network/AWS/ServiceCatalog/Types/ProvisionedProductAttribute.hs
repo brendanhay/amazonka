@@ -17,39 +17,102 @@ module Network.AWS.ServiceCatalog.Types.ProvisionedProductAttribute
     mkProvisionedProductAttribute,
 
     -- * Lenses
-    ppaIdempotencyToken,
-    ppaStatus,
-    ppaProductName,
-    ppaLastSuccessfulProvisioningRecordId,
-    ppaProvisioningArtifactId,
-    ppaARN,
+    ppaArn,
     ppaCreatedTime,
-    ppaProvisioningArtifactName,
-    ppaUserARN,
-    ppaStatusMessage,
-    ppaName,
-    ppaLastRecordId,
-    ppaUserARNSession,
     ppaId,
-    ppaType,
-    ppaPhysicalId,
+    ppaIdempotencyToken,
     ppaLastProvisioningRecordId,
+    ppaLastRecordId,
+    ppaLastSuccessfulProvisioningRecordId,
+    ppaName,
+    ppaPhysicalId,
     ppaProductId,
+    ppaProductName,
+    ppaProvisioningArtifactId,
+    ppaProvisioningArtifactName,
+    ppaStatus,
+    ppaStatusMessage,
     ppaTags,
+    ppaType,
+    ppaUserArn,
+    ppaUserArnSession,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
-import Network.AWS.ServiceCatalog.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.Id as Types
+import qualified Network.AWS.ServiceCatalog.Types.IdempotencyToken as Types
+import qualified Network.AWS.ServiceCatalog.Types.LastProvisioningRecordId as Types
+import qualified Network.AWS.ServiceCatalog.Types.LastRecordId as Types
+import qualified Network.AWS.ServiceCatalog.Types.LastSuccessfulProvisioningRecordId as Types
+import qualified Network.AWS.ServiceCatalog.Types.PhysicalId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProductId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProductName as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductNameOrArn as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductStatusMessage as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactName as Types
+import qualified Network.AWS.ServiceCatalog.Types.Tag as Types
+import qualified Network.AWS.ServiceCatalog.Types.Type as Types
+import qualified Network.AWS.ServiceCatalog.Types.UserArn as Types
+import qualified Network.AWS.ServiceCatalog.Types.UserArnSession as Types
 
 -- | Information about a provisioned product.
 --
 -- /See:/ 'mkProvisionedProductAttribute' smart constructor.
 data ProvisionedProductAttribute = ProvisionedProductAttribute'
-  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-    idempotencyToken :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the provisioned product.
+    arn :: Core.Maybe Types.ProvisionedProductNameOrArn,
+    -- | The UTC time stamp of the creation time.
+    createdTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The identifier of the provisioned product.
+    id :: Core.Maybe Types.Id,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Core.Maybe Types.IdempotencyToken,
+    -- | The record identifier of the last request performed on this provisioned product of the following types:
+    --
+    --
+    --     * ProvisionedProduct
+    --
+    --
+    --     * UpdateProvisionedProduct
+    --
+    --
+    --     * ExecuteProvisionedProductPlan
+    --
+    --
+    --     * TerminateProvisionedProduct
+    lastProvisioningRecordId :: Core.Maybe Types.LastProvisioningRecordId,
+    -- | The record identifier of the last request performed on this provisioned product.
+    lastRecordId :: Core.Maybe Types.LastRecordId,
+    -- | The record identifier of the last successful request performed on this provisioned product of the following types:
+    --
+    --
+    --     * ProvisionedProduct
+    --
+    --
+    --     * UpdateProvisionedProduct
+    --
+    --
+    --     * ExecuteProvisionedProductPlan
+    --
+    --
+    --     * TerminateProvisionedProduct
+    lastSuccessfulProvisioningRecordId :: Core.Maybe Types.LastSuccessfulProvisioningRecordId,
+    -- | The user-friendly name of the provisioned product.
+    name :: Core.Maybe Types.ProvisionedProductNameOrArn,
+    -- | The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
+    physicalId :: Core.Maybe Types.PhysicalId,
+    -- | The product identifier.
+    productId :: Core.Maybe Types.ProductId,
+    -- | The name of the product.
+    productName :: Core.Maybe Types.ProductName,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Core.Maybe Types.ProvisioningArtifactId,
+    -- | The name of the provisioning artifact.
+    provisioningArtifactName :: Core.Maybe Types.ProvisioningArtifactName,
     -- | The current status of the provisioned product.
     --
     --
@@ -66,166 +129,165 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     --
     --
     --     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
-    status :: Lude.Maybe ProvisionedProductStatus,
-    -- | The name of the product.
-    productName :: Lude.Maybe Lude.Text,
-    -- | The record identifier of the last successful request performed on this provisioned product of the following types:
-    --
-    --
-    --     * ProvisionedProduct
-    --
-    --
-    --     * UpdateProvisionedProduct
-    --
-    --
-    --     * ExecuteProvisionedProductPlan
-    --
-    --
-    --     * TerminateProvisionedProduct
-    lastSuccessfulProvisioningRecordId :: Lude.Maybe Lude.Text,
-    -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the provisioned product.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The UTC time stamp of the creation time.
-    createdTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the provisioning artifact.
-    provisioningArtifactName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM user.
-    userARN :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.ProvisionedProductStatus,
     -- | The current status message of the provisioned product.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | The user-friendly name of the provisioned product.
-    name :: Lude.Maybe Lude.Text,
-    -- | The record identifier of the last request performed on this provisioned product.
-    lastRecordId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the IAM user in the session. This ARN might contain a session ID.
-    userARNSession :: Lude.Maybe Lude.Text,
-    -- | The identifier of the provisioned product.
-    id :: Lude.Maybe Lude.Text,
-    -- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
-    type' :: Lude.Maybe Lude.Text,
-    -- | The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
-    physicalId :: Lude.Maybe Lude.Text,
-    -- | The record identifier of the last request performed on this provisioned product of the following types:
-    --
-    --
-    --     * ProvisionedProduct
-    --
-    --
-    --     * UpdateProvisionedProduct
-    --
-    --
-    --     * ExecuteProvisionedProductPlan
-    --
-    --
-    --     * TerminateProvisionedProduct
-    lastProvisioningRecordId :: Lude.Maybe Lude.Text,
-    -- | The product identifier.
-    productId :: Lude.Maybe Lude.Text,
+    statusMessage :: Core.Maybe Types.ProvisionedProductStatusMessage,
     -- | One or more tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+    type' :: Core.Maybe Types.Type,
+    -- | The Amazon Resource Name (ARN) of the IAM user.
+    userArn :: Core.Maybe Types.UserArn,
+    -- | The ARN of the IAM user in the session. This ARN might contain a session ID.
+    userArnSession :: Core.Maybe Types.UserArnSession
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProvisionedProductAttribute' with the minimum fields required to make a request.
---
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
--- * 'status' - The current status of the provisioned product.
---
---
---     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
---
---
---     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.
---
---
---     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
---
---
---     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
---
---
---     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
---
---
--- * 'productName' - The name of the product.
--- * 'lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this provisioned product of the following types:
---
---
---     * ProvisionedProduct
---
---
---     * UpdateProvisionedProduct
---
---
---     * ExecuteProvisionedProductPlan
---
---
---     * TerminateProvisionedProduct
---
---
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'arn' - The ARN of the provisioned product.
--- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'provisioningArtifactName' - The name of the provisioning artifact.
--- * 'userARN' - The Amazon Resource Name (ARN) of the IAM user.
--- * 'statusMessage' - The current status message of the provisioned product.
--- * 'name' - The user-friendly name of the provisioned product.
--- * 'lastRecordId' - The record identifier of the last request performed on this provisioned product.
--- * 'userARNSession' - The ARN of the IAM user in the session. This ARN might contain a session ID.
--- * 'id' - The identifier of the provisioned product.
--- * 'type'' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
--- * 'physicalId' - The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
--- * 'lastProvisioningRecordId' - The record identifier of the last request performed on this provisioned product of the following types:
---
---
---     * ProvisionedProduct
---
---
---     * UpdateProvisionedProduct
---
---
---     * ExecuteProvisionedProductPlan
---
---
---     * TerminateProvisionedProduct
---
---
--- * 'productId' - The product identifier.
--- * 'tags' - One or more tags.
+-- | Creates a 'ProvisionedProductAttribute' value with any optional fields omitted.
 mkProvisionedProductAttribute ::
   ProvisionedProductAttribute
 mkProvisionedProductAttribute =
   ProvisionedProductAttribute'
-    { idempotencyToken = Lude.Nothing,
-      status = Lude.Nothing,
-      productName = Lude.Nothing,
-      lastSuccessfulProvisioningRecordId = Lude.Nothing,
-      provisioningArtifactId = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      provisioningArtifactName = Lude.Nothing,
-      userARN = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      name = Lude.Nothing,
-      lastRecordId = Lude.Nothing,
-      userARNSession = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      physicalId = Lude.Nothing,
-      lastProvisioningRecordId = Lude.Nothing,
-      productId = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      createdTime = Core.Nothing,
+      id = Core.Nothing,
+      idempotencyToken = Core.Nothing,
+      lastProvisioningRecordId = Core.Nothing,
+      lastRecordId = Core.Nothing,
+      lastSuccessfulProvisioningRecordId = Core.Nothing,
+      name = Core.Nothing,
+      physicalId = Core.Nothing,
+      productId = Core.Nothing,
+      productName = Core.Nothing,
+      provisioningArtifactId = Core.Nothing,
+      provisioningArtifactName = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      tags = Core.Nothing,
+      type' = Core.Nothing,
+      userArn = Core.Nothing,
+      userArnSession = Core.Nothing
     }
+
+-- | The ARN of the provisioned product.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaArn :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProvisionedProductNameOrArn)
+ppaArn = Lens.field @"arn"
+{-# DEPRECATED ppaArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The UTC time stamp of the creation time.
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaCreatedTime :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.NominalDiffTime)
+ppaCreatedTime = Lens.field @"createdTime"
+{-# DEPRECATED ppaCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
+
+-- | The identifier of the provisioned product.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.Id)
+ppaId = Lens.field @"id"
+{-# DEPRECATED ppaId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 --
 -- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaIdempotencyToken :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaIdempotencyToken = Lens.lens (idempotencyToken :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: ProvisionedProductAttribute)
+ppaIdempotencyToken :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.IdempotencyToken)
+ppaIdempotencyToken = Lens.field @"idempotencyToken"
 {-# DEPRECATED ppaIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+
+-- | The record identifier of the last request performed on this provisioned product of the following types:
+--
+--
+--     * ProvisionedProduct
+--
+--
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+--
+-- /Note:/ Consider using 'lastProvisioningRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaLastProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.LastProvisioningRecordId)
+ppaLastProvisioningRecordId = Lens.field @"lastProvisioningRecordId"
+{-# DEPRECATED ppaLastProvisioningRecordId "Use generic-lens or generic-optics with 'lastProvisioningRecordId' instead." #-}
+
+-- | The record identifier of the last request performed on this provisioned product.
+--
+-- /Note:/ Consider using 'lastRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaLastRecordId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.LastRecordId)
+ppaLastRecordId = Lens.field @"lastRecordId"
+{-# DEPRECATED ppaLastRecordId "Use generic-lens or generic-optics with 'lastRecordId' instead." #-}
+
+-- | The record identifier of the last successful request performed on this provisioned product of the following types:
+--
+--
+--     * ProvisionedProduct
+--
+--
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+--
+-- /Note:/ Consider using 'lastSuccessfulProvisioningRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaLastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.LastSuccessfulProvisioningRecordId)
+ppaLastSuccessfulProvisioningRecordId = Lens.field @"lastSuccessfulProvisioningRecordId"
+{-# DEPRECATED ppaLastSuccessfulProvisioningRecordId "Use generic-lens or generic-optics with 'lastSuccessfulProvisioningRecordId' instead." #-}
+
+-- | The user-friendly name of the provisioned product.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaName :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProvisionedProductNameOrArn)
+ppaName = Lens.field @"name"
+{-# DEPRECATED ppaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
+--
+-- /Note:/ Consider using 'physicalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaPhysicalId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.PhysicalId)
+ppaPhysicalId = Lens.field @"physicalId"
+{-# DEPRECATED ppaPhysicalId "Use generic-lens or generic-optics with 'physicalId' instead." #-}
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaProductId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProductId)
+ppaProductId = Lens.field @"productId"
+{-# DEPRECATED ppaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
+
+-- | The name of the product.
+--
+-- /Note:/ Consider using 'productName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaProductName :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProductName)
+ppaProductName = Lens.field @"productName"
+{-# DEPRECATED ppaProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
+
+-- | The identifier of the provisioning artifact.
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaProvisioningArtifactId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProvisioningArtifactId)
+ppaProvisioningArtifactId = Lens.field @"provisioningArtifactId"
+{-# DEPRECATED ppaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
+
+-- | The name of the provisioning artifact.
+--
+-- /Note:/ Consider using 'provisioningArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaProvisioningArtifactName :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProvisioningArtifactName)
+ppaProvisioningArtifactName = Lens.field @"provisioningArtifactName"
+{-# DEPRECATED ppaProvisioningArtifactName "Use generic-lens or generic-optics with 'provisioningArtifactName' instead." #-}
 
 -- | The current status of the provisioned product.
 --
@@ -247,180 +309,66 @@ ppaIdempotencyToken = Lens.lens (idempotencyToken :: ProvisionedProductAttribute
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaStatus :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe ProvisionedProductStatus)
-ppaStatus = Lens.lens (status :: ProvisionedProductAttribute -> Lude.Maybe ProvisionedProductStatus) (\s a -> s {status = a} :: ProvisionedProductAttribute)
+ppaStatus :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProvisionedProductStatus)
+ppaStatus = Lens.field @"status"
 {-# DEPRECATED ppaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The name of the product.
---
--- /Note:/ Consider using 'productName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaProductName :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaProductName = Lens.lens (productName :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {productName = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
-
--- | The record identifier of the last successful request performed on this provisioned product of the following types:
---
---
---     * ProvisionedProduct
---
---
---     * UpdateProvisionedProduct
---
---
---     * ExecuteProvisionedProductPlan
---
---
---     * TerminateProvisionedProduct
---
---
---
--- /Note:/ Consider using 'lastSuccessfulProvisioningRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaLastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaLastSuccessfulProvisioningRecordId = Lens.lens (lastSuccessfulProvisioningRecordId :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaLastSuccessfulProvisioningRecordId "Use generic-lens or generic-optics with 'lastSuccessfulProvisioningRecordId' instead." #-}
-
--- | The identifier of the provisioning artifact.
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaProvisioningArtifactId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
--- | The ARN of the provisioned product.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaARN :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaARN = Lens.lens (arn :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The UTC time stamp of the creation time.
---
--- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaCreatedTime :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Timestamp)
-ppaCreatedTime = Lens.lens (createdTime :: ProvisionedProductAttribute -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
--- | The name of the provisioning artifact.
---
--- /Note:/ Consider using 'provisioningArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaProvisioningArtifactName :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaProvisioningArtifactName = Lens.lens (provisioningArtifactName :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactName = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaProvisioningArtifactName "Use generic-lens or generic-optics with 'provisioningArtifactName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the IAM user.
---
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaUserARN :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaUserARN = Lens.lens (userARN :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The current status message of the provisioned product.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaStatusMessage :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaStatusMessage = Lens.lens (statusMessage :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ProvisionedProductAttribute)
+ppaStatusMessage :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.ProvisionedProductStatusMessage)
+ppaStatusMessage = Lens.field @"statusMessage"
 {-# DEPRECATED ppaStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | The user-friendly name of the provisioned product.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaName :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaName = Lens.lens (name :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The record identifier of the last request performed on this provisioned product.
---
--- /Note:/ Consider using 'lastRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaLastRecordId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaLastRecordId = Lens.lens (lastRecordId :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {lastRecordId = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaLastRecordId "Use generic-lens or generic-optics with 'lastRecordId' instead." #-}
-
--- | The ARN of the IAM user in the session. This ARN might contain a session ID.
---
--- /Note:/ Consider using 'userARNSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaUserARNSession :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaUserARNSession = Lens.lens (userARNSession :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {userARNSession = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaUserARNSession "Use generic-lens or generic-optics with 'userARNSession' instead." #-}
-
--- | The identifier of the provisioned product.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaId = Lens.lens (id :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaType :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaType = Lens.lens (type' :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
---
--- /Note:/ Consider using 'physicalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaPhysicalId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaPhysicalId = Lens.lens (physicalId :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {physicalId = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaPhysicalId "Use generic-lens or generic-optics with 'physicalId' instead." #-}
-
--- | The record identifier of the last request performed on this provisioned product of the following types:
---
---
---     * ProvisionedProduct
---
---
---     * UpdateProvisionedProduct
---
---
---     * ExecuteProvisionedProductPlan
---
---
---     * TerminateProvisionedProduct
---
---
---
--- /Note:/ Consider using 'lastProvisioningRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaLastProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaLastProvisioningRecordId = Lens.lens (lastProvisioningRecordId :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {lastProvisioningRecordId = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaLastProvisioningRecordId "Use generic-lens or generic-optics with 'lastProvisioningRecordId' instead." #-}
-
--- | The product identifier.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaProductId :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe Lude.Text)
-ppaProductId = Lens.lens (productId :: ProvisionedProductAttribute -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ProvisionedProductAttribute)
-{-# DEPRECATED ppaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaTags :: Lens.Lens' ProvisionedProductAttribute (Lude.Maybe [Tag])
-ppaTags = Lens.lens (tags :: ProvisionedProductAttribute -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ProvisionedProductAttribute)
+ppaTags :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe [Types.Tag])
+ppaTags = Lens.field @"tags"
 {-# DEPRECATED ppaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ProvisionedProductAttribute where
+-- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaType :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.Type)
+ppaType = Lens.field @"type'"
+{-# DEPRECATED ppaType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM user.
+--
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaUserArn :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.UserArn)
+ppaUserArn = Lens.field @"userArn"
+{-# DEPRECATED ppaUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
+
+-- | The ARN of the IAM user in the session. This ARN might contain a session ID.
+--
+-- /Note:/ Consider using 'userArnSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaUserArnSession :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Types.UserArnSession)
+ppaUserArnSession = Lens.field @"userArnSession"
+{-# DEPRECATED ppaUserArnSession "Use generic-lens or generic-optics with 'userArnSession' instead." #-}
+
+instance Core.FromJSON ProvisionedProductAttribute where
   parseJSON =
-    Lude.withObject
-      "ProvisionedProductAttribute"
-      ( \x ->
-          ProvisionedProductAttribute'
-            Lude.<$> (x Lude..:? "IdempotencyToken")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "ProductName")
-            Lude.<*> (x Lude..:? "LastSuccessfulProvisioningRecordId")
-            Lude.<*> (x Lude..:? "ProvisioningArtifactId")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "ProvisioningArtifactName")
-            Lude.<*> (x Lude..:? "UserArn")
-            Lude.<*> (x Lude..:? "StatusMessage")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "LastRecordId")
-            Lude.<*> (x Lude..:? "UserArnSession")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "PhysicalId")
-            Lude.<*> (x Lude..:? "LastProvisioningRecordId")
-            Lude.<*> (x Lude..:? "ProductId")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ProvisionedProductAttribute" Core.$
+      \x ->
+        ProvisionedProductAttribute'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "IdempotencyToken")
+          Core.<*> (x Core..:? "LastProvisioningRecordId")
+          Core.<*> (x Core..:? "LastRecordId")
+          Core.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "PhysicalId")
+          Core.<*> (x Core..:? "ProductId")
+          Core.<*> (x Core..:? "ProductName")
+          Core.<*> (x Core..:? "ProvisioningArtifactId")
+          Core.<*> (x Core..:? "ProvisioningArtifactName")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StatusMessage")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "UserArn")
+          Core.<*> (x Core..:? "UserArnSession")

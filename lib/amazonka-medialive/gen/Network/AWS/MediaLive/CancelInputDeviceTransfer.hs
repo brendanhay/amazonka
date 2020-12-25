@@ -27,101 +27,90 @@ module Network.AWS.MediaLive.CancelInputDeviceTransfer
     mkCancelInputDeviceTransferResponse,
 
     -- ** Response lenses
-    cidtrsResponseStatus,
+    cidtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for CancelInputDeviceTransferRequest
 --
 -- /See:/ 'mkCancelInputDeviceTransfer' smart constructor.
 newtype CancelInputDeviceTransfer = CancelInputDeviceTransfer'
   { -- | The unique ID of the input device to cancel. For example, hd-123456789abcdef.
-    inputDeviceId :: Lude.Text
+    inputDeviceId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelInputDeviceTransfer' with the minimum fields required to make a request.
---
--- * 'inputDeviceId' - The unique ID of the input device to cancel. For example, hd-123456789abcdef.
+-- | Creates a 'CancelInputDeviceTransfer' value with any optional fields omitted.
 mkCancelInputDeviceTransfer ::
   -- | 'inputDeviceId'
-  Lude.Text ->
+  Core.Text ->
   CancelInputDeviceTransfer
-mkCancelInputDeviceTransfer pInputDeviceId_ =
-  CancelInputDeviceTransfer' {inputDeviceId = pInputDeviceId_}
+mkCancelInputDeviceTransfer inputDeviceId =
+  CancelInputDeviceTransfer' {inputDeviceId}
 
 -- | The unique ID of the input device to cancel. For example, hd-123456789abcdef.
 --
 -- /Note:/ Consider using 'inputDeviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cidtInputDeviceId :: Lens.Lens' CancelInputDeviceTransfer Lude.Text
-cidtInputDeviceId = Lens.lens (inputDeviceId :: CancelInputDeviceTransfer -> Lude.Text) (\s a -> s {inputDeviceId = a} :: CancelInputDeviceTransfer)
+cidtInputDeviceId :: Lens.Lens' CancelInputDeviceTransfer Core.Text
+cidtInputDeviceId = Lens.field @"inputDeviceId"
 {-# DEPRECATED cidtInputDeviceId "Use generic-lens or generic-optics with 'inputDeviceId' instead." #-}
 
-instance Lude.AWSRequest CancelInputDeviceTransfer where
+instance Core.FromJSON CancelInputDeviceTransfer where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest CancelInputDeviceTransfer where
   type
     Rs CancelInputDeviceTransfer =
       CancelInputDeviceTransferResponse
-  request = Req.postJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/inputDevices/" Core.<> (Core.toText inputDeviceId)
+                Core.<> ("/cancel")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CancelInputDeviceTransferResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelInputDeviceTransfer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelInputDeviceTransfer where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath CancelInputDeviceTransfer where
-  toPath CancelInputDeviceTransfer' {..} =
-    Lude.mconcat
-      ["/prod/inputDevices/", Lude.toBS inputDeviceId, "/cancel"]
-
-instance Lude.ToQuery CancelInputDeviceTransfer where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for CancelInputDeviceTransferResponse
 --
 -- /See:/ 'mkCancelInputDeviceTransferResponse' smart constructor.
 newtype CancelInputDeviceTransferResponse = CancelInputDeviceTransferResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelInputDeviceTransferResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelInputDeviceTransferResponse' value with any optional fields omitted.
 mkCancelInputDeviceTransferResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelInputDeviceTransferResponse
-mkCancelInputDeviceTransferResponse pResponseStatus_ =
-  CancelInputDeviceTransferResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCancelInputDeviceTransferResponse responseStatus =
+  CancelInputDeviceTransferResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cidtrsResponseStatus :: Lens.Lens' CancelInputDeviceTransferResponse Lude.Int
-cidtrsResponseStatus = Lens.lens (responseStatus :: CancelInputDeviceTransferResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelInputDeviceTransferResponse)
-{-# DEPRECATED cidtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cidtrrsResponseStatus :: Lens.Lens' CancelInputDeviceTransferResponse Core.Int
+cidtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cidtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

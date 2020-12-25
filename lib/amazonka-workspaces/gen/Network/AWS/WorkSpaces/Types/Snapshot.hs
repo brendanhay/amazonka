@@ -22,34 +22,31 @@ module Network.AWS.WorkSpaces.Types.Snapshot
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a snapshot.
 --
 -- /See:/ 'mkSnapshot' smart constructor.
 newtype Snapshot = Snapshot'
   { -- | The time when the snapshot was created.
-    snapshotTime :: Lude.Maybe Lude.Timestamp
+    snapshotTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
---
--- * 'snapshotTime' - The time when the snapshot was created.
+-- | Creates a 'Snapshot' value with any optional fields omitted.
 mkSnapshot ::
   Snapshot
-mkSnapshot = Snapshot' {snapshotTime = Lude.Nothing}
+mkSnapshot = Snapshot' {snapshotTime = Core.Nothing}
 
 -- | The time when the snapshot was created.
 --
 -- /Note:/ Consider using 'snapshotTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSnapshotTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.Timestamp)
-sSnapshotTime = Lens.lens (snapshotTime :: Snapshot -> Lude.Maybe Lude.Timestamp) (\s a -> s {snapshotTime = a} :: Snapshot)
+sSnapshotTime :: Lens.Lens' Snapshot (Core.Maybe Core.NominalDiffTime)
+sSnapshotTime = Lens.field @"snapshotTime"
 {-# DEPRECATED sSnapshotTime "Use generic-lens or generic-optics with 'snapshotTime' instead." #-}
 
-instance Lude.FromJSON Snapshot where
+instance Core.FromJSON Snapshot where
   parseJSON =
-    Lude.withObject
-      "Snapshot"
-      (\x -> Snapshot' Lude.<$> (x Lude..:? "SnapshotTime"))
+    Core.withObject "Snapshot" Core.$
+      \x -> Snapshot' Core.<$> (x Core..:? "SnapshotTime")

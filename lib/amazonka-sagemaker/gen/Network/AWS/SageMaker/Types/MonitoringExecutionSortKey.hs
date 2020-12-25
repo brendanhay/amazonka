@@ -13,51 +13,56 @@
 module Network.AWS.SageMaker.Types.MonitoringExecutionSortKey
   ( MonitoringExecutionSortKey
       ( MonitoringExecutionSortKey',
-        MESKCreationTime,
-        MESKScheduledTime,
-        MESKStatus
+        MonitoringExecutionSortKeyCreationTime,
+        MonitoringExecutionSortKeyScheduledTime,
+        MonitoringExecutionSortKeyStatus,
+        fromMonitoringExecutionSortKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MonitoringExecutionSortKey = MonitoringExecutionSortKey' Lude.Text
+newtype MonitoringExecutionSortKey = MonitoringExecutionSortKey'
+  { fromMonitoringExecutionSortKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MESKCreationTime :: MonitoringExecutionSortKey
-pattern MESKCreationTime = MonitoringExecutionSortKey' "CreationTime"
+pattern MonitoringExecutionSortKeyCreationTime :: MonitoringExecutionSortKey
+pattern MonitoringExecutionSortKeyCreationTime = MonitoringExecutionSortKey' "CreationTime"
 
-pattern MESKScheduledTime :: MonitoringExecutionSortKey
-pattern MESKScheduledTime = MonitoringExecutionSortKey' "ScheduledTime"
+pattern MonitoringExecutionSortKeyScheduledTime :: MonitoringExecutionSortKey
+pattern MonitoringExecutionSortKeyScheduledTime = MonitoringExecutionSortKey' "ScheduledTime"
 
-pattern MESKStatus :: MonitoringExecutionSortKey
-pattern MESKStatus = MonitoringExecutionSortKey' "Status"
+pattern MonitoringExecutionSortKeyStatus :: MonitoringExecutionSortKey
+pattern MonitoringExecutionSortKeyStatus = MonitoringExecutionSortKey' "Status"
 
 {-# COMPLETE
-  MESKCreationTime,
-  MESKScheduledTime,
-  MESKStatus,
+  MonitoringExecutionSortKeyCreationTime,
+  MonitoringExecutionSortKeyScheduledTime,
+  MonitoringExecutionSortKeyStatus,
   MonitoringExecutionSortKey'
   #-}

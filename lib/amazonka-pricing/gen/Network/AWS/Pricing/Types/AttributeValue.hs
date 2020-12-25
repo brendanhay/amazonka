@@ -22,34 +22,32 @@ module Network.AWS.Pricing.Types.AttributeValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Pricing.Types.Value as Types
 
 -- | The values of a given attribute, such as @Throughput Optimized HDD@ or @Provisioned IOPS@ for the @Amazon EC2@ @volumeType@ attribute.
 --
 -- /See:/ 'mkAttributeValue' smart constructor.
 newtype AttributeValue = AttributeValue'
   { -- | The specific value of an @attributeName@ .
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
---
--- * 'value' - The specific value of an @attributeName@ .
+-- | Creates a 'AttributeValue' value with any optional fields omitted.
 mkAttributeValue ::
   AttributeValue
-mkAttributeValue = AttributeValue' {value = Lude.Nothing}
+mkAttributeValue = AttributeValue' {value = Core.Nothing}
 
 -- | The specific value of an @attributeName@ .
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avValue :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
-avValue = Lens.lens (value :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AttributeValue)
+avValue :: Lens.Lens' AttributeValue (Core.Maybe Types.Value)
+avValue = Lens.field @"value"
 {-# DEPRECATED avValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromJSON AttributeValue where
+instance Core.FromJSON AttributeValue where
   parseJSON =
-    Lude.withObject
-      "AttributeValue"
-      (\x -> AttributeValue' Lude.<$> (x Lude..:? "Value"))
+    Core.withObject "AttributeValue" Core.$
+      \x -> AttributeValue' Core.<$> (x Core..:? "Value")

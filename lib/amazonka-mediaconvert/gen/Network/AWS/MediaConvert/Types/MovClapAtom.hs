@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.MovClapAtom
   ( MovClapAtom
       ( MovClapAtom',
-        MInclude,
-        MExclude
+        MovClapAtomInclude,
+        MovClapAtomExclude,
+        fromMovClapAtom
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When enabled, include 'clap' atom if appropriate for the video output settings.
-newtype MovClapAtom = MovClapAtom' Lude.Text
+newtype MovClapAtom = MovClapAtom' {fromMovClapAtom :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MInclude :: MovClapAtom
-pattern MInclude = MovClapAtom' "INCLUDE"
+pattern MovClapAtomInclude :: MovClapAtom
+pattern MovClapAtomInclude = MovClapAtom' "INCLUDE"
 
-pattern MExclude :: MovClapAtom
-pattern MExclude = MovClapAtom' "EXCLUDE"
+pattern MovClapAtomExclude :: MovClapAtom
+pattern MovClapAtomExclude = MovClapAtom' "EXCLUDE"
 
 {-# COMPLETE
-  MInclude,
-  MExclude,
+  MovClapAtomInclude,
+  MovClapAtomExclude,
   MovClapAtom'
   #-}

@@ -18,75 +18,67 @@ module Network.AWS.IoT.Types.IotSiteWiseAction
 
     -- * Lenses
     iswaPutAssetPropertyValueEntries,
-    iswaRoleARN,
+    iswaRoleArn,
   )
 where
 
-import Network.AWS.IoT.Types.PutAssetPropertyValueEntry
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.PutAssetPropertyValueEntry as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 --
 -- /See:/ 'mkIotSiteWiseAction' smart constructor.
 data IotSiteWiseAction = IotSiteWiseAction'
   { -- | A list of asset property value entries.
-    putAssetPropertyValueEntries :: Lude.NonEmpty PutAssetPropertyValueEntry,
+    putAssetPropertyValueEntries :: Core.NonEmpty Types.PutAssetPropertyValueEntry,
     -- | The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoTSiteWise. (@"Action": "iotsitewise:BatchPutAssetPropertyValue"@ ). The trust policy can restrict access to specific asset hierarchy paths.
-    roleARN :: Lude.Text
+    roleArn :: Types.AwsArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IotSiteWiseAction' with the minimum fields required to make a request.
---
--- * 'putAssetPropertyValueEntries' - A list of asset property value entries.
--- * 'roleARN' - The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoTSiteWise. (@"Action": "iotsitewise:BatchPutAssetPropertyValue"@ ). The trust policy can restrict access to specific asset hierarchy paths.
+-- | Creates a 'IotSiteWiseAction' value with any optional fields omitted.
 mkIotSiteWiseAction ::
   -- | 'putAssetPropertyValueEntries'
-  Lude.NonEmpty PutAssetPropertyValueEntry ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Core.NonEmpty Types.PutAssetPropertyValueEntry ->
+  -- | 'roleArn'
+  Types.AwsArn ->
   IotSiteWiseAction
-mkIotSiteWiseAction pPutAssetPropertyValueEntries_ pRoleARN_ =
-  IotSiteWiseAction'
-    { putAssetPropertyValueEntries =
-        pPutAssetPropertyValueEntries_,
-      roleARN = pRoleARN_
-    }
+mkIotSiteWiseAction putAssetPropertyValueEntries roleArn =
+  IotSiteWiseAction' {putAssetPropertyValueEntries, roleArn}
 
 -- | A list of asset property value entries.
 --
 -- /Note:/ Consider using 'putAssetPropertyValueEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iswaPutAssetPropertyValueEntries :: Lens.Lens' IotSiteWiseAction (Lude.NonEmpty PutAssetPropertyValueEntry)
-iswaPutAssetPropertyValueEntries = Lens.lens (putAssetPropertyValueEntries :: IotSiteWiseAction -> Lude.NonEmpty PutAssetPropertyValueEntry) (\s a -> s {putAssetPropertyValueEntries = a} :: IotSiteWiseAction)
+iswaPutAssetPropertyValueEntries :: Lens.Lens' IotSiteWiseAction (Core.NonEmpty Types.PutAssetPropertyValueEntry)
+iswaPutAssetPropertyValueEntries = Lens.field @"putAssetPropertyValueEntries"
 {-# DEPRECATED iswaPutAssetPropertyValueEntries "Use generic-lens or generic-optics with 'putAssetPropertyValueEntries' instead." #-}
 
 -- | The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoTSiteWise. (@"Action": "iotsitewise:BatchPutAssetPropertyValue"@ ). The trust policy can restrict access to specific asset hierarchy paths.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iswaRoleARN :: Lens.Lens' IotSiteWiseAction Lude.Text
-iswaRoleARN = Lens.lens (roleARN :: IotSiteWiseAction -> Lude.Text) (\s a -> s {roleARN = a} :: IotSiteWiseAction)
-{-# DEPRECATED iswaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iswaRoleArn :: Lens.Lens' IotSiteWiseAction Types.AwsArn
+iswaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED iswaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON IotSiteWiseAction where
-  parseJSON =
-    Lude.withObject
-      "IotSiteWiseAction"
-      ( \x ->
-          IotSiteWiseAction'
-            Lude.<$> (x Lude..: "putAssetPropertyValueEntries")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON IotSiteWiseAction where
-  toJSON IotSiteWiseAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON IotSiteWiseAction where
+  toJSON IotSiteWiseAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "putAssetPropertyValueEntries"
-                  Lude..= putAssetPropertyValueEntries
+                  Core..= putAssetPropertyValueEntries
               ),
-            Lude.Just ("roleArn" Lude..= roleARN)
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )
+
+instance Core.FromJSON IotSiteWiseAction where
+  parseJSON =
+    Core.withObject "IotSiteWiseAction" Core.$
+      \x ->
+        IotSiteWiseAction'
+          Core.<$> (x Core..: "putAssetPropertyValueEntries")
+          Core.<*> (x Core..: "roleArn")

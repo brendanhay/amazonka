@@ -17,82 +17,77 @@ module Network.AWS.Glue.Types.SchemaReference
     mkSchemaReference,
 
     -- * Lenses
-    srSchemaVersionId,
     srSchemaId,
+    srSchemaVersionId,
     srSchemaVersionNumber,
   )
 where
 
-import Network.AWS.Glue.Types.SchemaId
+import qualified Network.AWS.Glue.Types.SchemaId as Types
+import qualified Network.AWS.Glue.Types.SchemaVersionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that references a schema stored in the AWS Glue Schema Registry.
 --
 -- /See:/ 'mkSchemaReference' smart constructor.
 data SchemaReference = SchemaReference'
-  { -- | The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
-    schemaVersionId :: Lude.Maybe Lude.Text,
-    -- | A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
-    schemaId :: Lude.Maybe SchemaId,
+  { -- | A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
+    schemaId :: Core.Maybe Types.SchemaId,
+    -- | The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
+    schemaVersionId :: Core.Maybe Types.SchemaVersionId,
     -- | The version number of the schema.
-    schemaVersionNumber :: Lude.Maybe Lude.Natural
+    schemaVersionNumber :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaReference' with the minimum fields required to make a request.
---
--- * 'schemaVersionId' - The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
--- * 'schemaId' - A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
--- * 'schemaVersionNumber' - The version number of the schema.
+-- | Creates a 'SchemaReference' value with any optional fields omitted.
 mkSchemaReference ::
   SchemaReference
 mkSchemaReference =
   SchemaReference'
-    { schemaVersionId = Lude.Nothing,
-      schemaId = Lude.Nothing,
-      schemaVersionNumber = Lude.Nothing
+    { schemaId = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      schemaVersionNumber = Core.Nothing
     }
-
--- | The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
---
--- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srSchemaVersionId :: Lens.Lens' SchemaReference (Lude.Maybe Lude.Text)
-srSchemaVersionId = Lens.lens (schemaVersionId :: SchemaReference -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: SchemaReference)
-{-# DEPRECATED srSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
 --
 -- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srSchemaId :: Lens.Lens' SchemaReference (Lude.Maybe SchemaId)
-srSchemaId = Lens.lens (schemaId :: SchemaReference -> Lude.Maybe SchemaId) (\s a -> s {schemaId = a} :: SchemaReference)
+srSchemaId :: Lens.Lens' SchemaReference (Core.Maybe Types.SchemaId)
+srSchemaId = Lens.field @"schemaId"
 {-# DEPRECATED srSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
+
+-- | The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srSchemaVersionId :: Lens.Lens' SchemaReference (Core.Maybe Types.SchemaVersionId)
+srSchemaVersionId = Lens.field @"schemaVersionId"
+{-# DEPRECATED srSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The version number of the schema.
 --
 -- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srSchemaVersionNumber :: Lens.Lens' SchemaReference (Lude.Maybe Lude.Natural)
-srSchemaVersionNumber = Lens.lens (schemaVersionNumber :: SchemaReference -> Lude.Maybe Lude.Natural) (\s a -> s {schemaVersionNumber = a} :: SchemaReference)
+srSchemaVersionNumber :: Lens.Lens' SchemaReference (Core.Maybe Core.Natural)
+srSchemaVersionNumber = Lens.field @"schemaVersionNumber"
 {-# DEPRECATED srSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
 
-instance Lude.FromJSON SchemaReference where
-  parseJSON =
-    Lude.withObject
-      "SchemaReference"
-      ( \x ->
-          SchemaReference'
-            Lude.<$> (x Lude..:? "SchemaVersionId")
-            Lude.<*> (x Lude..:? "SchemaId")
-            Lude.<*> (x Lude..:? "SchemaVersionNumber")
-      )
-
-instance Lude.ToJSON SchemaReference where
-  toJSON SchemaReference' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SchemaVersionId" Lude..=) Lude.<$> schemaVersionId,
-            ("SchemaId" Lude..=) Lude.<$> schemaId,
-            ("SchemaVersionNumber" Lude..=) Lude.<$> schemaVersionNumber
+instance Core.FromJSON SchemaReference where
+  toJSON SchemaReference {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("SchemaId" Core..=) Core.<$> schemaId,
+            ("SchemaVersionId" Core..=) Core.<$> schemaVersionId,
+            ("SchemaVersionNumber" Core..=) Core.<$> schemaVersionNumber
           ]
       )
+
+instance Core.FromJSON SchemaReference where
+  parseJSON =
+    Core.withObject "SchemaReference" Core.$
+      \x ->
+        SchemaReference'
+          Core.<$> (x Core..:? "SchemaId")
+          Core.<*> (x Core..:? "SchemaVersionId")
+          Core.<*> (x Core..:? "SchemaVersionNumber")

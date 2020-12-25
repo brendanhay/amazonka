@@ -20,119 +20,104 @@ module Network.AWS.Glue.UpdateCrawlerSchedule
     mkUpdateCrawlerSchedule,
 
     -- ** Request lenses
-    ucsSchedule,
     ucsCrawlerName,
+    ucsSchedule,
 
     -- * Destructuring the response
     UpdateCrawlerScheduleResponse (..),
     mkUpdateCrawlerScheduleResponse,
 
     -- ** Response lenses
-    ucsrsResponseStatus,
+    ucsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateCrawlerSchedule' smart constructor.
 data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
-  { -- | The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
-    schedule :: Lude.Maybe Lude.Text,
-    -- | The name of the crawler whose schedule to update.
-    crawlerName :: Lude.Text
+  { -- | The name of the crawler whose schedule to update.
+    crawlerName :: Types.NameString,
+    -- | The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+    schedule :: Core.Maybe Types.CronExpression
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCrawlerSchedule' with the minimum fields required to make a request.
---
--- * 'schedule' - The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
--- * 'crawlerName' - The name of the crawler whose schedule to update.
+-- | Creates a 'UpdateCrawlerSchedule' value with any optional fields omitted.
 mkUpdateCrawlerSchedule ::
   -- | 'crawlerName'
-  Lude.Text ->
+  Types.NameString ->
   UpdateCrawlerSchedule
-mkUpdateCrawlerSchedule pCrawlerName_ =
-  UpdateCrawlerSchedule'
-    { schedule = Lude.Nothing,
-      crawlerName = pCrawlerName_
-    }
-
--- | The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsSchedule :: Lens.Lens' UpdateCrawlerSchedule (Lude.Maybe Lude.Text)
-ucsSchedule = Lens.lens (schedule :: UpdateCrawlerSchedule -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: UpdateCrawlerSchedule)
-{-# DEPRECATED ucsSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+mkUpdateCrawlerSchedule crawlerName =
+  UpdateCrawlerSchedule' {crawlerName, schedule = Core.Nothing}
 
 -- | The name of the crawler whose schedule to update.
 --
 -- /Note:/ Consider using 'crawlerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsCrawlerName :: Lens.Lens' UpdateCrawlerSchedule Lude.Text
-ucsCrawlerName = Lens.lens (crawlerName :: UpdateCrawlerSchedule -> Lude.Text) (\s a -> s {crawlerName = a} :: UpdateCrawlerSchedule)
+ucsCrawlerName :: Lens.Lens' UpdateCrawlerSchedule Types.NameString
+ucsCrawlerName = Lens.field @"crawlerName"
 {-# DEPRECATED ucsCrawlerName "Use generic-lens or generic-optics with 'crawlerName' instead." #-}
 
-instance Lude.AWSRequest UpdateCrawlerSchedule where
+-- | The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsSchedule :: Lens.Lens' UpdateCrawlerSchedule (Core.Maybe Types.CronExpression)
+ucsSchedule = Lens.field @"schedule"
+{-# DEPRECATED ucsSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+
+instance Core.FromJSON UpdateCrawlerSchedule where
+  toJSON UpdateCrawlerSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CrawlerName" Core..= crawlerName),
+            ("Schedule" Core..=) Core.<$> schedule
+          ]
+      )
+
+instance Core.AWSRequest UpdateCrawlerSchedule where
   type Rs UpdateCrawlerSchedule = UpdateCrawlerScheduleResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateCrawlerSchedule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateCrawlerScheduleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateCrawlerSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.UpdateCrawlerSchedule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateCrawlerSchedule where
-  toJSON UpdateCrawlerSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Schedule" Lude..=) Lude.<$> schedule,
-            Lude.Just ("CrawlerName" Lude..= crawlerName)
-          ]
-      )
-
-instance Lude.ToPath UpdateCrawlerSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateCrawlerSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateCrawlerScheduleResponse' smart constructor.
 newtype UpdateCrawlerScheduleResponse = UpdateCrawlerScheduleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCrawlerScheduleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateCrawlerScheduleResponse' value with any optional fields omitted.
 mkUpdateCrawlerScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateCrawlerScheduleResponse
-mkUpdateCrawlerScheduleResponse pResponseStatus_ =
-  UpdateCrawlerScheduleResponse' {responseStatus = pResponseStatus_}
+mkUpdateCrawlerScheduleResponse responseStatus =
+  UpdateCrawlerScheduleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsrsResponseStatus :: Lens.Lens' UpdateCrawlerScheduleResponse Lude.Int
-ucsrsResponseStatus = Lens.lens (responseStatus :: UpdateCrawlerScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCrawlerScheduleResponse)
-{-# DEPRECATED ucsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucsrrsResponseStatus :: Lens.Lens' UpdateCrawlerScheduleResponse Core.Int
+ucsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

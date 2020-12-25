@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.DeinterlacerMode
   ( DeinterlacerMode
       ( DeinterlacerMode',
-        DMDeinterlace,
-        DMInverseTelecine,
-        DMAdaptive
+        DeinterlacerModeDeinterlace,
+        DeinterlacerModeInverseTelecine,
+        DeinterlacerModeAdaptive,
+        fromDeinterlacerMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced to progressive. - Inverse telecine converts Hard Telecine 29.97i to progressive 23.976p. - Adaptive auto-detects and converts to progressive.
-newtype DeinterlacerMode = DeinterlacerMode' Lude.Text
+newtype DeinterlacerMode = DeinterlacerMode'
+  { fromDeinterlacerMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DMDeinterlace :: DeinterlacerMode
-pattern DMDeinterlace = DeinterlacerMode' "DEINTERLACE"
+pattern DeinterlacerModeDeinterlace :: DeinterlacerMode
+pattern DeinterlacerModeDeinterlace = DeinterlacerMode' "DEINTERLACE"
 
-pattern DMInverseTelecine :: DeinterlacerMode
-pattern DMInverseTelecine = DeinterlacerMode' "INVERSE_TELECINE"
+pattern DeinterlacerModeInverseTelecine :: DeinterlacerMode
+pattern DeinterlacerModeInverseTelecine = DeinterlacerMode' "INVERSE_TELECINE"
 
-pattern DMAdaptive :: DeinterlacerMode
-pattern DMAdaptive = DeinterlacerMode' "ADAPTIVE"
+pattern DeinterlacerModeAdaptive :: DeinterlacerMode
+pattern DeinterlacerModeAdaptive = DeinterlacerMode' "ADAPTIVE"
 
 {-# COMPLETE
-  DMDeinterlace,
-  DMInverseTelecine,
-  DMAdaptive,
+  DeinterlacerModeDeinterlace,
+  DeinterlacerModeInverseTelecine,
+  DeinterlacerModeAdaptive,
   DeinterlacerMode'
   #-}

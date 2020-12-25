@@ -26,276 +26,262 @@ module Network.AWS.EC2.AllocateAddress
     mkAllocateAddress,
 
     -- ** Request lenses
-    aaNetworkBorderGroup,
-    aaDomain,
     aaAddress,
-    aaPublicIPv4Pool,
-    aaCustomerOwnedIPv4Pool,
+    aaCustomerOwnedIpv4Pool,
+    aaDomain,
     aaDryRun,
+    aaNetworkBorderGroup,
+    aaPublicIpv4Pool,
 
     -- * Destructuring the response
     AllocateAddressResponse (..),
     mkAllocateAddressResponse,
 
     -- ** Response lenses
-    aarsAllocationId,
-    aarsCarrierIP,
-    aarsNetworkBorderGroup,
-    aarsDomain,
-    aarsPublicIPv4Pool,
-    aarsCustomerOwnedIPv4Pool,
-    aarsCustomerOwnedIP,
-    aarsPublicIP,
-    aarsResponseStatus,
+    aarrsAllocationId,
+    aarrsCarrierIp,
+    aarrsCustomerOwnedIp,
+    aarrsCustomerOwnedIpv4Pool,
+    aarrsDomain,
+    aarrsNetworkBorderGroup,
+    aarrsPublicIp,
+    aarrsPublicIpv4Pool,
+    aarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAllocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
-  { -- | A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
-    --
-    -- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
-    networkBorderGroup :: Lude.Maybe Lude.Text,
+  { -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
+    address :: Core.Maybe Types.PublicIpAddress,
+    -- | The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
+    customerOwnedIpv4Pool :: Core.Maybe Types.CustomerOwnedIpv4Pool,
     -- | Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.
     --
     -- Default: If the Region supports EC2-Classic, the default is @standard@ . Otherwise, the default is @vpc@ .
-    domain :: Lude.Maybe DomainType,
-    -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
-    address :: Lude.Maybe Lude.Text,
-    -- | The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
-    publicIPv4Pool :: Lude.Maybe Lude.Text,
-    -- | The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
-    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    domain :: Core.Maybe Types.DomainType,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
+    --
+    -- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
+    networkBorderGroup :: Core.Maybe Types.NetworkBorderGroup,
+    -- | The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
+    publicIpv4Pool :: Core.Maybe Types.Ipv4PoolEc2Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AllocateAddress' with the minimum fields required to make a request.
---
--- * 'networkBorderGroup' - A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
---
--- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
--- * 'domain' - Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.
---
--- Default: If the Region supports EC2-Classic, the default is @standard@ . Otherwise, the default is @vpc@ .
--- * 'address' - [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
--- * 'publicIPv4Pool' - The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
--- * 'customerOwnedIPv4Pool' - The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'AllocateAddress' value with any optional fields omitted.
 mkAllocateAddress ::
   AllocateAddress
 mkAllocateAddress =
   AllocateAddress'
-    { networkBorderGroup = Lude.Nothing,
-      domain = Lude.Nothing,
-      address = Lude.Nothing,
-      publicIPv4Pool = Lude.Nothing,
-      customerOwnedIPv4Pool = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { address = Core.Nothing,
+      customerOwnedIpv4Pool = Core.Nothing,
+      domain = Core.Nothing,
+      dryRun = Core.Nothing,
+      networkBorderGroup = Core.Nothing,
+      publicIpv4Pool = Core.Nothing
     }
 
--- | A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
+-- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
 --
--- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAddress :: Lens.Lens' AllocateAddress (Core.Maybe Types.PublicIpAddress)
+aaAddress = Lens.field @"address"
+{-# DEPRECATED aaAddress "Use generic-lens or generic-optics with 'address' instead." #-}
+
+-- | The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
 --
--- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaNetworkBorderGroup :: Lens.Lens' AllocateAddress (Lude.Maybe Lude.Text)
-aaNetworkBorderGroup = Lens.lens (networkBorderGroup :: AllocateAddress -> Lude.Maybe Lude.Text) (\s a -> s {networkBorderGroup = a} :: AllocateAddress)
-{-# DEPRECATED aaNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
+-- /Note:/ Consider using 'customerOwnedIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaCustomerOwnedIpv4Pool :: Lens.Lens' AllocateAddress (Core.Maybe Types.CustomerOwnedIpv4Pool)
+aaCustomerOwnedIpv4Pool = Lens.field @"customerOwnedIpv4Pool"
+{-# DEPRECATED aaCustomerOwnedIpv4Pool "Use generic-lens or generic-optics with 'customerOwnedIpv4Pool' instead." #-}
 
 -- | Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.
 --
 -- Default: If the Region supports EC2-Classic, the default is @standard@ . Otherwise, the default is @vpc@ .
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaDomain :: Lens.Lens' AllocateAddress (Lude.Maybe DomainType)
-aaDomain = Lens.lens (domain :: AllocateAddress -> Lude.Maybe DomainType) (\s a -> s {domain = a} :: AllocateAddress)
+aaDomain :: Lens.Lens' AllocateAddress (Core.Maybe Types.DomainType)
+aaDomain = Lens.field @"domain"
 {-# DEPRECATED aaDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
--- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
---
--- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAddress :: Lens.Lens' AllocateAddress (Lude.Maybe Lude.Text)
-aaAddress = Lens.lens (address :: AllocateAddress -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: AllocateAddress)
-{-# DEPRECATED aaAddress "Use generic-lens or generic-optics with 'address' instead." #-}
-
--- | The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
---
--- /Note:/ Consider using 'publicIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaPublicIPv4Pool :: Lens.Lens' AllocateAddress (Lude.Maybe Lude.Text)
-aaPublicIPv4Pool = Lens.lens (publicIPv4Pool :: AllocateAddress -> Lude.Maybe Lude.Text) (\s a -> s {publicIPv4Pool = a} :: AllocateAddress)
-{-# DEPRECATED aaPublicIPv4Pool "Use generic-lens or generic-optics with 'publicIPv4Pool' instead." #-}
-
--- | The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
---
--- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaCustomerOwnedIPv4Pool :: Lens.Lens' AllocateAddress (Lude.Maybe Lude.Text)
-aaCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: AllocateAddress -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: AllocateAddress)
-{-# DEPRECATED aaCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaDryRun :: Lens.Lens' AllocateAddress (Lude.Maybe Lude.Bool)
-aaDryRun = Lens.lens (dryRun :: AllocateAddress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AllocateAddress)
+aaDryRun :: Lens.Lens' AllocateAddress (Core.Maybe Core.Bool)
+aaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED aaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest AllocateAddress where
+-- | A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
+--
+-- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
+--
+-- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaNetworkBorderGroup :: Lens.Lens' AllocateAddress (Core.Maybe Types.NetworkBorderGroup)
+aaNetworkBorderGroup = Lens.field @"networkBorderGroup"
+{-# DEPRECATED aaNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
+
+-- | The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
+--
+-- /Note:/ Consider using 'publicIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaPublicIpv4Pool :: Lens.Lens' AllocateAddress (Core.Maybe Types.Ipv4PoolEc2Id)
+aaPublicIpv4Pool = Lens.field @"publicIpv4Pool"
+{-# DEPRECATED aaPublicIpv4Pool "Use generic-lens or generic-optics with 'publicIpv4Pool' instead." #-}
+
+instance Core.AWSRequest AllocateAddress where
   type Rs AllocateAddress = AllocateAddressResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AllocateAddress")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Address" Core.<$> address)
+                Core.<> ( Core.toQueryValue "CustomerOwnedIpv4Pool"
+                            Core.<$> customerOwnedIpv4Pool
+                        )
+                Core.<> (Core.toQueryValue "Domain" Core.<$> domain)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> ( Core.toQueryValue "NetworkBorderGroup"
+                            Core.<$> networkBorderGroup
+                        )
+                Core.<> (Core.toQueryValue "PublicIpv4Pool" Core.<$> publicIpv4Pool)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           AllocateAddressResponse'
-            Lude.<$> (x Lude..@? "allocationId")
-            Lude.<*> (x Lude..@? "carrierIp")
-            Lude.<*> (x Lude..@? "networkBorderGroup")
-            Lude.<*> (x Lude..@? "domain")
-            Lude.<*> (x Lude..@? "publicIpv4Pool")
-            Lude.<*> (x Lude..@? "customerOwnedIpv4Pool")
-            Lude.<*> (x Lude..@? "customerOwnedIp")
-            Lude.<*> (x Lude..@? "publicIp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "allocationId")
+            Core.<*> (x Core..@? "carrierIp")
+            Core.<*> (x Core..@? "customerOwnedIp")
+            Core.<*> (x Core..@? "customerOwnedIpv4Pool")
+            Core.<*> (x Core..@? "domain")
+            Core.<*> (x Core..@? "networkBorderGroup")
+            Core.<*> (x Core..@? "publicIp")
+            Core.<*> (x Core..@? "publicIpv4Pool")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AllocateAddress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AllocateAddress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AllocateAddress where
-  toQuery AllocateAddress' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AllocateAddress" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "NetworkBorderGroup" Lude.=: networkBorderGroup,
-        "Domain" Lude.=: domain,
-        "Address" Lude.=: address,
-        "PublicIpv4Pool" Lude.=: publicIPv4Pool,
-        "CustomerOwnedIpv4Pool" Lude.=: customerOwnedIPv4Pool,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkAllocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
   { -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-    allocationId :: Lude.Maybe Lude.Text,
+    allocationId :: Core.Maybe Types.AllocationId,
     -- | The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
-    carrierIP :: Lude.Maybe Lude.Text,
-    -- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
-    networkBorderGroup :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
-    domain :: Lude.Maybe DomainType,
-    -- | The ID of an address pool.
-    publicIPv4Pool :: Lude.Maybe Lude.Text,
-    -- | The ID of the customer-owned address pool.
-    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    carrierIp :: Core.Maybe Types.CarrierIp,
     -- | The customer-owned IP address.
-    customerOwnedIP :: Lude.Maybe Lude.Text,
+    customerOwnedIp :: Core.Maybe Types.CustomerOwnedIp,
+    -- | The ID of the customer-owned address pool.
+    customerOwnedIpv4Pool :: Core.Maybe Types.CustomerOwnedIpv4Pool,
+    -- | Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
+    domain :: Core.Maybe Types.DomainType,
+    -- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+    networkBorderGroup :: Core.Maybe Types.NetworkBorderGroup,
     -- | The Elastic IP address.
-    publicIP :: Lude.Maybe Lude.Text,
+    publicIp :: Core.Maybe Types.PublicIp,
+    -- | The ID of an address pool.
+    publicIpv4Pool :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AllocateAddressResponse' with the minimum fields required to make a request.
---
--- * 'allocationId' - [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
--- * 'carrierIP' - The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
--- * 'networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
--- * 'domain' - Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
--- * 'publicIPv4Pool' - The ID of an address pool.
--- * 'customerOwnedIPv4Pool' - The ID of the customer-owned address pool.
--- * 'customerOwnedIP' - The customer-owned IP address.
--- * 'publicIP' - The Elastic IP address.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AllocateAddressResponse' value with any optional fields omitted.
 mkAllocateAddressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AllocateAddressResponse
-mkAllocateAddressResponse pResponseStatus_ =
+mkAllocateAddressResponse responseStatus =
   AllocateAddressResponse'
-    { allocationId = Lude.Nothing,
-      carrierIP = Lude.Nothing,
-      networkBorderGroup = Lude.Nothing,
-      domain = Lude.Nothing,
-      publicIPv4Pool = Lude.Nothing,
-      customerOwnedIPv4Pool = Lude.Nothing,
-      customerOwnedIP = Lude.Nothing,
-      publicIP = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { allocationId = Core.Nothing,
+      carrierIp = Core.Nothing,
+      customerOwnedIp = Core.Nothing,
+      customerOwnedIpv4Pool = Core.Nothing,
+      domain = Core.Nothing,
+      networkBorderGroup = Core.Nothing,
+      publicIp = Core.Nothing,
+      publicIpv4Pool = Core.Nothing,
+      responseStatus
     }
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 --
 -- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsAllocationId :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsAllocationId = Lens.lens (allocationId :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
+aarrsAllocationId :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.AllocationId)
+aarrsAllocationId = Lens.field @"allocationId"
+{-# DEPRECATED aarrsAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
 -- | The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
 --
--- /Note:/ Consider using 'carrierIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsCarrierIP :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsCarrierIP = Lens.lens (carrierIP :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {carrierIP = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsCarrierIP "Use generic-lens or generic-optics with 'carrierIP' instead." #-}
+-- /Note:/ Consider using 'carrierIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarrsCarrierIp :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.CarrierIp)
+aarrsCarrierIp = Lens.field @"carrierIp"
+{-# DEPRECATED aarrsCarrierIp "Use generic-lens or generic-optics with 'carrierIp' instead." #-}
 
--- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+-- | The customer-owned IP address.
 --
--- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsNetworkBorderGroup :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsNetworkBorderGroup = Lens.lens (networkBorderGroup :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {networkBorderGroup = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
+-- /Note:/ Consider using 'customerOwnedIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarrsCustomerOwnedIp :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.CustomerOwnedIp)
+aarrsCustomerOwnedIp = Lens.field @"customerOwnedIp"
+{-# DEPRECATED aarrsCustomerOwnedIp "Use generic-lens or generic-optics with 'customerOwnedIp' instead." #-}
+
+-- | The ID of the customer-owned address pool.
+--
+-- /Note:/ Consider using 'customerOwnedIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarrsCustomerOwnedIpv4Pool :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.CustomerOwnedIpv4Pool)
+aarrsCustomerOwnedIpv4Pool = Lens.field @"customerOwnedIpv4Pool"
+{-# DEPRECATED aarrsCustomerOwnedIpv4Pool "Use generic-lens or generic-optics with 'customerOwnedIpv4Pool' instead." #-}
 
 -- | Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsDomain :: Lens.Lens' AllocateAddressResponse (Lude.Maybe DomainType)
-aarsDomain = Lens.lens (domain :: AllocateAddressResponse -> Lude.Maybe DomainType) (\s a -> s {domain = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+aarrsDomain :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.DomainType)
+aarrsDomain = Lens.field @"domain"
+{-# DEPRECATED aarrsDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
--- | The ID of an address pool.
+-- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
 --
--- /Note:/ Consider using 'publicIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsPublicIPv4Pool :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsPublicIPv4Pool = Lens.lens (publicIPv4Pool :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {publicIPv4Pool = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsPublicIPv4Pool "Use generic-lens or generic-optics with 'publicIPv4Pool' instead." #-}
-
--- | The ID of the customer-owned address pool.
---
--- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsCustomerOwnedIPv4Pool :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
-
--- | The customer-owned IP address.
---
--- /Note:/ Consider using 'customerOwnedIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsCustomerOwnedIP :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsCustomerOwnedIP = Lens.lens (customerOwnedIP :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIP = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsCustomerOwnedIP "Use generic-lens or generic-optics with 'customerOwnedIP' instead." #-}
+-- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarrsNetworkBorderGroup :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.NetworkBorderGroup)
+aarrsNetworkBorderGroup = Lens.field @"networkBorderGroup"
+{-# DEPRECATED aarrsNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
 
 -- | The Elastic IP address.
 --
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsPublicIP :: Lens.Lens' AllocateAddressResponse (Lude.Maybe Lude.Text)
-aarsPublicIP = Lens.lens (publicIP :: AllocateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarrsPublicIp :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.PublicIp)
+aarrsPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED aarrsPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
+
+-- | The ID of an address pool.
+--
+-- /Note:/ Consider using 'publicIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarrsPublicIpv4Pool :: Lens.Lens' AllocateAddressResponse (Core.Maybe Types.String)
+aarrsPublicIpv4Pool = Lens.field @"publicIpv4Pool"
+{-# DEPRECATED aarrsPublicIpv4Pool "Use generic-lens or generic-optics with 'publicIpv4Pool' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aarsResponseStatus :: Lens.Lens' AllocateAddressResponse Lude.Int
-aarsResponseStatus = Lens.lens (responseStatus :: AllocateAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AllocateAddressResponse)
-{-# DEPRECATED aarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aarrsResponseStatus :: Lens.Lens' AllocateAddressResponse Core.Int
+aarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

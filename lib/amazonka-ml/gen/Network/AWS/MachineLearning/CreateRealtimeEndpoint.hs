@@ -27,76 +27,68 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     mkCreateRealtimeEndpointResponse,
 
     -- ** Response lenses
-    crersRealtimeEndpointInfo,
-    crersMLModelId,
-    crersResponseStatus,
+    crerrsMLModelId,
+    crerrsRealtimeEndpointInfo,
+    crerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateRealtimeEndpoint' smart constructor.
 newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
   { -- | The ID assigned to the @MLModel@ during creation.
-    mLModelId :: Lude.Text
+    mLModelId :: Types.EntityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRealtimeEndpoint' with the minimum fields required to make a request.
---
--- * 'mLModelId' - The ID assigned to the @MLModel@ during creation.
+-- | Creates a 'CreateRealtimeEndpoint' value with any optional fields omitted.
 mkCreateRealtimeEndpoint ::
   -- | 'mLModelId'
-  Lude.Text ->
+  Types.EntityId ->
   CreateRealtimeEndpoint
-mkCreateRealtimeEndpoint pMLModelId_ =
-  CreateRealtimeEndpoint' {mLModelId = pMLModelId_}
+mkCreateRealtimeEndpoint mLModelId =
+  CreateRealtimeEndpoint' {mLModelId}
 
 -- | The ID assigned to the @MLModel@ during creation.
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creMLModelId :: Lens.Lens' CreateRealtimeEndpoint Lude.Text
-creMLModelId = Lens.lens (mLModelId :: CreateRealtimeEndpoint -> Lude.Text) (\s a -> s {mLModelId = a} :: CreateRealtimeEndpoint)
+creMLModelId :: Lens.Lens' CreateRealtimeEndpoint Types.EntityId
+creMLModelId = Lens.field @"mLModelId"
 {-# DEPRECATED creMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
-instance Lude.AWSRequest CreateRealtimeEndpoint where
+instance Core.FromJSON CreateRealtimeEndpoint where
+  toJSON CreateRealtimeEndpoint {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("MLModelId" Core..= mLModelId)])
+
+instance Core.AWSRequest CreateRealtimeEndpoint where
   type Rs CreateRealtimeEndpoint = CreateRealtimeEndpointResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonML_20141212.CreateRealtimeEndpoint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateRealtimeEndpointResponse'
-            Lude.<$> (x Lude..?> "RealtimeEndpointInfo")
-            Lude.<*> (x Lude..?> "MLModelId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "MLModelId")
+            Core.<*> (x Core..:? "RealtimeEndpointInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateRealtimeEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.CreateRealtimeEndpoint" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateRealtimeEndpoint where
-  toJSON CreateRealtimeEndpoint' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("MLModelId" Lude..= mLModelId)])
-
-instance Lude.ToPath CreateRealtimeEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateRealtimeEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @CreateRealtimeEndpoint@ operation.
 --
@@ -104,50 +96,45 @@ instance Lude.ToQuery CreateRealtimeEndpoint where
 --
 -- /See:/ 'mkCreateRealtimeEndpointResponse' smart constructor.
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
-  { -- | The endpoint information of the @MLModel@
-    realtimeEndpointInfo :: Lude.Maybe RealtimeEndpointInfo,
-    -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
-    mLModelId :: Lude.Maybe Lude.Text,
+  { -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
+    mLModelId :: Core.Maybe Types.MLModelId,
+    -- | The endpoint information of the @MLModel@
+    realtimeEndpointInfo :: Core.Maybe Types.RealtimeEndpointInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateRealtimeEndpointResponse' with the minimum fields required to make a request.
---
--- * 'realtimeEndpointInfo' - The endpoint information of the @MLModel@
--- * 'mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRealtimeEndpointResponse' value with any optional fields omitted.
 mkCreateRealtimeEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRealtimeEndpointResponse
-mkCreateRealtimeEndpointResponse pResponseStatus_ =
+mkCreateRealtimeEndpointResponse responseStatus =
   CreateRealtimeEndpointResponse'
-    { realtimeEndpointInfo =
-        Lude.Nothing,
-      mLModelId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { mLModelId = Core.Nothing,
+      realtimeEndpointInfo = Core.Nothing,
+      responseStatus
     }
-
--- | The endpoint information of the @MLModel@
---
--- /Note:/ Consider using 'realtimeEndpointInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersRealtimeEndpointInfo :: Lens.Lens' CreateRealtimeEndpointResponse (Lude.Maybe RealtimeEndpointInfo)
-crersRealtimeEndpointInfo = Lens.lens (realtimeEndpointInfo :: CreateRealtimeEndpointResponse -> Lude.Maybe RealtimeEndpointInfo) (\s a -> s {realtimeEndpointInfo = a} :: CreateRealtimeEndpointResponse)
-{-# DEPRECATED crersRealtimeEndpointInfo "Use generic-lens or generic-optics with 'realtimeEndpointInfo' instead." #-}
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersMLModelId :: Lens.Lens' CreateRealtimeEndpointResponse (Lude.Maybe Lude.Text)
-crersMLModelId = Lens.lens (mLModelId :: CreateRealtimeEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: CreateRealtimeEndpointResponse)
-{-# DEPRECATED crersMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+crerrsMLModelId :: Lens.Lens' CreateRealtimeEndpointResponse (Core.Maybe Types.MLModelId)
+crerrsMLModelId = Lens.field @"mLModelId"
+{-# DEPRECATED crerrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+
+-- | The endpoint information of the @MLModel@
+--
+-- /Note:/ Consider using 'realtimeEndpointInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crerrsRealtimeEndpointInfo :: Lens.Lens' CreateRealtimeEndpointResponse (Core.Maybe Types.RealtimeEndpointInfo)
+crerrsRealtimeEndpointInfo = Lens.field @"realtimeEndpointInfo"
+{-# DEPRECATED crerrsRealtimeEndpointInfo "Use generic-lens or generic-optics with 'realtimeEndpointInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersResponseStatus :: Lens.Lens' CreateRealtimeEndpointResponse Lude.Int
-crersResponseStatus = Lens.lens (responseStatus :: CreateRealtimeEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRealtimeEndpointResponse)
-{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crerrsResponseStatus :: Lens.Lens' CreateRealtimeEndpointResponse Core.Int
+crerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.ComplianceItemEntry
     mkComplianceItemEntry,
 
     -- * Lenses
-    cieStatus,
     cieSeverity,
+    cieStatus,
     cieDetails,
     cieId,
     cieTitle,
@@ -26,93 +26,91 @@ module Network.AWS.SSM.Types.ComplianceItemEntry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.ComplianceSeverity
-import Network.AWS.SSM.Types.ComplianceStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AttributeName as Types
+import qualified Network.AWS.SSM.Types.AttributeValue as Types
+import qualified Network.AWS.SSM.Types.ComplianceSeverity as Types
+import qualified Network.AWS.SSM.Types.ComplianceStatus as Types
+import qualified Network.AWS.SSM.Types.Id as Types
+import qualified Network.AWS.SSM.Types.Title as Types
 
 -- | Information about a compliance item.
 --
 -- /See:/ 'mkComplianceItemEntry' smart constructor.
 data ComplianceItemEntry = ComplianceItemEntry'
-  { -- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
-    status :: ComplianceStatus,
-    -- | The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
-    severity :: ComplianceSeverity,
+  { -- | The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
+    severity :: Types.ComplianceSeverity,
+    -- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
+    status :: Types.ComplianceStatus,
     -- | A "Key": "Value" tag combination for the compliance item.
-    details :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    details :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | The compliance item ID. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
     -- | The title of the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch; for example: Security Update for Active Directory Federation Services.
-    title :: Lude.Maybe Lude.Text
+    title :: Core.Maybe Types.Title
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComplianceItemEntry' with the minimum fields required to make a request.
---
--- * 'status' - The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
--- * 'severity' - The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
--- * 'details' - A "Key": "Value" tag combination for the compliance item.
--- * 'id' - The compliance item ID. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article.
--- * 'title' - The title of the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch; for example: Security Update for Active Directory Federation Services.
+-- | Creates a 'ComplianceItemEntry' value with any optional fields omitted.
 mkComplianceItemEntry ::
-  -- | 'status'
-  ComplianceStatus ->
   -- | 'severity'
-  ComplianceSeverity ->
+  Types.ComplianceSeverity ->
+  -- | 'status'
+  Types.ComplianceStatus ->
   ComplianceItemEntry
-mkComplianceItemEntry pStatus_ pSeverity_ =
+mkComplianceItemEntry severity status =
   ComplianceItemEntry'
-    { status = pStatus_,
-      severity = pSeverity_,
-      details = Lude.Nothing,
-      id = Lude.Nothing,
-      title = Lude.Nothing
+    { severity,
+      status,
+      details = Core.Nothing,
+      id = Core.Nothing,
+      title = Core.Nothing
     }
-
--- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cieStatus :: Lens.Lens' ComplianceItemEntry ComplianceStatus
-cieStatus = Lens.lens (status :: ComplianceItemEntry -> ComplianceStatus) (\s a -> s {status = a} :: ComplianceItemEntry)
-{-# DEPRECATED cieStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
 --
 -- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cieSeverity :: Lens.Lens' ComplianceItemEntry ComplianceSeverity
-cieSeverity = Lens.lens (severity :: ComplianceItemEntry -> ComplianceSeverity) (\s a -> s {severity = a} :: ComplianceItemEntry)
+cieSeverity :: Lens.Lens' ComplianceItemEntry Types.ComplianceSeverity
+cieSeverity = Lens.field @"severity"
 {-# DEPRECATED cieSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
+
+-- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cieStatus :: Lens.Lens' ComplianceItemEntry Types.ComplianceStatus
+cieStatus = Lens.field @"status"
+{-# DEPRECATED cieStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A "Key": "Value" tag combination for the compliance item.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cieDetails :: Lens.Lens' ComplianceItemEntry (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cieDetails = Lens.lens (details :: ComplianceItemEntry -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {details = a} :: ComplianceItemEntry)
+cieDetails :: Lens.Lens' ComplianceItemEntry (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+cieDetails = Lens.field @"details"
 {-# DEPRECATED cieDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The compliance item ID. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cieId :: Lens.Lens' ComplianceItemEntry (Lude.Maybe Lude.Text)
-cieId = Lens.lens (id :: ComplianceItemEntry -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ComplianceItemEntry)
+cieId :: Lens.Lens' ComplianceItemEntry (Core.Maybe Types.Id)
+cieId = Lens.field @"id"
 {-# DEPRECATED cieId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The title of the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch; for example: Security Update for Active Directory Federation Services.
 --
 -- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cieTitle :: Lens.Lens' ComplianceItemEntry (Lude.Maybe Lude.Text)
-cieTitle = Lens.lens (title :: ComplianceItemEntry -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: ComplianceItemEntry)
+cieTitle :: Lens.Lens' ComplianceItemEntry (Core.Maybe Types.Title)
+cieTitle = Lens.field @"title"
 {-# DEPRECATED cieTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
-instance Lude.ToJSON ComplianceItemEntry where
-  toJSON ComplianceItemEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Status" Lude..= status),
-            Lude.Just ("Severity" Lude..= severity),
-            ("Details" Lude..=) Lude.<$> details,
-            ("Id" Lude..=) Lude.<$> id,
-            ("Title" Lude..=) Lude.<$> title
+instance Core.FromJSON ComplianceItemEntry where
+  toJSON ComplianceItemEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Severity" Core..= severity),
+            Core.Just ("Status" Core..= status),
+            ("Details" Core..=) Core.<$> details,
+            ("Id" Core..=) Core.<$> id,
+            ("Title" Core..=) Core.<$> title
           ]
       )

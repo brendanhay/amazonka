@@ -22,181 +22,166 @@ module Network.AWS.AppSync.ListResolvers
     mkListResolvers,
 
     -- ** Request lenses
-    lrTypeName,
     lrApiId,
-    lrNextToken,
+    lrTypeName,
     lrMaxResults,
+    lrNextToken,
 
     -- * Destructuring the response
     ListResolversResponse (..),
     mkListResolversResponse,
 
     -- ** Response lenses
-    lrrsNextToken,
-    lrrsResolvers,
-    lrrsResponseStatus,
+    lrrrsNextToken,
+    lrrrsResolvers,
+    lrrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppSync.Types
+import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListResolvers' smart constructor.
 data ListResolvers = ListResolvers'
-  { -- | The type name.
-    typeName :: Lude.Text,
-    -- | The API ID.
-    apiId :: Lude.Text,
-    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The API ID.
+    apiId :: Types.String,
+    -- | The type name.
+    typeName :: Types.String,
     -- | The maximum number of results you want the request to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListResolvers' with the minimum fields required to make a request.
---
--- * 'typeName' - The type name.
--- * 'apiId' - The API ID.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'maxResults' - The maximum number of results you want the request to return.
+-- | Creates a 'ListResolvers' value with any optional fields omitted.
 mkListResolvers ::
-  -- | 'typeName'
-  Lude.Text ->
   -- | 'apiId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'typeName'
+  Types.String ->
   ListResolvers
-mkListResolvers pTypeName_ pApiId_ =
+mkListResolvers apiId typeName =
   ListResolvers'
-    { typeName = pTypeName_,
-      apiId = pApiId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { apiId,
+      typeName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The type name.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrTypeName :: Lens.Lens' ListResolvers Lude.Text
-lrTypeName = Lens.lens (typeName :: ListResolvers -> Lude.Text) (\s a -> s {typeName = a} :: ListResolvers)
-{-# DEPRECATED lrTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrApiId :: Lens.Lens' ListResolvers Lude.Text
-lrApiId = Lens.lens (apiId :: ListResolvers -> Lude.Text) (\s a -> s {apiId = a} :: ListResolvers)
+lrApiId :: Lens.Lens' ListResolvers Types.String
+lrApiId = Lens.field @"apiId"
 {-# DEPRECATED lrApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- | The type name.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrNextToken :: Lens.Lens' ListResolvers (Lude.Maybe Lude.Text)
-lrNextToken = Lens.lens (nextToken :: ListResolvers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResolvers)
-{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrTypeName :: Lens.Lens' ListResolvers Types.String
+lrTypeName = Lens.field @"typeName"
+{-# DEPRECATED lrTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The maximum number of results you want the request to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrMaxResults :: Lens.Lens' ListResolvers (Lude.Maybe Lude.Natural)
-lrMaxResults = Lens.lens (maxResults :: ListResolvers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResolvers)
+lrMaxResults :: Lens.Lens' ListResolvers (Core.Maybe Core.Natural)
+lrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListResolvers where
-  page rq rs
-    | Page.stop (rs Lens.^. lrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrrsResolvers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lrNextToken Lens..~ rs Lens.^. lrrsNextToken
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListResolvers (Core.Maybe Types.PaginationToken)
+lrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListResolvers where
+instance Core.AWSRequest ListResolvers where
   type Rs ListResolvers = ListResolversResponse
-  request = Req.get appSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types/")
+                Core.<> (Core.toText typeName)
+                Core.<> ("/resolvers")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListResolversResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "resolvers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "resolvers")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListResolvers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListResolvers where
-  toPath ListResolvers' {..} =
-    Lude.mconcat
-      [ "/v1/apis/",
-        Lude.toBS apiId,
-        "/types/",
-        Lude.toBS typeName,
-        "/resolvers"
-      ]
-
-instance Lude.ToQuery ListResolvers where
-  toQuery ListResolvers' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListResolvers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"resolvers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListResolversResponse' smart constructor.
 data ListResolversResponse = ListResolversResponse'
   { -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The @Resolver@ objects.
-    resolvers :: Lude.Maybe [Resolver],
+    resolvers :: Core.Maybe [Types.Resolver],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListResolversResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
--- * 'resolvers' - The @Resolver@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListResolversResponse' value with any optional fields omitted.
 mkListResolversResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListResolversResponse
-mkListResolversResponse pResponseStatus_ =
+mkListResolversResponse responseStatus =
   ListResolversResponse'
-    { nextToken = Lude.Nothing,
-      resolvers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      resolvers = Core.Nothing,
+      responseStatus
     }
 
 -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsNextToken :: Lens.Lens' ListResolversResponse (Lude.Maybe Lude.Text)
-lrrsNextToken = Lens.lens (nextToken :: ListResolversResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResolversResponse)
-{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrrrsNextToken :: Lens.Lens' ListResolversResponse (Core.Maybe Types.PaginationToken)
+lrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The @Resolver@ objects.
 --
 -- /Note:/ Consider using 'resolvers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsResolvers :: Lens.Lens' ListResolversResponse (Lude.Maybe [Resolver])
-lrrsResolvers = Lens.lens (resolvers :: ListResolversResponse -> Lude.Maybe [Resolver]) (\s a -> s {resolvers = a} :: ListResolversResponse)
-{-# DEPRECATED lrrsResolvers "Use generic-lens or generic-optics with 'resolvers' instead." #-}
+lrrrsResolvers :: Lens.Lens' ListResolversResponse (Core.Maybe [Types.Resolver])
+lrrrsResolvers = Lens.field @"resolvers"
+{-# DEPRECATED lrrrsResolvers "Use generic-lens or generic-optics with 'resolvers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsResponseStatus :: Lens.Lens' ListResolversResponse Lude.Int
-lrrsResponseStatus = Lens.lens (responseStatus :: ListResolversResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResolversResponse)
-{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrrrsResponseStatus :: Lens.Lens' ListResolversResponse Core.Int
+lrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

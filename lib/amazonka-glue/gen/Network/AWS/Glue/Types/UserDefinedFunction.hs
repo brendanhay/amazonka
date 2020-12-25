@@ -17,138 +17,132 @@ module Network.AWS.Glue.Types.UserDefinedFunction
     mkUserDefinedFunction,
 
     -- * Lenses
-    udfOwnerName,
     udfCatalogId,
-    udfResourceURIs,
+    udfClassName,
+    udfCreateTime,
     udfDatabaseName,
     udfFunctionName,
+    udfOwnerName,
     udfOwnerType,
-    udfCreateTime,
-    udfClassName,
+    udfResourceUris,
   )
 where
 
-import Network.AWS.Glue.Types.PrincipalType
-import Network.AWS.Glue.Types.ResourceURI
+import qualified Network.AWS.Glue.Types.CatalogId as Types
+import qualified Network.AWS.Glue.Types.ClassName as Types
+import qualified Network.AWS.Glue.Types.DatabaseName as Types
+import qualified Network.AWS.Glue.Types.FunctionName as Types
+import qualified Network.AWS.Glue.Types.OwnerName as Types
+import qualified Network.AWS.Glue.Types.PrincipalType as Types
+import qualified Network.AWS.Glue.Types.ResourceUri as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the equivalent of a Hive user-defined function (@UDF@ ) definition.
 --
 -- /See:/ 'mkUserDefinedFunction' smart constructor.
 data UserDefinedFunction = UserDefinedFunction'
-  { -- | The owner of the function.
-    ownerName :: Lude.Maybe Lude.Text,
-    -- | The ID of the Data Catalog in which the function resides.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The resource URIs for the function.
-    resourceURIs :: Lude.Maybe [ResourceURI],
-    -- | The name of the catalog database that contains the function.
-    databaseName :: Lude.Maybe Lude.Text,
-    -- | The name of the function.
-    functionName :: Lude.Maybe Lude.Text,
-    -- | The owner type.
-    ownerType :: Lude.Maybe PrincipalType,
-    -- | The time at which the function was created.
-    createTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The ID of the Data Catalog in which the function resides.
+    catalogId :: Core.Maybe Types.CatalogId,
     -- | The Java class that contains the function code.
-    className :: Lude.Maybe Lude.Text
+    className :: Core.Maybe Types.ClassName,
+    -- | The time at which the function was created.
+    createTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the catalog database that contains the function.
+    databaseName :: Core.Maybe Types.DatabaseName,
+    -- | The name of the function.
+    functionName :: Core.Maybe Types.FunctionName,
+    -- | The owner of the function.
+    ownerName :: Core.Maybe Types.OwnerName,
+    -- | The owner type.
+    ownerType :: Core.Maybe Types.PrincipalType,
+    -- | The resource URIs for the function.
+    resourceUris :: Core.Maybe [Types.ResourceUri]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UserDefinedFunction' with the minimum fields required to make a request.
---
--- * 'ownerName' - The owner of the function.
--- * 'catalogId' - The ID of the Data Catalog in which the function resides.
--- * 'resourceURIs' - The resource URIs for the function.
--- * 'databaseName' - The name of the catalog database that contains the function.
--- * 'functionName' - The name of the function.
--- * 'ownerType' - The owner type.
--- * 'createTime' - The time at which the function was created.
--- * 'className' - The Java class that contains the function code.
+-- | Creates a 'UserDefinedFunction' value with any optional fields omitted.
 mkUserDefinedFunction ::
   UserDefinedFunction
 mkUserDefinedFunction =
   UserDefinedFunction'
-    { ownerName = Lude.Nothing,
-      catalogId = Lude.Nothing,
-      resourceURIs = Lude.Nothing,
-      databaseName = Lude.Nothing,
-      functionName = Lude.Nothing,
-      ownerType = Lude.Nothing,
-      createTime = Lude.Nothing,
-      className = Lude.Nothing
+    { catalogId = Core.Nothing,
+      className = Core.Nothing,
+      createTime = Core.Nothing,
+      databaseName = Core.Nothing,
+      functionName = Core.Nothing,
+      ownerName = Core.Nothing,
+      ownerType = Core.Nothing,
+      resourceUris = Core.Nothing
     }
-
--- | The owner of the function.
---
--- /Note:/ Consider using 'ownerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfOwnerName :: Lens.Lens' UserDefinedFunction (Lude.Maybe Lude.Text)
-udfOwnerName = Lens.lens (ownerName :: UserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {ownerName = a} :: UserDefinedFunction)
-{-# DEPRECATED udfOwnerName "Use generic-lens or generic-optics with 'ownerName' instead." #-}
 
 -- | The ID of the Data Catalog in which the function resides.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfCatalogId :: Lens.Lens' UserDefinedFunction (Lude.Maybe Lude.Text)
-udfCatalogId = Lens.lens (catalogId :: UserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UserDefinedFunction)
+udfCatalogId :: Lens.Lens' UserDefinedFunction (Core.Maybe Types.CatalogId)
+udfCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED udfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
--- | The resource URIs for the function.
+-- | The Java class that contains the function code.
 --
--- /Note:/ Consider using 'resourceURIs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfResourceURIs :: Lens.Lens' UserDefinedFunction (Lude.Maybe [ResourceURI])
-udfResourceURIs = Lens.lens (resourceURIs :: UserDefinedFunction -> Lude.Maybe [ResourceURI]) (\s a -> s {resourceURIs = a} :: UserDefinedFunction)
-{-# DEPRECATED udfResourceURIs "Use generic-lens or generic-optics with 'resourceURIs' instead." #-}
+-- /Note:/ Consider using 'className' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udfClassName :: Lens.Lens' UserDefinedFunction (Core.Maybe Types.ClassName)
+udfClassName = Lens.field @"className"
+{-# DEPRECATED udfClassName "Use generic-lens or generic-optics with 'className' instead." #-}
+
+-- | The time at which the function was created.
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udfCreateTime :: Lens.Lens' UserDefinedFunction (Core.Maybe Core.NominalDiffTime)
+udfCreateTime = Lens.field @"createTime"
+{-# DEPRECATED udfCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The name of the catalog database that contains the function.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfDatabaseName :: Lens.Lens' UserDefinedFunction (Lude.Maybe Lude.Text)
-udfDatabaseName = Lens.lens (databaseName :: UserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: UserDefinedFunction)
+udfDatabaseName :: Lens.Lens' UserDefinedFunction (Core.Maybe Types.DatabaseName)
+udfDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED udfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the function.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfFunctionName :: Lens.Lens' UserDefinedFunction (Lude.Maybe Lude.Text)
-udfFunctionName = Lens.lens (functionName :: UserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {functionName = a} :: UserDefinedFunction)
+udfFunctionName :: Lens.Lens' UserDefinedFunction (Core.Maybe Types.FunctionName)
+udfFunctionName = Lens.field @"functionName"
 {-# DEPRECATED udfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | The owner of the function.
+--
+-- /Note:/ Consider using 'ownerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udfOwnerName :: Lens.Lens' UserDefinedFunction (Core.Maybe Types.OwnerName)
+udfOwnerName = Lens.field @"ownerName"
+{-# DEPRECATED udfOwnerName "Use generic-lens or generic-optics with 'ownerName' instead." #-}
 
 -- | The owner type.
 --
 -- /Note:/ Consider using 'ownerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfOwnerType :: Lens.Lens' UserDefinedFunction (Lude.Maybe PrincipalType)
-udfOwnerType = Lens.lens (ownerType :: UserDefinedFunction -> Lude.Maybe PrincipalType) (\s a -> s {ownerType = a} :: UserDefinedFunction)
+udfOwnerType :: Lens.Lens' UserDefinedFunction (Core.Maybe Types.PrincipalType)
+udfOwnerType = Lens.field @"ownerType"
 {-# DEPRECATED udfOwnerType "Use generic-lens or generic-optics with 'ownerType' instead." #-}
 
--- | The time at which the function was created.
+-- | The resource URIs for the function.
 --
--- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfCreateTime :: Lens.Lens' UserDefinedFunction (Lude.Maybe Lude.Timestamp)
-udfCreateTime = Lens.lens (createTime :: UserDefinedFunction -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: UserDefinedFunction)
-{-# DEPRECATED udfCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+-- /Note:/ Consider using 'resourceUris' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udfResourceUris :: Lens.Lens' UserDefinedFunction (Core.Maybe [Types.ResourceUri])
+udfResourceUris = Lens.field @"resourceUris"
+{-# DEPRECATED udfResourceUris "Use generic-lens or generic-optics with 'resourceUris' instead." #-}
 
--- | The Java class that contains the function code.
---
--- /Note:/ Consider using 'className' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udfClassName :: Lens.Lens' UserDefinedFunction (Lude.Maybe Lude.Text)
-udfClassName = Lens.lens (className :: UserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {className = a} :: UserDefinedFunction)
-{-# DEPRECATED udfClassName "Use generic-lens or generic-optics with 'className' instead." #-}
-
-instance Lude.FromJSON UserDefinedFunction where
+instance Core.FromJSON UserDefinedFunction where
   parseJSON =
-    Lude.withObject
-      "UserDefinedFunction"
-      ( \x ->
-          UserDefinedFunction'
-            Lude.<$> (x Lude..:? "OwnerName")
-            Lude.<*> (x Lude..:? "CatalogId")
-            Lude.<*> (x Lude..:? "ResourceUris" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "DatabaseName")
-            Lude.<*> (x Lude..:? "FunctionName")
-            Lude.<*> (x Lude..:? "OwnerType")
-            Lude.<*> (x Lude..:? "CreateTime")
-            Lude.<*> (x Lude..:? "ClassName")
-      )
+    Core.withObject "UserDefinedFunction" Core.$
+      \x ->
+        UserDefinedFunction'
+          Core.<$> (x Core..:? "CatalogId")
+          Core.<*> (x Core..:? "ClassName")
+          Core.<*> (x Core..:? "CreateTime")
+          Core.<*> (x Core..:? "DatabaseName")
+          Core.<*> (x Core..:? "FunctionName")
+          Core.<*> (x Core..:? "OwnerName")
+          Core.<*> (x Core..:? "OwnerType")
+          Core.<*> (x Core..:? "ResourceUris")

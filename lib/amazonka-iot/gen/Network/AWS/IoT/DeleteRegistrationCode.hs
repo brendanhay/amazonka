@@ -24,73 +24,67 @@ module Network.AWS.IoT.DeleteRegistrationCode
     mkDeleteRegistrationCodeResponse,
 
     -- ** Response lenses
-    drcrsResponseStatus,
+    drcrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeleteRegistrationCode operation.
 --
 -- /See:/ 'mkDeleteRegistrationCode' smart constructor.
 data DeleteRegistrationCode = DeleteRegistrationCode'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRegistrationCode' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRegistrationCode' value with any optional fields omitted.
 mkDeleteRegistrationCode ::
   DeleteRegistrationCode
 mkDeleteRegistrationCode = DeleteRegistrationCode'
 
-instance Lude.AWSRequest DeleteRegistrationCode where
+instance Core.AWSRequest DeleteRegistrationCode where
   type Rs DeleteRegistrationCode = DeleteRegistrationCodeResponse
-  request = Req.delete ioTService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath "/registrationcode",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteRegistrationCodeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRegistrationCode where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteRegistrationCode where
-  toPath = Lude.const "/registrationcode"
-
-instance Lude.ToQuery DeleteRegistrationCode where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output for the DeleteRegistrationCode operation.
 --
 -- /See:/ 'mkDeleteRegistrationCodeResponse' smart constructor.
 newtype DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRegistrationCodeResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRegistrationCodeResponse' value with any optional fields omitted.
 mkDeleteRegistrationCodeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRegistrationCodeResponse
-mkDeleteRegistrationCodeResponse pResponseStatus_ =
-  DeleteRegistrationCodeResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteRegistrationCodeResponse responseStatus =
+  DeleteRegistrationCodeResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsResponseStatus :: Lens.Lens' DeleteRegistrationCodeResponse Lude.Int
-drcrsResponseStatus = Lens.lens (responseStatus :: DeleteRegistrationCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRegistrationCodeResponse)
-{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drcrrsResponseStatus :: Lens.Lens' DeleteRegistrationCodeResponse Core.Int
+drcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

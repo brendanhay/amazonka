@@ -22,53 +22,49 @@ module Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
   )
 where
 
-import Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
+import qualified Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode as Types
+import qualified Network.AWS.AppStream.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the reason why the last image builder state change occurred.
 --
 -- /See:/ 'mkImageBuilderStateChangeReason' smart constructor.
 data ImageBuilderStateChangeReason = ImageBuilderStateChangeReason'
   { -- | The state change reason code.
-    code :: Lude.Maybe ImageBuilderStateChangeReasonCode,
+    code :: Core.Maybe Types.ImageBuilderStateChangeReasonCode,
     -- | The state change reason message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImageBuilderStateChangeReason' with the minimum fields required to make a request.
---
--- * 'code' - The state change reason code.
--- * 'message' - The state change reason message.
+-- | Creates a 'ImageBuilderStateChangeReason' value with any optional fields omitted.
 mkImageBuilderStateChangeReason ::
   ImageBuilderStateChangeReason
 mkImageBuilderStateChangeReason =
   ImageBuilderStateChangeReason'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The state change reason code.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibscrCode :: Lens.Lens' ImageBuilderStateChangeReason (Lude.Maybe ImageBuilderStateChangeReasonCode)
-ibscrCode = Lens.lens (code :: ImageBuilderStateChangeReason -> Lude.Maybe ImageBuilderStateChangeReasonCode) (\s a -> s {code = a} :: ImageBuilderStateChangeReason)
+ibscrCode :: Lens.Lens' ImageBuilderStateChangeReason (Core.Maybe Types.ImageBuilderStateChangeReasonCode)
+ibscrCode = Lens.field @"code"
 {-# DEPRECATED ibscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The state change reason message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibscrMessage :: Lens.Lens' ImageBuilderStateChangeReason (Lude.Maybe Lude.Text)
-ibscrMessage = Lens.lens (message :: ImageBuilderStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ImageBuilderStateChangeReason)
+ibscrMessage :: Lens.Lens' ImageBuilderStateChangeReason (Core.Maybe Types.String)
+ibscrMessage = Lens.field @"message"
 {-# DEPRECATED ibscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON ImageBuilderStateChangeReason where
+instance Core.FromJSON ImageBuilderStateChangeReason where
   parseJSON =
-    Lude.withObject
-      "ImageBuilderStateChangeReason"
-      ( \x ->
-          ImageBuilderStateChangeReason'
-            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "ImageBuilderStateChangeReason" Core.$
+      \x ->
+        ImageBuilderStateChangeReason'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Message")

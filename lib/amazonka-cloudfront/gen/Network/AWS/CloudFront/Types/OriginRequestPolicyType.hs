@@ -13,46 +13,51 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyType
   ( OriginRequestPolicyType
       ( OriginRequestPolicyType',
-        Managed,
-        Custom
+        OriginRequestPolicyTypeManaged,
+        OriginRequestPolicyTypeCustom,
+        fromOriginRequestPolicyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OriginRequestPolicyType = OriginRequestPolicyType' Lude.Text
+newtype OriginRequestPolicyType = OriginRequestPolicyType'
+  { fromOriginRequestPolicyType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Managed :: OriginRequestPolicyType
-pattern Managed = OriginRequestPolicyType' "managed"
+pattern OriginRequestPolicyTypeManaged :: OriginRequestPolicyType
+pattern OriginRequestPolicyTypeManaged = OriginRequestPolicyType' "managed"
 
-pattern Custom :: OriginRequestPolicyType
-pattern Custom = OriginRequestPolicyType' "custom"
+pattern OriginRequestPolicyTypeCustom :: OriginRequestPolicyType
+pattern OriginRequestPolicyTypeCustom = OriginRequestPolicyType' "custom"
 
 {-# COMPLETE
-  Managed,
-  Custom,
+  OriginRequestPolicyTypeManaged,
+  OriginRequestPolicyTypeCustom,
   OriginRequestPolicyType'
   #-}

@@ -17,59 +17,53 @@ module Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult
     mkBatchDetectDominantLanguageItemResult,
 
     -- * Lenses
-    bddlirLanguages,
     bddlirIndex,
+    bddlirLanguages,
   )
 where
 
-import Network.AWS.Comprehend.Types.DominantLanguage
+import qualified Network.AWS.Comprehend.Types.DominantLanguage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.
 --
 -- /See:/ 'mkBatchDetectDominantLanguageItemResult' smart constructor.
 data BatchDetectDominantLanguageItemResult = BatchDetectDominantLanguageItemResult'
-  { -- | One or more 'DominantLanguage' objects describing the dominant languages in the document.
-    languages :: Lude.Maybe [DominantLanguage],
-    -- | The zero-based index of the document in the input list.
-    index :: Lude.Maybe Lude.Int
+  { -- | The zero-based index of the document in the input list.
+    index :: Core.Maybe Core.Int,
+    -- | One or more 'DominantLanguage' objects describing the dominant languages in the document.
+    languages :: Core.Maybe [Types.DominantLanguage]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectDominantLanguageItemResult' with the minimum fields required to make a request.
---
--- * 'languages' - One or more 'DominantLanguage' objects describing the dominant languages in the document.
--- * 'index' - The zero-based index of the document in the input list.
+-- | Creates a 'BatchDetectDominantLanguageItemResult' value with any optional fields omitted.
 mkBatchDetectDominantLanguageItemResult ::
   BatchDetectDominantLanguageItemResult
 mkBatchDetectDominantLanguageItemResult =
   BatchDetectDominantLanguageItemResult'
-    { languages = Lude.Nothing,
-      index = Lude.Nothing
+    { index = Core.Nothing,
+      languages = Core.Nothing
     }
-
--- | One or more 'DominantLanguage' objects describing the dominant languages in the document.
---
--- /Note:/ Consider using 'languages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bddlirLanguages :: Lens.Lens' BatchDetectDominantLanguageItemResult (Lude.Maybe [DominantLanguage])
-bddlirLanguages = Lens.lens (languages :: BatchDetectDominantLanguageItemResult -> Lude.Maybe [DominantLanguage]) (\s a -> s {languages = a} :: BatchDetectDominantLanguageItemResult)
-{-# DEPRECATED bddlirLanguages "Use generic-lens or generic-optics with 'languages' instead." #-}
 
 -- | The zero-based index of the document in the input list.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bddlirIndex :: Lens.Lens' BatchDetectDominantLanguageItemResult (Lude.Maybe Lude.Int)
-bddlirIndex = Lens.lens (index :: BatchDetectDominantLanguageItemResult -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: BatchDetectDominantLanguageItemResult)
+bddlirIndex :: Lens.Lens' BatchDetectDominantLanguageItemResult (Core.Maybe Core.Int)
+bddlirIndex = Lens.field @"index"
 {-# DEPRECATED bddlirIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance Lude.FromJSON BatchDetectDominantLanguageItemResult where
+-- | One or more 'DominantLanguage' objects describing the dominant languages in the document.
+--
+-- /Note:/ Consider using 'languages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bddlirLanguages :: Lens.Lens' BatchDetectDominantLanguageItemResult (Core.Maybe [Types.DominantLanguage])
+bddlirLanguages = Lens.field @"languages"
+{-# DEPRECATED bddlirLanguages "Use generic-lens or generic-optics with 'languages' instead." #-}
+
+instance Core.FromJSON BatchDetectDominantLanguageItemResult where
   parseJSON =
-    Lude.withObject
-      "BatchDetectDominantLanguageItemResult"
-      ( \x ->
-          BatchDetectDominantLanguageItemResult'
-            Lude.<$> (x Lude..:? "Languages" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Index")
-      )
+    Core.withObject "BatchDetectDominantLanguageItemResult" Core.$
+      \x ->
+        BatchDetectDominantLanguageItemResult'
+          Core.<$> (x Core..:? "Index") Core.<*> (x Core..:? "Languages")

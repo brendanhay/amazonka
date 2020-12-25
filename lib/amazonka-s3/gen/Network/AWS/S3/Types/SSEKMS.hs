@@ -17,42 +17,41 @@ module Network.AWS.S3.Types.SSEKMS
     mkSSEKMS,
 
     -- * Lenses
-    ssekKeyId,
+    ssekmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.SSEKMSKeyId as Types
 
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
 --
 -- /See:/ 'mkSSEKMS' smart constructor.
 newtype SSEKMS = SSEKMS'
   { -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
-    keyId :: Lude.Sensitive Lude.Text
+    keyId :: Types.SSEKMSKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SSEKMS' with the minimum fields required to make a request.
---
--- * 'keyId' - Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
+-- | Creates a 'SSEKMS' value with any optional fields omitted.
 mkSSEKMS ::
   -- | 'keyId'
-  Lude.Sensitive Lude.Text ->
+  Types.SSEKMSKeyId ->
   SSEKMS
-mkSSEKMS pKeyId_ = SSEKMS' {keyId = pKeyId_}
+mkSSEKMS keyId = SSEKMS' {keyId}
 
 -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssekKeyId :: Lens.Lens' SSEKMS (Lude.Sensitive Lude.Text)
-ssekKeyId = Lens.lens (keyId :: SSEKMS -> Lude.Sensitive Lude.Text) (\s a -> s {keyId = a} :: SSEKMS)
-{-# DEPRECATED ssekKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+ssekmsKeyId :: Lens.Lens' SSEKMS Types.SSEKMSKeyId
+ssekmsKeyId = Lens.field @"keyId"
+{-# DEPRECATED ssekmsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance Lude.FromXML SSEKMS where
-  parseXML x = SSEKMS' Lude.<$> (x Lude..@ "KeyId")
+instance Core.ToXML SSEKMS where
+  toXML SSEKMS {..} = Core.toXMLNode "KeyId" keyId
 
-instance Lude.ToXML SSEKMS where
-  toXML SSEKMS' {..} = Lude.mconcat ["KeyId" Lude.@= keyId]
+instance Core.FromXML SSEKMS where
+  parseXML x = SSEKMS' Core.<$> (x Core..@ "KeyId")

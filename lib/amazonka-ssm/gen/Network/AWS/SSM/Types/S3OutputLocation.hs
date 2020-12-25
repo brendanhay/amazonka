@@ -17,81 +17,78 @@ module Network.AWS.SSM.Types.S3OutputLocation
     mkS3OutputLocation,
 
     -- * Lenses
+    solOutputS3BucketName,
     solOutputS3KeyPrefix,
     solOutputS3Region,
-    solOutputS3BucketName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.OutputS3BucketName as Types
+import qualified Network.AWS.SSM.Types.OutputS3Region as Types
+import qualified Network.AWS.SSM.Types.S3KeyPrefix as Types
 
 -- | An S3 bucket where you want to store the results of this request.
 --
 -- /See:/ 'mkS3OutputLocation' smart constructor.
 data S3OutputLocation = S3OutputLocation'
-  { -- | The S3 bucket subfolder.
-    outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+  { -- | The name of the S3 bucket.
+    outputS3BucketName :: Core.Maybe Types.OutputS3BucketName,
+    -- | The S3 bucket subfolder.
+    outputS3KeyPrefix :: Core.Maybe Types.S3KeyPrefix,
     -- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
-    outputS3Region :: Lude.Maybe Lude.Text,
-    -- | The name of the S3 bucket.
-    outputS3BucketName :: Lude.Maybe Lude.Text
+    outputS3Region :: Core.Maybe Types.OutputS3Region
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3OutputLocation' with the minimum fields required to make a request.
---
--- * 'outputS3KeyPrefix' - The S3 bucket subfolder.
--- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
--- * 'outputS3BucketName' - The name of the S3 bucket.
+-- | Creates a 'S3OutputLocation' value with any optional fields omitted.
 mkS3OutputLocation ::
   S3OutputLocation
 mkS3OutputLocation =
   S3OutputLocation'
-    { outputS3KeyPrefix = Lude.Nothing,
-      outputS3Region = Lude.Nothing,
-      outputS3BucketName = Lude.Nothing
+    { outputS3BucketName = Core.Nothing,
+      outputS3KeyPrefix = Core.Nothing,
+      outputS3Region = Core.Nothing
     }
+
+-- | The name of the S3 bucket.
+--
+-- /Note:/ Consider using 'outputS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+solOutputS3BucketName :: Lens.Lens' S3OutputLocation (Core.Maybe Types.OutputS3BucketName)
+solOutputS3BucketName = Lens.field @"outputS3BucketName"
+{-# DEPRECATED solOutputS3BucketName "Use generic-lens or generic-optics with 'outputS3BucketName' instead." #-}
 
 -- | The S3 bucket subfolder.
 --
 -- /Note:/ Consider using 'outputS3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-solOutputS3KeyPrefix :: Lens.Lens' S3OutputLocation (Lude.Maybe Lude.Text)
-solOutputS3KeyPrefix = Lens.lens (outputS3KeyPrefix :: S3OutputLocation -> Lude.Maybe Lude.Text) (\s a -> s {outputS3KeyPrefix = a} :: S3OutputLocation)
+solOutputS3KeyPrefix :: Lens.Lens' S3OutputLocation (Core.Maybe Types.S3KeyPrefix)
+solOutputS3KeyPrefix = Lens.field @"outputS3KeyPrefix"
 {-# DEPRECATED solOutputS3KeyPrefix "Use generic-lens or generic-optics with 'outputS3KeyPrefix' instead." #-}
 
 -- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
 --
 -- /Note:/ Consider using 'outputS3Region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-solOutputS3Region :: Lens.Lens' S3OutputLocation (Lude.Maybe Lude.Text)
-solOutputS3Region = Lens.lens (outputS3Region :: S3OutputLocation -> Lude.Maybe Lude.Text) (\s a -> s {outputS3Region = a} :: S3OutputLocation)
+solOutputS3Region :: Lens.Lens' S3OutputLocation (Core.Maybe Types.OutputS3Region)
+solOutputS3Region = Lens.field @"outputS3Region"
 {-# DEPRECATED solOutputS3Region "Use generic-lens or generic-optics with 'outputS3Region' instead." #-}
 
--- | The name of the S3 bucket.
---
--- /Note:/ Consider using 'outputS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-solOutputS3BucketName :: Lens.Lens' S3OutputLocation (Lude.Maybe Lude.Text)
-solOutputS3BucketName = Lens.lens (outputS3BucketName :: S3OutputLocation -> Lude.Maybe Lude.Text) (\s a -> s {outputS3BucketName = a} :: S3OutputLocation)
-{-# DEPRECATED solOutputS3BucketName "Use generic-lens or generic-optics with 'outputS3BucketName' instead." #-}
-
-instance Lude.FromJSON S3OutputLocation where
-  parseJSON =
-    Lude.withObject
-      "S3OutputLocation"
-      ( \x ->
-          S3OutputLocation'
-            Lude.<$> (x Lude..:? "OutputS3KeyPrefix")
-            Lude.<*> (x Lude..:? "OutputS3Region")
-            Lude.<*> (x Lude..:? "OutputS3BucketName")
-      )
-
-instance Lude.ToJSON S3OutputLocation where
-  toJSON S3OutputLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("OutputS3KeyPrefix" Lude..=) Lude.<$> outputS3KeyPrefix,
-            ("OutputS3Region" Lude..=) Lude.<$> outputS3Region,
-            ("OutputS3BucketName" Lude..=) Lude.<$> outputS3BucketName
+instance Core.FromJSON S3OutputLocation where
+  toJSON S3OutputLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("OutputS3BucketName" Core..=) Core.<$> outputS3BucketName,
+            ("OutputS3KeyPrefix" Core..=) Core.<$> outputS3KeyPrefix,
+            ("OutputS3Region" Core..=) Core.<$> outputS3Region
           ]
       )
+
+instance Core.FromJSON S3OutputLocation where
+  parseJSON =
+    Core.withObject "S3OutputLocation" Core.$
+      \x ->
+        S3OutputLocation'
+          Core.<$> (x Core..:? "OutputS3BucketName")
+          Core.<*> (x Core..:? "OutputS3KeyPrefix")
+          Core.<*> (x Core..:? "OutputS3Region")

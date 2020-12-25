@@ -23,186 +23,169 @@ module Network.AWS.WorkMail.CreateOrganization
     mkCreateOrganization,
 
     -- ** Request lenses
-    coDirectoryId,
-    coEnableInteroperability,
-    coKMSKeyARN,
-    coClientToken,
     coAlias,
+    coClientToken,
+    coDirectoryId,
     coDomains,
+    coEnableInteroperability,
+    coKmsKeyArn,
 
     -- * Destructuring the response
     CreateOrganizationResponse (..),
     mkCreateOrganizationResponse,
 
     -- ** Response lenses
-    corsOrganizationId,
-    corsResponseStatus,
+    corrsOrganizationId,
+    corrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkCreateOrganization' smart constructor.
 data CreateOrganization = CreateOrganization'
-  { -- | The AWS Directory Service directory ID.
-    directoryId :: Lude.Maybe Lude.Text,
-    -- | When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
-    enableInteroperability :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
-    kmsKeyARN :: Lude.Maybe Lude.Text,
+  { -- | The organization alias.
+    alias :: Types.OrganizationName,
     -- | The idempotency token associated with the request.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The organization alias.
-    alias :: Lude.Text,
+    clientToken :: Core.Maybe Types.IdempotencyClientToken,
+    -- | The AWS Directory Service directory ID.
+    directoryId :: Core.Maybe Types.DirectoryId,
     -- | The email domains to associate with the organization.
-    domains :: Lude.Maybe [Domain]
+    domains :: Core.Maybe [Types.Domain],
+    -- | When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
+    enableInteroperability :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
+    kmsKeyArn :: Core.Maybe Types.KmsKeyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateOrganization' with the minimum fields required to make a request.
---
--- * 'directoryId' - The AWS Directory Service directory ID.
--- * 'enableInteroperability' - When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
--- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
--- * 'clientToken' - The idempotency token associated with the request.
--- * 'alias' - The organization alias.
--- * 'domains' - The email domains to associate with the organization.
+-- | Creates a 'CreateOrganization' value with any optional fields omitted.
 mkCreateOrganization ::
   -- | 'alias'
-  Lude.Text ->
+  Types.OrganizationName ->
   CreateOrganization
-mkCreateOrganization pAlias_ =
+mkCreateOrganization alias =
   CreateOrganization'
-    { directoryId = Lude.Nothing,
-      enableInteroperability = Lude.Nothing,
-      kmsKeyARN = Lude.Nothing,
-      clientToken = Lude.Nothing,
-      alias = pAlias_,
-      domains = Lude.Nothing
+    { alias,
+      clientToken = Core.Nothing,
+      directoryId = Core.Nothing,
+      domains = Core.Nothing,
+      enableInteroperability = Core.Nothing,
+      kmsKeyArn = Core.Nothing
     }
-
--- | The AWS Directory Service directory ID.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coDirectoryId :: Lens.Lens' CreateOrganization (Lude.Maybe Lude.Text)
-coDirectoryId = Lens.lens (directoryId :: CreateOrganization -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: CreateOrganization)
-{-# DEPRECATED coDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
---
--- /Note:/ Consider using 'enableInteroperability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coEnableInteroperability :: Lens.Lens' CreateOrganization (Lude.Maybe Lude.Bool)
-coEnableInteroperability = Lens.lens (enableInteroperability :: CreateOrganization -> Lude.Maybe Lude.Bool) (\s a -> s {enableInteroperability = a} :: CreateOrganization)
-{-# DEPRECATED coEnableInteroperability "Use generic-lens or generic-optics with 'enableInteroperability' instead." #-}
-
--- | The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
---
--- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coKMSKeyARN :: Lens.Lens' CreateOrganization (Lude.Maybe Lude.Text)
-coKMSKeyARN = Lens.lens (kmsKeyARN :: CreateOrganization -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: CreateOrganization)
-{-# DEPRECATED coKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
-
--- | The idempotency token associated with the request.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coClientToken :: Lens.Lens' CreateOrganization (Lude.Maybe Lude.Text)
-coClientToken = Lens.lens (clientToken :: CreateOrganization -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateOrganization)
-{-# DEPRECATED coClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The organization alias.
 --
 -- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coAlias :: Lens.Lens' CreateOrganization Lude.Text
-coAlias = Lens.lens (alias :: CreateOrganization -> Lude.Text) (\s a -> s {alias = a} :: CreateOrganization)
+coAlias :: Lens.Lens' CreateOrganization Types.OrganizationName
+coAlias = Lens.field @"alias"
 {-# DEPRECATED coAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
+
+-- | The idempotency token associated with the request.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coClientToken :: Lens.Lens' CreateOrganization (Core.Maybe Types.IdempotencyClientToken)
+coClientToken = Lens.field @"clientToken"
+{-# DEPRECATED coClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The AWS Directory Service directory ID.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coDirectoryId :: Lens.Lens' CreateOrganization (Core.Maybe Types.DirectoryId)
+coDirectoryId = Lens.field @"directoryId"
+{-# DEPRECATED coDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The email domains to associate with the organization.
 --
 -- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coDomains :: Lens.Lens' CreateOrganization (Lude.Maybe [Domain])
-coDomains = Lens.lens (domains :: CreateOrganization -> Lude.Maybe [Domain]) (\s a -> s {domains = a} :: CreateOrganization)
+coDomains :: Lens.Lens' CreateOrganization (Core.Maybe [Types.Domain])
+coDomains = Lens.field @"domains"
 {-# DEPRECATED coDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
-instance Lude.AWSRequest CreateOrganization where
+-- | When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
+--
+-- /Note:/ Consider using 'enableInteroperability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coEnableInteroperability :: Lens.Lens' CreateOrganization (Core.Maybe Core.Bool)
+coEnableInteroperability = Lens.field @"enableInteroperability"
+{-# DEPRECATED coEnableInteroperability "Use generic-lens or generic-optics with 'enableInteroperability' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
+--
+-- /Note:/ Consider using 'kmsKeyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coKmsKeyArn :: Lens.Lens' CreateOrganization (Core.Maybe Types.KmsKeyArn)
+coKmsKeyArn = Lens.field @"kmsKeyArn"
+{-# DEPRECATED coKmsKeyArn "Use generic-lens or generic-optics with 'kmsKeyArn' instead." #-}
+
+instance Core.FromJSON CreateOrganization where
+  toJSON CreateOrganization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Alias" Core..= alias),
+            ("ClientToken" Core..=) Core.<$> clientToken,
+            ("DirectoryId" Core..=) Core.<$> directoryId,
+            ("Domains" Core..=) Core.<$> domains,
+            ("EnableInteroperability" Core..=) Core.<$> enableInteroperability,
+            ("KmsKeyArn" Core..=) Core.<$> kmsKeyArn
+          ]
+      )
+
+instance Core.AWSRequest CreateOrganization where
   type Rs CreateOrganization = CreateOrganizationResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.CreateOrganization")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateOrganizationResponse'
-            Lude.<$> (x Lude..?> "OrganizationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "OrganizationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.CreateOrganization" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateOrganization where
-  toJSON CreateOrganization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DirectoryId" Lude..=) Lude.<$> directoryId,
-            ("EnableInteroperability" Lude..=) Lude.<$> enableInteroperability,
-            ("KmsKeyArn" Lude..=) Lude.<$> kmsKeyARN,
-            ("ClientToken" Lude..=) Lude.<$> clientToken,
-            Lude.Just ("Alias" Lude..= alias),
-            ("Domains" Lude..=) Lude.<$> domains
-          ]
-      )
-
-instance Lude.ToPath CreateOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateOrganization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
   { -- | The organization ID.
-    organizationId :: Lude.Maybe Lude.Text,
+    organizationId :: Core.Maybe Types.OrganizationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'organizationId' - The organization ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateOrganizationResponse' value with any optional fields omitted.
 mkCreateOrganizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateOrganizationResponse
-mkCreateOrganizationResponse pResponseStatus_ =
+mkCreateOrganizationResponse responseStatus =
   CreateOrganizationResponse'
-    { organizationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { organizationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The organization ID.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-corsOrganizationId :: Lens.Lens' CreateOrganizationResponse (Lude.Maybe Lude.Text)
-corsOrganizationId = Lens.lens (organizationId :: CreateOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: CreateOrganizationResponse)
-{-# DEPRECATED corsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+corrsOrganizationId :: Lens.Lens' CreateOrganizationResponse (Core.Maybe Types.OrganizationId)
+corrsOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED corrsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-corsResponseStatus :: Lens.Lens' CreateOrganizationResponse Lude.Int
-corsResponseStatus = Lens.lens (responseStatus :: CreateOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateOrganizationResponse)
-{-# DEPRECATED corsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+corrsResponseStatus :: Lens.Lens' CreateOrganizationResponse Core.Int
+corrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED corrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

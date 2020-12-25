@@ -17,95 +17,90 @@ module Network.AWS.S3.Types.AnalyticsS3BucketDestination
     mkAnalyticsS3BucketDestination,
 
     -- * Lenses
-    asbdBucketAccountId,
-    asbdPrefix,
     asbdFormat,
     asbdBucket,
+    asbdBucketAccountId,
+    asbdPrefix,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.AccountId as Types
+import qualified Network.AWS.S3.Types.AnalyticsS3ExportFileFormat as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
 
 -- | Contains information about where to publish the analytics results.
 --
 -- /See:/ 'mkAnalyticsS3BucketDestination' smart constructor.
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
-  { -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
-    bucketAccountId :: Lude.Maybe Lude.Text,
-    -- | The prefix to use when exporting data. The prefix is prepended to all results.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | Specifies the file format used when exporting data to Amazon S3.
-    format :: AnalyticsS3ExportFileFormat,
+  { -- | Specifies the file format used when exporting data to Amazon S3.
+    format :: Types.AnalyticsS3ExportFileFormat,
     -- | The Amazon Resource Name (ARN) of the bucket to which data is exported.
-    bucket :: BucketName
+    bucket :: Types.BucketName,
+    -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+    bucketAccountId :: Core.Maybe Types.AccountId,
+    -- | The prefix to use when exporting data. The prefix is prepended to all results.
+    prefix :: Core.Maybe Types.Prefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnalyticsS3BucketDestination' with the minimum fields required to make a request.
---
--- * 'bucketAccountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
--- * 'prefix' - The prefix to use when exporting data. The prefix is prepended to all results.
--- * 'format' - Specifies the file format used when exporting data to Amazon S3.
--- * 'bucket' - The Amazon Resource Name (ARN) of the bucket to which data is exported.
+-- | Creates a 'AnalyticsS3BucketDestination' value with any optional fields omitted.
 mkAnalyticsS3BucketDestination ::
   -- | 'format'
-  AnalyticsS3ExportFileFormat ->
+  Types.AnalyticsS3ExportFileFormat ->
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   AnalyticsS3BucketDestination
-mkAnalyticsS3BucketDestination pFormat_ pBucket_ =
+mkAnalyticsS3BucketDestination format bucket =
   AnalyticsS3BucketDestination'
-    { bucketAccountId = Lude.Nothing,
-      prefix = Lude.Nothing,
-      format = pFormat_,
-      bucket = pBucket_
+    { format,
+      bucket,
+      bucketAccountId = Core.Nothing,
+      prefix = Core.Nothing
     }
-
--- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
---
--- /Note:/ Consider using 'bucketAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asbdBucketAccountId :: Lens.Lens' AnalyticsS3BucketDestination (Lude.Maybe Lude.Text)
-asbdBucketAccountId = Lens.lens (bucketAccountId :: AnalyticsS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {bucketAccountId = a} :: AnalyticsS3BucketDestination)
-{-# DEPRECATED asbdBucketAccountId "Use generic-lens or generic-optics with 'bucketAccountId' instead." #-}
-
--- | The prefix to use when exporting data. The prefix is prepended to all results.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asbdPrefix :: Lens.Lens' AnalyticsS3BucketDestination (Lude.Maybe Lude.Text)
-asbdPrefix = Lens.lens (prefix :: AnalyticsS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: AnalyticsS3BucketDestination)
-{-# DEPRECATED asbdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | Specifies the file format used when exporting data to Amazon S3.
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asbdFormat :: Lens.Lens' AnalyticsS3BucketDestination AnalyticsS3ExportFileFormat
-asbdFormat = Lens.lens (format :: AnalyticsS3BucketDestination -> AnalyticsS3ExportFileFormat) (\s a -> s {format = a} :: AnalyticsS3BucketDestination)
+asbdFormat :: Lens.Lens' AnalyticsS3BucketDestination Types.AnalyticsS3ExportFileFormat
+asbdFormat = Lens.field @"format"
 {-# DEPRECATED asbdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the bucket to which data is exported.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asbdBucket :: Lens.Lens' AnalyticsS3BucketDestination BucketName
-asbdBucket = Lens.lens (bucket :: AnalyticsS3BucketDestination -> BucketName) (\s a -> s {bucket = a} :: AnalyticsS3BucketDestination)
+asbdBucket :: Lens.Lens' AnalyticsS3BucketDestination Types.BucketName
+asbdBucket = Lens.field @"bucket"
 {-# DEPRECATED asbdBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance Lude.FromXML AnalyticsS3BucketDestination where
+-- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+--
+-- /Note:/ Consider using 'bucketAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asbdBucketAccountId :: Lens.Lens' AnalyticsS3BucketDestination (Core.Maybe Types.AccountId)
+asbdBucketAccountId = Lens.field @"bucketAccountId"
+{-# DEPRECATED asbdBucketAccountId "Use generic-lens or generic-optics with 'bucketAccountId' instead." #-}
+
+-- | The prefix to use when exporting data. The prefix is prepended to all results.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asbdPrefix :: Lens.Lens' AnalyticsS3BucketDestination (Core.Maybe Types.Prefix)
+asbdPrefix = Lens.field @"prefix"
+{-# DEPRECATED asbdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+instance Core.ToXML AnalyticsS3BucketDestination where
+  toXML AnalyticsS3BucketDestination {..} =
+    Core.toXMLNode "Format" format
+      Core.<> Core.toXMLNode "Bucket" bucket
+      Core.<> Core.toXMLNode "BucketAccountId" Core.<$> bucketAccountId
+      Core.<> Core.toXMLNode "Prefix" Core.<$> prefix
+
+instance Core.FromXML AnalyticsS3BucketDestination where
   parseXML x =
     AnalyticsS3BucketDestination'
-      Lude.<$> (x Lude..@? "BucketAccountId")
-      Lude.<*> (x Lude..@? "Prefix")
-      Lude.<*> (x Lude..@ "Format")
-      Lude.<*> (x Lude..@ "Bucket")
-
-instance Lude.ToXML AnalyticsS3BucketDestination where
-  toXML AnalyticsS3BucketDestination' {..} =
-    Lude.mconcat
-      [ "BucketAccountId" Lude.@= bucketAccountId,
-        "Prefix" Lude.@= prefix,
-        "Format" Lude.@= format,
-        "Bucket" Lude.@= bucket
-      ]
+      Core.<$> (x Core..@ "Format")
+      Core.<*> (x Core..@ "Bucket")
+      Core.<*> (x Core..@? "BucketAccountId")
+      Core.<*> (x Core..@? "Prefix")

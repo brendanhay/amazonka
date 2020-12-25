@@ -22,52 +22,47 @@ module Network.AWS.ElasticBeanstalk.Types.SystemStatus
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.CPUUtilization
+import qualified Network.AWS.ElasticBeanstalk.Types.CPUUtilization as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | CPU utilization and load average metrics for an Amazon EC2 instance.
 --
 -- /See:/ 'mkSystemStatus' smart constructor.
 data SystemStatus = SystemStatus'
   { -- | CPU utilization metrics for the instance.
-    cpuUtilization :: Lude.Maybe CPUUtilization,
+    cPUUtilization :: Core.Maybe Types.CPUUtilization,
     -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
-    loadAverage :: Lude.Maybe [Lude.Double]
+    loadAverage :: Core.Maybe [Core.Double]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SystemStatus' with the minimum fields required to make a request.
---
--- * 'cpuUtilization' - CPU utilization metrics for the instance.
--- * 'loadAverage' - Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
+-- | Creates a 'SystemStatus' value with any optional fields omitted.
 mkSystemStatus ::
   SystemStatus
 mkSystemStatus =
   SystemStatus'
-    { cpuUtilization = Lude.Nothing,
-      loadAverage = Lude.Nothing
+    { cPUUtilization = Core.Nothing,
+      loadAverage = Core.Nothing
     }
 
 -- | CPU utilization metrics for the instance.
 --
--- /Note:/ Consider using 'cpuUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssCPUUtilization :: Lens.Lens' SystemStatus (Lude.Maybe CPUUtilization)
-ssCPUUtilization = Lens.lens (cpuUtilization :: SystemStatus -> Lude.Maybe CPUUtilization) (\s a -> s {cpuUtilization = a} :: SystemStatus)
-{-# DEPRECATED ssCPUUtilization "Use generic-lens or generic-optics with 'cpuUtilization' instead." #-}
+-- /Note:/ Consider using 'cPUUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssCPUUtilization :: Lens.Lens' SystemStatus (Core.Maybe Types.CPUUtilization)
+ssCPUUtilization = Lens.field @"cPUUtilization"
+{-# DEPRECATED ssCPUUtilization "Use generic-lens or generic-optics with 'cPUUtilization' instead." #-}
 
 -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 --
 -- /Note:/ Consider using 'loadAverage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssLoadAverage :: Lens.Lens' SystemStatus (Lude.Maybe [Lude.Double])
-ssLoadAverage = Lens.lens (loadAverage :: SystemStatus -> Lude.Maybe [Lude.Double]) (\s a -> s {loadAverage = a} :: SystemStatus)
+ssLoadAverage :: Lens.Lens' SystemStatus (Core.Maybe [Core.Double])
+ssLoadAverage = Lens.field @"loadAverage"
 {-# DEPRECATED ssLoadAverage "Use generic-lens or generic-optics with 'loadAverage' instead." #-}
 
-instance Lude.FromXML SystemStatus where
+instance Core.FromXML SystemStatus where
   parseXML x =
     SystemStatus'
-      Lude.<$> (x Lude..@? "CPUUtilization")
-      Lude.<*> ( x Lude..@? "LoadAverage" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<$> (x Core..@? "CPUUtilization")
+      Core.<*> (x Core..@? "LoadAverage" Core..<@> Core.parseXMLList "member")

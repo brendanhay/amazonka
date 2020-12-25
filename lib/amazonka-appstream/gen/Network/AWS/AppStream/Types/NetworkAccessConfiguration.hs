@@ -18,56 +18,53 @@ module Network.AWS.AppStream.Types.NetworkAccessConfiguration
 
     -- * Lenses
     nacEniId,
-    nacEniPrivateIPAddress,
+    nacEniPrivateIpAddress,
   )
 where
 
+import qualified Network.AWS.AppStream.Types.EniId as Types
+import qualified Network.AWS.AppStream.Types.EniPrivateIpAddress as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the network details of the fleet or image builder instance.
 --
 -- /See:/ 'mkNetworkAccessConfiguration' smart constructor.
 data NetworkAccessConfiguration = NetworkAccessConfiguration'
   { -- | The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
-    eniId :: Lude.Maybe Lude.Text,
+    eniId :: Core.Maybe Types.EniId,
     -- | The private IP address of the elastic network interface that is attached to instances in your VPC.
-    eniPrivateIPAddress :: Lude.Maybe Lude.Text
+    eniPrivateIpAddress :: Core.Maybe Types.EniPrivateIpAddress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkAccessConfiguration' with the minimum fields required to make a request.
---
--- * 'eniId' - The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
--- * 'eniPrivateIPAddress' - The private IP address of the elastic network interface that is attached to instances in your VPC.
+-- | Creates a 'NetworkAccessConfiguration' value with any optional fields omitted.
 mkNetworkAccessConfiguration ::
   NetworkAccessConfiguration
 mkNetworkAccessConfiguration =
   NetworkAccessConfiguration'
-    { eniId = Lude.Nothing,
-      eniPrivateIPAddress = Lude.Nothing
+    { eniId = Core.Nothing,
+      eniPrivateIpAddress = Core.Nothing
     }
 
 -- | The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
 --
 -- /Note:/ Consider using 'eniId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nacEniId :: Lens.Lens' NetworkAccessConfiguration (Lude.Maybe Lude.Text)
-nacEniId = Lens.lens (eniId :: NetworkAccessConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {eniId = a} :: NetworkAccessConfiguration)
+nacEniId :: Lens.Lens' NetworkAccessConfiguration (Core.Maybe Types.EniId)
+nacEniId = Lens.field @"eniId"
 {-# DEPRECATED nacEniId "Use generic-lens or generic-optics with 'eniId' instead." #-}
 
 -- | The private IP address of the elastic network interface that is attached to instances in your VPC.
 --
--- /Note:/ Consider using 'eniPrivateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nacEniPrivateIPAddress :: Lens.Lens' NetworkAccessConfiguration (Lude.Maybe Lude.Text)
-nacEniPrivateIPAddress = Lens.lens (eniPrivateIPAddress :: NetworkAccessConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {eniPrivateIPAddress = a} :: NetworkAccessConfiguration)
-{-# DEPRECATED nacEniPrivateIPAddress "Use generic-lens or generic-optics with 'eniPrivateIPAddress' instead." #-}
+-- /Note:/ Consider using 'eniPrivateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nacEniPrivateIpAddress :: Lens.Lens' NetworkAccessConfiguration (Core.Maybe Types.EniPrivateIpAddress)
+nacEniPrivateIpAddress = Lens.field @"eniPrivateIpAddress"
+{-# DEPRECATED nacEniPrivateIpAddress "Use generic-lens or generic-optics with 'eniPrivateIpAddress' instead." #-}
 
-instance Lude.FromJSON NetworkAccessConfiguration where
+instance Core.FromJSON NetworkAccessConfiguration where
   parseJSON =
-    Lude.withObject
-      "NetworkAccessConfiguration"
-      ( \x ->
-          NetworkAccessConfiguration'
-            Lude.<$> (x Lude..:? "EniId") Lude.<*> (x Lude..:? "EniPrivateIpAddress")
-      )
+    Core.withObject "NetworkAccessConfiguration" Core.$
+      \x ->
+        NetworkAccessConfiguration'
+          Core.<$> (x Core..:? "EniId") Core.<*> (x Core..:? "EniPrivateIpAddress")

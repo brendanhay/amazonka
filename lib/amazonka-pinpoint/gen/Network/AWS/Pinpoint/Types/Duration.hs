@@ -13,56 +13,58 @@
 module Network.AWS.Pinpoint.Types.Duration
   ( Duration
       ( Duration',
-        Hr24,
-        Day7,
-        Day14,
-        Day30
+        DurationHr24,
+        DurationDay7,
+        DurationDay14,
+        DurationDay30,
+        fromDuration
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Duration = Duration' Lude.Text
+newtype Duration = Duration' {fromDuration :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Hr24 :: Duration
-pattern Hr24 = Duration' "HR_24"
+pattern DurationHr24 :: Duration
+pattern DurationHr24 = Duration' "HR_24"
 
-pattern Day7 :: Duration
-pattern Day7 = Duration' "DAY_7"
+pattern DurationDay7 :: Duration
+pattern DurationDay7 = Duration' "DAY_7"
 
-pattern Day14 :: Duration
-pattern Day14 = Duration' "DAY_14"
+pattern DurationDay14 :: Duration
+pattern DurationDay14 = Duration' "DAY_14"
 
-pattern Day30 :: Duration
-pattern Day30 = Duration' "DAY_30"
+pattern DurationDay30 :: Duration
+pattern DurationDay30 = Duration' "DAY_30"
 
 {-# COMPLETE
-  Hr24,
-  Day7,
-  Day14,
-  Day30,
+  DurationHr24,
+  DurationDay7,
+  DurationDay14,
+  DurationDay30,
   Duration'
   #-}

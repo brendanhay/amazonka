@@ -27,86 +27,76 @@ module Network.AWS.MediaConvert.DeleteQueue
     mkDeleteQueueResponse,
 
     -- ** Response lenses
-    dqrsResponseStatus,
+    dqrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteQueue' smart constructor.
 newtype DeleteQueue = DeleteQueue'
   { -- | The name of the queue that you want to delete.
-    name :: Lude.Text
+    name :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueue' with the minimum fields required to make a request.
---
--- * 'name' - The name of the queue that you want to delete.
+-- | Creates a 'DeleteQueue' value with any optional fields omitted.
 mkDeleteQueue ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   DeleteQueue
-mkDeleteQueue pName_ = DeleteQueue' {name = pName_}
+mkDeleteQueue name = DeleteQueue' {name}
 
 -- | The name of the queue that you want to delete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqName :: Lens.Lens' DeleteQueue Lude.Text
-dqName = Lens.lens (name :: DeleteQueue -> Lude.Text) (\s a -> s {name = a} :: DeleteQueue)
+dqName :: Lens.Lens' DeleteQueue Core.Text
+dqName = Lens.field @"name"
 {-# DEPRECATED dqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteQueue where
+instance Core.AWSRequest DeleteQueue where
   type Rs DeleteQueue = DeleteQueueResponse
-  request = Req.delete mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2017-08-29/queues/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteQueueResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteQueueResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteQueue where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteQueue where
-  toPath DeleteQueue' {..} =
-    Lude.mconcat ["/2017-08-29/queues/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteQueue where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteQueueResponse' smart constructor.
 newtype DeleteQueueResponse = DeleteQueueResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueueResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteQueueResponse' value with any optional fields omitted.
 mkDeleteQueueResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteQueueResponse
-mkDeleteQueueResponse pResponseStatus_ =
-  DeleteQueueResponse' {responseStatus = pResponseStatus_}
+mkDeleteQueueResponse responseStatus =
+  DeleteQueueResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqrsResponseStatus :: Lens.Lens' DeleteQueueResponse Lude.Int
-dqrsResponseStatus = Lens.lens (responseStatus :: DeleteQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteQueueResponse)
-{-# DEPRECATED dqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dqrrsResponseStatus :: Lens.Lens' DeleteQueueResponse Core.Int
+dqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

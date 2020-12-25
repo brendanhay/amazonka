@@ -31,132 +31,118 @@ module Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
     mkDetachInstancesFromLoadBalancerResponse,
 
     -- ** Response lenses
-    diflbrsOperations,
-    diflbrsResponseStatus,
+    diflbrrsOperations,
+    diflbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachInstancesFromLoadBalancer' smart constructor.
 data DetachInstancesFromLoadBalancer = DetachInstancesFromLoadBalancer'
   { -- | The name of the Lightsail load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.ResourceName,
     -- | An array of strings containing the names of the instances you want to detach from the load balancer.
-    instanceNames :: [Lude.Text]
+    instanceNames :: [Types.ResourceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachInstancesFromLoadBalancer' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the Lightsail load balancer.
--- * 'instanceNames' - An array of strings containing the names of the instances you want to detach from the load balancer.
+-- | Creates a 'DetachInstancesFromLoadBalancer' value with any optional fields omitted.
 mkDetachInstancesFromLoadBalancer ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.ResourceName ->
   DetachInstancesFromLoadBalancer
-mkDetachInstancesFromLoadBalancer pLoadBalancerName_ =
+mkDetachInstancesFromLoadBalancer loadBalancerName =
   DetachInstancesFromLoadBalancer'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      instanceNames = Lude.mempty
+    { loadBalancerName,
+      instanceNames = Core.mempty
     }
 
 -- | The name of the Lightsail load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbLoadBalancerName :: Lens.Lens' DetachInstancesFromLoadBalancer Lude.Text
-diflbLoadBalancerName = Lens.lens (loadBalancerName :: DetachInstancesFromLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DetachInstancesFromLoadBalancer)
+diflbLoadBalancerName :: Lens.Lens' DetachInstancesFromLoadBalancer Types.ResourceName
+diflbLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED diflbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | An array of strings containing the names of the instances you want to detach from the load balancer.
 --
 -- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbInstanceNames :: Lens.Lens' DetachInstancesFromLoadBalancer [Lude.Text]
-diflbInstanceNames = Lens.lens (instanceNames :: DetachInstancesFromLoadBalancer -> [Lude.Text]) (\s a -> s {instanceNames = a} :: DetachInstancesFromLoadBalancer)
+diflbInstanceNames :: Lens.Lens' DetachInstancesFromLoadBalancer [Types.ResourceName]
+diflbInstanceNames = Lens.field @"instanceNames"
 {-# DEPRECATED diflbInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
-instance Lude.AWSRequest DetachInstancesFromLoadBalancer where
+instance Core.FromJSON DetachInstancesFromLoadBalancer where
+  toJSON DetachInstancesFromLoadBalancer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("loadBalancerName" Core..= loadBalancerName),
+            Core.Just ("instanceNames" Core..= instanceNames)
+          ]
+      )
+
+instance Core.AWSRequest DetachInstancesFromLoadBalancer where
   type
     Rs DetachInstancesFromLoadBalancer =
       DetachInstancesFromLoadBalancerResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.DetachInstancesFromLoadBalancer"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetachInstancesFromLoadBalancerResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetachInstancesFromLoadBalancer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.DetachInstancesFromLoadBalancer" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetachInstancesFromLoadBalancer where
-  toJSON DetachInstancesFromLoadBalancer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("instanceNames" Lude..= instanceNames)
-          ]
-      )
-
-instance Lude.ToPath DetachInstancesFromLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachInstancesFromLoadBalancer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetachInstancesFromLoadBalancerResponse' smart constructor.
 data DetachInstancesFromLoadBalancerResponse = DetachInstancesFromLoadBalancerResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DetachInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetachInstancesFromLoadBalancerResponse' value with any optional fields omitted.
 mkDetachInstancesFromLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetachInstancesFromLoadBalancerResponse
-mkDetachInstancesFromLoadBalancerResponse pResponseStatus_ =
+mkDetachInstancesFromLoadBalancerResponse responseStatus =
   DetachInstancesFromLoadBalancerResponse'
     { operations =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbrsOperations :: Lens.Lens' DetachInstancesFromLoadBalancerResponse (Lude.Maybe [Operation])
-diflbrsOperations = Lens.lens (operations :: DetachInstancesFromLoadBalancerResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DetachInstancesFromLoadBalancerResponse)
-{-# DEPRECATED diflbrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+diflbrrsOperations :: Lens.Lens' DetachInstancesFromLoadBalancerResponse (Core.Maybe [Types.Operation])
+diflbrrsOperations = Lens.field @"operations"
+{-# DEPRECATED diflbrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbrsResponseStatus :: Lens.Lens' DetachInstancesFromLoadBalancerResponse Lude.Int
-diflbrsResponseStatus = Lens.lens (responseStatus :: DetachInstancesFromLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachInstancesFromLoadBalancerResponse)
-{-# DEPRECATED diflbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diflbrrsResponseStatus :: Lens.Lens' DetachInstancesFromLoadBalancerResponse Core.Int
+diflbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diflbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -30,21 +30,21 @@ module Network.AWS.Lightsail.TestAlarm
     mkTestAlarmResponse,
 
     -- ** Response lenses
-    tarsOperations,
-    tarsResponseStatus,
+    tarrsOperations,
+    tarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTestAlarm' smart constructor.
 data TestAlarm = TestAlarm'
   { -- | The name of the alarm to test.
-    alarmName :: Lude.Text,
+    alarmName :: Types.AlarmName,
     -- | The alarm state to test.
     --
     -- An alarm has the following possible states that can be tested:
@@ -56,39 +56,25 @@ data TestAlarm = TestAlarm'
     --
     --
     --     * @OK@ - The metric is within the defined threshold.
-    state :: AlarmState
+    state :: Types.AlarmState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestAlarm' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm to test.
--- * 'state' - The alarm state to test.
---
--- An alarm has the following possible states that can be tested:
---
---     * @ALARM@ - The metric is outside of the defined threshold.
---
---
---     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.
---
---
---     * @OK@ - The metric is within the defined threshold.
+-- | Creates a 'TestAlarm' value with any optional fields omitted.
 mkTestAlarm ::
   -- | 'alarmName'
-  Lude.Text ->
+  Types.AlarmName ->
   -- | 'state'
-  AlarmState ->
+  Types.AlarmState ->
   TestAlarm
-mkTestAlarm pAlarmName_ pState_ =
-  TestAlarm' {alarmName = pAlarmName_, state = pState_}
+mkTestAlarm alarmName state = TestAlarm' {alarmName, state}
 
 -- | The name of the alarm to test.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taAlarmName :: Lens.Lens' TestAlarm Lude.Text
-taAlarmName = Lens.lens (alarmName :: TestAlarm -> Lude.Text) (\s a -> s {alarmName = a} :: TestAlarm)
+taAlarmName :: Lens.Lens' TestAlarm Types.AlarmName
+taAlarmName = Lens.field @"alarmName"
 {-# DEPRECATED taAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
 -- | The alarm state to test.
@@ -106,81 +92,67 @@ taAlarmName = Lens.lens (alarmName :: TestAlarm -> Lude.Text) (\s a -> s {alarmN
 --
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taState :: Lens.Lens' TestAlarm AlarmState
-taState = Lens.lens (state :: TestAlarm -> AlarmState) (\s a -> s {state = a} :: TestAlarm)
+taState :: Lens.Lens' TestAlarm Types.AlarmState
+taState = Lens.field @"state"
 {-# DEPRECATED taState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance Lude.AWSRequest TestAlarm where
+instance Core.FromJSON TestAlarm where
+  toJSON TestAlarm {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("alarmName" Core..= alarmName),
+            Core.Just ("state" Core..= state)
+          ]
+      )
+
+instance Core.AWSRequest TestAlarm where
   type Rs TestAlarm = TestAlarmResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.TestAlarm")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TestAlarmResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TestAlarm where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.TestAlarm" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TestAlarm where
-  toJSON TestAlarm' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("alarmName" Lude..= alarmName),
-            Lude.Just ("state" Lude..= state)
-          ]
-      )
-
-instance Lude.ToPath TestAlarm where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TestAlarm where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTestAlarmResponse' smart constructor.
 data TestAlarmResponse = TestAlarmResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TestAlarmResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TestAlarmResponse' value with any optional fields omitted.
 mkTestAlarmResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TestAlarmResponse
-mkTestAlarmResponse pResponseStatus_ =
-  TestAlarmResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkTestAlarmResponse responseStatus =
+  TestAlarmResponse' {operations = Core.Nothing, responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsOperations :: Lens.Lens' TestAlarmResponse (Lude.Maybe [Operation])
-tarsOperations = Lens.lens (operations :: TestAlarmResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: TestAlarmResponse)
-{-# DEPRECATED tarsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+tarrsOperations :: Lens.Lens' TestAlarmResponse (Core.Maybe [Types.Operation])
+tarrsOperations = Lens.field @"operations"
+{-# DEPRECATED tarrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsResponseStatus :: Lens.Lens' TestAlarmResponse Lude.Int
-tarsResponseStatus = Lens.lens (responseStatus :: TestAlarmResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestAlarmResponse)
-{-# DEPRECATED tarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tarrsResponseStatus :: Lens.Lens' TestAlarmResponse Core.Int
+tarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -32,81 +32,79 @@ module Network.AWS.IoT.RejectCertificateTransfer
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the RejectCertificateTransfer operation.
 --
 -- /See:/ 'mkRejectCertificateTransfer' smart constructor.
 data RejectCertificateTransfer = RejectCertificateTransfer'
   { -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-    certificateId :: Lude.Text,
+    certificateId :: Types.CertificateId,
     -- | The reason the certificate transfer was rejected.
-    rejectReason :: Lude.Maybe Lude.Text
+    rejectReason :: Core.Maybe Types.RejectReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RejectCertificateTransfer' with the minimum fields required to make a request.
---
--- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
--- * 'rejectReason' - The reason the certificate transfer was rejected.
+-- | Creates a 'RejectCertificateTransfer' value with any optional fields omitted.
 mkRejectCertificateTransfer ::
   -- | 'certificateId'
-  Lude.Text ->
+  Types.CertificateId ->
   RejectCertificateTransfer
-mkRejectCertificateTransfer pCertificateId_ =
+mkRejectCertificateTransfer certificateId =
   RejectCertificateTransfer'
-    { certificateId = pCertificateId_,
-      rejectReason = Lude.Nothing
+    { certificateId,
+      rejectReason = Core.Nothing
     }
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctCertificateId :: Lens.Lens' RejectCertificateTransfer Lude.Text
-rctCertificateId = Lens.lens (certificateId :: RejectCertificateTransfer -> Lude.Text) (\s a -> s {certificateId = a} :: RejectCertificateTransfer)
+rctCertificateId :: Lens.Lens' RejectCertificateTransfer Types.CertificateId
+rctCertificateId = Lens.field @"certificateId"
 {-# DEPRECATED rctCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 -- | The reason the certificate transfer was rejected.
 --
 -- /Note:/ Consider using 'rejectReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctRejectReason :: Lens.Lens' RejectCertificateTransfer (Lude.Maybe Lude.Text)
-rctRejectReason = Lens.lens (rejectReason :: RejectCertificateTransfer -> Lude.Maybe Lude.Text) (\s a -> s {rejectReason = a} :: RejectCertificateTransfer)
+rctRejectReason :: Lens.Lens' RejectCertificateTransfer (Core.Maybe Types.RejectReason)
+rctRejectReason = Lens.field @"rejectReason"
 {-# DEPRECATED rctRejectReason "Use generic-lens or generic-optics with 'rejectReason' instead." #-}
 
-instance Lude.AWSRequest RejectCertificateTransfer where
+instance Core.FromJSON RejectCertificateTransfer where
+  toJSON RejectCertificateTransfer {..} =
+    Core.object
+      (Core.catMaybes [("rejectReason" Core..=) Core.<$> rejectReason])
+
+instance Core.AWSRequest RejectCertificateTransfer where
   type
     Rs RejectCertificateTransfer =
       RejectCertificateTransferResponse
-  request = Req.patchJSON ioTService
-  response = Res.receiveNull RejectCertificateTransferResponse'
-
-instance Lude.ToHeaders RejectCertificateTransfer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON RejectCertificateTransfer where
-  toJSON RejectCertificateTransfer' {..} =
-    Lude.object
-      (Lude.catMaybes [("rejectReason" Lude..=) Lude.<$> rejectReason])
-
-instance Lude.ToPath RejectCertificateTransfer where
-  toPath RejectCertificateTransfer' {..} =
-    Lude.mconcat
-      ["/reject-certificate-transfer/", Lude.toBS certificateId]
-
-instance Lude.ToQuery RejectCertificateTransfer where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ( "/reject-certificate-transfer/"
+                Core.<> (Core.toText certificateId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RejectCertificateTransferResponse'
 
 -- | /See:/ 'mkRejectCertificateTransferResponse' smart constructor.
 data RejectCertificateTransferResponse = RejectCertificateTransferResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RejectCertificateTransferResponse' with the minimum fields required to make a request.
+-- | Creates a 'RejectCertificateTransferResponse' value with any optional fields omitted.
 mkRejectCertificateTransferResponse ::
   RejectCertificateTransferResponse
 mkRejectCertificateTransferResponse =

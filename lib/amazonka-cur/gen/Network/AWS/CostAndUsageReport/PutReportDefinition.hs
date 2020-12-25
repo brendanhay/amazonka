@@ -27,102 +27,92 @@ module Network.AWS.CostAndUsageReport.PutReportDefinition
     mkPutReportDefinitionResponse,
 
     -- ** Response lenses
-    prdrsResponseStatus,
+    prdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostAndUsageReport.Types
+import qualified Network.AWS.CostAndUsageReport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Creates a Cost and Usage Report.
 --
 -- /See:/ 'mkPutReportDefinition' smart constructor.
 newtype PutReportDefinition = PutReportDefinition'
   { -- | Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information.
-    reportDefinition :: ReportDefinition
+    reportDefinition :: Types.ReportDefinition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutReportDefinition' with the minimum fields required to make a request.
---
--- * 'reportDefinition' - Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information.
+-- | Creates a 'PutReportDefinition' value with any optional fields omitted.
 mkPutReportDefinition ::
   -- | 'reportDefinition'
-  ReportDefinition ->
+  Types.ReportDefinition ->
   PutReportDefinition
-mkPutReportDefinition pReportDefinition_ =
-  PutReportDefinition' {reportDefinition = pReportDefinition_}
+mkPutReportDefinition reportDefinition =
+  PutReportDefinition' {reportDefinition}
 
 -- | Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information.
 --
 -- /Note:/ Consider using 'reportDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdReportDefinition :: Lens.Lens' PutReportDefinition ReportDefinition
-prdReportDefinition = Lens.lens (reportDefinition :: PutReportDefinition -> ReportDefinition) (\s a -> s {reportDefinition = a} :: PutReportDefinition)
+prdReportDefinition :: Lens.Lens' PutReportDefinition Types.ReportDefinition
+prdReportDefinition = Lens.field @"reportDefinition"
 {-# DEPRECATED prdReportDefinition "Use generic-lens or generic-optics with 'reportDefinition' instead." #-}
 
-instance Lude.AWSRequest PutReportDefinition where
+instance Core.FromJSON PutReportDefinition where
+  toJSON PutReportDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ReportDefinition" Core..= reportDefinition)]
+      )
+
+instance Core.AWSRequest PutReportDefinition where
   type Rs PutReportDefinition = PutReportDefinitionResponse
-  request = Req.postJSON costAndUsageReportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrigamiServiceGatewayService.PutReportDefinition"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutReportDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutReportDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrigamiServiceGatewayService.PutReportDefinition" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutReportDefinition where
-  toJSON PutReportDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ReportDefinition" Lude..= reportDefinition)]
-      )
-
-instance Lude.ToPath PutReportDefinition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutReportDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
 --
 -- /See:/ 'mkPutReportDefinitionResponse' smart constructor.
 newtype PutReportDefinitionResponse = PutReportDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutReportDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutReportDefinitionResponse' value with any optional fields omitted.
 mkPutReportDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutReportDefinitionResponse
-mkPutReportDefinitionResponse pResponseStatus_ =
-  PutReportDefinitionResponse' {responseStatus = pResponseStatus_}
+mkPutReportDefinitionResponse responseStatus =
+  PutReportDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdrsResponseStatus :: Lens.Lens' PutReportDefinitionResponse Lude.Int
-prdrsResponseStatus = Lens.lens (responseStatus :: PutReportDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutReportDefinitionResponse)
-{-# DEPRECATED prdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prdrrsResponseStatus :: Lens.Lens' PutReportDefinitionResponse Core.Int
+prdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

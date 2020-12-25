@@ -28,126 +28,121 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     mkRemoveSourceIdentifierFromSubscriptionResponse,
 
     -- ** Response lenses
-    rsifsrsEventSubscription,
-    rsifsrsResponseStatus,
+    rsifsrrsEventSubscription,
+    rsifsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkRemoveSourceIdentifierFromSubscription' smart constructor.
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
   { -- | The name of the RDS event notification subscription you want to remove a source identifier from.
-    subscriptionName :: Lude.Text,
+    subscriptionName :: Types.String,
     -- | The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
-    sourceIdentifier :: Lude.Text
+    sourceIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveSourceIdentifierFromSubscription' with the minimum fields required to make a request.
---
--- * 'subscriptionName' - The name of the RDS event notification subscription you want to remove a source identifier from.
--- * 'sourceIdentifier' - The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
+-- | Creates a 'RemoveSourceIdentifierFromSubscription' value with any optional fields omitted.
 mkRemoveSourceIdentifierFromSubscription ::
   -- | 'subscriptionName'
-  Lude.Text ->
+  Types.String ->
   -- | 'sourceIdentifier'
-  Lude.Text ->
+  Types.String ->
   RemoveSourceIdentifierFromSubscription
 mkRemoveSourceIdentifierFromSubscription
-  pSubscriptionName_
-  pSourceIdentifier_ =
+  subscriptionName
+  sourceIdentifier =
     RemoveSourceIdentifierFromSubscription'
-      { subscriptionName =
-          pSubscriptionName_,
-        sourceIdentifier = pSourceIdentifier_
+      { subscriptionName,
+        sourceIdentifier
       }
 
 -- | The name of the RDS event notification subscription you want to remove a source identifier from.
 --
 -- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsifsSubscriptionName :: Lens.Lens' RemoveSourceIdentifierFromSubscription Lude.Text
-rsifsSubscriptionName = Lens.lens (subscriptionName :: RemoveSourceIdentifierFromSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: RemoveSourceIdentifierFromSubscription)
+rsifsSubscriptionName :: Lens.Lens' RemoveSourceIdentifierFromSubscription Types.String
+rsifsSubscriptionName = Lens.field @"subscriptionName"
 {-# DEPRECATED rsifsSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
 -- | The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
 --
 -- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsifsSourceIdentifier :: Lens.Lens' RemoveSourceIdentifierFromSubscription Lude.Text
-rsifsSourceIdentifier = Lens.lens (sourceIdentifier :: RemoveSourceIdentifierFromSubscription -> Lude.Text) (\s a -> s {sourceIdentifier = a} :: RemoveSourceIdentifierFromSubscription)
+rsifsSourceIdentifier :: Lens.Lens' RemoveSourceIdentifierFromSubscription Types.String
+rsifsSourceIdentifier = Lens.field @"sourceIdentifier"
 {-# DEPRECATED rsifsSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
-instance Lude.AWSRequest RemoveSourceIdentifierFromSubscription where
+instance Core.AWSRequest RemoveSourceIdentifierFromSubscription where
   type
     Rs RemoveSourceIdentifierFromSubscription =
       RemoveSourceIdentifierFromSubscriptionResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveSourceIdentifierFromSubscription")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "SubscriptionName" subscriptionName)
+                Core.<> (Core.toQueryValue "SourceIdentifier" sourceIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RemoveSourceIdentifierFromSubscriptionResult"
       ( \s h x ->
           RemoveSourceIdentifierFromSubscriptionResponse'
-            Lude.<$> (x Lude..@? "EventSubscription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "EventSubscription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveSourceIdentifierFromSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveSourceIdentifierFromSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveSourceIdentifierFromSubscription where
-  toQuery RemoveSourceIdentifierFromSubscription' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("RemoveSourceIdentifierFromSubscription" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "SubscriptionName" Lude.=: subscriptionName,
-        "SourceIdentifier" Lude.=: sourceIdentifier
-      ]
 
 -- | /See:/ 'mkRemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
-  { eventSubscription :: Lude.Maybe EventSubscription,
+  { eventSubscription :: Core.Maybe Types.EventSubscription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveSourceIdentifierFromSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'eventSubscription' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveSourceIdentifierFromSubscriptionResponse' value with any optional fields omitted.
 mkRemoveSourceIdentifierFromSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveSourceIdentifierFromSubscriptionResponse
-mkRemoveSourceIdentifierFromSubscriptionResponse pResponseStatus_ =
+mkRemoveSourceIdentifierFromSubscriptionResponse responseStatus =
   RemoveSourceIdentifierFromSubscriptionResponse'
     { eventSubscription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'eventSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsifsrsEventSubscription :: Lens.Lens' RemoveSourceIdentifierFromSubscriptionResponse (Lude.Maybe EventSubscription)
-rsifsrsEventSubscription = Lens.lens (eventSubscription :: RemoveSourceIdentifierFromSubscriptionResponse -> Lude.Maybe EventSubscription) (\s a -> s {eventSubscription = a} :: RemoveSourceIdentifierFromSubscriptionResponse)
-{-# DEPRECATED rsifsrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
+rsifsrrsEventSubscription :: Lens.Lens' RemoveSourceIdentifierFromSubscriptionResponse (Core.Maybe Types.EventSubscription)
+rsifsrrsEventSubscription = Lens.field @"eventSubscription"
+{-# DEPRECATED rsifsrrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsifsrsResponseStatus :: Lens.Lens' RemoveSourceIdentifierFromSubscriptionResponse Lude.Int
-rsifsrsResponseStatus = Lens.lens (responseStatus :: RemoveSourceIdentifierFromSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveSourceIdentifierFromSubscriptionResponse)
-{-# DEPRECATED rsifsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rsifsrrsResponseStatus :: Lens.Lens' RemoveSourceIdentifierFromSubscriptionResponse Core.Int
+rsifsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rsifsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

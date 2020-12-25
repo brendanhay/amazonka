@@ -24,64 +24,58 @@ module Network.AWS.Lightsail.Types.RelationalDatabaseHardware
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the hardware of a database.
 --
 -- /See:/ 'mkRelationalDatabaseHardware' smart constructor.
 data RelationalDatabaseHardware = RelationalDatabaseHardware'
   { -- | The number of vCPUs for the database.
-    cpuCount :: Lude.Maybe Lude.Int,
+    cpuCount :: Core.Maybe Core.Int,
     -- | The size of the disk for the database.
-    diskSizeInGb :: Lude.Maybe Lude.Int,
+    diskSizeInGb :: Core.Maybe Core.Int,
     -- | The amount of RAM in GB for the database.
-    ramSizeInGb :: Lude.Maybe Lude.Double
+    ramSizeInGb :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RelationalDatabaseHardware' with the minimum fields required to make a request.
---
--- * 'cpuCount' - The number of vCPUs for the database.
--- * 'diskSizeInGb' - The size of the disk for the database.
--- * 'ramSizeInGb' - The amount of RAM in GB for the database.
+-- | Creates a 'RelationalDatabaseHardware' value with any optional fields omitted.
 mkRelationalDatabaseHardware ::
   RelationalDatabaseHardware
 mkRelationalDatabaseHardware =
   RelationalDatabaseHardware'
-    { cpuCount = Lude.Nothing,
-      diskSizeInGb = Lude.Nothing,
-      ramSizeInGb = Lude.Nothing
+    { cpuCount = Core.Nothing,
+      diskSizeInGb = Core.Nothing,
+      ramSizeInGb = Core.Nothing
     }
 
 -- | The number of vCPUs for the database.
 --
 -- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdhCpuCount :: Lens.Lens' RelationalDatabaseHardware (Lude.Maybe Lude.Int)
-rdhCpuCount = Lens.lens (cpuCount :: RelationalDatabaseHardware -> Lude.Maybe Lude.Int) (\s a -> s {cpuCount = a} :: RelationalDatabaseHardware)
+rdhCpuCount :: Lens.Lens' RelationalDatabaseHardware (Core.Maybe Core.Int)
+rdhCpuCount = Lens.field @"cpuCount"
 {-# DEPRECATED rdhCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
 
 -- | The size of the disk for the database.
 --
 -- /Note:/ Consider using 'diskSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdhDiskSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Lude.Maybe Lude.Int)
-rdhDiskSizeInGb = Lens.lens (diskSizeInGb :: RelationalDatabaseHardware -> Lude.Maybe Lude.Int) (\s a -> s {diskSizeInGb = a} :: RelationalDatabaseHardware)
+rdhDiskSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Core.Maybe Core.Int)
+rdhDiskSizeInGb = Lens.field @"diskSizeInGb"
 {-# DEPRECATED rdhDiskSizeInGb "Use generic-lens or generic-optics with 'diskSizeInGb' instead." #-}
 
 -- | The amount of RAM in GB for the database.
 --
 -- /Note:/ Consider using 'ramSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdhRamSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Lude.Maybe Lude.Double)
-rdhRamSizeInGb = Lens.lens (ramSizeInGb :: RelationalDatabaseHardware -> Lude.Maybe Lude.Double) (\s a -> s {ramSizeInGb = a} :: RelationalDatabaseHardware)
+rdhRamSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Core.Maybe Core.Double)
+rdhRamSizeInGb = Lens.field @"ramSizeInGb"
 {-# DEPRECATED rdhRamSizeInGb "Use generic-lens or generic-optics with 'ramSizeInGb' instead." #-}
 
-instance Lude.FromJSON RelationalDatabaseHardware where
+instance Core.FromJSON RelationalDatabaseHardware where
   parseJSON =
-    Lude.withObject
-      "RelationalDatabaseHardware"
-      ( \x ->
-          RelationalDatabaseHardware'
-            Lude.<$> (x Lude..:? "cpuCount")
-            Lude.<*> (x Lude..:? "diskSizeInGb")
-            Lude.<*> (x Lude..:? "ramSizeInGb")
-      )
+    Core.withObject "RelationalDatabaseHardware" Core.$
+      \x ->
+        RelationalDatabaseHardware'
+          Core.<$> (x Core..:? "cpuCount")
+          Core.<*> (x Core..:? "diskSizeInGb")
+          Core.<*> (x Core..:? "ramSizeInGb")

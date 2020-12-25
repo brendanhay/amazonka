@@ -31,59 +31,60 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateOrUpdateTags' smart constructor.
 newtype CreateOrUpdateTags = CreateOrUpdateTags'
   { -- | One or more tags.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateOrUpdateTags' with the minimum fields required to make a request.
---
--- * 'tags' - One or more tags.
+-- | Creates a 'CreateOrUpdateTags' value with any optional fields omitted.
 mkCreateOrUpdateTags ::
   CreateOrUpdateTags
-mkCreateOrUpdateTags = CreateOrUpdateTags' {tags = Lude.mempty}
+mkCreateOrUpdateTags = CreateOrUpdateTags' {tags = Core.mempty}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coutTags :: Lens.Lens' CreateOrUpdateTags [Tag]
-coutTags = Lens.lens (tags :: CreateOrUpdateTags -> [Tag]) (\s a -> s {tags = a} :: CreateOrUpdateTags)
+coutTags :: Lens.Lens' CreateOrUpdateTags [Types.Tag]
+coutTags = Lens.field @"tags"
 {-# DEPRECATED coutTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateOrUpdateTags where
+instance Core.AWSRequest CreateOrUpdateTags where
   type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull CreateOrUpdateTagsResponse'
-
-instance Lude.ToHeaders CreateOrUpdateTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateOrUpdateTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateOrUpdateTags where
-  toQuery CreateOrUpdateTags' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateOrUpdateTags" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQueryList "member" tags
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateOrUpdateTags")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "member" tags))
+            )
+      }
+  response = Response.receiveNull CreateOrUpdateTagsResponse'
 
 -- | /See:/ 'mkCreateOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateOrUpdateTagsResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateOrUpdateTagsResponse' value with any optional fields omitted.
 mkCreateOrUpdateTagsResponse ::
   CreateOrUpdateTagsResponse
 mkCreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse'

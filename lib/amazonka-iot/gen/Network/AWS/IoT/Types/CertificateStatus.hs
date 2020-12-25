@@ -13,66 +13,71 @@
 module Network.AWS.IoT.Types.CertificateStatus
   ( CertificateStatus
       ( CertificateStatus',
-        CSActive,
-        CSInactive,
-        CSRevoked,
-        CSPendingTransfer,
-        CSRegisterInactive,
-        CSPendingActivation
+        CertificateStatusActive,
+        CertificateStatusInactive,
+        CertificateStatusRevoked,
+        CertificateStatusPendingTransfer,
+        CertificateStatusRegisterInactive,
+        CertificateStatusPendingActivation,
+        fromCertificateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CertificateStatus = CertificateStatus' Lude.Text
+newtype CertificateStatus = CertificateStatus'
+  { fromCertificateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSActive :: CertificateStatus
-pattern CSActive = CertificateStatus' "ACTIVE"
+pattern CertificateStatusActive :: CertificateStatus
+pattern CertificateStatusActive = CertificateStatus' "ACTIVE"
 
-pattern CSInactive :: CertificateStatus
-pattern CSInactive = CertificateStatus' "INACTIVE"
+pattern CertificateStatusInactive :: CertificateStatus
+pattern CertificateStatusInactive = CertificateStatus' "INACTIVE"
 
-pattern CSRevoked :: CertificateStatus
-pattern CSRevoked = CertificateStatus' "REVOKED"
+pattern CertificateStatusRevoked :: CertificateStatus
+pattern CertificateStatusRevoked = CertificateStatus' "REVOKED"
 
-pattern CSPendingTransfer :: CertificateStatus
-pattern CSPendingTransfer = CertificateStatus' "PENDING_TRANSFER"
+pattern CertificateStatusPendingTransfer :: CertificateStatus
+pattern CertificateStatusPendingTransfer = CertificateStatus' "PENDING_TRANSFER"
 
-pattern CSRegisterInactive :: CertificateStatus
-pattern CSRegisterInactive = CertificateStatus' "REGISTER_INACTIVE"
+pattern CertificateStatusRegisterInactive :: CertificateStatus
+pattern CertificateStatusRegisterInactive = CertificateStatus' "REGISTER_INACTIVE"
 
-pattern CSPendingActivation :: CertificateStatus
-pattern CSPendingActivation = CertificateStatus' "PENDING_ACTIVATION"
+pattern CertificateStatusPendingActivation :: CertificateStatus
+pattern CertificateStatusPendingActivation = CertificateStatus' "PENDING_ACTIVATION"
 
 {-# COMPLETE
-  CSActive,
-  CSInactive,
-  CSRevoked,
-  CSPendingTransfer,
-  CSRegisterInactive,
-  CSPendingActivation,
+  CertificateStatusActive,
+  CertificateStatusInactive,
+  CertificateStatusRevoked,
+  CertificateStatusPendingTransfer,
+  CertificateStatusRegisterInactive,
+  CertificateStatusPendingActivation,
   CertificateStatus'
   #-}

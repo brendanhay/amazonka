@@ -19,82 +19,78 @@ module Network.AWS.Lightsail.Types.RelationalDatabaseEvent
     -- * Lenses
     rdeCreatedAt,
     rdeEventCategories,
-    rdeResource,
     rdeMessage,
+    rdeResource,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Message as Types
+import qualified Network.AWS.Lightsail.Types.Resource as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an event for a database.
 --
 -- /See:/ 'mkRelationalDatabaseEvent' smart constructor.
 data RelationalDatabaseEvent = RelationalDatabaseEvent'
   { -- | The timestamp when the database event was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The category that the database event belongs to.
-    eventCategories :: Lude.Maybe [Lude.Text],
-    -- | The database that the database event relates to.
-    resource :: Lude.Maybe Lude.Text,
+    eventCategories :: Core.Maybe [Types.String],
     -- | The message of the database event.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message,
+    -- | The database that the database event relates to.
+    resource :: Core.Maybe Types.Resource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RelationalDatabaseEvent' with the minimum fields required to make a request.
---
--- * 'createdAt' - The timestamp when the database event was created.
--- * 'eventCategories' - The category that the database event belongs to.
--- * 'resource' - The database that the database event relates to.
--- * 'message' - The message of the database event.
+-- | Creates a 'RelationalDatabaseEvent' value with any optional fields omitted.
 mkRelationalDatabaseEvent ::
   RelationalDatabaseEvent
 mkRelationalDatabaseEvent =
   RelationalDatabaseEvent'
-    { createdAt = Lude.Nothing,
-      eventCategories = Lude.Nothing,
-      resource = Lude.Nothing,
-      message = Lude.Nothing
+    { createdAt = Core.Nothing,
+      eventCategories = Core.Nothing,
+      message = Core.Nothing,
+      resource = Core.Nothing
     }
 
 -- | The timestamp when the database event was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdeCreatedAt :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe Lude.Timestamp)
-rdeCreatedAt = Lens.lens (createdAt :: RelationalDatabaseEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: RelationalDatabaseEvent)
+rdeCreatedAt :: Lens.Lens' RelationalDatabaseEvent (Core.Maybe Core.NominalDiffTime)
+rdeCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED rdeCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The category that the database event belongs to.
 --
 -- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdeEventCategories :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe [Lude.Text])
-rdeEventCategories = Lens.lens (eventCategories :: RelationalDatabaseEvent -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: RelationalDatabaseEvent)
+rdeEventCategories :: Lens.Lens' RelationalDatabaseEvent (Core.Maybe [Types.String])
+rdeEventCategories = Lens.field @"eventCategories"
 {-# DEPRECATED rdeEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
-
--- | The database that the database event relates to.
---
--- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdeResource :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe Lude.Text)
-rdeResource = Lens.lens (resource :: RelationalDatabaseEvent -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: RelationalDatabaseEvent)
-{-# DEPRECATED rdeResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | The message of the database event.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdeMessage :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe Lude.Text)
-rdeMessage = Lens.lens (message :: RelationalDatabaseEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: RelationalDatabaseEvent)
+rdeMessage :: Lens.Lens' RelationalDatabaseEvent (Core.Maybe Types.Message)
+rdeMessage = Lens.field @"message"
 {-# DEPRECATED rdeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON RelationalDatabaseEvent where
+-- | The database that the database event relates to.
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdeResource :: Lens.Lens' RelationalDatabaseEvent (Core.Maybe Types.Resource)
+rdeResource = Lens.field @"resource"
+{-# DEPRECATED rdeResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+
+instance Core.FromJSON RelationalDatabaseEvent where
   parseJSON =
-    Lude.withObject
-      "RelationalDatabaseEvent"
-      ( \x ->
-          RelationalDatabaseEvent'
-            Lude.<$> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "eventCategories" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "resource")
-            Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "RelationalDatabaseEvent" Core.$
+      \x ->
+        RelationalDatabaseEvent'
+          Core.<$> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "eventCategories")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "resource")

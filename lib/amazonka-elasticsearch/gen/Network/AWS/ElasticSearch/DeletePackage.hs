@@ -20,108 +20,102 @@ module Network.AWS.ElasticSearch.DeletePackage
     mkDeletePackage,
 
     -- ** Request lenses
-    dPackageId,
+    dPackageID,
 
     -- * Destructuring the response
     DeletePackageResponse (..),
     mkDeletePackageResponse,
 
     -- ** Response lenses
-    dpfrsPackageDetails,
-    dpfrsResponseStatus,
+    dprfrsPackageDetails,
+    dprfrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for request parameters to @'DeletePackage' @ operation.
 --
 -- /See:/ 'mkDeletePackage' smart constructor.
 newtype DeletePackage = DeletePackage'
   { -- | Internal ID of the package that you want to delete. Use @DescribePackages@ to find this value.
-    packageId :: Lude.Text
+    packageID :: Types.PackageID
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePackage' with the minimum fields required to make a request.
---
--- * 'packageId' - Internal ID of the package that you want to delete. Use @DescribePackages@ to find this value.
+-- | Creates a 'DeletePackage' value with any optional fields omitted.
 mkDeletePackage ::
-  -- | 'packageId'
-  Lude.Text ->
+  -- | 'packageID'
+  Types.PackageID ->
   DeletePackage
-mkDeletePackage pPackageId_ =
-  DeletePackage' {packageId = pPackageId_}
+mkDeletePackage packageID = DeletePackage' {packageID}
 
 -- | Internal ID of the package that you want to delete. Use @DescribePackages@ to find this value.
 --
--- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPackageId :: Lens.Lens' DeletePackage Lude.Text
-dPackageId = Lens.lens (packageId :: DeletePackage -> Lude.Text) (\s a -> s {packageId = a} :: DeletePackage)
-{-# DEPRECATED dPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
+-- /Note:/ Consider using 'packageID' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPackageID :: Lens.Lens' DeletePackage Types.PackageID
+dPackageID = Lens.field @"packageID"
+{-# DEPRECATED dPackageID "Use generic-lens or generic-optics with 'packageID' instead." #-}
 
-instance Lude.AWSRequest DeletePackage where
+instance Core.AWSRequest DeletePackage where
   type Rs DeletePackage = DeletePackageResponse
-  request = Req.delete elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2015-01-01/packages/" Core.<> (Core.toText packageID)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeletePackageResponse'
-            Lude.<$> (x Lude..?> "PackageDetails")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PackageDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePackage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePackage where
-  toPath DeletePackage' {..} =
-    Lude.mconcat ["/2015-01-01/packages/", Lude.toBS packageId]
-
-instance Lude.ToQuery DeletePackage where
-  toQuery = Lude.const Lude.mempty
 
 -- | Container for response parameters to @'DeletePackage' @ operation.
 --
 -- /See:/ 'mkDeletePackageResponse' smart constructor.
 data DeletePackageResponse = DeletePackageResponse'
   { -- | @PackageDetails@
-    packageDetails :: Lude.Maybe PackageDetails,
+    packageDetails :: Core.Maybe Types.PackageDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeletePackageResponse' with the minimum fields required to make a request.
---
--- * 'packageDetails' - @PackageDetails@
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePackageResponse' value with any optional fields omitted.
 mkDeletePackageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePackageResponse
-mkDeletePackageResponse pResponseStatus_ =
+mkDeletePackageResponse responseStatus =
   DeletePackageResponse'
-    { packageDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { packageDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | @PackageDetails@
 --
 -- /Note:/ Consider using 'packageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsPackageDetails :: Lens.Lens' DeletePackageResponse (Lude.Maybe PackageDetails)
-dpfrsPackageDetails = Lens.lens (packageDetails :: DeletePackageResponse -> Lude.Maybe PackageDetails) (\s a -> s {packageDetails = a} :: DeletePackageResponse)
-{-# DEPRECATED dpfrsPackageDetails "Use generic-lens or generic-optics with 'packageDetails' instead." #-}
+dprfrsPackageDetails :: Lens.Lens' DeletePackageResponse (Core.Maybe Types.PackageDetails)
+dprfrsPackageDetails = Lens.field @"packageDetails"
+{-# DEPRECATED dprfrsPackageDetails "Use generic-lens or generic-optics with 'packageDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsResponseStatus :: Lens.Lens' DeletePackageResponse Lude.Int
-dpfrsResponseStatus = Lens.lens (responseStatus :: DeletePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePackageResponse)
-{-# DEPRECATED dpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprfrsResponseStatus :: Lens.Lens' DeletePackageResponse Core.Int
+dprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

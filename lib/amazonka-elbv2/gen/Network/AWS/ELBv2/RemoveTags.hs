@@ -20,103 +20,104 @@ module Network.AWS.ELBv2.RemoveTags
     mkRemoveTags,
 
     -- ** Request lenses
+    rtResourceArns,
     rtTagKeys,
-    rtResourceARNs,
 
     -- * Destructuring the response
     RemoveTagsResponse (..),
     mkRemoveTagsResponse,
 
     -- ** Response lenses
-    rrsResponseStatus,
+    rtrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { -- | The tag keys for the tags to remove.
-    tagKeys :: [Lude.Text],
-    -- | The Amazon Resource Name (ARN) of the resource.
-    resourceARNs :: [Lude.Text]
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArns :: [Types.ResourceArn],
+    -- | The tag keys for the tags to remove.
+    tagKeys :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
---
--- * 'tagKeys' - The tag keys for the tags to remove.
--- * 'resourceARNs' - The Amazon Resource Name (ARN) of the resource.
+-- | Creates a 'RemoveTags' value with any optional fields omitted.
 mkRemoveTags ::
   RemoveTags
 mkRemoveTags =
-  RemoveTags' {tagKeys = Lude.mempty, resourceARNs = Lude.mempty}
+  RemoveTags' {resourceArns = Core.mempty, tagKeys = Core.mempty}
+
+-- | The Amazon Resource Name (ARN) of the resource.
+--
+-- /Note:/ Consider using 'resourceArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtResourceArns :: Lens.Lens' RemoveTags [Types.ResourceArn]
+rtResourceArns = Lens.field @"resourceArns"
+{-# DEPRECATED rtResourceArns "Use generic-lens or generic-optics with 'resourceArns' instead." #-}
 
 -- | The tag keys for the tags to remove.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTagKeys :: Lens.Lens' RemoveTags [Lude.Text]
-rtTagKeys = Lens.lens (tagKeys :: RemoveTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTags)
+rtTagKeys :: Lens.Lens' RemoveTags [Types.TagKey]
+rtTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED rtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the resource.
---
--- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtResourceARNs :: Lens.Lens' RemoveTags [Lude.Text]
-rtResourceARNs = Lens.lens (resourceARNs :: RemoveTags -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: RemoveTags)
-{-# DEPRECATED rtResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
-
-instance Lude.AWSRequest RemoveTags where
+instance Core.AWSRequest RemoveTags where
   type Rs RemoveTags = RemoveTagsResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveTags")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "ResourceArns"
+                            (Core.toQueryList "member" resourceArns)
+                        )
+                Core.<> (Core.toQueryValue "TagKeys" (Core.toQueryList "member" tagKeys))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RemoveTagsResult"
       ( \s h x ->
-          RemoveTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RemoveTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTags where
-  toQuery RemoveTags' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemoveTags" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys,
-        "ResourceArns" Lude.=: Lude.toQueryList "member" resourceARNs
-      ]
 
 -- | /See:/ 'mkRemoveTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveTagsResponse' value with any optional fields omitted.
 mkRemoveTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveTagsResponse
-mkRemoveTagsResponse pResponseStatus_ =
-  RemoveTagsResponse' {responseStatus = pResponseStatus_}
+mkRemoveTagsResponse responseStatus =
+  RemoveTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' RemoveTagsResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsResponse)
-{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrrsResponseStatus :: Lens.Lens' RemoveTagsResponse Core.Int
+rtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

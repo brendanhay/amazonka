@@ -17,46 +17,44 @@ module Network.AWS.S3.Types.SourceSelectionCriteria
     mkSourceSelectionCriteria,
 
     -- * Lenses
-    sscSseKMSEncryptedObjects,
+    sscSseKmsEncryptedObjects,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.SseKMSEncryptedObjects
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.SseKmsEncryptedObjects as Types
 
 -- | A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service (SSE-KMS).
 --
 -- /See:/ 'mkSourceSelectionCriteria' smart constructor.
 newtype SourceSelectionCriteria = SourceSelectionCriteria'
   { -- | A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@ in the replication configuration, this element is required.
-    sseKMSEncryptedObjects :: Lude.Maybe SseKMSEncryptedObjects
+    sseKmsEncryptedObjects :: Core.Maybe Types.SseKmsEncryptedObjects
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceSelectionCriteria' with the minimum fields required to make a request.
---
--- * 'sseKMSEncryptedObjects' - A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@ in the replication configuration, this element is required.
+-- | Creates a 'SourceSelectionCriteria' value with any optional fields omitted.
 mkSourceSelectionCriteria ::
   SourceSelectionCriteria
 mkSourceSelectionCriteria =
-  SourceSelectionCriteria' {sseKMSEncryptedObjects = Lude.Nothing}
+  SourceSelectionCriteria' {sseKmsEncryptedObjects = Core.Nothing}
 
 -- | A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@ in the replication configuration, this element is required.
 --
--- /Note:/ Consider using 'sseKMSEncryptedObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscSseKMSEncryptedObjects :: Lens.Lens' SourceSelectionCriteria (Lude.Maybe SseKMSEncryptedObjects)
-sscSseKMSEncryptedObjects = Lens.lens (sseKMSEncryptedObjects :: SourceSelectionCriteria -> Lude.Maybe SseKMSEncryptedObjects) (\s a -> s {sseKMSEncryptedObjects = a} :: SourceSelectionCriteria)
-{-# DEPRECATED sscSseKMSEncryptedObjects "Use generic-lens or generic-optics with 'sseKMSEncryptedObjects' instead." #-}
+-- /Note:/ Consider using 'sseKmsEncryptedObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscSseKmsEncryptedObjects :: Lens.Lens' SourceSelectionCriteria (Core.Maybe Types.SseKmsEncryptedObjects)
+sscSseKmsEncryptedObjects = Lens.field @"sseKmsEncryptedObjects"
+{-# DEPRECATED sscSseKmsEncryptedObjects "Use generic-lens or generic-optics with 'sseKmsEncryptedObjects' instead." #-}
 
-instance Lude.FromXML SourceSelectionCriteria where
+instance Core.ToXML SourceSelectionCriteria where
+  toXML SourceSelectionCriteria {..} =
+    Core.toXMLNode "SseKmsEncryptedObjects"
+      Core.<$> sseKmsEncryptedObjects
+
+instance Core.FromXML SourceSelectionCriteria where
   parseXML x =
     SourceSelectionCriteria'
-      Lude.<$> (x Lude..@? "SseKmsEncryptedObjects")
-
-instance Lude.ToXML SourceSelectionCriteria where
-  toXML SourceSelectionCriteria' {..} =
-    Lude.mconcat
-      ["SseKmsEncryptedObjects" Lude.@= sseKMSEncryptedObjects]
+      Core.<$> (x Core..@? "SseKmsEncryptedObjects")

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.GuardDuty
     Network.AWS.GuardDuty.AcceptInvitation
@@ -132,15 +138,17 @@ library
     Network.AWS.GuardDuty.Types.AccessControlList
     Network.AWS.GuardDuty.Types.AccessKeyDetails
     Network.AWS.GuardDuty.Types.AccountDetail
+    Network.AWS.GuardDuty.Types.AccountId
     Network.AWS.GuardDuty.Types.AccountLevelPermissions
     Network.AWS.GuardDuty.Types.Action
     Network.AWS.GuardDuty.Types.AdminAccount
     Network.AWS.GuardDuty.Types.AdminStatus
-    Network.AWS.GuardDuty.Types.AWSAPICallAction
+    Network.AWS.GuardDuty.Types.AwsApiCallAction
     Network.AWS.GuardDuty.Types.BlockPublicAccess
     Network.AWS.GuardDuty.Types.BucketLevelPermissions
     Network.AWS.GuardDuty.Types.BucketPolicy
     Network.AWS.GuardDuty.Types.City
+    Network.AWS.GuardDuty.Types.ClientToken
     Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
     Network.AWS.GuardDuty.Types.Condition
     Network.AWS.GuardDuty.Types.Country
@@ -149,35 +157,50 @@ library
     Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult
     Network.AWS.GuardDuty.Types.DataSourceStatus
     Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
+    Network.AWS.GuardDuty.Types.Description
     Network.AWS.GuardDuty.Types.Destination
+    Network.AWS.GuardDuty.Types.DestinationId
     Network.AWS.GuardDuty.Types.DestinationProperties
     Network.AWS.GuardDuty.Types.DestinationType
+    Network.AWS.GuardDuty.Types.DetectorId
     Network.AWS.GuardDuty.Types.DetectorStatus
     Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
-    Network.AWS.GuardDuty.Types.DNSRequestAction
+    Network.AWS.GuardDuty.Types.DnsRequestAction
     Network.AWS.GuardDuty.Types.DomainDetails
+    Network.AWS.GuardDuty.Types.Email
     Network.AWS.GuardDuty.Types.Evidence
     Network.AWS.GuardDuty.Types.Feedback
     Network.AWS.GuardDuty.Types.FilterAction
+    Network.AWS.GuardDuty.Types.FilterDescription
+    Network.AWS.GuardDuty.Types.FilterName
     Network.AWS.GuardDuty.Types.Finding
     Network.AWS.GuardDuty.Types.FindingCriteria
+    Network.AWS.GuardDuty.Types.FindingId
     Network.AWS.GuardDuty.Types.FindingPublishingFrequency
     Network.AWS.GuardDuty.Types.FindingStatistics
     Network.AWS.GuardDuty.Types.FindingStatisticType
+    Network.AWS.GuardDuty.Types.FindingType
     Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
     Network.AWS.GuardDuty.Types.GeoLocation
-    Network.AWS.GuardDuty.Types.IAMInstanceProfile
+    Network.AWS.GuardDuty.Types.GuardDutyArn
+    Network.AWS.GuardDuty.Types.IamInstanceProfile
     Network.AWS.GuardDuty.Types.InstanceDetails
     Network.AWS.GuardDuty.Types.Invitation
-    Network.AWS.GuardDuty.Types.IPSetFormat
-    Network.AWS.GuardDuty.Types.IPSetStatus
-    Network.AWS.GuardDuty.Types.LocalIPDetails
+    Network.AWS.GuardDuty.Types.IpAddressV4
+    Network.AWS.GuardDuty.Types.IpSetFormat
+    Network.AWS.GuardDuty.Types.IpSetId
+    Network.AWS.GuardDuty.Types.IpSetStatus
+    Network.AWS.GuardDuty.Types.Key
+    Network.AWS.GuardDuty.Types.LocalIpDetails
     Network.AWS.GuardDuty.Types.LocalPortDetails
+    Network.AWS.GuardDuty.Types.Location
     Network.AWS.GuardDuty.Types.Master
     Network.AWS.GuardDuty.Types.Member
     Network.AWS.GuardDuty.Types.MemberDataSourceConfiguration
+    Network.AWS.GuardDuty.Types.Name
     Network.AWS.GuardDuty.Types.NetworkConnectionAction
     Network.AWS.GuardDuty.Types.NetworkInterface
+    Network.AWS.GuardDuty.Types.NextToken
     Network.AWS.GuardDuty.Types.OrderBy
     Network.AWS.GuardDuty.Types.Organization
     Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations
@@ -188,24 +211,31 @@ library
     Network.AWS.GuardDuty.Types.PermissionConfiguration
     Network.AWS.GuardDuty.Types.PortProbeAction
     Network.AWS.GuardDuty.Types.PortProbeDetail
-    Network.AWS.GuardDuty.Types.PrivateIPAddressDetails
+    Network.AWS.GuardDuty.Types.PrivateIpAddressDetails
     Network.AWS.GuardDuty.Types.ProductCode
     Network.AWS.GuardDuty.Types.PublicAccess
     Network.AWS.GuardDuty.Types.PublishingStatus
-    Network.AWS.GuardDuty.Types.RemoteIPDetails
+    Network.AWS.GuardDuty.Types.RemoteIpDetails
     Network.AWS.GuardDuty.Types.RemotePortDetails
     Network.AWS.GuardDuty.Types.Resource
+    Network.AWS.GuardDuty.Types.ResourceArn
     Network.AWS.GuardDuty.Types.S3BucketDetail
     Network.AWS.GuardDuty.Types.S3LogsConfiguration
     Network.AWS.GuardDuty.Types.S3LogsConfigurationResult
     Network.AWS.GuardDuty.Types.SecurityGroup
     Network.AWS.GuardDuty.Types.ServiceInfo
     Network.AWS.GuardDuty.Types.SortCriteria
+    Network.AWS.GuardDuty.Types.String
     Network.AWS.GuardDuty.Types.Tag
+    Network.AWS.GuardDuty.Types.TagKey
+    Network.AWS.GuardDuty.Types.TagValue
     Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
     Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
     Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
+    Network.AWS.GuardDuty.Types.ThreatListName
     Network.AWS.GuardDuty.Types.Total
+    Network.AWS.GuardDuty.Types.Type
+    Network.AWS.GuardDuty.Types.Unit
     Network.AWS.GuardDuty.Types.UnprocessedAccount
     Network.AWS.GuardDuty.Types.UsageAccountResult
     Network.AWS.GuardDuty.Types.UsageCriteria
@@ -213,6 +243,7 @@ library
     Network.AWS.GuardDuty.Types.UsageResourceResult
     Network.AWS.GuardDuty.Types.UsageStatistics
     Network.AWS.GuardDuty.Types.UsageStatisticType
+    Network.AWS.GuardDuty.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

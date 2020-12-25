@@ -29,125 +29,108 @@ module Network.AWS.DirectoryService.AddRegion
     mkAddRegionResponse,
 
     -- ** Response lenses
-    arrsResponseStatus,
+    arrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAddRegion' smart constructor.
 data AddRegion = AddRegion'
   { -- | The identifier of the directory to which you want to add Region replication.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The name of the Region where you want to add domain controllers for replication. For example, @us-east-1@ .
-    regionName :: Lude.Text,
-    vpcSettings :: DirectoryVPCSettings
+    regionName :: Types.RegionName,
+    vPCSettings :: Types.DirectoryVpcSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddRegion' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory to which you want to add Region replication.
--- * 'regionName' - The name of the Region where you want to add domain controllers for replication. For example, @us-east-1@ .
--- * 'vpcSettings' -
+-- | Creates a 'AddRegion' value with any optional fields omitted.
 mkAddRegion ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'regionName'
-  Lude.Text ->
-  -- | 'vpcSettings'
-  DirectoryVPCSettings ->
+  Types.RegionName ->
+  -- | 'vPCSettings'
+  Types.DirectoryVpcSettings ->
   AddRegion
-mkAddRegion pDirectoryId_ pRegionName_ pVPCSettings_ =
-  AddRegion'
-    { directoryId = pDirectoryId_,
-      regionName = pRegionName_,
-      vpcSettings = pVPCSettings_
-    }
+mkAddRegion directoryId regionName vPCSettings =
+  AddRegion' {directoryId, regionName, vPCSettings}
 
 -- | The identifier of the directory to which you want to add Region replication.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arDirectoryId :: Lens.Lens' AddRegion Lude.Text
-arDirectoryId = Lens.lens (directoryId :: AddRegion -> Lude.Text) (\s a -> s {directoryId = a} :: AddRegion)
+arDirectoryId :: Lens.Lens' AddRegion Types.DirectoryId
+arDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED arDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the Region where you want to add domain controllers for replication. For example, @us-east-1@ .
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arRegionName :: Lens.Lens' AddRegion Lude.Text
-arRegionName = Lens.lens (regionName :: AddRegion -> Lude.Text) (\s a -> s {regionName = a} :: AddRegion)
+arRegionName :: Lens.Lens' AddRegion Types.RegionName
+arRegionName = Lens.field @"regionName"
 {-# DEPRECATED arRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arVPCSettings :: Lens.Lens' AddRegion DirectoryVPCSettings
-arVPCSettings = Lens.lens (vpcSettings :: AddRegion -> DirectoryVPCSettings) (\s a -> s {vpcSettings = a} :: AddRegion)
-{-# DEPRECATED arVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
+-- /Note:/ Consider using 'vPCSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arVPCSettings :: Lens.Lens' AddRegion Types.DirectoryVpcSettings
+arVPCSettings = Lens.field @"vPCSettings"
+{-# DEPRECATED arVPCSettings "Use generic-lens or generic-optics with 'vPCSettings' instead." #-}
 
-instance Lude.AWSRequest AddRegion where
+instance Core.FromJSON AddRegion where
+  toJSON AddRegion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("RegionName" Core..= regionName),
+            Core.Just ("VPCSettings" Core..= vPCSettings)
+          ]
+      )
+
+instance Core.AWSRequest AddRegion where
   type Rs AddRegion = AddRegionResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DirectoryService_20150416.AddRegion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AddRegionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AddRegionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddRegion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.AddRegion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddRegion where
-  toJSON AddRegion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("RegionName" Lude..= regionName),
-            Lude.Just ("VPCSettings" Lude..= vpcSettings)
-          ]
-      )
-
-instance Lude.ToPath AddRegion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddRegion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAddRegionResponse' smart constructor.
 newtype AddRegionResponse = AddRegionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddRegionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddRegionResponse' value with any optional fields omitted.
 mkAddRegionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddRegionResponse
-mkAddRegionResponse pResponseStatus_ =
-  AddRegionResponse' {responseStatus = pResponseStatus_}
+mkAddRegionResponse responseStatus =
+  AddRegionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arrsResponseStatus :: Lens.Lens' AddRegionResponse Lude.Int
-arrsResponseStatus = Lens.lens (responseStatus :: AddRegionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddRegionResponse)
-{-# DEPRECATED arrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+arrrsResponseStatus :: Lens.Lens' AddRegionResponse Core.Int
+arrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED arrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

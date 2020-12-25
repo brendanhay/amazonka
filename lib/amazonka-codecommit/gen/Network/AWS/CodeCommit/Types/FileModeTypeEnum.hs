@@ -13,51 +13,56 @@
 module Network.AWS.CodeCommit.Types.FileModeTypeEnum
   ( FileModeTypeEnum
       ( FileModeTypeEnum',
-        Executable,
-        Normal,
-        Symlink
+        FileModeTypeEnumExecutable,
+        FileModeTypeEnumNormal,
+        FileModeTypeEnumSymlink,
+        fromFileModeTypeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FileModeTypeEnum = FileModeTypeEnum' Lude.Text
+newtype FileModeTypeEnum = FileModeTypeEnum'
+  { fromFileModeTypeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Executable :: FileModeTypeEnum
-pattern Executable = FileModeTypeEnum' "EXECUTABLE"
+pattern FileModeTypeEnumExecutable :: FileModeTypeEnum
+pattern FileModeTypeEnumExecutable = FileModeTypeEnum' "EXECUTABLE"
 
-pattern Normal :: FileModeTypeEnum
-pattern Normal = FileModeTypeEnum' "NORMAL"
+pattern FileModeTypeEnumNormal :: FileModeTypeEnum
+pattern FileModeTypeEnumNormal = FileModeTypeEnum' "NORMAL"
 
-pattern Symlink :: FileModeTypeEnum
-pattern Symlink = FileModeTypeEnum' "SYMLINK"
+pattern FileModeTypeEnumSymlink :: FileModeTypeEnum
+pattern FileModeTypeEnumSymlink = FileModeTypeEnum' "SYMLINK"
 
 {-# COMPLETE
-  Executable,
-  Normal,
-  Symlink,
+  FileModeTypeEnumExecutable,
+  FileModeTypeEnumNormal,
+  FileModeTypeEnumSymlink,
   FileModeTypeEnum'
   #-}

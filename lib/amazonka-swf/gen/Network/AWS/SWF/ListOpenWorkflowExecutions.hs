@@ -46,188 +46,175 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     mkListOpenWorkflowExecutions,
 
     -- ** Request lenses
-    loweNextPageToken,
-    loweExecutionFilter,
-    loweTypeFilter,
     loweDomain,
+    loweStartTimeFilter,
+    loweExecutionFilter,
+    loweMaximumPageSize,
+    loweNextPageToken,
     loweReverseOrder,
     loweTagFilter,
-    loweStartTimeFilter,
-    loweMaximumPageSize,
+    loweTypeFilter,
 
     -- * Destructuring the response
-    WorkflowExecutionInfos (..),
-    mkWorkflowExecutionInfos,
+    Types.WorkflowExecutionInfos (..),
+    Types.mkWorkflowExecutionInfos,
 
     -- ** Response lenses
-    weiExecutionInfos,
-    weiNextPageToken,
+    Types.weiExecutionInfos,
+    Types.weiNextPageToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkListOpenWorkflowExecutions' smart constructor.
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
-  { -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+  { -- | The name of the domain that contains the workflow executions to list.
+    domain :: Types.DomainName,
+    -- | Workflow executions are included in the returned results based on whether their start times are within the range specified by this filter.
+    startTimeFilter :: Types.ExecutionTimeFilter,
+    -- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
+    executionFilter :: Core.Maybe Types.WorkflowExecutionFilter,
+    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Core.Maybe Core.Natural,
+    -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
     --
     -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
-    executionFilter :: Lude.Maybe WorkflowExecutionFilter,
-    -- | If specified, only executions of the type specified in the filter are returned.
-    typeFilter :: Lude.Maybe WorkflowTypeFilter,
-    -- | The name of the domain that contains the workflow executions to list.
-    domain :: Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start time of the executions.
-    reverseOrder :: Lude.Maybe Lude.Bool,
+    reverseOrder :: Core.Maybe Core.Bool,
     -- | If specified, only executions that have the matching tag are listed.
-    tagFilter :: Lude.Maybe TagFilter,
-    -- | Workflow executions are included in the returned results based on whether their start times are within the range specified by this filter.
-    startTimeFilter :: ExecutionTimeFilter,
-    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
-    maximumPageSize :: Lude.Maybe Lude.Natural
+    tagFilter :: Core.Maybe Types.TagFilter,
+    -- | If specified, only executions of the type specified in the filter are returned.
+    typeFilter :: Core.Maybe Types.WorkflowTypeFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListOpenWorkflowExecutions' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
---
--- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'executionFilter' - If specified, only workflow executions matching the workflow ID specified in the filter are returned.
--- * 'typeFilter' - If specified, only executions of the type specified in the filter are returned.
--- * 'domain' - The name of the domain that contains the workflow executions to list.
--- * 'reverseOrder' - When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start time of the executions.
--- * 'tagFilter' - If specified, only executions that have the matching tag are listed.
--- * 'startTimeFilter' - Workflow executions are included in the returned results based on whether their start times are within the range specified by this filter.
--- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+-- | Creates a 'ListOpenWorkflowExecutions' value with any optional fields omitted.
 mkListOpenWorkflowExecutions ::
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'startTimeFilter'
-  ExecutionTimeFilter ->
+  Types.ExecutionTimeFilter ->
   ListOpenWorkflowExecutions
-mkListOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
+mkListOpenWorkflowExecutions domain startTimeFilter =
   ListOpenWorkflowExecutions'
-    { nextPageToken = Lude.Nothing,
-      executionFilter = Lude.Nothing,
-      typeFilter = Lude.Nothing,
-      domain = pDomain_,
-      reverseOrder = Lude.Nothing,
-      tagFilter = Lude.Nothing,
-      startTimeFilter = pStartTimeFilter_,
-      maximumPageSize = Lude.Nothing
+    { domain,
+      startTimeFilter,
+      executionFilter = Core.Nothing,
+      maximumPageSize = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      reverseOrder = Core.Nothing,
+      tagFilter = Core.Nothing,
+      typeFilter = Core.Nothing
     }
+
+-- | The name of the domain that contains the workflow executions to list.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loweDomain :: Lens.Lens' ListOpenWorkflowExecutions Types.DomainName
+loweDomain = Lens.field @"domain"
+{-# DEPRECATED loweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | Workflow executions are included in the returned results based on whether their start times are within the range specified by this filter.
+--
+-- /Note:/ Consider using 'startTimeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loweStartTimeFilter :: Lens.Lens' ListOpenWorkflowExecutions Types.ExecutionTimeFilter
+loweStartTimeFilter = Lens.field @"startTimeFilter"
+{-# DEPRECATED loweStartTimeFilter "Use generic-lens or generic-optics with 'startTimeFilter' instead." #-}
+
+-- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
+--
+-- /Note:/ Consider using 'executionFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loweExecutionFilter :: Lens.Lens' ListOpenWorkflowExecutions (Core.Maybe Types.WorkflowExecutionFilter)
+loweExecutionFilter = Lens.field @"executionFilter"
+{-# DEPRECATED loweExecutionFilter "Use generic-lens or generic-optics with 'executionFilter' instead." #-}
+
+-- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+--
+-- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loweMaximumPageSize :: Lens.Lens' ListOpenWorkflowExecutions (Core.Maybe Core.Natural)
+loweMaximumPageSize = Lens.field @"maximumPageSize"
+{-# DEPRECATED loweMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
 
 -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweNextPageToken :: Lens.Lens' ListOpenWorkflowExecutions (Lude.Maybe Lude.Text)
-loweNextPageToken = Lens.lens (nextPageToken :: ListOpenWorkflowExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListOpenWorkflowExecutions)
+loweNextPageToken :: Lens.Lens' ListOpenWorkflowExecutions (Core.Maybe Types.NextPageToken)
+loweNextPageToken = Lens.field @"nextPageToken"
 {-# DEPRECATED loweNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
---
--- /Note:/ Consider using 'executionFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweExecutionFilter :: Lens.Lens' ListOpenWorkflowExecutions (Lude.Maybe WorkflowExecutionFilter)
-loweExecutionFilter = Lens.lens (executionFilter :: ListOpenWorkflowExecutions -> Lude.Maybe WorkflowExecutionFilter) (\s a -> s {executionFilter = a} :: ListOpenWorkflowExecutions)
-{-# DEPRECATED loweExecutionFilter "Use generic-lens or generic-optics with 'executionFilter' instead." #-}
-
--- | If specified, only executions of the type specified in the filter are returned.
---
--- /Note:/ Consider using 'typeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweTypeFilter :: Lens.Lens' ListOpenWorkflowExecutions (Lude.Maybe WorkflowTypeFilter)
-loweTypeFilter = Lens.lens (typeFilter :: ListOpenWorkflowExecutions -> Lude.Maybe WorkflowTypeFilter) (\s a -> s {typeFilter = a} :: ListOpenWorkflowExecutions)
-{-# DEPRECATED loweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
-
--- | The name of the domain that contains the workflow executions to list.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweDomain :: Lens.Lens' ListOpenWorkflowExecutions Lude.Text
-loweDomain = Lens.lens (domain :: ListOpenWorkflowExecutions -> Lude.Text) (\s a -> s {domain = a} :: ListOpenWorkflowExecutions)
-{-# DEPRECATED loweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start time of the executions.
 --
 -- /Note:/ Consider using 'reverseOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweReverseOrder :: Lens.Lens' ListOpenWorkflowExecutions (Lude.Maybe Lude.Bool)
-loweReverseOrder = Lens.lens (reverseOrder :: ListOpenWorkflowExecutions -> Lude.Maybe Lude.Bool) (\s a -> s {reverseOrder = a} :: ListOpenWorkflowExecutions)
+loweReverseOrder :: Lens.Lens' ListOpenWorkflowExecutions (Core.Maybe Core.Bool)
+loweReverseOrder = Lens.field @"reverseOrder"
 {-# DEPRECATED loweReverseOrder "Use generic-lens or generic-optics with 'reverseOrder' instead." #-}
 
 -- | If specified, only executions that have the matching tag are listed.
 --
 -- /Note:/ Consider using 'tagFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweTagFilter :: Lens.Lens' ListOpenWorkflowExecutions (Lude.Maybe TagFilter)
-loweTagFilter = Lens.lens (tagFilter :: ListOpenWorkflowExecutions -> Lude.Maybe TagFilter) (\s a -> s {tagFilter = a} :: ListOpenWorkflowExecutions)
+loweTagFilter :: Lens.Lens' ListOpenWorkflowExecutions (Core.Maybe Types.TagFilter)
+loweTagFilter = Lens.field @"tagFilter"
 {-# DEPRECATED loweTagFilter "Use generic-lens or generic-optics with 'tagFilter' instead." #-}
 
--- | Workflow executions are included in the returned results based on whether their start times are within the range specified by this filter.
+-- | If specified, only executions of the type specified in the filter are returned.
 --
--- /Note:/ Consider using 'startTimeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweStartTimeFilter :: Lens.Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
-loweStartTimeFilter = Lens.lens (startTimeFilter :: ListOpenWorkflowExecutions -> ExecutionTimeFilter) (\s a -> s {startTimeFilter = a} :: ListOpenWorkflowExecutions)
-{-# DEPRECATED loweStartTimeFilter "Use generic-lens or generic-optics with 'startTimeFilter' instead." #-}
+-- /Note:/ Consider using 'typeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loweTypeFilter :: Lens.Lens' ListOpenWorkflowExecutions (Core.Maybe Types.WorkflowTypeFilter)
+loweTypeFilter = Lens.field @"typeFilter"
+{-# DEPRECATED loweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
 
--- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
---
--- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loweMaximumPageSize :: Lens.Lens' ListOpenWorkflowExecutions (Lude.Maybe Lude.Natural)
-loweMaximumPageSize = Lens.lens (maximumPageSize :: ListOpenWorkflowExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListOpenWorkflowExecutions)
-{-# DEPRECATED loweMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
+instance Core.FromJSON ListOpenWorkflowExecutions where
+  toJSON ListOpenWorkflowExecutions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("startTimeFilter" Core..= startTimeFilter),
+            ("executionFilter" Core..=) Core.<$> executionFilter,
+            ("maximumPageSize" Core..=) Core.<$> maximumPageSize,
+            ("nextPageToken" Core..=) Core.<$> nextPageToken,
+            ("reverseOrder" Core..=) Core.<$> reverseOrder,
+            ("tagFilter" Core..=) Core.<$> tagFilter,
+            ("typeFilter" Core..=) Core.<$> typeFilter
+          ]
+      )
 
-instance Page.AWSPager ListOpenWorkflowExecutions where
+instance Core.AWSRequest ListOpenWorkflowExecutions where
+  type Rs ListOpenWorkflowExecutions = Types.WorkflowExecutionInfos
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "SimpleWorkflowService.ListOpenWorkflowExecutions"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)
+
+instance Pager.AWSPager ListOpenWorkflowExecutions where
   page rq rs
-    | Page.stop (rs Lens.^. weiNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. weiExecutionInfos) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& loweNextPageToken Lens..~ rs Lens.^. weiNextPageToken
-
-instance Lude.AWSRequest ListOpenWorkflowExecutions where
-  type Rs ListOpenWorkflowExecutions = WorkflowExecutionInfos
-  request = Req.postJSON swfService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders ListOpenWorkflowExecutions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.ListOpenWorkflowExecutions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListOpenWorkflowExecutions where
-  toJSON ListOpenWorkflowExecutions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextPageToken" Lude..=) Lude.<$> nextPageToken,
-            ("executionFilter" Lude..=) Lude.<$> executionFilter,
-            ("typeFilter" Lude..=) Lude.<$> typeFilter,
-            Lude.Just ("domain" Lude..= domain),
-            ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
-            ("tagFilter" Lude..=) Lude.<$> tagFilter,
-            Lude.Just ("startTimeFilter" Lude..= startTimeFilter),
-            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize
-          ]
-      )
-
-instance Lude.ToPath ListOpenWorkflowExecutions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListOpenWorkflowExecutions where
-  toQuery = Lude.const Lude.mempty
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"executionInfos") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextPageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )

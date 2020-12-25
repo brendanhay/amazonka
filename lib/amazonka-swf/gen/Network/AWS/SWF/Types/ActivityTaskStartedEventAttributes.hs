@@ -23,54 +23,49 @@ module Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Identity as Types
 
 -- | Provides the details of the @ActivityTaskStarted@ event.
 --
 -- /See:/ 'mkActivityTaskStartedEventAttributes' smart constructor.
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'
   { -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    scheduledEventId :: Lude.Integer,
+    scheduledEventId :: Core.Integer,
     -- | Identity of the worker that was assigned this task. This aids diagnostics when problems arise. The form of this identity is user defined.
-    identity :: Lude.Maybe Lude.Text
+    identity :: Core.Maybe Types.Identity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityTaskStartedEventAttributes' with the minimum fields required to make a request.
---
--- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'identity' - Identity of the worker that was assigned this task. This aids diagnostics when problems arise. The form of this identity is user defined.
+-- | Creates a 'ActivityTaskStartedEventAttributes' value with any optional fields omitted.
 mkActivityTaskStartedEventAttributes ::
   -- | 'scheduledEventId'
-  Lude.Integer ->
+  Core.Integer ->
   ActivityTaskStartedEventAttributes
-mkActivityTaskStartedEventAttributes pScheduledEventId_ =
+mkActivityTaskStartedEventAttributes scheduledEventId =
   ActivityTaskStartedEventAttributes'
-    { scheduledEventId =
-        pScheduledEventId_,
-      identity = Lude.Nothing
+    { scheduledEventId,
+      identity = Core.Nothing
     }
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atseaScheduledEventId :: Lens.Lens' ActivityTaskStartedEventAttributes Lude.Integer
-atseaScheduledEventId = Lens.lens (scheduledEventId :: ActivityTaskStartedEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: ActivityTaskStartedEventAttributes)
+atseaScheduledEventId :: Lens.Lens' ActivityTaskStartedEventAttributes Core.Integer
+atseaScheduledEventId = Lens.field @"scheduledEventId"
 {-# DEPRECATED atseaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
 -- | Identity of the worker that was assigned this task. This aids diagnostics when problems arise. The form of this identity is user defined.
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atseaIdentity :: Lens.Lens' ActivityTaskStartedEventAttributes (Lude.Maybe Lude.Text)
-atseaIdentity = Lens.lens (identity :: ActivityTaskStartedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {identity = a} :: ActivityTaskStartedEventAttributes)
+atseaIdentity :: Lens.Lens' ActivityTaskStartedEventAttributes (Core.Maybe Types.Identity)
+atseaIdentity = Lens.field @"identity"
 {-# DEPRECATED atseaIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
-instance Lude.FromJSON ActivityTaskStartedEventAttributes where
+instance Core.FromJSON ActivityTaskStartedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "ActivityTaskStartedEventAttributes"
-      ( \x ->
-          ActivityTaskStartedEventAttributes'
-            Lude.<$> (x Lude..: "scheduledEventId") Lude.<*> (x Lude..:? "identity")
-      )
+    Core.withObject "ActivityTaskStartedEventAttributes" Core.$
+      \x ->
+        ActivityTaskStartedEventAttributes'
+          Core.<$> (x Core..: "scheduledEventId") Core.<*> (x Core..:? "identity")

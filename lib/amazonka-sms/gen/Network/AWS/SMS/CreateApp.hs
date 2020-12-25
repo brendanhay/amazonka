@@ -21,9 +21,9 @@ module Network.AWS.SMS.CreateApp
 
     -- ** Request lenses
     caClientToken,
-    caRoleName,
-    caName,
     caDescription,
+    caName,
+    caRoleName,
     caServerGroups,
     caTags,
 
@@ -32,200 +32,180 @@ module Network.AWS.SMS.CreateApp
     mkCreateAppResponse,
 
     -- ** Response lenses
-    carsAppSummary,
-    carsServerGroups,
-    carsTags,
-    carsResponseStatus,
+    carrsAppSummary,
+    carrsServerGroups,
+    carrsTags,
+    carrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
   { -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The name of the service role in the customer's account to be used by AWS SMS.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | The name of the new application.
-    name :: Lude.Maybe Lude.Text,
+    clientToken :: Core.Maybe Types.ClientToken,
     -- | The description of the new application
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The name of the new application.
+    name :: Core.Maybe Types.AppName,
+    -- | The name of the service role in the customer's account to be used by AWS SMS.
+    roleName :: Core.Maybe Types.RoleName,
     -- | The server groups to include in the application.
-    serverGroups :: Lude.Maybe [ServerGroup],
+    serverGroups :: Core.Maybe [Types.ServerGroup],
     -- | The tags to be associated with the application.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
---
--- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
--- * 'roleName' - The name of the service role in the customer's account to be used by AWS SMS.
--- * 'name' - The name of the new application.
--- * 'description' - The description of the new application
--- * 'serverGroups' - The server groups to include in the application.
--- * 'tags' - The tags to be associated with the application.
+-- | Creates a 'CreateApp' value with any optional fields omitted.
 mkCreateApp ::
   CreateApp
 mkCreateApp =
   CreateApp'
-    { clientToken = Lude.Nothing,
-      roleName = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing,
-      serverGroups = Lude.Nothing,
-      tags = Lude.Nothing
+    { clientToken = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing,
+      roleName = Core.Nothing,
+      serverGroups = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caClientToken :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
-caClientToken = Lens.lens (clientToken :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateApp)
+caClientToken :: Lens.Lens' CreateApp (Core.Maybe Types.ClientToken)
+caClientToken = Lens.field @"clientToken"
 {-# DEPRECATED caClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The name of the service role in the customer's account to be used by AWS SMS.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caRoleName :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
-caRoleName = Lens.lens (roleName :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: CreateApp)
-{-# DEPRECATED caRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | The name of the new application.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caName :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
-caName = Lens.lens (name :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateApp)
-{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the new application
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
-caDescription = Lens.lens (description :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApp)
+caDescription :: Lens.Lens' CreateApp (Core.Maybe Types.Description)
+caDescription = Lens.field @"description"
 {-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The name of the new application.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateApp (Core.Maybe Types.AppName)
+caName = Lens.field @"name"
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The name of the service role in the customer's account to be used by AWS SMS.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRoleName :: Lens.Lens' CreateApp (Core.Maybe Types.RoleName)
+caRoleName = Lens.field @"roleName"
+{-# DEPRECATED caRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The server groups to include in the application.
 --
 -- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caServerGroups :: Lens.Lens' CreateApp (Lude.Maybe [ServerGroup])
-caServerGroups = Lens.lens (serverGroups :: CreateApp -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: CreateApp)
+caServerGroups :: Lens.Lens' CreateApp (Core.Maybe [Types.ServerGroup])
+caServerGroups = Lens.field @"serverGroups"
 {-# DEPRECATED caServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags to be associated with the application.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateApp (Lude.Maybe [Tag])
-caTags = Lens.lens (tags :: CreateApp -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApp)
+caTags :: Lens.Lens' CreateApp (Core.Maybe [Types.Tag])
+caTags = Lens.field @"tags"
 {-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateApp where
+instance Core.FromJSON CreateApp where
+  toJSON CreateApp {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("clientToken" Core..=) Core.<$> clientToken,
+            ("description" Core..=) Core.<$> description,
+            ("name" Core..=) Core.<$> name,
+            ("roleName" Core..=) Core.<$> roleName,
+            ("serverGroups" Core..=) Core.<$> serverGroups,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSServerMigrationService_V2016_10_24.CreateApp")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Lude.<$> (x Lude..?> "appSummary")
-            Lude.<*> (x Lude..?> "serverGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "appSummary")
+            Core.<*> (x Core..:? "serverGroups")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateApp where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.CreateApp" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateApp where
-  toJSON CreateApp' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("clientToken" Lude..=) Lude.<$> clientToken,
-            ("roleName" Lude..=) Lude.<$> roleName,
-            ("name" Lude..=) Lude.<$> name,
-            ("description" Lude..=) Lude.<$> description,
-            ("serverGroups" Lude..=) Lude.<$> serverGroups,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateApp where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateApp where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
   { -- | A summary description of the application.
-    appSummary :: Lude.Maybe AppSummary,
+    appSummary :: Core.Maybe Types.AppSummary,
     -- | The server groups included in the application.
-    serverGroups :: Lude.Maybe [ServerGroup],
+    serverGroups :: Core.Maybe [Types.ServerGroup],
     -- | The tags associated with the application.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
---
--- * 'appSummary' - A summary description of the application.
--- * 'serverGroups' - The server groups included in the application.
--- * 'tags' - The tags associated with the application.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAppResponse' value with any optional fields omitted.
 mkCreateAppResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAppResponse
-mkCreateAppResponse pResponseStatus_ =
+mkCreateAppResponse responseStatus =
   CreateAppResponse'
-    { appSummary = Lude.Nothing,
-      serverGroups = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { appSummary = Core.Nothing,
+      serverGroups = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | A summary description of the application.
 --
 -- /Note:/ Consider using 'appSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsAppSummary :: Lens.Lens' CreateAppResponse (Lude.Maybe AppSummary)
-carsAppSummary = Lens.lens (appSummary :: CreateAppResponse -> Lude.Maybe AppSummary) (\s a -> s {appSummary = a} :: CreateAppResponse)
-{-# DEPRECATED carsAppSummary "Use generic-lens or generic-optics with 'appSummary' instead." #-}
+carrsAppSummary :: Lens.Lens' CreateAppResponse (Core.Maybe Types.AppSummary)
+carrsAppSummary = Lens.field @"appSummary"
+{-# DEPRECATED carrsAppSummary "Use generic-lens or generic-optics with 'appSummary' instead." #-}
 
 -- | The server groups included in the application.
 --
 -- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsServerGroups :: Lens.Lens' CreateAppResponse (Lude.Maybe [ServerGroup])
-carsServerGroups = Lens.lens (serverGroups :: CreateAppResponse -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: CreateAppResponse)
-{-# DEPRECATED carsServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
+carrsServerGroups :: Lens.Lens' CreateAppResponse (Core.Maybe [Types.ServerGroup])
+carrsServerGroups = Lens.field @"serverGroups"
+{-# DEPRECATED carrsServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags associated with the application.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsTags :: Lens.Lens' CreateAppResponse (Lude.Maybe [Tag])
-carsTags = Lens.lens (tags :: CreateAppResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAppResponse)
-{-# DEPRECATED carsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+carrsTags :: Lens.Lens' CreateAppResponse (Core.Maybe [Types.Tag])
+carrsTags = Lens.field @"tags"
+{-# DEPRECATED carrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+carrsResponseStatus :: Lens.Lens' CreateAppResponse Core.Int
+carrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED carrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,80 +23,78 @@ module Network.AWS.Glacier.DescribeVault
     mkDescribeVault,
 
     -- ** Request lenses
-    dVaultName,
-    dAccountId,
+    dvAccountId,
+    dvVaultName,
 
     -- * Destructuring the response
-    DescribeVaultOutput (..),
-    mkDescribeVaultOutput,
+    Types.DescribeVaultOutput (..),
+    Types.mkDescribeVaultOutput,
 
     -- ** Response lenses
-    dvoVaultName,
-    dvoSizeInBytes,
-    dvoLastInventoryDate,
-    dvoVaultARN,
-    dvoCreationDate,
-    dvoNumberOfArchives,
+    Types.dvoCreationDate,
+    Types.dvoLastInventoryDate,
+    Types.dvoNumberOfArchives,
+    Types.dvoSizeInBytes,
+    Types.dvoVaultARN,
+    Types.dvoVaultName,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for retrieving metadata for a specific vault in Amazon Glacier.
 --
 -- /See:/ 'mkDescribeVault' smart constructor.
 data DescribeVault = DescribeVault'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVault' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'DescribeVault' value with any optional fields omitted.
 mkDescribeVault ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   DescribeVault
-mkDescribeVault pVaultName_ pAccountId_ =
-  DescribeVault' {vaultName = pVaultName_, accountId = pAccountId_}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dVaultName :: Lens.Lens' DescribeVault Lude.Text
-dVaultName = Lens.lens (vaultName :: DescribeVault -> Lude.Text) (\s a -> s {vaultName = a} :: DescribeVault)
-{-# DEPRECATED dVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkDescribeVault accountId vaultName =
+  DescribeVault' {accountId, vaultName}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccountId :: Lens.Lens' DescribeVault Lude.Text
-dAccountId = Lens.lens (accountId :: DescribeVault -> Lude.Text) (\s a -> s {accountId = a} :: DescribeVault)
-{-# DEPRECATED dAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+dvAccountId :: Lens.Lens' DescribeVault Types.String
+dvAccountId = Lens.field @"accountId"
+{-# DEPRECATED dvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest DescribeVault where
-  type Rs DescribeVault = DescribeVaultOutput
-  request = Req.get glacierService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvVaultName :: Lens.Lens' DescribeVault Types.String
+dvVaultName = Lens.field @"vaultName"
+{-# DEPRECATED dvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance Lude.ToHeaders DescribeVault where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeVault where
-  toPath DescribeVault' {..} =
-    Lude.mconcat
-      ["/", Lude.toBS accountId, "/vaults/", Lude.toBS vaultName]
-
-instance Lude.ToQuery DescribeVault where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeVault where
+  type Rs DescribeVault = Types.DescribeVaultOutput
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

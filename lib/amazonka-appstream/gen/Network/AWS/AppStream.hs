@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +21,46 @@
 --     * <http://aws.amazon.com/documentation/appstream2 Amazon AppStream 2.0 documentation>
 module Network.AWS.AppStream
   ( -- * Service configuration
-    appStreamService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRoleException
+    _InvalidRoleException,
+
+    -- ** RequestLimitExceededException
+    _RequestLimitExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** IncompatibleImageException
+    _IncompatibleImageException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** InvalidAccountStatusException
+    _InvalidAccountStatusException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** ResourceNotAvailableException
+    _ResourceNotAvailableException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -182,212 +217,21 @@ module Network.AWS.AppStream
 
     -- * Types
 
-    -- ** AccessEndpointType
-    AccessEndpointType (..),
-
-    -- ** Action
-    Action (..),
-
-    -- ** AuthenticationType
-    AuthenticationType (..),
-
-    -- ** FleetAttribute
-    FleetAttribute (..),
-
-    -- ** FleetErrorCode
-    FleetErrorCode (..),
-
-    -- ** FleetState
-    FleetState (..),
-
-    -- ** FleetType
-    FleetType (..),
-
-    -- ** ImageBuilderState
-    ImageBuilderState (..),
-
-    -- ** ImageBuilderStateChangeReasonCode
-    ImageBuilderStateChangeReasonCode (..),
-
-    -- ** ImageState
-    ImageState (..),
-
-    -- ** ImageStateChangeReasonCode
-    ImageStateChangeReasonCode (..),
-
-    -- ** MessageAction
-    MessageAction (..),
-
-    -- ** Permission
-    Permission (..),
-
-    -- ** PlatformType
-    PlatformType (..),
-
-    -- ** SessionConnectionState
-    SessionConnectionState (..),
-
-    -- ** SessionState
-    SessionState (..),
-
-    -- ** StackAttribute
-    StackAttribute (..),
-
-    -- ** StackErrorCode
-    StackErrorCode (..),
-
-    -- ** StorageConnectorType
-    StorageConnectorType (..),
-
-    -- ** StreamView
-    StreamView (..),
-
-    -- ** UsageReportExecutionErrorCode
-    UsageReportExecutionErrorCode (..),
-
-    -- ** UsageReportSchedule
-    UsageReportSchedule (..),
-
-    -- ** UserStackAssociationErrorCode
-    UserStackAssociationErrorCode (..),
-
-    -- ** VisibilityType
-    VisibilityType (..),
-
-    -- ** AccessEndpoint
-    AccessEndpoint (..),
-    mkAccessEndpoint,
-    aeVPCeId,
-    aeEndpointType,
-
-    -- ** Application
-    Application (..),
-    mkApplication,
-    afEnabled,
-    afLaunchPath,
-    afLaunchParameters,
-    afName,
-    afDisplayName,
-    afMetadata,
-    afIconURL,
-
-    -- ** ApplicationSettings
-    ApplicationSettings (..),
-    mkApplicationSettings,
-    aEnabled,
-    aSettingsGroup,
-
     -- ** ApplicationSettingsResponse
     ApplicationSettingsResponse (..),
     mkApplicationSettingsResponse,
-    asEnabled,
-    asSettingsGroup,
-    asS3BucketName,
-
-    -- ** ComputeCapacity
-    ComputeCapacity (..),
-    mkComputeCapacity,
-    ccDesiredInstances,
-
-    -- ** ComputeCapacityStatus
-    ComputeCapacityStatus (..),
-    mkComputeCapacityStatus,
-    ccsInUse,
-    ccsDesired,
-    ccsRunning,
-    ccsAvailable,
-
-    -- ** DirectoryConfig
-    DirectoryConfig (..),
-    mkDirectoryConfig,
-    dcCreatedTime,
-    dcServiceAccountCredentials,
-    dcOrganizationalUnitDistinguishedNames,
-    dcDirectoryName,
+    asrEnabled,
+    asrS3BucketName,
+    asrSettingsGroup,
 
     -- ** DomainJoinInfo
     DomainJoinInfo (..),
     mkDomainJoinInfo,
-    djiOrganizationalUnitDistinguishedName,
     djiDirectoryName,
+    djiOrganizationalUnitDistinguishedName,
 
-    -- ** Fleet
-    Fleet (..),
-    mkFleet,
-    fDomainJoinInfo,
-    fIAMRoleARN,
-    fState,
-    fDisconnectTimeoutInSeconds,
-    fMaxUserDurationInSeconds,
-    fARN,
-    fCreatedTime,
-    fIdleDisconnectTimeoutInSeconds,
-    fFleetType,
-    fInstanceType,
-    fVPCConfig,
-    fName,
-    fImageARN,
-    fComputeCapacityStatus,
-    fFleetErrors,
-    fDisplayName,
-    fEnableDefaultInternetAccess,
-    fImageName,
-    fDescription,
-    fStreamView,
-
-    -- ** FleetError
-    FleetError (..),
-    mkFleetError,
-    feErrorCode,
-    feErrorMessage,
-
-    -- ** Image
-    Image (..),
-    mkImage,
-    iState,
-    iImagePermissions,
-    iPlatform,
-    iPublicBaseImageReleasedDate,
-    iStateChangeReason,
-    iARN,
-    iCreatedTime,
-    iImageBuilderSupported,
-    iVisibility,
-    iImageBuilderName,
-    iBaseImageARN,
-    iName,
-    iDisplayName,
-    iDescription,
-    iAppstreamAgentVersion,
-    iApplications,
-
-    -- ** ImageBuilder
-    ImageBuilder (..),
-    mkImageBuilder,
-    ibDomainJoinInfo,
-    ibIAMRoleARN,
-    ibState,
-    ibPlatform,
-    ibNetworkAccessConfiguration,
-    ibStateChangeReason,
-    ibARN,
-    ibCreatedTime,
-    ibImageBuilderErrors,
-    ibInstanceType,
-    ibAccessEndpoints,
-    ibVPCConfig,
-    ibName,
-    ibImageARN,
-    ibDisplayName,
-    ibEnableDefaultInternetAccess,
-    ibDescription,
-    ibAppstreamAgentVersion,
-
-    -- ** ImageBuilderStateChangeReason
-    ImageBuilderStateChangeReason (..),
-    mkImageBuilderStateChangeReason,
-    ibscrCode,
-    ibscrMessage,
+    -- ** UsageReportExecutionErrorCode
+    UsageReportExecutionErrorCode (..),
 
     -- ** ImagePermissions
     ImagePermissions (..),
@@ -395,23 +239,202 @@ module Network.AWS.AppStream
     ipAllowFleet,
     ipAllowImageBuilder,
 
-    -- ** ImageStateChangeReason
-    ImageStateChangeReason (..),
-    mkImageStateChangeReason,
-    iscrCode,
-    iscrMessage,
+    -- ** AccessEndpointType
+    AccessEndpointType (..),
 
-    -- ** LastReportGenerationExecutionError
-    LastReportGenerationExecutionError (..),
-    mkLastReportGenerationExecutionError,
-    lrgeeErrorCode,
-    lrgeeErrorMessage,
+    -- ** ImageStateChangeReasonCode
+    ImageStateChangeReasonCode (..),
+
+    -- ** ApplicationSettings
+    ApplicationSettings (..),
+    mkApplicationSettings,
+    asEnabled,
+    asSettingsGroup,
+
+    -- ** UserSetting
+    UserSetting (..),
+    mkUserSetting,
+    usAction,
+    usPermission,
+
+    -- ** RegionName
+    RegionName (..),
+
+    -- ** Image
+    Image (..),
+    mkImage,
+    iName,
+    iApplications,
+    iAppstreamAgentVersion,
+    iArn,
+    iBaseImageArn,
+    iCreatedTime,
+    iDescription,
+    iDisplayName,
+    iImageBuilderName,
+    iImageBuilderSupported,
+    iImagePermissions,
+    iPlatform,
+    iPublicBaseImageReleasedDate,
+    iState,
+    iStateChangeReason,
+    iVisibility,
+
+    -- ** Application
+    Application (..),
+    mkApplication,
+    aDisplayName,
+    aEnabled,
+    aIconURL,
+    aLaunchParameters,
+    aLaunchPath,
+    aMetadata,
+    aName,
+
+    -- ** FleetAttribute
+    FleetAttribute (..),
+
+    -- ** FeedbackURL
+    FeedbackURL (..),
+
+    -- ** StackAttribute
+    StackAttribute (..),
 
     -- ** NetworkAccessConfiguration
     NetworkAccessConfiguration (..),
     mkNetworkAccessConfiguration,
     nacEniId,
-    nacEniPrivateIPAddress,
+    nacEniPrivateIpAddress,
+
+    -- ** StorageConnectorType
+    StorageConnectorType (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** MessageAction
+    MessageAction (..),
+
+    -- ** String
+    String (..),
+
+    -- ** Domain
+    Domain (..),
+
+    -- ** UserStackAssociationErrorCode
+    UserStackAssociationErrorCode (..),
+
+    -- ** FleetType
+    FleetType (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** AccountName
+    AccountName (..),
+
+    -- ** UserStackAssociation
+    UserStackAssociation (..),
+    mkUserStackAssociation,
+    usaStackName,
+    usaUserName,
+    usaAuthenticationType,
+    usaSendEmailNotification,
+
+    -- ** ImageBuilder
+    ImageBuilder (..),
+    mkImageBuilder,
+    ibName,
+    ibAccessEndpoints,
+    ibAppstreamAgentVersion,
+    ibArn,
+    ibCreatedTime,
+    ibDescription,
+    ibDisplayName,
+    ibDomainJoinInfo,
+    ibEnableDefaultInternetAccess,
+    ibIamRoleArn,
+    ibImageArn,
+    ibImageBuilderErrors,
+    ibInstanceType,
+    ibNetworkAccessConfiguration,
+    ibPlatform,
+    ibState,
+    ibStateChangeReason,
+    ibVpcConfig,
+
+    -- ** Username
+    Username (..),
+
+    -- ** UserStackAssociationError
+    UserStackAssociationError (..),
+    mkUserStackAssociationError,
+    usaeErrorCode,
+    usaeErrorMessage,
+    usaeUserStackAssociation,
+
+    -- ** AccountPassword
+    AccountPassword (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** AwsAccountId
+    AwsAccountId (..),
+
+    -- ** SessionState
+    SessionState (..),
+
+    -- ** User
+    User (..),
+    mkUser,
+    uAuthenticationType,
+    uArn,
+    uCreatedTime,
+    uEnabled,
+    uFirstName,
+    uLastName,
+    uStatus,
+    uUserName,
+
+    -- ** FleetState
+    FleetState (..),
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** ServiceAccountCredentials
+    ServiceAccountCredentials (..),
+    mkServiceAccountCredentials,
+    sacAccountName,
+    sacAccountPassword,
+
+    -- ** VpcConfig
+    VpcConfig (..),
+    mkVpcConfig,
+    vcSecurityGroupIds,
+    vcSubnetIds,
+
+    -- ** SessionConnectionState
+    SessionConnectionState (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** PlatformType
+    PlatformType (..),
+
+    -- ** AccessEndpoint
+    AccessEndpoint (..),
+    mkAccessEndpoint,
+    aeEndpointType,
+    aeVpceId,
+
+    -- ** ImageStateChangeReason
+    ImageStateChangeReason (..),
+    mkImageStateChangeReason,
+    iscrCode,
+    iscrMessage,
 
     -- ** ResourceError
     ResourceError (..),
@@ -420,54 +443,8 @@ module Network.AWS.AppStream
     reErrorMessage,
     reErrorTimestamp,
 
-    -- ** ServiceAccountCredentials
-    ServiceAccountCredentials (..),
-    mkServiceAccountCredentials,
-    sacAccountName,
-    sacAccountPassword,
-
-    -- ** Session
-    Session (..),
-    mkSession,
-    sState,
-    sNetworkAccessConfiguration,
-    sMaxExpirationTime,
-    sStartTime,
-    sUserId,
-    sId,
-    sAuthenticationType,
-    sConnectionState,
-    sFleetName,
-    sStackName,
-
-    -- ** SharedImagePermissions
-    SharedImagePermissions (..),
-    mkSharedImagePermissions,
-    sipImagePermissions,
-    sipSharedAccountId,
-
-    -- ** Stack
-    Stack (..),
-    mkStack,
-    sUserSettings,
-    sApplicationSettings,
-    sFeedbackURL,
-    sARN,
-    sCreatedTime,
-    sStorageConnectors,
-    sAccessEndpoints,
-    sName,
-    sDisplayName,
-    sStackErrors,
-    sEmbedHostDomains,
-    sDescription,
-    sRedirectURL,
-
-    -- ** StackError
-    StackError (..),
-    mkStackError,
-    seErrorCode,
-    seErrorMessage,
+    -- ** SettingsGroup
+    SettingsGroup (..),
 
     -- ** StorageConnector
     StorageConnector (..),
@@ -476,62 +453,235 @@ module Network.AWS.AppStream
     scDomains,
     scResourceIdentifier,
 
+    -- ** ComputeCapacityStatus
+    ComputeCapacityStatus (..),
+    mkComputeCapacityStatus,
+    ccsDesired,
+    ccsAvailable,
+    ccsInUse,
+    ccsRunning,
+
+    -- ** DisplayName
+    DisplayName (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** LastReportGenerationExecutionError
+    LastReportGenerationExecutionError (..),
+    mkLastReportGenerationExecutionError,
+    lrgeeErrorCode,
+    lrgeeErrorMessage,
+
+    -- ** AuthenticationType
+    AuthenticationType (..),
+
     -- ** UsageReportSubscription
     UsageReportSubscription (..),
     mkUsageReportSubscription,
     ursLastGeneratedReportDate,
+    ursS3BucketName,
     ursSchedule,
     ursSubscriptionErrors,
-    ursS3BucketName,
 
-    -- ** User
-    User (..),
-    mkUser,
-    uStatus,
-    uEnabled,
-    uLastName,
-    uARN,
-    uCreatedTime,
-    uUserName,
-    uFirstName,
-    uAuthenticationType,
+    -- ** ImageState
+    ImageState (..),
 
-    -- ** UserSetting
-    UserSetting (..),
-    mkUserSetting,
-    usAction,
-    usPermission,
+    -- ** FleetErrorCode
+    FleetErrorCode (..),
 
-    -- ** UserStackAssociation
-    UserStackAssociation (..),
-    mkUserStackAssociation,
-    usaUserName,
-    usaSendEmailNotification,
-    usaAuthenticationType,
-    usaStackName,
+    -- ** Permission
+    Permission (..),
 
-    -- ** UserStackAssociationError
-    UserStackAssociationError (..),
-    mkUserStackAssociationError,
-    usaeUserStackAssociation,
-    usaeErrorCode,
-    usaeErrorMessage,
+    -- ** ImageBuilderStateChangeReason
+    ImageBuilderStateChangeReason (..),
+    mkImageBuilderStateChangeReason,
+    ibscrCode,
+    ibscrMessage,
 
-    -- ** VPCConfig
-    VPCConfig (..),
-    mkVPCConfig,
-    vcSecurityGroupIds,
-    vcSubnetIds,
+    -- ** DirectoryConfig
+    DirectoryConfig (..),
+    mkDirectoryConfig,
+    dcDirectoryName,
+    dcCreatedTime,
+    dcOrganizationalUnitDistinguishedNames,
+    dcServiceAccountCredentials,
+
+    -- ** StackErrorCode
+    StackErrorCode (..),
+
+    -- ** OrganizationalUnitDistinguishedName
+    OrganizationalUnitDistinguishedName (..),
+
+    -- ** EmbedHostDomain
+    EmbedHostDomain (..),
+
+    -- ** SharedImagePermissions
+    SharedImagePermissions (..),
+    mkSharedImagePermissions,
+    sipSharedAccountId,
+    sipImagePermissions,
+
+    -- ** Description
+    Description (..),
+
+    -- ** AppstreamAgentVersion
+    AppstreamAgentVersion (..),
+
+    -- ** FleetError
+    FleetError (..),
+    mkFleetError,
+    feErrorCode,
+    feErrorMessage,
+
+    -- ** DirectoryName
+    DirectoryName (..),
+
+    -- ** Stack
+    Stack (..),
+    mkStack,
+    sName,
+    sAccessEndpoints,
+    sApplicationSettings,
+    sArn,
+    sCreatedTime,
+    sDescription,
+    sDisplayName,
+    sEmbedHostDomains,
+    sFeedbackURL,
+    sRedirectURL,
+    sStackErrors,
+    sStorageConnectors,
+    sUserSettings,
+
+    -- ** ImageBuilderStateChangeReasonCode
+    ImageBuilderStateChangeReasonCode (..),
+
+    -- ** Session
+    Session (..),
+    mkSession,
+    sId,
+    sUserId,
+    sStackName,
+    sFleetName,
+    sState,
+    sAuthenticationType,
+    sConnectionState,
+    sMaxExpirationTime,
+    sNetworkAccessConfiguration,
+    sStartTime,
+
+    -- ** UsageReportSchedule
+    UsageReportSchedule (..),
+
+    -- ** Fleet
+    Fleet (..),
+    mkFleet,
+    fArn,
+    fName,
+    fInstanceType,
+    fComputeCapacityStatus,
+    fState,
+    fCreatedTime,
+    fDescription,
+    fDisconnectTimeoutInSeconds,
+    fDisplayName,
+    fDomainJoinInfo,
+    fEnableDefaultInternetAccess,
+    fFleetErrors,
+    fFleetType,
+    fIamRoleArn,
+    fIdleDisconnectTimeoutInSeconds,
+    fImageArn,
+    fImageName,
+    fMaxUserDurationInSeconds,
+    fStreamView,
+    fVpcConfig,
+
+    -- ** StackError
+    StackError (..),
+    mkStackError,
+    seErrorCode,
+    seErrorMessage,
+
+    -- ** VisibilityType
+    VisibilityType (..),
+
+    -- ** ResourceIdentifier
+    ResourceIdentifier (..),
+
+    -- ** StreamView
+    StreamView (..),
+
+    -- ** ImageBuilderState
+    ImageBuilderState (..),
+
+    -- ** ComputeCapacity
+    ComputeCapacity (..),
+    mkComputeCapacity,
+    ccDesiredInstances,
+
+    -- ** RedirectURL
+    RedirectURL (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
+    -- ** StreamingURL
+    StreamingURL (..),
+
+    -- ** SharedAccountId
+    SharedAccountId (..),
+
+    -- ** BaseImageArn
+    BaseImageArn (..),
+
+    -- ** ImageBuilderName
+    ImageBuilderName (..),
+
+    -- ** IconURL
+    IconURL (..),
+
+    -- ** LaunchParameters
+    LaunchParameters (..),
+
+    -- ** LaunchPath
+    LaunchPath (..),
+
+    -- ** EniId
+    EniId (..),
+
+    -- ** EniPrivateIpAddress
+    EniPrivateIpAddress (..),
+
+    -- ** SourceImageName
+    SourceImageName (..),
+
+    -- ** DestinationImageName
+    DestinationImageName (..),
+
+    -- ** DestinationImageDescription
+    DestinationImageDescription (..),
+
+    -- ** UserName
+    UserName (..),
+
+    -- ** FirstName
+    FirstName (..),
+
+    -- ** LastName
+    LastName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -13,46 +13,51 @@
 module Network.AWS.CodeBuild.Types.ReportGroupStatusType
   ( ReportGroupStatusType
       ( ReportGroupStatusType',
-        Active,
-        Deleting
+        ReportGroupStatusTypeActive,
+        ReportGroupStatusTypeDeleting,
+        fromReportGroupStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReportGroupStatusType = ReportGroupStatusType' Lude.Text
+newtype ReportGroupStatusType = ReportGroupStatusType'
+  { fromReportGroupStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Active :: ReportGroupStatusType
-pattern Active = ReportGroupStatusType' "ACTIVE"
+pattern ReportGroupStatusTypeActive :: ReportGroupStatusType
+pattern ReportGroupStatusTypeActive = ReportGroupStatusType' "ACTIVE"
 
-pattern Deleting :: ReportGroupStatusType
-pattern Deleting = ReportGroupStatusType' "DELETING"
+pattern ReportGroupStatusTypeDeleting :: ReportGroupStatusType
+pattern ReportGroupStatusTypeDeleting = ReportGroupStatusType' "DELETING"
 
 {-# COMPLETE
-  Active,
-  Deleting,
+  ReportGroupStatusTypeActive,
+  ReportGroupStatusTypeDeleting,
   ReportGroupStatusType'
   #-}

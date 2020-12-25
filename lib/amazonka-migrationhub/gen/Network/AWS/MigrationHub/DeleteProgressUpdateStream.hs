@@ -43,118 +43,103 @@ module Network.AWS.MigrationHub.DeleteProgressUpdateStream
     mkDeleteProgressUpdateStreamResponse,
 
     -- ** Response lenses
-    dpusrsResponseStatus,
+    dpusrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MigrationHub.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProgressUpdateStream' smart constructor.
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
   { -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
-    progressUpdateStreamName :: Lude.Text,
+    progressUpdateStreamName :: Types.ProgressUpdateStreamName,
     -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProgressUpdateStream' with the minimum fields required to make a request.
---
--- * 'progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | Creates a 'DeleteProgressUpdateStream' value with any optional fields omitted.
 mkDeleteProgressUpdateStream ::
   -- | 'progressUpdateStreamName'
-  Lude.Text ->
+  Types.ProgressUpdateStreamName ->
   DeleteProgressUpdateStream
-mkDeleteProgressUpdateStream pProgressUpdateStreamName_ =
+mkDeleteProgressUpdateStream progressUpdateStreamName =
   DeleteProgressUpdateStream'
-    { progressUpdateStreamName =
-        pProgressUpdateStreamName_,
-      dryRun = Lude.Nothing
+    { progressUpdateStreamName,
+      dryRun = Core.Nothing
     }
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
 --
 -- /Note:/ Consider using 'progressUpdateStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpusProgressUpdateStreamName :: Lens.Lens' DeleteProgressUpdateStream Lude.Text
-dpusProgressUpdateStreamName = Lens.lens (progressUpdateStreamName :: DeleteProgressUpdateStream -> Lude.Text) (\s a -> s {progressUpdateStreamName = a} :: DeleteProgressUpdateStream)
+dpusProgressUpdateStreamName :: Lens.Lens' DeleteProgressUpdateStream Types.ProgressUpdateStreamName
+dpusProgressUpdateStreamName = Lens.field @"progressUpdateStreamName"
 {-# DEPRECATED dpusProgressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead." #-}
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpusDryRun :: Lens.Lens' DeleteProgressUpdateStream (Lude.Maybe Lude.Bool)
-dpusDryRun = Lens.lens (dryRun :: DeleteProgressUpdateStream -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteProgressUpdateStream)
+dpusDryRun :: Lens.Lens' DeleteProgressUpdateStream (Core.Maybe Core.Bool)
+dpusDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteProgressUpdateStream where
+instance Core.FromJSON DeleteProgressUpdateStream where
+  toJSON DeleteProgressUpdateStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ProgressUpdateStreamName" Core..= progressUpdateStreamName),
+            ("DryRun" Core..=) Core.<$> dryRun
+          ]
+      )
+
+instance Core.AWSRequest DeleteProgressUpdateStream where
   type
     Rs DeleteProgressUpdateStream =
       DeleteProgressUpdateStreamResponse
-  request = Req.postJSON migrationHubService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSMigrationHub.DeleteProgressUpdateStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteProgressUpdateStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProgressUpdateStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSMigrationHub.DeleteProgressUpdateStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProgressUpdateStream where
-  toJSON DeleteProgressUpdateStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("ProgressUpdateStreamName" Lude..= progressUpdateStreamName),
-            ("DryRun" Lude..=) Lude.<$> dryRun
-          ]
-      )
-
-instance Lude.ToPath DeleteProgressUpdateStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProgressUpdateStream where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProgressUpdateStreamResponse' smart constructor.
 newtype DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProgressUpdateStreamResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProgressUpdateStreamResponse' value with any optional fields omitted.
 mkDeleteProgressUpdateStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProgressUpdateStreamResponse
-mkDeleteProgressUpdateStreamResponse pResponseStatus_ =
-  DeleteProgressUpdateStreamResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteProgressUpdateStreamResponse responseStatus =
+  DeleteProgressUpdateStreamResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpusrsResponseStatus :: Lens.Lens' DeleteProgressUpdateStreamResponse Lude.Int
-dpusrsResponseStatus = Lens.lens (responseStatus :: DeleteProgressUpdateStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProgressUpdateStreamResponse)
-{-# DEPRECATED dpusrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpusrrsResponseStatus :: Lens.Lens' DeleteProgressUpdateStreamResponse Core.Int
+dpusrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpusrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

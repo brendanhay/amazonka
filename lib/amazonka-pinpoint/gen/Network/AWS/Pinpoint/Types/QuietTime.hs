@@ -17,60 +17,55 @@ module Network.AWS.Pinpoint.Types.QuietTime
     mkQuietTime,
 
     -- * Lenses
-    qtStart,
     qtEnd,
+    qtStart,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the start and end times that define a time range when messages aren't sent to endpoints.
 --
 -- /See:/ 'mkQuietTime' smart constructor.
 data QuietTime = QuietTime'
-  { -- | The specific time when quiet time begins. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
-    start :: Lude.Maybe Lude.Text,
-    -- | The specific time when quiet time ends. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
-    end :: Lude.Maybe Lude.Text
+  { -- | The specific time when quiet time ends. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
+    end :: Core.Maybe Core.Text,
+    -- | The specific time when quiet time begins. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
+    start :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QuietTime' with the minimum fields required to make a request.
---
--- * 'start' - The specific time when quiet time begins. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
--- * 'end' - The specific time when quiet time ends. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
+-- | Creates a 'QuietTime' value with any optional fields omitted.
 mkQuietTime ::
   QuietTime
-mkQuietTime = QuietTime' {start = Lude.Nothing, end = Lude.Nothing}
-
--- | The specific time when quiet time begins. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
---
--- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qtStart :: Lens.Lens' QuietTime (Lude.Maybe Lude.Text)
-qtStart = Lens.lens (start :: QuietTime -> Lude.Maybe Lude.Text) (\s a -> s {start = a} :: QuietTime)
-{-# DEPRECATED qtStart "Use generic-lens or generic-optics with 'start' instead." #-}
+mkQuietTime = QuietTime' {end = Core.Nothing, start = Core.Nothing}
 
 -- | The specific time when quiet time ends. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
 --
 -- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qtEnd :: Lens.Lens' QuietTime (Lude.Maybe Lude.Text)
-qtEnd = Lens.lens (end :: QuietTime -> Lude.Maybe Lude.Text) (\s a -> s {end = a} :: QuietTime)
+qtEnd :: Lens.Lens' QuietTime (Core.Maybe Core.Text)
+qtEnd = Lens.field @"end"
 {-# DEPRECATED qtEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
-instance Lude.FromJSON QuietTime where
-  parseJSON =
-    Lude.withObject
-      "QuietTime"
-      ( \x ->
-          QuietTime'
-            Lude.<$> (x Lude..:? "Start") Lude.<*> (x Lude..:? "End")
+-- | The specific time when quiet time begins. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtStart :: Lens.Lens' QuietTime (Core.Maybe Core.Text)
+qtStart = Lens.field @"start"
+{-# DEPRECATED qtStart "Use generic-lens or generic-optics with 'start' instead." #-}
+
+instance Core.FromJSON QuietTime where
+  toJSON QuietTime {..} =
+    Core.object
+      ( Core.catMaybes
+          [("End" Core..=) Core.<$> end, ("Start" Core..=) Core.<$> start]
       )
 
-instance Lude.ToJSON QuietTime where
-  toJSON QuietTime' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Start" Lude..=) Lude.<$> start, ("End" Lude..=) Lude.<$> end]
-      )
+instance Core.FromJSON QuietTime where
+  parseJSON =
+    Core.withObject "QuietTime" Core.$
+      \x ->
+        QuietTime'
+          Core.<$> (x Core..:? "End") Core.<*> (x Core..:? "Start")

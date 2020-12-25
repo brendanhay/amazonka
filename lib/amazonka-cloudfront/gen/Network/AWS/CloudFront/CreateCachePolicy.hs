@@ -38,128 +38,114 @@ module Network.AWS.CloudFront.CreateCachePolicy
     mkCreateCachePolicyResponse,
 
     -- ** Response lenses
-    ccprsCachePolicy,
-    ccprsETag,
-    ccprsLocation,
-    ccprsResponseStatus,
+    ccprrsCachePolicy,
+    ccprrsETag,
+    ccprrsLocation,
+    ccprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCachePolicy' smart constructor.
 newtype CreateCachePolicy = CreateCachePolicy'
   { -- | A cache policy configuration.
-    cachePolicyConfig :: CachePolicyConfig
+    cachePolicyConfig :: Types.CachePolicyConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCachePolicy' with the minimum fields required to make a request.
---
--- * 'cachePolicyConfig' - A cache policy configuration.
+-- | Creates a 'CreateCachePolicy' value with any optional fields omitted.
 mkCreateCachePolicy ::
   -- | 'cachePolicyConfig'
-  CachePolicyConfig ->
+  Types.CachePolicyConfig ->
   CreateCachePolicy
-mkCreateCachePolicy pCachePolicyConfig_ =
-  CreateCachePolicy' {cachePolicyConfig = pCachePolicyConfig_}
+mkCreateCachePolicy cachePolicyConfig =
+  CreateCachePolicy' {cachePolicyConfig}
 
 -- | A cache policy configuration.
 --
 -- /Note:/ Consider using 'cachePolicyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpCachePolicyConfig :: Lens.Lens' CreateCachePolicy CachePolicyConfig
-ccpCachePolicyConfig = Lens.lens (cachePolicyConfig :: CreateCachePolicy -> CachePolicyConfig) (\s a -> s {cachePolicyConfig = a} :: CreateCachePolicy)
+ccpCachePolicyConfig :: Lens.Lens' CreateCachePolicy Types.CachePolicyConfig
+ccpCachePolicyConfig = Lens.field @"cachePolicyConfig"
 {-# DEPRECATED ccpCachePolicyConfig "Use generic-lens or generic-optics with 'cachePolicyConfig' instead." #-}
 
-instance Lude.AWSRequest CreateCachePolicy where
+instance Core.AWSRequest CreateCachePolicy where
   type Rs CreateCachePolicy = CreateCachePolicyResponse
-  request = Req.postXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2020-05-31/cache-policy",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateCachePolicyResponse'
-            Lude.<$> (Lude.parseXML x)
-            Lude.<*> (h Lude..#? "ETag")
-            Lude.<*> (h Lude..#? "Location")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateCachePolicy where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CachePolicyConfig"
-      Lude.. cachePolicyConfig
-
-instance Lude.ToHeaders CreateCachePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateCachePolicy where
-  toPath = Lude.const "/2020-05-31/cache-policy"
-
-instance Lude.ToQuery CreateCachePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateCachePolicyResponse' smart constructor.
 data CreateCachePolicyResponse = CreateCachePolicyResponse'
   { -- | A cache policy.
-    cachePolicy :: Lude.Maybe CachePolicy,
+    cachePolicy :: Core.Maybe Types.CachePolicy,
     -- | The current version of the cache policy.
-    eTag :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | The fully qualified URI of the cache policy just created.
-    location :: Lude.Maybe Lude.Text,
+    location :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateCachePolicyResponse' with the minimum fields required to make a request.
---
--- * 'cachePolicy' - A cache policy.
--- * 'eTag' - The current version of the cache policy.
--- * 'location' - The fully qualified URI of the cache policy just created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCachePolicyResponse' value with any optional fields omitted.
 mkCreateCachePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCachePolicyResponse
-mkCreateCachePolicyResponse pResponseStatus_ =
+mkCreateCachePolicyResponse responseStatus =
   CreateCachePolicyResponse'
-    { cachePolicy = Lude.Nothing,
-      eTag = Lude.Nothing,
-      location = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cachePolicy = Core.Nothing,
+      eTag = Core.Nothing,
+      location = Core.Nothing,
+      responseStatus
     }
 
 -- | A cache policy.
 --
 -- /Note:/ Consider using 'cachePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccprsCachePolicy :: Lens.Lens' CreateCachePolicyResponse (Lude.Maybe CachePolicy)
-ccprsCachePolicy = Lens.lens (cachePolicy :: CreateCachePolicyResponse -> Lude.Maybe CachePolicy) (\s a -> s {cachePolicy = a} :: CreateCachePolicyResponse)
-{-# DEPRECATED ccprsCachePolicy "Use generic-lens or generic-optics with 'cachePolicy' instead." #-}
+ccprrsCachePolicy :: Lens.Lens' CreateCachePolicyResponse (Core.Maybe Types.CachePolicy)
+ccprrsCachePolicy = Lens.field @"cachePolicy"
+{-# DEPRECATED ccprrsCachePolicy "Use generic-lens or generic-optics with 'cachePolicy' instead." #-}
 
 -- | The current version of the cache policy.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccprsETag :: Lens.Lens' CreateCachePolicyResponse (Lude.Maybe Lude.Text)
-ccprsETag = Lens.lens (eTag :: CreateCachePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateCachePolicyResponse)
-{-# DEPRECATED ccprsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+ccprrsETag :: Lens.Lens' CreateCachePolicyResponse (Core.Maybe Types.String)
+ccprrsETag = Lens.field @"eTag"
+{-# DEPRECATED ccprrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the cache policy just created.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccprsLocation :: Lens.Lens' CreateCachePolicyResponse (Lude.Maybe Lude.Text)
-ccprsLocation = Lens.lens (location :: CreateCachePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateCachePolicyResponse)
-{-# DEPRECATED ccprsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+ccprrsLocation :: Lens.Lens' CreateCachePolicyResponse (Core.Maybe Types.String)
+ccprrsLocation = Lens.field @"location"
+{-# DEPRECATED ccprrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccprsResponseStatus :: Lens.Lens' CreateCachePolicyResponse Lude.Int
-ccprsResponseStatus = Lens.lens (responseStatus :: CreateCachePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCachePolicyResponse)
-{-# DEPRECATED ccprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccprrsResponseStatus :: Lens.Lens' CreateCachePolicyResponse Core.Int
+ccprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

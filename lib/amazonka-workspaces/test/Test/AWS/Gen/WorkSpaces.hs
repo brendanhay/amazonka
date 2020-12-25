@@ -33,8 +33,8 @@ import Test.Tasty
 --         , requestDescribeAccount $
 --             mkDescribeAccount
 --
---         , requestRevokeIPRules $
---             mkRevokeIPRules
+--         , requestRevokeIpRules $
+--             mkRevokeIpRules
 --
 --         , requestDescribeWorkspaceImages $
 --             mkDescribeWorkspaceImages
@@ -54,14 +54,14 @@ import Test.Tasty
 --         , requestDescribeWorkspaceDirectories $
 --             mkDescribeWorkspaceDirectories
 --
---         , requestDisassociateIPGroups $
---             mkDisassociateIPGroups
+--         , requestDisassociateIpGroups $
+--             mkDisassociateIpGroups
 --
 --         , requestDescribeWorkspaceBundles $
 --             mkDescribeWorkspaceBundles
 --
---         , requestAuthorizeIPRules $
---             mkAuthorizeIPRules
+--         , requestAuthorizeIpRules $
+--             mkAuthorizeIpRules
 --
 --         , requestDescribeWorkspaceImagePermissions $
 --             mkDescribeWorkspaceImagePermissions
@@ -75,8 +75,8 @@ import Test.Tasty
 --         , requestModifyWorkspaceState $
 --             mkModifyWorkspaceState
 --
---         , requestCreateIPGroup $
---             mkCreateIPGroup
+--         , requestCreateIpGroup $
+--             mkCreateIpGroup
 --
 --         , requestDisassociateConnectionAlias $
 --             mkDisassociateConnectionAlias
@@ -102,8 +102,8 @@ import Test.Tasty
 --         , requestModifyWorkspaceAccessProperties $
 --             mkModifyWorkspaceAccessProperties
 --
---         , requestUpdateRulesOfIPGroup $
---             mkUpdateRulesOfIPGroup
+--         , requestUpdateRulesOfIpGroup $
+--             mkUpdateRulesOfIpGroup
 --
 --         , requestDeleteWorkspaceImage $
 --             mkDeleteWorkspaceImage
@@ -111,8 +111,8 @@ import Test.Tasty
 --         , requestStopWorkspaces $
 --             mkStopWorkspaces
 --
---         , requestAssociateIPGroups $
---             mkAssociateIPGroups
+--         , requestAssociateIpGroups $
+--             mkAssociateIpGroups
 --
 --         , requestModifySelfservicePermissions $
 --             mkModifySelfservicePermissions
@@ -129,8 +129,8 @@ import Test.Tasty
 --         , requestRebootWorkspaces $
 --             mkRebootWorkspaces
 --
---         , requestDeleteIPGroup $
---             mkDeleteIPGroup
+--         , requestDeleteIpGroup $
+--             mkDeleteIpGroup
 --
 --         , requestCopyWorkspaceImage $
 --             mkCopyWorkspaceImage
@@ -153,8 +153,8 @@ import Test.Tasty
 --         , requestModifyClientProperties $
 --             mkModifyClientProperties
 --
---         , requestDescribeIPGroups $
---             mkDescribeIPGroups
+--         , requestDescribeIpGroups $
+--             mkDescribeIpGroups
 --
 --         , requestListAvailableManagementCidrRanges $
 --             mkListAvailableManagementCidrRanges
@@ -186,8 +186,8 @@ import Test.Tasty
 --         , responseDescribeAccount $
 --             mkDescribeAccountResponse
 --
---         , responseRevokeIPRules $
---             mkRevokeIPRulesResponse
+--         , responseRevokeIpRules $
+--             mkRevokeIpRulesResponse
 --
 --         , responseDescribeWorkspaceImages $
 --             mkDescribeWorkspaceImagesResponse
@@ -207,14 +207,14 @@ import Test.Tasty
 --         , responseDescribeWorkspaceDirectories $
 --             mkDescribeWorkspaceDirectoriesResponse
 --
---         , responseDisassociateIPGroups $
---             mkDisassociateIPGroupsResponse
+--         , responseDisassociateIpGroups $
+--             mkDisassociateIpGroupsResponse
 --
 --         , responseDescribeWorkspaceBundles $
 --             mkDescribeWorkspaceBundlesResponse
 --
---         , responseAuthorizeIPRules $
---             mkAuthorizeIPRulesResponse
+--         , responseAuthorizeIpRules $
+--             mkAuthorizeIpRulesResponse
 --
 --         , responseDescribeWorkspaceImagePermissions $
 --             mkDescribeWorkspaceImagePermissionsResponse
@@ -228,8 +228,8 @@ import Test.Tasty
 --         , responseModifyWorkspaceState $
 --             mkModifyWorkspaceStateResponse
 --
---         , responseCreateIPGroup $
---             mkCreateIPGroupResponse
+--         , responseCreateIpGroup $
+--             mkCreateIpGroupResponse
 --
 --         , responseDisassociateConnectionAlias $
 --             mkDisassociateConnectionAliasResponse
@@ -255,8 +255,8 @@ import Test.Tasty
 --         , responseModifyWorkspaceAccessProperties $
 --             mkModifyWorkspaceAccessPropertiesResponse
 --
---         , responseUpdateRulesOfIPGroup $
---             mkUpdateRulesOfIPGroupResponse
+--         , responseUpdateRulesOfIpGroup $
+--             mkUpdateRulesOfIpGroupResponse
 --
 --         , responseDeleteWorkspaceImage $
 --             mkDeleteWorkspaceImageResponse
@@ -264,8 +264,8 @@ import Test.Tasty
 --         , responseStopWorkspaces $
 --             mkStopWorkspacesResponse
 --
---         , responseAssociateIPGroups $
---             mkAssociateIPGroupsResponse
+--         , responseAssociateIpGroups $
+--             mkAssociateIpGroupsResponse
 --
 --         , responseModifySelfservicePermissions $
 --             mkModifySelfservicePermissionsResponse
@@ -282,8 +282,8 @@ import Test.Tasty
 --         , responseRebootWorkspaces $
 --             mkRebootWorkspacesResponse
 --
---         , responseDeleteIPGroup $
---             mkDeleteIPGroupResponse
+--         , responseDeleteIpGroup $
+--             mkDeleteIpGroupResponse
 --
 --         , responseCopyWorkspaceImage $
 --             mkCopyWorkspaceImageResponse
@@ -306,8 +306,8 @@ import Test.Tasty
 --         , responseModifyClientProperties $
 --             mkModifyClientPropertiesResponse
 --
---         , responseDescribeIPGroups $
---             mkDescribeIPGroupsResponse
+--         , responseDescribeIpGroups $
+--             mkDescribeIpGroupsResponse
 --
 --         , responseListAvailableManagementCidrRanges $
 --             mkListAvailableManagementCidrRangesResponse
@@ -347,11 +347,11 @@ requestDescribeAccount =
     "DescribeAccount"
     "fixture/DescribeAccount.yaml"
 
-requestRevokeIPRules :: RevokeIPRules -> TestTree
-requestRevokeIPRules =
+requestRevokeIpRules :: RevokeIpRules -> TestTree
+requestRevokeIpRules =
   req
-    "RevokeIPRules"
-    "fixture/RevokeIPRules.yaml"
+    "RevokeIpRules"
+    "fixture/RevokeIpRules.yaml"
 
 requestDescribeWorkspaceImages :: DescribeWorkspaceImages -> TestTree
 requestDescribeWorkspaceImages =
@@ -389,11 +389,11 @@ requestDescribeWorkspaceDirectories =
     "DescribeWorkspaceDirectories"
     "fixture/DescribeWorkspaceDirectories.yaml"
 
-requestDisassociateIPGroups :: DisassociateIPGroups -> TestTree
-requestDisassociateIPGroups =
+requestDisassociateIpGroups :: DisassociateIpGroups -> TestTree
+requestDisassociateIpGroups =
   req
-    "DisassociateIPGroups"
-    "fixture/DisassociateIPGroups.yaml"
+    "DisassociateIpGroups"
+    "fixture/DisassociateIpGroups.yaml"
 
 requestDescribeWorkspaceBundles :: DescribeWorkspaceBundles -> TestTree
 requestDescribeWorkspaceBundles =
@@ -401,11 +401,11 @@ requestDescribeWorkspaceBundles =
     "DescribeWorkspaceBundles"
     "fixture/DescribeWorkspaceBundles.yaml"
 
-requestAuthorizeIPRules :: AuthorizeIPRules -> TestTree
-requestAuthorizeIPRules =
+requestAuthorizeIpRules :: AuthorizeIpRules -> TestTree
+requestAuthorizeIpRules =
   req
-    "AuthorizeIPRules"
-    "fixture/AuthorizeIPRules.yaml"
+    "AuthorizeIpRules"
+    "fixture/AuthorizeIpRules.yaml"
 
 requestDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissions -> TestTree
 requestDescribeWorkspaceImagePermissions =
@@ -431,11 +431,11 @@ requestModifyWorkspaceState =
     "ModifyWorkspaceState"
     "fixture/ModifyWorkspaceState.yaml"
 
-requestCreateIPGroup :: CreateIPGroup -> TestTree
-requestCreateIPGroup =
+requestCreateIpGroup :: CreateIpGroup -> TestTree
+requestCreateIpGroup =
   req
-    "CreateIPGroup"
-    "fixture/CreateIPGroup.yaml"
+    "CreateIpGroup"
+    "fixture/CreateIpGroup.yaml"
 
 requestDisassociateConnectionAlias :: DisassociateConnectionAlias -> TestTree
 requestDisassociateConnectionAlias =
@@ -485,11 +485,11 @@ requestModifyWorkspaceAccessProperties =
     "ModifyWorkspaceAccessProperties"
     "fixture/ModifyWorkspaceAccessProperties.yaml"
 
-requestUpdateRulesOfIPGroup :: UpdateRulesOfIPGroup -> TestTree
-requestUpdateRulesOfIPGroup =
+requestUpdateRulesOfIpGroup :: UpdateRulesOfIpGroup -> TestTree
+requestUpdateRulesOfIpGroup =
   req
-    "UpdateRulesOfIPGroup"
-    "fixture/UpdateRulesOfIPGroup.yaml"
+    "UpdateRulesOfIpGroup"
+    "fixture/UpdateRulesOfIpGroup.yaml"
 
 requestDeleteWorkspaceImage :: DeleteWorkspaceImage -> TestTree
 requestDeleteWorkspaceImage =
@@ -503,11 +503,11 @@ requestStopWorkspaces =
     "StopWorkspaces"
     "fixture/StopWorkspaces.yaml"
 
-requestAssociateIPGroups :: AssociateIPGroups -> TestTree
-requestAssociateIPGroups =
+requestAssociateIpGroups :: AssociateIpGroups -> TestTree
+requestAssociateIpGroups =
   req
-    "AssociateIPGroups"
-    "fixture/AssociateIPGroups.yaml"
+    "AssociateIpGroups"
+    "fixture/AssociateIpGroups.yaml"
 
 requestModifySelfservicePermissions :: ModifySelfservicePermissions -> TestTree
 requestModifySelfservicePermissions =
@@ -539,11 +539,11 @@ requestRebootWorkspaces =
     "RebootWorkspaces"
     "fixture/RebootWorkspaces.yaml"
 
-requestDeleteIPGroup :: DeleteIPGroup -> TestTree
-requestDeleteIPGroup =
+requestDeleteIpGroup :: DeleteIpGroup -> TestTree
+requestDeleteIpGroup =
   req
-    "DeleteIPGroup"
-    "fixture/DeleteIPGroup.yaml"
+    "DeleteIpGroup"
+    "fixture/DeleteIpGroup.yaml"
 
 requestCopyWorkspaceImage :: CopyWorkspaceImage -> TestTree
 requestCopyWorkspaceImage =
@@ -587,11 +587,11 @@ requestModifyClientProperties =
     "ModifyClientProperties"
     "fixture/ModifyClientProperties.yaml"
 
-requestDescribeIPGroups :: DescribeIPGroups -> TestTree
-requestDescribeIPGroups =
+requestDescribeIpGroups :: DescribeIpGroups -> TestTree
+requestDescribeIpGroups =
   req
-    "DescribeIPGroups"
-    "fixture/DescribeIPGroups.yaml"
+    "DescribeIpGroups"
+    "fixture/DescribeIpGroups.yaml"
 
 requestListAvailableManagementCidrRanges :: ListAvailableManagementCidrRanges -> TestTree
 requestListAvailableManagementCidrRanges =
@@ -642,7 +642,7 @@ responseAssociateConnectionAlias =
   res
     "AssociateConnectionAliasResponse"
     "fixture/AssociateConnectionAliasResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy AssociateConnectionAlias)
 
 responseDescribeAccount :: DescribeAccountResponse -> TestTree
@@ -650,23 +650,23 @@ responseDescribeAccount =
   res
     "DescribeAccountResponse"
     "fixture/DescribeAccountResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccount)
 
-responseRevokeIPRules :: RevokeIPRulesResponse -> TestTree
-responseRevokeIPRules =
+responseRevokeIpRules :: RevokeIpRulesResponse -> TestTree
+responseRevokeIpRules =
   res
-    "RevokeIPRulesResponse"
-    "fixture/RevokeIPRulesResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy RevokeIPRules)
+    "RevokeIpRulesResponse"
+    "fixture/RevokeIpRulesResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy RevokeIpRules)
 
 responseDescribeWorkspaceImages :: DescribeWorkspaceImagesResponse -> TestTree
 responseDescribeWorkspaceImages =
   res
     "DescribeWorkspaceImagesResponse"
     "fixture/DescribeWorkspaceImagesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceImages)
 
 responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
@@ -674,7 +674,7 @@ responseModifyWorkspaceProperties =
   res
     "ModifyWorkspacePropertiesResponse"
     "fixture/ModifyWorkspacePropertiesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceProperties)
 
 responseDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectoryResponse -> TestTree
@@ -682,7 +682,7 @@ responseDeregisterWorkspaceDirectory =
   res
     "DeregisterWorkspaceDirectoryResponse"
     "fixture/DeregisterWorkspaceDirectoryResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterWorkspaceDirectory)
 
 responseMigrateWorkspace :: MigrateWorkspaceResponse -> TestTree
@@ -690,7 +690,7 @@ responseMigrateWorkspace =
   res
     "MigrateWorkspaceResponse"
     "fixture/MigrateWorkspaceResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy MigrateWorkspace)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -698,7 +698,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDescribeWorkspaceDirectories :: DescribeWorkspaceDirectoriesResponse -> TestTree
@@ -706,39 +706,39 @@ responseDescribeWorkspaceDirectories =
   res
     "DescribeWorkspaceDirectoriesResponse"
     "fixture/DescribeWorkspaceDirectoriesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceDirectories)
 
-responseDisassociateIPGroups :: DisassociateIPGroupsResponse -> TestTree
-responseDisassociateIPGroups =
+responseDisassociateIpGroups :: DisassociateIpGroupsResponse -> TestTree
+responseDisassociateIpGroups =
   res
-    "DisassociateIPGroupsResponse"
-    "fixture/DisassociateIPGroupsResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy DisassociateIPGroups)
+    "DisassociateIpGroupsResponse"
+    "fixture/DisassociateIpGroupsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DisassociateIpGroups)
 
 responseDescribeWorkspaceBundles :: DescribeWorkspaceBundlesResponse -> TestTree
 responseDescribeWorkspaceBundles =
   res
     "DescribeWorkspaceBundlesResponse"
     "fixture/DescribeWorkspaceBundlesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceBundles)
 
-responseAuthorizeIPRules :: AuthorizeIPRulesResponse -> TestTree
-responseAuthorizeIPRules =
+responseAuthorizeIpRules :: AuthorizeIpRulesResponse -> TestTree
+responseAuthorizeIpRules =
   res
-    "AuthorizeIPRulesResponse"
-    "fixture/AuthorizeIPRulesResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy AuthorizeIPRules)
+    "AuthorizeIpRulesResponse"
+    "fixture/AuthorizeIpRulesResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy AuthorizeIpRules)
 
 responseDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissionsResponse -> TestTree
 responseDescribeWorkspaceImagePermissions =
   res
     "DescribeWorkspaceImagePermissionsResponse"
     "fixture/DescribeWorkspaceImagePermissionsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceImagePermissions)
 
 responseRebuildWorkspaces :: RebuildWorkspacesResponse -> TestTree
@@ -746,7 +746,7 @@ responseRebuildWorkspaces =
   res
     "RebuildWorkspacesResponse"
     "fixture/RebuildWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy RebuildWorkspaces)
 
 responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
@@ -754,7 +754,7 @@ responseImportWorkspaceImage =
   res
     "ImportWorkspaceImageResponse"
     "fixture/ImportWorkspaceImageResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ImportWorkspaceImage)
 
 responseModifyWorkspaceState :: ModifyWorkspaceStateResponse -> TestTree
@@ -762,23 +762,23 @@ responseModifyWorkspaceState =
   res
     "ModifyWorkspaceStateResponse"
     "fixture/ModifyWorkspaceStateResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceState)
 
-responseCreateIPGroup :: CreateIPGroupResponse -> TestTree
-responseCreateIPGroup =
+responseCreateIpGroup :: CreateIpGroupResponse -> TestTree
+responseCreateIpGroup =
   res
-    "CreateIPGroupResponse"
-    "fixture/CreateIPGroupResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy CreateIPGroup)
+    "CreateIpGroupResponse"
+    "fixture/CreateIpGroupResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreateIpGroup)
 
 responseDisassociateConnectionAlias :: DisassociateConnectionAliasResponse -> TestTree
 responseDisassociateConnectionAlias =
   res
     "DisassociateConnectionAliasResponse"
     "fixture/DisassociateConnectionAliasResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateConnectionAlias)
 
 responseModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationPropertiesResponse -> TestTree
@@ -786,7 +786,7 @@ responseModifyWorkspaceCreationProperties =
   res
     "ModifyWorkspaceCreationPropertiesResponse"
     "fixture/ModifyWorkspaceCreationPropertiesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceCreationProperties)
 
 responseRegisterWorkspaceDirectory :: RegisterWorkspaceDirectoryResponse -> TestTree
@@ -794,7 +794,7 @@ responseRegisterWorkspaceDirectory =
   res
     "RegisterWorkspaceDirectoryResponse"
     "fixture/RegisterWorkspaceDirectoryResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy RegisterWorkspaceDirectory)
 
 responseRestoreWorkspace :: RestoreWorkspaceResponse -> TestTree
@@ -802,7 +802,7 @@ responseRestoreWorkspace =
   res
     "RestoreWorkspaceResponse"
     "fixture/RestoreWorkspaceResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy RestoreWorkspace)
 
 responseDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> TestTree
@@ -810,7 +810,7 @@ responseDescribeConnectionAliasPermissions =
   res
     "DescribeConnectionAliasPermissionsResponse"
     "fixture/DescribeConnectionAliasPermissionsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeConnectionAliasPermissions)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
@@ -818,7 +818,7 @@ responseCreateTags =
   res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy CreateTags)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -826,7 +826,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessPropertiesResponse -> TestTree
@@ -834,23 +834,23 @@ responseModifyWorkspaceAccessProperties =
   res
     "ModifyWorkspaceAccessPropertiesResponse"
     "fixture/ModifyWorkspaceAccessPropertiesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceAccessProperties)
 
-responseUpdateRulesOfIPGroup :: UpdateRulesOfIPGroupResponse -> TestTree
-responseUpdateRulesOfIPGroup =
+responseUpdateRulesOfIpGroup :: UpdateRulesOfIpGroupResponse -> TestTree
+responseUpdateRulesOfIpGroup =
   res
-    "UpdateRulesOfIPGroupResponse"
-    "fixture/UpdateRulesOfIPGroupResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy UpdateRulesOfIPGroup)
+    "UpdateRulesOfIpGroupResponse"
+    "fixture/UpdateRulesOfIpGroupResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy UpdateRulesOfIpGroup)
 
 responseDeleteWorkspaceImage :: DeleteWorkspaceImageResponse -> TestTree
 responseDeleteWorkspaceImage =
   res
     "DeleteWorkspaceImageResponse"
     "fixture/DeleteWorkspaceImageResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWorkspaceImage)
 
 responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
@@ -858,23 +858,23 @@ responseStopWorkspaces =
   res
     "StopWorkspacesResponse"
     "fixture/StopWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy StopWorkspaces)
 
-responseAssociateIPGroups :: AssociateIPGroupsResponse -> TestTree
-responseAssociateIPGroups =
+responseAssociateIpGroups :: AssociateIpGroupsResponse -> TestTree
+responseAssociateIpGroups =
   res
-    "AssociateIPGroupsResponse"
-    "fixture/AssociateIPGroupsResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy AssociateIPGroups)
+    "AssociateIpGroupsResponse"
+    "fixture/AssociateIpGroupsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy AssociateIpGroups)
 
 responseModifySelfservicePermissions :: ModifySelfservicePermissionsResponse -> TestTree
 responseModifySelfservicePermissions =
   res
     "ModifySelfservicePermissionsResponse"
     "fixture/ModifySelfservicePermissionsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifySelfservicePermissions)
 
 responseDeleteConnectionAlias :: DeleteConnectionAliasResponse -> TestTree
@@ -882,7 +882,7 @@ responseDeleteConnectionAlias =
   res
     "DeleteConnectionAliasResponse"
     "fixture/DeleteConnectionAliasResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DeleteConnectionAlias)
 
 responseDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> TestTree
@@ -890,7 +890,7 @@ responseDescribeWorkspacesConnectionStatus =
   res
     "DescribeWorkspacesConnectionStatusResponse"
     "fixture/DescribeWorkspacesConnectionStatusResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspacesConnectionStatus)
 
 responseCreateConnectionAlias :: CreateConnectionAliasResponse -> TestTree
@@ -898,7 +898,7 @@ responseCreateConnectionAlias =
   res
     "CreateConnectionAliasResponse"
     "fixture/CreateConnectionAliasResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy CreateConnectionAlias)
 
 responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
@@ -906,23 +906,23 @@ responseRebootWorkspaces =
   res
     "RebootWorkspacesResponse"
     "fixture/RebootWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy RebootWorkspaces)
 
-responseDeleteIPGroup :: DeleteIPGroupResponse -> TestTree
-responseDeleteIPGroup =
+responseDeleteIpGroup :: DeleteIpGroupResponse -> TestTree
+responseDeleteIpGroup =
   res
-    "DeleteIPGroupResponse"
-    "fixture/DeleteIPGroupResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy DeleteIPGroup)
+    "DeleteIpGroupResponse"
+    "fixture/DeleteIpGroupResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeleteIpGroup)
 
 responseCopyWorkspaceImage :: CopyWorkspaceImageResponse -> TestTree
 responseCopyWorkspaceImage =
   res
     "CopyWorkspaceImageResponse"
     "fixture/CopyWorkspaceImageResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy CopyWorkspaceImage)
 
 responseDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshotsResponse -> TestTree
@@ -930,7 +930,7 @@ responseDescribeWorkspaceSnapshots =
   res
     "DescribeWorkspaceSnapshotsResponse"
     "fixture/DescribeWorkspaceSnapshotsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceSnapshots)
 
 responseTerminateWorkspaces :: TerminateWorkspacesResponse -> TestTree
@@ -938,7 +938,7 @@ responseTerminateWorkspaces =
   res
     "TerminateWorkspacesResponse"
     "fixture/TerminateWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy TerminateWorkspaces)
 
 responseUpdateConnectionAliasPermission :: UpdateConnectionAliasPermissionResponse -> TestTree
@@ -946,7 +946,7 @@ responseUpdateConnectionAliasPermission =
   res
     "UpdateConnectionAliasPermissionResponse"
     "fixture/UpdateConnectionAliasPermissionResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy UpdateConnectionAliasPermission)
 
 responseCreateWorkspaces :: CreateWorkspacesResponse -> TestTree
@@ -954,7 +954,7 @@ responseCreateWorkspaces =
   res
     "CreateWorkspacesResponse"
     "fixture/CreateWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy CreateWorkspaces)
 
 responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
@@ -962,7 +962,7 @@ responseDescribeClientProperties =
   res
     "DescribeClientPropertiesResponse"
     "fixture/DescribeClientPropertiesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClientProperties)
 
 responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
@@ -970,23 +970,23 @@ responseModifyClientProperties =
   res
     "ModifyClientPropertiesResponse"
     "fixture/ModifyClientPropertiesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifyClientProperties)
 
-responseDescribeIPGroups :: DescribeIPGroupsResponse -> TestTree
-responseDescribeIPGroups =
+responseDescribeIpGroups :: DescribeIpGroupsResponse -> TestTree
+responseDescribeIpGroups =
   res
-    "DescribeIPGroupsResponse"
-    "fixture/DescribeIPGroupsResponse.proto"
-    workSpacesService
-    (Proxy :: Proxy DescribeIPGroups)
+    "DescribeIpGroupsResponse"
+    "fixture/DescribeIpGroupsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeIpGroups)
 
 responseListAvailableManagementCidrRanges :: ListAvailableManagementCidrRangesResponse -> TestTree
 responseListAvailableManagementCidrRanges =
   res
     "ListAvailableManagementCidrRangesResponse"
     "fixture/ListAvailableManagementCidrRangesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ListAvailableManagementCidrRanges)
 
 responseUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermissionResponse -> TestTree
@@ -994,7 +994,7 @@ responseUpdateWorkspaceImagePermission =
   res
     "UpdateWorkspaceImagePermissionResponse"
     "fixture/UpdateWorkspaceImagePermissionResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy UpdateWorkspaceImagePermission)
 
 responseDescribeWorkspaces :: DescribeWorkspacesResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseDescribeWorkspaces =
   res
     "DescribeWorkspacesResponse"
     "fixture/DescribeWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaces)
 
 responseDescribeConnectionAliases :: DescribeConnectionAliasesResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseDescribeConnectionAliases =
   res
     "DescribeConnectionAliasesResponse"
     "fixture/DescribeConnectionAliasesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeConnectionAliases)
 
 responseStartWorkspaces :: StartWorkspacesResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseStartWorkspaces =
   res
     "StartWorkspacesResponse"
     "fixture/StartWorkspacesResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy StartWorkspaces)
 
 responseDescribeAccountModifications :: DescribeAccountModificationsResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseDescribeAccountModifications =
   res
     "DescribeAccountModificationsResponse"
     "fixture/DescribeAccountModificationsResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountModifications)
 
 responseModifyAccount :: ModifyAccountResponse -> TestTree
@@ -1034,5 +1034,5 @@ responseModifyAccount =
   res
     "ModifyAccountResponse"
     "fixture/ModifyAccountResponse.proto"
-    workSpacesService
+    mkServiceConfig
     (Proxy :: Proxy ModifyAccount)

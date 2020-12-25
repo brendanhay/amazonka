@@ -22,8 +22,9 @@ module Network.AWS.IAM.Types.RoleLastUsed
   )
 where
 
+import qualified Network.AWS.IAM.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
 --
@@ -34,41 +35,36 @@ data RoleLastUsed = RoleLastUsed'
   { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> that the role was last used.
     --
     -- This field is null if the role has not been used within the IAM tracking period. For more information about the tracking period, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
-    lastUsedDate :: Lude.Maybe Lude.DateTime,
+    lastUsedDate :: Core.Maybe Core.UTCTime,
     -- | The name of the AWS Region in which the role was last used.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.Region
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RoleLastUsed' with the minimum fields required to make a request.
---
--- * 'lastUsedDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> that the role was last used.
---
--- This field is null if the role has not been used within the IAM tracking period. For more information about the tracking period, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
--- * 'region' - The name of the AWS Region in which the role was last used.
+-- | Creates a 'RoleLastUsed' value with any optional fields omitted.
 mkRoleLastUsed ::
   RoleLastUsed
 mkRoleLastUsed =
-  RoleLastUsed' {lastUsedDate = Lude.Nothing, region = Lude.Nothing}
+  RoleLastUsed' {lastUsedDate = Core.Nothing, region = Core.Nothing}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> that the role was last used.
 --
 -- This field is null if the role has not been used within the IAM tracking period. For more information about the tracking period, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'lastUsedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rluLastUsedDate :: Lens.Lens' RoleLastUsed (Lude.Maybe Lude.DateTime)
-rluLastUsedDate = Lens.lens (lastUsedDate :: RoleLastUsed -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUsedDate = a} :: RoleLastUsed)
+rluLastUsedDate :: Lens.Lens' RoleLastUsed (Core.Maybe Core.UTCTime)
+rluLastUsedDate = Lens.field @"lastUsedDate"
 {-# DEPRECATED rluLastUsedDate "Use generic-lens or generic-optics with 'lastUsedDate' instead." #-}
 
 -- | The name of the AWS Region in which the role was last used.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rluRegion :: Lens.Lens' RoleLastUsed (Lude.Maybe Lude.Text)
-rluRegion = Lens.lens (region :: RoleLastUsed -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: RoleLastUsed)
+rluRegion :: Lens.Lens' RoleLastUsed (Core.Maybe Types.Region)
+rluRegion = Lens.field @"region"
 {-# DEPRECATED rluRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromXML RoleLastUsed where
+instance Core.FromXML RoleLastUsed where
   parseXML x =
     RoleLastUsed'
-      Lude.<$> (x Lude..@? "LastUsedDate") Lude.<*> (x Lude..@? "Region")
+      Core.<$> (x Core..@? "LastUsedDate") Core.<*> (x Core..@? "Region")

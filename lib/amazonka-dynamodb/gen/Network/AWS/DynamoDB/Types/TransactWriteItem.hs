@@ -18,86 +18,81 @@ module Network.AWS.DynamoDB.Types.TransactWriteItem
 
     -- * Lenses
     twiConditionCheck,
-    twiPut,
     twiDelete,
+    twiPut,
     twiUpdate,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ConditionCheck
-import Network.AWS.DynamoDB.Types.Delete
-import Network.AWS.DynamoDB.Types.Put
-import Network.AWS.DynamoDB.Types.Update
+import qualified Network.AWS.DynamoDB.Types.ConditionCheck as Types
+import qualified Network.AWS.DynamoDB.Types.Delete as Types
+import qualified Network.AWS.DynamoDB.Types.Put as Types
+import qualified Network.AWS.DynamoDB.Types.Update as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of requests that can perform update, put, delete, or check operations on multiple items in one or more tables atomically.
 --
 -- /See:/ 'mkTransactWriteItem' smart constructor.
 data TransactWriteItem = TransactWriteItem'
   { -- | A request to perform a check item operation.
-    conditionCheck :: Lude.Maybe ConditionCheck,
-    -- | A request to perform a @PutItem@ operation.
-    put :: Lude.Maybe Put,
+    conditionCheck :: Core.Maybe Types.ConditionCheck,
     -- | A request to perform a @DeleteItem@ operation.
-    delete :: Lude.Maybe Delete,
+    delete :: Core.Maybe Types.Delete,
+    -- | A request to perform a @PutItem@ operation.
+    put :: Core.Maybe Types.Put,
     -- | A request to perform an @UpdateItem@ operation.
-    update :: Lude.Maybe Update
+    update :: Core.Maybe Types.Update
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransactWriteItem' with the minimum fields required to make a request.
---
--- * 'conditionCheck' - A request to perform a check item operation.
--- * 'put' - A request to perform a @PutItem@ operation.
--- * 'delete' - A request to perform a @DeleteItem@ operation.
--- * 'update' - A request to perform an @UpdateItem@ operation.
+-- | Creates a 'TransactWriteItem' value with any optional fields omitted.
 mkTransactWriteItem ::
   TransactWriteItem
 mkTransactWriteItem =
   TransactWriteItem'
-    { conditionCheck = Lude.Nothing,
-      put = Lude.Nothing,
-      delete = Lude.Nothing,
-      update = Lude.Nothing
+    { conditionCheck = Core.Nothing,
+      delete = Core.Nothing,
+      put = Core.Nothing,
+      update = Core.Nothing
     }
 
 -- | A request to perform a check item operation.
 --
 -- /Note:/ Consider using 'conditionCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twiConditionCheck :: Lens.Lens' TransactWriteItem (Lude.Maybe ConditionCheck)
-twiConditionCheck = Lens.lens (conditionCheck :: TransactWriteItem -> Lude.Maybe ConditionCheck) (\s a -> s {conditionCheck = a} :: TransactWriteItem)
+twiConditionCheck :: Lens.Lens' TransactWriteItem (Core.Maybe Types.ConditionCheck)
+twiConditionCheck = Lens.field @"conditionCheck"
 {-# DEPRECATED twiConditionCheck "Use generic-lens or generic-optics with 'conditionCheck' instead." #-}
-
--- | A request to perform a @PutItem@ operation.
---
--- /Note:/ Consider using 'put' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twiPut :: Lens.Lens' TransactWriteItem (Lude.Maybe Put)
-twiPut = Lens.lens (put :: TransactWriteItem -> Lude.Maybe Put) (\s a -> s {put = a} :: TransactWriteItem)
-{-# DEPRECATED twiPut "Use generic-lens or generic-optics with 'put' instead." #-}
 
 -- | A request to perform a @DeleteItem@ operation.
 --
 -- /Note:/ Consider using 'delete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twiDelete :: Lens.Lens' TransactWriteItem (Lude.Maybe Delete)
-twiDelete = Lens.lens (delete :: TransactWriteItem -> Lude.Maybe Delete) (\s a -> s {delete = a} :: TransactWriteItem)
+twiDelete :: Lens.Lens' TransactWriteItem (Core.Maybe Types.Delete)
+twiDelete = Lens.field @"delete"
 {-# DEPRECATED twiDelete "Use generic-lens or generic-optics with 'delete' instead." #-}
+
+-- | A request to perform a @PutItem@ operation.
+--
+-- /Note:/ Consider using 'put' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+twiPut :: Lens.Lens' TransactWriteItem (Core.Maybe Types.Put)
+twiPut = Lens.field @"put"
+{-# DEPRECATED twiPut "Use generic-lens or generic-optics with 'put' instead." #-}
 
 -- | A request to perform an @UpdateItem@ operation.
 --
 -- /Note:/ Consider using 'update' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twiUpdate :: Lens.Lens' TransactWriteItem (Lude.Maybe Update)
-twiUpdate = Lens.lens (update :: TransactWriteItem -> Lude.Maybe Update) (\s a -> s {update = a} :: TransactWriteItem)
+twiUpdate :: Lens.Lens' TransactWriteItem (Core.Maybe Types.Update)
+twiUpdate = Lens.field @"update"
 {-# DEPRECATED twiUpdate "Use generic-lens or generic-optics with 'update' instead." #-}
 
-instance Lude.ToJSON TransactWriteItem where
-  toJSON TransactWriteItem' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ConditionCheck" Lude..=) Lude.<$> conditionCheck,
-            ("Put" Lude..=) Lude.<$> put,
-            ("Delete" Lude..=) Lude.<$> delete,
-            ("Update" Lude..=) Lude.<$> update
+instance Core.FromJSON TransactWriteItem where
+  toJSON TransactWriteItem {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConditionCheck" Core..=) Core.<$> conditionCheck,
+            ("Delete" Core..=) Core.<$> delete,
+            ("Put" Core..=) Core.<$> put,
+            ("Update" Core..=) Core.<$> update
           ]
       )

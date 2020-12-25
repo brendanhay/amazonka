@@ -20,9 +20,9 @@ module Network.AWS.Inspector.UnsubscribeFromEvent
     mkUnsubscribeFromEvent,
 
     -- ** Request lenses
+    ufeResourceArn,
     ufeEvent,
-    ufeTopicARN,
-    ufeResourceARN,
+    ufeTopicArn,
 
     -- * Destructuring the response
     UnsubscribeFromEventResponse (..),
@@ -30,103 +30,88 @@ module Network.AWS.Inspector.UnsubscribeFromEvent
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUnsubscribeFromEvent' smart constructor.
 data UnsubscribeFromEvent = UnsubscribeFromEvent'
-  { -- | The event for which you want to stop receiving SNS notifications.
-    event :: InspectorEvent,
+  { -- | The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
+    resourceArn :: Types.Arn,
+    -- | The event for which you want to stop receiving SNS notifications.
+    event :: Types.InspectorEvent,
     -- | The ARN of the SNS topic to which SNS notifications are sent.
-    topicARN :: Lude.Text,
-    -- | The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
-    resourceARN :: Lude.Text
+    topicArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnsubscribeFromEvent' with the minimum fields required to make a request.
---
--- * 'event' - The event for which you want to stop receiving SNS notifications.
--- * 'topicARN' - The ARN of the SNS topic to which SNS notifications are sent.
--- * 'resourceARN' - The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
+-- | Creates a 'UnsubscribeFromEvent' value with any optional fields omitted.
 mkUnsubscribeFromEvent ::
+  -- | 'resourceArn'
+  Types.Arn ->
   -- | 'event'
-  InspectorEvent ->
-  -- | 'topicARN'
-  Lude.Text ->
-  -- | 'resourceARN'
-  Lude.Text ->
+  Types.InspectorEvent ->
+  -- | 'topicArn'
+  Types.Arn ->
   UnsubscribeFromEvent
-mkUnsubscribeFromEvent pEvent_ pTopicARN_ pResourceARN_ =
-  UnsubscribeFromEvent'
-    { event = pEvent_,
-      topicARN = pTopicARN_,
-      resourceARN = pResourceARN_
-    }
+mkUnsubscribeFromEvent resourceArn event topicArn =
+  UnsubscribeFromEvent' {resourceArn, event, topicArn}
+
+-- | The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufeResourceArn :: Lens.Lens' UnsubscribeFromEvent Types.Arn
+ufeResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED ufeResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The event for which you want to stop receiving SNS notifications.
 --
 -- /Note:/ Consider using 'event' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeEvent :: Lens.Lens' UnsubscribeFromEvent InspectorEvent
-ufeEvent = Lens.lens (event :: UnsubscribeFromEvent -> InspectorEvent) (\s a -> s {event = a} :: UnsubscribeFromEvent)
+ufeEvent :: Lens.Lens' UnsubscribeFromEvent Types.InspectorEvent
+ufeEvent = Lens.field @"event"
 {-# DEPRECATED ufeEvent "Use generic-lens or generic-optics with 'event' instead." #-}
 
 -- | The ARN of the SNS topic to which SNS notifications are sent.
 --
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeTopicARN :: Lens.Lens' UnsubscribeFromEvent Lude.Text
-ufeTopicARN = Lens.lens (topicARN :: UnsubscribeFromEvent -> Lude.Text) (\s a -> s {topicARN = a} :: UnsubscribeFromEvent)
-{-# DEPRECATED ufeTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufeTopicArn :: Lens.Lens' UnsubscribeFromEvent Types.Arn
+ufeTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED ufeTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
--- | The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeResourceARN :: Lens.Lens' UnsubscribeFromEvent Lude.Text
-ufeResourceARN = Lens.lens (resourceARN :: UnsubscribeFromEvent -> Lude.Text) (\s a -> s {resourceARN = a} :: UnsubscribeFromEvent)
-{-# DEPRECATED ufeResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+instance Core.FromJSON UnsubscribeFromEvent where
+  toJSON UnsubscribeFromEvent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceArn" Core..= resourceArn),
+            Core.Just ("event" Core..= event),
+            Core.Just ("topicArn" Core..= topicArn)
+          ]
+      )
 
-instance Lude.AWSRequest UnsubscribeFromEvent where
+instance Core.AWSRequest UnsubscribeFromEvent where
   type Rs UnsubscribeFromEvent = UnsubscribeFromEventResponse
-  request = Req.postJSON inspectorService
-  response = Res.receiveNull UnsubscribeFromEventResponse'
-
-instance Lude.ToHeaders UnsubscribeFromEvent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.UnsubscribeFromEvent" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UnsubscribeFromEvent where
-  toJSON UnsubscribeFromEvent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("event" Lude..= event),
-            Lude.Just ("topicArn" Lude..= topicARN),
-            Lude.Just ("resourceArn" Lude..= resourceARN)
-          ]
-      )
-
-instance Lude.ToPath UnsubscribeFromEvent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UnsubscribeFromEvent where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.UnsubscribeFromEvent")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UnsubscribeFromEventResponse'
 
 -- | /See:/ 'mkUnsubscribeFromEventResponse' smart constructor.
 data UnsubscribeFromEventResponse = UnsubscribeFromEventResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnsubscribeFromEventResponse' with the minimum fields required to make a request.
+-- | Creates a 'UnsubscribeFromEventResponse' value with any optional fields omitted.
 mkUnsubscribeFromEventResponse ::
   UnsubscribeFromEventResponse
 mkUnsubscribeFromEventResponse = UnsubscribeFromEventResponse'

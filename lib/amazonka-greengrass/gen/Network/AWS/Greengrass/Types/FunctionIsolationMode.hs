@@ -13,47 +13,52 @@
 module Network.AWS.Greengrass.Types.FunctionIsolationMode
   ( FunctionIsolationMode
       ( FunctionIsolationMode',
-        GreengrassContainer,
-        NoContainer
+        FunctionIsolationModeGreengrassContainer,
+        FunctionIsolationModeNoContainer,
+        fromFunctionIsolationMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
-newtype FunctionIsolationMode = FunctionIsolationMode' Lude.Text
+newtype FunctionIsolationMode = FunctionIsolationMode'
+  { fromFunctionIsolationMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GreengrassContainer :: FunctionIsolationMode
-pattern GreengrassContainer = FunctionIsolationMode' "GreengrassContainer"
+pattern FunctionIsolationModeGreengrassContainer :: FunctionIsolationMode
+pattern FunctionIsolationModeGreengrassContainer = FunctionIsolationMode' "GreengrassContainer"
 
-pattern NoContainer :: FunctionIsolationMode
-pattern NoContainer = FunctionIsolationMode' "NoContainer"
+pattern FunctionIsolationModeNoContainer :: FunctionIsolationMode
+pattern FunctionIsolationModeNoContainer = FunctionIsolationMode' "NoContainer"
 
 {-# COMPLETE
-  GreengrassContainer,
-  NoContainer,
+  FunctionIsolationModeGreengrassContainer,
+  FunctionIsolationModeNoContainer,
   FunctionIsolationMode'
   #-}

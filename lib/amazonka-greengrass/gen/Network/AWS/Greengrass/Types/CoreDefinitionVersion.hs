@@ -21,44 +21,38 @@ module Network.AWS.Greengrass.Types.CoreDefinitionVersion
   )
 where
 
-import Network.AWS.Greengrass.Types.Core
+import qualified Network.AWS.Greengrass.Types.Core as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a core definition version.
 --
 -- /See:/ 'mkCoreDefinitionVersion' smart constructor.
 newtype CoreDefinitionVersion = CoreDefinitionVersion'
   { -- | A list of cores in the core definition version.
-    cores :: Lude.Maybe [Core]
+    cores :: Core.Maybe [Types.Core]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CoreDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'cores' - A list of cores in the core definition version.
+-- | Creates a 'CoreDefinitionVersion' value with any optional fields omitted.
 mkCoreDefinitionVersion ::
   CoreDefinitionVersion
 mkCoreDefinitionVersion =
-  CoreDefinitionVersion' {cores = Lude.Nothing}
+  CoreDefinitionVersion' {cores = Core.Nothing}
 
 -- | A list of cores in the core definition version.
 --
 -- /Note:/ Consider using 'cores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdvCores :: Lens.Lens' CoreDefinitionVersion (Lude.Maybe [Core])
-cdvCores = Lens.lens (cores :: CoreDefinitionVersion -> Lude.Maybe [Core]) (\s a -> s {cores = a} :: CoreDefinitionVersion)
+cdvCores :: Lens.Lens' CoreDefinitionVersion (Core.Maybe [Types.Core])
+cdvCores = Lens.field @"cores"
 {-# DEPRECATED cdvCores "Use generic-lens or generic-optics with 'cores' instead." #-}
 
-instance Lude.FromJSON CoreDefinitionVersion where
-  parseJSON =
-    Lude.withObject
-      "CoreDefinitionVersion"
-      ( \x ->
-          CoreDefinitionVersion'
-            Lude.<$> (x Lude..:? "Cores" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON CoreDefinitionVersion where
+  toJSON CoreDefinitionVersion {..} =
+    Core.object (Core.catMaybes [("Cores" Core..=) Core.<$> cores])
 
-instance Lude.ToJSON CoreDefinitionVersion where
-  toJSON CoreDefinitionVersion' {..} =
-    Lude.object (Lude.catMaybes [("Cores" Lude..=) Lude.<$> cores])
+instance Core.FromJSON CoreDefinitionVersion where
+  parseJSON =
+    Core.withObject "CoreDefinitionVersion" Core.$
+      \x -> CoreDefinitionVersion' Core.<$> (x Core..:? "Cores")

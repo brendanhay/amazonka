@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
   ( NielsenActiveWatermarkProcessType
       ( NielsenActiveWatermarkProcessType',
-        NAES2AndNw,
-        Cbet,
-        NAES2AndNwAndCbet
+        NielsenActiveWatermarkProcessTypeNAES2AndNw,
+        NielsenActiveWatermarkProcessTypeCbet,
+        NielsenActiveWatermarkProcessTypeNAES2AndNwAndCbet,
+        fromNielsenActiveWatermarkProcessType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose the type of Nielsen watermarks that you want in your outputs. When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value for the setting SID (sourceId). When you choose CBET (CBET), you must provide a value for the setting CSID (cbetSourceId). When you choose NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values for both of these settings.
-newtype NielsenActiveWatermarkProcessType = NielsenActiveWatermarkProcessType' Lude.Text
+newtype NielsenActiveWatermarkProcessType = NielsenActiveWatermarkProcessType'
+  { fromNielsenActiveWatermarkProcessType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NAES2AndNw :: NielsenActiveWatermarkProcessType
-pattern NAES2AndNw = NielsenActiveWatermarkProcessType' "NAES2_AND_NW"
+pattern NielsenActiveWatermarkProcessTypeNAES2AndNw :: NielsenActiveWatermarkProcessType
+pattern NielsenActiveWatermarkProcessTypeNAES2AndNw = NielsenActiveWatermarkProcessType' "NAES2_AND_NW"
 
-pattern Cbet :: NielsenActiveWatermarkProcessType
-pattern Cbet = NielsenActiveWatermarkProcessType' "CBET"
+pattern NielsenActiveWatermarkProcessTypeCbet :: NielsenActiveWatermarkProcessType
+pattern NielsenActiveWatermarkProcessTypeCbet = NielsenActiveWatermarkProcessType' "CBET"
 
-pattern NAES2AndNwAndCbet :: NielsenActiveWatermarkProcessType
-pattern NAES2AndNwAndCbet = NielsenActiveWatermarkProcessType' "NAES2_AND_NW_AND_CBET"
+pattern NielsenActiveWatermarkProcessTypeNAES2AndNwAndCbet :: NielsenActiveWatermarkProcessType
+pattern NielsenActiveWatermarkProcessTypeNAES2AndNwAndCbet = NielsenActiveWatermarkProcessType' "NAES2_AND_NW_AND_CBET"
 
 {-# COMPLETE
-  NAES2AndNw,
-  Cbet,
-  NAES2AndNwAndCbet,
+  NielsenActiveWatermarkProcessTypeNAES2AndNw,
+  NielsenActiveWatermarkProcessTypeCbet,
+  NielsenActiveWatermarkProcessTypeNAES2AndNwAndCbet,
   NielsenActiveWatermarkProcessType'
   #-}

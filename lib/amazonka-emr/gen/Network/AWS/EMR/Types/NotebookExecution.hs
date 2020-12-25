@@ -17,33 +17,61 @@ module Network.AWS.EMR.Types.NotebookExecution
     mkNotebookExecution,
 
     -- * Lenses
-    neStatus,
-    neExecutionEngine,
-    neNotebookInstanceSecurityGroupId,
+    neArn,
     neEditorId,
-    neStartTime,
-    neARN,
-    neOutputNotebookURI,
+    neEndTime,
+    neExecutionEngine,
+    neLastStateChangeReason,
     neNotebookExecutionId,
     neNotebookExecutionName,
-    neLastStateChangeReason,
-    neEndTime,
+    neNotebookInstanceSecurityGroupId,
     neNotebookParams,
+    neOutputNotebookURI,
+    neStartTime,
+    neStatus,
     neTags,
   )
 where
 
-import Network.AWS.EMR.Types.ExecutionEngineConfig
-import Network.AWS.EMR.Types.NotebookExecutionStatus
-import Network.AWS.EMR.Types.Tag
+import qualified Network.AWS.EMR.Types.Arn as Types
+import qualified Network.AWS.EMR.Types.EditorId as Types
+import qualified Network.AWS.EMR.Types.ExecutionEngineConfig as Types
+import qualified Network.AWS.EMR.Types.NotebookExecutionId as Types
+import qualified Network.AWS.EMR.Types.NotebookExecutionName as Types
+import qualified Network.AWS.EMR.Types.NotebookExecutionStatus as Types
+import qualified Network.AWS.EMR.Types.NotebookInstanceSecurityGroupId as Types
+import qualified Network.AWS.EMR.Types.Tag as Types
+import qualified Network.AWS.EMR.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A notebook execution. An execution is a specific instance that an EMR Notebook is run using the @StartNotebookExecution@ action.
 --
 -- /See:/ 'mkNotebookExecution' smart constructor.
 data NotebookExecution = NotebookExecution'
-  { -- | The status of the notebook execution.
+  { -- | The Amazon Resource Name (ARN) of the notebook execution.
+    arn :: Core.Maybe Types.Arn,
+    -- | The unique identifier of the EMR Notebook that is used for the notebook execution.
+    editorId :: Core.Maybe Types.EditorId,
+    -- | The timestamp when notebook execution ended.
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
+    executionEngine :: Core.Maybe Types.ExecutionEngineConfig,
+    -- | The reason for the latest status change of the notebook execution.
+    lastStateChangeReason :: Core.Maybe Types.XmlString,
+    -- | The unique identifier of a notebook execution.
+    notebookExecutionId :: Core.Maybe Types.NotebookExecutionId,
+    -- | A name for the notebook execution.
+    notebookExecutionName :: Core.Maybe Types.NotebookExecutionName,
+    -- | The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
+    notebookInstanceSecurityGroupId :: Core.Maybe Types.NotebookInstanceSecurityGroupId,
+    -- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
+    notebookParams :: Core.Maybe Types.XmlString,
+    -- | The location of the notebook execution's output file in Amazon S3.
+    outputNotebookURI :: Core.Maybe Types.XmlString,
+    -- | The timestamp when notebook execution started.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the notebook execution.
     --
     --
     --     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
@@ -74,100 +102,109 @@ data NotebookExecution = NotebookExecution'
     --
     --
     --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
-    status :: Lude.Maybe NotebookExecutionStatus,
-    -- | The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
-    executionEngine :: Lude.Maybe ExecutionEngineConfig,
-    -- | The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
-    notebookInstanceSecurityGroupId :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of the EMR Notebook that is used for the notebook execution.
-    editorId :: Lude.Maybe Lude.Text,
-    -- | The timestamp when notebook execution started.
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the notebook execution.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The location of the notebook execution's output file in Amazon S3.
-    outputNotebookURI :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of a notebook execution.
-    notebookExecutionId :: Lude.Maybe Lude.Text,
-    -- | A name for the notebook execution.
-    notebookExecutionName :: Lude.Maybe Lude.Text,
-    -- | The reason for the latest status change of the notebook execution.
-    lastStateChangeReason :: Lude.Maybe Lude.Text,
-    -- | The timestamp when notebook execution ended.
-    endTime :: Lude.Maybe Lude.Timestamp,
-    -- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
-    notebookParams :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.NotebookExecutionStatus,
     -- | A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NotebookExecution' with the minimum fields required to make a request.
---
--- * 'status' - The status of the notebook execution.
---
---
---     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
---
---
---     * @STARTING@ indicates that the execution is starting on the cluster.
---
---
---     * @RUNNING@ indicates that the execution is being processed by the cluster.
---
---
---     * @FINISHING@ indicates that execution processing is in the final stages.
---
---
---     * @FINISHED@ indicates that the execution has completed without error.
---
---
---     * @FAILING@ indicates that the execution is failing and will not finish successfully.
---
---
---     * @FAILED@ indicates that the execution failed.
---
---
---     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.
---
---
---     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.
---
---
---     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
---
---
--- * 'executionEngine' - The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
--- * 'notebookInstanceSecurityGroupId' - The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
--- * 'editorId' - The unique identifier of the EMR Notebook that is used for the notebook execution.
--- * 'startTime' - The timestamp when notebook execution started.
--- * 'arn' - The Amazon Resource Name (ARN) of the notebook execution.
--- * 'outputNotebookURI' - The location of the notebook execution's output file in Amazon S3.
--- * 'notebookExecutionId' - The unique identifier of a notebook execution.
--- * 'notebookExecutionName' - A name for the notebook execution.
--- * 'lastStateChangeReason' - The reason for the latest status change of the notebook execution.
--- * 'endTime' - The timestamp when notebook execution ended.
--- * 'notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
--- * 'tags' - A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
+-- | Creates a 'NotebookExecution' value with any optional fields omitted.
 mkNotebookExecution ::
   NotebookExecution
 mkNotebookExecution =
   NotebookExecution'
-    { status = Lude.Nothing,
-      executionEngine = Lude.Nothing,
-      notebookInstanceSecurityGroupId = Lude.Nothing,
-      editorId = Lude.Nothing,
-      startTime = Lude.Nothing,
-      arn = Lude.Nothing,
-      outputNotebookURI = Lude.Nothing,
-      notebookExecutionId = Lude.Nothing,
-      notebookExecutionName = Lude.Nothing,
-      lastStateChangeReason = Lude.Nothing,
-      endTime = Lude.Nothing,
-      notebookParams = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      editorId = Core.Nothing,
+      endTime = Core.Nothing,
+      executionEngine = Core.Nothing,
+      lastStateChangeReason = Core.Nothing,
+      notebookExecutionId = Core.Nothing,
+      notebookExecutionName = Core.Nothing,
+      notebookInstanceSecurityGroupId = Core.Nothing,
+      notebookParams = Core.Nothing,
+      outputNotebookURI = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the notebook execution.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neArn :: Lens.Lens' NotebookExecution (Core.Maybe Types.Arn)
+neArn = Lens.field @"arn"
+{-# DEPRECATED neArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The unique identifier of the EMR Notebook that is used for the notebook execution.
+--
+-- /Note:/ Consider using 'editorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neEditorId :: Lens.Lens' NotebookExecution (Core.Maybe Types.EditorId)
+neEditorId = Lens.field @"editorId"
+{-# DEPRECATED neEditorId "Use generic-lens or generic-optics with 'editorId' instead." #-}
+
+-- | The timestamp when notebook execution ended.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neEndTime :: Lens.Lens' NotebookExecution (Core.Maybe Core.NominalDiffTime)
+neEndTime = Lens.field @"endTime"
+{-# DEPRECATED neEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
+--
+-- /Note:/ Consider using 'executionEngine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neExecutionEngine :: Lens.Lens' NotebookExecution (Core.Maybe Types.ExecutionEngineConfig)
+neExecutionEngine = Lens.field @"executionEngine"
+{-# DEPRECATED neExecutionEngine "Use generic-lens or generic-optics with 'executionEngine' instead." #-}
+
+-- | The reason for the latest status change of the notebook execution.
+--
+-- /Note:/ Consider using 'lastStateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neLastStateChangeReason :: Lens.Lens' NotebookExecution (Core.Maybe Types.XmlString)
+neLastStateChangeReason = Lens.field @"lastStateChangeReason"
+{-# DEPRECATED neLastStateChangeReason "Use generic-lens or generic-optics with 'lastStateChangeReason' instead." #-}
+
+-- | The unique identifier of a notebook execution.
+--
+-- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neNotebookExecutionId :: Lens.Lens' NotebookExecution (Core.Maybe Types.NotebookExecutionId)
+neNotebookExecutionId = Lens.field @"notebookExecutionId"
+{-# DEPRECATED neNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
+
+-- | A name for the notebook execution.
+--
+-- /Note:/ Consider using 'notebookExecutionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neNotebookExecutionName :: Lens.Lens' NotebookExecution (Core.Maybe Types.NotebookExecutionName)
+neNotebookExecutionName = Lens.field @"notebookExecutionName"
+{-# DEPRECATED neNotebookExecutionName "Use generic-lens or generic-optics with 'notebookExecutionName' instead." #-}
+
+-- | The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
+--
+-- /Note:/ Consider using 'notebookInstanceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neNotebookInstanceSecurityGroupId :: Lens.Lens' NotebookExecution (Core.Maybe Types.NotebookInstanceSecurityGroupId)
+neNotebookInstanceSecurityGroupId = Lens.field @"notebookInstanceSecurityGroupId"
+{-# DEPRECATED neNotebookInstanceSecurityGroupId "Use generic-lens or generic-optics with 'notebookInstanceSecurityGroupId' instead." #-}
+
+-- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
+--
+-- /Note:/ Consider using 'notebookParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neNotebookParams :: Lens.Lens' NotebookExecution (Core.Maybe Types.XmlString)
+neNotebookParams = Lens.field @"notebookParams"
+{-# DEPRECATED neNotebookParams "Use generic-lens or generic-optics with 'notebookParams' instead." #-}
+
+-- | The location of the notebook execution's output file in Amazon S3.
+--
+-- /Note:/ Consider using 'outputNotebookURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neOutputNotebookURI :: Lens.Lens' NotebookExecution (Core.Maybe Types.XmlString)
+neOutputNotebookURI = Lens.field @"outputNotebookURI"
+{-# DEPRECATED neOutputNotebookURI "Use generic-lens or generic-optics with 'outputNotebookURI' instead." #-}
+
+-- | The timestamp when notebook execution started.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+neStartTime :: Lens.Lens' NotebookExecution (Core.Maybe Core.NominalDiffTime)
+neStartTime = Lens.field @"startTime"
+{-# DEPRECATED neStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The status of the notebook execution.
 --
@@ -204,111 +241,32 @@ mkNotebookExecution =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neStatus :: Lens.Lens' NotebookExecution (Lude.Maybe NotebookExecutionStatus)
-neStatus = Lens.lens (status :: NotebookExecution -> Lude.Maybe NotebookExecutionStatus) (\s a -> s {status = a} :: NotebookExecution)
+neStatus :: Lens.Lens' NotebookExecution (Core.Maybe Types.NotebookExecutionStatus)
+neStatus = Lens.field @"status"
 {-# DEPRECATED neStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
---
--- /Note:/ Consider using 'executionEngine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neExecutionEngine :: Lens.Lens' NotebookExecution (Lude.Maybe ExecutionEngineConfig)
-neExecutionEngine = Lens.lens (executionEngine :: NotebookExecution -> Lude.Maybe ExecutionEngineConfig) (\s a -> s {executionEngine = a} :: NotebookExecution)
-{-# DEPRECATED neExecutionEngine "Use generic-lens or generic-optics with 'executionEngine' instead." #-}
-
--- | The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
---
--- /Note:/ Consider using 'notebookInstanceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neNotebookInstanceSecurityGroupId :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neNotebookInstanceSecurityGroupId = Lens.lens (notebookInstanceSecurityGroupId :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceSecurityGroupId = a} :: NotebookExecution)
-{-# DEPRECATED neNotebookInstanceSecurityGroupId "Use generic-lens or generic-optics with 'notebookInstanceSecurityGroupId' instead." #-}
-
--- | The unique identifier of the EMR Notebook that is used for the notebook execution.
---
--- /Note:/ Consider using 'editorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neEditorId :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neEditorId = Lens.lens (editorId :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {editorId = a} :: NotebookExecution)
-{-# DEPRECATED neEditorId "Use generic-lens or generic-optics with 'editorId' instead." #-}
-
--- | The timestamp when notebook execution started.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neStartTime :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Timestamp)
-neStartTime = Lens.lens (startTime :: NotebookExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: NotebookExecution)
-{-# DEPRECATED neStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the notebook execution.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neARN :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neARN = Lens.lens (arn :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: NotebookExecution)
-{-# DEPRECATED neARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The location of the notebook execution's output file in Amazon S3.
---
--- /Note:/ Consider using 'outputNotebookURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neOutputNotebookURI :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neOutputNotebookURI = Lens.lens (outputNotebookURI :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {outputNotebookURI = a} :: NotebookExecution)
-{-# DEPRECATED neOutputNotebookURI "Use generic-lens or generic-optics with 'outputNotebookURI' instead." #-}
-
--- | The unique identifier of a notebook execution.
---
--- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neNotebookExecutionId :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neNotebookExecutionId = Lens.lens (notebookExecutionId :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookExecutionId = a} :: NotebookExecution)
-{-# DEPRECATED neNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
-
--- | A name for the notebook execution.
---
--- /Note:/ Consider using 'notebookExecutionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neNotebookExecutionName :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neNotebookExecutionName = Lens.lens (notebookExecutionName :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookExecutionName = a} :: NotebookExecution)
-{-# DEPRECATED neNotebookExecutionName "Use generic-lens or generic-optics with 'notebookExecutionName' instead." #-}
-
--- | The reason for the latest status change of the notebook execution.
---
--- /Note:/ Consider using 'lastStateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neLastStateChangeReason :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neLastStateChangeReason = Lens.lens (lastStateChangeReason :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {lastStateChangeReason = a} :: NotebookExecution)
-{-# DEPRECATED neLastStateChangeReason "Use generic-lens or generic-optics with 'lastStateChangeReason' instead." #-}
-
--- | The timestamp when notebook execution ended.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neEndTime :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Timestamp)
-neEndTime = Lens.lens (endTime :: NotebookExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: NotebookExecution)
-{-# DEPRECATED neEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
---
--- /Note:/ Consider using 'notebookParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neNotebookParams :: Lens.Lens' NotebookExecution (Lude.Maybe Lude.Text)
-neNotebookParams = Lens.lens (notebookParams :: NotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookParams = a} :: NotebookExecution)
-{-# DEPRECATED neNotebookParams "Use generic-lens or generic-optics with 'notebookParams' instead." #-}
 
 -- | A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-neTags :: Lens.Lens' NotebookExecution (Lude.Maybe [Tag])
-neTags = Lens.lens (tags :: NotebookExecution -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: NotebookExecution)
+neTags :: Lens.Lens' NotebookExecution (Core.Maybe [Types.Tag])
+neTags = Lens.field @"tags"
 {-# DEPRECATED neTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON NotebookExecution where
+instance Core.FromJSON NotebookExecution where
   parseJSON =
-    Lude.withObject
-      "NotebookExecution"
-      ( \x ->
-          NotebookExecution'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "ExecutionEngine")
-            Lude.<*> (x Lude..:? "NotebookInstanceSecurityGroupId")
-            Lude.<*> (x Lude..:? "EditorId")
-            Lude.<*> (x Lude..:? "StartTime")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "OutputNotebookURI")
-            Lude.<*> (x Lude..:? "NotebookExecutionId")
-            Lude.<*> (x Lude..:? "NotebookExecutionName")
-            Lude.<*> (x Lude..:? "LastStateChangeReason")
-            Lude.<*> (x Lude..:? "EndTime")
-            Lude.<*> (x Lude..:? "NotebookParams")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "NotebookExecution" Core.$
+      \x ->
+        NotebookExecution'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "EditorId")
+          Core.<*> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "ExecutionEngine")
+          Core.<*> (x Core..:? "LastStateChangeReason")
+          Core.<*> (x Core..:? "NotebookExecutionId")
+          Core.<*> (x Core..:? "NotebookExecutionName")
+          Core.<*> (x Core..:? "NotebookInstanceSecurityGroupId")
+          Core.<*> (x Core..:? "NotebookParams")
+          Core.<*> (x Core..:? "OutputNotebookURI")
+          Core.<*> (x Core..:? "StartTime")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "Tags")

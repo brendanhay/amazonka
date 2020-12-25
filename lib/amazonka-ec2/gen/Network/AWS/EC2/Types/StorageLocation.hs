@@ -22,44 +22,39 @@ module Network.AWS.EC2.Types.StorageLocation
   )
 where
 
+import qualified Network.AWS.EC2.Types.Bucket as Types
+import qualified Network.AWS.EC2.Types.Key as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a storage location in Amazon S3.
 --
 -- /See:/ 'mkStorageLocation' smart constructor.
 data StorageLocation = StorageLocation'
   { -- | The name of the S3 bucket.
-    bucket :: Lude.Maybe Lude.Text,
+    bucket :: Core.Maybe Types.Bucket,
     -- | The key.
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.Key
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StorageLocation' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the S3 bucket.
--- * 'key' - The key.
+-- | Creates a 'StorageLocation' value with any optional fields omitted.
 mkStorageLocation ::
   StorageLocation
 mkStorageLocation =
-  StorageLocation' {bucket = Lude.Nothing, key = Lude.Nothing}
+  StorageLocation' {bucket = Core.Nothing, key = Core.Nothing}
 
 -- | The name of the S3 bucket.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBucket :: Lens.Lens' StorageLocation (Lude.Maybe Lude.Text)
-slBucket = Lens.lens (bucket :: StorageLocation -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: StorageLocation)
+slBucket :: Lens.Lens' StorageLocation (Core.Maybe Types.Bucket)
+slBucket = Lens.field @"bucket"
 {-# DEPRECATED slBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slKey :: Lens.Lens' StorageLocation (Lude.Maybe Lude.Text)
-slKey = Lens.lens (key :: StorageLocation -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: StorageLocation)
+slKey :: Lens.Lens' StorageLocation (Core.Maybe Types.Key)
+slKey = Lens.field @"key"
 {-# DEPRECATED slKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
-instance Lude.ToQuery StorageLocation where
-  toQuery StorageLocation' {..} =
-    Lude.mconcat ["Bucket" Lude.=: bucket, "Key" Lude.=: key]

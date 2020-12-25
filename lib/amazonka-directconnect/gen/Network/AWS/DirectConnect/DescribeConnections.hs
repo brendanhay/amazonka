@@ -23,66 +23,57 @@ module Network.AWS.DirectConnect.DescribeConnections
     dConnectionId,
 
     -- * Destructuring the response
-    Connections (..),
-    mkConnections,
+    Types.Connections (..),
+    Types.mkConnections,
 
     -- ** Response lenses
-    cConnections,
+    Types.cConnections,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeConnections' smart constructor.
 newtype DescribeConnections = DescribeConnections'
   { -- | The ID of the connection.
-    connectionId :: Lude.Maybe Lude.Text
+    connectionId :: Core.Maybe Types.ConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConnections' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the connection.
+-- | Creates a 'DescribeConnections' value with any optional fields omitted.
 mkDescribeConnections ::
   DescribeConnections
 mkDescribeConnections =
-  DescribeConnections' {connectionId = Lude.Nothing}
+  DescribeConnections' {connectionId = Core.Nothing}
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dConnectionId :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Text)
-dConnectionId = Lens.lens (connectionId :: DescribeConnections -> Lude.Maybe Lude.Text) (\s a -> s {connectionId = a} :: DescribeConnections)
+dConnectionId :: Lens.Lens' DescribeConnections (Core.Maybe Types.ConnectionId)
+dConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED dConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest DescribeConnections where
-  type Rs DescribeConnections = Connections
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+instance Core.FromJSON DescribeConnections where
+  toJSON DescribeConnections {..} =
+    Core.object
+      (Core.catMaybes [("connectionId" Core..=) Core.<$> connectionId])
 
-instance Lude.ToHeaders DescribeConnections where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DescribeConnections" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConnections where
-  toJSON DescribeConnections' {..} =
-    Lude.object
-      (Lude.catMaybes [("connectionId" Lude..=) Lude.<$> connectionId])
-
-instance Lude.ToPath DescribeConnections where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConnections where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeConnections where
+  type Rs DescribeConnections = Types.Connections
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.DescribeConnections")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

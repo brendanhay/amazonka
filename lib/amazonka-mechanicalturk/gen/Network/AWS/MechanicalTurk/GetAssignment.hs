@@ -27,124 +27,109 @@ module Network.AWS.MechanicalTurk.GetAssignment
     mkGetAssignmentResponse,
 
     -- ** Response lenses
-    garsHIT,
-    garsAssignment,
-    garsResponseStatus,
+    garrsAssignment,
+    garrsHIT,
+    garrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAssignment' smart constructor.
 newtype GetAssignment = GetAssignment'
   { -- | The ID of the Assignment to be retrieved.
-    assignmentId :: Lude.Text
+    assignmentId :: Types.AssignmentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAssignment' with the minimum fields required to make a request.
---
--- * 'assignmentId' - The ID of the Assignment to be retrieved.
+-- | Creates a 'GetAssignment' value with any optional fields omitted.
 mkGetAssignment ::
   -- | 'assignmentId'
-  Lude.Text ->
+  Types.AssignmentId ->
   GetAssignment
-mkGetAssignment pAssignmentId_ =
-  GetAssignment' {assignmentId = pAssignmentId_}
+mkGetAssignment assignmentId = GetAssignment' {assignmentId}
 
 -- | The ID of the Assignment to be retrieved.
 --
 -- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaAssignmentId :: Lens.Lens' GetAssignment Lude.Text
-gaAssignmentId = Lens.lens (assignmentId :: GetAssignment -> Lude.Text) (\s a -> s {assignmentId = a} :: GetAssignment)
+gaAssignmentId :: Lens.Lens' GetAssignment Types.AssignmentId
+gaAssignmentId = Lens.field @"assignmentId"
 {-# DEPRECATED gaAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
-instance Lude.AWSRequest GetAssignment where
+instance Core.FromJSON GetAssignment where
+  toJSON GetAssignment {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AssignmentId" Core..= assignmentId)])
+
+instance Core.AWSRequest GetAssignment where
   type Rs GetAssignment = GetAssignmentResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MTurkRequesterServiceV20170117.GetAssignment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAssignmentResponse'
-            Lude.<$> (x Lude..?> "HIT")
-            Lude.<*> (x Lude..?> "Assignment")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Assignment")
+            Core.<*> (x Core..:? "HIT")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAssignment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.GetAssignment" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetAssignment where
-  toJSON GetAssignment' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AssignmentId" Lude..= assignmentId)])
-
-instance Lude.ToPath GetAssignment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAssignment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAssignmentResponse' smart constructor.
 data GetAssignmentResponse = GetAssignmentResponse'
-  { -- | The HIT associated with this assignment. The response includes one HIT element.
-    hIT :: Lude.Maybe HIT,
-    -- | The assignment. The response includes one Assignment element.
-    assignment :: Lude.Maybe Assignment,
+  { -- | The assignment. The response includes one Assignment element.
+    assignment :: Core.Maybe Types.Assignment,
+    -- | The HIT associated with this assignment. The response includes one HIT element.
+    hit :: Core.Maybe Types.HIT,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetAssignmentResponse' with the minimum fields required to make a request.
---
--- * 'hIT' - The HIT associated with this assignment. The response includes one HIT element.
--- * 'assignment' - The assignment. The response includes one Assignment element.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAssignmentResponse' value with any optional fields omitted.
 mkGetAssignmentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAssignmentResponse
-mkGetAssignmentResponse pResponseStatus_ =
+mkGetAssignmentResponse responseStatus =
   GetAssignmentResponse'
-    { hIT = Lude.Nothing,
-      assignment = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { assignment = Core.Nothing,
+      hit = Core.Nothing,
+      responseStatus
     }
-
--- | The HIT associated with this assignment. The response includes one HIT element.
---
--- /Note:/ Consider using 'hIT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsHIT :: Lens.Lens' GetAssignmentResponse (Lude.Maybe HIT)
-garsHIT = Lens.lens (hIT :: GetAssignmentResponse -> Lude.Maybe HIT) (\s a -> s {hIT = a} :: GetAssignmentResponse)
-{-# DEPRECATED garsHIT "Use generic-lens or generic-optics with 'hIT' instead." #-}
 
 -- | The assignment. The response includes one Assignment element.
 --
 -- /Note:/ Consider using 'assignment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsAssignment :: Lens.Lens' GetAssignmentResponse (Lude.Maybe Assignment)
-garsAssignment = Lens.lens (assignment :: GetAssignmentResponse -> Lude.Maybe Assignment) (\s a -> s {assignment = a} :: GetAssignmentResponse)
-{-# DEPRECATED garsAssignment "Use generic-lens or generic-optics with 'assignment' instead." #-}
+garrsAssignment :: Lens.Lens' GetAssignmentResponse (Core.Maybe Types.Assignment)
+garrsAssignment = Lens.field @"assignment"
+{-# DEPRECATED garrsAssignment "Use generic-lens or generic-optics with 'assignment' instead." #-}
+
+-- | The HIT associated with this assignment. The response includes one HIT element.
+--
+-- /Note:/ Consider using 'hit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garrsHIT :: Lens.Lens' GetAssignmentResponse (Core.Maybe Types.HIT)
+garrsHIT = Lens.field @"hit"
+{-# DEPRECATED garrsHIT "Use generic-lens or generic-optics with 'hit' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsResponseStatus :: Lens.Lens' GetAssignmentResponse Lude.Int
-garsResponseStatus = Lens.lens (responseStatus :: GetAssignmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAssignmentResponse)
-{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+garrsResponseStatus :: Lens.Lens' GetAssignmentResponse Core.Int
+garrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

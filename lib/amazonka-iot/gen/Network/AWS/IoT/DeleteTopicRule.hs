@@ -20,7 +20,7 @@ module Network.AWS.IoT.DeleteTopicRule
     mkDeleteTopicRule,
 
     -- ** Request lenses
-    dtrRuleName,
+    dRuleName,
 
     -- * Destructuring the response
     DeleteTopicRuleResponse (..),
@@ -28,60 +28,56 @@ module Network.AWS.IoT.DeleteTopicRule
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeleteTopicRule operation.
 --
 -- /See:/ 'mkDeleteTopicRule' smart constructor.
 newtype DeleteTopicRule = DeleteTopicRule'
   { -- | The name of the rule.
-    ruleName :: Lude.Text
+    ruleName :: Types.RuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTopicRule' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the rule.
+-- | Creates a 'DeleteTopicRule' value with any optional fields omitted.
 mkDeleteTopicRule ::
   -- | 'ruleName'
-  Lude.Text ->
+  Types.RuleName ->
   DeleteTopicRule
-mkDeleteTopicRule pRuleName_ =
-  DeleteTopicRule' {ruleName = pRuleName_}
+mkDeleteTopicRule ruleName = DeleteTopicRule' {ruleName}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrRuleName :: Lens.Lens' DeleteTopicRule Lude.Text
-dtrRuleName = Lens.lens (ruleName :: DeleteTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: DeleteTopicRule)
-{-# DEPRECATED dtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+dRuleName :: Lens.Lens' DeleteTopicRule Types.RuleName
+dRuleName = Lens.field @"ruleName"
+{-# DEPRECATED dRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance Lude.AWSRequest DeleteTopicRule where
+instance Core.AWSRequest DeleteTopicRule where
   type Rs DeleteTopicRule = DeleteTopicRuleResponse
-  request = Req.delete ioTService
-  response = Res.receiveNull DeleteTopicRuleResponse'
-
-instance Lude.ToHeaders DeleteTopicRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTopicRule where
-  toPath DeleteTopicRule' {..} =
-    Lude.mconcat ["/rules/", Lude.toBS ruleName]
-
-instance Lude.ToQuery DeleteTopicRule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/rules/" Core.<> (Core.toText ruleName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteTopicRuleResponse'
 
 -- | /See:/ 'mkDeleteTopicRuleResponse' smart constructor.
 data DeleteTopicRuleResponse = DeleteTopicRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTopicRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteTopicRuleResponse' value with any optional fields omitted.
 mkDeleteTopicRuleResponse ::
   DeleteTopicRuleResponse
 mkDeleteTopicRuleResponse = DeleteTopicRuleResponse'

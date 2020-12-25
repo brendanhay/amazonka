@@ -21,20 +21,20 @@ module Network.AWS.S3.Types.ParquetInput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Container for Parquet.
 --
 -- /See:/ 'mkParquetInput' smart constructor.
 data ParquetInput = ParquetInput'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParquetInput' with the minimum fields required to make a request.
+-- | Creates a 'ParquetInput' value with any optional fields omitted.
 mkParquetInput ::
   ParquetInput
 mkParquetInput = ParquetInput'
 
-instance Lude.ToXML ParquetInput where
-  toXML = Lude.const Lude.mempty
+instance Core.ToXML ParquetInput where
+  toXML _ = Core.mempty

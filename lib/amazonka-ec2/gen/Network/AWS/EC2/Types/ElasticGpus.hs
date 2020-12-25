@@ -17,124 +17,115 @@ module Network.AWS.EC2.Types.ElasticGpus
     mkElasticGpus,
 
     -- * Lenses
-    egInstanceId,
-    egElasticGpuType,
+    egAvailabilityZone,
+    egElasticGpuHealth,
     egElasticGpuId,
     egElasticGpuState,
-    egElasticGpuHealth,
-    egAvailabilityZone,
+    egElasticGpuType,
+    egInstanceId,
     egTags,
   )
 where
 
-import Network.AWS.EC2.Types.ElasticGpuHealth
-import Network.AWS.EC2.Types.ElasticGpuState
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.ElasticGpuHealth as Types
+import qualified Network.AWS.EC2.Types.ElasticGpuState as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Elastic Graphics accelerator.
 --
 -- /See:/ 'mkElasticGpus' smart constructor.
 data ElasticGpus = ElasticGpus'
-  { -- | The ID of the instance to which the Elastic Graphics accelerator is attached.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The type of Elastic Graphics accelerator.
-    elasticGpuType :: Lude.Maybe Lude.Text,
-    -- | The ID of the Elastic Graphics accelerator.
-    elasticGpuId :: Lude.Maybe Lude.Text,
-    -- | The state of the Elastic Graphics accelerator.
-    elasticGpuState :: Lude.Maybe ElasticGpuState,
+  { -- | The Availability Zone in the which the Elastic Graphics accelerator resides.
+    availabilityZone :: Core.Maybe Types.String,
     -- | The status of the Elastic Graphics accelerator.
-    elasticGpuHealth :: Lude.Maybe ElasticGpuHealth,
-    -- | The Availability Zone in the which the Elastic Graphics accelerator resides.
-    availabilityZone :: Lude.Maybe Lude.Text,
+    elasticGpuHealth :: Core.Maybe Types.ElasticGpuHealth,
+    -- | The ID of the Elastic Graphics accelerator.
+    elasticGpuId :: Core.Maybe Types.String,
+    -- | The state of the Elastic Graphics accelerator.
+    elasticGpuState :: Core.Maybe Types.ElasticGpuState,
+    -- | The type of Elastic Graphics accelerator.
+    elasticGpuType :: Core.Maybe Types.String,
+    -- | The ID of the instance to which the Elastic Graphics accelerator is attached.
+    instanceId :: Core.Maybe Types.String,
     -- | The tags assigned to the Elastic Graphics accelerator.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticGpus' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance to which the Elastic Graphics accelerator is attached.
--- * 'elasticGpuType' - The type of Elastic Graphics accelerator.
--- * 'elasticGpuId' - The ID of the Elastic Graphics accelerator.
--- * 'elasticGpuState' - The state of the Elastic Graphics accelerator.
--- * 'elasticGpuHealth' - The status of the Elastic Graphics accelerator.
--- * 'availabilityZone' - The Availability Zone in the which the Elastic Graphics accelerator resides.
--- * 'tags' - The tags assigned to the Elastic Graphics accelerator.
+-- | Creates a 'ElasticGpus' value with any optional fields omitted.
 mkElasticGpus ::
   ElasticGpus
 mkElasticGpus =
   ElasticGpus'
-    { instanceId = Lude.Nothing,
-      elasticGpuType = Lude.Nothing,
-      elasticGpuId = Lude.Nothing,
-      elasticGpuState = Lude.Nothing,
-      elasticGpuHealth = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      tags = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      elasticGpuHealth = Core.Nothing,
+      elasticGpuId = Core.Nothing,
+      elasticGpuState = Core.Nothing,
+      elasticGpuType = Core.Nothing,
+      instanceId = Core.Nothing,
+      tags = Core.Nothing
     }
 
--- | The ID of the instance to which the Elastic Graphics accelerator is attached.
+-- | The Availability Zone in the which the Elastic Graphics accelerator resides.
 --
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egInstanceId :: Lens.Lens' ElasticGpus (Lude.Maybe Lude.Text)
-egInstanceId = Lens.lens (instanceId :: ElasticGpus -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ElasticGpus)
-{-# DEPRECATED egInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+egAvailabilityZone :: Lens.Lens' ElasticGpus (Core.Maybe Types.String)
+egAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED egAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The type of Elastic Graphics accelerator.
+-- | The status of the Elastic Graphics accelerator.
 --
--- /Note:/ Consider using 'elasticGpuType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egElasticGpuType :: Lens.Lens' ElasticGpus (Lude.Maybe Lude.Text)
-egElasticGpuType = Lens.lens (elasticGpuType :: ElasticGpus -> Lude.Maybe Lude.Text) (\s a -> s {elasticGpuType = a} :: ElasticGpus)
-{-# DEPRECATED egElasticGpuType "Use generic-lens or generic-optics with 'elasticGpuType' instead." #-}
+-- /Note:/ Consider using 'elasticGpuHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+egElasticGpuHealth :: Lens.Lens' ElasticGpus (Core.Maybe Types.ElasticGpuHealth)
+egElasticGpuHealth = Lens.field @"elasticGpuHealth"
+{-# DEPRECATED egElasticGpuHealth "Use generic-lens or generic-optics with 'elasticGpuHealth' instead." #-}
 
 -- | The ID of the Elastic Graphics accelerator.
 --
 -- /Note:/ Consider using 'elasticGpuId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egElasticGpuId :: Lens.Lens' ElasticGpus (Lude.Maybe Lude.Text)
-egElasticGpuId = Lens.lens (elasticGpuId :: ElasticGpus -> Lude.Maybe Lude.Text) (\s a -> s {elasticGpuId = a} :: ElasticGpus)
+egElasticGpuId :: Lens.Lens' ElasticGpus (Core.Maybe Types.String)
+egElasticGpuId = Lens.field @"elasticGpuId"
 {-# DEPRECATED egElasticGpuId "Use generic-lens or generic-optics with 'elasticGpuId' instead." #-}
 
 -- | The state of the Elastic Graphics accelerator.
 --
 -- /Note:/ Consider using 'elasticGpuState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egElasticGpuState :: Lens.Lens' ElasticGpus (Lude.Maybe ElasticGpuState)
-egElasticGpuState = Lens.lens (elasticGpuState :: ElasticGpus -> Lude.Maybe ElasticGpuState) (\s a -> s {elasticGpuState = a} :: ElasticGpus)
+egElasticGpuState :: Lens.Lens' ElasticGpus (Core.Maybe Types.ElasticGpuState)
+egElasticGpuState = Lens.field @"elasticGpuState"
 {-# DEPRECATED egElasticGpuState "Use generic-lens or generic-optics with 'elasticGpuState' instead." #-}
 
--- | The status of the Elastic Graphics accelerator.
+-- | The type of Elastic Graphics accelerator.
 --
--- /Note:/ Consider using 'elasticGpuHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egElasticGpuHealth :: Lens.Lens' ElasticGpus (Lude.Maybe ElasticGpuHealth)
-egElasticGpuHealth = Lens.lens (elasticGpuHealth :: ElasticGpus -> Lude.Maybe ElasticGpuHealth) (\s a -> s {elasticGpuHealth = a} :: ElasticGpus)
-{-# DEPRECATED egElasticGpuHealth "Use generic-lens or generic-optics with 'elasticGpuHealth' instead." #-}
+-- /Note:/ Consider using 'elasticGpuType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+egElasticGpuType :: Lens.Lens' ElasticGpus (Core.Maybe Types.String)
+egElasticGpuType = Lens.field @"elasticGpuType"
+{-# DEPRECATED egElasticGpuType "Use generic-lens or generic-optics with 'elasticGpuType' instead." #-}
 
--- | The Availability Zone in the which the Elastic Graphics accelerator resides.
+-- | The ID of the instance to which the Elastic Graphics accelerator is attached.
 --
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egAvailabilityZone :: Lens.Lens' ElasticGpus (Lude.Maybe Lude.Text)
-egAvailabilityZone = Lens.lens (availabilityZone :: ElasticGpus -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ElasticGpus)
-{-# DEPRECATED egAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+egInstanceId :: Lens.Lens' ElasticGpus (Core.Maybe Types.String)
+egInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED egInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The tags assigned to the Elastic Graphics accelerator.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egTags :: Lens.Lens' ElasticGpus (Lude.Maybe [Tag])
-egTags = Lens.lens (tags :: ElasticGpus -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ElasticGpus)
+egTags :: Lens.Lens' ElasticGpus (Core.Maybe [Types.Tag])
+egTags = Lens.field @"tags"
 {-# DEPRECATED egTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ElasticGpus where
+instance Core.FromXML ElasticGpus where
   parseXML x =
     ElasticGpus'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "elasticGpuType")
-      Lude.<*> (x Lude..@? "elasticGpuId")
-      Lude.<*> (x Lude..@? "elasticGpuState")
-      Lude.<*> (x Lude..@? "elasticGpuHealth")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "elasticGpuHealth")
+      Core.<*> (x Core..@? "elasticGpuId")
+      Core.<*> (x Core..@? "elasticGpuState")
+      Core.<*> (x Core..@? "elasticGpuType")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

@@ -42,57 +42,50 @@ module Network.AWS.EC2.DeleteFleets
     mkDeleteFleetsResponse,
 
     -- ** Response lenses
-    dfrsSuccessfulFleetDeletions,
-    dfrsUnsuccessfulFleetDeletions,
-    dfrsResponseStatus,
+    dfrrsSuccessfulFleetDeletions,
+    dfrrsUnsuccessfulFleetDeletions,
+    dfrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFleets' smart constructor.
 data DeleteFleets = DeleteFleets'
   { -- | The IDs of the EC2 Fleets.
-    fleetIds :: [Lude.Text],
+    fleetIds :: [Types.FleetId],
     -- | Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default is to terminate the instances.
     --
     -- To let the instances continue to run after the EC2 Fleet is deleted, specify @NoTerminateInstances@ . Supported only for fleets of type @maintain@ and @request@ .
     -- For @instant@ fleets, you cannot specify @NoTerminateInstances@ . A deleted @instant@ fleet with running instances is not supported.
-    terminateInstances :: Lude.Bool,
+    terminateInstances :: Core.Bool,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFleets' with the minimum fields required to make a request.
---
--- * 'fleetIds' - The IDs of the EC2 Fleets.
--- * 'terminateInstances' - Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default is to terminate the instances.
---
--- To let the instances continue to run after the EC2 Fleet is deleted, specify @NoTerminateInstances@ . Supported only for fleets of type @maintain@ and @request@ .
--- For @instant@ fleets, you cannot specify @NoTerminateInstances@ . A deleted @instant@ fleet with running instances is not supported.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteFleets' value with any optional fields omitted.
 mkDeleteFleets ::
   -- | 'terminateInstances'
-  Lude.Bool ->
+  Core.Bool ->
   DeleteFleets
-mkDeleteFleets pTerminateInstances_ =
+mkDeleteFleets terminateInstances =
   DeleteFleets'
-    { fleetIds = Lude.mempty,
-      terminateInstances = pTerminateInstances_,
-      dryRun = Lude.Nothing
+    { fleetIds = Core.mempty,
+      terminateInstances,
+      dryRun = Core.Nothing
     }
 
 -- | The IDs of the EC2 Fleets.
 --
 -- /Note:/ Consider using 'fleetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfFleetIds :: Lens.Lens' DeleteFleets [Lude.Text]
-dfFleetIds = Lens.lens (fleetIds :: DeleteFleets -> [Lude.Text]) (\s a -> s {fleetIds = a} :: DeleteFleets)
+dfFleetIds :: Lens.Lens' DeleteFleets [Types.FleetId]
+dfFleetIds = Lens.field @"fleetIds"
 {-# DEPRECATED dfFleetIds "Use generic-lens or generic-optics with 'fleetIds' instead." #-}
 
 -- | Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default is to terminate the instances.
@@ -101,94 +94,93 @@ dfFleetIds = Lens.lens (fleetIds :: DeleteFleets -> [Lude.Text]) (\s a -> s {fle
 -- For @instant@ fleets, you cannot specify @NoTerminateInstances@ . A deleted @instant@ fleet with running instances is not supported.
 --
 -- /Note:/ Consider using 'terminateInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfTerminateInstances :: Lens.Lens' DeleteFleets Lude.Bool
-dfTerminateInstances = Lens.lens (terminateInstances :: DeleteFleets -> Lude.Bool) (\s a -> s {terminateInstances = a} :: DeleteFleets)
+dfTerminateInstances :: Lens.Lens' DeleteFleets Core.Bool
+dfTerminateInstances = Lens.field @"terminateInstances"
 {-# DEPRECATED dfTerminateInstances "Use generic-lens or generic-optics with 'terminateInstances' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfDryRun :: Lens.Lens' DeleteFleets (Lude.Maybe Lude.Bool)
-dfDryRun = Lens.lens (dryRun :: DeleteFleets -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFleets)
+dfDryRun :: Lens.Lens' DeleteFleets (Core.Maybe Core.Bool)
+dfDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteFleets where
+instance Core.AWSRequest DeleteFleets where
   type Rs DeleteFleets = DeleteFleetsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteFleets")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "FleetId" fleetIds)
+                Core.<> (Core.toQueryValue "TerminateInstances" terminateInstances)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteFleetsResponse'
-            Lude.<$> ( x Lude..@? "successfulFleetDeletionSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "successfulFleetDeletionSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> ( x Lude..@? "unsuccessfulFleetDeletionSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<*> ( x Core..@? "unsuccessfulFleetDeletionSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteFleets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteFleets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteFleets where
-  toQuery DeleteFleets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteFleets" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "FleetId" fleetIds,
-        "TerminateInstances" Lude.=: terminateInstances,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteFleetsResponse' smart constructor.
 data DeleteFleetsResponse = DeleteFleetsResponse'
   { -- | Information about the EC2 Fleets that are successfully deleted.
-    successfulFleetDeletions :: Lude.Maybe [DeleteFleetSuccessItem],
+    successfulFleetDeletions :: Core.Maybe [Types.DeleteFleetSuccessItem],
     -- | Information about the EC2 Fleets that are not successfully deleted.
-    unsuccessfulFleetDeletions :: Lude.Maybe [DeleteFleetErrorItem],
+    unsuccessfulFleetDeletions :: Core.Maybe [Types.DeleteFleetErrorItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFleetsResponse' with the minimum fields required to make a request.
---
--- * 'successfulFleetDeletions' - Information about the EC2 Fleets that are successfully deleted.
--- * 'unsuccessfulFleetDeletions' - Information about the EC2 Fleets that are not successfully deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteFleetsResponse' value with any optional fields omitted.
 mkDeleteFleetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteFleetsResponse
-mkDeleteFleetsResponse pResponseStatus_ =
+mkDeleteFleetsResponse responseStatus =
   DeleteFleetsResponse'
-    { successfulFleetDeletions = Lude.Nothing,
-      unsuccessfulFleetDeletions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { successfulFleetDeletions = Core.Nothing,
+      unsuccessfulFleetDeletions = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the EC2 Fleets that are successfully deleted.
 --
 -- /Note:/ Consider using 'successfulFleetDeletions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfrsSuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Lude.Maybe [DeleteFleetSuccessItem])
-dfrsSuccessfulFleetDeletions = Lens.lens (successfulFleetDeletions :: DeleteFleetsResponse -> Lude.Maybe [DeleteFleetSuccessItem]) (\s a -> s {successfulFleetDeletions = a} :: DeleteFleetsResponse)
-{-# DEPRECATED dfrsSuccessfulFleetDeletions "Use generic-lens or generic-optics with 'successfulFleetDeletions' instead." #-}
+dfrrsSuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Core.Maybe [Types.DeleteFleetSuccessItem])
+dfrrsSuccessfulFleetDeletions = Lens.field @"successfulFleetDeletions"
+{-# DEPRECATED dfrrsSuccessfulFleetDeletions "Use generic-lens or generic-optics with 'successfulFleetDeletions' instead." #-}
 
 -- | Information about the EC2 Fleets that are not successfully deleted.
 --
 -- /Note:/ Consider using 'unsuccessfulFleetDeletions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfrsUnsuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Lude.Maybe [DeleteFleetErrorItem])
-dfrsUnsuccessfulFleetDeletions = Lens.lens (unsuccessfulFleetDeletions :: DeleteFleetsResponse -> Lude.Maybe [DeleteFleetErrorItem]) (\s a -> s {unsuccessfulFleetDeletions = a} :: DeleteFleetsResponse)
-{-# DEPRECATED dfrsUnsuccessfulFleetDeletions "Use generic-lens or generic-optics with 'unsuccessfulFleetDeletions' instead." #-}
+dfrrsUnsuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Core.Maybe [Types.DeleteFleetErrorItem])
+dfrrsUnsuccessfulFleetDeletions = Lens.field @"unsuccessfulFleetDeletions"
+{-# DEPRECATED dfrrsUnsuccessfulFleetDeletions "Use generic-lens or generic-optics with 'unsuccessfulFleetDeletions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfrsResponseStatus :: Lens.Lens' DeleteFleetsResponse Lude.Int
-dfrsResponseStatus = Lens.lens (responseStatus :: DeleteFleetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFleetsResponse)
-{-# DEPRECATED dfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfrrsResponseStatus :: Lens.Lens' DeleteFleetsResponse Core.Int
+dfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

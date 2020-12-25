@@ -23,11 +23,11 @@ module Network.AWS.IoT.ListAuditMitigationActionsTasks
 
     -- ** Request lenses
     lamatStartTime,
-    lamatAuditTaskId,
-    lamatNextToken,
     lamatEndTime,
+    lamatAuditTaskId,
     lamatFindingId,
     lamatMaxResults,
+    lamatNextToken,
     lamatTaskStatus,
 
     -- * Destructuring the response
@@ -35,200 +35,188 @@ module Network.AWS.IoT.ListAuditMitigationActionsTasks
     mkListAuditMitigationActionsTasksResponse,
 
     -- ** Response lenses
-    lamatrsTasks,
-    lamatrsNextToken,
-    lamatrsResponseStatus,
+    lamatrrsNextToken,
+    lamatrrsTasks,
+    lamatrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAuditMitigationActionsTasks' smart constructor.
 data ListAuditMitigationActionsTasks = ListAuditMitigationActionsTasks'
   { -- | Specify this filter to limit results to tasks that began on or after a specific date and time.
-    startTime :: Lude.Timestamp,
-    -- | Specify this filter to limit results to tasks that were applied to results for a specific audit.
-    auditTaskId :: Lude.Maybe Lude.Text,
-    -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    startTime :: Core.NominalDiffTime,
     -- | Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
-    endTime :: Lude.Timestamp,
+    endTime :: Core.NominalDiffTime,
+    -- | Specify this filter to limit results to tasks that were applied to results for a specific audit.
+    auditTaskId :: Core.Maybe Types.AuditTaskId,
     -- | Specify this filter to limit results to tasks that were applied to a specific audit finding.
-    findingId :: Lude.Maybe Lude.Text,
+    findingId :: Core.Maybe Types.FindingId,
     -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Specify this filter to limit results to tasks that are in a specific state.
-    taskStatus :: Lude.Maybe AuditMitigationActionsTaskStatus
+    taskStatus :: Core.Maybe Types.AuditMitigationActionsTaskStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAuditMitigationActionsTasks' with the minimum fields required to make a request.
---
--- * 'startTime' - Specify this filter to limit results to tasks that began on or after a specific date and time.
--- * 'auditTaskId' - Specify this filter to limit results to tasks that were applied to results for a specific audit.
--- * 'nextToken' - The token for the next set of results.
--- * 'endTime' - Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
--- * 'findingId' - Specify this filter to limit results to tasks that were applied to a specific audit finding.
--- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
--- * 'taskStatus' - Specify this filter to limit results to tasks that are in a specific state.
+-- | Creates a 'ListAuditMitigationActionsTasks' value with any optional fields omitted.
 mkListAuditMitigationActionsTasks ::
   -- | 'startTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   -- | 'endTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   ListAuditMitigationActionsTasks
-mkListAuditMitigationActionsTasks pStartTime_ pEndTime_ =
+mkListAuditMitigationActionsTasks startTime endTime =
   ListAuditMitigationActionsTasks'
-    { startTime = pStartTime_,
-      auditTaskId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      endTime = pEndTime_,
-      findingId = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      taskStatus = Lude.Nothing
+    { startTime,
+      endTime,
+      auditTaskId = Core.Nothing,
+      findingId = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      taskStatus = Core.Nothing
     }
 
 -- | Specify this filter to limit results to tasks that began on or after a specific date and time.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatStartTime :: Lens.Lens' ListAuditMitigationActionsTasks Lude.Timestamp
-lamatStartTime = Lens.lens (startTime :: ListAuditMitigationActionsTasks -> Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditMitigationActionsTasks)
+lamatStartTime :: Lens.Lens' ListAuditMitigationActionsTasks Core.NominalDiffTime
+lamatStartTime = Lens.field @"startTime"
 {-# DEPRECATED lamatStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | Specify this filter to limit results to tasks that were applied to results for a specific audit.
---
--- /Note:/ Consider using 'auditTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatAuditTaskId :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe Lude.Text)
-lamatAuditTaskId = Lens.lens (auditTaskId :: ListAuditMitigationActionsTasks -> Lude.Maybe Lude.Text) (\s a -> s {auditTaskId = a} :: ListAuditMitigationActionsTasks)
-{-# DEPRECATED lamatAuditTaskId "Use generic-lens or generic-optics with 'auditTaskId' instead." #-}
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatNextToken :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe Lude.Text)
-lamatNextToken = Lens.lens (nextToken :: ListAuditMitigationActionsTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditMitigationActionsTasks)
-{-# DEPRECATED lamatNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatEndTime :: Lens.Lens' ListAuditMitigationActionsTasks Lude.Timestamp
-lamatEndTime = Lens.lens (endTime :: ListAuditMitigationActionsTasks -> Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditMitigationActionsTasks)
+lamatEndTime :: Lens.Lens' ListAuditMitigationActionsTasks Core.NominalDiffTime
+lamatEndTime = Lens.field @"endTime"
 {-# DEPRECATED lamatEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | Specify this filter to limit results to tasks that were applied to results for a specific audit.
+--
+-- /Note:/ Consider using 'auditTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamatAuditTaskId :: Lens.Lens' ListAuditMitigationActionsTasks (Core.Maybe Types.AuditTaskId)
+lamatAuditTaskId = Lens.field @"auditTaskId"
+{-# DEPRECATED lamatAuditTaskId "Use generic-lens or generic-optics with 'auditTaskId' instead." #-}
 
 -- | Specify this filter to limit results to tasks that were applied to a specific audit finding.
 --
 -- /Note:/ Consider using 'findingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatFindingId :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe Lude.Text)
-lamatFindingId = Lens.lens (findingId :: ListAuditMitigationActionsTasks -> Lude.Maybe Lude.Text) (\s a -> s {findingId = a} :: ListAuditMitigationActionsTasks)
+lamatFindingId :: Lens.Lens' ListAuditMitigationActionsTasks (Core.Maybe Types.FindingId)
+lamatFindingId = Lens.field @"findingId"
 {-# DEPRECATED lamatFindingId "Use generic-lens or generic-optics with 'findingId' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatMaxResults :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe Lude.Natural)
-lamatMaxResults = Lens.lens (maxResults :: ListAuditMitigationActionsTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAuditMitigationActionsTasks)
+lamatMaxResults :: Lens.Lens' ListAuditMitigationActionsTasks (Core.Maybe Core.Natural)
+lamatMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lamatMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Specify this filter to limit results to tasks that are in a specific state.
---
--- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatTaskStatus :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe AuditMitigationActionsTaskStatus)
-lamatTaskStatus = Lens.lens (taskStatus :: ListAuditMitigationActionsTasks -> Lude.Maybe AuditMitigationActionsTaskStatus) (\s a -> s {taskStatus = a} :: ListAuditMitigationActionsTasks)
-{-# DEPRECATED lamatTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
-
-instance Page.AWSPager ListAuditMitigationActionsTasks where
-  page rq rs
-    | Page.stop (rs Lens.^. lamatrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lamatrsTasks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lamatNextToken Lens..~ rs Lens.^. lamatrsNextToken
-
-instance Lude.AWSRequest ListAuditMitigationActionsTasks where
-  type
-    Rs ListAuditMitigationActionsTasks =
-      ListAuditMitigationActionsTasksResponse
-  request = Req.get ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListAuditMitigationActionsTasksResponse'
-            Lude.<$> (x Lude..?> "tasks" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListAuditMitigationActionsTasks where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListAuditMitigationActionsTasks where
-  toPath = Lude.const "/audit/mitigationactions/tasks"
-
-instance Lude.ToQuery ListAuditMitigationActionsTasks where
-  toQuery ListAuditMitigationActionsTasks' {..} =
-    Lude.mconcat
-      [ "startTime" Lude.=: startTime,
-        "auditTaskId" Lude.=: auditTaskId,
-        "nextToken" Lude.=: nextToken,
-        "endTime" Lude.=: endTime,
-        "findingId" Lude.=: findingId,
-        "maxResults" Lude.=: maxResults,
-        "taskStatus" Lude.=: taskStatus
-      ]
-
--- | /See:/ 'mkListAuditMitigationActionsTasksResponse' smart constructor.
-data ListAuditMitigationActionsTasksResponse = ListAuditMitigationActionsTasksResponse'
-  { -- | The collection of audit mitigation tasks that matched the filter criteria.
-    tasks :: Lude.Maybe [AuditMitigationActionsTaskMetadata],
-    -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListAuditMitigationActionsTasksResponse' with the minimum fields required to make a request.
---
--- * 'tasks' - The collection of audit mitigation tasks that matched the filter criteria.
--- * 'nextToken' - The token for the next set of results.
--- * 'responseStatus' - The response status code.
-mkListAuditMitigationActionsTasksResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListAuditMitigationActionsTasksResponse
-mkListAuditMitigationActionsTasksResponse pResponseStatus_ =
-  ListAuditMitigationActionsTasksResponse'
-    { tasks = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The collection of audit mitigation tasks that matched the filter criteria.
---
--- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatrsTasks :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Lude.Maybe [AuditMitigationActionsTaskMetadata])
-lamatrsTasks = Lens.lens (tasks :: ListAuditMitigationActionsTasksResponse -> Lude.Maybe [AuditMitigationActionsTaskMetadata]) (\s a -> s {tasks = a} :: ListAuditMitigationActionsTasksResponse)
-{-# DEPRECATED lamatrsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatrsNextToken :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Lude.Maybe Lude.Text)
-lamatrsNextToken = Lens.lens (nextToken :: ListAuditMitigationActionsTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditMitigationActionsTasksResponse)
-{-# DEPRECATED lamatrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lamatNextToken :: Lens.Lens' ListAuditMitigationActionsTasks (Core.Maybe Types.NextToken)
+lamatNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lamatNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Specify this filter to limit results to tasks that are in a specific state.
+--
+-- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamatTaskStatus :: Lens.Lens' ListAuditMitigationActionsTasks (Core.Maybe Types.AuditMitigationActionsTaskStatus)
+lamatTaskStatus = Lens.field @"taskStatus"
+{-# DEPRECATED lamatTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
+
+instance Core.AWSRequest ListAuditMitigationActionsTasks where
+  type
+    Rs ListAuditMitigationActionsTasks =
+      ListAuditMitigationActionsTasksResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/audit/mitigationactions/tasks",
+        Core._rqQuery =
+          Core.toQueryValue "startTime" startTime
+            Core.<> (Core.toQueryValue "endTime" endTime)
+            Core.<> (Core.toQueryValue "auditTaskId" Core.<$> auditTaskId)
+            Core.<> (Core.toQueryValue "findingId" Core.<$> findingId)
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "taskStatus" Core.<$> taskStatus),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListAuditMitigationActionsTasksResponse'
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "tasks")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListAuditMitigationActionsTasks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"tasks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListAuditMitigationActionsTasksResponse' smart constructor.
+data ListAuditMitigationActionsTasksResponse = ListAuditMitigationActionsTasksResponse'
+  { -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The collection of audit mitigation tasks that matched the filter criteria.
+    tasks :: Core.Maybe [Types.AuditMitigationActionsTaskMetadata],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListAuditMitigationActionsTasksResponse' value with any optional fields omitted.
+mkListAuditMitigationActionsTasksResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListAuditMitigationActionsTasksResponse
+mkListAuditMitigationActionsTasksResponse responseStatus =
+  ListAuditMitigationActionsTasksResponse'
+    { nextToken =
+        Core.Nothing,
+      tasks = Core.Nothing,
+      responseStatus
+    }
+
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamatrrsNextToken :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Core.Maybe Types.NextToken)
+lamatrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lamatrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The collection of audit mitigation tasks that matched the filter criteria.
+--
+-- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamatrrsTasks :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Core.Maybe [Types.AuditMitigationActionsTaskMetadata])
+lamatrrsTasks = Lens.field @"tasks"
+{-# DEPRECATED lamatrrsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatrsResponseStatus :: Lens.Lens' ListAuditMitigationActionsTasksResponse Lude.Int
-lamatrsResponseStatus = Lens.lens (responseStatus :: ListAuditMitigationActionsTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAuditMitigationActionsTasksResponse)
-{-# DEPRECATED lamatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lamatrrsResponseStatus :: Lens.Lens' ListAuditMitigationActionsTasksResponse Core.Int
+lamatrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lamatrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

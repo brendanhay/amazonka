@@ -13,66 +13,71 @@
 module Network.AWS.Shield.Types.ProtectedResourceType
   ( ProtectedResourceType
       ( ProtectedResourceType',
-        CloudfrontDistribution,
-        Route53HostedZone,
-        ElasticIPAllocation,
-        ClassicLoadBalancer,
-        ApplicationLoadBalancer,
-        GlobalAccelerator
+        ProtectedResourceTypeCloudfrontDistribution,
+        ProtectedResourceTypeRoute53HostedZone,
+        ProtectedResourceTypeElasticIpAllocation,
+        ProtectedResourceTypeClassicLoadBalancer,
+        ProtectedResourceTypeApplicationLoadBalancer,
+        ProtectedResourceTypeGlobalAccelerator,
+        fromProtectedResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProtectedResourceType = ProtectedResourceType' Lude.Text
+newtype ProtectedResourceType = ProtectedResourceType'
+  { fromProtectedResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CloudfrontDistribution :: ProtectedResourceType
-pattern CloudfrontDistribution = ProtectedResourceType' "CLOUDFRONT_DISTRIBUTION"
+pattern ProtectedResourceTypeCloudfrontDistribution :: ProtectedResourceType
+pattern ProtectedResourceTypeCloudfrontDistribution = ProtectedResourceType' "CLOUDFRONT_DISTRIBUTION"
 
-pattern Route53HostedZone :: ProtectedResourceType
-pattern Route53HostedZone = ProtectedResourceType' "ROUTE_53_HOSTED_ZONE"
+pattern ProtectedResourceTypeRoute53HostedZone :: ProtectedResourceType
+pattern ProtectedResourceTypeRoute53HostedZone = ProtectedResourceType' "ROUTE_53_HOSTED_ZONE"
 
-pattern ElasticIPAllocation :: ProtectedResourceType
-pattern ElasticIPAllocation = ProtectedResourceType' "ELASTIC_IP_ALLOCATION"
+pattern ProtectedResourceTypeElasticIpAllocation :: ProtectedResourceType
+pattern ProtectedResourceTypeElasticIpAllocation = ProtectedResourceType' "ELASTIC_IP_ALLOCATION"
 
-pattern ClassicLoadBalancer :: ProtectedResourceType
-pattern ClassicLoadBalancer = ProtectedResourceType' "CLASSIC_LOAD_BALANCER"
+pattern ProtectedResourceTypeClassicLoadBalancer :: ProtectedResourceType
+pattern ProtectedResourceTypeClassicLoadBalancer = ProtectedResourceType' "CLASSIC_LOAD_BALANCER"
 
-pattern ApplicationLoadBalancer :: ProtectedResourceType
-pattern ApplicationLoadBalancer = ProtectedResourceType' "APPLICATION_LOAD_BALANCER"
+pattern ProtectedResourceTypeApplicationLoadBalancer :: ProtectedResourceType
+pattern ProtectedResourceTypeApplicationLoadBalancer = ProtectedResourceType' "APPLICATION_LOAD_BALANCER"
 
-pattern GlobalAccelerator :: ProtectedResourceType
-pattern GlobalAccelerator = ProtectedResourceType' "GLOBAL_ACCELERATOR"
+pattern ProtectedResourceTypeGlobalAccelerator :: ProtectedResourceType
+pattern ProtectedResourceTypeGlobalAccelerator = ProtectedResourceType' "GLOBAL_ACCELERATOR"
 
 {-# COMPLETE
-  CloudfrontDistribution,
-  Route53HostedZone,
-  ElasticIPAllocation,
-  ClassicLoadBalancer,
-  ApplicationLoadBalancer,
-  GlobalAccelerator,
+  ProtectedResourceTypeCloudfrontDistribution,
+  ProtectedResourceTypeRoute53HostedZone,
+  ProtectedResourceTypeElasticIpAllocation,
+  ProtectedResourceTypeClassicLoadBalancer,
+  ProtectedResourceTypeApplicationLoadBalancer,
+  ProtectedResourceTypeGlobalAccelerator,
   ProtectedResourceType'
   #-}

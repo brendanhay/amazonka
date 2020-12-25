@@ -27,110 +27,94 @@ module Network.AWS.SageMaker.DescribeWorkteam
     mkDescribeWorkteamResponse,
 
     -- ** Response lenses
-    dwgrsWorkteam,
-    dwgrsResponseStatus,
+    dwrgrsWorkteam,
+    dwrgrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeWorkteam' smart constructor.
 newtype DescribeWorkteam = DescribeWorkteam'
   { -- | The name of the work team to return a description of.
-    workteamName :: Lude.Text
+    workteamName :: Types.WorkteamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeWorkteam' with the minimum fields required to make a request.
---
--- * 'workteamName' - The name of the work team to return a description of.
+-- | Creates a 'DescribeWorkteam' value with any optional fields omitted.
 mkDescribeWorkteam ::
   -- | 'workteamName'
-  Lude.Text ->
+  Types.WorkteamName ->
   DescribeWorkteam
-mkDescribeWorkteam pWorkteamName_ =
-  DescribeWorkteam' {workteamName = pWorkteamName_}
+mkDescribeWorkteam workteamName = DescribeWorkteam' {workteamName}
 
 -- | The name of the work team to return a description of.
 --
 -- /Note:/ Consider using 'workteamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dWorkteamName :: Lens.Lens' DescribeWorkteam Lude.Text
-dWorkteamName = Lens.lens (workteamName :: DescribeWorkteam -> Lude.Text) (\s a -> s {workteamName = a} :: DescribeWorkteam)
+dWorkteamName :: Lens.Lens' DescribeWorkteam Types.WorkteamName
+dWorkteamName = Lens.field @"workteamName"
 {-# DEPRECATED dWorkteamName "Use generic-lens or generic-optics with 'workteamName' instead." #-}
 
-instance Lude.AWSRequest DescribeWorkteam where
+instance Core.FromJSON DescribeWorkteam where
+  toJSON DescribeWorkteam {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("WorkteamName" Core..= workteamName)])
+
+instance Core.AWSRequest DescribeWorkteam where
   type Rs DescribeWorkteam = DescribeWorkteamResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DescribeWorkteam")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeWorkteamResponse'
-            Lude.<$> (x Lude..:> "Workteam") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "Workteam") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeWorkteam where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DescribeWorkteam" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeWorkteam where
-  toJSON DescribeWorkteam' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("WorkteamName" Lude..= workteamName)])
-
-instance Lude.ToPath DescribeWorkteam where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeWorkteam where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeWorkteamResponse' smart constructor.
 data DescribeWorkteamResponse = DescribeWorkteamResponse'
   { -- | A @Workteam@ instance that contains information about the work team.
-    workteam :: Workteam,
+    workteam :: Types.Workteam,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeWorkteamResponse' with the minimum fields required to make a request.
---
--- * 'workteam' - A @Workteam@ instance that contains information about the work team.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeWorkteamResponse' value with any optional fields omitted.
 mkDescribeWorkteamResponse ::
   -- | 'workteam'
-  Workteam ->
+  Types.Workteam ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeWorkteamResponse
-mkDescribeWorkteamResponse pWorkteam_ pResponseStatus_ =
-  DescribeWorkteamResponse'
-    { workteam = pWorkteam_,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeWorkteamResponse workteam responseStatus =
+  DescribeWorkteamResponse' {workteam, responseStatus}
 
 -- | A @Workteam@ instance that contains information about the work team.
 --
 -- /Note:/ Consider using 'workteam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwgrsWorkteam :: Lens.Lens' DescribeWorkteamResponse Workteam
-dwgrsWorkteam = Lens.lens (workteam :: DescribeWorkteamResponse -> Workteam) (\s a -> s {workteam = a} :: DescribeWorkteamResponse)
-{-# DEPRECATED dwgrsWorkteam "Use generic-lens or generic-optics with 'workteam' instead." #-}
+dwrgrsWorkteam :: Lens.Lens' DescribeWorkteamResponse Types.Workteam
+dwrgrsWorkteam = Lens.field @"workteam"
+{-# DEPRECATED dwrgrsWorkteam "Use generic-lens or generic-optics with 'workteam' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwgrsResponseStatus :: Lens.Lens' DescribeWorkteamResponse Lude.Int
-dwgrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkteamResponse)
-{-# DEPRECATED dwgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwrgrsResponseStatus :: Lens.Lens' DescribeWorkteamResponse Core.Int
+dwrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

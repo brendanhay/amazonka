@@ -13,46 +13,51 @@
 module Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
   ( CustomHealthStatus
       ( CustomHealthStatus',
-        CHSHealthy,
-        CHSUnhealthy
+        CustomHealthStatusHealthy,
+        CustomHealthStatusUnhealthy,
+        fromCustomHealthStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CustomHealthStatus = CustomHealthStatus' Lude.Text
+newtype CustomHealthStatus = CustomHealthStatus'
+  { fromCustomHealthStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CHSHealthy :: CustomHealthStatus
-pattern CHSHealthy = CustomHealthStatus' "HEALTHY"
+pattern CustomHealthStatusHealthy :: CustomHealthStatus
+pattern CustomHealthStatusHealthy = CustomHealthStatus' "HEALTHY"
 
-pattern CHSUnhealthy :: CustomHealthStatus
-pattern CHSUnhealthy = CustomHealthStatus' "UNHEALTHY"
+pattern CustomHealthStatusUnhealthy :: CustomHealthStatus
+pattern CustomHealthStatusUnhealthy = CustomHealthStatus' "UNHEALTHY"
 
 {-# COMPLETE
-  CHSHealthy,
-  CHSUnhealthy,
+  CustomHealthStatusHealthy,
+  CustomHealthStatusUnhealthy,
   CustomHealthStatus'
   #-}

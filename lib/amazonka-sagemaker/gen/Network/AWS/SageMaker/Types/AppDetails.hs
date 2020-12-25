@@ -17,112 +17,106 @@ module Network.AWS.SageMaker.Types.AppDetails
     mkAppDetails,
 
     -- * Lenses
+    adAppName,
+    adAppType,
     adCreationTime,
+    adDomainId,
     adStatus,
     adUserProfileName,
-    adAppName,
-    adDomainId,
-    adAppType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AppStatus
-import Network.AWS.SageMaker.Types.AppType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AppName as Types
+import qualified Network.AWS.SageMaker.Types.AppStatus as Types
+import qualified Network.AWS.SageMaker.Types.AppType as Types
+import qualified Network.AWS.SageMaker.Types.DomainId as Types
+import qualified Network.AWS.SageMaker.Types.UserProfileName as Types
 
 -- | Details about an Amazon SageMaker app.
 --
 -- /See:/ 'mkAppDetails' smart constructor.
 data AppDetails = AppDetails'
-  { -- | The creation time.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The status.
-    status :: Lude.Maybe AppStatus,
-    -- | The user profile name.
-    userProfileName :: Lude.Maybe Lude.Text,
-    -- | The name of the app.
-    appName :: Lude.Maybe Lude.Text,
-    -- | The domain ID.
-    domainId :: Lude.Maybe Lude.Text,
+  { -- | The name of the app.
+    appName :: Core.Maybe Types.AppName,
     -- | The type of app.
-    appType :: Lude.Maybe AppType
+    appType :: Core.Maybe Types.AppType,
+    -- | The creation time.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The domain ID.
+    domainId :: Core.Maybe Types.DomainId,
+    -- | The status.
+    status :: Core.Maybe Types.AppStatus,
+    -- | The user profile name.
+    userProfileName :: Core.Maybe Types.UserProfileName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AppDetails' with the minimum fields required to make a request.
---
--- * 'creationTime' - The creation time.
--- * 'status' - The status.
--- * 'userProfileName' - The user profile name.
--- * 'appName' - The name of the app.
--- * 'domainId' - The domain ID.
--- * 'appType' - The type of app.
+-- | Creates a 'AppDetails' value with any optional fields omitted.
 mkAppDetails ::
   AppDetails
 mkAppDetails =
   AppDetails'
-    { creationTime = Lude.Nothing,
-      status = Lude.Nothing,
-      userProfileName = Lude.Nothing,
-      appName = Lude.Nothing,
-      domainId = Lude.Nothing,
-      appType = Lude.Nothing
+    { appName = Core.Nothing,
+      appType = Core.Nothing,
+      creationTime = Core.Nothing,
+      domainId = Core.Nothing,
+      status = Core.Nothing,
+      userProfileName = Core.Nothing
     }
+
+-- | The name of the app.
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAppName :: Lens.Lens' AppDetails (Core.Maybe Types.AppName)
+adAppName = Lens.field @"appName"
+{-# DEPRECATED adAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
+
+-- | The type of app.
+--
+-- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAppType :: Lens.Lens' AppDetails (Core.Maybe Types.AppType)
+adAppType = Lens.field @"appType"
+{-# DEPRECATED adAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
 
 -- | The creation time.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adCreationTime :: Lens.Lens' AppDetails (Lude.Maybe Lude.Timestamp)
-adCreationTime = Lens.lens (creationTime :: AppDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: AppDetails)
+adCreationTime :: Lens.Lens' AppDetails (Core.Maybe Core.NominalDiffTime)
+adCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED adCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The domain ID.
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDomainId :: Lens.Lens' AppDetails (Core.Maybe Types.DomainId)
+adDomainId = Lens.field @"domainId"
+{-# DEPRECATED adDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The status.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adStatus :: Lens.Lens' AppDetails (Lude.Maybe AppStatus)
-adStatus = Lens.lens (status :: AppDetails -> Lude.Maybe AppStatus) (\s a -> s {status = a} :: AppDetails)
+adStatus :: Lens.Lens' AppDetails (Core.Maybe Types.AppStatus)
+adStatus = Lens.field @"status"
 {-# DEPRECATED adStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The user profile name.
 --
 -- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adUserProfileName :: Lens.Lens' AppDetails (Lude.Maybe Lude.Text)
-adUserProfileName = Lens.lens (userProfileName :: AppDetails -> Lude.Maybe Lude.Text) (\s a -> s {userProfileName = a} :: AppDetails)
+adUserProfileName :: Lens.Lens' AppDetails (Core.Maybe Types.UserProfileName)
+adUserProfileName = Lens.field @"userProfileName"
 {-# DEPRECATED adUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
--- | The name of the app.
---
--- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAppName :: Lens.Lens' AppDetails (Lude.Maybe Lude.Text)
-adAppName = Lens.lens (appName :: AppDetails -> Lude.Maybe Lude.Text) (\s a -> s {appName = a} :: AppDetails)
-{-# DEPRECATED adAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
-
--- | The domain ID.
---
--- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adDomainId :: Lens.Lens' AppDetails (Lude.Maybe Lude.Text)
-adDomainId = Lens.lens (domainId :: AppDetails -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: AppDetails)
-{-# DEPRECATED adDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
-
--- | The type of app.
---
--- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAppType :: Lens.Lens' AppDetails (Lude.Maybe AppType)
-adAppType = Lens.lens (appType :: AppDetails -> Lude.Maybe AppType) (\s a -> s {appType = a} :: AppDetails)
-{-# DEPRECATED adAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
-
-instance Lude.FromJSON AppDetails where
+instance Core.FromJSON AppDetails where
   parseJSON =
-    Lude.withObject
-      "AppDetails"
-      ( \x ->
-          AppDetails'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "UserProfileName")
-            Lude.<*> (x Lude..:? "AppName")
-            Lude.<*> (x Lude..:? "DomainId")
-            Lude.<*> (x Lude..:? "AppType")
-      )
+    Core.withObject "AppDetails" Core.$
+      \x ->
+        AppDetails'
+          Core.<$> (x Core..:? "AppName")
+          Core.<*> (x Core..:? "AppType")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "DomainId")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "UserProfileName")

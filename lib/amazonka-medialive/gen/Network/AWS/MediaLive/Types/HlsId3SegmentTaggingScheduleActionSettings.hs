@@ -22,44 +22,40 @@ module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the action to insert a user-defined ID3 tag in each HLS segment
 --
 -- /See:/ 'mkHlsId3SegmentTaggingScheduleActionSettings' smart constructor.
 newtype HlsId3SegmentTaggingScheduleActionSettings = HlsId3SegmentTaggingScheduleActionSettings'
   { -- | ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
-    tag :: Lude.Text
+    tag :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsId3SegmentTaggingScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'tag' - ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
+-- | Creates a 'HlsId3SegmentTaggingScheduleActionSettings' value with any optional fields omitted.
 mkHlsId3SegmentTaggingScheduleActionSettings ::
   -- | 'tag'
-  Lude.Text ->
+  Core.Text ->
   HlsId3SegmentTaggingScheduleActionSettings
-mkHlsId3SegmentTaggingScheduleActionSettings pTag_ =
-  HlsId3SegmentTaggingScheduleActionSettings' {tag = pTag_}
+mkHlsId3SegmentTaggingScheduleActionSettings tag =
+  HlsId3SegmentTaggingScheduleActionSettings' {tag}
 
 -- | ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
 --
 -- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-histsasTag :: Lens.Lens' HlsId3SegmentTaggingScheduleActionSettings Lude.Text
-histsasTag = Lens.lens (tag :: HlsId3SegmentTaggingScheduleActionSettings -> Lude.Text) (\s a -> s {tag = a} :: HlsId3SegmentTaggingScheduleActionSettings)
+histsasTag :: Lens.Lens' HlsId3SegmentTaggingScheduleActionSettings Core.Text
+histsasTag = Lens.field @"tag"
 {-# DEPRECATED histsasTag "Use generic-lens or generic-optics with 'tag' instead." #-}
 
-instance Lude.FromJSON HlsId3SegmentTaggingScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "HlsId3SegmentTaggingScheduleActionSettings"
-      ( \x ->
-          HlsId3SegmentTaggingScheduleActionSettings'
-            Lude.<$> (x Lude..: "tag")
-      )
+instance Core.FromJSON HlsId3SegmentTaggingScheduleActionSettings where
+  toJSON HlsId3SegmentTaggingScheduleActionSettings {..} =
+    Core.object (Core.catMaybes [Core.Just ("tag" Core..= tag)])
 
-instance Lude.ToJSON HlsId3SegmentTaggingScheduleActionSettings where
-  toJSON HlsId3SegmentTaggingScheduleActionSettings' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("tag" Lude..= tag)])
+instance Core.FromJSON HlsId3SegmentTaggingScheduleActionSettings where
+  parseJSON =
+    Core.withObject "HlsId3SegmentTaggingScheduleActionSettings" Core.$
+      \x ->
+        HlsId3SegmentTaggingScheduleActionSettings'
+          Core.<$> (x Core..: "tag")

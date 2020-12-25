@@ -13,71 +13,73 @@
 module Network.AWS.MQ.Types.DayOfWeek
   ( DayOfWeek
       ( DayOfWeek',
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
+        DayOfWeekMonday,
+        DayOfWeekTuesday,
+        DayOfWeekWednesday,
+        DayOfWeekThursday,
+        DayOfWeekFriday,
+        DayOfWeekSaturday,
+        DayOfWeekSunday,
+        fromDayOfWeek
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DayOfWeek = DayOfWeek' Lude.Text
+newtype DayOfWeek = DayOfWeek' {fromDayOfWeek :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Monday :: DayOfWeek
-pattern Monday = DayOfWeek' "MONDAY"
+pattern DayOfWeekMonday :: DayOfWeek
+pattern DayOfWeekMonday = DayOfWeek' "MONDAY"
 
-pattern Tuesday :: DayOfWeek
-pattern Tuesday = DayOfWeek' "TUESDAY"
+pattern DayOfWeekTuesday :: DayOfWeek
+pattern DayOfWeekTuesday = DayOfWeek' "TUESDAY"
 
-pattern Wednesday :: DayOfWeek
-pattern Wednesday = DayOfWeek' "WEDNESDAY"
+pattern DayOfWeekWednesday :: DayOfWeek
+pattern DayOfWeekWednesday = DayOfWeek' "WEDNESDAY"
 
-pattern Thursday :: DayOfWeek
-pattern Thursday = DayOfWeek' "THURSDAY"
+pattern DayOfWeekThursday :: DayOfWeek
+pattern DayOfWeekThursday = DayOfWeek' "THURSDAY"
 
-pattern Friday :: DayOfWeek
-pattern Friday = DayOfWeek' "FRIDAY"
+pattern DayOfWeekFriday :: DayOfWeek
+pattern DayOfWeekFriday = DayOfWeek' "FRIDAY"
 
-pattern Saturday :: DayOfWeek
-pattern Saturday = DayOfWeek' "SATURDAY"
+pattern DayOfWeekSaturday :: DayOfWeek
+pattern DayOfWeekSaturday = DayOfWeek' "SATURDAY"
 
-pattern Sunday :: DayOfWeek
-pattern Sunday = DayOfWeek' "SUNDAY"
+pattern DayOfWeekSunday :: DayOfWeek
+pattern DayOfWeekSunday = DayOfWeek' "SUNDAY"
 
 {-# COMPLETE
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday,
-  Sunday,
+  DayOfWeekMonday,
+  DayOfWeekTuesday,
+  DayOfWeekWednesday,
+  DayOfWeekThursday,
+  DayOfWeekFriday,
+  DayOfWeekSaturday,
+  DayOfWeekSunday,
   DayOfWeek'
   #-}

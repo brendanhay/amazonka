@@ -49,8 +49,8 @@ module Network.AWS.KMS.CreateAlias
     mkCreateAlias,
 
     -- ** Request lenses
-    caTargetKeyId,
     caAliasName,
+    caTargetKeyId,
 
     -- * Destructuring the response
     CreateAliasResponse (..),
@@ -58,89 +58,76 @@ module Network.AWS.KMS.CreateAlias
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { -- | Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
-    targetKeyId :: Lude.Text,
-    -- | Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
-    aliasName :: Lude.Text
+  { -- | Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
+    aliasName :: Types.AliasName,
+    -- | Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
+    targetKeyId :: Types.KeyIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
---
--- * 'targetKeyId' - Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
--- * 'aliasName' - Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
+-- | Creates a 'CreateAlias' value with any optional fields omitted.
 mkCreateAlias ::
-  -- | 'targetKeyId'
-  Lude.Text ->
   -- | 'aliasName'
-  Lude.Text ->
+  Types.AliasName ->
+  -- | 'targetKeyId'
+  Types.KeyIdType ->
   CreateAlias
-mkCreateAlias pTargetKeyId_ pAliasName_ =
-  CreateAlias'
-    { targetKeyId = pTargetKeyId_,
-      aliasName = pAliasName_
-    }
-
--- | Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'targetKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTargetKeyId :: Lens.Lens' CreateAlias Lude.Text
-caTargetKeyId = Lens.lens (targetKeyId :: CreateAlias -> Lude.Text) (\s a -> s {targetKeyId = a} :: CreateAlias)
-{-# DEPRECATED caTargetKeyId "Use generic-lens or generic-optics with 'targetKeyId' instead." #-}
+mkCreateAlias aliasName targetKeyId =
+  CreateAlias' {aliasName, targetKeyId}
 
 -- | Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
 --
 -- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAliasName :: Lens.Lens' CreateAlias Lude.Text
-caAliasName = Lens.lens (aliasName :: CreateAlias -> Lude.Text) (\s a -> s {aliasName = a} :: CreateAlias)
+caAliasName :: Lens.Lens' CreateAlias Types.AliasName
+caAliasName = Lens.field @"aliasName"
 {-# DEPRECATED caAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
 
-instance Lude.AWSRequest CreateAlias where
+-- | Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'targetKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTargetKeyId :: Lens.Lens' CreateAlias Types.KeyIdType
+caTargetKeyId = Lens.field @"targetKeyId"
+{-# DEPRECATED caTargetKeyId "Use generic-lens or generic-optics with 'targetKeyId' instead." #-}
+
+instance Core.FromJSON CreateAlias where
+  toJSON CreateAlias {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasName" Core..= aliasName),
+            Core.Just ("TargetKeyId" Core..= targetKeyId)
+          ]
+      )
+
+instance Core.AWSRequest CreateAlias where
   type Rs CreateAlias = CreateAliasResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull CreateAliasResponse'
-
-instance Lude.ToHeaders CreateAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.CreateAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateAlias where
-  toJSON CreateAlias' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TargetKeyId" Lude..= targetKeyId),
-            Lude.Just ("AliasName" Lude..= aliasName)
-          ]
-      )
-
-instance Lude.ToPath CreateAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAlias where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.CreateAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull CreateAliasResponse'
 
 -- | /See:/ 'mkCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateAliasResponse' value with any optional fields omitted.
 mkCreateAliasResponse ::
   CreateAliasResponse
 mkCreateAliasResponse = CreateAliasResponse'

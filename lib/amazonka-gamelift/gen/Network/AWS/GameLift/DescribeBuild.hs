@@ -38,118 +38,103 @@ module Network.AWS.GameLift.DescribeBuild
     mkDescribeBuild,
 
     -- ** Request lenses
-    dbBuildId,
+    dBuildId,
 
     -- * Destructuring the response
     DescribeBuildResponse (..),
     mkDescribeBuildResponse,
 
     -- ** Response lenses
-    dbrsBuild,
-    dbrsResponseStatus,
+    dbrrsBuild,
+    dbrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeBuild' smart constructor.
 newtype DescribeBuild = DescribeBuild'
   { -- | A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
-    buildId :: Lude.Text
+    buildId :: Types.BuildId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBuild' with the minimum fields required to make a request.
---
--- * 'buildId' - A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
+-- | Creates a 'DescribeBuild' value with any optional fields omitted.
 mkDescribeBuild ::
   -- | 'buildId'
-  Lude.Text ->
+  Types.BuildId ->
   DescribeBuild
-mkDescribeBuild pBuildId_ = DescribeBuild' {buildId = pBuildId_}
+mkDescribeBuild buildId = DescribeBuild' {buildId}
 
 -- | A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
 --
 -- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbBuildId :: Lens.Lens' DescribeBuild Lude.Text
-dbBuildId = Lens.lens (buildId :: DescribeBuild -> Lude.Text) (\s a -> s {buildId = a} :: DescribeBuild)
-{-# DEPRECATED dbBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
+dBuildId :: Lens.Lens' DescribeBuild Types.BuildId
+dBuildId = Lens.field @"buildId"
+{-# DEPRECATED dBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
-instance Lude.AWSRequest DescribeBuild where
+instance Core.FromJSON DescribeBuild where
+  toJSON DescribeBuild {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("BuildId" Core..= buildId)])
+
+instance Core.AWSRequest DescribeBuild where
   type Rs DescribeBuild = DescribeBuildResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeBuild")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBuildResponse'
-            Lude.<$> (x Lude..?> "Build") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Build") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeBuild where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeBuild" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBuild where
-  toJSON DescribeBuild' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("BuildId" Lude..= buildId)])
-
-instance Lude.ToPath DescribeBuild where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBuild where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
   { -- | Set of properties describing the requested build.
-    build :: Lude.Maybe Build,
+    build :: Core.Maybe Types.Build,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeBuildResponse' with the minimum fields required to make a request.
---
--- * 'build' - Set of properties describing the requested build.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBuildResponse' value with any optional fields omitted.
 mkDescribeBuildResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBuildResponse
-mkDescribeBuildResponse pResponseStatus_ =
-  DescribeBuildResponse'
-    { build = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeBuildResponse responseStatus =
+  DescribeBuildResponse' {build = Core.Nothing, responseStatus}
 
 -- | Set of properties describing the requested build.
 --
 -- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsBuild :: Lens.Lens' DescribeBuildResponse (Lude.Maybe Build)
-dbrsBuild = Lens.lens (build :: DescribeBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: DescribeBuildResponse)
-{-# DEPRECATED dbrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
+dbrrsBuild :: Lens.Lens' DescribeBuildResponse (Core.Maybe Types.Build)
+dbrrsBuild = Lens.field @"build"
+{-# DEPRECATED dbrrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsResponseStatus :: Lens.Lens' DescribeBuildResponse Lude.Int
-dbrsResponseStatus = Lens.lens (responseStatus :: DescribeBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBuildResponse)
-{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrrsResponseStatus :: Lens.Lens' DescribeBuildResponse Core.Int
+dbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

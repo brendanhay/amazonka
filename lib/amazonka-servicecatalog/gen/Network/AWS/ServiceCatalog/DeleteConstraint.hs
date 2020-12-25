@@ -22,27 +22,29 @@ module Network.AWS.ServiceCatalog.DeleteConstraint
     mkDeleteConstraint,
 
     -- ** Request lenses
-    dcfAcceptLanguage,
-    dcfId,
+    dcId,
+    dcAcceptLanguage,
 
     -- * Destructuring the response
     DeleteConstraintResponse (..),
     mkDeleteConstraintResponse,
 
     -- ** Response lenses
-    dcfrsResponseStatus,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDeleteConstraint' smart constructor.
 data DeleteConstraint = DeleteConstraint'
-  { -- | The language code.
+  { -- | The identifier of the constraint.
+    id :: Types.Id,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -52,34 +54,25 @@ data DeleteConstraint = DeleteConstraint'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The identifier of the constraint.
-    id :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConstraint' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'id' - The identifier of the constraint.
+-- | Creates a 'DeleteConstraint' value with any optional fields omitted.
 mkDeleteConstraint ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteConstraint
-mkDeleteConstraint pId_ =
-  DeleteConstraint' {acceptLanguage = Lude.Nothing, id = pId_}
+mkDeleteConstraint id =
+  DeleteConstraint' {id, acceptLanguage = Core.Nothing}
+
+-- | The identifier of the constraint.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcId :: Lens.Lens' DeleteConstraint Types.Id
+dcId = Lens.field @"id"
+{-# DEPRECATED dcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The language code.
 --
@@ -95,75 +88,58 @@ mkDeleteConstraint pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfAcceptLanguage :: Lens.Lens' DeleteConstraint (Lude.Maybe Lude.Text)
-dcfAcceptLanguage = Lens.lens (acceptLanguage :: DeleteConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteConstraint)
-{-# DEPRECATED dcfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dcAcceptLanguage :: Lens.Lens' DeleteConstraint (Core.Maybe Types.AcceptLanguage)
+dcAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED dcAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The identifier of the constraint.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfId :: Lens.Lens' DeleteConstraint Lude.Text
-dcfId = Lens.lens (id :: DeleteConstraint -> Lude.Text) (\s a -> s {id = a} :: DeleteConstraint)
-{-# DEPRECATED dcfId "Use generic-lens or generic-optics with 'id' instead." #-}
+instance Core.FromJSON DeleteConstraint where
+  toJSON DeleteConstraint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
-instance Lude.AWSRequest DeleteConstraint where
+instance Core.AWSRequest DeleteConstraint where
   type Rs DeleteConstraint = DeleteConstraintResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.DeleteConstraint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteConstraintResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteConstraintResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConstraint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DeleteConstraint" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteConstraint where
-  toJSON DeleteConstraint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath DeleteConstraint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConstraint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteConstraintResponse' smart constructor.
 newtype DeleteConstraintResponse = DeleteConstraintResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConstraintResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConstraintResponse' value with any optional fields omitted.
 mkDeleteConstraintResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConstraintResponse
-mkDeleteConstraintResponse pResponseStatus_ =
-  DeleteConstraintResponse' {responseStatus = pResponseStatus_}
+mkDeleteConstraintResponse responseStatus =
+  DeleteConstraintResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsResponseStatus :: Lens.Lens' DeleteConstraintResponse Lude.Int
-dcfrsResponseStatus = Lens.lens (responseStatus :: DeleteConstraintResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConstraintResponse)
-{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DeleteConstraintResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

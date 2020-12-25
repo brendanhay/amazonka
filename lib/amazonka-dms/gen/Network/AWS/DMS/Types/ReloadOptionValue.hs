@@ -13,46 +13,51 @@
 module Network.AWS.DMS.Types.ReloadOptionValue
   ( ReloadOptionValue
       ( ReloadOptionValue',
-        DataReload,
-        ValidateOnly
+        ReloadOptionValueDataReload,
+        ReloadOptionValueValidateOnly,
+        fromReloadOptionValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReloadOptionValue = ReloadOptionValue' Lude.Text
+newtype ReloadOptionValue = ReloadOptionValue'
+  { fromReloadOptionValue ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DataReload :: ReloadOptionValue
-pattern DataReload = ReloadOptionValue' "data-reload"
+pattern ReloadOptionValueDataReload :: ReloadOptionValue
+pattern ReloadOptionValueDataReload = ReloadOptionValue' "data-reload"
 
-pattern ValidateOnly :: ReloadOptionValue
-pattern ValidateOnly = ReloadOptionValue' "validate-only"
+pattern ReloadOptionValueValidateOnly :: ReloadOptionValue
+pattern ReloadOptionValueValidateOnly = ReloadOptionValue' "validate-only"
 
 {-# COMPLETE
-  DataReload,
-  ValidateOnly,
+  ReloadOptionValueDataReload,
+  ReloadOptionValueValidateOnly,
   ReloadOptionValue'
   #-}

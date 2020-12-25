@@ -13,66 +13,71 @@
 module Network.AWS.EC2.Types.AttachmentStatus
   ( AttachmentStatus
       ( AttachmentStatus',
-        AAttaching,
-        AAttached,
-        ADetaching,
-        ADetached,
-        ABusy,
-        AAvailable
+        AttachmentStatusAAttaching,
+        AttachmentStatusAAttached,
+        AttachmentStatusADetaching,
+        AttachmentStatusADetached,
+        AttachmentStatusABusy,
+        AttachmentStatusAAvailable,
+        fromAttachmentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AttachmentStatus = AttachmentStatus' Lude.Text
+newtype AttachmentStatus = AttachmentStatus'
+  { fromAttachmentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AAttaching :: AttachmentStatus
-pattern AAttaching = AttachmentStatus' "attaching"
+pattern AttachmentStatusAAttaching :: AttachmentStatus
+pattern AttachmentStatusAAttaching = AttachmentStatus' "attaching"
 
-pattern AAttached :: AttachmentStatus
-pattern AAttached = AttachmentStatus' "attached"
+pattern AttachmentStatusAAttached :: AttachmentStatus
+pattern AttachmentStatusAAttached = AttachmentStatus' "attached"
 
-pattern ADetaching :: AttachmentStatus
-pattern ADetaching = AttachmentStatus' "detaching"
+pattern AttachmentStatusADetaching :: AttachmentStatus
+pattern AttachmentStatusADetaching = AttachmentStatus' "detaching"
 
-pattern ADetached :: AttachmentStatus
-pattern ADetached = AttachmentStatus' "detached"
+pattern AttachmentStatusADetached :: AttachmentStatus
+pattern AttachmentStatusADetached = AttachmentStatus' "detached"
 
-pattern ABusy :: AttachmentStatus
-pattern ABusy = AttachmentStatus' "busy"
+pattern AttachmentStatusABusy :: AttachmentStatus
+pattern AttachmentStatusABusy = AttachmentStatus' "busy"
 
-pattern AAvailable :: AttachmentStatus
-pattern AAvailable = AttachmentStatus' "available"
+pattern AttachmentStatusAAvailable :: AttachmentStatus
+pattern AttachmentStatusAAvailable = AttachmentStatus' "available"
 
 {-# COMPLETE
-  AAttaching,
-  AAttached,
-  ADetaching,
-  ADetached,
-  ABusy,
-  AAvailable,
+  AttachmentStatusAAttaching,
+  AttachmentStatusAAttached,
+  AttachmentStatusADetaching,
+  AttachmentStatusADetached,
+  AttachmentStatusABusy,
+  AttachmentStatusAAvailable,
   AttachmentStatus'
   #-}

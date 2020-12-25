@@ -17,56 +17,54 @@ module Network.AWS.AlexaBusiness.Types.Sort
     mkSort,
 
     -- * Lenses
-    sfValue,
     sfKey,
+    sfValue,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.SortValue
+import qualified Network.AWS.AlexaBusiness.Types.SortKey as Types
+import qualified Network.AWS.AlexaBusiness.Types.SortValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a sort criteria.
 --
 -- /See:/ 'mkSort' smart constructor.
 data Sort = Sort'
-  { -- | The sort value of a sort object.
-    value :: SortValue,
-    -- | The sort key of a sort object.
-    key :: Lude.Text
+  { -- | The sort key of a sort object.
+    key :: Types.SortKey,
+    -- | The sort value of a sort object.
+    value :: Types.SortValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Sort' with the minimum fields required to make a request.
---
--- * 'value' - The sort value of a sort object.
--- * 'key' - The sort key of a sort object.
+-- | Creates a 'Sort' value with any optional fields omitted.
 mkSort ::
-  -- | 'value'
-  SortValue ->
   -- | 'key'
-  Lude.Text ->
+  Types.SortKey ->
+  -- | 'value'
+  Types.SortValue ->
   Sort
-mkSort pValue_ pKey_ = Sort' {value = pValue_, key = pKey_}
-
--- | The sort value of a sort object.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfValue :: Lens.Lens' Sort SortValue
-sfValue = Lens.lens (value :: Sort -> SortValue) (\s a -> s {value = a} :: Sort)
-{-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkSort key value = Sort' {key, value}
 
 -- | The sort key of a sort object.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfKey :: Lens.Lens' Sort Lude.Text
-sfKey = Lens.lens (key :: Sort -> Lude.Text) (\s a -> s {key = a} :: Sort)
+sfKey :: Lens.Lens' Sort Types.SortKey
+sfKey = Lens.field @"key"
 {-# DEPRECATED sfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON Sort where
-  toJSON Sort' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
+-- | The sort value of a sort object.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfValue :: Lens.Lens' Sort Types.SortValue
+sfValue = Lens.field @"value"
+{-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Sort where
+  toJSON Sort {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Key" Core..= key), Core.Just ("Value" Core..= value)]
       )

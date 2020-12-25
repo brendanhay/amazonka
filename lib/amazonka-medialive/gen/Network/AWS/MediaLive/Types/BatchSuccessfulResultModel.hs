@@ -17,71 +17,65 @@ module Network.AWS.MediaLive.Types.BatchSuccessfulResultModel
     mkBatchSuccessfulResultModel,
 
     -- * Lenses
-    bsrmState,
-    bsrmARN,
+    bsrmArn,
     bsrmId,
+    bsrmState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details from a successful operation
 --
 -- /See:/ 'mkBatchSuccessfulResultModel' smart constructor.
 data BatchSuccessfulResultModel = BatchSuccessfulResultModel'
-  { -- | Current state of the resource
-    state :: Lude.Maybe Lude.Text,
-    -- | ARN of the resource
-    arn :: Lude.Maybe Lude.Text,
+  { -- | ARN of the resource
+    arn :: Core.Maybe Core.Text,
     -- | ID of the resource
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Core.Text,
+    -- | Current state of the resource
+    state :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchSuccessfulResultModel' with the minimum fields required to make a request.
---
--- * 'state' - Current state of the resource
--- * 'arn' - ARN of the resource
--- * 'id' - ID of the resource
+-- | Creates a 'BatchSuccessfulResultModel' value with any optional fields omitted.
 mkBatchSuccessfulResultModel ::
   BatchSuccessfulResultModel
 mkBatchSuccessfulResultModel =
   BatchSuccessfulResultModel'
-    { state = Lude.Nothing,
-      arn = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | Current state of the resource
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsrmState :: Lens.Lens' BatchSuccessfulResultModel (Lude.Maybe Lude.Text)
-bsrmState = Lens.lens (state :: BatchSuccessfulResultModel -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: BatchSuccessfulResultModel)
-{-# DEPRECATED bsrmState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | ARN of the resource
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsrmARN :: Lens.Lens' BatchSuccessfulResultModel (Lude.Maybe Lude.Text)
-bsrmARN = Lens.lens (arn :: BatchSuccessfulResultModel -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: BatchSuccessfulResultModel)
-{-# DEPRECATED bsrmARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+bsrmArn :: Lens.Lens' BatchSuccessfulResultModel (Core.Maybe Core.Text)
+bsrmArn = Lens.field @"arn"
+{-# DEPRECATED bsrmArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | ID of the resource
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsrmId :: Lens.Lens' BatchSuccessfulResultModel (Lude.Maybe Lude.Text)
-bsrmId = Lens.lens (id :: BatchSuccessfulResultModel -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: BatchSuccessfulResultModel)
+bsrmId :: Lens.Lens' BatchSuccessfulResultModel (Core.Maybe Core.Text)
+bsrmId = Lens.field @"id"
 {-# DEPRECATED bsrmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON BatchSuccessfulResultModel where
+-- | Current state of the resource
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrmState :: Lens.Lens' BatchSuccessfulResultModel (Core.Maybe Core.Text)
+bsrmState = Lens.field @"state"
+{-# DEPRECATED bsrmState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON BatchSuccessfulResultModel where
   parseJSON =
-    Lude.withObject
-      "BatchSuccessfulResultModel"
-      ( \x ->
-          BatchSuccessfulResultModel'
-            Lude.<$> (x Lude..:? "state")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "id")
-      )
+    Core.withObject "BatchSuccessfulResultModel" Core.$
+      \x ->
+        BatchSuccessfulResultModel'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "state")

@@ -13,51 +13,56 @@
 module Network.AWS.WorkDocs.Types.UserStatusType
   ( UserStatusType
       ( UserStatusType',
-        Active,
-        Inactive,
-        Pending
+        UserStatusTypeActive,
+        UserStatusTypeInactive,
+        UserStatusTypePending,
+        fromUserStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserStatusType = UserStatusType' Lude.Text
+newtype UserStatusType = UserStatusType'
+  { fromUserStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Active :: UserStatusType
-pattern Active = UserStatusType' "ACTIVE"
+pattern UserStatusTypeActive :: UserStatusType
+pattern UserStatusTypeActive = UserStatusType' "ACTIVE"
 
-pattern Inactive :: UserStatusType
-pattern Inactive = UserStatusType' "INACTIVE"
+pattern UserStatusTypeInactive :: UserStatusType
+pattern UserStatusTypeInactive = UserStatusType' "INACTIVE"
 
-pattern Pending :: UserStatusType
-pattern Pending = UserStatusType' "PENDING"
+pattern UserStatusTypePending :: UserStatusType
+pattern UserStatusTypePending = UserStatusType' "PENDING"
 
 {-# COMPLETE
-  Active,
-  Inactive,
-  Pending,
+  UserStatusTypeActive,
+  UserStatusTypeInactive,
+  UserStatusTypePending,
   UserStatusType'
   #-}

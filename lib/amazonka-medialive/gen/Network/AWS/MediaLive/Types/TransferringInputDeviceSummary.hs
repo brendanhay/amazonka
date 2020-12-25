@@ -17,85 +17,78 @@ module Network.AWS.MediaLive.Types.TransferringInputDeviceSummary
     mkTransferringInputDeviceSummary,
 
     -- * Lenses
-    tidsTransferType,
     tidsId,
-    tidsTargetCustomerId,
     tidsMessage,
+    tidsTargetCustomerId,
+    tidsTransferType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputDeviceTransferType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputDeviceTransferType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the input device that is being transferred.
 --
 -- /See:/ 'mkTransferringInputDeviceSummary' smart constructor.
 data TransferringInputDeviceSummary = TransferringInputDeviceSummary'
-  { -- | The type (direction) of the input device transfer.
-    transferType :: Lude.Maybe InputDeviceTransferType,
-    -- | The unique ID of the input device.
-    id :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID for the recipient of the input device transfer.
-    targetCustomerId :: Lude.Maybe Lude.Text,
+  { -- | The unique ID of the input device.
+    id :: Core.Maybe Core.Text,
     -- | The optional message that the sender has attached to the transfer.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Core.Text,
+    -- | The AWS account ID for the recipient of the input device transfer.
+    targetCustomerId :: Core.Maybe Core.Text,
+    -- | The type (direction) of the input device transfer.
+    transferType :: Core.Maybe Types.InputDeviceTransferType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransferringInputDeviceSummary' with the minimum fields required to make a request.
---
--- * 'transferType' - The type (direction) of the input device transfer.
--- * 'id' - The unique ID of the input device.
--- * 'targetCustomerId' - The AWS account ID for the recipient of the input device transfer.
--- * 'message' - The optional message that the sender has attached to the transfer.
+-- | Creates a 'TransferringInputDeviceSummary' value with any optional fields omitted.
 mkTransferringInputDeviceSummary ::
   TransferringInputDeviceSummary
 mkTransferringInputDeviceSummary =
   TransferringInputDeviceSummary'
-    { transferType = Lude.Nothing,
-      id = Lude.Nothing,
-      targetCustomerId = Lude.Nothing,
-      message = Lude.Nothing
+    { id = Core.Nothing,
+      message = Core.Nothing,
+      targetCustomerId = Core.Nothing,
+      transferType = Core.Nothing
     }
-
--- | The type (direction) of the input device transfer.
---
--- /Note:/ Consider using 'transferType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tidsTransferType :: Lens.Lens' TransferringInputDeviceSummary (Lude.Maybe InputDeviceTransferType)
-tidsTransferType = Lens.lens (transferType :: TransferringInputDeviceSummary -> Lude.Maybe InputDeviceTransferType) (\s a -> s {transferType = a} :: TransferringInputDeviceSummary)
-{-# DEPRECATED tidsTransferType "Use generic-lens or generic-optics with 'transferType' instead." #-}
 
 -- | The unique ID of the input device.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tidsId :: Lens.Lens' TransferringInputDeviceSummary (Lude.Maybe Lude.Text)
-tidsId = Lens.lens (id :: TransferringInputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: TransferringInputDeviceSummary)
+tidsId :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Core.Text)
+tidsId = Lens.field @"id"
 {-# DEPRECATED tidsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The AWS account ID for the recipient of the input device transfer.
---
--- /Note:/ Consider using 'targetCustomerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tidsTargetCustomerId :: Lens.Lens' TransferringInputDeviceSummary (Lude.Maybe Lude.Text)
-tidsTargetCustomerId = Lens.lens (targetCustomerId :: TransferringInputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {targetCustomerId = a} :: TransferringInputDeviceSummary)
-{-# DEPRECATED tidsTargetCustomerId "Use generic-lens or generic-optics with 'targetCustomerId' instead." #-}
 
 -- | The optional message that the sender has attached to the transfer.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tidsMessage :: Lens.Lens' TransferringInputDeviceSummary (Lude.Maybe Lude.Text)
-tidsMessage = Lens.lens (message :: TransferringInputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: TransferringInputDeviceSummary)
+tidsMessage :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Core.Text)
+tidsMessage = Lens.field @"message"
 {-# DEPRECATED tidsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON TransferringInputDeviceSummary where
+-- | The AWS account ID for the recipient of the input device transfer.
+--
+-- /Note:/ Consider using 'targetCustomerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tidsTargetCustomerId :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Core.Text)
+tidsTargetCustomerId = Lens.field @"targetCustomerId"
+{-# DEPRECATED tidsTargetCustomerId "Use generic-lens or generic-optics with 'targetCustomerId' instead." #-}
+
+-- | The type (direction) of the input device transfer.
+--
+-- /Note:/ Consider using 'transferType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tidsTransferType :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Types.InputDeviceTransferType)
+tidsTransferType = Lens.field @"transferType"
+{-# DEPRECATED tidsTransferType "Use generic-lens or generic-optics with 'transferType' instead." #-}
+
+instance Core.FromJSON TransferringInputDeviceSummary where
   parseJSON =
-    Lude.withObject
-      "TransferringInputDeviceSummary"
-      ( \x ->
-          TransferringInputDeviceSummary'
-            Lude.<$> (x Lude..:? "transferType")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "targetCustomerId")
-            Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "TransferringInputDeviceSummary" Core.$
+      \x ->
+        TransferringInputDeviceSummary'
+          Core.<$> (x Core..:? "id")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "targetCustomerId")
+          Core.<*> (x Core..:? "transferType")

@@ -17,212 +17,201 @@ module Network.AWS.ELBv2.Types.LoadBalancer
     mkLoadBalancer,
 
     -- * Lenses
-    lbState,
-    lbSecurityGroups,
-    lbLoadBalancerName,
-    lbCreatedTime,
-    lbVPCId,
-    lbCanonicalHostedZoneId,
     lbAvailabilityZones,
-    lbCustomerOwnedIPv4Pool,
-    lbLoadBalancerARN,
-    lbIPAddressType,
-    lbScheme,
-    lbType,
+    lbCanonicalHostedZoneId,
+    lbCreatedTime,
+    lbCustomerOwnedIpv4Pool,
     lbDNSName,
+    lbIpAddressType,
+    lbLoadBalancerArn,
+    lbLoadBalancerName,
+    lbScheme,
+    lbSecurityGroups,
+    lbState,
+    lbType,
+    lbVpcId,
   )
 where
 
-import Network.AWS.ELBv2.Types.AvailabilityZone
-import Network.AWS.ELBv2.Types.IPAddressType
-import Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
-import Network.AWS.ELBv2.Types.LoadBalancerState
-import Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
+import qualified Network.AWS.ELBv2.Types.AvailabilityZone as Types
+import qualified Network.AWS.ELBv2.Types.CanonicalHostedZoneId as Types
+import qualified Network.AWS.ELBv2.Types.CustomerOwnedIpv4Pool as Types
+import qualified Network.AWS.ELBv2.Types.DNSName as Types
+import qualified Network.AWS.ELBv2.Types.IpAddressType as Types
+import qualified Network.AWS.ELBv2.Types.LoadBalancerArn as Types
+import qualified Network.AWS.ELBv2.Types.LoadBalancerName as Types
+import qualified Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum as Types
+import qualified Network.AWS.ELBv2.Types.LoadBalancerState as Types
+import qualified Network.AWS.ELBv2.Types.LoadBalancerTypeEnum as Types
+import qualified Network.AWS.ELBv2.Types.SecurityGroupId as Types
+import qualified Network.AWS.ELBv2.Types.VpcId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a load balancer.
 --
 -- /See:/ 'mkLoadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-  { -- | The state of the load balancer.
-    state :: Lude.Maybe LoadBalancerState,
-    -- | The IDs of the security groups for the load balancer.
-    securityGroups :: Lude.Maybe [Lude.Text],
-    -- | The name of the load balancer.
-    loadBalancerName :: Lude.Maybe Lude.Text,
-    -- | The date and time the load balancer was created.
-    createdTime :: Lude.Maybe Lude.DateTime,
-    -- | The ID of the VPC for the load balancer.
-    vpcId :: Lude.Maybe Lude.Text,
+  { -- | The subnets for the load balancer.
+    availabilityZones :: Core.Maybe [Types.AvailabilityZone],
     -- | The ID of the Amazon Route 53 hosted zone associated with the load balancer.
-    canonicalHostedZoneId :: Lude.Maybe Lude.Text,
-    -- | The subnets for the load balancer.
-    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    canonicalHostedZoneId :: Core.Maybe Types.CanonicalHostedZoneId,
+    -- | The date and time the load balancer was created.
+    createdTime :: Core.Maybe Core.UTCTime,
     -- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
-    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerARN :: Lude.Maybe Lude.Text,
+    customerOwnedIpv4Pool :: Core.Maybe Types.CustomerOwnedIpv4Pool,
+    -- | The public DNS name of the load balancer.
+    dNSName :: Core.Maybe Types.DNSName,
     -- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
-    ipAddressType :: Lude.Maybe IPAddressType,
+    ipAddressType :: Core.Maybe Types.IpAddressType,
+    -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Core.Maybe Types.LoadBalancerArn,
+    -- | The name of the load balancer.
+    loadBalancerName :: Core.Maybe Types.LoadBalancerName,
     -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
     --
     -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
-    scheme :: Lude.Maybe LoadBalancerSchemeEnum,
+    scheme :: Core.Maybe Types.LoadBalancerSchemeEnum,
+    -- | The IDs of the security groups for the load balancer.
+    securityGroups :: Core.Maybe [Types.SecurityGroupId],
+    -- | The state of the load balancer.
+    state :: Core.Maybe Types.LoadBalancerState,
     -- | The type of load balancer.
-    type' :: Lude.Maybe LoadBalancerTypeEnum,
-    -- | The public DNS name of the load balancer.
-    dnsName :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.LoadBalancerTypeEnum,
+    -- | The ID of the VPC for the load balancer.
+    vpcId :: Core.Maybe Types.VpcId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
---
--- * 'state' - The state of the load balancer.
--- * 'securityGroups' - The IDs of the security groups for the load balancer.
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'createdTime' - The date and time the load balancer was created.
--- * 'vpcId' - The ID of the VPC for the load balancer.
--- * 'canonicalHostedZoneId' - The ID of the Amazon Route 53 hosted zone associated with the load balancer.
--- * 'availabilityZones' - The subnets for the load balancer.
--- * 'customerOwnedIPv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
--- * 'ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
--- * 'scheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
---
--- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
--- * 'type'' - The type of load balancer.
--- * 'dnsName' - The public DNS name of the load balancer.
+-- | Creates a 'LoadBalancer' value with any optional fields omitted.
 mkLoadBalancer ::
   LoadBalancer
 mkLoadBalancer =
   LoadBalancer'
-    { state = Lude.Nothing,
-      securityGroups = Lude.Nothing,
-      loadBalancerName = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      canonicalHostedZoneId = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      customerOwnedIPv4Pool = Lude.Nothing,
-      loadBalancerARN = Lude.Nothing,
-      ipAddressType = Lude.Nothing,
-      scheme = Lude.Nothing,
-      type' = Lude.Nothing,
-      dnsName = Lude.Nothing
+    { availabilityZones = Core.Nothing,
+      canonicalHostedZoneId = Core.Nothing,
+      createdTime = Core.Nothing,
+      customerOwnedIpv4Pool = Core.Nothing,
+      dNSName = Core.Nothing,
+      ipAddressType = Core.Nothing,
+      loadBalancerArn = Core.Nothing,
+      loadBalancerName = Core.Nothing,
+      scheme = Core.Nothing,
+      securityGroups = Core.Nothing,
+      state = Core.Nothing,
+      type' = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | The state of the load balancer.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbState :: Lens.Lens' LoadBalancer (Lude.Maybe LoadBalancerState)
-lbState = Lens.lens (state :: LoadBalancer -> Lude.Maybe LoadBalancerState) (\s a -> s {state = a} :: LoadBalancer)
-{-# DEPRECATED lbState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The IDs of the security groups for the load balancer.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbSecurityGroups :: Lens.Lens' LoadBalancer (Lude.Maybe [Lude.Text])
-lbSecurityGroups = Lens.lens (securityGroups :: LoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: LoadBalancer)
-{-# DEPRECATED lbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
-
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbLoadBalancerName :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbLoadBalancerName = Lens.lens (loadBalancerName :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: LoadBalancer)
-{-# DEPRECATED lbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
-
--- | The date and time the load balancer was created.
---
--- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbCreatedTime :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.DateTime)
-lbCreatedTime = Lens.lens (createdTime :: LoadBalancer -> Lude.Maybe Lude.DateTime) (\s a -> s {createdTime = a} :: LoadBalancer)
-{-# DEPRECATED lbCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
--- | The ID of the VPC for the load balancer.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbVPCId :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbVPCId = Lens.lens (vpcId :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: LoadBalancer)
-{-# DEPRECATED lbVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | The ID of the Amazon Route 53 hosted zone associated with the load balancer.
---
--- /Note:/ Consider using 'canonicalHostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbCanonicalHostedZoneId :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbCanonicalHostedZoneId = Lens.lens (canonicalHostedZoneId :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {canonicalHostedZoneId = a} :: LoadBalancer)
-{-# DEPRECATED lbCanonicalHostedZoneId "Use generic-lens or generic-optics with 'canonicalHostedZoneId' instead." #-}
 
 -- | The subnets for the load balancer.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbAvailabilityZones :: Lens.Lens' LoadBalancer (Lude.Maybe [AvailabilityZone])
-lbAvailabilityZones = Lens.lens (availabilityZones :: LoadBalancer -> Lude.Maybe [AvailabilityZone]) (\s a -> s {availabilityZones = a} :: LoadBalancer)
+lbAvailabilityZones :: Lens.Lens' LoadBalancer (Core.Maybe [Types.AvailabilityZone])
+lbAvailabilityZones = Lens.field @"availabilityZones"
 {-# DEPRECATED lbAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+-- | The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+--
+-- /Note:/ Consider using 'canonicalHostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbCanonicalHostedZoneId :: Lens.Lens' LoadBalancer (Core.Maybe Types.CanonicalHostedZoneId)
+lbCanonicalHostedZoneId = Lens.field @"canonicalHostedZoneId"
+{-# DEPRECATED lbCanonicalHostedZoneId "Use generic-lens or generic-optics with 'canonicalHostedZoneId' instead." #-}
+
+-- | The date and time the load balancer was created.
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbCreatedTime :: Lens.Lens' LoadBalancer (Core.Maybe Core.UTCTime)
+lbCreatedTime = Lens.field @"createdTime"
+{-# DEPRECATED lbCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
 --
--- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbCustomerOwnedIPv4Pool :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: LoadBalancer)
-{-# DEPRECATED lbCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
+-- /Note:/ Consider using 'customerOwnedIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbCustomerOwnedIpv4Pool :: Lens.Lens' LoadBalancer (Core.Maybe Types.CustomerOwnedIpv4Pool)
+lbCustomerOwnedIpv4Pool = Lens.field @"customerOwnedIpv4Pool"
+{-# DEPRECATED lbCustomerOwnedIpv4Pool "Use generic-lens or generic-optics with 'customerOwnedIpv4Pool' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the load balancer.
+-- | The public DNS name of the load balancer.
 --
--- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbLoadBalancerARN :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbLoadBalancerARN = Lens.lens (loadBalancerARN :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerARN = a} :: LoadBalancer)
-{-# DEPRECATED lbLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
+-- /Note:/ Consider using 'dNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbDNSName :: Lens.Lens' LoadBalancer (Core.Maybe Types.DNSName)
+lbDNSName = Lens.field @"dNSName"
+{-# DEPRECATED lbDNSName "Use generic-lens or generic-optics with 'dNSName' instead." #-}
 
 -- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
 --
 -- /Note:/ Consider using 'ipAddressType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbIPAddressType :: Lens.Lens' LoadBalancer (Lude.Maybe IPAddressType)
-lbIPAddressType = Lens.lens (ipAddressType :: LoadBalancer -> Lude.Maybe IPAddressType) (\s a -> s {ipAddressType = a} :: LoadBalancer)
-{-# DEPRECATED lbIPAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
+lbIpAddressType :: Lens.Lens' LoadBalancer (Core.Maybe Types.IpAddressType)
+lbIpAddressType = Lens.field @"ipAddressType"
+{-# DEPRECATED lbIpAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbLoadBalancerArn :: Lens.Lens' LoadBalancer (Core.Maybe Types.LoadBalancerArn)
+lbLoadBalancerArn = Lens.field @"loadBalancerArn"
+{-# DEPRECATED lbLoadBalancerArn "Use generic-lens or generic-optics with 'loadBalancerArn' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbLoadBalancerName :: Lens.Lens' LoadBalancer (Core.Maybe Types.LoadBalancerName)
+lbLoadBalancerName = Lens.field @"loadBalancerName"
+{-# DEPRECATED lbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 --
 -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 --
 -- /Note:/ Consider using 'scheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbScheme :: Lens.Lens' LoadBalancer (Lude.Maybe LoadBalancerSchemeEnum)
-lbScheme = Lens.lens (scheme :: LoadBalancer -> Lude.Maybe LoadBalancerSchemeEnum) (\s a -> s {scheme = a} :: LoadBalancer)
+lbScheme :: Lens.Lens' LoadBalancer (Core.Maybe Types.LoadBalancerSchemeEnum)
+lbScheme = Lens.field @"scheme"
 {-# DEPRECATED lbScheme "Use generic-lens or generic-optics with 'scheme' instead." #-}
+
+-- | The IDs of the security groups for the load balancer.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbSecurityGroups :: Lens.Lens' LoadBalancer (Core.Maybe [Types.SecurityGroupId])
+lbSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED lbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The state of the load balancer.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbState :: Lens.Lens' LoadBalancer (Core.Maybe Types.LoadBalancerState)
+lbState = Lens.field @"state"
+{-# DEPRECATED lbState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The type of load balancer.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbType :: Lens.Lens' LoadBalancer (Lude.Maybe LoadBalancerTypeEnum)
-lbType = Lens.lens (type' :: LoadBalancer -> Lude.Maybe LoadBalancerTypeEnum) (\s a -> s {type' = a} :: LoadBalancer)
+lbType :: Lens.Lens' LoadBalancer (Core.Maybe Types.LoadBalancerTypeEnum)
+lbType = Lens.field @"type'"
 {-# DEPRECATED lbType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The public DNS name of the load balancer.
+-- | The ID of the VPC for the load balancer.
 --
--- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbDNSName :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbDNSName = Lens.lens (dnsName :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: LoadBalancer)
-{-# DEPRECATED lbDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbVpcId :: Lens.Lens' LoadBalancer (Core.Maybe Types.VpcId)
+lbVpcId = Lens.field @"vpcId"
+{-# DEPRECATED lbVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance Lude.FromXML LoadBalancer where
+instance Core.FromXML LoadBalancer where
   parseXML x =
     LoadBalancer'
-      Lude.<$> (x Lude..@? "State")
-      Lude.<*> ( x Lude..@? "SecurityGroups" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> ( x Core..@? "AvailabilityZones"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "LoadBalancerName")
-      Lude.<*> (x Lude..@? "CreatedTime")
-      Lude.<*> (x Lude..@? "VpcId")
-      Lude.<*> (x Lude..@? "CanonicalHostedZoneId")
-      Lude.<*> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "CustomerOwnedIpv4Pool")
-      Lude.<*> (x Lude..@? "LoadBalancerArn")
-      Lude.<*> (x Lude..@? "IpAddressType")
-      Lude.<*> (x Lude..@? "Scheme")
-      Lude.<*> (x Lude..@? "Type")
-      Lude.<*> (x Lude..@? "DNSName")
+      Core.<*> (x Core..@? "CanonicalHostedZoneId")
+      Core.<*> (x Core..@? "CreatedTime")
+      Core.<*> (x Core..@? "CustomerOwnedIpv4Pool")
+      Core.<*> (x Core..@? "DNSName")
+      Core.<*> (x Core..@? "IpAddressType")
+      Core.<*> (x Core..@? "LoadBalancerArn")
+      Core.<*> (x Core..@? "LoadBalancerName")
+      Core.<*> (x Core..@? "Scheme")
+      Core.<*> (x Core..@? "SecurityGroups" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "State")
+      Core.<*> (x Core..@? "Type")
+      Core.<*> (x Core..@? "VpcId")

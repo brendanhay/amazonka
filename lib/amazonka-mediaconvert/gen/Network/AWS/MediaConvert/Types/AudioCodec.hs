@@ -13,92 +13,94 @@
 module Network.AWS.MediaConvert.Types.AudioCodec
   ( AudioCodec
       ( AudioCodec',
-        ACAac,
-        ACMP2,
-        ACMP3,
-        ACWav,
-        ACAiff,
-        ACAC3,
-        ACEAC3,
-        ACEAC3Atmos,
-        ACVorbis,
-        ACOpus,
-        ACPassthrough
+        AudioCodecAac,
+        AudioCodecMP2,
+        AudioCodecMP3,
+        AudioCodecWav,
+        AudioCodecAiff,
+        AudioCodecAC3,
+        AudioCodecEAC3,
+        AudioCodecEAC3Atmos,
+        AudioCodecVorbis,
+        AudioCodecOpus,
+        AudioCodecPassthrough,
+        fromAudioCodec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Type of Audio codec.
-newtype AudioCodec = AudioCodec' Lude.Text
+newtype AudioCodec = AudioCodec' {fromAudioCodec :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ACAac :: AudioCodec
-pattern ACAac = AudioCodec' "AAC"
+pattern AudioCodecAac :: AudioCodec
+pattern AudioCodecAac = AudioCodec' "AAC"
 
-pattern ACMP2 :: AudioCodec
-pattern ACMP2 = AudioCodec' "MP2"
+pattern AudioCodecMP2 :: AudioCodec
+pattern AudioCodecMP2 = AudioCodec' "MP2"
 
-pattern ACMP3 :: AudioCodec
-pattern ACMP3 = AudioCodec' "MP3"
+pattern AudioCodecMP3 :: AudioCodec
+pattern AudioCodecMP3 = AudioCodec' "MP3"
 
-pattern ACWav :: AudioCodec
-pattern ACWav = AudioCodec' "WAV"
+pattern AudioCodecWav :: AudioCodec
+pattern AudioCodecWav = AudioCodec' "WAV"
 
-pattern ACAiff :: AudioCodec
-pattern ACAiff = AudioCodec' "AIFF"
+pattern AudioCodecAiff :: AudioCodec
+pattern AudioCodecAiff = AudioCodec' "AIFF"
 
-pattern ACAC3 :: AudioCodec
-pattern ACAC3 = AudioCodec' "AC3"
+pattern AudioCodecAC3 :: AudioCodec
+pattern AudioCodecAC3 = AudioCodec' "AC3"
 
-pattern ACEAC3 :: AudioCodec
-pattern ACEAC3 = AudioCodec' "EAC3"
+pattern AudioCodecEAC3 :: AudioCodec
+pattern AudioCodecEAC3 = AudioCodec' "EAC3"
 
-pattern ACEAC3Atmos :: AudioCodec
-pattern ACEAC3Atmos = AudioCodec' "EAC3_ATMOS"
+pattern AudioCodecEAC3Atmos :: AudioCodec
+pattern AudioCodecEAC3Atmos = AudioCodec' "EAC3_ATMOS"
 
-pattern ACVorbis :: AudioCodec
-pattern ACVorbis = AudioCodec' "VORBIS"
+pattern AudioCodecVorbis :: AudioCodec
+pattern AudioCodecVorbis = AudioCodec' "VORBIS"
 
-pattern ACOpus :: AudioCodec
-pattern ACOpus = AudioCodec' "OPUS"
+pattern AudioCodecOpus :: AudioCodec
+pattern AudioCodecOpus = AudioCodec' "OPUS"
 
-pattern ACPassthrough :: AudioCodec
-pattern ACPassthrough = AudioCodec' "PASSTHROUGH"
+pattern AudioCodecPassthrough :: AudioCodec
+pattern AudioCodecPassthrough = AudioCodec' "PASSTHROUGH"
 
 {-# COMPLETE
-  ACAac,
-  ACMP2,
-  ACMP3,
-  ACWav,
-  ACAiff,
-  ACAC3,
-  ACEAC3,
-  ACEAC3Atmos,
-  ACVorbis,
-  ACOpus,
-  ACPassthrough,
+  AudioCodecAac,
+  AudioCodecMP2,
+  AudioCodecMP3,
+  AudioCodecWav,
+  AudioCodecAiff,
+  AudioCodecAC3,
+  AudioCodecEAC3,
+  AudioCodecEAC3Atmos,
+  AudioCodecVorbis,
+  AudioCodecOpus,
+  AudioCodecPassthrough,
   AudioCodec'
   #-}

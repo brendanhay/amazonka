@@ -17,70 +17,62 @@ module Network.AWS.ECS.Types.DeploymentCircuitBreaker
     mkDeploymentCircuitBreaker,
 
     -- * Lenses
-    dcbRollback,
     dcbEnable,
+    dcbRollback,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The __deployment circuit breaker__ determines whether a service deployment will fail if the service can't reach a steady state. If enabled, a service deployment will transition to a failed state and stop launching new tasks. You can also enable Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html Rolling update> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /See:/ 'mkDeploymentCircuitBreaker' smart constructor.
 data DeploymentCircuitBreaker = DeploymentCircuitBreaker'
-  { -- | Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-    rollback :: Lude.Bool,
-    -- | Whether to enable the deployment circuit breaker logic for the service.
-    enable :: Lude.Bool
+  { -- | Whether to enable the deployment circuit breaker logic for the service.
+    enable :: Core.Bool,
+    -- | Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+    rollback :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeploymentCircuitBreaker' with the minimum fields required to make a request.
---
--- * 'rollback' - Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
--- * 'enable' - Whether to enable the deployment circuit breaker logic for the service.
+-- | Creates a 'DeploymentCircuitBreaker' value with any optional fields omitted.
 mkDeploymentCircuitBreaker ::
-  -- | 'rollback'
-  Lude.Bool ->
   -- | 'enable'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'rollback'
+  Core.Bool ->
   DeploymentCircuitBreaker
-mkDeploymentCircuitBreaker pRollback_ pEnable_ =
-  DeploymentCircuitBreaker'
-    { rollback = pRollback_,
-      enable = pEnable_
-    }
-
--- | Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
---
--- /Note:/ Consider using 'rollback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbRollback :: Lens.Lens' DeploymentCircuitBreaker Lude.Bool
-dcbRollback = Lens.lens (rollback :: DeploymentCircuitBreaker -> Lude.Bool) (\s a -> s {rollback = a} :: DeploymentCircuitBreaker)
-{-# DEPRECATED dcbRollback "Use generic-lens or generic-optics with 'rollback' instead." #-}
+mkDeploymentCircuitBreaker enable rollback =
+  DeploymentCircuitBreaker' {enable, rollback}
 
 -- | Whether to enable the deployment circuit breaker logic for the service.
 --
 -- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbEnable :: Lens.Lens' DeploymentCircuitBreaker Lude.Bool
-dcbEnable = Lens.lens (enable :: DeploymentCircuitBreaker -> Lude.Bool) (\s a -> s {enable = a} :: DeploymentCircuitBreaker)
+dcbEnable :: Lens.Lens' DeploymentCircuitBreaker Core.Bool
+dcbEnable = Lens.field @"enable"
 {-# DEPRECATED dcbEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
 
-instance Lude.FromJSON DeploymentCircuitBreaker where
-  parseJSON =
-    Lude.withObject
-      "DeploymentCircuitBreaker"
-      ( \x ->
-          DeploymentCircuitBreaker'
-            Lude.<$> (x Lude..: "rollback") Lude.<*> (x Lude..: "enable")
-      )
+-- | Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+--
+-- /Note:/ Consider using 'rollback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbRollback :: Lens.Lens' DeploymentCircuitBreaker Core.Bool
+dcbRollback = Lens.field @"rollback"
+{-# DEPRECATED dcbRollback "Use generic-lens or generic-optics with 'rollback' instead." #-}
 
-instance Lude.ToJSON DeploymentCircuitBreaker where
-  toJSON DeploymentCircuitBreaker' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("rollback" Lude..= rollback),
-            Lude.Just ("enable" Lude..= enable)
+instance Core.FromJSON DeploymentCircuitBreaker where
+  toJSON DeploymentCircuitBreaker {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("enable" Core..= enable),
+            Core.Just ("rollback" Core..= rollback)
           ]
       )
+
+instance Core.FromJSON DeploymentCircuitBreaker where
+  parseJSON =
+    Core.withObject "DeploymentCircuitBreaker" Core.$
+      \x ->
+        DeploymentCircuitBreaker'
+          Core.<$> (x Core..: "enable") Core.<*> (x Core..: "rollback")

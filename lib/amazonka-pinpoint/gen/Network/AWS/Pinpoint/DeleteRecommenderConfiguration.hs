@@ -27,108 +27,97 @@ module Network.AWS.Pinpoint.DeleteRecommenderConfiguration
     mkDeleteRecommenderConfigurationResponse,
 
     -- ** Response lenses
-    drcrsRecommenderConfigurationResponse,
-    drcrsResponseStatus,
+    drcrrsRecommenderConfigurationResponse,
+    drcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRecommenderConfiguration' smart constructor.
 newtype DeleteRecommenderConfiguration = DeleteRecommenderConfiguration'
   { -- | The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
-    recommenderId :: Lude.Text
+    recommenderId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRecommenderConfiguration' with the minimum fields required to make a request.
---
--- * 'recommenderId' - The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
+-- | Creates a 'DeleteRecommenderConfiguration' value with any optional fields omitted.
 mkDeleteRecommenderConfiguration ::
   -- | 'recommenderId'
-  Lude.Text ->
+  Core.Text ->
   DeleteRecommenderConfiguration
-mkDeleteRecommenderConfiguration pRecommenderId_ =
-  DeleteRecommenderConfiguration' {recommenderId = pRecommenderId_}
+mkDeleteRecommenderConfiguration recommenderId =
+  DeleteRecommenderConfiguration' {recommenderId}
 
 -- | The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcRecommenderId :: Lens.Lens' DeleteRecommenderConfiguration Lude.Text
-drcRecommenderId = Lens.lens (recommenderId :: DeleteRecommenderConfiguration -> Lude.Text) (\s a -> s {recommenderId = a} :: DeleteRecommenderConfiguration)
+drcRecommenderId :: Lens.Lens' DeleteRecommenderConfiguration Core.Text
+drcRecommenderId = Lens.field @"recommenderId"
 {-# DEPRECATED drcRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
 
-instance Lude.AWSRequest DeleteRecommenderConfiguration where
+instance Core.AWSRequest DeleteRecommenderConfiguration where
   type
     Rs DeleteRecommenderConfiguration =
       DeleteRecommenderConfigurationResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/v1/recommenders/" Core.<> (Core.toText recommenderId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteRecommenderConfigurationResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRecommenderConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteRecommenderConfiguration where
-  toPath DeleteRecommenderConfiguration' {..} =
-    Lude.mconcat ["/v1/recommenders/", Lude.toBS recommenderId]
-
-instance Lude.ToQuery DeleteRecommenderConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteRecommenderConfigurationResponse' smart constructor.
 data DeleteRecommenderConfigurationResponse = DeleteRecommenderConfigurationResponse'
-  { recommenderConfigurationResponse :: RecommenderConfigurationResponse,
+  { recommenderConfigurationResponse :: Types.RecommenderConfigurationResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRecommenderConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'recommenderConfigurationResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRecommenderConfigurationResponse' value with any optional fields omitted.
 mkDeleteRecommenderConfigurationResponse ::
   -- | 'recommenderConfigurationResponse'
-  RecommenderConfigurationResponse ->
+  Types.RecommenderConfigurationResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRecommenderConfigurationResponse
 mkDeleteRecommenderConfigurationResponse
-  pRecommenderConfigurationResponse_
-  pResponseStatus_ =
+  recommenderConfigurationResponse
+  responseStatus =
     DeleteRecommenderConfigurationResponse'
-      { recommenderConfigurationResponse =
-          pRecommenderConfigurationResponse_,
-        responseStatus = pResponseStatus_
+      { recommenderConfigurationResponse,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'recommenderConfigurationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsRecommenderConfigurationResponse :: Lens.Lens' DeleteRecommenderConfigurationResponse RecommenderConfigurationResponse
-drcrsRecommenderConfigurationResponse = Lens.lens (recommenderConfigurationResponse :: DeleteRecommenderConfigurationResponse -> RecommenderConfigurationResponse) (\s a -> s {recommenderConfigurationResponse = a} :: DeleteRecommenderConfigurationResponse)
-{-# DEPRECATED drcrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}
+drcrrsRecommenderConfigurationResponse :: Lens.Lens' DeleteRecommenderConfigurationResponse Types.RecommenderConfigurationResponse
+drcrrsRecommenderConfigurationResponse = Lens.field @"recommenderConfigurationResponse"
+{-# DEPRECATED drcrrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsResponseStatus :: Lens.Lens' DeleteRecommenderConfigurationResponse Lude.Int
-drcrsResponseStatus = Lens.lens (responseStatus :: DeleteRecommenderConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRecommenderConfigurationResponse)
-{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drcrrsResponseStatus :: Lens.Lens' DeleteRecommenderConfigurationResponse Core.Int
+drcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

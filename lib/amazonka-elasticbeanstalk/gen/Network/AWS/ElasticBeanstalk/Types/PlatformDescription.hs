@@ -17,197 +17,220 @@ module Network.AWS.ElasticBeanstalk.Types.PlatformDescription
     mkPlatformDescription,
 
     -- * Lenses
-    pdPlatformBranchName,
-    pdSupportedAddonList,
-    pdPlatformCategory,
-    pdPlatformBranchLifecycleState,
-    pdPlatformVersion,
-    pdPlatformStatus,
-    pdMaintainer,
-    pdPlatformLifecycleState,
-    pdPlatformOwner,
-    pdDateUpdated,
-    pdCustomAMIList,
+    pdCustomAmiList,
     pdDateCreated,
-    pdOperatingSystemName,
+    pdDateUpdated,
+    pdDescription,
     pdFrameworks,
-    pdPlatformARN,
+    pdMaintainer,
+    pdOperatingSystemName,
     pdOperatingSystemVersion,
+    pdPlatformArn,
+    pdPlatformBranchLifecycleState,
+    pdPlatformBranchName,
+    pdPlatformCategory,
+    pdPlatformLifecycleState,
+    pdPlatformName,
+    pdPlatformOwner,
+    pdPlatformStatus,
+    pdPlatformVersion,
     pdProgrammingLanguages,
     pdSolutionStackName,
-    pdPlatformName,
-    pdDescription,
+    pdSupportedAddonList,
     pdSupportedTierList,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.CustomAMI
-import Network.AWS.ElasticBeanstalk.Types.PlatformFramework
-import Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
-import Network.AWS.ElasticBeanstalk.Types.PlatformStatus
+import qualified Network.AWS.ElasticBeanstalk.Types.BranchName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.CustomAmi as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Description as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Maintainer as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.OperatingSystemName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.OperatingSystemVersion as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformArn as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformBranchLifecycleState as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformCategory as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformFramework as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformLifecycleState as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformOwner as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformStatus as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformVersion as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SolutionStackName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SupportedAddon as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SupportedTier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Detailed information about a platform version.
 --
 -- /See:/ 'mkPlatformDescription' smart constructor.
 data PlatformDescription = PlatformDescription'
-  { -- | The platform branch to which the platform version belongs.
-    platformBranchName :: Lude.Maybe Lude.Text,
-    -- | The additions supported by the platform version.
-    supportedAddonList :: Lude.Maybe [Lude.Text],
-    -- | The category of the platform version.
-    platformCategory :: Lude.Maybe Lude.Text,
+  { -- | The custom AMIs supported by the platform version.
+    customAmiList :: Core.Maybe [Types.CustomAmi],
+    -- | The date when the platform version was created.
+    dateCreated :: Core.Maybe Core.UTCTime,
+    -- | The date when the platform version was last updated.
+    dateUpdated :: Core.Maybe Core.UTCTime,
+    -- | The description of the platform version.
+    description :: Core.Maybe Types.Description,
+    -- | The frameworks supported by the platform version.
+    frameworks :: Core.Maybe [Types.PlatformFramework],
+    -- | Information about the maintainer of the platform version.
+    maintainer :: Core.Maybe Types.Maintainer,
+    -- | The operating system used by the platform version.
+    operatingSystemName :: Core.Maybe Types.OperatingSystemName,
+    -- | The version of the operating system used by the platform version.
+    operatingSystemVersion :: Core.Maybe Types.OperatingSystemVersion,
+    -- | The ARN of the platform version.
+    platformArn :: Core.Maybe Types.PlatformArn,
     -- | The state of the platform version's branch in its lifecycle.
     --
     -- Possible values: @Beta@ | @Supported@ | @Deprecated@ | @Retired@
-    platformBranchLifecycleState :: Lude.Maybe Lude.Text,
-    -- | The version of the platform version.
-    platformVersion :: Lude.Maybe Lude.Text,
-    -- | The status of the platform version.
-    platformStatus :: Lude.Maybe PlatformStatus,
-    -- | Information about the maintainer of the platform version.
-    maintainer :: Lude.Maybe Lude.Text,
+    platformBranchLifecycleState :: Core.Maybe Types.PlatformBranchLifecycleState,
+    -- | The platform branch to which the platform version belongs.
+    platformBranchName :: Core.Maybe Types.BranchName,
+    -- | The category of the platform version.
+    platformCategory :: Core.Maybe Types.PlatformCategory,
     -- | The state of the platform version in its lifecycle.
     --
     -- Possible values: @Recommended@ | @null@
     -- If a null value is returned, the platform version isn't the recommended one for its branch. Each platform branch has a single recommended platform version, typically the most recent one.
-    platformLifecycleState :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID of the person who created the platform version.
-    platformOwner :: Lude.Maybe Lude.Text,
-    -- | The date when the platform version was last updated.
-    dateUpdated :: Lude.Maybe Lude.DateTime,
-    -- | The custom AMIs supported by the platform version.
-    customAMIList :: Lude.Maybe [CustomAMI],
-    -- | The date when the platform version was created.
-    dateCreated :: Lude.Maybe Lude.DateTime,
-    -- | The operating system used by the platform version.
-    operatingSystemName :: Lude.Maybe Lude.Text,
-    -- | The frameworks supported by the platform version.
-    frameworks :: Lude.Maybe [PlatformFramework],
-    -- | The ARN of the platform version.
-    platformARN :: Lude.Maybe Lude.Text,
-    -- | The version of the operating system used by the platform version.
-    operatingSystemVersion :: Lude.Maybe Lude.Text,
-    -- | The programming languages supported by the platform version.
-    programmingLanguages :: Lude.Maybe [PlatformProgrammingLanguage],
-    -- | The name of the solution stack used by the platform version.
-    solutionStackName :: Lude.Maybe Lude.Text,
+    platformLifecycleState :: Core.Maybe Types.PlatformLifecycleState,
     -- | The name of the platform version.
-    platformName :: Lude.Maybe Lude.Text,
-    -- | The description of the platform version.
-    description :: Lude.Maybe Lude.Text,
+    platformName :: Core.Maybe Types.PlatformName,
+    -- | The AWS account ID of the person who created the platform version.
+    platformOwner :: Core.Maybe Types.PlatformOwner,
+    -- | The status of the platform version.
+    platformStatus :: Core.Maybe Types.PlatformStatus,
+    -- | The version of the platform version.
+    platformVersion :: Core.Maybe Types.PlatformVersion,
+    -- | The programming languages supported by the platform version.
+    programmingLanguages :: Core.Maybe [Types.PlatformProgrammingLanguage],
+    -- | The name of the solution stack used by the platform version.
+    solutionStackName :: Core.Maybe Types.SolutionStackName,
+    -- | The additions supported by the platform version.
+    supportedAddonList :: Core.Maybe [Types.SupportedAddon],
     -- | The tiers supported by the platform version.
-    supportedTierList :: Lude.Maybe [Lude.Text]
+    supportedTierList :: Core.Maybe [Types.SupportedTier]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PlatformDescription' with the minimum fields required to make a request.
---
--- * 'platformBranchName' - The platform branch to which the platform version belongs.
--- * 'supportedAddonList' - The additions supported by the platform version.
--- * 'platformCategory' - The category of the platform version.
--- * 'platformBranchLifecycleState' - The state of the platform version's branch in its lifecycle.
---
--- Possible values: @Beta@ | @Supported@ | @Deprecated@ | @Retired@
--- * 'platformVersion' - The version of the platform version.
--- * 'platformStatus' - The status of the platform version.
--- * 'maintainer' - Information about the maintainer of the platform version.
--- * 'platformLifecycleState' - The state of the platform version in its lifecycle.
---
--- Possible values: @Recommended@ | @null@
--- If a null value is returned, the platform version isn't the recommended one for its branch. Each platform branch has a single recommended platform version, typically the most recent one.
--- * 'platformOwner' - The AWS account ID of the person who created the platform version.
--- * 'dateUpdated' - The date when the platform version was last updated.
--- * 'customAMIList' - The custom AMIs supported by the platform version.
--- * 'dateCreated' - The date when the platform version was created.
--- * 'operatingSystemName' - The operating system used by the platform version.
--- * 'frameworks' - The frameworks supported by the platform version.
--- * 'platformARN' - The ARN of the platform version.
--- * 'operatingSystemVersion' - The version of the operating system used by the platform version.
--- * 'programmingLanguages' - The programming languages supported by the platform version.
--- * 'solutionStackName' - The name of the solution stack used by the platform version.
--- * 'platformName' - The name of the platform version.
--- * 'description' - The description of the platform version.
--- * 'supportedTierList' - The tiers supported by the platform version.
+-- | Creates a 'PlatformDescription' value with any optional fields omitted.
 mkPlatformDescription ::
   PlatformDescription
 mkPlatformDescription =
   PlatformDescription'
-    { platformBranchName = Lude.Nothing,
-      supportedAddonList = Lude.Nothing,
-      platformCategory = Lude.Nothing,
-      platformBranchLifecycleState = Lude.Nothing,
-      platformVersion = Lude.Nothing,
-      platformStatus = Lude.Nothing,
-      maintainer = Lude.Nothing,
-      platformLifecycleState = Lude.Nothing,
-      platformOwner = Lude.Nothing,
-      dateUpdated = Lude.Nothing,
-      customAMIList = Lude.Nothing,
-      dateCreated = Lude.Nothing,
-      operatingSystemName = Lude.Nothing,
-      frameworks = Lude.Nothing,
-      platformARN = Lude.Nothing,
-      operatingSystemVersion = Lude.Nothing,
-      programmingLanguages = Lude.Nothing,
-      solutionStackName = Lude.Nothing,
-      platformName = Lude.Nothing,
-      description = Lude.Nothing,
-      supportedTierList = Lude.Nothing
+    { customAmiList = Core.Nothing,
+      dateCreated = Core.Nothing,
+      dateUpdated = Core.Nothing,
+      description = Core.Nothing,
+      frameworks = Core.Nothing,
+      maintainer = Core.Nothing,
+      operatingSystemName = Core.Nothing,
+      operatingSystemVersion = Core.Nothing,
+      platformArn = Core.Nothing,
+      platformBranchLifecycleState = Core.Nothing,
+      platformBranchName = Core.Nothing,
+      platformCategory = Core.Nothing,
+      platformLifecycleState = Core.Nothing,
+      platformName = Core.Nothing,
+      platformOwner = Core.Nothing,
+      platformStatus = Core.Nothing,
+      platformVersion = Core.Nothing,
+      programmingLanguages = Core.Nothing,
+      solutionStackName = Core.Nothing,
+      supportedAddonList = Core.Nothing,
+      supportedTierList = Core.Nothing
     }
 
--- | The platform branch to which the platform version belongs.
+-- | The custom AMIs supported by the platform version.
 --
--- /Note:/ Consider using 'platformBranchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformBranchName :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformBranchName = Lens.lens (platformBranchName :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformBranchName = a} :: PlatformDescription)
-{-# DEPRECATED pdPlatformBranchName "Use generic-lens or generic-optics with 'platformBranchName' instead." #-}
+-- /Note:/ Consider using 'customAmiList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCustomAmiList :: Lens.Lens' PlatformDescription (Core.Maybe [Types.CustomAmi])
+pdCustomAmiList = Lens.field @"customAmiList"
+{-# DEPRECATED pdCustomAmiList "Use generic-lens or generic-optics with 'customAmiList' instead." #-}
 
--- | The additions supported by the platform version.
+-- | The date when the platform version was created.
 --
--- /Note:/ Consider using 'supportedAddonList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdSupportedAddonList :: Lens.Lens' PlatformDescription (Lude.Maybe [Lude.Text])
-pdSupportedAddonList = Lens.lens (supportedAddonList :: PlatformDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedAddonList = a} :: PlatformDescription)
-{-# DEPRECATED pdSupportedAddonList "Use generic-lens or generic-optics with 'supportedAddonList' instead." #-}
+-- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDateCreated :: Lens.Lens' PlatformDescription (Core.Maybe Core.UTCTime)
+pdDateCreated = Lens.field @"dateCreated"
+{-# DEPRECATED pdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
--- | The category of the platform version.
+-- | The date when the platform version was last updated.
 --
--- /Note:/ Consider using 'platformCategory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformCategory :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformCategory = Lens.lens (platformCategory :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformCategory = a} :: PlatformDescription)
-{-# DEPRECATED pdPlatformCategory "Use generic-lens or generic-optics with 'platformCategory' instead." #-}
+-- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDateUpdated :: Lens.Lens' PlatformDescription (Core.Maybe Core.UTCTime)
+pdDateUpdated = Lens.field @"dateUpdated"
+{-# DEPRECATED pdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
+
+-- | The description of the platform version.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDescription :: Lens.Lens' PlatformDescription (Core.Maybe Types.Description)
+pdDescription = Lens.field @"description"
+{-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The frameworks supported by the platform version.
+--
+-- /Note:/ Consider using 'frameworks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdFrameworks :: Lens.Lens' PlatformDescription (Core.Maybe [Types.PlatformFramework])
+pdFrameworks = Lens.field @"frameworks"
+{-# DEPRECATED pdFrameworks "Use generic-lens or generic-optics with 'frameworks' instead." #-}
+
+-- | Information about the maintainer of the platform version.
+--
+-- /Note:/ Consider using 'maintainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdMaintainer :: Lens.Lens' PlatformDescription (Core.Maybe Types.Maintainer)
+pdMaintainer = Lens.field @"maintainer"
+{-# DEPRECATED pdMaintainer "Use generic-lens or generic-optics with 'maintainer' instead." #-}
+
+-- | The operating system used by the platform version.
+--
+-- /Note:/ Consider using 'operatingSystemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdOperatingSystemName :: Lens.Lens' PlatformDescription (Core.Maybe Types.OperatingSystemName)
+pdOperatingSystemName = Lens.field @"operatingSystemName"
+{-# DEPRECATED pdOperatingSystemName "Use generic-lens or generic-optics with 'operatingSystemName' instead." #-}
+
+-- | The version of the operating system used by the platform version.
+--
+-- /Note:/ Consider using 'operatingSystemVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdOperatingSystemVersion :: Lens.Lens' PlatformDescription (Core.Maybe Types.OperatingSystemVersion)
+pdOperatingSystemVersion = Lens.field @"operatingSystemVersion"
+{-# DEPRECATED pdOperatingSystemVersion "Use generic-lens or generic-optics with 'operatingSystemVersion' instead." #-}
+
+-- | The ARN of the platform version.
+--
+-- /Note:/ Consider using 'platformArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPlatformArn :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformArn)
+pdPlatformArn = Lens.field @"platformArn"
+{-# DEPRECATED pdPlatformArn "Use generic-lens or generic-optics with 'platformArn' instead." #-}
 
 -- | The state of the platform version's branch in its lifecycle.
 --
 -- Possible values: @Beta@ | @Supported@ | @Deprecated@ | @Retired@
 --
 -- /Note:/ Consider using 'platformBranchLifecycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformBranchLifecycleState :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformBranchLifecycleState = Lens.lens (platformBranchLifecycleState :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformBranchLifecycleState = a} :: PlatformDescription)
+pdPlatformBranchLifecycleState :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformBranchLifecycleState)
+pdPlatformBranchLifecycleState = Lens.field @"platformBranchLifecycleState"
 {-# DEPRECATED pdPlatformBranchLifecycleState "Use generic-lens or generic-optics with 'platformBranchLifecycleState' instead." #-}
 
--- | The version of the platform version.
+-- | The platform branch to which the platform version belongs.
 --
--- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformVersion :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformVersion = Lens.lens (platformVersion :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: PlatformDescription)
-{-# DEPRECATED pdPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
+-- /Note:/ Consider using 'platformBranchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPlatformBranchName :: Lens.Lens' PlatformDescription (Core.Maybe Types.BranchName)
+pdPlatformBranchName = Lens.field @"platformBranchName"
+{-# DEPRECATED pdPlatformBranchName "Use generic-lens or generic-optics with 'platformBranchName' instead." #-}
 
--- | The status of the platform version.
+-- | The category of the platform version.
 --
--- /Note:/ Consider using 'platformStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformStatus :: Lens.Lens' PlatformDescription (Lude.Maybe PlatformStatus)
-pdPlatformStatus = Lens.lens (platformStatus :: PlatformDescription -> Lude.Maybe PlatformStatus) (\s a -> s {platformStatus = a} :: PlatformDescription)
-{-# DEPRECATED pdPlatformStatus "Use generic-lens or generic-optics with 'platformStatus' instead." #-}
-
--- | Information about the maintainer of the platform version.
---
--- /Note:/ Consider using 'maintainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdMaintainer :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdMaintainer = Lens.lens (maintainer :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {maintainer = a} :: PlatformDescription)
-{-# DEPRECATED pdMaintainer "Use generic-lens or generic-optics with 'maintainer' instead." #-}
+-- /Note:/ Consider using 'platformCategory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPlatformCategory :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformCategory)
+pdPlatformCategory = Lens.field @"platformCategory"
+{-# DEPRECATED pdPlatformCategory "Use generic-lens or generic-optics with 'platformCategory' instead." #-}
 
 -- | The state of the platform version in its lifecycle.
 --
@@ -215,132 +238,93 @@ pdMaintainer = Lens.lens (maintainer :: PlatformDescription -> Lude.Maybe Lude.T
 -- If a null value is returned, the platform version isn't the recommended one for its branch. Each platform branch has a single recommended platform version, typically the most recent one.
 --
 -- /Note:/ Consider using 'platformLifecycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformLifecycleState :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformLifecycleState = Lens.lens (platformLifecycleState :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformLifecycleState = a} :: PlatformDescription)
+pdPlatformLifecycleState :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformLifecycleState)
+pdPlatformLifecycleState = Lens.field @"platformLifecycleState"
 {-# DEPRECATED pdPlatformLifecycleState "Use generic-lens or generic-optics with 'platformLifecycleState' instead." #-}
+
+-- | The name of the platform version.
+--
+-- /Note:/ Consider using 'platformName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPlatformName :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformName)
+pdPlatformName = Lens.field @"platformName"
+{-# DEPRECATED pdPlatformName "Use generic-lens or generic-optics with 'platformName' instead." #-}
 
 -- | The AWS account ID of the person who created the platform version.
 --
 -- /Note:/ Consider using 'platformOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformOwner :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformOwner = Lens.lens (platformOwner :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformOwner = a} :: PlatformDescription)
+pdPlatformOwner :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformOwner)
+pdPlatformOwner = Lens.field @"platformOwner"
 {-# DEPRECATED pdPlatformOwner "Use generic-lens or generic-optics with 'platformOwner' instead." #-}
 
--- | The date when the platform version was last updated.
+-- | The status of the platform version.
 --
--- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDateUpdated :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.DateTime)
-pdDateUpdated = Lens.lens (dateUpdated :: PlatformDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: PlatformDescription)
-{-# DEPRECATED pdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
+-- /Note:/ Consider using 'platformStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPlatformStatus :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformStatus)
+pdPlatformStatus = Lens.field @"platformStatus"
+{-# DEPRECATED pdPlatformStatus "Use generic-lens or generic-optics with 'platformStatus' instead." #-}
 
--- | The custom AMIs supported by the platform version.
+-- | The version of the platform version.
 --
--- /Note:/ Consider using 'customAMIList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdCustomAMIList :: Lens.Lens' PlatformDescription (Lude.Maybe [CustomAMI])
-pdCustomAMIList = Lens.lens (customAMIList :: PlatformDescription -> Lude.Maybe [CustomAMI]) (\s a -> s {customAMIList = a} :: PlatformDescription)
-{-# DEPRECATED pdCustomAMIList "Use generic-lens or generic-optics with 'customAMIList' instead." #-}
-
--- | The date when the platform version was created.
---
--- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDateCreated :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.DateTime)
-pdDateCreated = Lens.lens (dateCreated :: PlatformDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: PlatformDescription)
-{-# DEPRECATED pdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
-
--- | The operating system used by the platform version.
---
--- /Note:/ Consider using 'operatingSystemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdOperatingSystemName :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdOperatingSystemName = Lens.lens (operatingSystemName :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {operatingSystemName = a} :: PlatformDescription)
-{-# DEPRECATED pdOperatingSystemName "Use generic-lens or generic-optics with 'operatingSystemName' instead." #-}
-
--- | The frameworks supported by the platform version.
---
--- /Note:/ Consider using 'frameworks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdFrameworks :: Lens.Lens' PlatformDescription (Lude.Maybe [PlatformFramework])
-pdFrameworks = Lens.lens (frameworks :: PlatformDescription -> Lude.Maybe [PlatformFramework]) (\s a -> s {frameworks = a} :: PlatformDescription)
-{-# DEPRECATED pdFrameworks "Use generic-lens or generic-optics with 'frameworks' instead." #-}
-
--- | The ARN of the platform version.
---
--- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformARN :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformARN = Lens.lens (platformARN :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: PlatformDescription)
-{-# DEPRECATED pdPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
-
--- | The version of the operating system used by the platform version.
---
--- /Note:/ Consider using 'operatingSystemVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdOperatingSystemVersion :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdOperatingSystemVersion = Lens.lens (operatingSystemVersion :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {operatingSystemVersion = a} :: PlatformDescription)
-{-# DEPRECATED pdOperatingSystemVersion "Use generic-lens or generic-optics with 'operatingSystemVersion' instead." #-}
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPlatformVersion :: Lens.Lens' PlatformDescription (Core.Maybe Types.PlatformVersion)
+pdPlatformVersion = Lens.field @"platformVersion"
+{-# DEPRECATED pdPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | The programming languages supported by the platform version.
 --
 -- /Note:/ Consider using 'programmingLanguages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdProgrammingLanguages :: Lens.Lens' PlatformDescription (Lude.Maybe [PlatformProgrammingLanguage])
-pdProgrammingLanguages = Lens.lens (programmingLanguages :: PlatformDescription -> Lude.Maybe [PlatformProgrammingLanguage]) (\s a -> s {programmingLanguages = a} :: PlatformDescription)
+pdProgrammingLanguages :: Lens.Lens' PlatformDescription (Core.Maybe [Types.PlatformProgrammingLanguage])
+pdProgrammingLanguages = Lens.field @"programmingLanguages"
 {-# DEPRECATED pdProgrammingLanguages "Use generic-lens or generic-optics with 'programmingLanguages' instead." #-}
 
 -- | The name of the solution stack used by the platform version.
 --
 -- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdSolutionStackName :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdSolutionStackName = Lens.lens (solutionStackName :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: PlatformDescription)
+pdSolutionStackName :: Lens.Lens' PlatformDescription (Core.Maybe Types.SolutionStackName)
+pdSolutionStackName = Lens.field @"solutionStackName"
 {-# DEPRECATED pdSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
--- | The name of the platform version.
+-- | The additions supported by the platform version.
 --
--- /Note:/ Consider using 'platformName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPlatformName :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdPlatformName = Lens.lens (platformName :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformName = a} :: PlatformDescription)
-{-# DEPRECATED pdPlatformName "Use generic-lens or generic-optics with 'platformName' instead." #-}
-
--- | The description of the platform version.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDescription :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.Text)
-pdDescription = Lens.lens (description :: PlatformDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PlatformDescription)
-{-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'supportedAddonList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdSupportedAddonList :: Lens.Lens' PlatformDescription (Core.Maybe [Types.SupportedAddon])
+pdSupportedAddonList = Lens.field @"supportedAddonList"
+{-# DEPRECATED pdSupportedAddonList "Use generic-lens or generic-optics with 'supportedAddonList' instead." #-}
 
 -- | The tiers supported by the platform version.
 --
 -- /Note:/ Consider using 'supportedTierList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdSupportedTierList :: Lens.Lens' PlatformDescription (Lude.Maybe [Lude.Text])
-pdSupportedTierList = Lens.lens (supportedTierList :: PlatformDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedTierList = a} :: PlatformDescription)
+pdSupportedTierList :: Lens.Lens' PlatformDescription (Core.Maybe [Types.SupportedTier])
+pdSupportedTierList = Lens.field @"supportedTierList"
 {-# DEPRECATED pdSupportedTierList "Use generic-lens or generic-optics with 'supportedTierList' instead." #-}
 
-instance Lude.FromXML PlatformDescription where
+instance Core.FromXML PlatformDescription where
   parseXML x =
     PlatformDescription'
-      Lude.<$> (x Lude..@? "PlatformBranchName")
-      Lude.<*> ( x Lude..@? "SupportedAddonList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "CustomAmiList" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "DateCreated")
+      Core.<*> (x Core..@? "DateUpdated")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "Frameworks" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Maintainer")
+      Core.<*> (x Core..@? "OperatingSystemName")
+      Core.<*> (x Core..@? "OperatingSystemVersion")
+      Core.<*> (x Core..@? "PlatformArn")
+      Core.<*> (x Core..@? "PlatformBranchLifecycleState")
+      Core.<*> (x Core..@? "PlatformBranchName")
+      Core.<*> (x Core..@? "PlatformCategory")
+      Core.<*> (x Core..@? "PlatformLifecycleState")
+      Core.<*> (x Core..@? "PlatformName")
+      Core.<*> (x Core..@? "PlatformOwner")
+      Core.<*> (x Core..@? "PlatformStatus")
+      Core.<*> (x Core..@? "PlatformVersion")
+      Core.<*> ( x Core..@? "ProgrammingLanguages"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "PlatformCategory")
-      Lude.<*> (x Lude..@? "PlatformBranchLifecycleState")
-      Lude.<*> (x Lude..@? "PlatformVersion")
-      Lude.<*> (x Lude..@? "PlatformStatus")
-      Lude.<*> (x Lude..@? "Maintainer")
-      Lude.<*> (x Lude..@? "PlatformLifecycleState")
-      Lude.<*> (x Lude..@? "PlatformOwner")
-      Lude.<*> (x Lude..@? "DateUpdated")
-      Lude.<*> ( x Lude..@? "CustomAmiList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> (x Core..@? "SolutionStackName")
+      Core.<*> ( x Core..@? "SupportedAddonList"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "DateCreated")
-      Lude.<*> (x Lude..@? "OperatingSystemName")
-      Lude.<*> ( x Lude..@? "Frameworks" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "PlatformArn")
-      Lude.<*> (x Lude..@? "OperatingSystemVersion")
-      Lude.<*> ( x Lude..@? "ProgrammingLanguages" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "SolutionStackName")
-      Lude.<*> (x Lude..@? "PlatformName")
-      Lude.<*> (x Lude..@? "Description")
-      Lude.<*> ( x Lude..@? "SupportedTierList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> ( x Core..@? "SupportedTierList"
+                   Core..<@> Core.parseXMLList "member"
                )

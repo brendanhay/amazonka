@@ -22,138 +22,138 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     mkDeleteReplicationGroup,
 
     -- ** Request lenses
-    drgfFinalSnapshotIdentifier,
-    drgfRetainPrimaryCluster,
-    drgfReplicationGroupId,
+    drgReplicationGroupId,
+    drgFinalSnapshotIdentifier,
+    drgRetainPrimaryCluster,
 
     -- * Destructuring the response
     DeleteReplicationGroupResponse (..),
     mkDeleteReplicationGroupResponse,
 
     -- ** Response lenses
-    drgrsReplicationGroup,
-    drgrsResponseStatus,
+    drgrrsReplicationGroup,
+    drgrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteReplicationGroup@ operation.
 --
 -- /See:/ 'mkDeleteReplicationGroup' smart constructor.
 data DeleteReplicationGroup = DeleteReplicationGroup'
-  { -- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
-    finalSnapshotIdentifier :: Lude.Maybe Lude.Text,
+  { -- | The identifier for the cluster to be deleted. This parameter is not case sensitive.
+    replicationGroupId :: Types.String,
+    -- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
+    finalSnapshotIdentifier :: Core.Maybe Types.String,
     -- | If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
-    retainPrimaryCluster :: Lude.Maybe Lude.Bool,
-    -- | The identifier for the cluster to be deleted. This parameter is not case sensitive.
-    replicationGroupId :: Lude.Text
+    retainPrimaryCluster :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicationGroup' with the minimum fields required to make a request.
---
--- * 'finalSnapshotIdentifier' - The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
--- * 'retainPrimaryCluster' - If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
--- * 'replicationGroupId' - The identifier for the cluster to be deleted. This parameter is not case sensitive.
+-- | Creates a 'DeleteReplicationGroup' value with any optional fields omitted.
 mkDeleteReplicationGroup ::
   -- | 'replicationGroupId'
-  Lude.Text ->
+  Types.String ->
   DeleteReplicationGroup
-mkDeleteReplicationGroup pReplicationGroupId_ =
+mkDeleteReplicationGroup replicationGroupId =
   DeleteReplicationGroup'
-    { finalSnapshotIdentifier = Lude.Nothing,
-      retainPrimaryCluster = Lude.Nothing,
-      replicationGroupId = pReplicationGroupId_
+    { replicationGroupId,
+      finalSnapshotIdentifier = Core.Nothing,
+      retainPrimaryCluster = Core.Nothing
     }
-
--- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
---
--- /Note:/ Consider using 'finalSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgfFinalSnapshotIdentifier :: Lens.Lens' DeleteReplicationGroup (Lude.Maybe Lude.Text)
-drgfFinalSnapshotIdentifier = Lens.lens (finalSnapshotIdentifier :: DeleteReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {finalSnapshotIdentifier = a} :: DeleteReplicationGroup)
-{-# DEPRECATED drgfFinalSnapshotIdentifier "Use generic-lens or generic-optics with 'finalSnapshotIdentifier' instead." #-}
-
--- | If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
---
--- /Note:/ Consider using 'retainPrimaryCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgfRetainPrimaryCluster :: Lens.Lens' DeleteReplicationGroup (Lude.Maybe Lude.Bool)
-drgfRetainPrimaryCluster = Lens.lens (retainPrimaryCluster :: DeleteReplicationGroup -> Lude.Maybe Lude.Bool) (\s a -> s {retainPrimaryCluster = a} :: DeleteReplicationGroup)
-{-# DEPRECATED drgfRetainPrimaryCluster "Use generic-lens or generic-optics with 'retainPrimaryCluster' instead." #-}
 
 -- | The identifier for the cluster to be deleted. This parameter is not case sensitive.
 --
 -- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgfReplicationGroupId :: Lens.Lens' DeleteReplicationGroup Lude.Text
-drgfReplicationGroupId = Lens.lens (replicationGroupId :: DeleteReplicationGroup -> Lude.Text) (\s a -> s {replicationGroupId = a} :: DeleteReplicationGroup)
-{-# DEPRECATED drgfReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
+drgReplicationGroupId :: Lens.Lens' DeleteReplicationGroup Types.String
+drgReplicationGroupId = Lens.field @"replicationGroupId"
+{-# DEPRECATED drgReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance Lude.AWSRequest DeleteReplicationGroup where
+-- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
+--
+-- /Note:/ Consider using 'finalSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgFinalSnapshotIdentifier :: Lens.Lens' DeleteReplicationGroup (Core.Maybe Types.String)
+drgFinalSnapshotIdentifier = Lens.field @"finalSnapshotIdentifier"
+{-# DEPRECATED drgFinalSnapshotIdentifier "Use generic-lens or generic-optics with 'finalSnapshotIdentifier' instead." #-}
+
+-- | If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
+--
+-- /Note:/ Consider using 'retainPrimaryCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgRetainPrimaryCluster :: Lens.Lens' DeleteReplicationGroup (Core.Maybe Core.Bool)
+drgRetainPrimaryCluster = Lens.field @"retainPrimaryCluster"
+{-# DEPRECATED drgRetainPrimaryCluster "Use generic-lens or generic-optics with 'retainPrimaryCluster' instead." #-}
+
+instance Core.AWSRequest DeleteReplicationGroup where
   type Rs DeleteReplicationGroup = DeleteReplicationGroupResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteReplicationGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "ReplicationGroupId" replicationGroupId)
+                Core.<> ( Core.toQueryValue "FinalSnapshotIdentifier"
+                            Core.<$> finalSnapshotIdentifier
+                        )
+                Core.<> ( Core.toQueryValue "RetainPrimaryCluster"
+                            Core.<$> retainPrimaryCluster
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteReplicationGroupResult"
       ( \s h x ->
           DeleteReplicationGroupResponse'
-            Lude.<$> (x Lude..@? "ReplicationGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteReplicationGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteReplicationGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteReplicationGroup where
-  toQuery DeleteReplicationGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteReplicationGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "FinalSnapshotIdentifier" Lude.=: finalSnapshotIdentifier,
-        "RetainPrimaryCluster" Lude.=: retainPrimaryCluster,
-        "ReplicationGroupId" Lude.=: replicationGroupId
-      ]
 
 -- | /See:/ 'mkDeleteReplicationGroupResponse' smart constructor.
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
-  { replicationGroup :: Lude.Maybe ReplicationGroup,
+  { replicationGroup :: Core.Maybe Types.ReplicationGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteReplicationGroupResponse' with the minimum fields required to make a request.
---
--- * 'replicationGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteReplicationGroupResponse' value with any optional fields omitted.
 mkDeleteReplicationGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteReplicationGroupResponse
-mkDeleteReplicationGroupResponse pResponseStatus_ =
+mkDeleteReplicationGroupResponse responseStatus =
   DeleteReplicationGroupResponse'
-    { replicationGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { replicationGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'replicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgrsReplicationGroup :: Lens.Lens' DeleteReplicationGroupResponse (Lude.Maybe ReplicationGroup)
-drgrsReplicationGroup = Lens.lens (replicationGroup :: DeleteReplicationGroupResponse -> Lude.Maybe ReplicationGroup) (\s a -> s {replicationGroup = a} :: DeleteReplicationGroupResponse)
-{-# DEPRECATED drgrsReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
+drgrrsReplicationGroup :: Lens.Lens' DeleteReplicationGroupResponse (Core.Maybe Types.ReplicationGroup)
+drgrrsReplicationGroup = Lens.field @"replicationGroup"
+{-# DEPRECATED drgrrsReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgrsResponseStatus :: Lens.Lens' DeleteReplicationGroupResponse Lude.Int
-drgrsResponseStatus = Lens.lens (responseStatus :: DeleteReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReplicationGroupResponse)
-{-# DEPRECATED drgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drgrrsResponseStatus :: Lens.Lens' DeleteReplicationGroupResponse Core.Int
+drgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

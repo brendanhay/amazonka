@@ -21,8 +21,8 @@ module Network.AWS.IoT.CreateTopicRule
 
     -- ** Request lenses
     ctrRuleName,
-    ctrTags,
     ctrTopicRulePayload,
+    ctrTags,
 
     -- * Destructuring the response
     CreateTopicRuleResponse (..),
@@ -30,94 +30,84 @@ module Network.AWS.IoT.CreateTopicRule
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the CreateTopicRule operation.
 --
 -- /See:/ 'mkCreateTopicRule' smart constructor.
 data CreateTopicRule = CreateTopicRule'
   { -- | The name of the rule.
-    ruleName :: Lude.Text,
-    -- | Metadata which can be used to manage the topic rule.
-    tags :: Lude.Maybe Lude.Text,
+    ruleName :: Types.RuleName,
     -- | The rule payload.
-    topicRulePayload :: TopicRulePayload
+    topicRulePayload :: Types.TopicRulePayload,
+    -- | Metadata which can be used to manage the topic rule.
+    tags :: Core.Maybe Types.Tags
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTopicRule' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the rule.
--- * 'tags' - Metadata which can be used to manage the topic rule.
--- * 'topicRulePayload' - The rule payload.
+-- | Creates a 'CreateTopicRule' value with any optional fields omitted.
 mkCreateTopicRule ::
   -- | 'ruleName'
-  Lude.Text ->
+  Types.RuleName ->
   -- | 'topicRulePayload'
-  TopicRulePayload ->
+  Types.TopicRulePayload ->
   CreateTopicRule
-mkCreateTopicRule pRuleName_ pTopicRulePayload_ =
-  CreateTopicRule'
-    { ruleName = pRuleName_,
-      tags = Lude.Nothing,
-      topicRulePayload = pTopicRulePayload_
-    }
+mkCreateTopicRule ruleName topicRulePayload =
+  CreateTopicRule' {ruleName, topicRulePayload, tags = Core.Nothing}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrRuleName :: Lens.Lens' CreateTopicRule Lude.Text
-ctrRuleName = Lens.lens (ruleName :: CreateTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: CreateTopicRule)
+ctrRuleName :: Lens.Lens' CreateTopicRule Types.RuleName
+ctrRuleName = Lens.field @"ruleName"
 {-# DEPRECATED ctrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
-
--- | Metadata which can be used to manage the topic rule.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrTags :: Lens.Lens' CreateTopicRule (Lude.Maybe Lude.Text)
-ctrTags = Lens.lens (tags :: CreateTopicRule -> Lude.Maybe Lude.Text) (\s a -> s {tags = a} :: CreateTopicRule)
-{-# DEPRECATED ctrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The rule payload.
 --
 -- /Note:/ Consider using 'topicRulePayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrTopicRulePayload :: Lens.Lens' CreateTopicRule TopicRulePayload
-ctrTopicRulePayload = Lens.lens (topicRulePayload :: CreateTopicRule -> TopicRulePayload) (\s a -> s {topicRulePayload = a} :: CreateTopicRule)
+ctrTopicRulePayload :: Lens.Lens' CreateTopicRule Types.TopicRulePayload
+ctrTopicRulePayload = Lens.field @"topicRulePayload"
 {-# DEPRECATED ctrTopicRulePayload "Use generic-lens or generic-optics with 'topicRulePayload' instead." #-}
 
-instance Lude.AWSRequest CreateTopicRule where
-  type Rs CreateTopicRule = CreateTopicRuleResponse
-  request = Req.postJSON ioTService
-  response = Res.receiveNull CreateTopicRuleResponse'
+-- | Metadata which can be used to manage the topic rule.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrTags :: Lens.Lens' CreateTopicRule (Core.Maybe Types.Tags)
+ctrTags = Lens.field @"tags"
+{-# DEPRECATED ctrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.ToHeaders CreateTopicRule where
-  toHeaders CreateTopicRule' {..} =
-    Lude.mconcat ["x-amz-tagging" Lude.=# tags]
-
-instance Lude.ToJSON CreateTopicRule where
-  toJSON CreateTopicRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("topicRulePayload" Lude..= topicRulePayload)]
+instance Core.FromJSON CreateTopicRule where
+  toJSON CreateTopicRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("topicRulePayload" Core..= topicRulePayload)]
       )
 
-instance Lude.ToPath CreateTopicRule where
-  toPath CreateTopicRule' {..} =
-    Lude.mconcat ["/rules/", Lude.toBS ruleName]
-
-instance Lude.ToQuery CreateTopicRule where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateTopicRule where
+  type Rs CreateTopicRule = CreateTopicRuleResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath ("/rules/" Core.<> (Core.toText ruleName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-tagging" tags,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull CreateTopicRuleResponse'
 
 -- | /See:/ 'mkCreateTopicRuleResponse' smart constructor.
 data CreateTopicRuleResponse = CreateTopicRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTopicRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateTopicRuleResponse' value with any optional fields omitted.
 mkCreateTopicRuleResponse ::
   CreateTopicRuleResponse
 mkCreateTopicRuleResponse = CreateTopicRuleResponse'

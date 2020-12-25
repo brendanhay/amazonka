@@ -17,64 +17,59 @@ module Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
     mkBlockPublicAccessConfigurationMetadata,
 
     -- * Lenses
-    bpacmCreatedByARN,
     bpacmCreationDateTime,
+    bpacmCreatedByArn,
   )
 where
 
+import qualified Network.AWS.EMR.Types.ArnType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
 --
 -- /See:/ 'mkBlockPublicAccessConfigurationMetadata' smart constructor.
 data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMetadata'
-  { -- | The Amazon Resource Name that created or last modified the configuration.
-    createdByARN :: Lude.Text,
-    -- | The date and time that the configuration was created.
-    creationDateTime :: Lude.Timestamp
+  { -- | The date and time that the configuration was created.
+    creationDateTime :: Core.NominalDiffTime,
+    -- | The Amazon Resource Name that created or last modified the configuration.
+    createdByArn :: Types.ArnType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BlockPublicAccessConfigurationMetadata' with the minimum fields required to make a request.
---
--- * 'createdByARN' - The Amazon Resource Name that created or last modified the configuration.
--- * 'creationDateTime' - The date and time that the configuration was created.
+-- | Creates a 'BlockPublicAccessConfigurationMetadata' value with any optional fields omitted.
 mkBlockPublicAccessConfigurationMetadata ::
-  -- | 'createdByARN'
-  Lude.Text ->
   -- | 'creationDateTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
+  -- | 'createdByArn'
+  Types.ArnType ->
   BlockPublicAccessConfigurationMetadata
 mkBlockPublicAccessConfigurationMetadata
-  pCreatedByARN_
-  pCreationDateTime_ =
+  creationDateTime
+  createdByArn =
     BlockPublicAccessConfigurationMetadata'
-      { createdByARN =
-          pCreatedByARN_,
-        creationDateTime = pCreationDateTime_
+      { creationDateTime,
+        createdByArn
       }
-
--- | The Amazon Resource Name that created or last modified the configuration.
---
--- /Note:/ Consider using 'createdByARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpacmCreatedByARN :: Lens.Lens' BlockPublicAccessConfigurationMetadata Lude.Text
-bpacmCreatedByARN = Lens.lens (createdByARN :: BlockPublicAccessConfigurationMetadata -> Lude.Text) (\s a -> s {createdByARN = a} :: BlockPublicAccessConfigurationMetadata)
-{-# DEPRECATED bpacmCreatedByARN "Use generic-lens or generic-optics with 'createdByARN' instead." #-}
 
 -- | The date and time that the configuration was created.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpacmCreationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Lude.Timestamp
-bpacmCreationDateTime = Lens.lens (creationDateTime :: BlockPublicAccessConfigurationMetadata -> Lude.Timestamp) (\s a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata)
+bpacmCreationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Core.NominalDiffTime
+bpacmCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED bpacmCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
-instance Lude.FromJSON BlockPublicAccessConfigurationMetadata where
+-- | The Amazon Resource Name that created or last modified the configuration.
+--
+-- /Note:/ Consider using 'createdByArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpacmCreatedByArn :: Lens.Lens' BlockPublicAccessConfigurationMetadata Types.ArnType
+bpacmCreatedByArn = Lens.field @"createdByArn"
+{-# DEPRECATED bpacmCreatedByArn "Use generic-lens or generic-optics with 'createdByArn' instead." #-}
+
+instance Core.FromJSON BlockPublicAccessConfigurationMetadata where
   parseJSON =
-    Lude.withObject
-      "BlockPublicAccessConfigurationMetadata"
-      ( \x ->
-          BlockPublicAccessConfigurationMetadata'
-            Lude.<$> (x Lude..: "CreatedByArn") Lude.<*> (x Lude..: "CreationDateTime")
-      )
+    Core.withObject "BlockPublicAccessConfigurationMetadata" Core.$
+      \x ->
+        BlockPublicAccessConfigurationMetadata'
+          Core.<$> (x Core..: "CreationDateTime") Core.<*> (x Core..: "CreatedByArn")

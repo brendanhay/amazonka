@@ -39,315 +39,272 @@ module Network.AWS.S3.ListObjectVersions
     mkListObjectVersions,
 
     -- ** Request lenses
-    lovKeyMarker,
-    lovPrefix,
-    lovEncodingType,
-    lovBucket,
-    lovVersionIdMarker,
-    lovMaxKeys,
-    lovDelimiter,
-    lovExpectedBucketOwner,
+    lBucket,
+    lDelimiter,
+    lEncodingType,
+    lExpectedBucketOwner,
+    lKeyMarker,
+    lMaxKeys,
+    lPrefix,
+    lVersionIdMarker,
 
     -- * Destructuring the response
     ListObjectVersionsResponse (..),
     mkListObjectVersionsResponse,
 
     -- ** Response lenses
-    lovrsNextVersionIdMarker,
-    lovrsKeyMarker,
-    lovrsDeleteMarkers,
-    lovrsPrefix,
-    lovrsCommonPrefixes,
-    lovrsEncodingType,
-    lovrsVersions,
-    lovrsName,
-    lovrsNextKeyMarker,
-    lovrsVersionIdMarker,
-    lovrsMaxKeys,
-    lovrsIsTruncated,
-    lovrsDelimiter,
-    lovrsResponseStatus,
+    lrsCommonPrefixes,
+    lrsDeleteMarkers,
+    lrsDelimiter,
+    lrsEncodingType,
+    lrsIsTruncated,
+    lrsKeyMarker,
+    lrsMaxKeys,
+    lrsName,
+    lrsNextKeyMarker,
+    lrsNextVersionIdMarker,
+    lrsPrefix,
+    lrsVersionIdMarker,
+    lrsVersions,
+    lrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkListObjectVersions' smart constructor.
 data ListObjectVersions = ListObjectVersions'
-  { -- | Specifies the key to start with when listing objects in a bucket.
-    keyMarker :: Lude.Maybe Lude.Text,
-    -- | Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.
-    prefix :: Lude.Maybe Lude.Text,
-    encodingType :: Lude.Maybe EncodingType,
-    -- | The bucket name that contains the objects.
-    bucket :: BucketName,
-    -- | Specifies the object version you want to start listing from.
-    versionIdMarker :: Lude.Maybe Lude.Text,
-    -- | Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.
-    maxKeys :: Lude.Maybe Lude.Int,
+  { -- | The bucket name that contains the objects.
+    bucket :: Types.BucketName,
     -- | A delimiter is a character that you specify to group keys. All keys that contain the same string between the @prefix@ and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
-    delimiter :: Lude.Maybe Delimiter,
+    delimiter :: Core.Maybe Types.Delimiter,
+    encodingType :: Core.Maybe Types.EncodingType,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | Specifies the key to start with when listing objects in a bucket.
+    keyMarker :: Core.Maybe Types.KeyMarker,
+    -- | Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.
+    maxKeys :: Core.Maybe Core.Int,
+    -- | Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.
+    prefix :: Core.Maybe Types.Prefix,
+    -- | Specifies the object version you want to start listing from.
+    versionIdMarker :: Core.Maybe Types.VersionIdMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListObjectVersions' with the minimum fields required to make a request.
---
--- * 'keyMarker' - Specifies the key to start with when listing objects in a bucket.
--- * 'prefix' - Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.
--- * 'encodingType' -
--- * 'bucket' - The bucket name that contains the objects.
--- * 'versionIdMarker' - Specifies the object version you want to start listing from.
--- * 'maxKeys' - Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.
--- * 'delimiter' - A delimiter is a character that you specify to group keys. All keys that contain the same string between the @prefix@ and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'ListObjectVersions' value with any optional fields omitted.
 mkListObjectVersions ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   ListObjectVersions
-mkListObjectVersions pBucket_ =
+mkListObjectVersions bucket =
   ListObjectVersions'
-    { keyMarker = Lude.Nothing,
-      prefix = Lude.Nothing,
-      encodingType = Lude.Nothing,
-      bucket = pBucket_,
-      versionIdMarker = Lude.Nothing,
-      maxKeys = Lude.Nothing,
-      delimiter = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      delimiter = Core.Nothing,
+      encodingType = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      keyMarker = Core.Nothing,
+      maxKeys = Core.Nothing,
+      prefix = Core.Nothing,
+      versionIdMarker = Core.Nothing
     }
-
--- | Specifies the key to start with when listing objects in a bucket.
---
--- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovKeyMarker :: Lens.Lens' ListObjectVersions (Lude.Maybe Lude.Text)
-lovKeyMarker = Lens.lens (keyMarker :: ListObjectVersions -> Lude.Maybe Lude.Text) (\s a -> s {keyMarker = a} :: ListObjectVersions)
-{-# DEPRECATED lovKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
-
--- | Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovPrefix :: Lens.Lens' ListObjectVersions (Lude.Maybe Lude.Text)
-lovPrefix = Lens.lens (prefix :: ListObjectVersions -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListObjectVersions)
-{-# DEPRECATED lovPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovEncodingType :: Lens.Lens' ListObjectVersions (Lude.Maybe EncodingType)
-lovEncodingType = Lens.lens (encodingType :: ListObjectVersions -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListObjectVersions)
-{-# DEPRECATED lovEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | The bucket name that contains the objects.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovBucket :: Lens.Lens' ListObjectVersions BucketName
-lovBucket = Lens.lens (bucket :: ListObjectVersions -> BucketName) (\s a -> s {bucket = a} :: ListObjectVersions)
-{-# DEPRECATED lovBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Specifies the object version you want to start listing from.
---
--- /Note:/ Consider using 'versionIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovVersionIdMarker :: Lens.Lens' ListObjectVersions (Lude.Maybe Lude.Text)
-lovVersionIdMarker = Lens.lens (versionIdMarker :: ListObjectVersions -> Lude.Maybe Lude.Text) (\s a -> s {versionIdMarker = a} :: ListObjectVersions)
-{-# DEPRECATED lovVersionIdMarker "Use generic-lens or generic-optics with 'versionIdMarker' instead." #-}
-
--- | Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.
---
--- /Note:/ Consider using 'maxKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovMaxKeys :: Lens.Lens' ListObjectVersions (Lude.Maybe Lude.Int)
-lovMaxKeys = Lens.lens (maxKeys :: ListObjectVersions -> Lude.Maybe Lude.Int) (\s a -> s {maxKeys = a} :: ListObjectVersions)
-{-# DEPRECATED lovMaxKeys "Use generic-lens or generic-optics with 'maxKeys' instead." #-}
+lBucket :: Lens.Lens' ListObjectVersions Types.BucketName
+lBucket = Lens.field @"bucket"
+{-# DEPRECATED lBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | A delimiter is a character that you specify to group keys. All keys that contain the same string between the @prefix@ and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
 --
 -- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovDelimiter :: Lens.Lens' ListObjectVersions (Lude.Maybe Delimiter)
-lovDelimiter = Lens.lens (delimiter :: ListObjectVersions -> Lude.Maybe Delimiter) (\s a -> s {delimiter = a} :: ListObjectVersions)
-{-# DEPRECATED lovDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+lDelimiter :: Lens.Lens' ListObjectVersions (Core.Maybe Types.Delimiter)
+lDelimiter = Lens.field @"delimiter"
+{-# DEPRECATED lDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lEncodingType :: Lens.Lens' ListObjectVersions (Core.Maybe Types.EncodingType)
+lEncodingType = Lens.field @"encodingType"
+{-# DEPRECATED lEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovExpectedBucketOwner :: Lens.Lens' ListObjectVersions (Lude.Maybe Lude.Text)
-lovExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListObjectVersions -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListObjectVersions)
-{-# DEPRECATED lovExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+lExpectedBucketOwner :: Lens.Lens' ListObjectVersions (Core.Maybe Types.ExpectedBucketOwner)
+lExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED lExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Page.AWSPager ListObjectVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. lovrsIsTruncated) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^. lovrsNextKeyMarker)
-        Lude.&& Lude.isNothing (rs Lens.^. lovrsNextVersionIdMarker) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lovKeyMarker Lens..~ rs Lens.^. lovrsNextKeyMarker
-          Lude.& lovVersionIdMarker Lens..~ rs Lens.^. lovrsNextVersionIdMarker
+-- | Specifies the key to start with when listing objects in a bucket.
+--
+-- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lKeyMarker :: Lens.Lens' ListObjectVersions (Core.Maybe Types.KeyMarker)
+lKeyMarker = Lens.field @"keyMarker"
+{-# DEPRECATED lKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
 
-instance Lude.AWSRequest ListObjectVersions where
+-- | Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.
+--
+-- /Note:/ Consider using 'maxKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxKeys :: Lens.Lens' ListObjectVersions (Core.Maybe Core.Int)
+lMaxKeys = Lens.field @"maxKeys"
+{-# DEPRECATED lMaxKeys "Use generic-lens or generic-optics with 'maxKeys' instead." #-}
+
+-- | Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lPrefix :: Lens.Lens' ListObjectVersions (Core.Maybe Types.Prefix)
+lPrefix = Lens.field @"prefix"
+{-# DEPRECATED lPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | Specifies the object version you want to start listing from.
+--
+-- /Note:/ Consider using 'versionIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lVersionIdMarker :: Lens.Lens' ListObjectVersions (Core.Maybe Types.VersionIdMarker)
+lVersionIdMarker = Lens.field @"versionIdMarker"
+{-# DEPRECATED lVersionIdMarker "Use generic-lens or generic-optics with 'versionIdMarker' instead." #-}
+
+instance Core.AWSRequest ListObjectVersions where
   type Rs ListObjectVersions = ListObjectVersionsResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "delimiter" Core.<$> delimiter
+            Core.<> (Core.toQueryValue "encoding-type" Core.<$> encodingType)
+            Core.<> (Core.toQueryValue "key-marker" Core.<$> keyMarker)
+            Core.<> (Core.toQueryValue "max-keys" Core.<$> maxKeys)
+            Core.<> (Core.toQueryValue "prefix" Core.<$> prefix)
+            Core.<> (Core.toQueryValue "version-id-marker" Core.<$> versionIdMarker)
+            Core.<> (Core.pure ("versions", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListObjectVersionsResponse'
-            Lude.<$> (x Lude..@? "NextVersionIdMarker")
-            Lude.<*> (x Lude..@? "KeyMarker")
-            Lude.<*> (Lude.may (Lude.parseXMLList "DeleteMarker") x)
-            Lude.<*> (x Lude..@? "Prefix")
-            Lude.<*> (Lude.may (Lude.parseXMLList "CommonPrefixes") x)
-            Lude.<*> (x Lude..@? "EncodingType")
-            Lude.<*> (Lude.may (Lude.parseXMLList "Version") x)
-            Lude.<*> (x Lude..@? "Name")
-            Lude.<*> (x Lude..@? "NextKeyMarker")
-            Lude.<*> (x Lude..@? "VersionIdMarker")
-            Lude.<*> (x Lude..@? "MaxKeys")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (x Lude..@? "Delimiter")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "CommonPrefixes")
+            Core.<*> (x Core..@? "DeleteMarker")
+            Core.<*> (x Core..@? "Delimiter")
+            Core.<*> (x Core..@? "EncodingType")
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "KeyMarker")
+            Core.<*> (x Core..@? "MaxKeys")
+            Core.<*> (x Core..@? "Name")
+            Core.<*> (x Core..@? "NextKeyMarker")
+            Core.<*> (x Core..@? "NextVersionIdMarker")
+            Core.<*> (x Core..@? "Prefix")
+            Core.<*> (x Core..@? "VersionIdMarker")
+            Core.<*> (x Core..@? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListObjectVersions where
-  toHeaders ListObjectVersions' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath ListObjectVersions where
-  toPath ListObjectVersions' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery ListObjectVersions where
-  toQuery ListObjectVersions' {..} =
-    Lude.mconcat
-      [ "key-marker" Lude.=: keyMarker,
-        "prefix" Lude.=: prefix,
-        "encoding-type" Lude.=: encodingType,
-        "version-id-marker" Lude.=: versionIdMarker,
-        "max-keys" Lude.=: maxKeys,
-        "delimiter" Lude.=: delimiter,
-        "versions"
-      ]
+instance Pager.AWSPager ListObjectVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"isTruncated") = Core.Nothing
+    | Core.isNothing (rs Lens.^. Lens.field @"nextKeyMarker")
+        Core.&& Core.isNothing (rs Lens.^. Lens.field @"nextVersionIdMarker") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"keyMarker"
+            Lens..~ rs Lens.^. Lens.field @"nextKeyMarker"
+            Core.& Lens.field @"versionIdMarker"
+            Lens..~ rs Lens.^. Lens.field @"nextVersionIdMarker"
+        )
 
 -- | /See:/ 'mkListObjectVersionsResponse' smart constructor.
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
-  { -- | When the number of responses exceeds the value of @MaxKeys@ , @NextVersionIdMarker@ specifies the first object version not returned that satisfies the search criteria. Use this value for the version-id-marker request parameter in a subsequent request.
-    nextVersionIdMarker :: Lude.Maybe Lude.Text,
-    -- | Marks the last key returned in a truncated response.
-    keyMarker :: Lude.Maybe Lude.Text,
+  { -- | All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.
+    commonPrefixes :: Core.Maybe [Types.CommonPrefix],
     -- | Container for an object that is a delete marker.
-    deleteMarkers :: Lude.Maybe [DeleteMarkerEntry],
-    -- | Selects objects that start with the value supplied by this parameter.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.
-    commonPrefixes :: Lude.Maybe [CommonPrefix],
+    deleteMarkers :: Core.Maybe [Types.DeleteMarkerEntry],
+    -- | The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in @CommonPrefixes@ . These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
+    delimiter :: Core.Maybe Types.Delimiter,
     -- | Encoding type used by Amazon S3 to encode object key names in the XML response.
     --
     -- If you specify encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
     -- @KeyMarker, NextKeyMarker, Prefix, Key@ , and @Delimiter@ .
-    encodingType :: Lude.Maybe EncodingType,
-    -- | Container for version information.
-    versions :: Lude.Maybe [ObjectVersion],
-    -- | The bucket name.
-    name :: Lude.Maybe BucketName,
-    -- | When the number of responses exceeds the value of @MaxKeys@ , @NextKeyMarker@ specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.
-    nextKeyMarker :: Lude.Maybe Lude.Text,
-    -- | Marks the last version of the key returned in a truncated response.
-    versionIdMarker :: Lude.Maybe Lude.Text,
-    -- | Specifies the maximum number of objects to return.
-    maxKeys :: Lude.Maybe Lude.Int,
+    encodingType :: Core.Maybe Types.EncodingType,
     -- | A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
-    isTruncated :: Lude.Maybe Lude.Bool,
-    -- | The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in @CommonPrefixes@ . These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
-    delimiter :: Lude.Maybe Delimiter,
+    isTruncated :: Core.Maybe Core.Bool,
+    -- | Marks the last key returned in a truncated response.
+    keyMarker :: Core.Maybe Types.KeyMarker,
+    -- | Specifies the maximum number of objects to return.
+    maxKeys :: Core.Maybe Core.Int,
+    -- | The bucket name.
+    name :: Core.Maybe Types.Name,
+    -- | When the number of responses exceeds the value of @MaxKeys@ , @NextKeyMarker@ specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.
+    nextKeyMarker :: Core.Maybe Types.NextKeyMarker,
+    -- | When the number of responses exceeds the value of @MaxKeys@ , @NextVersionIdMarker@ specifies the first object version not returned that satisfies the search criteria. Use this value for the version-id-marker request parameter in a subsequent request.
+    nextVersionIdMarker :: Core.Maybe Types.NextVersionIdMarker,
+    -- | Selects objects that start with the value supplied by this parameter.
+    prefix :: Core.Maybe Types.Prefix,
+    -- | Marks the last version of the key returned in a truncated response.
+    versionIdMarker :: Core.Maybe Types.VersionIdMarker,
+    -- | Container for version information.
+    versions :: Core.Maybe [Types.ObjectVersion],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListObjectVersionsResponse' with the minimum fields required to make a request.
---
--- * 'nextVersionIdMarker' - When the number of responses exceeds the value of @MaxKeys@ , @NextVersionIdMarker@ specifies the first object version not returned that satisfies the search criteria. Use this value for the version-id-marker request parameter in a subsequent request.
--- * 'keyMarker' - Marks the last key returned in a truncated response.
--- * 'deleteMarkers' - Container for an object that is a delete marker.
--- * 'prefix' - Selects objects that start with the value supplied by this parameter.
--- * 'commonPrefixes' - All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.
--- * 'encodingType' - Encoding type used by Amazon S3 to encode object key names in the XML response.
---
--- If you specify encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
--- @KeyMarker, NextKeyMarker, Prefix, Key@ , and @Delimiter@ .
--- * 'versions' - Container for version information.
--- * 'name' - The bucket name.
--- * 'nextKeyMarker' - When the number of responses exceeds the value of @MaxKeys@ , @NextKeyMarker@ specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.
--- * 'versionIdMarker' - Marks the last version of the key returned in a truncated response.
--- * 'maxKeys' - Specifies the maximum number of objects to return.
--- * 'isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
--- * 'delimiter' - The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in @CommonPrefixes@ . These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListObjectVersionsResponse' value with any optional fields omitted.
 mkListObjectVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListObjectVersionsResponse
-mkListObjectVersionsResponse pResponseStatus_ =
+mkListObjectVersionsResponse responseStatus =
   ListObjectVersionsResponse'
-    { nextVersionIdMarker = Lude.Nothing,
-      keyMarker = Lude.Nothing,
-      deleteMarkers = Lude.Nothing,
-      prefix = Lude.Nothing,
-      commonPrefixes = Lude.Nothing,
-      encodingType = Lude.Nothing,
-      versions = Lude.Nothing,
-      name = Lude.Nothing,
-      nextKeyMarker = Lude.Nothing,
-      versionIdMarker = Lude.Nothing,
-      maxKeys = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      delimiter = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { commonPrefixes = Core.Nothing,
+      deleteMarkers = Core.Nothing,
+      delimiter = Core.Nothing,
+      encodingType = Core.Nothing,
+      isTruncated = Core.Nothing,
+      keyMarker = Core.Nothing,
+      maxKeys = Core.Nothing,
+      name = Core.Nothing,
+      nextKeyMarker = Core.Nothing,
+      nextVersionIdMarker = Core.Nothing,
+      prefix = Core.Nothing,
+      versionIdMarker = Core.Nothing,
+      versions = Core.Nothing,
+      responseStatus
     }
-
--- | When the number of responses exceeds the value of @MaxKeys@ , @NextVersionIdMarker@ specifies the first object version not returned that satisfies the search criteria. Use this value for the version-id-marker request parameter in a subsequent request.
---
--- /Note:/ Consider using 'nextVersionIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsNextVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Text)
-lovrsNextVersionIdMarker = Lens.lens (nextVersionIdMarker :: ListObjectVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextVersionIdMarker = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsNextVersionIdMarker "Use generic-lens or generic-optics with 'nextVersionIdMarker' instead." #-}
-
--- | Marks the last key returned in a truncated response.
---
--- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Text)
-lovrsKeyMarker = Lens.lens (keyMarker :: ListObjectVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyMarker = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
-
--- | Container for an object that is a delete marker.
---
--- /Note:/ Consider using 'deleteMarkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsDeleteMarkers :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe [DeleteMarkerEntry])
-lovrsDeleteMarkers = Lens.lens (deleteMarkers :: ListObjectVersionsResponse -> Lude.Maybe [DeleteMarkerEntry]) (\s a -> s {deleteMarkers = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsDeleteMarkers "Use generic-lens or generic-optics with 'deleteMarkers' instead." #-}
-
--- | Selects objects that start with the value supplied by this parameter.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsPrefix :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Text)
-lovrsPrefix = Lens.lens (prefix :: ListObjectVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.
 --
 -- /Note:/ Consider using 'commonPrefixes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsCommonPrefixes :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe [CommonPrefix])
-lovrsCommonPrefixes = Lens.lens (commonPrefixes :: ListObjectVersionsResponse -> Lude.Maybe [CommonPrefix]) (\s a -> s {commonPrefixes = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsCommonPrefixes "Use generic-lens or generic-optics with 'commonPrefixes' instead." #-}
+lrsCommonPrefixes :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe [Types.CommonPrefix])
+lrsCommonPrefixes = Lens.field @"commonPrefixes"
+{-# DEPRECATED lrsCommonPrefixes "Use generic-lens or generic-optics with 'commonPrefixes' instead." #-}
+
+-- | Container for an object that is a delete marker.
+--
+-- /Note:/ Consider using 'deleteMarkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsDeleteMarkers :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe [Types.DeleteMarkerEntry])
+lrsDeleteMarkers = Lens.field @"deleteMarkers"
+{-# DEPRECATED lrsDeleteMarkers "Use generic-lens or generic-optics with 'deleteMarkers' instead." #-}
+
+-- | The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in @CommonPrefixes@ . These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsDelimiter :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.Delimiter)
+lrsDelimiter = Lens.field @"delimiter"
+{-# DEPRECATED lrsDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
 -- | Encoding type used by Amazon S3 to encode object key names in the XML response.
 --
@@ -355,62 +312,76 @@ lovrsCommonPrefixes = Lens.lens (commonPrefixes :: ListObjectVersionsResponse ->
 -- @KeyMarker, NextKeyMarker, Prefix, Key@ , and @Delimiter@ .
 --
 -- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsEncodingType :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe EncodingType)
-lovrsEncodingType = Lens.lens (encodingType :: ListObjectVersionsResponse -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
-
--- | Container for version information.
---
--- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsVersions :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe [ObjectVersion])
-lovrsVersions = Lens.lens (versions :: ListObjectVersionsResponse -> Lude.Maybe [ObjectVersion]) (\s a -> s {versions = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
-
--- | The bucket name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsName :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe BucketName)
-lovrsName = Lens.lens (name :: ListObjectVersionsResponse -> Lude.Maybe BucketName) (\s a -> s {name = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | When the number of responses exceeds the value of @MaxKeys@ , @NextKeyMarker@ specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.
---
--- /Note:/ Consider using 'nextKeyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsNextKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Text)
-lovrsNextKeyMarker = Lens.lens (nextKeyMarker :: ListObjectVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextKeyMarker = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsNextKeyMarker "Use generic-lens or generic-optics with 'nextKeyMarker' instead." #-}
-
--- | Marks the last version of the key returned in a truncated response.
---
--- /Note:/ Consider using 'versionIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Text)
-lovrsVersionIdMarker = Lens.lens (versionIdMarker :: ListObjectVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {versionIdMarker = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsVersionIdMarker "Use generic-lens or generic-optics with 'versionIdMarker' instead." #-}
-
--- | Specifies the maximum number of objects to return.
---
--- /Note:/ Consider using 'maxKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsMaxKeys :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Int)
-lovrsMaxKeys = Lens.lens (maxKeys :: ListObjectVersionsResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxKeys = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsMaxKeys "Use generic-lens or generic-optics with 'maxKeys' instead." #-}
+lrsEncodingType :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.EncodingType)
+lrsEncodingType = Lens.field @"encodingType"
+{-# DEPRECATED lrsEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsIsTruncated :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Lude.Bool)
-lovrsIsTruncated = Lens.lens (isTruncated :: ListObjectVersionsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+lrsIsTruncated :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Bool)
+lrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in @CommonPrefixes@ . These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.
+-- | Marks the last key returned in a truncated response.
 --
--- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsDelimiter :: Lens.Lens' ListObjectVersionsResponse (Lude.Maybe Delimiter)
-lovrsDelimiter = Lens.lens (delimiter :: ListObjectVersionsResponse -> Lude.Maybe Delimiter) (\s a -> s {delimiter = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+-- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.KeyMarker)
+lrsKeyMarker = Lens.field @"keyMarker"
+{-# DEPRECATED lrsKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
+
+-- | Specifies the maximum number of objects to return.
+--
+-- /Note:/ Consider using 'maxKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsMaxKeys :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Int)
+lrsMaxKeys = Lens.field @"maxKeys"
+{-# DEPRECATED lrsMaxKeys "Use generic-lens or generic-optics with 'maxKeys' instead." #-}
+
+-- | The bucket name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsName :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.Name)
+lrsName = Lens.field @"name"
+{-# DEPRECATED lrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | When the number of responses exceeds the value of @MaxKeys@ , @NextKeyMarker@ specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'nextKeyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.NextKeyMarker)
+lrsNextKeyMarker = Lens.field @"nextKeyMarker"
+{-# DEPRECATED lrsNextKeyMarker "Use generic-lens or generic-optics with 'nextKeyMarker' instead." #-}
+
+-- | When the number of responses exceeds the value of @MaxKeys@ , @NextVersionIdMarker@ specifies the first object version not returned that satisfies the search criteria. Use this value for the version-id-marker request parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'nextVersionIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.NextVersionIdMarker)
+lrsNextVersionIdMarker = Lens.field @"nextVersionIdMarker"
+{-# DEPRECATED lrsNextVersionIdMarker "Use generic-lens or generic-optics with 'nextVersionIdMarker' instead." #-}
+
+-- | Selects objects that start with the value supplied by this parameter.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsPrefix :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.Prefix)
+lrsPrefix = Lens.field @"prefix"
+{-# DEPRECATED lrsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | Marks the last version of the key returned in a truncated response.
+--
+-- /Note:/ Consider using 'versionIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Types.VersionIdMarker)
+lrsVersionIdMarker = Lens.field @"versionIdMarker"
+{-# DEPRECATED lrsVersionIdMarker "Use generic-lens or generic-optics with 'versionIdMarker' instead." #-}
+
+-- | Container for version information.
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsVersions :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe [Types.ObjectVersion])
+lrsVersions = Lens.field @"versions"
+{-# DEPRECATED lrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lovrsResponseStatus :: Lens.Lens' ListObjectVersionsResponse Lude.Int
-lovrsResponseStatus = Lens.lens (responseStatus :: ListObjectVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectVersionsResponse)
-{-# DEPRECATED lovrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrsResponseStatus :: Lens.Lens' ListObjectVersionsResponse Core.Int
+lrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

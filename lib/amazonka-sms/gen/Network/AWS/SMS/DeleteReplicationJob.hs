@@ -29,98 +29,88 @@ module Network.AWS.SMS.DeleteReplicationJob
     mkDeleteReplicationJobResponse,
 
     -- ** Response lenses
-    drjrsResponseStatus,
+    drjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkDeleteReplicationJob' smart constructor.
 newtype DeleteReplicationJob = DeleteReplicationJob'
   { -- | The ID of the replication job.
-    replicationJobId :: Lude.Text
+    replicationJobId :: Types.ReplicationJobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicationJob' with the minimum fields required to make a request.
---
--- * 'replicationJobId' - The ID of the replication job.
+-- | Creates a 'DeleteReplicationJob' value with any optional fields omitted.
 mkDeleteReplicationJob ::
   -- | 'replicationJobId'
-  Lude.Text ->
+  Types.ReplicationJobId ->
   DeleteReplicationJob
-mkDeleteReplicationJob pReplicationJobId_ =
-  DeleteReplicationJob' {replicationJobId = pReplicationJobId_}
+mkDeleteReplicationJob replicationJobId =
+  DeleteReplicationJob' {replicationJobId}
 
 -- | The ID of the replication job.
 --
 -- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drjReplicationJobId :: Lens.Lens' DeleteReplicationJob Lude.Text
-drjReplicationJobId = Lens.lens (replicationJobId :: DeleteReplicationJob -> Lude.Text) (\s a -> s {replicationJobId = a} :: DeleteReplicationJob)
+drjReplicationJobId :: Lens.Lens' DeleteReplicationJob Types.ReplicationJobId
+drjReplicationJobId = Lens.field @"replicationJobId"
 {-# DEPRECATED drjReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
-instance Lude.AWSRequest DeleteReplicationJob where
+instance Core.FromJSON DeleteReplicationJob where
+  toJSON DeleteReplicationJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("replicationJobId" Core..= replicationJobId)]
+      )
+
+instance Core.AWSRequest DeleteReplicationJob where
   type Rs DeleteReplicationJob = DeleteReplicationJobResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteReplicationJobResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteReplicationJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteReplicationJob where
-  toJSON DeleteReplicationJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("replicationJobId" Lude..= replicationJobId)]
-      )
-
-instance Lude.ToPath DeleteReplicationJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteReplicationJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteReplicationJobResponse' smart constructor.
 newtype DeleteReplicationJobResponse = DeleteReplicationJobResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicationJobResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteReplicationJobResponse' value with any optional fields omitted.
 mkDeleteReplicationJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteReplicationJobResponse
-mkDeleteReplicationJobResponse pResponseStatus_ =
-  DeleteReplicationJobResponse' {responseStatus = pResponseStatus_}
+mkDeleteReplicationJobResponse responseStatus =
+  DeleteReplicationJobResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drjrsResponseStatus :: Lens.Lens' DeleteReplicationJobResponse Lude.Int
-drjrsResponseStatus = Lens.lens (responseStatus :: DeleteReplicationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReplicationJobResponse)
-{-# DEPRECATED drjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drjrrsResponseStatus :: Lens.Lens' DeleteReplicationJobResponse Core.Int
+drjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

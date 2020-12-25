@@ -24,8 +24,8 @@ module Network.AWS.EC2.DeleteSnapshot
     mkDeleteSnapshot,
 
     -- ** Request lenses
-    dshDryRun,
     dshSnapshotId,
+    dshDryRun,
 
     -- * Destructuring the response
     DeleteSnapshotResponse (..),
@@ -33,73 +33,73 @@ module Network.AWS.EC2.DeleteSnapshot
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
-  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The ID of the EBS snapshot.
-    snapshotId :: Lude.Text
+  { -- | The ID of the EBS snapshot.
+    snapshotId :: Types.SnapshotId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'snapshotId' - The ID of the EBS snapshot.
+-- | Creates a 'DeleteSnapshot' value with any optional fields omitted.
 mkDeleteSnapshot ::
   -- | 'snapshotId'
-  Lude.Text ->
+  Types.SnapshotId ->
   DeleteSnapshot
-mkDeleteSnapshot pSnapshotId_ =
-  DeleteSnapshot' {dryRun = Lude.Nothing, snapshotId = pSnapshotId_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dshDryRun :: Lens.Lens' DeleteSnapshot (Lude.Maybe Lude.Bool)
-dshDryRun = Lens.lens (dryRun :: DeleteSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSnapshot)
-{-# DEPRECATED dshDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+mkDeleteSnapshot snapshotId =
+  DeleteSnapshot' {snapshotId, dryRun = Core.Nothing}
 
 -- | The ID of the EBS snapshot.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dshSnapshotId :: Lens.Lens' DeleteSnapshot Lude.Text
-dshSnapshotId = Lens.lens (snapshotId :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotId = a} :: DeleteSnapshot)
+dshSnapshotId :: Lens.Lens' DeleteSnapshot Types.SnapshotId
+dshSnapshotId = Lens.field @"snapshotId"
 {-# DEPRECATED dshSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance Lude.AWSRequest DeleteSnapshot where
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dshDryRun :: Lens.Lens' DeleteSnapshot (Core.Maybe Core.Bool)
+dshDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dshDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+instance Core.AWSRequest DeleteSnapshot where
   type Rs DeleteSnapshot = DeleteSnapshotResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteSnapshotResponse'
-
-instance Lude.ToHeaders DeleteSnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSnapshot where
-  toQuery DeleteSnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteSnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "SnapshotId" Lude.=: snapshotId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteSnapshot")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "SnapshotId" snapshotId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteSnapshotResponse'
 
 -- | /See:/ 'mkDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSnapshotResponse' value with any optional fields omitted.
 mkDeleteSnapshotResponse ::
   DeleteSnapshotResponse
 mkDeleteSnapshotResponse = DeleteSnapshotResponse'

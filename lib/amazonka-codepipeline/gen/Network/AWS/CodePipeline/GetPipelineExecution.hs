@@ -28,132 +28,117 @@ module Network.AWS.CodePipeline.GetPipelineExecution
     mkGetPipelineExecutionResponse,
 
     -- ** Response lenses
-    gpersPipelineExecution,
-    gpersResponseStatus,
+    gperrsPipelineExecution,
+    gperrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetPipelineExecution@ action.
 --
 -- /See:/ 'mkGetPipelineExecution' smart constructor.
 data GetPipelineExecution = GetPipelineExecution'
   { -- | The name of the pipeline about which you want to get execution details.
-    pipelineName :: Lude.Text,
+    pipelineName :: Types.PipelineName,
     -- | The ID of the pipeline execution about which you want to get execution details.
-    pipelineExecutionId :: Lude.Text
+    pipelineExecutionId :: Types.PipelineExecutionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPipelineExecution' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline about which you want to get execution details.
--- * 'pipelineExecutionId' - The ID of the pipeline execution about which you want to get execution details.
+-- | Creates a 'GetPipelineExecution' value with any optional fields omitted.
 mkGetPipelineExecution ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   -- | 'pipelineExecutionId'
-  Lude.Text ->
+  Types.PipelineExecutionId ->
   GetPipelineExecution
-mkGetPipelineExecution pPipelineName_ pPipelineExecutionId_ =
-  GetPipelineExecution'
-    { pipelineName = pPipelineName_,
-      pipelineExecutionId = pPipelineExecutionId_
-    }
+mkGetPipelineExecution pipelineName pipelineExecutionId =
+  GetPipelineExecution' {pipelineName, pipelineExecutionId}
 
 -- | The name of the pipeline about which you want to get execution details.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpePipelineName :: Lens.Lens' GetPipelineExecution Lude.Text
-gpePipelineName = Lens.lens (pipelineName :: GetPipelineExecution -> Lude.Text) (\s a -> s {pipelineName = a} :: GetPipelineExecution)
+gpePipelineName :: Lens.Lens' GetPipelineExecution Types.PipelineName
+gpePipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED gpePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The ID of the pipeline execution about which you want to get execution details.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpePipelineExecutionId :: Lens.Lens' GetPipelineExecution Lude.Text
-gpePipelineExecutionId = Lens.lens (pipelineExecutionId :: GetPipelineExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: GetPipelineExecution)
+gpePipelineExecutionId :: Lens.Lens' GetPipelineExecution Types.PipelineExecutionId
+gpePipelineExecutionId = Lens.field @"pipelineExecutionId"
 {-# DEPRECATED gpePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
-instance Lude.AWSRequest GetPipelineExecution where
+instance Core.FromJSON GetPipelineExecution where
+  toJSON GetPipelineExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineName" Core..= pipelineName),
+            Core.Just ("pipelineExecutionId" Core..= pipelineExecutionId)
+          ]
+      )
+
+instance Core.AWSRequest GetPipelineExecution where
   type Rs GetPipelineExecution = GetPipelineExecutionResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodePipeline_20150709.GetPipelineExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPipelineExecutionResponse'
-            Lude.<$> (x Lude..?> "pipelineExecution")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "pipelineExecution")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPipelineExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.GetPipelineExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPipelineExecution where
-  toJSON GetPipelineExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineName" Lude..= pipelineName),
-            Lude.Just ("pipelineExecutionId" Lude..= pipelineExecutionId)
-          ]
-      )
-
-instance Lude.ToPath GetPipelineExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPipelineExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetPipelineExecution@ action.
 --
 -- /See:/ 'mkGetPipelineExecutionResponse' smart constructor.
 data GetPipelineExecutionResponse = GetPipelineExecutionResponse'
   { -- | Represents information about the execution of a pipeline.
-    pipelineExecution :: Lude.Maybe PipelineExecution,
+    pipelineExecution :: Core.Maybe Types.PipelineExecution,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPipelineExecutionResponse' with the minimum fields required to make a request.
---
--- * 'pipelineExecution' - Represents information about the execution of a pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPipelineExecutionResponse' value with any optional fields omitted.
 mkGetPipelineExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPipelineExecutionResponse
-mkGetPipelineExecutionResponse pResponseStatus_ =
+mkGetPipelineExecutionResponse responseStatus =
   GetPipelineExecutionResponse'
-    { pipelineExecution = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { pipelineExecution = Core.Nothing,
+      responseStatus
     }
 
 -- | Represents information about the execution of a pipeline.
 --
 -- /Note:/ Consider using 'pipelineExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpersPipelineExecution :: Lens.Lens' GetPipelineExecutionResponse (Lude.Maybe PipelineExecution)
-gpersPipelineExecution = Lens.lens (pipelineExecution :: GetPipelineExecutionResponse -> Lude.Maybe PipelineExecution) (\s a -> s {pipelineExecution = a} :: GetPipelineExecutionResponse)
-{-# DEPRECATED gpersPipelineExecution "Use generic-lens or generic-optics with 'pipelineExecution' instead." #-}
+gperrsPipelineExecution :: Lens.Lens' GetPipelineExecutionResponse (Core.Maybe Types.PipelineExecution)
+gperrsPipelineExecution = Lens.field @"pipelineExecution"
+{-# DEPRECATED gperrsPipelineExecution "Use generic-lens or generic-optics with 'pipelineExecution' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpersResponseStatus :: Lens.Lens' GetPipelineExecutionResponse Lude.Int
-gpersResponseStatus = Lens.lens (responseStatus :: GetPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPipelineExecutionResponse)
-{-# DEPRECATED gpersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gperrsResponseStatus :: Lens.Lens' GetPipelineExecutionResponse Core.Int
+gperrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gperrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

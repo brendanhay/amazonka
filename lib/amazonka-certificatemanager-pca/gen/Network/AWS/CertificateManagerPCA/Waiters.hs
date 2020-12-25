@@ -24,57 +24,53 @@ where
 
 import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
 import Network.AWS.CertificateManagerPCA.GetCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR
-import Network.AWS.CertificateManagerPCA.Types
+import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkCertificateIssued :: Wait.Wait GetCertificate
+mkCertificateIssued :: Waiter.Wait GetCertificate
 mkCertificateIssued =
-  Wait.Wait
-    { Wait._waitName = "CertificateIssued",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 3,
-      Wait._waitAcceptors =
-        [ Wait.matchStatus 200 Wait.AcceptSuccess,
-          Wait.matchError "RequestInProgressException" Wait.AcceptRetry
+  Waiter.Wait
+    { Waiter._waitName = "CertificateIssued",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 3,
+      Waiter._waitAcceptors =
+        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
+          Waiter.matchError "RequestInProgressException" Waiter.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkAuditReportCreated :: Wait.Wait DescribeCertificateAuthorityAuditReport
+mkAuditReportCreated :: Waiter.Wait DescribeCertificateAuthorityAuditReport
 mkAuditReportCreated =
-  Wait.Wait
-    { Wait._waitName = "AuditReportCreated",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 3,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "AuditReportCreated",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 3,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "SUCCESS"
-            Wait.AcceptSuccess
-            ( dcaarrsAuditReportStatus Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
-            ),
-          Wait.matchAll
+            Waiter.AcceptSuccess
+            (Lens.field @"auditReportStatus" Core.. Lens._Just),
+          Waiter.matchAll
             "FAILED"
-            Wait.AcceptFailure
-            ( dcaarrsAuditReportStatus Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
-            )
+            Waiter.AcceptFailure
+            (Lens.field @"auditReportStatus" Core.. Lens._Just)
         ]
     }
 
--- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkCertificateAuthorityCSRCreated :: Wait.Wait GetCertificateAuthorityCSR
+-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
+mkCertificateAuthorityCSRCreated :: Waiter.Wait GetCertificateAuthorityCsr
 mkCertificateAuthorityCSRCreated =
-  Wait.Wait
-    { Wait._waitName = "CertificateAuthorityCSRCreated",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 3,
-      Wait._waitAcceptors =
-        [ Wait.matchStatus 200 Wait.AcceptSuccess,
-          Wait.matchError "RequestInProgressException" Wait.AcceptRetry
+  Waiter.Wait
+    { Waiter._waitName = "CertificateAuthorityCSRCreated",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 3,
+      Waiter._waitAcceptors =
+        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
+          Waiter.matchError "RequestInProgressException" Waiter.AcceptRetry
         ]
     }

@@ -17,135 +17,131 @@ module Network.AWS.RDS.Types.OptionGroup
     mkOptionGroup,
 
     -- * Lenses
-    ogOptionGroupDescription,
-    ogVPCId,
-    ogAllowsVPCAndNonVPCInstanceMemberships,
+    ogAllowsVpcAndNonVpcInstanceMemberships,
     ogEngineName,
-    ogOptionGroupARN,
     ogMajorEngineVersion,
-    ogOptions,
+    ogOptionGroupArn,
+    ogOptionGroupDescription,
     ogOptionGroupName,
+    ogOptions,
+    ogVpcId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.Option
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.EngineName as Types
+import qualified Network.AWS.RDS.Types.MajorEngineVersion as Types
+import qualified Network.AWS.RDS.Types.Option as Types
+import qualified Network.AWS.RDS.Types.OptionGroupArn as Types
+import qualified Network.AWS.RDS.Types.OptionGroupDescription as Types
+import qualified Network.AWS.RDS.Types.OptionGroupName as Types
+import qualified Network.AWS.RDS.Types.VpcId as Types
 
 -- |
 --
 -- /See:/ 'mkOptionGroup' smart constructor.
 data OptionGroup = OptionGroup'
-  { -- | Provides a description of the option group.
-    optionGroupDescription :: Lude.Maybe Lude.Text,
-    -- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | Indicates whether this option group can be applied to both VPC and non-VPC instances. The value @true@ indicates the option group can be applied to both VPC and non-VPC instances.
-    allowsVPCAndNonVPCInstanceMemberships :: Lude.Maybe Lude.Bool,
+  { -- | Indicates whether this option group can be applied to both VPC and non-VPC instances. The value @true@ indicates the option group can be applied to both VPC and non-VPC instances.
+    allowsVpcAndNonVpcInstanceMemberships :: Core.Maybe Core.Bool,
     -- | Indicates the name of the engine that this option group can be applied to.
-    engineName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) for the option group.
-    optionGroupARN :: Lude.Maybe Lude.Text,
+    engineName :: Core.Maybe Types.EngineName,
     -- | Indicates the major engine version associated with this option group.
-    majorEngineVersion :: Lude.Maybe Lude.Text,
-    -- | Indicates what options are available in the option group.
-    options :: Lude.Maybe [Option],
+    majorEngineVersion :: Core.Maybe Types.MajorEngineVersion,
+    -- | The Amazon Resource Name (ARN) for the option group.
+    optionGroupArn :: Core.Maybe Types.OptionGroupArn,
+    -- | Provides a description of the option group.
+    optionGroupDescription :: Core.Maybe Types.OptionGroupDescription,
     -- | Specifies the name of the option group.
-    optionGroupName :: Lude.Maybe Lude.Text
+    optionGroupName :: Core.Maybe Types.OptionGroupName,
+    -- | Indicates what options are available in the option group.
+    options :: Core.Maybe [Types.Option],
+    -- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
+    vpcId :: Core.Maybe Types.VpcId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OptionGroup' with the minimum fields required to make a request.
---
--- * 'optionGroupDescription' - Provides a description of the option group.
--- * 'vpcId' - If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
--- * 'allowsVPCAndNonVPCInstanceMemberships' - Indicates whether this option group can be applied to both VPC and non-VPC instances. The value @true@ indicates the option group can be applied to both VPC and non-VPC instances.
--- * 'engineName' - Indicates the name of the engine that this option group can be applied to.
--- * 'optionGroupARN' - The Amazon Resource Name (ARN) for the option group.
--- * 'majorEngineVersion' - Indicates the major engine version associated with this option group.
--- * 'options' - Indicates what options are available in the option group.
--- * 'optionGroupName' - Specifies the name of the option group.
+-- | Creates a 'OptionGroup' value with any optional fields omitted.
 mkOptionGroup ::
   OptionGroup
 mkOptionGroup =
   OptionGroup'
-    { optionGroupDescription = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      allowsVPCAndNonVPCInstanceMemberships = Lude.Nothing,
-      engineName = Lude.Nothing,
-      optionGroupARN = Lude.Nothing,
-      majorEngineVersion = Lude.Nothing,
-      options = Lude.Nothing,
-      optionGroupName = Lude.Nothing
+    { allowsVpcAndNonVpcInstanceMemberships =
+        Core.Nothing,
+      engineName = Core.Nothing,
+      majorEngineVersion = Core.Nothing,
+      optionGroupArn = Core.Nothing,
+      optionGroupDescription = Core.Nothing,
+      optionGroupName = Core.Nothing,
+      options = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | Provides a description of the option group.
---
--- /Note:/ Consider using 'optionGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogOptionGroupDescription :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Text)
-ogOptionGroupDescription = Lens.lens (optionGroupDescription :: OptionGroup -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupDescription = a} :: OptionGroup)
-{-# DEPRECATED ogOptionGroupDescription "Use generic-lens or generic-optics with 'optionGroupDescription' instead." #-}
-
--- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogVPCId :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Text)
-ogVPCId = Lens.lens (vpcId :: OptionGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: OptionGroup)
-{-# DEPRECATED ogVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Indicates whether this option group can be applied to both VPC and non-VPC instances. The value @true@ indicates the option group can be applied to both VPC and non-VPC instances.
 --
--- /Note:/ Consider using 'allowsVPCAndNonVPCInstanceMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogAllowsVPCAndNonVPCInstanceMemberships :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Bool)
-ogAllowsVPCAndNonVPCInstanceMemberships = Lens.lens (allowsVPCAndNonVPCInstanceMemberships :: OptionGroup -> Lude.Maybe Lude.Bool) (\s a -> s {allowsVPCAndNonVPCInstanceMemberships = a} :: OptionGroup)
-{-# DEPRECATED ogAllowsVPCAndNonVPCInstanceMemberships "Use generic-lens or generic-optics with 'allowsVPCAndNonVPCInstanceMemberships' instead." #-}
+-- /Note:/ Consider using 'allowsVpcAndNonVpcInstanceMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogAllowsVpcAndNonVpcInstanceMemberships :: Lens.Lens' OptionGroup (Core.Maybe Core.Bool)
+ogAllowsVpcAndNonVpcInstanceMemberships = Lens.field @"allowsVpcAndNonVpcInstanceMemberships"
+{-# DEPRECATED ogAllowsVpcAndNonVpcInstanceMemberships "Use generic-lens or generic-optics with 'allowsVpcAndNonVpcInstanceMemberships' instead." #-}
 
 -- | Indicates the name of the engine that this option group can be applied to.
 --
 -- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogEngineName :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Text)
-ogEngineName = Lens.lens (engineName :: OptionGroup -> Lude.Maybe Lude.Text) (\s a -> s {engineName = a} :: OptionGroup)
+ogEngineName :: Lens.Lens' OptionGroup (Core.Maybe Types.EngineName)
+ogEngineName = Lens.field @"engineName"
 {-# DEPRECATED ogEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the option group.
---
--- /Note:/ Consider using 'optionGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogOptionGroupARN :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Text)
-ogOptionGroupARN = Lens.lens (optionGroupARN :: OptionGroup -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupARN = a} :: OptionGroup)
-{-# DEPRECATED ogOptionGroupARN "Use generic-lens or generic-optics with 'optionGroupARN' instead." #-}
 
 -- | Indicates the major engine version associated with this option group.
 --
 -- /Note:/ Consider using 'majorEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogMajorEngineVersion :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Text)
-ogMajorEngineVersion = Lens.lens (majorEngineVersion :: OptionGroup -> Lude.Maybe Lude.Text) (\s a -> s {majorEngineVersion = a} :: OptionGroup)
+ogMajorEngineVersion :: Lens.Lens' OptionGroup (Core.Maybe Types.MajorEngineVersion)
+ogMajorEngineVersion = Lens.field @"majorEngineVersion"
 {-# DEPRECATED ogMajorEngineVersion "Use generic-lens or generic-optics with 'majorEngineVersion' instead." #-}
 
--- | Indicates what options are available in the option group.
+-- | The Amazon Resource Name (ARN) for the option group.
 --
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogOptions :: Lens.Lens' OptionGroup (Lude.Maybe [Option])
-ogOptions = Lens.lens (options :: OptionGroup -> Lude.Maybe [Option]) (\s a -> s {options = a} :: OptionGroup)
-{-# DEPRECATED ogOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+-- /Note:/ Consider using 'optionGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOptionGroupArn :: Lens.Lens' OptionGroup (Core.Maybe Types.OptionGroupArn)
+ogOptionGroupArn = Lens.field @"optionGroupArn"
+{-# DEPRECATED ogOptionGroupArn "Use generic-lens or generic-optics with 'optionGroupArn' instead." #-}
+
+-- | Provides a description of the option group.
+--
+-- /Note:/ Consider using 'optionGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOptionGroupDescription :: Lens.Lens' OptionGroup (Core.Maybe Types.OptionGroupDescription)
+ogOptionGroupDescription = Lens.field @"optionGroupDescription"
+{-# DEPRECATED ogOptionGroupDescription "Use generic-lens or generic-optics with 'optionGroupDescription' instead." #-}
 
 -- | Specifies the name of the option group.
 --
 -- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogOptionGroupName :: Lens.Lens' OptionGroup (Lude.Maybe Lude.Text)
-ogOptionGroupName = Lens.lens (optionGroupName :: OptionGroup -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupName = a} :: OptionGroup)
+ogOptionGroupName :: Lens.Lens' OptionGroup (Core.Maybe Types.OptionGroupName)
+ogOptionGroupName = Lens.field @"optionGroupName"
 {-# DEPRECATED ogOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance Lude.FromXML OptionGroup where
+-- | Indicates what options are available in the option group.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOptions :: Lens.Lens' OptionGroup (Core.Maybe [Types.Option])
+ogOptions = Lens.field @"options"
+{-# DEPRECATED ogOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
+-- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogVpcId :: Lens.Lens' OptionGroup (Core.Maybe Types.VpcId)
+ogVpcId = Lens.field @"vpcId"
+{-# DEPRECATED ogVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML OptionGroup where
   parseXML x =
     OptionGroup'
-      Lude.<$> (x Lude..@? "OptionGroupDescription")
-      Lude.<*> (x Lude..@? "VpcId")
-      Lude.<*> (x Lude..@? "AllowsVpcAndNonVpcInstanceMemberships")
-      Lude.<*> (x Lude..@? "EngineName")
-      Lude.<*> (x Lude..@? "OptionGroupArn")
-      Lude.<*> (x Lude..@? "MajorEngineVersion")
-      Lude.<*> ( x Lude..@? "Options" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Option")
-               )
-      Lude.<*> (x Lude..@? "OptionGroupName")
+      Core.<$> (x Core..@? "AllowsVpcAndNonVpcInstanceMemberships")
+      Core.<*> (x Core..@? "EngineName")
+      Core.<*> (x Core..@? "MajorEngineVersion")
+      Core.<*> (x Core..@? "OptionGroupArn")
+      Core.<*> (x Core..@? "OptionGroupDescription")
+      Core.<*> (x Core..@? "OptionGroupName")
+      Core.<*> (x Core..@? "Options" Core..<@> Core.parseXMLList "Option")
+      Core.<*> (x Core..@? "VpcId")

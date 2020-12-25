@@ -17,96 +17,90 @@ module Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
     mkBatchAttachTypedLink,
 
     -- * Lenses
-    batlTargetObjectReference,
     batlSourceObjectReference,
-    batlAttributes,
+    batlTargetObjectReference,
     batlTypedLinkFacet,
+    batlAttributes,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeNameAndValue
-import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+import qualified Network.AWS.CloudDirectory.Types.AttributeNameAndValue as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attaches a typed link to a specified source and target object inside a 'BatchRead' operation. For more information, see 'AttachTypedLink' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchAttachTypedLink' smart constructor.
 data BatchAttachTypedLink = BatchAttachTypedLink'
-  { -- | Identifies the target object that the typed link will attach to.
-    targetObjectReference :: ObjectReference,
-    -- | Identifies the source object that the typed link will attach to.
-    sourceObjectReference :: ObjectReference,
-    -- | A set of attributes that are associated with the typed link.
-    attributes :: [AttributeNameAndValue],
+  { -- | Identifies the source object that the typed link will attach to.
+    sourceObjectReference :: Types.ObjectReference,
+    -- | Identifies the target object that the typed link will attach to.
+    targetObjectReference :: Types.ObjectReference,
     -- | Identifies the typed link facet that is associated with the typed link.
-    typedLinkFacet :: TypedLinkSchemaAndFacetName
+    typedLinkFacet :: Types.TypedLinkSchemaAndFacetName,
+    -- | A set of attributes that are associated with the typed link.
+    attributes :: [Types.AttributeNameAndValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchAttachTypedLink' with the minimum fields required to make a request.
---
--- * 'targetObjectReference' - Identifies the target object that the typed link will attach to.
--- * 'sourceObjectReference' - Identifies the source object that the typed link will attach to.
--- * 'attributes' - A set of attributes that are associated with the typed link.
--- * 'typedLinkFacet' - Identifies the typed link facet that is associated with the typed link.
+-- | Creates a 'BatchAttachTypedLink' value with any optional fields omitted.
 mkBatchAttachTypedLink ::
-  -- | 'targetObjectReference'
-  ObjectReference ->
   -- | 'sourceObjectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
+  -- | 'targetObjectReference'
+  Types.ObjectReference ->
   -- | 'typedLinkFacet'
-  TypedLinkSchemaAndFacetName ->
+  Types.TypedLinkSchemaAndFacetName ->
   BatchAttachTypedLink
 mkBatchAttachTypedLink
-  pTargetObjectReference_
-  pSourceObjectReference_
-  pTypedLinkFacet_ =
+  sourceObjectReference
+  targetObjectReference
+  typedLinkFacet =
     BatchAttachTypedLink'
-      { targetObjectReference =
-          pTargetObjectReference_,
-        sourceObjectReference = pSourceObjectReference_,
-        attributes = Lude.mempty,
-        typedLinkFacet = pTypedLinkFacet_
+      { sourceObjectReference,
+        targetObjectReference,
+        typedLinkFacet,
+        attributes = Core.mempty
       }
-
--- | Identifies the target object that the typed link will attach to.
---
--- /Note:/ Consider using 'targetObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batlTargetObjectReference :: Lens.Lens' BatchAttachTypedLink ObjectReference
-batlTargetObjectReference = Lens.lens (targetObjectReference :: BatchAttachTypedLink -> ObjectReference) (\s a -> s {targetObjectReference = a} :: BatchAttachTypedLink)
-{-# DEPRECATED batlTargetObjectReference "Use generic-lens or generic-optics with 'targetObjectReference' instead." #-}
 
 -- | Identifies the source object that the typed link will attach to.
 --
 -- /Note:/ Consider using 'sourceObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batlSourceObjectReference :: Lens.Lens' BatchAttachTypedLink ObjectReference
-batlSourceObjectReference = Lens.lens (sourceObjectReference :: BatchAttachTypedLink -> ObjectReference) (\s a -> s {sourceObjectReference = a} :: BatchAttachTypedLink)
+batlSourceObjectReference :: Lens.Lens' BatchAttachTypedLink Types.ObjectReference
+batlSourceObjectReference = Lens.field @"sourceObjectReference"
 {-# DEPRECATED batlSourceObjectReference "Use generic-lens or generic-optics with 'sourceObjectReference' instead." #-}
 
--- | A set of attributes that are associated with the typed link.
+-- | Identifies the target object that the typed link will attach to.
 --
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batlAttributes :: Lens.Lens' BatchAttachTypedLink [AttributeNameAndValue]
-batlAttributes = Lens.lens (attributes :: BatchAttachTypedLink -> [AttributeNameAndValue]) (\s a -> s {attributes = a} :: BatchAttachTypedLink)
-{-# DEPRECATED batlAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+-- /Note:/ Consider using 'targetObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batlTargetObjectReference :: Lens.Lens' BatchAttachTypedLink Types.ObjectReference
+batlTargetObjectReference = Lens.field @"targetObjectReference"
+{-# DEPRECATED batlTargetObjectReference "Use generic-lens or generic-optics with 'targetObjectReference' instead." #-}
 
 -- | Identifies the typed link facet that is associated with the typed link.
 --
 -- /Note:/ Consider using 'typedLinkFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batlTypedLinkFacet :: Lens.Lens' BatchAttachTypedLink TypedLinkSchemaAndFacetName
-batlTypedLinkFacet = Lens.lens (typedLinkFacet :: BatchAttachTypedLink -> TypedLinkSchemaAndFacetName) (\s a -> s {typedLinkFacet = a} :: BatchAttachTypedLink)
+batlTypedLinkFacet :: Lens.Lens' BatchAttachTypedLink Types.TypedLinkSchemaAndFacetName
+batlTypedLinkFacet = Lens.field @"typedLinkFacet"
 {-# DEPRECATED batlTypedLinkFacet "Use generic-lens or generic-optics with 'typedLinkFacet' instead." #-}
 
-instance Lude.ToJSON BatchAttachTypedLink where
-  toJSON BatchAttachTypedLink' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TargetObjectReference" Lude..= targetObjectReference),
-            Lude.Just ("SourceObjectReference" Lude..= sourceObjectReference),
-            Lude.Just ("Attributes" Lude..= attributes),
-            Lude.Just ("TypedLinkFacet" Lude..= typedLinkFacet)
+-- | A set of attributes that are associated with the typed link.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batlAttributes :: Lens.Lens' BatchAttachTypedLink [Types.AttributeNameAndValue]
+batlAttributes = Lens.field @"attributes"
+{-# DEPRECATED batlAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+instance Core.FromJSON BatchAttachTypedLink where
+  toJSON BatchAttachTypedLink {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SourceObjectReference" Core..= sourceObjectReference),
+            Core.Just ("TargetObjectReference" Core..= targetObjectReference),
+            Core.Just ("TypedLinkFacet" Core..= typedLinkFacet),
+            Core.Just ("Attributes" Core..= attributes)
           ]
       )

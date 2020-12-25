@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.MxfAfdSignaling
   ( MxfAfdSignaling
       ( MxfAfdSignaling',
-        NoCopy,
-        CopyFromVideo
+        MxfAfdSignalingNoCopy,
+        MxfAfdSignalingCopyFromVideo,
+        fromMxfAfdSignaling
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
-newtype MxfAfdSignaling = MxfAfdSignaling' Lude.Text
+newtype MxfAfdSignaling = MxfAfdSignaling'
+  { fromMxfAfdSignaling ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NoCopy :: MxfAfdSignaling
-pattern NoCopy = MxfAfdSignaling' "NO_COPY"
+pattern MxfAfdSignalingNoCopy :: MxfAfdSignaling
+pattern MxfAfdSignalingNoCopy = MxfAfdSignaling' "NO_COPY"
 
-pattern CopyFromVideo :: MxfAfdSignaling
-pattern CopyFromVideo = MxfAfdSignaling' "COPY_FROM_VIDEO"
+pattern MxfAfdSignalingCopyFromVideo :: MxfAfdSignaling
+pattern MxfAfdSignalingCopyFromVideo = MxfAfdSignaling' "COPY_FROM_VIDEO"
 
 {-# COMPLETE
-  NoCopy,
-  CopyFromVideo,
+  MxfAfdSignalingNoCopy,
+  MxfAfdSignalingCopyFromVideo,
   MxfAfdSignaling'
   #-}

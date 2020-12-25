@@ -23,78 +23,74 @@ module Network.AWS.AppStream.Types.StorageConnector
   )
 where
 
-import Network.AWS.AppStream.Types.StorageConnectorType
+import qualified Network.AWS.AppStream.Types.Domain as Types
+import qualified Network.AWS.AppStream.Types.ResourceIdentifier as Types
+import qualified Network.AWS.AppStream.Types.StorageConnectorType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a connector that enables persistent storage for users.
 --
 -- /See:/ 'mkStorageConnector' smart constructor.
 data StorageConnector = StorageConnector'
   { -- | The type of storage connector.
-    connectorType :: StorageConnectorType,
+    connectorType :: Types.StorageConnectorType,
     -- | The names of the domains for the account.
-    domains :: Lude.Maybe [Lude.Text],
+    domains :: Core.Maybe [Types.Domain],
     -- | The ARN of the storage connector.
-    resourceIdentifier :: Lude.Maybe Lude.Text
+    resourceIdentifier :: Core.Maybe Types.ResourceIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StorageConnector' with the minimum fields required to make a request.
---
--- * 'connectorType' - The type of storage connector.
--- * 'domains' - The names of the domains for the account.
--- * 'resourceIdentifier' - The ARN of the storage connector.
+-- | Creates a 'StorageConnector' value with any optional fields omitted.
 mkStorageConnector ::
   -- | 'connectorType'
-  StorageConnectorType ->
+  Types.StorageConnectorType ->
   StorageConnector
-mkStorageConnector pConnectorType_ =
+mkStorageConnector connectorType =
   StorageConnector'
-    { connectorType = pConnectorType_,
-      domains = Lude.Nothing,
-      resourceIdentifier = Lude.Nothing
+    { connectorType,
+      domains = Core.Nothing,
+      resourceIdentifier = Core.Nothing
     }
 
 -- | The type of storage connector.
 --
 -- /Note:/ Consider using 'connectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scConnectorType :: Lens.Lens' StorageConnector StorageConnectorType
-scConnectorType = Lens.lens (connectorType :: StorageConnector -> StorageConnectorType) (\s a -> s {connectorType = a} :: StorageConnector)
+scConnectorType :: Lens.Lens' StorageConnector Types.StorageConnectorType
+scConnectorType = Lens.field @"connectorType"
 {-# DEPRECATED scConnectorType "Use generic-lens or generic-optics with 'connectorType' instead." #-}
 
 -- | The names of the domains for the account.
 --
 -- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scDomains :: Lens.Lens' StorageConnector (Lude.Maybe [Lude.Text])
-scDomains = Lens.lens (domains :: StorageConnector -> Lude.Maybe [Lude.Text]) (\s a -> s {domains = a} :: StorageConnector)
+scDomains :: Lens.Lens' StorageConnector (Core.Maybe [Types.Domain])
+scDomains = Lens.field @"domains"
 {-# DEPRECATED scDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
 -- | The ARN of the storage connector.
 --
 -- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scResourceIdentifier :: Lens.Lens' StorageConnector (Lude.Maybe Lude.Text)
-scResourceIdentifier = Lens.lens (resourceIdentifier :: StorageConnector -> Lude.Maybe Lude.Text) (\s a -> s {resourceIdentifier = a} :: StorageConnector)
+scResourceIdentifier :: Lens.Lens' StorageConnector (Core.Maybe Types.ResourceIdentifier)
+scResourceIdentifier = Lens.field @"resourceIdentifier"
 {-# DEPRECATED scResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance Lude.FromJSON StorageConnector where
-  parseJSON =
-    Lude.withObject
-      "StorageConnector"
-      ( \x ->
-          StorageConnector'
-            Lude.<$> (x Lude..: "ConnectorType")
-            Lude.<*> (x Lude..:? "Domains" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ResourceIdentifier")
-      )
-
-instance Lude.ToJSON StorageConnector where
-  toJSON StorageConnector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConnectorType" Lude..= connectorType),
-            ("Domains" Lude..=) Lude.<$> domains,
-            ("ResourceIdentifier" Lude..=) Lude.<$> resourceIdentifier
+instance Core.FromJSON StorageConnector where
+  toJSON StorageConnector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConnectorType" Core..= connectorType),
+            ("Domains" Core..=) Core.<$> domains,
+            ("ResourceIdentifier" Core..=) Core.<$> resourceIdentifier
           ]
       )
+
+instance Core.FromJSON StorageConnector where
+  parseJSON =
+    Core.withObject "StorageConnector" Core.$
+      \x ->
+        StorageConnector'
+          Core.<$> (x Core..: "ConnectorType")
+          Core.<*> (x Core..:? "Domains")
+          Core.<*> (x Core..:? "ResourceIdentifier")

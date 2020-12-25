@@ -13,71 +13,76 @@
 module Network.AWS.SageMaker.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        EPending,
-        ECompleted,
-        ECompletedWithViolations,
-        EInProgress,
-        EFailed,
-        EStopping,
-        EStopped
+        ExecutionStatusPending,
+        ExecutionStatusCompleted,
+        ExecutionStatusCompletedWithViolations,
+        ExecutionStatusInProgress,
+        ExecutionStatusFailed,
+        ExecutionStatusStopping,
+        ExecutionStatusStopped,
+        fromExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExecutionStatus = ExecutionStatus' Lude.Text
+newtype ExecutionStatus = ExecutionStatus'
+  { fromExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EPending :: ExecutionStatus
-pattern EPending = ExecutionStatus' "Pending"
+pattern ExecutionStatusPending :: ExecutionStatus
+pattern ExecutionStatusPending = ExecutionStatus' "Pending"
 
-pattern ECompleted :: ExecutionStatus
-pattern ECompleted = ExecutionStatus' "Completed"
+pattern ExecutionStatusCompleted :: ExecutionStatus
+pattern ExecutionStatusCompleted = ExecutionStatus' "Completed"
 
-pattern ECompletedWithViolations :: ExecutionStatus
-pattern ECompletedWithViolations = ExecutionStatus' "CompletedWithViolations"
+pattern ExecutionStatusCompletedWithViolations :: ExecutionStatus
+pattern ExecutionStatusCompletedWithViolations = ExecutionStatus' "CompletedWithViolations"
 
-pattern EInProgress :: ExecutionStatus
-pattern EInProgress = ExecutionStatus' "InProgress"
+pattern ExecutionStatusInProgress :: ExecutionStatus
+pattern ExecutionStatusInProgress = ExecutionStatus' "InProgress"
 
-pattern EFailed :: ExecutionStatus
-pattern EFailed = ExecutionStatus' "Failed"
+pattern ExecutionStatusFailed :: ExecutionStatus
+pattern ExecutionStatusFailed = ExecutionStatus' "Failed"
 
-pattern EStopping :: ExecutionStatus
-pattern EStopping = ExecutionStatus' "Stopping"
+pattern ExecutionStatusStopping :: ExecutionStatus
+pattern ExecutionStatusStopping = ExecutionStatus' "Stopping"
 
-pattern EStopped :: ExecutionStatus
-pattern EStopped = ExecutionStatus' "Stopped"
+pattern ExecutionStatusStopped :: ExecutionStatus
+pattern ExecutionStatusStopped = ExecutionStatus' "Stopped"
 
 {-# COMPLETE
-  EPending,
-  ECompleted,
-  ECompletedWithViolations,
-  EInProgress,
-  EFailed,
-  EStopping,
-  EStopped,
+  ExecutionStatusPending,
+  ExecutionStatusCompleted,
+  ExecutionStatusCompletedWithViolations,
+  ExecutionStatusInProgress,
+  ExecutionStatusFailed,
+  ExecutionStatusStopping,
+  ExecutionStatusStopped,
   ExecutionStatus'
   #-}

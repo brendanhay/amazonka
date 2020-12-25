@@ -22,174 +22,160 @@ module Network.AWS.MediaPackage.ListHarvestJobs
     mkListHarvestJobs,
 
     -- ** Request lenses
-    lhjIncludeStatus,
-    lhjNextToken,
     lhjIncludeChannelId,
+    lhjIncludeStatus,
     lhjMaxResults,
+    lhjNextToken,
 
     -- * Destructuring the response
     ListHarvestJobsResponse (..),
     mkListHarvestJobsResponse,
 
     -- ** Response lenses
-    lhjrsHarvestJobs,
-    lhjrsNextToken,
-    lhjrsResponseStatus,
+    lhjrrsHarvestJobs,
+    lhjrrsNextToken,
+    lhjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaPackage.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListHarvestJobs' smart constructor.
 data ListHarvestJobs = ListHarvestJobs'
-  { -- | When specified, the request will return only HarvestJobs in the given status.
-    includeStatus :: Lude.Maybe Lude.Text,
-    -- | A token used to resume pagination from the end of a previous request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | When specified, the request will return only HarvestJobs associated with the given Channel ID.
-    includeChannelId :: Lude.Maybe Lude.Text,
+  { -- | When specified, the request will return only HarvestJobs associated with the given Channel ID.
+    includeChannelId :: Core.Maybe Core.Text,
+    -- | When specified, the request will return only HarvestJobs in the given status.
+    includeStatus :: Core.Maybe Core.Text,
     -- | The upper bound on the number of records to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token used to resume pagination from the end of a previous request.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHarvestJobs' with the minimum fields required to make a request.
---
--- * 'includeStatus' - When specified, the request will return only HarvestJobs in the given status.
--- * 'nextToken' - A token used to resume pagination from the end of a previous request.
--- * 'includeChannelId' - When specified, the request will return only HarvestJobs associated with the given Channel ID.
--- * 'maxResults' - The upper bound on the number of records to return.
+-- | Creates a 'ListHarvestJobs' value with any optional fields omitted.
 mkListHarvestJobs ::
   ListHarvestJobs
 mkListHarvestJobs =
   ListHarvestJobs'
-    { includeStatus = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      includeChannelId = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { includeChannelId = Core.Nothing,
+      includeStatus = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | When specified, the request will return only HarvestJobs in the given status.
---
--- /Note:/ Consider using 'includeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjIncludeStatus :: Lens.Lens' ListHarvestJobs (Lude.Maybe Lude.Text)
-lhjIncludeStatus = Lens.lens (includeStatus :: ListHarvestJobs -> Lude.Maybe Lude.Text) (\s a -> s {includeStatus = a} :: ListHarvestJobs)
-{-# DEPRECATED lhjIncludeStatus "Use generic-lens or generic-optics with 'includeStatus' instead." #-}
-
--- | A token used to resume pagination from the end of a previous request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjNextToken :: Lens.Lens' ListHarvestJobs (Lude.Maybe Lude.Text)
-lhjNextToken = Lens.lens (nextToken :: ListHarvestJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHarvestJobs)
-{-# DEPRECATED lhjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | When specified, the request will return only HarvestJobs associated with the given Channel ID.
 --
 -- /Note:/ Consider using 'includeChannelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjIncludeChannelId :: Lens.Lens' ListHarvestJobs (Lude.Maybe Lude.Text)
-lhjIncludeChannelId = Lens.lens (includeChannelId :: ListHarvestJobs -> Lude.Maybe Lude.Text) (\s a -> s {includeChannelId = a} :: ListHarvestJobs)
+lhjIncludeChannelId :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Text)
+lhjIncludeChannelId = Lens.field @"includeChannelId"
 {-# DEPRECATED lhjIncludeChannelId "Use generic-lens or generic-optics with 'includeChannelId' instead." #-}
+
+-- | When specified, the request will return only HarvestJobs in the given status.
+--
+-- /Note:/ Consider using 'includeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhjIncludeStatus :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Text)
+lhjIncludeStatus = Lens.field @"includeStatus"
+{-# DEPRECATED lhjIncludeStatus "Use generic-lens or generic-optics with 'includeStatus' instead." #-}
 
 -- | The upper bound on the number of records to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjMaxResults :: Lens.Lens' ListHarvestJobs (Lude.Maybe Lude.Natural)
-lhjMaxResults = Lens.lens (maxResults :: ListHarvestJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListHarvestJobs)
+lhjMaxResults :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Natural)
+lhjMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lhjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListHarvestJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. lhjrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lhjrsHarvestJobs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lhjNextToken Lens..~ rs Lens.^. lhjrsNextToken
+-- | A token used to resume pagination from the end of a previous request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhjNextToken :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Text)
+lhjNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListHarvestJobs where
+instance Core.AWSRequest ListHarvestJobs where
   type Rs ListHarvestJobs = ListHarvestJobsResponse
-  request = Req.get mediaPackageService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/harvest_jobs",
+        Core._rqQuery =
+          Core.toQueryValue "includeChannelId" Core.<$> includeChannelId
+            Core.<> (Core.toQueryValue "includeStatus" Core.<$> includeStatus)
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListHarvestJobsResponse'
-            Lude.<$> (x Lude..?> "harvestJobs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "harvestJobs")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListHarvestJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListHarvestJobs where
-  toPath = Lude.const "/harvest_jobs"
-
-instance Lude.ToQuery ListHarvestJobs where
-  toQuery ListHarvestJobs' {..} =
-    Lude.mconcat
-      [ "includeStatus" Lude.=: includeStatus,
-        "nextToken" Lude.=: nextToken,
-        "includeChannelId" Lude.=: includeChannelId,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListHarvestJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"harvestJobs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListHarvestJobsResponse' smart constructor.
 data ListHarvestJobsResponse = ListHarvestJobsResponse'
   { -- | A list of HarvestJob records.
-    harvestJobs :: Lude.Maybe [HarvestJob],
+    harvestJobs :: Core.Maybe [Types.HarvestJob],
     -- | A token that can be used to resume pagination from the end of the collection.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHarvestJobsResponse' with the minimum fields required to make a request.
---
--- * 'harvestJobs' - A list of HarvestJob records.
--- * 'nextToken' - A token that can be used to resume pagination from the end of the collection.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListHarvestJobsResponse' value with any optional fields omitted.
 mkListHarvestJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListHarvestJobsResponse
-mkListHarvestJobsResponse pResponseStatus_ =
+mkListHarvestJobsResponse responseStatus =
   ListHarvestJobsResponse'
-    { harvestJobs = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { harvestJobs = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of HarvestJob records.
 --
 -- /Note:/ Consider using 'harvestJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjrsHarvestJobs :: Lens.Lens' ListHarvestJobsResponse (Lude.Maybe [HarvestJob])
-lhjrsHarvestJobs = Lens.lens (harvestJobs :: ListHarvestJobsResponse -> Lude.Maybe [HarvestJob]) (\s a -> s {harvestJobs = a} :: ListHarvestJobsResponse)
-{-# DEPRECATED lhjrsHarvestJobs "Use generic-lens or generic-optics with 'harvestJobs' instead." #-}
+lhjrrsHarvestJobs :: Lens.Lens' ListHarvestJobsResponse (Core.Maybe [Types.HarvestJob])
+lhjrrsHarvestJobs = Lens.field @"harvestJobs"
+{-# DEPRECATED lhjrrsHarvestJobs "Use generic-lens or generic-optics with 'harvestJobs' instead." #-}
 
 -- | A token that can be used to resume pagination from the end of the collection.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjrsNextToken :: Lens.Lens' ListHarvestJobsResponse (Lude.Maybe Lude.Text)
-lhjrsNextToken = Lens.lens (nextToken :: ListHarvestJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHarvestJobsResponse)
-{-# DEPRECATED lhjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lhjrrsNextToken :: Lens.Lens' ListHarvestJobsResponse (Core.Maybe Core.Text)
+lhjrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhjrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhjrsResponseStatus :: Lens.Lens' ListHarvestJobsResponse Lude.Int
-lhjrsResponseStatus = Lens.lens (responseStatus :: ListHarvestJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHarvestJobsResponse)
-{-# DEPRECATED lhjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhjrrsResponseStatus :: Lens.Lens' ListHarvestJobsResponse Core.Int
+lhjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lhjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

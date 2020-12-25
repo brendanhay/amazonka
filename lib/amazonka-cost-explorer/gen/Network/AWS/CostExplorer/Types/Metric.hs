@@ -13,71 +13,73 @@
 module Network.AWS.CostExplorer.Types.Metric
   ( Metric
       ( Metric',
-        BlendedCost,
-        UnblendedCost,
-        AmortizedCost,
-        NetUnblendedCost,
-        NetAmortizedCost,
-        UsageQuantity,
-        NormalizedUsageAmount
+        MetricBlendedCost,
+        MetricUnblendedCost,
+        MetricAmortizedCost,
+        MetricNetUnblendedCost,
+        MetricNetAmortizedCost,
+        MetricUsageQuantity,
+        MetricNormalizedUsageAmount,
+        fromMetric
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Metric = Metric' Lude.Text
+newtype Metric = Metric' {fromMetric :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BlendedCost :: Metric
-pattern BlendedCost = Metric' "BLENDED_COST"
+pattern MetricBlendedCost :: Metric
+pattern MetricBlendedCost = Metric' "BLENDED_COST"
 
-pattern UnblendedCost :: Metric
-pattern UnblendedCost = Metric' "UNBLENDED_COST"
+pattern MetricUnblendedCost :: Metric
+pattern MetricUnblendedCost = Metric' "UNBLENDED_COST"
 
-pattern AmortizedCost :: Metric
-pattern AmortizedCost = Metric' "AMORTIZED_COST"
+pattern MetricAmortizedCost :: Metric
+pattern MetricAmortizedCost = Metric' "AMORTIZED_COST"
 
-pattern NetUnblendedCost :: Metric
-pattern NetUnblendedCost = Metric' "NET_UNBLENDED_COST"
+pattern MetricNetUnblendedCost :: Metric
+pattern MetricNetUnblendedCost = Metric' "NET_UNBLENDED_COST"
 
-pattern NetAmortizedCost :: Metric
-pattern NetAmortizedCost = Metric' "NET_AMORTIZED_COST"
+pattern MetricNetAmortizedCost :: Metric
+pattern MetricNetAmortizedCost = Metric' "NET_AMORTIZED_COST"
 
-pattern UsageQuantity :: Metric
-pattern UsageQuantity = Metric' "USAGE_QUANTITY"
+pattern MetricUsageQuantity :: Metric
+pattern MetricUsageQuantity = Metric' "USAGE_QUANTITY"
 
-pattern NormalizedUsageAmount :: Metric
-pattern NormalizedUsageAmount = Metric' "NORMALIZED_USAGE_AMOUNT"
+pattern MetricNormalizedUsageAmount :: Metric
+pattern MetricNormalizedUsageAmount = Metric' "NORMALIZED_USAGE_AMOUNT"
 
 {-# COMPLETE
-  BlendedCost,
-  UnblendedCost,
-  AmortizedCost,
-  NetUnblendedCost,
-  NetAmortizedCost,
-  UsageQuantity,
-  NormalizedUsageAmount,
+  MetricBlendedCost,
+  MetricUnblendedCost,
+  MetricAmortizedCost,
+  MetricNetUnblendedCost,
+  MetricNetAmortizedCost,
+  MetricUsageQuantity,
+  MetricNormalizedUsageAmount,
   Metric'
   #-}

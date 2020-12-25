@@ -28,194 +28,173 @@ module Network.AWS.GuardDuty.DescribePublishingDestination
     mkDescribePublishingDestinationResponse,
 
     -- ** Response lenses
-    dpdfrsStatus,
-    dpdfrsPublishingFailureStartTimestamp,
-    dpdfrsDestinationType,
-    dpdfrsDestinationProperties,
-    dpdfrsDestinationId,
-    dpdfrsResponseStatus,
+    dpdrfrsDestinationId,
+    dpdrfrsDestinationType,
+    dpdrfrsStatus,
+    dpdrfrsPublishingFailureStartTimestamp,
+    dpdrfrsDestinationProperties,
+    dpdrfrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribePublishingDestination' smart constructor.
 data DescribePublishingDestination = DescribePublishingDestination'
   { -- | The unique ID of the detector associated with the publishing destination to retrieve.
-    detectorId :: Lude.Text,
+    detectorId :: Types.DetectorId,
     -- | The ID of the publishing destination to retrieve.
-    destinationId :: Lude.Text
+    destinationId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePublishingDestination' with the minimum fields required to make a request.
---
--- * 'detectorId' - The unique ID of the detector associated with the publishing destination to retrieve.
--- * 'destinationId' - The ID of the publishing destination to retrieve.
+-- | Creates a 'DescribePublishingDestination' value with any optional fields omitted.
 mkDescribePublishingDestination ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   -- | 'destinationId'
-  Lude.Text ->
+  Types.String ->
   DescribePublishingDestination
-mkDescribePublishingDestination pDetectorId_ pDestinationId_ =
-  DescribePublishingDestination'
-    { detectorId = pDetectorId_,
-      destinationId = pDestinationId_
-    }
+mkDescribePublishingDestination detectorId destinationId =
+  DescribePublishingDestination' {detectorId, destinationId}
 
 -- | The unique ID of the detector associated with the publishing destination to retrieve.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfDetectorId :: Lens.Lens' DescribePublishingDestination Lude.Text
-dpdfDetectorId = Lens.lens (detectorId :: DescribePublishingDestination -> Lude.Text) (\s a -> s {detectorId = a} :: DescribePublishingDestination)
+dpdfDetectorId :: Lens.Lens' DescribePublishingDestination Types.DetectorId
+dpdfDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED dpdfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The ID of the publishing destination to retrieve.
 --
 -- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfDestinationId :: Lens.Lens' DescribePublishingDestination Lude.Text
-dpdfDestinationId = Lens.lens (destinationId :: DescribePublishingDestination -> Lude.Text) (\s a -> s {destinationId = a} :: DescribePublishingDestination)
+dpdfDestinationId :: Lens.Lens' DescribePublishingDestination Types.String
+dpdfDestinationId = Lens.field @"destinationId"
 {-# DEPRECATED dpdfDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
 
-instance Lude.AWSRequest DescribePublishingDestination where
+instance Core.AWSRequest DescribePublishingDestination where
   type
     Rs DescribePublishingDestination =
       DescribePublishingDestinationResponse
-  request = Req.get guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/publishingDestination/")
+                Core.<> (Core.toText destinationId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePublishingDestinationResponse'
-            Lude.<$> (x Lude..:> "status")
-            Lude.<*> (x Lude..:> "publishingFailureStartTimestamp")
-            Lude.<*> (x Lude..:> "destinationType")
-            Lude.<*> (x Lude..:> "destinationProperties")
-            Lude.<*> (x Lude..:> "destinationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "destinationId")
+            Core.<*> (x Core..: "destinationType")
+            Core.<*> (x Core..: "status")
+            Core.<*> (x Core..: "publishingFailureStartTimestamp")
+            Core.<*> (x Core..: "destinationProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribePublishingDestination where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribePublishingDestination where
-  toPath DescribePublishingDestination' {..} =
-    Lude.mconcat
-      [ "/detector/",
-        Lude.toBS detectorId,
-        "/publishingDestination/",
-        Lude.toBS destinationId
-      ]
-
-instance Lude.ToQuery DescribePublishingDestination where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribePublishingDestinationResponse' smart constructor.
 data DescribePublishingDestinationResponse = DescribePublishingDestinationResponse'
-  { -- | The status of the publishing destination.
-    status :: PublishingStatus,
-    -- | The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
-    publishingFailureStartTimestamp :: Lude.Integer,
+  { -- | The ID of the publishing destination.
+    destinationId :: Types.String,
     -- | The type of publishing destination. Currently, only Amazon S3 buckets are supported.
-    destinationType :: DestinationType,
+    destinationType :: Types.DestinationType,
+    -- | The status of the publishing destination.
+    status :: Types.PublishingStatus,
+    -- | The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
+    publishingFailureStartTimestamp :: Core.Integer,
     -- | A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
-    destinationProperties :: DestinationProperties,
-    -- | The ID of the publishing destination.
-    destinationId :: Lude.Text,
+    destinationProperties :: Types.DestinationProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePublishingDestinationResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the publishing destination.
--- * 'publishingFailureStartTimestamp' - The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
--- * 'destinationType' - The type of publishing destination. Currently, only Amazon S3 buckets are supported.
--- * 'destinationProperties' - A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
--- * 'destinationId' - The ID of the publishing destination.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePublishingDestinationResponse' value with any optional fields omitted.
 mkDescribePublishingDestinationResponse ::
-  -- | 'status'
-  PublishingStatus ->
-  -- | 'publishingFailureStartTimestamp'
-  Lude.Integer ->
-  -- | 'destinationType'
-  DestinationType ->
-  -- | 'destinationProperties'
-  DestinationProperties ->
   -- | 'destinationId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'destinationType'
+  Types.DestinationType ->
+  -- | 'status'
+  Types.PublishingStatus ->
+  -- | 'publishingFailureStartTimestamp'
+  Core.Integer ->
+  -- | 'destinationProperties'
+  Types.DestinationProperties ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePublishingDestinationResponse
 mkDescribePublishingDestinationResponse
-  pStatus_
-  pPublishingFailureStartTimestamp_
-  pDestinationType_
-  pDestinationProperties_
-  pDestinationId_
-  pResponseStatus_ =
+  destinationId
+  destinationType
+  status
+  publishingFailureStartTimestamp
+  destinationProperties
+  responseStatus =
     DescribePublishingDestinationResponse'
-      { status = pStatus_,
-        publishingFailureStartTimestamp =
-          pPublishingFailureStartTimestamp_,
-        destinationType = pDestinationType_,
-        destinationProperties = pDestinationProperties_,
-        destinationId = pDestinationId_,
-        responseStatus = pResponseStatus_
+      { destinationId,
+        destinationType,
+        status,
+        publishingFailureStartTimestamp,
+        destinationProperties,
+        responseStatus
       }
-
--- | The status of the publishing destination.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfrsStatus :: Lens.Lens' DescribePublishingDestinationResponse PublishingStatus
-dpdfrsStatus = Lens.lens (status :: DescribePublishingDestinationResponse -> PublishingStatus) (\s a -> s {status = a} :: DescribePublishingDestinationResponse)
-{-# DEPRECATED dpdfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
---
--- /Note:/ Consider using 'publishingFailureStartTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfrsPublishingFailureStartTimestamp :: Lens.Lens' DescribePublishingDestinationResponse Lude.Integer
-dpdfrsPublishingFailureStartTimestamp = Lens.lens (publishingFailureStartTimestamp :: DescribePublishingDestinationResponse -> Lude.Integer) (\s a -> s {publishingFailureStartTimestamp = a} :: DescribePublishingDestinationResponse)
-{-# DEPRECATED dpdfrsPublishingFailureStartTimestamp "Use generic-lens or generic-optics with 'publishingFailureStartTimestamp' instead." #-}
-
--- | The type of publishing destination. Currently, only Amazon S3 buckets are supported.
---
--- /Note:/ Consider using 'destinationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfrsDestinationType :: Lens.Lens' DescribePublishingDestinationResponse DestinationType
-dpdfrsDestinationType = Lens.lens (destinationType :: DescribePublishingDestinationResponse -> DestinationType) (\s a -> s {destinationType = a} :: DescribePublishingDestinationResponse)
-{-# DEPRECATED dpdfrsDestinationType "Use generic-lens or generic-optics with 'destinationType' instead." #-}
-
--- | A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
---
--- /Note:/ Consider using 'destinationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfrsDestinationProperties :: Lens.Lens' DescribePublishingDestinationResponse DestinationProperties
-dpdfrsDestinationProperties = Lens.lens (destinationProperties :: DescribePublishingDestinationResponse -> DestinationProperties) (\s a -> s {destinationProperties = a} :: DescribePublishingDestinationResponse)
-{-# DEPRECATED dpdfrsDestinationProperties "Use generic-lens or generic-optics with 'destinationProperties' instead." #-}
 
 -- | The ID of the publishing destination.
 --
 -- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfrsDestinationId :: Lens.Lens' DescribePublishingDestinationResponse Lude.Text
-dpdfrsDestinationId = Lens.lens (destinationId :: DescribePublishingDestinationResponse -> Lude.Text) (\s a -> s {destinationId = a} :: DescribePublishingDestinationResponse)
-{-# DEPRECATED dpdfrsDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
+dpdrfrsDestinationId :: Lens.Lens' DescribePublishingDestinationResponse Types.String
+dpdrfrsDestinationId = Lens.field @"destinationId"
+{-# DEPRECATED dpdrfrsDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
+
+-- | The type of publishing destination. Currently, only Amazon S3 buckets are supported.
+--
+-- /Note:/ Consider using 'destinationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdrfrsDestinationType :: Lens.Lens' DescribePublishingDestinationResponse Types.DestinationType
+dpdrfrsDestinationType = Lens.field @"destinationType"
+{-# DEPRECATED dpdrfrsDestinationType "Use generic-lens or generic-optics with 'destinationType' instead." #-}
+
+-- | The status of the publishing destination.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdrfrsStatus :: Lens.Lens' DescribePublishingDestinationResponse Types.PublishingStatus
+dpdrfrsStatus = Lens.field @"status"
+{-# DEPRECATED dpdrfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
+--
+-- /Note:/ Consider using 'publishingFailureStartTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdrfrsPublishingFailureStartTimestamp :: Lens.Lens' DescribePublishingDestinationResponse Core.Integer
+dpdrfrsPublishingFailureStartTimestamp = Lens.field @"publishingFailureStartTimestamp"
+{-# DEPRECATED dpdrfrsPublishingFailureStartTimestamp "Use generic-lens or generic-optics with 'publishingFailureStartTimestamp' instead." #-}
+
+-- | A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
+--
+-- /Note:/ Consider using 'destinationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdrfrsDestinationProperties :: Lens.Lens' DescribePublishingDestinationResponse Types.DestinationProperties
+dpdrfrsDestinationProperties = Lens.field @"destinationProperties"
+{-# DEPRECATED dpdrfrsDestinationProperties "Use generic-lens or generic-optics with 'destinationProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdfrsResponseStatus :: Lens.Lens' DescribePublishingDestinationResponse Lude.Int
-dpdfrsResponseStatus = Lens.lens (responseStatus :: DescribePublishingDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePublishingDestinationResponse)
-{-# DEPRECATED dpdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpdrfrsResponseStatus :: Lens.Lens' DescribePublishingDestinationResponse Core.Int
+dpdrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpdrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

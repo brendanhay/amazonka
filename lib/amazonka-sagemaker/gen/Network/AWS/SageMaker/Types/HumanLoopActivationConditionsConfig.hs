@@ -22,55 +22,48 @@ module Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.HumanLoopActivationConditions as Types
 
 -- | Defines under what conditions SageMaker creates a human loop. Used within . See for the required format of activation conditions.
 --
 -- /See:/ 'mkHumanLoopActivationConditionsConfig' smart constructor.
 newtype HumanLoopActivationConditionsConfig = HumanLoopActivationConditionsConfig'
   { -- | JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI> in the /Amazon SageMaker Developer Guide/ .
-    humanLoopActivationConditions :: Lude.Text
+    humanLoopActivationConditions :: Types.HumanLoopActivationConditions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HumanLoopActivationConditionsConfig' with the minimum fields required to make a request.
---
--- * 'humanLoopActivationConditions' - JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI> in the /Amazon SageMaker Developer Guide/ .
+-- | Creates a 'HumanLoopActivationConditionsConfig' value with any optional fields omitted.
 mkHumanLoopActivationConditionsConfig ::
   -- | 'humanLoopActivationConditions'
-  Lude.Text ->
+  Types.HumanLoopActivationConditions ->
   HumanLoopActivationConditionsConfig
-mkHumanLoopActivationConditionsConfig
-  pHumanLoopActivationConditions_ =
-    HumanLoopActivationConditionsConfig'
-      { humanLoopActivationConditions =
-          pHumanLoopActivationConditions_
-      }
+mkHumanLoopActivationConditionsConfig humanLoopActivationConditions =
+  HumanLoopActivationConditionsConfig' {humanLoopActivationConditions}
 
 -- | JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI> in the /Amazon SageMaker Developer Guide/ .
 --
 -- /Note:/ Consider using 'humanLoopActivationConditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hlaccHumanLoopActivationConditions :: Lens.Lens' HumanLoopActivationConditionsConfig Lude.Text
-hlaccHumanLoopActivationConditions = Lens.lens (humanLoopActivationConditions :: HumanLoopActivationConditionsConfig -> Lude.Text) (\s a -> s {humanLoopActivationConditions = a} :: HumanLoopActivationConditionsConfig)
+hlaccHumanLoopActivationConditions :: Lens.Lens' HumanLoopActivationConditionsConfig Types.HumanLoopActivationConditions
+hlaccHumanLoopActivationConditions = Lens.field @"humanLoopActivationConditions"
 {-# DEPRECATED hlaccHumanLoopActivationConditions "Use generic-lens or generic-optics with 'humanLoopActivationConditions' instead." #-}
 
-instance Lude.FromJSON HumanLoopActivationConditionsConfig where
-  parseJSON =
-    Lude.withObject
-      "HumanLoopActivationConditionsConfig"
-      ( \x ->
-          HumanLoopActivationConditionsConfig'
-            Lude.<$> (x Lude..: "HumanLoopActivationConditions")
-      )
-
-instance Lude.ToJSON HumanLoopActivationConditionsConfig where
-  toJSON HumanLoopActivationConditionsConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON HumanLoopActivationConditionsConfig where
+  toJSON HumanLoopActivationConditionsConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HumanLoopActivationConditions"
-                  Lude..= humanLoopActivationConditions
+                  Core..= humanLoopActivationConditions
               )
           ]
       )
+
+instance Core.FromJSON HumanLoopActivationConditionsConfig where
+  parseJSON =
+    Core.withObject "HumanLoopActivationConditionsConfig" Core.$
+      \x ->
+        HumanLoopActivationConditionsConfig'
+          Core.<$> (x Core..: "HumanLoopActivationConditions")

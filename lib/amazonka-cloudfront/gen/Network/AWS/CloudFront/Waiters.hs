@@ -25,58 +25,58 @@ where
 import Network.AWS.CloudFront.GetDistribution
 import Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.CloudFront.GetStreamingDistribution
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
-mkStreamingDistributionDeployed :: Wait.Wait GetStreamingDistribution
+mkStreamingDistributionDeployed :: Waiter.Wait GetStreamingDistribution
 mkStreamingDistributionDeployed =
-  Wait.Wait
-    { Wait._waitName = "StreamingDistributionDeployed",
-      Wait._waitAttempts = 25,
-      Wait._waitDelay = 60,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "StreamingDistributionDeployed",
+      Waiter._waitAttempts = 25,
+      Waiter._waitDelay = 60,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Deployed"
-            Wait.AcceptSuccess
-            ( gsdrsStreamingDistribution Lude.. Lens._Just Lude.. sdStatus
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"streamingDistribution" Core.. Lens._Just
+                Core.. Lens.field @"status"
             )
         ]
     }
 
 -- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
-mkDistributionDeployed :: Wait.Wait GetDistribution
+mkDistributionDeployed :: Waiter.Wait GetDistribution
 mkDistributionDeployed =
-  Wait.Wait
-    { Wait._waitName = "DistributionDeployed",
-      Wait._waitAttempts = 35,
-      Wait._waitDelay = 60,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DistributionDeployed",
+      Waiter._waitAttempts = 35,
+      Waiter._waitDelay = 60,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Deployed"
-            Wait.AcceptSuccess
-            ( gdrsDistribution Lude.. Lens._Just Lude.. dStatus
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"distribution" Core.. Lens._Just
+                Core.. Lens.field @"status"
             )
         ]
     }
 
 -- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
-mkInvalidationCompleted :: Wait.Wait GetInvalidation
+mkInvalidationCompleted :: Waiter.Wait GetInvalidation
 mkInvalidationCompleted =
-  Wait.Wait
-    { Wait._waitName = "InvalidationCompleted",
-      Wait._waitAttempts = 30,
-      Wait._waitDelay = 20,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "InvalidationCompleted",
+      Waiter._waitAttempts = 30,
+      Waiter._waitDelay = 20,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Completed"
-            Wait.AcceptSuccess
-            ( girsInvalidation Lude.. Lens._Just Lude.. iStatus
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"invalidation" Core.. Lens._Just
+                Core.. Lens.field @"status"
             )
         ]
     }

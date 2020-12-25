@@ -23,151 +23,138 @@ module Network.AWS.CognitoIdentityProvider.AdminSetUserPassword
     mkAdminSetUserPassword,
 
     -- ** Request lenses
-    asupPermanent,
     asupUserPoolId,
     asupUsername,
     asupPassword,
+    asupPermanent,
 
     -- * Destructuring the response
     AdminSetUserPasswordResponse (..),
     mkAdminSetUserPasswordResponse,
 
     -- ** Response lenses
-    asuprsResponseStatus,
+    asuprrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAdminSetUserPassword' smart constructor.
 data AdminSetUserPassword = AdminSetUserPassword'
-  { -- | @True@ if the password is permanent, @False@ if it is temporary.
-    permanent :: Lude.Maybe Lude.Bool,
-    -- | The user pool ID for the user pool where you want to set the user's password.
-    userPoolId :: Lude.Text,
+  { -- | The user pool ID for the user pool where you want to set the user's password.
+    userPoolId :: Types.UserPoolId,
     -- | The user name of the user whose password you wish to set.
-    username :: Lude.Sensitive Lude.Text,
+    username :: Types.Username,
     -- | The password for the user.
-    password :: Lude.Sensitive Lude.Text
+    password :: Types.PasswordType,
+    -- | @True@ if the password is permanent, @False@ if it is temporary.
+    permanent :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminSetUserPassword' with the minimum fields required to make a request.
---
--- * 'permanent' - @True@ if the password is permanent, @False@ if it is temporary.
--- * 'userPoolId' - The user pool ID for the user pool where you want to set the user's password.
--- * 'username' - The user name of the user whose password you wish to set.
--- * 'password' - The password for the user.
+-- | Creates a 'AdminSetUserPassword' value with any optional fields omitted.
 mkAdminSetUserPassword ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   -- | 'password'
-  Lude.Sensitive Lude.Text ->
+  Types.PasswordType ->
   AdminSetUserPassword
-mkAdminSetUserPassword pUserPoolId_ pUsername_ pPassword_ =
+mkAdminSetUserPassword userPoolId username password =
   AdminSetUserPassword'
-    { permanent = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      username = pUsername_,
-      password = pPassword_
+    { userPoolId,
+      username,
+      password,
+      permanent = Core.Nothing
     }
-
--- | @True@ if the password is permanent, @False@ if it is temporary.
---
--- /Note:/ Consider using 'permanent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asupPermanent :: Lens.Lens' AdminSetUserPassword (Lude.Maybe Lude.Bool)
-asupPermanent = Lens.lens (permanent :: AdminSetUserPassword -> Lude.Maybe Lude.Bool) (\s a -> s {permanent = a} :: AdminSetUserPassword)
-{-# DEPRECATED asupPermanent "Use generic-lens or generic-optics with 'permanent' instead." #-}
 
 -- | The user pool ID for the user pool where you want to set the user's password.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asupUserPoolId :: Lens.Lens' AdminSetUserPassword Lude.Text
-asupUserPoolId = Lens.lens (userPoolId :: AdminSetUserPassword -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminSetUserPassword)
+asupUserPoolId :: Lens.Lens' AdminSetUserPassword Types.UserPoolId
+asupUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED asupUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user whose password you wish to set.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asupUsername :: Lens.Lens' AdminSetUserPassword (Lude.Sensitive Lude.Text)
-asupUsername = Lens.lens (username :: AdminSetUserPassword -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminSetUserPassword)
+asupUsername :: Lens.Lens' AdminSetUserPassword Types.Username
+asupUsername = Lens.field @"username"
 {-# DEPRECATED asupUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The password for the user.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asupPassword :: Lens.Lens' AdminSetUserPassword (Lude.Sensitive Lude.Text)
-asupPassword = Lens.lens (password :: AdminSetUserPassword -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: AdminSetUserPassword)
+asupPassword :: Lens.Lens' AdminSetUserPassword Types.PasswordType
+asupPassword = Lens.field @"password"
 {-# DEPRECATED asupPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Lude.AWSRequest AdminSetUserPassword where
+-- | @True@ if the password is permanent, @False@ if it is temporary.
+--
+-- /Note:/ Consider using 'permanent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asupPermanent :: Lens.Lens' AdminSetUserPassword (Core.Maybe Core.Bool)
+asupPermanent = Lens.field @"permanent"
+{-# DEPRECATED asupPermanent "Use generic-lens or generic-optics with 'permanent' instead." #-}
+
+instance Core.FromJSON AdminSetUserPassword where
+  toJSON AdminSetUserPassword {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("Password" Core..= password),
+            ("Permanent" Core..=) Core.<$> permanent
+          ]
+      )
+
+instance Core.AWSRequest AdminSetUserPassword where
   type Rs AdminSetUserPassword = AdminSetUserPasswordResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminSetUserPassword"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AdminSetUserPasswordResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminSetUserPassword where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminSetUserPassword" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminSetUserPassword where
-  toJSON AdminSetUserPassword' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Permanent" Lude..=) Lude.<$> permanent,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username),
-            Lude.Just ("Password" Lude..= password)
-          ]
-      )
-
-instance Lude.ToPath AdminSetUserPassword where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminSetUserPassword where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAdminSetUserPasswordResponse' smart constructor.
 newtype AdminSetUserPasswordResponse = AdminSetUserPasswordResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminSetUserPasswordResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminSetUserPasswordResponse' value with any optional fields omitted.
 mkAdminSetUserPasswordResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminSetUserPasswordResponse
-mkAdminSetUserPasswordResponse pResponseStatus_ =
-  AdminSetUserPasswordResponse' {responseStatus = pResponseStatus_}
+mkAdminSetUserPasswordResponse responseStatus =
+  AdminSetUserPasswordResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asuprsResponseStatus :: Lens.Lens' AdminSetUserPasswordResponse Lude.Int
-asuprsResponseStatus = Lens.lens (responseStatus :: AdminSetUserPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminSetUserPasswordResponse)
-{-# DEPRECATED asuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+asuprrsResponseStatus :: Lens.Lens' AdminSetUserPasswordResponse Core.Int
+asuprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED asuprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

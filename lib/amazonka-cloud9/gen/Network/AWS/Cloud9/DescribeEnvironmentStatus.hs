@@ -27,86 +27,80 @@ module Network.AWS.Cloud9.DescribeEnvironmentStatus
     mkDescribeEnvironmentStatusResponse,
 
     -- ** Response lenses
-    desrsStatus,
-    desrsMessage,
-    desrsResponseStatus,
+    desrrsMessage,
+    desrrsStatus,
+    desrrsResponseStatus,
   )
 where
 
-import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Cloud9.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeEnvironmentStatus' smart constructor.
 newtype DescribeEnvironmentStatus = DescribeEnvironmentStatus'
   { -- | The ID of the environment to get status information about.
-    environmentId :: Lude.Text
+    environmentId :: Types.EnvironmentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentStatus' with the minimum fields required to make a request.
---
--- * 'environmentId' - The ID of the environment to get status information about.
+-- | Creates a 'DescribeEnvironmentStatus' value with any optional fields omitted.
 mkDescribeEnvironmentStatus ::
   -- | 'environmentId'
-  Lude.Text ->
+  Types.EnvironmentId ->
   DescribeEnvironmentStatus
-mkDescribeEnvironmentStatus pEnvironmentId_ =
-  DescribeEnvironmentStatus' {environmentId = pEnvironmentId_}
+mkDescribeEnvironmentStatus environmentId =
+  DescribeEnvironmentStatus' {environmentId}
 
 -- | The ID of the environment to get status information about.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desEnvironmentId :: Lens.Lens' DescribeEnvironmentStatus Lude.Text
-desEnvironmentId = Lens.lens (environmentId :: DescribeEnvironmentStatus -> Lude.Text) (\s a -> s {environmentId = a} :: DescribeEnvironmentStatus)
+desEnvironmentId :: Lens.Lens' DescribeEnvironmentStatus Types.EnvironmentId
+desEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED desEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest DescribeEnvironmentStatus where
+instance Core.FromJSON DescribeEnvironmentStatus where
+  toJSON DescribeEnvironmentStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("environmentId" Core..= environmentId)]
+      )
+
+instance Core.AWSRequest DescribeEnvironmentStatus where
   type
     Rs DescribeEnvironmentStatus =
       DescribeEnvironmentStatusResponse
-  request = Req.postJSON cloud9Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentStatusResponse'
-            Lude.<$> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "message")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEnvironmentStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEnvironmentStatus where
-  toJSON DescribeEnvironmentStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("environmentId" Lude..= environmentId)]
-      )
-
-instance Lude.ToPath DescribeEnvironmentStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEnvironmentStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeEnvironmentStatusResponse' smart constructor.
 data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
-  { -- | The status of the environment. Available values include:
+  { -- | Any informational message about the status of the environment.
+    message :: Core.Maybe Types.Message,
+    -- | The status of the environment. Available values include:
     --
     --
     --     * @connecting@ : The environment is connecting.
@@ -128,53 +122,31 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
     --
     --
     --     * @stopping@ : The environment is stopping.
-    status :: Lude.Maybe EnvironmentStatus,
-    -- | Any informational message about the status of the environment.
-    message :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.EnvironmentStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentStatusResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the environment. Available values include:
---
---
---     * @connecting@ : The environment is connecting.
---
---
---     * @creating@ : The environment is being created.
---
---
---     * @deleting@ : The environment is being deleted.
---
---
---     * @error@ : The environment is in an error state.
---
---
---     * @ready@ : The environment is ready.
---
---
---     * @stopped@ : The environment is stopped.
---
---
---     * @stopping@ : The environment is stopping.
---
---
--- * 'message' - Any informational message about the status of the environment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEnvironmentStatusResponse' value with any optional fields omitted.
 mkDescribeEnvironmentStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEnvironmentStatusResponse
-mkDescribeEnvironmentStatusResponse pResponseStatus_ =
+mkDescribeEnvironmentStatusResponse responseStatus =
   DescribeEnvironmentStatusResponse'
-    { status = Lude.Nothing,
-      message = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { message = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
+
+-- | Any informational message about the status of the environment.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrrsMessage :: Lens.Lens' DescribeEnvironmentStatusResponse (Core.Maybe Types.Message)
+desrrsMessage = Lens.field @"message"
+{-# DEPRECATED desrrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status of the environment. Available values include:
 --
@@ -202,20 +174,13 @@ mkDescribeEnvironmentStatusResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsStatus :: Lens.Lens' DescribeEnvironmentStatusResponse (Lude.Maybe EnvironmentStatus)
-desrsStatus = Lens.lens (status :: DescribeEnvironmentStatusResponse -> Lude.Maybe EnvironmentStatus) (\s a -> s {status = a} :: DescribeEnvironmentStatusResponse)
-{-# DEPRECATED desrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Any informational message about the status of the environment.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsMessage :: Lens.Lens' DescribeEnvironmentStatusResponse (Lude.Maybe Lude.Text)
-desrsMessage = Lens.lens (message :: DescribeEnvironmentStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DescribeEnvironmentStatusResponse)
-{-# DEPRECATED desrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+desrrsStatus :: Lens.Lens' DescribeEnvironmentStatusResponse (Core.Maybe Types.EnvironmentStatus)
+desrrsStatus = Lens.field @"status"
+{-# DEPRECATED desrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeEnvironmentStatusResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentStatusResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+desrrsResponseStatus :: Lens.Lens' DescribeEnvironmentStatusResponse Core.Int
+desrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED desrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

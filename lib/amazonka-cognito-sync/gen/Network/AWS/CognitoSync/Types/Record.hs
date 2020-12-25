@@ -17,110 +17,104 @@ module Network.AWS.CognitoSync.Types.Record
     mkRecord,
 
     -- * Lenses
-    rSyncCount,
     rDeviceLastModifiedDate,
-    rLastModifiedDate,
-    rValue,
     rKey,
     rLastModifiedBy,
+    rLastModifiedDate,
+    rSyncCount,
+    rValue,
   )
 where
 
+import qualified Network.AWS.CognitoSync.Types.RecordKey as Types
+import qualified Network.AWS.CognitoSync.Types.String as Types
+import qualified Network.AWS.CognitoSync.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The basic data structure of a dataset.
 --
 -- /See:/ 'mkRecord' smart constructor.
 data Record = Record'
-  { -- | The server sync count for this record.
-    syncCount :: Lude.Maybe Lude.Integer,
-    -- | The last modified date of the client device.
-    deviceLastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The date on which the record was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The value for the record.
-    value :: Lude.Maybe Lude.Text,
+  { -- | The last modified date of the client device.
+    deviceLastModifiedDate :: Core.Maybe Core.NominalDiffTime,
     -- | The key for the record.
-    key :: Lude.Maybe Lude.Text,
+    key :: Core.Maybe Types.RecordKey,
     -- | The user/device that made the last change to this record.
-    lastModifiedBy :: Lude.Maybe Lude.Text
+    lastModifiedBy :: Core.Maybe Types.String,
+    -- | The date on which the record was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The server sync count for this record.
+    syncCount :: Core.Maybe Core.Integer,
+    -- | The value for the record.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Record' with the minimum fields required to make a request.
---
--- * 'syncCount' - The server sync count for this record.
--- * 'deviceLastModifiedDate' - The last modified date of the client device.
--- * 'lastModifiedDate' - The date on which the record was last modified.
--- * 'value' - The value for the record.
--- * 'key' - The key for the record.
--- * 'lastModifiedBy' - The user/device that made the last change to this record.
+-- | Creates a 'Record' value with any optional fields omitted.
 mkRecord ::
   Record
 mkRecord =
   Record'
-    { syncCount = Lude.Nothing,
-      deviceLastModifiedDate = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      value = Lude.Nothing,
-      key = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing
+    { deviceLastModifiedDate = Core.Nothing,
+      key = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      syncCount = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The server sync count for this record.
---
--- /Note:/ Consider using 'syncCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rSyncCount :: Lens.Lens' Record (Lude.Maybe Lude.Integer)
-rSyncCount = Lens.lens (syncCount :: Record -> Lude.Maybe Lude.Integer) (\s a -> s {syncCount = a} :: Record)
-{-# DEPRECATED rSyncCount "Use generic-lens or generic-optics with 'syncCount' instead." #-}
 
 -- | The last modified date of the client device.
 --
 -- /Note:/ Consider using 'deviceLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDeviceLastModifiedDate :: Lens.Lens' Record (Lude.Maybe Lude.Timestamp)
-rDeviceLastModifiedDate = Lens.lens (deviceLastModifiedDate :: Record -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceLastModifiedDate = a} :: Record)
+rDeviceLastModifiedDate :: Lens.Lens' Record (Core.Maybe Core.NominalDiffTime)
+rDeviceLastModifiedDate = Lens.field @"deviceLastModifiedDate"
 {-# DEPRECATED rDeviceLastModifiedDate "Use generic-lens or generic-optics with 'deviceLastModifiedDate' instead." #-}
-
--- | The date on which the record was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rLastModifiedDate :: Lens.Lens' Record (Lude.Maybe Lude.Timestamp)
-rLastModifiedDate = Lens.lens (lastModifiedDate :: Record -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: Record)
-{-# DEPRECATED rLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The value for the record.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rValue :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rValue = Lens.lens (value :: Record -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Record)
-{-# DEPRECATED rValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key for the record.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rKey :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rKey = Lens.lens (key :: Record -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: Record)
+rKey :: Lens.Lens' Record (Core.Maybe Types.RecordKey)
+rKey = Lens.field @"key"
 {-# DEPRECATED rKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The user/device that made the last change to this record.
 --
 -- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rLastModifiedBy :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rLastModifiedBy = Lens.lens (lastModifiedBy :: Record -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: Record)
+rLastModifiedBy :: Lens.Lens' Record (Core.Maybe Types.String)
+rLastModifiedBy = Lens.field @"lastModifiedBy"
 {-# DEPRECATED rLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
-instance Lude.FromJSON Record where
+-- | The date on which the record was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLastModifiedDate :: Lens.Lens' Record (Core.Maybe Core.NominalDiffTime)
+rLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED rLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The server sync count for this record.
+--
+-- /Note:/ Consider using 'syncCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSyncCount :: Lens.Lens' Record (Core.Maybe Core.Integer)
+rSyncCount = Lens.field @"syncCount"
+{-# DEPRECATED rSyncCount "Use generic-lens or generic-optics with 'syncCount' instead." #-}
+
+-- | The value for the record.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rValue :: Lens.Lens' Record (Core.Maybe Types.Value)
+rValue = Lens.field @"value"
+{-# DEPRECATED rValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Record where
   parseJSON =
-    Lude.withObject
-      "Record"
-      ( \x ->
-          Record'
-            Lude.<$> (x Lude..:? "SyncCount")
-            Lude.<*> (x Lude..:? "DeviceLastModifiedDate")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "Key")
-            Lude.<*> (x Lude..:? "LastModifiedBy")
-      )
+    Core.withObject "Record" Core.$
+      \x ->
+        Record'
+          Core.<$> (x Core..:? "DeviceLastModifiedDate")
+          Core.<*> (x Core..:? "Key")
+          Core.<*> (x Core..:? "LastModifiedBy")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "SyncCount")
+          Core.<*> (x Core..:? "Value")

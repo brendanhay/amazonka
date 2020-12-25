@@ -22,46 +22,42 @@ module Network.AWS.IoT.Types.TimeoutConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
 --
 -- /See:/ 'mkTimeoutConfig' smart constructor.
 newtype TimeoutConfig = TimeoutConfig'
   { -- | Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal @TIMED_OUT@ status.
-    inProgressTimeoutInMinutes :: Lude.Maybe Lude.Integer
+    inProgressTimeoutInMinutes :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimeoutConfig' with the minimum fields required to make a request.
---
--- * 'inProgressTimeoutInMinutes' - Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal @TIMED_OUT@ status.
+-- | Creates a 'TimeoutConfig' value with any optional fields omitted.
 mkTimeoutConfig ::
   TimeoutConfig
 mkTimeoutConfig =
-  TimeoutConfig' {inProgressTimeoutInMinutes = Lude.Nothing}
+  TimeoutConfig' {inProgressTimeoutInMinutes = Core.Nothing}
 
 -- | Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal @TIMED_OUT@ status.
 --
 -- /Note:/ Consider using 'inProgressTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcInProgressTimeoutInMinutes :: Lens.Lens' TimeoutConfig (Lude.Maybe Lude.Integer)
-tcInProgressTimeoutInMinutes = Lens.lens (inProgressTimeoutInMinutes :: TimeoutConfig -> Lude.Maybe Lude.Integer) (\s a -> s {inProgressTimeoutInMinutes = a} :: TimeoutConfig)
+tcInProgressTimeoutInMinutes :: Lens.Lens' TimeoutConfig (Core.Maybe Core.Integer)
+tcInProgressTimeoutInMinutes = Lens.field @"inProgressTimeoutInMinutes"
 {-# DEPRECATED tcInProgressTimeoutInMinutes "Use generic-lens or generic-optics with 'inProgressTimeoutInMinutes' instead." #-}
 
-instance Lude.FromJSON TimeoutConfig where
-  parseJSON =
-    Lude.withObject
-      "TimeoutConfig"
-      ( \x ->
-          TimeoutConfig' Lude.<$> (x Lude..:? "inProgressTimeoutInMinutes")
-      )
-
-instance Lude.ToJSON TimeoutConfig where
-  toJSON TimeoutConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("inProgressTimeoutInMinutes" Lude..=)
-              Lude.<$> inProgressTimeoutInMinutes
+instance Core.FromJSON TimeoutConfig where
+  toJSON TimeoutConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("inProgressTimeoutInMinutes" Core..=)
+              Core.<$> inProgressTimeoutInMinutes
           ]
       )
+
+instance Core.FromJSON TimeoutConfig where
+  parseJSON =
+    Core.withObject "TimeoutConfig" Core.$
+      \x ->
+        TimeoutConfig' Core.<$> (x Core..:? "inProgressTimeoutInMinutes")

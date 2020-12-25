@@ -27,97 +27,84 @@ module Network.AWS.CodeBuild.InvalidateProjectCache
     mkInvalidateProjectCacheResponse,
 
     -- ** Response lenses
-    ipcrsResponseStatus,
+    ipcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkInvalidateProjectCache' smart constructor.
 newtype InvalidateProjectCache = InvalidateProjectCache'
   { -- | The name of the AWS CodeBuild build project that the cache is reset for.
-    projectName :: Lude.Text
+    projectName :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InvalidateProjectCache' with the minimum fields required to make a request.
---
--- * 'projectName' - The name of the AWS CodeBuild build project that the cache is reset for.
+-- | Creates a 'InvalidateProjectCache' value with any optional fields omitted.
 mkInvalidateProjectCache ::
   -- | 'projectName'
-  Lude.Text ->
+  Types.NonEmptyString ->
   InvalidateProjectCache
-mkInvalidateProjectCache pProjectName_ =
-  InvalidateProjectCache' {projectName = pProjectName_}
+mkInvalidateProjectCache projectName =
+  InvalidateProjectCache' {projectName}
 
 -- | The name of the AWS CodeBuild build project that the cache is reset for.
 --
 -- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipcProjectName :: Lens.Lens' InvalidateProjectCache Lude.Text
-ipcProjectName = Lens.lens (projectName :: InvalidateProjectCache -> Lude.Text) (\s a -> s {projectName = a} :: InvalidateProjectCache)
+ipcProjectName :: Lens.Lens' InvalidateProjectCache Types.NonEmptyString
+ipcProjectName = Lens.field @"projectName"
 {-# DEPRECATED ipcProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
-instance Lude.AWSRequest InvalidateProjectCache where
+instance Core.FromJSON InvalidateProjectCache where
+  toJSON InvalidateProjectCache {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("projectName" Core..= projectName)])
+
+instance Core.AWSRequest InvalidateProjectCache where
   type Rs InvalidateProjectCache = InvalidateProjectCacheResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.InvalidateProjectCache")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           InvalidateProjectCacheResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders InvalidateProjectCache where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.InvalidateProjectCache" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON InvalidateProjectCache where
-  toJSON InvalidateProjectCache' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("projectName" Lude..= projectName)])
-
-instance Lude.ToPath InvalidateProjectCache where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery InvalidateProjectCache where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkInvalidateProjectCacheResponse' smart constructor.
 newtype InvalidateProjectCacheResponse = InvalidateProjectCacheResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InvalidateProjectCacheResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'InvalidateProjectCacheResponse' value with any optional fields omitted.
 mkInvalidateProjectCacheResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   InvalidateProjectCacheResponse
-mkInvalidateProjectCacheResponse pResponseStatus_ =
-  InvalidateProjectCacheResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkInvalidateProjectCacheResponse responseStatus =
+  InvalidateProjectCacheResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipcrsResponseStatus :: Lens.Lens' InvalidateProjectCacheResponse Lude.Int
-ipcrsResponseStatus = Lens.lens (responseStatus :: InvalidateProjectCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InvalidateProjectCacheResponse)
-{-# DEPRECATED ipcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ipcrrsResponseStatus :: Lens.Lens' InvalidateProjectCacheResponse Core.Int
+ipcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ipcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,62 +13,64 @@
 module Network.AWS.MediaConvert.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        Submitted,
-        Progressing,
-        Complete,
-        Canceled,
-        Error
+        JobStatusSubmitted,
+        JobStatusProgressing,
+        JobStatusComplete,
+        JobStatusCanceled,
+        JobStatusError,
+        fromJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-newtype JobStatus = JobStatus' Lude.Text
+newtype JobStatus = JobStatus' {fromJobStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Submitted :: JobStatus
-pattern Submitted = JobStatus' "SUBMITTED"
+pattern JobStatusSubmitted :: JobStatus
+pattern JobStatusSubmitted = JobStatus' "SUBMITTED"
 
-pattern Progressing :: JobStatus
-pattern Progressing = JobStatus' "PROGRESSING"
+pattern JobStatusProgressing :: JobStatus
+pattern JobStatusProgressing = JobStatus' "PROGRESSING"
 
-pattern Complete :: JobStatus
-pattern Complete = JobStatus' "COMPLETE"
+pattern JobStatusComplete :: JobStatus
+pattern JobStatusComplete = JobStatus' "COMPLETE"
 
-pattern Canceled :: JobStatus
-pattern Canceled = JobStatus' "CANCELED"
+pattern JobStatusCanceled :: JobStatus
+pattern JobStatusCanceled = JobStatus' "CANCELED"
 
-pattern Error :: JobStatus
-pattern Error = JobStatus' "ERROR"
+pattern JobStatusError :: JobStatus
+pattern JobStatusError = JobStatus' "ERROR"
 
 {-# COMPLETE
-  Submitted,
-  Progressing,
-  Complete,
-  Canceled,
-  Error,
+  JobStatusSubmitted,
+  JobStatusProgressing,
+  JobStatusComplete,
+  JobStatusCanceled,
+  JobStatusError,
   JobStatus'
   #-}

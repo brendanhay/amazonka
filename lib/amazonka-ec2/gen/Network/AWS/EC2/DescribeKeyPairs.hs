@@ -22,30 +22,32 @@ module Network.AWS.EC2.DescribeKeyPairs
     mkDescribeKeyPairs,
 
     -- ** Request lenses
-    dkpFilters,
-    dkpKeyPairIds,
-    dkpKeyNames,
-    dkpDryRun,
+    dkpsDryRun,
+    dkpsFilters,
+    dkpsKeyNames,
+    dkpsKeyPairIds,
 
     -- * Destructuring the response
     DescribeKeyPairsResponse (..),
     mkDescribeKeyPairsResponse,
 
     -- ** Response lenses
-    dkprsKeyPairs,
-    dkprsResponseStatus,
+    dkprrsKeyPairs,
+    dkprrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeKeyPairs' smart constructor.
 data DescribeKeyPairs = DescribeKeyPairs'
-  { -- | The filters.
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The filters.
     --
     --
     --     * @key-pair-id@ - The ID of the key pair.
@@ -61,53 +63,34 @@ data DescribeKeyPairs = DescribeKeyPairs'
     --
     --
     --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
-    filters :: Lude.Maybe [Filter],
-    -- | The IDs of the key pairs.
-    keyPairIds :: Lude.Maybe [Lude.Text],
+    filters :: Core.Maybe [Types.Filter],
     -- | The key pair names.
     --
     -- Default: Describes all your key pairs.
-    keyNames :: Lude.Maybe [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    keyNames :: Core.Maybe [Types.KeyPairName],
+    -- | The IDs of the key pairs.
+    keyPairIds :: Core.Maybe [Types.KeyPairId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeKeyPairs' with the minimum fields required to make a request.
---
--- * 'filters' - The filters.
---
---
---     * @key-pair-id@ - The ID of the key pair.
---
---
---     * @fingerprint@ - The fingerprint of the key pair.
---
---
---     * @key-name@ - The name of the key pair.
---
---
---     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
---
---
---     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
---
---
--- * 'keyPairIds' - The IDs of the key pairs.
--- * 'keyNames' - The key pair names.
---
--- Default: Describes all your key pairs.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DescribeKeyPairs' value with any optional fields omitted.
 mkDescribeKeyPairs ::
   DescribeKeyPairs
 mkDescribeKeyPairs =
   DescribeKeyPairs'
-    { filters = Lude.Nothing,
-      keyPairIds = Lude.Nothing,
-      keyNames = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      keyNames = Core.Nothing,
+      keyPairIds = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpsDryRun :: Lens.Lens' DescribeKeyPairs (Core.Maybe Core.Bool)
+dkpsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dkpsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters.
 --
@@ -129,97 +112,88 @@ mkDescribeKeyPairs =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkpFilters :: Lens.Lens' DescribeKeyPairs (Lude.Maybe [Filter])
-dkpFilters = Lens.lens (filters :: DescribeKeyPairs -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeKeyPairs)
-{-# DEPRECATED dkpFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The IDs of the key pairs.
---
--- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkpKeyPairIds :: Lens.Lens' DescribeKeyPairs (Lude.Maybe [Lude.Text])
-dkpKeyPairIds = Lens.lens (keyPairIds :: DescribeKeyPairs -> Lude.Maybe [Lude.Text]) (\s a -> s {keyPairIds = a} :: DescribeKeyPairs)
-{-# DEPRECATED dkpKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
+dkpsFilters :: Lens.Lens' DescribeKeyPairs (Core.Maybe [Types.Filter])
+dkpsFilters = Lens.field @"filters"
+{-# DEPRECATED dkpsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The key pair names.
 --
 -- Default: Describes all your key pairs.
 --
 -- /Note:/ Consider using 'keyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkpKeyNames :: Lens.Lens' DescribeKeyPairs (Lude.Maybe [Lude.Text])
-dkpKeyNames = Lens.lens (keyNames :: DescribeKeyPairs -> Lude.Maybe [Lude.Text]) (\s a -> s {keyNames = a} :: DescribeKeyPairs)
-{-# DEPRECATED dkpKeyNames "Use generic-lens or generic-optics with 'keyNames' instead." #-}
+dkpsKeyNames :: Lens.Lens' DescribeKeyPairs (Core.Maybe [Types.KeyPairName])
+dkpsKeyNames = Lens.field @"keyNames"
+{-# DEPRECATED dkpsKeyNames "Use generic-lens or generic-optics with 'keyNames' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The IDs of the key pairs.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkpDryRun :: Lens.Lens' DescribeKeyPairs (Lude.Maybe Lude.Bool)
-dkpDryRun = Lens.lens (dryRun :: DescribeKeyPairs -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeKeyPairs)
-{-# DEPRECATED dkpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpsKeyPairIds :: Lens.Lens' DescribeKeyPairs (Core.Maybe [Types.KeyPairId])
+dkpsKeyPairIds = Lens.field @"keyPairIds"
+{-# DEPRECATED dkpsKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
 
-instance Lude.AWSRequest DescribeKeyPairs where
+instance Core.AWSRequest DescribeKeyPairs where
   type Rs DescribeKeyPairs = DescribeKeyPairsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeKeyPairs")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryList "KeyName" Core.<$> keyNames)
+                Core.<> (Core.toQueryList "KeyPairId" Core.<$> keyPairIds)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeKeyPairsResponse'
-            Lude.<$> ( x Lude..@? "keySet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "keySet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeKeyPairs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeKeyPairs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeKeyPairs where
-  toQuery DescribeKeyPairs' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeKeyPairs" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        Lude.toQuery (Lude.toQueryList "KeyPairId" Lude.<$> keyPairIds),
-        Lude.toQuery (Lude.toQueryList "KeyName" Lude.<$> keyNames),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDescribeKeyPairsResponse' smart constructor.
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
   { -- | Information about the key pairs.
-    keyPairs :: Lude.Maybe [KeyPairInfo],
+    keyPairs :: Core.Maybe [Types.KeyPairInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeKeyPairsResponse' with the minimum fields required to make a request.
---
--- * 'keyPairs' - Information about the key pairs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeKeyPairsResponse' value with any optional fields omitted.
 mkDescribeKeyPairsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeKeyPairsResponse
-mkDescribeKeyPairsResponse pResponseStatus_ =
+mkDescribeKeyPairsResponse responseStatus =
   DescribeKeyPairsResponse'
-    { keyPairs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { keyPairs = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the key pairs.
 --
 -- /Note:/ Consider using 'keyPairs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkprsKeyPairs :: Lens.Lens' DescribeKeyPairsResponse (Lude.Maybe [KeyPairInfo])
-dkprsKeyPairs = Lens.lens (keyPairs :: DescribeKeyPairsResponse -> Lude.Maybe [KeyPairInfo]) (\s a -> s {keyPairs = a} :: DescribeKeyPairsResponse)
-{-# DEPRECATED dkprsKeyPairs "Use generic-lens or generic-optics with 'keyPairs' instead." #-}
+dkprrsKeyPairs :: Lens.Lens' DescribeKeyPairsResponse (Core.Maybe [Types.KeyPairInfo])
+dkprrsKeyPairs = Lens.field @"keyPairs"
+{-# DEPRECATED dkprrsKeyPairs "Use generic-lens or generic-optics with 'keyPairs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkprsResponseStatus :: Lens.Lens' DescribeKeyPairsResponse Lude.Int
-dkprsResponseStatus = Lens.lens (responseStatus :: DescribeKeyPairsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeKeyPairsResponse)
-{-# DEPRECATED dkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dkprrsResponseStatus :: Lens.Lens' DescribeKeyPairsResponse Core.Int
+dkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

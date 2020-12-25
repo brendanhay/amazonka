@@ -17,89 +17,77 @@ module Network.AWS.CloudFormation.Types.Parameter
     mkParameter,
 
     -- * Lenses
+    pParameterKey,
     pParameterValue,
     pResolvedValue,
-    pParameterKey,
     pUsePreviousValue,
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.ParameterKey as Types
+import qualified Network.AWS.CloudFormation.Types.ParameterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Parameter data type.
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | The input value associated with the parameter.
-    parameterValue :: Lude.Maybe Lude.Text,
+  { -- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+    parameterKey :: Core.Maybe Types.ParameterKey,
+    -- | The input value associated with the parameter.
+    parameterValue :: Core.Maybe Types.ParameterValue,
     -- | Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types @SSM@ parameter types> in the template.
-    resolvedValue :: Lude.Maybe Lude.Text,
-    -- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
-    parameterKey :: Lude.Maybe Lude.Text,
+    resolvedValue :: Core.Maybe Types.ParameterValue,
     -- | During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify @true@ , do not specify a parameter value.
-    usePreviousValue :: Lude.Maybe Lude.Bool
+    usePreviousValue :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parameter' with the minimum fields required to make a request.
---
--- * 'parameterValue' - The input value associated with the parameter.
--- * 'resolvedValue' - Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types @SSM@ parameter types> in the template.
--- * 'parameterKey' - The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
--- * 'usePreviousValue' - During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify @true@ , do not specify a parameter value.
+-- | Creates a 'Parameter' value with any optional fields omitted.
 mkParameter ::
   Parameter
 mkParameter =
   Parameter'
-    { parameterValue = Lude.Nothing,
-      resolvedValue = Lude.Nothing,
-      parameterKey = Lude.Nothing,
-      usePreviousValue = Lude.Nothing
+    { parameterKey = Core.Nothing,
+      parameterValue = Core.Nothing,
+      resolvedValue = Core.Nothing,
+      usePreviousValue = Core.Nothing
     }
+
+-- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+--
+-- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterKey :: Lens.Lens' Parameter (Core.Maybe Types.ParameterKey)
+pParameterKey = Lens.field @"parameterKey"
+{-# DEPRECATED pParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | The input value associated with the parameter.
 --
 -- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterValue = Lens.lens (parameterValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: Parameter)
+pParameterValue :: Lens.Lens' Parameter (Core.Maybe Types.ParameterValue)
+pParameterValue = Lens.field @"parameterValue"
 {-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
 -- | Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types @SSM@ parameter types> in the template.
 --
 -- /Note:/ Consider using 'resolvedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pResolvedValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pResolvedValue = Lens.lens (resolvedValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {resolvedValue = a} :: Parameter)
+pResolvedValue :: Lens.Lens' Parameter (Core.Maybe Types.ParameterValue)
+pResolvedValue = Lens.field @"resolvedValue"
 {-# DEPRECATED pResolvedValue "Use generic-lens or generic-optics with 'resolvedValue' instead." #-}
-
--- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
---
--- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterKey :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterKey = Lens.lens (parameterKey :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterKey = a} :: Parameter)
-{-# DEPRECATED pParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify @true@ , do not specify a parameter value.
 --
 -- /Note:/ Consider using 'usePreviousValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pUsePreviousValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Bool)
-pUsePreviousValue = Lens.lens (usePreviousValue :: Parameter -> Lude.Maybe Lude.Bool) (\s a -> s {usePreviousValue = a} :: Parameter)
+pUsePreviousValue :: Lens.Lens' Parameter (Core.Maybe Core.Bool)
+pUsePreviousValue = Lens.field @"usePreviousValue"
 {-# DEPRECATED pUsePreviousValue "Use generic-lens or generic-optics with 'usePreviousValue' instead." #-}
 
-instance Lude.FromXML Parameter where
+instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Lude.<$> (x Lude..@? "ParameterValue")
-      Lude.<*> (x Lude..@? "ResolvedValue")
-      Lude.<*> (x Lude..@? "ParameterKey")
-      Lude.<*> (x Lude..@? "UsePreviousValue")
-
-instance Lude.ToQuery Parameter where
-  toQuery Parameter' {..} =
-    Lude.mconcat
-      [ "ParameterValue" Lude.=: parameterValue,
-        "ResolvedValue" Lude.=: resolvedValue,
-        "ParameterKey" Lude.=: parameterKey,
-        "UsePreviousValue" Lude.=: usePreviousValue
-      ]
+      Core.<$> (x Core..@? "ParameterKey")
+      Core.<*> (x Core..@? "ParameterValue")
+      Core.<*> (x Core..@? "ResolvedValue")
+      Core.<*> (x Core..@? "UsePreviousValue")

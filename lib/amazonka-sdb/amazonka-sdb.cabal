@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SDB
     Network.AWS.SDB.BatchDeleteAttributes
@@ -81,12 +87,18 @@ library
     Network.AWS.SDB.Waiters
 
   other-modules:
+    Network.AWS.SDB.Types.AlternateNameEncoding
+    Network.AWS.SDB.Types.AlternateValueEncoding
     Network.AWS.SDB.Types.Attribute
     Network.AWS.SDB.Types.DeletableItem
+    Network.AWS.SDB.Types.DomainName
     Network.AWS.SDB.Types.Item
+    Network.AWS.SDB.Types.Name
     Network.AWS.SDB.Types.ReplaceableAttribute
     Network.AWS.SDB.Types.ReplaceableItem
+    Network.AWS.SDB.Types.String
     Network.AWS.SDB.Types.UpdateCondition
+    Network.AWS.SDB.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

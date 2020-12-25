@@ -13,56 +13,61 @@
 module Network.AWS.RDS.Types.TargetHealthReason
   ( TargetHealthReason
       ( TargetHealthReason',
-        Unreachable,
-        ConnectionFailed,
-        AuthFailure,
-        PendingProxyCapacity
+        TargetHealthReasonUnreachable,
+        TargetHealthReasonConnectionFailed,
+        TargetHealthReasonAuthFailure,
+        TargetHealthReasonPendingProxyCapacity,
+        fromTargetHealthReason
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetHealthReason = TargetHealthReason' Lude.Text
+newtype TargetHealthReason = TargetHealthReason'
+  { fromTargetHealthReason ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Unreachable :: TargetHealthReason
-pattern Unreachable = TargetHealthReason' "UNREACHABLE"
+pattern TargetHealthReasonUnreachable :: TargetHealthReason
+pattern TargetHealthReasonUnreachable = TargetHealthReason' "UNREACHABLE"
 
-pattern ConnectionFailed :: TargetHealthReason
-pattern ConnectionFailed = TargetHealthReason' "CONNECTION_FAILED"
+pattern TargetHealthReasonConnectionFailed :: TargetHealthReason
+pattern TargetHealthReasonConnectionFailed = TargetHealthReason' "CONNECTION_FAILED"
 
-pattern AuthFailure :: TargetHealthReason
-pattern AuthFailure = TargetHealthReason' "AUTH_FAILURE"
+pattern TargetHealthReasonAuthFailure :: TargetHealthReason
+pattern TargetHealthReasonAuthFailure = TargetHealthReason' "AUTH_FAILURE"
 
-pattern PendingProxyCapacity :: TargetHealthReason
-pattern PendingProxyCapacity = TargetHealthReason' "PENDING_PROXY_CAPACITY"
+pattern TargetHealthReasonPendingProxyCapacity :: TargetHealthReason
+pattern TargetHealthReasonPendingProxyCapacity = TargetHealthReason' "PENDING_PROXY_CAPACITY"
 
 {-# COMPLETE
-  Unreachable,
-  ConnectionFailed,
-  AuthFailure,
-  PendingProxyCapacity,
+  TargetHealthReasonUnreachable,
+  TargetHealthReasonConnectionFailed,
+  TargetHealthReasonAuthFailure,
+  TargetHealthReasonPendingProxyCapacity,
   TargetHealthReason'
   #-}

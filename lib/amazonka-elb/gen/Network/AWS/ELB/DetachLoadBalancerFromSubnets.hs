@@ -30,126 +30,119 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     mkDetachLoadBalancerFromSubnetsResponse,
 
     -- ** Response lenses
-    dlbfsrsSubnets,
-    dlbfsrsResponseStatus,
+    dlbfsrrsSubnets,
+    dlbfsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DetachLoadBalancerFromSubnets.
 --
 -- /See:/ 'mkDetachLoadBalancerFromSubnets' smart constructor.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.AccessPointName,
     -- | The IDs of the subnets.
-    subnets :: [Lude.Text]
+    subnets :: [Types.SubnetId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachLoadBalancerFromSubnets' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'subnets' - The IDs of the subnets.
+-- | Creates a 'DetachLoadBalancerFromSubnets' value with any optional fields omitted.
 mkDetachLoadBalancerFromSubnets ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   DetachLoadBalancerFromSubnets
-mkDetachLoadBalancerFromSubnets pLoadBalancerName_ =
+mkDetachLoadBalancerFromSubnets loadBalancerName =
   DetachLoadBalancerFromSubnets'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      subnets = Lude.mempty
+    { loadBalancerName,
+      subnets = Core.mempty
     }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbfsLoadBalancerName :: Lens.Lens' DetachLoadBalancerFromSubnets Lude.Text
-dlbfsLoadBalancerName = Lens.lens (loadBalancerName :: DetachLoadBalancerFromSubnets -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DetachLoadBalancerFromSubnets)
+dlbfsLoadBalancerName :: Lens.Lens' DetachLoadBalancerFromSubnets Types.AccessPointName
+dlbfsLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED dlbfsLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the subnets.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbfsSubnets :: Lens.Lens' DetachLoadBalancerFromSubnets [Lude.Text]
-dlbfsSubnets = Lens.lens (subnets :: DetachLoadBalancerFromSubnets -> [Lude.Text]) (\s a -> s {subnets = a} :: DetachLoadBalancerFromSubnets)
+dlbfsSubnets :: Lens.Lens' DetachLoadBalancerFromSubnets [Types.SubnetId]
+dlbfsSubnets = Lens.field @"subnets"
 {-# DEPRECATED dlbfsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
-instance Lude.AWSRequest DetachLoadBalancerFromSubnets where
+instance Core.AWSRequest DetachLoadBalancerFromSubnets where
   type
     Rs DetachLoadBalancerFromSubnets =
       DetachLoadBalancerFromSubnetsResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DetachLoadBalancerFromSubnets")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> (Core.toQueryValue "Subnets" (Core.toQueryList "member" subnets))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DetachLoadBalancerFromSubnetsResult"
       ( \s h x ->
           DetachLoadBalancerFromSubnetsResponse'
-            Lude.<$> ( x Lude..@? "Subnets" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Subnets" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetachLoadBalancerFromSubnets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DetachLoadBalancerFromSubnets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachLoadBalancerFromSubnets where
-  toQuery DetachLoadBalancerFromSubnets' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DetachLoadBalancerFromSubnets" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Subnets" Lude.=: Lude.toQueryList "member" subnets
-      ]
 
 -- | Contains the output of DetachLoadBalancerFromSubnets.
 --
 -- /See:/ 'mkDetachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
   { -- | The IDs of the remaining subnets for the load balancer.
-    subnets :: Lude.Maybe [Lude.Text],
+    subnets :: Core.Maybe [Types.SubnetId],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachLoadBalancerFromSubnetsResponse' with the minimum fields required to make a request.
---
--- * 'subnets' - The IDs of the remaining subnets for the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetachLoadBalancerFromSubnetsResponse' value with any optional fields omitted.
 mkDetachLoadBalancerFromSubnetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetachLoadBalancerFromSubnetsResponse
-mkDetachLoadBalancerFromSubnetsResponse pResponseStatus_ =
+mkDetachLoadBalancerFromSubnetsResponse responseStatus =
   DetachLoadBalancerFromSubnetsResponse'
-    { subnets = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { subnets = Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the remaining subnets for the load balancer.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbfsrsSubnets :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse (Lude.Maybe [Lude.Text])
-dlbfsrsSubnets = Lens.lens (subnets :: DetachLoadBalancerFromSubnetsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {subnets = a} :: DetachLoadBalancerFromSubnetsResponse)
-{-# DEPRECATED dlbfsrsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+dlbfsrrsSubnets :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse (Core.Maybe [Types.SubnetId])
+dlbfsrrsSubnets = Lens.field @"subnets"
+{-# DEPRECATED dlbfsrrsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbfsrsResponseStatus :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse Lude.Int
-dlbfsrsResponseStatus = Lens.lens (responseStatus :: DetachLoadBalancerFromSubnetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachLoadBalancerFromSubnetsResponse)
-{-# DEPRECATED dlbfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbfsrrsResponseStatus :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse Core.Int
+dlbfsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,161 +27,150 @@ module Network.AWS.EC2.StopInstances
     mkStopInstances,
 
     -- ** Request lenses
-    sHibernate,
-    sForce,
-    sInstanceIds,
-    sDryRun,
+    siInstanceIds,
+    siDryRun,
+    siForce,
+    siHibernate,
 
     -- * Destructuring the response
     StopInstancesResponse (..),
     mkStopInstancesResponse,
 
     -- ** Response lenses
-    sirsStoppingInstances,
-    sirsResponseStatus,
+    sirrsStoppingInstances,
+    sirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopInstances' smart constructor.
 data StopInstances = StopInstances'
-  { -- | Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
-    --
-    -- Default: @false@
-    hibernate :: Lude.Maybe Lude.Bool,
+  { -- | The IDs of the instances.
+    instanceIds :: [Types.InstanceId],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
     --
     -- Default: @false@
-    force :: Lude.Maybe Lude.Bool,
-    -- | The IDs of the instances.
-    instanceIds :: [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    force :: Core.Maybe Core.Bool,
+    -- | Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- Default: @false@
+    hibernate :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopInstances' with the minimum fields required to make a request.
---
--- * 'hibernate' - Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- Default: @false@
--- * 'force' - Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
---
--- Default: @false@
--- * 'instanceIds' - The IDs of the instances.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'StopInstances' value with any optional fields omitted.
 mkStopInstances ::
   StopInstances
 mkStopInstances =
   StopInstances'
-    { hibernate = Lude.Nothing,
-      force = Lude.Nothing,
-      instanceIds = Lude.mempty,
-      dryRun = Lude.Nothing
+    { instanceIds = Core.mempty,
+      dryRun = Core.Nothing,
+      force = Core.Nothing,
+      hibernate = Core.Nothing
     }
 
--- | Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The IDs of the instances.
 --
--- Default: @false@
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siInstanceIds :: Lens.Lens' StopInstances [Types.InstanceId]
+siInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED siInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'hibernate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sHibernate :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
-sHibernate = Lens.lens (hibernate :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {hibernate = a} :: StopInstances)
-{-# DEPRECATED sHibernate "Use generic-lens or generic-optics with 'hibernate' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDryRun :: Lens.Lens' StopInstances (Core.Maybe Core.Bool)
+siDryRun = Lens.field @"dryRun"
+{-# DEPRECATED siDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
 --
 -- Default: @false@
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sForce :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
-sForce = Lens.lens (force :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstances)
-{-# DEPRECATED sForce "Use generic-lens or generic-optics with 'force' instead." #-}
+siForce :: Lens.Lens' StopInstances (Core.Maybe Core.Bool)
+siForce = Lens.field @"force"
+{-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
--- | The IDs of the instances.
+-- | Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sInstanceIds :: Lens.Lens' StopInstances [Lude.Text]
-sInstanceIds = Lens.lens (instanceIds :: StopInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: StopInstances)
-{-# DEPRECATED sInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- Default: @false@
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDryRun :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
-sDryRun = Lens.lens (dryRun :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StopInstances)
-{-# DEPRECATED sDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'hibernate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siHibernate :: Lens.Lens' StopInstances (Core.Maybe Core.Bool)
+siHibernate = Lens.field @"hibernate"
+{-# DEPRECATED siHibernate "Use generic-lens or generic-optics with 'hibernate' instead." #-}
 
-instance Lude.AWSRequest StopInstances where
+instance Core.AWSRequest StopInstances where
   type Rs StopInstances = StopInstancesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "StopInstances")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "InstanceId" instanceIds)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Force" Core.<$> force)
+                Core.<> (Core.toQueryValue "Hibernate" Core.<$> hibernate)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           StopInstancesResponse'
-            Lude.<$> ( x Lude..@? "instancesSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instancesSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath StopInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopInstances where
-  toQuery StopInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("StopInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Hibernate" Lude.=: hibernate,
-        "Force" Lude.=: force,
-        Lude.toQueryList "InstanceId" instanceIds,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkStopInstancesResponse' smart constructor.
 data StopInstancesResponse = StopInstancesResponse'
   { -- | Information about the stopped instances.
-    stoppingInstances :: Lude.Maybe [InstanceStateChange],
+    stoppingInstances :: Core.Maybe [Types.InstanceStateChange],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopInstancesResponse' with the minimum fields required to make a request.
---
--- * 'stoppingInstances' - Information about the stopped instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopInstancesResponse' value with any optional fields omitted.
 mkStopInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopInstancesResponse
-mkStopInstancesResponse pResponseStatus_ =
+mkStopInstancesResponse responseStatus =
   StopInstancesResponse'
-    { stoppingInstances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { stoppingInstances = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the stopped instances.
 --
 -- /Note:/ Consider using 'stoppingInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirsStoppingInstances :: Lens.Lens' StopInstancesResponse (Lude.Maybe [InstanceStateChange])
-sirsStoppingInstances = Lens.lens (stoppingInstances :: StopInstancesResponse -> Lude.Maybe [InstanceStateChange]) (\s a -> s {stoppingInstances = a} :: StopInstancesResponse)
-{-# DEPRECATED sirsStoppingInstances "Use generic-lens or generic-optics with 'stoppingInstances' instead." #-}
+sirrsStoppingInstances :: Lens.Lens' StopInstancesResponse (Core.Maybe [Types.InstanceStateChange])
+sirrsStoppingInstances = Lens.field @"stoppingInstances"
+{-# DEPRECATED sirrsStoppingInstances "Use generic-lens or generic-optics with 'stoppingInstances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirsResponseStatus :: Lens.Lens' StopInstancesResponse Lude.Int
-sirsResponseStatus = Lens.lens (responseStatus :: StopInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopInstancesResponse)
-{-# DEPRECATED sirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sirrsResponseStatus :: Lens.Lens' StopInstancesResponse Core.Int
+sirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

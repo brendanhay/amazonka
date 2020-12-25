@@ -20,141 +20,133 @@ module Network.AWS.CloudDirectory.AddFacetToObject
     mkAddFacetToObject,
 
     -- ** Request lenses
-    aftoDirectoryARN,
+    aftoDirectoryArn,
     aftoSchemaFacet,
-    aftoObjectAttributeList,
     aftoObjectReference,
+    aftoObjectAttributeList,
 
     -- * Destructuring the response
     AddFacetToObjectResponse (..),
     mkAddFacetToObjectResponse,
 
     -- ** Response lenses
-    aftorsResponseStatus,
+    aftorrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAddFacetToObject' smart constructor.
 data AddFacetToObject = AddFacetToObject'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
-    directoryARN :: Lude.Text,
+    directoryArn :: Types.Arn,
     -- | Identifiers for the facet that you are adding to the object. See 'SchemaFacet' for details.
-    schemaFacet :: SchemaFacet,
-    -- | Attributes on the facet that you are adding to the object.
-    objectAttributeList :: Lude.Maybe [AttributeKeyAndValue],
+    schemaFacet :: Types.SchemaFacet,
     -- | A reference to the object you are adding the specified facet to.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference,
+    -- | Attributes on the facet that you are adding to the object.
+    objectAttributeList :: Core.Maybe [Types.AttributeKeyAndValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AddFacetToObject' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
--- * 'schemaFacet' - Identifiers for the facet that you are adding to the object. See 'SchemaFacet' for details.
--- * 'objectAttributeList' - Attributes on the facet that you are adding to the object.
--- * 'objectReference' - A reference to the object you are adding the specified facet to.
+-- | Creates a 'AddFacetToObject' value with any optional fields omitted.
 mkAddFacetToObject ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'schemaFacet'
-  SchemaFacet ->
+  Types.SchemaFacet ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   AddFacetToObject
-mkAddFacetToObject pDirectoryARN_ pSchemaFacet_ pObjectReference_ =
+mkAddFacetToObject directoryArn schemaFacet objectReference =
   AddFacetToObject'
-    { directoryARN = pDirectoryARN_,
-      schemaFacet = pSchemaFacet_,
-      objectAttributeList = Lude.Nothing,
-      objectReference = pObjectReference_
+    { directoryArn,
+      schemaFacet,
+      objectReference,
+      objectAttributeList = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aftoDirectoryARN :: Lens.Lens' AddFacetToObject Lude.Text
-aftoDirectoryARN = Lens.lens (directoryARN :: AddFacetToObject -> Lude.Text) (\s a -> s {directoryARN = a} :: AddFacetToObject)
-{-# DEPRECATED aftoDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aftoDirectoryArn :: Lens.Lens' AddFacetToObject Types.Arn
+aftoDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED aftoDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | Identifiers for the facet that you are adding to the object. See 'SchemaFacet' for details.
 --
 -- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aftoSchemaFacet :: Lens.Lens' AddFacetToObject SchemaFacet
-aftoSchemaFacet = Lens.lens (schemaFacet :: AddFacetToObject -> SchemaFacet) (\s a -> s {schemaFacet = a} :: AddFacetToObject)
+aftoSchemaFacet :: Lens.Lens' AddFacetToObject Types.SchemaFacet
+aftoSchemaFacet = Lens.field @"schemaFacet"
 {-# DEPRECATED aftoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
-
--- | Attributes on the facet that you are adding to the object.
---
--- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aftoObjectAttributeList :: Lens.Lens' AddFacetToObject (Lude.Maybe [AttributeKeyAndValue])
-aftoObjectAttributeList = Lens.lens (objectAttributeList :: AddFacetToObject -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {objectAttributeList = a} :: AddFacetToObject)
-{-# DEPRECATED aftoObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
 
 -- | A reference to the object you are adding the specified facet to.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aftoObjectReference :: Lens.Lens' AddFacetToObject ObjectReference
-aftoObjectReference = Lens.lens (objectReference :: AddFacetToObject -> ObjectReference) (\s a -> s {objectReference = a} :: AddFacetToObject)
+aftoObjectReference :: Lens.Lens' AddFacetToObject Types.ObjectReference
+aftoObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED aftoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.AWSRequest AddFacetToObject where
-  type Rs AddFacetToObject = AddFacetToObjectResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          AddFacetToObjectResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Attributes on the facet that you are adding to the object.
+--
+-- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aftoObjectAttributeList :: Lens.Lens' AddFacetToObject (Core.Maybe [Types.AttributeKeyAndValue])
+aftoObjectAttributeList = Lens.field @"objectAttributeList"
+{-# DEPRECATED aftoObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
 
-instance Lude.ToHeaders AddFacetToObject where
-  toHeaders AddFacetToObject' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON AddFacetToObject where
-  toJSON AddFacetToObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
-            ("ObjectAttributeList" Lude..=) Lude.<$> objectAttributeList,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON AddFacetToObject where
+  toJSON AddFacetToObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacet" Core..= schemaFacet),
+            Core.Just ("ObjectReference" Core..= objectReference),
+            ("ObjectAttributeList" Core..=) Core.<$> objectAttributeList
           ]
       )
 
-instance Lude.ToPath AddFacetToObject where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/object/facets"
-
-instance Lude.ToQuery AddFacetToObject where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AddFacetToObject where
+  type Rs AddFacetToObject = AddFacetToObjectResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/object/facets",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AddFacetToObjectResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkAddFacetToObjectResponse' smart constructor.
 newtype AddFacetToObjectResponse = AddFacetToObjectResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddFacetToObjectResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddFacetToObjectResponse' value with any optional fields omitted.
 mkAddFacetToObjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddFacetToObjectResponse
-mkAddFacetToObjectResponse pResponseStatus_ =
-  AddFacetToObjectResponse' {responseStatus = pResponseStatus_}
+mkAddFacetToObjectResponse responseStatus =
+  AddFacetToObjectResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aftorsResponseStatus :: Lens.Lens' AddFacetToObjectResponse Lude.Int
-aftorsResponseStatus = Lens.lens (responseStatus :: AddFacetToObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddFacetToObjectResponse)
-{-# DEPRECATED aftorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aftorrsResponseStatus :: Lens.Lens' AddFacetToObjectResponse Core.Int
+aftorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aftorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,103 +17,92 @@ module Network.AWS.EMR.Types.ScalingRule
     mkScalingRule,
 
     -- * Lenses
-    srAction,
     srName,
+    srAction,
     srTrigger,
     srDescription,
   )
 where
 
-import Network.AWS.EMR.Types.ScalingAction
-import Network.AWS.EMR.Types.ScalingTrigger
+import qualified Network.AWS.EMR.Types.ScalingAction as Types
+import qualified Network.AWS.EMR.Types.ScalingTrigger as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.
 --
 -- /See:/ 'mkScalingRule' smart constructor.
 data ScalingRule = ScalingRule'
-  { -- | The conditions that trigger an automatic scaling activity.
-    action :: ScalingAction,
-    -- | The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
-    name :: Lude.Text,
+  { -- | The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+    name :: Types.String,
+    -- | The conditions that trigger an automatic scaling activity.
+    action :: Types.ScalingAction,
     -- | The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
-    trigger :: ScalingTrigger,
+    trigger :: Types.ScalingTrigger,
     -- | A friendly, more verbose description of the automatic scaling rule.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingRule' with the minimum fields required to make a request.
---
--- * 'action' - The conditions that trigger an automatic scaling activity.
--- * 'name' - The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
--- * 'trigger' - The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
--- * 'description' - A friendly, more verbose description of the automatic scaling rule.
+-- | Creates a 'ScalingRule' value with any optional fields omitted.
 mkScalingRule ::
-  -- | 'action'
-  ScalingAction ->
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
+  -- | 'action'
+  Types.ScalingAction ->
   -- | 'trigger'
-  ScalingTrigger ->
+  Types.ScalingTrigger ->
   ScalingRule
-mkScalingRule pAction_ pName_ pTrigger_ =
-  ScalingRule'
-    { action = pAction_,
-      name = pName_,
-      trigger = pTrigger_,
-      description = Lude.Nothing
-    }
-
--- | The conditions that trigger an automatic scaling activity.
---
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srAction :: Lens.Lens' ScalingRule ScalingAction
-srAction = Lens.lens (action :: ScalingRule -> ScalingAction) (\s a -> s {action = a} :: ScalingRule)
-{-# DEPRECATED srAction "Use generic-lens or generic-optics with 'action' instead." #-}
+mkScalingRule name action trigger =
+  ScalingRule' {name, action, trigger, description = Core.Nothing}
 
 -- | The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srName :: Lens.Lens' ScalingRule Lude.Text
-srName = Lens.lens (name :: ScalingRule -> Lude.Text) (\s a -> s {name = a} :: ScalingRule)
+srName :: Lens.Lens' ScalingRule Types.String
+srName = Lens.field @"name"
 {-# DEPRECATED srName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The conditions that trigger an automatic scaling activity.
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srAction :: Lens.Lens' ScalingRule Types.ScalingAction
+srAction = Lens.field @"action"
+{-# DEPRECATED srAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
 --
 -- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srTrigger :: Lens.Lens' ScalingRule ScalingTrigger
-srTrigger = Lens.lens (trigger :: ScalingRule -> ScalingTrigger) (\s a -> s {trigger = a} :: ScalingRule)
+srTrigger :: Lens.Lens' ScalingRule Types.ScalingTrigger
+srTrigger = Lens.field @"trigger"
 {-# DEPRECATED srTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
 -- | A friendly, more verbose description of the automatic scaling rule.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srDescription :: Lens.Lens' ScalingRule (Lude.Maybe Lude.Text)
-srDescription = Lens.lens (description :: ScalingRule -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ScalingRule)
+srDescription :: Lens.Lens' ScalingRule (Core.Maybe Types.String)
+srDescription = Lens.field @"description"
 {-# DEPRECATED srDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ScalingRule where
-  parseJSON =
-    Lude.withObject
-      "ScalingRule"
-      ( \x ->
-          ScalingRule'
-            Lude.<$> (x Lude..: "Action")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "Trigger")
-            Lude.<*> (x Lude..:? "Description")
-      )
-
-instance Lude.ToJSON ScalingRule where
-  toJSON ScalingRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Trigger" Lude..= trigger),
-            ("Description" Lude..=) Lude.<$> description
+instance Core.FromJSON ScalingRule where
+  toJSON ScalingRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Action" Core..= action),
+            Core.Just ("Trigger" Core..= trigger),
+            ("Description" Core..=) Core.<$> description
           ]
       )
+
+instance Core.FromJSON ScalingRule where
+  parseJSON =
+    Core.withObject "ScalingRule" Core.$
+      \x ->
+        ScalingRule'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..: "Action")
+          Core.<*> (x Core..: "Trigger")
+          Core.<*> (x Core..:? "Description")

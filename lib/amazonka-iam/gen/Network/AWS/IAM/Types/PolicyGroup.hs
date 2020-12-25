@@ -22,8 +22,10 @@ module Network.AWS.IAM.Types.PolicyGroup
   )
 where
 
+import qualified Network.AWS.IAM.Types.GroupNameType as Types
+import qualified Network.AWS.IAM.Types.IdType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a group that a managed policy is attached to.
 --
@@ -33,37 +35,34 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkPolicyGroup' smart constructor.
 data PolicyGroup = PolicyGroup'
   { -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    groupId :: Lude.Maybe Lude.Text,
+    groupId :: Core.Maybe Types.IdType,
     -- | The name (friendly name, not ARN) identifying the group.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyGroup' with the minimum fields required to make a request.
---
--- * 'groupId' - The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'groupName' - The name (friendly name, not ARN) identifying the group.
+-- | Creates a 'PolicyGroup' value with any optional fields omitted.
 mkPolicyGroup ::
   PolicyGroup
 mkPolicyGroup =
-  PolicyGroup' {groupId = Lude.Nothing, groupName = Lude.Nothing}
+  PolicyGroup' {groupId = Core.Nothing, groupName = Core.Nothing}
 
 -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgGroupId :: Lens.Lens' PolicyGroup (Lude.Maybe Lude.Text)
-pgGroupId = Lens.lens (groupId :: PolicyGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: PolicyGroup)
+pgGroupId :: Lens.Lens' PolicyGroup (Core.Maybe Types.IdType)
+pgGroupId = Lens.field @"groupId"
 {-# DEPRECATED pgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name (friendly name, not ARN) identifying the group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgGroupName :: Lens.Lens' PolicyGroup (Lude.Maybe Lude.Text)
-pgGroupName = Lens.lens (groupName :: PolicyGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: PolicyGroup)
+pgGroupName :: Lens.Lens' PolicyGroup (Core.Maybe Types.GroupNameType)
+pgGroupName = Lens.field @"groupName"
 {-# DEPRECATED pgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromXML PolicyGroup where
+instance Core.FromXML PolicyGroup where
   parseXML x =
     PolicyGroup'
-      Lude.<$> (x Lude..@? "GroupId") Lude.<*> (x Lude..@? "GroupName")
+      Core.<$> (x Core..@? "GroupId") Core.<*> (x Core..@? "GroupName")

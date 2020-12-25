@@ -22,61 +22,57 @@ module Network.AWS.CognitoIdentityProvider.Types.NumberAttributeConstraintsType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The minimum and maximum value of an attribute that is of the number data type.
 --
 -- /See:/ 'mkNumberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
   { -- | The maximum value of an attribute that is of the number data type.
-    maxValue :: Lude.Maybe Lude.Text,
+    maxValue :: Core.Maybe Types.StringType,
     -- | The minimum value of an attribute that is of the number data type.
-    minValue :: Lude.Maybe Lude.Text
+    minValue :: Core.Maybe Types.StringType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NumberAttributeConstraintsType' with the minimum fields required to make a request.
---
--- * 'maxValue' - The maximum value of an attribute that is of the number data type.
--- * 'minValue' - The minimum value of an attribute that is of the number data type.
+-- | Creates a 'NumberAttributeConstraintsType' value with any optional fields omitted.
 mkNumberAttributeConstraintsType ::
   NumberAttributeConstraintsType
 mkNumberAttributeConstraintsType =
   NumberAttributeConstraintsType'
-    { maxValue = Lude.Nothing,
-      minValue = Lude.Nothing
+    { maxValue = Core.Nothing,
+      minValue = Core.Nothing
     }
 
 -- | The maximum value of an attribute that is of the number data type.
 --
 -- /Note:/ Consider using 'maxValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nactMaxValue :: Lens.Lens' NumberAttributeConstraintsType (Lude.Maybe Lude.Text)
-nactMaxValue = Lens.lens (maxValue :: NumberAttributeConstraintsType -> Lude.Maybe Lude.Text) (\s a -> s {maxValue = a} :: NumberAttributeConstraintsType)
+nactMaxValue :: Lens.Lens' NumberAttributeConstraintsType (Core.Maybe Types.StringType)
+nactMaxValue = Lens.field @"maxValue"
 {-# DEPRECATED nactMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
 
 -- | The minimum value of an attribute that is of the number data type.
 --
 -- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nactMinValue :: Lens.Lens' NumberAttributeConstraintsType (Lude.Maybe Lude.Text)
-nactMinValue = Lens.lens (minValue :: NumberAttributeConstraintsType -> Lude.Maybe Lude.Text) (\s a -> s {minValue = a} :: NumberAttributeConstraintsType)
+nactMinValue :: Lens.Lens' NumberAttributeConstraintsType (Core.Maybe Types.StringType)
+nactMinValue = Lens.field @"minValue"
 {-# DEPRECATED nactMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
 
-instance Lude.FromJSON NumberAttributeConstraintsType where
-  parseJSON =
-    Lude.withObject
-      "NumberAttributeConstraintsType"
-      ( \x ->
-          NumberAttributeConstraintsType'
-            Lude.<$> (x Lude..:? "MaxValue") Lude.<*> (x Lude..:? "MinValue")
-      )
-
-instance Lude.ToJSON NumberAttributeConstraintsType where
-  toJSON NumberAttributeConstraintsType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxValue" Lude..=) Lude.<$> maxValue,
-            ("MinValue" Lude..=) Lude.<$> minValue
+instance Core.FromJSON NumberAttributeConstraintsType where
+  toJSON NumberAttributeConstraintsType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxValue" Core..=) Core.<$> maxValue,
+            ("MinValue" Core..=) Core.<$> minValue
           ]
       )
+
+instance Core.FromJSON NumberAttributeConstraintsType where
+  parseJSON =
+    Core.withObject "NumberAttributeConstraintsType" Core.$
+      \x ->
+        NumberAttributeConstraintsType'
+          Core.<$> (x Core..:? "MaxValue") Core.<*> (x Core..:? "MinValue")

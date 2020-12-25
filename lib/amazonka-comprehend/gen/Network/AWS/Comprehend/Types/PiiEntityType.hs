@@ -13,151 +13,156 @@
 module Network.AWS.Comprehend.Types.PiiEntityType
   ( PiiEntityType
       ( PiiEntityType',
-        BankAccountNumber,
-        BankRouting,
-        CreditDebitNumber,
-        CreditDebitCvv,
-        CreditDebitExpiry,
-        Pin,
-        Email,
-        Address,
-        Name,
-        Phone,
-        Ssn,
-        DateTime,
-        PassportNumber,
-        DriverId,
-        URL,
-        Age,
-        Username,
-        Password,
-        AWSAccessKey,
-        AWSSecretKey,
-        IPAddress,
-        MACAddress,
-        All
+        PiiEntityTypeBankAccountNumber,
+        PiiEntityTypeBankRouting,
+        PiiEntityTypeCreditDebitNumber,
+        PiiEntityTypeCreditDebitCvv,
+        PiiEntityTypeCreditDebitExpiry,
+        PiiEntityTypePin,
+        PiiEntityTypeEmail,
+        PiiEntityTypeAddress,
+        PiiEntityTypeName,
+        PiiEntityTypePhone,
+        PiiEntityTypeSsn,
+        PiiEntityTypeDateTime,
+        PiiEntityTypePassportNumber,
+        PiiEntityTypeDriverId,
+        PiiEntityTypeUrl,
+        PiiEntityTypeAge,
+        PiiEntityTypeUsername,
+        PiiEntityTypePassword,
+        PiiEntityTypeAwsAccessKey,
+        PiiEntityTypeAwsSecretKey,
+        PiiEntityTypeIpAddress,
+        PiiEntityTypeMacAddress,
+        PiiEntityTypeAll,
+        fromPiiEntityType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PiiEntityType = PiiEntityType' Lude.Text
+newtype PiiEntityType = PiiEntityType'
+  { fromPiiEntityType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BankAccountNumber :: PiiEntityType
-pattern BankAccountNumber = PiiEntityType' "BANK_ACCOUNT_NUMBER"
+pattern PiiEntityTypeBankAccountNumber :: PiiEntityType
+pattern PiiEntityTypeBankAccountNumber = PiiEntityType' "BANK_ACCOUNT_NUMBER"
 
-pattern BankRouting :: PiiEntityType
-pattern BankRouting = PiiEntityType' "BANK_ROUTING"
+pattern PiiEntityTypeBankRouting :: PiiEntityType
+pattern PiiEntityTypeBankRouting = PiiEntityType' "BANK_ROUTING"
 
-pattern CreditDebitNumber :: PiiEntityType
-pattern CreditDebitNumber = PiiEntityType' "CREDIT_DEBIT_NUMBER"
+pattern PiiEntityTypeCreditDebitNumber :: PiiEntityType
+pattern PiiEntityTypeCreditDebitNumber = PiiEntityType' "CREDIT_DEBIT_NUMBER"
 
-pattern CreditDebitCvv :: PiiEntityType
-pattern CreditDebitCvv = PiiEntityType' "CREDIT_DEBIT_CVV"
+pattern PiiEntityTypeCreditDebitCvv :: PiiEntityType
+pattern PiiEntityTypeCreditDebitCvv = PiiEntityType' "CREDIT_DEBIT_CVV"
 
-pattern CreditDebitExpiry :: PiiEntityType
-pattern CreditDebitExpiry = PiiEntityType' "CREDIT_DEBIT_EXPIRY"
+pattern PiiEntityTypeCreditDebitExpiry :: PiiEntityType
+pattern PiiEntityTypeCreditDebitExpiry = PiiEntityType' "CREDIT_DEBIT_EXPIRY"
 
-pattern Pin :: PiiEntityType
-pattern Pin = PiiEntityType' "PIN"
+pattern PiiEntityTypePin :: PiiEntityType
+pattern PiiEntityTypePin = PiiEntityType' "PIN"
 
-pattern Email :: PiiEntityType
-pattern Email = PiiEntityType' "EMAIL"
+pattern PiiEntityTypeEmail :: PiiEntityType
+pattern PiiEntityTypeEmail = PiiEntityType' "EMAIL"
 
-pattern Address :: PiiEntityType
-pattern Address = PiiEntityType' "ADDRESS"
+pattern PiiEntityTypeAddress :: PiiEntityType
+pattern PiiEntityTypeAddress = PiiEntityType' "ADDRESS"
 
-pattern Name :: PiiEntityType
-pattern Name = PiiEntityType' "NAME"
+pattern PiiEntityTypeName :: PiiEntityType
+pattern PiiEntityTypeName = PiiEntityType' "NAME"
 
-pattern Phone :: PiiEntityType
-pattern Phone = PiiEntityType' "PHONE"
+pattern PiiEntityTypePhone :: PiiEntityType
+pattern PiiEntityTypePhone = PiiEntityType' "PHONE"
 
-pattern Ssn :: PiiEntityType
-pattern Ssn = PiiEntityType' "SSN"
+pattern PiiEntityTypeSsn :: PiiEntityType
+pattern PiiEntityTypeSsn = PiiEntityType' "SSN"
 
-pattern DateTime :: PiiEntityType
-pattern DateTime = PiiEntityType' "DATE_TIME"
+pattern PiiEntityTypeDateTime :: PiiEntityType
+pattern PiiEntityTypeDateTime = PiiEntityType' "DATE_TIME"
 
-pattern PassportNumber :: PiiEntityType
-pattern PassportNumber = PiiEntityType' "PASSPORT_NUMBER"
+pattern PiiEntityTypePassportNumber :: PiiEntityType
+pattern PiiEntityTypePassportNumber = PiiEntityType' "PASSPORT_NUMBER"
 
-pattern DriverId :: PiiEntityType
-pattern DriverId = PiiEntityType' "DRIVER_ID"
+pattern PiiEntityTypeDriverId :: PiiEntityType
+pattern PiiEntityTypeDriverId = PiiEntityType' "DRIVER_ID"
 
-pattern URL :: PiiEntityType
-pattern URL = PiiEntityType' "URL"
+pattern PiiEntityTypeUrl :: PiiEntityType
+pattern PiiEntityTypeUrl = PiiEntityType' "URL"
 
-pattern Age :: PiiEntityType
-pattern Age = PiiEntityType' "AGE"
+pattern PiiEntityTypeAge :: PiiEntityType
+pattern PiiEntityTypeAge = PiiEntityType' "AGE"
 
-pattern Username :: PiiEntityType
-pattern Username = PiiEntityType' "USERNAME"
+pattern PiiEntityTypeUsername :: PiiEntityType
+pattern PiiEntityTypeUsername = PiiEntityType' "USERNAME"
 
-pattern Password :: PiiEntityType
-pattern Password = PiiEntityType' "PASSWORD"
+pattern PiiEntityTypePassword :: PiiEntityType
+pattern PiiEntityTypePassword = PiiEntityType' "PASSWORD"
 
-pattern AWSAccessKey :: PiiEntityType
-pattern AWSAccessKey = PiiEntityType' "AWS_ACCESS_KEY"
+pattern PiiEntityTypeAwsAccessKey :: PiiEntityType
+pattern PiiEntityTypeAwsAccessKey = PiiEntityType' "AWS_ACCESS_KEY"
 
-pattern AWSSecretKey :: PiiEntityType
-pattern AWSSecretKey = PiiEntityType' "AWS_SECRET_KEY"
+pattern PiiEntityTypeAwsSecretKey :: PiiEntityType
+pattern PiiEntityTypeAwsSecretKey = PiiEntityType' "AWS_SECRET_KEY"
 
-pattern IPAddress :: PiiEntityType
-pattern IPAddress = PiiEntityType' "IP_ADDRESS"
+pattern PiiEntityTypeIpAddress :: PiiEntityType
+pattern PiiEntityTypeIpAddress = PiiEntityType' "IP_ADDRESS"
 
-pattern MACAddress :: PiiEntityType
-pattern MACAddress = PiiEntityType' "MAC_ADDRESS"
+pattern PiiEntityTypeMacAddress :: PiiEntityType
+pattern PiiEntityTypeMacAddress = PiiEntityType' "MAC_ADDRESS"
 
-pattern All :: PiiEntityType
-pattern All = PiiEntityType' "ALL"
+pattern PiiEntityTypeAll :: PiiEntityType
+pattern PiiEntityTypeAll = PiiEntityType' "ALL"
 
 {-# COMPLETE
-  BankAccountNumber,
-  BankRouting,
-  CreditDebitNumber,
-  CreditDebitCvv,
-  CreditDebitExpiry,
-  Pin,
-  Email,
-  Address,
-  Name,
-  Phone,
-  Ssn,
-  DateTime,
-  PassportNumber,
-  DriverId,
-  URL,
-  Age,
-  Username,
-  Password,
-  AWSAccessKey,
-  AWSSecretKey,
-  IPAddress,
-  MACAddress,
-  All,
+  PiiEntityTypeBankAccountNumber,
+  PiiEntityTypeBankRouting,
+  PiiEntityTypeCreditDebitNumber,
+  PiiEntityTypeCreditDebitCvv,
+  PiiEntityTypeCreditDebitExpiry,
+  PiiEntityTypePin,
+  PiiEntityTypeEmail,
+  PiiEntityTypeAddress,
+  PiiEntityTypeName,
+  PiiEntityTypePhone,
+  PiiEntityTypeSsn,
+  PiiEntityTypeDateTime,
+  PiiEntityTypePassportNumber,
+  PiiEntityTypeDriverId,
+  PiiEntityTypeUrl,
+  PiiEntityTypeAge,
+  PiiEntityTypeUsername,
+  PiiEntityTypePassword,
+  PiiEntityTypeAwsAccessKey,
+  PiiEntityTypeAwsSecretKey,
+  PiiEntityTypeIpAddress,
+  PiiEntityTypeMacAddress,
+  PiiEntityTypeAll,
   PiiEntityType'
   #-}

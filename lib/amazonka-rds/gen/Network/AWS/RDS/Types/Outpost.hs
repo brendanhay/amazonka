@@ -17,12 +17,13 @@ module Network.AWS.RDS.Types.Outpost
     mkOutpost,
 
     -- * Lenses
-    oARN,
+    oArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | A data type that represents an Outpost.
 --
@@ -31,24 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkOutpost' smart constructor.
 newtype Outpost = Outpost'
   { -- | The Amazon Resource Name (ARN) of the Outpost.
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Outpost' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the Outpost.
+-- | Creates a 'Outpost' value with any optional fields omitted.
 mkOutpost ::
   Outpost
-mkOutpost = Outpost' {arn = Lude.Nothing}
+mkOutpost = Outpost' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oARN :: Lens.Lens' Outpost (Lude.Maybe Lude.Text)
-oARN = Lens.lens (arn :: Outpost -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Outpost)
-{-# DEPRECATED oARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+oArn :: Lens.Lens' Outpost (Core.Maybe Types.String)
+oArn = Lens.field @"arn"
+{-# DEPRECATED oArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromXML Outpost where
-  parseXML x = Outpost' Lude.<$> (x Lude..@? "Arn")
+instance Core.FromXML Outpost where
+  parseXML x = Outpost' Core.<$> (x Core..@? "Arn")

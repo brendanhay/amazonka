@@ -27,107 +27,102 @@ module Network.AWS.CloudSearch.IndexDocuments
     mkIndexDocumentsResponse,
 
     -- ** Response lenses
-    idrsFieldNames,
-    idrsResponseStatus,
+    idrrsFieldNames,
+    idrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'IndexDocuments' @ operation. Specifies the name of the domain you want to re-index.
 --
 -- /See:/ 'mkIndexDocuments' smart constructor.
 newtype IndexDocuments = IndexDocuments'
-  { domainName :: Lude.Text
+  { domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IndexDocuments' with the minimum fields required to make a request.
---
--- * 'domainName' -
+-- | Creates a 'IndexDocuments' value with any optional fields omitted.
 mkIndexDocuments ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   IndexDocuments
-mkIndexDocuments pDomainName_ =
-  IndexDocuments' {domainName = pDomainName_}
+mkIndexDocuments domainName = IndexDocuments' {domainName}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idDomainName :: Lens.Lens' IndexDocuments Lude.Text
-idDomainName = Lens.lens (domainName :: IndexDocuments -> Lude.Text) (\s a -> s {domainName = a} :: IndexDocuments)
+idDomainName :: Lens.Lens' IndexDocuments Types.DomainName
+idDomainName = Lens.field @"domainName"
 {-# DEPRECATED idDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest IndexDocuments where
+instance Core.AWSRequest IndexDocuments where
   type Rs IndexDocuments = IndexDocumentsResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "IndexDocuments")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "IndexDocumentsResult"
       ( \s h x ->
           IndexDocumentsResponse'
-            Lude.<$> ( x Lude..@? "FieldNames" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "FieldNames" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders IndexDocuments where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath IndexDocuments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery IndexDocuments where
-  toQuery IndexDocuments' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("IndexDocuments" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of an @IndexDocuments@ request. Contains the status of the indexing operation, including the fields being indexed.
 --
 -- /See:/ 'mkIndexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'
   { -- | The names of the fields that are currently being indexed.
-    fieldNames :: Lude.Maybe [Lude.Text],
+    fieldNames :: Core.Maybe [Types.FieldName],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IndexDocumentsResponse' with the minimum fields required to make a request.
---
--- * 'fieldNames' - The names of the fields that are currently being indexed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'IndexDocumentsResponse' value with any optional fields omitted.
 mkIndexDocumentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   IndexDocumentsResponse
-mkIndexDocumentsResponse pResponseStatus_ =
+mkIndexDocumentsResponse responseStatus =
   IndexDocumentsResponse'
-    { fieldNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fieldNames = Core.Nothing,
+      responseStatus
     }
 
 -- | The names of the fields that are currently being indexed.
 --
 -- /Note:/ Consider using 'fieldNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idrsFieldNames :: Lens.Lens' IndexDocumentsResponse (Lude.Maybe [Lude.Text])
-idrsFieldNames = Lens.lens (fieldNames :: IndexDocumentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {fieldNames = a} :: IndexDocumentsResponse)
-{-# DEPRECATED idrsFieldNames "Use generic-lens or generic-optics with 'fieldNames' instead." #-}
+idrrsFieldNames :: Lens.Lens' IndexDocumentsResponse (Core.Maybe [Types.FieldName])
+idrrsFieldNames = Lens.field @"fieldNames"
+{-# DEPRECATED idrrsFieldNames "Use generic-lens or generic-optics with 'fieldNames' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idrsResponseStatus :: Lens.Lens' IndexDocumentsResponse Lude.Int
-idrsResponseStatus = Lens.lens (responseStatus :: IndexDocumentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: IndexDocumentsResponse)
-{-# DEPRECATED idrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+idrrsResponseStatus :: Lens.Lens' IndexDocumentsResponse Core.Int
+idrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED idrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

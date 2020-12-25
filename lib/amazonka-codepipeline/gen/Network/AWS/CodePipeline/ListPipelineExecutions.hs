@@ -23,176 +23,164 @@ module Network.AWS.CodePipeline.ListPipelineExecutions
 
     -- ** Request lenses
     lpePipelineName,
-    lpeNextToken,
     lpeMaxResults,
+    lpeNextToken,
 
     -- * Destructuring the response
     ListPipelineExecutionsResponse (..),
     mkListPipelineExecutionsResponse,
 
     -- ** Response lenses
-    lpersNextToken,
-    lpersPipelineExecutionSummaries,
-    lpersResponseStatus,
+    lperrsNextToken,
+    lperrsPipelineExecutionSummaries,
+    lperrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ListPipelineExecutions@ action.
 --
 -- /See:/ 'mkListPipelineExecutions' smart constructor.
 data ListPipelineExecutions = ListPipelineExecutions'
   { -- | The name of the pipeline for which you want to get execution summary information.
-    pipelineName :: Lude.Text,
-    -- | The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    pipelineName :: Types.PipelineName,
     -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPipelineExecutions' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline for which you want to get execution summary information.
--- * 'nextToken' - The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
+-- | Creates a 'ListPipelineExecutions' value with any optional fields omitted.
 mkListPipelineExecutions ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   ListPipelineExecutions
-mkListPipelineExecutions pPipelineName_ =
+mkListPipelineExecutions pipelineName =
   ListPipelineExecutions'
-    { pipelineName = pPipelineName_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { pipelineName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The name of the pipeline for which you want to get execution summary information.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpePipelineName :: Lens.Lens' ListPipelineExecutions Lude.Text
-lpePipelineName = Lens.lens (pipelineName :: ListPipelineExecutions -> Lude.Text) (\s a -> s {pipelineName = a} :: ListPipelineExecutions)
+lpePipelineName :: Lens.Lens' ListPipelineExecutions Types.PipelineName
+lpePipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED lpePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
-
--- | The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpeNextToken :: Lens.Lens' ListPipelineExecutions (Lude.Maybe Lude.Text)
-lpeNextToken = Lens.lens (nextToken :: ListPipelineExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPipelineExecutions)
-{-# DEPRECATED lpeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpeMaxResults :: Lens.Lens' ListPipelineExecutions (Lude.Maybe Lude.Natural)
-lpeMaxResults = Lens.lens (maxResults :: ListPipelineExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPipelineExecutions)
+lpeMaxResults :: Lens.Lens' ListPipelineExecutions (Core.Maybe Core.Natural)
+lpeMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListPipelineExecutions where
-  page rq rs
-    | Page.stop (rs Lens.^. lpersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lpersPipelineExecutionSummaries) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpeNextToken Lens..~ rs Lens.^. lpersNextToken
+-- | The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpeNextToken :: Lens.Lens' ListPipelineExecutions (Core.Maybe Types.NextToken)
+lpeNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListPipelineExecutions where
+instance Core.FromJSON ListPipelineExecutions where
+  toJSON ListPipelineExecutions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineName" Core..= pipelineName),
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListPipelineExecutions where
   type Rs ListPipelineExecutions = ListPipelineExecutionsResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodePipeline_20150709.ListPipelineExecutions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPipelineExecutionsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "pipelineExecutionSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "pipelineExecutionSummaries")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListPipelineExecutions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodePipeline_20150709.ListPipelineExecutions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListPipelineExecutions where
-  toJSON ListPipelineExecutions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineName" Lude..= pipelineName),
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListPipelineExecutions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListPipelineExecutions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListPipelineExecutions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"pipelineExecutionSummaries" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the output of a @ListPipelineExecutions@ action.
 --
 -- /See:/ 'mkListPipelineExecutionsResponse' smart constructor.
 data ListPipelineExecutionsResponse = ListPipelineExecutionsResponse'
   { -- | A token that can be used in the next @ListPipelineExecutions@ call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of executions in the history of a pipeline.
-    pipelineExecutionSummaries :: Lude.Maybe [PipelineExecutionSummary],
+    pipelineExecutionSummaries :: Core.Maybe [Types.PipelineExecutionSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListPipelineExecutionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token that can be used in the next @ListPipelineExecutions@ call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
--- * 'pipelineExecutionSummaries' - A list of executions in the history of a pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPipelineExecutionsResponse' value with any optional fields omitted.
 mkListPipelineExecutionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPipelineExecutionsResponse
-mkListPipelineExecutionsResponse pResponseStatus_ =
+mkListPipelineExecutionsResponse responseStatus =
   ListPipelineExecutionsResponse'
-    { nextToken = Lude.Nothing,
-      pipelineExecutionSummaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      pipelineExecutionSummaries = Core.Nothing,
+      responseStatus
     }
 
 -- | A token that can be used in the next @ListPipelineExecutions@ call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpersNextToken :: Lens.Lens' ListPipelineExecutionsResponse (Lude.Maybe Lude.Text)
-lpersNextToken = Lens.lens (nextToken :: ListPipelineExecutionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPipelineExecutionsResponse)
-{-# DEPRECATED lpersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lperrsNextToken :: Lens.Lens' ListPipelineExecutionsResponse (Core.Maybe Types.NextToken)
+lperrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lperrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of executions in the history of a pipeline.
 --
 -- /Note:/ Consider using 'pipelineExecutionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpersPipelineExecutionSummaries :: Lens.Lens' ListPipelineExecutionsResponse (Lude.Maybe [PipelineExecutionSummary])
-lpersPipelineExecutionSummaries = Lens.lens (pipelineExecutionSummaries :: ListPipelineExecutionsResponse -> Lude.Maybe [PipelineExecutionSummary]) (\s a -> s {pipelineExecutionSummaries = a} :: ListPipelineExecutionsResponse)
-{-# DEPRECATED lpersPipelineExecutionSummaries "Use generic-lens or generic-optics with 'pipelineExecutionSummaries' instead." #-}
+lperrsPipelineExecutionSummaries :: Lens.Lens' ListPipelineExecutionsResponse (Core.Maybe [Types.PipelineExecutionSummary])
+lperrsPipelineExecutionSummaries = Lens.field @"pipelineExecutionSummaries"
+{-# DEPRECATED lperrsPipelineExecutionSummaries "Use generic-lens or generic-optics with 'pipelineExecutionSummaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpersResponseStatus :: Lens.Lens' ListPipelineExecutionsResponse Lude.Int
-lpersResponseStatus = Lens.lens (responseStatus :: ListPipelineExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPipelineExecutionsResponse)
-{-# DEPRECATED lpersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lperrsResponseStatus :: Lens.Lens' ListPipelineExecutionsResponse Core.Int
+lperrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lperrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

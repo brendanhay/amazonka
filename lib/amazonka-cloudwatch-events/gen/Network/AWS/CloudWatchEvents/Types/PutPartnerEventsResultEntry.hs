@@ -23,65 +23,62 @@ module Network.AWS.CloudWatchEvents.Types.PutPartnerEventsResultEntry
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.ErrorCode as Types
+import qualified Network.AWS.CloudWatchEvents.Types.ErrorMessage as Types
+import qualified Network.AWS.CloudWatchEvents.Types.EventId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an event that a partner tried to generate, but failed.
 --
 -- /See:/ 'mkPutPartnerEventsResultEntry' smart constructor.
 data PutPartnerEventsResultEntry = PutPartnerEventsResultEntry'
   { -- | The error code that indicates why the event submission failed.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The error message that explains why the event submission failed.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The ID of the event.
-    eventId :: Lude.Maybe Lude.Text
+    eventId :: Core.Maybe Types.EventId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPartnerEventsResultEntry' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code that indicates why the event submission failed.
--- * 'errorMessage' - The error message that explains why the event submission failed.
--- * 'eventId' - The ID of the event.
+-- | Creates a 'PutPartnerEventsResultEntry' value with any optional fields omitted.
 mkPutPartnerEventsResultEntry ::
   PutPartnerEventsResultEntry
 mkPutPartnerEventsResultEntry =
   PutPartnerEventsResultEntry'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      eventId = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      eventId = Core.Nothing
     }
 
 -- | The error code that indicates why the event submission failed.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppereErrorCode :: Lens.Lens' PutPartnerEventsResultEntry (Lude.Maybe Lude.Text)
-ppereErrorCode = Lens.lens (errorCode :: PutPartnerEventsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: PutPartnerEventsResultEntry)
+ppereErrorCode :: Lens.Lens' PutPartnerEventsResultEntry (Core.Maybe Types.ErrorCode)
+ppereErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED ppereErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message that explains why the event submission failed.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppereErrorMessage :: Lens.Lens' PutPartnerEventsResultEntry (Lude.Maybe Lude.Text)
-ppereErrorMessage = Lens.lens (errorMessage :: PutPartnerEventsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: PutPartnerEventsResultEntry)
+ppereErrorMessage :: Lens.Lens' PutPartnerEventsResultEntry (Core.Maybe Types.ErrorMessage)
+ppereErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED ppereErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The ID of the event.
 --
 -- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppereEventId :: Lens.Lens' PutPartnerEventsResultEntry (Lude.Maybe Lude.Text)
-ppereEventId = Lens.lens (eventId :: PutPartnerEventsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: PutPartnerEventsResultEntry)
+ppereEventId :: Lens.Lens' PutPartnerEventsResultEntry (Core.Maybe Types.EventId)
+ppereEventId = Lens.field @"eventId"
 {-# DEPRECATED ppereEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance Lude.FromJSON PutPartnerEventsResultEntry where
+instance Core.FromJSON PutPartnerEventsResultEntry where
   parseJSON =
-    Lude.withObject
-      "PutPartnerEventsResultEntry"
-      ( \x ->
-          PutPartnerEventsResultEntry'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "EventId")
-      )
+    Core.withObject "PutPartnerEventsResultEntry" Core.$
+      \x ->
+        PutPartnerEventsResultEntry'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "EventId")

@@ -13,46 +13,51 @@
 module Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType
   ( UsernameAttributeType
       ( UsernameAttributeType',
-        UATPhoneNumber,
-        UATEmail
+        UsernameAttributeTypePhoneNumber,
+        UsernameAttributeTypeEmail,
+        fromUsernameAttributeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UsernameAttributeType = UsernameAttributeType' Lude.Text
+newtype UsernameAttributeType = UsernameAttributeType'
+  { fromUsernameAttributeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UATPhoneNumber :: UsernameAttributeType
-pattern UATPhoneNumber = UsernameAttributeType' "phone_number"
+pattern UsernameAttributeTypePhoneNumber :: UsernameAttributeType
+pattern UsernameAttributeTypePhoneNumber = UsernameAttributeType' "phone_number"
 
-pattern UATEmail :: UsernameAttributeType
-pattern UATEmail = UsernameAttributeType' "email"
+pattern UsernameAttributeTypeEmail :: UsernameAttributeType
+pattern UsernameAttributeTypeEmail = UsernameAttributeType' "email"
 
 {-# COMPLETE
-  UATPhoneNumber,
-  UATEmail,
+  UsernameAttributeTypePhoneNumber,
+  UsernameAttributeTypeEmail,
   UsernameAttributeType'
   #-}

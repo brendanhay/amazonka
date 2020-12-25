@@ -17,14 +17,14 @@ module Network.AWS.Budgets.Types.CalculatedSpend
     mkCalculatedSpend,
 
     -- * Lenses
-    csForecastedSpend,
     csActualSpend,
+    csForecastedSpend,
   )
 where
 
-import Network.AWS.Budgets.Types.Spend
+import qualified Network.AWS.Budgets.Types.Spend as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The spend objects that are associated with this budget. The @actualSpend@ tracks how much you've used, cost, usage, RI units, or Savings Plans units and the @forecastedSpend@ tracks how much you are predicted to spend based on your historical usage profile.
 --
@@ -32,56 +32,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCalculatedSpend' smart constructor.
 data CalculatedSpend = CalculatedSpend'
-  { -- | The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
-    forecastedSpend :: Lude.Maybe Spend,
-    -- | The amount of cost, usage, RI units, or Savings Plans units that you have used.
-    actualSpend :: Spend
+  { -- | The amount of cost, usage, RI units, or Savings Plans units that you have used.
+    actualSpend :: Types.Spend,
+    -- | The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
+    forecastedSpend :: Core.Maybe Types.Spend
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CalculatedSpend' with the minimum fields required to make a request.
---
--- * 'forecastedSpend' - The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
--- * 'actualSpend' - The amount of cost, usage, RI units, or Savings Plans units that you have used.
+-- | Creates a 'CalculatedSpend' value with any optional fields omitted.
 mkCalculatedSpend ::
   -- | 'actualSpend'
-  Spend ->
+  Types.Spend ->
   CalculatedSpend
-mkCalculatedSpend pActualSpend_ =
-  CalculatedSpend'
-    { forecastedSpend = Lude.Nothing,
-      actualSpend = pActualSpend_
-    }
-
--- | The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
---
--- /Note:/ Consider using 'forecastedSpend' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csForecastedSpend :: Lens.Lens' CalculatedSpend (Lude.Maybe Spend)
-csForecastedSpend = Lens.lens (forecastedSpend :: CalculatedSpend -> Lude.Maybe Spend) (\s a -> s {forecastedSpend = a} :: CalculatedSpend)
-{-# DEPRECATED csForecastedSpend "Use generic-lens or generic-optics with 'forecastedSpend' instead." #-}
+mkCalculatedSpend actualSpend =
+  CalculatedSpend' {actualSpend, forecastedSpend = Core.Nothing}
 
 -- | The amount of cost, usage, RI units, or Savings Plans units that you have used.
 --
 -- /Note:/ Consider using 'actualSpend' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csActualSpend :: Lens.Lens' CalculatedSpend Spend
-csActualSpend = Lens.lens (actualSpend :: CalculatedSpend -> Spend) (\s a -> s {actualSpend = a} :: CalculatedSpend)
+csActualSpend :: Lens.Lens' CalculatedSpend Types.Spend
+csActualSpend = Lens.field @"actualSpend"
 {-# DEPRECATED csActualSpend "Use generic-lens or generic-optics with 'actualSpend' instead." #-}
 
-instance Lude.FromJSON CalculatedSpend where
-  parseJSON =
-    Lude.withObject
-      "CalculatedSpend"
-      ( \x ->
-          CalculatedSpend'
-            Lude.<$> (x Lude..:? "ForecastedSpend") Lude.<*> (x Lude..: "ActualSpend")
-      )
+-- | The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
+--
+-- /Note:/ Consider using 'forecastedSpend' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csForecastedSpend :: Lens.Lens' CalculatedSpend (Core.Maybe Types.Spend)
+csForecastedSpend = Lens.field @"forecastedSpend"
+{-# DEPRECATED csForecastedSpend "Use generic-lens or generic-optics with 'forecastedSpend' instead." #-}
 
-instance Lude.ToJSON CalculatedSpend where
-  toJSON CalculatedSpend' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ForecastedSpend" Lude..=) Lude.<$> forecastedSpend,
-            Lude.Just ("ActualSpend" Lude..= actualSpend)
+instance Core.FromJSON CalculatedSpend where
+  toJSON CalculatedSpend {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ActualSpend" Core..= actualSpend),
+            ("ForecastedSpend" Core..=) Core.<$> forecastedSpend
           ]
       )
+
+instance Core.FromJSON CalculatedSpend where
+  parseJSON =
+    Core.withObject "CalculatedSpend" Core.$
+      \x ->
+        CalculatedSpend'
+          Core.<$> (x Core..: "ActualSpend") Core.<*> (x Core..:? "ForecastedSpend")

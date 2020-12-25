@@ -17,66 +17,53 @@ module Network.AWS.ELBv2.Types.ForwardActionConfig
     mkForwardActionConfig,
 
     -- * Lenses
-    facTargetGroups,
     facTargetGroupStickinessConfig,
+    facTargetGroups,
   )
 where
 
-import Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
-import Network.AWS.ELBv2.Types.TargetGroupTuple
+import qualified Network.AWS.ELBv2.Types.TargetGroupStickinessConfig as Types
+import qualified Network.AWS.ELBv2.Types.TargetGroupTuple as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a forward action.
 --
 -- /See:/ 'mkForwardActionConfig' smart constructor.
 data ForwardActionConfig = ForwardActionConfig'
-  { -- | One or more target groups. For Network Load Balancers, you can specify a single target group.
-    targetGroups :: Lude.Maybe [TargetGroupTuple],
-    -- | The target group stickiness for the rule.
-    targetGroupStickinessConfig :: Lude.Maybe TargetGroupStickinessConfig
+  { -- | The target group stickiness for the rule.
+    targetGroupStickinessConfig :: Core.Maybe Types.TargetGroupStickinessConfig,
+    -- | One or more target groups. For Network Load Balancers, you can specify a single target group.
+    targetGroups :: Core.Maybe [Types.TargetGroupTuple]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ForwardActionConfig' with the minimum fields required to make a request.
---
--- * 'targetGroups' - One or more target groups. For Network Load Balancers, you can specify a single target group.
--- * 'targetGroupStickinessConfig' - The target group stickiness for the rule.
+-- | Creates a 'ForwardActionConfig' value with any optional fields omitted.
 mkForwardActionConfig ::
   ForwardActionConfig
 mkForwardActionConfig =
   ForwardActionConfig'
-    { targetGroups = Lude.Nothing,
-      targetGroupStickinessConfig = Lude.Nothing
+    { targetGroupStickinessConfig = Core.Nothing,
+      targetGroups = Core.Nothing
     }
-
--- | One or more target groups. For Network Load Balancers, you can specify a single target group.
---
--- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-facTargetGroups :: Lens.Lens' ForwardActionConfig (Lude.Maybe [TargetGroupTuple])
-facTargetGroups = Lens.lens (targetGroups :: ForwardActionConfig -> Lude.Maybe [TargetGroupTuple]) (\s a -> s {targetGroups = a} :: ForwardActionConfig)
-{-# DEPRECATED facTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
 
 -- | The target group stickiness for the rule.
 --
 -- /Note:/ Consider using 'targetGroupStickinessConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-facTargetGroupStickinessConfig :: Lens.Lens' ForwardActionConfig (Lude.Maybe TargetGroupStickinessConfig)
-facTargetGroupStickinessConfig = Lens.lens (targetGroupStickinessConfig :: ForwardActionConfig -> Lude.Maybe TargetGroupStickinessConfig) (\s a -> s {targetGroupStickinessConfig = a} :: ForwardActionConfig)
+facTargetGroupStickinessConfig :: Lens.Lens' ForwardActionConfig (Core.Maybe Types.TargetGroupStickinessConfig)
+facTargetGroupStickinessConfig = Lens.field @"targetGroupStickinessConfig"
 {-# DEPRECATED facTargetGroupStickinessConfig "Use generic-lens or generic-optics with 'targetGroupStickinessConfig' instead." #-}
 
-instance Lude.FromXML ForwardActionConfig where
+-- | One or more target groups. For Network Load Balancers, you can specify a single target group.
+--
+-- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+facTargetGroups :: Lens.Lens' ForwardActionConfig (Core.Maybe [Types.TargetGroupTuple])
+facTargetGroups = Lens.field @"targetGroups"
+{-# DEPRECATED facTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
+
+instance Core.FromXML ForwardActionConfig where
   parseXML x =
     ForwardActionConfig'
-      Lude.<$> ( x Lude..@? "TargetGroups" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "TargetGroupStickinessConfig")
-
-instance Lude.ToQuery ForwardActionConfig where
-  toQuery ForwardActionConfig' {..} =
-    Lude.mconcat
-      [ "TargetGroups"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> targetGroups),
-        "TargetGroupStickinessConfig" Lude.=: targetGroupStickinessConfig
-      ]
+      Core.<$> (x Core..@? "TargetGroupStickinessConfig")
+      Core.<*> (x Core..@? "TargetGroups" Core..<@> Core.parseXMLList "member")

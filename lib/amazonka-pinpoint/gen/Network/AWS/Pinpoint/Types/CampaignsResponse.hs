@@ -17,56 +17,51 @@ module Network.AWS.Pinpoint.Types.CampaignsResponse
     mkCampaignsResponse,
 
     -- * Lenses
-    cNextToken,
-    cItem,
+    crItem,
+    crNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.CampaignResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the configuration and other settings for all the campaigns that are associated with an application.
 --
 -- /See:/ 'mkCampaignsResponse' smart constructor.
 data CampaignsResponse = CampaignsResponse'
-  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of responses, one for each campaign that's associated with the application.
-    item :: [CampaignResponse]
+  { -- | An array of responses, one for each campaign that's associated with the application.
+    item :: [Types.CampaignResponse],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CampaignsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'item' - An array of responses, one for each campaign that's associated with the application.
+-- | Creates a 'CampaignsResponse' value with any optional fields omitted.
 mkCampaignsResponse ::
   CampaignsResponse
 mkCampaignsResponse =
-  CampaignsResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
-
--- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cNextToken :: Lens.Lens' CampaignsResponse (Lude.Maybe Lude.Text)
-cNextToken = Lens.lens (nextToken :: CampaignsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: CampaignsResponse)
-{-# DEPRECATED cNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  CampaignsResponse' {item = Core.mempty, nextToken = Core.Nothing}
 
 -- | An array of responses, one for each campaign that's associated with the application.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cItem :: Lens.Lens' CampaignsResponse [CampaignResponse]
-cItem = Lens.lens (item :: CampaignsResponse -> [CampaignResponse]) (\s a -> s {item = a} :: CampaignsResponse)
-{-# DEPRECATED cItem "Use generic-lens or generic-optics with 'item' instead." #-}
+crItem :: Lens.Lens' CampaignsResponse [Types.CampaignResponse]
+crItem = Lens.field @"item"
+{-# DEPRECATED crItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON CampaignsResponse where
+-- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crNextToken :: Lens.Lens' CampaignsResponse (Core.Maybe Core.Text)
+crNextToken = Lens.field @"nextToken"
+{-# DEPRECATED crNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON CampaignsResponse where
   parseJSON =
-    Lude.withObject
-      "CampaignsResponse"
-      ( \x ->
-          CampaignsResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "CampaignsResponse" Core.$
+      \x ->
+        CampaignsResponse'
+          Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "NextToken")

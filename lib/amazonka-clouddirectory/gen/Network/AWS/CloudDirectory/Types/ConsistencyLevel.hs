@@ -13,46 +13,51 @@
 module Network.AWS.CloudDirectory.Types.ConsistencyLevel
   ( ConsistencyLevel
       ( ConsistencyLevel',
-        Serializable,
-        Eventual
+        ConsistencyLevelSerializable,
+        ConsistencyLevelEventual,
+        fromConsistencyLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConsistencyLevel = ConsistencyLevel' Lude.Text
+newtype ConsistencyLevel = ConsistencyLevel'
+  { fromConsistencyLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Serializable :: ConsistencyLevel
-pattern Serializable = ConsistencyLevel' "SERIALIZABLE"
+pattern ConsistencyLevelSerializable :: ConsistencyLevel
+pattern ConsistencyLevelSerializable = ConsistencyLevel' "SERIALIZABLE"
 
-pattern Eventual :: ConsistencyLevel
-pattern Eventual = ConsistencyLevel' "EVENTUAL"
+pattern ConsistencyLevelEventual :: ConsistencyLevel
+pattern ConsistencyLevelEventual = ConsistencyLevel' "EVENTUAL"
 
 {-# COMPLETE
-  Serializable,
-  Eventual,
+  ConsistencyLevelSerializable,
+  ConsistencyLevelEventual,
   ConsistencyLevel'
   #-}

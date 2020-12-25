@@ -13,57 +13,62 @@
 module Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem
   ( UpdateTargetsOperatingSystem
       ( UpdateTargetsOperatingSystem',
-        Ubuntu,
-        Raspbian,
-        AmazonLinux,
-        Openwrt
+        UpdateTargetsOperatingSystemUbuntu,
+        UpdateTargetsOperatingSystemRaspbian,
+        UpdateTargetsOperatingSystemAmazonLinux,
+        UpdateTargetsOperatingSystemOpenwrt,
+        fromUpdateTargetsOperatingSystem
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The operating system of the cores which are the targets of an update.
-newtype UpdateTargetsOperatingSystem = UpdateTargetsOperatingSystem' Lude.Text
+newtype UpdateTargetsOperatingSystem = UpdateTargetsOperatingSystem'
+  { fromUpdateTargetsOperatingSystem ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ubuntu :: UpdateTargetsOperatingSystem
-pattern Ubuntu = UpdateTargetsOperatingSystem' "ubuntu"
+pattern UpdateTargetsOperatingSystemUbuntu :: UpdateTargetsOperatingSystem
+pattern UpdateTargetsOperatingSystemUbuntu = UpdateTargetsOperatingSystem' "ubuntu"
 
-pattern Raspbian :: UpdateTargetsOperatingSystem
-pattern Raspbian = UpdateTargetsOperatingSystem' "raspbian"
+pattern UpdateTargetsOperatingSystemRaspbian :: UpdateTargetsOperatingSystem
+pattern UpdateTargetsOperatingSystemRaspbian = UpdateTargetsOperatingSystem' "raspbian"
 
-pattern AmazonLinux :: UpdateTargetsOperatingSystem
-pattern AmazonLinux = UpdateTargetsOperatingSystem' "amazon_linux"
+pattern UpdateTargetsOperatingSystemAmazonLinux :: UpdateTargetsOperatingSystem
+pattern UpdateTargetsOperatingSystemAmazonLinux = UpdateTargetsOperatingSystem' "amazon_linux"
 
-pattern Openwrt :: UpdateTargetsOperatingSystem
-pattern Openwrt = UpdateTargetsOperatingSystem' "openwrt"
+pattern UpdateTargetsOperatingSystemOpenwrt :: UpdateTargetsOperatingSystem
+pattern UpdateTargetsOperatingSystemOpenwrt = UpdateTargetsOperatingSystem' "openwrt"
 
 {-# COMPLETE
-  Ubuntu,
-  Raspbian,
-  AmazonLinux,
-  Openwrt,
+  UpdateTargetsOperatingSystemUbuntu,
+  UpdateTargetsOperatingSystemRaspbian,
+  UpdateTargetsOperatingSystemAmazonLinux,
+  UpdateTargetsOperatingSystemOpenwrt,
   UpdateTargetsOperatingSystem'
   #-}

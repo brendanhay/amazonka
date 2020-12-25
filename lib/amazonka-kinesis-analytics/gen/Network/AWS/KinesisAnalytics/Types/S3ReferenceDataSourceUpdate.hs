@@ -23,65 +23,64 @@ module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.BucketARNUpdate as Types
+import qualified Network.AWS.KinesisAnalytics.Types.FileKeyUpdate as Types
+import qualified Network.AWS.KinesisAnalytics.Types.ReferenceRoleARNUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.
 --
 -- /See:/ 'mkS3ReferenceDataSourceUpdate' smart constructor.
 data S3ReferenceDataSourceUpdate = S3ReferenceDataSourceUpdate'
   { -- | Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARNUpdate :: Lude.Maybe Lude.Text,
+    bucketARNUpdate :: Core.Maybe Types.BucketARNUpdate,
     -- | Object key name.
-    fileKeyUpdate :: Lude.Maybe Lude.Text,
+    fileKeyUpdate :: Core.Maybe Types.FileKeyUpdate,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.
-    referenceRoleARNUpdate :: Lude.Maybe Lude.Text
+    referenceRoleARNUpdate :: Core.Maybe Types.ReferenceRoleARNUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3ReferenceDataSourceUpdate' with the minimum fields required to make a request.
---
--- * 'bucketARNUpdate' - Amazon Resource Name (ARN) of the S3 bucket.
--- * 'fileKeyUpdate' - Object key name.
--- * 'referenceRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.
+-- | Creates a 'S3ReferenceDataSourceUpdate' value with any optional fields omitted.
 mkS3ReferenceDataSourceUpdate ::
   S3ReferenceDataSourceUpdate
 mkS3ReferenceDataSourceUpdate =
   S3ReferenceDataSourceUpdate'
-    { bucketARNUpdate = Lude.Nothing,
-      fileKeyUpdate = Lude.Nothing,
-      referenceRoleARNUpdate = Lude.Nothing
+    { bucketARNUpdate = Core.Nothing,
+      fileKeyUpdate = Core.Nothing,
+      referenceRoleARNUpdate = Core.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the S3 bucket.
 --
 -- /Note:/ Consider using 'bucketARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdsuBucketARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Lude.Maybe Lude.Text)
-srdsuBucketARNUpdate = Lens.lens (bucketARNUpdate :: S3ReferenceDataSourceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {bucketARNUpdate = a} :: S3ReferenceDataSourceUpdate)
+srdsuBucketARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Core.Maybe Types.BucketARNUpdate)
+srdsuBucketARNUpdate = Lens.field @"bucketARNUpdate"
 {-# DEPRECATED srdsuBucketARNUpdate "Use generic-lens or generic-optics with 'bucketARNUpdate' instead." #-}
 
 -- | Object key name.
 --
 -- /Note:/ Consider using 'fileKeyUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdsuFileKeyUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Lude.Maybe Lude.Text)
-srdsuFileKeyUpdate = Lens.lens (fileKeyUpdate :: S3ReferenceDataSourceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {fileKeyUpdate = a} :: S3ReferenceDataSourceUpdate)
+srdsuFileKeyUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Core.Maybe Types.FileKeyUpdate)
+srdsuFileKeyUpdate = Lens.field @"fileKeyUpdate"
 {-# DEPRECATED srdsuFileKeyUpdate "Use generic-lens or generic-optics with 'fileKeyUpdate' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.
 --
 -- /Note:/ Consider using 'referenceRoleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdsuReferenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Lude.Maybe Lude.Text)
-srdsuReferenceRoleARNUpdate = Lens.lens (referenceRoleARNUpdate :: S3ReferenceDataSourceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {referenceRoleARNUpdate = a} :: S3ReferenceDataSourceUpdate)
+srdsuReferenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Core.Maybe Types.ReferenceRoleARNUpdate)
+srdsuReferenceRoleARNUpdate = Lens.field @"referenceRoleARNUpdate"
 {-# DEPRECATED srdsuReferenceRoleARNUpdate "Use generic-lens or generic-optics with 'referenceRoleARNUpdate' instead." #-}
 
-instance Lude.ToJSON S3ReferenceDataSourceUpdate where
-  toJSON S3ReferenceDataSourceUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BucketARNUpdate" Lude..=) Lude.<$> bucketARNUpdate,
-            ("FileKeyUpdate" Lude..=) Lude.<$> fileKeyUpdate,
-            ("ReferenceRoleARNUpdate" Lude..=)
-              Lude.<$> referenceRoleARNUpdate
+instance Core.FromJSON S3ReferenceDataSourceUpdate where
+  toJSON S3ReferenceDataSourceUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BucketARNUpdate" Core..=) Core.<$> bucketARNUpdate,
+            ("FileKeyUpdate" Core..=) Core.<$> fileKeyUpdate,
+            ("ReferenceRoleARNUpdate" Core..=)
+              Core.<$> referenceRoleARNUpdate
           ]
       )

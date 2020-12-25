@@ -17,77 +17,69 @@ module Network.AWS.MediaLive.Types.InputSource
     mkInputSource,
 
     -- * Lenses
-    isURL,
-    isUsername,
     isPasswordParam,
+    isUrl,
+    isUsername,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The settings for a PULL type input.
 --
 -- /See:/ 'mkInputSource' smart constructor.
 data InputSource = InputSource'
-  { -- | This represents the customer's source URL where stream is
+  { -- | The key used to extract the password from EC2 Parameter store.
+    passwordParam :: Core.Maybe Core.Text,
+    -- | This represents the customer's source URL where stream is
     --
     -- pulled from.
-    url :: Lude.Maybe Lude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The username for the input source.
-    username :: Lude.Maybe Lude.Text,
-    -- | The key used to extract the password from EC2 Parameter store.
-    passwordParam :: Lude.Maybe Lude.Text
+    username :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputSource' with the minimum fields required to make a request.
---
--- * 'url' - This represents the customer's source URL where stream is
---
--- pulled from.
--- * 'username' - The username for the input source.
--- * 'passwordParam' - The key used to extract the password from EC2 Parameter store.
+-- | Creates a 'InputSource' value with any optional fields omitted.
 mkInputSource ::
   InputSource
 mkInputSource =
   InputSource'
-    { url = Lude.Nothing,
-      username = Lude.Nothing,
-      passwordParam = Lude.Nothing
+    { passwordParam = Core.Nothing,
+      url = Core.Nothing,
+      username = Core.Nothing
     }
+
+-- | The key used to extract the password from EC2 Parameter store.
+--
+-- /Note:/ Consider using 'passwordParam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isPasswordParam :: Lens.Lens' InputSource (Core.Maybe Core.Text)
+isPasswordParam = Lens.field @"passwordParam"
+{-# DEPRECATED isPasswordParam "Use generic-lens or generic-optics with 'passwordParam' instead." #-}
 
 -- | This represents the customer's source URL where stream is
 --
 -- pulled from.
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isURL :: Lens.Lens' InputSource (Lude.Maybe Lude.Text)
-isURL = Lens.lens (url :: InputSource -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: InputSource)
-{-# DEPRECATED isURL "Use generic-lens or generic-optics with 'url' instead." #-}
+isUrl :: Lens.Lens' InputSource (Core.Maybe Core.Text)
+isUrl = Lens.field @"url"
+{-# DEPRECATED isUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The username for the input source.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isUsername :: Lens.Lens' InputSource (Lude.Maybe Lude.Text)
-isUsername = Lens.lens (username :: InputSource -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: InputSource)
+isUsername :: Lens.Lens' InputSource (Core.Maybe Core.Text)
+isUsername = Lens.field @"username"
 {-# DEPRECATED isUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | The key used to extract the password from EC2 Parameter store.
---
--- /Note:/ Consider using 'passwordParam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isPasswordParam :: Lens.Lens' InputSource (Lude.Maybe Lude.Text)
-isPasswordParam = Lens.lens (passwordParam :: InputSource -> Lude.Maybe Lude.Text) (\s a -> s {passwordParam = a} :: InputSource)
-{-# DEPRECATED isPasswordParam "Use generic-lens or generic-optics with 'passwordParam' instead." #-}
-
-instance Lude.FromJSON InputSource where
+instance Core.FromJSON InputSource where
   parseJSON =
-    Lude.withObject
-      "InputSource"
-      ( \x ->
-          InputSource'
-            Lude.<$> (x Lude..:? "url")
-            Lude.<*> (x Lude..:? "username")
-            Lude.<*> (x Lude..:? "passwordParam")
-      )
+    Core.withObject "InputSource" Core.$
+      \x ->
+        InputSource'
+          Core.<$> (x Core..:? "passwordParam")
+          Core.<*> (x Core..:? "url")
+          Core.<*> (x Core..:? "username")

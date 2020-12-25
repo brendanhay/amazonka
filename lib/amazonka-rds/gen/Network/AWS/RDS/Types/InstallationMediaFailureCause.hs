@@ -22,33 +22,32 @@ module Network.AWS.RDS.Types.InstallationMediaFailureCause
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Contains the cause of an installation media failure. Installation media is used for a DB engine that requires an on-premises customer provided license, such as Microsoft SQL Server.
 --
 -- /See:/ 'mkInstallationMediaFailureCause' smart constructor.
 newtype InstallationMediaFailureCause = InstallationMediaFailureCause'
   { -- | The reason that an installation media import failed.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstallationMediaFailureCause' with the minimum fields required to make a request.
---
--- * 'message' - The reason that an installation media import failed.
+-- | Creates a 'InstallationMediaFailureCause' value with any optional fields omitted.
 mkInstallationMediaFailureCause ::
   InstallationMediaFailureCause
 mkInstallationMediaFailureCause =
-  InstallationMediaFailureCause' {message = Lude.Nothing}
+  InstallationMediaFailureCause' {message = Core.Nothing}
 
 -- | The reason that an installation media import failed.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imfcMessage :: Lens.Lens' InstallationMediaFailureCause (Lude.Maybe Lude.Text)
-imfcMessage = Lens.lens (message :: InstallationMediaFailureCause -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: InstallationMediaFailureCause)
+imfcMessage :: Lens.Lens' InstallationMediaFailureCause (Core.Maybe Types.String)
+imfcMessage = Lens.field @"message"
 {-# DEPRECATED imfcMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML InstallationMediaFailureCause where
+instance Core.FromXML InstallationMediaFailureCause where
   parseXML x =
-    InstallationMediaFailureCause' Lude.<$> (x Lude..@? "Message")
+    InstallationMediaFailureCause' Core.<$> (x Core..@? "Message")

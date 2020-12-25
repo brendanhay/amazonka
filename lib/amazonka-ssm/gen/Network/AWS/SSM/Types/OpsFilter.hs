@@ -17,71 +17,69 @@ module Network.AWS.SSM.Types.OpsFilter
     mkOpsFilter,
 
     -- * Lenses
-    ofValues,
     ofKey,
+    ofValues,
     ofType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.OpsFilterOperatorType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.OpsFilterKey as Types
+import qualified Network.AWS.SSM.Types.OpsFilterOperatorType as Types
+import qualified Network.AWS.SSM.Types.OpsFilterValue as Types
 
 -- | A filter for viewing OpsItem summaries.
 --
 -- /See:/ 'mkOpsFilter' smart constructor.
 data OpsFilter = OpsFilter'
-  { -- | The filter value.
-    values :: Lude.NonEmpty Lude.Text,
-    -- | The name of the filter.
-    key :: Lude.Text,
+  { -- | The name of the filter.
+    key :: Types.OpsFilterKey,
+    -- | The filter value.
+    values :: Core.NonEmpty Types.OpsFilterValue,
     -- | The type of filter.
-    type' :: Lude.Maybe OpsFilterOperatorType
+    type' :: Core.Maybe Types.OpsFilterOperatorType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsFilter' with the minimum fields required to make a request.
---
--- * 'values' - The filter value.
--- * 'key' - The name of the filter.
--- * 'type'' - The type of filter.
+-- | Creates a 'OpsFilter' value with any optional fields omitted.
 mkOpsFilter ::
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.OpsFilterKey ->
+  -- | 'values'
+  Core.NonEmpty Types.OpsFilterValue ->
   OpsFilter
-mkOpsFilter pValues_ pKey_ =
-  OpsFilter' {values = pValues_, key = pKey_, type' = Lude.Nothing}
-
--- | The filter value.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofValues :: Lens.Lens' OpsFilter (Lude.NonEmpty Lude.Text)
-ofValues = Lens.lens (values :: OpsFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: OpsFilter)
-{-# DEPRECATED ofValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkOpsFilter key values =
+  OpsFilter' {key, values, type' = Core.Nothing}
 
 -- | The name of the filter.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofKey :: Lens.Lens' OpsFilter Lude.Text
-ofKey = Lens.lens (key :: OpsFilter -> Lude.Text) (\s a -> s {key = a} :: OpsFilter)
+ofKey :: Lens.Lens' OpsFilter Types.OpsFilterKey
+ofKey = Lens.field @"key"
 {-# DEPRECATED ofKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The filter value.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofValues :: Lens.Lens' OpsFilter (Core.NonEmpty Types.OpsFilterValue)
+ofValues = Lens.field @"values"
+{-# DEPRECATED ofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The type of filter.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofType :: Lens.Lens' OpsFilter (Lude.Maybe OpsFilterOperatorType)
-ofType = Lens.lens (type' :: OpsFilter -> Lude.Maybe OpsFilterOperatorType) (\s a -> s {type' = a} :: OpsFilter)
+ofType :: Lens.Lens' OpsFilter (Core.Maybe Types.OpsFilterOperatorType)
+ofType = Lens.field @"type'"
 {-# DEPRECATED ofType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON OpsFilter where
-  toJSON OpsFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Key" Lude..= key),
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON OpsFilter where
+  toJSON OpsFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values),
+            ("Type" Core..=) Core.<$> type'
           ]
       )

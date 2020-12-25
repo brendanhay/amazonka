@@ -17,36 +17,39 @@ module Network.AWS.AppSync.Types.Resolver
     mkResolver,
 
     -- * Lenses
-    rTypeName,
-    rDataSourceName,
-    rRequestMappingTemplate,
-    rKind,
-    rResolverARN,
     rCachingConfig,
-    rResponseMappingTemplate,
+    rDataSourceName,
     rFieldName,
-    rSyncConfig,
+    rKind,
     rPipelineConfig,
+    rRequestMappingTemplate,
+    rResolverArn,
+    rResponseMappingTemplate,
+    rSyncConfig,
+    rTypeName,
   )
 where
 
-import Network.AWS.AppSync.Types.CachingConfig
-import Network.AWS.AppSync.Types.PipelineConfig
-import Network.AWS.AppSync.Types.ResolverKind
-import Network.AWS.AppSync.Types.SyncConfig
+import qualified Network.AWS.AppSync.Types.CachingConfig as Types
+import qualified Network.AWS.AppSync.Types.MappingTemplate as Types
+import qualified Network.AWS.AppSync.Types.PipelineConfig as Types
+import qualified Network.AWS.AppSync.Types.ResolverKind as Types
+import qualified Network.AWS.AppSync.Types.ResourceName as Types
+import qualified Network.AWS.AppSync.Types.String as Types
+import qualified Network.AWS.AppSync.Types.SyncConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a resolver.
 --
 -- /See:/ 'mkResolver' smart constructor.
 data Resolver = Resolver'
-  { -- | The resolver type name.
-    typeName :: Lude.Maybe Lude.Text,
+  { -- | The caching configuration for the resolver.
+    cachingConfig :: Core.Maybe Types.CachingConfig,
     -- | The resolver data source name.
-    dataSourceName :: Lude.Maybe Lude.Text,
-    -- | The request mapping template.
-    requestMappingTemplate :: Lude.Maybe Lude.Text,
+    dataSourceName :: Core.Maybe Types.ResourceName,
+    -- | The resolver field name.
+    fieldName :: Core.Maybe Types.ResourceName,
     -- | The resolver type.
     --
     --
@@ -54,79 +57,60 @@ data Resolver = Resolver'
     --
     --
     --     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
-    kind :: Lude.Maybe ResolverKind,
-    -- | The resolver ARN.
-    resolverARN :: Lude.Maybe Lude.Text,
-    -- | The caching configuration for the resolver.
-    cachingConfig :: Lude.Maybe CachingConfig,
-    -- | The response mapping template.
-    responseMappingTemplate :: Lude.Maybe Lude.Text,
-    -- | The resolver field name.
-    fieldName :: Lude.Maybe Lude.Text,
-    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
-    syncConfig :: Lude.Maybe SyncConfig,
+    kind :: Core.Maybe Types.ResolverKind,
     -- | The @PipelineConfig@ .
-    pipelineConfig :: Lude.Maybe PipelineConfig
+    pipelineConfig :: Core.Maybe Types.PipelineConfig,
+    -- | The request mapping template.
+    requestMappingTemplate :: Core.Maybe Types.MappingTemplate,
+    -- | The resolver ARN.
+    resolverArn :: Core.Maybe Types.String,
+    -- | The response mapping template.
+    responseMappingTemplate :: Core.Maybe Types.MappingTemplate,
+    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+    syncConfig :: Core.Maybe Types.SyncConfig,
+    -- | The resolver type name.
+    typeName :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Resolver' with the minimum fields required to make a request.
---
--- * 'typeName' - The resolver type name.
--- * 'dataSourceName' - The resolver data source name.
--- * 'requestMappingTemplate' - The request mapping template.
--- * 'kind' - The resolver type.
---
---
---     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.
---
---
---     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
---
---
--- * 'resolverARN' - The resolver ARN.
--- * 'cachingConfig' - The caching configuration for the resolver.
--- * 'responseMappingTemplate' - The response mapping template.
--- * 'fieldName' - The resolver field name.
--- * 'syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
--- * 'pipelineConfig' - The @PipelineConfig@ .
+-- | Creates a 'Resolver' value with any optional fields omitted.
 mkResolver ::
   Resolver
 mkResolver =
   Resolver'
-    { typeName = Lude.Nothing,
-      dataSourceName = Lude.Nothing,
-      requestMappingTemplate = Lude.Nothing,
-      kind = Lude.Nothing,
-      resolverARN = Lude.Nothing,
-      cachingConfig = Lude.Nothing,
-      responseMappingTemplate = Lude.Nothing,
-      fieldName = Lude.Nothing,
-      syncConfig = Lude.Nothing,
-      pipelineConfig = Lude.Nothing
+    { cachingConfig = Core.Nothing,
+      dataSourceName = Core.Nothing,
+      fieldName = Core.Nothing,
+      kind = Core.Nothing,
+      pipelineConfig = Core.Nothing,
+      requestMappingTemplate = Core.Nothing,
+      resolverArn = Core.Nothing,
+      responseMappingTemplate = Core.Nothing,
+      syncConfig = Core.Nothing,
+      typeName = Core.Nothing
     }
 
--- | The resolver type name.
+-- | The caching configuration for the resolver.
 --
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rTypeName :: Lens.Lens' Resolver (Lude.Maybe Lude.Text)
-rTypeName = Lens.lens (typeName :: Resolver -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: Resolver)
-{-# DEPRECATED rTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+-- /Note:/ Consider using 'cachingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCachingConfig :: Lens.Lens' Resolver (Core.Maybe Types.CachingConfig)
+rCachingConfig = Lens.field @"cachingConfig"
+{-# DEPRECATED rCachingConfig "Use generic-lens or generic-optics with 'cachingConfig' instead." #-}
 
 -- | The resolver data source name.
 --
 -- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDataSourceName :: Lens.Lens' Resolver (Lude.Maybe Lude.Text)
-rDataSourceName = Lens.lens (dataSourceName :: Resolver -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: Resolver)
+rDataSourceName :: Lens.Lens' Resolver (Core.Maybe Types.ResourceName)
+rDataSourceName = Lens.field @"dataSourceName"
 {-# DEPRECATED rDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
--- | The request mapping template.
+-- | The resolver field name.
 --
--- /Note:/ Consider using 'requestMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRequestMappingTemplate :: Lens.Lens' Resolver (Lude.Maybe Lude.Text)
-rRequestMappingTemplate = Lens.lens (requestMappingTemplate :: Resolver -> Lude.Maybe Lude.Text) (\s a -> s {requestMappingTemplate = a} :: Resolver)
-{-# DEPRECATED rRequestMappingTemplate "Use generic-lens or generic-optics with 'requestMappingTemplate' instead." #-}
+-- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rFieldName :: Lens.Lens' Resolver (Core.Maybe Types.ResourceName)
+rFieldName = Lens.field @"fieldName"
+{-# DEPRECATED rFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
 -- | The resolver type.
 --
@@ -139,66 +123,64 @@ rRequestMappingTemplate = Lens.lens (requestMappingTemplate :: Resolver -> Lude.
 --
 --
 -- /Note:/ Consider using 'kind' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rKind :: Lens.Lens' Resolver (Lude.Maybe ResolverKind)
-rKind = Lens.lens (kind :: Resolver -> Lude.Maybe ResolverKind) (\s a -> s {kind = a} :: Resolver)
+rKind :: Lens.Lens' Resolver (Core.Maybe Types.ResolverKind)
+rKind = Lens.field @"kind"
 {-# DEPRECATED rKind "Use generic-lens or generic-optics with 'kind' instead." #-}
-
--- | The resolver ARN.
---
--- /Note:/ Consider using 'resolverARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResolverARN :: Lens.Lens' Resolver (Lude.Maybe Lude.Text)
-rResolverARN = Lens.lens (resolverARN :: Resolver -> Lude.Maybe Lude.Text) (\s a -> s {resolverARN = a} :: Resolver)
-{-# DEPRECATED rResolverARN "Use generic-lens or generic-optics with 'resolverARN' instead." #-}
-
--- | The caching configuration for the resolver.
---
--- /Note:/ Consider using 'cachingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rCachingConfig :: Lens.Lens' Resolver (Lude.Maybe CachingConfig)
-rCachingConfig = Lens.lens (cachingConfig :: Resolver -> Lude.Maybe CachingConfig) (\s a -> s {cachingConfig = a} :: Resolver)
-{-# DEPRECATED rCachingConfig "Use generic-lens or generic-optics with 'cachingConfig' instead." #-}
-
--- | The response mapping template.
---
--- /Note:/ Consider using 'responseMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResponseMappingTemplate :: Lens.Lens' Resolver (Lude.Maybe Lude.Text)
-rResponseMappingTemplate = Lens.lens (responseMappingTemplate :: Resolver -> Lude.Maybe Lude.Text) (\s a -> s {responseMappingTemplate = a} :: Resolver)
-{-# DEPRECATED rResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
-
--- | The resolver field name.
---
--- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rFieldName :: Lens.Lens' Resolver (Lude.Maybe Lude.Text)
-rFieldName = Lens.lens (fieldName :: Resolver -> Lude.Maybe Lude.Text) (\s a -> s {fieldName = a} :: Resolver)
-{-# DEPRECATED rFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
-
--- | The @SyncConfig@ for a resolver attached to a versioned datasource.
---
--- /Note:/ Consider using 'syncConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rSyncConfig :: Lens.Lens' Resolver (Lude.Maybe SyncConfig)
-rSyncConfig = Lens.lens (syncConfig :: Resolver -> Lude.Maybe SyncConfig) (\s a -> s {syncConfig = a} :: Resolver)
-{-# DEPRECATED rSyncConfig "Use generic-lens or generic-optics with 'syncConfig' instead." #-}
 
 -- | The @PipelineConfig@ .
 --
 -- /Note:/ Consider using 'pipelineConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPipelineConfig :: Lens.Lens' Resolver (Lude.Maybe PipelineConfig)
-rPipelineConfig = Lens.lens (pipelineConfig :: Resolver -> Lude.Maybe PipelineConfig) (\s a -> s {pipelineConfig = a} :: Resolver)
+rPipelineConfig :: Lens.Lens' Resolver (Core.Maybe Types.PipelineConfig)
+rPipelineConfig = Lens.field @"pipelineConfig"
 {-# DEPRECATED rPipelineConfig "Use generic-lens or generic-optics with 'pipelineConfig' instead." #-}
 
-instance Lude.FromJSON Resolver where
+-- | The request mapping template.
+--
+-- /Note:/ Consider using 'requestMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRequestMappingTemplate :: Lens.Lens' Resolver (Core.Maybe Types.MappingTemplate)
+rRequestMappingTemplate = Lens.field @"requestMappingTemplate"
+{-# DEPRECATED rRequestMappingTemplate "Use generic-lens or generic-optics with 'requestMappingTemplate' instead." #-}
+
+-- | The resolver ARN.
+--
+-- /Note:/ Consider using 'resolverArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResolverArn :: Lens.Lens' Resolver (Core.Maybe Types.String)
+rResolverArn = Lens.field @"resolverArn"
+{-# DEPRECATED rResolverArn "Use generic-lens or generic-optics with 'resolverArn' instead." #-}
+
+-- | The response mapping template.
+--
+-- /Note:/ Consider using 'responseMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResponseMappingTemplate :: Lens.Lens' Resolver (Core.Maybe Types.MappingTemplate)
+rResponseMappingTemplate = Lens.field @"responseMappingTemplate"
+{-# DEPRECATED rResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
+
+-- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+--
+-- /Note:/ Consider using 'syncConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSyncConfig :: Lens.Lens' Resolver (Core.Maybe Types.SyncConfig)
+rSyncConfig = Lens.field @"syncConfig"
+{-# DEPRECATED rSyncConfig "Use generic-lens or generic-optics with 'syncConfig' instead." #-}
+
+-- | The resolver type name.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTypeName :: Lens.Lens' Resolver (Core.Maybe Types.ResourceName)
+rTypeName = Lens.field @"typeName"
+{-# DEPRECATED rTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+instance Core.FromJSON Resolver where
   parseJSON =
-    Lude.withObject
-      "Resolver"
-      ( \x ->
-          Resolver'
-            Lude.<$> (x Lude..:? "typeName")
-            Lude.<*> (x Lude..:? "dataSourceName")
-            Lude.<*> (x Lude..:? "requestMappingTemplate")
-            Lude.<*> (x Lude..:? "kind")
-            Lude.<*> (x Lude..:? "resolverArn")
-            Lude.<*> (x Lude..:? "cachingConfig")
-            Lude.<*> (x Lude..:? "responseMappingTemplate")
-            Lude.<*> (x Lude..:? "fieldName")
-            Lude.<*> (x Lude..:? "syncConfig")
-            Lude.<*> (x Lude..:? "pipelineConfig")
-      )
+    Core.withObject "Resolver" Core.$
+      \x ->
+        Resolver'
+          Core.<$> (x Core..:? "cachingConfig")
+          Core.<*> (x Core..:? "dataSourceName")
+          Core.<*> (x Core..:? "fieldName")
+          Core.<*> (x Core..:? "kind")
+          Core.<*> (x Core..:? "pipelineConfig")
+          Core.<*> (x Core..:? "requestMappingTemplate")
+          Core.<*> (x Core..:? "resolverArn")
+          Core.<*> (x Core..:? "responseMappingTemplate")
+          Core.<*> (x Core..:? "syncConfig")
+          Core.<*> (x Core..:? "typeName")

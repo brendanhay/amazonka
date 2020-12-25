@@ -17,168 +17,157 @@ module Network.AWS.Glue.Types.ColumnStatisticsData
     mkColumnStatisticsData,
 
     -- * Lenses
+    csdType,
     csdBinaryColumnStatisticsData,
-    csdDateColumnStatisticsData,
     csdBooleanColumnStatisticsData,
+    csdDateColumnStatisticsData,
     csdDecimalColumnStatisticsData,
     csdDoubleColumnStatisticsData,
-    csdStringColumnStatisticsData,
-    csdType,
     csdLongColumnStatisticsData,
+    csdStringColumnStatisticsData,
   )
 where
 
-import Network.AWS.Glue.Types.BinaryColumnStatisticsData
-import Network.AWS.Glue.Types.BooleanColumnStatisticsData
-import Network.AWS.Glue.Types.ColumnStatisticsType
-import Network.AWS.Glue.Types.DateColumnStatisticsData
-import Network.AWS.Glue.Types.DecimalColumnStatisticsData
-import Network.AWS.Glue.Types.DoubleColumnStatisticsData
-import Network.AWS.Glue.Types.LongColumnStatisticsData
-import Network.AWS.Glue.Types.StringColumnStatisticsData
+import qualified Network.AWS.Glue.Types.BinaryColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.BooleanColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.ColumnStatisticsType as Types
+import qualified Network.AWS.Glue.Types.DateColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.DecimalColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.DoubleColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.LongColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.StringColumnStatisticsData as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the individual types of column statistics data. Only one data object should be set and indicated by the @Type@ attribute.
 --
 -- /See:/ 'mkColumnStatisticsData' smart constructor.
 data ColumnStatisticsData = ColumnStatisticsData'
-  { -- | Binary column statistics data.
-    binaryColumnStatisticsData :: Lude.Maybe BinaryColumnStatisticsData,
-    -- | Date column statistics data.
-    dateColumnStatisticsData :: Lude.Maybe DateColumnStatisticsData,
+  { -- | The type of column statistics data.
+    type' :: Types.ColumnStatisticsType,
+    -- | Binary column statistics data.
+    binaryColumnStatisticsData :: Core.Maybe Types.BinaryColumnStatisticsData,
     -- | Boolean column statistics data.
-    booleanColumnStatisticsData :: Lude.Maybe BooleanColumnStatisticsData,
+    booleanColumnStatisticsData :: Core.Maybe Types.BooleanColumnStatisticsData,
+    -- | Date column statistics data.
+    dateColumnStatisticsData :: Core.Maybe Types.DateColumnStatisticsData,
     -- | Decimal column statistics data.
-    decimalColumnStatisticsData :: Lude.Maybe DecimalColumnStatisticsData,
+    decimalColumnStatisticsData :: Core.Maybe Types.DecimalColumnStatisticsData,
     -- | Double column statistics data.
-    doubleColumnStatisticsData :: Lude.Maybe DoubleColumnStatisticsData,
-    -- | String column statistics data.
-    stringColumnStatisticsData :: Lude.Maybe StringColumnStatisticsData,
-    -- | The type of column statistics data.
-    type' :: ColumnStatisticsType,
+    doubleColumnStatisticsData :: Core.Maybe Types.DoubleColumnStatisticsData,
     -- | Long column statistics data.
-    longColumnStatisticsData :: Lude.Maybe LongColumnStatisticsData
+    longColumnStatisticsData :: Core.Maybe Types.LongColumnStatisticsData,
+    -- | String column statistics data.
+    stringColumnStatisticsData :: Core.Maybe Types.StringColumnStatisticsData
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ColumnStatisticsData' with the minimum fields required to make a request.
---
--- * 'binaryColumnStatisticsData' - Binary column statistics data.
--- * 'dateColumnStatisticsData' - Date column statistics data.
--- * 'booleanColumnStatisticsData' - Boolean column statistics data.
--- * 'decimalColumnStatisticsData' - Decimal column statistics data.
--- * 'doubleColumnStatisticsData' - Double column statistics data.
--- * 'stringColumnStatisticsData' - String column statistics data.
--- * 'type'' - The type of column statistics data.
--- * 'longColumnStatisticsData' - Long column statistics data.
+-- | Creates a 'ColumnStatisticsData' value with any optional fields omitted.
 mkColumnStatisticsData ::
-  -- | 'type''
-  ColumnStatisticsType ->
+  -- | 'type\''
+  Types.ColumnStatisticsType ->
   ColumnStatisticsData
-mkColumnStatisticsData pType_ =
+mkColumnStatisticsData type' =
   ColumnStatisticsData'
-    { binaryColumnStatisticsData = Lude.Nothing,
-      dateColumnStatisticsData = Lude.Nothing,
-      booleanColumnStatisticsData = Lude.Nothing,
-      decimalColumnStatisticsData = Lude.Nothing,
-      doubleColumnStatisticsData = Lude.Nothing,
-      stringColumnStatisticsData = Lude.Nothing,
-      type' = pType_,
-      longColumnStatisticsData = Lude.Nothing
+    { type',
+      binaryColumnStatisticsData = Core.Nothing,
+      booleanColumnStatisticsData = Core.Nothing,
+      dateColumnStatisticsData = Core.Nothing,
+      decimalColumnStatisticsData = Core.Nothing,
+      doubleColumnStatisticsData = Core.Nothing,
+      longColumnStatisticsData = Core.Nothing,
+      stringColumnStatisticsData = Core.Nothing
     }
+
+-- | The type of column statistics data.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdType :: Lens.Lens' ColumnStatisticsData Types.ColumnStatisticsType
+csdType = Lens.field @"type'"
+{-# DEPRECATED csdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Binary column statistics data.
 --
 -- /Note:/ Consider using 'binaryColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdBinaryColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe BinaryColumnStatisticsData)
-csdBinaryColumnStatisticsData = Lens.lens (binaryColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe BinaryColumnStatisticsData) (\s a -> s {binaryColumnStatisticsData = a} :: ColumnStatisticsData)
+csdBinaryColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.BinaryColumnStatisticsData)
+csdBinaryColumnStatisticsData = Lens.field @"binaryColumnStatisticsData"
 {-# DEPRECATED csdBinaryColumnStatisticsData "Use generic-lens or generic-optics with 'binaryColumnStatisticsData' instead." #-}
-
--- | Date column statistics data.
---
--- /Note:/ Consider using 'dateColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdDateColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe DateColumnStatisticsData)
-csdDateColumnStatisticsData = Lens.lens (dateColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe DateColumnStatisticsData) (\s a -> s {dateColumnStatisticsData = a} :: ColumnStatisticsData)
-{-# DEPRECATED csdDateColumnStatisticsData "Use generic-lens or generic-optics with 'dateColumnStatisticsData' instead." #-}
 
 -- | Boolean column statistics data.
 --
 -- /Note:/ Consider using 'booleanColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdBooleanColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe BooleanColumnStatisticsData)
-csdBooleanColumnStatisticsData = Lens.lens (booleanColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe BooleanColumnStatisticsData) (\s a -> s {booleanColumnStatisticsData = a} :: ColumnStatisticsData)
+csdBooleanColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.BooleanColumnStatisticsData)
+csdBooleanColumnStatisticsData = Lens.field @"booleanColumnStatisticsData"
 {-# DEPRECATED csdBooleanColumnStatisticsData "Use generic-lens or generic-optics with 'booleanColumnStatisticsData' instead." #-}
+
+-- | Date column statistics data.
+--
+-- /Note:/ Consider using 'dateColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdDateColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.DateColumnStatisticsData)
+csdDateColumnStatisticsData = Lens.field @"dateColumnStatisticsData"
+{-# DEPRECATED csdDateColumnStatisticsData "Use generic-lens or generic-optics with 'dateColumnStatisticsData' instead." #-}
 
 -- | Decimal column statistics data.
 --
 -- /Note:/ Consider using 'decimalColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdDecimalColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe DecimalColumnStatisticsData)
-csdDecimalColumnStatisticsData = Lens.lens (decimalColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe DecimalColumnStatisticsData) (\s a -> s {decimalColumnStatisticsData = a} :: ColumnStatisticsData)
+csdDecimalColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.DecimalColumnStatisticsData)
+csdDecimalColumnStatisticsData = Lens.field @"decimalColumnStatisticsData"
 {-# DEPRECATED csdDecimalColumnStatisticsData "Use generic-lens or generic-optics with 'decimalColumnStatisticsData' instead." #-}
 
 -- | Double column statistics data.
 --
 -- /Note:/ Consider using 'doubleColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdDoubleColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe DoubleColumnStatisticsData)
-csdDoubleColumnStatisticsData = Lens.lens (doubleColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe DoubleColumnStatisticsData) (\s a -> s {doubleColumnStatisticsData = a} :: ColumnStatisticsData)
+csdDoubleColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.DoubleColumnStatisticsData)
+csdDoubleColumnStatisticsData = Lens.field @"doubleColumnStatisticsData"
 {-# DEPRECATED csdDoubleColumnStatisticsData "Use generic-lens or generic-optics with 'doubleColumnStatisticsData' instead." #-}
-
--- | String column statistics data.
---
--- /Note:/ Consider using 'stringColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdStringColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe StringColumnStatisticsData)
-csdStringColumnStatisticsData = Lens.lens (stringColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe StringColumnStatisticsData) (\s a -> s {stringColumnStatisticsData = a} :: ColumnStatisticsData)
-{-# DEPRECATED csdStringColumnStatisticsData "Use generic-lens or generic-optics with 'stringColumnStatisticsData' instead." #-}
-
--- | The type of column statistics data.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdType :: Lens.Lens' ColumnStatisticsData ColumnStatisticsType
-csdType = Lens.lens (type' :: ColumnStatisticsData -> ColumnStatisticsType) (\s a -> s {type' = a} :: ColumnStatisticsData)
-{-# DEPRECATED csdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Long column statistics data.
 --
 -- /Note:/ Consider using 'longColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdLongColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe LongColumnStatisticsData)
-csdLongColumnStatisticsData = Lens.lens (longColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe LongColumnStatisticsData) (\s a -> s {longColumnStatisticsData = a} :: ColumnStatisticsData)
+csdLongColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.LongColumnStatisticsData)
+csdLongColumnStatisticsData = Lens.field @"longColumnStatisticsData"
 {-# DEPRECATED csdLongColumnStatisticsData "Use generic-lens or generic-optics with 'longColumnStatisticsData' instead." #-}
 
-instance Lude.FromJSON ColumnStatisticsData where
-  parseJSON =
-    Lude.withObject
-      "ColumnStatisticsData"
-      ( \x ->
-          ColumnStatisticsData'
-            Lude.<$> (x Lude..:? "BinaryColumnStatisticsData")
-            Lude.<*> (x Lude..:? "DateColumnStatisticsData")
-            Lude.<*> (x Lude..:? "BooleanColumnStatisticsData")
-            Lude.<*> (x Lude..:? "DecimalColumnStatisticsData")
-            Lude.<*> (x Lude..:? "DoubleColumnStatisticsData")
-            Lude.<*> (x Lude..:? "StringColumnStatisticsData")
-            Lude.<*> (x Lude..: "Type")
-            Lude.<*> (x Lude..:? "LongColumnStatisticsData")
-      )
+-- | String column statistics data.
+--
+-- /Note:/ Consider using 'stringColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdStringColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe Types.StringColumnStatisticsData)
+csdStringColumnStatisticsData = Lens.field @"stringColumnStatisticsData"
+{-# DEPRECATED csdStringColumnStatisticsData "Use generic-lens or generic-optics with 'stringColumnStatisticsData' instead." #-}
 
-instance Lude.ToJSON ColumnStatisticsData where
-  toJSON ColumnStatisticsData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BinaryColumnStatisticsData" Lude..=)
-              Lude.<$> binaryColumnStatisticsData,
-            ("DateColumnStatisticsData" Lude..=)
-              Lude.<$> dateColumnStatisticsData,
-            ("BooleanColumnStatisticsData" Lude..=)
-              Lude.<$> booleanColumnStatisticsData,
-            ("DecimalColumnStatisticsData" Lude..=)
-              Lude.<$> decimalColumnStatisticsData,
-            ("DoubleColumnStatisticsData" Lude..=)
-              Lude.<$> doubleColumnStatisticsData,
-            ("StringColumnStatisticsData" Lude..=)
-              Lude.<$> stringColumnStatisticsData,
-            Lude.Just ("Type" Lude..= type'),
-            ("LongColumnStatisticsData" Lude..=)
-              Lude.<$> longColumnStatisticsData
+instance Core.FromJSON ColumnStatisticsData where
+  toJSON ColumnStatisticsData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("BinaryColumnStatisticsData" Core..=)
+              Core.<$> binaryColumnStatisticsData,
+            ("BooleanColumnStatisticsData" Core..=)
+              Core.<$> booleanColumnStatisticsData,
+            ("DateColumnStatisticsData" Core..=)
+              Core.<$> dateColumnStatisticsData,
+            ("DecimalColumnStatisticsData" Core..=)
+              Core.<$> decimalColumnStatisticsData,
+            ("DoubleColumnStatisticsData" Core..=)
+              Core.<$> doubleColumnStatisticsData,
+            ("LongColumnStatisticsData" Core..=)
+              Core.<$> longColumnStatisticsData,
+            ("StringColumnStatisticsData" Core..=)
+              Core.<$> stringColumnStatisticsData
           ]
       )
+
+instance Core.FromJSON ColumnStatisticsData where
+  parseJSON =
+    Core.withObject "ColumnStatisticsData" Core.$
+      \x ->
+        ColumnStatisticsData'
+          Core.<$> (x Core..: "Type")
+          Core.<*> (x Core..:? "BinaryColumnStatisticsData")
+          Core.<*> (x Core..:? "BooleanColumnStatisticsData")
+          Core.<*> (x Core..:? "DateColumnStatisticsData")
+          Core.<*> (x Core..:? "DecimalColumnStatisticsData")
+          Core.<*> (x Core..:? "DoubleColumnStatisticsData")
+          Core.<*> (x Core..:? "LongColumnStatisticsData")
+          Core.<*> (x Core..:? "StringColumnStatisticsData")

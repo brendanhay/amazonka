@@ -27,106 +27,94 @@ module Network.AWS.Athena.GetDataCatalog
     mkGetDataCatalogResponse,
 
     -- ** Response lenses
-    gdcrsDataCatalog,
-    gdcrsResponseStatus,
+    gdcrrsDataCatalog,
+    gdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Athena.Types
+import qualified Network.AWS.Athena.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDataCatalog' smart constructor.
 newtype GetDataCatalog = GetDataCatalog'
   { -- | The name of the data catalog to return.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDataCatalog' with the minimum fields required to make a request.
---
--- * 'name' - The name of the data catalog to return.
+-- | Creates a 'GetDataCatalog' value with any optional fields omitted.
 mkGetDataCatalog ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   GetDataCatalog
-mkGetDataCatalog pName_ = GetDataCatalog' {name = pName_}
+mkGetDataCatalog name = GetDataCatalog' {name}
 
 -- | The name of the data catalog to return.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcName :: Lens.Lens' GetDataCatalog Lude.Text
-gdcName = Lens.lens (name :: GetDataCatalog -> Lude.Text) (\s a -> s {name = a} :: GetDataCatalog)
+gdcName :: Lens.Lens' GetDataCatalog Types.Name
+gdcName = Lens.field @"name"
 {-# DEPRECATED gdcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetDataCatalog where
+instance Core.FromJSON GetDataCatalog where
+  toJSON GetDataCatalog {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest GetDataCatalog where
   type Rs GetDataCatalog = GetDataCatalogResponse
-  request = Req.postJSON athenaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonAthena.GetDataCatalog")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDataCatalogResponse'
-            Lude.<$> (x Lude..?> "DataCatalog") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DataCatalog") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDataCatalog where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonAthena.GetDataCatalog" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDataCatalog where
-  toJSON GetDataCatalog' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath GetDataCatalog where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDataCatalog where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDataCatalogResponse' smart constructor.
 data GetDataCatalogResponse = GetDataCatalogResponse'
   { -- | The data catalog returned.
-    dataCatalog :: Lude.Maybe DataCatalog,
+    dataCatalog :: Core.Maybe Types.DataCatalog,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDataCatalogResponse' with the minimum fields required to make a request.
---
--- * 'dataCatalog' - The data catalog returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDataCatalogResponse' value with any optional fields omitted.
 mkGetDataCatalogResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDataCatalogResponse
-mkGetDataCatalogResponse pResponseStatus_ =
+mkGetDataCatalogResponse responseStatus =
   GetDataCatalogResponse'
-    { dataCatalog = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dataCatalog = Core.Nothing,
+      responseStatus
     }
 
 -- | The data catalog returned.
 --
 -- /Note:/ Consider using 'dataCatalog' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsDataCatalog :: Lens.Lens' GetDataCatalogResponse (Lude.Maybe DataCatalog)
-gdcrsDataCatalog = Lens.lens (dataCatalog :: GetDataCatalogResponse -> Lude.Maybe DataCatalog) (\s a -> s {dataCatalog = a} :: GetDataCatalogResponse)
-{-# DEPRECATED gdcrsDataCatalog "Use generic-lens or generic-optics with 'dataCatalog' instead." #-}
+gdcrrsDataCatalog :: Lens.Lens' GetDataCatalogResponse (Core.Maybe Types.DataCatalog)
+gdcrrsDataCatalog = Lens.field @"dataCatalog"
+{-# DEPRECATED gdcrrsDataCatalog "Use generic-lens or generic-optics with 'dataCatalog' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsResponseStatus :: Lens.Lens' GetDataCatalogResponse Lude.Int
-gdcrsResponseStatus = Lens.lens (responseStatus :: GetDataCatalogResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDataCatalogResponse)
-{-# DEPRECATED gdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdcrrsResponseStatus :: Lens.Lens' GetDataCatalogResponse Core.Int
+gdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

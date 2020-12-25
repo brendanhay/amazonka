@@ -20,117 +20,106 @@ module Network.AWS.KinesisAnalytics.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urTagKeys,
     urResourceARN,
+    urTagKeys,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
     mkUntagResourceResponse,
 
     -- ** Response lenses
-    urrsResponseStatus,
+    urrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | A list of keys of tags to remove from the specified application.
-    tagKeys :: Lude.NonEmpty Lude.Text,
-    -- | The ARN of the Kinesis Analytics application from which to remove the tags.
-    resourceARN :: Lude.Text
+  { -- | The ARN of the Kinesis Analytics application from which to remove the tags.
+    resourceARN :: Types.KinesisAnalyticsARN,
+    -- | A list of keys of tags to remove from the specified application.
+    tagKeys :: Core.NonEmpty Types.TagKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'tagKeys' - A list of keys of tags to remove from the specified application.
--- * 'resourceARN' - The ARN of the Kinesis Analytics application from which to remove the tags.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
-  -- | 'tagKeys'
-  Lude.NonEmpty Lude.Text ->
   -- | 'resourceARN'
-  Lude.Text ->
+  Types.KinesisAnalyticsARN ->
+  -- | 'tagKeys'
+  Core.NonEmpty Types.TagKey ->
   UntagResource
-mkUntagResource pTagKeys_ pResourceARN_ =
-  UntagResource' {tagKeys = pTagKeys_, resourceARN = pResourceARN_}
-
--- | A list of keys of tags to remove from the specified application.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource (Lude.NonEmpty Lude.Text)
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: UntagResource)
-{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+mkUntagResource resourceARN tagKeys =
+  UntagResource' {resourceARN, tagKeys}
 
 -- | The ARN of the Kinesis Analytics application from which to remove the tags.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARN :: Lens.Lens' UntagResource Lude.Text
-urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+urResourceARN :: Lens.Lens' UntagResource Types.KinesisAnalyticsARN
+urResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance Lude.AWSRequest UntagResource where
+-- | A list of keys of tags to remove from the specified application.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeys :: Lens.Lens' UntagResource (Core.NonEmpty Types.TagKey)
+urTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+instance Core.FromJSON UntagResource where
+  toJSON UntagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARN" Core..= resourceARN),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postJSON kinesisAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.UntagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UntagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UntagResourceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("KinesisAnalytics_20150814.UntagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UntagResource where
-  toJSON UntagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagKeys" Lude..= tagKeys),
-            Lude.Just ("ResourceARN" Lude..= resourceARN)
-          ]
-      )
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagResourceResponse
-mkUntagResourceResponse pResponseStatus_ =
-  UntagResourceResponse' {responseStatus = pResponseStatus_}
+mkUntagResourceResponse responseStatus =
+  UntagResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UntagResourceResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UntagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourceResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UntagResourceResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

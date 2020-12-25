@@ -13,51 +13,56 @@
 module Network.AWS.ServiceCatalog.Types.OrganizationNodeType
   ( OrganizationNodeType
       ( OrganizationNodeType',
-        ONTOrganization,
-        ONTOrganizationalUnit,
-        ONTAccount
+        OrganizationNodeTypeOrganization,
+        OrganizationNodeTypeOrganizationalUnit,
+        OrganizationNodeTypeAccount,
+        fromOrganizationNodeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrganizationNodeType = OrganizationNodeType' Lude.Text
+newtype OrganizationNodeType = OrganizationNodeType'
+  { fromOrganizationNodeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ONTOrganization :: OrganizationNodeType
-pattern ONTOrganization = OrganizationNodeType' "ORGANIZATION"
+pattern OrganizationNodeTypeOrganization :: OrganizationNodeType
+pattern OrganizationNodeTypeOrganization = OrganizationNodeType' "ORGANIZATION"
 
-pattern ONTOrganizationalUnit :: OrganizationNodeType
-pattern ONTOrganizationalUnit = OrganizationNodeType' "ORGANIZATIONAL_UNIT"
+pattern OrganizationNodeTypeOrganizationalUnit :: OrganizationNodeType
+pattern OrganizationNodeTypeOrganizationalUnit = OrganizationNodeType' "ORGANIZATIONAL_UNIT"
 
-pattern ONTAccount :: OrganizationNodeType
-pattern ONTAccount = OrganizationNodeType' "ACCOUNT"
+pattern OrganizationNodeTypeAccount :: OrganizationNodeType
+pattern OrganizationNodeTypeAccount = OrganizationNodeType' "ACCOUNT"
 
 {-# COMPLETE
-  ONTOrganization,
-  ONTOrganizationalUnit,
-  ONTAccount,
+  OrganizationNodeTypeOrganization,
+  OrganizationNodeTypeOrganizationalUnit,
+  OrganizationNodeTypeAccount,
   OrganizationNodeType'
   #-}

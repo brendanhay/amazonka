@@ -26,92 +26,69 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     mkDescribeClusterParameterGroups,
 
     -- ** Request lenses
-    dcpgsTagValues,
-    dcpgsTagKeys,
-    dcpgsMarker,
-    dcpgsMaxRecords,
-    dcpgsParameterGroupName,
+    dcpgMarker,
+    dcpgMaxRecords,
+    dcpgParameterGroupName,
+    dcpgTagKeys,
+    dcpgTagValues,
 
     -- * Destructuring the response
     DescribeClusterParameterGroupsResponse (..),
     mkDescribeClusterParameterGroupsResponse,
 
     -- ** Response lenses
-    dcpgrsMarker,
-    dcpgrsParameterGroups,
-    dcpgrsResponseStatus,
+    dcpgrrsMarker,
+    dcpgrrsParameterGroups,
+    dcpgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeClusterParameterGroups' smart constructor.
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
-  { -- | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.
-    tagValues :: Lude.Maybe [Lude.Text],
-    -- | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag keys associated with them.
-    tagKeys :: Lude.Maybe [Lude.Text],
-    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameterGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameterGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
     --
     -- Default: @100@
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
+    maxRecords :: Core.Maybe Core.Int,
     -- | The name of a specific parameter group for which to return details. By default, details about all parameter groups and the default parameter group are returned.
-    parameterGroupName :: Lude.Maybe Lude.Text
+    parameterGroupName :: Core.Maybe Types.String,
+    -- | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag keys associated with them.
+    tagKeys :: Core.Maybe [Types.String],
+    -- | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.
+    tagValues :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClusterParameterGroups' with the minimum fields required to make a request.
---
--- * 'tagValues' - A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag keys associated with them.
--- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameterGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
--- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: @100@
--- Constraints: minimum 20, maximum 100.
--- * 'parameterGroupName' - The name of a specific parameter group for which to return details. By default, details about all parameter groups and the default parameter group are returned.
+-- | Creates a 'DescribeClusterParameterGroups' value with any optional fields omitted.
 mkDescribeClusterParameterGroups ::
   DescribeClusterParameterGroups
 mkDescribeClusterParameterGroups =
   DescribeClusterParameterGroups'
-    { tagValues = Lude.Nothing,
-      tagKeys = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      parameterGroupName = Lude.Nothing
+    { marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      parameterGroupName = Core.Nothing,
+      tagKeys = Core.Nothing,
+      tagValues = Core.Nothing
     }
-
--- | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.
---
--- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgsTagValues :: Lens.Lens' DescribeClusterParameterGroups (Lude.Maybe [Lude.Text])
-dcpgsTagValues = Lens.lens (tagValues :: DescribeClusterParameterGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeClusterParameterGroups)
-{-# DEPRECATED dcpgsTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
-
--- | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag keys associated with them.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgsTagKeys :: Lens.Lens' DescribeClusterParameterGroups (Lude.Maybe [Lude.Text])
-dcpgsTagKeys = Lens.lens (tagKeys :: DescribeClusterParameterGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeClusterParameterGroups)
-{-# DEPRECATED dcpgsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameterGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgsMarker :: Lens.Lens' DescribeClusterParameterGroups (Lude.Maybe Lude.Text)
-dcpgsMarker = Lens.lens (marker :: DescribeClusterParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterParameterGroups)
-{-# DEPRECATED dcpgsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcpgMarker :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe Types.String)
+dcpgMarker = Lens.field @"marker"
+{-# DEPRECATED dcpgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -119,111 +96,132 @@ dcpgsMarker = Lens.lens (marker :: DescribeClusterParameterGroups -> Lude.Maybe 
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgsMaxRecords :: Lens.Lens' DescribeClusterParameterGroups (Lude.Maybe Lude.Int)
-dcpgsMaxRecords = Lens.lens (maxRecords :: DescribeClusterParameterGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusterParameterGroups)
-{-# DEPRECATED dcpgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dcpgMaxRecords :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe Core.Int)
+dcpgMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dcpgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of a specific parameter group for which to return details. By default, details about all parameter groups and the default parameter group are returned.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgsParameterGroupName :: Lens.Lens' DescribeClusterParameterGroups (Lude.Maybe Lude.Text)
-dcpgsParameterGroupName = Lens.lens (parameterGroupName :: DescribeClusterParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: DescribeClusterParameterGroups)
-{-# DEPRECATED dcpgsParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
+dcpgParameterGroupName :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe Types.String)
+dcpgParameterGroupName = Lens.field @"parameterGroupName"
+{-# DEPRECATED dcpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Page.AWSPager DescribeClusterParameterGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. dcpgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcpgrsParameterGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcpgsMarker Lens..~ rs Lens.^. dcpgrsMarker
+-- | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag keys associated with them.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpgTagKeys :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe [Types.String])
+dcpgTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED dcpgTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest DescribeClusterParameterGroups where
+-- | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpgTagValues :: Lens.Lens' DescribeClusterParameterGroups (Core.Maybe [Types.String])
+dcpgTagValues = Lens.field @"tagValues"
+{-# DEPRECATED dcpgTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+
+instance Core.AWSRequest DescribeClusterParameterGroups where
   type
     Rs DescribeClusterParameterGroups =
       DescribeClusterParameterGroupsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeClusterParameterGroups")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> ( Core.toQueryValue "ParameterGroupName"
+                            Core.<$> parameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TagKeys"
+                            (Core.toQueryList "TagKey" Core.<$> tagKeys)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TagValues"
+                            (Core.toQueryList "TagValue" Core.<$> tagValues)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeClusterParameterGroupsResult"
       ( \s h x ->
           DescribeClusterParameterGroupsResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "ParameterGroups" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "ClusterParameterGroup")
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> ( x Core..@? "ParameterGroups"
+                         Core..<@> Core.parseXMLList "ClusterParameterGroup"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeClusterParameterGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeClusterParameterGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeClusterParameterGroups where
-  toQuery DescribeClusterParameterGroups' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeClusterParameterGroups" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "TagValues"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagValue" Lude.<$> tagValues),
-        "TagKeys"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagKey" Lude.<$> tagKeys),
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "ParameterGroupName" Lude.=: parameterGroupName
-      ]
+instance Pager.AWSPager DescribeClusterParameterGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"parameterGroups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the output from the 'DescribeClusterParameterGroups' action.
 --
 -- /See:/ 'mkDescribeClusterParameterGroupsResponse' smart constructor.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
   { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | A list of 'ClusterParameterGroup' instances. Each instance describes one cluster parameter group.
-    parameterGroups :: Lude.Maybe [ClusterParameterGroup],
+    parameterGroups :: Core.Maybe [Types.ClusterParameterGroup],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClusterParameterGroupsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'parameterGroups' - A list of 'ClusterParameterGroup' instances. Each instance describes one cluster parameter group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeClusterParameterGroupsResponse' value with any optional fields omitted.
 mkDescribeClusterParameterGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeClusterParameterGroupsResponse
-mkDescribeClusterParameterGroupsResponse pResponseStatus_ =
+mkDescribeClusterParameterGroupsResponse responseStatus =
   DescribeClusterParameterGroupsResponse'
-    { marker = Lude.Nothing,
-      parameterGroups = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      parameterGroups = Core.Nothing,
+      responseStatus
     }
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgrsMarker :: Lens.Lens' DescribeClusterParameterGroupsResponse (Lude.Maybe Lude.Text)
-dcpgrsMarker = Lens.lens (marker :: DescribeClusterParameterGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterParameterGroupsResponse)
-{-# DEPRECATED dcpgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcpgrrsMarker :: Lens.Lens' DescribeClusterParameterGroupsResponse (Core.Maybe Types.String)
+dcpgrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dcpgrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of 'ClusterParameterGroup' instances. Each instance describes one cluster parameter group.
 --
 -- /Note:/ Consider using 'parameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgrsParameterGroups :: Lens.Lens' DescribeClusterParameterGroupsResponse (Lude.Maybe [ClusterParameterGroup])
-dcpgrsParameterGroups = Lens.lens (parameterGroups :: DescribeClusterParameterGroupsResponse -> Lude.Maybe [ClusterParameterGroup]) (\s a -> s {parameterGroups = a} :: DescribeClusterParameterGroupsResponse)
-{-# DEPRECATED dcpgrsParameterGroups "Use generic-lens or generic-optics with 'parameterGroups' instead." #-}
+dcpgrrsParameterGroups :: Lens.Lens' DescribeClusterParameterGroupsResponse (Core.Maybe [Types.ClusterParameterGroup])
+dcpgrrsParameterGroups = Lens.field @"parameterGroups"
+{-# DEPRECATED dcpgrrsParameterGroups "Use generic-lens or generic-optics with 'parameterGroups' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgrsResponseStatus :: Lens.Lens' DescribeClusterParameterGroupsResponse Lude.Int
-dcpgrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterParameterGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterParameterGroupsResponse)
-{-# DEPRECATED dcpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcpgrrsResponseStatus :: Lens.Lens' DescribeClusterParameterGroupsResponse Core.Int
+dcpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

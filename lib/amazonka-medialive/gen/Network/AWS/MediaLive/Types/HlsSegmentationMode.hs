@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.HlsSegmentationMode
   ( HlsSegmentationMode
       ( HlsSegmentationMode',
-        HSMUseInputSegmentation,
-        HSMUseSegmentDuration
+        HlsSegmentationModeUseInputSegmentation,
+        HlsSegmentationModeUseSegmentDuration,
+        fromHlsSegmentationMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Segmentation Mode
-newtype HlsSegmentationMode = HlsSegmentationMode' Lude.Text
+newtype HlsSegmentationMode = HlsSegmentationMode'
+  { fromHlsSegmentationMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HSMUseInputSegmentation :: HlsSegmentationMode
-pattern HSMUseInputSegmentation = HlsSegmentationMode' "USE_INPUT_SEGMENTATION"
+pattern HlsSegmentationModeUseInputSegmentation :: HlsSegmentationMode
+pattern HlsSegmentationModeUseInputSegmentation = HlsSegmentationMode' "USE_INPUT_SEGMENTATION"
 
-pattern HSMUseSegmentDuration :: HlsSegmentationMode
-pattern HSMUseSegmentDuration = HlsSegmentationMode' "USE_SEGMENT_DURATION"
+pattern HlsSegmentationModeUseSegmentDuration :: HlsSegmentationMode
+pattern HlsSegmentationModeUseSegmentDuration = HlsSegmentationMode' "USE_SEGMENT_DURATION"
 
 {-# COMPLETE
-  HSMUseInputSegmentation,
-  HSMUseSegmentDuration,
+  HlsSegmentationModeUseInputSegmentation,
+  HlsSegmentationModeUseSegmentDuration,
   HlsSegmentationMode'
   #-}

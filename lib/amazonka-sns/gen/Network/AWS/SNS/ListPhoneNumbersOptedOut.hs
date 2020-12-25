@@ -31,129 +31,127 @@ module Network.AWS.SNS.ListPhoneNumbersOptedOut
     mkListPhoneNumbersOptedOutResponse,
 
     -- ** Response lenses
-    lpnoorsPhoneNumbers,
-    lpnoorsNextToken,
-    lpnoorsResponseStatus,
+    lpnoorrsNextToken,
+    lpnoorrsPhoneNumbers,
+    lpnoorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | The input for the @ListPhoneNumbersOptedOut@ action.
 --
 -- /See:/ 'mkListPhoneNumbersOptedOut' smart constructor.
 newtype ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOut'
   { -- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPhoneNumbersOptedOut' with the minimum fields required to make a request.
---
--- * 'nextToken' - A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
+-- | Creates a 'ListPhoneNumbersOptedOut' value with any optional fields omitted.
 mkListPhoneNumbersOptedOut ::
   ListPhoneNumbersOptedOut
 mkListPhoneNumbersOptedOut =
-  ListPhoneNumbersOptedOut' {nextToken = Lude.Nothing}
+  ListPhoneNumbersOptedOut' {nextToken = Core.Nothing}
 
 -- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpnooNextToken :: Lens.Lens' ListPhoneNumbersOptedOut (Lude.Maybe Lude.Text)
-lpnooNextToken = Lens.lens (nextToken :: ListPhoneNumbersOptedOut -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPhoneNumbersOptedOut)
+lpnooNextToken :: Lens.Lens' ListPhoneNumbersOptedOut (Core.Maybe Types.String)
+lpnooNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lpnooNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListPhoneNumbersOptedOut where
-  page rq rs
-    | Page.stop (rs Lens.^. lpnoorsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lpnoorsPhoneNumbers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpnooNextToken Lens..~ rs Lens.^. lpnoorsNextToken
-
-instance Lude.AWSRequest ListPhoneNumbersOptedOut where
+instance Core.AWSRequest ListPhoneNumbersOptedOut where
   type Rs ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOutResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListPhoneNumbersOptedOut")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListPhoneNumbersOptedOutResult"
       ( \s h x ->
           ListPhoneNumbersOptedOutResponse'
-            Lude.<$> ( x Lude..@? "phoneNumbers" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> (x Core..@? "phoneNumbers" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListPhoneNumbersOptedOut where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPhoneNumbersOptedOut where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListPhoneNumbersOptedOut where
-  toQuery ListPhoneNumbersOptedOut' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListPhoneNumbersOptedOut" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "nextToken" Lude.=: nextToken
-      ]
+instance Pager.AWSPager ListPhoneNumbersOptedOut where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"phoneNumbers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | The response from the @ListPhoneNumbersOptedOut@ action.
 --
 -- /See:/ 'mkListPhoneNumbersOptedOutResponse' smart constructor.
 data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
-  { -- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
-    phoneNumbers :: Lude.Maybe [Lude.Text],
-    -- | A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
+    phoneNumbers :: Core.Maybe [Types.PhoneNumber],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPhoneNumbersOptedOutResponse' with the minimum fields required to make a request.
---
--- * 'phoneNumbers' - A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
--- * 'nextToken' - A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPhoneNumbersOptedOutResponse' value with any optional fields omitted.
 mkListPhoneNumbersOptedOutResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPhoneNumbersOptedOutResponse
-mkListPhoneNumbersOptedOutResponse pResponseStatus_ =
+mkListPhoneNumbersOptedOutResponse responseStatus =
   ListPhoneNumbersOptedOutResponse'
-    { phoneNumbers = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      phoneNumbers = Core.Nothing,
+      responseStatus
     }
-
--- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
---
--- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpnoorsPhoneNumbers :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Lude.Maybe [Lude.Text])
-lpnoorsPhoneNumbers = Lens.lens (phoneNumbers :: ListPhoneNumbersOptedOutResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {phoneNumbers = a} :: ListPhoneNumbersOptedOutResponse)
-{-# DEPRECATED lpnoorsPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
 
 -- | A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpnoorsNextToken :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Lude.Maybe Lude.Text)
-lpnoorsNextToken = Lens.lens (nextToken :: ListPhoneNumbersOptedOutResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPhoneNumbersOptedOutResponse)
-{-# DEPRECATED lpnoorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lpnoorrsNextToken :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Core.Maybe Types.String)
+lpnoorrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpnoorrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
+--
+-- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpnoorrsPhoneNumbers :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Core.Maybe [Types.PhoneNumber])
+lpnoorrsPhoneNumbers = Lens.field @"phoneNumbers"
+{-# DEPRECATED lpnoorrsPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpnoorsResponseStatus :: Lens.Lens' ListPhoneNumbersOptedOutResponse Lude.Int
-lpnoorsResponseStatus = Lens.lens (responseStatus :: ListPhoneNumbersOptedOutResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPhoneNumbersOptedOutResponse)
-{-# DEPRECATED lpnoorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpnoorrsResponseStatus :: Lens.Lens' ListPhoneNumbersOptedOutResponse Core.Int
+lpnoorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpnoorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

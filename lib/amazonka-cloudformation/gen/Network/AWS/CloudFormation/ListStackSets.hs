@@ -22,160 +22,155 @@ module Network.AWS.CloudFormation.ListStackSets
     mkListStackSets,
 
     -- ** Request lenses
-    lssStatus,
-    lssNextToken,
     lssMaxResults,
+    lssNextToken,
+    lssStatus,
 
     -- * Destructuring the response
     ListStackSetsResponse (..),
     mkListStackSetsResponse,
 
     -- ** Response lenses
-    lssrsNextToken,
-    lssrsSummaries,
-    lssrsResponseStatus,
+    lssrrsNextToken,
+    lssrrsSummaries,
+    lssrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListStackSets' smart constructor.
 data ListStackSets = ListStackSets'
-  { -- | The status of the stack sets that you want to get summary information about.
-    status :: Lude.Maybe StackSetStatus,
+  { -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+    maxResults :: Core.Maybe Core.Natural,
     -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackSets@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The status of the stack sets that you want to get summary information about.
+    status :: Core.Maybe Types.StackSetStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStackSets' with the minimum fields required to make a request.
---
--- * 'status' - The status of the stack sets that you want to get summary information about.
--- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackSets@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
--- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- | Creates a 'ListStackSets' value with any optional fields omitted.
 mkListStackSets ::
   ListStackSets
 mkListStackSets =
   ListStackSets'
-    { status = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the stack sets that you want to get summary information about.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssStatus :: Lens.Lens' ListStackSets (Lude.Maybe StackSetStatus)
-lssStatus = Lens.lens (status :: ListStackSets -> Lude.Maybe StackSetStatus) (\s a -> s {status = a} :: ListStackSets)
-{-# DEPRECATED lssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackSets@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssNextToken :: Lens.Lens' ListStackSets (Lude.Maybe Lude.Text)
-lssNextToken = Lens.lens (nextToken :: ListStackSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStackSets)
-{-# DEPRECATED lssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssMaxResults :: Lens.Lens' ListStackSets (Lude.Maybe Lude.Natural)
-lssMaxResults = Lens.lens (maxResults :: ListStackSets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListStackSets)
+lssMaxResults :: Lens.Lens' ListStackSets (Core.Maybe Core.Natural)
+lssMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lssMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListStackSets where
-  page rq rs
-    | Page.stop (rs Lens.^. lssrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lssrsSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lssNextToken Lens..~ rs Lens.^. lssrsNextToken
+-- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackSets@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lssNextToken :: Lens.Lens' ListStackSets (Core.Maybe Types.NextToken)
+lssNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListStackSets where
+-- | The status of the stack sets that you want to get summary information about.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lssStatus :: Lens.Lens' ListStackSets (Core.Maybe Types.StackSetStatus)
+lssStatus = Lens.field @"status"
+{-# DEPRECATED lssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.AWSRequest ListStackSets where
   type Rs ListStackSets = ListStackSetsResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListStackSets")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryValue "Status" Core.<$> status)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListStackSetsResult"
       ( \s h x ->
           ListStackSetsResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "Summaries" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (x Core..@? "Summaries" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListStackSets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListStackSets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListStackSets where
-  toQuery ListStackSets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListStackSets" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "Status" Lude.=: status,
-        "NextToken" Lude.=: nextToken,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListStackSets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"summaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListStackSetsResponse' smart constructor.
 data ListStackSetsResponse = ListStackSetsResponse'
   { -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of @StackSetSummary@ structures that contain information about the user's stack sets.
-    summaries :: Lude.Maybe [StackSetSummary],
+    summaries :: Core.Maybe [Types.StackSetSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListStackSetsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
--- * 'summaries' - A list of @StackSetSummary@ structures that contain information about the user's stack sets.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStackSetsResponse' value with any optional fields omitted.
 mkListStackSetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStackSetsResponse
-mkListStackSetsResponse pResponseStatus_ =
+mkListStackSetsResponse responseStatus =
   ListStackSetsResponse'
-    { nextToken = Lude.Nothing,
-      summaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      summaries = Core.Nothing,
+      responseStatus
     }
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssrsNextToken :: Lens.Lens' ListStackSetsResponse (Lude.Maybe Lude.Text)
-lssrsNextToken = Lens.lens (nextToken :: ListStackSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStackSetsResponse)
-{-# DEPRECATED lssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lssrrsNextToken :: Lens.Lens' ListStackSetsResponse (Core.Maybe Types.NextToken)
+lssrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lssrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @StackSetSummary@ structures that contain information about the user's stack sets.
 --
 -- /Note:/ Consider using 'summaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssrsSummaries :: Lens.Lens' ListStackSetsResponse (Lude.Maybe [StackSetSummary])
-lssrsSummaries = Lens.lens (summaries :: ListStackSetsResponse -> Lude.Maybe [StackSetSummary]) (\s a -> s {summaries = a} :: ListStackSetsResponse)
-{-# DEPRECATED lssrsSummaries "Use generic-lens or generic-optics with 'summaries' instead." #-}
+lssrrsSummaries :: Lens.Lens' ListStackSetsResponse (Core.Maybe [Types.StackSetSummary])
+lssrrsSummaries = Lens.field @"summaries"
+{-# DEPRECATED lssrrsSummaries "Use generic-lens or generic-optics with 'summaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssrsResponseStatus :: Lens.Lens' ListStackSetsResponse Lude.Int
-lssrsResponseStatus = Lens.lens (responseStatus :: ListStackSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStackSetsResponse)
-{-# DEPRECATED lssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lssrrsResponseStatus :: Lens.Lens' ListStackSetsResponse Core.Int
+lssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

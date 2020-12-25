@@ -21,43 +21,38 @@ module Network.AWS.Glue.Types.ConnectionsList
   )
 where
 
+import qualified Network.AWS.Glue.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the connections used by a job.
 --
 -- /See:/ 'mkConnectionsList' smart constructor.
 newtype ConnectionsList = ConnectionsList'
   { -- | A list of connections used by the job.
-    connections :: Lude.Maybe [Lude.Text]
+    connections :: Core.Maybe [Types.GenericString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectionsList' with the minimum fields required to make a request.
---
--- * 'connections' - A list of connections used by the job.
+-- | Creates a 'ConnectionsList' value with any optional fields omitted.
 mkConnectionsList ::
   ConnectionsList
-mkConnectionsList = ConnectionsList' {connections = Lude.Nothing}
+mkConnectionsList = ConnectionsList' {connections = Core.Nothing}
 
 -- | A list of connections used by the job.
 --
 -- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clConnections :: Lens.Lens' ConnectionsList (Lude.Maybe [Lude.Text])
-clConnections = Lens.lens (connections :: ConnectionsList -> Lude.Maybe [Lude.Text]) (\s a -> s {connections = a} :: ConnectionsList)
+clConnections :: Lens.Lens' ConnectionsList (Core.Maybe [Types.GenericString])
+clConnections = Lens.field @"connections"
 {-# DEPRECATED clConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
-instance Lude.FromJSON ConnectionsList where
-  parseJSON =
-    Lude.withObject
-      "ConnectionsList"
-      ( \x ->
-          ConnectionsList'
-            Lude.<$> (x Lude..:? "Connections" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON ConnectionsList where
+  toJSON ConnectionsList {..} =
+    Core.object
+      (Core.catMaybes [("Connections" Core..=) Core.<$> connections])
 
-instance Lude.ToJSON ConnectionsList where
-  toJSON ConnectionsList' {..} =
-    Lude.object
-      (Lude.catMaybes [("Connections" Lude..=) Lude.<$> connections])
+instance Core.FromJSON ConnectionsList where
+  parseJSON =
+    Core.withObject "ConnectionsList" Core.$
+      \x -> ConnectionsList' Core.<$> (x Core..:? "Connections")

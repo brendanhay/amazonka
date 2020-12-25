@@ -22,10 +22,10 @@ module Network.AWS.EC2.Types.TagSpecification
   )
 where
 
-import Network.AWS.EC2.Types.ResourceType
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.ResourceType as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The tags to apply to a resource when the resource is being created.
 --
@@ -34,25 +34,20 @@ data TagSpecification = TagSpecification'
   { -- | The type of resource to tag. Currently, the resource types that support tagging on creation are: @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ | @dhcp-options@ | @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ | @host-reservation@ | @import-image-task@ | @import-snapshot-task@ | @instance@ | @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ | @placement-group@ | @prefix-list@ | @natgateway@ | @network-acl@ | @route-table@ | @security-group@ | @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@ | @traffic-mirror-filter@ | @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ | @transit-gateway-attachment@ | @transit-gateway-route-table@ | @volume@ |@vpc@ | @vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) | @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@ .
     --
     -- To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
-    resourceType :: Lude.Maybe ResourceType,
+    resourceType :: Core.Maybe Types.ResourceType,
     -- | The tags to apply to the resource.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagSpecification' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are: @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ | @dhcp-options@ | @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ | @host-reservation@ | @import-image-task@ | @import-snapshot-task@ | @instance@ | @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ | @placement-group@ | @prefix-list@ | @natgateway@ | @network-acl@ | @route-table@ | @security-group@ | @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@ | @traffic-mirror-filter@ | @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ | @transit-gateway-attachment@ | @transit-gateway-route-table@ | @volume@ |@vpc@ | @vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) | @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@ .
---
--- To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
--- * 'tags' - The tags to apply to the resource.
+-- | Creates a 'TagSpecification' value with any optional fields omitted.
 mkTagSpecification ::
   TagSpecification
 mkTagSpecification =
   TagSpecification'
-    { resourceType = Lude.Nothing,
-      tags = Lude.Nothing
+    { resourceType = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The type of resource to tag. Currently, the resource types that support tagging on creation are: @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ | @dhcp-options@ | @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ | @host-reservation@ | @import-image-task@ | @import-snapshot-task@ | @instance@ | @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ | @placement-group@ | @prefix-list@ | @natgateway@ | @network-acl@ | @route-table@ | @security-group@ | @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@ | @traffic-mirror-filter@ | @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ | @transit-gateway-attachment@ | @transit-gateway-route-table@ | @volume@ |@vpc@ | @vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) | @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@ .
@@ -60,28 +55,19 @@ mkTagSpecification =
 -- To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsResourceType :: Lens.Lens' TagSpecification (Lude.Maybe ResourceType)
-tsResourceType = Lens.lens (resourceType :: TagSpecification -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: TagSpecification)
+tsResourceType :: Lens.Lens' TagSpecification (Core.Maybe Types.ResourceType)
+tsResourceType = Lens.field @"resourceType"
 {-# DEPRECATED tsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tags to apply to the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsTags :: Lens.Lens' TagSpecification (Lude.Maybe [Tag])
-tsTags = Lens.lens (tags :: TagSpecification -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TagSpecification)
+tsTags :: Lens.Lens' TagSpecification (Core.Maybe [Types.Tag])
+tsTags = Lens.field @"tags"
 {-# DEPRECATED tsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML TagSpecification where
+instance Core.FromXML TagSpecification where
   parseXML x =
     TagSpecification'
-      Lude.<$> (x Lude..@? "resourceType")
-      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-
-instance Lude.ToQuery TagSpecification where
-  toQuery TagSpecification' {..} =
-    Lude.mconcat
-      [ "ResourceType" Lude.=: resourceType,
-        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
+      Core.<$> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "Tag" Core..<@> Core.parseXMLList "item")

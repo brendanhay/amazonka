@@ -52,151 +52,139 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     mkCreateReusableDelegationSet,
 
     -- ** Request lenses
-    crdsHostedZoneId,
     crdsCallerReference,
+    crdsHostedZoneId,
 
     -- * Destructuring the response
     CreateReusableDelegationSetResponse (..),
     mkCreateReusableDelegationSetResponse,
 
     -- ** Response lenses
-    crdsrsLocation,
-    crdsrsDelegationSet,
-    crdsrsResponseStatus,
+    crdsrrsDelegationSet,
+    crdsrrsLocation,
+    crdsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | /See:/ 'mkCreateReusableDelegationSet' smart constructor.
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
-  { -- | If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
-    hostedZoneId :: Lude.Maybe ResourceId,
-    -- | A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.
-    callerReference :: Lude.Text
+  { -- | A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.
+    callerReference :: Types.CallerReference,
+    -- | If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
+    hostedZoneId :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReusableDelegationSet' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
--- * 'callerReference' - A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.
+-- | Creates a 'CreateReusableDelegationSet' value with any optional fields omitted.
 mkCreateReusableDelegationSet ::
   -- | 'callerReference'
-  Lude.Text ->
+  Types.CallerReference ->
   CreateReusableDelegationSet
-mkCreateReusableDelegationSet pCallerReference_ =
+mkCreateReusableDelegationSet callerReference =
   CreateReusableDelegationSet'
-    { hostedZoneId = Lude.Nothing,
-      callerReference = pCallerReference_
+    { callerReference,
+      hostedZoneId = Core.Nothing
     }
-
--- | If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
---
--- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsHostedZoneId :: Lens.Lens' CreateReusableDelegationSet (Lude.Maybe ResourceId)
-crdsHostedZoneId = Lens.lens (hostedZoneId :: CreateReusableDelegationSet -> Lude.Maybe ResourceId) (\s a -> s {hostedZoneId = a} :: CreateReusableDelegationSet)
-{-# DEPRECATED crdsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.
 --
 -- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsCallerReference :: Lens.Lens' CreateReusableDelegationSet Lude.Text
-crdsCallerReference = Lens.lens (callerReference :: CreateReusableDelegationSet -> Lude.Text) (\s a -> s {callerReference = a} :: CreateReusableDelegationSet)
+crdsCallerReference :: Lens.Lens' CreateReusableDelegationSet Types.CallerReference
+crdsCallerReference = Lens.field @"callerReference"
 {-# DEPRECATED crdsCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
-instance Lude.AWSRequest CreateReusableDelegationSet where
+-- | If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsHostedZoneId :: Lens.Lens' CreateReusableDelegationSet (Core.Maybe Types.ResourceId)
+crdsHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED crdsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+
+instance Core.ToXML CreateReusableDelegationSet where
+  toXML CreateReusableDelegationSet {..} =
+    Core.toXMLNode "CallerReference" callerReference
+      Core.<> Core.toXMLNode "HostedZoneId" Core.<$> hostedZoneId
+  toXMLDocument =
+    Core.mkXMLElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}CreateReusableDelegationSetRequest"
+
+instance Core.AWSRequest CreateReusableDelegationSet where
   type
     Rs CreateReusableDelegationSet =
       CreateReusableDelegationSetResponse
-  request = Req.postXML route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2013-04-01/delegationset",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateReusableDelegationSetResponse'
-            Lude.<$> (h Lude..# "Location")
-            Lude.<*> (x Lude..@ "DelegationSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "DelegationSet")
+            Core.<*> (Core.parseHeader "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateReusableDelegationSet where
-  toElement =
-    Lude.mkElement
-      "{https://route53.amazonaws.com/doc/2013-04-01/}CreateReusableDelegationSetRequest"
-
-instance Lude.ToHeaders CreateReusableDelegationSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateReusableDelegationSet where
-  toPath = Lude.const "/2013-04-01/delegationset"
-
-instance Lude.ToQuery CreateReusableDelegationSet where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML CreateReusableDelegationSet where
-  toXML CreateReusableDelegationSet' {..} =
-    Lude.mconcat
-      [ "HostedZoneId" Lude.@= hostedZoneId,
-        "CallerReference" Lude.@= callerReference
-      ]
 
 -- | /See:/ 'mkCreateReusableDelegationSetResponse' smart constructor.
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
-  { -- | The unique URL representing the new reusable delegation set.
-    location :: Lude.Text,
-    -- | A complex type that contains name server information.
-    delegationSet :: DelegationSet,
+  { -- | A complex type that contains name server information.
+    delegationSet :: Types.DelegationSet,
+    -- | The unique URL representing the new reusable delegation set.
+    location :: Types.ResourceURI,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReusableDelegationSetResponse' with the minimum fields required to make a request.
---
--- * 'location' - The unique URL representing the new reusable delegation set.
--- * 'delegationSet' - A complex type that contains name server information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateReusableDelegationSetResponse' value with any optional fields omitted.
 mkCreateReusableDelegationSetResponse ::
-  -- | 'location'
-  Lude.Text ->
   -- | 'delegationSet'
-  DelegationSet ->
+  Types.DelegationSet ->
+  -- | 'location'
+  Types.ResourceURI ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateReusableDelegationSetResponse
 mkCreateReusableDelegationSetResponse
-  pLocation_
-  pDelegationSet_
-  pResponseStatus_ =
+  delegationSet
+  location
+  responseStatus =
     CreateReusableDelegationSetResponse'
-      { location = pLocation_,
-        delegationSet = pDelegationSet_,
-        responseStatus = pResponseStatus_
+      { delegationSet,
+        location,
+        responseStatus
       }
-
--- | The unique URL representing the new reusable delegation set.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsrsLocation :: Lens.Lens' CreateReusableDelegationSetResponse Lude.Text
-crdsrsLocation = Lens.lens (location :: CreateReusableDelegationSetResponse -> Lude.Text) (\s a -> s {location = a} :: CreateReusableDelegationSetResponse)
-{-# DEPRECATED crdsrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | A complex type that contains name server information.
 --
 -- /Note:/ Consider using 'delegationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsrsDelegationSet :: Lens.Lens' CreateReusableDelegationSetResponse DelegationSet
-crdsrsDelegationSet = Lens.lens (delegationSet :: CreateReusableDelegationSetResponse -> DelegationSet) (\s a -> s {delegationSet = a} :: CreateReusableDelegationSetResponse)
-{-# DEPRECATED crdsrsDelegationSet "Use generic-lens or generic-optics with 'delegationSet' instead." #-}
+crdsrrsDelegationSet :: Lens.Lens' CreateReusableDelegationSetResponse Types.DelegationSet
+crdsrrsDelegationSet = Lens.field @"delegationSet"
+{-# DEPRECATED crdsrrsDelegationSet "Use generic-lens or generic-optics with 'delegationSet' instead." #-}
+
+-- | The unique URL representing the new reusable delegation set.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsrrsLocation :: Lens.Lens' CreateReusableDelegationSetResponse Types.ResourceURI
+crdsrrsLocation = Lens.field @"location"
+{-# DEPRECATED crdsrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsrsResponseStatus :: Lens.Lens' CreateReusableDelegationSetResponse Lude.Int
-crdsrsResponseStatus = Lens.lens (responseStatus :: CreateReusableDelegationSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReusableDelegationSetResponse)
-{-# DEPRECATED crdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crdsrrsResponseStatus :: Lens.Lens' CreateReusableDelegationSetResponse Core.Int
+crdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

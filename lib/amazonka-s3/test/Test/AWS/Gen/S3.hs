@@ -54,8 +54,8 @@ import Test.Tasty
 --         , requestDeleteBucketTagging $
 --             mkDeleteBucketTagging
 --
---         , requestPutObjectACL $
---             mkPutObjectACL
+--         , requestPutObjectAcl $
+--             mkPutObjectAcl
 --
 --         , requestPutBucketTagging $
 --             mkPutBucketTagging
@@ -219,8 +219,8 @@ import Test.Tasty
 --         , requestGetBucketVersioning $
 --             mkGetBucketVersioning
 --
---         , requestDeleteBucketCORS $
---             mkDeleteBucketCORS
+--         , requestDeleteBucketCors $
+--             mkDeleteBucketCors
 --
 --         , requestDeleteBucketIntelligentTieringConfiguration $
 --             mkDeleteBucketIntelligentTieringConfiguration
@@ -228,8 +228,8 @@ import Test.Tasty
 --         , requestListBucketIntelligentTieringConfigurations $
 --             mkListBucketIntelligentTieringConfigurations
 --
---         , requestPutBucketCORS $
---             mkPutBucketCORS
+--         , requestPutBucketCors $
+--             mkPutBucketCors
 --
 --         , requestGetPublicAccessBlock $
 --             mkGetPublicAccessBlock
@@ -237,11 +237,11 @@ import Test.Tasty
 --         , requestPutBucketIntelligentTieringConfiguration $
 --             mkPutBucketIntelligentTieringConfiguration
 --
---         , requestGetBucketCORS $
---             mkGetBucketCORS
+--         , requestGetBucketCors $
+--             mkGetBucketCors
 --
---         , requestGetObjectACL $
---             mkGetObjectACL
+--         , requestGetObjectAcl $
+--             mkGetObjectAcl
 --
 --         , requestRestoreObject $
 --             mkRestoreObject
@@ -273,8 +273,8 @@ import Test.Tasty
 --         , requestGetBucketLogging $
 --             mkGetBucketLogging
 --
---         , requestGetBucketACL $
---             mkGetBucketACL
+--         , requestGetBucketAcl $
+--             mkGetBucketAcl
 --
 --         , requestGetBucketLifecycleConfiguration $
 --             mkGetBucketLifecycleConfiguration
@@ -297,8 +297,8 @@ import Test.Tasty
 --         , requestPutObjectTagging $
 --             mkPutObjectTagging
 --
---         , requestPutBucketACL $
---             mkPutBucketACL
+--         , requestPutBucketAcl $
+--             mkPutBucketAcl
 --
 --           ]
 
@@ -330,8 +330,8 @@ import Test.Tasty
 --         , responseDeleteBucketTagging $
 --             mkDeleteBucketTaggingResponse
 --
---         , responsePutObjectACL $
---             mkPutObjectACLResponse
+--         , responsePutObjectAcl $
+--             mkPutObjectAclResponse
 --
 --         , responsePutBucketTagging $
 --             mkPutBucketTaggingResponse
@@ -495,8 +495,8 @@ import Test.Tasty
 --         , responseGetBucketVersioning $
 --             mkGetBucketVersioningResponse
 --
---         , responseDeleteBucketCORS $
---             mkDeleteBucketCORSResponse
+--         , responseDeleteBucketCors $
+--             mkDeleteBucketCorsResponse
 --
 --         , responseDeleteBucketIntelligentTieringConfiguration $
 --             mkDeleteBucketIntelligentTieringConfigurationResponse
@@ -504,8 +504,8 @@ import Test.Tasty
 --         , responseListBucketIntelligentTieringConfigurations $
 --             mkListBucketIntelligentTieringConfigurationsResponse
 --
---         , responsePutBucketCORS $
---             mkPutBucketCORSResponse
+--         , responsePutBucketCors $
+--             mkPutBucketCorsResponse
 --
 --         , responseGetPublicAccessBlock $
 --             mkGetPublicAccessBlockResponse
@@ -513,11 +513,11 @@ import Test.Tasty
 --         , responsePutBucketIntelligentTieringConfiguration $
 --             mkPutBucketIntelligentTieringConfigurationResponse
 --
---         , responseGetBucketCORS $
---             mkGetBucketCORSResponse
+--         , responseGetBucketCors $
+--             mkGetBucketCorsResponse
 --
---         , responseGetObjectACL $
---             mkGetObjectACLResponse
+--         , responseGetObjectAcl $
+--             mkGetObjectAclResponse
 --
 --         , responseRestoreObject $
 --             mkRestoreObjectResponse
@@ -549,8 +549,8 @@ import Test.Tasty
 --         , responseGetBucketLogging $
 --             mkGetBucketLoggingResponse
 --
---         , responseGetBucketACL $
---             mkGetBucketACLResponse
+--         , responseGetBucketAcl $
+--             mkGetBucketAclResponse
 --
 --         , responseGetBucketLifecycleConfiguration $
 --             mkGetBucketLifecycleConfigurationResponse
@@ -573,8 +573,8 @@ import Test.Tasty
 --         , responsePutObjectTagging $
 --             mkPutObjectTaggingResponse
 --
---         , responsePutBucketACL $
---             mkPutBucketACLResponse
+--         , responsePutBucketAcl $
+--             mkPutBucketAclResponse
 --
 --           ]
 --     ]
@@ -629,11 +629,11 @@ requestDeleteBucketTagging =
     "DeleteBucketTagging"
     "fixture/DeleteBucketTagging.yaml"
 
-requestPutObjectACL :: PutObjectACL -> TestTree
-requestPutObjectACL =
+requestPutObjectAcl :: PutObjectAcl -> TestTree
+requestPutObjectAcl =
   req
-    "PutObjectACL"
-    "fixture/PutObjectACL.yaml"
+    "PutObjectAcl"
+    "fixture/PutObjectAcl.yaml"
 
 requestPutBucketTagging :: PutBucketTagging -> TestTree
 requestPutBucketTagging =
@@ -953,11 +953,11 @@ requestGetBucketVersioning =
     "GetBucketVersioning"
     "fixture/GetBucketVersioning.yaml"
 
-requestDeleteBucketCORS :: DeleteBucketCORS -> TestTree
-requestDeleteBucketCORS =
+requestDeleteBucketCors :: DeleteBucketCors -> TestTree
+requestDeleteBucketCors =
   req
-    "DeleteBucketCORS"
-    "fixture/DeleteBucketCORS.yaml"
+    "DeleteBucketCors"
+    "fixture/DeleteBucketCors.yaml"
 
 requestDeleteBucketIntelligentTieringConfiguration :: DeleteBucketIntelligentTieringConfiguration -> TestTree
 requestDeleteBucketIntelligentTieringConfiguration =
@@ -971,11 +971,11 @@ requestListBucketIntelligentTieringConfigurations =
     "ListBucketIntelligentTieringConfigurations"
     "fixture/ListBucketIntelligentTieringConfigurations.yaml"
 
-requestPutBucketCORS :: PutBucketCORS -> TestTree
-requestPutBucketCORS =
+requestPutBucketCors :: PutBucketCors -> TestTree
+requestPutBucketCors =
   req
-    "PutBucketCORS"
-    "fixture/PutBucketCORS.yaml"
+    "PutBucketCors"
+    "fixture/PutBucketCors.yaml"
 
 requestGetPublicAccessBlock :: GetPublicAccessBlock -> TestTree
 requestGetPublicAccessBlock =
@@ -989,17 +989,17 @@ requestPutBucketIntelligentTieringConfiguration =
     "PutBucketIntelligentTieringConfiguration"
     "fixture/PutBucketIntelligentTieringConfiguration.yaml"
 
-requestGetBucketCORS :: GetBucketCORS -> TestTree
-requestGetBucketCORS =
+requestGetBucketCors :: GetBucketCors -> TestTree
+requestGetBucketCors =
   req
-    "GetBucketCORS"
-    "fixture/GetBucketCORS.yaml"
+    "GetBucketCors"
+    "fixture/GetBucketCors.yaml"
 
-requestGetObjectACL :: GetObjectACL -> TestTree
-requestGetObjectACL =
+requestGetObjectAcl :: GetObjectAcl -> TestTree
+requestGetObjectAcl =
   req
-    "GetObjectACL"
-    "fixture/GetObjectACL.yaml"
+    "GetObjectAcl"
+    "fixture/GetObjectAcl.yaml"
 
 requestRestoreObject :: RestoreObject -> TestTree
 requestRestoreObject =
@@ -1061,11 +1061,11 @@ requestGetBucketLogging =
     "GetBucketLogging"
     "fixture/GetBucketLogging.yaml"
 
-requestGetBucketACL :: GetBucketACL -> TestTree
-requestGetBucketACL =
+requestGetBucketAcl :: GetBucketAcl -> TestTree
+requestGetBucketAcl =
   req
-    "GetBucketACL"
-    "fixture/GetBucketACL.yaml"
+    "GetBucketAcl"
+    "fixture/GetBucketAcl.yaml"
 
 requestGetBucketLifecycleConfiguration :: GetBucketLifecycleConfiguration -> TestTree
 requestGetBucketLifecycleConfiguration =
@@ -1109,11 +1109,11 @@ requestPutObjectTagging =
     "PutObjectTagging"
     "fixture/PutObjectTagging.yaml"
 
-requestPutBucketACL :: PutBucketACL -> TestTree
-requestPutBucketACL =
+requestPutBucketAcl :: PutBucketAcl -> TestTree
+requestPutBucketAcl =
   req
-    "PutBucketACL"
-    "fixture/PutBucketACL.yaml"
+    "PutBucketAcl"
+    "fixture/PutBucketAcl.yaml"
 
 -- Responses
 
@@ -1122,7 +1122,7 @@ responsePutBucketRequestPayment =
   res
     "PutBucketRequestPaymentResponse"
     "fixture/PutBucketRequestPaymentResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketRequestPayment)
 
 responsePutObject :: PutObjectResponse -> TestTree
@@ -1130,7 +1130,7 @@ responsePutObject =
   res
     "PutObjectResponse"
     "fixture/PutObjectResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutObject)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
@@ -1138,7 +1138,7 @@ responseDeleteObject =
   res
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteObject)
 
 responsePutBucketLogging :: PutBucketLoggingResponse -> TestTree
@@ -1146,7 +1146,7 @@ responsePutBucketLogging =
   res
     "PutBucketLoggingResponse"
     "fixture/PutBucketLoggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketLogging)
 
 responseGetBucketMetricsConfiguration :: GetBucketMetricsConfigurationResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseGetBucketMetricsConfiguration =
   res
     "GetBucketMetricsConfigurationResponse"
     "fixture/GetBucketMetricsConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketMetricsConfiguration)
 
 responseListBuckets :: ListBucketsResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseListBuckets =
   res
     "ListBucketsResponse"
     "fixture/ListBucketsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListBuckets)
 
 responseDeleteBucket :: DeleteBucketResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseDeleteBucket =
   res
     "DeleteBucketResponse"
     "fixture/DeleteBucketResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucket)
 
 responseCreateBucket :: CreateBucketResponse -> TestTree
@@ -1178,7 +1178,7 @@ responseCreateBucket =
   res
     "CreateBucketResponse"
     "fixture/CreateBucketResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy CreateBucket)
 
 responseDeleteBucketTagging :: DeleteBucketTaggingResponse -> TestTree
@@ -1186,23 +1186,23 @@ responseDeleteBucketTagging =
   res
     "DeleteBucketTaggingResponse"
     "fixture/DeleteBucketTaggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketTagging)
 
-responsePutObjectACL :: PutObjectACLResponse -> TestTree
-responsePutObjectACL =
+responsePutObjectAcl :: PutObjectAclResponse -> TestTree
+responsePutObjectAcl =
   res
-    "PutObjectACLResponse"
-    "fixture/PutObjectACLResponse.proto"
-    s3Service
-    (Proxy :: Proxy PutObjectACL)
+    "PutObjectAclResponse"
+    "fixture/PutObjectAclResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy PutObjectAcl)
 
 responsePutBucketTagging :: PutBucketTaggingResponse -> TestTree
 responsePutBucketTagging =
   res
     "PutBucketTaggingResponse"
     "fixture/PutBucketTaggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketTagging)
 
 responseGetBucketInventoryConfiguration :: GetBucketInventoryConfigurationResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseGetBucketInventoryConfiguration =
   res
     "GetBucketInventoryConfigurationResponse"
     "fixture/GetBucketInventoryConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketInventoryConfiguration)
 
 responseDeletePublicAccessBlock :: DeletePublicAccessBlockResponse -> TestTree
@@ -1218,7 +1218,7 @@ responseDeletePublicAccessBlock =
   res
     "DeletePublicAccessBlockResponse"
     "fixture/DeletePublicAccessBlockResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeletePublicAccessBlock)
 
 responsePutBucketInventoryConfiguration :: PutBucketInventoryConfigurationResponse -> TestTree
@@ -1226,7 +1226,7 @@ responsePutBucketInventoryConfiguration =
   res
     "PutBucketInventoryConfigurationResponse"
     "fixture/PutBucketInventoryConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketInventoryConfiguration)
 
 responseGetBucketLocation :: GetBucketLocationResponse -> TestTree
@@ -1234,7 +1234,7 @@ responseGetBucketLocation =
   res
     "GetBucketLocationResponse"
     "fixture/GetBucketLocationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketLocation)
 
 responseListBucketInventoryConfigurations :: ListBucketInventoryConfigurationsResponse -> TestTree
@@ -1242,7 +1242,7 @@ responseListBucketInventoryConfigurations =
   res
     "ListBucketInventoryConfigurationsResponse"
     "fixture/ListBucketInventoryConfigurationsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListBucketInventoryConfigurations)
 
 responsePutPublicAccessBlock :: PutPublicAccessBlockResponse -> TestTree
@@ -1250,7 +1250,7 @@ responsePutPublicAccessBlock =
   res
     "PutPublicAccessBlockResponse"
     "fixture/PutPublicAccessBlockResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutPublicAccessBlock)
 
 responseDeleteBucketInventoryConfiguration :: DeleteBucketInventoryConfigurationResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseDeleteBucketInventoryConfiguration =
   res
     "DeleteBucketInventoryConfigurationResponse"
     "fixture/DeleteBucketInventoryConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketInventoryConfiguration)
 
 responseGetBucketIntelligentTieringConfiguration :: GetBucketIntelligentTieringConfigurationResponse -> TestTree
@@ -1266,7 +1266,7 @@ responseGetBucketIntelligentTieringConfiguration =
   res
     "GetBucketIntelligentTieringConfigurationResponse"
     "fixture/GetBucketIntelligentTieringConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketIntelligentTieringConfiguration)
 
 responseGetBucketNotificationConfiguration :: NotificationConfiguration -> TestTree
@@ -1274,7 +1274,7 @@ responseGetBucketNotificationConfiguration =
   res
     "GetBucketNotificationConfigurationResponse"
     "fixture/GetBucketNotificationConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketNotificationConfiguration)
 
 responseGetObjectLockConfiguration :: GetObjectLockConfigurationResponse -> TestTree
@@ -1282,7 +1282,7 @@ responseGetObjectLockConfiguration =
   res
     "GetObjectLockConfigurationResponse"
     "fixture/GetObjectLockConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetObjectLockConfiguration)
 
 responsePutObjectRetention :: PutObjectRetentionResponse -> TestTree
@@ -1290,7 +1290,7 @@ responsePutObjectRetention =
   res
     "PutObjectRetentionResponse"
     "fixture/PutObjectRetentionResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutObjectRetention)
 
 responsePutBucketAccelerateConfiguration :: PutBucketAccelerateConfigurationResponse -> TestTree
@@ -1298,7 +1298,7 @@ responsePutBucketAccelerateConfiguration =
   res
     "PutBucketAccelerateConfigurationResponse"
     "fixture/PutBucketAccelerateConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketAccelerateConfiguration)
 
 responsePutObjectLegalHold :: PutObjectLegalHoldResponse -> TestTree
@@ -1306,7 +1306,7 @@ responsePutObjectLegalHold =
   res
     "PutObjectLegalHoldResponse"
     "fixture/PutObjectLegalHoldResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutObjectLegalHold)
 
 responsePutBucketOwnershipControls :: PutBucketOwnershipControlsResponse -> TestTree
@@ -1314,7 +1314,7 @@ responsePutBucketOwnershipControls =
   res
     "PutBucketOwnershipControlsResponse"
     "fixture/PutBucketOwnershipControlsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketOwnershipControls)
 
 responseDeleteBucketOwnershipControls :: DeleteBucketOwnershipControlsResponse -> TestTree
@@ -1322,7 +1322,7 @@ responseDeleteBucketOwnershipControls =
   res
     "DeleteBucketOwnershipControlsResponse"
     "fixture/DeleteBucketOwnershipControlsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketOwnershipControls)
 
 responsePutBucketMetricsConfiguration :: PutBucketMetricsConfigurationResponse -> TestTree
@@ -1330,7 +1330,7 @@ responsePutBucketMetricsConfiguration =
   res
     "PutBucketMetricsConfigurationResponse"
     "fixture/PutBucketMetricsConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketMetricsConfiguration)
 
 responseDeleteBucketMetricsConfiguration :: DeleteBucketMetricsConfigurationResponse -> TestTree
@@ -1338,7 +1338,7 @@ responseDeleteBucketMetricsConfiguration =
   res
     "DeleteBucketMetricsConfigurationResponse"
     "fixture/DeleteBucketMetricsConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketMetricsConfiguration)
 
 responseListObjectsV2 :: ListObjectsV2Response -> TestTree
@@ -1346,7 +1346,7 @@ responseListObjectsV2 =
   res
     "ListObjectsV2Response"
     "fixture/ListObjectsV2Response.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListObjectsV2)
 
 responsePutBucketReplication :: PutBucketReplicationResponse -> TestTree
@@ -1354,7 +1354,7 @@ responsePutBucketReplication =
   res
     "PutBucketReplicationResponse"
     "fixture/PutBucketReplicationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketReplication)
 
 responseGetBucketWebsite :: GetBucketWebsiteResponse -> TestTree
@@ -1362,7 +1362,7 @@ responseGetBucketWebsite =
   res
     "GetBucketWebsiteResponse"
     "fixture/GetBucketWebsiteResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketWebsite)
 
 responseGetBucketRequestPayment :: GetBucketRequestPaymentResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseGetBucketRequestPayment =
   res
     "GetBucketRequestPaymentResponse"
     "fixture/GetBucketRequestPaymentResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketRequestPayment)
 
 responseDeleteBucketReplication :: DeleteBucketReplicationResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseDeleteBucketReplication =
   res
     "DeleteBucketReplicationResponse"
     "fixture/DeleteBucketReplicationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketReplication)
 
 responseListObjectVersions :: ListObjectVersionsResponse -> TestTree
@@ -1386,7 +1386,7 @@ responseListObjectVersions =
   res
     "ListObjectVersionsResponse"
     "fixture/ListObjectVersionsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListObjectVersions)
 
 responseHeadBucket :: HeadBucketResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseHeadBucket =
   res
     "HeadBucketResponse"
     "fixture/HeadBucketResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy HeadBucket)
 
 responseDeleteBucketLifecycle :: DeleteBucketLifecycleResponse -> TestTree
@@ -1402,7 +1402,7 @@ responseDeleteBucketLifecycle =
   res
     "DeleteBucketLifecycleResponse"
     "fixture/DeleteBucketLifecycleResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketLifecycle)
 
 responsePutBucketLifecycleConfiguration :: PutBucketLifecycleConfigurationResponse -> TestTree
@@ -1410,7 +1410,7 @@ responsePutBucketLifecycleConfiguration =
   res
     "PutBucketLifecycleConfigurationResponse"
     "fixture/PutBucketLifecycleConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketLifecycleConfiguration)
 
 responsePutBucketAnalyticsConfiguration :: PutBucketAnalyticsConfigurationResponse -> TestTree
@@ -1418,7 +1418,7 @@ responsePutBucketAnalyticsConfiguration =
   res
     "PutBucketAnalyticsConfigurationResponse"
     "fixture/PutBucketAnalyticsConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketAnalyticsConfiguration)
 
 responseListBucketAnalyticsConfigurations :: ListBucketAnalyticsConfigurationsResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseListBucketAnalyticsConfigurations =
   res
     "ListBucketAnalyticsConfigurationsResponse"
     "fixture/ListBucketAnalyticsConfigurationsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListBucketAnalyticsConfigurations)
 
 responseDeleteBucketAnalyticsConfiguration :: DeleteBucketAnalyticsConfigurationResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseDeleteBucketAnalyticsConfiguration =
   res
     "DeleteBucketAnalyticsConfigurationResponse"
     "fixture/DeleteBucketAnalyticsConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketAnalyticsConfiguration)
 
 responseCreateMultipartUpload :: CreateMultipartUploadResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseCreateMultipartUpload =
   res
     "CreateMultipartUploadResponse"
     "fixture/CreateMultipartUploadResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy CreateMultipartUpload)
 
 responseGetBucketPolicyStatus :: GetBucketPolicyStatusResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseGetBucketPolicyStatus =
   res
     "GetBucketPolicyStatusResponse"
     "fixture/GetBucketPolicyStatusResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketPolicyStatus)
 
 responseUploadPart :: UploadPartResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseUploadPart =
   res
     "UploadPartResponse"
     "fixture/UploadPartResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy UploadPart)
 
 responseSelectObjectContent :: SelectObjectContentResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseSelectObjectContent =
   res
     "SelectObjectContentResponse"
     "fixture/SelectObjectContentResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy SelectObjectContent)
 
 responseGetBucketReplication :: GetBucketReplicationResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseGetBucketReplication =
   res
     "GetBucketReplicationResponse"
     "fixture/GetBucketReplicationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketReplication)
 
 responsePutBucketWebsite :: PutBucketWebsiteResponse -> TestTree
@@ -1482,7 +1482,7 @@ responsePutBucketWebsite =
   res
     "PutBucketWebsiteResponse"
     "fixture/PutBucketWebsiteResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketWebsite)
 
 responseDeleteBucketWebsite :: DeleteBucketWebsiteResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseDeleteBucketWebsite =
   res
     "DeleteBucketWebsiteResponse"
     "fixture/DeleteBucketWebsiteResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketWebsite)
 
 responseCompleteMultipartUpload :: CompleteMultipartUploadResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseCompleteMultipartUpload =
   res
     "CompleteMultipartUploadResponse"
     "fixture/CompleteMultipartUploadResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy CompleteMultipartUpload)
 
 responseListMultipartUploads :: ListMultipartUploadsResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseListMultipartUploads =
   res
     "ListMultipartUploadsResponse"
     "fixture/ListMultipartUploadsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListMultipartUploads)
 
 responseListObjects :: ListObjectsResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseListObjects =
   res
     "ListObjectsResponse"
     "fixture/ListObjectsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListObjects)
 
 responseGetBucketOwnershipControls :: GetBucketOwnershipControlsResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseGetBucketOwnershipControls =
   res
     "GetBucketOwnershipControlsResponse"
     "fixture/GetBucketOwnershipControlsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketOwnershipControls)
 
 responseGetObjectLegalHold :: GetObjectLegalHoldResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseGetObjectLegalHold =
   res
     "GetObjectLegalHoldResponse"
     "fixture/GetObjectLegalHoldResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetObjectLegalHold)
 
 responseGetObjectRetention :: GetObjectRetentionResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseGetObjectRetention =
   res
     "GetObjectRetentionResponse"
     "fixture/GetObjectRetentionResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetObjectRetention)
 
 responseDeleteBucketPolicy :: DeleteBucketPolicyResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseDeleteBucketPolicy =
   res
     "DeleteBucketPolicyResponse"
     "fixture/DeleteBucketPolicyResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketPolicy)
 
 responseGetBucketEncryption :: GetBucketEncryptionResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseGetBucketEncryption =
   res
     "GetBucketEncryptionResponse"
     "fixture/GetBucketEncryptionResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketEncryption)
 
 responseAbortMultipartUpload :: AbortMultipartUploadResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseAbortMultipartUpload =
   res
     "AbortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy AbortMultipartUpload)
 
 responsePutBucketPolicy :: PutBucketPolicyResponse -> TestTree
@@ -1570,7 +1570,7 @@ responsePutBucketPolicy =
   res
     "PutBucketPolicyResponse"
     "fixture/PutBucketPolicyResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketPolicy)
 
 responseGetBucketAccelerateConfiguration :: GetBucketAccelerateConfigurationResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseGetBucketAccelerateConfiguration =
   res
     "GetBucketAccelerateConfigurationResponse"
     "fixture/GetBucketAccelerateConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketAccelerateConfiguration)
 
 responseDeleteObjects :: DeleteObjectsResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseDeleteObjects =
   res
     "DeleteObjectsResponse"
     "fixture/DeleteObjectsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteObjects)
 
 responsePutObjectLockConfiguration :: PutObjectLockConfigurationResponse -> TestTree
@@ -1594,7 +1594,7 @@ responsePutObjectLockConfiguration =
   res
     "PutObjectLockConfigurationResponse"
     "fixture/PutObjectLockConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutObjectLockConfiguration)
 
 responsePutBucketNotificationConfiguration :: PutBucketNotificationConfigurationResponse -> TestTree
@@ -1602,7 +1602,7 @@ responsePutBucketNotificationConfiguration =
   res
     "PutBucketNotificationConfigurationResponse"
     "fixture/PutBucketNotificationConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketNotificationConfiguration)
 
 responseGetBucketVersioning :: GetBucketVersioningResponse -> TestTree
@@ -1610,23 +1610,23 @@ responseGetBucketVersioning =
   res
     "GetBucketVersioningResponse"
     "fixture/GetBucketVersioningResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketVersioning)
 
-responseDeleteBucketCORS :: DeleteBucketCORSResponse -> TestTree
-responseDeleteBucketCORS =
+responseDeleteBucketCors :: DeleteBucketCorsResponse -> TestTree
+responseDeleteBucketCors =
   res
-    "DeleteBucketCORSResponse"
-    "fixture/DeleteBucketCORSResponse.proto"
-    s3Service
-    (Proxy :: Proxy DeleteBucketCORS)
+    "DeleteBucketCorsResponse"
+    "fixture/DeleteBucketCorsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeleteBucketCors)
 
 responseDeleteBucketIntelligentTieringConfiguration :: DeleteBucketIntelligentTieringConfigurationResponse -> TestTree
 responseDeleteBucketIntelligentTieringConfiguration =
   res
     "DeleteBucketIntelligentTieringConfigurationResponse"
     "fixture/DeleteBucketIntelligentTieringConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketIntelligentTieringConfiguration)
 
 responseListBucketIntelligentTieringConfigurations :: ListBucketIntelligentTieringConfigurationsResponse -> TestTree
@@ -1634,23 +1634,23 @@ responseListBucketIntelligentTieringConfigurations =
   res
     "ListBucketIntelligentTieringConfigurationsResponse"
     "fixture/ListBucketIntelligentTieringConfigurationsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListBucketIntelligentTieringConfigurations)
 
-responsePutBucketCORS :: PutBucketCORSResponse -> TestTree
-responsePutBucketCORS =
+responsePutBucketCors :: PutBucketCorsResponse -> TestTree
+responsePutBucketCors =
   res
-    "PutBucketCORSResponse"
-    "fixture/PutBucketCORSResponse.proto"
-    s3Service
-    (Proxy :: Proxy PutBucketCORS)
+    "PutBucketCorsResponse"
+    "fixture/PutBucketCorsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy PutBucketCors)
 
 responseGetPublicAccessBlock :: GetPublicAccessBlockResponse -> TestTree
 responseGetPublicAccessBlock =
   res
     "GetPublicAccessBlockResponse"
     "fixture/GetPublicAccessBlockResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetPublicAccessBlock)
 
 responsePutBucketIntelligentTieringConfiguration :: PutBucketIntelligentTieringConfigurationResponse -> TestTree
@@ -1658,31 +1658,31 @@ responsePutBucketIntelligentTieringConfiguration =
   res
     "PutBucketIntelligentTieringConfigurationResponse"
     "fixture/PutBucketIntelligentTieringConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketIntelligentTieringConfiguration)
 
-responseGetBucketCORS :: GetBucketCORSResponse -> TestTree
-responseGetBucketCORS =
+responseGetBucketCors :: GetBucketCorsResponse -> TestTree
+responseGetBucketCors =
   res
-    "GetBucketCORSResponse"
-    "fixture/GetBucketCORSResponse.proto"
-    s3Service
-    (Proxy :: Proxy GetBucketCORS)
+    "GetBucketCorsResponse"
+    "fixture/GetBucketCorsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetBucketCors)
 
-responseGetObjectACL :: GetObjectACLResponse -> TestTree
-responseGetObjectACL =
+responseGetObjectAcl :: GetObjectAclResponse -> TestTree
+responseGetObjectAcl =
   res
-    "GetObjectACLResponse"
-    "fixture/GetObjectACLResponse.proto"
-    s3Service
-    (Proxy :: Proxy GetObjectACL)
+    "GetObjectAclResponse"
+    "fixture/GetObjectAclResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetObjectAcl)
 
 responseRestoreObject :: RestoreObjectResponse -> TestTree
 responseRestoreObject =
   res
     "RestoreObjectResponse"
     "fixture/RestoreObjectResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy RestoreObject)
 
 responseHeadObject :: HeadObjectResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseHeadObject =
   res
     "HeadObjectResponse"
     "fixture/HeadObjectResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy HeadObject)
 
 responsePutBucketVersioning :: PutBucketVersioningResponse -> TestTree
@@ -1698,7 +1698,7 @@ responsePutBucketVersioning =
   res
     "PutBucketVersioningResponse"
     "fixture/PutBucketVersioningResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketVersioning)
 
 responseGetBucketTagging :: GetBucketTaggingResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseGetBucketTagging =
   res
     "GetBucketTaggingResponse"
     "fixture/GetBucketTaggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketTagging)
 
 responseCopyObject :: CopyObjectResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseCopyObject =
   res
     "CopyObjectResponse"
     "fixture/CopyObjectResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy CopyObject)
 
 responseListBucketMetricsConfigurations :: ListBucketMetricsConfigurationsResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseListBucketMetricsConfigurations =
   res
     "ListBucketMetricsConfigurationsResponse"
     "fixture/ListBucketMetricsConfigurationsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListBucketMetricsConfigurations)
 
 responseGetBucketPolicy :: GetBucketPolicyResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseGetBucketPolicy =
   res
     "GetBucketPolicyResponse"
     "fixture/GetBucketPolicyResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketPolicy)
 
 responsePutBucketEncryption :: PutBucketEncryptionResponse -> TestTree
@@ -1738,7 +1738,7 @@ responsePutBucketEncryption =
   res
     "PutBucketEncryptionResponse"
     "fixture/PutBucketEncryptionResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutBucketEncryption)
 
 responseDeleteBucketEncryption :: DeleteBucketEncryptionResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseDeleteBucketEncryption =
   res
     "DeleteBucketEncryptionResponse"
     "fixture/DeleteBucketEncryptionResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBucketEncryption)
 
 responseGetBucketLogging :: GetBucketLoggingResponse -> TestTree
@@ -1754,23 +1754,23 @@ responseGetBucketLogging =
   res
     "GetBucketLoggingResponse"
     "fixture/GetBucketLoggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketLogging)
 
-responseGetBucketACL :: GetBucketACLResponse -> TestTree
-responseGetBucketACL =
+responseGetBucketAcl :: GetBucketAclResponse -> TestTree
+responseGetBucketAcl =
   res
-    "GetBucketACLResponse"
-    "fixture/GetBucketACLResponse.proto"
-    s3Service
-    (Proxy :: Proxy GetBucketACL)
+    "GetBucketAclResponse"
+    "fixture/GetBucketAclResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetBucketAcl)
 
 responseGetBucketLifecycleConfiguration :: GetBucketLifecycleConfigurationResponse -> TestTree
 responseGetBucketLifecycleConfiguration =
   res
     "GetBucketLifecycleConfigurationResponse"
     "fixture/GetBucketLifecycleConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketLifecycleConfiguration)
 
 responseGetBucketAnalyticsConfiguration :: GetBucketAnalyticsConfigurationResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseGetBucketAnalyticsConfiguration =
   res
     "GetBucketAnalyticsConfigurationResponse"
     "fixture/GetBucketAnalyticsConfigurationResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetBucketAnalyticsConfiguration)
 
 responseGetObjectTagging :: GetObjectTaggingResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseGetObjectTagging =
   res
     "GetObjectTaggingResponse"
     "fixture/GetObjectTaggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy GetObjectTagging)
 
 responseListParts :: ListPartsResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseListParts =
   res
     "ListPartsResponse"
     "fixture/ListPartsResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy ListParts)
 
 responseDeleteObjectTagging :: DeleteObjectTaggingResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseDeleteObjectTagging =
   res
     "DeleteObjectTaggingResponse"
     "fixture/DeleteObjectTaggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteObjectTagging)
 
 responseUploadPartCopy :: UploadPartCopyResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseUploadPartCopy =
   res
     "UploadPartCopyResponse"
     "fixture/UploadPartCopyResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy UploadPartCopy)
 
 responsePutObjectTagging :: PutObjectTaggingResponse -> TestTree
@@ -1818,13 +1818,13 @@ responsePutObjectTagging =
   res
     "PutObjectTaggingResponse"
     "fixture/PutObjectTaggingResponse.proto"
-    s3Service
+    mkServiceConfig
     (Proxy :: Proxy PutObjectTagging)
 
-responsePutBucketACL :: PutBucketACLResponse -> TestTree
-responsePutBucketACL =
+responsePutBucketAcl :: PutBucketAclResponse -> TestTree
+responsePutBucketAcl =
   res
-    "PutBucketACLResponse"
-    "fixture/PutBucketACLResponse.proto"
-    s3Service
-    (Proxy :: Proxy PutBucketACL)
+    "PutBucketAclResponse"
+    "fixture/PutBucketAclResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy PutBucketAcl)

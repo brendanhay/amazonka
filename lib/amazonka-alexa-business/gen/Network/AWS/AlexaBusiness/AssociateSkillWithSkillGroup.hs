@@ -21,125 +21,109 @@ module Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
 
     -- ** Request lenses
     aswsgSkillId,
-    aswsgSkillGroupARN,
+    aswsgSkillGroupArn,
 
     -- * Destructuring the response
     AssociateSkillWithSkillGroupResponse (..),
     mkAssociateSkillWithSkillGroupResponse,
 
     -- ** Response lenses
-    aswsgrsResponseStatus,
+    aswsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateSkillWithSkillGroup' smart constructor.
 data AssociateSkillWithSkillGroup = AssociateSkillWithSkillGroup'
   { -- | The unique identifier of the skill.
-    skillId :: Lude.Text,
+    skillId :: Types.SkillId,
     -- | The ARN of the skill group to associate the skill to. Required.
-    skillGroupARN :: Lude.Maybe Lude.Text
+    skillGroupArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateSkillWithSkillGroup' with the minimum fields required to make a request.
---
--- * 'skillId' - The unique identifier of the skill.
--- * 'skillGroupARN' - The ARN of the skill group to associate the skill to. Required.
+-- | Creates a 'AssociateSkillWithSkillGroup' value with any optional fields omitted.
 mkAssociateSkillWithSkillGroup ::
   -- | 'skillId'
-  Lude.Text ->
+  Types.SkillId ->
   AssociateSkillWithSkillGroup
-mkAssociateSkillWithSkillGroup pSkillId_ =
+mkAssociateSkillWithSkillGroup skillId =
   AssociateSkillWithSkillGroup'
-    { skillId = pSkillId_,
-      skillGroupARN = Lude.Nothing
+    { skillId,
+      skillGroupArn = Core.Nothing
     }
 
 -- | The unique identifier of the skill.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aswsgSkillId :: Lens.Lens' AssociateSkillWithSkillGroup Lude.Text
-aswsgSkillId = Lens.lens (skillId :: AssociateSkillWithSkillGroup -> Lude.Text) (\s a -> s {skillId = a} :: AssociateSkillWithSkillGroup)
+aswsgSkillId :: Lens.Lens' AssociateSkillWithSkillGroup Types.SkillId
+aswsgSkillId = Lens.field @"skillId"
 {-# DEPRECATED aswsgSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The ARN of the skill group to associate the skill to. Required.
 --
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aswsgSkillGroupARN :: Lens.Lens' AssociateSkillWithSkillGroup (Lude.Maybe Lude.Text)
-aswsgSkillGroupARN = Lens.lens (skillGroupARN :: AssociateSkillWithSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: AssociateSkillWithSkillGroup)
-{-# DEPRECATED aswsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
+-- /Note:/ Consider using 'skillGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aswsgSkillGroupArn :: Lens.Lens' AssociateSkillWithSkillGroup (Core.Maybe Types.Arn)
+aswsgSkillGroupArn = Lens.field @"skillGroupArn"
+{-# DEPRECATED aswsgSkillGroupArn "Use generic-lens or generic-optics with 'skillGroupArn' instead." #-}
 
-instance Lude.AWSRequest AssociateSkillWithSkillGroup where
+instance Core.FromJSON AssociateSkillWithSkillGroup where
+  toJSON AssociateSkillWithSkillGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SkillId" Core..= skillId),
+            ("SkillGroupArn" Core..=) Core.<$> skillGroupArn
+          ]
+      )
+
+instance Core.AWSRequest AssociateSkillWithSkillGroup where
   type
     Rs AssociateSkillWithSkillGroup =
       AssociateSkillWithSkillGroupResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.AssociateSkillWithSkillGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateSkillWithSkillGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateSkillWithSkillGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AlexaForBusiness.AssociateSkillWithSkillGroup" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateSkillWithSkillGroup where
-  toJSON AssociateSkillWithSkillGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SkillId" Lude..= skillId),
-            ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN
-          ]
-      )
-
-instance Lude.ToPath AssociateSkillWithSkillGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateSkillWithSkillGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateSkillWithSkillGroupResponse' smart constructor.
 newtype AssociateSkillWithSkillGroupResponse = AssociateSkillWithSkillGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateSkillWithSkillGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateSkillWithSkillGroupResponse' value with any optional fields omitted.
 mkAssociateSkillWithSkillGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateSkillWithSkillGroupResponse
-mkAssociateSkillWithSkillGroupResponse pResponseStatus_ =
-  AssociateSkillWithSkillGroupResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateSkillWithSkillGroupResponse responseStatus =
+  AssociateSkillWithSkillGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aswsgrsResponseStatus :: Lens.Lens' AssociateSkillWithSkillGroupResponse Lude.Int
-aswsgrsResponseStatus = Lens.lens (responseStatus :: AssociateSkillWithSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateSkillWithSkillGroupResponse)
-{-# DEPRECATED aswsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aswsgrrsResponseStatus :: Lens.Lens' AssociateSkillWithSkillGroupResponse Core.Int
+aswsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aswsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -16,6 +16,6 @@ module Network.AWS.ServerlessApplicationRepository.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServerlessApplicationRepository.Types
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServerlessApplicationRepository.Types as Types
+import qualified Network.AWS.Waiter as Waiter

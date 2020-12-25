@@ -27,93 +27,81 @@ module Network.AWS.Shield.DeleteProtection
     mkDeleteProtectionResponse,
 
     -- ** Response lenses
-    dpfrsResponseStatus,
+    dprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDeleteProtection' smart constructor.
 newtype DeleteProtection = DeleteProtection'
   { -- | The unique identifier (ID) for the 'Protection' object to be deleted.
-    protectionId :: Lude.Text
+    protectionId :: Types.ProtectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProtection' with the minimum fields required to make a request.
---
--- * 'protectionId' - The unique identifier (ID) for the 'Protection' object to be deleted.
+-- | Creates a 'DeleteProtection' value with any optional fields omitted.
 mkDeleteProtection ::
   -- | 'protectionId'
-  Lude.Text ->
+  Types.ProtectionId ->
   DeleteProtection
-mkDeleteProtection pProtectionId_ =
-  DeleteProtection' {protectionId = pProtectionId_}
+mkDeleteProtection protectionId = DeleteProtection' {protectionId}
 
 -- | The unique identifier (ID) for the 'Protection' object to be deleted.
 --
 -- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dProtectionId :: Lens.Lens' DeleteProtection Lude.Text
-dProtectionId = Lens.lens (protectionId :: DeleteProtection -> Lude.Text) (\s a -> s {protectionId = a} :: DeleteProtection)
+dProtectionId :: Lens.Lens' DeleteProtection Types.ProtectionId
+dProtectionId = Lens.field @"protectionId"
 {-# DEPRECATED dProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
-instance Lude.AWSRequest DeleteProtection where
+instance Core.FromJSON DeleteProtection where
+  toJSON DeleteProtection {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ProtectionId" Core..= protectionId)])
+
+instance Core.AWSRequest DeleteProtection where
   type Rs DeleteProtection = DeleteProtectionResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSShield_20160616.DeleteProtection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteProtectionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteProtectionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProtection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.DeleteProtection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProtection where
-  toJSON DeleteProtection' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ProtectionId" Lude..= protectionId)])
-
-instance Lude.ToPath DeleteProtection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProtection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProtectionResponse' smart constructor.
 newtype DeleteProtectionResponse = DeleteProtectionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProtectionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProtectionResponse' value with any optional fields omitted.
 mkDeleteProtectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProtectionResponse
-mkDeleteProtectionResponse pResponseStatus_ =
-  DeleteProtectionResponse' {responseStatus = pResponseStatus_}
+mkDeleteProtectionResponse responseStatus =
+  DeleteProtectionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsResponseStatus :: Lens.Lens' DeleteProtectionResponse Lude.Int
-dpfrsResponseStatus = Lens.lens (responseStatus :: DeleteProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProtectionResponse)
-{-# DEPRECATED dpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprfrsResponseStatus :: Lens.Lens' DeleteProtectionResponse Core.Int
+dprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

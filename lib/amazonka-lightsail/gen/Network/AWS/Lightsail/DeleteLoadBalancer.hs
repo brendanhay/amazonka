@@ -29,111 +29,98 @@ module Network.AWS.Lightsail.DeleteLoadBalancer
     mkDeleteLoadBalancerResponse,
 
     -- ** Response lenses
-    dlbrsOperations,
-    dlbrsResponseStatus,
+    dlbrrsOperations,
+    dlbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLoadBalancer' smart constructor.
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
   { -- | The name of the load balancer you want to delete.
-    loadBalancerName :: Lude.Text
+    loadBalancerName :: Types.LoadBalancerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLoadBalancer' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer you want to delete.
+-- | Creates a 'DeleteLoadBalancer' value with any optional fields omitted.
 mkDeleteLoadBalancer ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.LoadBalancerName ->
   DeleteLoadBalancer
-mkDeleteLoadBalancer pLoadBalancerName_ =
-  DeleteLoadBalancer' {loadBalancerName = pLoadBalancerName_}
+mkDeleteLoadBalancer loadBalancerName =
+  DeleteLoadBalancer' {loadBalancerName}
 
 -- | The name of the load balancer you want to delete.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbLoadBalancerName :: Lens.Lens' DeleteLoadBalancer Lude.Text
-dlbLoadBalancerName = Lens.lens (loadBalancerName :: DeleteLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeleteLoadBalancer)
+dlbLoadBalancerName :: Lens.Lens' DeleteLoadBalancer Types.LoadBalancerName
+dlbLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED dlbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
-instance Lude.AWSRequest DeleteLoadBalancer where
+instance Core.FromJSON DeleteLoadBalancer where
+  toJSON DeleteLoadBalancer {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("loadBalancerName" Core..= loadBalancerName)]
+      )
+
+instance Core.AWSRequest DeleteLoadBalancer where
   type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.DeleteLoadBalancer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteLoadBalancerResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLoadBalancer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DeleteLoadBalancer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLoadBalancer where
-  toJSON DeleteLoadBalancer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("loadBalancerName" Lude..= loadBalancerName)]
-      )
-
-instance Lude.ToPath DeleteLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLoadBalancer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteLoadBalancerResponse' smart constructor.
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLoadBalancerResponse' value with any optional fields omitted.
 mkDeleteLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLoadBalancerResponse
-mkDeleteLoadBalancerResponse pResponseStatus_ =
+mkDeleteLoadBalancerResponse responseStatus =
   DeleteLoadBalancerResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsOperations :: Lens.Lens' DeleteLoadBalancerResponse (Lude.Maybe [Operation])
-dlbrsOperations = Lens.lens (operations :: DeleteLoadBalancerResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteLoadBalancerResponse)
-{-# DEPRECATED dlbrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+dlbrrsOperations :: Lens.Lens' DeleteLoadBalancerResponse (Core.Maybe [Types.Operation])
+dlbrrsOperations = Lens.field @"operations"
+{-# DEPRECATED dlbrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsResponseStatus :: Lens.Lens' DeleteLoadBalancerResponse Lude.Int
-dlbrsResponseStatus = Lens.lens (responseStatus :: DeleteLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoadBalancerResponse)
-{-# DEPRECATED dlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbrrsResponseStatus :: Lens.Lens' DeleteLoadBalancerResponse Core.Int
+dlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

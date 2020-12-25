@@ -17,14 +17,15 @@ module Network.AWS.RDS.Types.AccountQuota
     mkAccountQuota,
 
     -- * Lenses
+    aqAccountQuotaName,
     aqMax,
     aqUsed,
-    aqAccountQuotaName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Describes a quota for an AWS account.
 --
@@ -89,54 +90,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-  { -- | The maximum allowed value for the quota.
-    max :: Lude.Maybe Lude.Integer,
+  { -- | The name of the Amazon RDS quota for this AWS account.
+    accountQuotaName :: Core.Maybe Types.String,
+    -- | The maximum allowed value for the quota.
+    max :: Core.Maybe Core.Integer,
     -- | The amount currently used toward the quota maximum.
-    used :: Lude.Maybe Lude.Integer,
-    -- | The name of the Amazon RDS quota for this AWS account.
-    accountQuotaName :: Lude.Maybe Lude.Text
+    used :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountQuota' with the minimum fields required to make a request.
---
--- * 'max' - The maximum allowed value for the quota.
--- * 'used' - The amount currently used toward the quota maximum.
--- * 'accountQuotaName' - The name of the Amazon RDS quota for this AWS account.
+-- | Creates a 'AccountQuota' value with any optional fields omitted.
 mkAccountQuota ::
   AccountQuota
 mkAccountQuota =
   AccountQuota'
-    { max = Lude.Nothing,
-      used = Lude.Nothing,
-      accountQuotaName = Lude.Nothing
+    { accountQuotaName = Core.Nothing,
+      max = Core.Nothing,
+      used = Core.Nothing
     }
+
+-- | The name of the Amazon RDS quota for this AWS account.
+--
+-- /Note:/ Consider using 'accountQuotaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aqAccountQuotaName :: Lens.Lens' AccountQuota (Core.Maybe Types.String)
+aqAccountQuotaName = Lens.field @"accountQuotaName"
+{-# DEPRECATED aqAccountQuotaName "Use generic-lens or generic-optics with 'accountQuotaName' instead." #-}
 
 -- | The maximum allowed value for the quota.
 --
 -- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aqMax :: Lens.Lens' AccountQuota (Lude.Maybe Lude.Integer)
-aqMax = Lens.lens (max :: AccountQuota -> Lude.Maybe Lude.Integer) (\s a -> s {max = a} :: AccountQuota)
+aqMax :: Lens.Lens' AccountQuota (Core.Maybe Core.Integer)
+aqMax = Lens.field @"max"
 {-# DEPRECATED aqMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
 -- | The amount currently used toward the quota maximum.
 --
 -- /Note:/ Consider using 'used' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aqUsed :: Lens.Lens' AccountQuota (Lude.Maybe Lude.Integer)
-aqUsed = Lens.lens (used :: AccountQuota -> Lude.Maybe Lude.Integer) (\s a -> s {used = a} :: AccountQuota)
+aqUsed :: Lens.Lens' AccountQuota (Core.Maybe Core.Integer)
+aqUsed = Lens.field @"used"
 {-# DEPRECATED aqUsed "Use generic-lens or generic-optics with 'used' instead." #-}
 
--- | The name of the Amazon RDS quota for this AWS account.
---
--- /Note:/ Consider using 'accountQuotaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aqAccountQuotaName :: Lens.Lens' AccountQuota (Lude.Maybe Lude.Text)
-aqAccountQuotaName = Lens.lens (accountQuotaName :: AccountQuota -> Lude.Maybe Lude.Text) (\s a -> s {accountQuotaName = a} :: AccountQuota)
-{-# DEPRECATED aqAccountQuotaName "Use generic-lens or generic-optics with 'accountQuotaName' instead." #-}
-
-instance Lude.FromXML AccountQuota where
+instance Core.FromXML AccountQuota where
   parseXML x =
     AccountQuota'
-      Lude.<$> (x Lude..@? "Max")
-      Lude.<*> (x Lude..@? "Used")
-      Lude.<*> (x Lude..@? "AccountQuotaName")
+      Core.<$> (x Core..@? "AccountQuotaName")
+      Core.<*> (x Core..@? "Max")
+      Core.<*> (x Core..@? "Used")

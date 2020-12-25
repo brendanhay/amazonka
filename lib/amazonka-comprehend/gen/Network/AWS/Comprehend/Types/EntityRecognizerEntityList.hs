@@ -17,46 +17,44 @@ module Network.AWS.Comprehend.Types.EntityRecognizerEntityList
     mkEntityRecognizerEntityList,
 
     -- * Lenses
-    erelS3URI,
+    erelS3Uri,
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.S3Uri as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the entity recognizer submitted with an entity recognizer.
 --
 -- /See:/ 'mkEntityRecognizerEntityList' smart constructor.
 newtype EntityRecognizerEntityList = EntityRecognizerEntityList'
   { -- | Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.
-    s3URI :: Lude.Text
+    s3Uri :: Types.S3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EntityRecognizerEntityList' with the minimum fields required to make a request.
---
--- * 's3URI' - Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.
+-- | Creates a 'EntityRecognizerEntityList' value with any optional fields omitted.
 mkEntityRecognizerEntityList ::
-  -- | 's3URI'
-  Lude.Text ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   EntityRecognizerEntityList
-mkEntityRecognizerEntityList pS3URI_ =
-  EntityRecognizerEntityList' {s3URI = pS3URI_}
+mkEntityRecognizerEntityList s3Uri =
+  EntityRecognizerEntityList' {s3Uri}
 
 -- | Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.
 --
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erelS3URI :: Lens.Lens' EntityRecognizerEntityList Lude.Text
-erelS3URI = Lens.lens (s3URI :: EntityRecognizerEntityList -> Lude.Text) (\s a -> s {s3URI = a} :: EntityRecognizerEntityList)
-{-# DEPRECATED erelS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erelS3Uri :: Lens.Lens' EntityRecognizerEntityList Types.S3Uri
+erelS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED erelS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
-instance Lude.FromJSON EntityRecognizerEntityList where
+instance Core.FromJSON EntityRecognizerEntityList where
+  toJSON EntityRecognizerEntityList {..} =
+    Core.object (Core.catMaybes [Core.Just ("S3Uri" Core..= s3Uri)])
+
+instance Core.FromJSON EntityRecognizerEntityList where
   parseJSON =
-    Lude.withObject
-      "EntityRecognizerEntityList"
-      (\x -> EntityRecognizerEntityList' Lude.<$> (x Lude..: "S3Uri"))
-
-instance Lude.ToJSON EntityRecognizerEntityList where
-  toJSON EntityRecognizerEntityList' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("S3Uri" Lude..= s3URI)])
+    Core.withObject "EntityRecognizerEntityList" Core.$
+      \x -> EntityRecognizerEntityList' Core.<$> (x Core..: "S3Uri")

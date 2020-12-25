@@ -24,63 +24,61 @@ module Network.AWS.Lightsail.AttachCertificateToDistribution
     mkAttachCertificateToDistribution,
 
     -- ** Request lenses
-    actdCertificateName,
     actdDistributionName,
+    actdCertificateName,
 
     -- * Destructuring the response
     AttachCertificateToDistributionResponse (..),
     mkAttachCertificateToDistributionResponse,
 
     -- ** Response lenses
-    actdrsOperation,
-    actdrsResponseStatus,
+    actdrrsOperation,
+    actdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachCertificateToDistribution' smart constructor.
 data AttachCertificateToDistribution = AttachCertificateToDistribution'
-  { -- | The name of the certificate to attach to a distribution.
+  { -- | The name of the distribution that the certificate will be attached to.
+    --
+    -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+    distributionName :: Types.ResourceName,
+    -- | The name of the certificate to attach to a distribution.
     --
     -- Only certificates with a status of @ISSUED@ can be attached to a distribution.
     -- Use the @GetCertificates@ action to get a list of certificate names that you can specify.
-    certificateName :: Lude.Text,
-    -- | The name of the distribution that the certificate will be attached to.
-    --
-    -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-    distributionName :: Lude.Text
+    certificateName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachCertificateToDistribution' with the minimum fields required to make a request.
---
--- * 'certificateName' - The name of the certificate to attach to a distribution.
---
--- Only certificates with a status of @ISSUED@ can be attached to a distribution.
--- Use the @GetCertificates@ action to get a list of certificate names that you can specify.
--- * 'distributionName' - The name of the distribution that the certificate will be attached to.
+-- | Creates a 'AttachCertificateToDistribution' value with any optional fields omitted.
+mkAttachCertificateToDistribution ::
+  -- | 'distributionName'
+  Types.ResourceName ->
+  -- | 'certificateName'
+  Types.ResourceName ->
+  AttachCertificateToDistribution
+mkAttachCertificateToDistribution distributionName certificateName =
+  AttachCertificateToDistribution'
+    { distributionName,
+      certificateName
+    }
+
+-- | The name of the distribution that the certificate will be attached to.
 --
 -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-mkAttachCertificateToDistribution ::
-  -- | 'certificateName'
-  Lude.Text ->
-  -- | 'distributionName'
-  Lude.Text ->
-  AttachCertificateToDistribution
-mkAttachCertificateToDistribution
-  pCertificateName_
-  pDistributionName_ =
-    AttachCertificateToDistribution'
-      { certificateName =
-          pCertificateName_,
-        distributionName = pDistributionName_
-      }
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+actdDistributionName :: Lens.Lens' AttachCertificateToDistribution Types.ResourceName
+actdDistributionName = Lens.field @"distributionName"
+{-# DEPRECATED actdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
 -- | The name of the certificate to attach to a distribution.
 --
@@ -88,94 +86,76 @@ mkAttachCertificateToDistribution
 -- Use the @GetCertificates@ action to get a list of certificate names that you can specify.
 --
 -- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actdCertificateName :: Lens.Lens' AttachCertificateToDistribution Lude.Text
-actdCertificateName = Lens.lens (certificateName :: AttachCertificateToDistribution -> Lude.Text) (\s a -> s {certificateName = a} :: AttachCertificateToDistribution)
+actdCertificateName :: Lens.Lens' AttachCertificateToDistribution Types.ResourceName
+actdCertificateName = Lens.field @"certificateName"
 {-# DEPRECATED actdCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
--- | The name of the distribution that the certificate will be attached to.
---
--- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
---
--- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actdDistributionName :: Lens.Lens' AttachCertificateToDistribution Lude.Text
-actdDistributionName = Lens.lens (distributionName :: AttachCertificateToDistribution -> Lude.Text) (\s a -> s {distributionName = a} :: AttachCertificateToDistribution)
-{-# DEPRECATED actdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
+instance Core.FromJSON AttachCertificateToDistribution where
+  toJSON AttachCertificateToDistribution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("distributionName" Core..= distributionName),
+            Core.Just ("certificateName" Core..= certificateName)
+          ]
+      )
 
-instance Lude.AWSRequest AttachCertificateToDistribution where
+instance Core.AWSRequest AttachCertificateToDistribution where
   type
     Rs AttachCertificateToDistribution =
       AttachCertificateToDistributionResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.AttachCertificateToDistribution"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AttachCertificateToDistributionResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AttachCertificateToDistribution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.AttachCertificateToDistribution" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AttachCertificateToDistribution where
-  toJSON AttachCertificateToDistribution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("certificateName" Lude..= certificateName),
-            Lude.Just ("distributionName" Lude..= distributionName)
-          ]
-      )
-
-instance Lude.ToPath AttachCertificateToDistribution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachCertificateToDistribution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAttachCertificateToDistributionResponse' smart constructor.
 data AttachCertificateToDistributionResponse = AttachCertificateToDistributionResponse'
   { -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AttachCertificateToDistributionResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AttachCertificateToDistributionResponse' value with any optional fields omitted.
 mkAttachCertificateToDistributionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AttachCertificateToDistributionResponse
-mkAttachCertificateToDistributionResponse pResponseStatus_ =
+mkAttachCertificateToDistributionResponse responseStatus =
   AttachCertificateToDistributionResponse'
     { operation =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actdrsOperation :: Lens.Lens' AttachCertificateToDistributionResponse (Lude.Maybe Operation)
-actdrsOperation = Lens.lens (operation :: AttachCertificateToDistributionResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: AttachCertificateToDistributionResponse)
-{-# DEPRECATED actdrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+actdrrsOperation :: Lens.Lens' AttachCertificateToDistributionResponse (Core.Maybe Types.Operation)
+actdrrsOperation = Lens.field @"operation"
+{-# DEPRECATED actdrrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actdrsResponseStatus :: Lens.Lens' AttachCertificateToDistributionResponse Lude.Int
-actdrsResponseStatus = Lens.lens (responseStatus :: AttachCertificateToDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachCertificateToDistributionResponse)
-{-# DEPRECATED actdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+actdrrsResponseStatus :: Lens.Lens' AttachCertificateToDistributionResponse Core.Int
+actdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED actdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

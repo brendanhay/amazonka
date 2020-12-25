@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Inspector
     Network.AWS.Inspector.AddAttributesToFindings
@@ -111,21 +117,34 @@ library
     Network.AWS.Inspector.Types.AgentFilter
     Network.AWS.Inspector.Types.AgentHealth
     Network.AWS.Inspector.Types.AgentHealthCode
+    Network.AWS.Inspector.Types.AgentHealthDetails
+    Network.AWS.Inspector.Types.AgentId
     Network.AWS.Inspector.Types.AgentPreview
+    Network.AWS.Inspector.Types.AgentVersion
+    Network.AWS.Inspector.Types.AmiId
+    Network.AWS.Inspector.Types.Arn
     Network.AWS.Inspector.Types.AssessmentRun
     Network.AWS.Inspector.Types.AssessmentRunAgent
+    Network.AWS.Inspector.Types.AssessmentRunArn
     Network.AWS.Inspector.Types.AssessmentRunFilter
+    Network.AWS.Inspector.Types.AssessmentRunName
     Network.AWS.Inspector.Types.AssessmentRunNotification
-    Network.AWS.Inspector.Types.AssessmentRunNotificationSNSStatusCode
+    Network.AWS.Inspector.Types.AssessmentRunNotificationSnsStatusCode
     Network.AWS.Inspector.Types.AssessmentRunState
     Network.AWS.Inspector.Types.AssessmentRunStateChange
     Network.AWS.Inspector.Types.AssessmentTarget
     Network.AWS.Inspector.Types.AssessmentTargetFilter
+    Network.AWS.Inspector.Types.AssessmentTargetName
     Network.AWS.Inspector.Types.AssessmentTemplate
+    Network.AWS.Inspector.Types.AssessmentTemplateArn
     Network.AWS.Inspector.Types.AssessmentTemplateFilter
+    Network.AWS.Inspector.Types.AssessmentTemplateName
     Network.AWS.Inspector.Types.AssetAttributes
     Network.AWS.Inspector.Types.AssetType
     Network.AWS.Inspector.Types.Attribute
+    Network.AWS.Inspector.Types.AttributeKey
+    Network.AWS.Inspector.Types.AutoScalingGroup
+    Network.AWS.Inspector.Types.Description
     Network.AWS.Inspector.Types.DurationRange
     Network.AWS.Inspector.Types.EventSubscription
     Network.AWS.Inspector.Types.Exclusion
@@ -134,27 +153,55 @@ library
     Network.AWS.Inspector.Types.FailedItemErrorCode
     Network.AWS.Inspector.Types.Finding
     Network.AWS.Inspector.Types.FindingFilter
+    Network.AWS.Inspector.Types.Hostname
+    Network.AWS.Inspector.Types.Id
     Network.AWS.Inspector.Types.InspectorEvent
     Network.AWS.Inspector.Types.InspectorServiceAttributes
+    Network.AWS.Inspector.Types.Ipv4Address
+    Network.AWS.Inspector.Types.KernelVersion
+    Network.AWS.Inspector.Types.Key
     Network.AWS.Inspector.Types.Locale
+    Network.AWS.Inspector.Types.Message
+    Network.AWS.Inspector.Types.MessageType
+    Network.AWS.Inspector.Types.Name
+    Network.AWS.Inspector.Types.NamePattern
     Network.AWS.Inspector.Types.NetworkInterface
+    Network.AWS.Inspector.Types.NextToken
+    Network.AWS.Inspector.Types.OperatingSystem
+    Network.AWS.Inspector.Types.PaginationToken
     Network.AWS.Inspector.Types.PreviewStatus
-    Network.AWS.Inspector.Types.PrivateIP
+    Network.AWS.Inspector.Types.PreviewToken
+    Network.AWS.Inspector.Types.PrivateDnsName
+    Network.AWS.Inspector.Types.PrivateIp
+    Network.AWS.Inspector.Types.PrivateIpAddress
+    Network.AWS.Inspector.Types.Provider
+    Network.AWS.Inspector.Types.Recommendation
     Network.AWS.Inspector.Types.ReportFileFormat
     Network.AWS.Inspector.Types.ReportStatus
     Network.AWS.Inspector.Types.ReportType
+    Network.AWS.Inspector.Types.ResourceArn
     Network.AWS.Inspector.Types.ResourceGroup
+    Network.AWS.Inspector.Types.ResourceGroupArn
     Network.AWS.Inspector.Types.ResourceGroupTag
+    Network.AWS.Inspector.Types.RoleArn
+    Network.AWS.Inspector.Types.RuleName
     Network.AWS.Inspector.Types.RulesPackage
     Network.AWS.Inspector.Types.Scope
     Network.AWS.Inspector.Types.ScopeType
     Network.AWS.Inspector.Types.SecurityGroup
+    Network.AWS.Inspector.Types.Service
     Network.AWS.Inspector.Types.Severity
+    Network.AWS.Inspector.Types.SnsTopicArn
     Network.AWS.Inspector.Types.StopAction
     Network.AWS.Inspector.Types.Subscription
     Network.AWS.Inspector.Types.Tag
     Network.AWS.Inspector.Types.TelemetryMetadata
+    Network.AWS.Inspector.Types.Text
     Network.AWS.Inspector.Types.TimestampRange
+    Network.AWS.Inspector.Types.Title
+    Network.AWS.Inspector.Types.Url
+    Network.AWS.Inspector.Types.Value
+    Network.AWS.Inspector.Types.Version
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

@@ -23,61 +23,58 @@ module Network.AWS.EC2.Types.InstanceCapacity
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the number of instances that can be launched onto the Dedicated Host.
 --
 -- /See:/ 'mkInstanceCapacity' smart constructor.
 data InstanceCapacity = InstanceCapacity'
   { -- | The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
-    availableCapacity :: Lude.Maybe Lude.Int,
+    availableCapacity :: Core.Maybe Core.Int,
     -- | The instance type supported by the Dedicated Host.
-    instanceType :: Lude.Maybe Lude.Text,
+    instanceType :: Core.Maybe Types.String,
     -- | The total number of instances that can be launched onto the Dedicated Host if there are no instances running on it.
-    totalCapacity :: Lude.Maybe Lude.Int
+    totalCapacity :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceCapacity' with the minimum fields required to make a request.
---
--- * 'availableCapacity' - The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
--- * 'instanceType' - The instance type supported by the Dedicated Host.
--- * 'totalCapacity' - The total number of instances that can be launched onto the Dedicated Host if there are no instances running on it.
+-- | Creates a 'InstanceCapacity' value with any optional fields omitted.
 mkInstanceCapacity ::
   InstanceCapacity
 mkInstanceCapacity =
   InstanceCapacity'
-    { availableCapacity = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      totalCapacity = Lude.Nothing
+    { availableCapacity = Core.Nothing,
+      instanceType = Core.Nothing,
+      totalCapacity = Core.Nothing
     }
 
 -- | The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
 --
 -- /Note:/ Consider using 'availableCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icAvailableCapacity :: Lens.Lens' InstanceCapacity (Lude.Maybe Lude.Int)
-icAvailableCapacity = Lens.lens (availableCapacity :: InstanceCapacity -> Lude.Maybe Lude.Int) (\s a -> s {availableCapacity = a} :: InstanceCapacity)
+icAvailableCapacity :: Lens.Lens' InstanceCapacity (Core.Maybe Core.Int)
+icAvailableCapacity = Lens.field @"availableCapacity"
 {-# DEPRECATED icAvailableCapacity "Use generic-lens or generic-optics with 'availableCapacity' instead." #-}
 
 -- | The instance type supported by the Dedicated Host.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icInstanceType :: Lens.Lens' InstanceCapacity (Lude.Maybe Lude.Text)
-icInstanceType = Lens.lens (instanceType :: InstanceCapacity -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: InstanceCapacity)
+icInstanceType :: Lens.Lens' InstanceCapacity (Core.Maybe Types.String)
+icInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED icInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The total number of instances that can be launched onto the Dedicated Host if there are no instances running on it.
 --
 -- /Note:/ Consider using 'totalCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icTotalCapacity :: Lens.Lens' InstanceCapacity (Lude.Maybe Lude.Int)
-icTotalCapacity = Lens.lens (totalCapacity :: InstanceCapacity -> Lude.Maybe Lude.Int) (\s a -> s {totalCapacity = a} :: InstanceCapacity)
+icTotalCapacity :: Lens.Lens' InstanceCapacity (Core.Maybe Core.Int)
+icTotalCapacity = Lens.field @"totalCapacity"
 {-# DEPRECATED icTotalCapacity "Use generic-lens or generic-optics with 'totalCapacity' instead." #-}
 
-instance Lude.FromXML InstanceCapacity where
+instance Core.FromXML InstanceCapacity where
   parseXML x =
     InstanceCapacity'
-      Lude.<$> (x Lude..@? "availableCapacity")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> (x Lude..@? "totalCapacity")
+      Core.<$> (x Core..@? "availableCapacity")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "totalCapacity")

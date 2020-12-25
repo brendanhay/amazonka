@@ -726,7 +726,7 @@ responseDescribeMetricCollectionTypes =
   res
     "DescribeMetricCollectionTypesResponse"
     "fixture/DescribeMetricCollectionTypesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMetricCollectionTypes)
 
 responseDescribeLoadBalancers :: DescribeLoadBalancersResponse -> TestTree
@@ -734,7 +734,7 @@ responseDescribeLoadBalancers =
   res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancers)
 
 responsePutNotificationConfiguration :: PutNotificationConfigurationResponse -> TestTree
@@ -742,7 +742,7 @@ responsePutNotificationConfiguration =
   res
     "PutNotificationConfigurationResponse"
     "fixture/PutNotificationConfigurationResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy PutNotificationConfiguration)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -750,7 +750,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDeleteNotificationConfiguration :: DeleteNotificationConfigurationResponse -> TestTree
@@ -758,7 +758,7 @@ responseDeleteNotificationConfiguration =
   res
     "DeleteNotificationConfigurationResponse"
     "fixture/DeleteNotificationConfigurationResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNotificationConfiguration)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
@@ -766,7 +766,7 @@ responsePutScalingPolicy =
   res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy PutScalingPolicy)
 
 responseStartInstanceRefresh :: StartInstanceRefreshResponse -> TestTree
@@ -774,7 +774,7 @@ responseStartInstanceRefresh =
   res
     "StartInstanceRefreshResponse"
     "fixture/StartInstanceRefreshResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy StartInstanceRefresh)
 
 responseAttachLoadBalancerTargetGroups :: AttachLoadBalancerTargetGroupsResponse -> TestTree
@@ -782,7 +782,7 @@ responseAttachLoadBalancerTargetGroups =
   res
     "AttachLoadBalancerTargetGroupsResponse"
     "fixture/AttachLoadBalancerTargetGroupsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy AttachLoadBalancerTargetGroups)
 
 responseDeleteLaunchConfiguration :: DeleteLaunchConfigurationResponse -> TestTree
@@ -790,7 +790,7 @@ responseDeleteLaunchConfiguration =
   res
     "DeleteLaunchConfigurationResponse"
     "fixture/DeleteLaunchConfigurationResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLaunchConfiguration)
 
 responseEnterStandby :: EnterStandbyResponse -> TestTree
@@ -798,7 +798,7 @@ responseEnterStandby =
   res
     "EnterStandbyResponse"
     "fixture/EnterStandbyResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy EnterStandby)
 
 responseSuspendProcesses :: SuspendProcessesResponse -> TestTree
@@ -806,7 +806,7 @@ responseSuspendProcesses =
   res
     "SuspendProcessesResponse"
     "fixture/SuspendProcessesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy SuspendProcesses)
 
 responseSetInstanceHealth :: SetInstanceHealthResponse -> TestTree
@@ -814,7 +814,7 @@ responseSetInstanceHealth =
   res
     "SetInstanceHealthResponse"
     "fixture/SetInstanceHealthResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy SetInstanceHealth)
 
 responseExitStandby :: ExitStandbyResponse -> TestTree
@@ -822,7 +822,7 @@ responseExitStandby =
   res
     "ExitStandbyResponse"
     "fixture/ExitStandbyResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy ExitStandby)
 
 responseDescribeTerminationPolicyTypes :: DescribeTerminationPolicyTypesResponse -> TestTree
@@ -830,7 +830,7 @@ responseDescribeTerminationPolicyTypes =
   res
     "DescribeTerminationPolicyTypesResponse"
     "fixture/DescribeTerminationPolicyTypesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTerminationPolicyTypes)
 
 responseCancelInstanceRefresh :: CancelInstanceRefreshResponse -> TestTree
@@ -838,7 +838,7 @@ responseCancelInstanceRefresh =
   res
     "CancelInstanceRefreshResponse"
     "fixture/CancelInstanceRefreshResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy CancelInstanceRefresh)
 
 responseDescribeAutoScalingInstances :: DescribeAutoScalingInstancesResponse -> TestTree
@@ -846,7 +846,7 @@ responseDescribeAutoScalingInstances =
   res
     "DescribeAutoScalingInstancesResponse"
     "fixture/DescribeAutoScalingInstancesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAutoScalingInstances)
 
 responseRecordLifecycleActionHeartbeat :: RecordLifecycleActionHeartbeatResponse -> TestTree
@@ -854,7 +854,7 @@ responseRecordLifecycleActionHeartbeat =
   res
     "RecordLifecycleActionHeartbeatResponse"
     "fixture/RecordLifecycleActionHeartbeatResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy RecordLifecycleActionHeartbeat)
 
 responseDisableMetricsCollection :: DisableMetricsCollectionResponse -> TestTree
@@ -862,7 +862,7 @@ responseDisableMetricsCollection =
   res
     "DisableMetricsCollectionResponse"
     "fixture/DisableMetricsCollectionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DisableMetricsCollection)
 
 responseDetachInstances :: DetachInstancesResponse -> TestTree
@@ -870,7 +870,7 @@ responseDetachInstances =
   res
     "DetachInstancesResponse"
     "fixture/DetachInstancesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DetachInstances)
 
 responseEnableMetricsCollection :: EnableMetricsCollectionResponse -> TestTree
@@ -878,7 +878,7 @@ responseEnableMetricsCollection =
   res
     "EnableMetricsCollectionResponse"
     "fixture/EnableMetricsCollectionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy EnableMetricsCollection)
 
 responseDescribeScalingProcessTypes :: DescribeScalingProcessTypesResponse -> TestTree
@@ -886,7 +886,7 @@ responseDescribeScalingProcessTypes =
   res
     "DescribeScalingProcessTypesResponse"
     "fixture/DescribeScalingProcessTypesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScalingProcessTypes)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -894,7 +894,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseDetachLoadBalancerTargetGroups :: DetachLoadBalancerTargetGroupsResponse -> TestTree
@@ -902,7 +902,7 @@ responseDetachLoadBalancerTargetGroups =
   res
     "DetachLoadBalancerTargetGroupsResponse"
     "fixture/DetachLoadBalancerTargetGroupsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DetachLoadBalancerTargetGroups)
 
 responseDescribeLifecycleHooks :: DescribeLifecycleHooksResponse -> TestTree
@@ -910,7 +910,7 @@ responseDescribeLifecycleHooks =
   res
     "DescribeLifecycleHooksResponse"
     "fixture/DescribeLifecycleHooksResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLifecycleHooks)
 
 responseDescribeAutoScalingGroups :: DescribeAutoScalingGroupsResponse -> TestTree
@@ -918,7 +918,7 @@ responseDescribeAutoScalingGroups =
   res
     "DescribeAutoScalingGroupsResponse"
     "fixture/DescribeAutoScalingGroupsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAutoScalingGroups)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
@@ -926,7 +926,7 @@ responseDeleteScheduledAction =
   res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteScheduledAction)
 
 responseSetDesiredCapacity :: SetDesiredCapacityResponse -> TestTree
@@ -934,7 +934,7 @@ responseSetDesiredCapacity =
   res
     "SetDesiredCapacityResponse"
     "fixture/SetDesiredCapacityResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy SetDesiredCapacity)
 
 responseDetachLoadBalancers :: DetachLoadBalancersResponse -> TestTree
@@ -942,7 +942,7 @@ responseDetachLoadBalancers =
   res
     "DetachLoadBalancersResponse"
     "fixture/DetachLoadBalancersResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DetachLoadBalancers)
 
 responseDescribeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypesResponse -> TestTree
@@ -950,7 +950,7 @@ responseDescribeAutoScalingNotificationTypes =
   res
     "DescribeAutoScalingNotificationTypesResponse"
     "fixture/DescribeAutoScalingNotificationTypesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAutoScalingNotificationTypes)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
@@ -958,7 +958,7 @@ responseDescribeScheduledActions =
   res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScheduledActions)
 
 responseCreateOrUpdateTags :: CreateOrUpdateTagsResponse -> TestTree
@@ -966,7 +966,7 @@ responseCreateOrUpdateTags =
   res
     "CreateOrUpdateTagsResponse"
     "fixture/CreateOrUpdateTagsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy CreateOrUpdateTags)
 
 responseCompleteLifecycleAction :: CompleteLifecycleActionResponse -> TestTree
@@ -974,7 +974,7 @@ responseCompleteLifecycleAction =
   res
     "CompleteLifecycleActionResponse"
     "fixture/CompleteLifecycleActionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy CompleteLifecycleAction)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
@@ -982,7 +982,7 @@ responseDeletePolicy =
   res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeletePolicy)
 
 responseAttachInstances :: AttachInstancesResponse -> TestTree
@@ -990,7 +990,7 @@ responseAttachInstances =
   res
     "AttachInstancesResponse"
     "fixture/AttachInstancesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy AttachInstances)
 
 responseUpdateAutoScalingGroup :: UpdateAutoScalingGroupResponse -> TestTree
@@ -998,7 +998,7 @@ responseUpdateAutoScalingGroup =
   res
     "UpdateAutoScalingGroupResponse"
     "fixture/UpdateAutoScalingGroupResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAutoScalingGroup)
 
 responseDeleteAutoScalingGroup :: DeleteAutoScalingGroupResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseDeleteAutoScalingGroup =
   res
     "DeleteAutoScalingGroupResponse"
     "fixture/DeleteAutoScalingGroupResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAutoScalingGroup)
 
 responsePutLifecycleHook :: PutLifecycleHookResponse -> TestTree
@@ -1014,7 +1014,7 @@ responsePutLifecycleHook =
   res
     "PutLifecycleHookResponse"
     "fixture/PutLifecycleHookResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy PutLifecycleHook)
 
 responseBatchPutScheduledUpdateGroupAction :: BatchPutScheduledUpdateGroupActionResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseBatchPutScheduledUpdateGroupAction =
   res
     "BatchPutScheduledUpdateGroupActionResponse"
     "fixture/BatchPutScheduledUpdateGroupActionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy BatchPutScheduledUpdateGroupAction)
 
 responseDeleteLifecycleHook :: DeleteLifecycleHookResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseDeleteLifecycleHook =
   res
     "DeleteLifecycleHookResponse"
     "fixture/DeleteLifecycleHookResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLifecycleHook)
 
 responseResumeProcesses :: ResumeProcessesResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseResumeProcesses =
   res
     "ResumeProcessesResponse"
     "fixture/ResumeProcessesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy ResumeProcesses)
 
 responseExecutePolicy :: ExecutePolicyResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseExecutePolicy =
   res
     "ExecutePolicyResponse"
     "fixture/ExecutePolicyResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy ExecutePolicy)
 
 responseDescribeInstanceRefreshes :: DescribeInstanceRefreshesResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseDescribeInstanceRefreshes =
   res
     "DescribeInstanceRefreshesResponse"
     "fixture/DescribeInstanceRefreshesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeInstanceRefreshes)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseDescribeAccountLimits =
   res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountLimits)
 
 responseAttachLoadBalancers :: AttachLoadBalancersResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseAttachLoadBalancers =
   res
     "AttachLoadBalancersResponse"
     "fixture/AttachLoadBalancersResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy AttachLoadBalancers)
 
 responseBatchDeleteScheduledAction :: BatchDeleteScheduledActionResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseBatchDeleteScheduledAction =
   res
     "BatchDeleteScheduledActionResponse"
     "fixture/BatchDeleteScheduledActionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteScheduledAction)
 
 responseTerminateInstanceInAutoScalingGroup :: TerminateInstanceInAutoScalingGroupResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseTerminateInstanceInAutoScalingGroup =
   res
     "TerminateInstanceInAutoScalingGroupResponse"
     "fixture/TerminateInstanceInAutoScalingGroupResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy TerminateInstanceInAutoScalingGroup)
 
 responseDescribeLoadBalancerTargetGroups :: DescribeLoadBalancerTargetGroupsResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseDescribeLoadBalancerTargetGroups =
   res
     "DescribeLoadBalancerTargetGroupsResponse"
     "fixture/DescribeLoadBalancerTargetGroupsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancerTargetGroups)
 
 responsePutScheduledUpdateGroupAction :: PutScheduledUpdateGroupActionResponse -> TestTree
@@ -1102,7 +1102,7 @@ responsePutScheduledUpdateGroupAction =
   res
     "PutScheduledUpdateGroupActionResponse"
     "fixture/PutScheduledUpdateGroupActionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy PutScheduledUpdateGroupAction)
 
 responseSetInstanceProtection :: SetInstanceProtectionResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseSetInstanceProtection =
   res
     "SetInstanceProtectionResponse"
     "fixture/SetInstanceProtectionResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy SetInstanceProtection)
 
 responseDescribePolicies :: DescribePoliciesResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseDescribePolicies =
   res
     "DescribePoliciesResponse"
     "fixture/DescribePoliciesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribePolicies)
 
 responseDescribeLaunchConfigurations :: DescribeLaunchConfigurationsResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseDescribeLaunchConfigurations =
   res
     "DescribeLaunchConfigurationsResponse"
     "fixture/DescribeLaunchConfigurationsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLaunchConfigurations)
 
 responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseDescribeScalingActivities =
   res
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScalingActivities)
 
 responseDescribeNotificationConfigurations :: DescribeNotificationConfigurationsResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseDescribeNotificationConfigurations =
   res
     "DescribeNotificationConfigurationsResponse"
     "fixture/DescribeNotificationConfigurationsResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNotificationConfigurations)
 
 responseDescribeLifecycleHookTypes :: DescribeLifecycleHookTypesResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseDescribeLifecycleHookTypes =
   res
     "DescribeLifecycleHookTypesResponse"
     "fixture/DescribeLifecycleHookTypesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLifecycleHookTypes)
 
 responseDescribeAdjustmentTypes :: DescribeAdjustmentTypesResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseDescribeAdjustmentTypes =
   res
     "DescribeAdjustmentTypesResponse"
     "fixture/DescribeAdjustmentTypesResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAdjustmentTypes)
 
 responseCreateAutoScalingGroup :: CreateAutoScalingGroupResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseCreateAutoScalingGroup =
   res
     "CreateAutoScalingGroupResponse"
     "fixture/CreateAutoScalingGroupResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy CreateAutoScalingGroup)
 
 responseCreateLaunchConfiguration :: CreateLaunchConfigurationResponse -> TestTree
@@ -1174,5 +1174,5 @@ responseCreateLaunchConfiguration =
   res
     "CreateLaunchConfigurationResponse"
     "fixture/CreateLaunchConfigurationResponse.proto"
-    autoScalingService
+    mkServiceConfig
     (Proxy :: Proxy CreateLaunchConfiguration)

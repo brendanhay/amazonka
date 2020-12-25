@@ -22,45 +22,41 @@ module Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
 --
 -- /See:/ 'mkSingleMasterConfiguration' smart constructor.
 newtype SingleMasterConfiguration = SingleMasterConfiguration'
   { -- | The period of time a signaling channel retains underlivered messages before they are discarded.
-    messageTtlSeconds :: Lude.Maybe Lude.Natural
+    messageTtlSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SingleMasterConfiguration' with the minimum fields required to make a request.
---
--- * 'messageTtlSeconds' - The period of time a signaling channel retains underlivered messages before they are discarded.
+-- | Creates a 'SingleMasterConfiguration' value with any optional fields omitted.
 mkSingleMasterConfiguration ::
   SingleMasterConfiguration
 mkSingleMasterConfiguration =
-  SingleMasterConfiguration' {messageTtlSeconds = Lude.Nothing}
+  SingleMasterConfiguration' {messageTtlSeconds = Core.Nothing}
 
 -- | The period of time a signaling channel retains underlivered messages before they are discarded.
 --
 -- /Note:/ Consider using 'messageTtlSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smcMessageTtlSeconds :: Lens.Lens' SingleMasterConfiguration (Lude.Maybe Lude.Natural)
-smcMessageTtlSeconds = Lens.lens (messageTtlSeconds :: SingleMasterConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {messageTtlSeconds = a} :: SingleMasterConfiguration)
+smcMessageTtlSeconds :: Lens.Lens' SingleMasterConfiguration (Core.Maybe Core.Natural)
+smcMessageTtlSeconds = Lens.field @"messageTtlSeconds"
 {-# DEPRECATED smcMessageTtlSeconds "Use generic-lens or generic-optics with 'messageTtlSeconds' instead." #-}
 
-instance Lude.FromJSON SingleMasterConfiguration where
-  parseJSON =
-    Lude.withObject
-      "SingleMasterConfiguration"
-      ( \x ->
-          SingleMasterConfiguration'
-            Lude.<$> (x Lude..:? "MessageTtlSeconds")
+instance Core.FromJSON SingleMasterConfiguration where
+  toJSON SingleMasterConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [("MessageTtlSeconds" Core..=) Core.<$> messageTtlSeconds]
       )
 
-instance Lude.ToJSON SingleMasterConfiguration where
-  toJSON SingleMasterConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("MessageTtlSeconds" Lude..=) Lude.<$> messageTtlSeconds]
-      )
+instance Core.FromJSON SingleMasterConfiguration where
+  parseJSON =
+    Core.withObject "SingleMasterConfiguration" Core.$
+      \x ->
+        SingleMasterConfiguration'
+          Core.<$> (x Core..:? "MessageTtlSeconds")

@@ -22,7 +22,7 @@ module Network.AWS.SageMaker.Types.ShuffleConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A configuration for a shuffle option for input data in a channel. If you use @S3Prefix@ for @S3DataType@ , the results of the S3 key prefix matches are shuffled. If you use @ManifestFile@ , the order of the S3 object references in the @ManifestFile@ is shuffled. If you use @AugmentedManifestFile@ , the order of the JSON lines in the @AugmentedManifestFile@ is shuffled. The shuffling order is determined using the @Seed@ value.
 --
@@ -31,33 +31,30 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkShuffleConfig' smart constructor.
 newtype ShuffleConfig = ShuffleConfig'
   { -- | Determines the shuffling order in @ShuffleConfig@ value.
-    seed :: Lude.Integer
+    seed :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShuffleConfig' with the minimum fields required to make a request.
---
--- * 'seed' - Determines the shuffling order in @ShuffleConfig@ value.
+-- | Creates a 'ShuffleConfig' value with any optional fields omitted.
 mkShuffleConfig ::
   -- | 'seed'
-  Lude.Integer ->
+  Core.Integer ->
   ShuffleConfig
-mkShuffleConfig pSeed_ = ShuffleConfig' {seed = pSeed_}
+mkShuffleConfig seed = ShuffleConfig' {seed}
 
 -- | Determines the shuffling order in @ShuffleConfig@ value.
 --
 -- /Note:/ Consider using 'seed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSeed :: Lens.Lens' ShuffleConfig Lude.Integer
-scSeed = Lens.lens (seed :: ShuffleConfig -> Lude.Integer) (\s a -> s {seed = a} :: ShuffleConfig)
+scSeed :: Lens.Lens' ShuffleConfig Core.Integer
+scSeed = Lens.field @"seed"
 {-# DEPRECATED scSeed "Use generic-lens or generic-optics with 'seed' instead." #-}
 
-instance Lude.FromJSON ShuffleConfig where
-  parseJSON =
-    Lude.withObject
-      "ShuffleConfig"
-      (\x -> ShuffleConfig' Lude.<$> (x Lude..: "Seed"))
+instance Core.FromJSON ShuffleConfig where
+  toJSON ShuffleConfig {..} =
+    Core.object (Core.catMaybes [Core.Just ("Seed" Core..= seed)])
 
-instance Lude.ToJSON ShuffleConfig where
-  toJSON ShuffleConfig' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Seed" Lude..= seed)])
+instance Core.FromJSON ShuffleConfig where
+  parseJSON =
+    Core.withObject "ShuffleConfig" Core.$
+      \x -> ShuffleConfig' Core.<$> (x Core..: "Seed")

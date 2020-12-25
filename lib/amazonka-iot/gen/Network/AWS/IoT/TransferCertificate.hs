@@ -25,8 +25,8 @@ module Network.AWS.IoT.TransferCertificate
     mkTransferCertificate,
 
     -- ** Request lenses
-    tcTargetAWSAccount,
     tcCertificateId,
+    tcTargetAwsAccount,
     tcTransferMessage,
 
     -- * Destructuring the response
@@ -34,136 +34,129 @@ module Network.AWS.IoT.TransferCertificate
     mkTransferCertificateResponse,
 
     -- ** Response lenses
-    tcrsTransferredCertificateARN,
-    tcrsResponseStatus,
+    tcrrsTransferredCertificateArn,
+    tcrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the TransferCertificate operation.
 --
 -- /See:/ 'mkTransferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
-  { -- | The AWS account.
-    targetAWSAccount :: Lude.Text,
-    -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-    certificateId :: Lude.Text,
+  { -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+    certificateId :: Types.CertificateId,
+    -- | The AWS account.
+    targetAwsAccount :: Types.TargetAwsAccount,
     -- | The transfer message.
-    transferMessage :: Lude.Maybe Lude.Text
+    transferMessage :: Core.Maybe Types.TransferMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransferCertificate' with the minimum fields required to make a request.
---
--- * 'targetAWSAccount' - The AWS account.
--- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
--- * 'transferMessage' - The transfer message.
+-- | Creates a 'TransferCertificate' value with any optional fields omitted.
 mkTransferCertificate ::
-  -- | 'targetAWSAccount'
-  Lude.Text ->
   -- | 'certificateId'
-  Lude.Text ->
+  Types.CertificateId ->
+  -- | 'targetAwsAccount'
+  Types.TargetAwsAccount ->
   TransferCertificate
-mkTransferCertificate pTargetAWSAccount_ pCertificateId_ =
+mkTransferCertificate certificateId targetAwsAccount =
   TransferCertificate'
-    { targetAWSAccount = pTargetAWSAccount_,
-      certificateId = pCertificateId_,
-      transferMessage = Lude.Nothing
+    { certificateId,
+      targetAwsAccount,
+      transferMessage = Core.Nothing
     }
-
--- | The AWS account.
---
--- /Note:/ Consider using 'targetAWSAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcTargetAWSAccount :: Lens.Lens' TransferCertificate Lude.Text
-tcTargetAWSAccount = Lens.lens (targetAWSAccount :: TransferCertificate -> Lude.Text) (\s a -> s {targetAWSAccount = a} :: TransferCertificate)
-{-# DEPRECATED tcTargetAWSAccount "Use generic-lens or generic-optics with 'targetAWSAccount' instead." #-}
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcCertificateId :: Lens.Lens' TransferCertificate Lude.Text
-tcCertificateId = Lens.lens (certificateId :: TransferCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: TransferCertificate)
+tcCertificateId :: Lens.Lens' TransferCertificate Types.CertificateId
+tcCertificateId = Lens.field @"certificateId"
 {-# DEPRECATED tcCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | The AWS account.
+--
+-- /Note:/ Consider using 'targetAwsAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcTargetAwsAccount :: Lens.Lens' TransferCertificate Types.TargetAwsAccount
+tcTargetAwsAccount = Lens.field @"targetAwsAccount"
+{-# DEPRECATED tcTargetAwsAccount "Use generic-lens or generic-optics with 'targetAwsAccount' instead." #-}
 
 -- | The transfer message.
 --
 -- /Note:/ Consider using 'transferMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcTransferMessage :: Lens.Lens' TransferCertificate (Lude.Maybe Lude.Text)
-tcTransferMessage = Lens.lens (transferMessage :: TransferCertificate -> Lude.Maybe Lude.Text) (\s a -> s {transferMessage = a} :: TransferCertificate)
+tcTransferMessage :: Lens.Lens' TransferCertificate (Core.Maybe Types.TransferMessage)
+tcTransferMessage = Lens.field @"transferMessage"
 {-# DEPRECATED tcTransferMessage "Use generic-lens or generic-optics with 'transferMessage' instead." #-}
 
-instance Lude.AWSRequest TransferCertificate where
+instance Core.FromJSON TransferCertificate where
+  toJSON TransferCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [("transferMessage" Core..=) Core.<$> transferMessage]
+      )
+
+instance Core.AWSRequest TransferCertificate where
   type Rs TransferCertificate = TransferCertificateResponse
-  request = Req.patchJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ("/transfer-certificate/" Core.<> (Core.toText certificateId)),
+        Core._rqQuery =
+          Core.toQueryValue "targetAwsAccount" targetAwsAccount,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TransferCertificateResponse'
-            Lude.<$> (x Lude..?> "transferredCertificateArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "transferredCertificateArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TransferCertificate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON TransferCertificate where
-  toJSON TransferCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("transferMessage" Lude..=) Lude.<$> transferMessage]
-      )
-
-instance Lude.ToPath TransferCertificate where
-  toPath TransferCertificate' {..} =
-    Lude.mconcat ["/transfer-certificate/", Lude.toBS certificateId]
-
-instance Lude.ToQuery TransferCertificate where
-  toQuery TransferCertificate' {..} =
-    Lude.mconcat ["targetAwsAccount" Lude.=: targetAWSAccount]
 
 -- | The output from the TransferCertificate operation.
 --
 -- /See:/ 'mkTransferCertificateResponse' smart constructor.
 data TransferCertificateResponse = TransferCertificateResponse'
   { -- | The ARN of the certificate.
-    transferredCertificateARN :: Lude.Maybe Lude.Text,
+    transferredCertificateArn :: Core.Maybe Types.CertificateArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransferCertificateResponse' with the minimum fields required to make a request.
---
--- * 'transferredCertificateARN' - The ARN of the certificate.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TransferCertificateResponse' value with any optional fields omitted.
 mkTransferCertificateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TransferCertificateResponse
-mkTransferCertificateResponse pResponseStatus_ =
+mkTransferCertificateResponse responseStatus =
   TransferCertificateResponse'
-    { transferredCertificateARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { transferredCertificateArn =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the certificate.
 --
--- /Note:/ Consider using 'transferredCertificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcrsTransferredCertificateARN :: Lens.Lens' TransferCertificateResponse (Lude.Maybe Lude.Text)
-tcrsTransferredCertificateARN = Lens.lens (transferredCertificateARN :: TransferCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {transferredCertificateARN = a} :: TransferCertificateResponse)
-{-# DEPRECATED tcrsTransferredCertificateARN "Use generic-lens or generic-optics with 'transferredCertificateARN' instead." #-}
+-- /Note:/ Consider using 'transferredCertificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcrrsTransferredCertificateArn :: Lens.Lens' TransferCertificateResponse (Core.Maybe Types.CertificateArn)
+tcrrsTransferredCertificateArn = Lens.field @"transferredCertificateArn"
+{-# DEPRECATED tcrrsTransferredCertificateArn "Use generic-lens or generic-optics with 'transferredCertificateArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcrsResponseStatus :: Lens.Lens' TransferCertificateResponse Lude.Int
-tcrsResponseStatus = Lens.lens (responseStatus :: TransferCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TransferCertificateResponse)
-{-# DEPRECATED tcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tcrrsResponseStatus :: Lens.Lens' TransferCertificateResponse Core.Int
+tcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,14 +13,15 @@
 module Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
   ( NodeAssociationStatus
       ( NodeAssociationStatus',
-        NASSuccess,
-        NASFailed,
-        NASInProgress
+        NodeAssociationStatusSuccess,
+        NodeAssociationStatusFailed,
+        NodeAssociationStatusInProgress,
+        fromNodeAssociationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the association or disassociation request.
 --
@@ -33,42 +34,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 --
 --     * @IN_PROGRESS@ : The association or disassociation is still in progress.
-newtype NodeAssociationStatus = NodeAssociationStatus' Lude.Text
+newtype NodeAssociationStatus = NodeAssociationStatus'
+  { fromNodeAssociationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NASSuccess :: NodeAssociationStatus
-pattern NASSuccess = NodeAssociationStatus' "SUCCESS"
+pattern NodeAssociationStatusSuccess :: NodeAssociationStatus
+pattern NodeAssociationStatusSuccess = NodeAssociationStatus' "SUCCESS"
 
-pattern NASFailed :: NodeAssociationStatus
-pattern NASFailed = NodeAssociationStatus' "FAILED"
+pattern NodeAssociationStatusFailed :: NodeAssociationStatus
+pattern NodeAssociationStatusFailed = NodeAssociationStatus' "FAILED"
 
-pattern NASInProgress :: NodeAssociationStatus
-pattern NASInProgress = NodeAssociationStatus' "IN_PROGRESS"
+pattern NodeAssociationStatusInProgress :: NodeAssociationStatus
+pattern NodeAssociationStatusInProgress = NodeAssociationStatus' "IN_PROGRESS"
 
 {-# COMPLETE
-  NASSuccess,
-  NASFailed,
-  NASInProgress,
+  NodeAssociationStatusSuccess,
+  NodeAssociationStatusFailed,
+  NodeAssociationStatusInProgress,
   NodeAssociationStatus'
   #-}

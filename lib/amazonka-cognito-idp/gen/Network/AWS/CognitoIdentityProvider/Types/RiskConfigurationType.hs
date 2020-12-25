@@ -17,113 +17,107 @@ module Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType
     mkRiskConfigurationType,
 
     -- * Lenses
-    rctRiskExceptionConfiguration,
-    rctClientId,
     rctAccountTakeoverRiskConfiguration,
-    rctLastModifiedDate,
-    rctUserPoolId,
+    rctClientId,
     rctCompromisedCredentialsRiskConfiguration,
+    rctLastModifiedDate,
+    rctRiskExceptionConfiguration,
+    rctUserPoolId,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.ClientIdType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.UserPoolIdType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The risk configuration type.
 --
 -- /See:/ 'mkRiskConfigurationType' smart constructor.
 data RiskConfigurationType = RiskConfigurationType'
-  { -- | The configuration to override the risk decision.
-    riskExceptionConfiguration :: Lude.Maybe RiskExceptionConfigurationType,
+  { -- | The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
+    accountTakeoverRiskConfiguration :: Core.Maybe Types.AccountTakeoverRiskConfigurationType,
     -- | The app client ID.
-    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
-    accountTakeoverRiskConfiguration :: Lude.Maybe AccountTakeoverRiskConfigurationType,
-    -- | The last modified date.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The user pool ID.
-    userPoolId :: Lude.Maybe Lude.Text,
+    clientId :: Core.Maybe Types.ClientIdType,
     -- | The compromised credentials risk configuration object including the @EventFilter@ and the @EventAction@
-    compromisedCredentialsRiskConfiguration :: Lude.Maybe CompromisedCredentialsRiskConfigurationType
+    compromisedCredentialsRiskConfiguration :: Core.Maybe Types.CompromisedCredentialsRiskConfigurationType,
+    -- | The last modified date.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The configuration to override the risk decision.
+    riskExceptionConfiguration :: Core.Maybe Types.RiskExceptionConfigurationType,
+    -- | The user pool ID.
+    userPoolId :: Core.Maybe Types.UserPoolIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RiskConfigurationType' with the minimum fields required to make a request.
---
--- * 'riskExceptionConfiguration' - The configuration to override the risk decision.
--- * 'clientId' - The app client ID.
--- * 'accountTakeoverRiskConfiguration' - The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
--- * 'lastModifiedDate' - The last modified date.
--- * 'userPoolId' - The user pool ID.
--- * 'compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration object including the @EventFilter@ and the @EventAction@
+-- | Creates a 'RiskConfigurationType' value with any optional fields omitted.
 mkRiskConfigurationType ::
   RiskConfigurationType
 mkRiskConfigurationType =
   RiskConfigurationType'
-    { riskExceptionConfiguration = Lude.Nothing,
-      clientId = Lude.Nothing,
-      accountTakeoverRiskConfiguration = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      userPoolId = Lude.Nothing,
-      compromisedCredentialsRiskConfiguration = Lude.Nothing
+    { accountTakeoverRiskConfiguration =
+        Core.Nothing,
+      clientId = Core.Nothing,
+      compromisedCredentialsRiskConfiguration = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      riskExceptionConfiguration = Core.Nothing,
+      userPoolId = Core.Nothing
     }
-
--- | The configuration to override the risk decision.
---
--- /Note:/ Consider using 'riskExceptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctRiskExceptionConfiguration :: Lens.Lens' RiskConfigurationType (Lude.Maybe RiskExceptionConfigurationType)
-rctRiskExceptionConfiguration = Lens.lens (riskExceptionConfiguration :: RiskConfigurationType -> Lude.Maybe RiskExceptionConfigurationType) (\s a -> s {riskExceptionConfiguration = a} :: RiskConfigurationType)
-{-# DEPRECATED rctRiskExceptionConfiguration "Use generic-lens or generic-optics with 'riskExceptionConfiguration' instead." #-}
-
--- | The app client ID.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctClientId :: Lens.Lens' RiskConfigurationType (Lude.Maybe (Lude.Sensitive Lude.Text))
-rctClientId = Lens.lens (clientId :: RiskConfigurationType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {clientId = a} :: RiskConfigurationType)
-{-# DEPRECATED rctClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
 --
 -- /Note:/ Consider using 'accountTakeoverRiskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctAccountTakeoverRiskConfiguration :: Lens.Lens' RiskConfigurationType (Lude.Maybe AccountTakeoverRiskConfigurationType)
-rctAccountTakeoverRiskConfiguration = Lens.lens (accountTakeoverRiskConfiguration :: RiskConfigurationType -> Lude.Maybe AccountTakeoverRiskConfigurationType) (\s a -> s {accountTakeoverRiskConfiguration = a} :: RiskConfigurationType)
+rctAccountTakeoverRiskConfiguration :: Lens.Lens' RiskConfigurationType (Core.Maybe Types.AccountTakeoverRiskConfigurationType)
+rctAccountTakeoverRiskConfiguration = Lens.field @"accountTakeoverRiskConfiguration"
 {-# DEPRECATED rctAccountTakeoverRiskConfiguration "Use generic-lens or generic-optics with 'accountTakeoverRiskConfiguration' instead." #-}
 
--- | The last modified date.
+-- | The app client ID.
 --
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctLastModifiedDate :: Lens.Lens' RiskConfigurationType (Lude.Maybe Lude.Timestamp)
-rctLastModifiedDate = Lens.lens (lastModifiedDate :: RiskConfigurationType -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: RiskConfigurationType)
-{-# DEPRECATED rctLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The user pool ID.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctUserPoolId :: Lens.Lens' RiskConfigurationType (Lude.Maybe Lude.Text)
-rctUserPoolId = Lens.lens (userPoolId :: RiskConfigurationType -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: RiskConfigurationType)
-{-# DEPRECATED rctUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctClientId :: Lens.Lens' RiskConfigurationType (Core.Maybe Types.ClientIdType)
+rctClientId = Lens.field @"clientId"
+{-# DEPRECATED rctClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The compromised credentials risk configuration object including the @EventFilter@ and the @EventAction@
 --
 -- /Note:/ Consider using 'compromisedCredentialsRiskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctCompromisedCredentialsRiskConfiguration :: Lens.Lens' RiskConfigurationType (Lude.Maybe CompromisedCredentialsRiskConfigurationType)
-rctCompromisedCredentialsRiskConfiguration = Lens.lens (compromisedCredentialsRiskConfiguration :: RiskConfigurationType -> Lude.Maybe CompromisedCredentialsRiskConfigurationType) (\s a -> s {compromisedCredentialsRiskConfiguration = a} :: RiskConfigurationType)
+rctCompromisedCredentialsRiskConfiguration :: Lens.Lens' RiskConfigurationType (Core.Maybe Types.CompromisedCredentialsRiskConfigurationType)
+rctCompromisedCredentialsRiskConfiguration = Lens.field @"compromisedCredentialsRiskConfiguration"
 {-# DEPRECATED rctCompromisedCredentialsRiskConfiguration "Use generic-lens or generic-optics with 'compromisedCredentialsRiskConfiguration' instead." #-}
 
-instance Lude.FromJSON RiskConfigurationType where
+-- | The last modified date.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctLastModifiedDate :: Lens.Lens' RiskConfigurationType (Core.Maybe Core.NominalDiffTime)
+rctLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED rctLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The configuration to override the risk decision.
+--
+-- /Note:/ Consider using 'riskExceptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctRiskExceptionConfiguration :: Lens.Lens' RiskConfigurationType (Core.Maybe Types.RiskExceptionConfigurationType)
+rctRiskExceptionConfiguration = Lens.field @"riskExceptionConfiguration"
+{-# DEPRECATED rctRiskExceptionConfiguration "Use generic-lens or generic-optics with 'riskExceptionConfiguration' instead." #-}
+
+-- | The user pool ID.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctUserPoolId :: Lens.Lens' RiskConfigurationType (Core.Maybe Types.UserPoolIdType)
+rctUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED rctUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+instance Core.FromJSON RiskConfigurationType where
   parseJSON =
-    Lude.withObject
-      "RiskConfigurationType"
-      ( \x ->
-          RiskConfigurationType'
-            Lude.<$> (x Lude..:? "RiskExceptionConfiguration")
-            Lude.<*> (x Lude..:? "ClientId")
-            Lude.<*> (x Lude..:? "AccountTakeoverRiskConfiguration")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "UserPoolId")
-            Lude.<*> (x Lude..:? "CompromisedCredentialsRiskConfiguration")
-      )
+    Core.withObject "RiskConfigurationType" Core.$
+      \x ->
+        RiskConfigurationType'
+          Core.<$> (x Core..:? "AccountTakeoverRiskConfiguration")
+          Core.<*> (x Core..:? "ClientId")
+          Core.<*> (x Core..:? "CompromisedCredentialsRiskConfiguration")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "RiskExceptionConfiguration")
+          Core.<*> (x Core..:? "UserPoolId")

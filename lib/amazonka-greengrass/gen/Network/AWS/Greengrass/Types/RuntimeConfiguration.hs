@@ -21,40 +21,36 @@ module Network.AWS.Greengrass.Types.RuntimeConfiguration
   )
 where
 
-import Network.AWS.Greengrass.Types.TelemetryConfiguration
+import qualified Network.AWS.Greengrass.Types.TelemetryConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Runtime configuration for a thing.
 --
 -- /See:/ 'mkRuntimeConfiguration' smart constructor.
 newtype RuntimeConfiguration = RuntimeConfiguration'
   { -- | Configuration for telemetry service.
-    telemetryConfiguration :: Lude.Maybe TelemetryConfiguration
+    telemetryConfiguration :: Core.Maybe Types.TelemetryConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RuntimeConfiguration' with the minimum fields required to make a request.
---
--- * 'telemetryConfiguration' - Configuration for telemetry service.
+-- | Creates a 'RuntimeConfiguration' value with any optional fields omitted.
 mkRuntimeConfiguration ::
   RuntimeConfiguration
 mkRuntimeConfiguration =
-  RuntimeConfiguration' {telemetryConfiguration = Lude.Nothing}
+  RuntimeConfiguration' {telemetryConfiguration = Core.Nothing}
 
 -- | Configuration for telemetry service.
 --
 -- /Note:/ Consider using 'telemetryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTelemetryConfiguration :: Lens.Lens' RuntimeConfiguration (Lude.Maybe TelemetryConfiguration)
-rcTelemetryConfiguration = Lens.lens (telemetryConfiguration :: RuntimeConfiguration -> Lude.Maybe TelemetryConfiguration) (\s a -> s {telemetryConfiguration = a} :: RuntimeConfiguration)
+rcTelemetryConfiguration :: Lens.Lens' RuntimeConfiguration (Core.Maybe Types.TelemetryConfiguration)
+rcTelemetryConfiguration = Lens.field @"telemetryConfiguration"
 {-# DEPRECATED rcTelemetryConfiguration "Use generic-lens or generic-optics with 'telemetryConfiguration' instead." #-}
 
-instance Lude.FromJSON RuntimeConfiguration where
+instance Core.FromJSON RuntimeConfiguration where
   parseJSON =
-    Lude.withObject
-      "RuntimeConfiguration"
-      ( \x ->
-          RuntimeConfiguration'
-            Lude.<$> (x Lude..:? "TelemetryConfiguration")
-      )
+    Core.withObject "RuntimeConfiguration" Core.$
+      \x ->
+        RuntimeConfiguration'
+          Core.<$> (x Core..:? "TelemetryConfiguration")

@@ -24,65 +24,60 @@ module Network.AWS.Lightsail.Types.InstanceSnapshotInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.DiskInfo
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.DiskInfo as Types
+import qualified Network.AWS.Lightsail.Types.NonEmptyString as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance snapshot.
 --
 -- /See:/ 'mkInstanceSnapshotInfo' smart constructor.
 data InstanceSnapshotInfo = InstanceSnapshotInfo'
   { -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@ ).
-    fromBlueprintId :: Lude.Maybe Lude.Text,
+    fromBlueprintId :: Core.Maybe Types.NonEmptyString,
     -- | The bundle ID from which the source instance was created (e.g., @micro_1_0@ ).
-    fromBundleId :: Lude.Maybe Lude.Text,
+    fromBundleId :: Core.Maybe Types.NonEmptyString,
     -- | A list of objects describing the disks that were attached to the source instance.
-    fromDiskInfo :: Lude.Maybe [DiskInfo]
+    fromDiskInfo :: Core.Maybe [Types.DiskInfo]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceSnapshotInfo' with the minimum fields required to make a request.
---
--- * 'fromBlueprintId' - The blueprint ID from which the source instance (e.g., @os_debian_8_3@ ).
--- * 'fromBundleId' - The bundle ID from which the source instance was created (e.g., @micro_1_0@ ).
--- * 'fromDiskInfo' - A list of objects describing the disks that were attached to the source instance.
+-- | Creates a 'InstanceSnapshotInfo' value with any optional fields omitted.
 mkInstanceSnapshotInfo ::
   InstanceSnapshotInfo
 mkInstanceSnapshotInfo =
   InstanceSnapshotInfo'
-    { fromBlueprintId = Lude.Nothing,
-      fromBundleId = Lude.Nothing,
-      fromDiskInfo = Lude.Nothing
+    { fromBlueprintId = Core.Nothing,
+      fromBundleId = Core.Nothing,
+      fromDiskInfo = Core.Nothing
     }
 
 -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@ ).
 --
 -- /Note:/ Consider using 'fromBlueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isiFromBlueprintId :: Lens.Lens' InstanceSnapshotInfo (Lude.Maybe Lude.Text)
-isiFromBlueprintId = Lens.lens (fromBlueprintId :: InstanceSnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {fromBlueprintId = a} :: InstanceSnapshotInfo)
+isiFromBlueprintId :: Lens.Lens' InstanceSnapshotInfo (Core.Maybe Types.NonEmptyString)
+isiFromBlueprintId = Lens.field @"fromBlueprintId"
 {-# DEPRECATED isiFromBlueprintId "Use generic-lens or generic-optics with 'fromBlueprintId' instead." #-}
 
 -- | The bundle ID from which the source instance was created (e.g., @micro_1_0@ ).
 --
 -- /Note:/ Consider using 'fromBundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isiFromBundleId :: Lens.Lens' InstanceSnapshotInfo (Lude.Maybe Lude.Text)
-isiFromBundleId = Lens.lens (fromBundleId :: InstanceSnapshotInfo -> Lude.Maybe Lude.Text) (\s a -> s {fromBundleId = a} :: InstanceSnapshotInfo)
+isiFromBundleId :: Lens.Lens' InstanceSnapshotInfo (Core.Maybe Types.NonEmptyString)
+isiFromBundleId = Lens.field @"fromBundleId"
 {-# DEPRECATED isiFromBundleId "Use generic-lens or generic-optics with 'fromBundleId' instead." #-}
 
 -- | A list of objects describing the disks that were attached to the source instance.
 --
 -- /Note:/ Consider using 'fromDiskInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isiFromDiskInfo :: Lens.Lens' InstanceSnapshotInfo (Lude.Maybe [DiskInfo])
-isiFromDiskInfo = Lens.lens (fromDiskInfo :: InstanceSnapshotInfo -> Lude.Maybe [DiskInfo]) (\s a -> s {fromDiskInfo = a} :: InstanceSnapshotInfo)
+isiFromDiskInfo :: Lens.Lens' InstanceSnapshotInfo (Core.Maybe [Types.DiskInfo])
+isiFromDiskInfo = Lens.field @"fromDiskInfo"
 {-# DEPRECATED isiFromDiskInfo "Use generic-lens or generic-optics with 'fromDiskInfo' instead." #-}
 
-instance Lude.FromJSON InstanceSnapshotInfo where
+instance Core.FromJSON InstanceSnapshotInfo where
   parseJSON =
-    Lude.withObject
-      "InstanceSnapshotInfo"
-      ( \x ->
-          InstanceSnapshotInfo'
-            Lude.<$> (x Lude..:? "fromBlueprintId")
-            Lude.<*> (x Lude..:? "fromBundleId")
-            Lude.<*> (x Lude..:? "fromDiskInfo" Lude..!= Lude.mempty)
-      )
+    Core.withObject "InstanceSnapshotInfo" Core.$
+      \x ->
+        InstanceSnapshotInfo'
+          Core.<$> (x Core..:? "fromBlueprintId")
+          Core.<*> (x Core..:? "fromBundleId")
+          Core.<*> (x Core..:? "fromDiskInfo")

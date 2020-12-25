@@ -20,7 +20,7 @@ module Network.AWS.DynamoDBStreams.ListStreams
     mkListStreams,
 
     -- ** Request lenses
-    lsExclusiveStartStreamARN,
+    lsExclusiveStartStreamArn,
     lsLimit,
     lsTableName,
 
@@ -29,106 +29,95 @@ module Network.AWS.DynamoDBStreams.ListStreams
     mkListStreamsResponse,
 
     -- ** Response lenses
-    lsrsLastEvaluatedStreamARN,
-    lsrsStreams,
-    lsrsResponseStatus,
+    lsrrsLastEvaluatedStreamArn,
+    lsrrsStreams,
+    lsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDBStreams.Types
+import qualified Network.AWS.DynamoDBStreams.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ListStreams@ operation.
 --
 -- /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
   { -- | The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
-    exclusiveStartStreamARN :: Lude.Maybe Lude.Text,
+    exclusiveStartStreamArn :: Core.Maybe Types.StreamArn,
     -- | The maximum number of streams to return. The upper limit is 100.
-    limit :: Lude.Maybe Lude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | If this parameter is provided, then only the streams associated with this table name are returned.
-    tableName :: Lude.Maybe Lude.Text
+    tableName :: Core.Maybe Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
---
--- * 'exclusiveStartStreamARN' - The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
--- * 'limit' - The maximum number of streams to return. The upper limit is 100.
--- * 'tableName' - If this parameter is provided, then only the streams associated with this table name are returned.
+-- | Creates a 'ListStreams' value with any optional fields omitted.
 mkListStreams ::
   ListStreams
 mkListStreams =
   ListStreams'
-    { exclusiveStartStreamARN = Lude.Nothing,
-      limit = Lude.Nothing,
-      tableName = Lude.Nothing
+    { exclusiveStartStreamArn = Core.Nothing,
+      limit = Core.Nothing,
+      tableName = Core.Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
 --
--- /Note:/ Consider using 'exclusiveStartStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsExclusiveStartStreamARN :: Lens.Lens' ListStreams (Lude.Maybe Lude.Text)
-lsExclusiveStartStreamARN = Lens.lens (exclusiveStartStreamARN :: ListStreams -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartStreamARN = a} :: ListStreams)
-{-# DEPRECATED lsExclusiveStartStreamARN "Use generic-lens or generic-optics with 'exclusiveStartStreamARN' instead." #-}
+-- /Note:/ Consider using 'exclusiveStartStreamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsExclusiveStartStreamArn :: Lens.Lens' ListStreams (Core.Maybe Types.StreamArn)
+lsExclusiveStartStreamArn = Lens.field @"exclusiveStartStreamArn"
+{-# DEPRECATED lsExclusiveStartStreamArn "Use generic-lens or generic-optics with 'exclusiveStartStreamArn' instead." #-}
 
 -- | The maximum number of streams to return. The upper limit is 100.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsLimit :: Lens.Lens' ListStreams (Lude.Maybe Lude.Natural)
-lsLimit = Lens.lens (limit :: ListStreams -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListStreams)
+lsLimit :: Lens.Lens' ListStreams (Core.Maybe Core.Natural)
+lsLimit = Lens.field @"limit"
 {-# DEPRECATED lsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | If this parameter is provided, then only the streams associated with this table name are returned.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsTableName :: Lens.Lens' ListStreams (Lude.Maybe Lude.Text)
-lsTableName = Lens.lens (tableName :: ListStreams -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: ListStreams)
+lsTableName :: Lens.Lens' ListStreams (Core.Maybe Types.TableName)
+lsTableName = Lens.field @"tableName"
 {-# DEPRECATED lsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest ListStreams where
+instance Core.FromJSON ListStreams where
+  toJSON ListStreams {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartStreamArn" Core..=)
+              Core.<$> exclusiveStartStreamArn,
+            ("Limit" Core..=) Core.<$> limit,
+            ("TableName" Core..=) Core.<$> tableName
+          ]
+      )
+
+instance Core.AWSRequest ListStreams where
   type Rs ListStreams = ListStreamsResponse
-  request = Req.postJSON dynamoDBStreamsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDBStreams_20120810.ListStreams")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Lude.<$> (x Lude..?> "LastEvaluatedStreamArn")
-            Lude.<*> (x Lude..?> "Streams" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LastEvaluatedStreamArn")
+            Core.<*> (x Core..:? "Streams")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListStreams where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDBStreams_20120810.ListStreams" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListStreams where
-  toJSON ListStreams' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExclusiveStartStreamArn" Lude..=)
-              Lude.<$> exclusiveStartStreamARN,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("TableName" Lude..=) Lude.<$> tableName
-          ]
-      )
-
-instance Lude.ToPath ListStreams where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListStreams where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @ListStreams@ operation.
 --
@@ -138,32 +127,25 @@ data ListStreamsResponse = ListStreamsResponse'
     --
     -- If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
     -- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
-    lastEvaluatedStreamARN :: Lude.Maybe Lude.Text,
+    lastEvaluatedStreamArn :: Core.Maybe Types.LastEvaluatedStreamArn,
     -- | A list of stream descriptors associated with the current account and endpoint.
-    streams :: Lude.Maybe [Stream],
+    streams :: Core.Maybe [Types.Stream],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
---
--- * 'lastEvaluatedStreamARN' - The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
---
--- If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
--- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
--- * 'streams' - A list of stream descriptors associated with the current account and endpoint.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStreamsResponse' value with any optional fields omitted.
 mkListStreamsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStreamsResponse
-mkListStreamsResponse pResponseStatus_ =
+mkListStreamsResponse responseStatus =
   ListStreamsResponse'
-    { lastEvaluatedStreamARN = Lude.Nothing,
-      streams = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lastEvaluatedStreamArn = Core.Nothing,
+      streams = Core.Nothing,
+      responseStatus
     }
 
 -- | The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
@@ -171,21 +153,21 @@ mkListStreamsResponse pResponseStatus_ =
 -- If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
 -- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
 --
--- /Note:/ Consider using 'lastEvaluatedStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsLastEvaluatedStreamARN :: Lens.Lens' ListStreamsResponse (Lude.Maybe Lude.Text)
-lsrsLastEvaluatedStreamARN = Lens.lens (lastEvaluatedStreamARN :: ListStreamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastEvaluatedStreamARN = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsLastEvaluatedStreamARN "Use generic-lens or generic-optics with 'lastEvaluatedStreamARN' instead." #-}
+-- /Note:/ Consider using 'lastEvaluatedStreamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrrsLastEvaluatedStreamArn :: Lens.Lens' ListStreamsResponse (Core.Maybe Types.LastEvaluatedStreamArn)
+lsrrsLastEvaluatedStreamArn = Lens.field @"lastEvaluatedStreamArn"
+{-# DEPRECATED lsrrsLastEvaluatedStreamArn "Use generic-lens or generic-optics with 'lastEvaluatedStreamArn' instead." #-}
 
 -- | A list of stream descriptors associated with the current account and endpoint.
 --
 -- /Note:/ Consider using 'streams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsStreams :: Lens.Lens' ListStreamsResponse (Lude.Maybe [Stream])
-lsrsStreams = Lens.lens (streams :: ListStreamsResponse -> Lude.Maybe [Stream]) (\s a -> s {streams = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsStreams "Use generic-lens or generic-optics with 'streams' instead." #-}
+lsrrsStreams :: Lens.Lens' ListStreamsResponse (Core.Maybe [Types.Stream])
+lsrrsStreams = Lens.field @"streams"
+{-# DEPRECATED lsrrsStreams "Use generic-lens or generic-optics with 'streams' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListStreamsResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsrrsResponseStatus :: Lens.Lens' ListStreamsResponse Core.Int
+lsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

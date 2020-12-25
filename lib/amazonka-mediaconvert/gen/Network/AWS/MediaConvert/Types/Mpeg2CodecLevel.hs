@@ -13,62 +13,67 @@
 module Network.AWS.MediaConvert.Types.Mpeg2CodecLevel
   ( Mpeg2CodecLevel
       ( Mpeg2CodecLevel',
-        MCLAuto,
-        MCLLow,
-        MCLMain,
-        MCLHIGH1440,
-        MCLHigh
+        Mpeg2CodecLevelAuto,
+        Mpeg2CodecLevelLow,
+        Mpeg2CodecLevelMain,
+        Mpeg2CodecLevelHIGH1440,
+        Mpeg2CodecLevelHigh,
+        fromMpeg2CodecLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Level (Mpeg2CodecLevel) to set the MPEG-2 level for the video output.
-newtype Mpeg2CodecLevel = Mpeg2CodecLevel' Lude.Text
+newtype Mpeg2CodecLevel = Mpeg2CodecLevel'
+  { fromMpeg2CodecLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MCLAuto :: Mpeg2CodecLevel
-pattern MCLAuto = Mpeg2CodecLevel' "AUTO"
+pattern Mpeg2CodecLevelAuto :: Mpeg2CodecLevel
+pattern Mpeg2CodecLevelAuto = Mpeg2CodecLevel' "AUTO"
 
-pattern MCLLow :: Mpeg2CodecLevel
-pattern MCLLow = Mpeg2CodecLevel' "LOW"
+pattern Mpeg2CodecLevelLow :: Mpeg2CodecLevel
+pattern Mpeg2CodecLevelLow = Mpeg2CodecLevel' "LOW"
 
-pattern MCLMain :: Mpeg2CodecLevel
-pattern MCLMain = Mpeg2CodecLevel' "MAIN"
+pattern Mpeg2CodecLevelMain :: Mpeg2CodecLevel
+pattern Mpeg2CodecLevelMain = Mpeg2CodecLevel' "MAIN"
 
-pattern MCLHIGH1440 :: Mpeg2CodecLevel
-pattern MCLHIGH1440 = Mpeg2CodecLevel' "HIGH1440"
+pattern Mpeg2CodecLevelHIGH1440 :: Mpeg2CodecLevel
+pattern Mpeg2CodecLevelHIGH1440 = Mpeg2CodecLevel' "HIGH1440"
 
-pattern MCLHigh :: Mpeg2CodecLevel
-pattern MCLHigh = Mpeg2CodecLevel' "HIGH"
+pattern Mpeg2CodecLevelHigh :: Mpeg2CodecLevel
+pattern Mpeg2CodecLevelHigh = Mpeg2CodecLevel' "HIGH"
 
 {-# COMPLETE
-  MCLAuto,
-  MCLLow,
-  MCLMain,
-  MCLHIGH1440,
-  MCLHigh,
+  Mpeg2CodecLevelAuto,
+  Mpeg2CodecLevelLow,
+  Mpeg2CodecLevelMain,
+  Mpeg2CodecLevelHIGH1440,
+  Mpeg2CodecLevelHigh,
   Mpeg2CodecLevel'
   #-}

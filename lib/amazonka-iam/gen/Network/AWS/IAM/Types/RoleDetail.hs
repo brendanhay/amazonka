@@ -17,29 +17,34 @@ module Network.AWS.IAM.Types.RoleDetail
     mkRoleDetail,
 
     -- * Lenses
+    rdArn,
     rdAssumeRolePolicyDocument,
-    rdARN,
-    rdPath,
-    rdInstanceProfileList,
+    rdAttachedManagedPolicies,
     rdCreateDate,
-    rdRoleName,
+    rdInstanceProfileList,
+    rdPath,
+    rdPermissionsBoundary,
     rdRoleId,
     rdRoleLastUsed,
-    rdPermissionsBoundary,
+    rdRoleName,
     rdRolePolicyList,
     rdTags,
-    rdAttachedManagedPolicies,
   )
 where
 
-import Network.AWS.IAM.Types.AttachedPermissionsBoundary
-import Network.AWS.IAM.Types.AttachedPolicy
-import Network.AWS.IAM.Types.InstanceProfile
-import Network.AWS.IAM.Types.PolicyDetail
-import Network.AWS.IAM.Types.RoleLastUsed
-import Network.AWS.IAM.Types.Tag
+import qualified Network.AWS.IAM.Types.Arn as Types
+import qualified Network.AWS.IAM.Types.AssumeRolePolicyDocument as Types
+import qualified Network.AWS.IAM.Types.AttachedPermissionsBoundary as Types
+import qualified Network.AWS.IAM.Types.AttachedPolicy as Types
+import qualified Network.AWS.IAM.Types.InstanceProfile as Types
+import qualified Network.AWS.IAM.Types.Path as Types
+import qualified Network.AWS.IAM.Types.PolicyDetail as Types
+import qualified Network.AWS.IAM.Types.RoleId as Types
+import qualified Network.AWS.IAM.Types.RoleLastUsed as Types
+import qualified Network.AWS.IAM.Types.RoleName as Types
+import qualified Network.AWS.IAM.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an IAM role, including all of the role's policies.
 --
@@ -47,175 +52,156 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoleDetail' smart constructor.
 data RoleDetail = RoleDetail'
-  { -- | The trust policy that grants permission to assume the role.
-    assumeRolePolicyDocument :: Lude.Maybe Lude.Text,
-    arn :: Lude.Maybe Lude.Text,
-    -- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    path :: Lude.Maybe Lude.Text,
-    -- | A list of instance profiles that contain this role.
-    instanceProfileList :: Lude.Maybe [InstanceProfile],
+  { arn :: Core.Maybe Types.Arn,
+    -- | The trust policy that grants permission to assume the role.
+    assumeRolePolicyDocument :: Core.Maybe Types.AssumeRolePolicyDocument,
+    -- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
+    attachedManagedPolicies :: Core.Maybe [Types.AttachedPolicy],
     -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
-    createDate :: Lude.Maybe Lude.DateTime,
-    -- | The friendly name that identifies the role.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    roleId :: Lude.Maybe Lude.Text,
-    -- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
-    roleLastUsed :: Lude.Maybe RoleLastUsed,
+    createDate :: Core.Maybe Core.UTCTime,
+    -- | A list of instance profiles that contain this role.
+    instanceProfileList :: Core.Maybe [Types.InstanceProfile],
+    -- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    path :: Core.Maybe Types.Path,
     -- | The ARN of the policy used to set the permissions boundary for the role.
     --
     -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
-    permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
+    permissionsBoundary :: Core.Maybe Types.AttachedPermissionsBoundary,
+    -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    roleId :: Core.Maybe Types.RoleId,
+    -- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
+    roleLastUsed :: Core.Maybe Types.RoleLastUsed,
+    -- | The friendly name that identifies the role.
+    roleName :: Core.Maybe Types.RoleName,
     -- | A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
-    rolePolicyList :: Lude.Maybe [PolicyDetail],
+    rolePolicyList :: Core.Maybe [Types.PolicyDetail],
     -- | A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
-    tags :: Lude.Maybe [Tag],
-    -- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
-    attachedManagedPolicies :: Lude.Maybe [AttachedPolicy]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RoleDetail' with the minimum fields required to make a request.
---
--- * 'assumeRolePolicyDocument' - The trust policy that grants permission to assume the role.
--- * 'arn' -
--- * 'path' - The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'instanceProfileList' - A list of instance profiles that contain this role.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
--- * 'roleName' - The friendly name that identifies the role.
--- * 'roleId' - The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'roleLastUsed' - Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
--- * 'permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the role.
---
--- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'rolePolicyList' - A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
--- * 'tags' - A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
--- * 'attachedManagedPolicies' - A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
+-- | Creates a 'RoleDetail' value with any optional fields omitted.
 mkRoleDetail ::
   RoleDetail
 mkRoleDetail =
   RoleDetail'
-    { assumeRolePolicyDocument = Lude.Nothing,
-      arn = Lude.Nothing,
-      path = Lude.Nothing,
-      instanceProfileList = Lude.Nothing,
-      createDate = Lude.Nothing,
-      roleName = Lude.Nothing,
-      roleId = Lude.Nothing,
-      roleLastUsed = Lude.Nothing,
-      permissionsBoundary = Lude.Nothing,
-      rolePolicyList = Lude.Nothing,
-      tags = Lude.Nothing,
-      attachedManagedPolicies = Lude.Nothing
+    { arn = Core.Nothing,
+      assumeRolePolicyDocument = Core.Nothing,
+      attachedManagedPolicies = Core.Nothing,
+      createDate = Core.Nothing,
+      instanceProfileList = Core.Nothing,
+      path = Core.Nothing,
+      permissionsBoundary = Core.Nothing,
+      roleId = Core.Nothing,
+      roleLastUsed = Core.Nothing,
+      roleName = Core.Nothing,
+      rolePolicyList = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The trust policy that grants permission to assume the role.
---
--- /Note:/ Consider using 'assumeRolePolicyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdAssumeRolePolicyDocument :: Lens.Lens' RoleDetail (Lude.Maybe Lude.Text)
-rdAssumeRolePolicyDocument = Lens.lens (assumeRolePolicyDocument :: RoleDetail -> Lude.Maybe Lude.Text) (\s a -> s {assumeRolePolicyDocument = a} :: RoleDetail)
-{-# DEPRECATED rdAssumeRolePolicyDocument "Use generic-lens or generic-optics with 'assumeRolePolicyDocument' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdARN :: Lens.Lens' RoleDetail (Lude.Maybe Lude.Text)
-rdARN = Lens.lens (arn :: RoleDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RoleDetail)
-{-# DEPRECATED rdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+rdArn :: Lens.Lens' RoleDetail (Core.Maybe Types.Arn)
+rdArn = Lens.field @"arn"
+{-# DEPRECATED rdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | The trust policy that grants permission to assume the role.
 --
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdPath :: Lens.Lens' RoleDetail (Lude.Maybe Lude.Text)
-rdPath = Lens.lens (path :: RoleDetail -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: RoleDetail)
-{-# DEPRECATED rdPath "Use generic-lens or generic-optics with 'path' instead." #-}
+-- /Note:/ Consider using 'assumeRolePolicyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdAssumeRolePolicyDocument :: Lens.Lens' RoleDetail (Core.Maybe Types.AssumeRolePolicyDocument)
+rdAssumeRolePolicyDocument = Lens.field @"assumeRolePolicyDocument"
+{-# DEPRECATED rdAssumeRolePolicyDocument "Use generic-lens or generic-optics with 'assumeRolePolicyDocument' instead." #-}
 
--- | A list of instance profiles that contain this role.
+-- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
 --
--- /Note:/ Consider using 'instanceProfileList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdInstanceProfileList :: Lens.Lens' RoleDetail (Lude.Maybe [InstanceProfile])
-rdInstanceProfileList = Lens.lens (instanceProfileList :: RoleDetail -> Lude.Maybe [InstanceProfile]) (\s a -> s {instanceProfileList = a} :: RoleDetail)
-{-# DEPRECATED rdInstanceProfileList "Use generic-lens or generic-optics with 'instanceProfileList' instead." #-}
+-- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdAttachedManagedPolicies :: Lens.Lens' RoleDetail (Core.Maybe [Types.AttachedPolicy])
+rdAttachedManagedPolicies = Lens.field @"attachedManagedPolicies"
+{-# DEPRECATED rdAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdCreateDate :: Lens.Lens' RoleDetail (Lude.Maybe Lude.DateTime)
-rdCreateDate = Lens.lens (createDate :: RoleDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: RoleDetail)
+rdCreateDate :: Lens.Lens' RoleDetail (Core.Maybe Core.UTCTime)
+rdCreateDate = Lens.field @"createDate"
 {-# DEPRECATED rdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
--- | The friendly name that identifies the role.
+-- | A list of instance profiles that contain this role.
 --
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRoleName :: Lens.Lens' RoleDetail (Lude.Maybe Lude.Text)
-rdRoleName = Lens.lens (roleName :: RoleDetail -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: RoleDetail)
-{-# DEPRECATED rdRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+-- /Note:/ Consider using 'instanceProfileList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdInstanceProfileList :: Lens.Lens' RoleDetail (Core.Maybe [Types.InstanceProfile])
+rdInstanceProfileList = Lens.field @"instanceProfileList"
+{-# DEPRECATED rdInstanceProfileList "Use generic-lens or generic-optics with 'instanceProfileList' instead." #-}
 
--- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
--- /Note:/ Consider using 'roleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRoleId :: Lens.Lens' RoleDetail (Lude.Maybe Lude.Text)
-rdRoleId = Lens.lens (roleId :: RoleDetail -> Lude.Maybe Lude.Text) (\s a -> s {roleId = a} :: RoleDetail)
-{-# DEPRECATED rdRoleId "Use generic-lens or generic-optics with 'roleId' instead." #-}
-
--- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'roleLastUsed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRoleLastUsed :: Lens.Lens' RoleDetail (Lude.Maybe RoleLastUsed)
-rdRoleLastUsed = Lens.lens (roleLastUsed :: RoleDetail -> Lude.Maybe RoleLastUsed) (\s a -> s {roleLastUsed = a} :: RoleDetail)
-{-# DEPRECATED rdRoleLastUsed "Use generic-lens or generic-optics with 'roleLastUsed' instead." #-}
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPath :: Lens.Lens' RoleDetail (Core.Maybe Types.Path)
+rdPath = Lens.field @"path"
+{-# DEPRECATED rdPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The ARN of the policy used to set the permissions boundary for the role.
 --
 -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'permissionsBoundary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdPermissionsBoundary :: Lens.Lens' RoleDetail (Lude.Maybe AttachedPermissionsBoundary)
-rdPermissionsBoundary = Lens.lens (permissionsBoundary :: RoleDetail -> Lude.Maybe AttachedPermissionsBoundary) (\s a -> s {permissionsBoundary = a} :: RoleDetail)
+rdPermissionsBoundary :: Lens.Lens' RoleDetail (Core.Maybe Types.AttachedPermissionsBoundary)
+rdPermissionsBoundary = Lens.field @"permissionsBoundary"
 {-# DEPRECATED rdPermissionsBoundary "Use generic-lens or generic-optics with 'permissionsBoundary' instead." #-}
+
+-- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'roleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoleId :: Lens.Lens' RoleDetail (Core.Maybe Types.RoleId)
+rdRoleId = Lens.field @"roleId"
+{-# DEPRECATED rdRoleId "Use generic-lens or generic-optics with 'roleId' instead." #-}
+
+-- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'roleLastUsed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoleLastUsed :: Lens.Lens' RoleDetail (Core.Maybe Types.RoleLastUsed)
+rdRoleLastUsed = Lens.field @"roleLastUsed"
+{-# DEPRECATED rdRoleLastUsed "Use generic-lens or generic-optics with 'roleLastUsed' instead." #-}
+
+-- | The friendly name that identifies the role.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRoleName :: Lens.Lens' RoleDetail (Core.Maybe Types.RoleName)
+rdRoleName = Lens.field @"roleName"
+{-# DEPRECATED rdRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
 --
 -- /Note:/ Consider using 'rolePolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRolePolicyList :: Lens.Lens' RoleDetail (Lude.Maybe [PolicyDetail])
-rdRolePolicyList = Lens.lens (rolePolicyList :: RoleDetail -> Lude.Maybe [PolicyDetail]) (\s a -> s {rolePolicyList = a} :: RoleDetail)
+rdRolePolicyList :: Lens.Lens' RoleDetail (Core.Maybe [Types.PolicyDetail])
+rdRolePolicyList = Lens.field @"rolePolicyList"
 {-# DEPRECATED rdRolePolicyList "Use generic-lens or generic-optics with 'rolePolicyList' instead." #-}
 
 -- | A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdTags :: Lens.Lens' RoleDetail (Lude.Maybe [Tag])
-rdTags = Lens.lens (tags :: RoleDetail -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RoleDetail)
+rdTags :: Lens.Lens' RoleDetail (Core.Maybe [Types.Tag])
+rdTags = Lens.field @"tags"
 {-# DEPRECATED rdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
---
--- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdAttachedManagedPolicies :: Lens.Lens' RoleDetail (Lude.Maybe [AttachedPolicy])
-rdAttachedManagedPolicies = Lens.lens (attachedManagedPolicies :: RoleDetail -> Lude.Maybe [AttachedPolicy]) (\s a -> s {attachedManagedPolicies = a} :: RoleDetail)
-{-# DEPRECATED rdAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
-
-instance Lude.FromXML RoleDetail where
+instance Core.FromXML RoleDetail where
   parseXML x =
     RoleDetail'
-      Lude.<$> (x Lude..@? "AssumeRolePolicyDocument")
-      Lude.<*> (x Lude..@? "Arn")
-      Lude.<*> (x Lude..@? "Path")
-      Lude.<*> ( x Lude..@? "InstanceProfileList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "Arn")
+      Core.<*> (x Core..@? "AssumeRolePolicyDocument")
+      Core.<*> ( x Core..@? "AttachedManagedPolicies"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "RoleName")
-      Lude.<*> (x Lude..@? "RoleId")
-      Lude.<*> (x Lude..@? "RoleLastUsed")
-      Lude.<*> (x Lude..@? "PermissionsBoundary")
-      Lude.<*> ( x Lude..@? "RolePolicyList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> (x Core..@? "CreateDate")
+      Core.<*> ( x Core..@? "InstanceProfileList"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> ( x Lude..@? "AttachedManagedPolicies" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<*> (x Core..@? "Path")
+      Core.<*> (x Core..@? "PermissionsBoundary")
+      Core.<*> (x Core..@? "RoleId")
+      Core.<*> (x Core..@? "RoleLastUsed")
+      Core.<*> (x Core..@? "RoleName")
+      Core.<*> (x Core..@? "RolePolicyList" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLList "member")

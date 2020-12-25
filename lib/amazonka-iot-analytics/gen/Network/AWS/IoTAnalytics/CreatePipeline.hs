@@ -29,59 +29,52 @@ module Network.AWS.IoTAnalytics.CreatePipeline
     mkCreatePipelineResponse,
 
     -- ** Response lenses
-    cprsPipelineName,
-    cprsPipelineARN,
-    cprsResponseStatus,
+    cprrsPipelineArn,
+    cprrsPipelineName,
+    cprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
   { -- | The name of the pipeline.
-    pipelineName :: Lude.Text,
+    pipelineName :: Types.PipelineName,
     -- | A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
     --
     -- The list can be 2-25 @PipelineActivity@ objects and must contain both a @channel@ and a @datastore@ activity. Each entry in the list must contain only one activity. For example:
     -- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
-    pipelineActivities :: Lude.NonEmpty PipelineActivity,
+    pipelineActivities :: Core.NonEmpty Types.PipelineActivity,
     -- | Metadata which can be used to manage the pipeline.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline.
--- * 'pipelineActivities' - A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
---
--- The list can be 2-25 @PipelineActivity@ objects and must contain both a @channel@ and a @datastore@ activity. Each entry in the list must contain only one activity. For example:
--- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
--- * 'tags' - Metadata which can be used to manage the pipeline.
+-- | Creates a 'CreatePipeline' value with any optional fields omitted.
 mkCreatePipeline ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   -- | 'pipelineActivities'
-  Lude.NonEmpty PipelineActivity ->
+  Core.NonEmpty Types.PipelineActivity ->
   CreatePipeline
-mkCreatePipeline pPipelineName_ pPipelineActivities_ =
+mkCreatePipeline pipelineName pipelineActivities =
   CreatePipeline'
-    { pipelineName = pPipelineName_,
-      pipelineActivities = pPipelineActivities_,
-      tags = Lude.Nothing
+    { pipelineName,
+      pipelineActivities,
+      tags = Core.Nothing
     }
 
 -- | The name of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPipelineName :: Lens.Lens' CreatePipeline Lude.Text
-cpPipelineName = Lens.lens (pipelineName :: CreatePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: CreatePipeline)
+cpPipelineName :: Lens.Lens' CreatePipeline Types.PipelineName
+cpPipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED cpPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
@@ -90,93 +83,88 @@ cpPipelineName = Lens.lens (pipelineName :: CreatePipeline -> Lude.Text) (\s a -
 -- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
 --
 -- /Note:/ Consider using 'pipelineActivities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPipelineActivities :: Lens.Lens' CreatePipeline (Lude.NonEmpty PipelineActivity)
-cpPipelineActivities = Lens.lens (pipelineActivities :: CreatePipeline -> Lude.NonEmpty PipelineActivity) (\s a -> s {pipelineActivities = a} :: CreatePipeline)
+cpPipelineActivities :: Lens.Lens' CreatePipeline (Core.NonEmpty Types.PipelineActivity)
+cpPipelineActivities = Lens.field @"pipelineActivities"
 {-# DEPRECATED cpPipelineActivities "Use generic-lens or generic-optics with 'pipelineActivities' instead." #-}
 
 -- | Metadata which can be used to manage the pipeline.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTags :: Lens.Lens' CreatePipeline (Lude.Maybe (Lude.NonEmpty Tag))
-cpTags = Lens.lens (tags :: CreatePipeline -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreatePipeline)
+cpTags :: Lens.Lens' CreatePipeline (Core.Maybe (Core.NonEmpty Types.Tag))
+cpTags = Lens.field @"tags"
 {-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreatePipeline where
-  type Rs CreatePipeline = CreatePipelineResponse
-  request = Req.postJSON ioTAnalyticsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreatePipelineResponse'
-            Lude.<$> (x Lude..?> "pipelineName")
-            Lude.<*> (x Lude..?> "pipelineArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreatePipeline where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreatePipeline where
-  toJSON CreatePipeline' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineName" Lude..= pipelineName),
-            Lude.Just ("pipelineActivities" Lude..= pipelineActivities),
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreatePipeline where
+  toJSON CreatePipeline {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineName" Core..= pipelineName),
+            Core.Just ("pipelineActivities" Core..= pipelineActivities),
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreatePipeline where
-  toPath = Lude.const "/pipelines"
-
-instance Lude.ToQuery CreatePipeline where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreatePipeline where
+  type Rs CreatePipeline = CreatePipelineResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/pipelines",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreatePipelineResponse'
+            Core.<$> (x Core..:? "pipelineArn")
+            Core.<*> (x Core..:? "pipelineName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { -- | The name of the pipeline.
-    pipelineName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the pipeline.
-    pipelineARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the pipeline.
+    pipelineArn :: Core.Maybe Types.PipelineArn,
+    -- | The name of the pipeline.
+    pipelineName :: Core.Maybe Types.PipelineName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline.
--- * 'pipelineARN' - The ARN of the pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePipelineResponse' value with any optional fields omitted.
 mkCreatePipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePipelineResponse
-mkCreatePipelineResponse pResponseStatus_ =
+mkCreatePipelineResponse responseStatus =
   CreatePipelineResponse'
-    { pipelineName = Lude.Nothing,
-      pipelineARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { pipelineArn = Core.Nothing,
+      pipelineName = Core.Nothing,
+      responseStatus
     }
+
+-- | The ARN of the pipeline.
+--
+-- /Note:/ Consider using 'pipelineArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprrsPipelineArn :: Lens.Lens' CreatePipelineResponse (Core.Maybe Types.PipelineArn)
+cprrsPipelineArn = Lens.field @"pipelineArn"
+{-# DEPRECATED cprrsPipelineArn "Use generic-lens or generic-optics with 'pipelineArn' instead." #-}
 
 -- | The name of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsPipelineName :: Lens.Lens' CreatePipelineResponse (Lude.Maybe Lude.Text)
-cprsPipelineName = Lens.lens (pipelineName :: CreatePipelineResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineName = a} :: CreatePipelineResponse)
-{-# DEPRECATED cprsPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
-
--- | The ARN of the pipeline.
---
--- /Note:/ Consider using 'pipelineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsPipelineARN :: Lens.Lens' CreatePipelineResponse (Lude.Maybe Lude.Text)
-cprsPipelineARN = Lens.lens (pipelineARN :: CreatePipelineResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineARN = a} :: CreatePipelineResponse)
-{-# DEPRECATED cprsPipelineARN "Use generic-lens or generic-optics with 'pipelineARN' instead." #-}
+cprrsPipelineName :: Lens.Lens' CreatePipelineResponse (Core.Maybe Types.PipelineName)
+cprrsPipelineName = Lens.field @"pipelineName"
+{-# DEPRECATED cprrsPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' CreatePipelineResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: CreatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePipelineResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrsResponseStatus :: Lens.Lens' CreatePipelineResponse Core.Int
+cprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

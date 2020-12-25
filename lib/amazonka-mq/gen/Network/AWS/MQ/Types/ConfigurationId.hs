@@ -23,57 +23,52 @@ module Network.AWS.MQ.Types.ConfigurationId
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /Important:/ Does not apply to RabbitMQ brokers.
 --
 -- /See:/ 'mkConfigurationId' smart constructor.
 data ConfigurationId = ConfigurationId'
   { -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The revision number of the configuration.
-    revision :: Lude.Maybe Lude.Int
+    revision :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfigurationId' with the minimum fields required to make a request.
---
--- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
--- * 'revision' - The revision number of the configuration.
+-- | Creates a 'ConfigurationId' value with any optional fields omitted.
 mkConfigurationId ::
   ConfigurationId
 mkConfigurationId =
-  ConfigurationId' {id = Lude.Nothing, revision = Lude.Nothing}
+  ConfigurationId' {id = Core.Nothing, revision = Core.Nothing}
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciId :: Lens.Lens' ConfigurationId (Lude.Maybe Lude.Text)
-ciId = Lens.lens (id :: ConfigurationId -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ConfigurationId)
+ciId :: Lens.Lens' ConfigurationId (Core.Maybe Core.Text)
+ciId = Lens.field @"id"
 {-# DEPRECATED ciId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The revision number of the configuration.
 --
 -- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciRevision :: Lens.Lens' ConfigurationId (Lude.Maybe Lude.Int)
-ciRevision = Lens.lens (revision :: ConfigurationId -> Lude.Maybe Lude.Int) (\s a -> s {revision = a} :: ConfigurationId)
+ciRevision :: Lens.Lens' ConfigurationId (Core.Maybe Core.Int)
+ciRevision = Lens.field @"revision"
 {-# DEPRECATED ciRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
-instance Lude.FromJSON ConfigurationId where
-  parseJSON =
-    Lude.withObject
-      "ConfigurationId"
-      ( \x ->
-          ConfigurationId'
-            Lude.<$> (x Lude..:? "id") Lude.<*> (x Lude..:? "revision")
-      )
-
-instance Lude.ToJSON ConfigurationId where
-  toJSON ConfigurationId' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("id" Lude..=) Lude.<$> id,
-            ("revision" Lude..=) Lude.<$> revision
+instance Core.FromJSON ConfigurationId where
+  toJSON ConfigurationId {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("id" Core..=) Core.<$> id,
+            ("revision" Core..=) Core.<$> revision
           ]
       )
+
+instance Core.FromJSON ConfigurationId where
+  parseJSON =
+    Core.withObject "ConfigurationId" Core.$
+      \x ->
+        ConfigurationId'
+          Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "revision")

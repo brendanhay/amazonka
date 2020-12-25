@@ -28,69 +28,70 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteCacheParameterGroup@ operation.
 --
 -- /See:/ 'mkDeleteCacheParameterGroup' smart constructor.
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
   { -- | The name of the cache parameter group to delete.
-    cacheParameterGroupName :: Lude.Text
+    cacheParameterGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCacheParameterGroup' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroupName' - The name of the cache parameter group to delete.
+-- | Creates a 'DeleteCacheParameterGroup' value with any optional fields omitted.
 mkDeleteCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteCacheParameterGroup
-mkDeleteCacheParameterGroup pCacheParameterGroupName_ =
-  DeleteCacheParameterGroup'
-    { cacheParameterGroupName =
-        pCacheParameterGroupName_
-    }
+mkDeleteCacheParameterGroup cacheParameterGroupName =
+  DeleteCacheParameterGroup' {cacheParameterGroupName}
 
 -- | The name of the cache parameter group to delete.
 --
 -- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCacheParameterGroupName :: Lens.Lens' DeleteCacheParameterGroup Lude.Text
-dCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: DeleteCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: DeleteCacheParameterGroup)
+dCacheParameterGroupName :: Lens.Lens' DeleteCacheParameterGroup Types.String
+dCacheParameterGroupName = Lens.field @"cacheParameterGroupName"
 {-# DEPRECATED dCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteCacheParameterGroup where
+instance Core.AWSRequest DeleteCacheParameterGroup where
   type
     Rs DeleteCacheParameterGroup =
       DeleteCacheParameterGroupResponse
-  request = Req.postQuery elastiCacheService
-  response = Res.receiveNull DeleteCacheParameterGroupResponse'
-
-instance Lude.ToHeaders DeleteCacheParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteCacheParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCacheParameterGroup where
-  toQuery DeleteCacheParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteCacheParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheParameterGroupName" Lude.=: cacheParameterGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteCacheParameterGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "CacheParameterGroupName"
+                            cacheParameterGroupName
+                        )
+            )
+      }
+  response = Response.receiveNull DeleteCacheParameterGroupResponse'
 
 -- | /See:/ 'mkDeleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCacheParameterGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteCacheParameterGroupResponse' value with any optional fields omitted.
 mkDeleteCacheParameterGroupResponse ::
   DeleteCacheParameterGroupResponse
 mkDeleteCacheParameterGroupResponse =

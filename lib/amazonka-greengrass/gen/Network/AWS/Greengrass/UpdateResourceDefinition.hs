@@ -28,112 +28,97 @@ module Network.AWS.Greengrass.UpdateResourceDefinition
     mkUpdateResourceDefinitionResponse,
 
     -- ** Response lenses
-    urdrsResponseStatus,
+    urdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateResourceDefinition' smart constructor.
 data UpdateResourceDefinition = UpdateResourceDefinition'
   { -- | The ID of the resource definition.
-    resourceDefinitionId :: Lude.Text,
+    resourceDefinitionId :: Core.Text,
     -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateResourceDefinition' with the minimum fields required to make a request.
---
--- * 'resourceDefinitionId' - The ID of the resource definition.
--- * 'name' - The name of the definition.
+-- | Creates a 'UpdateResourceDefinition' value with any optional fields omitted.
 mkUpdateResourceDefinition ::
   -- | 'resourceDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   UpdateResourceDefinition
-mkUpdateResourceDefinition pResourceDefinitionId_ =
+mkUpdateResourceDefinition resourceDefinitionId =
   UpdateResourceDefinition'
-    { resourceDefinitionId =
-        pResourceDefinitionId_,
-      name = Lude.Nothing
+    { resourceDefinitionId,
+      name = Core.Nothing
     }
 
 -- | The ID of the resource definition.
 --
 -- /Note:/ Consider using 'resourceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdResourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Lude.Text
-urdResourceDefinitionId = Lens.lens (resourceDefinitionId :: UpdateResourceDefinition -> Lude.Text) (\s a -> s {resourceDefinitionId = a} :: UpdateResourceDefinition)
+urdResourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Core.Text
+urdResourceDefinitionId = Lens.field @"resourceDefinitionId"
 {-# DEPRECATED urdResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
 
 -- | The name of the definition.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdName :: Lens.Lens' UpdateResourceDefinition (Lude.Maybe Lude.Text)
-urdName = Lens.lens (name :: UpdateResourceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateResourceDefinition)
+urdName :: Lens.Lens' UpdateResourceDefinition (Core.Maybe Core.Text)
+urdName = Lens.field @"name"
 {-# DEPRECATED urdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateResourceDefinition where
+instance Core.FromJSON UpdateResourceDefinition where
+  toJSON UpdateResourceDefinition {..} =
+    Core.object (Core.catMaybes [("Name" Core..=) Core.<$> name])
+
+instance Core.AWSRequest UpdateResourceDefinition where
   type Rs UpdateResourceDefinition = UpdateResourceDefinitionResponse
-  request = Req.putJSON greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/resources/"
+                Core.<> (Core.toText resourceDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateResourceDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateResourceDefinition where
-  toJSON UpdateResourceDefinition' {..} =
-    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
-
-instance Lude.ToPath UpdateResourceDefinition where
-  toPath UpdateResourceDefinition' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/resources/",
-        Lude.toBS resourceDefinitionId
-      ]
-
-instance Lude.ToQuery UpdateResourceDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateResourceDefinitionResponse' smart constructor.
 newtype UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateResourceDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateResourceDefinitionResponse' value with any optional fields omitted.
 mkUpdateResourceDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateResourceDefinitionResponse
-mkUpdateResourceDefinitionResponse pResponseStatus_ =
-  UpdateResourceDefinitionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateResourceDefinitionResponse responseStatus =
+  UpdateResourceDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdrsResponseStatus :: Lens.Lens' UpdateResourceDefinitionResponse Lude.Int
-urdrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResourceDefinitionResponse)
-{-# DEPRECATED urdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urdrrsResponseStatus :: Lens.Lens' UpdateResourceDefinitionResponse Core.Int
+urdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

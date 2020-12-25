@@ -17,152 +17,145 @@ module Network.AWS.AlexaBusiness.Types.ProfileData
     mkProfileData,
 
     -- * Lenses
-    pdDistanceUnit,
-    pdLocale,
     pdAddress,
-    pdProfileARN,
-    pdWakeWord,
+    pdDistanceUnit,
+    pdIsDefault,
+    pdLocale,
+    pdProfileArn,
     pdProfileName,
     pdTemperatureUnit,
     pdTimezone,
-    pdIsDefault,
+    pdWakeWord,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.DistanceUnit
-import Network.AWS.AlexaBusiness.Types.TemperatureUnit
-import Network.AWS.AlexaBusiness.Types.WakeWord
+import qualified Network.AWS.AlexaBusiness.Types.Address as Types
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.DeviceLocale as Types
+import qualified Network.AWS.AlexaBusiness.Types.DistanceUnit as Types
+import qualified Network.AWS.AlexaBusiness.Types.ProfileName as Types
+import qualified Network.AWS.AlexaBusiness.Types.TemperatureUnit as Types
+import qualified Network.AWS.AlexaBusiness.Types.Timezone as Types
+import qualified Network.AWS.AlexaBusiness.Types.WakeWord as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The data of a room profile.
 --
 -- /See:/ 'mkProfileData' smart constructor.
 data ProfileData = ProfileData'
-  { -- | The distance unit of a room profile.
-    distanceUnit :: Lude.Maybe DistanceUnit,
-    -- | The locale of a room profile. (This is currently available only to a limited preview audience.)
-    locale :: Lude.Maybe Lude.Text,
-    -- | The address of a room profile.
-    address :: Lude.Maybe Lude.Text,
-    -- | The ARN of a room profile.
-    profileARN :: Lude.Maybe Lude.Text,
-    -- | The wake word of a room profile.
-    wakeWord :: Lude.Maybe WakeWord,
-    -- | The name of a room profile.
-    profileName :: Lude.Maybe Lude.Text,
-    -- | The temperature unit of a room profile.
-    temperatureUnit :: Lude.Maybe TemperatureUnit,
-    -- | The time zone of a room profile.
-    timezone :: Lude.Maybe Lude.Text,
+  { -- | The address of a room profile.
+    address :: Core.Maybe Types.Address,
+    -- | The distance unit of a room profile.
+    distanceUnit :: Core.Maybe Types.DistanceUnit,
     -- | Retrieves if the profile data is default or not.
-    isDefault :: Lude.Maybe Lude.Bool
+    isDefault :: Core.Maybe Core.Bool,
+    -- | The locale of a room profile. (This is currently available only to a limited preview audience.)
+    locale :: Core.Maybe Types.DeviceLocale,
+    -- | The ARN of a room profile.
+    profileArn :: Core.Maybe Types.Arn,
+    -- | The name of a room profile.
+    profileName :: Core.Maybe Types.ProfileName,
+    -- | The temperature unit of a room profile.
+    temperatureUnit :: Core.Maybe Types.TemperatureUnit,
+    -- | The time zone of a room profile.
+    timezone :: Core.Maybe Types.Timezone,
+    -- | The wake word of a room profile.
+    wakeWord :: Core.Maybe Types.WakeWord
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProfileData' with the minimum fields required to make a request.
---
--- * 'distanceUnit' - The distance unit of a room profile.
--- * 'locale' - The locale of a room profile. (This is currently available only to a limited preview audience.)
--- * 'address' - The address of a room profile.
--- * 'profileARN' - The ARN of a room profile.
--- * 'wakeWord' - The wake word of a room profile.
--- * 'profileName' - The name of a room profile.
--- * 'temperatureUnit' - The temperature unit of a room profile.
--- * 'timezone' - The time zone of a room profile.
--- * 'isDefault' - Retrieves if the profile data is default or not.
+-- | Creates a 'ProfileData' value with any optional fields omitted.
 mkProfileData ::
   ProfileData
 mkProfileData =
   ProfileData'
-    { distanceUnit = Lude.Nothing,
-      locale = Lude.Nothing,
-      address = Lude.Nothing,
-      profileARN = Lude.Nothing,
-      wakeWord = Lude.Nothing,
-      profileName = Lude.Nothing,
-      temperatureUnit = Lude.Nothing,
-      timezone = Lude.Nothing,
-      isDefault = Lude.Nothing
+    { address = Core.Nothing,
+      distanceUnit = Core.Nothing,
+      isDefault = Core.Nothing,
+      locale = Core.Nothing,
+      profileArn = Core.Nothing,
+      profileName = Core.Nothing,
+      temperatureUnit = Core.Nothing,
+      timezone = Core.Nothing,
+      wakeWord = Core.Nothing
     }
-
--- | The distance unit of a room profile.
---
--- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDistanceUnit :: Lens.Lens' ProfileData (Lude.Maybe DistanceUnit)
-pdDistanceUnit = Lens.lens (distanceUnit :: ProfileData -> Lude.Maybe DistanceUnit) (\s a -> s {distanceUnit = a} :: ProfileData)
-{-# DEPRECATED pdDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
-
--- | The locale of a room profile. (This is currently available only to a limited preview audience.)
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdLocale :: Lens.Lens' ProfileData (Lude.Maybe Lude.Text)
-pdLocale = Lens.lens (locale :: ProfileData -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: ProfileData)
-{-# DEPRECATED pdLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The address of a room profile.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdAddress :: Lens.Lens' ProfileData (Lude.Maybe Lude.Text)
-pdAddress = Lens.lens (address :: ProfileData -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: ProfileData)
+pdAddress :: Lens.Lens' ProfileData (Core.Maybe Types.Address)
+pdAddress = Lens.field @"address"
 {-# DEPRECATED pdAddress "Use generic-lens or generic-optics with 'address' instead." #-}
+
+-- | The distance unit of a room profile.
+--
+-- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDistanceUnit :: Lens.Lens' ProfileData (Core.Maybe Types.DistanceUnit)
+pdDistanceUnit = Lens.field @"distanceUnit"
+{-# DEPRECATED pdDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
+
+-- | Retrieves if the profile data is default or not.
+--
+-- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdIsDefault :: Lens.Lens' ProfileData (Core.Maybe Core.Bool)
+pdIsDefault = Lens.field @"isDefault"
+{-# DEPRECATED pdIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
+
+-- | The locale of a room profile. (This is currently available only to a limited preview audience.)
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdLocale :: Lens.Lens' ProfileData (Core.Maybe Types.DeviceLocale)
+pdLocale = Lens.field @"locale"
+{-# DEPRECATED pdLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The ARN of a room profile.
 --
--- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdProfileARN :: Lens.Lens' ProfileData (Lude.Maybe Lude.Text)
-pdProfileARN = Lens.lens (profileARN :: ProfileData -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: ProfileData)
-{-# DEPRECATED pdProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
-
--- | The wake word of a room profile.
---
--- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdWakeWord :: Lens.Lens' ProfileData (Lude.Maybe WakeWord)
-pdWakeWord = Lens.lens (wakeWord :: ProfileData -> Lude.Maybe WakeWord) (\s a -> s {wakeWord = a} :: ProfileData)
-{-# DEPRECATED pdWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
+-- /Note:/ Consider using 'profileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdProfileArn :: Lens.Lens' ProfileData (Core.Maybe Types.Arn)
+pdProfileArn = Lens.field @"profileArn"
+{-# DEPRECATED pdProfileArn "Use generic-lens or generic-optics with 'profileArn' instead." #-}
 
 -- | The name of a room profile.
 --
 -- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdProfileName :: Lens.Lens' ProfileData (Lude.Maybe Lude.Text)
-pdProfileName = Lens.lens (profileName :: ProfileData -> Lude.Maybe Lude.Text) (\s a -> s {profileName = a} :: ProfileData)
+pdProfileName :: Lens.Lens' ProfileData (Core.Maybe Types.ProfileName)
+pdProfileName = Lens.field @"profileName"
 {-# DEPRECATED pdProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
 
 -- | The temperature unit of a room profile.
 --
 -- /Note:/ Consider using 'temperatureUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdTemperatureUnit :: Lens.Lens' ProfileData (Lude.Maybe TemperatureUnit)
-pdTemperatureUnit = Lens.lens (temperatureUnit :: ProfileData -> Lude.Maybe TemperatureUnit) (\s a -> s {temperatureUnit = a} :: ProfileData)
+pdTemperatureUnit :: Lens.Lens' ProfileData (Core.Maybe Types.TemperatureUnit)
+pdTemperatureUnit = Lens.field @"temperatureUnit"
 {-# DEPRECATED pdTemperatureUnit "Use generic-lens or generic-optics with 'temperatureUnit' instead." #-}
 
 -- | The time zone of a room profile.
 --
 -- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdTimezone :: Lens.Lens' ProfileData (Lude.Maybe Lude.Text)
-pdTimezone = Lens.lens (timezone :: ProfileData -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: ProfileData)
+pdTimezone :: Lens.Lens' ProfileData (Core.Maybe Types.Timezone)
+pdTimezone = Lens.field @"timezone"
 {-# DEPRECATED pdTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
--- | Retrieves if the profile data is default or not.
+-- | The wake word of a room profile.
 --
--- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdIsDefault :: Lens.Lens' ProfileData (Lude.Maybe Lude.Bool)
-pdIsDefault = Lens.lens (isDefault :: ProfileData -> Lude.Maybe Lude.Bool) (\s a -> s {isDefault = a} :: ProfileData)
-{-# DEPRECATED pdIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
+-- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdWakeWord :: Lens.Lens' ProfileData (Core.Maybe Types.WakeWord)
+pdWakeWord = Lens.field @"wakeWord"
+{-# DEPRECATED pdWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
 
-instance Lude.FromJSON ProfileData where
+instance Core.FromJSON ProfileData where
   parseJSON =
-    Lude.withObject
-      "ProfileData"
-      ( \x ->
-          ProfileData'
-            Lude.<$> (x Lude..:? "DistanceUnit")
-            Lude.<*> (x Lude..:? "Locale")
-            Lude.<*> (x Lude..:? "Address")
-            Lude.<*> (x Lude..:? "ProfileArn")
-            Lude.<*> (x Lude..:? "WakeWord")
-            Lude.<*> (x Lude..:? "ProfileName")
-            Lude.<*> (x Lude..:? "TemperatureUnit")
-            Lude.<*> (x Lude..:? "Timezone")
-            Lude.<*> (x Lude..:? "IsDefault")
-      )
+    Core.withObject "ProfileData" Core.$
+      \x ->
+        ProfileData'
+          Core.<$> (x Core..:? "Address")
+          Core.<*> (x Core..:? "DistanceUnit")
+          Core.<*> (x Core..:? "IsDefault")
+          Core.<*> (x Core..:? "Locale")
+          Core.<*> (x Core..:? "ProfileArn")
+          Core.<*> (x Core..:? "ProfileName")
+          Core.<*> (x Core..:? "TemperatureUnit")
+          Core.<*> (x Core..:? "Timezone")
+          Core.<*> (x Core..:? "WakeWord")

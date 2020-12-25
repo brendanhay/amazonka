@@ -20,143 +20,122 @@ module Network.AWS.StorageGateway.DetachVolume
     mkDetachVolume,
 
     -- ** Request lenses
-    dvForceDetach,
     dvVolumeARN,
+    dvForceDetach,
 
     -- * Destructuring the response
     DetachVolumeResponse (..),
     mkDetachVolumeResponse,
 
     -- ** Response lenses
-    dvrsVolumeARN,
-    dvrsResponseStatus,
+    dvrrsVolumeARN,
+    dvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | AttachVolumeInput
 --
 -- /See:/ 'mkDetachVolume' smart constructor.
 data DetachVolume = DetachVolume'
-  { -- | Set to @true@ to forcibly remove the iSCSI connection of the target volume and detach the volume. The default is @false@ . If this value is set to @false@ , you must manually disconnect the iSCSI connection from the target volume.
+  { -- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
+    volumeARN :: Types.VolumeARN,
+    -- | Set to @true@ to forcibly remove the iSCSI connection of the target volume and detach the volume. The default is @false@ . If this value is set to @false@ , you must manually disconnect the iSCSI connection from the target volume.
     --
     -- Valid Values: @true@ | @false@
-    forceDetach :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
-    volumeARN :: Lude.Text
+    forceDetach :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachVolume' with the minimum fields required to make a request.
---
--- * 'forceDetach' - Set to @true@ to forcibly remove the iSCSI connection of the target volume and detach the volume. The default is @false@ . If this value is set to @false@ , you must manually disconnect the iSCSI connection from the target volume.
---
--- Valid Values: @true@ | @false@
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume to detach from the gateway.
+-- | Creates a 'DetachVolume' value with any optional fields omitted.
 mkDetachVolume ::
   -- | 'volumeARN'
-  Lude.Text ->
+  Types.VolumeARN ->
   DetachVolume
-mkDetachVolume pVolumeARN_ =
-  DetachVolume'
-    { forceDetach = Lude.Nothing,
-      volumeARN = pVolumeARN_
-    }
+mkDetachVolume volumeARN =
+  DetachVolume' {volumeARN, forceDetach = Core.Nothing}
+
+-- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvVolumeARN :: Lens.Lens' DetachVolume Types.VolumeARN
+dvVolumeARN = Lens.field @"volumeARN"
+{-# DEPRECATED dvVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | Set to @true@ to forcibly remove the iSCSI connection of the target volume and detach the volume. The default is @false@ . If this value is set to @false@ , you must manually disconnect the iSCSI connection from the target volume.
 --
 -- Valid Values: @true@ | @false@
 --
 -- /Note:/ Consider using 'forceDetach' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvForceDetach :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
-dvForceDetach = Lens.lens (forceDetach :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {forceDetach = a} :: DetachVolume)
+dvForceDetach :: Lens.Lens' DetachVolume (Core.Maybe Core.Bool)
+dvForceDetach = Lens.field @"forceDetach"
 {-# DEPRECATED dvForceDetach "Use generic-lens or generic-optics with 'forceDetach' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
---
--- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvVolumeARN :: Lens.Lens' DetachVolume Lude.Text
-dvVolumeARN = Lens.lens (volumeARN :: DetachVolume -> Lude.Text) (\s a -> s {volumeARN = a} :: DetachVolume)
-{-# DEPRECATED dvVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+instance Core.FromJSON DetachVolume where
+  toJSON DetachVolume {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VolumeARN" Core..= volumeARN),
+            ("ForceDetach" Core..=) Core.<$> forceDetach
+          ]
+      )
 
-instance Lude.AWSRequest DetachVolume where
+instance Core.AWSRequest DetachVolume where
   type Rs DetachVolume = DetachVolumeResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "StorageGateway_20130630.DetachVolume")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetachVolumeResponse'
-            Lude.<$> (x Lude..?> "VolumeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "VolumeARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetachVolume where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.DetachVolume" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetachVolume where
-  toJSON DetachVolume' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ForceDetach" Lude..=) Lude.<$> forceDetach,
-            Lude.Just ("VolumeARN" Lude..= volumeARN)
-          ]
-      )
-
-instance Lude.ToPath DetachVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachVolume where
-  toQuery = Lude.const Lude.mempty
 
 -- | AttachVolumeOutput
 --
 -- /See:/ 'mkDetachVolumeResponse' smart constructor.
 data DetachVolumeResponse = DetachVolumeResponse'
   { -- | The Amazon Resource Name (ARN) of the volume that was detached.
-    volumeARN :: Lude.Maybe Lude.Text,
+    volumeARN :: Core.Maybe Types.VolumeARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachVolumeResponse' with the minimum fields required to make a request.
---
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume that was detached.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetachVolumeResponse' value with any optional fields omitted.
 mkDetachVolumeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetachVolumeResponse
-mkDetachVolumeResponse pResponseStatus_ =
-  DetachVolumeResponse'
-    { volumeARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDetachVolumeResponse responseStatus =
+  DetachVolumeResponse' {volumeARN = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the volume that was detached.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvrsVolumeARN :: Lens.Lens' DetachVolumeResponse (Lude.Maybe Lude.Text)
-dvrsVolumeARN = Lens.lens (volumeARN :: DetachVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DetachVolumeResponse)
-{-# DEPRECATED dvrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+dvrrsVolumeARN :: Lens.Lens' DetachVolumeResponse (Core.Maybe Types.VolumeARN)
+dvrrsVolumeARN = Lens.field @"volumeARN"
+{-# DEPRECATED dvrrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvrsResponseStatus :: Lens.Lens' DetachVolumeResponse Lude.Int
-dvrsResponseStatus = Lens.lens (responseStatus :: DetachVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachVolumeResponse)
-{-# DEPRECATED dvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvrrsResponseStatus :: Lens.Lens' DetachVolumeResponse Core.Int
+dvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

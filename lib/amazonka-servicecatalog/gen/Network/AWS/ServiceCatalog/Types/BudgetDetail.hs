@@ -22,34 +22,32 @@ module Network.AWS.ServiceCatalog.Types.BudgetDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.BudgetName as Types
 
 -- | Information about a budget.
 --
 -- /See:/ 'mkBudgetDetail' smart constructor.
 newtype BudgetDetail = BudgetDetail'
   { -- | Name of the associated budget.
-    budgetName :: Lude.Maybe Lude.Text
+    budgetName :: Core.Maybe Types.BudgetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BudgetDetail' with the minimum fields required to make a request.
---
--- * 'budgetName' - Name of the associated budget.
+-- | Creates a 'BudgetDetail' value with any optional fields omitted.
 mkBudgetDetail ::
   BudgetDetail
-mkBudgetDetail = BudgetDetail' {budgetName = Lude.Nothing}
+mkBudgetDetail = BudgetDetail' {budgetName = Core.Nothing}
 
 -- | Name of the associated budget.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBudgetName :: Lens.Lens' BudgetDetail (Lude.Maybe Lude.Text)
-bdBudgetName = Lens.lens (budgetName :: BudgetDetail -> Lude.Maybe Lude.Text) (\s a -> s {budgetName = a} :: BudgetDetail)
+bdBudgetName :: Lens.Lens' BudgetDetail (Core.Maybe Types.BudgetName)
+bdBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED bdBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance Lude.FromJSON BudgetDetail where
+instance Core.FromJSON BudgetDetail where
   parseJSON =
-    Lude.withObject
-      "BudgetDetail"
-      (\x -> BudgetDetail' Lude.<$> (x Lude..:? "BudgetName"))
+    Core.withObject "BudgetDetail" Core.$
+      \x -> BudgetDetail' Core.<$> (x Core..:? "BudgetName")

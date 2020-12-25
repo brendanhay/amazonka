@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType
   ( H265WriteMp4PackagingType
       ( H265WriteMp4PackagingType',
-        HVC1,
-        HEV1
+        H265WriteMp4PackagingTypeHVC1,
+        H265WriteMp4PackagingTypeHEV1,
+        fromH265WriteMp4PackagingType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If the location of parameter set NAL units doesn't matter in your workflow, ignore this setting. Use this setting only with CMAF or DASH outputs, or with standalone file outputs in an MPEG-4 container (MP4 outputs). Choose HVC1 to mark your output as HVC1. This makes your output compliant with the following specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the samples directly. For MP4 outputs, when you choose HVC1, your output video might not work properly with some downstream systems and video players. The service defaults to marking your output as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
-newtype H265WriteMp4PackagingType = H265WriteMp4PackagingType' Lude.Text
+newtype H265WriteMp4PackagingType = H265WriteMp4PackagingType'
+  { fromH265WriteMp4PackagingType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HVC1 :: H265WriteMp4PackagingType
-pattern HVC1 = H265WriteMp4PackagingType' "HVC1"
+pattern H265WriteMp4PackagingTypeHVC1 :: H265WriteMp4PackagingType
+pattern H265WriteMp4PackagingTypeHVC1 = H265WriteMp4PackagingType' "HVC1"
 
-pattern HEV1 :: H265WriteMp4PackagingType
-pattern HEV1 = H265WriteMp4PackagingType' "HEV1"
+pattern H265WriteMp4PackagingTypeHEV1 :: H265WriteMp4PackagingType
+pattern H265WriteMp4PackagingTypeHEV1 = H265WriteMp4PackagingType' "HEV1"
 
 {-# COMPLETE
-  HVC1,
-  HEV1,
+  H265WriteMp4PackagingTypeHVC1,
+  H265WriteMp4PackagingTypeHEV1,
   H265WriteMp4PackagingType'
   #-}

@@ -18,95 +18,89 @@ module Network.AWS.ECS.Types.NetworkBinding
 
     -- * Lenses
     nbBindIP,
-    nbProtocol,
-    nbHostPort,
     nbContainerPort,
+    nbHostPort,
+    nbProtocol,
   )
 where
 
-import Network.AWS.ECS.Types.TransportProtocol
+import qualified Network.AWS.ECS.Types.BindIP as Types
+import qualified Network.AWS.ECS.Types.TransportProtocol as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on the network bindings between a container and its host container instance. After a task reaches the @RUNNING@ status, manual and automatic host and container port assignments are visible in the @networkBindings@ section of 'DescribeTasks' API responses.
 --
 -- /See:/ 'mkNetworkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
   { -- | The IP address that the container is bound to on the container instance.
-    bindIP :: Lude.Maybe Lude.Text,
-    -- | The protocol used for the network binding.
-    protocol :: Lude.Maybe TransportProtocol,
-    -- | The port number on the host that is used with the network binding.
-    hostPort :: Lude.Maybe Lude.Int,
+    bindIP :: Core.Maybe Types.BindIP,
     -- | The port number on the container that is used with the network binding.
-    containerPort :: Lude.Maybe Lude.Int
+    containerPort :: Core.Maybe Core.Int,
+    -- | The port number on the host that is used with the network binding.
+    hostPort :: Core.Maybe Core.Int,
+    -- | The protocol used for the network binding.
+    protocol :: Core.Maybe Types.TransportProtocol
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkBinding' with the minimum fields required to make a request.
---
--- * 'bindIP' - The IP address that the container is bound to on the container instance.
--- * 'protocol' - The protocol used for the network binding.
--- * 'hostPort' - The port number on the host that is used with the network binding.
--- * 'containerPort' - The port number on the container that is used with the network binding.
+-- | Creates a 'NetworkBinding' value with any optional fields omitted.
 mkNetworkBinding ::
   NetworkBinding
 mkNetworkBinding =
   NetworkBinding'
-    { bindIP = Lude.Nothing,
-      protocol = Lude.Nothing,
-      hostPort = Lude.Nothing,
-      containerPort = Lude.Nothing
+    { bindIP = Core.Nothing,
+      containerPort = Core.Nothing,
+      hostPort = Core.Nothing,
+      protocol = Core.Nothing
     }
 
 -- | The IP address that the container is bound to on the container instance.
 --
 -- /Note:/ Consider using 'bindIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbBindIP :: Lens.Lens' NetworkBinding (Lude.Maybe Lude.Text)
-nbBindIP = Lens.lens (bindIP :: NetworkBinding -> Lude.Maybe Lude.Text) (\s a -> s {bindIP = a} :: NetworkBinding)
+nbBindIP :: Lens.Lens' NetworkBinding (Core.Maybe Types.BindIP)
+nbBindIP = Lens.field @"bindIP"
 {-# DEPRECATED nbBindIP "Use generic-lens or generic-optics with 'bindIP' instead." #-}
-
--- | The protocol used for the network binding.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbProtocol :: Lens.Lens' NetworkBinding (Lude.Maybe TransportProtocol)
-nbProtocol = Lens.lens (protocol :: NetworkBinding -> Lude.Maybe TransportProtocol) (\s a -> s {protocol = a} :: NetworkBinding)
-{-# DEPRECATED nbProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
-
--- | The port number on the host that is used with the network binding.
---
--- /Note:/ Consider using 'hostPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbHostPort :: Lens.Lens' NetworkBinding (Lude.Maybe Lude.Int)
-nbHostPort = Lens.lens (hostPort :: NetworkBinding -> Lude.Maybe Lude.Int) (\s a -> s {hostPort = a} :: NetworkBinding)
-{-# DEPRECATED nbHostPort "Use generic-lens or generic-optics with 'hostPort' instead." #-}
 
 -- | The port number on the container that is used with the network binding.
 --
 -- /Note:/ Consider using 'containerPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbContainerPort :: Lens.Lens' NetworkBinding (Lude.Maybe Lude.Int)
-nbContainerPort = Lens.lens (containerPort :: NetworkBinding -> Lude.Maybe Lude.Int) (\s a -> s {containerPort = a} :: NetworkBinding)
+nbContainerPort :: Lens.Lens' NetworkBinding (Core.Maybe Core.Int)
+nbContainerPort = Lens.field @"containerPort"
 {-# DEPRECATED nbContainerPort "Use generic-lens or generic-optics with 'containerPort' instead." #-}
 
-instance Lude.FromJSON NetworkBinding where
-  parseJSON =
-    Lude.withObject
-      "NetworkBinding"
-      ( \x ->
-          NetworkBinding'
-            Lude.<$> (x Lude..:? "bindIP")
-            Lude.<*> (x Lude..:? "protocol")
-            Lude.<*> (x Lude..:? "hostPort")
-            Lude.<*> (x Lude..:? "containerPort")
-      )
+-- | The port number on the host that is used with the network binding.
+--
+-- /Note:/ Consider using 'hostPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nbHostPort :: Lens.Lens' NetworkBinding (Core.Maybe Core.Int)
+nbHostPort = Lens.field @"hostPort"
+{-# DEPRECATED nbHostPort "Use generic-lens or generic-optics with 'hostPort' instead." #-}
 
-instance Lude.ToJSON NetworkBinding where
-  toJSON NetworkBinding' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("bindIP" Lude..=) Lude.<$> bindIP,
-            ("protocol" Lude..=) Lude.<$> protocol,
-            ("hostPort" Lude..=) Lude.<$> hostPort,
-            ("containerPort" Lude..=) Lude.<$> containerPort
+-- | The protocol used for the network binding.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nbProtocol :: Lens.Lens' NetworkBinding (Core.Maybe Types.TransportProtocol)
+nbProtocol = Lens.field @"protocol"
+{-# DEPRECATED nbProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+instance Core.FromJSON NetworkBinding where
+  toJSON NetworkBinding {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bindIP" Core..=) Core.<$> bindIP,
+            ("containerPort" Core..=) Core.<$> containerPort,
+            ("hostPort" Core..=) Core.<$> hostPort,
+            ("protocol" Core..=) Core.<$> protocol
           ]
       )
+
+instance Core.FromJSON NetworkBinding where
+  parseJSON =
+    Core.withObject "NetworkBinding" Core.$
+      \x ->
+        NetworkBinding'
+          Core.<$> (x Core..:? "bindIP")
+          Core.<*> (x Core..:? "containerPort")
+          Core.<*> (x Core..:? "hostPort")
+          Core.<*> (x Core..:? "protocol")

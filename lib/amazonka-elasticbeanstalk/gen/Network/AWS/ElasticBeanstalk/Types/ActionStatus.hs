@@ -13,56 +13,58 @@
 module Network.AWS.ElasticBeanstalk.Types.ActionStatus
   ( ActionStatus
       ( ActionStatus',
-        ASScheduled,
-        ASPending,
-        ASRunning,
-        ASUnknown
+        ActionStatusScheduled,
+        ActionStatusPending,
+        ActionStatusRunning,
+        ActionStatusUnknown,
+        fromActionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionStatus = ActionStatus' Lude.Text
+newtype ActionStatus = ActionStatus' {fromActionStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASScheduled :: ActionStatus
-pattern ASScheduled = ActionStatus' "Scheduled"
+pattern ActionStatusScheduled :: ActionStatus
+pattern ActionStatusScheduled = ActionStatus' "Scheduled"
 
-pattern ASPending :: ActionStatus
-pattern ASPending = ActionStatus' "Pending"
+pattern ActionStatusPending :: ActionStatus
+pattern ActionStatusPending = ActionStatus' "Pending"
 
-pattern ASRunning :: ActionStatus
-pattern ASRunning = ActionStatus' "Running"
+pattern ActionStatusRunning :: ActionStatus
+pattern ActionStatusRunning = ActionStatus' "Running"
 
-pattern ASUnknown :: ActionStatus
-pattern ASUnknown = ActionStatus' "Unknown"
+pattern ActionStatusUnknown :: ActionStatus
+pattern ActionStatusUnknown = ActionStatus' "Unknown"
 
 {-# COMPLETE
-  ASScheduled,
-  ASPending,
-  ASRunning,
-  ASUnknown,
+  ActionStatusScheduled,
+  ActionStatusPending,
+  ActionStatusRunning,
+  ActionStatusUnknown,
   ActionStatus'
   #-}

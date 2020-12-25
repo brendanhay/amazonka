@@ -13,46 +13,51 @@
 module Network.AWS.ECS.Types.ManagedTerminationProtection
   ( ManagedTerminationProtection
       ( ManagedTerminationProtection',
-        MTPEnabled,
-        MTPDisabled
+        ManagedTerminationProtectionEnabled,
+        ManagedTerminationProtectionDisabled,
+        fromManagedTerminationProtection
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ManagedTerminationProtection = ManagedTerminationProtection' Lude.Text
+newtype ManagedTerminationProtection = ManagedTerminationProtection'
+  { fromManagedTerminationProtection ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MTPEnabled :: ManagedTerminationProtection
-pattern MTPEnabled = ManagedTerminationProtection' "ENABLED"
+pattern ManagedTerminationProtectionEnabled :: ManagedTerminationProtection
+pattern ManagedTerminationProtectionEnabled = ManagedTerminationProtection' "ENABLED"
 
-pattern MTPDisabled :: ManagedTerminationProtection
-pattern MTPDisabled = ManagedTerminationProtection' "DISABLED"
+pattern ManagedTerminationProtectionDisabled :: ManagedTerminationProtection
+pattern ManagedTerminationProtectionDisabled = ManagedTerminationProtection' "DISABLED"
 
 {-# COMPLETE
-  MTPEnabled,
-  MTPDisabled,
+  ManagedTerminationProtectionEnabled,
+  ManagedTerminationProtectionDisabled,
   ManagedTerminationProtection'
   #-}

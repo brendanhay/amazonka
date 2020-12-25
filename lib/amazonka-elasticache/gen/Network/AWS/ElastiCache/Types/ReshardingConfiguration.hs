@@ -17,60 +17,47 @@ module Network.AWS.ElastiCache.Types.ReshardingConfiguration
     mkReshardingConfiguration,
 
     -- * Lenses
-    rcPreferredAvailabilityZones,
     rcNodeGroupId,
+    rcPreferredAvailabilityZones,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.AllowedNodeGroupId as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of @PreferredAvailabilityZones@ objects that specifies the configuration of a node group in the resharded cluster.
 --
 -- /See:/ 'mkReshardingConfiguration' smart constructor.
 data ReshardingConfiguration = ReshardingConfiguration'
-  { -- | A list of preferred availability zones for the nodes in this cluster.
-    preferredAvailabilityZones :: Lude.Maybe [Lude.Text],
-    -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
-    nodeGroupId :: Lude.Maybe Lude.Text
+  { -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+    nodeGroupId :: Core.Maybe Types.AllowedNodeGroupId,
+    -- | A list of preferred availability zones for the nodes in this cluster.
+    preferredAvailabilityZones :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReshardingConfiguration' with the minimum fields required to make a request.
---
--- * 'preferredAvailabilityZones' - A list of preferred availability zones for the nodes in this cluster.
--- * 'nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+-- | Creates a 'ReshardingConfiguration' value with any optional fields omitted.
 mkReshardingConfiguration ::
   ReshardingConfiguration
 mkReshardingConfiguration =
   ReshardingConfiguration'
-    { preferredAvailabilityZones =
-        Lude.Nothing,
-      nodeGroupId = Lude.Nothing
+    { nodeGroupId = Core.Nothing,
+      preferredAvailabilityZones = Core.Nothing
     }
-
--- | A list of preferred availability zones for the nodes in this cluster.
---
--- /Note:/ Consider using 'preferredAvailabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcPreferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Lude.Maybe [Lude.Text])
-rcPreferredAvailabilityZones = Lens.lens (preferredAvailabilityZones :: ReshardingConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration)
-{-# DEPRECATED rcPreferredAvailabilityZones "Use generic-lens or generic-optics with 'preferredAvailabilityZones' instead." #-}
 
 -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
 --
 -- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcNodeGroupId :: Lens.Lens' ReshardingConfiguration (Lude.Maybe Lude.Text)
-rcNodeGroupId = Lens.lens (nodeGroupId :: ReshardingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {nodeGroupId = a} :: ReshardingConfiguration)
+rcNodeGroupId :: Lens.Lens' ReshardingConfiguration (Core.Maybe Types.AllowedNodeGroupId)
+rcNodeGroupId = Lens.field @"nodeGroupId"
 {-# DEPRECATED rcNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
 
-instance Lude.ToQuery ReshardingConfiguration where
-  toQuery ReshardingConfiguration' {..} =
-    Lude.mconcat
-      [ "PreferredAvailabilityZones"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "AvailabilityZone"
-                Lude.<$> preferredAvailabilityZones
-            ),
-        "NodeGroupId" Lude.=: nodeGroupId
-      ]
+-- | A list of preferred availability zones for the nodes in this cluster.
+--
+-- /Note:/ Consider using 'preferredAvailabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcPreferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Core.Maybe [Types.String])
+rcPreferredAvailabilityZones = Lens.field @"preferredAvailabilityZones"
+{-# DEPRECATED rcPreferredAvailabilityZones "Use generic-lens or generic-optics with 'preferredAvailabilityZones' instead." #-}

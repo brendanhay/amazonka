@@ -29,133 +29,123 @@ module Network.AWS.ResourceGroupsTagging.GetTagKeys
     mkGetTagKeysResponse,
 
     -- ** Response lenses
-    gtkrsPaginationToken,
-    gtkrsTagKeys,
-    gtkrsResponseStatus,
+    gtkrrsPaginationToken,
+    gtkrrsTagKeys,
+    gtkrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroupsTagging.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroupsTagging.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTagKeys' smart constructor.
 newtype GetTagKeys = GetTagKeys'
   { -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
-    paginationToken :: Lude.Maybe Lude.Text
+    paginationToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTagKeys' with the minimum fields required to make a request.
---
--- * 'paginationToken' - A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
+-- | Creates a 'GetTagKeys' value with any optional fields omitted.
 mkGetTagKeys ::
   GetTagKeys
-mkGetTagKeys = GetTagKeys' {paginationToken = Lude.Nothing}
+mkGetTagKeys = GetTagKeys' {paginationToken = Core.Nothing}
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
 --
 -- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtkPaginationToken :: Lens.Lens' GetTagKeys (Lude.Maybe Lude.Text)
-gtkPaginationToken = Lens.lens (paginationToken :: GetTagKeys -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: GetTagKeys)
+gtkPaginationToken :: Lens.Lens' GetTagKeys (Core.Maybe Types.PaginationToken)
+gtkPaginationToken = Lens.field @"paginationToken"
 {-# DEPRECATED gtkPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
-instance Page.AWSPager GetTagKeys where
-  page rq rs
-    | Page.stop (rs Lens.^. gtkrsPaginationToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gtkrsTagKeys) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gtkPaginationToken Lens..~ rs Lens.^. gtkrsPaginationToken
+instance Core.FromJSON GetTagKeys where
+  toJSON GetTagKeys {..} =
+    Core.object
+      ( Core.catMaybes
+          [("PaginationToken" Core..=) Core.<$> paginationToken]
+      )
 
-instance Lude.AWSRequest GetTagKeys where
+instance Core.AWSRequest GetTagKeys where
   type Rs GetTagKeys = GetTagKeysResponse
-  request = Req.postJSON resourceGroupsTaggingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ResourceGroupsTaggingAPI_20170126.GetTagKeys")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTagKeysResponse'
-            Lude.<$> (x Lude..?> "PaginationToken")
-            Lude.<*> (x Lude..?> "TagKeys" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PaginationToken")
+            Core.<*> (x Core..:? "TagKeys")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetTagKeys where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagKeys" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTagKeys where
-  toJSON GetTagKeys' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("PaginationToken" Lude..=) Lude.<$> paginationToken]
-      )
-
-instance Lude.ToPath GetTagKeys where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTagKeys where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetTagKeys where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"paginationToken") =
+      Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"tagKeys" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"paginationToken"
+            Lens..~ rs Lens.^. Lens.field @"paginationToken"
+        )
 
 -- | /See:/ 'mkGetTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
   { -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
-    paginationToken :: Lude.Maybe Lude.Text,
+    paginationToken :: Core.Maybe Types.PaginationToken,
     -- | A list of all tag keys in the AWS account.
-    tagKeys :: Lude.Maybe [Lude.Text],
+    tagKeys :: Core.Maybe [Types.TagKey],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTagKeysResponse' with the minimum fields required to make a request.
---
--- * 'paginationToken' - A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
--- * 'tagKeys' - A list of all tag keys in the AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTagKeysResponse' value with any optional fields omitted.
 mkGetTagKeysResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTagKeysResponse
-mkGetTagKeysResponse pResponseStatus_ =
+mkGetTagKeysResponse responseStatus =
   GetTagKeysResponse'
-    { paginationToken = Lude.Nothing,
-      tagKeys = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { paginationToken = Core.Nothing,
+      tagKeys = Core.Nothing,
+      responseStatus
     }
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 --
 -- /Note:/ Consider using 'paginationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtkrsPaginationToken :: Lens.Lens' GetTagKeysResponse (Lude.Maybe Lude.Text)
-gtkrsPaginationToken = Lens.lens (paginationToken :: GetTagKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: GetTagKeysResponse)
-{-# DEPRECATED gtkrsPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
+gtkrrsPaginationToken :: Lens.Lens' GetTagKeysResponse (Core.Maybe Types.PaginationToken)
+gtkrrsPaginationToken = Lens.field @"paginationToken"
+{-# DEPRECATED gtkrrsPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
 -- | A list of all tag keys in the AWS account.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtkrsTagKeys :: Lens.Lens' GetTagKeysResponse (Lude.Maybe [Lude.Text])
-gtkrsTagKeys = Lens.lens (tagKeys :: GetTagKeysResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: GetTagKeysResponse)
-{-# DEPRECATED gtkrsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+gtkrrsTagKeys :: Lens.Lens' GetTagKeysResponse (Core.Maybe [Types.TagKey])
+gtkrrsTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED gtkrrsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtkrsResponseStatus :: Lens.Lens' GetTagKeysResponse Lude.Int
-gtkrsResponseStatus = Lens.lens (responseStatus :: GetTagKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTagKeysResponse)
-{-# DEPRECATED gtkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtkrrsResponseStatus :: Lens.Lens' GetTagKeysResponse Core.Int
+gtkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

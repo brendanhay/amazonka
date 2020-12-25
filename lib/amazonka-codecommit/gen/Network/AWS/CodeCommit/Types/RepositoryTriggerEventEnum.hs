@@ -13,56 +13,61 @@
 module Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
   ( RepositoryTriggerEventEnum
       ( RepositoryTriggerEventEnum',
-        All,
-        UpdateReference,
-        CreateReference,
-        DeleteReference
+        RepositoryTriggerEventEnumAll,
+        RepositoryTriggerEventEnumUpdateReference,
+        RepositoryTriggerEventEnumCreateReference,
+        RepositoryTriggerEventEnumDeleteReference,
+        fromRepositoryTriggerEventEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RepositoryTriggerEventEnum = RepositoryTriggerEventEnum' Lude.Text
+newtype RepositoryTriggerEventEnum = RepositoryTriggerEventEnum'
+  { fromRepositoryTriggerEventEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern All :: RepositoryTriggerEventEnum
-pattern All = RepositoryTriggerEventEnum' "all"
+pattern RepositoryTriggerEventEnumAll :: RepositoryTriggerEventEnum
+pattern RepositoryTriggerEventEnumAll = RepositoryTriggerEventEnum' "all"
 
-pattern UpdateReference :: RepositoryTriggerEventEnum
-pattern UpdateReference = RepositoryTriggerEventEnum' "updateReference"
+pattern RepositoryTriggerEventEnumUpdateReference :: RepositoryTriggerEventEnum
+pattern RepositoryTriggerEventEnumUpdateReference = RepositoryTriggerEventEnum' "updateReference"
 
-pattern CreateReference :: RepositoryTriggerEventEnum
-pattern CreateReference = RepositoryTriggerEventEnum' "createReference"
+pattern RepositoryTriggerEventEnumCreateReference :: RepositoryTriggerEventEnum
+pattern RepositoryTriggerEventEnumCreateReference = RepositoryTriggerEventEnum' "createReference"
 
-pattern DeleteReference :: RepositoryTriggerEventEnum
-pattern DeleteReference = RepositoryTriggerEventEnum' "deleteReference"
+pattern RepositoryTriggerEventEnumDeleteReference :: RepositoryTriggerEventEnum
+pattern RepositoryTriggerEventEnumDeleteReference = RepositoryTriggerEventEnum' "deleteReference"
 
 {-# COMPLETE
-  All,
-  UpdateReference,
-  CreateReference,
-  DeleteReference,
+  RepositoryTriggerEventEnumAll,
+  RepositoryTriggerEventEnumUpdateReference,
+  RepositoryTriggerEventEnumCreateReference,
+  RepositoryTriggerEventEnumDeleteReference,
   RepositoryTriggerEventEnum'
   #-}

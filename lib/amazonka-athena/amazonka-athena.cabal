@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Athena
     Network.AWS.Athena.BatchGetNamedQuery
@@ -99,35 +105,69 @@ library
     Network.AWS.Athena.Waiters
 
   other-modules:
+    Network.AWS.Athena.Types.AmazonResourceName
+    Network.AWS.Athena.Types.Catalog
+    Network.AWS.Athena.Types.CatalogName
     Network.AWS.Athena.Types.Column
     Network.AWS.Athena.Types.ColumnInfo
     Network.AWS.Athena.Types.ColumnNullable
+    Network.AWS.Athena.Types.CommentString
     Network.AWS.Athena.Types.Database
+    Network.AWS.Athena.Types.DatabaseName
+    Network.AWS.Athena.Types.DatabaseString
     Network.AWS.Athena.Types.DataCatalog
     Network.AWS.Athena.Types.DataCatalogSummary
     Network.AWS.Athena.Types.DataCatalogType
     Network.AWS.Athena.Types.Datum
+    Network.AWS.Athena.Types.DatumString
+    Network.AWS.Athena.Types.Description
+    Network.AWS.Athena.Types.DescriptionString
     Network.AWS.Athena.Types.EncryptionConfiguration
     Network.AWS.Athena.Types.EncryptionOption
+    Network.AWS.Athena.Types.ErrorCode
+    Network.AWS.Athena.Types.ErrorMessage
+    Network.AWS.Athena.Types.Expression
+    Network.AWS.Athena.Types.IdempotencyToken
+    Network.AWS.Athena.Types.Key
+    Network.AWS.Athena.Types.KeyString
+    Network.AWS.Athena.Types.Name
     Network.AWS.Athena.Types.NamedQuery
+    Network.AWS.Athena.Types.NamedQueryId
+    Network.AWS.Athena.Types.NameString
+    Network.AWS.Athena.Types.NextToken
+    Network.AWS.Athena.Types.ParametersMapValue
+    Network.AWS.Athena.Types.Query
     Network.AWS.Athena.Types.QueryExecution
     Network.AWS.Athena.Types.QueryExecutionContext
+    Network.AWS.Athena.Types.QueryExecutionId
     Network.AWS.Athena.Types.QueryExecutionState
     Network.AWS.Athena.Types.QueryExecutionStatistics
     Network.AWS.Athena.Types.QueryExecutionStatus
+    Network.AWS.Athena.Types.QueryString
+    Network.AWS.Athena.Types.ResourceARN
     Network.AWS.Athena.Types.ResultConfiguration
     Network.AWS.Athena.Types.ResultConfigurationUpdates
     Network.AWS.Athena.Types.ResultSet
     Network.AWS.Athena.Types.ResultSetMetadata
     Network.AWS.Athena.Types.Row
+    Network.AWS.Athena.Types.StateChangeReason
     Network.AWS.Athena.Types.StatementType
+    Network.AWS.Athena.Types.String
     Network.AWS.Athena.Types.TableMetadata
+    Network.AWS.Athena.Types.TableName
+    Network.AWS.Athena.Types.TableType
     Network.AWS.Athena.Types.Tag
+    Network.AWS.Athena.Types.TagKey
+    Network.AWS.Athena.Types.Token
+    Network.AWS.Athena.Types.TypeString
     Network.AWS.Athena.Types.UnprocessedNamedQueryId
     Network.AWS.Athena.Types.UnprocessedQueryExecutionId
+    Network.AWS.Athena.Types.Value
     Network.AWS.Athena.Types.WorkGroup
     Network.AWS.Athena.Types.WorkGroupConfiguration
     Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
+    Network.AWS.Athena.Types.WorkGroupDescriptionString
+    Network.AWS.Athena.Types.WorkGroupName
     Network.AWS.Athena.Types.WorkGroupState
     Network.AWS.Athena.Types.WorkGroupSummary
 

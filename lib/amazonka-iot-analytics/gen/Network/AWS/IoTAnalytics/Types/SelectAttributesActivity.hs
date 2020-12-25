@@ -17,85 +17,77 @@ module Network.AWS.IoTAnalytics.Types.SelectAttributesActivity
     mkSelectAttributesActivity,
 
     -- * Lenses
-    saaNext,
     saaName,
     saaAttributes,
+    saaNext,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.ActivityName as Types
+import qualified Network.AWS.IoTAnalytics.Types.AttributeName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Creates a new message using only the specified attributes from the original message.
 --
 -- /See:/ 'mkSelectAttributesActivity' smart constructor.
 data SelectAttributesActivity = SelectAttributesActivity'
-  { -- | The next activity in the pipeline.
-    next :: Lude.Maybe Lude.Text,
-    -- | The name of the @selectAttributes@ activity.
-    name :: Lude.Text,
+  { -- | The name of the @selectAttributes@ activity.
+    name :: Types.ActivityName,
     -- | A list of the attributes to select from the message.
-    attributes :: Lude.NonEmpty Lude.Text
+    attributes :: Core.NonEmpty Types.AttributeName,
+    -- | The next activity in the pipeline.
+    next :: Core.Maybe Types.ActivityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SelectAttributesActivity' with the minimum fields required to make a request.
---
--- * 'next' - The next activity in the pipeline.
--- * 'name' - The name of the @selectAttributes@ activity.
--- * 'attributes' - A list of the attributes to select from the message.
+-- | Creates a 'SelectAttributesActivity' value with any optional fields omitted.
 mkSelectAttributesActivity ::
   -- | 'name'
-  Lude.Text ->
+  Types.ActivityName ->
   -- | 'attributes'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.AttributeName ->
   SelectAttributesActivity
-mkSelectAttributesActivity pName_ pAttributes_ =
-  SelectAttributesActivity'
-    { next = Lude.Nothing,
-      name = pName_,
-      attributes = pAttributes_
-    }
-
--- | The next activity in the pipeline.
---
--- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaNext :: Lens.Lens' SelectAttributesActivity (Lude.Maybe Lude.Text)
-saaNext = Lens.lens (next :: SelectAttributesActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: SelectAttributesActivity)
-{-# DEPRECATED saaNext "Use generic-lens or generic-optics with 'next' instead." #-}
+mkSelectAttributesActivity name attributes =
+  SelectAttributesActivity' {name, attributes, next = Core.Nothing}
 
 -- | The name of the @selectAttributes@ activity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaName :: Lens.Lens' SelectAttributesActivity Lude.Text
-saaName = Lens.lens (name :: SelectAttributesActivity -> Lude.Text) (\s a -> s {name = a} :: SelectAttributesActivity)
+saaName :: Lens.Lens' SelectAttributesActivity Types.ActivityName
+saaName = Lens.field @"name"
 {-# DEPRECATED saaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of the attributes to select from the message.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaAttributes :: Lens.Lens' SelectAttributesActivity (Lude.NonEmpty Lude.Text)
-saaAttributes = Lens.lens (attributes :: SelectAttributesActivity -> Lude.NonEmpty Lude.Text) (\s a -> s {attributes = a} :: SelectAttributesActivity)
+saaAttributes :: Lens.Lens' SelectAttributesActivity (Core.NonEmpty Types.AttributeName)
+saaAttributes = Lens.field @"attributes"
 {-# DEPRECATED saaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.FromJSON SelectAttributesActivity where
-  parseJSON =
-    Lude.withObject
-      "SelectAttributesActivity"
-      ( \x ->
-          SelectAttributesActivity'
-            Lude.<$> (x Lude..:? "next")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "attributes")
-      )
+-- | The next activity in the pipeline.
+--
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saaNext :: Lens.Lens' SelectAttributesActivity (Core.Maybe Types.ActivityName)
+saaNext = Lens.field @"next"
+{-# DEPRECATED saaNext "Use generic-lens or generic-optics with 'next' instead." #-}
 
-instance Lude.ToJSON SelectAttributesActivity where
-  toJSON SelectAttributesActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("attributes" Lude..= attributes)
+instance Core.FromJSON SelectAttributesActivity where
+  toJSON SelectAttributesActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("attributes" Core..= attributes),
+            ("next" Core..=) Core.<$> next
           ]
       )
+
+instance Core.FromJSON SelectAttributesActivity where
+  parseJSON =
+    Core.withObject "SelectAttributesActivity" Core.$
+      \x ->
+        SelectAttributesActivity'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "attributes")
+          Core.<*> (x Core..:? "next")

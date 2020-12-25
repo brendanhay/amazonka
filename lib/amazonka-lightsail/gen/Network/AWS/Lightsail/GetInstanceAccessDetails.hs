@@ -22,134 +22,119 @@ module Network.AWS.Lightsail.GetInstanceAccessDetails
     mkGetInstanceAccessDetails,
 
     -- ** Request lenses
-    giadProtocol,
     giadInstanceName,
+    giadProtocol,
 
     -- * Destructuring the response
     GetInstanceAccessDetailsResponse (..),
     mkGetInstanceAccessDetailsResponse,
 
     -- ** Response lenses
-    giadrsAccessDetails,
-    giadrsResponseStatus,
+    giadrrsAccessDetails,
+    giadrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInstanceAccessDetails' smart constructor.
 data GetInstanceAccessDetails = GetInstanceAccessDetails'
-  { -- | The protocol to use to connect to your instance. Defaults to @ssh@ .
-    protocol :: Lude.Maybe InstanceAccessProtocol,
-    -- | The name of the instance to access.
-    instanceName :: Lude.Text
+  { -- | The name of the instance to access.
+    instanceName :: Types.ResourceName,
+    -- | The protocol to use to connect to your instance. Defaults to @ssh@ .
+    protocol :: Core.Maybe Types.InstanceAccessProtocol
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceAccessDetails' with the minimum fields required to make a request.
---
--- * 'protocol' - The protocol to use to connect to your instance. Defaults to @ssh@ .
--- * 'instanceName' - The name of the instance to access.
+-- | Creates a 'GetInstanceAccessDetails' value with any optional fields omitted.
 mkGetInstanceAccessDetails ::
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   GetInstanceAccessDetails
-mkGetInstanceAccessDetails pInstanceName_ =
-  GetInstanceAccessDetails'
-    { protocol = Lude.Nothing,
-      instanceName = pInstanceName_
-    }
-
--- | The protocol to use to connect to your instance. Defaults to @ssh@ .
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giadProtocol :: Lens.Lens' GetInstanceAccessDetails (Lude.Maybe InstanceAccessProtocol)
-giadProtocol = Lens.lens (protocol :: GetInstanceAccessDetails -> Lude.Maybe InstanceAccessProtocol) (\s a -> s {protocol = a} :: GetInstanceAccessDetails)
-{-# DEPRECATED giadProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+mkGetInstanceAccessDetails instanceName =
+  GetInstanceAccessDetails' {instanceName, protocol = Core.Nothing}
 
 -- | The name of the instance to access.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giadInstanceName :: Lens.Lens' GetInstanceAccessDetails Lude.Text
-giadInstanceName = Lens.lens (instanceName :: GetInstanceAccessDetails -> Lude.Text) (\s a -> s {instanceName = a} :: GetInstanceAccessDetails)
+giadInstanceName :: Lens.Lens' GetInstanceAccessDetails Types.ResourceName
+giadInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED giadInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest GetInstanceAccessDetails where
+-- | The protocol to use to connect to your instance. Defaults to @ssh@ .
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giadProtocol :: Lens.Lens' GetInstanceAccessDetails (Core.Maybe Types.InstanceAccessProtocol)
+giadProtocol = Lens.field @"protocol"
+{-# DEPRECATED giadProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+instance Core.FromJSON GetInstanceAccessDetails where
+  toJSON GetInstanceAccessDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("instanceName" Core..= instanceName),
+            ("protocol" Core..=) Core.<$> protocol
+          ]
+      )
+
+instance Core.AWSRequest GetInstanceAccessDetails where
   type Rs GetInstanceAccessDetails = GetInstanceAccessDetailsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetInstanceAccessDetails")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceAccessDetailsResponse'
-            Lude.<$> (x Lude..?> "accessDetails")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "accessDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInstanceAccessDetails where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetInstanceAccessDetails" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstanceAccessDetails where
-  toJSON GetInstanceAccessDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("protocol" Lude..=) Lude.<$> protocol,
-            Lude.Just ("instanceName" Lude..= instanceName)
-          ]
-      )
-
-instance Lude.ToPath GetInstanceAccessDetails where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstanceAccessDetails where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInstanceAccessDetailsResponse' smart constructor.
 data GetInstanceAccessDetailsResponse = GetInstanceAccessDetailsResponse'
   { -- | An array of key-value pairs containing information about a get instance access request.
-    accessDetails :: Lude.Maybe InstanceAccessDetails,
+    accessDetails :: Core.Maybe Types.InstanceAccessDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInstanceAccessDetailsResponse' with the minimum fields required to make a request.
---
--- * 'accessDetails' - An array of key-value pairs containing information about a get instance access request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceAccessDetailsResponse' value with any optional fields omitted.
 mkGetInstanceAccessDetailsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceAccessDetailsResponse
-mkGetInstanceAccessDetailsResponse pResponseStatus_ =
+mkGetInstanceAccessDetailsResponse responseStatus =
   GetInstanceAccessDetailsResponse'
-    { accessDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accessDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of key-value pairs containing information about a get instance access request.
 --
 -- /Note:/ Consider using 'accessDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giadrsAccessDetails :: Lens.Lens' GetInstanceAccessDetailsResponse (Lude.Maybe InstanceAccessDetails)
-giadrsAccessDetails = Lens.lens (accessDetails :: GetInstanceAccessDetailsResponse -> Lude.Maybe InstanceAccessDetails) (\s a -> s {accessDetails = a} :: GetInstanceAccessDetailsResponse)
-{-# DEPRECATED giadrsAccessDetails "Use generic-lens or generic-optics with 'accessDetails' instead." #-}
+giadrrsAccessDetails :: Lens.Lens' GetInstanceAccessDetailsResponse (Core.Maybe Types.InstanceAccessDetails)
+giadrrsAccessDetails = Lens.field @"accessDetails"
+{-# DEPRECATED giadrrsAccessDetails "Use generic-lens or generic-optics with 'accessDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giadrsResponseStatus :: Lens.Lens' GetInstanceAccessDetailsResponse Lude.Int
-giadrsResponseStatus = Lens.lens (responseStatus :: GetInstanceAccessDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceAccessDetailsResponse)
-{-# DEPRECATED giadrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+giadrrsResponseStatus :: Lens.Lens' GetInstanceAccessDetailsResponse Core.Int
+giadrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED giadrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,7 +22,7 @@ module Network.AWS.Pinpoint.Types.TagsModel
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the tags (keys and values) for an application, campaign, message template, or segment.
 --
@@ -31,37 +31,30 @@ newtype TagsModel = TagsModel'
   { -- | A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each of these resources can have a maximum of 50 tags.
     --
     -- Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    tags :: Core.HashMap Core.Text Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagsModel' with the minimum fields required to make a request.
---
--- * 'tags' - A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each of these resources can have a maximum of 50 tags.
---
--- Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
+-- | Creates a 'TagsModel' value with any optional fields omitted.
 mkTagsModel ::
   TagsModel
-mkTagsModel = TagsModel' {tags = Lude.mempty}
+mkTagsModel = TagsModel' {tags = Core.mempty}
 
 -- | A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each of these resources can have a maximum of 50 tags.
 --
 -- Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmTags :: Lens.Lens' TagsModel (Lude.HashMap Lude.Text (Lude.Text))
-tmTags = Lens.lens (tags :: TagsModel -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagsModel)
+tmTags :: Lens.Lens' TagsModel (Core.HashMap Core.Text Core.Text)
+tmTags = Lens.field @"tags"
 {-# DEPRECATED tmTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON TagsModel where
-  parseJSON =
-    Lude.withObject
-      "TagsModel"
-      ( \x ->
-          TagsModel' Lude.<$> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON TagsModel where
+  toJSON TagsModel {..} =
+    Core.object (Core.catMaybes [Core.Just ("tags" Core..= tags)])
 
-instance Lude.ToJSON TagsModel where
-  toJSON TagsModel' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("tags" Lude..= tags)])
+instance Core.FromJSON TagsModel where
+  parseJSON =
+    Core.withObject "TagsModel" Core.$
+      \x -> TagsModel' Core.<$> (x Core..:? "tags" Core..!= Core.mempty)

@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.HlsClientCache
   ( HlsClientCache
       ( HlsClientCache',
-        HCCDisabled,
-        HCCEnabled
+        HlsClientCacheDisabled,
+        HlsClientCacheEnabled,
+        fromHlsClientCache
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Client Cache
-newtype HlsClientCache = HlsClientCache' Lude.Text
+newtype HlsClientCache = HlsClientCache'
+  { fromHlsClientCache ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HCCDisabled :: HlsClientCache
-pattern HCCDisabled = HlsClientCache' "DISABLED"
+pattern HlsClientCacheDisabled :: HlsClientCache
+pattern HlsClientCacheDisabled = HlsClientCache' "DISABLED"
 
-pattern HCCEnabled :: HlsClientCache
-pattern HCCEnabled = HlsClientCache' "ENABLED"
+pattern HlsClientCacheEnabled :: HlsClientCache
+pattern HlsClientCacheEnabled = HlsClientCache' "ENABLED"
 
 {-# COMPLETE
-  HCCDisabled,
-  HCCEnabled,
+  HlsClientCacheDisabled,
+  HlsClientCacheEnabled,
   HlsClientCache'
   #-}

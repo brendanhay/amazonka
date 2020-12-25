@@ -24,156 +24,150 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     mkUpdateConfigurationTemplate,
 
     -- ** Request lenses
-    uctTemplateName,
-    uctOptionsToRemove,
-    uctOptionSettings,
     uctApplicationName,
+    uctTemplateName,
     uctDescription,
+    uctOptionSettings,
+    uctOptionsToRemove,
 
     -- * Destructuring the response
-    ConfigurationSettingsDescription (..),
-    mkConfigurationSettingsDescription,
+    Types.ConfigurationSettingsDescription (..),
+    Types.mkConfigurationSettingsDescription,
 
     -- ** Response lenses
-    csdTemplateName,
-    csdOptionSettings,
-    csdDateUpdated,
-    csdDateCreated,
-    csdPlatformARN,
-    csdEnvironmentName,
-    csdApplicationName,
-    csdDeploymentStatus,
-    csdSolutionStackName,
-    csdDescription,
+    Types.csdApplicationName,
+    Types.csdDateCreated,
+    Types.csdDateUpdated,
+    Types.csdDeploymentStatus,
+    Types.csdDescription,
+    Types.csdEnvironmentName,
+    Types.csdOptionSettings,
+    Types.csdPlatformArn,
+    Types.csdSolutionStackName,
+    Types.csdTemplateName,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The result message containing the options for the specified solution stack.
 --
 -- /See:/ 'mkUpdateConfigurationTemplate' smart constructor.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
-  { -- | The name of the configuration template to update.
+  { -- | The name of the application associated with the configuration template to update.
+    --
+    -- If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+    applicationName :: Types.ApplicationName,
+    -- | The name of the configuration template to update.
     --
     -- If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-    templateName :: Lude.Text,
+    templateName :: Types.TemplateName,
+    -- | A new description for the configuration.
+    description :: Core.Maybe Types.Description,
+    -- | A list of configuration option settings to update with the new specified option value.
+    optionSettings :: Core.Maybe [Types.ConfigurationOptionSetting],
     -- | A list of configuration options to remove from the configuration set.
     --
     -- Constraint: You can remove only @UserDefined@ configuration options.
-    optionsToRemove :: Lude.Maybe [OptionSpecification],
-    -- | A list of configuration option settings to update with the new specified option value.
-    optionSettings :: Lude.Maybe [ConfigurationOptionSetting],
-    -- | The name of the application associated with the configuration template to update.
-    --
-    -- If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-    applicationName :: Lude.Text,
-    -- | A new description for the configuration.
-    description :: Lude.Maybe Lude.Text
+    optionsToRemove :: Core.Maybe [Types.OptionSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConfigurationTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the configuration template to update.
---
--- If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
--- * 'optionsToRemove' - A list of configuration options to remove from the configuration set.
---
--- Constraint: You can remove only @UserDefined@ configuration options.
--- * 'optionSettings' - A list of configuration option settings to update with the new specified option value.
--- * 'applicationName' - The name of the application associated with the configuration template to update.
---
--- If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
--- * 'description' - A new description for the configuration.
+-- | Creates a 'UpdateConfigurationTemplate' value with any optional fields omitted.
 mkUpdateConfigurationTemplate ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
+  -- | 'templateName'
+  Types.TemplateName ->
   UpdateConfigurationTemplate
-mkUpdateConfigurationTemplate pTemplateName_ pApplicationName_ =
+mkUpdateConfigurationTemplate applicationName templateName =
   UpdateConfigurationTemplate'
-    { templateName = pTemplateName_,
-      optionsToRemove = Lude.Nothing,
-      optionSettings = Lude.Nothing,
-      applicationName = pApplicationName_,
-      description = Lude.Nothing
+    { applicationName,
+      templateName,
+      description = Core.Nothing,
+      optionSettings = Core.Nothing,
+      optionsToRemove = Core.Nothing
     }
-
--- | The name of the configuration template to update.
---
--- If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uctTemplateName :: Lens.Lens' UpdateConfigurationTemplate Lude.Text
-uctTemplateName = Lens.lens (templateName :: UpdateConfigurationTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateConfigurationTemplate)
-{-# DEPRECATED uctTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | A list of configuration options to remove from the configuration set.
---
--- Constraint: You can remove only @UserDefined@ configuration options.
---
--- /Note:/ Consider using 'optionsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uctOptionsToRemove :: Lens.Lens' UpdateConfigurationTemplate (Lude.Maybe [OptionSpecification])
-uctOptionsToRemove = Lens.lens (optionsToRemove :: UpdateConfigurationTemplate -> Lude.Maybe [OptionSpecification]) (\s a -> s {optionsToRemove = a} :: UpdateConfigurationTemplate)
-{-# DEPRECATED uctOptionsToRemove "Use generic-lens or generic-optics with 'optionsToRemove' instead." #-}
-
--- | A list of configuration option settings to update with the new specified option value.
---
--- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uctOptionSettings :: Lens.Lens' UpdateConfigurationTemplate (Lude.Maybe [ConfigurationOptionSetting])
-uctOptionSettings = Lens.lens (optionSettings :: UpdateConfigurationTemplate -> Lude.Maybe [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: UpdateConfigurationTemplate)
-{-# DEPRECATED uctOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 -- | The name of the application associated with the configuration template to update.
 --
 -- If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uctApplicationName :: Lens.Lens' UpdateConfigurationTemplate Lude.Text
-uctApplicationName = Lens.lens (applicationName :: UpdateConfigurationTemplate -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateConfigurationTemplate)
+uctApplicationName :: Lens.Lens' UpdateConfigurationTemplate Types.ApplicationName
+uctApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED uctApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | The name of the configuration template to update.
+--
+-- If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uctTemplateName :: Lens.Lens' UpdateConfigurationTemplate Types.TemplateName
+uctTemplateName = Lens.field @"templateName"
+{-# DEPRECATED uctTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | A new description for the configuration.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uctDescription :: Lens.Lens' UpdateConfigurationTemplate (Lude.Maybe Lude.Text)
-uctDescription = Lens.lens (description :: UpdateConfigurationTemplate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateConfigurationTemplate)
+uctDescription :: Lens.Lens' UpdateConfigurationTemplate (Core.Maybe Types.Description)
+uctDescription = Lens.field @"description"
 {-# DEPRECATED uctDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateConfigurationTemplate where
+-- | A list of configuration option settings to update with the new specified option value.
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uctOptionSettings :: Lens.Lens' UpdateConfigurationTemplate (Core.Maybe [Types.ConfigurationOptionSetting])
+uctOptionSettings = Lens.field @"optionSettings"
+{-# DEPRECATED uctOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
+
+-- | A list of configuration options to remove from the configuration set.
+--
+-- Constraint: You can remove only @UserDefined@ configuration options.
+--
+-- /Note:/ Consider using 'optionsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uctOptionsToRemove :: Lens.Lens' UpdateConfigurationTemplate (Core.Maybe [Types.OptionSpecification])
+uctOptionsToRemove = Lens.field @"optionsToRemove"
+{-# DEPRECATED uctOptionsToRemove "Use generic-lens or generic-optics with 'optionsToRemove' instead." #-}
+
+instance Core.AWSRequest UpdateConfigurationTemplate where
   type
     Rs UpdateConfigurationTemplate =
-      ConfigurationSettingsDescription
-  request = Req.postQuery elasticBeanstalkService
+      Types.ConfigurationSettingsDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateConfigurationTemplate")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" applicationName)
+                Core.<> (Core.toQueryValue "TemplateName" templateName)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> ( Core.toQueryValue
+                            "OptionSettings"
+                            (Core.toQueryList "member" Core.<$> optionSettings)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "OptionsToRemove"
+                            (Core.toQueryList "member" Core.<$> optionsToRemove)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateConfigurationTemplateResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders UpdateConfigurationTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateConfigurationTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateConfigurationTemplate where
-  toQuery UpdateConfigurationTemplate' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateConfigurationTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName,
-        "OptionsToRemove"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionsToRemove),
-        "OptionSettings"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionSettings),
-        "ApplicationName" Lude.=: applicationName,
-        "Description" Lude.=: description
-      ]
+      (\s h x -> Core.parseXML x)

@@ -17,50 +17,50 @@ module Network.AWS.S3.Types.MetadataEntry
     mkMetadataEntry,
 
     -- * Lenses
-    meValue,
     meName,
+    meValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.MetadataKey as Types
+import qualified Network.AWS.S3.Types.MetadataValue as Types
 
 -- | A metadata key-value pair to store with an object.
 --
 -- /See:/ 'mkMetadataEntry' smart constructor.
 data MetadataEntry = MetadataEntry'
-  { -- | Value of the Object.
-    value :: Lude.Maybe Lude.Text,
-    -- | Name of the Object.
-    name :: Lude.Maybe Lude.Text
+  { -- | Name of the Object.
+    name :: Core.Maybe Types.MetadataKey,
+    -- | Value of the Object.
+    value :: Core.Maybe Types.MetadataValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetadataEntry' with the minimum fields required to make a request.
---
--- * 'value' - Value of the Object.
--- * 'name' - Name of the Object.
+-- | Creates a 'MetadataEntry' value with any optional fields omitted.
 mkMetadataEntry ::
   MetadataEntry
 mkMetadataEntry =
-  MetadataEntry' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | Value of the Object.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meValue :: Lens.Lens' MetadataEntry (Lude.Maybe Lude.Text)
-meValue = Lens.lens (value :: MetadataEntry -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: MetadataEntry)
-{-# DEPRECATED meValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  MetadataEntry' {name = Core.Nothing, value = Core.Nothing}
 
 -- | Name of the Object.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meName :: Lens.Lens' MetadataEntry (Lude.Maybe Lude.Text)
-meName = Lens.lens (name :: MetadataEntry -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MetadataEntry)
+meName :: Lens.Lens' MetadataEntry (Core.Maybe Types.MetadataKey)
+meName = Lens.field @"name"
 {-# DEPRECATED meName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToXML MetadataEntry where
-  toXML MetadataEntry' {..} =
-    Lude.mconcat ["Value" Lude.@= value, "Name" Lude.@= name]
+-- | Value of the Object.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meValue :: Lens.Lens' MetadataEntry (Core.Maybe Types.MetadataValue)
+meValue = Lens.field @"value"
+{-# DEPRECATED meValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.ToXML MetadataEntry where
+  toXML MetadataEntry {..} =
+    Core.toXMLNode "Name" Core.<$> name
+      Core.<> Core.toXMLNode "Value" Core.<$> value

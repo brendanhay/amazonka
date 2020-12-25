@@ -20,139 +20,123 @@ module Network.AWS.Glue.DeleteUserDefinedFunction
     mkDeleteUserDefinedFunction,
 
     -- ** Request lenses
-    dudfCatalogId,
     dudfDatabaseName,
     dudfFunctionName,
+    dudfCatalogId,
 
     -- * Destructuring the response
     DeleteUserDefinedFunctionResponse (..),
     mkDeleteUserDefinedFunctionResponse,
 
     -- ** Response lenses
-    dudfrsResponseStatus,
+    dudfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUserDefinedFunction' smart constructor.
 data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
-  { -- | The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database where the function is located.
-    databaseName :: Lude.Text,
+  { -- | The name of the catalog database where the function is located.
+    databaseName :: Types.DatabaseName,
     -- | The name of the function definition to be deleted.
-    functionName :: Lude.Text
+    functionName :: Types.FunctionName,
+    -- | The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserDefinedFunction' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database where the function is located.
--- * 'functionName' - The name of the function definition to be deleted.
+-- | Creates a 'DeleteUserDefinedFunction' value with any optional fields omitted.
 mkDeleteUserDefinedFunction ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   DeleteUserDefinedFunction
-mkDeleteUserDefinedFunction pDatabaseName_ pFunctionName_ =
+mkDeleteUserDefinedFunction databaseName functionName =
   DeleteUserDefinedFunction'
-    { catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      functionName = pFunctionName_
+    { databaseName,
+      functionName,
+      catalogId = Core.Nothing
     }
-
--- | The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dudfCatalogId :: Lens.Lens' DeleteUserDefinedFunction (Lude.Maybe Lude.Text)
-dudfCatalogId = Lens.lens (catalogId :: DeleteUserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeleteUserDefinedFunction)
-{-# DEPRECATED dudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the function is located.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dudfDatabaseName :: Lens.Lens' DeleteUserDefinedFunction Lude.Text
-dudfDatabaseName = Lens.lens (databaseName :: DeleteUserDefinedFunction -> Lude.Text) (\s a -> s {databaseName = a} :: DeleteUserDefinedFunction)
+dudfDatabaseName :: Lens.Lens' DeleteUserDefinedFunction Types.DatabaseName
+dudfDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED dudfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the function definition to be deleted.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dudfFunctionName :: Lens.Lens' DeleteUserDefinedFunction Lude.Text
-dudfFunctionName = Lens.lens (functionName :: DeleteUserDefinedFunction -> Lude.Text) (\s a -> s {functionName = a} :: DeleteUserDefinedFunction)
+dudfFunctionName :: Lens.Lens' DeleteUserDefinedFunction Types.FunctionName
+dudfFunctionName = Lens.field @"functionName"
 {-# DEPRECATED dudfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Lude.AWSRequest DeleteUserDefinedFunction where
+-- | The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dudfCatalogId :: Lens.Lens' DeleteUserDefinedFunction (Core.Maybe Types.CatalogId)
+dudfCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED dudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON DeleteUserDefinedFunction where
+  toJSON DeleteUserDefinedFunction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("FunctionName" Core..= functionName),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest DeleteUserDefinedFunction where
   type
     Rs DeleteUserDefinedFunction =
       DeleteUserDefinedFunctionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteUserDefinedFunction")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteUserDefinedFunctionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteUserDefinedFunction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteUserDefinedFunction" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteUserDefinedFunction where
-  toJSON DeleteUserDefinedFunction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("FunctionName" Lude..= functionName)
-          ]
-      )
-
-instance Lude.ToPath DeleteUserDefinedFunction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUserDefinedFunction where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteUserDefinedFunctionResponse' smart constructor.
 newtype DeleteUserDefinedFunctionResponse = DeleteUserDefinedFunctionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserDefinedFunctionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteUserDefinedFunctionResponse' value with any optional fields omitted.
 mkDeleteUserDefinedFunctionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteUserDefinedFunctionResponse
-mkDeleteUserDefinedFunctionResponse pResponseStatus_ =
-  DeleteUserDefinedFunctionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteUserDefinedFunctionResponse responseStatus =
+  DeleteUserDefinedFunctionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dudfrsResponseStatus :: Lens.Lens' DeleteUserDefinedFunctionResponse Lude.Int
-dudfrsResponseStatus = Lens.lens (responseStatus :: DeleteUserDefinedFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserDefinedFunctionResponse)
-{-# DEPRECATED dudfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dudfrrsResponseStatus :: Lens.Lens' DeleteUserDefinedFunctionResponse Core.Int
+dudfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dudfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

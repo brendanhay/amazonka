@@ -9,186 +9,43 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types
   ( -- * Service configuration
-    elbService,
+    mkServiceConfig,
 
     -- * Errors
+    _PolicyNotFoundException,
+    _AccessPointNotFoundException,
+    _DuplicatePolicyNameException,
+    _InvalidConfigurationRequestException,
+    _SubnetNotFoundException,
+    _LoadBalancerAttributeNotFoundException,
+    _InvalidSubnetException,
+    _DuplicateTagKeysException,
+    _DuplicateListenerException,
+    _TooManyTagsException,
+    _PolicyTypeNotFoundException,
+    _UnsupportedProtocolException,
+    _DuplicateAccessPointNameException,
+    _InvalidSecurityGroupException,
+    _ListenerNotFoundException,
+    _InvalidEndPointException,
+    _OperationNotPermittedException,
+    _DependencyThrottleException,
+    _InvalidSchemeException,
+    _TooManyAccessPointsException,
+    _TooManyPoliciesException,
+    _CertificateNotFoundException,
 
     -- * Re-exported types
     module Network.AWS.ELB.Internal,
 
-    -- * AccessLog
-    AccessLog (..),
-    mkAccessLog,
-    alEmitInterval,
-    alEnabled,
-    alS3BucketPrefix,
-    alS3BucketName,
-
-    -- * AdditionalAttribute
-    AdditionalAttribute (..),
-    mkAdditionalAttribute,
-    aaValue,
-    aaKey,
-
-    -- * AppCookieStickinessPolicy
-    AppCookieStickinessPolicy (..),
-    mkAppCookieStickinessPolicy,
-    acspPolicyName,
-    acspCookieName,
-
-    -- * BackendServerDescription
-    BackendServerDescription (..),
-    mkBackendServerDescription,
-    bsdPolicyNames,
-    bsdInstancePort,
-
-    -- * ConnectionDraining
-    ConnectionDraining (..),
-    mkConnectionDraining,
-    cdEnabled,
-    cdTimeout,
-
-    -- * ConnectionSettings
-    ConnectionSettings (..),
-    mkConnectionSettings,
-    csIdleTimeout,
-
-    -- * CrossZoneLoadBalancing
-    CrossZoneLoadBalancing (..),
-    mkCrossZoneLoadBalancing,
-    czlbEnabled,
-
-    -- * HealthCheck
-    HealthCheck (..),
-    mkHealthCheck,
-    hcHealthyThreshold,
-    hcInterval,
-    hcTimeout,
-    hcUnhealthyThreshold,
-    hcTarget,
-
-    -- * Instance
-    Instance (..),
-    mkInstance,
-    iInstanceId,
-
-    -- * InstanceState
-    InstanceState (..),
-    mkInstanceState,
-    isInstanceId,
-    isState,
-    isReasonCode,
-    isDescription,
-
-    -- * LBCookieStickinessPolicy
-    LBCookieStickinessPolicy (..),
-    mkLBCookieStickinessPolicy,
-    lbcspPolicyName,
-    lbcspCookieExpirationPeriod,
-
-    -- * Limit
-    Limit (..),
-    mkLimit,
-    lMax,
-    lName,
-
-    -- * Listener
-    Listener (..),
-    mkListener,
-    lInstanceProtocol,
-    lInstancePort,
-    lLoadBalancerPort,
-    lProtocol,
-    lSSLCertificateId,
-
-    -- * ListenerDescription
-    ListenerDescription (..),
-    mkListenerDescription,
-    ldPolicyNames,
-    ldListener,
-
-    -- * LoadBalancerAttributes
-    LoadBalancerAttributes (..),
-    mkLoadBalancerAttributes,
-    lbaCrossZoneLoadBalancing,
-    lbaAccessLog,
-    lbaAdditionalAttributes,
-    lbaConnectionSettings,
-    lbaConnectionDraining,
-
-    -- * LoadBalancerDescription
-    LoadBalancerDescription (..),
-    mkLoadBalancerDescription,
-    lbdSourceSecurityGroup,
-    lbdCanonicalHostedZoneName,
-    lbdSecurityGroups,
-    lbdHealthCheck,
-    lbdLoadBalancerName,
-    lbdCreatedTime,
-    lbdVPCId,
-    lbdSubnets,
-    lbdAvailabilityZones,
-    lbdBackendServerDescriptions,
-    lbdCanonicalHostedZoneNameId,
-    lbdInstances,
-    lbdScheme,
-    lbdListenerDescriptions,
-    lbdDNSName,
-    lbdPolicies,
-
-    -- * Policies
-    Policies (..),
-    mkPolicies,
-    pOtherPolicies,
-    pLBCookieStickinessPolicies,
-    pAppCookieStickinessPolicies,
-
-    -- * PolicyAttribute
-    PolicyAttribute (..),
-    mkPolicyAttribute,
-    paAttributeValue,
-    paAttributeName,
-
-    -- * PolicyAttributeDescription
-    PolicyAttributeDescription (..),
-    mkPolicyAttributeDescription,
-    padAttributeValue,
-    padAttributeName,
-
-    -- * PolicyAttributeTypeDescription
-    PolicyAttributeTypeDescription (..),
-    mkPolicyAttributeTypeDescription,
-    patdAttributeType,
-    patdCardinality,
-    patdDefaultValue,
-    patdAttributeName,
-    patdDescription,
-
-    -- * PolicyDescription
-    PolicyDescription (..),
-    mkPolicyDescription,
-    pdPolicyName,
-    pdPolicyAttributeDescriptions,
-    pdPolicyTypeName,
-
-    -- * PolicyTypeDescription
-    PolicyTypeDescription (..),
-    mkPolicyTypeDescription,
-    ptdPolicyTypeName,
-    ptdDescription,
-    ptdPolicyAttributeTypeDescriptions,
+    -- * InstanceId
+    InstanceId (..),
 
     -- * SourceSecurityGroup
     SourceSecurityGroup (..),
     mkSourceSecurityGroup,
-    ssgOwnerAlias,
     ssgGroupName,
-
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    ssgOwnerAlias,
 
     -- * TagDescription
     TagDescription (..),
@@ -196,94 +53,567 @@ module Network.AWS.ELB.Types
     tdLoadBalancerName,
     tdTags,
 
+    -- * Max
+    Max (..),
+
+    -- * State
+    State (..),
+
+    -- * AccessPointName
+    AccessPointName (..),
+
+    -- * LoadBalancerScheme
+    LoadBalancerScheme (..),
+
+    -- * AttributeValue
+    AttributeValue (..),
+
+    -- * PolicyName
+    PolicyName (..),
+
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * PolicyAttributeTypeDescription
+    PolicyAttributeTypeDescription (..),
+    mkPolicyAttributeTypeDescription,
+    patdAttributeName,
+    patdAttributeType,
+    patdCardinality,
+    patdDefaultValue,
+    patdDescription,
+
+    -- * HealthCheck
+    HealthCheck (..),
+    mkHealthCheck,
+    hcTarget,
+    hcInterval,
+    hcTimeout,
+    hcUnhealthyThreshold,
+    hcHealthyThreshold,
+
+    -- * CrossZoneLoadBalancing
+    CrossZoneLoadBalancing (..),
+    mkCrossZoneLoadBalancing,
+    czlbEnabled,
+
+    -- * LoadBalancerAttributes
+    LoadBalancerAttributes (..),
+    mkLoadBalancerAttributes,
+    lbaAccessLog,
+    lbaAdditionalAttributes,
+    lbaConnectionDraining,
+    lbaConnectionSettings,
+    lbaCrossZoneLoadBalancing,
+
+    -- * AccessLog
+    AccessLog (..),
+    mkAccessLog,
+    alEnabled,
+    alEmitInterval,
+    alS3BucketName,
+    alS3BucketPrefix,
+
+    -- * ListenerDescription
+    ListenerDescription (..),
+    mkListenerDescription,
+    ldListener,
+    ldPolicyNames,
+
+    -- * VPCId
+    VPCId (..),
+
+    -- * Protocol
+    Protocol (..),
+
+    -- * LBCookieStickinessPolicy
+    LBCookieStickinessPolicy (..),
+    mkLBCookieStickinessPolicy,
+    lbcspCookieExpirationPeriod,
+    lbcspPolicyName,
+
+    -- * PolicyDescription
+    PolicyDescription (..),
+    mkPolicyDescription,
+    pdPolicyAttributeDescriptions,
+    pdPolicyName,
+    pdPolicyTypeName,
+
+    -- * SubnetId
+    SubnetId (..),
+
+    -- * ReasonCode
+    ReasonCode (..),
+
+    -- * AppCookieStickinessPolicy
+    AppCookieStickinessPolicy (..),
+    mkAppCookieStickinessPolicy,
+    acspCookieName,
+    acspPolicyName,
+
+    -- * SecurityGroupId
+    SecurityGroupId (..),
+
+    -- * PolicyAttribute
+    PolicyAttribute (..),
+    mkPolicyAttribute,
+    paAttributeName,
+    paAttributeValue,
+
+    -- * LoadBalancerDescription
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
+    lbdAvailabilityZones,
+    lbdBackendServerDescriptions,
+    lbdCanonicalHostedZoneName,
+    lbdCanonicalHostedZoneNameID,
+    lbdCreatedTime,
+    lbdDNSName,
+    lbdHealthCheck,
+    lbdInstances,
+    lbdListenerDescriptions,
+    lbdLoadBalancerName,
+    lbdPolicies,
+    lbdScheme,
+    lbdSecurityGroups,
+    lbdSourceSecurityGroup,
+    lbdSubnets,
+    lbdVPCId,
+
+    -- * SSLCertificateId
+    SSLCertificateId (..),
+
+    -- * AttributeType
+    AttributeType (..),
+
+    -- * BackendServerDescription
+    BackendServerDescription (..),
+    mkBackendServerDescription,
+    bsdInstancePort,
+    bsdPolicyNames,
+
+    -- * PolicyTypeName
+    PolicyTypeName (..),
+
+    -- * AvailabilityZone
+    AvailabilityZone (..),
+
+    -- * Name
+    Name (..),
+
+    -- * AdditionalAttributeKey
+    AdditionalAttributeKey (..),
+
+    -- * PolicyAttributeDescription
+    PolicyAttributeDescription (..),
+    mkPolicyAttributeDescription,
+    padAttributeName,
+    padAttributeValue,
+
+    -- * Marker
+    Marker (..),
+
+    -- * Cardinality
+    Cardinality (..),
+
+    -- * Limit
+    Limit (..),
+    mkLimit,
+    lMax,
+    lName,
+
+    -- * AdditionalAttribute
+    AdditionalAttribute (..),
+    mkAdditionalAttribute,
+    aaKey,
+    aaValue,
+
+    -- * TagKey
+    TagKey (..),
+
+    -- * DefaultValue
+    DefaultValue (..),
+
+    -- * CookieName
+    CookieName (..),
+
+    -- * AttributeName
+    AttributeName (..),
+
+    -- * ConnectionSettings
+    ConnectionSettings (..),
+    mkConnectionSettings,
+    csIdleTimeout,
+
+    -- * PolicyTypeDescription
+    PolicyTypeDescription (..),
+    mkPolicyTypeDescription,
+    ptdDescription,
+    ptdPolicyAttributeTypeDescriptions,
+    ptdPolicyTypeName,
+
+    -- * Description
+    Description (..),
+
+    -- * DNSName
+    DNSName (..),
+
+    -- * Policies
+    Policies (..),
+    mkPolicies,
+    pAppCookieStickinessPolicies,
+    pLBCookieStickinessPolicies,
+    pOtherPolicies,
+
+    -- * Listener
+    Listener (..),
+    mkListener,
+    lProtocol,
+    lLoadBalancerPort,
+    lInstancePort,
+    lInstanceProtocol,
+    lSSLCertificateId,
+
+    -- * ConnectionDraining
+    ConnectionDraining (..),
+    mkConnectionDraining,
+    cdEnabled,
+    cdTimeout,
+
+    -- * InstanceState
+    InstanceState (..),
+    mkInstanceState,
+    isDescription,
+    isInstanceId,
+    isReasonCode,
+    isState,
+
+    -- * S3BucketName
+    S3BucketName (..),
+
     -- * TagKeyOnly
     TagKeyOnly (..),
     mkTagKeyOnly,
     tkoKey,
+
+    -- * Instance
+    Instance (..),
+    mkInstance,
+    iInstanceId,
+
+    -- * LoadBalancerName
+    LoadBalancerName (..),
+
+    -- * GroupName
+    GroupName (..),
+
+    -- * OwnerAlias
+    OwnerAlias (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * Target
+    Target (..),
+
+    -- * NextMarker
+    NextMarker (..),
+
+    -- * S3BucketPrefix
+    S3BucketPrefix (..),
+
+    -- * CanonicalHostedZoneName
+    CanonicalHostedZoneName (..),
+
+    -- * CanonicalHostedZoneNameID
+    CanonicalHostedZoneNameID (..),
   )
 where
 
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.AccessLog
+import Network.AWS.ELB.Types.AccessPointName
 import Network.AWS.ELB.Types.AdditionalAttribute
+import Network.AWS.ELB.Types.AdditionalAttributeKey
 import Network.AWS.ELB.Types.AppCookieStickinessPolicy
+import Network.AWS.ELB.Types.AttributeName
+import Network.AWS.ELB.Types.AttributeType
+import Network.AWS.ELB.Types.AttributeValue
+import Network.AWS.ELB.Types.AvailabilityZone
 import Network.AWS.ELB.Types.BackendServerDescription
+import Network.AWS.ELB.Types.CanonicalHostedZoneName
+import Network.AWS.ELB.Types.CanonicalHostedZoneNameID
+import Network.AWS.ELB.Types.Cardinality
 import Network.AWS.ELB.Types.ConnectionDraining
 import Network.AWS.ELB.Types.ConnectionSettings
+import Network.AWS.ELB.Types.CookieName
 import Network.AWS.ELB.Types.CrossZoneLoadBalancing
+import Network.AWS.ELB.Types.DNSName
+import Network.AWS.ELB.Types.DefaultValue
+import Network.AWS.ELB.Types.Description
+import Network.AWS.ELB.Types.GroupName
 import Network.AWS.ELB.Types.HealthCheck
 import Network.AWS.ELB.Types.Instance
+import Network.AWS.ELB.Types.InstanceId
 import Network.AWS.ELB.Types.InstanceState
+import Network.AWS.ELB.Types.Key
 import Network.AWS.ELB.Types.LBCookieStickinessPolicy
 import Network.AWS.ELB.Types.Limit
 import Network.AWS.ELB.Types.Listener
 import Network.AWS.ELB.Types.ListenerDescription
 import Network.AWS.ELB.Types.LoadBalancerAttributes
 import Network.AWS.ELB.Types.LoadBalancerDescription
+import Network.AWS.ELB.Types.LoadBalancerName
+import Network.AWS.ELB.Types.LoadBalancerScheme
+import Network.AWS.ELB.Types.Marker
+import Network.AWS.ELB.Types.Max
+import Network.AWS.ELB.Types.Name
+import Network.AWS.ELB.Types.NextMarker
+import Network.AWS.ELB.Types.OwnerAlias
 import Network.AWS.ELB.Types.Policies
 import Network.AWS.ELB.Types.PolicyAttribute
 import Network.AWS.ELB.Types.PolicyAttributeDescription
 import Network.AWS.ELB.Types.PolicyAttributeTypeDescription
 import Network.AWS.ELB.Types.PolicyDescription
+import Network.AWS.ELB.Types.PolicyName
 import Network.AWS.ELB.Types.PolicyTypeDescription
+import Network.AWS.ELB.Types.PolicyTypeName
+import Network.AWS.ELB.Types.Protocol
+import Network.AWS.ELB.Types.ReasonCode
+import Network.AWS.ELB.Types.S3BucketName
+import Network.AWS.ELB.Types.S3BucketPrefix
+import Network.AWS.ELB.Types.SSLCertificateId
+import Network.AWS.ELB.Types.SecurityGroupId
 import Network.AWS.ELB.Types.SourceSecurityGroup
+import Network.AWS.ELB.Types.State
+import Network.AWS.ELB.Types.SubnetId
 import Network.AWS.ELB.Types.Tag
 import Network.AWS.ELB.Types.TagDescription
+import Network.AWS.ELB.Types.TagKey
 import Network.AWS.ELB.Types.TagKeyOnly
+import Network.AWS.ELB.Types.Target
+import Network.AWS.ELB.Types.VPCId
+import Network.AWS.ELB.Types.Value
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-06-01@ of the Amazon Elastic Load Balancing SDK configuration.
-elbService :: Lude.Service
-elbService =
-  Lude.Service
-    { Lude._svcAbbrev = "ELB",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "elasticloadbalancing",
-      Lude._svcVersion = "2012-06-01",
-      Lude._svcEndpoint = Lude.defaultEndpoint elbService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseXMLError "ELB",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "ELB",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "elasticloadbalancing",
+      Core._svcVersion = "2012-06-01",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseXMLError "ELB",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | One or more of the specified policies do not exist.
+_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFoundException =
+  Core._MatchServiceError mkServiceConfig "PolicyNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _PolicyNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified load balancer does not exist.
+_AccessPointNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessPointNotFoundException =
+  Core._MatchServiceError mkServiceConfig "LoadBalancerNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _AccessPointNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | A policy with the specified name already exists for this load balancer.
+_DuplicatePolicyNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicatePolicyNameException =
+  Core._MatchServiceError mkServiceConfig "DuplicatePolicyName"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicatePolicyNameException "Use generic-lens or generic-optics instead." #-}
+
+-- | The requested configuration change is not valid.
+_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationRequestException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidConfigurationRequest"
+    Core.. Core.hasStatues 409
+{-# DEPRECATED _InvalidConfigurationRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | One or more of the specified subnets do not exist.
+_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFoundException =
+  Core._MatchServiceError mkServiceConfig "SubnetNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _SubnetNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified load balancer attribute does not exist.
+_LoadBalancerAttributeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LoadBalancerAttributeNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LoadBalancerAttributeNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _LoadBalancerAttributeNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified VPC has no associated Internet gateway.
+_InvalidSubnetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnetException =
+  Core._MatchServiceError mkServiceConfig "InvalidSubnet"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSubnetException "Use generic-lens or generic-optics instead." #-}
+
+-- | A tag key was specified more than once.
+_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateTagKeysException =
+  Core._MatchServiceError mkServiceConfig "DuplicateTagKeys"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateTagKeysException "Use generic-lens or generic-optics instead." #-}
+
+-- | A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.
+_DuplicateListenerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateListenerException =
+  Core._MatchServiceError mkServiceConfig "DuplicateListener"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateListenerException "Use generic-lens or generic-optics instead." #-}
+
+-- | The quota for the number of tags that can be assigned to a load balancer has been reached.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError mkServiceConfig "TooManyTags"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyTagsException "Use generic-lens or generic-optics instead." #-}
+
+-- | One or more of the specified policy types do not exist.
+_PolicyTypeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PolicyTypeNotFoundException =
+  Core._MatchServiceError mkServiceConfig "PolicyTypeNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _PolicyTypeNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified protocol or signature version is not supported.
+_UnsupportedProtocolException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedProtocolException =
+  Core._MatchServiceError mkServiceConfig "UnsupportedProtocol"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _UnsupportedProtocolException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified load balancer name already exists for this account.
+_DuplicateAccessPointNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateAccessPointNameException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DuplicateLoadBalancerName"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateAccessPointNameException "Use generic-lens or generic-optics instead." #-}
+
+-- | One or more of the specified security groups do not exist.
+_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityGroupException =
+  Core._MatchServiceError mkServiceConfig "InvalidSecurityGroup"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSecurityGroupException "Use generic-lens or generic-optics instead." #-}
+
+-- | The load balancer does not have a listener configured at the specified port.
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException =
+  Core._MatchServiceError mkServiceConfig "ListenerNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ListenerNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified endpoint is not valid.
+_InvalidEndPointException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidEndPointException =
+  Core._MatchServiceError mkServiceConfig "InvalidInstance"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidEndPointException "Use generic-lens or generic-optics instead." #-}
+
+-- | This operation is not allowed.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError mkServiceConfig "OperationNotPermitted"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _OperationNotPermittedException "Use generic-lens or generic-optics instead." #-}
+
+-- | A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.
+_DependencyThrottleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DependencyThrottleException =
+  Core._MatchServiceError mkServiceConfig "DependencyThrottle"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DependencyThrottleException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.
+_InvalidSchemeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemeException =
+  Core._MatchServiceError mkServiceConfig "InvalidScheme"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSchemeException "Use generic-lens or generic-optics instead." #-}
+
+-- | The quota for the number of load balancers has been reached.
+_TooManyAccessPointsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyAccessPointsException =
+  Core._MatchServiceError mkServiceConfig "TooManyLoadBalancers"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyAccessPointsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The quota for the number of policies for this load balancer has been reached.
+_TooManyPoliciesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyPoliciesException =
+  Core._MatchServiceError mkServiceConfig "TooManyPolicies"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyPoliciesException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
+_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CertificateNotFoundException =
+  Core._MatchServiceError mkServiceConfig "CertificateNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _CertificateNotFoundException "Use generic-lens or generic-optics instead." #-}

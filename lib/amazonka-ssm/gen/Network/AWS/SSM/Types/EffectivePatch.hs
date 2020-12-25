@@ -23,50 +23,45 @@ module Network.AWS.SSM.Types.EffectivePatch
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.Patch
-import Network.AWS.SSM.Types.PatchStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.Patch as Types
+import qualified Network.AWS.SSM.Types.PatchStatus as Types
 
 -- | The EffectivePatch structure defines metadata about a patch along with the approval state of the patch in a particular patch baseline. The approval state includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
 --
 -- /See:/ 'mkEffectivePatch' smart constructor.
 data EffectivePatch = EffectivePatch'
   { -- | Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
-    patch :: Lude.Maybe Patch,
+    patch :: Core.Maybe Types.Patch,
     -- | The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
-    patchStatus :: Lude.Maybe PatchStatus
+    patchStatus :: Core.Maybe Types.PatchStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EffectivePatch' with the minimum fields required to make a request.
---
--- * 'patch' - Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
--- * 'patchStatus' - The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
+-- | Creates a 'EffectivePatch' value with any optional fields omitted.
 mkEffectivePatch ::
   EffectivePatch
 mkEffectivePatch =
-  EffectivePatch' {patch = Lude.Nothing, patchStatus = Lude.Nothing}
+  EffectivePatch' {patch = Core.Nothing, patchStatus = Core.Nothing}
 
 -- | Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
 --
 -- /Note:/ Consider using 'patch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epPatch :: Lens.Lens' EffectivePatch (Lude.Maybe Patch)
-epPatch = Lens.lens (patch :: EffectivePatch -> Lude.Maybe Patch) (\s a -> s {patch = a} :: EffectivePatch)
+epPatch :: Lens.Lens' EffectivePatch (Core.Maybe Types.Patch)
+epPatch = Lens.field @"patch"
 {-# DEPRECATED epPatch "Use generic-lens or generic-optics with 'patch' instead." #-}
 
 -- | The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
 --
 -- /Note:/ Consider using 'patchStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epPatchStatus :: Lens.Lens' EffectivePatch (Lude.Maybe PatchStatus)
-epPatchStatus = Lens.lens (patchStatus :: EffectivePatch -> Lude.Maybe PatchStatus) (\s a -> s {patchStatus = a} :: EffectivePatch)
+epPatchStatus :: Lens.Lens' EffectivePatch (Core.Maybe Types.PatchStatus)
+epPatchStatus = Lens.field @"patchStatus"
 {-# DEPRECATED epPatchStatus "Use generic-lens or generic-optics with 'patchStatus' instead." #-}
 
-instance Lude.FromJSON EffectivePatch where
+instance Core.FromJSON EffectivePatch where
   parseJSON =
-    Lude.withObject
-      "EffectivePatch"
-      ( \x ->
-          EffectivePatch'
-            Lude.<$> (x Lude..:? "Patch") Lude.<*> (x Lude..:? "PatchStatus")
-      )
+    Core.withObject "EffectivePatch" Core.$
+      \x ->
+        EffectivePatch'
+          Core.<$> (x Core..:? "Patch") Core.<*> (x Core..:? "PatchStatus")

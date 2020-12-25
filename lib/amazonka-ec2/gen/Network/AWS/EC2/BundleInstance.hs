@@ -31,16 +31,16 @@ module Network.AWS.EC2.BundleInstance
     mkBundleInstanceResponse,
 
     -- ** Response lenses
-    birsBundleTask,
-    birsResponseStatus,
+    birrsBundleTask,
+    birrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for BundleInstance.
 --
@@ -51,36 +51,24 @@ data BundleInstance = BundleInstance'
     -- Type: String
     -- Default: None
     -- Required: Yes
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
-    storage :: Storage,
+    storage :: Types.Storage,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BundleInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance to bundle.
---
--- Type: String
--- Default: None
--- Required: Yes
--- * 'storage' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'BundleInstance' value with any optional fields omitted.
 mkBundleInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'storage'
-  Storage ->
+  Types.Storage ->
   BundleInstance
-mkBundleInstance pInstanceId_ pStorage_ =
-  BundleInstance'
-    { instanceId = pInstanceId_,
-      storage = pStorage_,
-      dryRun = Lude.Nothing
-    }
+mkBundleInstance instanceId storage =
+  BundleInstance' {instanceId, storage, dryRun = Core.Nothing}
 
 -- | The ID of the instance to bundle.
 --
@@ -89,87 +77,87 @@ mkBundleInstance pInstanceId_ pStorage_ =
 -- Required: Yes
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biInstanceId :: Lens.Lens' BundleInstance Lude.Text
-biInstanceId = Lens.lens (instanceId :: BundleInstance -> Lude.Text) (\s a -> s {instanceId = a} :: BundleInstance)
+biInstanceId :: Lens.Lens' BundleInstance Types.InstanceId
+biInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED biInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 --
 -- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biStorage :: Lens.Lens' BundleInstance Storage
-biStorage = Lens.lens (storage :: BundleInstance -> Storage) (\s a -> s {storage = a} :: BundleInstance)
+biStorage :: Lens.Lens' BundleInstance Types.Storage
+biStorage = Lens.field @"storage"
 {-# DEPRECATED biStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biDryRun :: Lens.Lens' BundleInstance (Lude.Maybe Lude.Bool)
-biDryRun = Lens.lens (dryRun :: BundleInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: BundleInstance)
+biDryRun :: Lens.Lens' BundleInstance (Core.Maybe Core.Bool)
+biDryRun = Lens.field @"dryRun"
 {-# DEPRECATED biDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest BundleInstance where
+instance Core.AWSRequest BundleInstance where
   type Rs BundleInstance = BundleInstanceResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BundleInstance")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "Storage" storage)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           BundleInstanceResponse'
-            Lude.<$> (x Lude..@? "bundleInstanceTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "bundleInstanceTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BundleInstance where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BundleInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BundleInstance where
-  toQuery BundleInstance' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("BundleInstance" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "Storage" Lude.=: storage,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of BundleInstance.
 --
 -- /See:/ 'mkBundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
   { -- | Information about the bundle task.
-    bundleTask :: Lude.Maybe BundleTask,
+    bundleTask :: Core.Maybe Types.BundleTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BundleInstanceResponse' with the minimum fields required to make a request.
---
--- * 'bundleTask' - Information about the bundle task.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BundleInstanceResponse' value with any optional fields omitted.
 mkBundleInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BundleInstanceResponse
-mkBundleInstanceResponse pResponseStatus_ =
+mkBundleInstanceResponse responseStatus =
   BundleInstanceResponse'
-    { bundleTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bundleTask = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the bundle task.
 --
 -- /Note:/ Consider using 'bundleTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-birsBundleTask :: Lens.Lens' BundleInstanceResponse (Lude.Maybe BundleTask)
-birsBundleTask = Lens.lens (bundleTask :: BundleInstanceResponse -> Lude.Maybe BundleTask) (\s a -> s {bundleTask = a} :: BundleInstanceResponse)
-{-# DEPRECATED birsBundleTask "Use generic-lens or generic-optics with 'bundleTask' instead." #-}
+birrsBundleTask :: Lens.Lens' BundleInstanceResponse (Core.Maybe Types.BundleTask)
+birrsBundleTask = Lens.field @"bundleTask"
+{-# DEPRECATED birrsBundleTask "Use generic-lens or generic-optics with 'bundleTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-birsResponseStatus :: Lens.Lens' BundleInstanceResponse Lude.Int
-birsResponseStatus = Lens.lens (responseStatus :: BundleInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BundleInstanceResponse)
-{-# DEPRECATED birsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+birrsResponseStatus :: Lens.Lens' BundleInstanceResponse Core.Int
+birrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED birrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

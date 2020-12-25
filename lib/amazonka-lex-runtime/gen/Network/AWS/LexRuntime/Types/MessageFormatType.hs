@@ -13,56 +13,61 @@
 module Network.AWS.LexRuntime.Types.MessageFormatType
   ( MessageFormatType
       ( MessageFormatType',
-        PlainText,
-        CustomPayload,
-        Ssml,
-        Composite
+        MessageFormatTypePlainText,
+        MessageFormatTypeCustomPayload,
+        MessageFormatTypeSsml,
+        MessageFormatTypeComposite,
+        fromMessageFormatType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MessageFormatType = MessageFormatType' Lude.Text
+newtype MessageFormatType = MessageFormatType'
+  { fromMessageFormatType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PlainText :: MessageFormatType
-pattern PlainText = MessageFormatType' "PlainText"
+pattern MessageFormatTypePlainText :: MessageFormatType
+pattern MessageFormatTypePlainText = MessageFormatType' "PlainText"
 
-pattern CustomPayload :: MessageFormatType
-pattern CustomPayload = MessageFormatType' "CustomPayload"
+pattern MessageFormatTypeCustomPayload :: MessageFormatType
+pattern MessageFormatTypeCustomPayload = MessageFormatType' "CustomPayload"
 
-pattern Ssml :: MessageFormatType
-pattern Ssml = MessageFormatType' "SSML"
+pattern MessageFormatTypeSsml :: MessageFormatType
+pattern MessageFormatTypeSsml = MessageFormatType' "SSML"
 
-pattern Composite :: MessageFormatType
-pattern Composite = MessageFormatType' "Composite"
+pattern MessageFormatTypeComposite :: MessageFormatType
+pattern MessageFormatTypeComposite = MessageFormatType' "Composite"
 
 {-# COMPLETE
-  PlainText,
-  CustomPayload,
-  Ssml,
-  Composite,
+  MessageFormatTypePlainText,
+  MessageFormatTypeCustomPayload,
+  MessageFormatTypeSsml,
+  MessageFormatTypeComposite,
   MessageFormatType'
   #-}

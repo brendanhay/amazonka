@@ -17,14 +17,15 @@ module Network.AWS.SageMaker.Types.ModelPackageValidationProfile
     mkModelPackageValidationProfile,
 
     -- * Lenses
-    mpvpTransformJobDefinition,
     mpvpProfileName,
+    mpvpTransformJobDefinition,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.TransformJobDefinition
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.EntityName as Types
+import qualified Network.AWS.SageMaker.Types.TransformJobDefinition as Types
 
 -- | Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
 --
@@ -32,63 +33,55 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 --
 -- /See:/ 'mkModelPackageValidationProfile' smart constructor.
 data ModelPackageValidationProfile = ModelPackageValidationProfile'
-  { -- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
-    transformJobDefinition :: TransformJobDefinition,
-    -- | The name of the profile for the model package.
-    profileName :: Lude.Text
+  { -- | The name of the profile for the model package.
+    profileName :: Types.EntityName,
+    -- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
+    transformJobDefinition :: Types.TransformJobDefinition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModelPackageValidationProfile' with the minimum fields required to make a request.
---
--- * 'transformJobDefinition' - The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
--- * 'profileName' - The name of the profile for the model package.
+-- | Creates a 'ModelPackageValidationProfile' value with any optional fields omitted.
 mkModelPackageValidationProfile ::
-  -- | 'transformJobDefinition'
-  TransformJobDefinition ->
   -- | 'profileName'
-  Lude.Text ->
+  Types.EntityName ->
+  -- | 'transformJobDefinition'
+  Types.TransformJobDefinition ->
   ModelPackageValidationProfile
-mkModelPackageValidationProfile
-  pTransformJobDefinition_
-  pProfileName_ =
-    ModelPackageValidationProfile'
-      { transformJobDefinition =
-          pTransformJobDefinition_,
-        profileName = pProfileName_
-      }
-
--- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
---
--- /Note:/ Consider using 'transformJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpvpTransformJobDefinition :: Lens.Lens' ModelPackageValidationProfile TransformJobDefinition
-mpvpTransformJobDefinition = Lens.lens (transformJobDefinition :: ModelPackageValidationProfile -> TransformJobDefinition) (\s a -> s {transformJobDefinition = a} :: ModelPackageValidationProfile)
-{-# DEPRECATED mpvpTransformJobDefinition "Use generic-lens or generic-optics with 'transformJobDefinition' instead." #-}
+mkModelPackageValidationProfile profileName transformJobDefinition =
+  ModelPackageValidationProfile'
+    { profileName,
+      transformJobDefinition
+    }
 
 -- | The name of the profile for the model package.
 --
 -- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpvpProfileName :: Lens.Lens' ModelPackageValidationProfile Lude.Text
-mpvpProfileName = Lens.lens (profileName :: ModelPackageValidationProfile -> Lude.Text) (\s a -> s {profileName = a} :: ModelPackageValidationProfile)
+mpvpProfileName :: Lens.Lens' ModelPackageValidationProfile Types.EntityName
+mpvpProfileName = Lens.field @"profileName"
 {-# DEPRECATED mpvpProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
 
-instance Lude.FromJSON ModelPackageValidationProfile where
-  parseJSON =
-    Lude.withObject
-      "ModelPackageValidationProfile"
-      ( \x ->
-          ModelPackageValidationProfile'
-            Lude.<$> (x Lude..: "TransformJobDefinition")
-            Lude.<*> (x Lude..: "ProfileName")
-      )
+-- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
+--
+-- /Note:/ Consider using 'transformJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpvpTransformJobDefinition :: Lens.Lens' ModelPackageValidationProfile Types.TransformJobDefinition
+mpvpTransformJobDefinition = Lens.field @"transformJobDefinition"
+{-# DEPRECATED mpvpTransformJobDefinition "Use generic-lens or generic-optics with 'transformJobDefinition' instead." #-}
 
-instance Lude.ToJSON ModelPackageValidationProfile where
-  toJSON ModelPackageValidationProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("TransformJobDefinition" Lude..= transformJobDefinition),
-            Lude.Just ("ProfileName" Lude..= profileName)
+instance Core.FromJSON ModelPackageValidationProfile where
+  toJSON ModelPackageValidationProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProfileName" Core..= profileName),
+            Core.Just
+              ("TransformJobDefinition" Core..= transformJobDefinition)
           ]
       )
+
+instance Core.FromJSON ModelPackageValidationProfile where
+  parseJSON =
+    Core.withObject "ModelPackageValidationProfile" Core.$
+      \x ->
+        ModelPackageValidationProfile'
+          Core.<$> (x Core..: "ProfileName")
+          Core.<*> (x Core..: "TransformJobDefinition")

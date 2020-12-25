@@ -23,7 +23,7 @@ module Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the minimum and maximum capacity for a scheduled action.
 --
@@ -32,29 +32,22 @@ data ScalableTargetAction = ScalableTargetAction'
   { -- | The maximum capacity.
     --
     -- Although you can specify a large maximum capacity, note that service quotas may impose lower limits. Each service has its own default quotas for the maximum capacity of the resource. If you want to specify a higher limit, you can request an increase. For more information, consult the documentation for that service. For information about the default quotas for each service, see <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas> in the /Amazon Web Services General Reference/ .
-    maxCapacity :: Lude.Maybe Lude.Int,
+    maxCapacity :: Core.Maybe Core.Int,
     -- | The minimum capacity.
     --
     -- For certain resources, the minimum value allowed is 0. This includes Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources. For all other resources, the minimum value allowed is 1.
-    minCapacity :: Lude.Maybe Lude.Int
+    minCapacity :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalableTargetAction' with the minimum fields required to make a request.
---
--- * 'maxCapacity' - The maximum capacity.
---
--- Although you can specify a large maximum capacity, note that service quotas may impose lower limits. Each service has its own default quotas for the maximum capacity of the resource. If you want to specify a higher limit, you can request an increase. For more information, consult the documentation for that service. For information about the default quotas for each service, see <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas> in the /Amazon Web Services General Reference/ .
--- * 'minCapacity' - The minimum capacity.
---
--- For certain resources, the minimum value allowed is 0. This includes Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources. For all other resources, the minimum value allowed is 1.
+-- | Creates a 'ScalableTargetAction' value with any optional fields omitted.
 mkScalableTargetAction ::
   ScalableTargetAction
 mkScalableTargetAction =
   ScalableTargetAction'
-    { maxCapacity = Lude.Nothing,
-      minCapacity = Lude.Nothing
+    { maxCapacity = Core.Nothing,
+      minCapacity = Core.Nothing
     }
 
 -- | The maximum capacity.
@@ -62,8 +55,8 @@ mkScalableTargetAction =
 -- Although you can specify a large maximum capacity, note that service quotas may impose lower limits. Each service has its own default quotas for the maximum capacity of the resource. If you want to specify a higher limit, you can request an increase. For more information, consult the documentation for that service. For information about the default quotas for each service, see <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas> in the /Amazon Web Services General Reference/ .
 --
 -- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staMaxCapacity :: Lens.Lens' ScalableTargetAction (Lude.Maybe Lude.Int)
-staMaxCapacity = Lens.lens (maxCapacity :: ScalableTargetAction -> Lude.Maybe Lude.Int) (\s a -> s {maxCapacity = a} :: ScalableTargetAction)
+staMaxCapacity :: Lens.Lens' ScalableTargetAction (Core.Maybe Core.Int)
+staMaxCapacity = Lens.field @"maxCapacity"
 {-# DEPRECATED staMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
 
 -- | The minimum capacity.
@@ -71,24 +64,22 @@ staMaxCapacity = Lens.lens (maxCapacity :: ScalableTargetAction -> Lude.Maybe Lu
 -- For certain resources, the minimum value allowed is 0. This includes Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources. For all other resources, the minimum value allowed is 1.
 --
 -- /Note:/ Consider using 'minCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staMinCapacity :: Lens.Lens' ScalableTargetAction (Lude.Maybe Lude.Int)
-staMinCapacity = Lens.lens (minCapacity :: ScalableTargetAction -> Lude.Maybe Lude.Int) (\s a -> s {minCapacity = a} :: ScalableTargetAction)
+staMinCapacity :: Lens.Lens' ScalableTargetAction (Core.Maybe Core.Int)
+staMinCapacity = Lens.field @"minCapacity"
 {-# DEPRECATED staMinCapacity "Use generic-lens or generic-optics with 'minCapacity' instead." #-}
 
-instance Lude.FromJSON ScalableTargetAction where
-  parseJSON =
-    Lude.withObject
-      "ScalableTargetAction"
-      ( \x ->
-          ScalableTargetAction'
-            Lude.<$> (x Lude..:? "MaxCapacity") Lude.<*> (x Lude..:? "MinCapacity")
-      )
-
-instance Lude.ToJSON ScalableTargetAction where
-  toJSON ScalableTargetAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxCapacity" Lude..=) Lude.<$> maxCapacity,
-            ("MinCapacity" Lude..=) Lude.<$> minCapacity
+instance Core.FromJSON ScalableTargetAction where
+  toJSON ScalableTargetAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxCapacity" Core..=) Core.<$> maxCapacity,
+            ("MinCapacity" Core..=) Core.<$> minCapacity
           ]
       )
+
+instance Core.FromJSON ScalableTargetAction where
+  parseJSON =
+    Core.withObject "ScalableTargetAction" Core.$
+      \x ->
+        ScalableTargetAction'
+          Core.<$> (x Core..:? "MaxCapacity") Core.<*> (x Core..:? "MinCapacity")

@@ -21,46 +21,41 @@ module Network.AWS.AlexaBusiness.Types.BusinessReportContentRange
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.BusinessReportInterval
+import qualified Network.AWS.AlexaBusiness.Types.BusinessReportInterval as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The content range of the report.
 --
 -- /See:/ 'mkBusinessReportContentRange' smart constructor.
 newtype BusinessReportContentRange = BusinessReportContentRange'
   { -- | The interval of the content range.
-    interval :: BusinessReportInterval
+    interval :: Types.BusinessReportInterval
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BusinessReportContentRange' with the minimum fields required to make a request.
---
--- * 'interval' - The interval of the content range.
+-- | Creates a 'BusinessReportContentRange' value with any optional fields omitted.
 mkBusinessReportContentRange ::
   -- | 'interval'
-  BusinessReportInterval ->
+  Types.BusinessReportInterval ->
   BusinessReportContentRange
-mkBusinessReportContentRange pInterval_ =
-  BusinessReportContentRange' {interval = pInterval_}
+mkBusinessReportContentRange interval =
+  BusinessReportContentRange' {interval}
 
 -- | The interval of the content range.
 --
 -- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brcrInterval :: Lens.Lens' BusinessReportContentRange BusinessReportInterval
-brcrInterval = Lens.lens (interval :: BusinessReportContentRange -> BusinessReportInterval) (\s a -> s {interval = a} :: BusinessReportContentRange)
+brcrInterval :: Lens.Lens' BusinessReportContentRange Types.BusinessReportInterval
+brcrInterval = Lens.field @"interval"
 {-# DEPRECATED brcrInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
 
-instance Lude.FromJSON BusinessReportContentRange where
-  parseJSON =
-    Lude.withObject
-      "BusinessReportContentRange"
-      ( \x ->
-          BusinessReportContentRange' Lude.<$> (x Lude..: "Interval")
-      )
+instance Core.FromJSON BusinessReportContentRange where
+  toJSON BusinessReportContentRange {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Interval" Core..= interval)])
 
-instance Lude.ToJSON BusinessReportContentRange where
-  toJSON BusinessReportContentRange' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Interval" Lude..= interval)])
+instance Core.FromJSON BusinessReportContentRange where
+  parseJSON =
+    Core.withObject "BusinessReportContentRange" Core.$
+      \x -> BusinessReportContentRange' Core.<$> (x Core..: "Interval")

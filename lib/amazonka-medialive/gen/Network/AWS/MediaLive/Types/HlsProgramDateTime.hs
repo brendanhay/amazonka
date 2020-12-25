@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.HlsProgramDateTime
   ( HlsProgramDateTime
       ( HlsProgramDateTime',
-        HPDTExclude,
-        HPDTInclude
+        HlsProgramDateTimeExclude,
+        HlsProgramDateTimeInclude,
+        fromHlsProgramDateTime
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Program Date Time
-newtype HlsProgramDateTime = HlsProgramDateTime' Lude.Text
+newtype HlsProgramDateTime = HlsProgramDateTime'
+  { fromHlsProgramDateTime ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HPDTExclude :: HlsProgramDateTime
-pattern HPDTExclude = HlsProgramDateTime' "EXCLUDE"
+pattern HlsProgramDateTimeExclude :: HlsProgramDateTime
+pattern HlsProgramDateTimeExclude = HlsProgramDateTime' "EXCLUDE"
 
-pattern HPDTInclude :: HlsProgramDateTime
-pattern HPDTInclude = HlsProgramDateTime' "INCLUDE"
+pattern HlsProgramDateTimeInclude :: HlsProgramDateTime
+pattern HlsProgramDateTimeInclude = HlsProgramDateTime' "INCLUDE"
 
 {-# COMPLETE
-  HPDTExclude,
-  HPDTInclude,
+  HlsProgramDateTimeExclude,
+  HlsProgramDateTimeInclude,
   HlsProgramDateTime'
   #-}

@@ -17,97 +17,94 @@ module Network.AWS.DeviceFarm.Types.VPCEConfiguration
     mkVPCEConfiguration,
 
     -- * Lenses
-    vecVpceServiceName,
-    vecArn,
-    vecVpceConfigurationName,
-    vecServiceDNSName,
-    vecVpceConfigurationDescription,
+    vpcecArn,
+    vpcecServiceDnsName,
+    vpcecVpceConfigurationDescription,
+    vpcecVpceConfigurationName,
+    vpcecVpceServiceName,
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.ServiceDnsName as Types
+import qualified Network.AWS.DeviceFarm.Types.VPCEServiceName as Types
+import qualified Network.AWS.DeviceFarm.Types.VpceConfigurationDescription as Types
+import qualified Network.AWS.DeviceFarm.Types.VpceConfigurationName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.
 --
 -- /See:/ 'mkVPCEConfiguration' smart constructor.
 data VPCEConfiguration = VPCEConfiguration'
-  { -- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
-    vpceServiceName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
-    vpceConfigurationName :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration.
+    arn :: Core.Maybe Types.Arn,
     -- | The DNS name that maps to the private IP address of the service you want to access.
-    serviceDNSName :: Lude.Maybe Lude.Text,
+    serviceDnsName :: Core.Maybe Types.ServiceDnsName,
     -- | An optional description that provides details about your VPC endpoint configuration.
-    vpceConfigurationDescription :: Lude.Maybe Lude.Text
+    vpceConfigurationDescription :: Core.Maybe Types.VpceConfigurationDescription,
+    -- | The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+    vpceConfigurationName :: Core.Maybe Types.VpceConfigurationName,
+    -- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+    vpceServiceName :: Core.Maybe Types.VPCEServiceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VPCEConfiguration' with the minimum fields required to make a request.
---
--- * 'vpceServiceName' - The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
--- * 'arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration.
--- * 'vpceConfigurationName' - The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
--- * 'serviceDNSName' - The DNS name that maps to the private IP address of the service you want to access.
--- * 'vpceConfigurationDescription' - An optional description that provides details about your VPC endpoint configuration.
+-- | Creates a 'VPCEConfiguration' value with any optional fields omitted.
 mkVPCEConfiguration ::
   VPCEConfiguration
 mkVPCEConfiguration =
   VPCEConfiguration'
-    { vpceServiceName = Lude.Nothing,
-      arn = Lude.Nothing,
-      vpceConfigurationName = Lude.Nothing,
-      serviceDNSName = Lude.Nothing,
-      vpceConfigurationDescription = Lude.Nothing
+    { arn = Core.Nothing,
+      serviceDnsName = Core.Nothing,
+      vpceConfigurationDescription = Core.Nothing,
+      vpceConfigurationName = Core.Nothing,
+      vpceServiceName = Core.Nothing
     }
-
--- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
---
--- /Note:/ Consider using 'vpceServiceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vecVpceServiceName :: Lens.Lens' VPCEConfiguration (Lude.Maybe Lude.Text)
-vecVpceServiceName = Lens.lens (vpceServiceName :: VPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpceServiceName = a} :: VPCEConfiguration)
-{-# DEPRECATED vecVpceServiceName "Use generic-lens or generic-optics with 'vpceServiceName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vecArn :: Lens.Lens' VPCEConfiguration (Lude.Maybe Lude.Text)
-vecArn = Lens.lens (arn :: VPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: VPCEConfiguration)
-{-# DEPRECATED vecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
---
--- /Note:/ Consider using 'vpceConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vecVpceConfigurationName :: Lens.Lens' VPCEConfiguration (Lude.Maybe Lude.Text)
-vecVpceConfigurationName = Lens.lens (vpceConfigurationName :: VPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpceConfigurationName = a} :: VPCEConfiguration)
-{-# DEPRECATED vecVpceConfigurationName "Use generic-lens or generic-optics with 'vpceConfigurationName' instead." #-}
+vpcecArn :: Lens.Lens' VPCEConfiguration (Core.Maybe Types.Arn)
+vpcecArn = Lens.field @"arn"
+{-# DEPRECATED vpcecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The DNS name that maps to the private IP address of the service you want to access.
 --
--- /Note:/ Consider using 'serviceDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vecServiceDNSName :: Lens.Lens' VPCEConfiguration (Lude.Maybe Lude.Text)
-vecServiceDNSName = Lens.lens (serviceDNSName :: VPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {serviceDNSName = a} :: VPCEConfiguration)
-{-# DEPRECATED vecServiceDNSName "Use generic-lens or generic-optics with 'serviceDNSName' instead." #-}
+-- /Note:/ Consider using 'serviceDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcecServiceDnsName :: Lens.Lens' VPCEConfiguration (Core.Maybe Types.ServiceDnsName)
+vpcecServiceDnsName = Lens.field @"serviceDnsName"
+{-# DEPRECATED vpcecServiceDnsName "Use generic-lens or generic-optics with 'serviceDnsName' instead." #-}
 
 -- | An optional description that provides details about your VPC endpoint configuration.
 --
 -- /Note:/ Consider using 'vpceConfigurationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vecVpceConfigurationDescription :: Lens.Lens' VPCEConfiguration (Lude.Maybe Lude.Text)
-vecVpceConfigurationDescription = Lens.lens (vpceConfigurationDescription :: VPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpceConfigurationDescription = a} :: VPCEConfiguration)
-{-# DEPRECATED vecVpceConfigurationDescription "Use generic-lens or generic-optics with 'vpceConfigurationDescription' instead." #-}
+vpcecVpceConfigurationDescription :: Lens.Lens' VPCEConfiguration (Core.Maybe Types.VpceConfigurationDescription)
+vpcecVpceConfigurationDescription = Lens.field @"vpceConfigurationDescription"
+{-# DEPRECATED vpcecVpceConfigurationDescription "Use generic-lens or generic-optics with 'vpceConfigurationDescription' instead." #-}
 
-instance Lude.FromJSON VPCEConfiguration where
+-- | The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+--
+-- /Note:/ Consider using 'vpceConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcecVpceConfigurationName :: Lens.Lens' VPCEConfiguration (Core.Maybe Types.VpceConfigurationName)
+vpcecVpceConfigurationName = Lens.field @"vpceConfigurationName"
+{-# DEPRECATED vpcecVpceConfigurationName "Use generic-lens or generic-optics with 'vpceConfigurationName' instead." #-}
+
+-- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+--
+-- /Note:/ Consider using 'vpceServiceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcecVpceServiceName :: Lens.Lens' VPCEConfiguration (Core.Maybe Types.VPCEServiceName)
+vpcecVpceServiceName = Lens.field @"vpceServiceName"
+{-# DEPRECATED vpcecVpceServiceName "Use generic-lens or generic-optics with 'vpceServiceName' instead." #-}
+
+instance Core.FromJSON VPCEConfiguration where
   parseJSON =
-    Lude.withObject
-      "VPCEConfiguration"
-      ( \x ->
-          VPCEConfiguration'
-            Lude.<$> (x Lude..:? "vpceServiceName")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "vpceConfigurationName")
-            Lude.<*> (x Lude..:? "serviceDnsName")
-            Lude.<*> (x Lude..:? "vpceConfigurationDescription")
-      )
+    Core.withObject "VPCEConfiguration" Core.$
+      \x ->
+        VPCEConfiguration'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "serviceDnsName")
+          Core.<*> (x Core..:? "vpceConfigurationDescription")
+          Core.<*> (x Core..:? "vpceConfigurationName")
+          Core.<*> (x Core..:? "vpceServiceName")

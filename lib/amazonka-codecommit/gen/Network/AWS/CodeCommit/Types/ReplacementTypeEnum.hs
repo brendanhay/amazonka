@@ -13,56 +13,61 @@
 module Network.AWS.CodeCommit.Types.ReplacementTypeEnum
   ( ReplacementTypeEnum
       ( ReplacementTypeEnum',
-        KeepBase,
-        KeepSource,
-        KeepDestination,
-        UseNewContent
+        ReplacementTypeEnumKeepBase,
+        ReplacementTypeEnumKeepSource,
+        ReplacementTypeEnumKeepDestination,
+        ReplacementTypeEnumUseNewContent,
+        fromReplacementTypeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReplacementTypeEnum = ReplacementTypeEnum' Lude.Text
+newtype ReplacementTypeEnum = ReplacementTypeEnum'
+  { fromReplacementTypeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern KeepBase :: ReplacementTypeEnum
-pattern KeepBase = ReplacementTypeEnum' "KEEP_BASE"
+pattern ReplacementTypeEnumKeepBase :: ReplacementTypeEnum
+pattern ReplacementTypeEnumKeepBase = ReplacementTypeEnum' "KEEP_BASE"
 
-pattern KeepSource :: ReplacementTypeEnum
-pattern KeepSource = ReplacementTypeEnum' "KEEP_SOURCE"
+pattern ReplacementTypeEnumKeepSource :: ReplacementTypeEnum
+pattern ReplacementTypeEnumKeepSource = ReplacementTypeEnum' "KEEP_SOURCE"
 
-pattern KeepDestination :: ReplacementTypeEnum
-pattern KeepDestination = ReplacementTypeEnum' "KEEP_DESTINATION"
+pattern ReplacementTypeEnumKeepDestination :: ReplacementTypeEnum
+pattern ReplacementTypeEnumKeepDestination = ReplacementTypeEnum' "KEEP_DESTINATION"
 
-pattern UseNewContent :: ReplacementTypeEnum
-pattern UseNewContent = ReplacementTypeEnum' "USE_NEW_CONTENT"
+pattern ReplacementTypeEnumUseNewContent :: ReplacementTypeEnum
+pattern ReplacementTypeEnumUseNewContent = ReplacementTypeEnum' "USE_NEW_CONTENT"
 
 {-# COMPLETE
-  KeepBase,
-  KeepSource,
-  KeepDestination,
-  UseNewContent,
+  ReplacementTypeEnumKeepBase,
+  ReplacementTypeEnumKeepSource,
+  ReplacementTypeEnumKeepDestination,
+  ReplacementTypeEnumUseNewContent,
   ReplacementTypeEnum'
   #-}

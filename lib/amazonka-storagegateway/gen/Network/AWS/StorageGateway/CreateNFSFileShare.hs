@@ -23,23 +23,23 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     mkCreateNFSFileShare,
 
     -- ** Request lenses
-    cnfsfsKMSKey,
     cnfsfsClientToken,
     cnfsfsGatewayARN,
+    cnfsfsRole,
+    cnfsfsLocationARN,
     cnfsfsCacheAttributes,
-    cnfsfsObjectACL,
-    cnfsfsKMSEncrypted,
+    cnfsfsClientList,
     cnfsfsDefaultStorageClass,
     cnfsfsFileShareName,
-    cnfsfsRole,
-    cnfsfsNotificationPolicy,
-    cnfsfsSquash,
-    cnfsfsRequesterPays,
-    cnfsfsNFSFileShareDefaults,
-    cnfsfsLocationARN,
-    cnfsfsClientList,
     cnfsfsGuessMIMETypeEnabled,
+    cnfsfsKMSEncrypted,
+    cnfsfsKMSKey,
+    cnfsfsNFSFileShareDefaults,
+    cnfsfsNotificationPolicy,
+    cnfsfsObjectACL,
     cnfsfsReadOnly,
+    cnfsfsRequesterPays,
+    cnfsfsSquash,
     cnfsfsTags,
 
     -- * Destructuring the response
@@ -47,45 +47,63 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     mkCreateNFSFileShareResponse,
 
     -- ** Response lenses
-    cnfsfsrsFileShareARN,
-    cnfsfsrsResponseStatus,
+    cnfsfsrrsFileShareARN,
+    cnfsfsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | CreateNFSFileShareInput
 --
 -- /See:/ 'mkCreateNFSFileShare' smart constructor.
 data CreateNFSFileShare = CreateNFSFileShare'
-  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
-    kmsKey :: Lude.Maybe Lude.Text,
-    -- | A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
-    clientToken :: Lude.Text,
+  { -- | A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
+    clientToken :: Types.ClientToken,
     -- | The Amazon Resource Name (ARN) of the file gateway on which you want to create a file share.
-    gatewayARN :: Lude.Text,
+    gatewayARN :: Types.GatewayARN,
+    -- | The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+    role' :: Types.Role,
+    -- | The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a "/".
+    locationARN :: Types.LocationARN,
     -- | Refresh cache information.
-    cacheAttributes :: Lude.Maybe CacheAttributes,
-    -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
-    objectACL :: Lude.Maybe ObjectACL,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
-    --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    cacheAttributes :: Core.Maybe Types.CacheAttributes,
+    -- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+    clientList :: Core.Maybe (Core.NonEmpty Types.IPV4AddressCIDR),
     -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-    defaultStorageClass :: Lude.Maybe Lude.Text,
+    defaultStorageClass :: Core.Maybe Types.StorageClass,
     -- | The name of the file share. Optional.
-    fileShareName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-    role' :: Lude.Text,
+    fileShareName :: Core.Maybe Types.FileShareName,
+    -- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+    --
+    -- Valid Values: @true@ | @false@
+    guessMIMETypeEnabled :: Core.Maybe Core.Bool,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kMSEncrypted :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+    kMSKey :: Core.Maybe Types.KMSKey,
+    -- | File share default values. Optional.
+    nFSFileShareDefaults :: Core.Maybe Types.NFSFileShareDefaults,
     -- | The notification policy of the file share.
-    notificationPolicy :: Lude.Maybe Lude.Text,
+    notificationPolicy :: Core.Maybe Types.NotificationPolicy,
+    -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
+    objectACL :: Core.Maybe Types.ObjectACL,
+    -- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+    --
+    -- Valid Values: @true@ | @false@
+    readOnly :: Core.Maybe Core.Bool,
+    -- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+    --
+    -- Valid Values: @true@ | @false@
+    requesterPays :: Core.Maybe Core.Bool,
     -- | A value that maps a user to anonymous user.
     --
     -- Valid values are the following:
@@ -97,182 +115,167 @@ data CreateNFSFileShare = CreateNFSFileShare'
     --
     --
     --     * @AllSquash@ : Everyone is mapped to anonymous user.
-    squash :: Lude.Maybe Lude.Text,
-    -- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
-    --
-    -- Valid Values: @true@ | @false@
-    requesterPays :: Lude.Maybe Lude.Bool,
-    -- | File share default values. Optional.
-    nFSFileShareDefaults :: Lude.Maybe NFSFileShareDefaults,
-    -- | The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a "/".
-    locationARN :: Lude.Text,
-    -- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
-    clientList :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
-    --
-    -- Valid Values: @true@ | @false@
-    guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
-    -- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
-    --
-    -- Valid Values: @true@ | @false@
-    readOnly :: Lude.Maybe Lude.Bool,
+    squash :: Core.Maybe Types.Squash,
     -- | A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNFSFileShare' with the minimum fields required to make a request.
---
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
--- * 'clientToken' - A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
--- * 'gatewayARN' - The Amazon Resource Name (ARN) of the file gateway on which you want to create a file share.
--- * 'cacheAttributes' - Refresh cache information.
--- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
--- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
--- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
---
--- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
--- * 'fileShareName' - The name of the file share. Optional.
--- * 'role'' - The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
--- * 'notificationPolicy' - The notification policy of the file share.
--- * 'squash' - A value that maps a user to anonymous user.
---
--- Valid values are the following:
---
---     * @RootSquash@ : Only root is mapped to anonymous user.
---
---
---     * @NoSquash@ : No one is mapped to anonymous user.
---
---
---     * @AllSquash@ : Everyone is mapped to anonymous user.
---
---
--- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
---
--- Valid Values: @true@ | @false@
--- * 'nFSFileShareDefaults' - File share default values. Optional.
--- * 'locationARN' - The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a "/".
--- * 'clientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
--- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
---
--- Valid Values: @true@ | @false@
--- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
---
--- Valid Values: @true@ | @false@
--- * 'tags' - A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+-- | Creates a 'CreateNFSFileShare' value with any optional fields omitted.
 mkCreateNFSFileShare ::
   -- | 'clientToken'
-  Lude.Text ->
+  Types.ClientToken ->
   -- | 'gatewayARN'
-  Lude.Text ->
-  -- | 'role''
-  Lude.Text ->
+  Types.GatewayARN ->
+  -- | 'role\''
+  Types.Role ->
   -- | 'locationARN'
-  Lude.Text ->
+  Types.LocationARN ->
   CreateNFSFileShare
-mkCreateNFSFileShare
-  pClientToken_
-  pGatewayARN_
-  pRole_
-  pLocationARN_ =
-    CreateNFSFileShare'
-      { kmsKey = Lude.Nothing,
-        clientToken = pClientToken_,
-        gatewayARN = pGatewayARN_,
-        cacheAttributes = Lude.Nothing,
-        objectACL = Lude.Nothing,
-        kmsEncrypted = Lude.Nothing,
-        defaultStorageClass = Lude.Nothing,
-        fileShareName = Lude.Nothing,
-        role' = pRole_,
-        notificationPolicy = Lude.Nothing,
-        squash = Lude.Nothing,
-        requesterPays = Lude.Nothing,
-        nFSFileShareDefaults = Lude.Nothing,
-        locationARN = pLocationARN_,
-        clientList = Lude.Nothing,
-        guessMIMETypeEnabled = Lude.Nothing,
-        readOnly = Lude.Nothing,
-        tags = Lude.Nothing
-      }
-
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
---
--- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsKMSKey :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Text)
-cnfsfsKMSKey = Lens.lens (kmsKey :: CreateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
+mkCreateNFSFileShare clientToken gatewayARN role' locationARN =
+  CreateNFSFileShare'
+    { clientToken,
+      gatewayARN,
+      role',
+      locationARN,
+      cacheAttributes = Core.Nothing,
+      clientList = Core.Nothing,
+      defaultStorageClass = Core.Nothing,
+      fileShareName = Core.Nothing,
+      guessMIMETypeEnabled = Core.Nothing,
+      kMSEncrypted = Core.Nothing,
+      kMSKey = Core.Nothing,
+      nFSFileShareDefaults = Core.Nothing,
+      notificationPolicy = Core.Nothing,
+      objectACL = Core.Nothing,
+      readOnly = Core.Nothing,
+      requesterPays = Core.Nothing,
+      squash = Core.Nothing,
+      tags = Core.Nothing
+    }
 
 -- | A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsClientToken :: Lens.Lens' CreateNFSFileShare Lude.Text
-cnfsfsClientToken = Lens.lens (clientToken :: CreateNFSFileShare -> Lude.Text) (\s a -> s {clientToken = a} :: CreateNFSFileShare)
+cnfsfsClientToken :: Lens.Lens' CreateNFSFileShare Types.ClientToken
+cnfsfsClientToken = Lens.field @"clientToken"
 {-# DEPRECATED cnfsfsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the file gateway on which you want to create a file share.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsGatewayARN :: Lens.Lens' CreateNFSFileShare Lude.Text
-cnfsfsGatewayARN = Lens.lens (gatewayARN :: CreateNFSFileShare -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateNFSFileShare)
+cnfsfsGatewayARN :: Lens.Lens' CreateNFSFileShare Types.GatewayARN
+cnfsfsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED cnfsfsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+
+-- | The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsRole :: Lens.Lens' CreateNFSFileShare Types.Role
+cnfsfsRole = Lens.field @"role'"
+{-# DEPRECATED cnfsfsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
+-- | The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a "/".
+--
+-- /Note:/ Consider using 'locationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsLocationARN :: Lens.Lens' CreateNFSFileShare Types.LocationARN
+cnfsfsLocationARN = Lens.field @"locationARN"
+{-# DEPRECATED cnfsfsLocationARN "Use generic-lens or generic-optics with 'locationARN' instead." #-}
 
 -- | Refresh cache information.
 --
 -- /Note:/ Consider using 'cacheAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsCacheAttributes :: Lens.Lens' CreateNFSFileShare (Lude.Maybe CacheAttributes)
-cnfsfsCacheAttributes = Lens.lens (cacheAttributes :: CreateNFSFileShare -> Lude.Maybe CacheAttributes) (\s a -> s {cacheAttributes = a} :: CreateNFSFileShare)
+cnfsfsCacheAttributes :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.CacheAttributes)
+cnfsfsCacheAttributes = Lens.field @"cacheAttributes"
 {-# DEPRECATED cnfsfsCacheAttributes "Use generic-lens or generic-optics with 'cacheAttributes' instead." #-}
 
--- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
+-- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
 --
--- /Note:/ Consider using 'objectACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsObjectACL :: Lens.Lens' CreateNFSFileShare (Lude.Maybe ObjectACL)
-cnfsfsObjectACL = Lens.lens (objectACL :: CreateNFSFileShare -> Lude.Maybe ObjectACL) (\s a -> s {objectACL = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsObjectACL "Use generic-lens or generic-optics with 'objectACL' instead." #-}
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
---
--- /Note:/ Consider using 'kmsEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsKMSEncrypted :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Bool)
-cnfsfsKMSEncrypted = Lens.lens (kmsEncrypted :: CreateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
+-- /Note:/ Consider using 'clientList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsClientList :: Lens.Lens' CreateNFSFileShare (Core.Maybe (Core.NonEmpty Types.IPV4AddressCIDR))
+cnfsfsClientList = Lens.field @"clientList"
+{-# DEPRECATED cnfsfsClientList "Use generic-lens or generic-optics with 'clientList' instead." #-}
 
 -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
 --
 -- /Note:/ Consider using 'defaultStorageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsDefaultStorageClass :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Text)
-cnfsfsDefaultStorageClass = Lens.lens (defaultStorageClass :: CreateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {defaultStorageClass = a} :: CreateNFSFileShare)
+cnfsfsDefaultStorageClass :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.StorageClass)
+cnfsfsDefaultStorageClass = Lens.field @"defaultStorageClass"
 {-# DEPRECATED cnfsfsDefaultStorageClass "Use generic-lens or generic-optics with 'defaultStorageClass' instead." #-}
 
 -- | The name of the file share. Optional.
 --
 -- /Note:/ Consider using 'fileShareName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsFileShareName :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Text)
-cnfsfsFileShareName = Lens.lens (fileShareName :: CreateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {fileShareName = a} :: CreateNFSFileShare)
+cnfsfsFileShareName :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.FileShareName)
+cnfsfsFileShareName = Lens.field @"fileShareName"
 {-# DEPRECATED cnfsfsFileShareName "Use generic-lens or generic-optics with 'fileShareName' instead." #-}
 
--- | The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+-- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
 --
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsRole :: Lens.Lens' CreateNFSFileShare Lude.Text
-cnfsfsRole = Lens.lens (role' :: CreateNFSFileShare -> Lude.Text) (\s a -> s {role' = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'guessMIMETypeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsGuessMIMETypeEnabled :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
+cnfsfsGuessMIMETypeEnabled = Lens.field @"guessMIMETypeEnabled"
+{-# DEPRECATED cnfsfsGuessMIMETypeEnabled "Use generic-lens or generic-optics with 'guessMIMETypeEnabled' instead." #-}
+
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'kMSEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsKMSEncrypted :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
+cnfsfsKMSEncrypted = Lens.field @"kMSEncrypted"
+{-# DEPRECATED cnfsfsKMSEncrypted "Use generic-lens or generic-optics with 'kMSEncrypted' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+--
+-- /Note:/ Consider using 'kMSKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsKMSKey :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.KMSKey)
+cnfsfsKMSKey = Lens.field @"kMSKey"
+{-# DEPRECATED cnfsfsKMSKey "Use generic-lens or generic-optics with 'kMSKey' instead." #-}
+
+-- | File share default values. Optional.
+--
+-- /Note:/ Consider using 'nFSFileShareDefaults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsNFSFileShareDefaults :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.NFSFileShareDefaults)
+cnfsfsNFSFileShareDefaults = Lens.field @"nFSFileShareDefaults"
+{-# DEPRECATED cnfsfsNFSFileShareDefaults "Use generic-lens or generic-optics with 'nFSFileShareDefaults' instead." #-}
 
 -- | The notification policy of the file share.
 --
 -- /Note:/ Consider using 'notificationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsNotificationPolicy :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Text)
-cnfsfsNotificationPolicy = Lens.lens (notificationPolicy :: CreateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {notificationPolicy = a} :: CreateNFSFileShare)
+cnfsfsNotificationPolicy :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.NotificationPolicy)
+cnfsfsNotificationPolicy = Lens.field @"notificationPolicy"
 {-# DEPRECATED cnfsfsNotificationPolicy "Use generic-lens or generic-optics with 'notificationPolicy' instead." #-}
+
+-- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
+--
+-- /Note:/ Consider using 'objectACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsObjectACL :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.ObjectACL)
+cnfsfsObjectACL = Lens.field @"objectACL"
+{-# DEPRECATED cnfsfsObjectACL "Use generic-lens or generic-optics with 'objectACL' instead." #-}
+
+-- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsReadOnly :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
+cnfsfsReadOnly = Lens.field @"readOnly"
+{-# DEPRECATED cnfsfsReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
+
+-- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'requesterPays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnfsfsRequesterPays :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
+cnfsfsRequesterPays = Lens.field @"requesterPays"
+{-# DEPRECATED cnfsfsRequesterPays "Use generic-lens or generic-optics with 'requesterPays' instead." #-}
 
 -- | A value that maps a user to anonymous user.
 --
@@ -289,153 +292,96 @@ cnfsfsNotificationPolicy = Lens.lens (notificationPolicy :: CreateNFSFileShare -
 --
 --
 -- /Note:/ Consider using 'squash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsSquash :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Text)
-cnfsfsSquash = Lens.lens (squash :: CreateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {squash = a} :: CreateNFSFileShare)
+cnfsfsSquash :: Lens.Lens' CreateNFSFileShare (Core.Maybe Types.Squash)
+cnfsfsSquash = Lens.field @"squash"
 {-# DEPRECATED cnfsfsSquash "Use generic-lens or generic-optics with 'squash' instead." #-}
-
--- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
---
--- Valid Values: @true@ | @false@
---
--- /Note:/ Consider using 'requesterPays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsRequesterPays :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Bool)
-cnfsfsRequesterPays = Lens.lens (requesterPays :: CreateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {requesterPays = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsRequesterPays "Use generic-lens or generic-optics with 'requesterPays' instead." #-}
-
--- | File share default values. Optional.
---
--- /Note:/ Consider using 'nFSFileShareDefaults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsNFSFileShareDefaults :: Lens.Lens' CreateNFSFileShare (Lude.Maybe NFSFileShareDefaults)
-cnfsfsNFSFileShareDefaults = Lens.lens (nFSFileShareDefaults :: CreateNFSFileShare -> Lude.Maybe NFSFileShareDefaults) (\s a -> s {nFSFileShareDefaults = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsNFSFileShareDefaults "Use generic-lens or generic-optics with 'nFSFileShareDefaults' instead." #-}
-
--- | The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a "/".
---
--- /Note:/ Consider using 'locationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsLocationARN :: Lens.Lens' CreateNFSFileShare Lude.Text
-cnfsfsLocationARN = Lens.lens (locationARN :: CreateNFSFileShare -> Lude.Text) (\s a -> s {locationARN = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsLocationARN "Use generic-lens or generic-optics with 'locationARN' instead." #-}
-
--- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
---
--- /Note:/ Consider using 'clientList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsClientList :: Lens.Lens' CreateNFSFileShare (Lude.Maybe (Lude.NonEmpty Lude.Text))
-cnfsfsClientList = Lens.lens (clientList :: CreateNFSFileShare -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {clientList = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsClientList "Use generic-lens or generic-optics with 'clientList' instead." #-}
-
--- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
---
--- Valid Values: @true@ | @false@
---
--- /Note:/ Consider using 'guessMIMETypeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsGuessMIMETypeEnabled :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Bool)
-cnfsfsGuessMIMETypeEnabled = Lens.lens (guessMIMETypeEnabled :: CreateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {guessMIMETypeEnabled = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsGuessMIMETypeEnabled "Use generic-lens or generic-optics with 'guessMIMETypeEnabled' instead." #-}
-
--- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
---
--- Valid Values: @true@ | @false@
---
--- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsReadOnly :: Lens.Lens' CreateNFSFileShare (Lude.Maybe Lude.Bool)
-cnfsfsReadOnly = Lens.lens (readOnly :: CreateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: CreateNFSFileShare)
-{-# DEPRECATED cnfsfsReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
 -- | A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsTags :: Lens.Lens' CreateNFSFileShare (Lude.Maybe [Tag])
-cnfsfsTags = Lens.lens (tags :: CreateNFSFileShare -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateNFSFileShare)
+cnfsfsTags :: Lens.Lens' CreateNFSFileShare (Core.Maybe [Types.Tag])
+cnfsfsTags = Lens.field @"tags"
 {-# DEPRECATED cnfsfsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateNFSFileShare where
+instance Core.FromJSON CreateNFSFileShare where
+  toJSON CreateNFSFileShare {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClientToken" Core..= clientToken),
+            Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("Role" Core..= role'),
+            Core.Just ("LocationARN" Core..= locationARN),
+            ("CacheAttributes" Core..=) Core.<$> cacheAttributes,
+            ("ClientList" Core..=) Core.<$> clientList,
+            ("DefaultStorageClass" Core..=) Core.<$> defaultStorageClass,
+            ("FileShareName" Core..=) Core.<$> fileShareName,
+            ("GuessMIMETypeEnabled" Core..=) Core.<$> guessMIMETypeEnabled,
+            ("KMSEncrypted" Core..=) Core.<$> kMSEncrypted,
+            ("KMSKey" Core..=) Core.<$> kMSKey,
+            ("NFSFileShareDefaults" Core..=) Core.<$> nFSFileShareDefaults,
+            ("NotificationPolicy" Core..=) Core.<$> notificationPolicy,
+            ("ObjectACL" Core..=) Core.<$> objectACL,
+            ("ReadOnly" Core..=) Core.<$> readOnly,
+            ("RequesterPays" Core..=) Core.<$> requesterPays,
+            ("Squash" Core..=) Core.<$> squash,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateNFSFileShare where
   type Rs CreateNFSFileShare = CreateNFSFileShareResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.CreateNFSFileShare")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateNFSFileShareResponse'
-            Lude.<$> (x Lude..?> "FileShareARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FileShareARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNFSFileShare where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.CreateNFSFileShare" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateNFSFileShare where
-  toJSON CreateNFSFileShare' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
-            Lude.Just ("ClientToken" Lude..= clientToken),
-            Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            ("CacheAttributes" Lude..=) Lude.<$> cacheAttributes,
-            ("ObjectACL" Lude..=) Lude.<$> objectACL,
-            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
-            ("DefaultStorageClass" Lude..=) Lude.<$> defaultStorageClass,
-            ("FileShareName" Lude..=) Lude.<$> fileShareName,
-            Lude.Just ("Role" Lude..= role'),
-            ("NotificationPolicy" Lude..=) Lude.<$> notificationPolicy,
-            ("Squash" Lude..=) Lude.<$> squash,
-            ("RequesterPays" Lude..=) Lude.<$> requesterPays,
-            ("NFSFileShareDefaults" Lude..=) Lude.<$> nFSFileShareDefaults,
-            Lude.Just ("LocationARN" Lude..= locationARN),
-            ("ClientList" Lude..=) Lude.<$> clientList,
-            ("GuessMIMETypeEnabled" Lude..=) Lude.<$> guessMIMETypeEnabled,
-            ("ReadOnly" Lude..=) Lude.<$> readOnly,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateNFSFileShare where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNFSFileShare where
-  toQuery = Lude.const Lude.mempty
 
 -- | CreateNFSFileShareOutput
 --
 -- /See:/ 'mkCreateNFSFileShareResponse' smart constructor.
 data CreateNFSFileShareResponse = CreateNFSFileShareResponse'
   { -- | The Amazon Resource Name (ARN) of the newly created file share.
-    fileShareARN :: Lude.Maybe Lude.Text,
+    fileShareARN :: Core.Maybe Types.FileShareARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNFSFileShareResponse' with the minimum fields required to make a request.
---
--- * 'fileShareARN' - The Amazon Resource Name (ARN) of the newly created file share.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNFSFileShareResponse' value with any optional fields omitted.
 mkCreateNFSFileShareResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNFSFileShareResponse
-mkCreateNFSFileShareResponse pResponseStatus_ =
+mkCreateNFSFileShareResponse responseStatus =
   CreateNFSFileShareResponse'
-    { fileShareARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fileShareARN = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the newly created file share.
 --
 -- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsrsFileShareARN :: Lens.Lens' CreateNFSFileShareResponse (Lude.Maybe Lude.Text)
-cnfsfsrsFileShareARN = Lens.lens (fileShareARN :: CreateNFSFileShareResponse -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: CreateNFSFileShareResponse)
-{-# DEPRECATED cnfsfsrsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
+cnfsfsrrsFileShareARN :: Lens.Lens' CreateNFSFileShareResponse (Core.Maybe Types.FileShareARN)
+cnfsfsrrsFileShareARN = Lens.field @"fileShareARN"
+{-# DEPRECATED cnfsfsrrsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnfsfsrsResponseStatus :: Lens.Lens' CreateNFSFileShareResponse Lude.Int
-cnfsfsrsResponseStatus = Lens.lens (responseStatus :: CreateNFSFileShareResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNFSFileShareResponse)
-{-# DEPRECATED cnfsfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cnfsfsrrsResponseStatus :: Lens.Lens' CreateNFSFileShareResponse Core.Int
+cnfsfsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cnfsfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

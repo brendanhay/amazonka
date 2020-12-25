@@ -46,28 +46,34 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.IAM
-    Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
+    Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
     Network.AWS.IAM.AddRoleToInstanceProfile
     Network.AWS.IAM.AddUserToGroup
     Network.AWS.IAM.AttachGroupPolicy
@@ -79,7 +85,7 @@ library
     Network.AWS.IAM.CreateGroup
     Network.AWS.IAM.CreateInstanceProfile
     Network.AWS.IAM.CreateLoginProfile
-    Network.AWS.IAM.CreateOpenIdConnectProvider
+    Network.AWS.IAM.CreateOpenIDConnectProvider
     Network.AWS.IAM.CreatePolicy
     Network.AWS.IAM.CreatePolicyVersion
     Network.AWS.IAM.CreateRole
@@ -96,7 +102,7 @@ library
     Network.AWS.IAM.DeleteGroupPolicy
     Network.AWS.IAM.DeleteInstanceProfile
     Network.AWS.IAM.DeleteLoginProfile
-    Network.AWS.IAM.DeleteOpenIdConnectProvider
+    Network.AWS.IAM.DeleteOpenIDConnectProvider
     Network.AWS.IAM.DeletePolicy
     Network.AWS.IAM.DeletePolicyVersion
     Network.AWS.IAM.DeleteRole
@@ -130,7 +136,7 @@ library
     Network.AWS.IAM.GetGroupPolicy
     Network.AWS.IAM.GetInstanceProfile
     Network.AWS.IAM.GetLoginProfile
-    Network.AWS.IAM.GetOpenIdConnectProvider
+    Network.AWS.IAM.GetOpenIDConnectProvider
     Network.AWS.IAM.GetOrganizationsAccessReport
     Network.AWS.IAM.GetPolicy
     Network.AWS.IAM.GetPolicyVersion
@@ -156,7 +162,7 @@ library
     Network.AWS.IAM.ListInstanceProfiles
     Network.AWS.IAM.ListInstanceProfilesForRole
     Network.AWS.IAM.ListMFADevices
-    Network.AWS.IAM.ListOpenIdConnectProviders
+    Network.AWS.IAM.ListOpenIDConnectProviders
     Network.AWS.IAM.ListPolicies
     Network.AWS.IAM.ListPoliciesGrantingServiceAccess
     Network.AWS.IAM.ListPolicyVersions
@@ -177,7 +183,7 @@ library
     Network.AWS.IAM.PutRolePolicy
     Network.AWS.IAM.PutUserPermissionsBoundary
     Network.AWS.IAM.PutUserPolicy
-    Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
+    Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
     Network.AWS.IAM.RemoveRoleFromInstanceProfile
     Network.AWS.IAM.RemoveUserFromGroup
     Network.AWS.IAM.ResetServiceSpecificCredential
@@ -196,7 +202,7 @@ library
     Network.AWS.IAM.UpdateAssumeRolePolicy
     Network.AWS.IAM.UpdateGroup
     Network.AWS.IAM.UpdateLoginProfile
-    Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+    Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
     Network.AWS.IAM.UpdateRole
     Network.AWS.IAM.UpdateRoleDescription
     Network.AWS.IAM.UpdateSAMLProvider
@@ -213,77 +219,188 @@ library
   other-modules:
     Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType
     Network.AWS.IAM.Types.AccessDetail
+    Network.AWS.IAM.Types.AccessKeyId
     Network.AWS.IAM.Types.AccessKeyInfo
     Network.AWS.IAM.Types.AccessKeyLastUsed
     Network.AWS.IAM.Types.AccessKeyMetadata
+    Network.AWS.IAM.Types.AccessKeySecretType
+    Network.AWS.IAM.Types.AccountAlias
+    Network.AWS.IAM.Types.AccountAliasType
+    Network.AWS.IAM.Types.ActionName
+    Network.AWS.IAM.Types.ActionNameType
+    Network.AWS.IAM.Types.Arn
+    Network.AWS.IAM.Types.ArnType
     Network.AWS.IAM.Types.AssignmentStatusType
+    Network.AWS.IAM.Types.AssumeRolePolicyDocument
     Network.AWS.IAM.Types.AttachedPermissionsBoundary
     Network.AWS.IAM.Types.AttachedPolicy
+    Network.AWS.IAM.Types.AuthenticationCodeType
+    Network.AWS.IAM.Types.AWSServiceName
+    Network.AWS.IAM.Types.CallerArn
+    Network.AWS.IAM.Types.CertificateBodyType
+    Network.AWS.IAM.Types.CertificateChainType
+    Network.AWS.IAM.Types.CertificateId
+    Network.AWS.IAM.Types.CertificateIdType
+    Network.AWS.IAM.Types.ClientID
+    Network.AWS.IAM.Types.ClientIDType
+    Network.AWS.IAM.Types.Code
     Network.AWS.IAM.Types.ContextEntry
+    Network.AWS.IAM.Types.ContextKeyNameType
     Network.AWS.IAM.Types.ContextKeyTypeEnum
+    Network.AWS.IAM.Types.ContextKeyValueType
+    Network.AWS.IAM.Types.CustomSuffix
+    Network.AWS.IAM.Types.DefaultVersionId
     Network.AWS.IAM.Types.DeletionTaskFailureReasonType
+    Network.AWS.IAM.Types.DeletionTaskId
     Network.AWS.IAM.Types.DeletionTaskStatusType
+    Network.AWS.IAM.Types.Description
+    Network.AWS.IAM.Types.Document
     Network.AWS.IAM.Types.EncodingType
     Network.AWS.IAM.Types.EntityDetails
     Network.AWS.IAM.Types.EntityInfo
+    Network.AWS.IAM.Types.EntityName
+    Network.AWS.IAM.Types.EntityPath
     Network.AWS.IAM.Types.EntityType
     Network.AWS.IAM.Types.ErrorDetails
+    Network.AWS.IAM.Types.EvalActionName
+    Network.AWS.IAM.Types.EvalDecisionSourceType
+    Network.AWS.IAM.Types.EvalResourceName
     Network.AWS.IAM.Types.EvaluationResult
+    Network.AWS.IAM.Types.ExistingUserNameType
+    Network.AWS.IAM.Types.Fingerprint
     Network.AWS.IAM.Types.GetContextKeysForPolicyResponse
     Network.AWS.IAM.Types.GlobalEndpointTokenVersion
     Network.AWS.IAM.Types.Group
     Network.AWS.IAM.Types.GroupDetail
+    Network.AWS.IAM.Types.GroupId
+    Network.AWS.IAM.Types.GroupName
+    Network.AWS.IAM.Types.GroupNameType
+    Network.AWS.IAM.Types.IdType
     Network.AWS.IAM.Types.InstanceProfile
+    Network.AWS.IAM.Types.InstanceProfileId
+    Network.AWS.IAM.Types.InstanceProfileName
+    Network.AWS.IAM.Types.InstanceProfileNameType
+    Network.AWS.IAM.Types.JobId
     Network.AWS.IAM.Types.JobStatusType
+    Network.AWS.IAM.Types.Key
+    Network.AWS.IAM.Types.LastAccessedEntity
+    Network.AWS.IAM.Types.LastAccessedRegion
+    Network.AWS.IAM.Types.LastAuthenticatedEntity
+    Network.AWS.IAM.Types.LastAuthenticatedRegion
     Network.AWS.IAM.Types.ListPoliciesGrantingServiceAccessEntry
     Network.AWS.IAM.Types.LoginProfile
     Network.AWS.IAM.Types.ManagedPolicyDetail
+    Network.AWS.IAM.Types.Marker
+    Network.AWS.IAM.Types.MarkerType
+    Network.AWS.IAM.Types.Message
     Network.AWS.IAM.Types.MFADevice
-    Network.AWS.IAM.Types.OpenIdConnectProviderListEntry
+    Network.AWS.IAM.Types.Name
+    Network.AWS.IAM.Types.NewPath
+    Network.AWS.IAM.Types.NewUserName
+    Network.AWS.IAM.Types.OpenIDConnectProviderArn
+    Network.AWS.IAM.Types.OpenIDConnectProviderListEntry
+    Network.AWS.IAM.Types.OpenIDConnectProviderUrlType
     Network.AWS.IAM.Types.OrganizationsDecisionDetail
+    Network.AWS.IAM.Types.OrganizationsEntityPathType
+    Network.AWS.IAM.Types.OrganizationsPolicyIdType
     Network.AWS.IAM.Types.PasswordPolicy
+    Network.AWS.IAM.Types.PasswordType
+    Network.AWS.IAM.Types.Path
+    Network.AWS.IAM.Types.PathPrefix
+    Network.AWS.IAM.Types.PathPrefixType
+    Network.AWS.IAM.Types.PathType
+    Network.AWS.IAM.Types.PermissionsBoundary
+    Network.AWS.IAM.Types.PermissionsBoundaryArn
     Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType
     Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail
     Network.AWS.IAM.Types.Policy
+    Network.AWS.IAM.Types.PolicyArn
     Network.AWS.IAM.Types.PolicyDetail
+    Network.AWS.IAM.Types.PolicyDocument
+    Network.AWS.IAM.Types.PolicyDocumentType
     Network.AWS.IAM.Types.PolicyEvaluationDecisionType
     Network.AWS.IAM.Types.PolicyGrantingServiceAccess
     Network.AWS.IAM.Types.PolicyGroup
+    Network.AWS.IAM.Types.PolicyId
+    Network.AWS.IAM.Types.PolicyName
+    Network.AWS.IAM.Types.PolicyNameType
     Network.AWS.IAM.Types.PolicyOwnerEntityType
+    Network.AWS.IAM.Types.PolicyPathType
     Network.AWS.IAM.Types.PolicyRole
     Network.AWS.IAM.Types.PolicyScopeType
+    Network.AWS.IAM.Types.PolicySourceArn
     Network.AWS.IAM.Types.PolicySourceType
     Network.AWS.IAM.Types.PolicyType
     Network.AWS.IAM.Types.PolicyUsageType
     Network.AWS.IAM.Types.PolicyUser
     Network.AWS.IAM.Types.PolicyVersion
+    Network.AWS.IAM.Types.PolicyVersionIdType
     Network.AWS.IAM.Types.Position
+    Network.AWS.IAM.Types.PrivateKeyType
+    Network.AWS.IAM.Types.PublicKeyIdType
+    Network.AWS.IAM.Types.PublicKeyMaterialType
+    Network.AWS.IAM.Types.ReasonType
+    Network.AWS.IAM.Types.Region
+    Network.AWS.IAM.Types.RegionNameType
     Network.AWS.IAM.Types.ReportFormatType
     Network.AWS.IAM.Types.ReportStateType
+    Network.AWS.IAM.Types.ResourceHandlingOption
+    Network.AWS.IAM.Types.ResourceNameType
+    Network.AWS.IAM.Types.ResourceOwner
+    Network.AWS.IAM.Types.ResourcePolicy
     Network.AWS.IAM.Types.ResourceSpecificResult
+    Network.AWS.IAM.Types.ResponseMarkerType
     Network.AWS.IAM.Types.Role
+    Network.AWS.IAM.Types.RoleDescriptionType
     Network.AWS.IAM.Types.RoleDetail
+    Network.AWS.IAM.Types.RoleId
     Network.AWS.IAM.Types.RoleLastUsed
+    Network.AWS.IAM.Types.RoleName
+    Network.AWS.IAM.Types.RoleNameType
     Network.AWS.IAM.Types.RoleUsageType
+    Network.AWS.IAM.Types.SAMLMetadataDocument
+    Network.AWS.IAM.Types.SAMLMetadataDocumentType
+    Network.AWS.IAM.Types.SAMLProviderArn
     Network.AWS.IAM.Types.SAMLProviderListEntry
+    Network.AWS.IAM.Types.SerialNumber
+    Network.AWS.IAM.Types.SerialNumberType
     Network.AWS.IAM.Types.ServerCertificate
     Network.AWS.IAM.Types.ServerCertificateMetadata
+    Network.AWS.IAM.Types.ServerCertificateName
+    Network.AWS.IAM.Types.ServerCertificateNameType
     Network.AWS.IAM.Types.ServiceLastAccessed
+    Network.AWS.IAM.Types.ServiceName
+    Network.AWS.IAM.Types.ServiceNamespace
+    Network.AWS.IAM.Types.ServiceNamespaceType
+    Network.AWS.IAM.Types.ServiceNameType
+    Network.AWS.IAM.Types.ServicePassword
     Network.AWS.IAM.Types.ServiceSpecificCredential
+    Network.AWS.IAM.Types.ServiceSpecificCredentialId
     Network.AWS.IAM.Types.ServiceSpecificCredentialMetadata
+    Network.AWS.IAM.Types.ServiceUserName
     Network.AWS.IAM.Types.SigningCertificate
     Network.AWS.IAM.Types.SimulatePolicyResponse
     Network.AWS.IAM.Types.SortKeyType
+    Network.AWS.IAM.Types.SourcePolicyId
     Network.AWS.IAM.Types.SSHPublicKey
+    Network.AWS.IAM.Types.SSHPublicKeyBody
+    Network.AWS.IAM.Types.SSHPublicKeyId
     Network.AWS.IAM.Types.SSHPublicKeyMetadata
     Network.AWS.IAM.Types.Statement
     Network.AWS.IAM.Types.StatusType
+    Network.AWS.IAM.Types.StringType
     Network.AWS.IAM.Types.SummaryKeyType
     Network.AWS.IAM.Types.Tag
+    Network.AWS.IAM.Types.TagKeyType
+    Network.AWS.IAM.Types.ThumbprintType
     Network.AWS.IAM.Types.TrackedActionLastAccessed
     Network.AWS.IAM.Types.User
     Network.AWS.IAM.Types.UserDetail
+    Network.AWS.IAM.Types.UserName
+    Network.AWS.IAM.Types.UserNameType
+    Network.AWS.IAM.Types.Value
     Network.AWS.IAM.Types.VirtualMFADevice
+    Network.AWS.IAM.Types.VirtualMFADeviceName
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

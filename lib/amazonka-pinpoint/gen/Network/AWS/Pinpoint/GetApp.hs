@@ -27,102 +27,88 @@ module Network.AWS.Pinpoint.GetApp
     mkGetAppResponse,
 
     -- ** Response lenses
-    garsApplicationResponse,
-    garsResponseStatus,
+    garrsApplicationResponse,
+    garrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetApp' smart constructor.
 newtype GetApp = GetApp'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetApp' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'GetApp' value with any optional fields omitted.
 mkGetApp ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   GetApp
-mkGetApp pApplicationId_ = GetApp' {applicationId = pApplicationId_}
+mkGetApp applicationId = GetApp' {applicationId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaApplicationId :: Lens.Lens' GetApp Lude.Text
-gaApplicationId = Lens.lens (applicationId :: GetApp -> Lude.Text) (\s a -> s {applicationId = a} :: GetApp)
+gaApplicationId :: Lens.Lens' GetApp Core.Text
+gaApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED gaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest GetApp where
+instance Core.AWSRequest GetApp where
   type Rs GetApp = GetAppResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/v1/apps/" Core.<> (Core.toText applicationId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAppResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetApp where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetApp where
-  toPath GetApp' {..} =
-    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId]
-
-instance Lude.ToQuery GetApp where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-  { applicationResponse :: ApplicationResponse,
+  { applicationResponse :: Types.ApplicationResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
---
--- * 'applicationResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAppResponse' value with any optional fields omitted.
 mkGetAppResponse ::
   -- | 'applicationResponse'
-  ApplicationResponse ->
+  Types.ApplicationResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAppResponse
-mkGetAppResponse pApplicationResponse_ pResponseStatus_ =
-  GetAppResponse'
-    { applicationResponse = pApplicationResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetAppResponse applicationResponse responseStatus =
+  GetAppResponse' {applicationResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'applicationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsApplicationResponse :: Lens.Lens' GetAppResponse ApplicationResponse
-garsApplicationResponse = Lens.lens (applicationResponse :: GetAppResponse -> ApplicationResponse) (\s a -> s {applicationResponse = a} :: GetAppResponse)
-{-# DEPRECATED garsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}
+garrsApplicationResponse :: Lens.Lens' GetAppResponse Types.ApplicationResponse
+garrsApplicationResponse = Lens.field @"applicationResponse"
+{-# DEPRECATED garrsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsResponseStatus :: Lens.Lens' GetAppResponse Lude.Int
-garsResponseStatus = Lens.lens (responseStatus :: GetAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppResponse)
-{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+garrsResponseStatus :: Lens.Lens' GetAppResponse Core.Int
+garrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,152 +23,139 @@ module Network.AWS.KinesisAnalytics.ListApplications
     mkListApplications,
 
     -- ** Request lenses
-    laLimit,
     laExclusiveStartApplicationName,
+    laLimit,
 
     -- * Destructuring the response
     ListApplicationsResponse (..),
     mkListApplicationsResponse,
 
     -- ** Response lenses
-    larsApplicationSummaries,
-    larsHasMoreApplications,
-    larsResponseStatus,
+    larrsApplicationSummaries,
+    larrsHasMoreApplications,
+    larrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { -- | Maximum number of applications to list.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
-    exclusiveStartApplicationName :: Lude.Maybe Lude.Text
+  { -- | Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
+    exclusiveStartApplicationName :: Core.Maybe Types.ExclusiveStartApplicationName,
+    -- | Maximum number of applications to list.
+    limit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
---
--- * 'limit' - Maximum number of applications to list.
--- * 'exclusiveStartApplicationName' - Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
+-- | Creates a 'ListApplications' value with any optional fields omitted.
 mkListApplications ::
   ListApplications
 mkListApplications =
   ListApplications'
-    { limit = Lude.Nothing,
-      exclusiveStartApplicationName = Lude.Nothing
+    { exclusiveStartApplicationName = Core.Nothing,
+      limit = Core.Nothing
     }
-
--- | Maximum number of applications to list.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLimit :: Lens.Lens' ListApplications (Lude.Maybe Lude.Natural)
-laLimit = Lens.lens (limit :: ListApplications -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListApplications)
-{-# DEPRECATED laLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
 --
 -- /Note:/ Consider using 'exclusiveStartApplicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laExclusiveStartApplicationName :: Lens.Lens' ListApplications (Lude.Maybe Lude.Text)
-laExclusiveStartApplicationName = Lens.lens (exclusiveStartApplicationName :: ListApplications -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartApplicationName = a} :: ListApplications)
+laExclusiveStartApplicationName :: Lens.Lens' ListApplications (Core.Maybe Types.ExclusiveStartApplicationName)
+laExclusiveStartApplicationName = Lens.field @"exclusiveStartApplicationName"
 {-# DEPRECATED laExclusiveStartApplicationName "Use generic-lens or generic-optics with 'exclusiveStartApplicationName' instead." #-}
 
-instance Lude.AWSRequest ListApplications where
+-- | Maximum number of applications to list.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laLimit :: Lens.Lens' ListApplications (Core.Maybe Core.Natural)
+laLimit = Lens.field @"limit"
+{-# DEPRECATED laLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+instance Core.FromJSON ListApplications where
+  toJSON ListApplications {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartApplicationName" Core..=)
+              Core.<$> exclusiveStartApplicationName,
+            ("Limit" Core..=) Core.<$> limit
+          ]
+      )
+
+instance Core.AWSRequest ListApplications where
   type Rs ListApplications = ListApplicationsResponse
-  request = Req.postJSON kinesisAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.ListApplications")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            Lude.<$> (x Lude..?> "ApplicationSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "HasMoreApplications")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ApplicationSummaries" Core..!= Core.mempty)
+            Core.<*> (x Core..: "HasMoreApplications")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListApplications where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("KinesisAnalytics_20150814.ListApplications" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListApplications where
-  toJSON ListApplications' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Limit" Lude..=) Lude.<$> limit,
-            ("ExclusiveStartApplicationName" Lude..=)
-              Lude.<$> exclusiveStartApplicationName
-          ]
-      )
-
-instance Lude.ToPath ListApplications where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListApplications where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
   { -- | List of @ApplicationSummary@ objects.
-    applicationSummaries :: [ApplicationSummary],
+    applicationSummaries :: [Types.ApplicationSummary],
     -- | Returns true if there are more applications to retrieve.
-    hasMoreApplications :: Lude.Bool,
+    hasMoreApplications :: Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
---
--- * 'applicationSummaries' - List of @ApplicationSummary@ objects.
--- * 'hasMoreApplications' - Returns true if there are more applications to retrieve.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListApplicationsResponse' value with any optional fields omitted.
 mkListApplicationsResponse ::
   -- | 'hasMoreApplications'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListApplicationsResponse
-mkListApplicationsResponse pHasMoreApplications_ pResponseStatus_ =
+mkListApplicationsResponse hasMoreApplications responseStatus =
   ListApplicationsResponse'
-    { applicationSummaries = Lude.mempty,
-      hasMoreApplications = pHasMoreApplications_,
-      responseStatus = pResponseStatus_
+    { applicationSummaries = Core.mempty,
+      hasMoreApplications,
+      responseStatus
     }
 
 -- | List of @ApplicationSummary@ objects.
 --
 -- /Note:/ Consider using 'applicationSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsApplicationSummaries :: Lens.Lens' ListApplicationsResponse [ApplicationSummary]
-larsApplicationSummaries = Lens.lens (applicationSummaries :: ListApplicationsResponse -> [ApplicationSummary]) (\s a -> s {applicationSummaries = a} :: ListApplicationsResponse)
-{-# DEPRECATED larsApplicationSummaries "Use generic-lens or generic-optics with 'applicationSummaries' instead." #-}
+larrsApplicationSummaries :: Lens.Lens' ListApplicationsResponse [Types.ApplicationSummary]
+larrsApplicationSummaries = Lens.field @"applicationSummaries"
+{-# DEPRECATED larrsApplicationSummaries "Use generic-lens or generic-optics with 'applicationSummaries' instead." #-}
 
 -- | Returns true if there are more applications to retrieve.
 --
 -- /Note:/ Consider using 'hasMoreApplications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsHasMoreApplications :: Lens.Lens' ListApplicationsResponse Lude.Bool
-larsHasMoreApplications = Lens.lens (hasMoreApplications :: ListApplicationsResponse -> Lude.Bool) (\s a -> s {hasMoreApplications = a} :: ListApplicationsResponse)
-{-# DEPRECATED larsHasMoreApplications "Use generic-lens or generic-optics with 'hasMoreApplications' instead." #-}
+larrsHasMoreApplications :: Lens.Lens' ListApplicationsResponse Core.Bool
+larrsHasMoreApplications = Lens.field @"hasMoreApplications"
+{-# DEPRECATED larrsHasMoreApplications "Use generic-lens or generic-optics with 'hasMoreApplications' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListApplicationsResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationsResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListApplicationsResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

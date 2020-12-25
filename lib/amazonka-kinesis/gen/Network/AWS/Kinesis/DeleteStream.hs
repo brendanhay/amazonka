@@ -26,8 +26,8 @@ module Network.AWS.Kinesis.DeleteStream
     mkDeleteStream,
 
     -- ** Request lenses
-    dEnforceConsumerDeletion,
-    dStreamName,
+    dsStreamName,
+    dsEnforceConsumerDeletion,
 
     -- * Destructuring the response
     DeleteStreamResponse (..),
@@ -35,90 +35,77 @@ module Network.AWS.Kinesis.DeleteStream
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for 'DeleteStream' .
 --
 -- /See:/ 'mkDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
-  { -- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
-    enforceConsumerDeletion :: Lude.Maybe Lude.Bool,
-    -- | The name of the stream to delete.
-    streamName :: Lude.Text
+  { -- | The name of the stream to delete.
+    streamName :: Types.StreamName,
+    -- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+    enforceConsumerDeletion :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
---
--- * 'enforceConsumerDeletion' - If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
--- * 'streamName' - The name of the stream to delete.
+-- | Creates a 'DeleteStream' value with any optional fields omitted.
 mkDeleteStream ::
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
   DeleteStream
-mkDeleteStream pStreamName_ =
-  DeleteStream'
-    { enforceConsumerDeletion = Lude.Nothing,
-      streamName = pStreamName_
-    }
-
--- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
---
--- /Note:/ Consider using 'enforceConsumerDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dEnforceConsumerDeletion :: Lens.Lens' DeleteStream (Lude.Maybe Lude.Bool)
-dEnforceConsumerDeletion = Lens.lens (enforceConsumerDeletion :: DeleteStream -> Lude.Maybe Lude.Bool) (\s a -> s {enforceConsumerDeletion = a} :: DeleteStream)
-{-# DEPRECATED dEnforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead." #-}
+mkDeleteStream streamName =
+  DeleteStream' {streamName, enforceConsumerDeletion = Core.Nothing}
 
 -- | The name of the stream to delete.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStreamName :: Lens.Lens' DeleteStream Lude.Text
-dStreamName = Lens.lens (streamName :: DeleteStream -> Lude.Text) (\s a -> s {streamName = a} :: DeleteStream)
-{-# DEPRECATED dStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+dsStreamName :: Lens.Lens' DeleteStream Types.StreamName
+dsStreamName = Lens.field @"streamName"
+{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest DeleteStream where
+-- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+--
+-- /Note:/ Consider using 'enforceConsumerDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsEnforceConsumerDeletion :: Lens.Lens' DeleteStream (Core.Maybe Core.Bool)
+dsEnforceConsumerDeletion = Lens.field @"enforceConsumerDeletion"
+{-# DEPRECATED dsEnforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead." #-}
+
+instance Core.FromJSON DeleteStream where
+  toJSON DeleteStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            ("EnforceConsumerDeletion" Core..=)
+              Core.<$> enforceConsumerDeletion
+          ]
+      )
+
+instance Core.AWSRequest DeleteStream where
   type Rs DeleteStream = DeleteStreamResponse
-  request = Req.postJSON kinesisService
-  response = Res.receiveNull DeleteStreamResponse'
-
-instance Lude.ToHeaders DeleteStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.DeleteStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteStream where
-  toJSON DeleteStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EnforceConsumerDeletion" Lude..=)
-              Lude.<$> enforceConsumerDeletion,
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath DeleteStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStream where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.DeleteStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteStreamResponse'
 
 -- | /See:/ 'mkDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteStreamResponse' value with any optional fields omitted.
 mkDeleteStreamResponse ::
   DeleteStreamResponse
 mkDeleteStreamResponse = DeleteStreamResponse'

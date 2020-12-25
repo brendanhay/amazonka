@@ -22,33 +22,31 @@ module Network.AWS.EC2.Types.Phase2DHGroupNumbersListValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Diffie-Hellmann group number for phase 2 IKE negotiations.
 --
 -- /See:/ 'mkPhase2DHGroupNumbersListValue' smart constructor.
 newtype Phase2DHGroupNumbersListValue = Phase2DHGroupNumbersListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Lude.Maybe Lude.Int
+    value :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase2DHGroupNumbersListValue' with the minimum fields required to make a request.
---
--- * 'value' - The Diffie-Hellmann group number.
+-- | Creates a 'Phase2DHGroupNumbersListValue' value with any optional fields omitted.
 mkPhase2DHGroupNumbersListValue ::
   Phase2DHGroupNumbersListValue
 mkPhase2DHGroupNumbersListValue =
-  Phase2DHGroupNumbersListValue' {value = Lude.Nothing}
+  Phase2DHGroupNumbersListValue' {value = Core.Nothing}
 
 -- | The Diffie-Hellmann group number.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pValue :: Lens.Lens' Phase2DHGroupNumbersListValue (Lude.Maybe Lude.Int)
-pValue = Lens.lens (value :: Phase2DHGroupNumbersListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase2DHGroupNumbersListValue)
+pValue :: Lens.Lens' Phase2DHGroupNumbersListValue (Core.Maybe Core.Int)
+pValue = Lens.field @"value"
 {-# DEPRECATED pValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML Phase2DHGroupNumbersListValue where
+instance Core.FromXML Phase2DHGroupNumbersListValue where
   parseXML x =
-    Phase2DHGroupNumbersListValue' Lude.<$> (x Lude..@? "value")
+    Phase2DHGroupNumbersListValue' Core.<$> (x Core..@? "value")

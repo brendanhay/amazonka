@@ -21,9 +21,9 @@ module Network.AWS.CognitoIdentity.Types.RulesConfigurationType
   )
 where
 
-import Network.AWS.CognitoIdentity.Types.MappingRule
+import qualified Network.AWS.CognitoIdentity.Types.MappingRule as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A container for rules.
 --
@@ -32,38 +32,32 @@ newtype RulesConfigurationType = RulesConfigurationType'
   { -- | An array of rules. You can specify up to 25 rules per identity provider.
     --
     -- Rules are evaluated in order. The first one to match specifies the role.
-    rules :: Lude.NonEmpty MappingRule
+    rules :: Core.NonEmpty Types.MappingRule
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RulesConfigurationType' with the minimum fields required to make a request.
---
--- * 'rules' - An array of rules. You can specify up to 25 rules per identity provider.
---
--- Rules are evaluated in order. The first one to match specifies the role.
+-- | Creates a 'RulesConfigurationType' value with any optional fields omitted.
 mkRulesConfigurationType ::
   -- | 'rules'
-  Lude.NonEmpty MappingRule ->
+  Core.NonEmpty Types.MappingRule ->
   RulesConfigurationType
-mkRulesConfigurationType pRules_ =
-  RulesConfigurationType' {rules = pRules_}
+mkRulesConfigurationType rules = RulesConfigurationType' {rules}
 
 -- | An array of rules. You can specify up to 25 rules per identity provider.
 --
 -- Rules are evaluated in order. The first one to match specifies the role.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctRules :: Lens.Lens' RulesConfigurationType (Lude.NonEmpty MappingRule)
-rctRules = Lens.lens (rules :: RulesConfigurationType -> Lude.NonEmpty MappingRule) (\s a -> s {rules = a} :: RulesConfigurationType)
+rctRules :: Lens.Lens' RulesConfigurationType (Core.NonEmpty Types.MappingRule)
+rctRules = Lens.field @"rules"
 {-# DEPRECATED rctRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.FromJSON RulesConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "RulesConfigurationType"
-      (\x -> RulesConfigurationType' Lude.<$> (x Lude..: "Rules"))
+instance Core.FromJSON RulesConfigurationType where
+  toJSON RulesConfigurationType {..} =
+    Core.object (Core.catMaybes [Core.Just ("Rules" Core..= rules)])
 
-instance Lude.ToJSON RulesConfigurationType where
-  toJSON RulesConfigurationType' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Rules" Lude..= rules)])
+instance Core.FromJSON RulesConfigurationType where
+  parseJSON =
+    Core.withObject "RulesConfigurationType" Core.$
+      \x -> RulesConfigurationType' Core.<$> (x Core..: "Rules")

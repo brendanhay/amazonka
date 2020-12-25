@@ -31,69 +31,59 @@ module Network.AWS.SageMaker.DeleteEndpoint
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteEndpoint' smart constructor.
 newtype DeleteEndpoint = DeleteEndpoint'
   { -- | The name of the endpoint that you want to delete.
-    endpointName :: Lude.Text
+    endpointName :: Types.EndpointName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
---
--- * 'endpointName' - The name of the endpoint that you want to delete.
+-- | Creates a 'DeleteEndpoint' value with any optional fields omitted.
 mkDeleteEndpoint ::
   -- | 'endpointName'
-  Lude.Text ->
+  Types.EndpointName ->
   DeleteEndpoint
-mkDeleteEndpoint pEndpointName_ =
-  DeleteEndpoint' {endpointName = pEndpointName_}
+mkDeleteEndpoint endpointName = DeleteEndpoint' {endpointName}
 
 -- | The name of the endpoint that you want to delete.
 --
 -- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndpointName :: Lens.Lens' DeleteEndpoint Lude.Text
-deEndpointName = Lens.lens (endpointName :: DeleteEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: DeleteEndpoint)
+deEndpointName :: Lens.Lens' DeleteEndpoint Types.EndpointName
+deEndpointName = Lens.field @"endpointName"
 {-# DEPRECATED deEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
-instance Lude.AWSRequest DeleteEndpoint where
+instance Core.FromJSON DeleteEndpoint where
+  toJSON DeleteEndpoint {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EndpointName" Core..= endpointName)])
+
+instance Core.AWSRequest DeleteEndpoint where
   type Rs DeleteEndpoint = DeleteEndpointResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull DeleteEndpointResponse'
-
-instance Lude.ToHeaders DeleteEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteEndpoint" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteEndpoint where
-  toJSON DeleteEndpoint' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EndpointName" Lude..= endpointName)])
-
-instance Lude.ToPath DeleteEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEndpoint where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteEndpoint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteEndpointResponse'
 
 -- | /See:/ 'mkDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteEndpointResponse' value with any optional fields omitted.
 mkDeleteEndpointResponse ::
   DeleteEndpointResponse
 mkDeleteEndpointResponse = DeleteEndpointResponse'

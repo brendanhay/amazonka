@@ -22,49 +22,46 @@ module Network.AWS.CodeDeploy.Types.AutoScalingGroup
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.Hook as Types
+import qualified Network.AWS.CodeDeploy.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an Auto Scaling group.
 --
 -- /See:/ 'mkAutoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
   { -- | An Auto Scaling lifecycle event hook name.
-    hook :: Lude.Maybe Lude.Text,
+    hook :: Core.Maybe Types.Hook,
     -- | The Auto Scaling group name.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
---
--- * 'hook' - An Auto Scaling lifecycle event hook name.
--- * 'name' - The Auto Scaling group name.
+-- | Creates a 'AutoScalingGroup' value with any optional fields omitted.
 mkAutoScalingGroup ::
   AutoScalingGroup
 mkAutoScalingGroup =
-  AutoScalingGroup' {hook = Lude.Nothing, name = Lude.Nothing}
+  AutoScalingGroup' {hook = Core.Nothing, name = Core.Nothing}
 
 -- | An Auto Scaling lifecycle event hook name.
 --
 -- /Note:/ Consider using 'hook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgHook :: Lens.Lens' AutoScalingGroup (Lude.Maybe Lude.Text)
-asgHook = Lens.lens (hook :: AutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {hook = a} :: AutoScalingGroup)
+asgHook :: Lens.Lens' AutoScalingGroup (Core.Maybe Types.Hook)
+asgHook = Lens.field @"hook"
 {-# DEPRECATED asgHook "Use generic-lens or generic-optics with 'hook' instead." #-}
 
 -- | The Auto Scaling group name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgName :: Lens.Lens' AutoScalingGroup (Lude.Maybe Lude.Text)
-asgName = Lens.lens (name :: AutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AutoScalingGroup)
+asgName :: Lens.Lens' AutoScalingGroup (Core.Maybe Types.Name)
+asgName = Lens.field @"name"
 {-# DEPRECATED asgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON AutoScalingGroup where
+instance Core.FromJSON AutoScalingGroup where
   parseJSON =
-    Lude.withObject
-      "AutoScalingGroup"
-      ( \x ->
-          AutoScalingGroup'
-            Lude.<$> (x Lude..:? "hook") Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "AutoScalingGroup" Core.$
+      \x ->
+        AutoScalingGroup'
+          Core.<$> (x Core..:? "hook") Core.<*> (x Core..:? "name")

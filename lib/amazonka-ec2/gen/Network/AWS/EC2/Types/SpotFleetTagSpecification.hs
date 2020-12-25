@@ -22,60 +22,48 @@ module Network.AWS.EC2.Types.SpotFleetTagSpecification
   )
 where
 
-import Network.AWS.EC2.Types.ResourceType
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.ResourceType as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The tags for a Spot Fleet resource.
 --
 -- /See:/ 'mkSpotFleetTagSpecification' smart constructor.
 data SpotFleetTagSpecification = SpotFleetTagSpecification'
   { -- | The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
-    resourceType :: Lude.Maybe ResourceType,
+    resourceType :: Core.Maybe Types.ResourceType,
     -- | The tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpotFleetTagSpecification' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
--- * 'tags' - The tags.
+-- | Creates a 'SpotFleetTagSpecification' value with any optional fields omitted.
 mkSpotFleetTagSpecification ::
   SpotFleetTagSpecification
 mkSpotFleetTagSpecification =
   SpotFleetTagSpecification'
-    { resourceType = Lude.Nothing,
-      tags = Lude.Nothing
+    { resourceType = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sftsResourceType :: Lens.Lens' SpotFleetTagSpecification (Lude.Maybe ResourceType)
-sftsResourceType = Lens.lens (resourceType :: SpotFleetTagSpecification -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: SpotFleetTagSpecification)
+sftsResourceType :: Lens.Lens' SpotFleetTagSpecification (Core.Maybe Types.ResourceType)
+sftsResourceType = Lens.field @"resourceType"
 {-# DEPRECATED sftsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sftsTags :: Lens.Lens' SpotFleetTagSpecification (Lude.Maybe [Tag])
-sftsTags = Lens.lens (tags :: SpotFleetTagSpecification -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SpotFleetTagSpecification)
+sftsTags :: Lens.Lens' SpotFleetTagSpecification (Core.Maybe [Types.Tag])
+sftsTags = Lens.field @"tags"
 {-# DEPRECATED sftsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML SpotFleetTagSpecification where
+instance Core.FromXML SpotFleetTagSpecification where
   parseXML x =
     SpotFleetTagSpecification'
-      Lude.<$> (x Lude..@? "resourceType")
-      Lude.<*> ( x Lude..@? "tag" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-
-instance Lude.ToQuery SpotFleetTagSpecification where
-  toQuery SpotFleetTagSpecification' {..} =
-    Lude.mconcat
-      [ "ResourceType" Lude.=: resourceType,
-        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
+      Core.<$> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "tag" Core..<@> Core.parseXMLList "item")

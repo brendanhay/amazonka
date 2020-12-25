@@ -22,46 +22,44 @@ module Network.AWS.EC2.Types.ResponseError
   )
 where
 
-import Network.AWS.EC2.Types.LaunchTemplateErrorCode
+import qualified Network.AWS.EC2.Types.LaunchTemplateErrorCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the error that's returned when you cannot delete a launch template version.
 --
 -- /See:/ 'mkResponseError' smart constructor.
 data ResponseError = ResponseError'
   { -- | The error code.
-    code :: Lude.Maybe LaunchTemplateErrorCode,
+    code :: Core.Maybe Types.LaunchTemplateErrorCode,
     -- | The error message, if applicable.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResponseError' with the minimum fields required to make a request.
---
--- * 'code' - The error code.
--- * 'message' - The error message, if applicable.
+-- | Creates a 'ResponseError' value with any optional fields omitted.
 mkResponseError ::
   ResponseError
 mkResponseError =
-  ResponseError' {code = Lude.Nothing, message = Lude.Nothing}
+  ResponseError' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reCode :: Lens.Lens' ResponseError (Lude.Maybe LaunchTemplateErrorCode)
-reCode = Lens.lens (code :: ResponseError -> Lude.Maybe LaunchTemplateErrorCode) (\s a -> s {code = a} :: ResponseError)
+reCode :: Lens.Lens' ResponseError (Core.Maybe Types.LaunchTemplateErrorCode)
+reCode = Lens.field @"code"
 {-# DEPRECATED reCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message, if applicable.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reMessage :: Lens.Lens' ResponseError (Lude.Maybe Lude.Text)
-reMessage = Lens.lens (message :: ResponseError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ResponseError)
+reMessage :: Lens.Lens' ResponseError (Core.Maybe Types.String)
+reMessage = Lens.field @"message"
 {-# DEPRECATED reMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML ResponseError where
+instance Core.FromXML ResponseError where
   parseXML x =
     ResponseError'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

@@ -17,102 +17,94 @@ module Network.AWS.Lightsail.Types.Container
     mkContainer,
 
     -- * Lenses
-    cImage,
     cCommand,
     cEnvironment,
+    cImage,
     cPorts,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ContainerServiceProtocol
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ContainerServiceProtocol as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
 --
 -- /See:/ 'mkContainer' smart constructor.
 data Container = Container'
-  { -- | The name of the image used for the container.
+  { -- | The launch command for the container.
+    command :: Core.Maybe [Types.String],
+    -- | The environment variables of the container.
+    environment :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | The name of the image used for the container.
     --
     -- Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (@:@ ). For example, @:container-service-1.mystaticwebsite.1@ . Container images sourced from a public registry like Docker Hub don't start with a colon. For example, @nginx:latest@ or @nginx@ .
-    image :: Lude.Maybe Lude.Text,
-    -- | The launch command for the container.
-    command :: Lude.Maybe [Lude.Text],
-    -- | The environment variables of the container.
-    environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    image :: Core.Maybe Types.String,
     -- | The open firewall ports of the container.
-    ports :: Lude.Maybe (Lude.HashMap Lude.Text (ContainerServiceProtocol))
+    ports :: Core.Maybe (Core.HashMap Types.String Types.ContainerServiceProtocol)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Container' with the minimum fields required to make a request.
---
--- * 'image' - The name of the image used for the container.
---
--- Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (@:@ ). For example, @:container-service-1.mystaticwebsite.1@ . Container images sourced from a public registry like Docker Hub don't start with a colon. For example, @nginx:latest@ or @nginx@ .
--- * 'command' - The launch command for the container.
--- * 'environment' - The environment variables of the container.
--- * 'ports' - The open firewall ports of the container.
+-- | Creates a 'Container' value with any optional fields omitted.
 mkContainer ::
   Container
 mkContainer =
   Container'
-    { image = Lude.Nothing,
-      command = Lude.Nothing,
-      environment = Lude.Nothing,
-      ports = Lude.Nothing
+    { command = Core.Nothing,
+      environment = Core.Nothing,
+      image = Core.Nothing,
+      ports = Core.Nothing
     }
+
+-- | The launch command for the container.
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCommand :: Lens.Lens' Container (Core.Maybe [Types.String])
+cCommand = Lens.field @"command"
+{-# DEPRECATED cCommand "Use generic-lens or generic-optics with 'command' instead." #-}
+
+-- | The environment variables of the container.
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEnvironment :: Lens.Lens' Container (Core.Maybe (Core.HashMap Types.String Types.String))
+cEnvironment = Lens.field @"environment"
+{-# DEPRECATED cEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | The name of the image used for the container.
 --
 -- Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (@:@ ). For example, @:container-service-1.mystaticwebsite.1@ . Container images sourced from a public registry like Docker Hub don't start with a colon. For example, @nginx:latest@ or @nginx@ .
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cImage :: Lens.Lens' Container (Lude.Maybe Lude.Text)
-cImage = Lens.lens (image :: Container -> Lude.Maybe Lude.Text) (\s a -> s {image = a} :: Container)
+cImage :: Lens.Lens' Container (Core.Maybe Types.String)
+cImage = Lens.field @"image"
 {-# DEPRECATED cImage "Use generic-lens or generic-optics with 'image' instead." #-}
-
--- | The launch command for the container.
---
--- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCommand :: Lens.Lens' Container (Lude.Maybe [Lude.Text])
-cCommand = Lens.lens (command :: Container -> Lude.Maybe [Lude.Text]) (\s a -> s {command = a} :: Container)
-{-# DEPRECATED cCommand "Use generic-lens or generic-optics with 'command' instead." #-}
-
--- | The environment variables of the container.
---
--- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cEnvironment :: Lens.Lens' Container (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cEnvironment = Lens.lens (environment :: Container -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: Container)
-{-# DEPRECATED cEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | The open firewall ports of the container.
 --
 -- /Note:/ Consider using 'ports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cPorts :: Lens.Lens' Container (Lude.Maybe (Lude.HashMap Lude.Text (ContainerServiceProtocol)))
-cPorts = Lens.lens (ports :: Container -> Lude.Maybe (Lude.HashMap Lude.Text (ContainerServiceProtocol))) (\s a -> s {ports = a} :: Container)
+cPorts :: Lens.Lens' Container (Core.Maybe (Core.HashMap Types.String Types.ContainerServiceProtocol))
+cPorts = Lens.field @"ports"
 {-# DEPRECATED cPorts "Use generic-lens or generic-optics with 'ports' instead." #-}
 
-instance Lude.FromJSON Container where
-  parseJSON =
-    Lude.withObject
-      "Container"
-      ( \x ->
-          Container'
-            Lude.<$> (x Lude..:? "image")
-            Lude.<*> (x Lude..:? "command" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "environment" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ports" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON Container where
-  toJSON Container' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("image" Lude..=) Lude.<$> image,
-            ("command" Lude..=) Lude.<$> command,
-            ("environment" Lude..=) Lude.<$> environment,
-            ("ports" Lude..=) Lude.<$> ports
+instance Core.FromJSON Container where
+  toJSON Container {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("command" Core..=) Core.<$> command,
+            ("environment" Core..=) Core.<$> environment,
+            ("image" Core..=) Core.<$> image,
+            ("ports" Core..=) Core.<$> ports
           ]
       )
+
+instance Core.FromJSON Container where
+  parseJSON =
+    Core.withObject "Container" Core.$
+      \x ->
+        Container'
+          Core.<$> (x Core..:? "command")
+          Core.<*> (x Core..:? "environment")
+          Core.<*> (x Core..:? "image")
+          Core.<*> (x Core..:? "ports")

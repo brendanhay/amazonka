@@ -13,61 +13,66 @@
 module Network.AWS.Config.Types.MaximumExecutionFrequency
   ( MaximumExecutionFrequency
       ( MaximumExecutionFrequency',
-        OneHour,
-        ThreeHours,
-        SixHours,
-        TwelveHours,
-        TwentyFourHours
+        MaximumExecutionFrequencyOneHour,
+        MaximumExecutionFrequencyThreeHours,
+        MaximumExecutionFrequencySixHours,
+        MaximumExecutionFrequencyTwelveHours,
+        MaximumExecutionFrequencyTwentyFourHours,
+        fromMaximumExecutionFrequency
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MaximumExecutionFrequency = MaximumExecutionFrequency' Lude.Text
+newtype MaximumExecutionFrequency = MaximumExecutionFrequency'
+  { fromMaximumExecutionFrequency ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OneHour :: MaximumExecutionFrequency
-pattern OneHour = MaximumExecutionFrequency' "One_Hour"
+pattern MaximumExecutionFrequencyOneHour :: MaximumExecutionFrequency
+pattern MaximumExecutionFrequencyOneHour = MaximumExecutionFrequency' "One_Hour"
 
-pattern ThreeHours :: MaximumExecutionFrequency
-pattern ThreeHours = MaximumExecutionFrequency' "Three_Hours"
+pattern MaximumExecutionFrequencyThreeHours :: MaximumExecutionFrequency
+pattern MaximumExecutionFrequencyThreeHours = MaximumExecutionFrequency' "Three_Hours"
 
-pattern SixHours :: MaximumExecutionFrequency
-pattern SixHours = MaximumExecutionFrequency' "Six_Hours"
+pattern MaximumExecutionFrequencySixHours :: MaximumExecutionFrequency
+pattern MaximumExecutionFrequencySixHours = MaximumExecutionFrequency' "Six_Hours"
 
-pattern TwelveHours :: MaximumExecutionFrequency
-pattern TwelveHours = MaximumExecutionFrequency' "Twelve_Hours"
+pattern MaximumExecutionFrequencyTwelveHours :: MaximumExecutionFrequency
+pattern MaximumExecutionFrequencyTwelveHours = MaximumExecutionFrequency' "Twelve_Hours"
 
-pattern TwentyFourHours :: MaximumExecutionFrequency
-pattern TwentyFourHours = MaximumExecutionFrequency' "TwentyFour_Hours"
+pattern MaximumExecutionFrequencyTwentyFourHours :: MaximumExecutionFrequency
+pattern MaximumExecutionFrequencyTwentyFourHours = MaximumExecutionFrequency' "TwentyFour_Hours"
 
 {-# COMPLETE
-  OneHour,
-  ThreeHours,
-  SixHours,
-  TwelveHours,
-  TwentyFourHours,
+  MaximumExecutionFrequencyOneHour,
+  MaximumExecutionFrequencyThreeHours,
+  MaximumExecutionFrequencySixHours,
+  MaximumExecutionFrequencyTwelveHours,
+  MaximumExecutionFrequencyTwentyFourHours,
   MaximumExecutionFrequency'
   #-}

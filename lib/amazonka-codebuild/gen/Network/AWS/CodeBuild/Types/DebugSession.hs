@@ -22,53 +22,48 @@ module Network.AWS.CodeBuild.Types.DebugSession
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.NonEmptyString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the debug session for a build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
 --
 -- /See:/ 'mkDebugSession' smart constructor.
 data DebugSession = DebugSession'
   { -- | Specifies if session debugging is enabled for this build.
-    sessionEnabled :: Lude.Maybe Lude.Bool,
+    sessionEnabled :: Core.Maybe Core.Bool,
     -- | Contains the identifier of the Session Manager session used for the build. To work with the paused build, you open this session to examine, control, and resume the build.
-    sessionTarget :: Lude.Maybe Lude.Text
+    sessionTarget :: Core.Maybe Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DebugSession' with the minimum fields required to make a request.
---
--- * 'sessionEnabled' - Specifies if session debugging is enabled for this build.
--- * 'sessionTarget' - Contains the identifier of the Session Manager session used for the build. To work with the paused build, you open this session to examine, control, and resume the build.
+-- | Creates a 'DebugSession' value with any optional fields omitted.
 mkDebugSession ::
   DebugSession
 mkDebugSession =
   DebugSession'
-    { sessionEnabled = Lude.Nothing,
-      sessionTarget = Lude.Nothing
+    { sessionEnabled = Core.Nothing,
+      sessionTarget = Core.Nothing
     }
 
 -- | Specifies if session debugging is enabled for this build.
 --
 -- /Note:/ Consider using 'sessionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSessionEnabled :: Lens.Lens' DebugSession (Lude.Maybe Lude.Bool)
-dsSessionEnabled = Lens.lens (sessionEnabled :: DebugSession -> Lude.Maybe Lude.Bool) (\s a -> s {sessionEnabled = a} :: DebugSession)
+dsSessionEnabled :: Lens.Lens' DebugSession (Core.Maybe Core.Bool)
+dsSessionEnabled = Lens.field @"sessionEnabled"
 {-# DEPRECATED dsSessionEnabled "Use generic-lens or generic-optics with 'sessionEnabled' instead." #-}
 
 -- | Contains the identifier of the Session Manager session used for the build. To work with the paused build, you open this session to examine, control, and resume the build.
 --
 -- /Note:/ Consider using 'sessionTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSessionTarget :: Lens.Lens' DebugSession (Lude.Maybe Lude.Text)
-dsSessionTarget = Lens.lens (sessionTarget :: DebugSession -> Lude.Maybe Lude.Text) (\s a -> s {sessionTarget = a} :: DebugSession)
+dsSessionTarget :: Lens.Lens' DebugSession (Core.Maybe Types.NonEmptyString)
+dsSessionTarget = Lens.field @"sessionTarget"
 {-# DEPRECATED dsSessionTarget "Use generic-lens or generic-optics with 'sessionTarget' instead." #-}
 
-instance Lude.FromJSON DebugSession where
+instance Core.FromJSON DebugSession where
   parseJSON =
-    Lude.withObject
-      "DebugSession"
-      ( \x ->
-          DebugSession'
-            Lude.<$> (x Lude..:? "sessionEnabled")
-            Lude.<*> (x Lude..:? "sessionTarget")
-      )
+    Core.withObject "DebugSession" Core.$
+      \x ->
+        DebugSession'
+          Core.<$> (x Core..:? "sessionEnabled") Core.<*> (x Core..:? "sessionTarget")

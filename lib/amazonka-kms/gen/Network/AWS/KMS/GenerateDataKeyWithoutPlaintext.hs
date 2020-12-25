@@ -28,34 +28,32 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     mkGenerateDataKeyWithoutPlaintext,
 
     -- ** Request lenses
-    gdkwpKeySpec,
     gdkwpKeyId,
     gdkwpEncryptionContext,
-    gdkwpNumberOfBytes,
     gdkwpGrantTokens,
+    gdkwpKeySpec,
+    gdkwpNumberOfBytes,
 
     -- * Destructuring the response
     GenerateDataKeyWithoutPlaintextResponse (..),
     mkGenerateDataKeyWithoutPlaintextResponse,
 
     -- ** Response lenses
-    gdkwprsKeyId,
-    gdkwprsCiphertextBlob,
-    gdkwprsResponseStatus,
+    gdkwprrsCiphertextBlob,
+    gdkwprrsKeyId,
+    gdkwprrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGenerateDataKeyWithoutPlaintext' smart constructor.
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
-  { -- | The length of the data key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
-    keySpec :: Lude.Maybe DataKeySpec,
-    -- | The identifier of the symmetric customer master key (CMK) that encrypts the data key.
+  { -- | The identifier of the symmetric customer master key (CMK) that encrypts the data key.
     --
     -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
     -- For example:
@@ -73,70 +71,37 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyIdType,
     -- | Specifies the encryption context that will be used when encrypting the data key.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
-    encryptionContext :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
-    numberOfBytes :: Lude.Maybe Lude.Natural,
+    encryptionContext :: Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue),
     -- | A list of grant tokens.
     --
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantTokens :: Lude.Maybe [Lude.Text]
+    grantTokens :: Core.Maybe [Types.GrantTokenType],
+    -- | The length of the data key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
+    keySpec :: Core.Maybe Types.DataKeySpec,
+    -- | The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
+    numberOfBytes :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateDataKeyWithoutPlaintext' with the minimum fields required to make a request.
---
--- * 'keySpec' - The length of the data key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
--- * 'keyId' - The identifier of the symmetric customer master key (CMK) that encrypts the data key.
---
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Alias name: @alias/ExampleAlias@
---
---
---     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
--- * 'encryptionContext' - Specifies the encryption context that will be used when encrypting the data key.
---
--- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
--- * 'numberOfBytes' - The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- | Creates a 'GenerateDataKeyWithoutPlaintext' value with any optional fields omitted.
 mkGenerateDataKeyWithoutPlaintext ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   GenerateDataKeyWithoutPlaintext
-mkGenerateDataKeyWithoutPlaintext pKeyId_ =
+mkGenerateDataKeyWithoutPlaintext keyId =
   GenerateDataKeyWithoutPlaintext'
-    { keySpec = Lude.Nothing,
-      keyId = pKeyId_,
-      encryptionContext = Lude.Nothing,
-      numberOfBytes = Lude.Nothing,
-      grantTokens = Lude.Nothing
+    { keyId,
+      encryptionContext = Core.Nothing,
+      grantTokens = Core.Nothing,
+      keySpec = Core.Nothing,
+      numberOfBytes = Core.Nothing
     }
-
--- | The length of the data key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
---
--- /Note:/ Consider using 'keySpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwpKeySpec :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Lude.Maybe DataKeySpec)
-gdkwpKeySpec = Lens.lens (keySpec :: GenerateDataKeyWithoutPlaintext -> Lude.Maybe DataKeySpec) (\s a -> s {keySpec = a} :: GenerateDataKeyWithoutPlaintext)
-{-# DEPRECATED gdkwpKeySpec "Use generic-lens or generic-optics with 'keySpec' instead." #-}
 
 -- | The identifier of the symmetric customer master key (CMK) that encrypts the data key.
 --
@@ -158,8 +123,8 @@ gdkwpKeySpec = Lens.lens (keySpec :: GenerateDataKeyWithoutPlaintext -> Lude.May
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwpKeyId :: Lens.Lens' GenerateDataKeyWithoutPlaintext Lude.Text
-gdkwpKeyId = Lens.lens (keyId :: GenerateDataKeyWithoutPlaintext -> Lude.Text) (\s a -> s {keyId = a} :: GenerateDataKeyWithoutPlaintext)
+gdkwpKeyId :: Lens.Lens' GenerateDataKeyWithoutPlaintext Types.KeyIdType
+gdkwpKeyId = Lens.field @"keyId"
 {-# DEPRECATED gdkwpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | Specifies the encryption context that will be used when encrypting the data key.
@@ -168,105 +133,94 @@ gdkwpKeyId = Lens.lens (keyId :: GenerateDataKeyWithoutPlaintext -> Lude.Text) (
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'encryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwpEncryptionContext :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gdkwpEncryptionContext = Lens.lens (encryptionContext :: GenerateDataKeyWithoutPlaintext -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {encryptionContext = a} :: GenerateDataKeyWithoutPlaintext)
+gdkwpEncryptionContext :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue))
+gdkwpEncryptionContext = Lens.field @"encryptionContext"
 {-# DEPRECATED gdkwpEncryptionContext "Use generic-lens or generic-optics with 'encryptionContext' instead." #-}
-
--- | The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
---
--- /Note:/ Consider using 'numberOfBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwpNumberOfBytes :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Lude.Maybe Lude.Natural)
-gdkwpNumberOfBytes = Lens.lens (numberOfBytes :: GenerateDataKeyWithoutPlaintext -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfBytes = a} :: GenerateDataKeyWithoutPlaintext)
-{-# DEPRECATED gdkwpNumberOfBytes "Use generic-lens or generic-optics with 'numberOfBytes' instead." #-}
 
 -- | A list of grant tokens.
 --
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwpGrantTokens :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Lude.Maybe [Lude.Text])
-gdkwpGrantTokens = Lens.lens (grantTokens :: GenerateDataKeyWithoutPlaintext -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: GenerateDataKeyWithoutPlaintext)
+gdkwpGrantTokens :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Core.Maybe [Types.GrantTokenType])
+gdkwpGrantTokens = Lens.field @"grantTokens"
 {-# DEPRECATED gdkwpGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
-instance Lude.AWSRequest GenerateDataKeyWithoutPlaintext where
+-- | The length of the data key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
+--
+-- /Note:/ Consider using 'keySpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdkwpKeySpec :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Core.Maybe Types.DataKeySpec)
+gdkwpKeySpec = Lens.field @"keySpec"
+{-# DEPRECATED gdkwpKeySpec "Use generic-lens or generic-optics with 'keySpec' instead." #-}
+
+-- | The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
+--
+-- /Note:/ Consider using 'numberOfBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdkwpNumberOfBytes :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Core.Maybe Core.Natural)
+gdkwpNumberOfBytes = Lens.field @"numberOfBytes"
+{-# DEPRECATED gdkwpNumberOfBytes "Use generic-lens or generic-optics with 'numberOfBytes' instead." #-}
+
+instance Core.FromJSON GenerateDataKeyWithoutPlaintext where
+  toJSON GenerateDataKeyWithoutPlaintext {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            ("EncryptionContext" Core..=) Core.<$> encryptionContext,
+            ("GrantTokens" Core..=) Core.<$> grantTokens,
+            ("KeySpec" Core..=) Core.<$> keySpec,
+            ("NumberOfBytes" Core..=) Core.<$> numberOfBytes
+          ]
+      )
+
+instance Core.AWSRequest GenerateDataKeyWithoutPlaintext where
   type
     Rs GenerateDataKeyWithoutPlaintext =
       GenerateDataKeyWithoutPlaintextResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "TrentService.GenerateDataKeyWithoutPlaintext")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyWithoutPlaintextResponse'
-            Lude.<$> (x Lude..?> "KeyId")
-            Lude.<*> (x Lude..?> "CiphertextBlob")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CiphertextBlob")
+            Core.<*> (x Core..:? "KeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GenerateDataKeyWithoutPlaintext where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "TrentService.GenerateDataKeyWithoutPlaintext" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GenerateDataKeyWithoutPlaintext where
-  toJSON GenerateDataKeyWithoutPlaintext' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeySpec" Lude..=) Lude.<$> keySpec,
-            Lude.Just ("KeyId" Lude..= keyId),
-            ("EncryptionContext" Lude..=) Lude.<$> encryptionContext,
-            ("NumberOfBytes" Lude..=) Lude.<$> numberOfBytes,
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens
-          ]
-      )
-
-instance Lude.ToPath GenerateDataKeyWithoutPlaintext where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateDataKeyWithoutPlaintext where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGenerateDataKeyWithoutPlaintextResponse' smart constructor.
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
-  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the data key.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    ciphertextBlob :: Lude.Maybe Lude.Base64,
+  { -- | The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+    ciphertextBlob :: Core.Maybe Core.Base64,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the data key.
+    keyId :: Core.Maybe Types.KeyId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateDataKeyWithoutPlaintextResponse' with the minimum fields required to make a request.
---
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the data key.
--- * 'ciphertextBlob' - The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateDataKeyWithoutPlaintextResponse' value with any optional fields omitted.
 mkGenerateDataKeyWithoutPlaintextResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateDataKeyWithoutPlaintextResponse
-mkGenerateDataKeyWithoutPlaintextResponse pResponseStatus_ =
+mkGenerateDataKeyWithoutPlaintextResponse responseStatus =
   GenerateDataKeyWithoutPlaintextResponse'
-    { keyId = Lude.Nothing,
-      ciphertextBlob = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { ciphertextBlob =
+        Core.Nothing,
+      keyId = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the data key.
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwprsKeyId :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Lude.Maybe Lude.Text)
-gdkwprsKeyId = Lens.lens (keyId :: GenerateDataKeyWithoutPlaintextResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GenerateDataKeyWithoutPlaintextResponse)
-{-# DEPRECATED gdkwprsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -275,13 +229,20 @@ gdkwprsKeyId = Lens.lens (keyId :: GenerateDataKeyWithoutPlaintextResponse -> Lu
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'ciphertextBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwprsCiphertextBlob :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Lude.Maybe Lude.Base64)
-gdkwprsCiphertextBlob = Lens.lens (ciphertextBlob :: GenerateDataKeyWithoutPlaintextResponse -> Lude.Maybe Lude.Base64) (\s a -> s {ciphertextBlob = a} :: GenerateDataKeyWithoutPlaintextResponse)
-{-# DEPRECATED gdkwprsCiphertextBlob "Use generic-lens or generic-optics with 'ciphertextBlob' instead." #-}
+gdkwprrsCiphertextBlob :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Core.Maybe Core.Base64)
+gdkwprrsCiphertextBlob = Lens.field @"ciphertextBlob"
+{-# DEPRECATED gdkwprrsCiphertextBlob "Use generic-lens or generic-optics with 'ciphertextBlob' instead." #-}
+
+-- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the data key.
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdkwprrsKeyId :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Core.Maybe Types.KeyId)
+gdkwprrsKeyId = Lens.field @"keyId"
+{-# DEPRECATED gdkwprrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkwprsResponseStatus :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse Lude.Int
-gdkwprsResponseStatus = Lens.lens (responseStatus :: GenerateDataKeyWithoutPlaintextResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateDataKeyWithoutPlaintextResponse)
-{-# DEPRECATED gdkwprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdkwprrsResponseStatus :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse Core.Int
+gdkwprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdkwprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

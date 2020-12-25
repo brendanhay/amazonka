@@ -17,104 +17,97 @@ module Network.AWS.DMS.Types.Event
     mkEvent,
 
     -- * Lenses
-    eSourceType,
-    eSourceIdentifier,
     eDate,
     eEventCategories,
     eMessage,
+    eSourceIdentifier,
+    eSourceType,
   )
 where
 
-import Network.AWS.DMS.Types.SourceType
+import qualified Network.AWS.DMS.Types.Message as Types
+import qualified Network.AWS.DMS.Types.SourceIdentifier as Types
+import qualified Network.AWS.DMS.Types.SourceType as Types
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an identifiable significant activity that affects a replication instance or task. This object can provide the message, the available event categories, the date and source of the event, and the AWS DMS resource type.
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { -- | The type of AWS DMS resource that generates events.
+  { -- | The date of the event.
+    date :: Core.Maybe Core.NominalDiffTime,
+    -- | The event categories available for the specified source type.
+    eventCategories :: Core.Maybe [Types.String],
+    -- | The event message.
+    message :: Core.Maybe Types.Message,
+    -- | The identifier of an event source.
+    sourceIdentifier :: Core.Maybe Types.SourceIdentifier,
+    -- | The type of AWS DMS resource that generates events.
     --
     -- Valid values: replication-instance | endpoint | replication-task
-    sourceType :: Lude.Maybe SourceType,
-    -- | The identifier of an event source.
-    sourceIdentifier :: Lude.Maybe Lude.Text,
-    -- | The date of the event.
-    date :: Lude.Maybe Lude.Timestamp,
-    -- | The event categories available for the specified source type.
-    eventCategories :: Lude.Maybe [Lude.Text],
-    -- | The event message.
-    message :: Lude.Maybe Lude.Text
+    sourceType :: Core.Maybe Types.SourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Event' with the minimum fields required to make a request.
---
--- * 'sourceType' - The type of AWS DMS resource that generates events.
---
--- Valid values: replication-instance | endpoint | replication-task
--- * 'sourceIdentifier' - The identifier of an event source.
--- * 'date' - The date of the event.
--- * 'eventCategories' - The event categories available for the specified source type.
--- * 'message' - The event message.
+-- | Creates a 'Event' value with any optional fields omitted.
 mkEvent ::
   Event
 mkEvent =
   Event'
-    { sourceType = Lude.Nothing,
-      sourceIdentifier = Lude.Nothing,
-      date = Lude.Nothing,
-      eventCategories = Lude.Nothing,
-      message = Lude.Nothing
+    { date = Core.Nothing,
+      eventCategories = Core.Nothing,
+      message = Core.Nothing,
+      sourceIdentifier = Core.Nothing,
+      sourceType = Core.Nothing
     }
+
+-- | The date of the event.
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDate :: Lens.Lens' Event (Core.Maybe Core.NominalDiffTime)
+eDate = Lens.field @"date"
+{-# DEPRECATED eDate "Use generic-lens or generic-optics with 'date' instead." #-}
+
+-- | The event categories available for the specified source type.
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventCategories :: Lens.Lens' Event (Core.Maybe [Types.String])
+eEventCategories = Lens.field @"eventCategories"
+{-# DEPRECATED eEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
+
+-- | The event message.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMessage :: Lens.Lens' Event (Core.Maybe Types.Message)
+eMessage = Lens.field @"message"
+{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The identifier of an event source.
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceIdentifier :: Lens.Lens' Event (Core.Maybe Types.SourceIdentifier)
+eSourceIdentifier = Lens.field @"sourceIdentifier"
+{-# DEPRECATED eSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
 -- | The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | endpoint | replication-task
 --
 -- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceType :: Lens.Lens' Event (Lude.Maybe SourceType)
-eSourceType = Lens.lens (sourceType :: Event -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: Event)
+eSourceType :: Lens.Lens' Event (Core.Maybe Types.SourceType)
+eSourceType = Lens.field @"sourceType"
 {-# DEPRECATED eSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
--- | The identifier of an event source.
---
--- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceIdentifier :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eSourceIdentifier = Lens.lens (sourceIdentifier :: Event -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: Event)
-{-# DEPRECATED eSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
-
--- | The date of the event.
---
--- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDate :: Lens.Lens' Event (Lude.Maybe Lude.Timestamp)
-eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.Timestamp) (\s a -> s {date = a} :: Event)
-{-# DEPRECATED eDate "Use generic-lens or generic-optics with 'date' instead." #-}
-
--- | The event categories available for the specified source type.
---
--- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEventCategories :: Lens.Lens' Event (Lude.Maybe [Lude.Text])
-eEventCategories = Lens.lens (eventCategories :: Event -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: Event)
-{-# DEPRECATED eEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
-
--- | The event message.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMessage :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eMessage = Lens.lens (message :: Event -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Event)
-{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
-instance Lude.FromJSON Event where
+instance Core.FromJSON Event where
   parseJSON =
-    Lude.withObject
-      "Event"
-      ( \x ->
-          Event'
-            Lude.<$> (x Lude..:? "SourceType")
-            Lude.<*> (x Lude..:? "SourceIdentifier")
-            Lude.<*> (x Lude..:? "Date")
-            Lude.<*> (x Lude..:? "EventCategories" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "Event" Core.$
+      \x ->
+        Event'
+          Core.<$> (x Core..:? "Date")
+          Core.<*> (x Core..:? "EventCategories")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "SourceIdentifier")
+          Core.<*> (x Core..:? "SourceType")

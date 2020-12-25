@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd
   ( VideoDescriptionRespondToAfd
       ( VideoDescriptionRespondToAfd',
-        None,
-        Passthrough,
-        Respond
+        VideoDescriptionRespondToAfdNone,
+        VideoDescriptionRespondToAfdPassthrough,
+        VideoDescriptionRespondToAfdRespond,
+        fromVideoDescriptionRespondToAfd
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Video Description Respond To Afd
-newtype VideoDescriptionRespondToAfd = VideoDescriptionRespondToAfd' Lude.Text
+newtype VideoDescriptionRespondToAfd = VideoDescriptionRespondToAfd'
+  { fromVideoDescriptionRespondToAfd ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: VideoDescriptionRespondToAfd
-pattern None = VideoDescriptionRespondToAfd' "NONE"
+pattern VideoDescriptionRespondToAfdNone :: VideoDescriptionRespondToAfd
+pattern VideoDescriptionRespondToAfdNone = VideoDescriptionRespondToAfd' "NONE"
 
-pattern Passthrough :: VideoDescriptionRespondToAfd
-pattern Passthrough = VideoDescriptionRespondToAfd' "PASSTHROUGH"
+pattern VideoDescriptionRespondToAfdPassthrough :: VideoDescriptionRespondToAfd
+pattern VideoDescriptionRespondToAfdPassthrough = VideoDescriptionRespondToAfd' "PASSTHROUGH"
 
-pattern Respond :: VideoDescriptionRespondToAfd
-pattern Respond = VideoDescriptionRespondToAfd' "RESPOND"
+pattern VideoDescriptionRespondToAfdRespond :: VideoDescriptionRespondToAfd
+pattern VideoDescriptionRespondToAfdRespond = VideoDescriptionRespondToAfd' "RESPOND"
 
 {-# COMPLETE
-  None,
-  Passthrough,
-  Respond,
+  VideoDescriptionRespondToAfdNone,
+  VideoDescriptionRespondToAfdPassthrough,
+  VideoDescriptionRespondToAfdRespond,
   VideoDescriptionRespondToAfd'
   #-}

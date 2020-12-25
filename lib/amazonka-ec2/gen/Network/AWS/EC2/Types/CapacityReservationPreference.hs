@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.CapacityReservationPreference
   ( CapacityReservationPreference
       ( CapacityReservationPreference',
-        Open,
-        None
+        CapacityReservationPreferenceOpen,
+        CapacityReservationPreferenceNone,
+        fromCapacityReservationPreference
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CapacityReservationPreference = CapacityReservationPreference' Lude.Text
+newtype CapacityReservationPreference = CapacityReservationPreference'
+  { fromCapacityReservationPreference ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Open :: CapacityReservationPreference
-pattern Open = CapacityReservationPreference' "open"
+pattern CapacityReservationPreferenceOpen :: CapacityReservationPreference
+pattern CapacityReservationPreferenceOpen = CapacityReservationPreference' "open"
 
-pattern None :: CapacityReservationPreference
-pattern None = CapacityReservationPreference' "none"
+pattern CapacityReservationPreferenceNone :: CapacityReservationPreference
+pattern CapacityReservationPreferenceNone = CapacityReservationPreference' "none"
 
 {-# COMPLETE
-  Open,
-  None,
+  CapacityReservationPreferenceOpen,
+  CapacityReservationPreferenceNone,
   CapacityReservationPreference'
   #-}

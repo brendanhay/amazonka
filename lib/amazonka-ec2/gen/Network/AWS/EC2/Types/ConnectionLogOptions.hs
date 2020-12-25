@@ -17,68 +17,58 @@ module Network.AWS.EC2.Types.ConnectionLogOptions
     mkConnectionLogOptions,
 
     -- * Lenses
-    cloEnabled,
-    cloCloudwatchLogStream,
     cloCloudwatchLogGroup,
+    cloCloudwatchLogStream,
+    cloEnabled,
   )
 where
 
+import qualified Network.AWS.EC2.Types.CloudwatchLogGroup as Types
+import qualified Network.AWS.EC2.Types.CloudwatchLogStream as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the client connection logging options for the Client VPN endpoint.
 --
 -- /See:/ 'mkConnectionLogOptions' smart constructor.
 data ConnectionLogOptions = ConnectionLogOptions'
-  { -- | Indicates whether connection logging is enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+  { -- | The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+    cloudwatchLogGroup :: Core.Maybe Types.CloudwatchLogGroup,
     -- | The name of the CloudWatch Logs log stream to which the connection data is published.
-    cloudwatchLogStream :: Lude.Maybe Lude.Text,
-    -- | The name of the CloudWatch Logs log group. Required if connection logging is enabled.
-    cloudwatchLogGroup :: Lude.Maybe Lude.Text
+    cloudwatchLogStream :: Core.Maybe Types.CloudwatchLogStream,
+    -- | Indicates whether connection logging is enabled.
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectionLogOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether connection logging is enabled.
--- * 'cloudwatchLogStream' - The name of the CloudWatch Logs log stream to which the connection data is published.
--- * 'cloudwatchLogGroup' - The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+-- | Creates a 'ConnectionLogOptions' value with any optional fields omitted.
 mkConnectionLogOptions ::
   ConnectionLogOptions
 mkConnectionLogOptions =
   ConnectionLogOptions'
-    { enabled = Lude.Nothing,
-      cloudwatchLogStream = Lude.Nothing,
-      cloudwatchLogGroup = Lude.Nothing
+    { cloudwatchLogGroup = Core.Nothing,
+      cloudwatchLogStream = Core.Nothing,
+      enabled = Core.Nothing
     }
-
--- | Indicates whether connection logging is enabled.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cloEnabled :: Lens.Lens' ConnectionLogOptions (Lude.Maybe Lude.Bool)
-cloEnabled = Lens.lens (enabled :: ConnectionLogOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ConnectionLogOptions)
-{-# DEPRECATED cloEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | The name of the CloudWatch Logs log stream to which the connection data is published.
---
--- /Note:/ Consider using 'cloudwatchLogStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cloCloudwatchLogStream :: Lens.Lens' ConnectionLogOptions (Lude.Maybe Lude.Text)
-cloCloudwatchLogStream = Lens.lens (cloudwatchLogStream :: ConnectionLogOptions -> Lude.Maybe Lude.Text) (\s a -> s {cloudwatchLogStream = a} :: ConnectionLogOptions)
-{-# DEPRECATED cloCloudwatchLogStream "Use generic-lens or generic-optics with 'cloudwatchLogStream' instead." #-}
 
 -- | The name of the CloudWatch Logs log group. Required if connection logging is enabled.
 --
 -- /Note:/ Consider using 'cloudwatchLogGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cloCloudwatchLogGroup :: Lens.Lens' ConnectionLogOptions (Lude.Maybe Lude.Text)
-cloCloudwatchLogGroup = Lens.lens (cloudwatchLogGroup :: ConnectionLogOptions -> Lude.Maybe Lude.Text) (\s a -> s {cloudwatchLogGroup = a} :: ConnectionLogOptions)
+cloCloudwatchLogGroup :: Lens.Lens' ConnectionLogOptions (Core.Maybe Types.CloudwatchLogGroup)
+cloCloudwatchLogGroup = Lens.field @"cloudwatchLogGroup"
 {-# DEPRECATED cloCloudwatchLogGroup "Use generic-lens or generic-optics with 'cloudwatchLogGroup' instead." #-}
 
-instance Lude.ToQuery ConnectionLogOptions where
-  toQuery ConnectionLogOptions' {..} =
-    Lude.mconcat
-      [ "Enabled" Lude.=: enabled,
-        "CloudwatchLogStream" Lude.=: cloudwatchLogStream,
-        "CloudwatchLogGroup" Lude.=: cloudwatchLogGroup
-      ]
+-- | The name of the CloudWatch Logs log stream to which the connection data is published.
+--
+-- /Note:/ Consider using 'cloudwatchLogStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cloCloudwatchLogStream :: Lens.Lens' ConnectionLogOptions (Core.Maybe Types.CloudwatchLogStream)
+cloCloudwatchLogStream = Lens.field @"cloudwatchLogStream"
+{-# DEPRECATED cloCloudwatchLogStream "Use generic-lens or generic-optics with 'cloudwatchLogStream' instead." #-}
+
+-- | Indicates whether connection logging is enabled.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cloEnabled :: Lens.Lens' ConnectionLogOptions (Core.Maybe Core.Bool)
+cloEnabled = Lens.field @"enabled"
+{-# DEPRECATED cloEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}

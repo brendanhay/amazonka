@@ -27,114 +27,100 @@ module Network.AWS.Lightsail.GetInstanceSnapshot
     mkGetInstanceSnapshotResponse,
 
     -- ** Response lenses
-    gisrsInstanceSnapshot,
-    gisrsResponseStatus,
+    gisrfrsInstanceSnapshot,
+    gisrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInstanceSnapshot' smart constructor.
 newtype GetInstanceSnapshot = GetInstanceSnapshot'
   { -- | The name of the snapshot for which you are requesting information.
-    instanceSnapshotName :: Lude.Text
+    instanceSnapshotName :: Types.InstanceSnapshotName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceSnapshot' with the minimum fields required to make a request.
---
--- * 'instanceSnapshotName' - The name of the snapshot for which you are requesting information.
+-- | Creates a 'GetInstanceSnapshot' value with any optional fields omitted.
 mkGetInstanceSnapshot ::
   -- | 'instanceSnapshotName'
-  Lude.Text ->
+  Types.InstanceSnapshotName ->
   GetInstanceSnapshot
-mkGetInstanceSnapshot pInstanceSnapshotName_ =
-  GetInstanceSnapshot'
-    { instanceSnapshotName =
-        pInstanceSnapshotName_
-    }
+mkGetInstanceSnapshot instanceSnapshotName =
+  GetInstanceSnapshot' {instanceSnapshotName}
 
 -- | The name of the snapshot for which you are requesting information.
 --
 -- /Note:/ Consider using 'instanceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisInstanceSnapshotName :: Lens.Lens' GetInstanceSnapshot Lude.Text
-gisInstanceSnapshotName = Lens.lens (instanceSnapshotName :: GetInstanceSnapshot -> Lude.Text) (\s a -> s {instanceSnapshotName = a} :: GetInstanceSnapshot)
+gisInstanceSnapshotName :: Lens.Lens' GetInstanceSnapshot Types.InstanceSnapshotName
+gisInstanceSnapshotName = Lens.field @"instanceSnapshotName"
 {-# DEPRECATED gisInstanceSnapshotName "Use generic-lens or generic-optics with 'instanceSnapshotName' instead." #-}
 
-instance Lude.AWSRequest GetInstanceSnapshot where
+instance Core.FromJSON GetInstanceSnapshot where
+  toJSON GetInstanceSnapshot {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceSnapshotName" Core..= instanceSnapshotName)]
+      )
+
+instance Core.AWSRequest GetInstanceSnapshot where
   type Rs GetInstanceSnapshot = GetInstanceSnapshotResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetInstanceSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceSnapshotResponse'
-            Lude.<$> (x Lude..?> "instanceSnapshot")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "instanceSnapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInstanceSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetInstanceSnapshot" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstanceSnapshot where
-  toJSON GetInstanceSnapshot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("instanceSnapshotName" Lude..= instanceSnapshotName)]
-      )
-
-instance Lude.ToPath GetInstanceSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstanceSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInstanceSnapshotResponse' smart constructor.
 data GetInstanceSnapshotResponse = GetInstanceSnapshotResponse'
   { -- | An array of key-value pairs containing information about the results of your get instance snapshot request.
-    instanceSnapshot :: Lude.Maybe InstanceSnapshot,
+    instanceSnapshot :: Core.Maybe Types.InstanceSnapshot,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInstanceSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'instanceSnapshot' - An array of key-value pairs containing information about the results of your get instance snapshot request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceSnapshotResponse' value with any optional fields omitted.
 mkGetInstanceSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceSnapshotResponse
-mkGetInstanceSnapshotResponse pResponseStatus_ =
+mkGetInstanceSnapshotResponse responseStatus =
   GetInstanceSnapshotResponse'
-    { instanceSnapshot = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceSnapshot = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of key-value pairs containing information about the results of your get instance snapshot request.
 --
 -- /Note:/ Consider using 'instanceSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsInstanceSnapshot :: Lens.Lens' GetInstanceSnapshotResponse (Lude.Maybe InstanceSnapshot)
-gisrsInstanceSnapshot = Lens.lens (instanceSnapshot :: GetInstanceSnapshotResponse -> Lude.Maybe InstanceSnapshot) (\s a -> s {instanceSnapshot = a} :: GetInstanceSnapshotResponse)
-{-# DEPRECATED gisrsInstanceSnapshot "Use generic-lens or generic-optics with 'instanceSnapshot' instead." #-}
+gisrfrsInstanceSnapshot :: Lens.Lens' GetInstanceSnapshotResponse (Core.Maybe Types.InstanceSnapshot)
+gisrfrsInstanceSnapshot = Lens.field @"instanceSnapshot"
+{-# DEPRECATED gisrfrsInstanceSnapshot "Use generic-lens or generic-optics with 'instanceSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsResponseStatus :: Lens.Lens' GetInstanceSnapshotResponse Lude.Int
-gisrsResponseStatus = Lens.lens (responseStatus :: GetInstanceSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceSnapshotResponse)
-{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gisrfrsResponseStatus :: Lens.Lens' GetInstanceSnapshotResponse Core.Int
+gisrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gisrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

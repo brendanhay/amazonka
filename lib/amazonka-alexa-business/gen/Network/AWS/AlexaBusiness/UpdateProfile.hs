@@ -20,260 +20,237 @@ module Network.AWS.AlexaBusiness.UpdateProfile
     mkUpdateProfile,
 
     -- ** Request lenses
-    upSetupModeDisabled,
-    upPSTNEnabled,
-    upDistanceUnit,
-    upLocale,
     upAddress,
-    upProfileARN,
-    upWakeWord,
+    upDistanceUnit,
+    upIsDefault,
+    upLocale,
+    upMaxVolumeLimit,
     upMeetingRoomConfiguration,
+    upPSTNEnabled,
+    upProfileArn,
     upProfileName,
+    upSetupModeDisabled,
     upTemperatureUnit,
     upTimezone,
-    upMaxVolumeLimit,
-    upIsDefault,
+    upWakeWord,
 
     -- * Destructuring the response
     UpdateProfileResponse (..),
     mkUpdateProfileResponse,
 
     -- ** Response lenses
-    uprsResponseStatus,
+    uprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateProfile' smart constructor.
 data UpdateProfile = UpdateProfile'
-  { -- | Whether the setup mode of the profile is enabled.
-    setupModeDisabled :: Lude.Maybe Lude.Bool,
-    -- | Whether the PSTN setting of the room profile is enabled.
-    pSTNEnabled :: Lude.Maybe Lude.Bool,
+  { -- | The updated address for the room profile.
+    address :: Core.Maybe Types.Address,
     -- | The updated distance unit for the room profile.
-    distanceUnit :: Lude.Maybe DistanceUnit,
-    -- | The updated locale for the room profile. (This is currently only available to a limited preview audience.)
-    locale :: Lude.Maybe Lude.Text,
-    -- | The updated address for the room profile.
-    address :: Lude.Maybe Lude.Text,
-    -- | The ARN of the room profile to update. Required.
-    profileARN :: Lude.Maybe Lude.Text,
-    -- | The updated wake word for the room profile.
-    wakeWord :: Lude.Maybe WakeWord,
-    -- | The updated meeting room settings of a room profile.
-    meetingRoomConfiguration :: Lude.Maybe UpdateMeetingRoomConfiguration,
-    -- | The updated name for the room profile.
-    profileName :: Lude.Maybe Lude.Text,
-    -- | The updated temperature unit for the room profile.
-    temperatureUnit :: Lude.Maybe TemperatureUnit,
-    -- | The updated timezone for the room profile.
-    timezone :: Lude.Maybe Lude.Text,
-    -- | The updated maximum volume limit for the room profile.
-    maxVolumeLimit :: Lude.Maybe Lude.Int,
+    distanceUnit :: Core.Maybe Types.DistanceUnit,
     -- | Sets the profile as default if selected. If this is missing, no update is done to the default status.
-    isDefault :: Lude.Maybe Lude.Bool
+    isDefault :: Core.Maybe Core.Bool,
+    -- | The updated locale for the room profile. (This is currently only available to a limited preview audience.)
+    locale :: Core.Maybe Types.DeviceLocale,
+    -- | The updated maximum volume limit for the room profile.
+    maxVolumeLimit :: Core.Maybe Core.Int,
+    -- | The updated meeting room settings of a room profile.
+    meetingRoomConfiguration :: Core.Maybe Types.UpdateMeetingRoomConfiguration,
+    -- | Whether the PSTN setting of the room profile is enabled.
+    pSTNEnabled :: Core.Maybe Core.Bool,
+    -- | The ARN of the room profile to update. Required.
+    profileArn :: Core.Maybe Types.Arn,
+    -- | The updated name for the room profile.
+    profileName :: Core.Maybe Types.ProfileName,
+    -- | Whether the setup mode of the profile is enabled.
+    setupModeDisabled :: Core.Maybe Core.Bool,
+    -- | The updated temperature unit for the room profile.
+    temperatureUnit :: Core.Maybe Types.TemperatureUnit,
+    -- | The updated timezone for the room profile.
+    timezone :: Core.Maybe Types.Timezone,
+    -- | The updated wake word for the room profile.
+    wakeWord :: Core.Maybe Types.WakeWord
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProfile' with the minimum fields required to make a request.
---
--- * 'setupModeDisabled' - Whether the setup mode of the profile is enabled.
--- * 'pSTNEnabled' - Whether the PSTN setting of the room profile is enabled.
--- * 'distanceUnit' - The updated distance unit for the room profile.
--- * 'locale' - The updated locale for the room profile. (This is currently only available to a limited preview audience.)
--- * 'address' - The updated address for the room profile.
--- * 'profileARN' - The ARN of the room profile to update. Required.
--- * 'wakeWord' - The updated wake word for the room profile.
--- * 'meetingRoomConfiguration' - The updated meeting room settings of a room profile.
--- * 'profileName' - The updated name for the room profile.
--- * 'temperatureUnit' - The updated temperature unit for the room profile.
--- * 'timezone' - The updated timezone for the room profile.
--- * 'maxVolumeLimit' - The updated maximum volume limit for the room profile.
--- * 'isDefault' - Sets the profile as default if selected. If this is missing, no update is done to the default status.
+-- | Creates a 'UpdateProfile' value with any optional fields omitted.
 mkUpdateProfile ::
   UpdateProfile
 mkUpdateProfile =
   UpdateProfile'
-    { setupModeDisabled = Lude.Nothing,
-      pSTNEnabled = Lude.Nothing,
-      distanceUnit = Lude.Nothing,
-      locale = Lude.Nothing,
-      address = Lude.Nothing,
-      profileARN = Lude.Nothing,
-      wakeWord = Lude.Nothing,
-      meetingRoomConfiguration = Lude.Nothing,
-      profileName = Lude.Nothing,
-      temperatureUnit = Lude.Nothing,
-      timezone = Lude.Nothing,
-      maxVolumeLimit = Lude.Nothing,
-      isDefault = Lude.Nothing
+    { address = Core.Nothing,
+      distanceUnit = Core.Nothing,
+      isDefault = Core.Nothing,
+      locale = Core.Nothing,
+      maxVolumeLimit = Core.Nothing,
+      meetingRoomConfiguration = Core.Nothing,
+      pSTNEnabled = Core.Nothing,
+      profileArn = Core.Nothing,
+      profileName = Core.Nothing,
+      setupModeDisabled = Core.Nothing,
+      temperatureUnit = Core.Nothing,
+      timezone = Core.Nothing,
+      wakeWord = Core.Nothing
     }
-
--- | Whether the setup mode of the profile is enabled.
---
--- /Note:/ Consider using 'setupModeDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upSetupModeDisabled :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Bool)
-upSetupModeDisabled = Lens.lens (setupModeDisabled :: UpdateProfile -> Lude.Maybe Lude.Bool) (\s a -> s {setupModeDisabled = a} :: UpdateProfile)
-{-# DEPRECATED upSetupModeDisabled "Use generic-lens or generic-optics with 'setupModeDisabled' instead." #-}
-
--- | Whether the PSTN setting of the room profile is enabled.
---
--- /Note:/ Consider using 'pSTNEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPSTNEnabled :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Bool)
-upPSTNEnabled = Lens.lens (pSTNEnabled :: UpdateProfile -> Lude.Maybe Lude.Bool) (\s a -> s {pSTNEnabled = a} :: UpdateProfile)
-{-# DEPRECATED upPSTNEnabled "Use generic-lens or generic-optics with 'pSTNEnabled' instead." #-}
-
--- | The updated distance unit for the room profile.
---
--- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upDistanceUnit :: Lens.Lens' UpdateProfile (Lude.Maybe DistanceUnit)
-upDistanceUnit = Lens.lens (distanceUnit :: UpdateProfile -> Lude.Maybe DistanceUnit) (\s a -> s {distanceUnit = a} :: UpdateProfile)
-{-# DEPRECATED upDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
-
--- | The updated locale for the room profile. (This is currently only available to a limited preview audience.)
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upLocale :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Text)
-upLocale = Lens.lens (locale :: UpdateProfile -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: UpdateProfile)
-{-# DEPRECATED upLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The updated address for the room profile.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upAddress :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Text)
-upAddress = Lens.lens (address :: UpdateProfile -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: UpdateProfile)
+upAddress :: Lens.Lens' UpdateProfile (Core.Maybe Types.Address)
+upAddress = Lens.field @"address"
 {-# DEPRECATED upAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
--- | The ARN of the room profile to update. Required.
+-- | The updated distance unit for the room profile.
 --
--- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upProfileARN :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Text)
-upProfileARN = Lens.lens (profileARN :: UpdateProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: UpdateProfile)
-{-# DEPRECATED upProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
+-- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDistanceUnit :: Lens.Lens' UpdateProfile (Core.Maybe Types.DistanceUnit)
+upDistanceUnit = Lens.field @"distanceUnit"
+{-# DEPRECATED upDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
 
--- | The updated wake word for the room profile.
+-- | Sets the profile as default if selected. If this is missing, no update is done to the default status.
 --
--- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upWakeWord :: Lens.Lens' UpdateProfile (Lude.Maybe WakeWord)
-upWakeWord = Lens.lens (wakeWord :: UpdateProfile -> Lude.Maybe WakeWord) (\s a -> s {wakeWord = a} :: UpdateProfile)
-{-# DEPRECATED upWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
+-- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upIsDefault :: Lens.Lens' UpdateProfile (Core.Maybe Core.Bool)
+upIsDefault = Lens.field @"isDefault"
+{-# DEPRECATED upIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
+
+-- | The updated locale for the room profile. (This is currently only available to a limited preview audience.)
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upLocale :: Lens.Lens' UpdateProfile (Core.Maybe Types.DeviceLocale)
+upLocale = Lens.field @"locale"
+{-# DEPRECATED upLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+-- | The updated maximum volume limit for the room profile.
+--
+-- /Note:/ Consider using 'maxVolumeLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upMaxVolumeLimit :: Lens.Lens' UpdateProfile (Core.Maybe Core.Int)
+upMaxVolumeLimit = Lens.field @"maxVolumeLimit"
+{-# DEPRECATED upMaxVolumeLimit "Use generic-lens or generic-optics with 'maxVolumeLimit' instead." #-}
 
 -- | The updated meeting room settings of a room profile.
 --
 -- /Note:/ Consider using 'meetingRoomConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upMeetingRoomConfiguration :: Lens.Lens' UpdateProfile (Lude.Maybe UpdateMeetingRoomConfiguration)
-upMeetingRoomConfiguration = Lens.lens (meetingRoomConfiguration :: UpdateProfile -> Lude.Maybe UpdateMeetingRoomConfiguration) (\s a -> s {meetingRoomConfiguration = a} :: UpdateProfile)
+upMeetingRoomConfiguration :: Lens.Lens' UpdateProfile (Core.Maybe Types.UpdateMeetingRoomConfiguration)
+upMeetingRoomConfiguration = Lens.field @"meetingRoomConfiguration"
 {-# DEPRECATED upMeetingRoomConfiguration "Use generic-lens or generic-optics with 'meetingRoomConfiguration' instead." #-}
+
+-- | Whether the PSTN setting of the room profile is enabled.
+--
+-- /Note:/ Consider using 'pSTNEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPSTNEnabled :: Lens.Lens' UpdateProfile (Core.Maybe Core.Bool)
+upPSTNEnabled = Lens.field @"pSTNEnabled"
+{-# DEPRECATED upPSTNEnabled "Use generic-lens or generic-optics with 'pSTNEnabled' instead." #-}
+
+-- | The ARN of the room profile to update. Required.
+--
+-- /Note:/ Consider using 'profileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upProfileArn :: Lens.Lens' UpdateProfile (Core.Maybe Types.Arn)
+upProfileArn = Lens.field @"profileArn"
+{-# DEPRECATED upProfileArn "Use generic-lens or generic-optics with 'profileArn' instead." #-}
 
 -- | The updated name for the room profile.
 --
 -- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upProfileName :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Text)
-upProfileName = Lens.lens (profileName :: UpdateProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileName = a} :: UpdateProfile)
+upProfileName :: Lens.Lens' UpdateProfile (Core.Maybe Types.ProfileName)
+upProfileName = Lens.field @"profileName"
 {-# DEPRECATED upProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
+
+-- | Whether the setup mode of the profile is enabled.
+--
+-- /Note:/ Consider using 'setupModeDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSetupModeDisabled :: Lens.Lens' UpdateProfile (Core.Maybe Core.Bool)
+upSetupModeDisabled = Lens.field @"setupModeDisabled"
+{-# DEPRECATED upSetupModeDisabled "Use generic-lens or generic-optics with 'setupModeDisabled' instead." #-}
 
 -- | The updated temperature unit for the room profile.
 --
 -- /Note:/ Consider using 'temperatureUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upTemperatureUnit :: Lens.Lens' UpdateProfile (Lude.Maybe TemperatureUnit)
-upTemperatureUnit = Lens.lens (temperatureUnit :: UpdateProfile -> Lude.Maybe TemperatureUnit) (\s a -> s {temperatureUnit = a} :: UpdateProfile)
+upTemperatureUnit :: Lens.Lens' UpdateProfile (Core.Maybe Types.TemperatureUnit)
+upTemperatureUnit = Lens.field @"temperatureUnit"
 {-# DEPRECATED upTemperatureUnit "Use generic-lens or generic-optics with 'temperatureUnit' instead." #-}
 
 -- | The updated timezone for the room profile.
 --
 -- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upTimezone :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Text)
-upTimezone = Lens.lens (timezone :: UpdateProfile -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: UpdateProfile)
+upTimezone :: Lens.Lens' UpdateProfile (Core.Maybe Types.Timezone)
+upTimezone = Lens.field @"timezone"
 {-# DEPRECATED upTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
--- | The updated maximum volume limit for the room profile.
+-- | The updated wake word for the room profile.
 --
--- /Note:/ Consider using 'maxVolumeLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upMaxVolumeLimit :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Int)
-upMaxVolumeLimit = Lens.lens (maxVolumeLimit :: UpdateProfile -> Lude.Maybe Lude.Int) (\s a -> s {maxVolumeLimit = a} :: UpdateProfile)
-{-# DEPRECATED upMaxVolumeLimit "Use generic-lens or generic-optics with 'maxVolumeLimit' instead." #-}
+-- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upWakeWord :: Lens.Lens' UpdateProfile (Core.Maybe Types.WakeWord)
+upWakeWord = Lens.field @"wakeWord"
+{-# DEPRECATED upWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
 
--- | Sets the profile as default if selected. If this is missing, no update is done to the default status.
---
--- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upIsDefault :: Lens.Lens' UpdateProfile (Lude.Maybe Lude.Bool)
-upIsDefault = Lens.lens (isDefault :: UpdateProfile -> Lude.Maybe Lude.Bool) (\s a -> s {isDefault = a} :: UpdateProfile)
-{-# DEPRECATED upIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
+instance Core.FromJSON UpdateProfile where
+  toJSON UpdateProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Address" Core..=) Core.<$> address,
+            ("DistanceUnit" Core..=) Core.<$> distanceUnit,
+            ("IsDefault" Core..=) Core.<$> isDefault,
+            ("Locale" Core..=) Core.<$> locale,
+            ("MaxVolumeLimit" Core..=) Core.<$> maxVolumeLimit,
+            ("MeetingRoomConfiguration" Core..=)
+              Core.<$> meetingRoomConfiguration,
+            ("PSTNEnabled" Core..=) Core.<$> pSTNEnabled,
+            ("ProfileArn" Core..=) Core.<$> profileArn,
+            ("ProfileName" Core..=) Core.<$> profileName,
+            ("SetupModeDisabled" Core..=) Core.<$> setupModeDisabled,
+            ("TemperatureUnit" Core..=) Core.<$> temperatureUnit,
+            ("Timezone" Core..=) Core.<$> timezone,
+            ("WakeWord" Core..=) Core.<$> wakeWord
+          ]
+      )
 
-instance Lude.AWSRequest UpdateProfile where
+instance Core.AWSRequest UpdateProfile where
   type Rs UpdateProfile = UpdateProfileResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.UpdateProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateProfileResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateProfileResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.UpdateProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateProfile where
-  toJSON UpdateProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SetupModeDisabled" Lude..=) Lude.<$> setupModeDisabled,
-            ("PSTNEnabled" Lude..=) Lude.<$> pSTNEnabled,
-            ("DistanceUnit" Lude..=) Lude.<$> distanceUnit,
-            ("Locale" Lude..=) Lude.<$> locale,
-            ("Address" Lude..=) Lude.<$> address,
-            ("ProfileArn" Lude..=) Lude.<$> profileARN,
-            ("WakeWord" Lude..=) Lude.<$> wakeWord,
-            ("MeetingRoomConfiguration" Lude..=)
-              Lude.<$> meetingRoomConfiguration,
-            ("ProfileName" Lude..=) Lude.<$> profileName,
-            ("TemperatureUnit" Lude..=) Lude.<$> temperatureUnit,
-            ("Timezone" Lude..=) Lude.<$> timezone,
-            ("MaxVolumeLimit" Lude..=) Lude.<$> maxVolumeLimit,
-            ("IsDefault" Lude..=) Lude.<$> isDefault
-          ]
-      )
-
-instance Lude.ToPath UpdateProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateProfileResponse' smart constructor.
 newtype UpdateProfileResponse = UpdateProfileResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProfileResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateProfileResponse' value with any optional fields omitted.
 mkUpdateProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateProfileResponse
-mkUpdateProfileResponse pResponseStatus_ =
-  UpdateProfileResponse' {responseStatus = pResponseStatus_}
+mkUpdateProfileResponse responseStatus =
+  UpdateProfileResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UpdateProfileResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UpdateProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProfileResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UpdateProfileResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,85 +29,83 @@ module Network.AWS.SES.UpdateTemplate
     mkUpdateTemplateResponse,
 
     -- ** Response lenses
-    utrsResponseStatus,
+    utrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | /See:/ 'mkUpdateTemplate' smart constructor.
 newtype UpdateTemplate = UpdateTemplate'
-  { template :: Template
+  { template :: Types.Template
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTemplate' with the minimum fields required to make a request.
---
--- * 'template' -
+-- | Creates a 'UpdateTemplate' value with any optional fields omitted.
 mkUpdateTemplate ::
   -- | 'template'
-  Template ->
+  Types.Template ->
   UpdateTemplate
-mkUpdateTemplate pTemplate_ =
-  UpdateTemplate' {template = pTemplate_}
+mkUpdateTemplate template = UpdateTemplate' {template}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'template' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utTemplate :: Lens.Lens' UpdateTemplate Template
-utTemplate = Lens.lens (template :: UpdateTemplate -> Template) (\s a -> s {template = a} :: UpdateTemplate)
+utTemplate :: Lens.Lens' UpdateTemplate Types.Template
+utTemplate = Lens.field @"template"
 {-# DEPRECATED utTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
 
-instance Lude.AWSRequest UpdateTemplate where
+instance Core.AWSRequest UpdateTemplate where
   type Rs UpdateTemplate = UpdateTemplateResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateTemplate")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Template" template)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateTemplateResult"
       ( \s h x ->
-          UpdateTemplateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateTemplateResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTemplate where
-  toQuery UpdateTemplate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Template" Lude.=: template
-      ]
 
 -- | /See:/ 'mkUpdateTemplateResponse' smart constructor.
 newtype UpdateTemplateResponse = UpdateTemplateResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTemplateResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTemplateResponse' value with any optional fields omitted.
 mkUpdateTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTemplateResponse
-mkUpdateTemplateResponse pResponseStatus_ =
-  UpdateTemplateResponse' {responseStatus = pResponseStatus_}
+mkUpdateTemplateResponse responseStatus =
+  UpdateTemplateResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsResponseStatus :: Lens.Lens' UpdateTemplateResponse Lude.Int
-utrsResponseStatus = Lens.lens (responseStatus :: UpdateTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTemplateResponse)
-{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrrsResponseStatus :: Lens.Lens' UpdateTemplateResponse Core.Int
+utrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

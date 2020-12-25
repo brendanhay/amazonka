@@ -17,57 +17,52 @@ module Network.AWS.Config.Types.ComplianceContributorCount
     mkComplianceContributorCount,
 
     -- * Lenses
-    cccCappedCount,
     cccCapExceeded,
+    cccCappedCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item, up to a maximum number.
 --
 -- /See:/ 'mkComplianceContributorCount' smart constructor.
 data ComplianceContributorCount = ComplianceContributorCount'
-  { -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
-    cappedCount :: Lude.Maybe Lude.Int,
-    -- | Indicates whether the maximum count is reached.
-    capExceeded :: Lude.Maybe Lude.Bool
+  { -- | Indicates whether the maximum count is reached.
+    capExceeded :: Core.Maybe Core.Bool,
+    -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
+    cappedCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComplianceContributorCount' with the minimum fields required to make a request.
---
--- * 'cappedCount' - The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
--- * 'capExceeded' - Indicates whether the maximum count is reached.
+-- | Creates a 'ComplianceContributorCount' value with any optional fields omitted.
 mkComplianceContributorCount ::
   ComplianceContributorCount
 mkComplianceContributorCount =
   ComplianceContributorCount'
-    { cappedCount = Lude.Nothing,
-      capExceeded = Lude.Nothing
+    { capExceeded = Core.Nothing,
+      cappedCount = Core.Nothing
     }
-
--- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
---
--- /Note:/ Consider using 'cappedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cccCappedCount :: Lens.Lens' ComplianceContributorCount (Lude.Maybe Lude.Int)
-cccCappedCount = Lens.lens (cappedCount :: ComplianceContributorCount -> Lude.Maybe Lude.Int) (\s a -> s {cappedCount = a} :: ComplianceContributorCount)
-{-# DEPRECATED cccCappedCount "Use generic-lens or generic-optics with 'cappedCount' instead." #-}
 
 -- | Indicates whether the maximum count is reached.
 --
 -- /Note:/ Consider using 'capExceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cccCapExceeded :: Lens.Lens' ComplianceContributorCount (Lude.Maybe Lude.Bool)
-cccCapExceeded = Lens.lens (capExceeded :: ComplianceContributorCount -> Lude.Maybe Lude.Bool) (\s a -> s {capExceeded = a} :: ComplianceContributorCount)
+cccCapExceeded :: Lens.Lens' ComplianceContributorCount (Core.Maybe Core.Bool)
+cccCapExceeded = Lens.field @"capExceeded"
 {-# DEPRECATED cccCapExceeded "Use generic-lens or generic-optics with 'capExceeded' instead." #-}
 
-instance Lude.FromJSON ComplianceContributorCount where
+-- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
+--
+-- /Note:/ Consider using 'cappedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccCappedCount :: Lens.Lens' ComplianceContributorCount (Core.Maybe Core.Int)
+cccCappedCount = Lens.field @"cappedCount"
+{-# DEPRECATED cccCappedCount "Use generic-lens or generic-optics with 'cappedCount' instead." #-}
+
+instance Core.FromJSON ComplianceContributorCount where
   parseJSON =
-    Lude.withObject
-      "ComplianceContributorCount"
-      ( \x ->
-          ComplianceContributorCount'
-            Lude.<$> (x Lude..:? "CappedCount") Lude.<*> (x Lude..:? "CapExceeded")
-      )
+    Core.withObject "ComplianceContributorCount" Core.$
+      \x ->
+        ComplianceContributorCount'
+          Core.<$> (x Core..:? "CapExceeded") Core.<*> (x Core..:? "CappedCount")

@@ -21,46 +21,42 @@ module Network.AWS.CloudFront.Types.MonitoringSubscription
   )
 where
 
-import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
+import qualified Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 --
 -- /See:/ 'mkMonitoringSubscription' smart constructor.
 newtype MonitoringSubscription = MonitoringSubscription'
   { -- | A subscription configuration for additional CloudWatch metrics.
-    realtimeMetricsSubscriptionConfig :: Lude.Maybe RealtimeMetricsSubscriptionConfig
+    realtimeMetricsSubscriptionConfig :: Core.Maybe Types.RealtimeMetricsSubscriptionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringSubscription' with the minimum fields required to make a request.
---
--- * 'realtimeMetricsSubscriptionConfig' - A subscription configuration for additional CloudWatch metrics.
+-- | Creates a 'MonitoringSubscription' value with any optional fields omitted.
 mkMonitoringSubscription ::
   MonitoringSubscription
 mkMonitoringSubscription =
   MonitoringSubscription'
     { realtimeMetricsSubscriptionConfig =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | A subscription configuration for additional CloudWatch metrics.
 --
 -- /Note:/ Consider using 'realtimeMetricsSubscriptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msRealtimeMetricsSubscriptionConfig :: Lens.Lens' MonitoringSubscription (Lude.Maybe RealtimeMetricsSubscriptionConfig)
-msRealtimeMetricsSubscriptionConfig = Lens.lens (realtimeMetricsSubscriptionConfig :: MonitoringSubscription -> Lude.Maybe RealtimeMetricsSubscriptionConfig) (\s a -> s {realtimeMetricsSubscriptionConfig = a} :: MonitoringSubscription)
+msRealtimeMetricsSubscriptionConfig :: Lens.Lens' MonitoringSubscription (Core.Maybe Types.RealtimeMetricsSubscriptionConfig)
+msRealtimeMetricsSubscriptionConfig = Lens.field @"realtimeMetricsSubscriptionConfig"
 {-# DEPRECATED msRealtimeMetricsSubscriptionConfig "Use generic-lens or generic-optics with 'realtimeMetricsSubscriptionConfig' instead." #-}
 
-instance Lude.FromXML MonitoringSubscription where
+instance Core.ToXML MonitoringSubscription where
+  toXML MonitoringSubscription {..} =
+    Core.toXMLNode "RealtimeMetricsSubscriptionConfig"
+      Core.<$> realtimeMetricsSubscriptionConfig
+
+instance Core.FromXML MonitoringSubscription where
   parseXML x =
     MonitoringSubscription'
-      Lude.<$> (x Lude..@? "RealtimeMetricsSubscriptionConfig")
-
-instance Lude.ToXML MonitoringSubscription where
-  toXML MonitoringSubscription' {..} =
-    Lude.mconcat
-      [ "RealtimeMetricsSubscriptionConfig"
-          Lude.@= realtimeMetricsSubscriptionConfig
-      ]
+      Core.<$> (x Core..@? "RealtimeMetricsSubscriptionConfig")

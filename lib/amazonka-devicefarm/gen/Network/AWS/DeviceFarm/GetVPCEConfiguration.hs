@@ -20,114 +20,103 @@ module Network.AWS.DeviceFarm.GetVPCEConfiguration
     mkGetVPCEConfiguration,
 
     -- ** Request lenses
-    gvecArn,
+    gvpcecArn,
 
     -- * Destructuring the response
     GetVPCEConfigurationResponse (..),
     mkGetVPCEConfigurationResponse,
 
     -- ** Response lenses
-    gvecrsVpceConfiguration,
-    gvecrsResponseStatus,
+    gvpcecrrsVpceConfiguration,
+    gvpcecrrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetVPCEConfiguration' smart constructor.
 newtype GetVPCEConfiguration = GetVPCEConfiguration'
   { -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.
-    arn :: Lude.Text
+    arn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetVPCEConfiguration' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.
+-- | Creates a 'GetVPCEConfiguration' value with any optional fields omitted.
 mkGetVPCEConfiguration ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   GetVPCEConfiguration
-mkGetVPCEConfiguration pArn_ = GetVPCEConfiguration' {arn = pArn_}
+mkGetVPCEConfiguration arn = GetVPCEConfiguration' {arn}
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvecArn :: Lens.Lens' GetVPCEConfiguration Lude.Text
-gvecArn = Lens.lens (arn :: GetVPCEConfiguration -> Lude.Text) (\s a -> s {arn = a} :: GetVPCEConfiguration)
-{-# DEPRECATED gvecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+gvpcecArn :: Lens.Lens' GetVPCEConfiguration Types.Arn
+gvpcecArn = Lens.field @"arn"
+{-# DEPRECATED gvpcecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.AWSRequest GetVPCEConfiguration where
+instance Core.FromJSON GetVPCEConfiguration where
+  toJSON GetVPCEConfiguration {..} =
+    Core.object (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+
+instance Core.AWSRequest GetVPCEConfiguration where
   type Rs GetVPCEConfiguration = GetVPCEConfigurationResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.GetVPCEConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetVPCEConfigurationResponse'
-            Lude.<$> (x Lude..?> "vpceConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "vpceConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetVPCEConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.GetVPCEConfiguration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetVPCEConfiguration where
-  toJSON GetVPCEConfiguration' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
-
-instance Lude.ToPath GetVPCEConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetVPCEConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetVPCEConfigurationResponse' smart constructor.
 data GetVPCEConfigurationResponse = GetVPCEConfigurationResponse'
   { -- | An object that contains information about your VPC endpoint configuration.
-    vpceConfiguration :: Lude.Maybe VPCEConfiguration,
+    vpceConfiguration :: Core.Maybe Types.VPCEConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetVPCEConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'vpceConfiguration' - An object that contains information about your VPC endpoint configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetVPCEConfigurationResponse' value with any optional fields omitted.
 mkGetVPCEConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetVPCEConfigurationResponse
-mkGetVPCEConfigurationResponse pResponseStatus_ =
+mkGetVPCEConfigurationResponse responseStatus =
   GetVPCEConfigurationResponse'
-    { vpceConfiguration = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { vpceConfiguration = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains information about your VPC endpoint configuration.
 --
 -- /Note:/ Consider using 'vpceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvecrsVpceConfiguration :: Lens.Lens' GetVPCEConfigurationResponse (Lude.Maybe VPCEConfiguration)
-gvecrsVpceConfiguration = Lens.lens (vpceConfiguration :: GetVPCEConfigurationResponse -> Lude.Maybe VPCEConfiguration) (\s a -> s {vpceConfiguration = a} :: GetVPCEConfigurationResponse)
-{-# DEPRECATED gvecrsVpceConfiguration "Use generic-lens or generic-optics with 'vpceConfiguration' instead." #-}
+gvpcecrrsVpceConfiguration :: Lens.Lens' GetVPCEConfigurationResponse (Core.Maybe Types.VPCEConfiguration)
+gvpcecrrsVpceConfiguration = Lens.field @"vpceConfiguration"
+{-# DEPRECATED gvpcecrrsVpceConfiguration "Use generic-lens or generic-optics with 'vpceConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvecrsResponseStatus :: Lens.Lens' GetVPCEConfigurationResponse Lude.Int
-gvecrsResponseStatus = Lens.lens (responseStatus :: GetVPCEConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVPCEConfigurationResponse)
-{-# DEPRECATED gvecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gvpcecrrsResponseStatus :: Lens.Lens' GetVPCEConfigurationResponse Core.Int
+gvpcecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gvpcecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

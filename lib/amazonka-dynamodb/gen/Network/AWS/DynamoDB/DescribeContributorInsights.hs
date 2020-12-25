@@ -28,110 +28,98 @@ module Network.AWS.DynamoDB.DescribeContributorInsights
     mkDescribeContributorInsightsResponse,
 
     -- ** Response lenses
-    dcirsContributorInsightsRuleList,
-    dcirsFailureException,
-    dcirsContributorInsightsStatus,
-    dcirsLastUpdateDateTime,
-    dcirsTableName,
-    dcirsIndexName,
-    dcirsResponseStatus,
+    dcirrsContributorInsightsRuleList,
+    dcirrsContributorInsightsStatus,
+    dcirrsFailureException,
+    dcirrsIndexName,
+    dcirrsLastUpdateDateTime,
+    dcirrsTableName,
+    dcirrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeContributorInsights' smart constructor.
 data DescribeContributorInsights = DescribeContributorInsights'
   { -- | The name of the table to describe.
-    tableName :: Lude.Text,
+    tableName :: Types.TableName,
     -- | The name of the global secondary index to describe, if applicable.
-    indexName :: Lude.Maybe Lude.Text
+    indexName :: Core.Maybe Types.IndexName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeContributorInsights' with the minimum fields required to make a request.
---
--- * 'tableName' - The name of the table to describe.
--- * 'indexName' - The name of the global secondary index to describe, if applicable.
+-- | Creates a 'DescribeContributorInsights' value with any optional fields omitted.
 mkDescribeContributorInsights ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   DescribeContributorInsights
-mkDescribeContributorInsights pTableName_ =
-  DescribeContributorInsights'
-    { tableName = pTableName_,
-      indexName = Lude.Nothing
-    }
+mkDescribeContributorInsights tableName =
+  DescribeContributorInsights' {tableName, indexName = Core.Nothing}
 
 -- | The name of the table to describe.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dciTableName :: Lens.Lens' DescribeContributorInsights Lude.Text
-dciTableName = Lens.lens (tableName :: DescribeContributorInsights -> Lude.Text) (\s a -> s {tableName = a} :: DescribeContributorInsights)
+dciTableName :: Lens.Lens' DescribeContributorInsights Types.TableName
+dciTableName = Lens.field @"tableName"
 {-# DEPRECATED dciTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The name of the global secondary index to describe, if applicable.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dciIndexName :: Lens.Lens' DescribeContributorInsights (Lude.Maybe Lude.Text)
-dciIndexName = Lens.lens (indexName :: DescribeContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeContributorInsights)
+dciIndexName :: Lens.Lens' DescribeContributorInsights (Core.Maybe Types.IndexName)
+dciIndexName = Lens.field @"indexName"
 {-# DEPRECATED dciIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.AWSRequest DescribeContributorInsights where
+instance Core.FromJSON DescribeContributorInsights where
+  toJSON DescribeContributorInsights {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            ("IndexName" Core..=) Core.<$> indexName
+          ]
+      )
+
+instance Core.AWSRequest DescribeContributorInsights where
   type
     Rs DescribeContributorInsights =
       DescribeContributorInsightsResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.DescribeContributorInsights")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeContributorInsightsResponse'
-            Lude.<$> (x Lude..?> "ContributorInsightsRuleList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "FailureException")
-            Lude.<*> (x Lude..?> "ContributorInsightsStatus")
-            Lude.<*> (x Lude..?> "LastUpdateDateTime")
-            Lude.<*> (x Lude..?> "TableName")
-            Lude.<*> (x Lude..?> "IndexName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ContributorInsightsRuleList")
+            Core.<*> (x Core..:? "ContributorInsightsStatus")
+            Core.<*> (x Core..:? "FailureException")
+            Core.<*> (x Core..:? "IndexName")
+            Core.<*> (x Core..:? "LastUpdateDateTime")
+            Core.<*> (x Core..:? "TableName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeContributorInsights where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DynamoDB_20120810.DescribeContributorInsights" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeContributorInsights where
-  toJSON DescribeContributorInsights' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TableName" Lude..= tableName),
-            ("IndexName" Lude..=) Lude.<$> indexName
-          ]
-      )
-
-instance Lude.ToPath DescribeContributorInsights where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeContributorInsights where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeContributorInsightsResponse' smart constructor.
 data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
   { -- | List of names of the associated Alpine rules.
-    contributorInsightsRuleList :: Lude.Maybe [Lude.Text],
+    contributorInsightsRuleList :: Core.Maybe [Types.ContributorInsightsRule],
+    -- | Current Status contributor insights.
+    contributorInsightsStatus :: Core.Maybe Types.ContributorInsightsStatus,
     -- | Returns information about the last failure that encountered.
     --
     -- The most common exceptions for a FAILED status are:
@@ -146,67 +134,49 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
     --
     --
     --     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
-    failureException :: Lude.Maybe FailureException,
-    -- | Current Status contributor insights.
-    contributorInsightsStatus :: Lude.Maybe ContributorInsightsStatus,
-    -- | Timestamp of the last time the status was changed.
-    lastUpdateDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the table being described.
-    tableName :: Lude.Maybe Lude.Text,
+    failureException :: Core.Maybe Types.FailureException,
     -- | The name of the global secondary index being described.
-    indexName :: Lude.Maybe Lude.Text,
+    indexName :: Core.Maybe Types.IndexName,
+    -- | Timestamp of the last time the status was changed.
+    lastUpdateDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the table being described.
+    tableName :: Core.Maybe Types.TableName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeContributorInsightsResponse' with the minimum fields required to make a request.
---
--- * 'contributorInsightsRuleList' - List of names of the associated Alpine rules.
--- * 'failureException' - Returns information about the last failure that encountered.
---
--- The most common exceptions for a FAILED status are:
---
---     * LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.
---
---
---     * AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.
---
---
---     * AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.
---
---
---     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
---
---
--- * 'contributorInsightsStatus' - Current Status contributor insights.
--- * 'lastUpdateDateTime' - Timestamp of the last time the status was changed.
--- * 'tableName' - The name of the table being described.
--- * 'indexName' - The name of the global secondary index being described.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeContributorInsightsResponse' value with any optional fields omitted.
 mkDescribeContributorInsightsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeContributorInsightsResponse
-mkDescribeContributorInsightsResponse pResponseStatus_ =
+mkDescribeContributorInsightsResponse responseStatus =
   DescribeContributorInsightsResponse'
     { contributorInsightsRuleList =
-        Lude.Nothing,
-      failureException = Lude.Nothing,
-      contributorInsightsStatus = Lude.Nothing,
-      lastUpdateDateTime = Lude.Nothing,
-      tableName = Lude.Nothing,
-      indexName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      contributorInsightsStatus = Core.Nothing,
+      failureException = Core.Nothing,
+      indexName = Core.Nothing,
+      lastUpdateDateTime = Core.Nothing,
+      tableName = Core.Nothing,
+      responseStatus
     }
 
 -- | List of names of the associated Alpine rules.
 --
 -- /Note:/ Consider using 'contributorInsightsRuleList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsContributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe [Lude.Text])
-dcirsContributorInsightsRuleList = Lens.lens (contributorInsightsRuleList :: DescribeContributorInsightsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {contributorInsightsRuleList = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsContributorInsightsRuleList "Use generic-lens or generic-optics with 'contributorInsightsRuleList' instead." #-}
+dcirrsContributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe [Types.ContributorInsightsRule])
+dcirrsContributorInsightsRuleList = Lens.field @"contributorInsightsRuleList"
+{-# DEPRECATED dcirrsContributorInsightsRuleList "Use generic-lens or generic-optics with 'contributorInsightsRuleList' instead." #-}
+
+-- | Current Status contributor insights.
+--
+-- /Note:/ Consider using 'contributorInsightsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirrsContributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Types.ContributorInsightsStatus)
+dcirrsContributorInsightsStatus = Lens.field @"contributorInsightsStatus"
+{-# DEPRECATED dcirrsContributorInsightsStatus "Use generic-lens or generic-optics with 'contributorInsightsStatus' instead." #-}
 
 -- | Returns information about the last failure that encountered.
 --
@@ -226,41 +196,34 @@ dcirsContributorInsightsRuleList = Lens.lens (contributorInsightsRuleList :: Des
 --
 --
 -- /Note:/ Consider using 'failureException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsFailureException :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe FailureException)
-dcirsFailureException = Lens.lens (failureException :: DescribeContributorInsightsResponse -> Lude.Maybe FailureException) (\s a -> s {failureException = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsFailureException "Use generic-lens or generic-optics with 'failureException' instead." #-}
-
--- | Current Status contributor insights.
---
--- /Note:/ Consider using 'contributorInsightsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsContributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe ContributorInsightsStatus)
-dcirsContributorInsightsStatus = Lens.lens (contributorInsightsStatus :: DescribeContributorInsightsResponse -> Lude.Maybe ContributorInsightsStatus) (\s a -> s {contributorInsightsStatus = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsContributorInsightsStatus "Use generic-lens or generic-optics with 'contributorInsightsStatus' instead." #-}
-
--- | Timestamp of the last time the status was changed.
---
--- /Note:/ Consider using 'lastUpdateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsLastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe Lude.Timestamp)
-dcirsLastUpdateDateTime = Lens.lens (lastUpdateDateTime :: DescribeContributorInsightsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsLastUpdateDateTime "Use generic-lens or generic-optics with 'lastUpdateDateTime' instead." #-}
-
--- | The name of the table being described.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsTableName :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe Lude.Text)
-dcirsTableName = Lens.lens (tableName :: DescribeContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+dcirrsFailureException :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Types.FailureException)
+dcirrsFailureException = Lens.field @"failureException"
+{-# DEPRECATED dcirrsFailureException "Use generic-lens or generic-optics with 'failureException' instead." #-}
 
 -- | The name of the global secondary index being described.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsIndexName :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe Lude.Text)
-dcirsIndexName = Lens.lens (indexName :: DescribeContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+dcirrsIndexName :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Types.IndexName)
+dcirrsIndexName = Lens.field @"indexName"
+{-# DEPRECATED dcirrsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
+-- | Timestamp of the last time the status was changed.
+--
+-- /Note:/ Consider using 'lastUpdateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirrsLastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Core.NominalDiffTime)
+dcirrsLastUpdateDateTime = Lens.field @"lastUpdateDateTime"
+{-# DEPRECATED dcirrsLastUpdateDateTime "Use generic-lens or generic-optics with 'lastUpdateDateTime' instead." #-}
+
+-- | The name of the table being described.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirrsTableName :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Types.TableName)
+dcirrsTableName = Lens.field @"tableName"
+{-# DEPRECATED dcirrsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsResponseStatus :: Lens.Lens' DescribeContributorInsightsResponse Lude.Int
-dcirsResponseStatus = Lens.lens (responseStatus :: DescribeContributorInsightsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContributorInsightsResponse)
-{-# DEPRECATED dcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcirrsResponseStatus :: Lens.Lens' DescribeContributorInsightsResponse Core.Int
+dcirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

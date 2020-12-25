@@ -17,54 +17,52 @@ module Network.AWS.EC2.Types.AllowedPrincipal
     mkAllowedPrincipal,
 
     -- * Lenses
-    apPrincipalType,
     apPrincipal,
+    apPrincipalType,
   )
 where
 
-import Network.AWS.EC2.Types.PrincipalType
+import qualified Network.AWS.EC2.Types.Principal as Types
+import qualified Network.AWS.EC2.Types.PrincipalType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a principal.
 --
 -- /See:/ 'mkAllowedPrincipal' smart constructor.
 data AllowedPrincipal = AllowedPrincipal'
-  { -- | The type of principal.
-    principalType :: Lude.Maybe PrincipalType,
-    -- | The Amazon Resource Name (ARN) of the principal.
-    principal :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the principal.
+    principal :: Core.Maybe Types.Principal,
+    -- | The type of principal.
+    principalType :: Core.Maybe Types.PrincipalType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AllowedPrincipal' with the minimum fields required to make a request.
---
--- * 'principalType' - The type of principal.
--- * 'principal' - The Amazon Resource Name (ARN) of the principal.
+-- | Creates a 'AllowedPrincipal' value with any optional fields omitted.
 mkAllowedPrincipal ::
   AllowedPrincipal
 mkAllowedPrincipal =
   AllowedPrincipal'
-    { principalType = Lude.Nothing,
-      principal = Lude.Nothing
+    { principal = Core.Nothing,
+      principalType = Core.Nothing
     }
-
--- | The type of principal.
---
--- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apPrincipalType :: Lens.Lens' AllowedPrincipal (Lude.Maybe PrincipalType)
-apPrincipalType = Lens.lens (principalType :: AllowedPrincipal -> Lude.Maybe PrincipalType) (\s a -> s {principalType = a} :: AllowedPrincipal)
-{-# DEPRECATED apPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the principal.
 --
 -- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apPrincipal :: Lens.Lens' AllowedPrincipal (Lude.Maybe Lude.Text)
-apPrincipal = Lens.lens (principal :: AllowedPrincipal -> Lude.Maybe Lude.Text) (\s a -> s {principal = a} :: AllowedPrincipal)
+apPrincipal :: Lens.Lens' AllowedPrincipal (Core.Maybe Types.Principal)
+apPrincipal = Lens.field @"principal"
 {-# DEPRECATED apPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
-instance Lude.FromXML AllowedPrincipal where
+-- | The type of principal.
+--
+-- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPrincipalType :: Lens.Lens' AllowedPrincipal (Core.Maybe Types.PrincipalType)
+apPrincipalType = Lens.field @"principalType"
+{-# DEPRECATED apPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
+
+instance Core.FromXML AllowedPrincipal where
   parseXML x =
     AllowedPrincipal'
-      Lude.<$> (x Lude..@? "principalType") Lude.<*> (x Lude..@? "principal")
+      Core.<$> (x Core..@? "principal") Core.<*> (x Core..@? "principalType")

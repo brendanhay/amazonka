@@ -17,73 +17,68 @@ module Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
     mkEnhancedMonitoringOutput,
 
     -- * Lenses
-    emoDesiredShardLevelMetrics,
     emoCurrentShardLevelMetrics,
+    emoDesiredShardLevelMetrics,
     emoStreamName,
   )
 where
 
-import Network.AWS.Kinesis.Types.MetricsName
+import qualified Network.AWS.Kinesis.Types.MetricsName as Types
+import qualified Network.AWS.Kinesis.Types.StreamName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output for 'EnableEnhancedMonitoring' and 'DisableEnhancedMonitoring' .
 --
 -- /See:/ 'mkEnhancedMonitoringOutput' smart constructor.
 data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
-  { -- | Represents the list of all the metrics that would be in the enhanced state after the operation.
-    desiredShardLevelMetrics :: Lude.Maybe [MetricsName],
-    -- | Represents the current state of the metrics that are in the enhanced state before the operation.
-    currentShardLevelMetrics :: Lude.Maybe [MetricsName],
+  { -- | Represents the current state of the metrics that are in the enhanced state before the operation.
+    currentShardLevelMetrics :: Core.Maybe [Types.MetricsName],
+    -- | Represents the list of all the metrics that would be in the enhanced state after the operation.
+    desiredShardLevelMetrics :: Core.Maybe [Types.MetricsName],
     -- | The name of the Kinesis data stream.
-    streamName :: Lude.Maybe Lude.Text
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnhancedMonitoringOutput' with the minimum fields required to make a request.
---
--- * 'desiredShardLevelMetrics' - Represents the list of all the metrics that would be in the enhanced state after the operation.
--- * 'currentShardLevelMetrics' - Represents the current state of the metrics that are in the enhanced state before the operation.
--- * 'streamName' - The name of the Kinesis data stream.
+-- | Creates a 'EnhancedMonitoringOutput' value with any optional fields omitted.
 mkEnhancedMonitoringOutput ::
   EnhancedMonitoringOutput
 mkEnhancedMonitoringOutput =
   EnhancedMonitoringOutput'
-    { desiredShardLevelMetrics =
-        Lude.Nothing,
-      currentShardLevelMetrics = Lude.Nothing,
-      streamName = Lude.Nothing
+    { currentShardLevelMetrics =
+        Core.Nothing,
+      desiredShardLevelMetrics = Core.Nothing,
+      streamName = Core.Nothing
     }
-
--- | Represents the list of all the metrics that would be in the enhanced state after the operation.
---
--- /Note:/ Consider using 'desiredShardLevelMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emoDesiredShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Lude.Maybe [MetricsName])
-emoDesiredShardLevelMetrics = Lens.lens (desiredShardLevelMetrics :: EnhancedMonitoringOutput -> Lude.Maybe [MetricsName]) (\s a -> s {desiredShardLevelMetrics = a} :: EnhancedMonitoringOutput)
-{-# DEPRECATED emoDesiredShardLevelMetrics "Use generic-lens or generic-optics with 'desiredShardLevelMetrics' instead." #-}
 
 -- | Represents the current state of the metrics that are in the enhanced state before the operation.
 --
 -- /Note:/ Consider using 'currentShardLevelMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emoCurrentShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Lude.Maybe [MetricsName])
-emoCurrentShardLevelMetrics = Lens.lens (currentShardLevelMetrics :: EnhancedMonitoringOutput -> Lude.Maybe [MetricsName]) (\s a -> s {currentShardLevelMetrics = a} :: EnhancedMonitoringOutput)
+emoCurrentShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Core.Maybe [Types.MetricsName])
+emoCurrentShardLevelMetrics = Lens.field @"currentShardLevelMetrics"
 {-# DEPRECATED emoCurrentShardLevelMetrics "Use generic-lens or generic-optics with 'currentShardLevelMetrics' instead." #-}
+
+-- | Represents the list of all the metrics that would be in the enhanced state after the operation.
+--
+-- /Note:/ Consider using 'desiredShardLevelMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emoDesiredShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Core.Maybe [Types.MetricsName])
+emoDesiredShardLevelMetrics = Lens.field @"desiredShardLevelMetrics"
+{-# DEPRECATED emoDesiredShardLevelMetrics "Use generic-lens or generic-optics with 'desiredShardLevelMetrics' instead." #-}
 
 -- | The name of the Kinesis data stream.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emoStreamName :: Lens.Lens' EnhancedMonitoringOutput (Lude.Maybe Lude.Text)
-emoStreamName = Lens.lens (streamName :: EnhancedMonitoringOutput -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: EnhancedMonitoringOutput)
+emoStreamName :: Lens.Lens' EnhancedMonitoringOutput (Core.Maybe Types.StreamName)
+emoStreamName = Lens.field @"streamName"
 {-# DEPRECATED emoStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.FromJSON EnhancedMonitoringOutput where
+instance Core.FromJSON EnhancedMonitoringOutput where
   parseJSON =
-    Lude.withObject
-      "EnhancedMonitoringOutput"
-      ( \x ->
-          EnhancedMonitoringOutput'
-            Lude.<$> (x Lude..:? "DesiredShardLevelMetrics" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CurrentShardLevelMetrics" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "StreamName")
-      )
+    Core.withObject "EnhancedMonitoringOutput" Core.$
+      \x ->
+        EnhancedMonitoringOutput'
+          Core.<$> (x Core..:? "CurrentShardLevelMetrics")
+          Core.<*> (x Core..:? "DesiredShardLevelMetrics")
+          Core.<*> (x Core..:? "StreamName")

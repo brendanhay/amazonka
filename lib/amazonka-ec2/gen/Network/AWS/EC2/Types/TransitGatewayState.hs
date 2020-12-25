@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.TransitGatewayState
   ( TransitGatewayState
       ( TransitGatewayState',
-        TGSPending,
-        TGSAvailable,
-        TGSModifying,
-        TGSDeleting,
-        TGSDeleted
+        TransitGatewayStatePending,
+        TransitGatewayStateAvailable,
+        TransitGatewayStateModifying,
+        TransitGatewayStateDeleting,
+        TransitGatewayStateDeleted,
+        fromTransitGatewayState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayState = TransitGatewayState' Lude.Text
+newtype TransitGatewayState = TransitGatewayState'
+  { fromTransitGatewayState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TGSPending :: TransitGatewayState
-pattern TGSPending = TransitGatewayState' "pending"
+pattern TransitGatewayStatePending :: TransitGatewayState
+pattern TransitGatewayStatePending = TransitGatewayState' "pending"
 
-pattern TGSAvailable :: TransitGatewayState
-pattern TGSAvailable = TransitGatewayState' "available"
+pattern TransitGatewayStateAvailable :: TransitGatewayState
+pattern TransitGatewayStateAvailable = TransitGatewayState' "available"
 
-pattern TGSModifying :: TransitGatewayState
-pattern TGSModifying = TransitGatewayState' "modifying"
+pattern TransitGatewayStateModifying :: TransitGatewayState
+pattern TransitGatewayStateModifying = TransitGatewayState' "modifying"
 
-pattern TGSDeleting :: TransitGatewayState
-pattern TGSDeleting = TransitGatewayState' "deleting"
+pattern TransitGatewayStateDeleting :: TransitGatewayState
+pattern TransitGatewayStateDeleting = TransitGatewayState' "deleting"
 
-pattern TGSDeleted :: TransitGatewayState
-pattern TGSDeleted = TransitGatewayState' "deleted"
+pattern TransitGatewayStateDeleted :: TransitGatewayState
+pattern TransitGatewayStateDeleted = TransitGatewayState' "deleted"
 
 {-# COMPLETE
-  TGSPending,
-  TGSAvailable,
-  TGSModifying,
-  TGSDeleting,
-  TGSDeleted,
+  TransitGatewayStatePending,
+  TransitGatewayStateAvailable,
+  TransitGatewayStateModifying,
+  TransitGatewayStateDeleting,
+  TransitGatewayStateDeleted,
   TransitGatewayState'
   #-}

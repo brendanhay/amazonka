@@ -17,71 +17,68 @@ module Network.AWS.XRay.Types.UnprocessedStatistics
     mkUnprocessedStatistics,
 
     -- * Lenses
-    usRuleName,
     usErrorCode,
     usMessage,
+    usRuleName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.ErrorCode as Types
+import qualified Network.AWS.XRay.Types.Message as Types
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | Sampling statistics from a call to 'GetSamplingTargets' that X-Ray could not process.
 --
 -- /See:/ 'mkUnprocessedStatistics' smart constructor.
 data UnprocessedStatistics = UnprocessedStatistics'
-  { -- | The name of the sampling rule.
-    ruleName :: Lude.Maybe Lude.Text,
-    -- | The error code.
-    errorCode :: Lude.Maybe Lude.Text,
+  { -- | The error code.
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The error message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message,
+    -- | The name of the sampling rule.
+    ruleName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnprocessedStatistics' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the sampling rule.
--- * 'errorCode' - The error code.
--- * 'message' - The error message.
+-- | Creates a 'UnprocessedStatistics' value with any optional fields omitted.
 mkUnprocessedStatistics ::
   UnprocessedStatistics
 mkUnprocessedStatistics =
   UnprocessedStatistics'
-    { ruleName = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      message = Lude.Nothing
+    { errorCode = Core.Nothing,
+      message = Core.Nothing,
+      ruleName = Core.Nothing
     }
-
--- | The name of the sampling rule.
---
--- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usRuleName :: Lens.Lens' UnprocessedStatistics (Lude.Maybe Lude.Text)
-usRuleName = Lens.lens (ruleName :: UnprocessedStatistics -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: UnprocessedStatistics)
-{-# DEPRECATED usRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usErrorCode :: Lens.Lens' UnprocessedStatistics (Lude.Maybe Lude.Text)
-usErrorCode = Lens.lens (errorCode :: UnprocessedStatistics -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: UnprocessedStatistics)
+usErrorCode :: Lens.Lens' UnprocessedStatistics (Core.Maybe Types.ErrorCode)
+usErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED usErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usMessage :: Lens.Lens' UnprocessedStatistics (Lude.Maybe Lude.Text)
-usMessage = Lens.lens (message :: UnprocessedStatistics -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: UnprocessedStatistics)
+usMessage :: Lens.Lens' UnprocessedStatistics (Core.Maybe Types.Message)
+usMessage = Lens.field @"message"
 {-# DEPRECATED usMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON UnprocessedStatistics where
+-- | The name of the sampling rule.
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usRuleName :: Lens.Lens' UnprocessedStatistics (Core.Maybe Types.String)
+usRuleName = Lens.field @"ruleName"
+{-# DEPRECATED usRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+
+instance Core.FromJSON UnprocessedStatistics where
   parseJSON =
-    Lude.withObject
-      "UnprocessedStatistics"
-      ( \x ->
-          UnprocessedStatistics'
-            Lude.<$> (x Lude..:? "RuleName")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "UnprocessedStatistics" Core.$
+      \x ->
+        UnprocessedStatistics'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "RuleName")

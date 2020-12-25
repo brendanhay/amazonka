@@ -13,97 +13,102 @@
 module Network.AWS.MediaConvert.Types.CaptionSourceType
   ( CaptionSourceType
       ( CaptionSourceType',
-        CSTAncillary,
-        CSTDvbSub,
-        CSTEmbedded,
-        CSTSCTE20,
-        CSTScc,
-        CSTTtml,
-        CSTStl,
-        CSTSrt,
-        CSTSmi,
-        CSTTeletext,
-        CSTNullSource,
-        CSTImsc
+        CaptionSourceTypeAncillary,
+        CaptionSourceTypeDvbSub,
+        CaptionSourceTypeEmbedded,
+        CaptionSourceTypeSCTE20,
+        CaptionSourceTypeScc,
+        CaptionSourceTypeTtml,
+        CaptionSourceTypeStl,
+        CaptionSourceTypeSrt,
+        CaptionSourceTypeSmi,
+        CaptionSourceTypeTeletext,
+        CaptionSourceTypeNullSource,
+        CaptionSourceTypeImsc,
+        fromCaptionSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
-newtype CaptionSourceType = CaptionSourceType' Lude.Text
+newtype CaptionSourceType = CaptionSourceType'
+  { fromCaptionSourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSTAncillary :: CaptionSourceType
-pattern CSTAncillary = CaptionSourceType' "ANCILLARY"
+pattern CaptionSourceTypeAncillary :: CaptionSourceType
+pattern CaptionSourceTypeAncillary = CaptionSourceType' "ANCILLARY"
 
-pattern CSTDvbSub :: CaptionSourceType
-pattern CSTDvbSub = CaptionSourceType' "DVB_SUB"
+pattern CaptionSourceTypeDvbSub :: CaptionSourceType
+pattern CaptionSourceTypeDvbSub = CaptionSourceType' "DVB_SUB"
 
-pattern CSTEmbedded :: CaptionSourceType
-pattern CSTEmbedded = CaptionSourceType' "EMBEDDED"
+pattern CaptionSourceTypeEmbedded :: CaptionSourceType
+pattern CaptionSourceTypeEmbedded = CaptionSourceType' "EMBEDDED"
 
-pattern CSTSCTE20 :: CaptionSourceType
-pattern CSTSCTE20 = CaptionSourceType' "SCTE20"
+pattern CaptionSourceTypeSCTE20 :: CaptionSourceType
+pattern CaptionSourceTypeSCTE20 = CaptionSourceType' "SCTE20"
 
-pattern CSTScc :: CaptionSourceType
-pattern CSTScc = CaptionSourceType' "SCC"
+pattern CaptionSourceTypeScc :: CaptionSourceType
+pattern CaptionSourceTypeScc = CaptionSourceType' "SCC"
 
-pattern CSTTtml :: CaptionSourceType
-pattern CSTTtml = CaptionSourceType' "TTML"
+pattern CaptionSourceTypeTtml :: CaptionSourceType
+pattern CaptionSourceTypeTtml = CaptionSourceType' "TTML"
 
-pattern CSTStl :: CaptionSourceType
-pattern CSTStl = CaptionSourceType' "STL"
+pattern CaptionSourceTypeStl :: CaptionSourceType
+pattern CaptionSourceTypeStl = CaptionSourceType' "STL"
 
-pattern CSTSrt :: CaptionSourceType
-pattern CSTSrt = CaptionSourceType' "SRT"
+pattern CaptionSourceTypeSrt :: CaptionSourceType
+pattern CaptionSourceTypeSrt = CaptionSourceType' "SRT"
 
-pattern CSTSmi :: CaptionSourceType
-pattern CSTSmi = CaptionSourceType' "SMI"
+pattern CaptionSourceTypeSmi :: CaptionSourceType
+pattern CaptionSourceTypeSmi = CaptionSourceType' "SMI"
 
-pattern CSTTeletext :: CaptionSourceType
-pattern CSTTeletext = CaptionSourceType' "TELETEXT"
+pattern CaptionSourceTypeTeletext :: CaptionSourceType
+pattern CaptionSourceTypeTeletext = CaptionSourceType' "TELETEXT"
 
-pattern CSTNullSource :: CaptionSourceType
-pattern CSTNullSource = CaptionSourceType' "NULL_SOURCE"
+pattern CaptionSourceTypeNullSource :: CaptionSourceType
+pattern CaptionSourceTypeNullSource = CaptionSourceType' "NULL_SOURCE"
 
-pattern CSTImsc :: CaptionSourceType
-pattern CSTImsc = CaptionSourceType' "IMSC"
+pattern CaptionSourceTypeImsc :: CaptionSourceType
+pattern CaptionSourceTypeImsc = CaptionSourceType' "IMSC"
 
 {-# COMPLETE
-  CSTAncillary,
-  CSTDvbSub,
-  CSTEmbedded,
-  CSTSCTE20,
-  CSTScc,
-  CSTTtml,
-  CSTStl,
-  CSTSrt,
-  CSTSmi,
-  CSTTeletext,
-  CSTNullSource,
-  CSTImsc,
+  CaptionSourceTypeAncillary,
+  CaptionSourceTypeDvbSub,
+  CaptionSourceTypeEmbedded,
+  CaptionSourceTypeSCTE20,
+  CaptionSourceTypeScc,
+  CaptionSourceTypeTtml,
+  CaptionSourceTypeStl,
+  CaptionSourceTypeSrt,
+  CaptionSourceTypeSmi,
+  CaptionSourceTypeTeletext,
+  CaptionSourceTypeNullSource,
+  CaptionSourceTypeImsc,
   CaptionSourceType'
   #-}

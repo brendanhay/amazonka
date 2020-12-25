@@ -13,61 +13,66 @@
 module Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
   ( ProvisionedProductStatus
       ( ProvisionedProductStatus',
-        PPSAvailable,
-        PPSUnderChange,
-        PPSTainted,
-        PPSError,
-        PPSPlanInProgress
+        ProvisionedProductStatusAvailable,
+        ProvisionedProductStatusUnderChange,
+        ProvisionedProductStatusTainted,
+        ProvisionedProductStatusError,
+        ProvisionedProductStatusPlanInProgress,
+        fromProvisionedProductStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProvisionedProductStatus = ProvisionedProductStatus' Lude.Text
+newtype ProvisionedProductStatus = ProvisionedProductStatus'
+  { fromProvisionedProductStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PPSAvailable :: ProvisionedProductStatus
-pattern PPSAvailable = ProvisionedProductStatus' "AVAILABLE"
+pattern ProvisionedProductStatusAvailable :: ProvisionedProductStatus
+pattern ProvisionedProductStatusAvailable = ProvisionedProductStatus' "AVAILABLE"
 
-pattern PPSUnderChange :: ProvisionedProductStatus
-pattern PPSUnderChange = ProvisionedProductStatus' "UNDER_CHANGE"
+pattern ProvisionedProductStatusUnderChange :: ProvisionedProductStatus
+pattern ProvisionedProductStatusUnderChange = ProvisionedProductStatus' "UNDER_CHANGE"
 
-pattern PPSTainted :: ProvisionedProductStatus
-pattern PPSTainted = ProvisionedProductStatus' "TAINTED"
+pattern ProvisionedProductStatusTainted :: ProvisionedProductStatus
+pattern ProvisionedProductStatusTainted = ProvisionedProductStatus' "TAINTED"
 
-pattern PPSError :: ProvisionedProductStatus
-pattern PPSError = ProvisionedProductStatus' "ERROR"
+pattern ProvisionedProductStatusError :: ProvisionedProductStatus
+pattern ProvisionedProductStatusError = ProvisionedProductStatus' "ERROR"
 
-pattern PPSPlanInProgress :: ProvisionedProductStatus
-pattern PPSPlanInProgress = ProvisionedProductStatus' "PLAN_IN_PROGRESS"
+pattern ProvisionedProductStatusPlanInProgress :: ProvisionedProductStatus
+pattern ProvisionedProductStatusPlanInProgress = ProvisionedProductStatus' "PLAN_IN_PROGRESS"
 
 {-# COMPLETE
-  PPSAvailable,
-  PPSUnderChange,
-  PPSTainted,
-  PPSError,
-  PPSPlanInProgress,
+  ProvisionedProductStatusAvailable,
+  ProvisionedProductStatusUnderChange,
+  ProvisionedProductStatusTainted,
+  ProvisionedProductStatusError,
+  ProvisionedProductStatusPlanInProgress,
   ProvisionedProductStatus'
   #-}

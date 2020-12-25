@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Cloud9
     Network.AWS.Cloud9.CreateEnvironmentEC
@@ -84,16 +90,34 @@ library
     Network.AWS.Cloud9.Waiters
 
   other-modules:
+    Network.AWS.Cloud9.Types.Arn
+    Network.AWS.Cloud9.Types.ClientRequestToken
     Network.AWS.Cloud9.Types.ConnectionType
+    Network.AWS.Cloud9.Types.Description
     Network.AWS.Cloud9.Types.Environment
+    Network.AWS.Cloud9.Types.EnvironmentArn
+    Network.AWS.Cloud9.Types.EnvironmentId
     Network.AWS.Cloud9.Types.EnvironmentLifecycle
     Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
     Network.AWS.Cloud9.Types.EnvironmentMember
+    Network.AWS.Cloud9.Types.EnvironmentName
     Network.AWS.Cloud9.Types.EnvironmentStatus
     Network.AWS.Cloud9.Types.EnvironmentType
+    Network.AWS.Cloud9.Types.Id
+    Network.AWS.Cloud9.Types.InstanceType
+    Network.AWS.Cloud9.Types.Key
     Network.AWS.Cloud9.Types.MemberPermissions
+    Network.AWS.Cloud9.Types.Message
+    Network.AWS.Cloud9.Types.Name
+    Network.AWS.Cloud9.Types.OwnerArn
     Network.AWS.Cloud9.Types.Permissions
+    Network.AWS.Cloud9.Types.ResourceARN
+    Network.AWS.Cloud9.Types.String
+    Network.AWS.Cloud9.Types.SubnetId
     Network.AWS.Cloud9.Types.Tag
+    Network.AWS.Cloud9.Types.TagKey
+    Network.AWS.Cloud9.Types.UserArn
+    Network.AWS.Cloud9.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

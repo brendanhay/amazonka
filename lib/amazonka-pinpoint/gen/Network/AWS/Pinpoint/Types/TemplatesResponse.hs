@@ -17,56 +17,51 @@ module Network.AWS.Pinpoint.Types.TemplatesResponse
     mkTemplatesResponse,
 
     -- * Lenses
-    tNextToken,
-    tItem,
+    trItem,
+    trNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.TemplateResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.TemplateResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about all the message templates that are associated with your Amazon Pinpoint account.
 --
 -- /See:/ 'mkTemplatesResponse' smart constructor.
 data TemplatesResponse = TemplatesResponse'
-  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
-    item :: [TemplateResponse]
+  { -- | An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
+    item :: [Types.TemplateResponse],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TemplatesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'item' - An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
+-- | Creates a 'TemplatesResponse' value with any optional fields omitted.
 mkTemplatesResponse ::
   TemplatesResponse
 mkTemplatesResponse =
-  TemplatesResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
-
--- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tNextToken :: Lens.Lens' TemplatesResponse (Lude.Maybe Lude.Text)
-tNextToken = Lens.lens (nextToken :: TemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: TemplatesResponse)
-{-# DEPRECATED tNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  TemplatesResponse' {item = Core.mempty, nextToken = Core.Nothing}
 
 -- | An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tItem :: Lens.Lens' TemplatesResponse [TemplateResponse]
-tItem = Lens.lens (item :: TemplatesResponse -> [TemplateResponse]) (\s a -> s {item = a} :: TemplatesResponse)
-{-# DEPRECATED tItem "Use generic-lens or generic-optics with 'item' instead." #-}
+trItem :: Lens.Lens' TemplatesResponse [Types.TemplateResponse]
+trItem = Lens.field @"item"
+{-# DEPRECATED trItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON TemplatesResponse where
+-- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trNextToken :: Lens.Lens' TemplatesResponse (Core.Maybe Core.Text)
+trNextToken = Lens.field @"nextToken"
+{-# DEPRECATED trNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON TemplatesResponse where
   parseJSON =
-    Lude.withObject
-      "TemplatesResponse"
-      ( \x ->
-          TemplatesResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "TemplatesResponse" Core.$
+      \x ->
+        TemplatesResponse'
+          Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "NextToken")

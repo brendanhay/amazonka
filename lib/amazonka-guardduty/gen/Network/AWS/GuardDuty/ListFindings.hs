@@ -22,33 +22,35 @@ module Network.AWS.GuardDuty.ListFindings
     mkListFindings,
 
     -- ** Request lenses
-    lFindingCriteria,
-    lSortCriteria,
-    lNextToken,
-    lDetectorId,
-    lMaxResults,
+    lfDetectorId,
+    lfFindingCriteria,
+    lfMaxResults,
+    lfNextToken,
+    lfSortCriteria,
 
     -- * Destructuring the response
     ListFindingsResponse (..),
     mkListFindingsResponse,
 
     -- ** Response lenses
-    lfrsFindingIds,
-    lfrsNextToken,
-    lfrsResponseStatus,
+    lfrrsFindingIds,
+    lfrrsNextToken,
+    lfrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFindings' smart constructor.
 data ListFindings = ListFindings'
-  { -- | Represents the criteria used for querying findings. Valid values include:
+  { -- | The ID of the detector that specifies the GuardDuty service whose findings you want to list.
+    detectorId :: Types.DetectorId,
+    -- | Represents the criteria used for querying findings. Valid values include:
     --
     --
     --     * JSON field name
@@ -198,189 +200,37 @@ data ListFindings = ListFindings'
     --
     --     * updatedAt
     -- Type: Timestamp in Unix Epoch millisecond format: 1486685375000
-    findingCriteria :: Lude.Maybe FindingCriteria,
-    -- | Represents the criteria used for sorting findings.
-    sortCriteria :: Lude.Maybe SortCriteria,
-    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the detector that specifies the GuardDuty service whose findings you want to list.
-    detectorId :: Lude.Text,
+    findingCriteria :: Core.Maybe Types.FindingCriteria,
     -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.String,
+    -- | Represents the criteria used for sorting findings.
+    sortCriteria :: Core.Maybe Types.SortCriteria
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFindings' with the minimum fields required to make a request.
---
--- * 'findingCriteria' - Represents the criteria used for querying findings. Valid values include:
---
---
---     * JSON field name
---
---
---     * accountId
---
---
---     * region
---
---
---     * confidence
---
---
---     * id
---
---
---     * resource.accessKeyDetails.accessKeyId
---
---
---     * resource.accessKeyDetails.principalId
---
---
---     * resource.accessKeyDetails.userName
---
---
---     * resource.accessKeyDetails.userType
---
---
---     * resource.instanceDetails.iamInstanceProfile.id
---
---
---     * resource.instanceDetails.imageId
---
---
---     * resource.instanceDetails.instanceId
---
---
---     * resource.instanceDetails.networkInterfaces.ipv6Addresses
---
---
---     * resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
---
---
---     * resource.instanceDetails.networkInterfaces.publicDnsName
---
---
---     * resource.instanceDetails.networkInterfaces.publicIp
---
---
---     * resource.instanceDetails.networkInterfaces.securityGroups.groupId
---
---
---     * resource.instanceDetails.networkInterfaces.securityGroups.groupName
---
---
---     * resource.instanceDetails.networkInterfaces.subnetId
---
---
---     * resource.instanceDetails.networkInterfaces.vpcId
---
---
---     * resource.instanceDetails.tags.key
---
---
---     * resource.instanceDetails.tags.value
---
---
---     * resource.resourceType
---
---
---     * service.action.actionType
---
---
---     * service.action.awsApiCallAction.api
---
---
---     * service.action.awsApiCallAction.callerType
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.city.cityName
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.country.countryName
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.organization.asn
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
---
---
---     * service.action.awsApiCallAction.serviceName
---
---
---     * service.action.dnsRequestAction.domain
---
---
---     * service.action.networkConnectionAction.blocked
---
---
---     * service.action.networkConnectionAction.connectionDirection
---
---
---     * service.action.networkConnectionAction.localPortDetails.port
---
---
---     * service.action.networkConnectionAction.protocol
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.city.cityName
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.country.countryName
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.organization.asn
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
---
---
---     * service.action.networkConnectionAction.remotePortDetails.port
---
---
---     * service.additionalInfo.threatListName
---
---
---     * service.archived
--- When this attribute is set to 'true', only archived findings are listed. When it's set to 'false', only unarchived findings are listed. When this attribute is not set, all existing findings are listed.
---
---
---     * service.resourceRole
---
---
---     * severity
---
---
---     * type
---
---
---     * updatedAt
--- Type: Timestamp in Unix Epoch millisecond format: 1486685375000
---
---
--- * 'sortCriteria' - Represents the criteria used for sorting findings.
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
--- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to list.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+-- | Creates a 'ListFindings' value with any optional fields omitted.
 mkListFindings ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   ListFindings
-mkListFindings pDetectorId_ =
+mkListFindings detectorId =
   ListFindings'
-    { findingCriteria = Lude.Nothing,
-      sortCriteria = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      detectorId = pDetectorId_,
-      maxResults = Lude.Nothing
+    { detectorId,
+      findingCriteria = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortCriteria = Core.Nothing
     }
+
+-- | The ID of the detector that specifies the GuardDuty service whose findings you want to list.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfDetectorId :: Lens.Lens' ListFindings Types.DetectorId
+lfDetectorId = Lens.field @"detectorId"
+{-# DEPRECATED lfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | Represents the criteria used for querying findings. Valid values include:
 --
@@ -536,131 +386,118 @@ mkListFindings pDetectorId_ =
 --
 --
 -- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lFindingCriteria :: Lens.Lens' ListFindings (Lude.Maybe FindingCriteria)
-lFindingCriteria = Lens.lens (findingCriteria :: ListFindings -> Lude.Maybe FindingCriteria) (\s a -> s {findingCriteria = a} :: ListFindings)
-{-# DEPRECATED lFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
-
--- | Represents the criteria used for sorting findings.
---
--- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lSortCriteria :: Lens.Lens' ListFindings (Lude.Maybe SortCriteria)
-lSortCriteria = Lens.lens (sortCriteria :: ListFindings -> Lude.Maybe SortCriteria) (\s a -> s {sortCriteria = a} :: ListFindings)
-{-# DEPRECATED lSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
-
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListFindings (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListFindings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFindings)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The ID of the detector that specifies the GuardDuty service whose findings you want to list.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lDetectorId :: Lens.Lens' ListFindings Lude.Text
-lDetectorId = Lens.lens (detectorId :: ListFindings -> Lude.Text) (\s a -> s {detectorId = a} :: ListFindings)
-{-# DEPRECATED lDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+lfFindingCriteria :: Lens.Lens' ListFindings (Core.Maybe Types.FindingCriteria)
+lfFindingCriteria = Lens.field @"findingCriteria"
+{-# DEPRECATED lfFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaxResults :: Lens.Lens' ListFindings (Lude.Maybe Lude.Natural)
-lMaxResults = Lens.lens (maxResults :: ListFindings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFindings)
-{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lfMaxResults :: Lens.Lens' ListFindings (Core.Maybe Core.Natural)
+lfMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListFindings where
-  page rq rs
-    | Page.stop (rs Lens.^. lfrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfrsFindingIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lNextToken Lens..~ rs Lens.^. lfrsNextToken
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfNextToken :: Lens.Lens' ListFindings (Core.Maybe Types.String)
+lfNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListFindings where
+-- | Represents the criteria used for sorting findings.
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfSortCriteria :: Lens.Lens' ListFindings (Core.Maybe Types.SortCriteria)
+lfSortCriteria = Lens.field @"sortCriteria"
+{-# DEPRECATED lfSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
+
+instance Core.FromJSON ListFindings where
+  toJSON ListFindings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("findingCriteria" Core..=) Core.<$> findingCriteria,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("sortCriteria" Core..=) Core.<$> sortCriteria
+          ]
+      )
+
+instance Core.AWSRequest ListFindings where
   type Rs ListFindings = ListFindingsResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/findings")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListFindingsResponse'
-            Lude.<$> (x Lude..?> "findingIds" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "findingIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListFindings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListFindings where
-  toJSON ListFindings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("findingCriteria" Lude..=) Lude.<$> findingCriteria,
-            ("sortCriteria" Lude..=) Lude.<$> sortCriteria,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListFindings where
-  toPath ListFindings' {..} =
-    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/findings"]
-
-instance Lude.ToQuery ListFindings where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListFindings where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"findingIds") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListFindingsResponse' smart constructor.
 data ListFindingsResponse = ListFindingsResponse'
   { -- | The IDs of the findings that you're listing.
-    findingIds :: [Lude.Text],
+    findingIds :: [Types.FindingId],
     -- | The pagination parameter to be used on the next list operation to retrieve more items.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFindingsResponse' with the minimum fields required to make a request.
---
--- * 'findingIds' - The IDs of the findings that you're listing.
--- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFindingsResponse' value with any optional fields omitted.
 mkListFindingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFindingsResponse
-mkListFindingsResponse pResponseStatus_ =
+mkListFindingsResponse responseStatus =
   ListFindingsResponse'
-    { findingIds = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { findingIds = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the findings that you're listing.
 --
 -- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsFindingIds :: Lens.Lens' ListFindingsResponse [Lude.Text]
-lfrsFindingIds = Lens.lens (findingIds :: ListFindingsResponse -> [Lude.Text]) (\s a -> s {findingIds = a} :: ListFindingsResponse)
-{-# DEPRECATED lfrsFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
+lfrrsFindingIds :: Lens.Lens' ListFindingsResponse [Types.FindingId]
+lfrrsFindingIds = Lens.field @"findingIds"
+{-# DEPRECATED lfrrsFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsNextToken :: Lens.Lens' ListFindingsResponse (Lude.Maybe Lude.Text)
-lfrsNextToken = Lens.lens (nextToken :: ListFindingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFindingsResponse)
-{-# DEPRECATED lfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lfrrsNextToken :: Lens.Lens' ListFindingsResponse (Core.Maybe Types.NextToken)
+lfrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsResponseStatus :: Lens.Lens' ListFindingsResponse Lude.Int
-lfrsResponseStatus = Lens.lens (responseStatus :: ListFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFindingsResponse)
-{-# DEPRECATED lfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfrrsResponseStatus :: Lens.Lens' ListFindingsResponse Core.Int
+lfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

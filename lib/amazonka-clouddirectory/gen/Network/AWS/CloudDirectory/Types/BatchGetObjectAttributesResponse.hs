@@ -17,44 +17,40 @@ module Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
     mkBatchGetObjectAttributesResponse,
 
     -- * Lenses
-    bgoaAttributes,
+    bgoarAttributes,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import qualified Network.AWS.CloudDirectory.Types.AttributeKeyAndValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'GetObjectAttributes' response operation.
 --
 -- /See:/ 'mkBatchGetObjectAttributesResponse' smart constructor.
 newtype BatchGetObjectAttributesResponse = BatchGetObjectAttributesResponse'
   { -- | The attribute values that are associated with an object.
-    attributes :: Lude.Maybe [AttributeKeyAndValue]
+    attributes :: Core.Maybe [Types.AttributeKeyAndValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'BatchGetObjectAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - The attribute values that are associated with an object.
+-- | Creates a 'BatchGetObjectAttributesResponse' value with any optional fields omitted.
 mkBatchGetObjectAttributesResponse ::
   BatchGetObjectAttributesResponse
 mkBatchGetObjectAttributesResponse =
-  BatchGetObjectAttributesResponse' {attributes = Lude.Nothing}
+  BatchGetObjectAttributesResponse' {attributes = Core.Nothing}
 
 -- | The attribute values that are associated with an object.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgoaAttributes :: Lens.Lens' BatchGetObjectAttributesResponse (Lude.Maybe [AttributeKeyAndValue])
-bgoaAttributes = Lens.lens (attributes :: BatchGetObjectAttributesResponse -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {attributes = a} :: BatchGetObjectAttributesResponse)
-{-# DEPRECATED bgoaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+bgoarAttributes :: Lens.Lens' BatchGetObjectAttributesResponse (Core.Maybe [Types.AttributeKeyAndValue])
+bgoarAttributes = Lens.field @"attributes"
+{-# DEPRECATED bgoarAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.FromJSON BatchGetObjectAttributesResponse where
+instance Core.FromJSON BatchGetObjectAttributesResponse where
   parseJSON =
-    Lude.withObject
-      "BatchGetObjectAttributesResponse"
-      ( \x ->
-          BatchGetObjectAttributesResponse'
-            Lude.<$> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchGetObjectAttributesResponse" Core.$
+      \x ->
+        BatchGetObjectAttributesResponse'
+          Core.<$> (x Core..:? "Attributes")

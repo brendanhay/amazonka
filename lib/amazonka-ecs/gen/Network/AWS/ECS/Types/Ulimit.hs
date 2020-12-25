@@ -18,87 +18,77 @@ module Network.AWS.ECS.Types.Ulimit
 
     -- * Lenses
     uName,
-    uHardLimit,
     uSoftLimit,
+    uHardLimit,
   )
 where
 
-import Network.AWS.ECS.Types.UlimitName
+import qualified Network.AWS.ECS.Types.UlimitName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The @ulimit@ settings to pass to the container.
 --
 -- /See:/ 'mkUlimit' smart constructor.
 data Ulimit = Ulimit'
   { -- | The @type@ of the @ulimit@ .
-    name :: UlimitName,
-    -- | The hard limit for the ulimit type.
-    hardLimit :: Lude.Int,
+    name :: Types.UlimitName,
     -- | The soft limit for the ulimit type.
-    softLimit :: Lude.Int
+    softLimit :: Core.Int,
+    -- | The hard limit for the ulimit type.
+    hardLimit :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Ulimit' with the minimum fields required to make a request.
---
--- * 'name' - The @type@ of the @ulimit@ .
--- * 'hardLimit' - The hard limit for the ulimit type.
--- * 'softLimit' - The soft limit for the ulimit type.
+-- | Creates a 'Ulimit' value with any optional fields omitted.
 mkUlimit ::
   -- | 'name'
-  UlimitName ->
-  -- | 'hardLimit'
-  Lude.Int ->
+  Types.UlimitName ->
   -- | 'softLimit'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'hardLimit'
+  Core.Int ->
   Ulimit
-mkUlimit pName_ pHardLimit_ pSoftLimit_ =
-  Ulimit'
-    { name = pName_,
-      hardLimit = pHardLimit_,
-      softLimit = pSoftLimit_
-    }
+mkUlimit name softLimit hardLimit =
+  Ulimit' {name, softLimit, hardLimit}
 
 -- | The @type@ of the @ulimit@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uName :: Lens.Lens' Ulimit UlimitName
-uName = Lens.lens (name :: Ulimit -> UlimitName) (\s a -> s {name = a} :: Ulimit)
+uName :: Lens.Lens' Ulimit Types.UlimitName
+uName = Lens.field @"name"
 {-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The hard limit for the ulimit type.
---
--- /Note:/ Consider using 'hardLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uHardLimit :: Lens.Lens' Ulimit Lude.Int
-uHardLimit = Lens.lens (hardLimit :: Ulimit -> Lude.Int) (\s a -> s {hardLimit = a} :: Ulimit)
-{-# DEPRECATED uHardLimit "Use generic-lens or generic-optics with 'hardLimit' instead." #-}
 
 -- | The soft limit for the ulimit type.
 --
 -- /Note:/ Consider using 'softLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uSoftLimit :: Lens.Lens' Ulimit Lude.Int
-uSoftLimit = Lens.lens (softLimit :: Ulimit -> Lude.Int) (\s a -> s {softLimit = a} :: Ulimit)
+uSoftLimit :: Lens.Lens' Ulimit Core.Int
+uSoftLimit = Lens.field @"softLimit"
 {-# DEPRECATED uSoftLimit "Use generic-lens or generic-optics with 'softLimit' instead." #-}
 
-instance Lude.FromJSON Ulimit where
-  parseJSON =
-    Lude.withObject
-      "Ulimit"
-      ( \x ->
-          Ulimit'
-            Lude.<$> (x Lude..: "name")
-            Lude.<*> (x Lude..: "hardLimit")
-            Lude.<*> (x Lude..: "softLimit")
-      )
+-- | The hard limit for the ulimit type.
+--
+-- /Note:/ Consider using 'hardLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uHardLimit :: Lens.Lens' Ulimit Core.Int
+uHardLimit = Lens.field @"hardLimit"
+{-# DEPRECATED uHardLimit "Use generic-lens or generic-optics with 'hardLimit' instead." #-}
 
-instance Lude.ToJSON Ulimit where
-  toJSON Ulimit' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("hardLimit" Lude..= hardLimit),
-            Lude.Just ("softLimit" Lude..= softLimit)
+instance Core.FromJSON Ulimit where
+  toJSON Ulimit {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("softLimit" Core..= softLimit),
+            Core.Just ("hardLimit" Core..= hardLimit)
           ]
       )
+
+instance Core.FromJSON Ulimit where
+  parseJSON =
+    Core.withObject "Ulimit" Core.$
+      \x ->
+        Ulimit'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "softLimit")
+          Core.<*> (x Core..: "hardLimit")

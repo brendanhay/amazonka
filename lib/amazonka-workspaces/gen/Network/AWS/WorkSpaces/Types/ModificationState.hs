@@ -17,56 +17,51 @@ module Network.AWS.WorkSpaces.Types.ModificationState
     mkModificationState,
 
     -- * Lenses
-    msState,
     msResource,
+    msState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.ModificationResourceEnum
-import Network.AWS.WorkSpaces.Types.ModificationStateEnum
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.ModificationResourceEnum as Types
+import qualified Network.AWS.WorkSpaces.Types.ModificationStateEnum as Types
 
 -- | Describes a WorkSpace modification.
 --
 -- /See:/ 'mkModificationState' smart constructor.
 data ModificationState = ModificationState'
-  { -- | The modification state.
-    state :: Lude.Maybe ModificationStateEnum,
-    -- | The resource.
-    resource :: Lude.Maybe ModificationResourceEnum
+  { -- | The resource.
+    resource :: Core.Maybe Types.ModificationResourceEnum,
+    -- | The modification state.
+    state :: Core.Maybe Types.ModificationStateEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModificationState' with the minimum fields required to make a request.
---
--- * 'state' - The modification state.
--- * 'resource' - The resource.
+-- | Creates a 'ModificationState' value with any optional fields omitted.
 mkModificationState ::
   ModificationState
 mkModificationState =
-  ModificationState' {state = Lude.Nothing, resource = Lude.Nothing}
-
--- | The modification state.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msState :: Lens.Lens' ModificationState (Lude.Maybe ModificationStateEnum)
-msState = Lens.lens (state :: ModificationState -> Lude.Maybe ModificationStateEnum) (\s a -> s {state = a} :: ModificationState)
-{-# DEPRECATED msState "Use generic-lens or generic-optics with 'state' instead." #-}
+  ModificationState' {resource = Core.Nothing, state = Core.Nothing}
 
 -- | The resource.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msResource :: Lens.Lens' ModificationState (Lude.Maybe ModificationResourceEnum)
-msResource = Lens.lens (resource :: ModificationState -> Lude.Maybe ModificationResourceEnum) (\s a -> s {resource = a} :: ModificationState)
+msResource :: Lens.Lens' ModificationState (Core.Maybe Types.ModificationResourceEnum)
+msResource = Lens.field @"resource"
 {-# DEPRECATED msResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.FromJSON ModificationState where
+-- | The modification state.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msState :: Lens.Lens' ModificationState (Core.Maybe Types.ModificationStateEnum)
+msState = Lens.field @"state"
+{-# DEPRECATED msState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON ModificationState where
   parseJSON =
-    Lude.withObject
-      "ModificationState"
-      ( \x ->
-          ModificationState'
-            Lude.<$> (x Lude..:? "State") Lude.<*> (x Lude..:? "Resource")
-      )
+    Core.withObject "ModificationState" Core.$
+      \x ->
+        ModificationState'
+          Core.<$> (x Core..:? "Resource") Core.<*> (x Core..:? "State")

@@ -20,135 +20,119 @@ module Network.AWS.Glue.StartExportLabelsTaskRun
     mkStartExportLabelsTaskRun,
 
     -- ** Request lenses
-    seltrOutputS3Path,
     seltrTransformId,
+    seltrOutputS3Path,
 
     -- * Destructuring the response
     StartExportLabelsTaskRunResponse (..),
     mkStartExportLabelsTaskRunResponse,
 
     -- ** Response lenses
-    seltrrsTaskRunId,
-    seltrrsResponseStatus,
+    seltrrrsTaskRunId,
+    seltrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartExportLabelsTaskRun' smart constructor.
 data StartExportLabelsTaskRun = StartExportLabelsTaskRun'
-  { -- | The Amazon S3 path where you export the labels.
-    outputS3Path :: Lude.Text,
-    -- | The unique identifier of the machine learning transform.
-    transformId :: Lude.Text
+  { -- | The unique identifier of the machine learning transform.
+    transformId :: Types.TransformId,
+    -- | The Amazon S3 path where you export the labels.
+    outputS3Path :: Types.OutputS3Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartExportLabelsTaskRun' with the minimum fields required to make a request.
---
--- * 'outputS3Path' - The Amazon S3 path where you export the labels.
--- * 'transformId' - The unique identifier of the machine learning transform.
+-- | Creates a 'StartExportLabelsTaskRun' value with any optional fields omitted.
 mkStartExportLabelsTaskRun ::
-  -- | 'outputS3Path'
-  Lude.Text ->
   -- | 'transformId'
-  Lude.Text ->
+  Types.TransformId ->
+  -- | 'outputS3Path'
+  Types.OutputS3Path ->
   StartExportLabelsTaskRun
-mkStartExportLabelsTaskRun pOutputS3Path_ pTransformId_ =
-  StartExportLabelsTaskRun'
-    { outputS3Path = pOutputS3Path_,
-      transformId = pTransformId_
-    }
-
--- | The Amazon S3 path where you export the labels.
---
--- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seltrOutputS3Path :: Lens.Lens' StartExportLabelsTaskRun Lude.Text
-seltrOutputS3Path = Lens.lens (outputS3Path :: StartExportLabelsTaskRun -> Lude.Text) (\s a -> s {outputS3Path = a} :: StartExportLabelsTaskRun)
-{-# DEPRECATED seltrOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
+mkStartExportLabelsTaskRun transformId outputS3Path =
+  StartExportLabelsTaskRun' {transformId, outputS3Path}
 
 -- | The unique identifier of the machine learning transform.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seltrTransformId :: Lens.Lens' StartExportLabelsTaskRun Lude.Text
-seltrTransformId = Lens.lens (transformId :: StartExportLabelsTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: StartExportLabelsTaskRun)
+seltrTransformId :: Lens.Lens' StartExportLabelsTaskRun Types.TransformId
+seltrTransformId = Lens.field @"transformId"
 {-# DEPRECATED seltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
-instance Lude.AWSRequest StartExportLabelsTaskRun where
+-- | The Amazon S3 path where you export the labels.
+--
+-- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seltrOutputS3Path :: Lens.Lens' StartExportLabelsTaskRun Types.OutputS3Path
+seltrOutputS3Path = Lens.field @"outputS3Path"
+{-# DEPRECATED seltrOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
+
+instance Core.FromJSON StartExportLabelsTaskRun where
+  toJSON StartExportLabelsTaskRun {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformId" Core..= transformId),
+            Core.Just ("OutputS3Path" Core..= outputS3Path)
+          ]
+      )
+
+instance Core.AWSRequest StartExportLabelsTaskRun where
   type Rs StartExportLabelsTaskRun = StartExportLabelsTaskRunResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.StartExportLabelsTaskRun")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartExportLabelsTaskRunResponse'
-            Lude.<$> (x Lude..?> "TaskRunId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TaskRunId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartExportLabelsTaskRun where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.StartExportLabelsTaskRun" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartExportLabelsTaskRun where
-  toJSON StartExportLabelsTaskRun' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("OutputS3Path" Lude..= outputS3Path),
-            Lude.Just ("TransformId" Lude..= transformId)
-          ]
-      )
-
-instance Lude.ToPath StartExportLabelsTaskRun where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartExportLabelsTaskRun where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartExportLabelsTaskRunResponse' smart constructor.
 data StartExportLabelsTaskRunResponse = StartExportLabelsTaskRunResponse'
   { -- | The unique identifier for the task run.
-    taskRunId :: Lude.Maybe Lude.Text,
+    taskRunId :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartExportLabelsTaskRunResponse' with the minimum fields required to make a request.
---
--- * 'taskRunId' - The unique identifier for the task run.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartExportLabelsTaskRunResponse' value with any optional fields omitted.
 mkStartExportLabelsTaskRunResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartExportLabelsTaskRunResponse
-mkStartExportLabelsTaskRunResponse pResponseStatus_ =
+mkStartExportLabelsTaskRunResponse responseStatus =
   StartExportLabelsTaskRunResponse'
-    { taskRunId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { taskRunId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier for the task run.
 --
 -- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seltrrsTaskRunId :: Lens.Lens' StartExportLabelsTaskRunResponse (Lude.Maybe Lude.Text)
-seltrrsTaskRunId = Lens.lens (taskRunId :: StartExportLabelsTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskRunId = a} :: StartExportLabelsTaskRunResponse)
-{-# DEPRECATED seltrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
+seltrrrsTaskRunId :: Lens.Lens' StartExportLabelsTaskRunResponse (Core.Maybe Types.HashString)
+seltrrrsTaskRunId = Lens.field @"taskRunId"
+{-# DEPRECATED seltrrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seltrrsResponseStatus :: Lens.Lens' StartExportLabelsTaskRunResponse Lude.Int
-seltrrsResponseStatus = Lens.lens (responseStatus :: StartExportLabelsTaskRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartExportLabelsTaskRunResponse)
-{-# DEPRECATED seltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+seltrrrsResponseStatus :: Lens.Lens' StartExportLabelsTaskRunResponse Core.Int
+seltrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED seltrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

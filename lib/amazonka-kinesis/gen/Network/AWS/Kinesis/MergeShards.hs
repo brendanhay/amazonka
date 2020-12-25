@@ -28,9 +28,9 @@ module Network.AWS.Kinesis.MergeShards
     mkMergeShards,
 
     -- ** Request lenses
+    msStreamName,
     msShardToMerge,
     msAdjacentShardToMerge,
-    msStreamName,
 
     -- * Destructuring the response
     MergeShardsResponse (..),
@@ -38,105 +38,90 @@ module Network.AWS.Kinesis.MergeShards
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @MergeShards@ .
 --
 -- /See:/ 'mkMergeShards' smart constructor.
 data MergeShards = MergeShards'
-  { -- | The shard ID of the shard to combine with the adjacent shard for the merge.
-    shardToMerge :: Lude.Text,
+  { -- | The name of the stream for the merge.
+    streamName :: Types.StreamName,
+    -- | The shard ID of the shard to combine with the adjacent shard for the merge.
+    shardToMerge :: Types.ShardToMerge,
     -- | The shard ID of the adjacent shard for the merge.
-    adjacentShardToMerge :: Lude.Text,
-    -- | The name of the stream for the merge.
-    streamName :: Lude.Text
+    adjacentShardToMerge :: Types.AdjacentShardToMerge
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeShards' with the minimum fields required to make a request.
---
--- * 'shardToMerge' - The shard ID of the shard to combine with the adjacent shard for the merge.
--- * 'adjacentShardToMerge' - The shard ID of the adjacent shard for the merge.
--- * 'streamName' - The name of the stream for the merge.
+-- | Creates a 'MergeShards' value with any optional fields omitted.
 mkMergeShards ::
-  -- | 'shardToMerge'
-  Lude.Text ->
-  -- | 'adjacentShardToMerge'
-  Lude.Text ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'shardToMerge'
+  Types.ShardToMerge ->
+  -- | 'adjacentShardToMerge'
+  Types.AdjacentShardToMerge ->
   MergeShards
-mkMergeShards pShardToMerge_ pAdjacentShardToMerge_ pStreamName_ =
-  MergeShards'
-    { shardToMerge = pShardToMerge_,
-      adjacentShardToMerge = pAdjacentShardToMerge_,
-      streamName = pStreamName_
-    }
+mkMergeShards streamName shardToMerge adjacentShardToMerge =
+  MergeShards' {streamName, shardToMerge, adjacentShardToMerge}
+
+-- | The name of the stream for the merge.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msStreamName :: Lens.Lens' MergeShards Types.StreamName
+msStreamName = Lens.field @"streamName"
+{-# DEPRECATED msStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The shard ID of the shard to combine with the adjacent shard for the merge.
 --
 -- /Note:/ Consider using 'shardToMerge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msShardToMerge :: Lens.Lens' MergeShards Lude.Text
-msShardToMerge = Lens.lens (shardToMerge :: MergeShards -> Lude.Text) (\s a -> s {shardToMerge = a} :: MergeShards)
+msShardToMerge :: Lens.Lens' MergeShards Types.ShardToMerge
+msShardToMerge = Lens.field @"shardToMerge"
 {-# DEPRECATED msShardToMerge "Use generic-lens or generic-optics with 'shardToMerge' instead." #-}
 
 -- | The shard ID of the adjacent shard for the merge.
 --
 -- /Note:/ Consider using 'adjacentShardToMerge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msAdjacentShardToMerge :: Lens.Lens' MergeShards Lude.Text
-msAdjacentShardToMerge = Lens.lens (adjacentShardToMerge :: MergeShards -> Lude.Text) (\s a -> s {adjacentShardToMerge = a} :: MergeShards)
+msAdjacentShardToMerge :: Lens.Lens' MergeShards Types.AdjacentShardToMerge
+msAdjacentShardToMerge = Lens.field @"adjacentShardToMerge"
 {-# DEPRECATED msAdjacentShardToMerge "Use generic-lens or generic-optics with 'adjacentShardToMerge' instead." #-}
 
--- | The name of the stream for the merge.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msStreamName :: Lens.Lens' MergeShards Lude.Text
-msStreamName = Lens.lens (streamName :: MergeShards -> Lude.Text) (\s a -> s {streamName = a} :: MergeShards)
-{-# DEPRECATED msStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+instance Core.FromJSON MergeShards where
+  toJSON MergeShards {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardToMerge" Core..= shardToMerge),
+            Core.Just ("AdjacentShardToMerge" Core..= adjacentShardToMerge)
+          ]
+      )
 
-instance Lude.AWSRequest MergeShards where
+instance Core.AWSRequest MergeShards where
   type Rs MergeShards = MergeShardsResponse
-  request = Req.postJSON kinesisService
-  response = Res.receiveNull MergeShardsResponse'
-
-instance Lude.ToHeaders MergeShards where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.MergeShards" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON MergeShards where
-  toJSON MergeShards' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ShardToMerge" Lude..= shardToMerge),
-            Lude.Just ("AdjacentShardToMerge" Lude..= adjacentShardToMerge),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath MergeShards where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery MergeShards where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.MergeShards")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull MergeShardsResponse'
 
 -- | /See:/ 'mkMergeShardsResponse' smart constructor.
 data MergeShardsResponse = MergeShardsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeShardsResponse' with the minimum fields required to make a request.
+-- | Creates a 'MergeShardsResponse' value with any optional fields omitted.
 mkMergeShardsResponse ::
   MergeShardsResponse
 mkMergeShardsResponse = MergeShardsResponse'

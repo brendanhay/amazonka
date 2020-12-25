@@ -13,46 +13,51 @@
 module Network.AWS.OpsWorksCM.Types.MaintenanceStatus
   ( MaintenanceStatus
       ( MaintenanceStatus',
-        MSSuccess,
-        MSFailed
+        MaintenanceStatusSuccess,
+        MaintenanceStatusFailed,
+        fromMaintenanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MaintenanceStatus = MaintenanceStatus' Lude.Text
+newtype MaintenanceStatus = MaintenanceStatus'
+  { fromMaintenanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSSuccess :: MaintenanceStatus
-pattern MSSuccess = MaintenanceStatus' "SUCCESS"
+pattern MaintenanceStatusSuccess :: MaintenanceStatus
+pattern MaintenanceStatusSuccess = MaintenanceStatus' "SUCCESS"
 
-pattern MSFailed :: MaintenanceStatus
-pattern MSFailed = MaintenanceStatus' "FAILED"
+pattern MaintenanceStatusFailed :: MaintenanceStatus
+pattern MaintenanceStatusFailed = MaintenanceStatus' "FAILED"
 
 {-# COMPLETE
-  MSSuccess,
-  MSFailed,
+  MaintenanceStatusSuccess,
+  MaintenanceStatusFailed,
   MaintenanceStatus'
   #-}

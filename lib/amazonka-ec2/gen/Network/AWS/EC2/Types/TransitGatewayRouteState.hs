@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.TransitGatewayRouteState
   ( TransitGatewayRouteState
       ( TransitGatewayRouteState',
-        TGRSPending,
-        TGRSActive,
-        TGRSBlackhole,
-        TGRSDeleting,
-        TGRSDeleted
+        TransitGatewayRouteStatePending,
+        TransitGatewayRouteStateActive,
+        TransitGatewayRouteStateBlackhole,
+        TransitGatewayRouteStateDeleting,
+        TransitGatewayRouteStateDeleted,
+        fromTransitGatewayRouteState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayRouteState = TransitGatewayRouteState' Lude.Text
+newtype TransitGatewayRouteState = TransitGatewayRouteState'
+  { fromTransitGatewayRouteState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TGRSPending :: TransitGatewayRouteState
-pattern TGRSPending = TransitGatewayRouteState' "pending"
+pattern TransitGatewayRouteStatePending :: TransitGatewayRouteState
+pattern TransitGatewayRouteStatePending = TransitGatewayRouteState' "pending"
 
-pattern TGRSActive :: TransitGatewayRouteState
-pattern TGRSActive = TransitGatewayRouteState' "active"
+pattern TransitGatewayRouteStateActive :: TransitGatewayRouteState
+pattern TransitGatewayRouteStateActive = TransitGatewayRouteState' "active"
 
-pattern TGRSBlackhole :: TransitGatewayRouteState
-pattern TGRSBlackhole = TransitGatewayRouteState' "blackhole"
+pattern TransitGatewayRouteStateBlackhole :: TransitGatewayRouteState
+pattern TransitGatewayRouteStateBlackhole = TransitGatewayRouteState' "blackhole"
 
-pattern TGRSDeleting :: TransitGatewayRouteState
-pattern TGRSDeleting = TransitGatewayRouteState' "deleting"
+pattern TransitGatewayRouteStateDeleting :: TransitGatewayRouteState
+pattern TransitGatewayRouteStateDeleting = TransitGatewayRouteState' "deleting"
 
-pattern TGRSDeleted :: TransitGatewayRouteState
-pattern TGRSDeleted = TransitGatewayRouteState' "deleted"
+pattern TransitGatewayRouteStateDeleted :: TransitGatewayRouteState
+pattern TransitGatewayRouteStateDeleted = TransitGatewayRouteState' "deleted"
 
 {-# COMPLETE
-  TGRSPending,
-  TGRSActive,
-  TGRSBlackhole,
-  TGRSDeleting,
-  TGRSDeleted,
+  TransitGatewayRouteStatePending,
+  TransitGatewayRouteStateActive,
+  TransitGatewayRouteStateBlackhole,
+  TransitGatewayRouteStateDeleting,
+  TransitGatewayRouteStateDeleted,
   TransitGatewayRouteState'
   #-}

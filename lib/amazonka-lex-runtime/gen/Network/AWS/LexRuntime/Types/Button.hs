@@ -23,50 +23,47 @@ module Network.AWS.LexRuntime.Types.Button
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexRuntime.Types.ButtonValueStringWithLength as Types
+import qualified Network.AWS.LexRuntime.Types.Text as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an option to be shown on the client platform (Facebook, Slack, etc.)
 --
 -- /See:/ 'mkButton' smart constructor.
 data Button = Button'
   { -- | Text that is visible to the user on the button.
-    text :: Lude.Text,
+    text :: Types.Text,
     -- | The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
-    value :: Lude.Text
+    value :: Types.ButtonValueStringWithLength
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Button' with the minimum fields required to make a request.
---
--- * 'text' - Text that is visible to the user on the button.
--- * 'value' - The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
+-- | Creates a 'Button' value with any optional fields omitted.
 mkButton ::
   -- | 'text'
-  Lude.Text ->
+  Types.Text ->
   -- | 'value'
-  Lude.Text ->
+  Types.ButtonValueStringWithLength ->
   Button
-mkButton pText_ pValue_ = Button' {text = pText_, value = pValue_}
+mkButton text value = Button' {text, value}
 
 -- | Text that is visible to the user on the button.
 --
 -- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bText :: Lens.Lens' Button Lude.Text
-bText = Lens.lens (text :: Button -> Lude.Text) (\s a -> s {text = a} :: Button)
+bText :: Lens.Lens' Button Types.Text
+bText = Lens.field @"text"
 {-# DEPRECATED bText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bValue :: Lens.Lens' Button Lude.Text
-bValue = Lens.lens (value :: Button -> Lude.Text) (\s a -> s {value = a} :: Button)
+bValue :: Lens.Lens' Button Types.ButtonValueStringWithLength
+bValue = Lens.field @"value"
 {-# DEPRECATED bValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromJSON Button where
+instance Core.FromJSON Button where
   parseJSON =
-    Lude.withObject
-      "Button"
-      ( \x ->
-          Button' Lude.<$> (x Lude..: "text") Lude.<*> (x Lude..: "value")
-      )
+    Core.withObject "Button" Core.$
+      \x ->
+        Button' Core.<$> (x Core..: "text") Core.<*> (x Core..: "value")

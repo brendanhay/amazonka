@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.InstanceLifecycleType
   ( InstanceLifecycleType
       ( InstanceLifecycleType',
-        ILTSpot,
-        ILTScheduled
+        InstanceLifecycleTypeSpot,
+        InstanceLifecycleTypeScheduled,
+        fromInstanceLifecycleType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceLifecycleType = InstanceLifecycleType' Lude.Text
+newtype InstanceLifecycleType = InstanceLifecycleType'
+  { fromInstanceLifecycleType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ILTSpot :: InstanceLifecycleType
-pattern ILTSpot = InstanceLifecycleType' "spot"
+pattern InstanceLifecycleTypeSpot :: InstanceLifecycleType
+pattern InstanceLifecycleTypeSpot = InstanceLifecycleType' "spot"
 
-pattern ILTScheduled :: InstanceLifecycleType
-pattern ILTScheduled = InstanceLifecycleType' "scheduled"
+pattern InstanceLifecycleTypeScheduled :: InstanceLifecycleType
+pattern InstanceLifecycleTypeScheduled = InstanceLifecycleType' "scheduled"
 
 {-# COMPLETE
-  ILTSpot,
-  ILTScheduled,
+  InstanceLifecycleTypeSpot,
+  InstanceLifecycleTypeScheduled,
   InstanceLifecycleType'
   #-}

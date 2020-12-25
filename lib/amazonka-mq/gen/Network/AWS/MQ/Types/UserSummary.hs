@@ -17,58 +17,53 @@ module Network.AWS.MQ.Types.UserSummary
     mkUserSummary,
 
     -- * Lenses
-    usUsername,
     usPendingChange,
+    usUsername,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.ChangeType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MQ.Types.ChangeType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns a list of all broker users.
 --
 -- /See:/ 'mkUserSummary' smart constructor.
 data UserSummary = UserSummary'
-  { -- | Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-    username :: Lude.Maybe Lude.Text,
-    -- | The type of change pending for the broker user.
-    pendingChange :: Lude.Maybe ChangeType
+  { -- | The type of change pending for the broker user.
+    pendingChange :: Core.Maybe Types.ChangeType,
+    -- | Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    username :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserSummary' with the minimum fields required to make a request.
---
--- * 'username' - Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
--- * 'pendingChange' - The type of change pending for the broker user.
+-- | Creates a 'UserSummary' value with any optional fields omitted.
 mkUserSummary ::
   UserSummary
 mkUserSummary =
   UserSummary'
-    { username = Lude.Nothing,
-      pendingChange = Lude.Nothing
+    { pendingChange = Core.Nothing,
+      username = Core.Nothing
     }
-
--- | Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usUsername :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
-usUsername = Lens.lens (username :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: UserSummary)
-{-# DEPRECATED usUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The type of change pending for the broker user.
 --
 -- /Note:/ Consider using 'pendingChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPendingChange :: Lens.Lens' UserSummary (Lude.Maybe ChangeType)
-usPendingChange = Lens.lens (pendingChange :: UserSummary -> Lude.Maybe ChangeType) (\s a -> s {pendingChange = a} :: UserSummary)
+usPendingChange :: Lens.Lens' UserSummary (Core.Maybe Types.ChangeType)
+usPendingChange = Lens.field @"pendingChange"
 {-# DEPRECATED usPendingChange "Use generic-lens or generic-optics with 'pendingChange' instead." #-}
 
-instance Lude.FromJSON UserSummary where
+-- | Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usUsername :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
+usUsername = Lens.field @"username"
+{-# DEPRECATED usUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON UserSummary where
   parseJSON =
-    Lude.withObject
-      "UserSummary"
-      ( \x ->
-          UserSummary'
-            Lude.<$> (x Lude..:? "username") Lude.<*> (x Lude..:? "pendingChange")
-      )
+    Core.withObject "UserSummary" Core.$
+      \x ->
+        UserSummary'
+          Core.<$> (x Core..:? "pendingChange") Core.<*> (x Core..:? "username")

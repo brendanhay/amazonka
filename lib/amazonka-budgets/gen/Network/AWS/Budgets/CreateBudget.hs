@@ -22,8 +22,8 @@ module Network.AWS.Budgets.CreateBudget
     mkCreateBudget,
 
     -- ** Request lenses
-    cbBudget,
     cbAccountId,
+    cbBudget,
     cbNotificationsWithSubscribers,
 
     -- * Destructuring the response
@@ -31,129 +31,116 @@ module Network.AWS.Budgets.CreateBudget
     mkCreateBudgetResponse,
 
     -- ** Response lenses
-    cbrsResponseStatus,
+    cbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request of CreateBudget
 --
 -- /See:/ 'mkCreateBudget' smart constructor.
 data CreateBudget = CreateBudget'
-  { -- | The budget object that you want to create.
-    budget :: Budget,
-    -- | The @accountId@ that is associated with the budget.
-    accountId :: Lude.Text,
+  { -- | The @accountId@ that is associated with the budget.
+    accountId :: Types.AccountId,
+    -- | The budget object that you want to create.
+    budget :: Types.Budget,
     -- | A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
-    notificationsWithSubscribers :: Lude.Maybe [NotificationWithSubscribers]
+    notificationsWithSubscribers :: Core.Maybe [Types.NotificationWithSubscribers]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateBudget' with the minimum fields required to make a request.
---
--- * 'budget' - The budget object that you want to create.
--- * 'accountId' - The @accountId@ that is associated with the budget.
--- * 'notificationsWithSubscribers' - A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
+-- | Creates a 'CreateBudget' value with any optional fields omitted.
 mkCreateBudget ::
-  -- | 'budget'
-  Budget ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'budget'
+  Types.Budget ->
   CreateBudget
-mkCreateBudget pBudget_ pAccountId_ =
+mkCreateBudget accountId budget =
   CreateBudget'
-    { budget = pBudget_,
-      accountId = pAccountId_,
-      notificationsWithSubscribers = Lude.Nothing
+    { accountId,
+      budget,
+      notificationsWithSubscribers = Core.Nothing
     }
-
--- | The budget object that you want to create.
---
--- /Note:/ Consider using 'budget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbBudget :: Lens.Lens' CreateBudget Budget
-cbBudget = Lens.lens (budget :: CreateBudget -> Budget) (\s a -> s {budget = a} :: CreateBudget)
-{-# DEPRECATED cbBudget "Use generic-lens or generic-optics with 'budget' instead." #-}
 
 -- | The @accountId@ that is associated with the budget.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbAccountId :: Lens.Lens' CreateBudget Lude.Text
-cbAccountId = Lens.lens (accountId :: CreateBudget -> Lude.Text) (\s a -> s {accountId = a} :: CreateBudget)
+cbAccountId :: Lens.Lens' CreateBudget Types.AccountId
+cbAccountId = Lens.field @"accountId"
 {-# DEPRECATED cbAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The budget object that you want to create.
+--
+-- /Note:/ Consider using 'budget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbBudget :: Lens.Lens' CreateBudget Types.Budget
+cbBudget = Lens.field @"budget"
+{-# DEPRECATED cbBudget "Use generic-lens or generic-optics with 'budget' instead." #-}
 
 -- | A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
 --
 -- /Note:/ Consider using 'notificationsWithSubscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbNotificationsWithSubscribers :: Lens.Lens' CreateBudget (Lude.Maybe [NotificationWithSubscribers])
-cbNotificationsWithSubscribers = Lens.lens (notificationsWithSubscribers :: CreateBudget -> Lude.Maybe [NotificationWithSubscribers]) (\s a -> s {notificationsWithSubscribers = a} :: CreateBudget)
+cbNotificationsWithSubscribers :: Lens.Lens' CreateBudget (Core.Maybe [Types.NotificationWithSubscribers])
+cbNotificationsWithSubscribers = Lens.field @"notificationsWithSubscribers"
 {-# DEPRECATED cbNotificationsWithSubscribers "Use generic-lens or generic-optics with 'notificationsWithSubscribers' instead." #-}
 
-instance Lude.AWSRequest CreateBudget where
+instance Core.FromJSON CreateBudget where
+  toJSON CreateBudget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("Budget" Core..= budget),
+            ("NotificationsWithSubscribers" Core..=)
+              Core.<$> notificationsWithSubscribers
+          ]
+      )
+
+instance Core.AWSRequest CreateBudget where
   type Rs CreateBudget = CreateBudgetResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSBudgetServiceGateway.CreateBudget")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateBudgetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateBudgetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateBudget where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSBudgetServiceGateway.CreateBudget" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateBudget where
-  toJSON CreateBudget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Budget" Lude..= budget),
-            Lude.Just ("AccountId" Lude..= accountId),
-            ("NotificationsWithSubscribers" Lude..=)
-              Lude.<$> notificationsWithSubscribers
-          ]
-      )
-
-instance Lude.ToPath CreateBudget where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateBudget where
-  toQuery = Lude.const Lude.mempty
 
 -- | Response of CreateBudget
 --
 -- /See:/ 'mkCreateBudgetResponse' smart constructor.
 newtype CreateBudgetResponse = CreateBudgetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBudgetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateBudgetResponse' value with any optional fields omitted.
 mkCreateBudgetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateBudgetResponse
-mkCreateBudgetResponse pResponseStatus_ =
-  CreateBudgetResponse' {responseStatus = pResponseStatus_}
+mkCreateBudgetResponse responseStatus =
+  CreateBudgetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsResponseStatus :: Lens.Lens' CreateBudgetResponse Lude.Int
-cbrsResponseStatus = Lens.lens (responseStatus :: CreateBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBudgetResponse)
-{-# DEPRECATED cbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbrrsResponseStatus :: Lens.Lens' CreateBudgetResponse Core.Int
+cbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

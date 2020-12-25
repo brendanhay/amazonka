@@ -13,56 +13,61 @@
 module Network.AWS.CloudFormation.Types.StackSetOperationAction
   ( StackSetOperationAction
       ( StackSetOperationAction',
-        SSOACreate,
-        SSOAUpdate,
-        SSOADelete,
-        SSOADetectDrift
+        StackSetOperationActionCreate,
+        StackSetOperationActionUpdate,
+        StackSetOperationActionDelete,
+        StackSetOperationActionDetectDrift,
+        fromStackSetOperationAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackSetOperationAction = StackSetOperationAction' Lude.Text
+newtype StackSetOperationAction = StackSetOperationAction'
+  { fromStackSetOperationAction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSOACreate :: StackSetOperationAction
-pattern SSOACreate = StackSetOperationAction' "CREATE"
+pattern StackSetOperationActionCreate :: StackSetOperationAction
+pattern StackSetOperationActionCreate = StackSetOperationAction' "CREATE"
 
-pattern SSOAUpdate :: StackSetOperationAction
-pattern SSOAUpdate = StackSetOperationAction' "UPDATE"
+pattern StackSetOperationActionUpdate :: StackSetOperationAction
+pattern StackSetOperationActionUpdate = StackSetOperationAction' "UPDATE"
 
-pattern SSOADelete :: StackSetOperationAction
-pattern SSOADelete = StackSetOperationAction' "DELETE"
+pattern StackSetOperationActionDelete :: StackSetOperationAction
+pattern StackSetOperationActionDelete = StackSetOperationAction' "DELETE"
 
-pattern SSOADetectDrift :: StackSetOperationAction
-pattern SSOADetectDrift = StackSetOperationAction' "DETECT_DRIFT"
+pattern StackSetOperationActionDetectDrift :: StackSetOperationAction
+pattern StackSetOperationActionDetectDrift = StackSetOperationAction' "DETECT_DRIFT"
 
 {-# COMPLETE
-  SSOACreate,
-  SSOAUpdate,
-  SSOADelete,
-  SSOADetectDrift,
+  StackSetOperationActionCreate,
+  StackSetOperationActionUpdate,
+  StackSetOperationActionDelete,
+  StackSetOperationActionDetectDrift,
   StackSetOperationAction'
   #-}

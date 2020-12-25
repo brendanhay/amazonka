@@ -13,61 +13,66 @@
 module Network.AWS.ElasticSearch.Types.DeploymentStatus
   ( DeploymentStatus
       ( DeploymentStatus',
-        PendingUpdate,
-        InProgress,
-        Completed,
-        NotEligible,
-        Eligible
+        DeploymentStatusPendingUpdate,
+        DeploymentStatusInProgress,
+        DeploymentStatusCompleted,
+        DeploymentStatusNotEligible,
+        DeploymentStatusEligible,
+        fromDeploymentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeploymentStatus = DeploymentStatus' Lude.Text
+newtype DeploymentStatus = DeploymentStatus'
+  { fromDeploymentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PendingUpdate :: DeploymentStatus
-pattern PendingUpdate = DeploymentStatus' "PENDING_UPDATE"
+pattern DeploymentStatusPendingUpdate :: DeploymentStatus
+pattern DeploymentStatusPendingUpdate = DeploymentStatus' "PENDING_UPDATE"
 
-pattern InProgress :: DeploymentStatus
-pattern InProgress = DeploymentStatus' "IN_PROGRESS"
+pattern DeploymentStatusInProgress :: DeploymentStatus
+pattern DeploymentStatusInProgress = DeploymentStatus' "IN_PROGRESS"
 
-pattern Completed :: DeploymentStatus
-pattern Completed = DeploymentStatus' "COMPLETED"
+pattern DeploymentStatusCompleted :: DeploymentStatus
+pattern DeploymentStatusCompleted = DeploymentStatus' "COMPLETED"
 
-pattern NotEligible :: DeploymentStatus
-pattern NotEligible = DeploymentStatus' "NOT_ELIGIBLE"
+pattern DeploymentStatusNotEligible :: DeploymentStatus
+pattern DeploymentStatusNotEligible = DeploymentStatus' "NOT_ELIGIBLE"
 
-pattern Eligible :: DeploymentStatus
-pattern Eligible = DeploymentStatus' "ELIGIBLE"
+pattern DeploymentStatusEligible :: DeploymentStatus
+pattern DeploymentStatusEligible = DeploymentStatus' "ELIGIBLE"
 
 {-# COMPLETE
-  PendingUpdate,
-  InProgress,
-  Completed,
-  NotEligible,
-  Eligible,
+  DeploymentStatusPendingUpdate,
+  DeploymentStatusInProgress,
+  DeploymentStatusCompleted,
+  DeploymentStatusNotEligible,
+  DeploymentStatusEligible,
   DeploymentStatus'
   #-}

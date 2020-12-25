@@ -13,51 +13,53 @@
 module Network.AWS.Glue.Types.WorkerType
   ( WorkerType
       ( WorkerType',
-        Standard,
-        G_1X,
-        G_2X
+        WorkerTypeStandard,
+        WorkerTypeG_1X,
+        WorkerTypeG_2X,
+        fromWorkerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkerType = WorkerType' Lude.Text
+newtype WorkerType = WorkerType' {fromWorkerType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: WorkerType
-pattern Standard = WorkerType' "Standard"
+pattern WorkerTypeStandard :: WorkerType
+pattern WorkerTypeStandard = WorkerType' "Standard"
 
-pattern G_1X :: WorkerType
-pattern G_1X = WorkerType' "G.1X"
+pattern WorkerTypeG_1X :: WorkerType
+pattern WorkerTypeG_1X = WorkerType' "G.1X"
 
-pattern G_2X :: WorkerType
-pattern G_2X = WorkerType' "G.2X"
+pattern WorkerTypeG_2X :: WorkerType
+pattern WorkerTypeG_2X = WorkerType' "G.2X"
 
 {-# COMPLETE
-  Standard,
-  G_1X,
-  G_2X,
+  WorkerTypeStandard,
+  WorkerTypeG_1X,
+  WorkerTypeG_2X,
   WorkerType'
   #-}

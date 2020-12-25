@@ -13,171 +13,173 @@
 module Network.AWS.SageMaker.Types.TargetDevice
   ( TargetDevice
       ( TargetDevice',
-        Lambda,
-        MlM4,
-        MlM5,
-        MlC4,
-        MlC5,
-        MlP2,
-        MlP3,
-        MlG4dn,
-        MlINF1,
-        JetsonTX1,
-        JetsonTX2,
-        JetsonNano,
-        JetsonXavier,
-        Rasp3b,
-        Imx8qm,
-        Deeplens,
-        RK3399,
-        RK3288,
-        Aisage,
-        Sbec,
-        QCS605,
-        QCS603,
-        SitaraAm57x,
-        AmbaCV22,
-        X86WIN32,
-        X86WIN64,
-        Coreml
+        TargetDeviceLambda,
+        TargetDeviceMlM4,
+        TargetDeviceMlM5,
+        TargetDeviceMlC4,
+        TargetDeviceMlC5,
+        TargetDeviceMlP2,
+        TargetDeviceMlP3,
+        TargetDeviceMlG4dn,
+        TargetDeviceMlINF1,
+        TargetDeviceJetsonTX1,
+        TargetDeviceJetsonTX2,
+        TargetDeviceJetsonNano,
+        TargetDeviceJetsonXavier,
+        TargetDeviceRasp3b,
+        TargetDeviceImx8qm,
+        TargetDeviceDeeplens,
+        TargetDeviceRK3399,
+        TargetDeviceRK3288,
+        TargetDeviceAisage,
+        TargetDeviceSbec,
+        TargetDeviceQCS605,
+        TargetDeviceQCS603,
+        TargetDeviceSitaraAm57x,
+        TargetDeviceAmbaCV22,
+        TargetDeviceX86WIN32,
+        TargetDeviceX86WIN64,
+        TargetDeviceCoreml,
+        fromTargetDevice
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetDevice = TargetDevice' Lude.Text
+newtype TargetDevice = TargetDevice' {fromTargetDevice :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Lambda :: TargetDevice
-pattern Lambda = TargetDevice' "lambda"
+pattern TargetDeviceLambda :: TargetDevice
+pattern TargetDeviceLambda = TargetDevice' "lambda"
 
-pattern MlM4 :: TargetDevice
-pattern MlM4 = TargetDevice' "ml_m4"
+pattern TargetDeviceMlM4 :: TargetDevice
+pattern TargetDeviceMlM4 = TargetDevice' "ml_m4"
 
-pattern MlM5 :: TargetDevice
-pattern MlM5 = TargetDevice' "ml_m5"
+pattern TargetDeviceMlM5 :: TargetDevice
+pattern TargetDeviceMlM5 = TargetDevice' "ml_m5"
 
-pattern MlC4 :: TargetDevice
-pattern MlC4 = TargetDevice' "ml_c4"
+pattern TargetDeviceMlC4 :: TargetDevice
+pattern TargetDeviceMlC4 = TargetDevice' "ml_c4"
 
-pattern MlC5 :: TargetDevice
-pattern MlC5 = TargetDevice' "ml_c5"
+pattern TargetDeviceMlC5 :: TargetDevice
+pattern TargetDeviceMlC5 = TargetDevice' "ml_c5"
 
-pattern MlP2 :: TargetDevice
-pattern MlP2 = TargetDevice' "ml_p2"
+pattern TargetDeviceMlP2 :: TargetDevice
+pattern TargetDeviceMlP2 = TargetDevice' "ml_p2"
 
-pattern MlP3 :: TargetDevice
-pattern MlP3 = TargetDevice' "ml_p3"
+pattern TargetDeviceMlP3 :: TargetDevice
+pattern TargetDeviceMlP3 = TargetDevice' "ml_p3"
 
-pattern MlG4dn :: TargetDevice
-pattern MlG4dn = TargetDevice' "ml_g4dn"
+pattern TargetDeviceMlG4dn :: TargetDevice
+pattern TargetDeviceMlG4dn = TargetDevice' "ml_g4dn"
 
-pattern MlINF1 :: TargetDevice
-pattern MlINF1 = TargetDevice' "ml_inf1"
+pattern TargetDeviceMlINF1 :: TargetDevice
+pattern TargetDeviceMlINF1 = TargetDevice' "ml_inf1"
 
-pattern JetsonTX1 :: TargetDevice
-pattern JetsonTX1 = TargetDevice' "jetson_tx1"
+pattern TargetDeviceJetsonTX1 :: TargetDevice
+pattern TargetDeviceJetsonTX1 = TargetDevice' "jetson_tx1"
 
-pattern JetsonTX2 :: TargetDevice
-pattern JetsonTX2 = TargetDevice' "jetson_tx2"
+pattern TargetDeviceJetsonTX2 :: TargetDevice
+pattern TargetDeviceJetsonTX2 = TargetDevice' "jetson_tx2"
 
-pattern JetsonNano :: TargetDevice
-pattern JetsonNano = TargetDevice' "jetson_nano"
+pattern TargetDeviceJetsonNano :: TargetDevice
+pattern TargetDeviceJetsonNano = TargetDevice' "jetson_nano"
 
-pattern JetsonXavier :: TargetDevice
-pattern JetsonXavier = TargetDevice' "jetson_xavier"
+pattern TargetDeviceJetsonXavier :: TargetDevice
+pattern TargetDeviceJetsonXavier = TargetDevice' "jetson_xavier"
 
-pattern Rasp3b :: TargetDevice
-pattern Rasp3b = TargetDevice' "rasp3b"
+pattern TargetDeviceRasp3b :: TargetDevice
+pattern TargetDeviceRasp3b = TargetDevice' "rasp3b"
 
-pattern Imx8qm :: TargetDevice
-pattern Imx8qm = TargetDevice' "imx8qm"
+pattern TargetDeviceImx8qm :: TargetDevice
+pattern TargetDeviceImx8qm = TargetDevice' "imx8qm"
 
-pattern Deeplens :: TargetDevice
-pattern Deeplens = TargetDevice' "deeplens"
+pattern TargetDeviceDeeplens :: TargetDevice
+pattern TargetDeviceDeeplens = TargetDevice' "deeplens"
 
-pattern RK3399 :: TargetDevice
-pattern RK3399 = TargetDevice' "rk3399"
+pattern TargetDeviceRK3399 :: TargetDevice
+pattern TargetDeviceRK3399 = TargetDevice' "rk3399"
 
-pattern RK3288 :: TargetDevice
-pattern RK3288 = TargetDevice' "rk3288"
+pattern TargetDeviceRK3288 :: TargetDevice
+pattern TargetDeviceRK3288 = TargetDevice' "rk3288"
 
-pattern Aisage :: TargetDevice
-pattern Aisage = TargetDevice' "aisage"
+pattern TargetDeviceAisage :: TargetDevice
+pattern TargetDeviceAisage = TargetDevice' "aisage"
 
-pattern Sbec :: TargetDevice
-pattern Sbec = TargetDevice' "sbe_c"
+pattern TargetDeviceSbec :: TargetDevice
+pattern TargetDeviceSbec = TargetDevice' "sbe_c"
 
-pattern QCS605 :: TargetDevice
-pattern QCS605 = TargetDevice' "qcs605"
+pattern TargetDeviceQCS605 :: TargetDevice
+pattern TargetDeviceQCS605 = TargetDevice' "qcs605"
 
-pattern QCS603 :: TargetDevice
-pattern QCS603 = TargetDevice' "qcs603"
+pattern TargetDeviceQCS603 :: TargetDevice
+pattern TargetDeviceQCS603 = TargetDevice' "qcs603"
 
-pattern SitaraAm57x :: TargetDevice
-pattern SitaraAm57x = TargetDevice' "sitara_am57x"
+pattern TargetDeviceSitaraAm57x :: TargetDevice
+pattern TargetDeviceSitaraAm57x = TargetDevice' "sitara_am57x"
 
-pattern AmbaCV22 :: TargetDevice
-pattern AmbaCV22 = TargetDevice' "amba_cv22"
+pattern TargetDeviceAmbaCV22 :: TargetDevice
+pattern TargetDeviceAmbaCV22 = TargetDevice' "amba_cv22"
 
-pattern X86WIN32 :: TargetDevice
-pattern X86WIN32 = TargetDevice' "x86_win32"
+pattern TargetDeviceX86WIN32 :: TargetDevice
+pattern TargetDeviceX86WIN32 = TargetDevice' "x86_win32"
 
-pattern X86WIN64 :: TargetDevice
-pattern X86WIN64 = TargetDevice' "x86_win64"
+pattern TargetDeviceX86WIN64 :: TargetDevice
+pattern TargetDeviceX86WIN64 = TargetDevice' "x86_win64"
 
-pattern Coreml :: TargetDevice
-pattern Coreml = TargetDevice' "coreml"
+pattern TargetDeviceCoreml :: TargetDevice
+pattern TargetDeviceCoreml = TargetDevice' "coreml"
 
 {-# COMPLETE
-  Lambda,
-  MlM4,
-  MlM5,
-  MlC4,
-  MlC5,
-  MlP2,
-  MlP3,
-  MlG4dn,
-  MlINF1,
-  JetsonTX1,
-  JetsonTX2,
-  JetsonNano,
-  JetsonXavier,
-  Rasp3b,
-  Imx8qm,
-  Deeplens,
-  RK3399,
-  RK3288,
-  Aisage,
-  Sbec,
-  QCS605,
-  QCS603,
-  SitaraAm57x,
-  AmbaCV22,
-  X86WIN32,
-  X86WIN64,
-  Coreml,
+  TargetDeviceLambda,
+  TargetDeviceMlM4,
+  TargetDeviceMlM5,
+  TargetDeviceMlC4,
+  TargetDeviceMlC5,
+  TargetDeviceMlP2,
+  TargetDeviceMlP3,
+  TargetDeviceMlG4dn,
+  TargetDeviceMlINF1,
+  TargetDeviceJetsonTX1,
+  TargetDeviceJetsonTX2,
+  TargetDeviceJetsonNano,
+  TargetDeviceJetsonXavier,
+  TargetDeviceRasp3b,
+  TargetDeviceImx8qm,
+  TargetDeviceDeeplens,
+  TargetDeviceRK3399,
+  TargetDeviceRK3288,
+  TargetDeviceAisage,
+  TargetDeviceSbec,
+  TargetDeviceQCS605,
+  TargetDeviceQCS603,
+  TargetDeviceSitaraAm57x,
+  TargetDeviceAmbaCV22,
+  TargetDeviceX86WIN32,
+  TargetDeviceX86WIN64,
+  TargetDeviceCoreml,
   TargetDevice'
   #-}

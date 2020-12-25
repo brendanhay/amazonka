@@ -13,71 +13,76 @@
 module Network.AWS.DirectoryService.Types.DomainControllerStatus
   ( DomainControllerStatus
       ( DomainControllerStatus',
-        Creating,
-        Active,
-        Impaired,
-        Restoring,
-        Deleting,
-        Deleted,
-        Failed
+        DomainControllerStatusCreating,
+        DomainControllerStatusActive,
+        DomainControllerStatusImpaired,
+        DomainControllerStatusRestoring,
+        DomainControllerStatusDeleting,
+        DomainControllerStatusDeleted,
+        DomainControllerStatusFailed,
+        fromDomainControllerStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DomainControllerStatus = DomainControllerStatus' Lude.Text
+newtype DomainControllerStatus = DomainControllerStatus'
+  { fromDomainControllerStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: DomainControllerStatus
-pattern Creating = DomainControllerStatus' "Creating"
+pattern DomainControllerStatusCreating :: DomainControllerStatus
+pattern DomainControllerStatusCreating = DomainControllerStatus' "Creating"
 
-pattern Active :: DomainControllerStatus
-pattern Active = DomainControllerStatus' "Active"
+pattern DomainControllerStatusActive :: DomainControllerStatus
+pattern DomainControllerStatusActive = DomainControllerStatus' "Active"
 
-pattern Impaired :: DomainControllerStatus
-pattern Impaired = DomainControllerStatus' "Impaired"
+pattern DomainControllerStatusImpaired :: DomainControllerStatus
+pattern DomainControllerStatusImpaired = DomainControllerStatus' "Impaired"
 
-pattern Restoring :: DomainControllerStatus
-pattern Restoring = DomainControllerStatus' "Restoring"
+pattern DomainControllerStatusRestoring :: DomainControllerStatus
+pattern DomainControllerStatusRestoring = DomainControllerStatus' "Restoring"
 
-pattern Deleting :: DomainControllerStatus
-pattern Deleting = DomainControllerStatus' "Deleting"
+pattern DomainControllerStatusDeleting :: DomainControllerStatus
+pattern DomainControllerStatusDeleting = DomainControllerStatus' "Deleting"
 
-pattern Deleted :: DomainControllerStatus
-pattern Deleted = DomainControllerStatus' "Deleted"
+pattern DomainControllerStatusDeleted :: DomainControllerStatus
+pattern DomainControllerStatusDeleted = DomainControllerStatus' "Deleted"
 
-pattern Failed :: DomainControllerStatus
-pattern Failed = DomainControllerStatus' "Failed"
+pattern DomainControllerStatusFailed :: DomainControllerStatus
+pattern DomainControllerStatusFailed = DomainControllerStatus' "Failed"
 
 {-# COMPLETE
-  Creating,
-  Active,
-  Impaired,
-  Restoring,
-  Deleting,
-  Deleted,
-  Failed,
+  DomainControllerStatusCreating,
+  DomainControllerStatusActive,
+  DomainControllerStatusImpaired,
+  DomainControllerStatusRestoring,
+  DomainControllerStatusDeleting,
+  DomainControllerStatusDeleted,
+  DomainControllerStatusFailed,
   DomainControllerStatus'
   #-}

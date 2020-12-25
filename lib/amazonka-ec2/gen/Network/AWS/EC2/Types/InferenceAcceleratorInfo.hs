@@ -21,38 +21,34 @@ module Network.AWS.EC2.Types.InferenceAcceleratorInfo
   )
 where
 
-import Network.AWS.EC2.Types.InferenceDeviceInfo
+import qualified Network.AWS.EC2.Types.InferenceDeviceInfo as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Inference accelerators for the instance type.
 --
 -- /See:/ 'mkInferenceAcceleratorInfo' smart constructor.
 newtype InferenceAcceleratorInfo = InferenceAcceleratorInfo'
   { -- | Describes the Inference accelerators for the instance type.
-    accelerators :: Lude.Maybe [InferenceDeviceInfo]
+    accelerators :: Core.Maybe [Types.InferenceDeviceInfo]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InferenceAcceleratorInfo' with the minimum fields required to make a request.
---
--- * 'accelerators' - Describes the Inference accelerators for the instance type.
+-- | Creates a 'InferenceAcceleratorInfo' value with any optional fields omitted.
 mkInferenceAcceleratorInfo ::
   InferenceAcceleratorInfo
 mkInferenceAcceleratorInfo =
-  InferenceAcceleratorInfo' {accelerators = Lude.Nothing}
+  InferenceAcceleratorInfo' {accelerators = Core.Nothing}
 
 -- | Describes the Inference accelerators for the instance type.
 --
 -- /Note:/ Consider using 'accelerators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaiAccelerators :: Lens.Lens' InferenceAcceleratorInfo (Lude.Maybe [InferenceDeviceInfo])
-iaiAccelerators = Lens.lens (accelerators :: InferenceAcceleratorInfo -> Lude.Maybe [InferenceDeviceInfo]) (\s a -> s {accelerators = a} :: InferenceAcceleratorInfo)
+iaiAccelerators :: Lens.Lens' InferenceAcceleratorInfo (Core.Maybe [Types.InferenceDeviceInfo])
+iaiAccelerators = Lens.field @"accelerators"
 {-# DEPRECATED iaiAccelerators "Use generic-lens or generic-optics with 'accelerators' instead." #-}
 
-instance Lude.FromXML InferenceAcceleratorInfo where
+instance Core.FromXML InferenceAcceleratorInfo where
   parseXML x =
     InferenceAcceleratorInfo'
-      Lude.<$> ( x Lude..@? "accelerators" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<$> (x Core..@? "accelerators" Core..<@> Core.parseXMLList "member")

@@ -24,7 +24,7 @@ module Network.AWS.ELBv2.RegisterTargets
     mkRegisterTargets,
 
     -- ** Request lenses
-    rtTargetGroupARN,
+    rtTargetGroupArn,
     rtTargets,
 
     -- * Destructuring the response
@@ -32,100 +32,95 @@ module Network.AWS.ELBv2.RegisterTargets
     mkRegisterTargetsResponse,
 
     -- ** Response lenses
-    rtrsResponseStatus,
+    rrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Text,
+    targetGroupArn :: Types.TargetGroupArn,
     -- | The targets.
-    targets :: [TargetDescription]
+    targets :: [Types.TargetDescription]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterTargets' with the minimum fields required to make a request.
---
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
--- * 'targets' - The targets.
+-- | Creates a 'RegisterTargets' value with any optional fields omitted.
 mkRegisterTargets ::
-  -- | 'targetGroupARN'
-  Lude.Text ->
+  -- | 'targetGroupArn'
+  Types.TargetGroupArn ->
   RegisterTargets
-mkRegisterTargets pTargetGroupARN_ =
-  RegisterTargets'
-    { targetGroupARN = pTargetGroupARN_,
-      targets = Lude.mempty
-    }
+mkRegisterTargets targetGroupArn =
+  RegisterTargets' {targetGroupArn, targets = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTargetGroupARN :: Lens.Lens' RegisterTargets Lude.Text
-rtTargetGroupARN = Lens.lens (targetGroupARN :: RegisterTargets -> Lude.Text) (\s a -> s {targetGroupARN = a} :: RegisterTargets)
-{-# DEPRECATED rtTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtTargetGroupArn :: Lens.Lens' RegisterTargets Types.TargetGroupArn
+rtTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED rtTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
 -- | The targets.
 --
 -- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTargets :: Lens.Lens' RegisterTargets [TargetDescription]
-rtTargets = Lens.lens (targets :: RegisterTargets -> [TargetDescription]) (\s a -> s {targets = a} :: RegisterTargets)
+rtTargets :: Lens.Lens' RegisterTargets [Types.TargetDescription]
+rtTargets = Lens.field @"targets"
 {-# DEPRECATED rtTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
-instance Lude.AWSRequest RegisterTargets where
+instance Core.AWSRequest RegisterTargets where
   type Rs RegisterTargets = RegisterTargetsResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RegisterTargets")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "TargetGroupArn" targetGroupArn)
+                Core.<> (Core.toQueryValue "Targets" (Core.toQueryList "member" targets))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RegisterTargetsResult"
       ( \s h x ->
-          RegisterTargetsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RegisterTargetsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterTargets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RegisterTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterTargets where
-  toQuery RegisterTargets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RegisterTargets" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TargetGroupArn" Lude.=: targetGroupARN,
-        "Targets" Lude.=: Lude.toQueryList "member" targets
-      ]
 
 -- | /See:/ 'mkRegisterTargetsResponse' smart constructor.
 newtype RegisterTargetsResponse = RegisterTargetsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterTargetsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterTargetsResponse' value with any optional fields omitted.
 mkRegisterTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterTargetsResponse
-mkRegisterTargetsResponse pResponseStatus_ =
-  RegisterTargetsResponse' {responseStatus = pResponseStatus_}
+mkRegisterTargetsResponse responseStatus =
+  RegisterTargetsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResponseStatus :: Lens.Lens' RegisterTargetsResponse Lude.Int
-rtrsResponseStatus = Lens.lens (responseStatus :: RegisterTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterTargetsResponse)
-{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rrsResponseStatus :: Lens.Lens' RegisterTargetsResponse Core.Int
+rrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

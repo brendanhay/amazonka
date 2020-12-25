@@ -27,9 +27,9 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     mkRequestEnvironmentInfo,
 
     -- ** Request lenses
-    rInfoType,
-    rEnvironmentName,
-    rEnvironmentId,
+    reiInfoType,
+    reiEnvironmentId,
+    reiEnvironmentName,
 
     -- * Destructuring the response
     RequestEnvironmentInfoResponse (..),
@@ -37,70 +37,50 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to retrieve logs from an environment and store them in your Elastic Beanstalk storage bucket.
 --
 -- /See:/ 'mkRequestEnvironmentInfo' smart constructor.
 data RequestEnvironmentInfo = RequestEnvironmentInfo'
   { -- | The type of information to request.
-    infoType :: EnvironmentInfoType,
-    -- | The name of the environment of the requested data.
-    --
-    -- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
-    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
+    infoType :: Types.EnvironmentInfoType,
     -- | The ID of the environment of the requested data.
     --
     -- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
     -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentId :: Lude.Maybe Lude.Text
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The name of the environment of the requested data.
+    --
+    -- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Core.Maybe Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestEnvironmentInfo' with the minimum fields required to make a request.
---
--- * 'infoType' - The type of information to request.
--- * 'environmentName' - The name of the environment of the requested data.
---
--- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'environmentId' - The ID of the environment of the requested data.
---
--- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Creates a 'RequestEnvironmentInfo' value with any optional fields omitted.
 mkRequestEnvironmentInfo ::
   -- | 'infoType'
-  EnvironmentInfoType ->
+  Types.EnvironmentInfoType ->
   RequestEnvironmentInfo
-mkRequestEnvironmentInfo pInfoType_ =
+mkRequestEnvironmentInfo infoType =
   RequestEnvironmentInfo'
-    { infoType = pInfoType_,
-      environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { infoType,
+      environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
 
 -- | The type of information to request.
 --
 -- /Note:/ Consider using 'infoType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rInfoType :: Lens.Lens' RequestEnvironmentInfo EnvironmentInfoType
-rInfoType = Lens.lens (infoType :: RequestEnvironmentInfo -> EnvironmentInfoType) (\s a -> s {infoType = a} :: RequestEnvironmentInfo)
-{-# DEPRECATED rInfoType "Use generic-lens or generic-optics with 'infoType' instead." #-}
-
--- | The name of the environment of the requested data.
---
--- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEnvironmentName :: Lens.Lens' RequestEnvironmentInfo (Lude.Maybe Lude.Text)
-rEnvironmentName = Lens.lens (environmentName :: RequestEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: RequestEnvironmentInfo)
-{-# DEPRECATED rEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+reiInfoType :: Lens.Lens' RequestEnvironmentInfo Types.EnvironmentInfoType
+reiInfoType = Lens.field @"infoType"
+{-# DEPRECATED reiInfoType "Use generic-lens or generic-optics with 'infoType' instead." #-}
 
 -- | The ID of the environment of the requested data.
 --
@@ -108,37 +88,50 @@ rEnvironmentName = Lens.lens (environmentName :: RequestEnvironmentInfo -> Lude.
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEnvironmentId :: Lens.Lens' RequestEnvironmentInfo (Lude.Maybe Lude.Text)
-rEnvironmentId = Lens.lens (environmentId :: RequestEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: RequestEnvironmentInfo)
-{-# DEPRECATED rEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+reiEnvironmentId :: Lens.Lens' RequestEnvironmentInfo (Core.Maybe Types.EnvironmentId)
+reiEnvironmentId = Lens.field @"environmentId"
+{-# DEPRECATED reiEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest RequestEnvironmentInfo where
+-- | The name of the environment of the requested data.
+--
+-- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reiEnvironmentName :: Lens.Lens' RequestEnvironmentInfo (Core.Maybe Types.EnvironmentName)
+reiEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED reiEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+
+instance Core.AWSRequest RequestEnvironmentInfo where
   type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
-  request = Req.postQuery elasticBeanstalkService
-  response = Res.receiveNull RequestEnvironmentInfoResponse'
-
-instance Lude.ToHeaders RequestEnvironmentInfo where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RequestEnvironmentInfo where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RequestEnvironmentInfo where
-  toQuery RequestEnvironmentInfo' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RequestEnvironmentInfo" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "InfoType" Lude.=: infoType,
-        "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RequestEnvironmentInfo")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "InfoType" infoType)
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+            )
+      }
+  response = Response.receiveNull RequestEnvironmentInfoResponse'
 
 -- | /See:/ 'mkRequestEnvironmentInfoResponse' smart constructor.
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestEnvironmentInfoResponse' with the minimum fields required to make a request.
+-- | Creates a 'RequestEnvironmentInfoResponse' value with any optional fields omitted.
 mkRequestEnvironmentInfoResponse ::
   RequestEnvironmentInfoResponse
 mkRequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse'

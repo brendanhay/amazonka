@@ -38,250 +38,235 @@ module Network.AWS.SES.SendEmail
     mkSendEmail,
 
     -- ** Request lenses
-    seDestination,
-    seReturnPath,
-    seConfigurationSetName,
-    seSourceARN,
-    seReturnPathARN,
     seSource,
+    seDestination,
     seMessage,
-    seTags,
+    seConfigurationSetName,
     seReplyToAddresses,
+    seReturnPath,
+    seReturnPathArn,
+    seSourceArn,
+    seTags,
 
     -- * Destructuring the response
     SendEmailResponse (..),
     mkSendEmailResponse,
 
     -- ** Response lenses
-    sersMessageId,
-    sersResponseStatus,
+    serrsMessageId,
+    serrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to send a single formatted email using Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkSendEmail' smart constructor.
 data SendEmail = SendEmail'
-  { -- | The destination for this email, composed of To:, CC:, and BCC: fields.
-    destination :: Destination,
-    -- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
-    returnPath :: Lude.Maybe Lude.Text,
-    -- | The name of the configuration set to use when you send an email using @SendEmail@ .
-    configurationSetName :: Lude.Maybe Lude.Text,
-    -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
+  { -- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
     --
-    -- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
-    -- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-    sourceARN :: Lude.Maybe Lude.Text,
+    -- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+    source :: Types.Address,
+    -- | The destination for this email, composed of To:, CC:, and BCC: fields.
+    destination :: Types.Destination,
+    -- | The message to be sent.
+    message :: Types.Message,
+    -- | The name of the configuration set to use when you send an email using @SendEmail@ .
+    configurationSetName :: Core.Maybe Types.ConfigurationSetName,
+    -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
+    replyToAddresses :: Core.Maybe [Types.Address],
+    -- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+    returnPath :: Core.Maybe Types.Address,
     -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
     --
     -- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
     -- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-    returnPathARN :: Lude.Maybe Lude.Text,
-    -- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
+    returnPathArn :: Core.Maybe Types.ReturnPathArn,
+    -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
     --
-    -- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-    source :: Lude.Text,
-    -- | The message to be sent.
-    message :: Message,
+    -- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
+    -- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+    sourceArn :: Core.Maybe Types.SourceArn,
     -- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
-    tags :: Lude.Maybe [MessageTag],
-    -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Lude.Maybe [Lude.Text]
+    tags :: Core.Maybe [Types.MessageTag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendEmail' with the minimum fields required to make a request.
---
--- * 'destination' - The destination for this email, composed of To:, CC:, and BCC: fields.
--- * 'returnPath' - The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
--- * 'configurationSetName' - The name of the configuration set to use when you send an email using @SendEmail@ .
--- * 'sourceARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
---
--- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
--- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
--- * 'returnPathARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
---
--- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
--- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
--- * 'source' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
---
--- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
--- * 'message' - The message to be sent.
--- * 'tags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
--- * 'replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
+-- | Creates a 'SendEmail' value with any optional fields omitted.
 mkSendEmail ::
-  -- | 'destination'
-  Destination ->
   -- | 'source'
-  Lude.Text ->
+  Types.Address ->
+  -- | 'destination'
+  Types.Destination ->
   -- | 'message'
-  Message ->
+  Types.Message ->
   SendEmail
-mkSendEmail pDestination_ pSource_ pMessage_ =
+mkSendEmail source destination message =
   SendEmail'
-    { destination = pDestination_,
-      returnPath = Lude.Nothing,
-      configurationSetName = Lude.Nothing,
-      sourceARN = Lude.Nothing,
-      returnPathARN = Lude.Nothing,
-      source = pSource_,
-      message = pMessage_,
-      tags = Lude.Nothing,
-      replyToAddresses = Lude.Nothing
+    { source,
+      destination,
+      message,
+      configurationSetName = Core.Nothing,
+      replyToAddresses = Core.Nothing,
+      returnPath = Core.Nothing,
+      returnPathArn = Core.Nothing,
+      sourceArn = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The destination for this email, composed of To:, CC:, and BCC: fields.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seDestination :: Lens.Lens' SendEmail Destination
-seDestination = Lens.lens (destination :: SendEmail -> Destination) (\s a -> s {destination = a} :: SendEmail)
-{-# DEPRECATED seDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
---
--- /Note:/ Consider using 'returnPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seReturnPath :: Lens.Lens' SendEmail (Lude.Maybe Lude.Text)
-seReturnPath = Lens.lens (returnPath :: SendEmail -> Lude.Maybe Lude.Text) (\s a -> s {returnPath = a} :: SendEmail)
-{-# DEPRECATED seReturnPath "Use generic-lens or generic-optics with 'returnPath' instead." #-}
-
--- | The name of the configuration set to use when you send an email using @SendEmail@ .
---
--- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seConfigurationSetName :: Lens.Lens' SendEmail (Lude.Maybe Lude.Text)
-seConfigurationSetName = Lens.lens (configurationSetName :: SendEmail -> Lude.Maybe Lude.Text) (\s a -> s {configurationSetName = a} :: SendEmail)
-{-# DEPRECATED seConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
-
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
---
--- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
--- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seSourceARN :: Lens.Lens' SendEmail (Lude.Maybe Lude.Text)
-seSourceARN = Lens.lens (sourceARN :: SendEmail -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: SendEmail)
-{-# DEPRECATED seSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
-
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
---
--- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
--- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
--- /Note:/ Consider using 'returnPathARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seReturnPathARN :: Lens.Lens' SendEmail (Lude.Maybe Lude.Text)
-seReturnPathARN = Lens.lens (returnPathARN :: SendEmail -> Lude.Maybe Lude.Text) (\s a -> s {returnPathARN = a} :: SendEmail)
-{-# DEPRECATED seReturnPathARN "Use generic-lens or generic-optics with 'returnPathARN' instead." #-}
 
 -- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
 --
 -- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seSource :: Lens.Lens' SendEmail Lude.Text
-seSource = Lens.lens (source :: SendEmail -> Lude.Text) (\s a -> s {source = a} :: SendEmail)
+seSource :: Lens.Lens' SendEmail Types.Address
+seSource = Lens.field @"source"
 {-# DEPRECATED seSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
+-- | The destination for this email, composed of To:, CC:, and BCC: fields.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seDestination :: Lens.Lens' SendEmail Types.Destination
+seDestination = Lens.field @"destination"
+{-# DEPRECATED seDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The message to be sent.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seMessage :: Lens.Lens' SendEmail Message
-seMessage = Lens.lens (message :: SendEmail -> Message) (\s a -> s {message = a} :: SendEmail)
+seMessage :: Lens.Lens' SendEmail Types.Message
+seMessage = Lens.field @"message"
 {-# DEPRECATED seMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
--- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+-- | The name of the configuration set to use when you send an email using @SendEmail@ .
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seTags :: Lens.Lens' SendEmail (Lude.Maybe [MessageTag])
-seTags = Lens.lens (tags :: SendEmail -> Lude.Maybe [MessageTag]) (\s a -> s {tags = a} :: SendEmail)
-{-# DEPRECATED seTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seConfigurationSetName :: Lens.Lens' SendEmail (Core.Maybe Types.ConfigurationSetName)
+seConfigurationSetName = Lens.field @"configurationSetName"
+{-# DEPRECATED seConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 --
 -- /Note:/ Consider using 'replyToAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seReplyToAddresses :: Lens.Lens' SendEmail (Lude.Maybe [Lude.Text])
-seReplyToAddresses = Lens.lens (replyToAddresses :: SendEmail -> Lude.Maybe [Lude.Text]) (\s a -> s {replyToAddresses = a} :: SendEmail)
+seReplyToAddresses :: Lens.Lens' SendEmail (Core.Maybe [Types.Address])
+seReplyToAddresses = Lens.field @"replyToAddresses"
 {-# DEPRECATED seReplyToAddresses "Use generic-lens or generic-optics with 'replyToAddresses' instead." #-}
 
-instance Lude.AWSRequest SendEmail where
+-- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+--
+-- /Note:/ Consider using 'returnPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seReturnPath :: Lens.Lens' SendEmail (Core.Maybe Types.Address)
+seReturnPath = Lens.field @"returnPath"
+{-# DEPRECATED seReturnPath "Use generic-lens or generic-optics with 'returnPath' instead." #-}
+
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'returnPathArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seReturnPathArn :: Lens.Lens' SendEmail (Core.Maybe Types.ReturnPathArn)
+seReturnPathArn = Lens.field @"returnPathArn"
+{-# DEPRECATED seReturnPathArn "Use generic-lens or generic-optics with 'returnPathArn' instead." #-}
+
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seSourceArn :: Lens.Lens' SendEmail (Core.Maybe Types.SourceArn)
+seSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED seSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
+
+-- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seTags :: Lens.Lens' SendEmail (Core.Maybe [Types.MessageTag])
+seTags = Lens.field @"tags"
+{-# DEPRECATED seTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.AWSRequest SendEmail where
   type Rs SendEmail = SendEmailResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SendEmail")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Source" source)
+                Core.<> (Core.toQueryValue "Destination" destination)
+                Core.<> (Core.toQueryValue "Message" message)
+                Core.<> ( Core.toQueryValue "ConfigurationSetName"
+                            Core.<$> configurationSetName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "ReplyToAddresses"
+                            (Core.toQueryList "member" Core.<$> replyToAddresses)
+                        )
+                Core.<> (Core.toQueryValue "ReturnPath" Core.<$> returnPath)
+                Core.<> (Core.toQueryValue "ReturnPathArn" Core.<$> returnPathArn)
+                Core.<> (Core.toQueryValue "SourceArn" Core.<$> sourceArn)
+                Core.<> ( Core.toQueryValue
+                            "Tags"
+                            (Core.toQueryList "member" Core.<$> tags)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SendEmailResult"
       ( \s h x ->
           SendEmailResponse'
-            Lude.<$> (x Lude..@ "MessageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "MessageId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendEmail where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SendEmail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendEmail where
-  toQuery SendEmail' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SendEmail" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Destination" Lude.=: destination,
-        "ReturnPath" Lude.=: returnPath,
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "SourceArn" Lude.=: sourceARN,
-        "ReturnPathArn" Lude.=: returnPathARN,
-        "Source" Lude.=: source,
-        "Message" Lude.=: message,
-        "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "ReplyToAddresses"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> replyToAddresses)
-      ]
 
 -- | Represents a unique message ID.
 --
 -- /See:/ 'mkSendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
   { -- | The unique message identifier returned from the @SendEmail@ action.
-    messageId :: Lude.Text,
+    messageId :: Types.MessageId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendEmailResponse' with the minimum fields required to make a request.
---
--- * 'messageId' - The unique message identifier returned from the @SendEmail@ action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendEmailResponse' value with any optional fields omitted.
 mkSendEmailResponse ::
   -- | 'messageId'
-  Lude.Text ->
+  Types.MessageId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendEmailResponse
-mkSendEmailResponse pMessageId_ pResponseStatus_ =
-  SendEmailResponse'
-    { messageId = pMessageId_,
-      responseStatus = pResponseStatus_
-    }
+mkSendEmailResponse messageId responseStatus =
+  SendEmailResponse' {messageId, responseStatus}
 
 -- | The unique message identifier returned from the @SendEmail@ action.
 --
 -- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sersMessageId :: Lens.Lens' SendEmailResponse Lude.Text
-sersMessageId = Lens.lens (messageId :: SendEmailResponse -> Lude.Text) (\s a -> s {messageId = a} :: SendEmailResponse)
-{-# DEPRECATED sersMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
+serrsMessageId :: Lens.Lens' SendEmailResponse Types.MessageId
+serrsMessageId = Lens.field @"messageId"
+{-# DEPRECATED serrsMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sersResponseStatus :: Lens.Lens' SendEmailResponse Lude.Int
-sersResponseStatus = Lens.lens (responseStatus :: SendEmailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendEmailResponse)
-{-# DEPRECATED sersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+serrsResponseStatus :: Lens.Lens' SendEmailResponse Core.Int
+serrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED serrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

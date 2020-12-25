@@ -13,46 +13,51 @@
 module Network.AWS.DynamoDB.Types.ContributorInsightsAction
   ( ContributorInsightsAction
       ( ContributorInsightsAction',
-        Enable,
-        Disable
+        ContributorInsightsActionEnable,
+        ContributorInsightsActionDisable,
+        fromContributorInsightsAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContributorInsightsAction = ContributorInsightsAction' Lude.Text
+newtype ContributorInsightsAction = ContributorInsightsAction'
+  { fromContributorInsightsAction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enable :: ContributorInsightsAction
-pattern Enable = ContributorInsightsAction' "ENABLE"
+pattern ContributorInsightsActionEnable :: ContributorInsightsAction
+pattern ContributorInsightsActionEnable = ContributorInsightsAction' "ENABLE"
 
-pattern Disable :: ContributorInsightsAction
-pattern Disable = ContributorInsightsAction' "DISABLE"
+pattern ContributorInsightsActionDisable :: ContributorInsightsAction
+pattern ContributorInsightsActionDisable = ContributorInsightsAction' "DISABLE"
 
 {-# COMPLETE
-  Enable,
-  Disable,
+  ContributorInsightsActionEnable,
+  ContributorInsightsActionDisable,
   ContributorInsightsAction'
   #-}

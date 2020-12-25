@@ -27,96 +27,86 @@ module Network.AWS.MediaStore.DeleteLifecyclePolicy
     mkDeleteLifecyclePolicyResponse,
 
     -- ** Response lenses
-    dlprsResponseStatus,
+    dlprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLifecyclePolicy' smart constructor.
 newtype DeleteLifecyclePolicy = DeleteLifecyclePolicy'
   { -- | The name of the container that holds the object lifecycle policy.
-    containerName :: Lude.Text
+    containerName :: Types.ContainerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLifecyclePolicy' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container that holds the object lifecycle policy.
+-- | Creates a 'DeleteLifecyclePolicy' value with any optional fields omitted.
 mkDeleteLifecyclePolicy ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   DeleteLifecyclePolicy
-mkDeleteLifecyclePolicy pContainerName_ =
-  DeleteLifecyclePolicy' {containerName = pContainerName_}
+mkDeleteLifecyclePolicy containerName =
+  DeleteLifecyclePolicy' {containerName}
 
 -- | The name of the container that holds the object lifecycle policy.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlpContainerName :: Lens.Lens' DeleteLifecyclePolicy Lude.Text
-dlpContainerName = Lens.lens (containerName :: DeleteLifecyclePolicy -> Lude.Text) (\s a -> s {containerName = a} :: DeleteLifecyclePolicy)
+dlpContainerName :: Lens.Lens' DeleteLifecyclePolicy Types.ContainerName
+dlpContainerName = Lens.field @"containerName"
 {-# DEPRECATED dlpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance Lude.AWSRequest DeleteLifecyclePolicy where
+instance Core.FromJSON DeleteLifecyclePolicy where
+  toJSON DeleteLifecyclePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
+      )
+
+instance Core.AWSRequest DeleteLifecyclePolicy where
   type Rs DeleteLifecyclePolicy = DeleteLifecyclePolicyResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MediaStore_20170901.DeleteLifecyclePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteLifecyclePolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLifecyclePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.DeleteLifecyclePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLifecyclePolicy where
-  toJSON DeleteLifecyclePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ContainerName" Lude..= containerName)]
-      )
-
-instance Lude.ToPath DeleteLifecyclePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLifecyclePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteLifecyclePolicyResponse' smart constructor.
 newtype DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLifecyclePolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLifecyclePolicyResponse' value with any optional fields omitted.
 mkDeleteLifecyclePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLifecyclePolicyResponse
-mkDeleteLifecyclePolicyResponse pResponseStatus_ =
-  DeleteLifecyclePolicyResponse' {responseStatus = pResponseStatus_}
+mkDeleteLifecyclePolicyResponse responseStatus =
+  DeleteLifecyclePolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlprsResponseStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Lude.Int
-dlprsResponseStatus = Lens.lens (responseStatus :: DeleteLifecyclePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLifecyclePolicyResponse)
-{-# DEPRECATED dlprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlprrsResponseStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Core.Int
+dlprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

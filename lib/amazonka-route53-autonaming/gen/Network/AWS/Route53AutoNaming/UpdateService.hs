@@ -37,132 +37,119 @@ module Network.AWS.Route53AutoNaming.UpdateService
     mkUpdateService,
 
     -- ** Request lenses
-    usService,
     usId,
+    usService,
 
     -- * Destructuring the response
     UpdateServiceResponse (..),
     mkUpdateServiceResponse,
 
     -- ** Response lenses
-    usrsOperationId,
-    usrsResponseStatus,
+    usrrsOperationId,
+    usrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkUpdateService' smart constructor.
 data UpdateService = UpdateService'
-  { -- | A complex type that contains the new settings for the service.
-    service :: ServiceChange,
-    -- | The ID of the service that you want to update.
-    id :: Lude.Text
+  { -- | The ID of the service that you want to update.
+    id :: Types.ResourceId,
+    -- | A complex type that contains the new settings for the service.
+    service :: Types.ServiceChange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
---
--- * 'service' - A complex type that contains the new settings for the service.
--- * 'id' - The ID of the service that you want to update.
+-- | Creates a 'UpdateService' value with any optional fields omitted.
 mkUpdateService ::
-  -- | 'service'
-  ServiceChange ->
   -- | 'id'
-  Lude.Text ->
+  Types.ResourceId ->
+  -- | 'service'
+  Types.ServiceChange ->
   UpdateService
-mkUpdateService pService_ pId_ =
-  UpdateService' {service = pService_, id = pId_}
-
--- | A complex type that contains the new settings for the service.
---
--- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usService :: Lens.Lens' UpdateService ServiceChange
-usService = Lens.lens (service :: UpdateService -> ServiceChange) (\s a -> s {service = a} :: UpdateService)
-{-# DEPRECATED usService "Use generic-lens or generic-optics with 'service' instead." #-}
+mkUpdateService id service = UpdateService' {id, service}
 
 -- | The ID of the service that you want to update.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usId :: Lens.Lens' UpdateService Lude.Text
-usId = Lens.lens (id :: UpdateService -> Lude.Text) (\s a -> s {id = a} :: UpdateService)
+usId :: Lens.Lens' UpdateService Types.ResourceId
+usId = Lens.field @"id"
 {-# DEPRECATED usId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest UpdateService where
+-- | A complex type that contains the new settings for the service.
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usService :: Lens.Lens' UpdateService Types.ServiceChange
+usService = Lens.field @"service"
+{-# DEPRECATED usService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+instance Core.FromJSON UpdateService where
+  toJSON UpdateService {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            Core.Just ("Service" Core..= service)
+          ]
+      )
+
+instance Core.AWSRequest UpdateService where
   type Rs UpdateService = UpdateServiceResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.UpdateService")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateServiceResponse'
-            Lude.<$> (x Lude..?> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateService where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.UpdateService" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateService where
-  toJSON UpdateService' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Service" Lude..= service),
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath UpdateService where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateService where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
   { -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
-    operationId :: Lude.Maybe Lude.Text,
+    operationId :: Core.Maybe Types.OperationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
---
--- * 'operationId' - A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateServiceResponse' value with any optional fields omitted.
 mkUpdateServiceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateServiceResponse
-mkUpdateServiceResponse pResponseStatus_ =
+mkUpdateServiceResponse responseStatus =
   UpdateServiceResponse'
-    { operationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operationId = Core.Nothing,
+      responseStatus
     }
 
 -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsOperationId :: Lens.Lens' UpdateServiceResponse (Lude.Maybe Lude.Text)
-usrsOperationId = Lens.lens (operationId :: UpdateServiceResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: UpdateServiceResponse)
-{-# DEPRECATED usrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+usrrsOperationId :: Lens.Lens' UpdateServiceResponse (Core.Maybe Types.OperationId)
+usrrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED usrrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateServiceResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateServiceResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateServiceResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

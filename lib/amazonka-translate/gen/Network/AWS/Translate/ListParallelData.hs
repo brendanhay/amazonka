@@ -20,148 +20,134 @@ module Network.AWS.Translate.ListParallelData
     mkListParallelData,
 
     -- ** Request lenses
-    lpdNextToken,
     lpdMaxResults,
+    lpdNextToken,
 
     -- * Destructuring the response
     ListParallelDataResponse (..),
     mkListParallelDataResponse,
 
     -- ** Response lenses
-    lpdrsParallelDataPropertiesList,
-    lpdrsNextToken,
-    lpdrsResponseStatus,
+    lpdrrsNextToken,
+    lpdrrsParallelDataPropertiesList,
+    lpdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkListParallelData' smart constructor.
 data ListParallelData = ListParallelData'
-  { -- | A string that specifies the next page of results to return in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of parallel data resources returned for each request.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of parallel data resources returned for each request.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string that specifies the next page of results to return in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListParallelData' with the minimum fields required to make a request.
---
--- * 'nextToken' - A string that specifies the next page of results to return in a paginated response.
--- * 'maxResults' - The maximum number of parallel data resources returned for each request.
+-- | Creates a 'ListParallelData' value with any optional fields omitted.
 mkListParallelData ::
   ListParallelData
 mkListParallelData =
   ListParallelData'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | A string that specifies the next page of results to return in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdNextToken :: Lens.Lens' ListParallelData (Lude.Maybe Lude.Text)
-lpdNextToken = Lens.lens (nextToken :: ListParallelData -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListParallelData)
-{-# DEPRECATED lpdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of parallel data resources returned for each request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdMaxResults :: Lens.Lens' ListParallelData (Lude.Maybe Lude.Natural)
-lpdMaxResults = Lens.lens (maxResults :: ListParallelData -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListParallelData)
+lpdMaxResults :: Lens.Lens' ListParallelData (Core.Maybe Core.Natural)
+lpdMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListParallelData where
+-- | A string that specifies the next page of results to return in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdNextToken :: Lens.Lens' ListParallelData (Core.Maybe Types.NextToken)
+lpdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListParallelData where
+  toJSON ListParallelData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListParallelData where
   type Rs ListParallelData = ListParallelDataResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.ListParallelData"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListParallelDataResponse'
-            Lude.<$> (x Lude..?> "ParallelDataPropertiesList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "ParallelDataPropertiesList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListParallelData where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.ListParallelData" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListParallelData where
-  toJSON ListParallelData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListParallelData where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListParallelData where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListParallelDataResponse' smart constructor.
 data ListParallelDataResponse = ListParallelDataResponse'
-  { -- | The properties of the parallel data resources returned by this request.
-    parallelDataPropertiesList :: Lude.Maybe [ParallelDataProperties],
-    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The properties of the parallel data resources returned by this request.
+    parallelDataPropertiesList :: Core.Maybe [Types.ParallelDataProperties],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListParallelDataResponse' with the minimum fields required to make a request.
---
--- * 'parallelDataPropertiesList' - The properties of the parallel data resources returned by this request.
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListParallelDataResponse' value with any optional fields omitted.
 mkListParallelDataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListParallelDataResponse
-mkListParallelDataResponse pResponseStatus_ =
+mkListParallelDataResponse responseStatus =
   ListParallelDataResponse'
-    { parallelDataPropertiesList =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      parallelDataPropertiesList = Core.Nothing,
+      responseStatus
     }
-
--- | The properties of the parallel data resources returned by this request.
---
--- /Note:/ Consider using 'parallelDataPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdrsParallelDataPropertiesList :: Lens.Lens' ListParallelDataResponse (Lude.Maybe [ParallelDataProperties])
-lpdrsParallelDataPropertiesList = Lens.lens (parallelDataPropertiesList :: ListParallelDataResponse -> Lude.Maybe [ParallelDataProperties]) (\s a -> s {parallelDataPropertiesList = a} :: ListParallelDataResponse)
-{-# DEPRECATED lpdrsParallelDataPropertiesList "Use generic-lens or generic-optics with 'parallelDataPropertiesList' instead." #-}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdrsNextToken :: Lens.Lens' ListParallelDataResponse (Lude.Maybe Lude.Text)
-lpdrsNextToken = Lens.lens (nextToken :: ListParallelDataResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListParallelDataResponse)
-{-# DEPRECATED lpdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lpdrrsNextToken :: Lens.Lens' ListParallelDataResponse (Core.Maybe Types.NextToken)
+lpdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The properties of the parallel data resources returned by this request.
+--
+-- /Note:/ Consider using 'parallelDataPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdrrsParallelDataPropertiesList :: Lens.Lens' ListParallelDataResponse (Core.Maybe [Types.ParallelDataProperties])
+lpdrrsParallelDataPropertiesList = Lens.field @"parallelDataPropertiesList"
+{-# DEPRECATED lpdrrsParallelDataPropertiesList "Use generic-lens or generic-optics with 'parallelDataPropertiesList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdrsResponseStatus :: Lens.Lens' ListParallelDataResponse Lude.Int
-lpdrsResponseStatus = Lens.lens (responseStatus :: ListParallelDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListParallelDataResponse)
-{-# DEPRECATED lpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpdrrsResponseStatus :: Lens.Lens' ListParallelDataResponse Core.Int
+lpdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

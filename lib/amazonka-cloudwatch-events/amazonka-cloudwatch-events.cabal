@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudWatchEvents
     Network.AWS.CloudWatchEvents.ActivateEventSource
@@ -111,44 +117,105 @@ library
     Network.AWS.CloudWatchEvents.Waiters
 
   other-modules:
+    Network.AWS.CloudWatchEvents.Types.Account
+    Network.AWS.CloudWatchEvents.Types.AccountId
+    Network.AWS.CloudWatchEvents.Types.Action
     Network.AWS.CloudWatchEvents.Types.Archive
+    Network.AWS.CloudWatchEvents.Types.ArchiveArn
+    Network.AWS.CloudWatchEvents.Types.ArchiveDescription
+    Network.AWS.CloudWatchEvents.Types.ArchiveName
     Network.AWS.CloudWatchEvents.Types.ArchiveState
-    Network.AWS.CloudWatchEvents.Types.AssignPublicIP
-    Network.AWS.CloudWatchEvents.Types.AWSVPCConfiguration
+    Network.AWS.CloudWatchEvents.Types.ArchiveStateReason
+    Network.AWS.CloudWatchEvents.Types.Arn
+    Network.AWS.CloudWatchEvents.Types.AssignPublicIp
+    Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
     Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
     Network.AWS.CloudWatchEvents.Types.BatchParameters
     Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
     Network.AWS.CloudWatchEvents.Types.Condition
+    Network.AWS.CloudWatchEvents.Types.CreatedBy
+    Network.AWS.CloudWatchEvents.Types.Database
+    Network.AWS.CloudWatchEvents.Types.DbUser
     Network.AWS.CloudWatchEvents.Types.DeadLetterConfig
+    Network.AWS.CloudWatchEvents.Types.Description
     Network.AWS.CloudWatchEvents.Types.EcsParameters
+    Network.AWS.CloudWatchEvents.Types.ErrorCode
+    Network.AWS.CloudWatchEvents.Types.ErrorMessage
     Network.AWS.CloudWatchEvents.Types.EventBus
+    Network.AWS.CloudWatchEvents.Types.EventBusName
+    Network.AWS.CloudWatchEvents.Types.EventBusNameOrArn
+    Network.AWS.CloudWatchEvents.Types.EventId
+    Network.AWS.CloudWatchEvents.Types.EventPattern
+    Network.AWS.CloudWatchEvents.Types.EventResource
     Network.AWS.CloudWatchEvents.Types.EventSource
+    Network.AWS.CloudWatchEvents.Types.EventSourceArn
+    Network.AWS.CloudWatchEvents.Types.EventSourceName
     Network.AWS.CloudWatchEvents.Types.EventSourceState
-    Network.AWS.CloudWatchEvents.Types.HTTPParameters
+    Network.AWS.CloudWatchEvents.Types.HeaderKey
+    Network.AWS.CloudWatchEvents.Types.HeaderValue
+    Network.AWS.CloudWatchEvents.Types.HttpParameters
+    Network.AWS.CloudWatchEvents.Types.InputTemplate
     Network.AWS.CloudWatchEvents.Types.InputTransformer
+    Network.AWS.CloudWatchEvents.Types.InputTransformerPathKey
+    Network.AWS.CloudWatchEvents.Types.Key
     Network.AWS.CloudWatchEvents.Types.KinesisParameters
     Network.AWS.CloudWatchEvents.Types.LaunchType
+    Network.AWS.CloudWatchEvents.Types.ManagedBy
+    Network.AWS.CloudWatchEvents.Types.MessageGroupId
+    Network.AWS.CloudWatchEvents.Types.Name
+    Network.AWS.CloudWatchEvents.Types.NamePrefix
     Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
+    Network.AWS.CloudWatchEvents.Types.NextToken
+    Network.AWS.CloudWatchEvents.Types.NonPartnerEventBusName
+    Network.AWS.CloudWatchEvents.Types.NonPartnerEventBusNameOrArn
+    Network.AWS.CloudWatchEvents.Types.PartitionKeyPath
     Network.AWS.CloudWatchEvents.Types.PartnerEventSource
     Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
+    Network.AWS.CloudWatchEvents.Types.PathParameter
+    Network.AWS.CloudWatchEvents.Types.Principal
     Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
     Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
     Network.AWS.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
     Network.AWS.CloudWatchEvents.Types.PutPartnerEventsResultEntry
     Network.AWS.CloudWatchEvents.Types.PutTargetsResultEntry
+    Network.AWS.CloudWatchEvents.Types.QueryStringKey
+    Network.AWS.CloudWatchEvents.Types.QueryStringValue
     Network.AWS.CloudWatchEvents.Types.RedshiftDataParameters
     Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry
     Network.AWS.CloudWatchEvents.Types.Replay
+    Network.AWS.CloudWatchEvents.Types.ReplayArn
+    Network.AWS.CloudWatchEvents.Types.ReplayDescription
     Network.AWS.CloudWatchEvents.Types.ReplayDestination
+    Network.AWS.CloudWatchEvents.Types.ReplayName
     Network.AWS.CloudWatchEvents.Types.ReplayState
+    Network.AWS.CloudWatchEvents.Types.ReplayStateReason
     Network.AWS.CloudWatchEvents.Types.RetryPolicy
+    Network.AWS.CloudWatchEvents.Types.RoleArn
     Network.AWS.CloudWatchEvents.Types.Rule
+    Network.AWS.CloudWatchEvents.Types.RuleArn
+    Network.AWS.CloudWatchEvents.Types.RuleDescription
+    Network.AWS.CloudWatchEvents.Types.RuleName
     Network.AWS.CloudWatchEvents.Types.RuleState
     Network.AWS.CloudWatchEvents.Types.RunCommandParameters
     Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+    Network.AWS.CloudWatchEvents.Types.RunCommandTargetValue
+    Network.AWS.CloudWatchEvents.Types.ScheduleExpression
+    Network.AWS.CloudWatchEvents.Types.SecretManagerArn
+    Network.AWS.CloudWatchEvents.Types.Source
+    Network.AWS.CloudWatchEvents.Types.Sql
     Network.AWS.CloudWatchEvents.Types.SqsParameters
+    Network.AWS.CloudWatchEvents.Types.StatementId
+    Network.AWS.CloudWatchEvents.Types.StatementName
+    Network.AWS.CloudWatchEvents.Types.StateReason
+    Network.AWS.CloudWatchEvents.Types.String
     Network.AWS.CloudWatchEvents.Types.Tag
+    Network.AWS.CloudWatchEvents.Types.TagKey
     Network.AWS.CloudWatchEvents.Types.Target
+    Network.AWS.CloudWatchEvents.Types.TargetArn
+    Network.AWS.CloudWatchEvents.Types.TargetId
+    Network.AWS.CloudWatchEvents.Types.TargetInput
+    Network.AWS.CloudWatchEvents.Types.TargetInputPath
+    Network.AWS.CloudWatchEvents.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

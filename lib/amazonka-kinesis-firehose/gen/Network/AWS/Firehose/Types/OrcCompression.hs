@@ -13,51 +13,56 @@
 module Network.AWS.Firehose.Types.OrcCompression
   ( OrcCompression
       ( OrcCompression',
-        OCNone,
-        OCZlib,
-        OCSnappy
+        OrcCompressionNone,
+        OrcCompressionZlib,
+        OrcCompressionSnappy,
+        fromOrcCompression
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrcCompression = OrcCompression' Lude.Text
+newtype OrcCompression = OrcCompression'
+  { fromOrcCompression ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OCNone :: OrcCompression
-pattern OCNone = OrcCompression' "NONE"
+pattern OrcCompressionNone :: OrcCompression
+pattern OrcCompressionNone = OrcCompression' "NONE"
 
-pattern OCZlib :: OrcCompression
-pattern OCZlib = OrcCompression' "ZLIB"
+pattern OrcCompressionZlib :: OrcCompression
+pattern OrcCompressionZlib = OrcCompression' "ZLIB"
 
-pattern OCSnappy :: OrcCompression
-pattern OCSnappy = OrcCompression' "SNAPPY"
+pattern OrcCompressionSnappy :: OrcCompression
+pattern OrcCompressionSnappy = OrcCompression' "SNAPPY"
 
 {-# COMPLETE
-  OCNone,
-  OCZlib,
-  OCSnappy,
+  OrcCompressionNone,
+  OrcCompressionZlib,
+  OrcCompressionSnappy,
   OrcCompression'
   #-}

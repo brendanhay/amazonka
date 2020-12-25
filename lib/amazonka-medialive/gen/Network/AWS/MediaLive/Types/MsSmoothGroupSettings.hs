@@ -17,82 +17,60 @@ module Network.AWS.MediaLive.Types.MsSmoothGroupSettings
     mkMsSmoothGroupSettings,
 
     -- * Lenses
-    msgsFragmentLength,
     msgsDestination,
-    msgsStreamManifestBehavior,
-    msgsSendDelayMs,
-    msgsEventStopBehavior,
-    msgsTimestampOffsetMode,
-    msgsNumRetries,
     msgsAcquisitionPointId,
-    msgsInputLossAction,
-    msgsTimestampOffset,
-    msgsCertificateMode,
-    msgsSparseTrackType,
-    msgsConnectionRetryInterval,
-    msgsFilecacheDuration,
-    msgsRestartDelay,
-    msgsEventIdMode,
     msgsAudioOnlyTimecodeControl,
-    msgsSegmentationMode,
+    msgsCertificateMode,
+    msgsConnectionRetryInterval,
     msgsEventId,
+    msgsEventIdMode,
+    msgsEventStopBehavior,
+    msgsFilecacheDuration,
+    msgsFragmentLength,
+    msgsInputLossAction,
+    msgsNumRetries,
+    msgsRestartDelay,
+    msgsSegmentationMode,
+    msgsSendDelayMs,
+    msgsSparseTrackType,
+    msgsStreamManifestBehavior,
+    msgsTimestampOffset,
+    msgsTimestampOffsetMode,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputLossActionForMsSmoothOut
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import Network.AWS.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl
-import Network.AWS.MediaLive.Types.SmoothGroupCertificateMode
-import Network.AWS.MediaLive.Types.SmoothGroupEventIdMode
-import Network.AWS.MediaLive.Types.SmoothGroupEventStopBehavior
-import Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode
-import Network.AWS.MediaLive.Types.SmoothGroupSparseTrackType
-import Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior
-import Network.AWS.MediaLive.Types.SmoothGroupTimestampOffsetMode
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputLossActionForMsSmoothOut as Types
+import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupCertificateMode as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupEventIdMode as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupEventStopBehavior as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupSparseTrackType as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior as Types
+import qualified Network.AWS.MediaLive.Types.SmoothGroupTimestampOffsetMode as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Ms Smooth Group Settings
 --
 -- /See:/ 'mkMsSmoothGroupSettings' smart constructor.
 data MsSmoothGroupSettings = MsSmoothGroupSettings'
-  { -- | Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
-    fragmentLength :: Lude.Maybe Lude.Natural,
-    -- | Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
-    destination :: OutputLocationRef,
-    -- | When set to send, send stream manifest so publishing point doesn't start until all streams start.
-    streamManifestBehavior :: Lude.Maybe SmoothGroupStreamManifestBehavior,
-    -- | Number of milliseconds to delay the output from the second pipeline.
-    sendDelayMs :: Lude.Maybe Lude.Natural,
-    -- | When set to sendEos, send EOS signal to IIS server when stopping the event
-    eventStopBehavior :: Lude.Maybe SmoothGroupEventStopBehavior,
-    -- | Type of timestamp date offset to use.
-    --
-    -- - useEventStartDate: Use the date the event was started as the offset
-    -- - useConfiguredOffset: Use an explicitly configured date as the offset
-    timestampOffsetMode :: Lude.Maybe SmoothGroupTimestampOffsetMode,
-    -- | Number of retry attempts.
-    numRetries :: Lude.Maybe Lude.Natural,
+  { -- | Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
+    destination :: Types.OutputLocationRef,
     -- | The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
-    acquisitionPointId :: Lude.Maybe Lude.Text,
-    -- | Parameter that control output group behavior on input loss.
-    inputLossAction :: Lude.Maybe InputLossActionForMsSmoothOut,
-    -- | Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
-    timestampOffset :: Lude.Maybe Lude.Text,
+    acquisitionPointId :: Core.Maybe Core.Text,
+    -- | If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
+    audioOnlyTimecodeControl :: Core.Maybe Types.SmoothGroupAudioOnlyTimecodeControl,
     -- | If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
-    certificateMode :: Lude.Maybe SmoothGroupCertificateMode,
-    -- | Identifies the type of data to place in the sparse track:
-    --
-    -- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
-    -- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
-    -- - NONE: Don't generate a sparse track for any outputs in this output group.
-    sparseTrackType :: Lude.Maybe SmoothGroupSparseTrackType,
+    certificateMode :: Core.Maybe Types.SmoothGroupCertificateMode,
     -- | Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
-    connectionRetryInterval :: Lude.Maybe Lude.Natural,
-    -- | Size in seconds of file cache for streaming outputs.
-    filecacheDuration :: Lude.Maybe Lude.Natural,
-    -- | Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
-    restartDelay :: Lude.Maybe Lude.Natural,
+    connectionRetryInterval :: Core.Maybe Core.Natural,
+    -- | MS Smooth event ID to be sent to the IIS server.
+    --
+    --
+    -- Should only be specified if eventIdMode is set to useConfigured.
+    eventId :: Core.Maybe Core.Text,
     -- | Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
     --
     --
@@ -100,195 +78,114 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
     -- - "useConfigured" - use the value provided in eventId
     -- - "useTimestamp" - generate and send an event ID based on the current timestamp
     -- - "noEventId" - do not send an event ID to the IIS server.
-    eventIdMode :: Lude.Maybe SmoothGroupEventIdMode,
-    -- | If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
-    audioOnlyTimecodeControl :: Lude.Maybe SmoothGroupAudioOnlyTimecodeControl,
+    eventIdMode :: Core.Maybe Types.SmoothGroupEventIdMode,
+    -- | When set to sendEos, send EOS signal to IIS server when stopping the event
+    eventStopBehavior :: Core.Maybe Types.SmoothGroupEventStopBehavior,
+    -- | Size in seconds of file cache for streaming outputs.
+    filecacheDuration :: Core.Maybe Core.Natural,
+    -- | Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+    fragmentLength :: Core.Maybe Core.Natural,
+    -- | Parameter that control output group behavior on input loss.
+    inputLossAction :: Core.Maybe Types.InputLossActionForMsSmoothOut,
+    -- | Number of retry attempts.
+    numRetries :: Core.Maybe Core.Natural,
+    -- | Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
+    restartDelay :: Core.Maybe Core.Natural,
     -- | useInputSegmentation has been deprecated. The configured segment size is always used.
-    segmentationMode :: Lude.Maybe SmoothGroupSegmentationMode,
-    -- | MS Smooth event ID to be sent to the IIS server.
+    segmentationMode :: Core.Maybe Types.SmoothGroupSegmentationMode,
+    -- | Number of milliseconds to delay the output from the second pipeline.
+    sendDelayMs :: Core.Maybe Core.Natural,
+    -- | Identifies the type of data to place in the sparse track:
     --
+    -- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+    -- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+    -- - NONE: Don't generate a sparse track for any outputs in this output group.
+    sparseTrackType :: Core.Maybe Types.SmoothGroupSparseTrackType,
+    -- | When set to send, send stream manifest so publishing point doesn't start until all streams start.
+    streamManifestBehavior :: Core.Maybe Types.SmoothGroupStreamManifestBehavior,
+    -- | Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
+    timestampOffset :: Core.Maybe Core.Text,
+    -- | Type of timestamp date offset to use.
     --
-    -- Should only be specified if eventIdMode is set to useConfigured.
-    eventId :: Lude.Maybe Lude.Text
+    -- - useEventStartDate: Use the date the event was started as the offset
+    -- - useConfiguredOffset: Use an explicitly configured date as the offset
+    timestampOffsetMode :: Core.Maybe Types.SmoothGroupTimestampOffsetMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MsSmoothGroupSettings' with the minimum fields required to make a request.
---
--- * 'fragmentLength' - Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
--- * 'destination' - Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
--- * 'streamManifestBehavior' - When set to send, send stream manifest so publishing point doesn't start until all streams start.
--- * 'sendDelayMs' - Number of milliseconds to delay the output from the second pipeline.
--- * 'eventStopBehavior' - When set to sendEos, send EOS signal to IIS server when stopping the event
--- * 'timestampOffsetMode' - Type of timestamp date offset to use.
---
--- - useEventStartDate: Use the date the event was started as the offset
--- - useConfiguredOffset: Use an explicitly configured date as the offset
--- * 'numRetries' - Number of retry attempts.
--- * 'acquisitionPointId' - The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
--- * 'inputLossAction' - Parameter that control output group behavior on input loss.
--- * 'timestampOffset' - Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
--- * 'certificateMode' - If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
--- * 'sparseTrackType' - Identifies the type of data to place in the sparse track:
---
--- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
--- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
--- - NONE: Don't generate a sparse track for any outputs in this output group.
--- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
--- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
--- * 'restartDelay' - Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
--- * 'eventIdMode' - Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
---
---
--- Options:
--- - "useConfigured" - use the value provided in eventId
--- - "useTimestamp" - generate and send an event ID based on the current timestamp
--- - "noEventId" - do not send an event ID to the IIS server.
--- * 'audioOnlyTimecodeControl' - If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
--- * 'segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is always used.
--- * 'eventId' - MS Smooth event ID to be sent to the IIS server.
---
---
--- Should only be specified if eventIdMode is set to useConfigured.
+-- | Creates a 'MsSmoothGroupSettings' value with any optional fields omitted.
 mkMsSmoothGroupSettings ::
   -- | 'destination'
-  OutputLocationRef ->
+  Types.OutputLocationRef ->
   MsSmoothGroupSettings
-mkMsSmoothGroupSettings pDestination_ =
+mkMsSmoothGroupSettings destination =
   MsSmoothGroupSettings'
-    { fragmentLength = Lude.Nothing,
-      destination = pDestination_,
-      streamManifestBehavior = Lude.Nothing,
-      sendDelayMs = Lude.Nothing,
-      eventStopBehavior = Lude.Nothing,
-      timestampOffsetMode = Lude.Nothing,
-      numRetries = Lude.Nothing,
-      acquisitionPointId = Lude.Nothing,
-      inputLossAction = Lude.Nothing,
-      timestampOffset = Lude.Nothing,
-      certificateMode = Lude.Nothing,
-      sparseTrackType = Lude.Nothing,
-      connectionRetryInterval = Lude.Nothing,
-      filecacheDuration = Lude.Nothing,
-      restartDelay = Lude.Nothing,
-      eventIdMode = Lude.Nothing,
-      audioOnlyTimecodeControl = Lude.Nothing,
-      segmentationMode = Lude.Nothing,
-      eventId = Lude.Nothing
+    { destination,
+      acquisitionPointId = Core.Nothing,
+      audioOnlyTimecodeControl = Core.Nothing,
+      certificateMode = Core.Nothing,
+      connectionRetryInterval = Core.Nothing,
+      eventId = Core.Nothing,
+      eventIdMode = Core.Nothing,
+      eventStopBehavior = Core.Nothing,
+      filecacheDuration = Core.Nothing,
+      fragmentLength = Core.Nothing,
+      inputLossAction = Core.Nothing,
+      numRetries = Core.Nothing,
+      restartDelay = Core.Nothing,
+      segmentationMode = Core.Nothing,
+      sendDelayMs = Core.Nothing,
+      sparseTrackType = Core.Nothing,
+      streamManifestBehavior = Core.Nothing,
+      timestampOffset = Core.Nothing,
+      timestampOffsetMode = Core.Nothing
     }
-
--- | Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
---
--- /Note:/ Consider using 'fragmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsFragmentLength :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsFragmentLength = Lens.lens (fragmentLength :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fragmentLength = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsFragmentLength "Use generic-lens or generic-optics with 'fragmentLength' instead." #-}
 
 -- | Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsDestination :: Lens.Lens' MsSmoothGroupSettings OutputLocationRef
-msgsDestination = Lens.lens (destination :: MsSmoothGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: MsSmoothGroupSettings)
+msgsDestination :: Lens.Lens' MsSmoothGroupSettings Types.OutputLocationRef
+msgsDestination = Lens.field @"destination"
 {-# DEPRECATED msgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | When set to send, send stream manifest so publishing point doesn't start until all streams start.
---
--- /Note:/ Consider using 'streamManifestBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsStreamManifestBehavior :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupStreamManifestBehavior)
-msgsStreamManifestBehavior = Lens.lens (streamManifestBehavior :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupStreamManifestBehavior) (\s a -> s {streamManifestBehavior = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsStreamManifestBehavior "Use generic-lens or generic-optics with 'streamManifestBehavior' instead." #-}
-
--- | Number of milliseconds to delay the output from the second pipeline.
---
--- /Note:/ Consider using 'sendDelayMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsSendDelayMs :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsSendDelayMs = Lens.lens (sendDelayMs :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {sendDelayMs = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsSendDelayMs "Use generic-lens or generic-optics with 'sendDelayMs' instead." #-}
-
--- | When set to sendEos, send EOS signal to IIS server when stopping the event
---
--- /Note:/ Consider using 'eventStopBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsEventStopBehavior :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupEventStopBehavior)
-msgsEventStopBehavior = Lens.lens (eventStopBehavior :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupEventStopBehavior) (\s a -> s {eventStopBehavior = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsEventStopBehavior "Use generic-lens or generic-optics with 'eventStopBehavior' instead." #-}
-
--- | Type of timestamp date offset to use.
---
--- - useEventStartDate: Use the date the event was started as the offset
--- - useConfiguredOffset: Use an explicitly configured date as the offset
---
--- /Note:/ Consider using 'timestampOffsetMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsTimestampOffsetMode :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupTimestampOffsetMode)
-msgsTimestampOffsetMode = Lens.lens (timestampOffsetMode :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupTimestampOffsetMode) (\s a -> s {timestampOffsetMode = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsTimestampOffsetMode "Use generic-lens or generic-optics with 'timestampOffsetMode' instead." #-}
-
--- | Number of retry attempts.
---
--- /Note:/ Consider using 'numRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsNumRetries :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsNumRetries = Lens.lens (numRetries :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {numRetries = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsNumRetries "Use generic-lens or generic-optics with 'numRetries' instead." #-}
 
 -- | The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
 --
 -- /Note:/ Consider using 'acquisitionPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsAcquisitionPointId :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Text)
-msgsAcquisitionPointId = Lens.lens (acquisitionPointId :: MsSmoothGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {acquisitionPointId = a} :: MsSmoothGroupSettings)
+msgsAcquisitionPointId :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Text)
+msgsAcquisitionPointId = Lens.field @"acquisitionPointId"
 {-# DEPRECATED msgsAcquisitionPointId "Use generic-lens or generic-optics with 'acquisitionPointId' instead." #-}
 
--- | Parameter that control output group behavior on input loss.
+-- | If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
 --
--- /Note:/ Consider using 'inputLossAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsInputLossAction :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe InputLossActionForMsSmoothOut)
-msgsInputLossAction = Lens.lens (inputLossAction :: MsSmoothGroupSettings -> Lude.Maybe InputLossActionForMsSmoothOut) (\s a -> s {inputLossAction = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsInputLossAction "Use generic-lens or generic-optics with 'inputLossAction' instead." #-}
-
--- | Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
---
--- /Note:/ Consider using 'timestampOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsTimestampOffset :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Text)
-msgsTimestampOffset = Lens.lens (timestampOffset :: MsSmoothGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {timestampOffset = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsTimestampOffset "Use generic-lens or generic-optics with 'timestampOffset' instead." #-}
+-- /Note:/ Consider using 'audioOnlyTimecodeControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsAudioOnlyTimecodeControl :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupAudioOnlyTimecodeControl)
+msgsAudioOnlyTimecodeControl = Lens.field @"audioOnlyTimecodeControl"
+{-# DEPRECATED msgsAudioOnlyTimecodeControl "Use generic-lens or generic-optics with 'audioOnlyTimecodeControl' instead." #-}
 
 -- | If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
 --
 -- /Note:/ Consider using 'certificateMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsCertificateMode :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupCertificateMode)
-msgsCertificateMode = Lens.lens (certificateMode :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupCertificateMode) (\s a -> s {certificateMode = a} :: MsSmoothGroupSettings)
+msgsCertificateMode :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupCertificateMode)
+msgsCertificateMode = Lens.field @"certificateMode"
 {-# DEPRECATED msgsCertificateMode "Use generic-lens or generic-optics with 'certificateMode' instead." #-}
-
--- | Identifies the type of data to place in the sparse track:
---
--- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
--- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
--- - NONE: Don't generate a sparse track for any outputs in this output group.
---
--- /Note:/ Consider using 'sparseTrackType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsSparseTrackType :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupSparseTrackType)
-msgsSparseTrackType = Lens.lens (sparseTrackType :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupSparseTrackType) (\s a -> s {sparseTrackType = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsSparseTrackType "Use generic-lens or generic-optics with 'sparseTrackType' instead." #-}
 
 -- | Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
 --
 -- /Note:/ Consider using 'connectionRetryInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsConnectionRetryInterval :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsConnectionRetryInterval = Lens.lens (connectionRetryInterval :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {connectionRetryInterval = a} :: MsSmoothGroupSettings)
+msgsConnectionRetryInterval :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsConnectionRetryInterval = Lens.field @"connectionRetryInterval"
 {-# DEPRECATED msgsConnectionRetryInterval "Use generic-lens or generic-optics with 'connectionRetryInterval' instead." #-}
 
--- | Size in seconds of file cache for streaming outputs.
+-- | MS Smooth event ID to be sent to the IIS server.
 --
--- /Note:/ Consider using 'filecacheDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsFilecacheDuration :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsFilecacheDuration = Lens.lens (filecacheDuration :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {filecacheDuration = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsFilecacheDuration "Use generic-lens or generic-optics with 'filecacheDuration' instead." #-}
-
--- | Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
 --
--- /Note:/ Consider using 'restartDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsRestartDelay :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsRestartDelay = Lens.lens (restartDelay :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {restartDelay = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsRestartDelay "Use generic-lens or generic-optics with 'restartDelay' instead." #-}
+-- Should only be specified if eventIdMode is set to useConfigured.
+--
+-- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsEventId :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Text)
+msgsEventId = Lens.field @"eventId"
+{-# DEPRECATED msgsEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
 -- | Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
 --
@@ -299,85 +196,150 @@ msgsRestartDelay = Lens.lens (restartDelay :: MsSmoothGroupSettings -> Lude.Mayb
 -- - "noEventId" - do not send an event ID to the IIS server.
 --
 -- /Note:/ Consider using 'eventIdMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsEventIdMode :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupEventIdMode)
-msgsEventIdMode = Lens.lens (eventIdMode :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupEventIdMode) (\s a -> s {eventIdMode = a} :: MsSmoothGroupSettings)
+msgsEventIdMode :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupEventIdMode)
+msgsEventIdMode = Lens.field @"eventIdMode"
 {-# DEPRECATED msgsEventIdMode "Use generic-lens or generic-optics with 'eventIdMode' instead." #-}
 
--- | If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
+-- | When set to sendEos, send EOS signal to IIS server when stopping the event
 --
--- /Note:/ Consider using 'audioOnlyTimecodeControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsAudioOnlyTimecodeControl :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupAudioOnlyTimecodeControl)
-msgsAudioOnlyTimecodeControl = Lens.lens (audioOnlyTimecodeControl :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupAudioOnlyTimecodeControl) (\s a -> s {audioOnlyTimecodeControl = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsAudioOnlyTimecodeControl "Use generic-lens or generic-optics with 'audioOnlyTimecodeControl' instead." #-}
+-- /Note:/ Consider using 'eventStopBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsEventStopBehavior :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupEventStopBehavior)
+msgsEventStopBehavior = Lens.field @"eventStopBehavior"
+{-# DEPRECATED msgsEventStopBehavior "Use generic-lens or generic-optics with 'eventStopBehavior' instead." #-}
+
+-- | Size in seconds of file cache for streaming outputs.
+--
+-- /Note:/ Consider using 'filecacheDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsFilecacheDuration :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsFilecacheDuration = Lens.field @"filecacheDuration"
+{-# DEPRECATED msgsFilecacheDuration "Use generic-lens or generic-optics with 'filecacheDuration' instead." #-}
+
+-- | Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+--
+-- /Note:/ Consider using 'fragmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsFragmentLength :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsFragmentLength = Lens.field @"fragmentLength"
+{-# DEPRECATED msgsFragmentLength "Use generic-lens or generic-optics with 'fragmentLength' instead." #-}
+
+-- | Parameter that control output group behavior on input loss.
+--
+-- /Note:/ Consider using 'inputLossAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsInputLossAction :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.InputLossActionForMsSmoothOut)
+msgsInputLossAction = Lens.field @"inputLossAction"
+{-# DEPRECATED msgsInputLossAction "Use generic-lens or generic-optics with 'inputLossAction' instead." #-}
+
+-- | Number of retry attempts.
+--
+-- /Note:/ Consider using 'numRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsNumRetries :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsNumRetries = Lens.field @"numRetries"
+{-# DEPRECATED msgsNumRetries "Use generic-lens or generic-optics with 'numRetries' instead." #-}
+
+-- | Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
+--
+-- /Note:/ Consider using 'restartDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsRestartDelay :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsRestartDelay = Lens.field @"restartDelay"
+{-# DEPRECATED msgsRestartDelay "Use generic-lens or generic-optics with 'restartDelay' instead." #-}
 
 -- | useInputSegmentation has been deprecated. The configured segment size is always used.
 --
 -- /Note:/ Consider using 'segmentationMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsSegmentationMode :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe SmoothGroupSegmentationMode)
-msgsSegmentationMode = Lens.lens (segmentationMode :: MsSmoothGroupSettings -> Lude.Maybe SmoothGroupSegmentationMode) (\s a -> s {segmentationMode = a} :: MsSmoothGroupSettings)
+msgsSegmentationMode :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupSegmentationMode)
+msgsSegmentationMode = Lens.field @"segmentationMode"
 {-# DEPRECATED msgsSegmentationMode "Use generic-lens or generic-optics with 'segmentationMode' instead." #-}
 
--- | MS Smooth event ID to be sent to the IIS server.
+-- | Number of milliseconds to delay the output from the second pipeline.
 --
---
--- Should only be specified if eventIdMode is set to useConfigured.
---
--- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsEventId :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Text)
-msgsEventId = Lens.lens (eventId :: MsSmoothGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
+-- /Note:/ Consider using 'sendDelayMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsSendDelayMs :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsSendDelayMs = Lens.field @"sendDelayMs"
+{-# DEPRECATED msgsSendDelayMs "Use generic-lens or generic-optics with 'sendDelayMs' instead." #-}
 
-instance Lude.FromJSON MsSmoothGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "MsSmoothGroupSettings"
-      ( \x ->
-          MsSmoothGroupSettings'
-            Lude.<$> (x Lude..:? "fragmentLength")
-            Lude.<*> (x Lude..: "destination")
-            Lude.<*> (x Lude..:? "streamManifestBehavior")
-            Lude.<*> (x Lude..:? "sendDelayMs")
-            Lude.<*> (x Lude..:? "eventStopBehavior")
-            Lude.<*> (x Lude..:? "timestampOffsetMode")
-            Lude.<*> (x Lude..:? "numRetries")
-            Lude.<*> (x Lude..:? "acquisitionPointId")
-            Lude.<*> (x Lude..:? "inputLossAction")
-            Lude.<*> (x Lude..:? "timestampOffset")
-            Lude.<*> (x Lude..:? "certificateMode")
-            Lude.<*> (x Lude..:? "sparseTrackType")
-            Lude.<*> (x Lude..:? "connectionRetryInterval")
-            Lude.<*> (x Lude..:? "filecacheDuration")
-            Lude.<*> (x Lude..:? "restartDelay")
-            Lude.<*> (x Lude..:? "eventIdMode")
-            Lude.<*> (x Lude..:? "audioOnlyTimecodeControl")
-            Lude.<*> (x Lude..:? "segmentationMode")
-            Lude.<*> (x Lude..:? "eventId")
-      )
+-- | Identifies the type of data to place in the sparse track:
+--
+-- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+-- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+-- - NONE: Don't generate a sparse track for any outputs in this output group.
+--
+-- /Note:/ Consider using 'sparseTrackType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsSparseTrackType :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupSparseTrackType)
+msgsSparseTrackType = Lens.field @"sparseTrackType"
+{-# DEPRECATED msgsSparseTrackType "Use generic-lens or generic-optics with 'sparseTrackType' instead." #-}
 
-instance Lude.ToJSON MsSmoothGroupSettings where
-  toJSON MsSmoothGroupSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("fragmentLength" Lude..=) Lude.<$> fragmentLength,
-            Lude.Just ("destination" Lude..= destination),
-            ("streamManifestBehavior" Lude..=) Lude.<$> streamManifestBehavior,
-            ("sendDelayMs" Lude..=) Lude.<$> sendDelayMs,
-            ("eventStopBehavior" Lude..=) Lude.<$> eventStopBehavior,
-            ("timestampOffsetMode" Lude..=) Lude.<$> timestampOffsetMode,
-            ("numRetries" Lude..=) Lude.<$> numRetries,
-            ("acquisitionPointId" Lude..=) Lude.<$> acquisitionPointId,
-            ("inputLossAction" Lude..=) Lude.<$> inputLossAction,
-            ("timestampOffset" Lude..=) Lude.<$> timestampOffset,
-            ("certificateMode" Lude..=) Lude.<$> certificateMode,
-            ("sparseTrackType" Lude..=) Lude.<$> sparseTrackType,
-            ("connectionRetryInterval" Lude..=)
-              Lude.<$> connectionRetryInterval,
-            ("filecacheDuration" Lude..=) Lude.<$> filecacheDuration,
-            ("restartDelay" Lude..=) Lude.<$> restartDelay,
-            ("eventIdMode" Lude..=) Lude.<$> eventIdMode,
-            ("audioOnlyTimecodeControl" Lude..=)
-              Lude.<$> audioOnlyTimecodeControl,
-            ("segmentationMode" Lude..=) Lude.<$> segmentationMode,
-            ("eventId" Lude..=) Lude.<$> eventId
+-- | When set to send, send stream manifest so publishing point doesn't start until all streams start.
+--
+-- /Note:/ Consider using 'streamManifestBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsStreamManifestBehavior :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupStreamManifestBehavior)
+msgsStreamManifestBehavior = Lens.field @"streamManifestBehavior"
+{-# DEPRECATED msgsStreamManifestBehavior "Use generic-lens or generic-optics with 'streamManifestBehavior' instead." #-}
+
+-- | Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
+--
+-- /Note:/ Consider using 'timestampOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsTimestampOffset :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Text)
+msgsTimestampOffset = Lens.field @"timestampOffset"
+{-# DEPRECATED msgsTimestampOffset "Use generic-lens or generic-optics with 'timestampOffset' instead." #-}
+
+-- | Type of timestamp date offset to use.
+--
+-- - useEventStartDate: Use the date the event was started as the offset
+-- - useConfiguredOffset: Use an explicitly configured date as the offset
+--
+-- /Note:/ Consider using 'timestampOffsetMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsTimestampOffsetMode :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.SmoothGroupTimestampOffsetMode)
+msgsTimestampOffsetMode = Lens.field @"timestampOffsetMode"
+{-# DEPRECATED msgsTimestampOffsetMode "Use generic-lens or generic-optics with 'timestampOffsetMode' instead." #-}
+
+instance Core.FromJSON MsSmoothGroupSettings where
+  toJSON MsSmoothGroupSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("destination" Core..= destination),
+            ("acquisitionPointId" Core..=) Core.<$> acquisitionPointId,
+            ("audioOnlyTimecodeControl" Core..=)
+              Core.<$> audioOnlyTimecodeControl,
+            ("certificateMode" Core..=) Core.<$> certificateMode,
+            ("connectionRetryInterval" Core..=)
+              Core.<$> connectionRetryInterval,
+            ("eventId" Core..=) Core.<$> eventId,
+            ("eventIdMode" Core..=) Core.<$> eventIdMode,
+            ("eventStopBehavior" Core..=) Core.<$> eventStopBehavior,
+            ("filecacheDuration" Core..=) Core.<$> filecacheDuration,
+            ("fragmentLength" Core..=) Core.<$> fragmentLength,
+            ("inputLossAction" Core..=) Core.<$> inputLossAction,
+            ("numRetries" Core..=) Core.<$> numRetries,
+            ("restartDelay" Core..=) Core.<$> restartDelay,
+            ("segmentationMode" Core..=) Core.<$> segmentationMode,
+            ("sendDelayMs" Core..=) Core.<$> sendDelayMs,
+            ("sparseTrackType" Core..=) Core.<$> sparseTrackType,
+            ("streamManifestBehavior" Core..=) Core.<$> streamManifestBehavior,
+            ("timestampOffset" Core..=) Core.<$> timestampOffset,
+            ("timestampOffsetMode" Core..=) Core.<$> timestampOffsetMode
           ]
       )
+
+instance Core.FromJSON MsSmoothGroupSettings where
+  parseJSON =
+    Core.withObject "MsSmoothGroupSettings" Core.$
+      \x ->
+        MsSmoothGroupSettings'
+          Core.<$> (x Core..: "destination")
+          Core.<*> (x Core..:? "acquisitionPointId")
+          Core.<*> (x Core..:? "audioOnlyTimecodeControl")
+          Core.<*> (x Core..:? "certificateMode")
+          Core.<*> (x Core..:? "connectionRetryInterval")
+          Core.<*> (x Core..:? "eventId")
+          Core.<*> (x Core..:? "eventIdMode")
+          Core.<*> (x Core..:? "eventStopBehavior")
+          Core.<*> (x Core..:? "filecacheDuration")
+          Core.<*> (x Core..:? "fragmentLength")
+          Core.<*> (x Core..:? "inputLossAction")
+          Core.<*> (x Core..:? "numRetries")
+          Core.<*> (x Core..:? "restartDelay")
+          Core.<*> (x Core..:? "segmentationMode")
+          Core.<*> (x Core..:? "sendDelayMs")
+          Core.<*> (x Core..:? "sparseTrackType")
+          Core.<*> (x Core..:? "streamManifestBehavior")
+          Core.<*> (x Core..:? "timestampOffset")
+          Core.<*> (x Core..:? "timestampOffsetMode")

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,28 @@
 -- AWS Elemental MediaConvert
 module Network.AWS.MediaConvert
   ( -- * Service configuration
-    mediaConvertService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -102,1399 +119,113 @@ module Network.AWS.MediaConvert
 
     -- * Types
 
-    -- ** AacAudioDescriptionBroadcasterMix
-    AacAudioDescriptionBroadcasterMix (..),
-
-    -- ** AacCodecProfile
-    AacCodecProfile (..),
-
-    -- ** AacCodingMode
-    AacCodingMode (..),
-
-    -- ** AacRateControlMode
-    AacRateControlMode (..),
-
-    -- ** AacRawFormat
-    AacRawFormat (..),
-
-    -- ** AacSpecification
-    AacSpecification (..),
-
-    -- ** AacVbrQuality
-    AacVbrQuality (..),
-
-    -- ** Ac3BitstreamMode
-    Ac3BitstreamMode (..),
-
-    -- ** Ac3CodingMode
-    Ac3CodingMode (..),
-
-    -- ** Ac3DynamicRangeCompressionProfile
-    Ac3DynamicRangeCompressionProfile (..),
-
-    -- ** Ac3LfeFilter
-    Ac3LfeFilter (..),
-
-    -- ** Ac3MetadataControl
-    Ac3MetadataControl (..),
-
-    -- ** AccelerationMode
-    AccelerationMode (..),
-
-    -- ** AccelerationStatus
-    AccelerationStatus (..),
-
-    -- ** AfdSignaling
-    AfdSignaling (..),
-
-    -- ** AlphaBehavior
-    AlphaBehavior (..),
-
-    -- ** AncillaryConvert608To708
-    AncillaryConvert608To708 (..),
-
-    -- ** AncillaryTerminateCaptions
-    AncillaryTerminateCaptions (..),
-
-    -- ** AntiAlias
-    AntiAlias (..),
-
-    -- ** AudioChannelTag
-    AudioChannelTag (..),
-
-    -- ** AudioCodec
-    AudioCodec (..),
-
-    -- ** AudioDefaultSelection
-    AudioDefaultSelection (..),
-
-    -- ** AudioLanguageCodeControl
-    AudioLanguageCodeControl (..),
-
-    -- ** AudioNormalizationAlgorithm
-    AudioNormalizationAlgorithm (..),
-
-    -- ** AudioNormalizationAlgorithmControl
-    AudioNormalizationAlgorithmControl (..),
-
-    -- ** AudioNormalizationLoudnessLogging
-    AudioNormalizationLoudnessLogging (..),
-
-    -- ** AudioNormalizationPeakCalculation
-    AudioNormalizationPeakCalculation (..),
-
-    -- ** AudioSelectorType
-    AudioSelectorType (..),
-
-    -- ** AudioTypeControl
-    AudioTypeControl (..),
-
-    -- ** Av1AdaptiveQuantization
-    Av1AdaptiveQuantization (..),
-
-    -- ** Av1FramerateControl
-    Av1FramerateControl (..),
-
-    -- ** Av1FramerateConversionAlgorithm
-    Av1FramerateConversionAlgorithm (..),
-
-    -- ** Av1RateControlMode
-    Av1RateControlMode (..),
-
-    -- ** Av1SpatialAdaptiveQuantization
-    Av1SpatialAdaptiveQuantization (..),
-
-    -- ** AvcIntraClass
-    AvcIntraClass (..),
-
-    -- ** AvcIntraFramerateControl
-    AvcIntraFramerateControl (..),
-
-    -- ** AvcIntraFramerateConversionAlgorithm
-    AvcIntraFramerateConversionAlgorithm (..),
-
-    -- ** AvcIntraInterlaceMode
-    AvcIntraInterlaceMode (..),
-
-    -- ** AvcIntraSlowPal
-    AvcIntraSlowPal (..),
-
-    -- ** AvcIntraTelecine
-    AvcIntraTelecine (..),
-
-    -- ** BillingTagsSource
-    BillingTagsSource (..),
-
-    -- ** BurninSubtitleAlignment
-    BurninSubtitleAlignment (..),
-
-    -- ** BurninSubtitleBackgroundColor
-    BurninSubtitleBackgroundColor (..),
-
-    -- ** BurninSubtitleFontColor
-    BurninSubtitleFontColor (..),
-
-    -- ** BurninSubtitleOutlineColor
-    BurninSubtitleOutlineColor (..),
-
-    -- ** BurninSubtitleShadowColor
-    BurninSubtitleShadowColor (..),
-
-    -- ** BurninSubtitleTeletextSpacing
-    BurninSubtitleTeletextSpacing (..),
-
-    -- ** CaptionDestinationType
-    CaptionDestinationType (..),
-
-    -- ** CaptionSourceType
-    CaptionSourceType (..),
-
-    -- ** CmafClientCache
-    CmafClientCache (..),
-
-    -- ** CmafCodecSpecification
-    CmafCodecSpecification (..),
-
-    -- ** CmafEncryptionType
-    CmafEncryptionType (..),
-
-    -- ** CmafInitializationVectorInManifest
-    CmafInitializationVectorInManifest (..),
-
-    -- ** CmafKeyProviderType
-    CmafKeyProviderType (..),
-
-    -- ** CmafManifestCompression
-    CmafManifestCompression (..),
-
-    -- ** CmafManifestDurationFormat
-    CmafManifestDurationFormat (..),
-
-    -- ** CmafMpdProfile
-    CmafMpdProfile (..),
-
-    -- ** CmafSegmentControl
-    CmafSegmentControl (..),
-
-    -- ** CmafStreamInfResolution
-    CmafStreamInfResolution (..),
-
-    -- ** CmafWriteDASHManifest
-    CmafWriteDASHManifest (..),
-
-    -- ** CmafWriteHLSManifest
-    CmafWriteHLSManifest (..),
-
-    -- ** CmafWriteSegmentTimelineInRepresentation
-    CmafWriteSegmentTimelineInRepresentation (..),
-
-    -- ** CmfcAudioDuration
-    CmfcAudioDuration (..),
-
-    -- ** CmfcScte35Esam
-    CmfcScte35Esam (..),
-
-    -- ** CmfcScte35Source
-    CmfcScte35Source (..),
-
-    -- ** ColorMetadata
-    ColorMetadata (..),
-
-    -- ** ColorSpace
-    ColorSpace (..),
-
-    -- ** ColorSpaceConversion
-    ColorSpaceConversion (..),
-
-    -- ** ColorSpaceUsage
-    ColorSpaceUsage (..),
-
-    -- ** Commitment
-    Commitment (..),
-
-    -- ** ContainerType
-    ContainerType (..),
-
-    -- ** DashIsoHbbtvCompliance
-    DashIsoHbbtvCompliance (..),
-
-    -- ** DashIsoMpdProfile
-    DashIsoMpdProfile (..),
-
-    -- ** DashIsoPlaybackDeviceCompatibility
-    DashIsoPlaybackDeviceCompatibility (..),
-
-    -- ** DashIsoSegmentControl
-    DashIsoSegmentControl (..),
-
-    -- ** DashIsoWriteSegmentTimelineInRepresentation
-    DashIsoWriteSegmentTimelineInRepresentation (..),
-
-    -- ** DecryptionMode
-    DecryptionMode (..),
-
-    -- ** DeinterlaceAlgorithm
-    DeinterlaceAlgorithm (..),
-
-    -- ** DeinterlacerControl
-    DeinterlacerControl (..),
-
-    -- ** DeinterlacerMode
-    DeinterlacerMode (..),
-
-    -- ** DescribeEndpointsMode
-    DescribeEndpointsMode (..),
-
-    -- ** DolbyVisionLevel6Mode
-    DolbyVisionLevel6Mode (..),
-
-    -- ** DolbyVisionProfile
-    DolbyVisionProfile (..),
-
-    -- ** DropFrameTimecode
-    DropFrameTimecode (..),
-
-    -- ** DvbSubtitleAlignment
-    DvbSubtitleAlignment (..),
-
-    -- ** DvbSubtitleBackgroundColor
-    DvbSubtitleBackgroundColor (..),
-
-    -- ** DvbSubtitleFontColor
-    DvbSubtitleFontColor (..),
-
-    -- ** DvbSubtitleOutlineColor
-    DvbSubtitleOutlineColor (..),
-
-    -- ** DvbSubtitleShadowColor
-    DvbSubtitleShadowColor (..),
-
-    -- ** DvbSubtitleTeletextSpacing
-    DvbSubtitleTeletextSpacing (..),
-
-    -- ** DvbSubtitlingType
-    DvbSubtitlingType (..),
-
-    -- ** Eac3AtmosBitstreamMode
-    Eac3AtmosBitstreamMode (..),
-
-    -- ** Eac3AtmosCodingMode
-    Eac3AtmosCodingMode (..),
-
-    -- ** Eac3AtmosDialogueIntelligence
-    Eac3AtmosDialogueIntelligence (..),
-
-    -- ** Eac3AtmosDynamicRangeCompressionLine
-    Eac3AtmosDynamicRangeCompressionLine (..),
-
-    -- ** Eac3AtmosDynamicRangeCompressionRf
-    Eac3AtmosDynamicRangeCompressionRf (..),
-
-    -- ** Eac3AtmosMeteringMode
-    Eac3AtmosMeteringMode (..),
-
-    -- ** Eac3AtmosStereoDownmix
-    Eac3AtmosStereoDownmix (..),
-
-    -- ** Eac3AtmosSurroundExMode
-    Eac3AtmosSurroundExMode (..),
-
-    -- ** Eac3AttenuationControl
-    Eac3AttenuationControl (..),
-
-    -- ** Eac3BitstreamMode
-    Eac3BitstreamMode (..),
-
-    -- ** Eac3CodingMode
-    Eac3CodingMode (..),
-
-    -- ** Eac3DcFilter
-    Eac3DcFilter (..),
-
-    -- ** Eac3DynamicRangeCompressionLine
-    Eac3DynamicRangeCompressionLine (..),
-
-    -- ** Eac3DynamicRangeCompressionRf
-    Eac3DynamicRangeCompressionRf (..),
-
-    -- ** Eac3LfeControl
-    Eac3LfeControl (..),
-
-    -- ** Eac3LfeFilter
-    Eac3LfeFilter (..),
-
-    -- ** Eac3MetadataControl
-    Eac3MetadataControl (..),
-
-    -- ** Eac3PassthroughControl
-    Eac3PassthroughControl (..),
+    -- ** Mpeg2Syntax
+    Mpeg2Syntax (..),
 
     -- ** Eac3PhaseControl
     Eac3PhaseControl (..),
 
-    -- ** Eac3StereoDownmix
-    Eac3StereoDownmix (..),
-
-    -- ** Eac3SurroundExMode
-    Eac3SurroundExMode (..),
-
-    -- ** Eac3SurroundMode
-    Eac3SurroundMode (..),
-
-    -- ** EmbeddedConvert608To708
-    EmbeddedConvert608To708 (..),
-
-    -- ** EmbeddedTerminateCaptions
-    EmbeddedTerminateCaptions (..),
-
-    -- ** F4vMoovPlacement
-    F4vMoovPlacement (..),
-
-    -- ** FileSourceConvert608To708
-    FileSourceConvert608To708 (..),
-
-    -- ** FontScript
-    FontScript (..),
-
-    -- ** H264AdaptiveQuantization
-    H264AdaptiveQuantization (..),
-
-    -- ** H264CodecLevel
-    H264CodecLevel (..),
-
-    -- ** H264CodecProfile
-    H264CodecProfile (..),
-
-    -- ** H264DynamicSubGop
-    H264DynamicSubGop (..),
-
-    -- ** H264EntropyEncoding
-    H264EntropyEncoding (..),
-
-    -- ** H264FieldEncoding
-    H264FieldEncoding (..),
-
-    -- ** H264FlickerAdaptiveQuantization
-    H264FlickerAdaptiveQuantization (..),
-
-    -- ** H264FramerateControl
-    H264FramerateControl (..),
-
-    -- ** H264FramerateConversionAlgorithm
-    H264FramerateConversionAlgorithm (..),
-
-    -- ** H264GopBReference
-    H264GopBReference (..),
-
-    -- ** H264GopSizeUnits
-    H264GopSizeUnits (..),
-
-    -- ** H264InterlaceMode
-    H264InterlaceMode (..),
-
-    -- ** H264ParControl
-    H264ParControl (..),
-
-    -- ** H264QualityTuningLevel
-    H264QualityTuningLevel (..),
-
-    -- ** H264RateControlMode
-    H264RateControlMode (..),
-
-    -- ** H264RepeatPps
-    H264RepeatPps (..),
-
-    -- ** H264SceneChangeDetect
-    H264SceneChangeDetect (..),
-
-    -- ** H264SlowPal
-    H264SlowPal (..),
-
-    -- ** H264SpatialAdaptiveQuantization
-    H264SpatialAdaptiveQuantization (..),
-
-    -- ** H264Syntax
-    H264Syntax (..),
-
-    -- ** H264Telecine
-    H264Telecine (..),
-
-    -- ** H264TemporalAdaptiveQuantization
-    H264TemporalAdaptiveQuantization (..),
-
-    -- ** H264UnregisteredSeiTimecode
-    H264UnregisteredSeiTimecode (..),
-
-    -- ** H265AdaptiveQuantization
-    H265AdaptiveQuantization (..),
-
-    -- ** H265AlternateTransferFunctionSei
-    H265AlternateTransferFunctionSei (..),
-
-    -- ** H265CodecLevel
-    H265CodecLevel (..),
-
-    -- ** H265CodecProfile
-    H265CodecProfile (..),
-
-    -- ** H265DynamicSubGop
-    H265DynamicSubGop (..),
-
-    -- ** H265FlickerAdaptiveQuantization
-    H265FlickerAdaptiveQuantization (..),
-
-    -- ** H265FramerateControl
-    H265FramerateControl (..),
-
-    -- ** H265FramerateConversionAlgorithm
-    H265FramerateConversionAlgorithm (..),
-
-    -- ** H265GopBReference
-    H265GopBReference (..),
-
-    -- ** H265GopSizeUnits
-    H265GopSizeUnits (..),
-
-    -- ** H265InterlaceMode
-    H265InterlaceMode (..),
-
-    -- ** H265ParControl
-    H265ParControl (..),
-
-    -- ** H265QualityTuningLevel
-    H265QualityTuningLevel (..),
-
-    -- ** H265RateControlMode
-    H265RateControlMode (..),
-
-    -- ** H265SampleAdaptiveOffsetFilterMode
-    H265SampleAdaptiveOffsetFilterMode (..),
-
-    -- ** H265SceneChangeDetect
-    H265SceneChangeDetect (..),
-
-    -- ** H265SlowPal
-    H265SlowPal (..),
-
-    -- ** H265SpatialAdaptiveQuantization
-    H265SpatialAdaptiveQuantization (..),
-
-    -- ** H265Telecine
-    H265Telecine (..),
-
-    -- ** H265TemporalAdaptiveQuantization
-    H265TemporalAdaptiveQuantization (..),
-
-    -- ** H265TemporalIds
-    H265TemporalIds (..),
-
-    -- ** H265Tiles
-    H265Tiles (..),
-
-    -- ** H265UnregisteredSeiTimecode
-    H265UnregisteredSeiTimecode (..),
-
-    -- ** H265WriteMp4PackagingType
-    H265WriteMp4PackagingType (..),
-
-    -- ** HlsAdMarkers
-    HlsAdMarkers (..),
-
-    -- ** HlsAudioOnlyContainer
-    HlsAudioOnlyContainer (..),
-
-    -- ** HlsAudioOnlyHeader
-    HlsAudioOnlyHeader (..),
-
-    -- ** HlsAudioTrackType
-    HlsAudioTrackType (..),
-
-    -- ** HlsCaptionLanguageSetting
-    HlsCaptionLanguageSetting (..),
-
-    -- ** HlsClientCache
-    HlsClientCache (..),
-
-    -- ** HlsCodecSpecification
-    HlsCodecSpecification (..),
-
-    -- ** HlsDirectoryStructure
-    HlsDirectoryStructure (..),
-
-    -- ** HlsEncryptionType
-    HlsEncryptionType (..),
-
-    -- ** HlsIFrameOnlyManifest
-    HlsIFrameOnlyManifest (..),
-
-    -- ** HlsInitializationVectorInManifest
-    HlsInitializationVectorInManifest (..),
-
-    -- ** HlsKeyProviderType
-    HlsKeyProviderType (..),
-
-    -- ** HlsManifestCompression
-    HlsManifestCompression (..),
-
-    -- ** HlsManifestDurationFormat
-    HlsManifestDurationFormat (..),
-
-    -- ** HlsOfflineEncrypted
-    HlsOfflineEncrypted (..),
-
-    -- ** HlsOutputSelection
-    HlsOutputSelection (..),
-
-    -- ** HlsProgramDateTime
-    HlsProgramDateTime (..),
-
-    -- ** HlsSegmentControl
-    HlsSegmentControl (..),
-
-    -- ** HlsStreamInfResolution
-    HlsStreamInfResolution (..),
-
-    -- ** HlsTimedMetadataId3Frame
-    HlsTimedMetadataId3Frame (..),
-
-    -- ** ImscStylePassthrough
-    ImscStylePassthrough (..),
-
-    -- ** InputDeblockFilter
-    InputDeblockFilter (..),
-
-    -- ** InputDenoiseFilter
-    InputDenoiseFilter (..),
-
-    -- ** InputFilterEnable
-    InputFilterEnable (..),
-
-    -- ** InputPsiControl
-    InputPsiControl (..),
-
-    -- ** InputRotate
-    InputRotate (..),
-
-    -- ** InputScanType
-    InputScanType (..),
-
-    -- ** InputTimecodeSource
-    InputTimecodeSource (..),
-
-    -- ** JobPhase
-    JobPhase (..),
-
-    -- ** JobStatus
-    JobStatus (..),
-
-    -- ** JobTemplateListBy
-    JobTemplateListBy (..),
-
-    -- ** LanguageCode
-    LanguageCode (..),
-
-    -- ** M2tsAudioBufferModel
-    M2tsAudioBufferModel (..),
-
-    -- ** M2tsAudioDuration
-    M2tsAudioDuration (..),
-
-    -- ** M2tsBufferModel
-    M2tsBufferModel (..),
-
-    -- ** M2tsEbpAudioInterval
-    M2tsEbpAudioInterval (..),
-
-    -- ** M2tsEbpPlacement
-    M2tsEbpPlacement (..),
-
-    -- ** M2tsEsRateInPes
-    M2tsEsRateInPes (..),
-
-    -- ** M2tsForceTsVideoEbpOrder
-    M2tsForceTsVideoEbpOrder (..),
-
-    -- ** M2tsNielsenId3
-    M2tsNielsenId3 (..),
-
-    -- ** M2tsPcrControl
-    M2tsPcrControl (..),
-
-    -- ** M2tsRateMode
-    M2tsRateMode (..),
-
-    -- ** M2tsScte35Source
-    M2tsScte35Source (..),
-
-    -- ** M2tsSegmentationMarkers
-    M2tsSegmentationMarkers (..),
-
-    -- ** M2tsSegmentationStyle
-    M2tsSegmentationStyle (..),
-
-    -- ** M3u8AudioDuration
-    M3u8AudioDuration (..),
-
-    -- ** M3u8NielsenId3
-    M3u8NielsenId3 (..),
-
-    -- ** M3u8PcrControl
-    M3u8PcrControl (..),
-
-    -- ** M3u8Scte35Source
-    M3u8Scte35Source (..),
-
-    -- ** MotionImageInsertionMode
-    MotionImageInsertionMode (..),
-
-    -- ** MotionImagePlayback
-    MotionImagePlayback (..),
-
-    -- ** MovClapAtom
-    MovClapAtom (..),
-
-    -- ** MovCslgAtom
-    MovCslgAtom (..),
-
-    -- ** MovMpeg2FourCCControl
-    MovMpeg2FourCCControl (..),
-
-    -- ** MovPaddingControl
-    MovPaddingControl (..),
-
-    -- ** MovReference
-    MovReference (..),
-
-    -- ** Mp3RateControlMode
-    Mp3RateControlMode (..),
-
-    -- ** Mp4CslgAtom
-    Mp4CslgAtom (..),
-
-    -- ** Mp4FreeSpaceBox
-    Mp4FreeSpaceBox (..),
-
-    -- ** Mp4MoovPlacement
-    Mp4MoovPlacement (..),
-
-    -- ** MpdAccessibilityCaptionHints
-    MpdAccessibilityCaptionHints (..),
-
-    -- ** MpdAudioDuration
-    MpdAudioDuration (..),
-
-    -- ** MpdCaptionContainerType
-    MpdCaptionContainerType (..),
-
-    -- ** MpdScte35Esam
-    MpdScte35Esam (..),
-
-    -- ** MpdScte35Source
-    MpdScte35Source (..),
-
-    -- ** Mpeg2AdaptiveQuantization
-    Mpeg2AdaptiveQuantization (..),
-
-    -- ** Mpeg2CodecLevel
-    Mpeg2CodecLevel (..),
-
-    -- ** Mpeg2CodecProfile
-    Mpeg2CodecProfile (..),
-
-    -- ** Mpeg2DynamicSubGop
-    Mpeg2DynamicSubGop (..),
-
-    -- ** Mpeg2FramerateControl
-    Mpeg2FramerateControl (..),
-
-    -- ** Mpeg2FramerateConversionAlgorithm
-    Mpeg2FramerateConversionAlgorithm (..),
-
-    -- ** Mpeg2GopSizeUnits
-    Mpeg2GopSizeUnits (..),
-
-    -- ** Mpeg2InterlaceMode
-    Mpeg2InterlaceMode (..),
-
-    -- ** Mpeg2IntraDcPrecision
-    Mpeg2IntraDcPrecision (..),
-
-    -- ** Mpeg2ParControl
-    Mpeg2ParControl (..),
-
-    -- ** Mpeg2QualityTuningLevel
-    Mpeg2QualityTuningLevel (..),
-
-    -- ** Mpeg2RateControlMode
-    Mpeg2RateControlMode (..),
-
-    -- ** Mpeg2SceneChangeDetect
-    Mpeg2SceneChangeDetect (..),
-
-    -- ** Mpeg2SlowPal
-    Mpeg2SlowPal (..),
-
-    -- ** Mpeg2SpatialAdaptiveQuantization
-    Mpeg2SpatialAdaptiveQuantization (..),
-
-    -- ** Mpeg2Syntax
-    Mpeg2Syntax (..),
-
-    -- ** Mpeg2Telecine
-    Mpeg2Telecine (..),
-
-    -- ** Mpeg2TemporalAdaptiveQuantization
-    Mpeg2TemporalAdaptiveQuantization (..),
-
-    -- ** MsSmoothAudioDeduplication
-    MsSmoothAudioDeduplication (..),
-
-    -- ** MsSmoothManifestEncoding
-    MsSmoothManifestEncoding (..),
-
-    -- ** MxfAfdSignaling
-    MxfAfdSignaling (..),
-
-    -- ** MxfProfile
-    MxfProfile (..),
-
-    -- ** NielsenActiveWatermarkProcessType
-    NielsenActiveWatermarkProcessType (..),
-
-    -- ** NielsenSourceWatermarkStatusType
-    NielsenSourceWatermarkStatusType (..),
-
-    -- ** NielsenUniqueTicPerAudioTrackType
-    NielsenUniqueTicPerAudioTrackType (..),
-
-    -- ** NoiseFilterPostTemporalSharpening
-    NoiseFilterPostTemporalSharpening (..),
-
-    -- ** NoiseReducerFilter
-    NoiseReducerFilter (..),
-
-    -- ** Order
-    Order (..),
-
-    -- ** OutputGroupType
-    OutputGroupType (..),
-
-    -- ** OutputSdt
-    OutputSdt (..),
-
-    -- ** PresetListBy
-    PresetListBy (..),
-
-    -- ** PricingPlan
-    PricingPlan (..),
+    -- ** VideoSelector
+    VideoSelector (..),
+    mkVideoSelector,
+    vsAlphaBehavior,
+    vsColorSpace,
+    vsColorSpaceUsage,
+    vsHdr10Metadata,
+    vsPid,
+    vsProgramNumber,
+    vsRotate,
+
+    -- ** AvcIntraFramerateControl
+    AvcIntraFramerateControl (..),
 
     -- ** ProresCodecProfile
     ProresCodecProfile (..),
 
-    -- ** ProresFramerateControl
-    ProresFramerateControl (..),
+    -- ** Eac3SurroundExMode
+    Eac3SurroundExMode (..),
 
-    -- ** ProresFramerateConversionAlgorithm
-    ProresFramerateConversionAlgorithm (..),
+    -- ** H264ParControl
+    H264ParControl (..),
 
-    -- ** ProresInterlaceMode
-    ProresInterlaceMode (..),
+    -- ** AvcIntraFramerateConversionAlgorithm
+    AvcIntraFramerateConversionAlgorithm (..),
 
-    -- ** ProresParControl
-    ProresParControl (..),
+    -- ** Mpeg2DynamicSubGop
+    Mpeg2DynamicSubGop (..),
 
-    -- ** ProresSlowPal
-    ProresSlowPal (..),
+    -- ** H265CodecProfile
+    H265CodecProfile (..),
 
-    -- ** ProresTelecine
-    ProresTelecine (..),
+    -- ** FileGroupSettings
+    FileGroupSettings (..),
+    mkFileGroupSettings,
+    fgsDestination,
+    fgsDestinationSettings,
 
-    -- ** QueueListBy
-    QueueListBy (..),
+    -- ** HlsStreamInfResolution
+    HlsStreamInfResolution (..),
 
-    -- ** QueueStatus
-    QueueStatus (..),
+    -- ** TeletextDestinationSettings
+    TeletextDestinationSettings (..),
+    mkTeletextDestinationSettings,
+    tdsPageNumber,
+    tdsPageTypes,
 
-    -- ** RenewalType
-    RenewalType (..),
+    -- ** NoiseReducerFilter
+    NoiseReducerFilter (..),
 
-    -- ** ReservationPlanStatus
-    ReservationPlanStatus (..),
-
-    -- ** RespondToAfd
-    RespondToAfd (..),
-
-    -- ** S3ObjectCannedACL
-    S3ObjectCannedACL (..),
-
-    -- ** S3ServerSideEncryptionType
-    S3ServerSideEncryptionType (..),
-
-    -- ** ScalingBehavior
-    ScalingBehavior (..),
-
-    -- ** SccDestinationFramerate
-    SccDestinationFramerate (..),
-
-    -- ** SimulateReservedQueue
-    SimulateReservedQueue (..),
-
-    -- ** StatusUpdateInterval
-    StatusUpdateInterval (..),
-
-    -- ** TeletextPageType
-    TeletextPageType (..),
-
-    -- ** TimecodeBurninPosition
-    TimecodeBurninPosition (..),
-
-    -- ** TimecodeSource
-    TimecodeSource (..),
-
-    -- ** TimedMetadata
-    TimedMetadata (..),
+    -- ** HlsCodecSpecification
+    HlsCodecSpecification (..),
 
     -- ** TtmlStylePassthrough
     TtmlStylePassthrough (..),
 
-    -- ** Type
-    Type (..),
-
-    -- ** Vc3Class
-    Vc3Class (..),
-
-    -- ** Vc3FramerateControl
-    Vc3FramerateControl (..),
-
-    -- ** Vc3FramerateConversionAlgorithm
-    Vc3FramerateConversionAlgorithm (..),
-
-    -- ** Vc3InterlaceMode
-    Vc3InterlaceMode (..),
-
-    -- ** Vc3SlowPal
-    Vc3SlowPal (..),
-
-    -- ** Vc3Telecine
-    Vc3Telecine (..),
-
-    -- ** VideoCodec
-    VideoCodec (..),
-
-    -- ** VideoTimecodeInsertion
-    VideoTimecodeInsertion (..),
-
-    -- ** Vp8FramerateControl
-    Vp8FramerateControl (..),
-
-    -- ** Vp8FramerateConversionAlgorithm
-    Vp8FramerateConversionAlgorithm (..),
-
-    -- ** Vp8ParControl
-    Vp8ParControl (..),
-
-    -- ** Vp8QualityTuningLevel
-    Vp8QualityTuningLevel (..),
-
-    -- ** Vp8RateControlMode
-    Vp8RateControlMode (..),
-
-    -- ** Vp9FramerateControl
-    Vp9FramerateControl (..),
-
-    -- ** Vp9FramerateConversionAlgorithm
-    Vp9FramerateConversionAlgorithm (..),
-
-    -- ** Vp9ParControl
-    Vp9ParControl (..),
-
-    -- ** Vp9QualityTuningLevel
-    Vp9QualityTuningLevel (..),
-
-    -- ** Vp9RateControlMode
-    Vp9RateControlMode (..),
-
-    -- ** WatermarkingStrength
-    WatermarkingStrength (..),
-
-    -- ** WavFormat
-    WavFormat (..),
-
-    -- ** AacSettings
-    AacSettings (..),
-    mkAacSettings,
-    assAudioDescriptionBroadcasterMix,
-    assRawFormat,
-    assCodingMode,
-    assRateControlMode,
-    assSampleRate,
-    assSpecification,
-    assCodecProfile,
-    assBitrate,
-    assVbrQuality,
-
-    -- ** Ac3Settings
-    Ac3Settings (..),
-    mkAc3Settings,
-    aLfeFilter,
-    aMetadataControl,
-    aBitstreamMode,
-    aCodingMode,
-    aSampleRate,
-    aDynamicRangeCompressionProfile,
-    aBitrate,
-    aDialnorm,
-
-    -- ** AccelerationSettings
-    AccelerationSettings (..),
-    mkAccelerationSettings,
-    asMode,
-
-    -- ** AiffSettings
-    AiffSettings (..),
-    mkAiffSettings,
-    asBitDepth,
-    asChannels,
-    asSampleRate,
-
-    -- ** AncillarySourceSettings
-    AncillarySourceSettings (..),
-    mkAncillarySourceSettings,
-    assConvert608To708,
-    assTerminateCaptions,
-    assSourceAncillaryChannelNumber,
-
-    -- ** AudioChannelTaggingSettings
-    AudioChannelTaggingSettings (..),
-    mkAudioChannelTaggingSettings,
-    actsChannelTag,
-
-    -- ** AudioCodecSettings
-    AudioCodecSettings (..),
-    mkAudioCodecSettings,
-    acsAiffSettings,
-    acsCodec,
-    acsAc3Settings,
-    acsOpusSettings,
-    acsMp2Settings,
-    acsWavSettings,
-    acsEac3AtmosSettings,
-    acsMp3Settings,
-    acsVorbisSettings,
-    acsAacSettings,
-    acsEac3Settings,
-
-    -- ** AudioDescription
-    AudioDescription (..),
-    mkAudioDescription,
-    adAudioSourceName,
-    adCustomLanguageCode,
-    adLanguageCode,
-    adAudioChannelTaggingSettings,
-    adAudioType,
-    adAudioNormalizationSettings,
-    adLanguageCodeControl,
-    adCodecSettings,
-    adStreamName,
-    adRemixSettings,
-    adAudioTypeControl,
-
-    -- ** AudioNormalizationSettings
-    AudioNormalizationSettings (..),
-    mkAudioNormalizationSettings,
-    ansAlgorithmControl,
-    ansTargetLkfs,
-    ansPeakCalculation,
-    ansCorrectionGateLevel,
-    ansAlgorithm,
-    ansLoudnessLogging,
-
-    -- ** AudioSelector
-    AudioSelector (..),
-    mkAudioSelector,
-    asTracks,
-    asCustomLanguageCode,
-    asProgramSelection,
-    asLanguageCode,
-    asOffset,
-    asDefaultSelection,
-    asPids,
-    asSelectorType,
-    asExternalAudioFileInput,
-    asRemixSettings,
-
-    -- ** AudioSelectorGroup
-    AudioSelectorGroup (..),
-    mkAudioSelectorGroup,
-    asgAudioSelectorNames,
-
-    -- ** AutomatedAbrSettings
-    AutomatedAbrSettings (..),
-    mkAutomatedAbrSettings,
-    aasMaxRenditions,
-    aasMaxAbrBitrate,
-    aasMinAbrBitrate,
-
-    -- ** AutomatedEncodingSettings
-    AutomatedEncodingSettings (..),
-    mkAutomatedEncodingSettings,
-    aesAbrSettings,
-
-    -- ** Av1QvbrSettings
-    Av1QvbrSettings (..),
-    mkAv1QvbrSettings,
-    aqsQvbrQualityLevelFineTune,
-    aqsQvbrQualityLevel,
-
-    -- ** Av1Settings
-    Av1Settings (..),
-    mkAv1Settings,
-    asGopSize,
-    asNumberBFramesBetweenReferenceFrames,
-    asSlices,
-    asRateControlMode,
-    asQvbrSettings,
-    asFramerateDenominator,
-    asFramerateConversionAlgorithm,
-    asFramerateControl,
-    asAdaptiveQuantization,
-    asFramerateNumerator,
-    asMaxBitrate,
-    asSpatialAdaptiveQuantization,
-
-    -- ** AvailBlanking
-    AvailBlanking (..),
-    mkAvailBlanking,
-    abAvailBlankingImage,
-
-    -- ** AvcIntraSettings
-    AvcIntraSettings (..),
-    mkAvcIntraSettings,
-    aisSlowPal,
-    aisTelecine,
-    aisInterlaceMode,
-    aisAvcIntraClass,
-    aisFramerateDenominator,
-    aisFramerateConversionAlgorithm,
-    aisFramerateControl,
-    aisFramerateNumerator,
-
-    -- ** BurninDestinationSettings
-    BurninDestinationSettings (..),
-    mkBurninDestinationSettings,
-    bdsBackgroundOpacity,
-    bdsFontOpacity,
-    bdsShadowYOffset,
-    bdsFontResolution,
-    bdsYPosition,
-    bdsBackgroundColor,
-    bdsShadowXOffset,
-    bdsFontSize,
-    bdsXPosition,
-    bdsTeletextSpacing,
-    bdsFontScript,
-    bdsAlignment,
-    bdsShadowOpacity,
-    bdsOutlineColor,
-    bdsOutlineSize,
-    bdsShadowColor,
-    bdsFontColor,
-
-    -- ** CaptionDescription
-    CaptionDescription (..),
-    mkCaptionDescription,
-    cdCaptionSelectorName,
-    cdCustomLanguageCode,
-    cdLanguageCode,
-    cdDestinationSettings,
-    cdLanguageDescription,
-
-    -- ** CaptionDescriptionPreset
-    CaptionDescriptionPreset (..),
-    mkCaptionDescriptionPreset,
-    cdpCustomLanguageCode,
-    cdpLanguageCode,
-    cdpDestinationSettings,
-    cdpLanguageDescription,
-
-    -- ** CaptionDestinationSettings
-    CaptionDestinationSettings (..),
-    mkCaptionDestinationSettings,
-    cdsTeletextDestinationSettings,
-    cdsDvbSubDestinationSettings,
-    cdsTtmlDestinationSettings,
-    cdsDestinationType,
-    cdsEmbeddedDestinationSettings,
-    cdsSccDestinationSettings,
-    cdsBurninDestinationSettings,
-    cdsImscDestinationSettings,
-
-    -- ** CaptionSelector
-    CaptionSelector (..),
-    mkCaptionSelector,
-    csCustomLanguageCode,
-    csLanguageCode,
-    csSourceSettings,
-
-    -- ** CaptionSourceFramerate
-    CaptionSourceFramerate (..),
-    mkCaptionSourceFramerate,
-    csfFramerateDenominator,
-    csfFramerateNumerator,
-
-    -- ** CaptionSourceSettings
-    CaptionSourceSettings (..),
-    mkCaptionSourceSettings,
-    cssTeletextSourceSettings,
-    cssSourceType,
-    cssFileSourceSettings,
-    cssDvbSubSourceSettings,
-    cssTrackSourceSettings,
-    cssAncillarySourceSettings,
-    cssEmbeddedSourceSettings,
-
-    -- ** ChannelMapping
-    ChannelMapping (..),
-    mkChannelMapping,
-    cmOutputChannels,
-
-    -- ** CmafAdditionalManifest
-    CmafAdditionalManifest (..),
-    mkCmafAdditionalManifest,
-    camManifestNameModifier,
-    camSelectedOutputs,
-
-    -- ** CmafEncryptionSettings
-    CmafEncryptionSettings (..),
-    mkCmafEncryptionSettings,
-    cesEncryptionMethod,
-    cesConstantInitializationVector,
-    cesType,
-    cesStaticKeyProvider,
-    cesSpekeKeyProvider,
-    cesInitializationVectorInManifest,
-
-    -- ** CmafGroupSettings
-    CmafGroupSettings (..),
-    mkCmafGroupSettings,
-    cgsFragmentLength,
-    cgsSegmentControl,
-    cgsDestination,
-    cgsMinBufferTime,
-    cgsMpdProfile,
-    cgsWriteHlsManifest,
-    cgsAdditionalManifests,
-    cgsCodecSpecification,
-    cgsBaseURL,
-    cgsDestinationSettings,
-    cgsMinFinalSegmentLength,
-    cgsWriteDashManifest,
-    cgsEncryption,
-    cgsSegmentLength,
-    cgsManifestDurationFormat,
-    cgsClientCache,
-    cgsWriteSegmentTimelineInRepresentation,
-    cgsStreamInfResolution,
-    cgsManifestCompression,
-
-    -- ** CmfcSettings
-    CmfcSettings (..),
-    mkCmfcSettings,
-    csScte35Esam,
-    csAudioDuration,
-    csScte35Source,
-
-    -- ** ColorCorrector
-    ColorCorrector (..),
-    mkColorCorrector,
-    ccSaturation,
-    ccHue,
-    ccColorSpaceConversion,
-    ccHdr10Metadata,
-    ccContrast,
-    ccBrightness,
-
-    -- ** ContainerSettings
-    ContainerSettings (..),
-    mkContainerSettings,
-    csM2tsSettings,
-    csMxfSettings,
-    csM3u8Settings,
-    csCmfcSettings,
-    csMovSettings,
-    csMp4Settings,
-    csMpdSettings,
-    csContainer,
-    csF4vSettings,
-
-    -- ** DashAdditionalManifest
-    DashAdditionalManifest (..),
-    mkDashAdditionalManifest,
-    damManifestNameModifier,
-    damSelectedOutputs,
-
-    -- ** DashIsoEncryptionSettings
-    DashIsoEncryptionSettings (..),
-    mkDashIsoEncryptionSettings,
-    diesPlaybackDeviceCompatibility,
-    diesSpekeKeyProvider,
-
-    -- ** DashIsoGroupSettings
-    DashIsoGroupSettings (..),
-    mkDashIsoGroupSettings,
-    digsFragmentLength,
-    digsSegmentControl,
-    digsDestination,
-    digsHbbtvCompliance,
-    digsMinBufferTime,
-    digsMpdProfile,
-    digsAdditionalManifests,
-    digsBaseURL,
-    digsDestinationSettings,
-    digsMinFinalSegmentLength,
-    digsEncryption,
-    digsSegmentLength,
-    digsWriteSegmentTimelineInRepresentation,
-
-    -- ** Deinterlacer
-    Deinterlacer (..),
-    mkDeinterlacer,
-    dControl,
-    dMode,
-    dAlgorithm,
-
-    -- ** DestinationSettings
-    DestinationSettings (..),
-    mkDestinationSettings,
-    dsS3Settings,
-
-    -- ** DolbyVision
-    DolbyVision (..),
-    mkDolbyVision,
-    dvProfile,
-    dvL6Mode,
-    dvL6Metadata,
-
-    -- ** DolbyVisionLevel6Metadata
-    DolbyVisionLevel6Metadata (..),
-    mkDolbyVisionLevel6Metadata,
-    dvlmMaxFall,
-    dvlmMaxCll,
-
-    -- ** DvbNitSettings
-    DvbNitSettings (..),
-    mkDvbNitSettings,
-    dnsNetworkId,
-    dnsNetworkName,
-    dnsNitInterval,
-
-    -- ** DvbSdtSettings
-    DvbSdtSettings (..),
-    mkDvbSdtSettings,
-    dssSdtInterval,
-    dssServiceProviderName,
-    dssOutputSdt,
-    dssServiceName,
-
-    -- ** DvbSubDestinationSettings
-    DvbSubDestinationSettings (..),
-    mkDvbSubDestinationSettings,
-    dsdsBackgroundOpacity,
-    dsdsFontOpacity,
-    dsdsShadowYOffset,
-    dsdsFontResolution,
-    dsdsYPosition,
-    dsdsBackgroundColor,
-    dsdsShadowXOffset,
-    dsdsFontSize,
-    dsdsXPosition,
-    dsdsTeletextSpacing,
-    dsdsFontScript,
-    dsdsAlignment,
-    dsdsShadowOpacity,
-    dsdsOutlineColor,
-    dsdsOutlineSize,
-    dsdsShadowColor,
-    dsdsFontColor,
-    dsdsSubtitlingType,
-
-    -- ** DvbSubSourceSettings
-    DvbSubSourceSettings (..),
-    mkDvbSubSourceSettings,
-    dsssPid,
-
-    -- ** DvbTdtSettings
-    DvbTdtSettings (..),
-    mkDvbTdtSettings,
-    dtsTdtInterval,
-
-    -- ** Eac3AtmosSettings
-    Eac3AtmosSettings (..),
-    mkEac3AtmosSettings,
-    easStereoDownmix,
-    easLoRoCenterMixLevel,
-    easLtRtCenterMixLevel,
-    easDynamicRangeCompressionLine,
-    easLtRtSurroundMixLevel,
-    easLoRoSurroundMixLevel,
-    easBitstreamMode,
-    easDynamicRangeCompressionRf,
-    easCodingMode,
-    easSampleRate,
-    easSpeechThreshold,
-    easBitrate,
-    easDialogueIntelligence,
-    easMeteringMode,
-    easSurroundExMode,
-
-    -- ** Eac3Settings
-    Eac3Settings (..),
-    mkEac3Settings,
-    esStereoDownmix,
-    esLoRoCenterMixLevel,
-    esLtRtCenterMixLevel,
-    esLfeFilter,
-    esDynamicRangeCompressionLine,
-    esLtRtSurroundMixLevel,
-    esMetadataControl,
-    esLoRoSurroundMixLevel,
-    esSurroundMode,
-    esAttenuationControl,
-    esPassthroughControl,
-    esBitstreamMode,
-    esLfeControl,
-    esDynamicRangeCompressionRf,
-    esCodingMode,
-    esSampleRate,
-    esDcFilter,
-    esBitrate,
-    esPhaseControl,
-    esSurroundExMode,
-    esDialnorm,
-
-    -- ** EmbeddedDestinationSettings
-    EmbeddedDestinationSettings (..),
-    mkEmbeddedDestinationSettings,
-    edsDestination608ChannelNumber,
-    edsDestination708ServiceNumber,
-
-    -- ** EmbeddedSourceSettings
-    EmbeddedSourceSettings (..),
-    mkEmbeddedSourceSettings,
-    essConvert608To708,
-    essTerminateCaptions,
-    essSource608TrackNumber,
-    essSource608ChannelNumber,
-
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eURL,
-
-    -- ** EsamManifestConfirmConditionNotification
-    EsamManifestConfirmConditionNotification (..),
-    mkEsamManifestConfirmConditionNotification,
-    emccnMccXML,
+    -- ** H264InterlaceMode
+    H264InterlaceMode (..),
+
+    -- ** FrameCaptureSettings
+    FrameCaptureSettings (..),
+    mkFrameCaptureSettings,
+    fcsFramerateDenominator,
+    fcsFramerateNumerator,
+    fcsMaxCaptures,
+    fcsQuality,
+
+    -- ** H264RepeatPps
+    H264RepeatPps (..),
+
+    -- ** TimecodeBurnin
+    TimecodeBurnin (..),
+    mkTimecodeBurnin,
+    tbFontSize,
+    tbPosition,
+    tbPrefix,
+
+    -- ** NexGuardFileMarkerSettings
+    NexGuardFileMarkerSettings (..),
+    mkNexGuardFileMarkerSettings,
+    ngfmsLicense,
+    ngfmsPayload,
+    ngfmsPreset,
+    ngfmsStrength,
+
+    -- ** JobTemplate
+    JobTemplate (..),
+    mkJobTemplate,
+    jtSettings,
+    jtName,
+    jtAccelerationSettings,
+    jtArn,
+    jtCategory,
+    jtCreatedAt,
+    jtDescription,
+    jtHopDestinations,
+    jtLastUpdated,
+    jtPriority,
+    jtQueue,
+    jtStatusUpdateInterval,
+    jtType,
 
     -- ** EsamSettings
     EsamSettings (..),
@@ -1503,218 +234,464 @@ module Network.AWS.MediaConvert
     esResponseSignalPreroll,
     esSignalProcessingNotification,
 
-    -- ** EsamSignalProcessingNotification
-    EsamSignalProcessingNotification (..),
-    mkEsamSignalProcessingNotification,
-    espnSccXML,
+    -- ** ContainerType
+    ContainerType (..),
 
-    -- ** F4vSettings
-    F4vSettings (..),
-    mkF4vSettings,
-    fsMoovPlacement,
+    -- ** ReservationPlanStatus
+    ReservationPlanStatus (..),
 
-    -- ** FileGroupSettings
-    FileGroupSettings (..),
-    mkFileGroupSettings,
-    fgsDestination,
-    fgsDestinationSettings,
+    -- ** M2tsBufferModel
+    M2tsBufferModel (..),
 
-    -- ** FileSourceSettings
-    FileSourceSettings (..),
-    mkFileSourceSettings,
-    fssFramerate,
-    fssConvert608To708,
-    fssTimeDelta,
-    fssSourceFile,
+    -- ** Vp9FramerateConversionAlgorithm
+    Vp9FramerateConversionAlgorithm (..),
 
-    -- ** FrameCaptureSettings
-    FrameCaptureSettings (..),
-    mkFrameCaptureSettings,
-    fcsQuality,
-    fcsFramerateDenominator,
-    fcsMaxCaptures,
-    fcsFramerateNumerator,
+    -- ** NielsenSourceWatermarkStatusType
+    NielsenSourceWatermarkStatusType (..),
+
+    -- ** VideoCodec
+    VideoCodec (..),
+
+    -- ** AccelerationSettings
+    AccelerationSettings (..),
+    mkAccelerationSettings,
+    asMode,
+
+    -- ** H265AlternateTransferFunctionSei
+    H265AlternateTransferFunctionSei (..),
+
+    -- ** H264FlickerAdaptiveQuantization
+    H264FlickerAdaptiveQuantization (..),
+
+    -- ** InputRotate
+    InputRotate (..),
+
+    -- ** ChannelMapping
+    ChannelMapping (..),
+    mkChannelMapping,
+    cmOutputChannels,
+
+    -- ** DashIsoSegmentControl
+    DashIsoSegmentControl (..),
+
+    -- ** InputFilterEnable
+    InputFilterEnable (..),
+
+    -- ** CmafAdditionalManifest
+    CmafAdditionalManifest (..),
+    mkCmafAdditionalManifest,
+    camManifestNameModifier,
+    camSelectedOutputs,
+
+    -- ** JobMessages
+    JobMessages (..),
+    mkJobMessages,
+    jmInfo,
+    jmWarning,
+
+    -- ** DvbSubtitleShadowColor
+    DvbSubtitleShadowColor (..),
+
+    -- ** Mpeg2SlowPal
+    Mpeg2SlowPal (..),
+
+    -- ** MovReference
+    MovReference (..),
+
+    -- ** AacAudioDescriptionBroadcasterMix
+    AacAudioDescriptionBroadcasterMix (..),
+
+    -- ** Vp9FramerateControl
+    Vp9FramerateControl (..),
+
+    -- ** LanguageCode
+    LanguageCode (..),
+
+    -- ** Vp8ParControl
+    Vp8ParControl (..),
+
+    -- ** VideoCodecSettings
+    VideoCodecSettings (..),
+    mkVideoCodecSettings,
+    vcsAv1Settings,
+    vcsAvcIntraSettings,
+    vcsCodec,
+    vcsFrameCaptureSettings,
+    vcsH264Settings,
+    vcsH265Settings,
+    vcsMpeg2Settings,
+    vcsProresSettings,
+    vcsVc3Settings,
+    vcsVp8Settings,
+    vcsVp9Settings,
+
+    -- ** S3EncryptionSettings
+    S3EncryptionSettings (..),
+    mkS3EncryptionSettings,
+    sesEncryptionType,
+    sesKmsKeyArn,
+
+    -- ** MovPaddingControl
+    MovPaddingControl (..),
+
+    -- ** HlsClientCache
+    HlsClientCache (..),
+
+    -- ** JobTemplateSettings
+    JobTemplateSettings (..),
+    mkJobTemplateSettings,
+    jtsAdAvailOffset,
+    jtsAvailBlanking,
+    jtsEsam,
+    jtsInputs,
+    jtsMotionImageInserter,
+    jtsNielsenConfiguration,
+    jtsNielsenNonLinearWatermark,
+    jtsOutputGroups,
+    jtsTimecodeConfig,
+    jtsTimedMetadataInsertion,
+
+    -- ** HlsAudioOnlyHeader
+    HlsAudioOnlyHeader (..),
 
     -- ** H264QvbrSettings
     H264QvbrSettings (..),
     mkH264QvbrSettings,
-    hQvbrQualityLevelFineTune,
-    hMaxAverageBitrate,
-    hQvbrQualityLevel,
-
-    -- ** H264Settings
-    H264Settings (..),
-    mkH264Settings,
-    hUnregisteredSeiTimecode,
-    hQualityTuningLevel,
-    hTemporalAdaptiveQuantization,
-    hSceneChangeDetect,
-    hHrdBufferInitialFillPercentage,
-    hSlowPal,
-    hParNumerator,
-    hGopSize,
-    hNumberBFramesBetweenReferenceFrames,
-    hGopSizeUnits,
-    hHrdBufferSize,
-    hSlices,
-    hRateControlMode,
-    hNumberReferenceFrames,
-    hTelecine,
-    hDynamicSubGop,
-    hMinIInterval,
-    hInterlaceMode,
-    hParControl,
-    hRepeatPps,
-    hFlickerAdaptiveQuantization,
-    hQvbrSettings,
-    hSoftness,
-    hCodecProfile,
-    hBitrate,
-    hFramerateDenominator,
-    hFramerateConversionAlgorithm,
-    hCodecLevel,
-    hEntropyEncoding,
-    hFramerateControl,
-    hAdaptiveQuantization,
-    hFramerateNumerator,
-    hGopBReference,
-    hMaxBitrate,
-    hSyntax,
-    hFieldEncoding,
-    hGopClosedCadence,
-    hParDenominator,
-    hSpatialAdaptiveQuantization,
-
-    -- ** H265QvbrSettings
-    H265QvbrSettings (..),
-    mkH265QvbrSettings,
-    hqsQvbrQualityLevelFineTune,
     hqsMaxAverageBitrate,
     hqsQvbrQualityLevel,
+    hqsQvbrQualityLevelFineTune,
 
-    -- ** H265Settings
-    H265Settings (..),
-    mkH265Settings,
-    hsUnregisteredSeiTimecode,
-    hsQualityTuningLevel,
-    hsTemporalAdaptiveQuantization,
-    hsSceneChangeDetect,
-    hsHrdBufferInitialFillPercentage,
-    hsTiles,
-    hsSlowPal,
-    hsTemporalIds,
-    hsParNumerator,
-    hsGopSize,
-    hsNumberBFramesBetweenReferenceFrames,
-    hsGopSizeUnits,
-    hsHrdBufferSize,
-    hsSlices,
-    hsAlternateTransferFunctionSei,
-    hsRateControlMode,
-    hsNumberReferenceFrames,
-    hsTelecine,
-    hsDynamicSubGop,
-    hsMinIInterval,
-    hsInterlaceMode,
-    hsParControl,
-    hsFlickerAdaptiveQuantization,
-    hsQvbrSettings,
-    hsSampleAdaptiveOffsetFilterMode,
-    hsCodecProfile,
-    hsBitrate,
-    hsFramerateDenominator,
-    hsFramerateConversionAlgorithm,
-    hsCodecLevel,
-    hsFramerateControl,
-    hsWriteMp4PackagingType,
-    hsAdaptiveQuantization,
-    hsFramerateNumerator,
-    hsGopBReference,
-    hsMaxBitrate,
-    hsGopClosedCadence,
-    hsParDenominator,
-    hsSpatialAdaptiveQuantization,
+    -- ** CmafWriteSegmentTimelineInRepresentation
+    CmafWriteSegmentTimelineInRepresentation (..),
 
-    -- ** Hdr10Metadata
-    Hdr10Metadata (..),
-    mkHdr10Metadata,
-    hmRedPrimaryX,
-    hmBluePrimaryX,
-    hmMaxFrameAverageLightLevel,
-    hmWhitePointY,
-    hmMaxContentLightLevel,
-    hmWhitePointX,
-    hmBluePrimaryY,
-    hmGreenPrimaryY,
-    hmGreenPrimaryX,
-    hmMinLuminance,
-    hmRedPrimaryY,
-    hmMaxLuminance,
+    -- ** AutomatedAbrSettings
+    AutomatedAbrSettings (..),
+    mkAutomatedAbrSettings,
+    aasMaxAbrBitrate,
+    aasMaxRenditions,
+    aasMinAbrBitrate,
 
-    -- ** HlsAdditionalManifest
-    HlsAdditionalManifest (..),
-    mkHlsAdditionalManifest,
-    hamManifestNameModifier,
-    hamSelectedOutputs,
+    -- ** H265AdaptiveQuantization
+    H265AdaptiveQuantization (..),
 
-    -- ** HlsCaptionLanguageMapping
-    HlsCaptionLanguageMapping (..),
-    mkHlsCaptionLanguageMapping,
-    hclmCustomLanguageCode,
-    hclmLanguageCode,
-    hclmLanguageDescription,
-    hclmCaptionChannel,
-
-    -- ** HlsEncryptionSettings
-    HlsEncryptionSettings (..),
-    mkHlsEncryptionSettings,
-    hesOfflineEncrypted,
-    hesEncryptionMethod,
-    hesConstantInitializationVector,
-    hesType,
-    hesStaticKeyProvider,
-    hesSpekeKeyProvider,
-    hesInitializationVectorInManifest,
-
-    -- ** HlsGroupSettings
-    HlsGroupSettings (..),
-    mkHlsGroupSettings,
-    hgsDirectoryStructure,
-    hgsSegmentControl,
-    hgsDestination,
-    hgsTimedMetadataId3Period,
-    hgsAdditionalManifests,
-    hgsMinSegmentLength,
-    hgsProgramDateTime,
-    hgsProgramDateTimePeriod,
-    hgsCodecSpecification,
-    hgsCaptionLanguageMappings,
-    hgsBaseURL,
-    hgsDestinationSettings,
-    hgsMinFinalSegmentLength,
-    hgsAdMarkers,
-    hgsEncryption,
-    hgsSegmentLength,
-    hgsTimedMetadataId3Frame,
-    hgsOutputSelection,
-    hgsCaptionLanguageSetting,
-    hgsSegmentsPerSubdirectory,
-    hgsManifestDurationFormat,
-    hgsAudioOnlyHeader,
-    hgsClientCache,
-    hgsTimestampDeltaMilliseconds,
-    hgsStreamInfResolution,
-    hgsManifestCompression,
+    -- ** Mpeg2SceneChangeDetect
+    Mpeg2SceneChangeDetect (..),
 
     -- ** HlsSettings
     HlsSettings (..),
     mkHlsSettings,
-    hsAudioRenditionSets,
-    hsIFrameOnlyManifest,
     hsAudioGroupId,
-    hsSegmentModifier,
     hsAudioOnlyContainer,
+    hsAudioRenditionSets,
     hsAudioTrackType,
+    hsIFrameOnlyManifest,
+    hsSegmentModifier,
+
+    -- ** InsertableImage
+    InsertableImage (..),
+    mkInsertableImage,
+    iiDuration,
+    iiFadeIn,
+    iiFadeOut,
+    iiHeight,
+    iiImageInserterInput,
+    iiImageX,
+    iiImageY,
+    iiLayer,
+    iiOpacity,
+    iiStartTime,
+    iiWidth,
+
+    -- ** CaptionDestinationType
+    CaptionDestinationType (..),
+
+    -- ** MsSmoothAdditionalManifest
+    MsSmoothAdditionalManifest (..),
+    mkMsSmoothAdditionalManifest,
+    msamManifestNameModifier,
+    msamSelectedOutputs,
+
+    -- ** Vc3InterlaceMode
+    Vc3InterlaceMode (..),
+
+    -- ** StatusUpdateInterval
+    StatusUpdateInterval (..),
+
+    -- ** EmbeddedTerminateCaptions
+    EmbeddedTerminateCaptions (..),
+
+    -- ** AiffSettings
+    AiffSettings (..),
+    mkAiffSettings,
+    assBitDepth,
+    assChannels,
+    assSampleRate,
+
+    -- ** TimecodeSource
+    TimecodeSource (..),
+
+    -- ** QueueStatus
+    QueueStatus (..),
+
+    -- ** AfdSignaling
+    AfdSignaling (..),
+
+    -- ** AacRateControlMode
+    AacRateControlMode (..),
+
+    -- ** ProresParControl
+    ProresParControl (..),
+
+    -- ** AudioChannelTaggingSettings
+    AudioChannelTaggingSettings (..),
+    mkAudioChannelTaggingSettings,
+    actsChannelTag,
+
+    -- ** M2tsScte35Esam
+    M2tsScte35Esam (..),
+    mkM2tsScte35Esam,
+    mseScte35EsamPid,
+
+    -- ** OutputGroupSettings
+    OutputGroupSettings (..),
+    mkOutputGroupSettings,
+    ogsCmafGroupSettings,
+    ogsDashIsoGroupSettings,
+    ogsFileGroupSettings,
+    ogsHlsGroupSettings,
+    ogsMsSmoothGroupSettings,
+    ogsType,
+
+    -- ** Eac3AtmosDialogueIntelligence
+    Eac3AtmosDialogueIntelligence (..),
+
+    -- ** TeletextSourceSettings
+    TeletextSourceSettings (..),
+    mkTeletextSourceSettings,
+    tssPageNumber,
+
+    -- ** Mpeg2FramerateConversionAlgorithm
+    Mpeg2FramerateConversionAlgorithm (..),
+
+    -- ** Mpeg2FramerateControl
+    Mpeg2FramerateControl (..),
+
+    -- ** CaptionDescriptionPreset
+    CaptionDescriptionPreset (..),
+    mkCaptionDescriptionPreset,
+    cdpCustomLanguageCode,
+    cdpDestinationSettings,
+    cdpLanguageCode,
+    cdpLanguageDescription,
+
+    -- ** M2tsSettings
+    M2tsSettings (..),
+    mkM2tsSettings,
+    mssAudioBufferModel,
+    mssAudioDuration,
+    mssAudioFramesPerPes,
+    mssAudioPids,
+    mssBitrate,
+    mssBufferModel,
+    mssDvbNitSettings,
+    mssDvbSdtSettings,
+    mssDvbSubPids,
+    mssDvbTdtSettings,
+    mssDvbTeletextPid,
+    mssEbpAudioInterval,
+    mssEbpPlacement,
+    mssEsRateInPes,
+    mssForceTsVideoEbpOrder,
+    mssFragmentTime,
+    mssMaxPcrInterval,
+    mssMinEbpInterval,
+    mssNielsenId3,
+    mssNullPacketBitrate,
+    mssPatInterval,
+    mssPcrControl,
+    mssPcrPid,
+    mssPmtInterval,
+    mssPmtPid,
+    mssPrivateMetadataPid,
+    mssProgramNumber,
+    mssRateMode,
+    mssScte35Esam,
+    mssScte35Pid,
+    mssScte35Source,
+    mssSegmentationMarkers,
+    mssSegmentationStyle,
+    mssSegmentationTime,
+    mssTimedMetadataPid,
+    mssTransportStreamId,
+    mssVideoPid,
+
+    -- ** H264CodecProfile
+    H264CodecProfile (..),
+
+    -- ** Mpeg2CodecLevel
+    Mpeg2CodecLevel (..),
+
+    -- ** AudioDefaultSelection
+    AudioDefaultSelection (..),
+
+    -- ** NielsenUniqueTicPerAudioTrackType
+    NielsenUniqueTicPerAudioTrackType (..),
+
+    -- ** H265UnregisteredSeiTimecode
+    H265UnregisteredSeiTimecode (..),
+
+    -- ** H265ParControl
+    H265ParControl (..),
+
+    -- ** DvbSubDestinationSettings
+    DvbSubDestinationSettings (..),
+    mkDvbSubDestinationSettings,
+    dsdsAlignment,
+    dsdsBackgroundColor,
+    dsdsBackgroundOpacity,
+    dsdsFontColor,
+    dsdsFontOpacity,
+    dsdsFontResolution,
+    dsdsFontScript,
+    dsdsFontSize,
+    dsdsOutlineColor,
+    dsdsOutlineSize,
+    dsdsShadowColor,
+    dsdsShadowOpacity,
+    dsdsShadowXOffset,
+    dsdsShadowYOffset,
+    dsdsSubtitlingType,
+    dsdsTeletextSpacing,
+    dsdsXPosition,
+    dsdsYPosition,
+
+    -- ** Mp4CslgAtom
+    Mp4CslgAtom (..),
+
+    -- ** Mp3RateControlMode
+    Mp3RateControlMode (..),
+
+    -- ** H264FramerateControl
+    H264FramerateControl (..),
+
+    -- ** MpdCaptionContainerType
+    MpdCaptionContainerType (..),
+
+    -- ** AvcIntraInterlaceMode
+    AvcIntraInterlaceMode (..),
+
+    -- ** H264EntropyEncoding
+    H264EntropyEncoding (..),
+
+    -- ** HlsOfflineEncrypted
+    HlsOfflineEncrypted (..),
+
+    -- ** HlsOutputSelection
+    HlsOutputSelection (..),
+
+    -- ** M2tsAudioDuration
+    M2tsAudioDuration (..),
+
+    -- ** Eac3AtmosSurroundExMode
+    Eac3AtmosSurroundExMode (..),
+
+    -- ** Mpeg2CodecProfile
+    Mpeg2CodecProfile (..),
+
+    -- ** H265DynamicSubGop
+    H265DynamicSubGop (..),
+
+    -- ** CmafInitializationVectorInManifest
+    CmafInitializationVectorInManifest (..),
+
+    -- ** AlphaBehavior
+    AlphaBehavior (..),
+
+    -- ** QueueListBy
+    QueueListBy (..),
+
+    -- ** VideoPreprocessor
+    VideoPreprocessor (..),
+    mkVideoPreprocessor,
+    vpColorCorrector,
+    vpDeinterlacer,
+    vpDolbyVision,
+    vpImageInserter,
+    vpNoiseReducer,
+    vpPartnerWatermarking,
+    vpTimecodeBurnin,
+
+    -- ** H264CodecLevel
+    H264CodecLevel (..),
+
+    -- ** DvbSubtitleTeletextSpacing
+    DvbSubtitleTeletextSpacing (..),
+
+    -- ** AudioDescription
+    AudioDescription (..),
+    mkAudioDescription,
+    adAudioChannelTaggingSettings,
+    adAudioNormalizationSettings,
+    adAudioSourceName,
+    adAudioType,
+    adAudioTypeControl,
+    adCodecSettings,
+    adCustomLanguageCode,
+    adLanguageCode,
+    adLanguageCodeControl,
+    adRemixSettings,
+    adStreamName,
+
+    -- ** JobPhase
+    JobPhase (..),
+
+    -- ** TtmlDestinationSettings
+    TtmlDestinationSettings (..),
+    mkTtmlDestinationSettings,
+    tdsStylePassthrough,
+
+    -- ** Vp8RateControlMode
+    Vp8RateControlMode (..),
+
+    -- ** HlsEncryptionType
+    HlsEncryptionType (..),
+
+    -- ** H264FramerateConversionAlgorithm
+    H264FramerateConversionAlgorithm (..),
+
+    -- ** SccDestinationFramerate
+    SccDestinationFramerate (..),
+
+    -- ** MxfProfile
+    MxfProfile (..),
+
+    -- ** AacCodingMode
+    AacCodingMode (..),
+
+    -- ** Eac3AtmosMeteringMode
+    Eac3AtmosMeteringMode (..),
+
+    -- ** DolbyVision
+    DolbyVision (..),
+    mkDolbyVision,
+    dvL6Metadata,
+    dvL6Mode,
+    dvProfile,
+
+    -- ** HlsTimedMetadataId3Frame
+    HlsTimedMetadataId3Frame (..),
+
+    -- ** OutputGroup
+    OutputGroup (..),
+    mkOutputGroup,
+    ogAutomatedEncodingSettings,
+    ogCustomName,
+    ogName,
+    ogOutputGroupSettings,
+    ogOutputs,
+
+    -- ** HlsIFrameOnlyManifest
+    HlsIFrameOnlyManifest (..),
 
     -- ** HopDestination
     HopDestination (..),
@@ -1723,379 +700,199 @@ module Network.AWS.MediaConvert
     hdQueue,
     hdWaitMinutes,
 
-    -- ** Id3Insertion
-    Id3Insertion (..),
-    mkId3Insertion,
-    iiId3,
-    iiTimecode,
+    -- ** DolbyVisionProfile
+    DolbyVisionProfile (..),
 
-    -- ** ImageInserter
-    ImageInserter (..),
-    mkImageInserter,
-    iiInsertableImages,
+    -- ** CmfcAudioDuration
+    CmfcAudioDuration (..),
 
-    -- ** ImscDestinationSettings
-    ImscDestinationSettings (..),
-    mkImscDestinationSettings,
-    idsStylePassthrough,
+    -- ** AudioSelector
+    AudioSelector (..),
+    mkAudioSelector,
+    asCustomLanguageCode,
+    asDefaultSelection,
+    asExternalAudioFileInput,
+    asLanguageCode,
+    asOffset,
+    asPids,
+    asProgramSelection,
+    asRemixSettings,
+    asSelectorType,
+    asTracks,
 
-    -- ** Input
-    Input (..),
-    mkInput,
-    iVideoSelector,
-    iSupplementalImps,
-    iProgramNumber,
-    iAudioSelectorGroups,
-    iTimecodeSource,
-    iAudioSelectors,
-    iDecryptionSettings,
-    iDeblockFilter,
-    iInputClippings,
-    iCrop,
-    iDenoiseFilter,
-    iImageInserter,
-    iFilterStrength,
-    iPsiControl,
-    iCaptionSelectors,
-    iFileInput,
-    iTimecodeStart,
-    iInputScanType,
-    iPosition,
-    iFilterEnable,
+    -- ** H264AdaptiveQuantization
+    H264AdaptiveQuantization (..),
 
-    -- ** InputClipping
-    InputClipping (..),
-    mkInputClipping,
-    icEndTimecode,
-    icStartTimecode,
+    -- ** CmafGroupSettings
+    CmafGroupSettings (..),
+    mkCmafGroupSettings,
+    cgsAdditionalManifests,
+    cgsBaseUrl,
+    cgsClientCache,
+    cgsCodecSpecification,
+    cgsDestination,
+    cgsDestinationSettings,
+    cgsEncryption,
+    cgsFragmentLength,
+    cgsManifestCompression,
+    cgsManifestDurationFormat,
+    cgsMinBufferTime,
+    cgsMinFinalSegmentLength,
+    cgsMpdProfile,
+    cgsSegmentControl,
+    cgsSegmentLength,
+    cgsStreamInfResolution,
+    cgsWriteDashManifest,
+    cgsWriteHlsManifest,
+    cgsWriteSegmentTimelineInRepresentation,
 
-    -- ** InputDecryptionSettings
-    InputDecryptionSettings (..),
-    mkInputDecryptionSettings,
-    idsEncryptedDecryptionKey,
-    idsKMSKeyRegion,
-    idsDecryptionMode,
-    idsInitializationVector,
+    -- ** CmafEncryptionSettings
+    CmafEncryptionSettings (..),
+    mkCmafEncryptionSettings,
+    cesConstantInitializationVector,
+    cesEncryptionMethod,
+    cesInitializationVectorInManifest,
+    cesSpekeKeyProvider,
+    cesStaticKeyProvider,
+    cesType,
 
-    -- ** InputTemplate
-    InputTemplate (..),
-    mkInputTemplate,
-    itVideoSelector,
-    itProgramNumber,
-    itAudioSelectorGroups,
-    itTimecodeSource,
-    itAudioSelectors,
-    itDeblockFilter,
-    itInputClippings,
-    itCrop,
-    itDenoiseFilter,
-    itImageInserter,
-    itFilterStrength,
-    itPsiControl,
-    itCaptionSelectors,
-    itTimecodeStart,
-    itInputScanType,
-    itPosition,
-    itFilterEnable,
+    -- ** H265SlowPal
+    H265SlowPal (..),
 
-    -- ** InsertableImage
-    InsertableImage (..),
-    mkInsertableImage,
-    iiImageX,
-    iiHeight,
-    iiStartTime,
-    iiFadeOut,
-    iiWidth,
-    iiOpacity,
-    iiLayer,
-    iiDuration,
-    iiImageY,
-    iiImageInserterInput,
-    iiFadeIn,
+    -- ** Ac3MetadataControl
+    Ac3MetadataControl (..),
 
-    -- ** Job
-    Job (..),
-    mkJob,
-    jStatus,
-    jJobTemplate,
-    jAccelerationSettings,
-    jPriority,
-    jStatusUpdateInterval,
-    jSettings,
-    jARN,
-    jCreatedAt,
-    jHopDestinations,
-    jRetryCount,
-    jSimulateReservedQueue,
-    jCurrentPhase,
-    jQueue,
-    jUserMetadata,
-    jRole,
-    jBillingTagsSource,
-    jOutputGroupDetails,
-    jErrorCode,
-    jQueueTransitions,
-    jId,
-    jJobPercentComplete,
-    jTiming,
-    jMessages,
-    jErrorMessage,
-    jAccelerationStatus,
+    -- ** H265TemporalIds
+    H265TemporalIds (..),
 
-    -- ** JobMessages
-    JobMessages (..),
-    mkJobMessages,
-    jmWarning,
-    jmInfo,
+    -- ** InputPsiControl
+    InputPsiControl (..),
 
-    -- ** JobSettings
-    JobSettings (..),
-    mkJobSettings,
-    jsNielsenNonLinearWatermark,
-    jsEsam,
-    jsInputs,
-    jsTimedMetadataInsertion,
-    jsNielsenConfiguration,
-    jsAvailBlanking,
-    jsMotionImageInserter,
-    jsTimecodeConfig,
-    jsOutputGroups,
-    jsAdAvailOffset,
+    -- ** M3u8AudioDuration
+    M3u8AudioDuration (..),
 
-    -- ** JobTemplate
-    JobTemplate (..),
-    mkJobTemplate,
-    jtAccelerationSettings,
-    jtLastUpdated,
-    jtPriority,
-    jtStatusUpdateInterval,
-    jtSettings,
-    jtARN,
-    jtCreatedAt,
-    jtCategory,
-    jtHopDestinations,
-    jtQueue,
-    jtName,
-    jtType,
-    jtDescription,
+    -- ** TimedMetadataInsertion
+    TimedMetadataInsertion (..),
+    mkTimedMetadataInsertion,
+    tmiId3Insertions,
 
-    -- ** JobTemplateSettings
-    JobTemplateSettings (..),
-    mkJobTemplateSettings,
-    jtsNielsenNonLinearWatermark,
-    jtsEsam,
-    jtsInputs,
-    jtsTimedMetadataInsertion,
-    jtsNielsenConfiguration,
-    jtsAvailBlanking,
-    jtsMotionImageInserter,
-    jtsTimecodeConfig,
-    jtsOutputGroups,
-    jtsAdAvailOffset,
+    -- ** M3u8NielsenId3
+    M3u8NielsenId3 (..),
 
-    -- ** M2tsScte35Esam
-    M2tsScte35Esam (..),
-    mkM2tsScte35Esam,
-    mseScte35EsamPid,
+    -- ** Vp9ParControl
+    Vp9ParControl (..),
 
-    -- ** M2tsSettings
-    M2tsSettings (..),
-    mkM2tsSettings,
-    mPmtPid,
-    mVideoPid,
-    mBufferModel,
-    mProgramNumber,
-    mScte35Pid,
-    mMinEbpInterval,
-    mTransportStreamId,
-    mMaxPcrInterval,
-    mFragmentTime,
-    mPrivateMetadataPid,
-    mScte35Esam,
-    mAudioDuration,
-    mPmtInterval,
-    mDvbSdtSettings,
-    mNullPacketBitrate,
-    mAudioBufferModel,
-    mTimedMetadataPid,
-    mAudioFramesPerPes,
-    mPcrPid,
-    mSegmentationMarkers,
-    mDvbSubPids,
-    mScte35Source,
-    mPatInterval,
-    mForceTsVideoEbpOrder,
-    mEsRateInPes,
-    mBitrate,
-    mAudioPids,
-    mDvbTeletextPid,
-    mNielsenId3,
-    mSegmentationTime,
-    mEbpAudioInterval,
-    mDvbNitSettings,
-    mPcrControl,
-    mEbpPlacement,
-    mRateMode,
-    mSegmentationStyle,
-    mDvbTdtSettings,
+    -- ** ReservationPlan
+    ReservationPlan (..),
+    mkReservationPlan,
+    rpCommitment,
+    rpExpiresAt,
+    rpPurchasedAt,
+    rpRenewalType,
+    rpReservedSlots,
+    rpStatus,
 
-    -- ** M3u8Settings
-    M3u8Settings (..),
-    mkM3u8Settings,
-    msPmtPid,
-    msVideoPid,
-    msProgramNumber,
-    msScte35Pid,
-    msTransportStreamId,
-    msPrivateMetadataPid,
-    msAudioDuration,
-    msPmtInterval,
-    msTimedMetadataPid,
-    msAudioFramesPerPes,
-    msPcrPid,
-    msTimedMetadata,
-    msScte35Source,
-    msPatInterval,
-    msAudioPids,
-    msNielsenId3,
-    msPcrControl,
+    -- ** PricingPlan
+    PricingPlan (..),
 
-    -- ** MotionImageInserter
-    MotionImageInserter (..),
-    mkMotionImageInserter,
-    miiFramerate,
-    miiStartTime,
-    miiOffset,
-    miiInput,
-    miiInsertionMode,
-    miiPlayback,
+    -- ** MpdScte35Source
+    MpdScte35Source (..),
 
-    -- ** MotionImageInsertionFramerate
-    MotionImageInsertionFramerate (..),
-    mkMotionImageInsertionFramerate,
-    miifFramerateDenominator,
-    miifFramerateNumerator,
+    -- ** DolbyVisionLevel6Mode
+    DolbyVisionLevel6Mode (..),
 
-    -- ** MotionImageInsertionOffset
-    MotionImageInsertionOffset (..),
-    mkMotionImageInsertionOffset,
-    miioImageX,
-    miioImageY,
+    -- ** BurninSubtitleBackgroundColor
+    BurninSubtitleBackgroundColor (..),
 
-    -- ** MovSettings
-    MovSettings (..),
-    mkMovSettings,
-    msReference,
-    msCslgAtom,
-    msMpeg2FourCCControl,
-    msPaddingControl,
-    msClapAtom,
+    -- ** ResourceTags
+    ResourceTags (..),
+    mkResourceTags,
+    rtArn,
+    rtTags,
 
-    -- ** Mp2Settings
-    Mp2Settings (..),
-    mkMp2Settings,
-    mssChannels,
-    mssSampleRate,
-    mssBitrate,
+    -- ** HlsDirectoryStructure
+    HlsDirectoryStructure (..),
 
-    -- ** Mp3Settings
-    Mp3Settings (..),
-    mkMp3Settings,
-    msfChannels,
-    msfRateControlMode,
-    msfSampleRate,
-    msfBitrate,
-    msfVbrQuality,
+    -- ** ProresSlowPal
+    ProresSlowPal (..),
 
-    -- ** Mp4Settings
-    Mp4Settings (..),
-    mkMp4Settings,
-    mssMoovPlacement,
-    mssCttsVersion,
-    mssFreeSpaceBox,
-    mssAudioDuration,
-    mssMp4MajorBrand,
-    mssCslgAtom,
+    -- ** Av1Settings
+    Av1Settings (..),
+    mkAv1Settings,
+    aAdaptiveQuantization,
+    aFramerateControl,
+    aFramerateConversionAlgorithm,
+    aFramerateDenominator,
+    aFramerateNumerator,
+    aGopSize,
+    aMaxBitrate,
+    aNumberBFramesBetweenReferenceFrames,
+    aQvbrSettings,
+    aRateControlMode,
+    aSlices,
+    aSpatialAdaptiveQuantization,
 
-    -- ** MpdSettings
-    MpdSettings (..),
-    mkMpdSettings,
-    msfScte35Esam,
-    msfAudioDuration,
-    msfScte35Source,
-    msfAccessibilityCaptionHints,
-    msfCaptionContainerType,
+    -- ** AncillaryTerminateCaptions
+    AncillaryTerminateCaptions (..),
 
-    -- ** Mpeg2Settings
-    Mpeg2Settings (..),
-    mkMpeg2Settings,
-    msQualityTuningLevel,
-    msTemporalAdaptiveQuantization,
-    msSceneChangeDetect,
-    msHrdBufferInitialFillPercentage,
-    msSlowPal,
-    msParNumerator,
-    msGopSize,
-    msNumberBFramesBetweenReferenceFrames,
-    msGopSizeUnits,
-    msHrdBufferSize,
-    msRateControlMode,
-    msTelecine,
-    msIntraDcPrecision,
-    msDynamicSubGop,
-    msMinIInterval,
-    msInterlaceMode,
-    msParControl,
-    msSoftness,
-    msCodecProfile,
-    msBitrate,
-    msFramerateDenominator,
-    msFramerateConversionAlgorithm,
-    msCodecLevel,
-    msFramerateControl,
-    msAdaptiveQuantization,
-    msFramerateNumerator,
-    msMaxBitrate,
-    msSyntax,
-    msGopClosedCadence,
-    msParDenominator,
-    msSpatialAdaptiveQuantization,
+    -- ** HlsSegmentControl
+    HlsSegmentControl (..),
 
-    -- ** MsSmoothAdditionalManifest
-    MsSmoothAdditionalManifest (..),
-    mkMsSmoothAdditionalManifest,
-    msamManifestNameModifier,
-    msamSelectedOutputs,
+    -- ** NoiseReducerSpatialFilterSettings
+    NoiseReducerSpatialFilterSettings (..),
+    mkNoiseReducerSpatialFilterSettings,
+    nrsfsPostFilterSharpenStrength,
+    nrsfsSpeed,
+    nrsfsStrength,
 
-    -- ** MsSmoothEncryptionSettings
-    MsSmoothEncryptionSettings (..),
-    mkMsSmoothEncryptionSettings,
-    msesSpekeKeyProvider,
+    -- ** H265QvbrSettings
+    H265QvbrSettings (..),
+    mkH265QvbrSettings,
+    hMaxAverageBitrate,
+    hQvbrQualityLevel,
+    hQvbrQualityLevelFineTune,
 
-    -- ** MsSmoothGroupSettings
-    MsSmoothGroupSettings (..),
-    mkMsSmoothGroupSettings,
-    msgsFragmentLength,
-    msgsManifestEncoding,
-    msgsDestination,
-    msgsAudioDeduplication,
-    msgsAdditionalManifests,
-    msgsDestinationSettings,
-    msgsEncryption,
+    -- ** H265SampleAdaptiveOffsetFilterMode
+    H265SampleAdaptiveOffsetFilterMode (..),
 
-    -- ** MxfSettings
-    MxfSettings (..),
-    mkMxfSettings,
-    msAfdSignaling,
-    msProfile,
+    -- ** Eac3DcFilter
+    Eac3DcFilter (..),
 
-    -- ** NexGuardFileMarkerSettings
-    NexGuardFileMarkerSettings (..),
-    mkNexGuardFileMarkerSettings,
-    ngfmsStrength,
-    ngfmsPayload,
-    ngfmsPreset,
-    ngfmsLicense,
+    -- ** SimulateReservedQueue
+    SimulateReservedQueue (..),
+
+    -- ** CmafManifestDurationFormat
+    CmafManifestDurationFormat (..),
+
+    -- ** HlsAdMarkers
+    HlsAdMarkers (..),
+
+    -- ** Mp4MoovPlacement
+    Mp4MoovPlacement (..),
+
+    -- ** DvbSubtitleAlignment
+    DvbSubtitleAlignment (..),
+
+    -- ** InputDeblockFilter
+    InputDeblockFilter (..),
+
+    -- ** HlsAudioTrackType
+    HlsAudioTrackType (..),
+
+    -- ** CmfcScte35Esam
+    CmfcScte35Esam (..),
+
+    -- ** VideoTimecodeInsertion
+    VideoTimecodeInsertion (..),
+
+    -- ** DescribeEndpointsMode
+    DescribeEndpointsMode (..),
+
+    -- ** CmafEncryptionType
+    CmafEncryptionType (..),
+
+    -- ** AacCodecProfile
+    AacCodecProfile (..),
 
     -- ** NielsenConfiguration
     NielsenConfiguration (..),
@@ -2103,417 +900,905 @@ module Network.AWS.MediaConvert
     ncBreakoutCode,
     ncDistributorId,
 
-    -- ** NielsenNonLinearWatermarkSettings
-    NielsenNonLinearWatermarkSettings (..),
-    mkNielsenNonLinearWatermarkSettings,
-    nnlwsEpisodeId,
-    nnlwsActiveWatermarkProcess,
-    nnlwsSourceId,
-    nnlwsCbetSourceId,
-    nnlwsTicServerURL,
-    nnlwsMetadataDestination,
-    nnlwsAssetName,
-    nnlwsAdiFilename,
-    nnlwsAssetId,
-    nnlwsUniqueTicPerAudioTrack,
-    nnlwsSourceWatermarkStatus,
+    -- ** ColorCorrector
+    ColorCorrector (..),
+    mkColorCorrector,
+    ccBrightness,
+    ccColorSpaceConversion,
+    ccContrast,
+    ccHdr10Metadata,
+    ccHue,
+    ccSaturation,
 
-    -- ** NoiseReducer
-    NoiseReducer (..),
-    mkNoiseReducer,
-    nrTemporalFilterSettings,
-    nrSpatialFilterSettings,
-    nrFilterSettings,
-    nrFilter,
+    -- ** HlsInitializationVectorInManifest
+    HlsInitializationVectorInManifest (..),
+
+    -- ** AudioLanguageCodeControl
+    AudioLanguageCodeControl (..),
+
+    -- ** AvcIntraSlowPal
+    AvcIntraSlowPal (..),
+
+    -- ** H265TemporalAdaptiveQuantization
+    H265TemporalAdaptiveQuantization (..),
+
+    -- ** Input
+    Input (..),
+    mkInput,
+    iAudioSelectorGroups,
+    iAudioSelectors,
+    iCaptionSelectors,
+    iCrop,
+    iDeblockFilter,
+    iDecryptionSettings,
+    iDenoiseFilter,
+    iFileInput,
+    iFilterEnable,
+    iFilterStrength,
+    iImageInserter,
+    iInputClippings,
+    iInputScanType,
+    iPosition,
+    iProgramNumber,
+    iPsiControl,
+    iSupplementalImps,
+    iTimecodeSource,
+    iTimecodeStart,
+    iVideoSelector,
+
+    -- ** MxfSettings
+    MxfSettings (..),
+    mkMxfSettings,
+    msAfdSignaling,
+    msProfile,
+
+    -- ** DvbSdtSettings
+    DvbSdtSettings (..),
+    mkDvbSdtSettings,
+    dssOutputSdt,
+    dssSdtInterval,
+    dssServiceName,
+    dssServiceProviderName,
+
+    -- ** MxfAfdSignaling
+    MxfAfdSignaling (..),
+
+    -- ** FileSourceSettings
+    FileSourceSettings (..),
+    mkFileSourceSettings,
+    fssConvert608To708,
+    fssFramerate,
+    fssSourceFile,
+    fssTimeDelta,
+
+    -- ** M3u8Settings
+    M3u8Settings (..),
+    mkM3u8Settings,
+    msAudioDuration,
+    msAudioFramesPerPes,
+    msAudioPids,
+    msNielsenId3,
+    msPatInterval,
+    msPcrControl,
+    msPcrPid,
+    msPmtInterval,
+    msPmtPid,
+    msPrivateMetadataPid,
+    msProgramNumber,
+    msScte35Pid,
+    msScte35Source,
+    msTimedMetadata,
+    msTimedMetadataPid,
+    msTransportStreamId,
+    msVideoPid,
+
+    -- ** Eac3MetadataControl
+    Eac3MetadataControl (..),
+
+    -- ** AudioNormalizationSettings
+    AudioNormalizationSettings (..),
+    mkAudioNormalizationSettings,
+    ansAlgorithm,
+    ansAlgorithmControl,
+    ansCorrectionGateLevel,
+    ansLoudnessLogging,
+    ansPeakCalculation,
+    ansTargetLkfs,
+
+    -- ** CmfcSettings
+    CmfcSettings (..),
+    mkCmfcSettings,
+    csAudioDuration,
+    csScte35Esam,
+    csScte35Source,
+
+    -- ** Av1FramerateConversionAlgorithm
+    Av1FramerateConversionAlgorithm (..),
+
+    -- ** H265FlickerAdaptiveQuantization
+    H265FlickerAdaptiveQuantization (..),
+
+    -- ** MsSmoothGroupSettings
+    MsSmoothGroupSettings (..),
+    mkMsSmoothGroupSettings,
+    msgsAdditionalManifests,
+    msgsAudioDeduplication,
+    msgsDestination,
+    msgsDestinationSettings,
+    msgsEncryption,
+    msgsFragmentLength,
+    msgsManifestEncoding,
+
+    -- ** Av1FramerateControl
+    Av1FramerateControl (..),
+
+    -- ** InputDecryptionSettings
+    InputDecryptionSettings (..),
+    mkInputDecryptionSettings,
+    idsDecryptionMode,
+    idsEncryptedDecryptionKey,
+    idsInitializationVector,
+    idsKmsKeyRegion,
+
+    -- ** F4vMoovPlacement
+    F4vMoovPlacement (..),
+
+    -- ** Eac3DynamicRangeCompressionLine
+    Eac3DynamicRangeCompressionLine (..),
+
+    -- ** ImscStylePassthrough
+    ImscStylePassthrough (..),
+
+    -- ** Ac3BitstreamMode
+    Ac3BitstreamMode (..),
+
+    -- ** AvailBlanking
+    AvailBlanking (..),
+    mkAvailBlanking,
+    abAvailBlankingImage,
+
+    -- ** DvbSubtitleOutlineColor
+    DvbSubtitleOutlineColor (..),
+
+    -- ** ProresFramerateConversionAlgorithm
+    ProresFramerateConversionAlgorithm (..),
+
+    -- ** H265CodecLevel
+    H265CodecLevel (..),
 
     -- ** NoiseReducerFilterSettings
     NoiseReducerFilterSettings (..),
     mkNoiseReducerFilterSettings,
     nrfsStrength,
 
-    -- ** NoiseReducerSpatialFilterSettings
-    NoiseReducerSpatialFilterSettings (..),
-    mkNoiseReducerSpatialFilterSettings,
-    nrsfsStrength,
-    nrsfsPostFilterSharpenStrength,
-    nrsfsSpeed,
+    -- ** H265FramerateConversionAlgorithm
+    H265FramerateConversionAlgorithm (..),
 
-    -- ** NoiseReducerTemporalFilterSettings
-    NoiseReducerTemporalFilterSettings (..),
-    mkNoiseReducerTemporalFilterSettings,
-    nrtfsPostTemporalSharpening,
-    nrtfsAggressiveMode,
-    nrtfsStrength,
-    nrtfsSpeed,
+    -- ** DestinationSettings
+    DestinationSettings (..),
+    mkDestinationSettings,
+    dsS3Settings,
 
-    -- ** OpusSettings
-    OpusSettings (..),
-    mkOpusSettings,
-    osChannels,
-    osSampleRate,
-    osBitrate,
+    -- ** AccelerationMode
+    AccelerationMode (..),
 
-    -- ** Output
-    Output (..),
-    mkOutput,
-    oCaptionDescriptions,
-    oExtension,
-    oVideoDescription,
-    oContainerSettings,
-    oOutputSettings,
-    oPreset,
-    oNameModifier,
-    oAudioDescriptions,
+    -- ** M3u8Scte35Source
+    M3u8Scte35Source (..),
 
-    -- ** OutputChannelMapping
-    OutputChannelMapping (..),
-    mkOutputChannelMapping,
-    ocmInputChannels,
+    -- ** DashIsoMpdProfile
+    DashIsoMpdProfile (..),
 
-    -- ** OutputDetail
-    OutputDetail (..),
-    mkOutputDetail,
-    odVideoDetails,
-    odDurationInMs,
+    -- ** NielsenNonLinearWatermarkSettings
+    NielsenNonLinearWatermarkSettings (..),
+    mkNielsenNonLinearWatermarkSettings,
+    nnlwsActiveWatermarkProcess,
+    nnlwsAdiFilename,
+    nnlwsAssetId,
+    nnlwsAssetName,
+    nnlwsCbetSourceId,
+    nnlwsEpisodeId,
+    nnlwsMetadataDestination,
+    nnlwsSourceId,
+    nnlwsSourceWatermarkStatus,
+    nnlwsTicServerUrl,
+    nnlwsUniqueTicPerAudioTrack,
 
-    -- ** OutputGroup
-    OutputGroup (..),
-    mkOutputGroup,
-    ogOutputGroupSettings,
-    ogOutputs,
-    ogCustomName,
-    ogName,
-    ogAutomatedEncodingSettings,
+    -- ** M2tsAudioBufferModel
+    M2tsAudioBufferModel (..),
 
-    -- ** OutputGroupDetail
-    OutputGroupDetail (..),
-    mkOutputGroupDetail,
-    ogdOutputDetails,
+    -- ** H264Syntax
+    H264Syntax (..),
 
-    -- ** OutputGroupSettings
-    OutputGroupSettings (..),
-    mkOutputGroupSettings,
-    ogsFileGroupSettings,
-    ogsCmafGroupSettings,
-    ogsMsSmoothGroupSettings,
-    ogsHlsGroupSettings,
-    ogsType,
-    ogsDashIsoGroupSettings,
-
-    -- ** OutputSettings
-    OutputSettings (..),
-    mkOutputSettings,
-    osHlsSettings,
-
-    -- ** PartnerWatermarking
-    PartnerWatermarking (..),
-    mkPartnerWatermarking,
-    pwNexguardFileMarkerSettings,
-
-    -- ** Preset
-    Preset (..),
-    mkPreset,
-    pLastUpdated,
-    pSettings,
-    pARN,
-    pCreatedAt,
-    pCategory,
-    pName,
-    pType,
-    pDescription,
-
-    -- ** PresetSettings
-    PresetSettings (..),
-    mkPresetSettings,
-    psCaptionDescriptions,
-    psVideoDescription,
-    psContainerSettings,
-    psAudioDescriptions,
-
-    -- ** ProresSettings
-    ProresSettings (..),
-    mkProresSettings,
-    psSlowPal,
-    psParNumerator,
-    psTelecine,
-    psInterlaceMode,
-    psParControl,
-    psCodecProfile,
-    psFramerateDenominator,
-    psFramerateConversionAlgorithm,
-    psFramerateControl,
-    psFramerateNumerator,
-    psParDenominator,
+    -- ** NoiseFilterPostTemporalSharpening
+    NoiseFilterPostTemporalSharpening (..),
 
     -- ** Queue
     Queue (..),
     mkQueue,
-    qStatus,
-    qLastUpdated,
-    qARN,
-    qCreatedAt,
-    qReservationPlan,
-    qPricingPlan,
-    qSubmittedJobsCount,
     qName,
-    qProgressingJobsCount,
-    qType,
+    qArn,
+    qCreatedAt,
     qDescription,
+    qLastUpdated,
+    qPricingPlan,
+    qProgressingJobsCount,
+    qReservationPlan,
+    qStatus,
+    qSubmittedJobsCount,
+    qType,
 
-    -- ** QueueTransition
-    QueueTransition (..),
-    mkQueueTransition,
-    qtSourceQueue,
-    qtDestinationQueue,
-    qtTimestamp,
+    -- ** ScalingBehavior
+    ScalingBehavior (..),
 
-    -- ** Rectangle
-    Rectangle (..),
-    mkRectangle,
-    rHeight,
-    rWidth,
-    rX,
-    rY,
+    -- ** EsamManifestConfirmConditionNotification
+    EsamManifestConfirmConditionNotification (..),
+    mkEsamManifestConfirmConditionNotification,
+    emccnMccXml,
 
-    -- ** RemixSettings
-    RemixSettings (..),
-    mkRemixSettings,
-    rsChannelMapping,
-    rsChannelsIn,
-    rsChannelsOut,
+    -- ** ProresFramerateControl
+    ProresFramerateControl (..),
 
-    -- ** ReservationPlan
-    ReservationPlan (..),
-    mkReservationPlan,
-    rpStatus,
-    rpExpiresAt,
-    rpPurchasedAt,
-    rpCommitment,
-    rpReservedSlots,
-    rpRenewalType,
+    -- ** H264GopBReference
+    H264GopBReference (..),
 
-    -- ** ReservationPlanSettings
-    ReservationPlanSettings (..),
-    mkReservationPlanSettings,
-    rpsCommitment,
-    rpsReservedSlots,
-    rpsRenewalType,
+    -- ** Id3Insertion
+    Id3Insertion (..),
+    mkId3Insertion,
+    iiId3,
+    iiTimecode,
 
-    -- ** ResourceTags
-    ResourceTags (..),
-    mkResourceTags,
-    rtARN,
-    rtTags,
+    -- ** HlsKeyProviderType
+    HlsKeyProviderType (..),
 
-    -- ** S3DestinationAccessControl
-    S3DestinationAccessControl (..),
-    mkS3DestinationAccessControl,
-    sdacCannedACL,
+    -- ** MovSettings
+    MovSettings (..),
+    mkMovSettings,
+    msClapAtom,
+    msCslgAtom,
+    msMpeg2FourCCControl,
+    msPaddingControl,
+    msReference,
 
-    -- ** S3DestinationSettings
-    S3DestinationSettings (..),
-    mkS3DestinationSettings,
-    sdsAccessControl,
-    sdsEncryption,
+    -- ** RespondToAfd
+    RespondToAfd (..),
 
-    -- ** S3EncryptionSettings
-    S3EncryptionSettings (..),
-    mkS3EncryptionSettings,
-    sesEncryptionType,
-    sesKMSKeyARN,
+    -- ** MotionImageInserter
+    MotionImageInserter (..),
+    mkMotionImageInserter,
+    miiFramerate,
+    miiInput,
+    miiInsertionMode,
+    miiOffset,
+    miiPlayback,
+    miiStartTime,
 
-    -- ** SccDestinationSettings
-    SccDestinationSettings (..),
-    mkSccDestinationSettings,
-    sdsFramerate,
+    -- ** MpdAudioDuration
+    MpdAudioDuration (..),
 
-    -- ** SpekeKeyProvider
-    SpekeKeyProvider (..),
-    mkSpekeKeyProvider,
-    sResourceId,
-    sCertificateARN,
-    sURL,
-    sSystemIds,
+    -- ** CmfcScte35Source
+    CmfcScte35Source (..),
+
+    -- ** Mpeg2ParControl
+    Mpeg2ParControl (..),
+
+    -- ** H265FramerateControl
+    H265FramerateControl (..),
+
+    -- ** InputDenoiseFilter
+    InputDenoiseFilter (..),
+
+    -- ** ColorSpaceConversion
+    ColorSpaceConversion (..),
+
+    -- ** H264SpatialAdaptiveQuantization
+    H264SpatialAdaptiveQuantization (..),
+
+    -- ** H264FieldEncoding
+    H264FieldEncoding (..),
+
+    -- ** DashIsoHbbtvCompliance
+    DashIsoHbbtvCompliance (..),
+
+    -- ** AudioNormalizationAlgorithm
+    AudioNormalizationAlgorithm (..),
+
+    -- ** Ac3Settings
+    Ac3Settings (..),
+    mkAc3Settings,
+    aBitrate,
+    aBitstreamMode,
+    aCodingMode,
+    aDialnorm,
+    aDynamicRangeCompressionProfile,
+    aLfeFilter,
+    aMetadataControl,
+    aSampleRate,
+
+    -- ** MpdScte35Esam
+    MpdScte35Esam (..),
+
+    -- ** Mpeg2Telecine
+    Mpeg2Telecine (..),
+
+    -- ** Mp4FreeSpaceBox
+    Mp4FreeSpaceBox (..),
+
+    -- ** Eac3BitstreamMode
+    Eac3BitstreamMode (..),
+
+    -- ** ColorSpaceUsage
+    ColorSpaceUsage (..),
+
+    -- ** AudioSelectorGroup
+    AudioSelectorGroup (..),
+    mkAudioSelectorGroup,
+    asgAudioSelectorNames,
+
+    -- ** AacRawFormat
+    AacRawFormat (..),
+
+    -- ** H265Settings
+    H265Settings (..),
+    mkH265Settings,
+    hAdaptiveQuantization,
+    hAlternateTransferFunctionSei,
+    hBitrate,
+    hCodecLevel,
+    hCodecProfile,
+    hDynamicSubGop,
+    hFlickerAdaptiveQuantization,
+    hFramerateControl,
+    hFramerateConversionAlgorithm,
+    hFramerateDenominator,
+    hFramerateNumerator,
+    hGopBReference,
+    hGopClosedCadence,
+    hGopSize,
+    hGopSizeUnits,
+    hHrdBufferInitialFillPercentage,
+    hHrdBufferSize,
+    hInterlaceMode,
+    hMaxBitrate,
+    hMinIInterval,
+    hNumberBFramesBetweenReferenceFrames,
+    hNumberReferenceFrames,
+    hParControl,
+    hParDenominator,
+    hParNumerator,
+    hQualityTuningLevel,
+    hQvbrSettings,
+    hRateControlMode,
+    hSampleAdaptiveOffsetFilterMode,
+    hSceneChangeDetect,
+    hSlices,
+    hSlowPal,
+    hSpatialAdaptiveQuantization,
+    hTelecine,
+    hTemporalAdaptiveQuantization,
+    hTemporalIds,
+    hTiles,
+    hUnregisteredSeiTimecode,
+    hWriteMp4PackagingType,
+
+    -- ** CmafClientCache
+    CmafClientCache (..),
+
+    -- ** Deinterlacer
+    Deinterlacer (..),
+    mkDeinterlacer,
+    dAlgorithm,
+    dControl,
+    dMode,
+
+    -- ** Mp4Settings
+    Mp4Settings (..),
+    mkMp4Settings,
+    mAudioDuration,
+    mCslgAtom,
+    mCttsVersion,
+    mFreeSpaceBox,
+    mMoovPlacement,
+    mMp4MajorBrand,
+
+    -- ** DropFrameTimecode
+    DropFrameTimecode (..),
+
+    -- ** Eac3AtmosStereoDownmix
+    Eac3AtmosStereoDownmix (..),
+
+    -- ** CmafWriteHLSManifest
+    CmafWriteHLSManifest (..),
+
+    -- ** Eac3DynamicRangeCompressionRf
+    Eac3DynamicRangeCompressionRf (..),
+
+    -- ** PresetListBy
+    PresetListBy (..),
+
+    -- ** AntiAlias
+    AntiAlias (..),
+
+    -- ** DvbSubSourceSettings
+    DvbSubSourceSettings (..),
+    mkDvbSubSourceSettings,
+    dsssPid,
+
+    -- ** OpusSettings
+    OpusSettings (..),
+    mkOpusSettings,
+    osBitrate,
+    osChannels,
+    osSampleRate,
+
+    -- ** Mpeg2SpatialAdaptiveQuantization
+    Mpeg2SpatialAdaptiveQuantization (..),
+
+    -- ** FontScript
+    FontScript (..),
+
+    -- ** MpdSettings
+    MpdSettings (..),
+    mkMpdSettings,
+    msfAccessibilityCaptionHints,
+    msfAudioDuration,
+    msfCaptionContainerType,
+    msfScte35Esam,
+    msfScte35Source,
+
+    -- ** BurninSubtitleTeletextSpacing
+    BurninSubtitleTeletextSpacing (..),
+
+    -- ** H264QualityTuningLevel
+    H264QualityTuningLevel (..),
+
+    -- ** ProresSettings
+    ProresSettings (..),
+    mkProresSettings,
+    psCodecProfile,
+    psFramerateControl,
+    psFramerateConversionAlgorithm,
+    psFramerateDenominator,
+    psFramerateNumerator,
+    psInterlaceMode,
+    psParControl,
+    psParDenominator,
+    psParNumerator,
+    psSlowPal,
+    psTelecine,
+
+    -- ** H264UnregisteredSeiTimecode
+    H264UnregisteredSeiTimecode (..),
+
+    -- ** Mpeg2IntraDcPrecision
+    Mpeg2IntraDcPrecision (..),
+
+    -- ** OutputSdt
+    OutputSdt (..),
+
+    -- ** CaptionSourceFramerate
+    CaptionSourceFramerate (..),
+    mkCaptionSourceFramerate,
+    csfFramerateDenominator,
+    csfFramerateNumerator,
+
+    -- ** Vc3SlowPal
+    Vc3SlowPal (..),
+
+    -- ** Av1QvbrSettings
+    Av1QvbrSettings (..),
+    mkAv1QvbrSettings,
+    aqsQvbrQualityLevel,
+    aqsQvbrQualityLevelFineTune,
+
+    -- ** NoiseReducer
+    NoiseReducer (..),
+    mkNoiseReducer,
+    nrFilter,
+    nrFilterSettings,
+    nrSpatialFilterSettings,
+    nrTemporalFilterSettings,
+
+    -- ** TimedMetadata
+    TimedMetadata (..),
+
+    -- ** Eac3LfeControl
+    Eac3LfeControl (..),
+
+    -- ** Output
+    Output (..),
+    mkOutput,
+    oAudioDescriptions,
+    oCaptionDescriptions,
+    oContainerSettings,
+    oExtension,
+    oNameModifier,
+    oOutputSettings,
+    oPreset,
+    oVideoDescription,
+
+    -- ** Av1SpatialAdaptiveQuantization
+    Av1SpatialAdaptiveQuantization (..),
+
+    -- ** Vc3Telecine
+    Vc3Telecine (..),
+
+    -- ** M2tsSegmentationMarkers
+    M2tsSegmentationMarkers (..),
 
     -- ** SpekeKeyProviderCmaf
     SpekeKeyProviderCmaf (..),
     mkSpekeKeyProviderCmaf,
-    skpcResourceId,
+    skpcCertificateArn,
     skpcDashSignaledSystemIds,
-    skpcCertificateARN,
-    skpcURL,
     skpcHlsSignaledSystemIds,
+    skpcResourceId,
+    skpcUrl,
 
-    -- ** StaticKeyProvider
-    StaticKeyProvider (..),
-    mkStaticKeyProvider,
-    skpStaticKeyValue,
-    skpURL,
-    skpKeyFormat,
-    skpKeyFormatVersions,
+    -- ** Job
+    Job (..),
+    mkJob,
+    jRole,
+    jSettings,
+    jAccelerationSettings,
+    jAccelerationStatus,
+    jArn,
+    jBillingTagsSource,
+    jCreatedAt,
+    jCurrentPhase,
+    jErrorCode,
+    jErrorMessage,
+    jHopDestinations,
+    jId,
+    jJobPercentComplete,
+    jJobTemplate,
+    jMessages,
+    jOutputGroupDetails,
+    jPriority,
+    jQueue,
+    jQueueTransitions,
+    jRetryCount,
+    jSimulateReservedQueue,
+    jStatus,
+    jStatusUpdateInterval,
+    jTiming,
+    jUserMetadata,
 
-    -- ** TeletextDestinationSettings
-    TeletextDestinationSettings (..),
-    mkTeletextDestinationSettings,
-    tdsPageTypes,
-    tdsPageNumber,
-
-    -- ** TeletextSourceSettings
-    TeletextSourceSettings (..),
-    mkTeletextSourceSettings,
-    tssPageNumber,
-
-    -- ** TimecodeBurnin
-    TimecodeBurnin (..),
-    mkTimecodeBurnin,
-    tbPrefix,
-    tbFontSize,
-    tbPosition,
-
-    -- ** TimecodeConfig
-    TimecodeConfig (..),
-    mkTimecodeConfig,
-    tcStart,
-    tcTimestampOffset,
-    tcAnchor,
-    tcSource,
-
-    -- ** TimedMetadataInsertion
-    TimedMetadataInsertion (..),
-    mkTimedMetadataInsertion,
-    tmiId3Insertions,
-
-    -- ** Timing
-    Timing (..),
-    mkTiming,
-    tStartTime,
-    tFinishTime,
-    tSubmitTime,
+    -- ** ImageInserter
+    ImageInserter (..),
+    mkImageInserter,
+    iiInsertableImages,
 
     -- ** TrackSourceSettings
     TrackSourceSettings (..),
     mkTrackSourceSettings,
     tssTrackNumber,
 
-    -- ** TtmlDestinationSettings
-    TtmlDestinationSettings (..),
-    mkTtmlDestinationSettings,
-    tdsStylePassthrough,
+    -- ** HlsCaptionLanguageMapping
+    HlsCaptionLanguageMapping (..),
+    mkHlsCaptionLanguageMapping,
+    hclmCaptionChannel,
+    hclmCustomLanguageCode,
+    hclmLanguageCode,
+    hclmLanguageDescription,
 
-    -- ** Vc3Settings
-    Vc3Settings (..),
-    mkVc3Settings,
-    vssSlowPal,
-    vssTelecine,
-    vssInterlaceMode,
-    vssFramerateDenominator,
-    vssVc3Class,
-    vssFramerateConversionAlgorithm,
-    vssFramerateControl,
-    vssFramerateNumerator,
+    -- ** H264TemporalAdaptiveQuantization
+    H264TemporalAdaptiveQuantization (..),
 
-    -- ** VideoCodecSettings
-    VideoCodecSettings (..),
-    mkVideoCodecSettings,
-    vcsFrameCaptureSettings,
-    vcsAv1Settings,
-    vcsCodec,
-    vcsH265Settings,
-    vcsProresSettings,
-    vcsVp9Settings,
-    vcsH264Settings,
-    vcsMpeg2Settings,
-    vcsVp8Settings,
-    vcsVc3Settings,
-    vcsAvcIntraSettings,
+    -- ** H264SceneChangeDetect
+    H264SceneChangeDetect (..),
+
+    -- ** BillingTagsSource
+    BillingTagsSource (..),
+
+    -- ** AncillarySourceSettings
+    AncillarySourceSettings (..),
+    mkAncillarySourceSettings,
+    assConvert608To708,
+    assSourceAncillaryChannelNumber,
+    assTerminateCaptions,
+
+    -- ** AudioChannelTag
+    AudioChannelTag (..),
+
+    -- ** H265RateControlMode
+    H265RateControlMode (..),
+
+    -- ** CmafKeyProviderType
+    CmafKeyProviderType (..),
+
+    -- ** S3DestinationAccessControl
+    S3DestinationAccessControl (..),
+    mkS3DestinationAccessControl,
+    sdacCannedAcl,
+
+    -- ** Eac3CodingMode
+    Eac3CodingMode (..),
+
+    -- ** BurninSubtitleAlignment
+    BurninSubtitleAlignment (..),
 
     -- ** VideoDescription
     VideoDescription (..),
     mkVideoDescription,
-    vdTimecodeInsertion,
-    vdHeight,
     vdAfdSignaling,
-    vdSharpness,
-    vdCrop,
-    vdWidth,
-    vdScalingBehavior,
-    vdRespondToAfd,
-    vdDropFrameTimecode,
     vdAntiAlias,
-    vdFixedAfd,
-    vdColorMetadata,
     vdCodecSettings,
-    vdVideoPreprocessors,
+    vdColorMetadata,
+    vdCrop,
+    vdDropFrameTimecode,
+    vdFixedAfd,
+    vdHeight,
     vdPosition,
+    vdRespondToAfd,
+    vdScalingBehavior,
+    vdSharpness,
+    vdTimecodeInsertion,
+    vdVideoPreprocessors,
+    vdWidth,
 
-    -- ** VideoDetail
-    VideoDetail (..),
-    mkVideoDetail,
-    vdHeightInPx,
-    vdWidthInPx,
+    -- ** CaptionDestinationSettings
+    CaptionDestinationSettings (..),
+    mkCaptionDestinationSettings,
+    cdsBurninDestinationSettings,
+    cdsDestinationType,
+    cdsDvbSubDestinationSettings,
+    cdsEmbeddedDestinationSettings,
+    cdsImscDestinationSettings,
+    cdsSccDestinationSettings,
+    cdsTeletextDestinationSettings,
+    cdsTtmlDestinationSettings,
 
-    -- ** VideoPreprocessor
-    VideoPreprocessor (..),
-    mkVideoPreprocessor,
-    vpTimecodeBurnin,
-    vpDolbyVision,
-    vpColorCorrector,
-    vpDeinterlacer,
-    vpNoiseReducer,
-    vpImageInserter,
-    vpPartnerWatermarking,
+    -- ** EmbeddedDestinationSettings
+    EmbeddedDestinationSettings (..),
+    mkEmbeddedDestinationSettings,
+    edsDestination608ChannelNumber,
+    edsDestination708ServiceNumber,
 
-    -- ** VideoSelector
-    VideoSelector (..),
-    mkVideoSelector,
-    vsProgramNumber,
-    vsAlphaBehavior,
-    vsColorSpaceUsage,
-    vsHdr10Metadata,
-    vsPid,
-    vsRotate,
-    vsColorSpace,
+    -- ** DeinterlacerMode
+    DeinterlacerMode (..),
 
-    -- ** VorbisSettings
-    VorbisSettings (..),
-    mkVorbisSettings,
-    vsChannels,
-    vsSampleRate,
-    vsVbrQuality,
+    -- ** DvbSubtitleBackgroundColor
+    DvbSubtitleBackgroundColor (..),
 
-    -- ** Vp8Settings
-    Vp8Settings (..),
-    mkVp8Settings,
-    vQualityTuningLevel,
-    vParNumerator,
-    vGopSize,
-    vHrdBufferSize,
-    vRateControlMode,
-    vParControl,
-    vBitrate,
-    vFramerateDenominator,
-    vFramerateConversionAlgorithm,
-    vFramerateControl,
-    vFramerateNumerator,
-    vMaxBitrate,
-    vParDenominator,
+    -- ** Hdr10Metadata
+    Hdr10Metadata (..),
+    mkHdr10Metadata,
+    hmBluePrimaryX,
+    hmBluePrimaryY,
+    hmGreenPrimaryX,
+    hmGreenPrimaryY,
+    hmMaxContentLightLevel,
+    hmMaxFrameAverageLightLevel,
+    hmMaxLuminance,
+    hmMinLuminance,
+    hmRedPrimaryX,
+    hmRedPrimaryY,
+    hmWhitePointX,
+    hmWhitePointY,
+
+    -- ** JobSettings
+    JobSettings (..),
+    mkJobSettings,
+    jsAdAvailOffset,
+    jsAvailBlanking,
+    jsEsam,
+    jsInputs,
+    jsMotionImageInserter,
+    jsNielsenConfiguration,
+    jsNielsenNonLinearWatermark,
+    jsOutputGroups,
+    jsTimecodeConfig,
+    jsTimedMetadataInsertion,
+
+    -- ** Ac3CodingMode
+    Ac3CodingMode (..),
+
+    -- ** DvbSubtitleFontColor
+    DvbSubtitleFontColor (..),
+
+    -- ** DashIsoPlaybackDeviceCompatibility
+    DashIsoPlaybackDeviceCompatibility (..),
+
+    -- ** CmafStreamInfResolution
+    CmafStreamInfResolution (..),
+
+    -- ** Eac3AtmosDynamicRangeCompressionLine
+    Eac3AtmosDynamicRangeCompressionLine (..),
+
+    -- ** AncillaryConvert608To708
+    AncillaryConvert608To708 (..),
+
+    -- ** ContainerSettings
+    ContainerSettings (..),
+    mkContainerSettings,
+    csCmfcSettings,
+    csContainer,
+    csF4vSettings,
+    csM2tsSettings,
+    csM3u8Settings,
+    csMovSettings,
+    csMp4Settings,
+    csMpdSettings,
+    csMxfSettings,
+
+    -- ** HlsProgramDateTime
+    HlsProgramDateTime (..),
+
+    -- ** TimecodeConfig
+    TimecodeConfig (..),
+    mkTimecodeConfig,
+    tcAnchor,
+    tcSource,
+    tcStart,
+    tcTimestampOffset,
+
+    -- ** EsamSignalProcessingNotification
+    EsamSignalProcessingNotification (..),
+    mkEsamSignalProcessingNotification,
+    espnSccXml,
+
+    -- ** Mpeg2TemporalAdaptiveQuantization
+    Mpeg2TemporalAdaptiveQuantization (..),
+
+    -- ** CmafCodecSpecification
+    CmafCodecSpecification (..),
+
+    -- ** Vp8QualityTuningLevel
+    Vp8QualityTuningLevel (..),
+
+    -- ** H264SlowPal
+    H264SlowPal (..),
+
+    -- ** Mp2Settings
+    Mp2Settings (..),
+    mkMp2Settings,
+    msBitrate,
+    msChannels,
+    msSampleRate,
+
+    -- ** H265WriteMp4PackagingType
+    H265WriteMp4PackagingType (..),
+
+    -- ** OutputSettings
+    OutputSettings (..),
+    mkOutputSettings,
+    osHlsSettings,
+
+    -- ** M2tsScte35Source
+    M2tsScte35Source (..),
+
+    -- ** AvcIntraClass
+    AvcIntraClass (..),
+
+    -- ** HlsAudioOnlyContainer
+    HlsAudioOnlyContainer (..),
+
+    -- ** SccDestinationSettings
+    SccDestinationSettings (..),
+    mkSccDestinationSettings,
+    sdsFramerate,
+
+    -- ** M2tsForceTsVideoEbpOrder
+    M2tsForceTsVideoEbpOrder (..),
 
     -- ** Vp9Settings
     Vp9Settings (..),
     mkVp9Settings,
-    vsQualityTuningLevel,
-    vsParNumerator,
-    vsGopSize,
-    vsHrdBufferSize,
-    vsRateControlMode,
-    vsParControl,
-    vsBitrate,
-    vsFramerateDenominator,
-    vsFramerateConversionAlgorithm,
-    vsFramerateControl,
-    vsFramerateNumerator,
-    vsMaxBitrate,
-    vsParDenominator,
+    vssBitrate,
+    vssFramerateControl,
+    vssFramerateConversionAlgorithm,
+    vssFramerateDenominator,
+    vssFramerateNumerator,
+    vssGopSize,
+    vssHrdBufferSize,
+    vssMaxBitrate,
+    vssParControl,
+    vssParDenominator,
+    vssParNumerator,
+    vssQualityTuningLevel,
+    vssRateControlMode,
+
+    -- ** H264Settings
+    H264Settings (..),
+    mkH264Settings,
+    hsAdaptiveQuantization,
+    hsBitrate,
+    hsCodecLevel,
+    hsCodecProfile,
+    hsDynamicSubGop,
+    hsEntropyEncoding,
+    hsFieldEncoding,
+    hsFlickerAdaptiveQuantization,
+    hsFramerateControl,
+    hsFramerateConversionAlgorithm,
+    hsFramerateDenominator,
+    hsFramerateNumerator,
+    hsGopBReference,
+    hsGopClosedCadence,
+    hsGopSize,
+    hsGopSizeUnits,
+    hsHrdBufferInitialFillPercentage,
+    hsHrdBufferSize,
+    hsInterlaceMode,
+    hsMaxBitrate,
+    hsMinIInterval,
+    hsNumberBFramesBetweenReferenceFrames,
+    hsNumberReferenceFrames,
+    hsParControl,
+    hsParDenominator,
+    hsParNumerator,
+    hsQualityTuningLevel,
+    hsQvbrSettings,
+    hsRateControlMode,
+    hsRepeatPps,
+    hsSceneChangeDetect,
+    hsSlices,
+    hsSlowPal,
+    hsSoftness,
+    hsSpatialAdaptiveQuantization,
+    hsSyntax,
+    hsTelecine,
+    hsTemporalAdaptiveQuantization,
+    hsUnregisteredSeiTimecode,
+
+    -- ** M3u8PcrControl
+    M3u8PcrControl (..),
+
+    -- ** Preset
+    Preset (..),
+    mkPreset,
+    pSettings,
+    pName,
+    pArn,
+    pCategory,
+    pCreatedAt,
+    pDescription,
+    pLastUpdated,
+    pType,
+
+    -- ** H265QualityTuningLevel
+    H265QualityTuningLevel (..),
+
+    -- ** NoiseReducerTemporalFilterSettings
+    NoiseReducerTemporalFilterSettings (..),
+    mkNoiseReducerTemporalFilterSettings,
+    nrtfsAggressiveMode,
+    nrtfsPostTemporalSharpening,
+    nrtfsSpeed,
+    nrtfsStrength,
+
+    -- ** M2tsEsRateInPes
+    M2tsEsRateInPes (..),
+
+    -- ** HlsGroupSettings
+    HlsGroupSettings (..),
+    mkHlsGroupSettings,
+    hgsAdMarkers,
+    hgsAdditionalManifests,
+    hgsAudioOnlyHeader,
+    hgsBaseUrl,
+    hgsCaptionLanguageMappings,
+    hgsCaptionLanguageSetting,
+    hgsClientCache,
+    hgsCodecSpecification,
+    hgsDestination,
+    hgsDestinationSettings,
+    hgsDirectoryStructure,
+    hgsEncryption,
+    hgsManifestCompression,
+    hgsManifestDurationFormat,
+    hgsMinFinalSegmentLength,
+    hgsMinSegmentLength,
+    hgsOutputSelection,
+    hgsProgramDateTime,
+    hgsProgramDateTimePeriod,
+    hgsSegmentControl,
+    hgsSegmentLength,
+    hgsSegmentsPerSubdirectory,
+    hgsStreamInfResolution,
+    hgsTimedMetadataId3Frame,
+    hgsTimedMetadataId3Period,
+    hgsTimestampDeltaMilliseconds,
 
     -- ** WavSettings
     WavSettings (..),
@@ -2523,15 +1808,745 @@ module Network.AWS.MediaConvert
     wsFormat,
     wsSampleRate,
 
+    -- ** MovClapAtom
+    MovClapAtom (..),
+
+    -- ** AvcIntraTelecine
+    AvcIntraTelecine (..),
+
+    -- ** HlsEncryptionSettings
+    HlsEncryptionSettings (..),
+    mkHlsEncryptionSettings,
+    hesConstantInitializationVector,
+    hesEncryptionMethod,
+    hesInitializationVectorInManifest,
+    hesOfflineEncrypted,
+    hesSpekeKeyProvider,
+    hesStaticKeyProvider,
+    hesType,
+
+    -- ** Mpeg2GopSizeUnits
+    Mpeg2GopSizeUnits (..),
+
+    -- ** BurninDestinationSettings
+    BurninDestinationSettings (..),
+    mkBurninDestinationSettings,
+    bdsAlignment,
+    bdsBackgroundColor,
+    bdsBackgroundOpacity,
+    bdsFontColor,
+    bdsFontOpacity,
+    bdsFontResolution,
+    bdsFontScript,
+    bdsFontSize,
+    bdsOutlineColor,
+    bdsOutlineSize,
+    bdsShadowColor,
+    bdsShadowOpacity,
+    bdsShadowXOffset,
+    bdsShadowYOffset,
+    bdsTeletextSpacing,
+    bdsXPosition,
+    bdsYPosition,
+
+    -- ** Eac3AtmosSettings
+    Eac3AtmosSettings (..),
+    mkEac3AtmosSettings,
+    easBitrate,
+    easBitstreamMode,
+    easCodingMode,
+    easDialogueIntelligence,
+    easDynamicRangeCompressionLine,
+    easDynamicRangeCompressionRf,
+    easLoRoCenterMixLevel,
+    easLoRoSurroundMixLevel,
+    easLtRtCenterMixLevel,
+    easLtRtSurroundMixLevel,
+    easMeteringMode,
+    easSampleRate,
+    easSpeechThreshold,
+    easStereoDownmix,
+    easSurroundExMode,
+
+    -- ** CmafSegmentControl
+    CmafSegmentControl (..),
+
+    -- ** AudioNormalizationPeakCalculation
+    AudioNormalizationPeakCalculation (..),
+
+    -- ** TimecodeBurninPosition
+    TimecodeBurninPosition (..),
+
+    -- ** BurninSubtitleOutlineColor
+    BurninSubtitleOutlineColor (..),
+
+    -- ** HlsManifestDurationFormat
+    HlsManifestDurationFormat (..),
+
+    -- ** ProresInterlaceMode
+    ProresInterlaceMode (..),
+
+    -- ** Av1AdaptiveQuantization
+    Av1AdaptiveQuantization (..),
+
+    -- ** ImscDestinationSettings
+    ImscDestinationSettings (..),
+    mkImscDestinationSettings,
+    idsStylePassthrough,
+
+    -- ** HlsCaptionLanguageSetting
+    HlsCaptionLanguageSetting (..),
+
+    -- ** MotionImageInsertionMode
+    MotionImageInsertionMode (..),
+
+    -- ** WatermarkingStrength
+    WatermarkingStrength (..),
+
+    -- ** DolbyVisionLevel6Metadata
+    DolbyVisionLevel6Metadata (..),
+    mkDolbyVisionLevel6Metadata,
+    dvlmMaxCll,
+    dvlmMaxFall,
+
+    -- ** CmafWriteDASHManifest
+    CmafWriteDASHManifest (..),
+
+    -- ** H265InterlaceMode
+    H265InterlaceMode (..),
+
+    -- ** AudioCodecSettings
+    AudioCodecSettings (..),
+    mkAudioCodecSettings,
+    acsAacSettings,
+    acsAc3Settings,
+    acsAiffSettings,
+    acsCodec,
+    acsEac3AtmosSettings,
+    acsEac3Settings,
+    acsMp2Settings,
+    acsMp3Settings,
+    acsOpusSettings,
+    acsVorbisSettings,
+    acsWavSettings,
+
+    -- ** MovMpeg2FourCCControl
+    MovMpeg2FourCCControl (..),
+
+    -- ** AacVbrQuality
+    AacVbrQuality (..),
+
+    -- ** S3ObjectCannedAcl
+    S3ObjectCannedAcl (..),
+
+    -- ** MsSmoothManifestEncoding
+    MsSmoothManifestEncoding (..),
+
+    -- ** M2tsNielsenId3
+    M2tsNielsenId3 (..),
+
+    -- ** PresetSettings
+    PresetSettings (..),
+    mkPresetSettings,
+    psAudioDescriptions,
+    psCaptionDescriptions,
+    psContainerSettings,
+    psVideoDescription,
+
+    -- ** Vc3Class
+    Vc3Class (..),
+
+    -- ** Mpeg2Settings
+    Mpeg2Settings (..),
+    mkMpeg2Settings,
+    msfAdaptiveQuantization,
+    msfBitrate,
+    msfCodecLevel,
+    msfCodecProfile,
+    msfDynamicSubGop,
+    msfFramerateControl,
+    msfFramerateConversionAlgorithm,
+    msfFramerateDenominator,
+    msfFramerateNumerator,
+    msfGopClosedCadence,
+    msfGopSize,
+    msfGopSizeUnits,
+    msfHrdBufferInitialFillPercentage,
+    msfHrdBufferSize,
+    msfInterlaceMode,
+    msfIntraDcPrecision,
+    msfMaxBitrate,
+    msfMinIInterval,
+    msfNumberBFramesBetweenReferenceFrames,
+    msfParControl,
+    msfParDenominator,
+    msfParNumerator,
+    msfQualityTuningLevel,
+    msfRateControlMode,
+    msfSceneChangeDetect,
+    msfSlowPal,
+    msfSoftness,
+    msfSpatialAdaptiveQuantization,
+    msfSyntax,
+    msfTelecine,
+    msfTemporalAdaptiveQuantization,
+
+    -- ** AutomatedEncodingSettings
+    AutomatedEncodingSettings (..),
+    mkAutomatedEncodingSettings,
+    aesAbrSettings,
+
+    -- ** MovCslgAtom
+    MovCslgAtom (..),
+
+    -- ** Eac3StereoDownmix
+    Eac3StereoDownmix (..),
+
+    -- ** AudioCodec
+    AudioCodec (..),
+
+    -- ** Eac3AtmosDynamicRangeCompressionRf
+    Eac3AtmosDynamicRangeCompressionRf (..),
+
+    -- ** Eac3AtmosBitstreamMode
+    Eac3AtmosBitstreamMode (..),
+
+    -- ** Timing
+    Timing (..),
+    mkTiming,
+    tFinishTime,
+    tStartTime,
+    tSubmitTime,
+
+    -- ** Av1RateControlMode
+    Av1RateControlMode (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** OutputChannelMapping
+    OutputChannelMapping (..),
+    mkOutputChannelMapping,
+    ocmInputChannels,
+
+    -- ** CaptionDescription
+    CaptionDescription (..),
+    mkCaptionDescription,
+    cdCaptionSelectorName,
+    cdCustomLanguageCode,
+    cdDestinationSettings,
+    cdLanguageCode,
+    cdLanguageDescription,
+
+    -- ** CmafManifestCompression
+    CmafManifestCompression (..),
+
+    -- ** H264GopSizeUnits
+    H264GopSizeUnits (..),
+
+    -- ** VideoDetail
+    VideoDetail (..),
+    mkVideoDetail,
+    vdHeightInPx,
+    vdWidthInPx,
+
+    -- ** H265Telecine
+    H265Telecine (..),
+
+    -- ** OutputGroupType
+    OutputGroupType (..),
+
+    -- ** H265SpatialAdaptiveQuantization
+    H265SpatialAdaptiveQuantization (..),
+
+    -- ** InputClipping
+    InputClipping (..),
+    mkInputClipping,
+    icEndTimecode,
+    icStartTimecode,
+
+    -- ** ColorMetadata
+    ColorMetadata (..),
+
+    -- ** DashIsoWriteSegmentTimelineInRepresentation
+    DashIsoWriteSegmentTimelineInRepresentation (..),
+
+    -- ** DashAdditionalManifest
+    DashAdditionalManifest (..),
+    mkDashAdditionalManifest,
+    damManifestNameModifier,
+    damSelectedOutputs,
+
+    -- ** H265GopBReference
+    H265GopBReference (..),
+
+    -- ** ProresTelecine
+    ProresTelecine (..),
+
+    -- ** JobStatus
+    JobStatus (..),
+
+    -- ** CaptionSelector
+    CaptionSelector (..),
+    mkCaptionSelector,
+    csCustomLanguageCode,
+    csLanguageCode,
+    csSourceSettings,
+
+    -- ** BurninSubtitleShadowColor
+    BurninSubtitleShadowColor (..),
+
+    -- ** AudioNormalizationAlgorithmControl
+    AudioNormalizationAlgorithmControl (..),
+
+    -- ** CmafMpdProfile
+    CmafMpdProfile (..),
+
+    -- ** MotionImageInsertionOffset
+    MotionImageInsertionOffset (..),
+    mkMotionImageInsertionOffset,
+    miioImageX,
+    miioImageY,
+
+    -- ** Vp8Settings
+    Vp8Settings (..),
+    mkVp8Settings,
+    vBitrate,
+    vFramerateControl,
+    vFramerateConversionAlgorithm,
+    vFramerateDenominator,
+    vFramerateNumerator,
+    vGopSize,
+    vHrdBufferSize,
+    vMaxBitrate,
+    vParControl,
+    vParDenominator,
+    vParNumerator,
+    vQualityTuningLevel,
+    vRateControlMode,
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eUrl,
+
+    -- ** EmbeddedConvert608To708
+    EmbeddedConvert608To708 (..),
+
+    -- ** Eac3AtmosCodingMode
+    Eac3AtmosCodingMode (..),
+
+    -- ** Commitment
+    Commitment (..),
+
+    -- ** WavFormat
+    WavFormat (..),
+
+    -- ** AudioSelectorType
+    AudioSelectorType (..),
+
+    -- ** CaptionSourceType
+    CaptionSourceType (..),
+
+    -- ** Mp3Settings
+    Mp3Settings (..),
+    mkMp3Settings,
+    mBitrate,
+    mChannels,
+    mRateControlMode,
+    mSampleRate,
+    mVbrQuality,
+
+    -- ** DeinterlacerControl
+    DeinterlacerControl (..),
+
+    -- ** InputTimecodeSource
+    InputTimecodeSource (..),
+
+    -- ** Eac3LfeFilter
+    Eac3LfeFilter (..),
+
+    -- ** Vc3Settings
+    Vc3Settings (..),
+    mkVc3Settings,
+    vsFramerateControl,
+    vsFramerateConversionAlgorithm,
+    vsFramerateDenominator,
+    vsFramerateNumerator,
+    vsInterlaceMode,
+    vsSlowPal,
+    vsTelecine,
+    vsVc3Class,
+
+    -- ** Mpeg2RateControlMode
+    Mpeg2RateControlMode (..),
+
+    -- ** Vp9QualityTuningLevel
+    Vp9QualityTuningLevel (..),
+
+    -- ** Vc3FramerateConversionAlgorithm
+    Vc3FramerateConversionAlgorithm (..),
+
+    -- ** M2tsPcrControl
+    M2tsPcrControl (..),
+
+    -- ** InputTemplate
+    InputTemplate (..),
+    mkInputTemplate,
+    itAudioSelectorGroups,
+    itAudioSelectors,
+    itCaptionSelectors,
+    itCrop,
+    itDeblockFilter,
+    itDenoiseFilter,
+    itFilterEnable,
+    itFilterStrength,
+    itImageInserter,
+    itInputClippings,
+    itInputScanType,
+    itPosition,
+    itProgramNumber,
+    itPsiControl,
+    itTimecodeSource,
+    itTimecodeStart,
+    itVideoSelector,
+
+    -- ** AacSpecification
+    AacSpecification (..),
+
+    -- ** MotionImagePlayback
+    MotionImagePlayback (..),
+
+    -- ** BurninSubtitleFontColor
+    BurninSubtitleFontColor (..),
+
+    -- ** RemixSettings
+    RemixSettings (..),
+    mkRemixSettings,
+    rsChannelMapping,
+    rsChannelsIn,
+    rsChannelsOut,
+
+    -- ** HlsManifestCompression
+    HlsManifestCompression (..),
+
+    -- ** H265Tiles
+    H265Tiles (..),
+
+    -- ** DvbNitSettings
+    DvbNitSettings (..),
+    mkDvbNitSettings,
+    dnsNetworkId,
+    dnsNetworkName,
+    dnsNitInterval,
+
+    -- ** FileSourceConvert608To708
+    FileSourceConvert608To708 (..),
+
+    -- ** QueueTransition
+    QueueTransition (..),
+    mkQueueTransition,
+    qtDestinationQueue,
+    qtSourceQueue,
+    qtTimestamp,
+
+    -- ** StaticKeyProvider
+    StaticKeyProvider (..),
+    mkStaticKeyProvider,
+    skpKeyFormat,
+    skpKeyFormatVersions,
+    skpStaticKeyValue,
+    skpUrl,
+
+    -- ** JobTemplateListBy
+    JobTemplateListBy (..),
+
+    -- ** H264RateControlMode
+    H264RateControlMode (..),
+
+    -- ** SpekeKeyProvider
+    SpekeKeyProvider (..),
+    mkSpekeKeyProvider,
+    sCertificateArn,
+    sResourceId,
+    sSystemIds,
+    sUrl,
+
+    -- ** CaptionSourceSettings
+    CaptionSourceSettings (..),
+    mkCaptionSourceSettings,
+    cssAncillarySourceSettings,
+    cssDvbSubSourceSettings,
+    cssEmbeddedSourceSettings,
+    cssFileSourceSettings,
+    cssSourceType,
+    cssTeletextSourceSettings,
+    cssTrackSourceSettings,
+
+    -- ** M2tsEbpPlacement
+    M2tsEbpPlacement (..),
+
+    -- ** M2tsEbpAudioInterval
+    M2tsEbpAudioInterval (..),
+
+    -- ** TeletextPageType
+    TeletextPageType (..),
+
+    -- ** DecryptionMode
+    DecryptionMode (..),
+
+    -- ** Order
+    Order (..),
+
+    -- ** ReservationPlanSettings
+    ReservationPlanSettings (..),
+    mkReservationPlanSettings,
+    rpsCommitment,
+    rpsReservedSlots,
+    rpsRenewalType,
+
+    -- ** OutputDetail
+    OutputDetail (..),
+    mkOutputDetail,
+    odDurationInMs,
+    odVideoDetails,
+
+    -- ** Vp8FramerateControl
+    Vp8FramerateControl (..),
+
+    -- ** AccelerationStatus
+    AccelerationStatus (..),
+
+    -- ** Ac3LfeFilter
+    Ac3LfeFilter (..),
+
+    -- ** VorbisSettings
+    VorbisSettings (..),
+    mkVorbisSettings,
+    vsChannels,
+    vsSampleRate,
+    vsVbrQuality,
+
+    -- ** AacSettings
+    AacSettings (..),
+    mkAacSettings,
+    asAudioDescriptionBroadcasterMix,
+    asBitrate,
+    asCodecProfile,
+    asCodingMode,
+    asRateControlMode,
+    asRawFormat,
+    asSampleRate,
+    asSpecification,
+    asVbrQuality,
+
+    -- ** PartnerWatermarking
+    PartnerWatermarking (..),
+    mkPartnerWatermarking,
+    pwNexguardFileMarkerSettings,
+
+    -- ** Ac3DynamicRangeCompressionProfile
+    Ac3DynamicRangeCompressionProfile (..),
+
+    -- ** RenewalType
+    RenewalType (..),
+
+    -- ** EmbeddedSourceSettings
+    EmbeddedSourceSettings (..),
+    mkEmbeddedSourceSettings,
+    essConvert608To708,
+    essSource608ChannelNumber,
+    essSource608TrackNumber,
+    essTerminateCaptions,
+
+    -- ** Vc3FramerateControl
+    Vc3FramerateControl (..),
+
+    -- ** H265SceneChangeDetect
+    H265SceneChangeDetect (..),
+
+    -- ** Vp8FramerateConversionAlgorithm
+    Vp8FramerateConversionAlgorithm (..),
+
+    -- ** Mpeg2AdaptiveQuantization
+    Mpeg2AdaptiveQuantization (..),
+
+    -- ** MsSmoothEncryptionSettings
+    MsSmoothEncryptionSettings (..),
+    mkMsSmoothEncryptionSettings,
+    msesSpekeKeyProvider,
+
+    -- ** F4vSettings
+    F4vSettings (..),
+    mkF4vSettings,
+    fsMoovPlacement,
+
+    -- ** DvbSubtitlingType
+    DvbSubtitlingType (..),
+
+    -- ** Eac3Settings
+    Eac3Settings (..),
+    mkEac3Settings,
+    esAttenuationControl,
+    esBitrate,
+    esBitstreamMode,
+    esCodingMode,
+    esDcFilter,
+    esDialnorm,
+    esDynamicRangeCompressionLine,
+    esDynamicRangeCompressionRf,
+    esLfeControl,
+    esLfeFilter,
+    esLoRoCenterMixLevel,
+    esLoRoSurroundMixLevel,
+    esLtRtCenterMixLevel,
+    esLtRtSurroundMixLevel,
+    esMetadataControl,
+    esPassthroughControl,
+    esPhaseControl,
+    esSampleRate,
+    esStereoDownmix,
+    esSurroundExMode,
+    esSurroundMode,
+
+    -- ** InputScanType
+    InputScanType (..),
+
+    -- ** Eac3AttenuationControl
+    Eac3AttenuationControl (..),
+
+    -- ** AvcIntraSettings
+    AvcIntraSettings (..),
+    mkAvcIntraSettings,
+    aisAvcIntraClass,
+    aisFramerateControl,
+    aisFramerateConversionAlgorithm,
+    aisFramerateDenominator,
+    aisFramerateNumerator,
+    aisInterlaceMode,
+    aisSlowPal,
+    aisTelecine,
+
+    -- ** Vp9RateControlMode
+    Vp9RateControlMode (..),
+
+    -- ** HlsAdditionalManifest
+    HlsAdditionalManifest (..),
+    mkHlsAdditionalManifest,
+    hamManifestNameModifier,
+    hamSelectedOutputs,
+
+    -- ** DeinterlaceAlgorithm
+    DeinterlaceAlgorithm (..),
+
+    -- ** H264DynamicSubGop
+    H264DynamicSubGop (..),
+
+    -- ** NielsenActiveWatermarkProcessType
+    NielsenActiveWatermarkProcessType (..),
+
+    -- ** H264Telecine
+    H264Telecine (..),
+
+    -- ** Mpeg2QualityTuningLevel
+    Mpeg2QualityTuningLevel (..),
+
+    -- ** AudioTypeControl
+    AudioTypeControl (..),
+
+    -- ** DashIsoEncryptionSettings
+    DashIsoEncryptionSettings (..),
+    mkDashIsoEncryptionSettings,
+    diesPlaybackDeviceCompatibility,
+    diesSpekeKeyProvider,
+
+    -- ** Mpeg2InterlaceMode
+    Mpeg2InterlaceMode (..),
+
+    -- ** H265GopSizeUnits
+    H265GopSizeUnits (..),
+
+    -- ** ColorSpace
+    ColorSpace (..),
+
+    -- ** M2tsSegmentationStyle
+    M2tsSegmentationStyle (..),
+
+    -- ** DashIsoGroupSettings
+    DashIsoGroupSettings (..),
+    mkDashIsoGroupSettings,
+    digsAdditionalManifests,
+    digsBaseUrl,
+    digsDestination,
+    digsDestinationSettings,
+    digsEncryption,
+    digsFragmentLength,
+    digsHbbtvCompliance,
+    digsMinBufferTime,
+    digsMinFinalSegmentLength,
+    digsMpdProfile,
+    digsSegmentControl,
+    digsSegmentLength,
+    digsWriteSegmentTimelineInRepresentation,
+
+    -- ** OutputGroupDetail
+    OutputGroupDetail (..),
+    mkOutputGroupDetail,
+    ogdOutputDetails,
+
+    -- ** S3DestinationSettings
+    S3DestinationSettings (..),
+    mkS3DestinationSettings,
+    sdsAccessControl,
+    sdsEncryption,
+
+    -- ** AudioNormalizationLoudnessLogging
+    AudioNormalizationLoudnessLogging (..),
+
+    -- ** Rectangle
+    Rectangle (..),
+    mkRectangle,
+    rHeight,
+    rWidth,
+    rX,
+    rY,
+
+    -- ** Eac3PassthroughControl
+    Eac3PassthroughControl (..),
+
+    -- ** M2tsRateMode
+    M2tsRateMode (..),
+
+    -- ** MsSmoothAudioDeduplication
+    MsSmoothAudioDeduplication (..),
+
+    -- ** MpdAccessibilityCaptionHints
+    MpdAccessibilityCaptionHints (..),
+
+    -- ** MotionImageInsertionFramerate
+    MotionImageInsertionFramerate (..),
+    mkMotionImageInsertionFramerate,
+    miifFramerateDenominator,
+    miifFramerateNumerator,
+
+    -- ** DvbTdtSettings
+    DvbTdtSettings (..),
+    mkDvbTdtSettings,
+    dtsTdtInterval,
+
+    -- ** S3ServerSideEncryptionType
+    S3ServerSideEncryptionType (..),
+
+    -- ** Eac3SurroundMode
+    Eac3SurroundMode (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

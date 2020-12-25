@@ -17,102 +17,97 @@ module Network.AWS.AppStream.Types.UserStackAssociation
     mkUserStackAssociation,
 
     -- * Lenses
-    usaUserName,
-    usaSendEmailNotification,
-    usaAuthenticationType,
     usaStackName,
+    usaUserName,
+    usaAuthenticationType,
+    usaSendEmailNotification,
   )
 where
 
-import Network.AWS.AppStream.Types.AuthenticationType
+import qualified Network.AWS.AppStream.Types.AuthenticationType as Types
+import qualified Network.AWS.AppStream.Types.String as Types
+import qualified Network.AWS.AppStream.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a user in the user pool and the associated stack.
 --
 -- /See:/ 'mkUserStackAssociation' smart constructor.
 data UserStackAssociation = UserStackAssociation'
-  { -- | The email address of the user who is associated with the stack.
-    userName :: Lude.Sensitive Lude.Text,
-    -- | Specifies whether a welcome email is sent to a user after the user is created in the user pool.
-    sendEmailNotification :: Lude.Maybe Lude.Bool,
+  { -- | The name of the stack that is associated with the user.
+    stackName :: Types.String,
+    -- | The email address of the user who is associated with the stack.
+    userName :: Types.UserName,
     -- | The authentication type for the user.
-    authenticationType :: AuthenticationType,
-    -- | The name of the stack that is associated with the user.
-    stackName :: Lude.Text
+    authenticationType :: Types.AuthenticationType,
+    -- | Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+    sendEmailNotification :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserStackAssociation' with the minimum fields required to make a request.
---
--- * 'userName' - The email address of the user who is associated with the stack.
--- * 'sendEmailNotification' - Specifies whether a welcome email is sent to a user after the user is created in the user pool.
--- * 'authenticationType' - The authentication type for the user.
--- * 'stackName' - The name of the stack that is associated with the user.
+-- | Creates a 'UserStackAssociation' value with any optional fields omitted.
 mkUserStackAssociation ::
-  -- | 'userName'
-  Lude.Sensitive Lude.Text ->
-  -- | 'authenticationType'
-  AuthenticationType ->
   -- | 'stackName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'userName'
+  Types.UserName ->
+  -- | 'authenticationType'
+  Types.AuthenticationType ->
   UserStackAssociation
-mkUserStackAssociation pUserName_ pAuthenticationType_ pStackName_ =
+mkUserStackAssociation stackName userName authenticationType =
   UserStackAssociation'
-    { userName = pUserName_,
-      sendEmailNotification = Lude.Nothing,
-      authenticationType = pAuthenticationType_,
-      stackName = pStackName_
+    { stackName,
+      userName,
+      authenticationType,
+      sendEmailNotification = Core.Nothing
     }
-
--- | The email address of the user who is associated with the stack.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaUserName :: Lens.Lens' UserStackAssociation (Lude.Sensitive Lude.Text)
-usaUserName = Lens.lens (userName :: UserStackAssociation -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: UserStackAssociation)
-{-# DEPRECATED usaUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | Specifies whether a welcome email is sent to a user after the user is created in the user pool.
---
--- /Note:/ Consider using 'sendEmailNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaSendEmailNotification :: Lens.Lens' UserStackAssociation (Lude.Maybe Lude.Bool)
-usaSendEmailNotification = Lens.lens (sendEmailNotification :: UserStackAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {sendEmailNotification = a} :: UserStackAssociation)
-{-# DEPRECATED usaSendEmailNotification "Use generic-lens or generic-optics with 'sendEmailNotification' instead." #-}
-
--- | The authentication type for the user.
---
--- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaAuthenticationType :: Lens.Lens' UserStackAssociation AuthenticationType
-usaAuthenticationType = Lens.lens (authenticationType :: UserStackAssociation -> AuthenticationType) (\s a -> s {authenticationType = a} :: UserStackAssociation)
-{-# DEPRECATED usaAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
 -- | The name of the stack that is associated with the user.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaStackName :: Lens.Lens' UserStackAssociation Lude.Text
-usaStackName = Lens.lens (stackName :: UserStackAssociation -> Lude.Text) (\s a -> s {stackName = a} :: UserStackAssociation)
+usaStackName :: Lens.Lens' UserStackAssociation Types.String
+usaStackName = Lens.field @"stackName"
 {-# DEPRECATED usaStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.FromJSON UserStackAssociation where
-  parseJSON =
-    Lude.withObject
-      "UserStackAssociation"
-      ( \x ->
-          UserStackAssociation'
-            Lude.<$> (x Lude..: "UserName")
-            Lude.<*> (x Lude..:? "SendEmailNotification")
-            Lude.<*> (x Lude..: "AuthenticationType")
-            Lude.<*> (x Lude..: "StackName")
-      )
+-- | The email address of the user who is associated with the stack.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaUserName :: Lens.Lens' UserStackAssociation Types.UserName
+usaUserName = Lens.field @"userName"
+{-# DEPRECATED usaUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.ToJSON UserStackAssociation where
-  toJSON UserStackAssociation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserName" Lude..= userName),
-            ("SendEmailNotification" Lude..=) Lude.<$> sendEmailNotification,
-            Lude.Just ("AuthenticationType" Lude..= authenticationType),
-            Lude.Just ("StackName" Lude..= stackName)
+-- | The authentication type for the user.
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaAuthenticationType :: Lens.Lens' UserStackAssociation Types.AuthenticationType
+usaAuthenticationType = Lens.field @"authenticationType"
+{-# DEPRECATED usaAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
+
+-- | Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+--
+-- /Note:/ Consider using 'sendEmailNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaSendEmailNotification :: Lens.Lens' UserStackAssociation (Core.Maybe Core.Bool)
+usaSendEmailNotification = Lens.field @"sendEmailNotification"
+{-# DEPRECATED usaSendEmailNotification "Use generic-lens or generic-optics with 'sendEmailNotification' instead." #-}
+
+instance Core.FromJSON UserStackAssociation where
+  toJSON UserStackAssociation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StackName" Core..= stackName),
+            Core.Just ("UserName" Core..= userName),
+            Core.Just ("AuthenticationType" Core..= authenticationType),
+            ("SendEmailNotification" Core..=) Core.<$> sendEmailNotification
           ]
       )
+
+instance Core.FromJSON UserStackAssociation where
+  parseJSON =
+    Core.withObject "UserStackAssociation" Core.$
+      \x ->
+        UserStackAssociation'
+          Core.<$> (x Core..: "StackName")
+          Core.<*> (x Core..: "UserName")
+          Core.<*> (x Core..: "AuthenticationType")
+          Core.<*> (x Core..:? "SendEmailNotification")

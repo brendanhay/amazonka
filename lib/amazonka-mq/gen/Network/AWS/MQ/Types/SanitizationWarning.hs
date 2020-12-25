@@ -17,72 +17,66 @@ module Network.AWS.MQ.Types.SanitizationWarning
     mkSanitizationWarning,
 
     -- * Lenses
-    swReason,
     swAttributeName,
     swElementName,
+    swReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.SanitizationWarningReason
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MQ.Types.SanitizationWarningReason as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about the XML element or attribute that was sanitized in the configuration.
 --
 -- /See:/ 'mkSanitizationWarning' smart constructor.
 data SanitizationWarning = SanitizationWarning'
-  { -- | Required. The reason for which the XML elements or attributes were sanitized.
-    reason :: Lude.Maybe SanitizationWarningReason,
-    -- | The name of the XML attribute that has been sanitized.
-    attributeName :: Lude.Maybe Lude.Text,
+  { -- | The name of the XML attribute that has been sanitized.
+    attributeName :: Core.Maybe Core.Text,
     -- | The name of the XML element that has been sanitized.
-    elementName :: Lude.Maybe Lude.Text
+    elementName :: Core.Maybe Core.Text,
+    -- | Required. The reason for which the XML elements or attributes were sanitized.
+    reason :: Core.Maybe Types.SanitizationWarningReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SanitizationWarning' with the minimum fields required to make a request.
---
--- * 'reason' - Required. The reason for which the XML elements or attributes were sanitized.
--- * 'attributeName' - The name of the XML attribute that has been sanitized.
--- * 'elementName' - The name of the XML element that has been sanitized.
+-- | Creates a 'SanitizationWarning' value with any optional fields omitted.
 mkSanitizationWarning ::
   SanitizationWarning
 mkSanitizationWarning =
   SanitizationWarning'
-    { reason = Lude.Nothing,
-      attributeName = Lude.Nothing,
-      elementName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      elementName = Core.Nothing,
+      reason = Core.Nothing
     }
-
--- | Required. The reason for which the XML elements or attributes were sanitized.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swReason :: Lens.Lens' SanitizationWarning (Lude.Maybe SanitizationWarningReason)
-swReason = Lens.lens (reason :: SanitizationWarning -> Lude.Maybe SanitizationWarningReason) (\s a -> s {reason = a} :: SanitizationWarning)
-{-# DEPRECATED swReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The name of the XML attribute that has been sanitized.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swAttributeName :: Lens.Lens' SanitizationWarning (Lude.Maybe Lude.Text)
-swAttributeName = Lens.lens (attributeName :: SanitizationWarning -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: SanitizationWarning)
+swAttributeName :: Lens.Lens' SanitizationWarning (Core.Maybe Core.Text)
+swAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED swAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The name of the XML element that has been sanitized.
 --
 -- /Note:/ Consider using 'elementName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swElementName :: Lens.Lens' SanitizationWarning (Lude.Maybe Lude.Text)
-swElementName = Lens.lens (elementName :: SanitizationWarning -> Lude.Maybe Lude.Text) (\s a -> s {elementName = a} :: SanitizationWarning)
+swElementName :: Lens.Lens' SanitizationWarning (Core.Maybe Core.Text)
+swElementName = Lens.field @"elementName"
 {-# DEPRECATED swElementName "Use generic-lens or generic-optics with 'elementName' instead." #-}
 
-instance Lude.FromJSON SanitizationWarning where
+-- | Required. The reason for which the XML elements or attributes were sanitized.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swReason :: Lens.Lens' SanitizationWarning (Core.Maybe Types.SanitizationWarningReason)
+swReason = Lens.field @"reason"
+{-# DEPRECATED swReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON SanitizationWarning where
   parseJSON =
-    Lude.withObject
-      "SanitizationWarning"
-      ( \x ->
-          SanitizationWarning'
-            Lude.<$> (x Lude..:? "reason")
-            Lude.<*> (x Lude..:? "attributeName")
-            Lude.<*> (x Lude..:? "elementName")
-      )
+    Core.withObject "SanitizationWarning" Core.$
+      \x ->
+        SanitizationWarning'
+          Core.<$> (x Core..:? "attributeName")
+          Core.<*> (x Core..:? "elementName")
+          Core.<*> (x Core..:? "reason")

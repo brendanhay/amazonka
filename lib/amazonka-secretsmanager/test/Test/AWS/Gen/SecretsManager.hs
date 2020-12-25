@@ -270,7 +270,7 @@ responseValidateResourcePolicy =
   res
     "ValidateResourcePolicyResponse"
     "fixture/ValidateResourcePolicyResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy ValidateResourcePolicy)
 
 responseDeleteSecret :: DeleteSecretResponse -> TestTree
@@ -278,7 +278,7 @@ responseDeleteSecret =
   res
     "DeleteSecretResponse"
     "fixture/DeleteSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSecret)
 
 responseListSecrets :: ListSecretsResponse -> TestTree
@@ -286,7 +286,7 @@ responseListSecrets =
   res
     "ListSecretsResponse"
     "fixture/ListSecretsResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy ListSecrets)
 
 responseUpdateSecret :: UpdateSecretResponse -> TestTree
@@ -294,7 +294,7 @@ responseUpdateSecret =
   res
     "UpdateSecretResponse"
     "fixture/UpdateSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSecret)
 
 responseRotateSecret :: RotateSecretResponse -> TestTree
@@ -302,7 +302,7 @@ responseRotateSecret =
   res
     "RotateSecretResponse"
     "fixture/RotateSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy RotateSecret)
 
 responseCreateSecret :: CreateSecretResponse -> TestTree
@@ -310,7 +310,7 @@ responseCreateSecret =
   res
     "CreateSecretResponse"
     "fixture/CreateSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy CreateSecret)
 
 responseGetSecretValue :: GetSecretValueResponse -> TestTree
@@ -318,7 +318,7 @@ responseGetSecretValue =
   res
     "GetSecretValueResponse"
     "fixture/GetSecretValueResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy GetSecretValue)
 
 responseDescribeSecret :: DescribeSecretResponse -> TestTree
@@ -326,7 +326,7 @@ responseDescribeSecret =
   res
     "DescribeSecretResponse"
     "fixture/DescribeSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSecret)
 
 responseRestoreSecret :: RestoreSecretResponse -> TestTree
@@ -334,7 +334,7 @@ responseRestoreSecret =
   res
     "RestoreSecretResponse"
     "fixture/RestoreSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy RestoreSecret)
 
 responseCancelRotateSecret :: CancelRotateSecretResponse -> TestTree
@@ -342,7 +342,7 @@ responseCancelRotateSecret =
   res
     "CancelRotateSecretResponse"
     "fixture/CancelRotateSecretResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy CancelRotateSecret)
 
 responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
@@ -350,7 +350,7 @@ responseGetResourcePolicy =
   res
     "GetResourcePolicyResponse"
     "fixture/GetResourcePolicyResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy GetResourcePolicy)
 
 responsePutSecretValue :: PutSecretValueResponse -> TestTree
@@ -358,7 +358,7 @@ responsePutSecretValue =
   res
     "PutSecretValueResponse"
     "fixture/PutSecretValueResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy PutSecretValue)
 
 responseGetRandomPassword :: GetRandomPasswordResponse -> TestTree
@@ -366,7 +366,7 @@ responseGetRandomPassword =
   res
     "GetRandomPasswordResponse"
     "fixture/GetRandomPasswordResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy GetRandomPassword)
 
 responseListSecretVersionIds :: ListSecretVersionIdsResponse -> TestTree
@@ -374,7 +374,7 @@ responseListSecretVersionIds =
   res
     "ListSecretVersionIdsResponse"
     "fixture/ListSecretVersionIdsResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy ListSecretVersionIds)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -382,7 +382,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
@@ -390,7 +390,7 @@ responsePutResourcePolicy =
   res
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
@@ -398,7 +398,7 @@ responseDeleteResourcePolicy =
   res
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResourcePolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -406,7 +406,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseUpdateSecretVersionStage :: UpdateSecretVersionStageResponse -> TestTree
@@ -414,5 +414,5 @@ responseUpdateSecretVersionStage =
   res
     "UpdateSecretVersionStageResponse"
     "fixture/UpdateSecretVersionStageResponse.proto"
-    secretsManagerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSecretVersionStage)

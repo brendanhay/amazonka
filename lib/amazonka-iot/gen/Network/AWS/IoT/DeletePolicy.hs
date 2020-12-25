@@ -32,60 +32,56 @@ module Network.AWS.IoT.DeletePolicy
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeletePolicy operation.
 --
 -- /See:/ 'mkDeletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
   { -- | The name of the policy to delete.
-    policyName :: Lude.Text
+    policyName :: Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the policy to delete.
+-- | Creates a 'DeletePolicy' value with any optional fields omitted.
 mkDeletePolicy ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   DeletePolicy
-mkDeletePolicy pPolicyName_ =
-  DeletePolicy' {policyName = pPolicyName_}
+mkDeletePolicy policyName = DeletePolicy' {policyName}
 
 -- | The name of the policy to delete.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpPolicyName :: Lens.Lens' DeletePolicy Lude.Text
-dpPolicyName = Lens.lens (policyName :: DeletePolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeletePolicy)
+dpPolicyName :: Lens.Lens' DeletePolicy Types.PolicyName
+dpPolicyName = Lens.field @"policyName"
 {-# DEPRECATED dpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance Lude.AWSRequest DeletePolicy where
+instance Core.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
-  request = Req.delete ioTService
-  response = Res.receiveNull DeletePolicyResponse'
-
-instance Lude.ToHeaders DeletePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePolicy where
-  toPath DeletePolicy' {..} =
-    Lude.mconcat ["/policies/", Lude.toBS policyName]
-
-instance Lude.ToQuery DeletePolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/policies/" Core.<> (Core.toText policyName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeletePolicyResponse'
 
 -- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePolicyResponse' value with any optional fields omitted.
 mkDeletePolicyResponse ::
   DeletePolicyResponse
 mkDeletePolicyResponse = DeletePolicyResponse'

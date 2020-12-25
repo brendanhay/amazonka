@@ -17,71 +17,69 @@ module Network.AWS.SSM.Types.FailureDetails
     mkFailureDetails,
 
     -- * Lenses
-    fdFailureType,
-    fdFailureStage,
     fdDetails,
+    fdFailureStage,
+    fdFailureType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AutomationParameterKey as Types
+import qualified Network.AWS.SSM.Types.AutomationParameterValue as Types
+import qualified Network.AWS.SSM.Types.FailureStage as Types
+import qualified Network.AWS.SSM.Types.FailureType as Types
 
 -- | Information about an Automation failure.
 --
 -- /See:/ 'mkFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { -- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
-    failureType :: Lude.Maybe Lude.Text,
+  { -- | Detailed information about the Automation step failure.
+    details :: Core.Maybe (Core.HashMap Types.AutomationParameterKey [Types.AutomationParameterValue]),
     -- | The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
-    failureStage :: Lude.Maybe Lude.Text,
-    -- | Detailed information about the Automation step failure.
-    details :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
+    failureStage :: Core.Maybe Types.FailureStage,
+    -- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+    failureType :: Core.Maybe Types.FailureType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
---
--- * 'failureType' - The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
--- * 'failureStage' - The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
--- * 'details' - Detailed information about the Automation step failure.
+-- | Creates a 'FailureDetails' value with any optional fields omitted.
 mkFailureDetails ::
   FailureDetails
 mkFailureDetails =
   FailureDetails'
-    { failureType = Lude.Nothing,
-      failureStage = Lude.Nothing,
-      details = Lude.Nothing
+    { details = Core.Nothing,
+      failureStage = Core.Nothing,
+      failureType = Core.Nothing
     }
-
--- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
---
--- /Note:/ Consider using 'failureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdFailureType :: Lens.Lens' FailureDetails (Lude.Maybe Lude.Text)
-fdFailureType = Lens.lens (failureType :: FailureDetails -> Lude.Maybe Lude.Text) (\s a -> s {failureType = a} :: FailureDetails)
-{-# DEPRECATED fdFailureType "Use generic-lens or generic-optics with 'failureType' instead." #-}
-
--- | The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
---
--- /Note:/ Consider using 'failureStage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdFailureStage :: Lens.Lens' FailureDetails (Lude.Maybe Lude.Text)
-fdFailureStage = Lens.lens (failureStage :: FailureDetails -> Lude.Maybe Lude.Text) (\s a -> s {failureStage = a} :: FailureDetails)
-{-# DEPRECATED fdFailureStage "Use generic-lens or generic-optics with 'failureStage' instead." #-}
 
 -- | Detailed information about the Automation step failure.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdDetails :: Lens.Lens' FailureDetails (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-fdDetails = Lens.lens (details :: FailureDetails -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {details = a} :: FailureDetails)
+fdDetails :: Lens.Lens' FailureDetails (Core.Maybe (Core.HashMap Types.AutomationParameterKey [Types.AutomationParameterValue]))
+fdDetails = Lens.field @"details"
 {-# DEPRECATED fdDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.FromJSON FailureDetails where
+-- | The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
+--
+-- /Note:/ Consider using 'failureStage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdFailureStage :: Lens.Lens' FailureDetails (Core.Maybe Types.FailureStage)
+fdFailureStage = Lens.field @"failureStage"
+{-# DEPRECATED fdFailureStage "Use generic-lens or generic-optics with 'failureStage' instead." #-}
+
+-- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+--
+-- /Note:/ Consider using 'failureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdFailureType :: Lens.Lens' FailureDetails (Core.Maybe Types.FailureType)
+fdFailureType = Lens.field @"failureType"
+{-# DEPRECATED fdFailureType "Use generic-lens or generic-optics with 'failureType' instead." #-}
+
+instance Core.FromJSON FailureDetails where
   parseJSON =
-    Lude.withObject
-      "FailureDetails"
-      ( \x ->
-          FailureDetails'
-            Lude.<$> (x Lude..:? "FailureType")
-            Lude.<*> (x Lude..:? "FailureStage")
-            Lude.<*> (x Lude..:? "Details" Lude..!= Lude.mempty)
-      )
+    Core.withObject "FailureDetails" Core.$
+      \x ->
+        FailureDetails'
+          Core.<$> (x Core..:? "Details")
+          Core.<*> (x Core..:? "FailureStage")
+          Core.<*> (x Core..:? "FailureType")

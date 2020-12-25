@@ -17,133 +17,123 @@ module Network.AWS.Polly.Types.Voice
     mkVoice,
 
     -- * Lenses
+    vAdditionalLanguageCodes,
+    vGender,
+    vId,
     vLanguageCode,
     vLanguageName,
-    vGender,
     vName,
-    vId,
-    vAdditionalLanguageCodes,
     vSupportedEngines,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types.Engine
-import Network.AWS.Polly.Types.Gender
-import Network.AWS.Polly.Types.LanguageCode
-import Network.AWS.Polly.Types.VoiceId
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Polly.Types.Engine as Types
+import qualified Network.AWS.Polly.Types.Gender as Types
+import qualified Network.AWS.Polly.Types.LanguageCode as Types
+import qualified Network.AWS.Polly.Types.LanguageName as Types
+import qualified Network.AWS.Polly.Types.Name as Types
+import qualified Network.AWS.Polly.Types.VoiceId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Description of the voice.
 --
 -- /See:/ 'mkVoice' smart constructor.
 data Voice = Voice'
-  { -- | Language code of the voice.
-    languageCode :: Lude.Maybe LanguageCode,
-    -- | Human readable name of the language in English.
-    languageName :: Lude.Maybe Lude.Text,
-    -- | Gender of the voice.
-    gender :: Lude.Maybe Gender,
-    -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
-    name :: Lude.Maybe Lude.Text,
-    -- | Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
-    id :: Lude.Maybe VoiceId,
-    -- | Additional codes for languages available for the specified voice in addition to its default language.
+  { -- | Additional codes for languages available for the specified voice in addition to its default language.
     --
     -- For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
-    additionalLanguageCodes :: Lude.Maybe [LanguageCode],
+    additionalLanguageCodes :: Core.Maybe [Types.LanguageCode],
+    -- | Gender of the voice.
+    gender :: Core.Maybe Types.Gender,
+    -- | Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
+    id :: Core.Maybe Types.VoiceId,
+    -- | Language code of the voice.
+    languageCode :: Core.Maybe Types.LanguageCode,
+    -- | Human readable name of the language in English.
+    languageName :: Core.Maybe Types.LanguageName,
+    -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
+    name :: Core.Maybe Types.Name,
     -- | Specifies which engines (@standard@ or @neural@ ) that are supported by a given voice.
-    supportedEngines :: Lude.Maybe [Engine]
+    supportedEngines :: Core.Maybe [Types.Engine]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Voice' with the minimum fields required to make a request.
---
--- * 'languageCode' - Language code of the voice.
--- * 'languageName' - Human readable name of the language in English.
--- * 'gender' - Gender of the voice.
--- * 'name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
--- * 'id' - Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
--- * 'additionalLanguageCodes' - Additional codes for languages available for the specified voice in addition to its default language.
---
--- For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
--- * 'supportedEngines' - Specifies which engines (@standard@ or @neural@ ) that are supported by a given voice.
+-- | Creates a 'Voice' value with any optional fields omitted.
 mkVoice ::
   Voice
 mkVoice =
   Voice'
-    { languageCode = Lude.Nothing,
-      languageName = Lude.Nothing,
-      gender = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      additionalLanguageCodes = Lude.Nothing,
-      supportedEngines = Lude.Nothing
+    { additionalLanguageCodes = Core.Nothing,
+      gender = Core.Nothing,
+      id = Core.Nothing,
+      languageCode = Core.Nothing,
+      languageName = Core.Nothing,
+      name = Core.Nothing,
+      supportedEngines = Core.Nothing
     }
-
--- | Language code of the voice.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vLanguageCode :: Lens.Lens' Voice (Lude.Maybe LanguageCode)
-vLanguageCode = Lens.lens (languageCode :: Voice -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: Voice)
-{-# DEPRECATED vLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | Human readable name of the language in English.
---
--- /Note:/ Consider using 'languageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vLanguageName :: Lens.Lens' Voice (Lude.Maybe Lude.Text)
-vLanguageName = Lens.lens (languageName :: Voice -> Lude.Maybe Lude.Text) (\s a -> s {languageName = a} :: Voice)
-{-# DEPRECATED vLanguageName "Use generic-lens or generic-optics with 'languageName' instead." #-}
-
--- | Gender of the voice.
---
--- /Note:/ Consider using 'gender' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vGender :: Lens.Lens' Voice (Lude.Maybe Gender)
-vGender = Lens.lens (gender :: Voice -> Lude.Maybe Gender) (\s a -> s {gender = a} :: Voice)
-{-# DEPRECATED vGender "Use generic-lens or generic-optics with 'gender' instead." #-}
-
--- | Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vName :: Lens.Lens' Voice (Lude.Maybe Lude.Text)
-vName = Lens.lens (name :: Voice -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Voice)
-{-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vId :: Lens.Lens' Voice (Lude.Maybe VoiceId)
-vId = Lens.lens (id :: Voice -> Lude.Maybe VoiceId) (\s a -> s {id = a} :: Voice)
-{-# DEPRECATED vId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Additional codes for languages available for the specified voice in addition to its default language.
 --
 -- For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
 --
 -- /Note:/ Consider using 'additionalLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vAdditionalLanguageCodes :: Lens.Lens' Voice (Lude.Maybe [LanguageCode])
-vAdditionalLanguageCodes = Lens.lens (additionalLanguageCodes :: Voice -> Lude.Maybe [LanguageCode]) (\s a -> s {additionalLanguageCodes = a} :: Voice)
+vAdditionalLanguageCodes :: Lens.Lens' Voice (Core.Maybe [Types.LanguageCode])
+vAdditionalLanguageCodes = Lens.field @"additionalLanguageCodes"
 {-# DEPRECATED vAdditionalLanguageCodes "Use generic-lens or generic-optics with 'additionalLanguageCodes' instead." #-}
+
+-- | Gender of the voice.
+--
+-- /Note:/ Consider using 'gender' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vGender :: Lens.Lens' Voice (Core.Maybe Types.Gender)
+vGender = Lens.field @"gender"
+{-# DEPRECATED vGender "Use generic-lens or generic-optics with 'gender' instead." #-}
+
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vId :: Lens.Lens' Voice (Core.Maybe Types.VoiceId)
+vId = Lens.field @"id"
+{-# DEPRECATED vId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Language code of the voice.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vLanguageCode :: Lens.Lens' Voice (Core.Maybe Types.LanguageCode)
+vLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED vLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | Human readable name of the language in English.
+--
+-- /Note:/ Consider using 'languageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vLanguageName :: Lens.Lens' Voice (Core.Maybe Types.LanguageName)
+vLanguageName = Lens.field @"languageName"
+{-# DEPRECATED vLanguageName "Use generic-lens or generic-optics with 'languageName' instead." #-}
+
+-- | Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vName :: Lens.Lens' Voice (Core.Maybe Types.Name)
+vName = Lens.field @"name"
+{-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specifies which engines (@standard@ or @neural@ ) that are supported by a given voice.
 --
 -- /Note:/ Consider using 'supportedEngines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vSupportedEngines :: Lens.Lens' Voice (Lude.Maybe [Engine])
-vSupportedEngines = Lens.lens (supportedEngines :: Voice -> Lude.Maybe [Engine]) (\s a -> s {supportedEngines = a} :: Voice)
+vSupportedEngines :: Lens.Lens' Voice (Core.Maybe [Types.Engine])
+vSupportedEngines = Lens.field @"supportedEngines"
 {-# DEPRECATED vSupportedEngines "Use generic-lens or generic-optics with 'supportedEngines' instead." #-}
 
-instance Lude.FromJSON Voice where
+instance Core.FromJSON Voice where
   parseJSON =
-    Lude.withObject
-      "Voice"
-      ( \x ->
-          Voice'
-            Lude.<$> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "LanguageName")
-            Lude.<*> (x Lude..:? "Gender")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "AdditionalLanguageCodes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SupportedEngines" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Voice" Core.$
+      \x ->
+        Voice'
+          Core.<$> (x Core..:? "AdditionalLanguageCodes")
+          Core.<*> (x Core..:? "Gender")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "LanguageName")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "SupportedEngines")

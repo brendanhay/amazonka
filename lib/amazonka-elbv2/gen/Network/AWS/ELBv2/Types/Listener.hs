@@ -17,141 +17,130 @@ module Network.AWS.ELBv2.Types.Listener
     mkListener,
 
     -- * Lenses
-    lSSLPolicy,
-    lListenerARN,
-    lProtocol,
-    lDefaultActions,
-    lCertificates,
-    lLoadBalancerARN,
     lAlpnPolicy,
+    lCertificates,
+    lDefaultActions,
+    lListenerArn,
+    lLoadBalancerArn,
     lPort,
+    lProtocol,
+    lSslPolicy,
   )
 where
 
-import Network.AWS.ELBv2.Types.Action
-import Network.AWS.ELBv2.Types.Certificate
-import Network.AWS.ELBv2.Types.ProtocolEnum
+import qualified Network.AWS.ELBv2.Types.Action as Types
+import qualified Network.AWS.ELBv2.Types.AlpnPolicyValue as Types
+import qualified Network.AWS.ELBv2.Types.Certificate as Types
+import qualified Network.AWS.ELBv2.Types.ListenerArn as Types
+import qualified Network.AWS.ELBv2.Types.LoadBalancerArn as Types
+import qualified Network.AWS.ELBv2.Types.ProtocolEnum as Types
+import qualified Network.AWS.ELBv2.Types.SslPolicyName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a listener.
 --
 -- /See:/ 'mkListener' smart constructor.
 data Listener = Listener'
-  { -- | [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
-    sslPolicy :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the listener.
-    listenerARN :: Lude.Maybe Lude.Text,
-    -- | The protocol for connections from clients to the load balancer.
-    protocol :: Lude.Maybe ProtocolEnum,
-    -- | The default actions for the listener.
-    defaultActions :: Lude.Maybe [Action],
+  { -- | [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+    alpnPolicy :: Core.Maybe [Types.AlpnPolicyValue],
     -- | [HTTPS or TLS listener] The default certificate for the listener.
-    certificates :: Lude.Maybe [Certificate],
+    certificates :: Core.Maybe [Types.Certificate],
+    -- | The default actions for the listener.
+    defaultActions :: Core.Maybe [Types.Action],
+    -- | The Amazon Resource Name (ARN) of the listener.
+    listenerArn :: Core.Maybe Types.ListenerArn,
     -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerARN :: Lude.Maybe Lude.Text,
-    -- | [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-    alpnPolicy :: Lude.Maybe [Lude.Text],
+    loadBalancerArn :: Core.Maybe Types.LoadBalancerArn,
     -- | The port on which the load balancer is listening.
-    port :: Lude.Maybe Lude.Natural
+    port :: Core.Maybe Core.Natural,
+    -- | The protocol for connections from clients to the load balancer.
+    protocol :: Core.Maybe Types.ProtocolEnum,
+    -- | [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
+    sslPolicy :: Core.Maybe Types.SslPolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Listener' with the minimum fields required to make a request.
---
--- * 'sslPolicy' - [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
--- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
--- * 'protocol' - The protocol for connections from clients to the load balancer.
--- * 'defaultActions' - The default actions for the listener.
--- * 'certificates' - [HTTPS or TLS listener] The default certificate for the listener.
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
--- * 'alpnPolicy' - [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
--- * 'port' - The port on which the load balancer is listening.
+-- | Creates a 'Listener' value with any optional fields omitted.
 mkListener ::
   Listener
 mkListener =
   Listener'
-    { sslPolicy = Lude.Nothing,
-      listenerARN = Lude.Nothing,
-      protocol = Lude.Nothing,
-      defaultActions = Lude.Nothing,
-      certificates = Lude.Nothing,
-      loadBalancerARN = Lude.Nothing,
-      alpnPolicy = Lude.Nothing,
-      port = Lude.Nothing
+    { alpnPolicy = Core.Nothing,
+      certificates = Core.Nothing,
+      defaultActions = Core.Nothing,
+      listenerArn = Core.Nothing,
+      loadBalancerArn = Core.Nothing,
+      port = Core.Nothing,
+      protocol = Core.Nothing,
+      sslPolicy = Core.Nothing
     }
-
--- | [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
---
--- /Note:/ Consider using 'sslPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lSSLPolicy :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
-lSSLPolicy = Lens.lens (sslPolicy :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {sslPolicy = a} :: Listener)
-{-# DEPRECATED lSSLPolicy "Use generic-lens or generic-optics with 'sslPolicy' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the listener.
---
--- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lListenerARN :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
-lListenerARN = Lens.lens (listenerARN :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {listenerARN = a} :: Listener)
-{-# DEPRECATED lListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
-
--- | The protocol for connections from clients to the load balancer.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lProtocol :: Lens.Lens' Listener (Lude.Maybe ProtocolEnum)
-lProtocol = Lens.lens (protocol :: Listener -> Lude.Maybe ProtocolEnum) (\s a -> s {protocol = a} :: Listener)
-{-# DEPRECATED lProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
-
--- | The default actions for the listener.
---
--- /Note:/ Consider using 'defaultActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lDefaultActions :: Lens.Lens' Listener (Lude.Maybe [Action])
-lDefaultActions = Lens.lens (defaultActions :: Listener -> Lude.Maybe [Action]) (\s a -> s {defaultActions = a} :: Listener)
-{-# DEPRECATED lDefaultActions "Use generic-lens or generic-optics with 'defaultActions' instead." #-}
-
--- | [HTTPS or TLS listener] The default certificate for the listener.
---
--- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lCertificates :: Lens.Lens' Listener (Lude.Maybe [Certificate])
-lCertificates = Lens.lens (certificates :: Listener -> Lude.Maybe [Certificate]) (\s a -> s {certificates = a} :: Listener)
-{-# DEPRECATED lCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLoadBalancerARN :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
-lLoadBalancerARN = Lens.lens (loadBalancerARN :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerARN = a} :: Listener)
-{-# DEPRECATED lLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
 
 -- | [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
 --
 -- /Note:/ Consider using 'alpnPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAlpnPolicy :: Lens.Lens' Listener (Lude.Maybe [Lude.Text])
-lAlpnPolicy = Lens.lens (alpnPolicy :: Listener -> Lude.Maybe [Lude.Text]) (\s a -> s {alpnPolicy = a} :: Listener)
+lAlpnPolicy :: Lens.Lens' Listener (Core.Maybe [Types.AlpnPolicyValue])
+lAlpnPolicy = Lens.field @"alpnPolicy"
 {-# DEPRECATED lAlpnPolicy "Use generic-lens or generic-optics with 'alpnPolicy' instead." #-}
+
+-- | [HTTPS or TLS listener] The default certificate for the listener.
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lCertificates :: Lens.Lens' Listener (Core.Maybe [Types.Certificate])
+lCertificates = Lens.field @"certificates"
+{-# DEPRECATED lCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
+
+-- | The default actions for the listener.
+--
+-- /Note:/ Consider using 'defaultActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lDefaultActions :: Lens.Lens' Listener (Core.Maybe [Types.Action])
+lDefaultActions = Lens.field @"defaultActions"
+{-# DEPRECATED lDefaultActions "Use generic-lens or generic-optics with 'defaultActions' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the listener.
+--
+-- /Note:/ Consider using 'listenerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lListenerArn :: Lens.Lens' Listener (Core.Maybe Types.ListenerArn)
+lListenerArn = Lens.field @"listenerArn"
+{-# DEPRECATED lListenerArn "Use generic-lens or generic-optics with 'listenerArn' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLoadBalancerArn :: Lens.Lens' Listener (Core.Maybe Types.LoadBalancerArn)
+lLoadBalancerArn = Lens.field @"loadBalancerArn"
+{-# DEPRECATED lLoadBalancerArn "Use generic-lens or generic-optics with 'loadBalancerArn' instead." #-}
 
 -- | The port on which the load balancer is listening.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lPort :: Lens.Lens' Listener (Lude.Maybe Lude.Natural)
-lPort = Lens.lens (port :: Listener -> Lude.Maybe Lude.Natural) (\s a -> s {port = a} :: Listener)
+lPort :: Lens.Lens' Listener (Core.Maybe Core.Natural)
+lPort = Lens.field @"port"
 {-# DEPRECATED lPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromXML Listener where
+-- | The protocol for connections from clients to the load balancer.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lProtocol :: Lens.Lens' Listener (Core.Maybe Types.ProtocolEnum)
+lProtocol = Lens.field @"protocol"
+{-# DEPRECATED lProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+-- | [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
+--
+-- /Note:/ Consider using 'sslPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lSslPolicy :: Lens.Lens' Listener (Core.Maybe Types.SslPolicyName)
+lSslPolicy = Lens.field @"sslPolicy"
+{-# DEPRECATED lSslPolicy "Use generic-lens or generic-optics with 'sslPolicy' instead." #-}
+
+instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Lude.<$> (x Lude..@? "SslPolicy")
-      Lude.<*> (x Lude..@? "ListenerArn")
-      Lude.<*> (x Lude..@? "Protocol")
-      Lude.<*> ( x Lude..@? "DefaultActions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> ( x Lude..@? "Certificates" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "LoadBalancerArn")
-      Lude.<*> ( x Lude..@? "AlpnPolicy" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "Port")
+      Core.<$> (x Core..@? "AlpnPolicy" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Certificates" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "DefaultActions" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "ListenerArn")
+      Core.<*> (x Core..@? "LoadBalancerArn")
+      Core.<*> (x Core..@? "Port")
+      Core.<*> (x Core..@? "Protocol")
+      Core.<*> (x Core..@? "SslPolicy")

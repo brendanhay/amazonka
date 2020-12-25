@@ -23,169 +23,152 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     mkUpdateDomainContactPrivacy,
 
     -- ** Request lenses
-    udcpTechPrivacy,
-    udcpRegistrantPrivacy,
-    udcpAdminPrivacy,
     udcpDomainName,
+    udcpAdminPrivacy,
+    udcpRegistrantPrivacy,
+    udcpTechPrivacy,
 
     -- * Destructuring the response
     UpdateDomainContactPrivacyResponse (..),
     mkUpdateDomainContactPrivacyResponse,
 
     -- ** Response lenses
-    udcprsOperationId,
-    udcprsResponseStatus,
+    udcprrsOperationId,
+    udcprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | The UpdateDomainContactPrivacy request includes the following elements.
 --
 -- /See:/ 'mkUpdateDomainContactPrivacy' smart constructor.
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-  { -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
-    techPrivacy :: Lude.Maybe Lude.Bool,
-    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
-    registrantPrivacy :: Lude.Maybe Lude.Bool,
+  { -- | The name of the domain that you want to update the privacy setting for.
+    domainName :: Types.DomainName,
     -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
-    adminPrivacy :: Lude.Maybe Lude.Bool,
-    -- | The name of the domain that you want to update the privacy setting for.
-    domainName :: Lude.Text
+    adminPrivacy :: Core.Maybe Core.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+    registrantPrivacy :: Core.Maybe Core.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+    techPrivacy :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDomainContactPrivacy' with the minimum fields required to make a request.
---
--- * 'techPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
--- * 'registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
--- * 'adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
--- * 'domainName' - The name of the domain that you want to update the privacy setting for.
+-- | Creates a 'UpdateDomainContactPrivacy' value with any optional fields omitted.
 mkUpdateDomainContactPrivacy ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   UpdateDomainContactPrivacy
-mkUpdateDomainContactPrivacy pDomainName_ =
+mkUpdateDomainContactPrivacy domainName =
   UpdateDomainContactPrivacy'
-    { techPrivacy = Lude.Nothing,
-      registrantPrivacy = Lude.Nothing,
-      adminPrivacy = Lude.Nothing,
-      domainName = pDomainName_
+    { domainName,
+      adminPrivacy = Core.Nothing,
+      registrantPrivacy = Core.Nothing,
+      techPrivacy = Core.Nothing
     }
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
---
--- /Note:/ Consider using 'techPrivacy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcpTechPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Lude.Maybe Lude.Bool)
-udcpTechPrivacy = Lens.lens (techPrivacy :: UpdateDomainContactPrivacy -> Lude.Maybe Lude.Bool) (\s a -> s {techPrivacy = a} :: UpdateDomainContactPrivacy)
-{-# DEPRECATED udcpTechPrivacy "Use generic-lens or generic-optics with 'techPrivacy' instead." #-}
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
---
--- /Note:/ Consider using 'registrantPrivacy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcpRegistrantPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Lude.Maybe Lude.Bool)
-udcpRegistrantPrivacy = Lens.lens (registrantPrivacy :: UpdateDomainContactPrivacy -> Lude.Maybe Lude.Bool) (\s a -> s {registrantPrivacy = a} :: UpdateDomainContactPrivacy)
-{-# DEPRECATED udcpRegistrantPrivacy "Use generic-lens or generic-optics with 'registrantPrivacy' instead." #-}
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
---
--- /Note:/ Consider using 'adminPrivacy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcpAdminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Lude.Maybe Lude.Bool)
-udcpAdminPrivacy = Lens.lens (adminPrivacy :: UpdateDomainContactPrivacy -> Lude.Maybe Lude.Bool) (\s a -> s {adminPrivacy = a} :: UpdateDomainContactPrivacy)
-{-# DEPRECATED udcpAdminPrivacy "Use generic-lens or generic-optics with 'adminPrivacy' instead." #-}
 
 -- | The name of the domain that you want to update the privacy setting for.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcpDomainName :: Lens.Lens' UpdateDomainContactPrivacy Lude.Text
-udcpDomainName = Lens.lens (domainName :: UpdateDomainContactPrivacy -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainContactPrivacy)
+udcpDomainName :: Lens.Lens' UpdateDomainContactPrivacy Types.DomainName
+udcpDomainName = Lens.field @"domainName"
 {-# DEPRECATED udcpDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest UpdateDomainContactPrivacy where
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+--
+-- /Note:/ Consider using 'adminPrivacy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcpAdminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Core.Maybe Core.Bool)
+udcpAdminPrivacy = Lens.field @"adminPrivacy"
+{-# DEPRECATED udcpAdminPrivacy "Use generic-lens or generic-optics with 'adminPrivacy' instead." #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+--
+-- /Note:/ Consider using 'registrantPrivacy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcpRegistrantPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Core.Maybe Core.Bool)
+udcpRegistrantPrivacy = Lens.field @"registrantPrivacy"
+{-# DEPRECATED udcpRegistrantPrivacy "Use generic-lens or generic-optics with 'registrantPrivacy' instead." #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+--
+-- /Note:/ Consider using 'techPrivacy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcpTechPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Core.Maybe Core.Bool)
+udcpTechPrivacy = Lens.field @"techPrivacy"
+{-# DEPRECATED udcpTechPrivacy "Use generic-lens or generic-optics with 'techPrivacy' instead." #-}
+
+instance Core.FromJSON UpdateDomainContactPrivacy where
+  toJSON UpdateDomainContactPrivacy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainName" Core..= domainName),
+            ("AdminPrivacy" Core..=) Core.<$> adminPrivacy,
+            ("RegistrantPrivacy" Core..=) Core.<$> registrantPrivacy,
+            ("TechPrivacy" Core..=) Core.<$> techPrivacy
+          ]
+      )
+
+instance Core.AWSRequest UpdateDomainContactPrivacy where
   type
     Rs UpdateDomainContactPrivacy =
       UpdateDomainContactPrivacyResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Route53Domains_v20140515.UpdateDomainContactPrivacy"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateDomainContactPrivacyResponse'
-            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDomainContactPrivacy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.UpdateDomainContactPrivacy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateDomainContactPrivacy where
-  toJSON UpdateDomainContactPrivacy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TechPrivacy" Lude..=) Lude.<$> techPrivacy,
-            ("RegistrantPrivacy" Lude..=) Lude.<$> registrantPrivacy,
-            ("AdminPrivacy" Lude..=) Lude.<$> adminPrivacy,
-            Lude.Just ("DomainName" Lude..= domainName)
-          ]
-      )
-
-instance Lude.ToPath UpdateDomainContactPrivacy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDomainContactPrivacy where
-  toQuery = Lude.const Lude.mempty
 
 -- | The UpdateDomainContactPrivacy response includes the following element.
 --
 -- /See:/ 'mkUpdateDomainContactPrivacyResponse' smart constructor.
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
   { -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
-    operationId :: Lude.Text,
+    operationId :: Types.OperationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDomainContactPrivacyResponse' with the minimum fields required to make a request.
---
--- * 'operationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDomainContactPrivacyResponse' value with any optional fields omitted.
 mkUpdateDomainContactPrivacyResponse ::
   -- | 'operationId'
-  Lude.Text ->
+  Types.OperationId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDomainContactPrivacyResponse
-mkUpdateDomainContactPrivacyResponse pOperationId_ pResponseStatus_ =
-  UpdateDomainContactPrivacyResponse'
-    { operationId = pOperationId_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateDomainContactPrivacyResponse operationId responseStatus =
+  UpdateDomainContactPrivacyResponse' {operationId, responseStatus}
 
 -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcprsOperationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Lude.Text
-udcprsOperationId = Lens.lens (operationId :: UpdateDomainContactPrivacyResponse -> Lude.Text) (\s a -> s {operationId = a} :: UpdateDomainContactPrivacyResponse)
-{-# DEPRECATED udcprsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+udcprrsOperationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Types.OperationId
+udcprrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED udcprrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcprsResponseStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Lude.Int
-udcprsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactPrivacyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainContactPrivacyResponse)
-{-# DEPRECATED udcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udcprrsResponseStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Core.Int
+udcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

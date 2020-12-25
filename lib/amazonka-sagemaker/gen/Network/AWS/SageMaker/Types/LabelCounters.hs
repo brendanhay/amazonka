@@ -17,97 +17,89 @@ module Network.AWS.SageMaker.Types.LabelCounters
     mkLabelCounters,
 
     -- * Lenses
+    lcFailedNonRetryableError,
+    lcHumanLabeled,
     lcMachineLabeled,
     lcTotalLabeled,
-    lcFailedNonRetryableError,
     lcUnlabeled,
-    lcHumanLabeled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides a breakdown of the number of objects labeled.
 --
 -- /See:/ 'mkLabelCounters' smart constructor.
 data LabelCounters = LabelCounters'
-  { -- | The total number of objects labeled by automated data labeling.
-    machineLabeled :: Lude.Maybe Lude.Natural,
-    -- | The total number of objects labeled.
-    totalLabeled :: Lude.Maybe Lude.Natural,
-    -- | The total number of objects that could not be labeled due to an error.
-    failedNonRetryableError :: Lude.Maybe Lude.Natural,
-    -- | The total number of objects not yet labeled.
-    unlabeled :: Lude.Maybe Lude.Natural,
+  { -- | The total number of objects that could not be labeled due to an error.
+    failedNonRetryableError :: Core.Maybe Core.Natural,
     -- | The total number of objects labeled by a human worker.
-    humanLabeled :: Lude.Maybe Lude.Natural
+    humanLabeled :: Core.Maybe Core.Natural,
+    -- | The total number of objects labeled by automated data labeling.
+    machineLabeled :: Core.Maybe Core.Natural,
+    -- | The total number of objects labeled.
+    totalLabeled :: Core.Maybe Core.Natural,
+    -- | The total number of objects not yet labeled.
+    unlabeled :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LabelCounters' with the minimum fields required to make a request.
---
--- * 'machineLabeled' - The total number of objects labeled by automated data labeling.
--- * 'totalLabeled' - The total number of objects labeled.
--- * 'failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
--- * 'unlabeled' - The total number of objects not yet labeled.
--- * 'humanLabeled' - The total number of objects labeled by a human worker.
+-- | Creates a 'LabelCounters' value with any optional fields omitted.
 mkLabelCounters ::
   LabelCounters
 mkLabelCounters =
   LabelCounters'
-    { machineLabeled = Lude.Nothing,
-      totalLabeled = Lude.Nothing,
-      failedNonRetryableError = Lude.Nothing,
-      unlabeled = Lude.Nothing,
-      humanLabeled = Lude.Nothing
+    { failedNonRetryableError = Core.Nothing,
+      humanLabeled = Core.Nothing,
+      machineLabeled = Core.Nothing,
+      totalLabeled = Core.Nothing,
+      unlabeled = Core.Nothing
     }
+
+-- | The total number of objects that could not be labeled due to an error.
+--
+-- /Note:/ Consider using 'failedNonRetryableError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcFailedNonRetryableError :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+lcFailedNonRetryableError = Lens.field @"failedNonRetryableError"
+{-# DEPRECATED lcFailedNonRetryableError "Use generic-lens or generic-optics with 'failedNonRetryableError' instead." #-}
+
+-- | The total number of objects labeled by a human worker.
+--
+-- /Note:/ Consider using 'humanLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcHumanLabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+lcHumanLabeled = Lens.field @"humanLabeled"
+{-# DEPRECATED lcHumanLabeled "Use generic-lens or generic-optics with 'humanLabeled' instead." #-}
 
 -- | The total number of objects labeled by automated data labeling.
 --
 -- /Note:/ Consider using 'machineLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcMachineLabeled :: Lens.Lens' LabelCounters (Lude.Maybe Lude.Natural)
-lcMachineLabeled = Lens.lens (machineLabeled :: LabelCounters -> Lude.Maybe Lude.Natural) (\s a -> s {machineLabeled = a} :: LabelCounters)
+lcMachineLabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+lcMachineLabeled = Lens.field @"machineLabeled"
 {-# DEPRECATED lcMachineLabeled "Use generic-lens or generic-optics with 'machineLabeled' instead." #-}
 
 -- | The total number of objects labeled.
 --
 -- /Note:/ Consider using 'totalLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcTotalLabeled :: Lens.Lens' LabelCounters (Lude.Maybe Lude.Natural)
-lcTotalLabeled = Lens.lens (totalLabeled :: LabelCounters -> Lude.Maybe Lude.Natural) (\s a -> s {totalLabeled = a} :: LabelCounters)
+lcTotalLabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+lcTotalLabeled = Lens.field @"totalLabeled"
 {-# DEPRECATED lcTotalLabeled "Use generic-lens or generic-optics with 'totalLabeled' instead." #-}
-
--- | The total number of objects that could not be labeled due to an error.
---
--- /Note:/ Consider using 'failedNonRetryableError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcFailedNonRetryableError :: Lens.Lens' LabelCounters (Lude.Maybe Lude.Natural)
-lcFailedNonRetryableError = Lens.lens (failedNonRetryableError :: LabelCounters -> Lude.Maybe Lude.Natural) (\s a -> s {failedNonRetryableError = a} :: LabelCounters)
-{-# DEPRECATED lcFailedNonRetryableError "Use generic-lens or generic-optics with 'failedNonRetryableError' instead." #-}
 
 -- | The total number of objects not yet labeled.
 --
 -- /Note:/ Consider using 'unlabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcUnlabeled :: Lens.Lens' LabelCounters (Lude.Maybe Lude.Natural)
-lcUnlabeled = Lens.lens (unlabeled :: LabelCounters -> Lude.Maybe Lude.Natural) (\s a -> s {unlabeled = a} :: LabelCounters)
+lcUnlabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+lcUnlabeled = Lens.field @"unlabeled"
 {-# DEPRECATED lcUnlabeled "Use generic-lens or generic-optics with 'unlabeled' instead." #-}
 
--- | The total number of objects labeled by a human worker.
---
--- /Note:/ Consider using 'humanLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcHumanLabeled :: Lens.Lens' LabelCounters (Lude.Maybe Lude.Natural)
-lcHumanLabeled = Lens.lens (humanLabeled :: LabelCounters -> Lude.Maybe Lude.Natural) (\s a -> s {humanLabeled = a} :: LabelCounters)
-{-# DEPRECATED lcHumanLabeled "Use generic-lens or generic-optics with 'humanLabeled' instead." #-}
-
-instance Lude.FromJSON LabelCounters where
+instance Core.FromJSON LabelCounters where
   parseJSON =
-    Lude.withObject
-      "LabelCounters"
-      ( \x ->
-          LabelCounters'
-            Lude.<$> (x Lude..:? "MachineLabeled")
-            Lude.<*> (x Lude..:? "TotalLabeled")
-            Lude.<*> (x Lude..:? "FailedNonRetryableError")
-            Lude.<*> (x Lude..:? "Unlabeled")
-            Lude.<*> (x Lude..:? "HumanLabeled")
-      )
+    Core.withObject "LabelCounters" Core.$
+      \x ->
+        LabelCounters'
+          Core.<$> (x Core..:? "FailedNonRetryableError")
+          Core.<*> (x Core..:? "HumanLabeled")
+          Core.<*> (x Core..:? "MachineLabeled")
+          Core.<*> (x Core..:? "TotalLabeled")
+          Core.<*> (x Core..:? "Unlabeled")

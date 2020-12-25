@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafCodecSpecification
   ( CmafCodecSpecification
       ( CmafCodecSpecification',
-        Rfc6381,
-        Rfc4281
+        CmafCodecSpecificationRfc6381,
+        CmafCodecSpecificationRfc4281,
+        fromCmafCodecSpecification
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
-newtype CmafCodecSpecification = CmafCodecSpecification' Lude.Text
+newtype CmafCodecSpecification = CmafCodecSpecification'
+  { fromCmafCodecSpecification ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Rfc6381 :: CmafCodecSpecification
-pattern Rfc6381 = CmafCodecSpecification' "RFC_6381"
+pattern CmafCodecSpecificationRfc6381 :: CmafCodecSpecification
+pattern CmafCodecSpecificationRfc6381 = CmafCodecSpecification' "RFC_6381"
 
-pattern Rfc4281 :: CmafCodecSpecification
-pattern Rfc4281 = CmafCodecSpecification' "RFC_4281"
+pattern CmafCodecSpecificationRfc4281 :: CmafCodecSpecification
+pattern CmafCodecSpecificationRfc4281 = CmafCodecSpecification' "RFC_4281"
 
 {-# COMPLETE
-  Rfc6381,
-  Rfc4281,
+  CmafCodecSpecificationRfc6381,
+  CmafCodecSpecificationRfc4281,
   CmafCodecSpecification'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,10 +34,28 @@
 --  developers, and publish new versions of applications.
 module Network.AWS.ServerlessApplicationRepository
   ( -- * Service configuration
-    serverlessApplicationRepositoryService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -90,72 +107,8 @@ module Network.AWS.ServerlessApplicationRepository
 
     -- * Types
 
-    -- ** Capability
-    Capability (..),
-
     -- ** Status
     Status (..),
-
-    -- ** ApplicationDependencySummary
-    ApplicationDependencySummary (..),
-    mkApplicationDependencySummary,
-    adsSemanticVersion,
-    adsApplicationId,
-
-    -- ** ApplicationPolicyStatement
-    ApplicationPolicyStatement (..),
-    mkApplicationPolicyStatement,
-    apsActions,
-    apsPrincipals,
-    apsStatementId,
-    apsPrincipalOrgIds,
-
-    -- ** ApplicationSummary
-    ApplicationSummary (..),
-    mkApplicationSummary,
-    asCreationTime,
-    asHomePageURL,
-    asApplicationId,
-    asName,
-    asAuthor,
-    asLabels,
-    asDescription,
-    asSpdxLicenseId,
-
-    -- ** ParameterDefinition
-    ParameterDefinition (..),
-    mkParameterDefinition,
-    pdMaxValue,
-    pdReferencedByResources,
-    pdMaxLength,
-    pdConstraintDescription,
-    pdMinLength,
-    pdName,
-    pdDefaultValue,
-    pdAllowedPattern,
-    pdNoEcho,
-    pdType,
-    pdAllowedValues,
-    pdDescription,
-    pdMinValue,
-
-    -- ** ParameterValue
-    ParameterValue (..),
-    mkParameterValue,
-    pvValue,
-    pvName,
-
-    -- ** RollbackConfiguration
-    RollbackConfiguration (..),
-    mkRollbackConfiguration,
-    rcRollbackTriggers,
-    rcMonitoringTimeInMinutes,
-
-    -- ** RollbackTrigger
-    RollbackTrigger (..),
-    mkRollbackTrigger,
-    rtARN,
-    rtType,
 
     -- ** Tag
     Tag (..),
@@ -163,36 +116,98 @@ module Network.AWS.ServerlessApplicationRepository
     tValue,
     tKey,
 
-    -- ** Version
-    Version (..),
-    mkVersion,
-    vCreationTime,
-    vResourcesSupported,
-    vRequiredCapabilities,
-    vParameterDefinitions,
-    vSemanticVersion,
-    vSourceCodeURL,
-    vApplicationId,
-    vTemplateURL,
-    vSourceCodeArchiveURL,
+    -- ** ParameterValue
+    ParameterValue (..),
+    mkParameterValue,
+    pvValue,
+    pvName,
 
     -- ** VersionSummary
     VersionSummary (..),
     mkVersionSummary,
     vsCreationTime,
-    vsSemanticVersion,
-    vsSourceCodeURL,
     vsApplicationId,
+    vsSemanticVersion,
+    vsSourceCodeUrl,
+
+    -- ** ApplicationDependencySummary
+    ApplicationDependencySummary (..),
+    mkApplicationDependencySummary,
+    adsApplicationId,
+    adsSemanticVersion,
+
+    -- ** ParameterDefinition
+    ParameterDefinition (..),
+    mkParameterDefinition,
+    pdReferencedByResources,
+    pdName,
+    pdAllowedPattern,
+    pdAllowedValues,
+    pdConstraintDescription,
+    pdDefaultValue,
+    pdDescription,
+    pdMaxLength,
+    pdMaxValue,
+    pdMinLength,
+    pdMinValue,
+    pdNoEcho,
+    pdType,
+
+    -- ** ApplicationPolicyStatement
+    ApplicationPolicyStatement (..),
+    mkApplicationPolicyStatement,
+    apsPrincipals,
+    apsActions,
+    apsPrincipalOrgIDs,
+    apsStatementId,
+
+    -- ** Version
+    Version (..),
+    mkVersion,
+    vTemplateUrl,
+    vParameterDefinitions,
+    vResourcesSupported,
+    vCreationTime,
+    vRequiredCapabilities,
+    vApplicationId,
+    vSemanticVersion,
+    vSourceCodeArchiveUrl,
+    vSourceCodeUrl,
+
+    -- ** Capability
+    Capability (..),
+
+    -- ** ApplicationSummary
+    ApplicationSummary (..),
+    mkApplicationSummary,
+    asDescription,
+    asAuthor,
+    asApplicationId,
+    asName,
+    asCreationTime,
+    asHomePageUrl,
+    asLabels,
+    asSpdxLicenseId,
+
+    -- ** RollbackConfiguration
+    RollbackConfiguration (..),
+    mkRollbackConfiguration,
+    rcMonitoringTimeInMinutes,
+    rcRollbackTriggers,
+
+    -- ** RollbackTrigger
+    RollbackTrigger (..),
+    mkRollbackTrigger,
+    rtType,
+    rtArn,
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

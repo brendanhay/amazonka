@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,109 @@
 -- AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors. For information about AWS Directory Services features, see <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide> .
 module Network.AWS.DirectoryService
   ( -- * Service configuration
-    directoryServiceService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** CertificateLimitExceededException
+    _CertificateLimitExceededException,
+
+    -- ** CertificateAlreadyExistsException
+    _CertificateAlreadyExistsException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
+
+    -- ** AuthenticationFailedException
+    _AuthenticationFailedException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** NoAvailableCertificateException
+    _NoAvailableCertificateException,
+
+    -- ** UserDoesNotExistException
+    _UserDoesNotExistException,
+
+    -- ** DirectoryLimitExceededException
+    _DirectoryLimitExceededException,
+
+    -- ** InvalidLDAPSStatusException
+    _InvalidLDAPSStatusException,
+
+    -- ** InvalidCertificateException
+    _InvalidCertificateException,
+
+    -- ** CertificateInUseException
+    _CertificateInUseException,
+
+    -- ** RegionLimitExceededException
+    _RegionLimitExceededException,
+
+    -- ** IpRouteLimitExceededException
+    _IpRouteLimitExceededException,
+
+    -- ** ShareLimitExceededException
+    _ShareLimitExceededException,
+
+    -- ** EntityDoesNotExistException
+    _EntityDoesNotExistException,
+
+    -- ** OrganizationsException
+    _OrganizationsException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** DirectoryAlreadyInRegionException
+    _DirectoryAlreadyInRegionException,
+
+    -- ** InsufficientPermissionsException
+    _InsufficientPermissionsException,
+
+    -- ** DirectoryNotSharedException
+    _DirectoryNotSharedException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** SnapshotLimitExceededException
+    _SnapshotLimitExceededException,
+
+    -- ** DomainControllerLimitExceededException
+    _DomainControllerLimitExceededException,
+
+    -- ** DirectoryDoesNotExistException
+    _DirectoryDoesNotExistException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** ClientException
+    _ClientException,
+
+    -- ** DirectoryAlreadySharedException
+    _DirectoryAlreadySharedException,
+
+    -- ** CertificateDoesNotExistException
+    _CertificateDoesNotExistException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
 
     -- * Waiters
     -- $waiters
@@ -57,8 +155,8 @@ module Network.AWS.DirectoryService
     -- ** DescribeDirectories (Paginated)
     module Network.AWS.DirectoryService.DescribeDirectories,
 
-    -- ** AddIPRoutes
-    module Network.AWS.DirectoryService.AddIPRoutes,
+    -- ** AddIpRoutes
+    module Network.AWS.DirectoryService.AddIpRoutes,
 
     -- ** ListTagsForResource (Paginated)
     module Network.AWS.DirectoryService.ListTagsForResource,
@@ -108,8 +206,8 @@ module Network.AWS.DirectoryService
     -- ** DeleteLogSubscription
     module Network.AWS.DirectoryService.DeleteLogSubscription,
 
-    -- ** EnableSSO
-    module Network.AWS.DirectoryService.EnableSSO,
+    -- ** EnableSso
+    module Network.AWS.DirectoryService.EnableSso,
 
     -- ** CancelSchemaExtension
     module Network.AWS.DirectoryService.CancelSchemaExtension,
@@ -120,8 +218,8 @@ module Network.AWS.DirectoryService
     -- ** EnableRadius
     module Network.AWS.DirectoryService.EnableRadius,
 
-    -- ** ListIPRoutes (Paginated)
-    module Network.AWS.DirectoryService.ListIPRoutes,
+    -- ** ListIpRoutes (Paginated)
+    module Network.AWS.DirectoryService.ListIpRoutes,
 
     -- ** AddTagsToResource
     module Network.AWS.DirectoryService.AddTagsToResource,
@@ -150,8 +248,8 @@ module Network.AWS.DirectoryService
     -- ** DescribeSnapshots (Paginated)
     module Network.AWS.DirectoryService.DescribeSnapshots,
 
-    -- ** RemoveIPRoutes
-    module Network.AWS.DirectoryService.RemoveIPRoutes,
+    -- ** RemoveIpRoutes
+    module Network.AWS.DirectoryService.RemoveIpRoutes,
 
     -- ** DeleteSnapshot
     module Network.AWS.DirectoryService.DeleteSnapshot,
@@ -183,8 +281,8 @@ module Network.AWS.DirectoryService
     -- ** EnableLDAPS
     module Network.AWS.DirectoryService.EnableLDAPS,
 
-    -- ** DisableSSO
-    module Network.AWS.DirectoryService.DisableSSO,
+    -- ** DisableSso
+    module Network.AWS.DirectoryService.DisableSso,
 
     -- ** VerifyTrust
     module Network.AWS.DirectoryService.VerifyTrust,
@@ -209,235 +307,356 @@ module Network.AWS.DirectoryService
 
     -- * Types
 
-    -- ** CertificateState
-    CertificateState (..),
-
-    -- ** DirectoryEdition
-    DirectoryEdition (..),
-
-    -- ** DirectorySize
-    DirectorySize (..),
-
-    -- ** DirectoryStage
-    DirectoryStage (..),
-
-    -- ** DirectoryType
-    DirectoryType (..),
-
-    -- ** DomainControllerStatus
-    DomainControllerStatus (..),
-
-    -- ** IPRouteStatusMsg
-    IPRouteStatusMsg (..),
-
-    -- ** LDAPSStatus
-    LDAPSStatus (..),
-
-    -- ** LDAPSType
-    LDAPSType (..),
-
-    -- ** RadiusAuthenticationProtocol
-    RadiusAuthenticationProtocol (..),
-
-    -- ** RadiusStatus
-    RadiusStatus (..),
-
-    -- ** RegionType
-    RegionType (..),
-
-    -- ** ReplicationScope
-    ReplicationScope (..),
-
-    -- ** SchemaExtensionStatus
-    SchemaExtensionStatus (..),
-
-    -- ** SelectiveAuth
-    SelectiveAuth (..),
-
-    -- ** ShareMethod
-    ShareMethod (..),
-
-    -- ** ShareStatus
-    ShareStatus (..),
-
-    -- ** SnapshotStatus
-    SnapshotStatus (..),
-
-    -- ** SnapshotType
-    SnapshotType (..),
-
-    -- ** TargetType
-    TargetType (..),
-
-    -- ** TopicStatus
-    TopicStatus (..),
-
-    -- ** TrustDirection
-    TrustDirection (..),
-
-    -- ** TrustState
-    TrustState (..),
-
-    -- ** TrustType
-    TrustType (..),
-
-    -- ** Attribute
-    Attribute (..),
-    mkAttribute,
-    aValue,
-    aName,
-
-    -- ** Certificate
-    Certificate (..),
-    mkCertificate,
-    cState,
-    cCommonName,
-    cCertificateId,
-    cExpiryDateTime,
-    cRegisteredDateTime,
-    cStateReason,
-
-    -- ** CertificateInfo
-    CertificateInfo (..),
-    mkCertificateInfo,
-    ciState,
-    ciCommonName,
-    ciCertificateId,
-    ciExpiryDateTime,
-
-    -- ** Computer
-    Computer (..),
-    mkComputer,
-    cComputerId,
-    cComputerAttributes,
-    cComputerName,
-
-    -- ** ConditionalForwarder
-    ConditionalForwarder (..),
-    mkConditionalForwarder,
-    cfDNSIPAddrs,
-    cfRemoteDomainName,
-    cfReplicationScope,
-
-    -- ** DirectoryConnectSettings
-    DirectoryConnectSettings (..),
-    mkDirectoryConnectSettings,
-    dcsCustomerUserName,
-    dcsSubnetIds,
-    dcsVPCId,
-    dcsCustomerDNSIPs,
-
-    -- ** DirectoryConnectSettingsDescription
-    DirectoryConnectSettingsDescription (..),
-    mkDirectoryConnectSettingsDescription,
-    dcsdCustomerUserName,
-    dcsdSubnetIds,
-    dcsdVPCId,
-    dcsdSecurityGroupId,
-    dcsdConnectIPs,
-    dcsdAvailabilityZones,
-
-    -- ** DirectoryDescription
-    DirectoryDescription (..),
-    mkDirectoryDescription,
-    ddEdition,
-    ddRadiusStatus,
-    ddStage,
-    ddDirectoryId,
-    ddAccessURL,
-    ddShortName,
-    ddRegionsInfo,
-    ddSize,
-    ddDesiredNumberOfDomainControllers,
-    ddRadiusSettings,
-    ddLaunchTime,
-    ddAlias,
-    ddShareStatus,
-    ddName,
-    ddShareMethod,
-    ddStageLastUpdatedDateTime,
-    ddSSOEnabled,
-    ddDNSIPAddrs,
-    ddVPCSettings,
-    ddType,
-    ddStageReason,
-    ddConnectSettings,
-    ddOwnerDirectoryDescription,
-    ddDescription,
-    ddShareNotes,
-
-    -- ** DirectoryLimits
-    DirectoryLimits (..),
-    mkDirectoryLimits,
-    dlConnectedDirectoriesCurrentCount,
-    dlCloudOnlyMicrosoftADLimitReached,
-    dlConnectedDirectoriesLimit,
-    dlConnectedDirectoriesLimitReached,
-    dlCloudOnlyMicrosoftADLimit,
-    dlCloudOnlyDirectoriesLimit,
-    dlCloudOnlyDirectoriesCurrentCount,
-    dlCloudOnlyDirectoriesLimitReached,
-    dlCloudOnlyMicrosoftADCurrentCount,
-
-    -- ** DirectoryVPCSettings
-    DirectoryVPCSettings (..),
-    mkDirectoryVPCSettings,
-    dvsSubnetIds,
-    dvsVPCId,
-
-    -- ** DirectoryVPCSettingsDescription
-    DirectoryVPCSettingsDescription (..),
-    mkDirectoryVPCSettingsDescription,
-    dvsdSubnetIds,
-    dvsdVPCId,
-    dvsdSecurityGroupId,
-    dvsdAvailabilityZones,
+    -- ** RequestId
+    RequestId (..),
 
     -- ** DomainController
     DomainController (..),
     mkDomainController,
-    dcStatus,
-    dcDirectoryId,
-    dcVPCId,
-    dcLaunchTime,
-    dcSubnetId,
     dcAvailabilityZone,
+    dcDirectoryId,
+    dcDnsIpAddr,
+    dcDomainControllerId,
+    dcLaunchTime,
+    dcStatus,
     dcStatusLastUpdatedDateTime,
     dcStatusReason,
-    dcDNSIPAddr,
-    dcDomainControllerId,
+    dcSubnetId,
+    dcVpcId,
+
+    -- ** DirectoryShortName
+    DirectoryShortName (..),
+
+    -- ** Trust
+    Trust (..),
+    mkTrust,
+    tCreatedDateTime,
+    tDirectoryId,
+    tLastUpdatedDateTime,
+    tRemoteDomainName,
+    tSelectiveAuth,
+    tStateLastUpdatedDateTime,
+    tTrustDirection,
+    tTrustId,
+    tTrustState,
+    tTrustStateReason,
+    tTrustType,
+
+    -- ** RadiusStatus
+    RadiusStatus (..),
+
+    -- ** TargetId
+    TargetId (..),
+
+    -- ** Attribute
+    Attribute (..),
+    mkAttribute,
+    aName,
+    aValue,
+
+    -- ** Snapshot
+    Snapshot (..),
+    mkSnapshot,
+    sDirectoryId,
+    sName,
+    sSnapshotId,
+    sStartTime,
+    sStatus,
+    sType,
+
+    -- ** RadiusDisplayLabel
+    RadiusDisplayLabel (..),
+
+    -- ** DirectoryId
+    DirectoryId (..),
+
+    -- ** DirectoryLimits
+    DirectoryLimits (..),
+    mkDirectoryLimits,
+    dlCloudOnlyDirectoriesCurrentCount,
+    dlCloudOnlyDirectoriesLimit,
+    dlCloudOnlyDirectoriesLimitReached,
+    dlCloudOnlyMicrosoftADCurrentCount,
+    dlCloudOnlyMicrosoftADLimit,
+    dlCloudOnlyMicrosoftADLimitReached,
+    dlConnectedDirectoriesCurrentCount,
+    dlConnectedDirectoriesLimit,
+    dlConnectedDirectoriesLimitReached,
+
+    -- ** AccessUrl
+    AccessUrl (..),
+
+    -- ** DirectoryVpcSettingsDescription
+    DirectoryVpcSettingsDescription (..),
+    mkDirectoryVpcSettingsDescription,
+    dvsdAvailabilityZones,
+    dvsdSecurityGroupId,
+    dvsdSubnetIds,
+    dvsdVpcId,
+
+    -- ** Computer
+    Computer (..),
+    mkComputer,
+    cComputerAttributes,
+    cComputerId,
+    cComputerName,
+
+    -- ** RegionName
+    RegionName (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** DirectoryDescription
+    DirectoryDescription (..),
+    mkDirectoryDescription,
+    ddAccessUrl,
+    ddAlias,
+    ddConnectSettings,
+    ddDescription,
+    ddDesiredNumberOfDomainControllers,
+    ddDirectoryId,
+    ddDnsIpAddrs,
+    ddEdition,
+    ddLaunchTime,
+    ddName,
+    ddOwnerDirectoryDescription,
+    ddRadiusSettings,
+    ddRadiusStatus,
+    ddRegionsInfo,
+    ddShareMethod,
+    ddShareNotes,
+    ddShareStatus,
+    ddShortName,
+    ddSize,
+    ddSsoEnabled,
+    ddStage,
+    ddStageLastUpdatedDateTime,
+    ddStageReason,
+    ddType,
+    ddVpcSettings,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** CustomerUserName
+    CustomerUserName (..),
+
+    -- ** IpAddr
+    IpAddr (..),
+
+    -- ** OrganizationalUnitDN
+    OrganizationalUnitDN (..),
+
+    -- ** CertificateState
+    CertificateState (..),
+
+    -- ** SchemaExtensionId
+    SchemaExtensionId (..),
+
+    -- ** RegionsInfo
+    RegionsInfo (..),
+    mkRegionsInfo,
+    riAdditionalRegions,
+    riPrimaryRegion,
+
+    -- ** DirectoryStage
+    DirectoryStage (..),
+
+    -- ** DirectoryEdition
+    DirectoryEdition (..),
 
     -- ** EventTopic
     EventTopic (..),
     mkEventTopic,
-    etStatus,
-    etDirectoryId,
-    etTopicName,
-    etTopicARN,
     etCreatedDateTime,
+    etDirectoryId,
+    etStatus,
+    etTopicArn,
+    etTopicName,
 
-    -- ** IPRoute
-    IPRoute (..),
-    mkIPRoute,
-    irCidrIP,
-    irDescription,
+    -- ** TopicStatus
+    TopicStatus (..),
 
-    -- ** IPRouteInfo
-    IPRouteInfo (..),
-    mkIPRouteInfo,
-    iriDirectoryId,
-    iriIPRouteStatusReason,
+    -- ** RadiusSettings
+    RadiusSettings (..),
+    mkRadiusSettings,
+    rsAuthenticationProtocol,
+    rsDisplayLabel,
+    rsRadiusPort,
+    rsRadiusRetries,
+    rsRadiusServers,
+    rsRadiusTimeout,
+    rsSharedSecret,
+    rsUseSameUsername,
+
+    -- ** CertificateId
+    CertificateId (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** SnapshotStatus
+    SnapshotStatus (..),
+
+    -- ** SchemaExtensionStatusReason
+    SchemaExtensionStatusReason (..),
+
+    -- ** CertificateCN
+    CertificateCN (..),
+
+    -- ** RegionType
+    RegionType (..),
+
+    -- ** DomainControllerStatus
+    DomainControllerStatus (..),
+
+    -- ** IpRouteStatusReason
+    IpRouteStatusReason (..),
+
+    -- ** SharedDirectory
+    SharedDirectory (..),
+    mkSharedDirectory,
+    sdCreatedDateTime,
+    sdLastUpdatedDateTime,
+    sdOwnerAccountId,
+    sdOwnerDirectoryId,
+    sdShareMethod,
+    sdShareNotes,
+    sdShareStatus,
+    sdSharedAccountId,
+    sdSharedDirectoryId,
+
+    -- ** TrustState
+    TrustState (..),
+
+    -- ** RegionDescription
+    RegionDescription (..),
+    mkRegionDescription,
+    rdDesiredNumberOfDomainControllers,
+    rdDirectoryId,
+    rdLastUpdatedDateTime,
+    rdLaunchTime,
+    rdRegionName,
+    rdRegionType,
+    rdStatus,
+    rdStatusLastUpdatedDateTime,
+    rdVpcSettings,
+
+    -- ** SchemaExtensionInfo
+    SchemaExtensionInfo (..),
+    mkSchemaExtensionInfo,
+    seiDescription,
+    seiDirectoryId,
+    seiEndDateTime,
+    seiSchemaExtensionId,
+    seiSchemaExtensionStatus,
+    seiSchemaExtensionStatusReason,
+    seiStartDateTime,
+
+    -- ** CertificateStateReason
+    CertificateStateReason (..),
+
+    -- ** UserName
+    UserName (..),
+
+    -- ** IpRouteInfo
+    IpRouteInfo (..),
+    mkIpRouteInfo,
     iriAddedDateTime,
-    iriCidrIP,
-    iriIPRouteStatusMsg,
+    iriCidrIp,
     iriDescription,
+    iriDirectoryId,
+    iriIpRouteStatusMsg,
+    iriIpRouteStatusReason,
 
-    -- ** LDAPSSettingInfo
-    LDAPSSettingInfo (..),
-    mkLDAPSSettingInfo,
-    ldapssiLastUpdatedDateTime,
-    ldapssiLDAPSStatusReason,
-    ldapssiLDAPSStatus,
+    -- ** TopicName
+    TopicName (..),
+
+    -- ** RadiusAuthenticationProtocol
+    RadiusAuthenticationProtocol (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** ConnectPassword
+    ConnectPassword (..),
+
+    -- ** CustomerId
+    CustomerId (..),
+
+    -- ** TrustDirection
+    TrustDirection (..),
+
+    -- ** DirectoryType
+    DirectoryType (..),
+
+    -- ** TargetType
+    TargetType (..),
+
+    -- ** AliasName
+    AliasName (..),
+
+    -- ** ShareStatus
+    ShareStatus (..),
+
+    -- ** LogGroupName
+    LogGroupName (..),
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** TopicArn
+    TopicArn (..),
+
+    -- ** SnapshotType
+    SnapshotType (..),
+
+    -- ** ShareTarget
+    ShareTarget (..),
+    mkShareTarget,
+    stId,
+    stType,
+
+    -- ** SchemaExtensionStatus
+    SchemaExtensionStatus (..),
+
+    -- ** DirectoryConnectSettingsDescription
+    DirectoryConnectSettingsDescription (..),
+    mkDirectoryConnectSettingsDescription,
+    dcsdAvailabilityZones,
+    dcsdConnectIps,
+    dcsdCustomerUserName,
+    dcsdSecurityGroupId,
+    dcsdSubnetIds,
+    dcsdVpcId,
+
+    -- ** DirectorySize
+    DirectorySize (..),
+
+    -- ** TrustType
+    TrustType (..),
+
+    -- ** UnshareTarget
+    UnshareTarget (..),
+    mkUnshareTarget,
+    utId,
+    utType,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** TrustStateReason
+    TrustStateReason (..),
+
+    -- ** Password
+    Password (..),
 
     -- ** LogSubscription
     LogSubscription (..),
@@ -446,135 +665,186 @@ module Network.AWS.DirectoryService
     lsLogGroupName,
     lsSubscriptionCreatedDateTime,
 
-    -- ** OwnerDirectoryDescription
-    OwnerDirectoryDescription (..),
-    mkOwnerDirectoryDescription,
-    oddRadiusStatus,
-    oddDirectoryId,
-    oddRadiusSettings,
-    oddAccountId,
-    oddDNSIPAddrs,
-    oddVPCSettings,
+    -- ** ConditionalForwarder
+    ConditionalForwarder (..),
+    mkConditionalForwarder,
+    cfDnsIpAddrs,
+    cfRemoteDomainName,
+    cfReplicationScope,
 
-    -- ** RadiusSettings
-    RadiusSettings (..),
-    mkRadiusSettings,
-    rsDisplayLabel,
-    rsRadiusRetries,
-    rsAuthenticationProtocol,
-    rsRadiusServers,
-    rsUseSameUsername,
-    rsSharedSecret,
-    rsRadiusTimeout,
-    rsRadiusPort,
+    -- ** DirectoryConnectSettings
+    DirectoryConnectSettings (..),
+    mkDirectoryConnectSettings,
+    dcsVpcId,
+    dcsSubnetIds,
+    dcsCustomerDnsIps,
+    dcsCustomerUserName,
 
-    -- ** RegionDescription
-    RegionDescription (..),
-    mkRegionDescription,
-    rdStatus,
-    rdDirectoryId,
-    rdRegionName,
-    rdDesiredNumberOfDomainControllers,
-    rdRegionType,
-    rdLaunchTime,
-    rdLastUpdatedDateTime,
-    rdStatusLastUpdatedDateTime,
-    rdVPCSettings,
+    -- ** ShareMethod
+    ShareMethod (..),
 
-    -- ** RegionsInfo
-    RegionsInfo (..),
-    mkRegionsInfo,
-    riPrimaryRegion,
-    riAdditionalRegions,
+    -- ** LDAPSSettingInfo
+    LDAPSSettingInfo (..),
+    mkLDAPSSettingInfo,
+    ldapssiLDAPSStatus,
+    ldapssiLDAPSStatusReason,
+    ldapssiLastUpdatedDateTime,
 
-    -- ** SchemaExtensionInfo
-    SchemaExtensionInfo (..),
-    mkSchemaExtensionInfo,
-    seiDirectoryId,
-    seiSchemaExtensionId,
-    seiSchemaExtensionStatusReason,
-    seiSchemaExtensionStatus,
-    seiDescription,
-    seiEndDateTime,
-    seiStartDateTime,
+    -- ** LDAPSStatusReason
+    LDAPSStatusReason (..),
 
-    -- ** ShareTarget
-    ShareTarget (..),
-    mkShareTarget,
-    stId,
-    stType,
-
-    -- ** SharedDirectory
-    SharedDirectory (..),
-    mkSharedDirectory,
-    sdSharedAccountId,
-    sdOwnerAccountId,
-    sdLastUpdatedDateTime,
-    sdShareStatus,
-    sdShareMethod,
-    sdOwnerDirectoryId,
-    sdSharedDirectoryId,
-    sdShareNotes,
-    sdCreatedDateTime,
-
-    -- ** Snapshot
-    Snapshot (..),
-    mkSnapshot,
-    sStatus,
-    sDirectoryId,
-    sStartTime,
-    sName,
-    sType,
-    sSnapshotId,
+    -- ** SelectiveAuth
+    SelectiveAuth (..),
 
     -- ** SnapshotLimits
     SnapshotLimits (..),
     mkSnapshotLimits,
-    slManualSnapshotsLimitReached,
     slManualSnapshotsCurrentCount,
     slManualSnapshotsLimit,
+    slManualSnapshotsLimitReached,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** LDAPSType
+    LDAPSType (..),
 
-    -- ** Trust
-    Trust (..),
-    mkTrust,
-    tDirectoryId,
-    tTrustState,
-    tLastUpdatedDateTime,
-    tTrustDirection,
-    tStateLastUpdatedDateTime,
-    tTrustType,
-    tTrustStateReason,
-    tSelectiveAuth,
-    tRemoteDomainName,
-    tTrustId,
-    tCreatedDateTime,
+    -- ** CidrIp
+    CidrIp (..),
 
-    -- ** UnshareTarget
-    UnshareTarget (..),
-    mkUnshareTarget,
-    utId,
-    utType,
+    -- ** IpRouteStatusMsg
+    IpRouteStatusMsg (..),
+
+    -- ** Certificate
+    Certificate (..),
+    mkCertificate,
+    cCertificateId,
+    cCommonName,
+    cExpiryDateTime,
+    cRegisteredDateTime,
+    cState,
+    cStateReason,
+
+    -- ** CertificateData
+    CertificateData (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Server
+    Server (..),
+
+    -- ** IpRoute
+    IpRoute (..),
+    mkIpRoute,
+    irCidrIp,
+    irDescription,
+
+    -- ** ComputerName
+    ComputerName (..),
+
+    -- ** StageReason
+    StageReason (..),
+
+    -- ** RemoteDomainName
+    RemoteDomainName (..),
+
+    -- ** CertificateInfo
+    CertificateInfo (..),
+    mkCertificateInfo,
+    ciCertificateId,
+    ciCommonName,
+    ciExpiryDateTime,
+    ciState,
+
+    -- ** TrustPassword
+    TrustPassword (..),
+
+    -- ** LDAPSStatus
+    LDAPSStatus (..),
+
+    -- ** LdifContent
+    LdifContent (..),
+
+    -- ** OwnerDirectoryDescription
+    OwnerDirectoryDescription (..),
+    mkOwnerDirectoryDescription,
+    oddAccountId,
+    oddDirectoryId,
+    oddDnsIpAddrs,
+    oddRadiusSettings,
+    oddRadiusStatus,
+    oddVpcSettings,
+
+    -- ** Description
+    Description (..),
+
+    -- ** ReplicationScope
+    ReplicationScope (..),
+
+    -- ** DirectoryName
+    DirectoryName (..),
+
+    -- ** TrustId
+    TrustId (..),
+
+    -- ** SnapshotId
+    SnapshotId (..),
+
+    -- ** DirectoryVpcSettings
+    DirectoryVpcSettings (..),
+    mkDirectoryVpcSettings,
+    dvsVpcId,
+    dvsSubnetIds,
+
+    -- ** DomainControllerId
+    DomainControllerId (..),
+
+    -- ** DnsIpAddr
+    DnsIpAddr (..),
+
+    -- ** StatusReason
+    StatusReason (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ComputerId
+    ComputerId (..),
+
+    -- ** Alias
+    Alias (..),
+
+    -- ** ShareNotes
+    ShareNotes (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** NewPassword
+    NewPassword (..),
+
+    -- ** SharedSecret
+    SharedSecret (..),
+
+    -- ** OwnerAccountId
+    OwnerAccountId (..),
+
+    -- ** SharedAccountId
+    SharedAccountId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import Network.AWS.DirectoryService.AcceptSharedDirectory
-import Network.AWS.DirectoryService.AddIPRoutes
+import Network.AWS.DirectoryService.AddIpRoutes
 import Network.AWS.DirectoryService.AddRegion
 import Network.AWS.DirectoryService.AddTagsToResource
 import Network.AWS.DirectoryService.CancelSchemaExtension
@@ -606,21 +876,21 @@ import Network.AWS.DirectoryService.DescribeSnapshots
 import Network.AWS.DirectoryService.DescribeTrusts
 import Network.AWS.DirectoryService.DisableLDAPS
 import Network.AWS.DirectoryService.DisableRadius
-import Network.AWS.DirectoryService.DisableSSO
+import Network.AWS.DirectoryService.DisableSso
 import Network.AWS.DirectoryService.EnableLDAPS
 import Network.AWS.DirectoryService.EnableRadius
-import Network.AWS.DirectoryService.EnableSSO
+import Network.AWS.DirectoryService.EnableSso
 import Network.AWS.DirectoryService.GetDirectoryLimits
 import Network.AWS.DirectoryService.GetSnapshotLimits
 import Network.AWS.DirectoryService.ListCertificates
-import Network.AWS.DirectoryService.ListIPRoutes
+import Network.AWS.DirectoryService.ListIpRoutes
 import Network.AWS.DirectoryService.ListLogSubscriptions
 import Network.AWS.DirectoryService.ListSchemaExtensions
 import Network.AWS.DirectoryService.ListTagsForResource
 import Network.AWS.DirectoryService.RegisterCertificate
 import Network.AWS.DirectoryService.RegisterEventTopic
 import Network.AWS.DirectoryService.RejectSharedDirectory
-import Network.AWS.DirectoryService.RemoveIPRoutes
+import Network.AWS.DirectoryService.RemoveIpRoutes
 import Network.AWS.DirectoryService.RemoveRegion
 import Network.AWS.DirectoryService.RemoveTagsFromResource
 import Network.AWS.DirectoryService.ResetUserPassword

@@ -29,61 +29,61 @@ module Network.AWS.Redshift.DeleteUsageLimit
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUsageLimit' smart constructor.
 newtype DeleteUsageLimit = DeleteUsageLimit'
   { -- | The identifier of the usage limit to delete.
-    usageLimitId :: Lude.Text
+    usageLimitId :: Types.UsageLimitId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUsageLimit' with the minimum fields required to make a request.
---
--- * 'usageLimitId' - The identifier of the usage limit to delete.
+-- | Creates a 'DeleteUsageLimit' value with any optional fields omitted.
 mkDeleteUsageLimit ::
   -- | 'usageLimitId'
-  Lude.Text ->
+  Types.UsageLimitId ->
   DeleteUsageLimit
-mkDeleteUsageLimit pUsageLimitId_ =
-  DeleteUsageLimit' {usageLimitId = pUsageLimitId_}
+mkDeleteUsageLimit usageLimitId = DeleteUsageLimit' {usageLimitId}
 
 -- | The identifier of the usage limit to delete.
 --
 -- /Note:/ Consider using 'usageLimitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulUsageLimitId :: Lens.Lens' DeleteUsageLimit Lude.Text
-dulUsageLimitId = Lens.lens (usageLimitId :: DeleteUsageLimit -> Lude.Text) (\s a -> s {usageLimitId = a} :: DeleteUsageLimit)
+dulUsageLimitId :: Lens.Lens' DeleteUsageLimit Types.UsageLimitId
+dulUsageLimitId = Lens.field @"usageLimitId"
 {-# DEPRECATED dulUsageLimitId "Use generic-lens or generic-optics with 'usageLimitId' instead." #-}
 
-instance Lude.AWSRequest DeleteUsageLimit where
+instance Core.AWSRequest DeleteUsageLimit where
   type Rs DeleteUsageLimit = DeleteUsageLimitResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteUsageLimitResponse'
-
-instance Lude.ToHeaders DeleteUsageLimit where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteUsageLimit where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUsageLimit where
-  toQuery DeleteUsageLimit' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteUsageLimit" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "UsageLimitId" Lude.=: usageLimitId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteUsageLimit")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "UsageLimitId" usageLimitId)
+            )
+      }
+  response = Response.receiveNull DeleteUsageLimitResponse'
 
 -- | /See:/ 'mkDeleteUsageLimitResponse' smart constructor.
 data DeleteUsageLimitResponse = DeleteUsageLimitResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUsageLimitResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteUsageLimitResponse' value with any optional fields omitted.
 mkDeleteUsageLimitResponse ::
   DeleteUsageLimitResponse
 mkDeleteUsageLimitResponse = DeleteUsageLimitResponse'

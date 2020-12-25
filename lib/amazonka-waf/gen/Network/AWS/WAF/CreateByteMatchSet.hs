@@ -44,138 +44,124 @@ module Network.AWS.WAF.CreateByteMatchSet
     mkCreateByteMatchSetResponse,
 
     -- ** Response lenses
-    cbmsrsByteMatchSet,
-    cbmsrsChangeToken,
-    cbmsrsResponseStatus,
+    cbmsrrsByteMatchSet,
+    cbmsrrsChangeToken,
+    cbmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkCreateByteMatchSet' smart constructor.
 data CreateByteMatchSet = CreateByteMatchSet'
   { -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
-    name :: Lude.Text,
+    name :: Types.ResourceName,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateByteMatchSet' with the minimum fields required to make a request.
---
--- * 'name' - A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'CreateByteMatchSet' value with any optional fields omitted.
 mkCreateByteMatchSet ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateByteMatchSet
-mkCreateByteMatchSet pName_ pChangeToken_ =
-  CreateByteMatchSet' {name = pName_, changeToken = pChangeToken_}
+mkCreateByteMatchSet name changeToken =
+  CreateByteMatchSet' {name, changeToken}
 
 -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbmsName :: Lens.Lens' CreateByteMatchSet Lude.Text
-cbmsName = Lens.lens (name :: CreateByteMatchSet -> Lude.Text) (\s a -> s {name = a} :: CreateByteMatchSet)
+cbmsName :: Lens.Lens' CreateByteMatchSet Types.ResourceName
+cbmsName = Lens.field @"name"
 {-# DEPRECATED cbmsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbmsChangeToken :: Lens.Lens' CreateByteMatchSet Lude.Text
-cbmsChangeToken = Lens.lens (changeToken :: CreateByteMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: CreateByteMatchSet)
+cbmsChangeToken :: Lens.Lens' CreateByteMatchSet Types.ChangeToken
+cbmsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED cbmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest CreateByteMatchSet where
+instance Core.FromJSON CreateByteMatchSet where
+  toJSON CreateByteMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest CreateByteMatchSet where
   type Rs CreateByteMatchSet = CreateByteMatchSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.CreateByteMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateByteMatchSetResponse'
-            Lude.<$> (x Lude..?> "ByteMatchSet")
-            Lude.<*> (x Lude..?> "ChangeToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ByteMatchSet")
+            Core.<*> (x Core..:? "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateByteMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.CreateByteMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateByteMatchSet where
-  toJSON CreateByteMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath CreateByteMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateByteMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateByteMatchSetResponse' smart constructor.
 data CreateByteMatchSetResponse = CreateByteMatchSetResponse'
   { -- | A 'ByteMatchSet' that contains no @ByteMatchTuple@ objects.
-    byteMatchSet :: Lude.Maybe ByteMatchSet,
+    byteMatchSet :: Core.Maybe Types.ByteMatchSet,
     -- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateByteMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'byteMatchSet' - A 'ByteMatchSet' that contains no @ByteMatchTuple@ objects.
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateByteMatchSetResponse' value with any optional fields omitted.
 mkCreateByteMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateByteMatchSetResponse
-mkCreateByteMatchSetResponse pResponseStatus_ =
+mkCreateByteMatchSetResponse responseStatus =
   CreateByteMatchSetResponse'
-    { byteMatchSet = Lude.Nothing,
-      changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { byteMatchSet = Core.Nothing,
+      changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A 'ByteMatchSet' that contains no @ByteMatchTuple@ objects.
 --
 -- /Note:/ Consider using 'byteMatchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbmsrsByteMatchSet :: Lens.Lens' CreateByteMatchSetResponse (Lude.Maybe ByteMatchSet)
-cbmsrsByteMatchSet = Lens.lens (byteMatchSet :: CreateByteMatchSetResponse -> Lude.Maybe ByteMatchSet) (\s a -> s {byteMatchSet = a} :: CreateByteMatchSetResponse)
-{-# DEPRECATED cbmsrsByteMatchSet "Use generic-lens or generic-optics with 'byteMatchSet' instead." #-}
+cbmsrrsByteMatchSet :: Lens.Lens' CreateByteMatchSetResponse (Core.Maybe Types.ByteMatchSet)
+cbmsrrsByteMatchSet = Lens.field @"byteMatchSet"
+{-# DEPRECATED cbmsrrsByteMatchSet "Use generic-lens or generic-optics with 'byteMatchSet' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbmsrsChangeToken :: Lens.Lens' CreateByteMatchSetResponse (Lude.Maybe Lude.Text)
-cbmsrsChangeToken = Lens.lens (changeToken :: CreateByteMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateByteMatchSetResponse)
-{-# DEPRECATED cbmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+cbmsrrsChangeToken :: Lens.Lens' CreateByteMatchSetResponse (Core.Maybe Types.ChangeToken)
+cbmsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED cbmsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbmsrsResponseStatus :: Lens.Lens' CreateByteMatchSetResponse Lude.Int
-cbmsrsResponseStatus = Lens.lens (responseStatus :: CreateByteMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateByteMatchSetResponse)
-{-# DEPRECATED cbmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbmsrrsResponseStatus :: Lens.Lens' CreateByteMatchSetResponse Core.Int
+cbmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

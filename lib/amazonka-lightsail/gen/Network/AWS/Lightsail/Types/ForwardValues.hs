@@ -13,51 +13,56 @@
 module Network.AWS.Lightsail.Types.ForwardValues
   ( ForwardValues
       ( ForwardValues',
-        FVNone,
-        FVAllowList,
-        FVAll
+        ForwardValuesNone,
+        ForwardValuesAllowList,
+        ForwardValuesAll,
+        fromForwardValues
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ForwardValues = ForwardValues' Lude.Text
+newtype ForwardValues = ForwardValues'
+  { fromForwardValues ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FVNone :: ForwardValues
-pattern FVNone = ForwardValues' "none"
+pattern ForwardValuesNone :: ForwardValues
+pattern ForwardValuesNone = ForwardValues' "none"
 
-pattern FVAllowList :: ForwardValues
-pattern FVAllowList = ForwardValues' "allow-list"
+pattern ForwardValuesAllowList :: ForwardValues
+pattern ForwardValuesAllowList = ForwardValues' "allow-list"
 
-pattern FVAll :: ForwardValues
-pattern FVAll = ForwardValues' "all"
+pattern ForwardValuesAll :: ForwardValues
+pattern ForwardValuesAll = ForwardValues' "all"
 
 {-# COMPLETE
-  FVNone,
-  FVAllowList,
-  FVAll,
+  ForwardValuesNone,
+  ForwardValuesAllowList,
+  ForwardValuesAll,
   ForwardValues'
   #-}

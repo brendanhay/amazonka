@@ -20,52 +20,60 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     mkTerminateEnvironment,
 
     -- ** Request lenses
+    teEnvironmentId,
+    teEnvironmentName,
     teForceTerminate,
     teTerminateResources,
-    teEnvironmentName,
-    teEnvironmentId,
 
     -- * Destructuring the response
-    EnvironmentDescription (..),
-    mkEnvironmentDescription,
+    Types.EnvironmentDescription (..),
+    Types.mkEnvironmentDescription,
 
     -- ** Response lenses
-    eStatus,
-    eCNAME,
-    eTemplateName,
-    eAbortableOperationInProgress,
-    eEndpointURL,
-    eResources,
-    eDateUpdated,
-    eDateCreated,
-    eHealth,
-    eVersionLabel,
-    eOperationsRole,
-    ePlatformARN,
-    eTier,
-    eEnvironmentName,
-    eApplicationName,
-    eEnvironmentARN,
-    eSolutionStackName,
-    eEnvironmentId,
-    eHealthStatus,
-    eEnvironmentLinks,
-    eDescription,
+    Types.eAbortableOperationInProgress,
+    Types.eApplicationName,
+    Types.eCNAME,
+    Types.eDateCreated,
+    Types.eDateUpdated,
+    Types.eDescription,
+    Types.eEndpointURL,
+    Types.eEnvironmentArn,
+    Types.eEnvironmentId,
+    Types.eEnvironmentLinks,
+    Types.eEnvironmentName,
+    Types.eHealth,
+    Types.eHealthStatus,
+    Types.eOperationsRole,
+    Types.ePlatformArn,
+    Types.eResources,
+    Types.eSolutionStackName,
+    Types.eStatus,
+    Types.eTemplateName,
+    Types.eTier,
+    Types.eVersionLabel,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to terminate an environment.
 --
 -- /See:/ 'mkTerminateEnvironment' smart constructor.
 data TerminateEnvironment = TerminateEnvironment'
-  { -- | Terminates the target environment even if another environment in the same group is dependent on it.
-    forceTerminate :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the environment to terminate.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The name of the environment to terminate.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Core.Maybe Types.EnvironmentName,
+    -- | Terminates the target environment even if another environment in the same group is dependent on it.
+    forceTerminate :: Core.Maybe Core.Bool,
     -- | Indicates whether the associated AWS resources should shut down when the environment is terminated:
     --
     --
@@ -78,55 +86,45 @@ data TerminateEnvironment = TerminateEnvironment'
     -- For more information, see the <https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >
     -- Default: @true@
     -- Valid Values: @true@ | @false@
-    terminateResources :: Lude.Maybe Lude.Bool,
-    -- | The name of the environment to terminate.
-    --
-    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The ID of the environment to terminate.
-    --
-    -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentId :: Lude.Maybe Lude.Text
+    terminateResources :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateEnvironment' with the minimum fields required to make a request.
---
--- * 'forceTerminate' - Terminates the target environment even if another environment in the same group is dependent on it.
--- * 'terminateResources' - Indicates whether the associated AWS resources should shut down when the environment is terminated:
---
---
---     * @true@ : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.
---
---
---     * @false@ : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate.
---
---
--- For more information, see the <https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >
--- Default: @true@
--- Valid Values: @true@ | @false@
--- * 'environmentName' - The name of the environment to terminate.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'environmentId' - The ID of the environment to terminate.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Creates a 'TerminateEnvironment' value with any optional fields omitted.
 mkTerminateEnvironment ::
   TerminateEnvironment
 mkTerminateEnvironment =
   TerminateEnvironment'
-    { forceTerminate = Lude.Nothing,
-      terminateResources = Lude.Nothing,
-      environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId = Core.Nothing,
+      environmentName = Core.Nothing,
+      forceTerminate = Core.Nothing,
+      terminateResources = Core.Nothing
     }
+
+-- | The ID of the environment to terminate.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teEnvironmentId :: Lens.Lens' TerminateEnvironment (Core.Maybe Types.EnvironmentId)
+teEnvironmentId = Lens.field @"environmentId"
+{-# DEPRECATED teEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+
+-- | The name of the environment to terminate.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teEnvironmentName :: Lens.Lens' TerminateEnvironment (Core.Maybe Types.EnvironmentName)
+teEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED teEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | Terminates the target environment even if another environment in the same group is dependent on it.
 --
 -- /Note:/ Consider using 'forceTerminate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teForceTerminate :: Lens.Lens' TerminateEnvironment (Lude.Maybe Lude.Bool)
-teForceTerminate = Lens.lens (forceTerminate :: TerminateEnvironment -> Lude.Maybe Lude.Bool) (\s a -> s {forceTerminate = a} :: TerminateEnvironment)
+teForceTerminate :: Lens.Lens' TerminateEnvironment (Core.Maybe Core.Bool)
+teForceTerminate = Lens.field @"forceTerminate"
 {-# DEPRECATED teForceTerminate "Use generic-lens or generic-optics with 'forceTerminate' instead." #-}
 
 -- | Indicates whether the associated AWS resources should shut down when the environment is terminated:
@@ -143,49 +141,36 @@ teForceTerminate = Lens.lens (forceTerminate :: TerminateEnvironment -> Lude.May
 -- Valid Values: @true@ | @false@
 --
 -- /Note:/ Consider using 'terminateResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teTerminateResources :: Lens.Lens' TerminateEnvironment (Lude.Maybe Lude.Bool)
-teTerminateResources = Lens.lens (terminateResources :: TerminateEnvironment -> Lude.Maybe Lude.Bool) (\s a -> s {terminateResources = a} :: TerminateEnvironment)
+teTerminateResources :: Lens.Lens' TerminateEnvironment (Core.Maybe Core.Bool)
+teTerminateResources = Lens.field @"terminateResources"
 {-# DEPRECATED teTerminateResources "Use generic-lens or generic-optics with 'terminateResources' instead." #-}
 
--- | The name of the environment to terminate.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teEnvironmentName :: Lens.Lens' TerminateEnvironment (Lude.Maybe Lude.Text)
-teEnvironmentName = Lens.lens (environmentName :: TerminateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: TerminateEnvironment)
-{-# DEPRECATED teEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
-
--- | The ID of the environment to terminate.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teEnvironmentId :: Lens.Lens' TerminateEnvironment (Lude.Maybe Lude.Text)
-teEnvironmentId = Lens.lens (environmentId :: TerminateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: TerminateEnvironment)
-{-# DEPRECATED teEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
-
-instance Lude.AWSRequest TerminateEnvironment where
-  type Rs TerminateEnvironment = EnvironmentDescription
-  request = Req.postQuery elasticBeanstalkService
+instance Core.AWSRequest TerminateEnvironment where
+  type Rs TerminateEnvironment = Types.EnvironmentDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "TerminateEnvironment")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+                Core.<> (Core.toQueryValue "ForceTerminate" Core.<$> forceTerminate)
+                Core.<> ( Core.toQueryValue "TerminateResources"
+                            Core.<$> terminateResources
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "TerminateEnvironmentResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders TerminateEnvironment where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath TerminateEnvironment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TerminateEnvironment where
-  toQuery TerminateEnvironment' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("TerminateEnvironment" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ForceTerminate" Lude.=: forceTerminate,
-        "TerminateResources" Lude.=: terminateResources,
-        "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId
-      ]
+      (\s h x -> Core.parseXML x)

@@ -13,141 +13,146 @@
 module Network.AWS.Glue.Types.ConnectionPropertyKey
   ( ConnectionPropertyKey
       ( ConnectionPropertyKey',
-        Host,
-        Port,
-        Username,
-        Password,
-        EncryptedPassword,
-        JdbcDriverJARURI,
-        JdbcDriverClassName,
-        JdbcEngine,
-        JdbcEngineVersion,
-        ConfigFiles,
-        InstanceId,
-        JdbcConnectionURL,
-        JdbcEnforceSSL,
-        CustomJdbcCert,
-        SkipCustomJdbcCertValidation,
-        CustomJdbcCertString,
-        ConnectionURL,
-        KafkaBootstrapServers,
-        KafkaSSLEnabled,
-        KafkaCustomCert,
-        KafkaSkipCustomCertValidation
+        ConnectionPropertyKeyHost,
+        ConnectionPropertyKeyPort,
+        ConnectionPropertyKeyUsername,
+        ConnectionPropertyKeyPassword,
+        ConnectionPropertyKeyEncryptedPassword,
+        ConnectionPropertyKeyJdbcDriverJarUri,
+        ConnectionPropertyKeyJdbcDriverClassName,
+        ConnectionPropertyKeyJdbcEngine,
+        ConnectionPropertyKeyJdbcEngineVersion,
+        ConnectionPropertyKeyConfigFiles,
+        ConnectionPropertyKeyInstanceId,
+        ConnectionPropertyKeyJdbcConnectionUrl,
+        ConnectionPropertyKeyJdbcEnforceSsl,
+        ConnectionPropertyKeyCustomJdbcCert,
+        ConnectionPropertyKeySkipCustomJdbcCertValidation,
+        ConnectionPropertyKeyCustomJdbcCertString,
+        ConnectionPropertyKeyConnectionUrl,
+        ConnectionPropertyKeyKafkaBootstrapServers,
+        ConnectionPropertyKeyKafkaSslEnabled,
+        ConnectionPropertyKeyKafkaCustomCert,
+        ConnectionPropertyKeyKafkaSkipCustomCertValidation,
+        fromConnectionPropertyKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConnectionPropertyKey = ConnectionPropertyKey' Lude.Text
+newtype ConnectionPropertyKey = ConnectionPropertyKey'
+  { fromConnectionPropertyKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Host :: ConnectionPropertyKey
-pattern Host = ConnectionPropertyKey' "HOST"
+pattern ConnectionPropertyKeyHost :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyHost = ConnectionPropertyKey' "HOST"
 
-pattern Port :: ConnectionPropertyKey
-pattern Port = ConnectionPropertyKey' "PORT"
+pattern ConnectionPropertyKeyPort :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyPort = ConnectionPropertyKey' "PORT"
 
-pattern Username :: ConnectionPropertyKey
-pattern Username = ConnectionPropertyKey' "USERNAME"
+pattern ConnectionPropertyKeyUsername :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyUsername = ConnectionPropertyKey' "USERNAME"
 
-pattern Password :: ConnectionPropertyKey
-pattern Password = ConnectionPropertyKey' "PASSWORD"
+pattern ConnectionPropertyKeyPassword :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyPassword = ConnectionPropertyKey' "PASSWORD"
 
-pattern EncryptedPassword :: ConnectionPropertyKey
-pattern EncryptedPassword = ConnectionPropertyKey' "ENCRYPTED_PASSWORD"
+pattern ConnectionPropertyKeyEncryptedPassword :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyEncryptedPassword = ConnectionPropertyKey' "ENCRYPTED_PASSWORD"
 
-pattern JdbcDriverJARURI :: ConnectionPropertyKey
-pattern JdbcDriverJARURI = ConnectionPropertyKey' "JDBC_DRIVER_JAR_URI"
+pattern ConnectionPropertyKeyJdbcDriverJarUri :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyJdbcDriverJarUri = ConnectionPropertyKey' "JDBC_DRIVER_JAR_URI"
 
-pattern JdbcDriverClassName :: ConnectionPropertyKey
-pattern JdbcDriverClassName = ConnectionPropertyKey' "JDBC_DRIVER_CLASS_NAME"
+pattern ConnectionPropertyKeyJdbcDriverClassName :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyJdbcDriverClassName = ConnectionPropertyKey' "JDBC_DRIVER_CLASS_NAME"
 
-pattern JdbcEngine :: ConnectionPropertyKey
-pattern JdbcEngine = ConnectionPropertyKey' "JDBC_ENGINE"
+pattern ConnectionPropertyKeyJdbcEngine :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyJdbcEngine = ConnectionPropertyKey' "JDBC_ENGINE"
 
-pattern JdbcEngineVersion :: ConnectionPropertyKey
-pattern JdbcEngineVersion = ConnectionPropertyKey' "JDBC_ENGINE_VERSION"
+pattern ConnectionPropertyKeyJdbcEngineVersion :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyJdbcEngineVersion = ConnectionPropertyKey' "JDBC_ENGINE_VERSION"
 
-pattern ConfigFiles :: ConnectionPropertyKey
-pattern ConfigFiles = ConnectionPropertyKey' "CONFIG_FILES"
+pattern ConnectionPropertyKeyConfigFiles :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyConfigFiles = ConnectionPropertyKey' "CONFIG_FILES"
 
-pattern InstanceId :: ConnectionPropertyKey
-pattern InstanceId = ConnectionPropertyKey' "INSTANCE_ID"
+pattern ConnectionPropertyKeyInstanceId :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyInstanceId = ConnectionPropertyKey' "INSTANCE_ID"
 
-pattern JdbcConnectionURL :: ConnectionPropertyKey
-pattern JdbcConnectionURL = ConnectionPropertyKey' "JDBC_CONNECTION_URL"
+pattern ConnectionPropertyKeyJdbcConnectionUrl :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyJdbcConnectionUrl = ConnectionPropertyKey' "JDBC_CONNECTION_URL"
 
-pattern JdbcEnforceSSL :: ConnectionPropertyKey
-pattern JdbcEnforceSSL = ConnectionPropertyKey' "JDBC_ENFORCE_SSL"
+pattern ConnectionPropertyKeyJdbcEnforceSsl :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyJdbcEnforceSsl = ConnectionPropertyKey' "JDBC_ENFORCE_SSL"
 
-pattern CustomJdbcCert :: ConnectionPropertyKey
-pattern CustomJdbcCert = ConnectionPropertyKey' "CUSTOM_JDBC_CERT"
+pattern ConnectionPropertyKeyCustomJdbcCert :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyCustomJdbcCert = ConnectionPropertyKey' "CUSTOM_JDBC_CERT"
 
-pattern SkipCustomJdbcCertValidation :: ConnectionPropertyKey
-pattern SkipCustomJdbcCertValidation = ConnectionPropertyKey' "SKIP_CUSTOM_JDBC_CERT_VALIDATION"
+pattern ConnectionPropertyKeySkipCustomJdbcCertValidation :: ConnectionPropertyKey
+pattern ConnectionPropertyKeySkipCustomJdbcCertValidation = ConnectionPropertyKey' "SKIP_CUSTOM_JDBC_CERT_VALIDATION"
 
-pattern CustomJdbcCertString :: ConnectionPropertyKey
-pattern CustomJdbcCertString = ConnectionPropertyKey' "CUSTOM_JDBC_CERT_STRING"
+pattern ConnectionPropertyKeyCustomJdbcCertString :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyCustomJdbcCertString = ConnectionPropertyKey' "CUSTOM_JDBC_CERT_STRING"
 
-pattern ConnectionURL :: ConnectionPropertyKey
-pattern ConnectionURL = ConnectionPropertyKey' "CONNECTION_URL"
+pattern ConnectionPropertyKeyConnectionUrl :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyConnectionUrl = ConnectionPropertyKey' "CONNECTION_URL"
 
-pattern KafkaBootstrapServers :: ConnectionPropertyKey
-pattern KafkaBootstrapServers = ConnectionPropertyKey' "KAFKA_BOOTSTRAP_SERVERS"
+pattern ConnectionPropertyKeyKafkaBootstrapServers :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyKafkaBootstrapServers = ConnectionPropertyKey' "KAFKA_BOOTSTRAP_SERVERS"
 
-pattern KafkaSSLEnabled :: ConnectionPropertyKey
-pattern KafkaSSLEnabled = ConnectionPropertyKey' "KAFKA_SSL_ENABLED"
+pattern ConnectionPropertyKeyKafkaSslEnabled :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyKafkaSslEnabled = ConnectionPropertyKey' "KAFKA_SSL_ENABLED"
 
-pattern KafkaCustomCert :: ConnectionPropertyKey
-pattern KafkaCustomCert = ConnectionPropertyKey' "KAFKA_CUSTOM_CERT"
+pattern ConnectionPropertyKeyKafkaCustomCert :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyKafkaCustomCert = ConnectionPropertyKey' "KAFKA_CUSTOM_CERT"
 
-pattern KafkaSkipCustomCertValidation :: ConnectionPropertyKey
-pattern KafkaSkipCustomCertValidation = ConnectionPropertyKey' "KAFKA_SKIP_CUSTOM_CERT_VALIDATION"
+pattern ConnectionPropertyKeyKafkaSkipCustomCertValidation :: ConnectionPropertyKey
+pattern ConnectionPropertyKeyKafkaSkipCustomCertValidation = ConnectionPropertyKey' "KAFKA_SKIP_CUSTOM_CERT_VALIDATION"
 
 {-# COMPLETE
-  Host,
-  Port,
-  Username,
-  Password,
-  EncryptedPassword,
-  JdbcDriverJARURI,
-  JdbcDriverClassName,
-  JdbcEngine,
-  JdbcEngineVersion,
-  ConfigFiles,
-  InstanceId,
-  JdbcConnectionURL,
-  JdbcEnforceSSL,
-  CustomJdbcCert,
-  SkipCustomJdbcCertValidation,
-  CustomJdbcCertString,
-  ConnectionURL,
-  KafkaBootstrapServers,
-  KafkaSSLEnabled,
-  KafkaCustomCert,
-  KafkaSkipCustomCertValidation,
+  ConnectionPropertyKeyHost,
+  ConnectionPropertyKeyPort,
+  ConnectionPropertyKeyUsername,
+  ConnectionPropertyKeyPassword,
+  ConnectionPropertyKeyEncryptedPassword,
+  ConnectionPropertyKeyJdbcDriverJarUri,
+  ConnectionPropertyKeyJdbcDriverClassName,
+  ConnectionPropertyKeyJdbcEngine,
+  ConnectionPropertyKeyJdbcEngineVersion,
+  ConnectionPropertyKeyConfigFiles,
+  ConnectionPropertyKeyInstanceId,
+  ConnectionPropertyKeyJdbcConnectionUrl,
+  ConnectionPropertyKeyJdbcEnforceSsl,
+  ConnectionPropertyKeyCustomJdbcCert,
+  ConnectionPropertyKeySkipCustomJdbcCertValidation,
+  ConnectionPropertyKeyCustomJdbcCertString,
+  ConnectionPropertyKeyConnectionUrl,
+  ConnectionPropertyKeyKafkaBootstrapServers,
+  ConnectionPropertyKeyKafkaSslEnabled,
+  ConnectionPropertyKeyKafkaCustomCert,
+  ConnectionPropertyKeyKafkaSkipCustomCertValidation,
   ConnectionPropertyKey'
   #-}

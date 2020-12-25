@@ -13,46 +13,51 @@
 module Network.AWS.EMR.Types.ScaleDownBehavior
   ( ScaleDownBehavior
       ( ScaleDownBehavior',
-        TerminateAtInstanceHour,
-        TerminateAtTaskCompletion
+        ScaleDownBehaviorTerminateAtInstanceHour,
+        ScaleDownBehaviorTerminateAtTaskCompletion,
+        fromScaleDownBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScaleDownBehavior = ScaleDownBehavior' Lude.Text
+newtype ScaleDownBehavior = ScaleDownBehavior'
+  { fromScaleDownBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TerminateAtInstanceHour :: ScaleDownBehavior
-pattern TerminateAtInstanceHour = ScaleDownBehavior' "TERMINATE_AT_INSTANCE_HOUR"
+pattern ScaleDownBehaviorTerminateAtInstanceHour :: ScaleDownBehavior
+pattern ScaleDownBehaviorTerminateAtInstanceHour = ScaleDownBehavior' "TERMINATE_AT_INSTANCE_HOUR"
 
-pattern TerminateAtTaskCompletion :: ScaleDownBehavior
-pattern TerminateAtTaskCompletion = ScaleDownBehavior' "TERMINATE_AT_TASK_COMPLETION"
+pattern ScaleDownBehaviorTerminateAtTaskCompletion :: ScaleDownBehavior
+pattern ScaleDownBehaviorTerminateAtTaskCompletion = ScaleDownBehavior' "TERMINATE_AT_TASK_COMPLETION"
 
 {-# COMPLETE
-  TerminateAtInstanceHour,
-  TerminateAtTaskCompletion,
+  ScaleDownBehaviorTerminateAtInstanceHour,
+  ScaleDownBehaviorTerminateAtTaskCompletion,
   ScaleDownBehavior'
   #-}

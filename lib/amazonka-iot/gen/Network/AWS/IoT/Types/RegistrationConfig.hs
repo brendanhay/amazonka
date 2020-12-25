@@ -17,66 +17,63 @@ module Network.AWS.IoT.Types.RegistrationConfig
     mkRegistrationConfig,
 
     -- * Lenses
+    rcRoleArn,
     rcTemplateBody,
-    rcRoleARN,
   )
 where
 
+import qualified Network.AWS.IoT.Types.RoleArn as Types
+import qualified Network.AWS.IoT.Types.TemplateBody as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The registration configuration.
 --
 -- /See:/ 'mkRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
-  { -- | The template body.
-    templateBody :: Lude.Maybe Lude.Text,
-    -- | The ARN of the role.
-    roleARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of the role.
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | The template body.
+    templateBody :: Core.Maybe Types.TemplateBody
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegistrationConfig' with the minimum fields required to make a request.
---
--- * 'templateBody' - The template body.
--- * 'roleARN' - The ARN of the role.
+-- | Creates a 'RegistrationConfig' value with any optional fields omitted.
 mkRegistrationConfig ::
   RegistrationConfig
 mkRegistrationConfig =
   RegistrationConfig'
-    { templateBody = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { roleArn = Core.Nothing,
+      templateBody = Core.Nothing
     }
+
+-- | The ARN of the role.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRoleArn :: Lens.Lens' RegistrationConfig (Core.Maybe Types.RoleArn)
+rcRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED rcRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The template body.
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTemplateBody :: Lens.Lens' RegistrationConfig (Lude.Maybe Lude.Text)
-rcTemplateBody = Lens.lens (templateBody :: RegistrationConfig -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: RegistrationConfig)
+rcTemplateBody :: Lens.Lens' RegistrationConfig (Core.Maybe Types.TemplateBody)
+rcTemplateBody = Lens.field @"templateBody"
 {-# DEPRECATED rcTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
--- | The ARN of the role.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRoleARN :: Lens.Lens' RegistrationConfig (Lude.Maybe Lude.Text)
-rcRoleARN = Lens.lens (roleARN :: RegistrationConfig -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: RegistrationConfig)
-{-# DEPRECATED rcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON RegistrationConfig where
-  parseJSON =
-    Lude.withObject
-      "RegistrationConfig"
-      ( \x ->
-          RegistrationConfig'
-            Lude.<$> (x Lude..:? "templateBody") Lude.<*> (x Lude..:? "roleArn")
-      )
-
-instance Lude.ToJSON RegistrationConfig where
-  toJSON RegistrationConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("templateBody" Lude..=) Lude.<$> templateBody,
-            ("roleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON RegistrationConfig where
+  toJSON RegistrationConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("roleArn" Core..=) Core.<$> roleArn,
+            ("templateBody" Core..=) Core.<$> templateBody
           ]
       )
+
+instance Core.FromJSON RegistrationConfig where
+  parseJSON =
+    Core.withObject "RegistrationConfig" Core.$
+      \x ->
+        RegistrationConfig'
+          Core.<$> (x Core..:? "roleArn") Core.<*> (x Core..:? "templateBody")

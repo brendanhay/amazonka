@@ -13,61 +13,66 @@
 module Network.AWS.Firehose.Types.CompressionFormat
   ( CompressionFormat
       ( CompressionFormat',
-        Uncompressed,
-        Gzip,
-        Zip,
-        Snappy,
-        HadoopSnappy
+        CompressionFormatUncompressed,
+        CompressionFormatGzip,
+        CompressionFormatZip,
+        CompressionFormatSnappy,
+        CompressionFormatHadoopSnappy,
+        fromCompressionFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CompressionFormat = CompressionFormat' Lude.Text
+newtype CompressionFormat = CompressionFormat'
+  { fromCompressionFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Uncompressed :: CompressionFormat
-pattern Uncompressed = CompressionFormat' "UNCOMPRESSED"
+pattern CompressionFormatUncompressed :: CompressionFormat
+pattern CompressionFormatUncompressed = CompressionFormat' "UNCOMPRESSED"
 
-pattern Gzip :: CompressionFormat
-pattern Gzip = CompressionFormat' "GZIP"
+pattern CompressionFormatGzip :: CompressionFormat
+pattern CompressionFormatGzip = CompressionFormat' "GZIP"
 
-pattern Zip :: CompressionFormat
-pattern Zip = CompressionFormat' "ZIP"
+pattern CompressionFormatZip :: CompressionFormat
+pattern CompressionFormatZip = CompressionFormat' "ZIP"
 
-pattern Snappy :: CompressionFormat
-pattern Snappy = CompressionFormat' "Snappy"
+pattern CompressionFormatSnappy :: CompressionFormat
+pattern CompressionFormatSnappy = CompressionFormat' "Snappy"
 
-pattern HadoopSnappy :: CompressionFormat
-pattern HadoopSnappy = CompressionFormat' "HADOOP_SNAPPY"
+pattern CompressionFormatHadoopSnappy :: CompressionFormat
+pattern CompressionFormatHadoopSnappy = CompressionFormat' "HADOOP_SNAPPY"
 
 {-# COMPLETE
-  Uncompressed,
-  Gzip,
-  Zip,
-  Snappy,
-  HadoopSnappy,
+  CompressionFormatUncompressed,
+  CompressionFormatGzip,
+  CompressionFormatZip,
+  CompressionFormatSnappy,
+  CompressionFormatHadoopSnappy,
   CompressionFormat'
   #-}

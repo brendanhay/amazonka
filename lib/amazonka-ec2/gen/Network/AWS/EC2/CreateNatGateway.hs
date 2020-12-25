@@ -20,184 +20,174 @@ module Network.AWS.EC2.CreateNatGateway
     mkCreateNatGateway,
 
     -- ** Request lenses
-    cngClientToken,
     cngAllocationId,
     cngSubnetId,
-    cngTagSpecifications,
+    cngClientToken,
     cngDryRun,
+    cngTagSpecifications,
 
     -- * Destructuring the response
     CreateNatGatewayResponse (..),
     mkCreateNatGatewayResponse,
 
     -- ** Response lenses
-    cngrsClientToken,
-    cngrsNatGateway,
-    cngrsResponseStatus,
+    cngrrsClientToken,
+    cngrrsNatGateway,
+    cngrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+  { -- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
+    allocationId :: Types.AllocationId,
+    -- | The subnet in which to create the NAT gateway.
+    subnetId :: Types.SubnetId,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
     --
     -- Constraint: Maximum 64 ASCII characters.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
-    allocationId :: Lude.Text,
-    -- | The subnet in which to create the NAT gateway.
-    subnetId :: Lude.Text,
-    -- | The tags to assign to the NAT gateway.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    clientToken :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to assign to the NAT gateway.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNatGateway' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- Constraint: Maximum 64 ASCII characters.
--- * 'allocationId' - The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
--- * 'subnetId' - The subnet in which to create the NAT gateway.
--- * 'tagSpecifications' - The tags to assign to the NAT gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateNatGateway' value with any optional fields omitted.
 mkCreateNatGateway ::
   -- | 'allocationId'
-  Lude.Text ->
+  Types.AllocationId ->
   -- | 'subnetId'
-  Lude.Text ->
+  Types.SubnetId ->
   CreateNatGateway
-mkCreateNatGateway pAllocationId_ pSubnetId_ =
+mkCreateNatGateway allocationId subnetId =
   CreateNatGateway'
-    { clientToken = Lude.Nothing,
-      allocationId = pAllocationId_,
-      subnetId = pSubnetId_,
-      tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { allocationId,
+      subnetId,
+      clientToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
+
+-- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cngAllocationId :: Lens.Lens' CreateNatGateway Types.AllocationId
+cngAllocationId = Lens.field @"allocationId"
+{-# DEPRECATED cngAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
+
+-- | The subnet in which to create the NAT gateway.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cngSubnetId :: Lens.Lens' CreateNatGateway Types.SubnetId
+cngSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED cngSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- Constraint: Maximum 64 ASCII characters.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngClientToken :: Lens.Lens' CreateNatGateway (Lude.Maybe Lude.Text)
-cngClientToken = Lens.lens (clientToken :: CreateNatGateway -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateNatGateway)
+cngClientToken :: Lens.Lens' CreateNatGateway (Core.Maybe Types.String)
+cngClientToken = Lens.field @"clientToken"
 {-# DEPRECATED cngClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
---
--- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngAllocationId :: Lens.Lens' CreateNatGateway Lude.Text
-cngAllocationId = Lens.lens (allocationId :: CreateNatGateway -> Lude.Text) (\s a -> s {allocationId = a} :: CreateNatGateway)
-{-# DEPRECATED cngAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
-
--- | The subnet in which to create the NAT gateway.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngSubnetId :: Lens.Lens' CreateNatGateway Lude.Text
-cngSubnetId = Lens.lens (subnetId :: CreateNatGateway -> Lude.Text) (\s a -> s {subnetId = a} :: CreateNatGateway)
-{-# DEPRECATED cngSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The tags to assign to the NAT gateway.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngTagSpecifications :: Lens.Lens' CreateNatGateway (Lude.Maybe [TagSpecification])
-cngTagSpecifications = Lens.lens (tagSpecifications :: CreateNatGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateNatGateway)
-{-# DEPRECATED cngTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngDryRun :: Lens.Lens' CreateNatGateway (Lude.Maybe Lude.Bool)
-cngDryRun = Lens.lens (dryRun :: CreateNatGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNatGateway)
+cngDryRun :: Lens.Lens' CreateNatGateway (Core.Maybe Core.Bool)
+cngDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cngDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateNatGateway where
+-- | The tags to assign to the NAT gateway.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cngTagSpecifications :: Lens.Lens' CreateNatGateway (Core.Maybe [Types.TagSpecification])
+cngTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cngTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateNatGateway where
   type Rs CreateNatGateway = CreateNatGatewayResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateNatGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AllocationId" allocationId)
+                Core.<> (Core.toQueryValue "SubnetId" subnetId)
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateNatGatewayResponse'
-            Lude.<$> (x Lude..@? "clientToken")
-            Lude.<*> (x Lude..@? "natGateway")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "clientToken")
+            Core.<*> (x Core..@? "natGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNatGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateNatGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNatGateway where
-  toQuery CreateNatGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateNatGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        "AllocationId" Lude.=: allocationId,
-        "SubnetId" Lude.=: subnetId,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
   { -- | Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
-    clientToken :: Lude.Maybe Lude.Text,
+    clientToken :: Core.Maybe Types.String,
     -- | Information about the NAT gateway.
-    natGateway :: Lude.Maybe NatGateway,
+    natGateway :: Core.Maybe Types.NatGateway,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateNatGatewayResponse' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
--- * 'natGateway' - Information about the NAT gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNatGatewayResponse' value with any optional fields omitted.
 mkCreateNatGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNatGatewayResponse
-mkCreateNatGatewayResponse pResponseStatus_ =
+mkCreateNatGatewayResponse responseStatus =
   CreateNatGatewayResponse'
-    { clientToken = Lude.Nothing,
-      natGateway = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clientToken = Core.Nothing,
+      natGateway = Core.Nothing,
+      responseStatus
     }
 
 -- | Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngrsClientToken :: Lens.Lens' CreateNatGatewayResponse (Lude.Maybe Lude.Text)
-cngrsClientToken = Lens.lens (clientToken :: CreateNatGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateNatGatewayResponse)
-{-# DEPRECATED cngrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+cngrrsClientToken :: Lens.Lens' CreateNatGatewayResponse (Core.Maybe Types.String)
+cngrrsClientToken = Lens.field @"clientToken"
+{-# DEPRECATED cngrrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Information about the NAT gateway.
 --
 -- /Note:/ Consider using 'natGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngrsNatGateway :: Lens.Lens' CreateNatGatewayResponse (Lude.Maybe NatGateway)
-cngrsNatGateway = Lens.lens (natGateway :: CreateNatGatewayResponse -> Lude.Maybe NatGateway) (\s a -> s {natGateway = a} :: CreateNatGatewayResponse)
-{-# DEPRECATED cngrsNatGateway "Use generic-lens or generic-optics with 'natGateway' instead." #-}
+cngrrsNatGateway :: Lens.Lens' CreateNatGatewayResponse (Core.Maybe Types.NatGateway)
+cngrrsNatGateway = Lens.field @"natGateway"
+{-# DEPRECATED cngrrsNatGateway "Use generic-lens or generic-optics with 'natGateway' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngrsResponseStatus :: Lens.Lens' CreateNatGatewayResponse Lude.Int
-cngrsResponseStatus = Lens.lens (responseStatus :: CreateNatGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNatGatewayResponse)
-{-# DEPRECATED cngrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cngrrsResponseStatus :: Lens.Lens' CreateNatGatewayResponse Core.Int
+cngrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cngrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

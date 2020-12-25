@@ -17,135 +17,128 @@ module Network.AWS.Config.Types.OrganizationConformancePack
     mkOrganizationConformancePack,
 
     -- * Lenses
-    ocpOrganizationConformancePackARN,
-    ocpDeliveryS3Bucket,
     ocpOrganizationConformancePackName,
-    ocpDeliveryS3KeyPrefix,
-    ocpConformancePackInputParameters,
-    ocpExcludedAccounts,
+    ocpOrganizationConformancePackArn,
     ocpLastUpdateTime,
+    ocpConformancePackInputParameters,
+    ocpDeliveryS3Bucket,
+    ocpDeliveryS3KeyPrefix,
+    ocpExcludedAccounts,
   )
 where
 
-import Network.AWS.Config.Types.ConformancePackInputParameter
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.ConformancePackInputParameter as Types
+import qualified Network.AWS.Config.Types.DeliveryS3Bucket as Types
+import qualified Network.AWS.Config.Types.DeliveryS3KeyPrefix as Types
+import qualified Network.AWS.Config.Types.OrganizationConformancePackName as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An organization conformance pack that has information about conformance packs that AWS Config creates in member accounts.
 --
 -- /See:/ 'mkOrganizationConformancePack' smart constructor.
 data OrganizationConformancePack = OrganizationConformancePack'
-  { -- | Amazon Resource Name (ARN) of organization conformance pack.
-    organizationConformancePackARN :: Lude.Text,
-    -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results and conformance pack template that is used to create a pack.
-    deliveryS3Bucket :: Lude.Maybe Lude.Text,
-    -- | The name you assign to an organization conformance pack.
-    organizationConformancePackName :: Lude.Text,
-    -- | Any folder structure you want to add to an Amazon S3 bucket.
-    deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
-    -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Lude.Maybe [ConformancePackInputParameter],
-    -- | A comma-separated list of accounts excluded from organization conformance pack.
-    excludedAccounts :: Lude.Maybe [Lude.Text],
+  { -- | The name you assign to an organization conformance pack.
+    organizationConformancePackName :: Types.OrganizationConformancePackName,
+    -- | Amazon Resource Name (ARN) of organization conformance pack.
+    organizationConformancePackArn :: Types.StringWithCharLimit256,
     -- | Last time when organization conformation pack was updated.
-    lastUpdateTime :: Lude.Timestamp
+    lastUpdateTime :: Core.NominalDiffTime,
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Core.Maybe [Types.ConformancePackInputParameter],
+    -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results and conformance pack template that is used to create a pack.
+    deliveryS3Bucket :: Core.Maybe Types.DeliveryS3Bucket,
+    -- | Any folder structure you want to add to an Amazon S3 bucket.
+    deliveryS3KeyPrefix :: Core.Maybe Types.DeliveryS3KeyPrefix,
+    -- | A comma-separated list of accounts excluded from organization conformance pack.
+    excludedAccounts :: Core.Maybe [Types.AccountId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OrganizationConformancePack' with the minimum fields required to make a request.
---
--- * 'organizationConformancePackARN' - Amazon Resource Name (ARN) of organization conformance pack.
--- * 'deliveryS3Bucket' - Location of an Amazon S3 bucket where AWS Config can deliver evaluation results and conformance pack template that is used to create a pack.
--- * 'organizationConformancePackName' - The name you assign to an organization conformance pack.
--- * 'deliveryS3KeyPrefix' - Any folder structure you want to add to an Amazon S3 bucket.
--- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
--- * 'excludedAccounts' - A comma-separated list of accounts excluded from organization conformance pack.
--- * 'lastUpdateTime' - Last time when organization conformation pack was updated.
+-- | Creates a 'OrganizationConformancePack' value with any optional fields omitted.
 mkOrganizationConformancePack ::
-  -- | 'organizationConformancePackARN'
-  Lude.Text ->
   -- | 'organizationConformancePackName'
-  Lude.Text ->
+  Types.OrganizationConformancePackName ->
+  -- | 'organizationConformancePackArn'
+  Types.StringWithCharLimit256 ->
   -- | 'lastUpdateTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   OrganizationConformancePack
 mkOrganizationConformancePack
-  pOrganizationConformancePackARN_
-  pOrganizationConformancePackName_
-  pLastUpdateTime_ =
+  organizationConformancePackName
+  organizationConformancePackArn
+  lastUpdateTime =
     OrganizationConformancePack'
-      { organizationConformancePackARN =
-          pOrganizationConformancePackARN_,
-        deliveryS3Bucket = Lude.Nothing,
-        organizationConformancePackName =
-          pOrganizationConformancePackName_,
-        deliveryS3KeyPrefix = Lude.Nothing,
-        conformancePackInputParameters = Lude.Nothing,
-        excludedAccounts = Lude.Nothing,
-        lastUpdateTime = pLastUpdateTime_
+      { organizationConformancePackName,
+        organizationConformancePackArn,
+        lastUpdateTime,
+        conformancePackInputParameters = Core.Nothing,
+        deliveryS3Bucket = Core.Nothing,
+        deliveryS3KeyPrefix = Core.Nothing,
+        excludedAccounts = Core.Nothing
       }
-
--- | Amazon Resource Name (ARN) of organization conformance pack.
---
--- /Note:/ Consider using 'organizationConformancePackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpOrganizationConformancePackARN :: Lens.Lens' OrganizationConformancePack Lude.Text
-ocpOrganizationConformancePackARN = Lens.lens (organizationConformancePackARN :: OrganizationConformancePack -> Lude.Text) (\s a -> s {organizationConformancePackARN = a} :: OrganizationConformancePack)
-{-# DEPRECATED ocpOrganizationConformancePackARN "Use generic-lens or generic-optics with 'organizationConformancePackARN' instead." #-}
-
--- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results and conformance pack template that is used to create a pack.
---
--- /Note:/ Consider using 'deliveryS3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpDeliveryS3Bucket :: Lens.Lens' OrganizationConformancePack (Lude.Maybe Lude.Text)
-ocpDeliveryS3Bucket = Lens.lens (deliveryS3Bucket :: OrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3Bucket = a} :: OrganizationConformancePack)
-{-# DEPRECATED ocpDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
 
 -- | The name you assign to an organization conformance pack.
 --
 -- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpOrganizationConformancePackName :: Lens.Lens' OrganizationConformancePack Lude.Text
-ocpOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: OrganizationConformancePack -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: OrganizationConformancePack)
+ocpOrganizationConformancePackName :: Lens.Lens' OrganizationConformancePack Types.OrganizationConformancePackName
+ocpOrganizationConformancePackName = Lens.field @"organizationConformancePackName"
 {-# DEPRECATED ocpOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
--- | Any folder structure you want to add to an Amazon S3 bucket.
+-- | Amazon Resource Name (ARN) of organization conformance pack.
 --
--- /Note:/ Consider using 'deliveryS3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpDeliveryS3KeyPrefix :: Lens.Lens' OrganizationConformancePack (Lude.Maybe Lude.Text)
-ocpDeliveryS3KeyPrefix = Lens.lens (deliveryS3KeyPrefix :: OrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3KeyPrefix = a} :: OrganizationConformancePack)
-{-# DEPRECATED ocpDeliveryS3KeyPrefix "Use generic-lens or generic-optics with 'deliveryS3KeyPrefix' instead." #-}
-
--- | A list of @ConformancePackInputParameter@ objects.
---
--- /Note:/ Consider using 'conformancePackInputParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpConformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Lude.Maybe [ConformancePackInputParameter])
-ocpConformancePackInputParameters = Lens.lens (conformancePackInputParameters :: OrganizationConformancePack -> Lude.Maybe [ConformancePackInputParameter]) (\s a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack)
-{-# DEPRECATED ocpConformancePackInputParameters "Use generic-lens or generic-optics with 'conformancePackInputParameters' instead." #-}
-
--- | A comma-separated list of accounts excluded from organization conformance pack.
---
--- /Note:/ Consider using 'excludedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpExcludedAccounts :: Lens.Lens' OrganizationConformancePack (Lude.Maybe [Lude.Text])
-ocpExcludedAccounts = Lens.lens (excludedAccounts :: OrganizationConformancePack -> Lude.Maybe [Lude.Text]) (\s a -> s {excludedAccounts = a} :: OrganizationConformancePack)
-{-# DEPRECATED ocpExcludedAccounts "Use generic-lens or generic-optics with 'excludedAccounts' instead." #-}
+-- /Note:/ Consider using 'organizationConformancePackArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpOrganizationConformancePackArn :: Lens.Lens' OrganizationConformancePack Types.StringWithCharLimit256
+ocpOrganizationConformancePackArn = Lens.field @"organizationConformancePackArn"
+{-# DEPRECATED ocpOrganizationConformancePackArn "Use generic-lens or generic-optics with 'organizationConformancePackArn' instead." #-}
 
 -- | Last time when organization conformation pack was updated.
 --
 -- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocpLastUpdateTime :: Lens.Lens' OrganizationConformancePack Lude.Timestamp
-ocpLastUpdateTime = Lens.lens (lastUpdateTime :: OrganizationConformancePack -> Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: OrganizationConformancePack)
+ocpLastUpdateTime :: Lens.Lens' OrganizationConformancePack Core.NominalDiffTime
+ocpLastUpdateTime = Lens.field @"lastUpdateTime"
 {-# DEPRECATED ocpLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
-instance Lude.FromJSON OrganizationConformancePack where
+-- | A list of @ConformancePackInputParameter@ objects.
+--
+-- /Note:/ Consider using 'conformancePackInputParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpConformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Core.Maybe [Types.ConformancePackInputParameter])
+ocpConformancePackInputParameters = Lens.field @"conformancePackInputParameters"
+{-# DEPRECATED ocpConformancePackInputParameters "Use generic-lens or generic-optics with 'conformancePackInputParameters' instead." #-}
+
+-- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results and conformance pack template that is used to create a pack.
+--
+-- /Note:/ Consider using 'deliveryS3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpDeliveryS3Bucket :: Lens.Lens' OrganizationConformancePack (Core.Maybe Types.DeliveryS3Bucket)
+ocpDeliveryS3Bucket = Lens.field @"deliveryS3Bucket"
+{-# DEPRECATED ocpDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
+
+-- | Any folder structure you want to add to an Amazon S3 bucket.
+--
+-- /Note:/ Consider using 'deliveryS3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpDeliveryS3KeyPrefix :: Lens.Lens' OrganizationConformancePack (Core.Maybe Types.DeliveryS3KeyPrefix)
+ocpDeliveryS3KeyPrefix = Lens.field @"deliveryS3KeyPrefix"
+{-# DEPRECATED ocpDeliveryS3KeyPrefix "Use generic-lens or generic-optics with 'deliveryS3KeyPrefix' instead." #-}
+
+-- | A comma-separated list of accounts excluded from organization conformance pack.
+--
+-- /Note:/ Consider using 'excludedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpExcludedAccounts :: Lens.Lens' OrganizationConformancePack (Core.Maybe [Types.AccountId])
+ocpExcludedAccounts = Lens.field @"excludedAccounts"
+{-# DEPRECATED ocpExcludedAccounts "Use generic-lens or generic-optics with 'excludedAccounts' instead." #-}
+
+instance Core.FromJSON OrganizationConformancePack where
   parseJSON =
-    Lude.withObject
-      "OrganizationConformancePack"
-      ( \x ->
-          OrganizationConformancePack'
-            Lude.<$> (x Lude..: "OrganizationConformancePackArn")
-            Lude.<*> (x Lude..:? "DeliveryS3Bucket")
-            Lude.<*> (x Lude..: "OrganizationConformancePackName")
-            Lude.<*> (x Lude..:? "DeliveryS3KeyPrefix")
-            Lude.<*> (x Lude..:? "ConformancePackInputParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ExcludedAccounts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "LastUpdateTime")
-      )
+    Core.withObject "OrganizationConformancePack" Core.$
+      \x ->
+        OrganizationConformancePack'
+          Core.<$> (x Core..: "OrganizationConformancePackName")
+          Core.<*> (x Core..: "OrganizationConformancePackArn")
+          Core.<*> (x Core..: "LastUpdateTime")
+          Core.<*> (x Core..:? "ConformancePackInputParameters")
+          Core.<*> (x Core..:? "DeliveryS3Bucket")
+          Core.<*> (x Core..:? "DeliveryS3KeyPrefix")
+          Core.<*> (x Core..:? "ExcludedAccounts")

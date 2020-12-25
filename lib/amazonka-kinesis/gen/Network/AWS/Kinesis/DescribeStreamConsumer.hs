@@ -23,149 +23,133 @@ module Network.AWS.Kinesis.DescribeStreamConsumer
 
     -- ** Request lenses
     dConsumerARN,
-    dStreamARN,
     dConsumerName,
+    dStreamARN,
 
     -- * Destructuring the response
     DescribeStreamConsumerResponse (..),
     mkDescribeStreamConsumerResponse,
 
     -- ** Response lenses
-    dscrsConsumerDescription,
-    dscrsResponseStatus,
+    dscrrsConsumerDescription,
+    dscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeStreamConsumer' smart constructor.
 data DescribeStreamConsumer = DescribeStreamConsumer'
   { -- | The ARN returned by Kinesis Data Streams when you registered the consumer.
-    consumerARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    streamARN :: Lude.Maybe Lude.Text,
+    consumerARN :: Core.Maybe Types.ConsumerARN,
     -- | The name that you gave to the consumer.
-    consumerName :: Lude.Maybe Lude.Text
+    consumerName :: Core.Maybe Types.ConsumerName,
+    -- | The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    streamARN :: Core.Maybe Types.StreamARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeStreamConsumer' with the minimum fields required to make a request.
---
--- * 'consumerARN' - The ARN returned by Kinesis Data Streams when you registered the consumer.
--- * 'streamARN' - The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'consumerName' - The name that you gave to the consumer.
+-- | Creates a 'DescribeStreamConsumer' value with any optional fields omitted.
 mkDescribeStreamConsumer ::
   DescribeStreamConsumer
 mkDescribeStreamConsumer =
   DescribeStreamConsumer'
-    { consumerARN = Lude.Nothing,
-      streamARN = Lude.Nothing,
-      consumerName = Lude.Nothing
+    { consumerARN = Core.Nothing,
+      consumerName = Core.Nothing,
+      streamARN = Core.Nothing
     }
 
 -- | The ARN returned by Kinesis Data Streams when you registered the consumer.
 --
 -- /Note:/ Consider using 'consumerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dConsumerARN :: Lens.Lens' DescribeStreamConsumer (Lude.Maybe Lude.Text)
-dConsumerARN = Lens.lens (consumerARN :: DescribeStreamConsumer -> Lude.Maybe Lude.Text) (\s a -> s {consumerARN = a} :: DescribeStreamConsumer)
+dConsumerARN :: Lens.Lens' DescribeStreamConsumer (Core.Maybe Types.ConsumerARN)
+dConsumerARN = Lens.field @"consumerARN"
 {-# DEPRECATED dConsumerARN "Use generic-lens or generic-optics with 'consumerARN' instead." #-}
-
--- | The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStreamARN :: Lens.Lens' DescribeStreamConsumer (Lude.Maybe Lude.Text)
-dStreamARN = Lens.lens (streamARN :: DescribeStreamConsumer -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: DescribeStreamConsumer)
-{-# DEPRECATED dStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name that you gave to the consumer.
 --
 -- /Note:/ Consider using 'consumerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dConsumerName :: Lens.Lens' DescribeStreamConsumer (Lude.Maybe Lude.Text)
-dConsumerName = Lens.lens (consumerName :: DescribeStreamConsumer -> Lude.Maybe Lude.Text) (\s a -> s {consumerName = a} :: DescribeStreamConsumer)
+dConsumerName :: Lens.Lens' DescribeStreamConsumer (Core.Maybe Types.ConsumerName)
+dConsumerName = Lens.field @"consumerName"
 {-# DEPRECATED dConsumerName "Use generic-lens or generic-optics with 'consumerName' instead." #-}
 
-instance Lude.AWSRequest DescribeStreamConsumer where
+-- | The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStreamARN :: Lens.Lens' DescribeStreamConsumer (Core.Maybe Types.StreamARN)
+dStreamARN = Lens.field @"streamARN"
+{-# DEPRECATED dStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+
+instance Core.FromJSON DescribeStreamConsumer where
+  toJSON DescribeStreamConsumer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConsumerARN" Core..=) Core.<$> consumerARN,
+            ("ConsumerName" Core..=) Core.<$> consumerName,
+            ("StreamARN" Core..=) Core.<$> streamARN
+          ]
+      )
+
+instance Core.AWSRequest DescribeStreamConsumer where
   type Rs DescribeStreamConsumer = DescribeStreamConsumerResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Kinesis_20131202.DescribeStreamConsumer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeStreamConsumerResponse'
-            Lude.<$> (x Lude..:> "ConsumerDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "ConsumerDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeStreamConsumer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.DescribeStreamConsumer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeStreamConsumer where
-  toJSON DescribeStreamConsumer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ConsumerARN" Lude..=) Lude.<$> consumerARN,
-            ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("ConsumerName" Lude..=) Lude.<$> consumerName
-          ]
-      )
-
-instance Lude.ToPath DescribeStreamConsumer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeStreamConsumer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeStreamConsumerResponse' smart constructor.
 data DescribeStreamConsumerResponse = DescribeStreamConsumerResponse'
   { -- | An object that represents the details of the consumer.
-    consumerDescription :: ConsumerDescription,
+    consumerDescription :: Types.ConsumerDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeStreamConsumerResponse' with the minimum fields required to make a request.
---
--- * 'consumerDescription' - An object that represents the details of the consumer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeStreamConsumerResponse' value with any optional fields omitted.
 mkDescribeStreamConsumerResponse ::
   -- | 'consumerDescription'
-  ConsumerDescription ->
+  Types.ConsumerDescription ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeStreamConsumerResponse
-mkDescribeStreamConsumerResponse
-  pConsumerDescription_
-  pResponseStatus_ =
-    DescribeStreamConsumerResponse'
-      { consumerDescription =
-          pConsumerDescription_,
-        responseStatus = pResponseStatus_
-      }
+mkDescribeStreamConsumerResponse consumerDescription responseStatus =
+  DescribeStreamConsumerResponse'
+    { consumerDescription,
+      responseStatus
+    }
 
 -- | An object that represents the details of the consumer.
 --
 -- /Note:/ Consider using 'consumerDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsConsumerDescription :: Lens.Lens' DescribeStreamConsumerResponse ConsumerDescription
-dscrsConsumerDescription = Lens.lens (consumerDescription :: DescribeStreamConsumerResponse -> ConsumerDescription) (\s a -> s {consumerDescription = a} :: DescribeStreamConsumerResponse)
-{-# DEPRECATED dscrsConsumerDescription "Use generic-lens or generic-optics with 'consumerDescription' instead." #-}
+dscrrsConsumerDescription :: Lens.Lens' DescribeStreamConsumerResponse Types.ConsumerDescription
+dscrrsConsumerDescription = Lens.field @"consumerDescription"
+{-# DEPRECATED dscrrsConsumerDescription "Use generic-lens or generic-optics with 'consumerDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DescribeStreamConsumerResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamConsumerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamConsumerResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrrsResponseStatus :: Lens.Lens' DescribeStreamConsumerResponse Core.Int
+dscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

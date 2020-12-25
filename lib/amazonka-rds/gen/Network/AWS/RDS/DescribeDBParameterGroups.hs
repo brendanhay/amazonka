@@ -22,83 +22,62 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     mkDescribeDBParameterGroups,
 
     -- ** Request lenses
-    ddpgFilters,
-    ddpgDBParameterGroupName,
-    ddpgMarker,
-    ddpgMaxRecords,
+    ddbpgDBParameterGroupName,
+    ddbpgFilters,
+    ddbpgMarker,
+    ddbpgMaxRecords,
 
     -- * Destructuring the response
     DescribeDBParameterGroupsResponse (..),
     mkDescribeDBParameterGroupsResponse,
 
     -- ** Response lenses
-    ddpgrsMarker,
-    ddpgrsDBParameterGroups,
-    ddpgrsResponseStatus,
+    ddbpgrrsDBParameterGroups,
+    ddbpgrrsMarker,
+    ddbpgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBParameterGroups' smart constructor.
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-  { -- | This parameter isn't currently supported.
-    filters :: Lude.Maybe [Filter],
-    -- | The name of a specific DB parameter group to return details for.
+  { -- | The name of a specific DB parameter group to return details for.
     --
     -- Constraints:
     --
     --     * If supplied, must match the name of an existing DBClusterParameterGroup.
-    dbParameterGroupName :: Lude.Maybe Lude.Text,
+    dBParameterGroupName :: Core.Maybe Types.String,
+    -- | This parameter isn't currently supported.
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBParameterGroups' with the minimum fields required to make a request.
---
--- * 'filters' - This parameter isn't currently supported.
--- * 'dbParameterGroupName' - The name of a specific DB parameter group to return details for.
---
--- Constraints:
---
---     * If supplied, must match the name of an existing DBClusterParameterGroup.
---
---
--- * 'marker' - An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeDBParameterGroups' value with any optional fields omitted.
 mkDescribeDBParameterGroups ::
   DescribeDBParameterGroups
 mkDescribeDBParameterGroups =
   DescribeDBParameterGroups'
-    { filters = Lude.Nothing,
-      dbParameterGroupName = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { dBParameterGroupName = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
-
--- | This parameter isn't currently supported.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgFilters :: Lens.Lens' DescribeDBParameterGroups (Lude.Maybe [Filter])
-ddpgFilters = Lens.lens (filters :: DescribeDBParameterGroups -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBParameterGroups)
-{-# DEPRECATED ddpgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -108,17 +87,24 @@ ddpgFilters = Lens.lens (filters :: DescribeDBParameterGroups -> Lude.Maybe [Fil
 --
 --
 --
--- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgDBParameterGroupName :: Lens.Lens' DescribeDBParameterGroups (Lude.Maybe Lude.Text)
-ddpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: DescribeDBParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DescribeDBParameterGroups)
-{-# DEPRECATED ddpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbpgDBParameterGroupName :: Lens.Lens' DescribeDBParameterGroups (Core.Maybe Types.String)
+ddbpgDBParameterGroupName = Lens.field @"dBParameterGroupName"
+{-# DEPRECATED ddbpgDBParameterGroupName "Use generic-lens or generic-optics with 'dBParameterGroupName' instead." #-}
+
+-- | This parameter isn't currently supported.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbpgFilters :: Lens.Lens' DescribeDBParameterGroups (Core.Maybe [Types.Filter])
+ddbpgFilters = Lens.field @"filters"
+{-# DEPRECATED ddbpgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgMarker :: Lens.Lens' DescribeDBParameterGroups (Lude.Maybe Lude.Text)
-ddpgMarker = Lens.lens (marker :: DescribeDBParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBParameterGroups)
-{-# DEPRECATED ddpgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddbpgMarker :: Lens.Lens' DescribeDBParameterGroups (Core.Maybe Types.String)
+ddbpgMarker = Lens.field @"marker"
+{-# DEPRECATED ddbpgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
@@ -126,101 +112,108 @@ ddpgMarker = Lens.lens (marker :: DescribeDBParameterGroups -> Lude.Maybe Lude.T
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgMaxRecords :: Lens.Lens' DescribeDBParameterGroups (Lude.Maybe Lude.Int)
-ddpgMaxRecords = Lens.lens (maxRecords :: DescribeDBParameterGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBParameterGroups)
-{-# DEPRECATED ddpgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddbpgMaxRecords :: Lens.Lens' DescribeDBParameterGroups (Core.Maybe Core.Int)
+ddbpgMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddbpgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeDBParameterGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. ddpgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddpgrsDBParameterGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddpgMarker Lens..~ rs Lens.^. ddpgrsMarker
-
-instance Lude.AWSRequest DescribeDBParameterGroups where
+instance Core.AWSRequest DescribeDBParameterGroups where
   type
     Rs DescribeDBParameterGroups =
       DescribeDBParameterGroupsResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBParameterGroups")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue "DBParameterGroupName"
+                            Core.<$> dBParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBParameterGroupsResult"
       ( \s h x ->
           DescribeDBParameterGroupsResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "DBParameterGroups" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "DBParameterGroup")
+            Core.<$> ( x Core..@? "DBParameterGroups"
+                         Core..<@> Core.parseXMLList "DBParameterGroup"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBParameterGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBParameterGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBParameterGroups where
-  toQuery DescribeDBParameterGroups' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeDBParameterGroups" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "DBParameterGroupName" Lude.=: dbParameterGroupName,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeDBParameterGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"dBParameterGroups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the result of a successful invocation of the @DescribeDBParameterGroups@ action.
 --
 -- /See:/ 'mkDescribeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | A list of @DBParameterGroup@ instances.
-    dbParameterGroups :: Lude.Maybe [DBParameterGroup],
+  { -- | A list of @DBParameterGroup@ instances.
+    dBParameterGroups :: Core.Maybe [Types.DBParameterGroup],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBParameterGroupsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'dbParameterGroups' - A list of @DBParameterGroup@ instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBParameterGroupsResponse' value with any optional fields omitted.
 mkDescribeDBParameterGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBParameterGroupsResponse
-mkDescribeDBParameterGroupsResponse pResponseStatus_ =
+mkDescribeDBParameterGroupsResponse responseStatus =
   DescribeDBParameterGroupsResponse'
-    { marker = Lude.Nothing,
-      dbParameterGroups = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBParameterGroups =
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
+
+-- | A list of @DBParameterGroup@ instances.
+--
+-- /Note:/ Consider using 'dBParameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbpgrrsDBParameterGroups :: Lens.Lens' DescribeDBParameterGroupsResponse (Core.Maybe [Types.DBParameterGroup])
+ddbpgrrsDBParameterGroups = Lens.field @"dBParameterGroups"
+{-# DEPRECATED ddbpgrrsDBParameterGroups "Use generic-lens or generic-optics with 'dBParameterGroups' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgrsMarker :: Lens.Lens' DescribeDBParameterGroupsResponse (Lude.Maybe Lude.Text)
-ddpgrsMarker = Lens.lens (marker :: DescribeDBParameterGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBParameterGroupsResponse)
-{-# DEPRECATED ddpgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A list of @DBParameterGroup@ instances.
---
--- /Note:/ Consider using 'dbParameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgrsDBParameterGroups :: Lens.Lens' DescribeDBParameterGroupsResponse (Lude.Maybe [DBParameterGroup])
-ddpgrsDBParameterGroups = Lens.lens (dbParameterGroups :: DescribeDBParameterGroupsResponse -> Lude.Maybe [DBParameterGroup]) (\s a -> s {dbParameterGroups = a} :: DescribeDBParameterGroupsResponse)
-{-# DEPRECATED ddpgrsDBParameterGroups "Use generic-lens or generic-optics with 'dbParameterGroups' instead." #-}
+ddbpgrrsMarker :: Lens.Lens' DescribeDBParameterGroupsResponse (Core.Maybe Types.String)
+ddbpgrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbpgrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpgrsResponseStatus :: Lens.Lens' DescribeDBParameterGroupsResponse Lude.Int
-ddpgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBParameterGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBParameterGroupsResponse)
-{-# DEPRECATED ddpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbpgrrsResponseStatus :: Lens.Lens' DescribeDBParameterGroupsResponse Core.Int
+ddbpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

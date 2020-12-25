@@ -13,71 +13,76 @@
 module Network.AWS.EMR.Types.InstanceFleetState
   ( InstanceFleetState
       ( InstanceFleetState',
-        IFSProvisioning,
-        IFSBootstrapping,
-        IFSRunning,
-        IFSResizing,
-        IFSSuspended,
-        IFSTerminating,
-        IFSTerminated
+        InstanceFleetStateProvisioning,
+        InstanceFleetStateBootstrapping,
+        InstanceFleetStateRunning,
+        InstanceFleetStateResizing,
+        InstanceFleetStateSuspended,
+        InstanceFleetStateTerminating,
+        InstanceFleetStateTerminated,
+        fromInstanceFleetState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceFleetState = InstanceFleetState' Lude.Text
+newtype InstanceFleetState = InstanceFleetState'
+  { fromInstanceFleetState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IFSProvisioning :: InstanceFleetState
-pattern IFSProvisioning = InstanceFleetState' "PROVISIONING"
+pattern InstanceFleetStateProvisioning :: InstanceFleetState
+pattern InstanceFleetStateProvisioning = InstanceFleetState' "PROVISIONING"
 
-pattern IFSBootstrapping :: InstanceFleetState
-pattern IFSBootstrapping = InstanceFleetState' "BOOTSTRAPPING"
+pattern InstanceFleetStateBootstrapping :: InstanceFleetState
+pattern InstanceFleetStateBootstrapping = InstanceFleetState' "BOOTSTRAPPING"
 
-pattern IFSRunning :: InstanceFleetState
-pattern IFSRunning = InstanceFleetState' "RUNNING"
+pattern InstanceFleetStateRunning :: InstanceFleetState
+pattern InstanceFleetStateRunning = InstanceFleetState' "RUNNING"
 
-pattern IFSResizing :: InstanceFleetState
-pattern IFSResizing = InstanceFleetState' "RESIZING"
+pattern InstanceFleetStateResizing :: InstanceFleetState
+pattern InstanceFleetStateResizing = InstanceFleetState' "RESIZING"
 
-pattern IFSSuspended :: InstanceFleetState
-pattern IFSSuspended = InstanceFleetState' "SUSPENDED"
+pattern InstanceFleetStateSuspended :: InstanceFleetState
+pattern InstanceFleetStateSuspended = InstanceFleetState' "SUSPENDED"
 
-pattern IFSTerminating :: InstanceFleetState
-pattern IFSTerminating = InstanceFleetState' "TERMINATING"
+pattern InstanceFleetStateTerminating :: InstanceFleetState
+pattern InstanceFleetStateTerminating = InstanceFleetState' "TERMINATING"
 
-pattern IFSTerminated :: InstanceFleetState
-pattern IFSTerminated = InstanceFleetState' "TERMINATED"
+pattern InstanceFleetStateTerminated :: InstanceFleetState
+pattern InstanceFleetStateTerminated = InstanceFleetState' "TERMINATED"
 
 {-# COMPLETE
-  IFSProvisioning,
-  IFSBootstrapping,
-  IFSRunning,
-  IFSResizing,
-  IFSSuspended,
-  IFSTerminating,
-  IFSTerminated,
+  InstanceFleetStateProvisioning,
+  InstanceFleetStateBootstrapping,
+  InstanceFleetStateRunning,
+  InstanceFleetStateResizing,
+  InstanceFleetStateSuspended,
+  InstanceFleetStateTerminating,
+  InstanceFleetStateTerminated,
   InstanceFleetState'
   #-}

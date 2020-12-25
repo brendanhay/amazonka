@@ -17,87 +17,80 @@ module Network.AWS.SageMaker.Types.CognitoMemberDefinition
     mkCognitoMemberDefinition,
 
     -- * Lenses
-    cmdClientId,
-    cmdUserGroup,
     cmdUserPool,
+    cmdUserGroup,
+    cmdClientId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ClientId as Types
+import qualified Network.AWS.SageMaker.Types.UserGroup as Types
+import qualified Network.AWS.SageMaker.Types.UserPool as Types
 
 -- | Identifies a Amazon Cognito user group. A user group can be used in on or more work teams.
 --
 -- /See:/ 'mkCognitoMemberDefinition' smart constructor.
 data CognitoMemberDefinition = CognitoMemberDefinition'
-  { -- | An identifier for an application client. You must create the app client ID using Amazon Cognito.
-    clientId :: Lude.Text,
+  { -- | An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+    userPool :: Types.UserPool,
     -- | An identifier for a user group.
-    userGroup :: Lude.Text,
-    -- | An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-    userPool :: Lude.Text
+    userGroup :: Types.UserGroup,
+    -- | An identifier for an application client. You must create the app client ID using Amazon Cognito.
+    clientId :: Types.ClientId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CognitoMemberDefinition' with the minimum fields required to make a request.
---
--- * 'clientId' - An identifier for an application client. You must create the app client ID using Amazon Cognito.
--- * 'userGroup' - An identifier for a user group.
--- * 'userPool' - An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+-- | Creates a 'CognitoMemberDefinition' value with any optional fields omitted.
 mkCognitoMemberDefinition ::
-  -- | 'clientId'
-  Lude.Text ->
-  -- | 'userGroup'
-  Lude.Text ->
   -- | 'userPool'
-  Lude.Text ->
+  Types.UserPool ->
+  -- | 'userGroup'
+  Types.UserGroup ->
+  -- | 'clientId'
+  Types.ClientId ->
   CognitoMemberDefinition
-mkCognitoMemberDefinition pClientId_ pUserGroup_ pUserPool_ =
-  CognitoMemberDefinition'
-    { clientId = pClientId_,
-      userGroup = pUserGroup_,
-      userPool = pUserPool_
-    }
-
--- | An identifier for an application client. You must create the app client ID using Amazon Cognito.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdClientId :: Lens.Lens' CognitoMemberDefinition Lude.Text
-cmdClientId = Lens.lens (clientId :: CognitoMemberDefinition -> Lude.Text) (\s a -> s {clientId = a} :: CognitoMemberDefinition)
-{-# DEPRECATED cmdClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
--- | An identifier for a user group.
---
--- /Note:/ Consider using 'userGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdUserGroup :: Lens.Lens' CognitoMemberDefinition Lude.Text
-cmdUserGroup = Lens.lens (userGroup :: CognitoMemberDefinition -> Lude.Text) (\s a -> s {userGroup = a} :: CognitoMemberDefinition)
-{-# DEPRECATED cmdUserGroup "Use generic-lens or generic-optics with 'userGroup' instead." #-}
+mkCognitoMemberDefinition userPool userGroup clientId =
+  CognitoMemberDefinition' {userPool, userGroup, clientId}
 
 -- | An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
 --
 -- /Note:/ Consider using 'userPool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdUserPool :: Lens.Lens' CognitoMemberDefinition Lude.Text
-cmdUserPool = Lens.lens (userPool :: CognitoMemberDefinition -> Lude.Text) (\s a -> s {userPool = a} :: CognitoMemberDefinition)
+cmdUserPool :: Lens.Lens' CognitoMemberDefinition Types.UserPool
+cmdUserPool = Lens.field @"userPool"
 {-# DEPRECATED cmdUserPool "Use generic-lens or generic-optics with 'userPool' instead." #-}
 
-instance Lude.FromJSON CognitoMemberDefinition where
-  parseJSON =
-    Lude.withObject
-      "CognitoMemberDefinition"
-      ( \x ->
-          CognitoMemberDefinition'
-            Lude.<$> (x Lude..: "ClientId")
-            Lude.<*> (x Lude..: "UserGroup")
-            Lude.<*> (x Lude..: "UserPool")
-      )
+-- | An identifier for a user group.
+--
+-- /Note:/ Consider using 'userGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdUserGroup :: Lens.Lens' CognitoMemberDefinition Types.UserGroup
+cmdUserGroup = Lens.field @"userGroup"
+{-# DEPRECATED cmdUserGroup "Use generic-lens or generic-optics with 'userGroup' instead." #-}
 
-instance Lude.ToJSON CognitoMemberDefinition where
-  toJSON CognitoMemberDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClientId" Lude..= clientId),
-            Lude.Just ("UserGroup" Lude..= userGroup),
-            Lude.Just ("UserPool" Lude..= userPool)
+-- | An identifier for an application client. You must create the app client ID using Amazon Cognito.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdClientId :: Lens.Lens' CognitoMemberDefinition Types.ClientId
+cmdClientId = Lens.field @"clientId"
+{-# DEPRECATED cmdClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+instance Core.FromJSON CognitoMemberDefinition where
+  toJSON CognitoMemberDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPool" Core..= userPool),
+            Core.Just ("UserGroup" Core..= userGroup),
+            Core.Just ("ClientId" Core..= clientId)
           ]
       )
+
+instance Core.FromJSON CognitoMemberDefinition where
+  parseJSON =
+    Core.withObject "CognitoMemberDefinition" Core.$
+      \x ->
+        CognitoMemberDefinition'
+          Core.<$> (x Core..: "UserPool")
+          Core.<*> (x Core..: "UserGroup")
+          Core.<*> (x Core..: "ClientId")

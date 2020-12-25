@@ -17,123 +17,115 @@ module Network.AWS.ECS.Types.Resource
     mkResource,
 
     -- * Lenses
-    rStringSetValue,
-    rIntegerValue,
     rDoubleValue,
+    rIntegerValue,
     rLongValue,
     rName,
+    rStringSetValue,
     rType,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the resources available for a container instance.
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { -- | When the @stringSetValue@ type is set, the value of the resource must be a string type.
-    stringSetValue :: Lude.Maybe [Lude.Text],
+  { -- | When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
+    doubleValue :: Core.Maybe Core.Double,
     -- | When the @integerValue@ type is set, the value of the resource must be an integer.
-    integerValue :: Lude.Maybe Lude.Int,
-    -- | When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
-    doubleValue :: Lude.Maybe Lude.Double,
+    integerValue :: Core.Maybe Core.Int,
     -- | When the @longValue@ type is set, the value of the resource must be an extended precision floating-point type.
-    longValue :: Lude.Maybe Lude.Integer,
+    longValue :: Core.Maybe Core.Integer,
     -- | The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , @PORTS_UDP@ , or a user-defined resource.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.String,
+    -- | When the @stringSetValue@ type is set, the value of the resource must be a string type.
+    stringSetValue :: Core.Maybe [Types.String],
     -- | The type of the resource, such as @INTEGER@ , @DOUBLE@ , @LONG@ , or @STRINGSET@ .
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Resource' with the minimum fields required to make a request.
---
--- * 'stringSetValue' - When the @stringSetValue@ type is set, the value of the resource must be a string type.
--- * 'integerValue' - When the @integerValue@ type is set, the value of the resource must be an integer.
--- * 'doubleValue' - When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
--- * 'longValue' - When the @longValue@ type is set, the value of the resource must be an extended precision floating-point type.
--- * 'name' - The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , @PORTS_UDP@ , or a user-defined resource.
--- * 'type'' - The type of the resource, such as @INTEGER@ , @DOUBLE@ , @LONG@ , or @STRINGSET@ .
+-- | Creates a 'Resource' value with any optional fields omitted.
 mkResource ::
   Resource
 mkResource =
   Resource'
-    { stringSetValue = Lude.Nothing,
-      integerValue = Lude.Nothing,
-      doubleValue = Lude.Nothing,
-      longValue = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing
+    { doubleValue = Core.Nothing,
+      integerValue = Core.Nothing,
+      longValue = Core.Nothing,
+      name = Core.Nothing,
+      stringSetValue = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | When the @stringSetValue@ type is set, the value of the resource must be a string type.
---
--- /Note:/ Consider using 'stringSetValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rStringSetValue :: Lens.Lens' Resource (Lude.Maybe [Lude.Text])
-rStringSetValue = Lens.lens (stringSetValue :: Resource -> Lude.Maybe [Lude.Text]) (\s a -> s {stringSetValue = a} :: Resource)
-{-# DEPRECATED rStringSetValue "Use generic-lens or generic-optics with 'stringSetValue' instead." #-}
-
--- | When the @integerValue@ type is set, the value of the resource must be an integer.
---
--- /Note:/ Consider using 'integerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rIntegerValue :: Lens.Lens' Resource (Lude.Maybe Lude.Int)
-rIntegerValue = Lens.lens (integerValue :: Resource -> Lude.Maybe Lude.Int) (\s a -> s {integerValue = a} :: Resource)
-{-# DEPRECATED rIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
 
 -- | When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
 --
 -- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDoubleValue :: Lens.Lens' Resource (Lude.Maybe Lude.Double)
-rDoubleValue = Lens.lens (doubleValue :: Resource -> Lude.Maybe Lude.Double) (\s a -> s {doubleValue = a} :: Resource)
+rDoubleValue :: Lens.Lens' Resource (Core.Maybe Core.Double)
+rDoubleValue = Lens.field @"doubleValue"
 {-# DEPRECATED rDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
+
+-- | When the @integerValue@ type is set, the value of the resource must be an integer.
+--
+-- /Note:/ Consider using 'integerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rIntegerValue :: Lens.Lens' Resource (Core.Maybe Core.Int)
+rIntegerValue = Lens.field @"integerValue"
+{-# DEPRECATED rIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
 
 -- | When the @longValue@ type is set, the value of the resource must be an extended precision floating-point type.
 --
 -- /Note:/ Consider using 'longValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rLongValue :: Lens.Lens' Resource (Lude.Maybe Lude.Integer)
-rLongValue = Lens.lens (longValue :: Resource -> Lude.Maybe Lude.Integer) (\s a -> s {longValue = a} :: Resource)
+rLongValue :: Lens.Lens' Resource (Core.Maybe Core.Integer)
+rLongValue = Lens.field @"longValue"
 {-# DEPRECATED rLongValue "Use generic-lens or generic-optics with 'longValue' instead." #-}
 
 -- | The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , @PORTS_UDP@ , or a user-defined resource.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rName :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
-rName = Lens.lens (name :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Resource)
+rName :: Lens.Lens' Resource (Core.Maybe Types.String)
+rName = Lens.field @"name"
 {-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | When the @stringSetValue@ type is set, the value of the resource must be a string type.
+--
+-- /Note:/ Consider using 'stringSetValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rStringSetValue :: Lens.Lens' Resource (Core.Maybe [Types.String])
+rStringSetValue = Lens.field @"stringSetValue"
+{-# DEPRECATED rStringSetValue "Use generic-lens or generic-optics with 'stringSetValue' instead." #-}
 
 -- | The type of the resource, such as @INTEGER@ , @DOUBLE@ , @LONG@ , or @STRINGSET@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rType :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
-rType = Lens.lens (type' :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Resource)
+rType :: Lens.Lens' Resource (Core.Maybe Types.String)
+rType = Lens.field @"type'"
 {-# DEPRECATED rType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Resource where
-  parseJSON =
-    Lude.withObject
-      "Resource"
-      ( \x ->
-          Resource'
-            Lude.<$> (x Lude..:? "stringSetValue" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "integerValue")
-            Lude.<*> (x Lude..:? "doubleValue")
-            Lude.<*> (x Lude..:? "longValue")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "type")
-      )
-
-instance Lude.ToJSON Resource where
-  toJSON Resource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("stringSetValue" Lude..=) Lude.<$> stringSetValue,
-            ("integerValue" Lude..=) Lude.<$> integerValue,
-            ("doubleValue" Lude..=) Lude.<$> doubleValue,
-            ("longValue" Lude..=) Lude.<$> longValue,
-            ("name" Lude..=) Lude.<$> name,
-            ("type" Lude..=) Lude.<$> type'
+instance Core.FromJSON Resource where
+  toJSON Resource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("doubleValue" Core..=) Core.<$> doubleValue,
+            ("integerValue" Core..=) Core.<$> integerValue,
+            ("longValue" Core..=) Core.<$> longValue,
+            ("name" Core..=) Core.<$> name,
+            ("stringSetValue" Core..=) Core.<$> stringSetValue,
+            ("type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON Resource where
+  parseJSON =
+    Core.withObject "Resource" Core.$
+      \x ->
+        Resource'
+          Core.<$> (x Core..:? "doubleValue")
+          Core.<*> (x Core..:? "integerValue")
+          Core.<*> (x Core..:? "longValue")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "stringSetValue")
+          Core.<*> (x Core..:? "type")

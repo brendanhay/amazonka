@@ -41,128 +41,118 @@ module Network.AWS.S3.GetBucketInventoryConfiguration
     mkGetBucketInventoryConfigurationResponse,
 
     -- ** Response lenses
-    gbicrsInventoryConfiguration,
-    gbicrsResponseStatus,
+    gbicrrsInventoryConfiguration,
+    gbicrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketInventoryConfiguration' smart constructor.
 data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
   { -- | The name of the bucket containing the inventory configuration to retrieve.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The ID used to identify the inventory configuration.
-    id :: Lude.Text,
+    id :: Types.InventoryId,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketInventoryConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket containing the inventory configuration to retrieve.
--- * 'id' - The ID used to identify the inventory configuration.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketInventoryConfiguration' value with any optional fields omitted.
 mkGetBucketInventoryConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'id'
-  Lude.Text ->
+  Types.InventoryId ->
   GetBucketInventoryConfiguration
-mkGetBucketInventoryConfiguration pBucket_ pId_ =
+mkGetBucketInventoryConfiguration bucket id =
   GetBucketInventoryConfiguration'
-    { bucket = pBucket_,
-      id = pId_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      id,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket containing the inventory configuration to retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbicBucket :: Lens.Lens' GetBucketInventoryConfiguration BucketName
-gbicBucket = Lens.lens (bucket :: GetBucketInventoryConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketInventoryConfiguration)
+gbicBucket :: Lens.Lens' GetBucketInventoryConfiguration Types.BucketName
+gbicBucket = Lens.field @"bucket"
 {-# DEPRECATED gbicBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the inventory configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbicId :: Lens.Lens' GetBucketInventoryConfiguration Lude.Text
-gbicId = Lens.lens (id :: GetBucketInventoryConfiguration -> Lude.Text) (\s a -> s {id = a} :: GetBucketInventoryConfiguration)
+gbicId :: Lens.Lens' GetBucketInventoryConfiguration Types.InventoryId
+gbicId = Lens.field @"id"
 {-# DEPRECATED gbicId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbicExpectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Lude.Maybe Lude.Text)
-gbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketInventoryConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketInventoryConfiguration)
+gbicExpectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Core.Maybe Types.AccountId)
+gbicExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketInventoryConfiguration where
+instance Core.AWSRequest GetBucketInventoryConfiguration where
   type
     Rs GetBucketInventoryConfiguration =
       GetBucketInventoryConfigurationResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "id" id Core.<> (Core.pure ("inventory", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketInventoryConfigurationResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketInventoryConfiguration where
-  toHeaders GetBucketInventoryConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketInventoryConfiguration where
-  toPath GetBucketInventoryConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketInventoryConfiguration where
-  toQuery GetBucketInventoryConfiguration' {..} =
-    Lude.mconcat ["id" Lude.=: id, "inventory"]
 
 -- | /See:/ 'mkGetBucketInventoryConfigurationResponse' smart constructor.
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'
   { -- | Specifies the inventory configuration.
-    inventoryConfiguration :: Lude.Maybe InventoryConfiguration,
+    inventoryConfiguration :: Core.Maybe Types.InventoryConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketInventoryConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'inventoryConfiguration' - Specifies the inventory configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketInventoryConfigurationResponse' value with any optional fields omitted.
 mkGetBucketInventoryConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketInventoryConfigurationResponse
-mkGetBucketInventoryConfigurationResponse pResponseStatus_ =
+mkGetBucketInventoryConfigurationResponse responseStatus =
   GetBucketInventoryConfigurationResponse'
     { inventoryConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Specifies the inventory configuration.
 --
 -- /Note:/ Consider using 'inventoryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbicrsInventoryConfiguration :: Lens.Lens' GetBucketInventoryConfigurationResponse (Lude.Maybe InventoryConfiguration)
-gbicrsInventoryConfiguration = Lens.lens (inventoryConfiguration :: GetBucketInventoryConfigurationResponse -> Lude.Maybe InventoryConfiguration) (\s a -> s {inventoryConfiguration = a} :: GetBucketInventoryConfigurationResponse)
-{-# DEPRECATED gbicrsInventoryConfiguration "Use generic-lens or generic-optics with 'inventoryConfiguration' instead." #-}
+gbicrrsInventoryConfiguration :: Lens.Lens' GetBucketInventoryConfigurationResponse (Core.Maybe Types.InventoryConfiguration)
+gbicrrsInventoryConfiguration = Lens.field @"inventoryConfiguration"
+{-# DEPRECATED gbicrrsInventoryConfiguration "Use generic-lens or generic-optics with 'inventoryConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbicrsResponseStatus :: Lens.Lens' GetBucketInventoryConfigurationResponse Lude.Int
-gbicrsResponseStatus = Lens.lens (responseStatus :: GetBucketInventoryConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketInventoryConfigurationResponse)
-{-# DEPRECATED gbicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbicrrsResponseStatus :: Lens.Lens' GetBucketInventoryConfigurationResponse Core.Int
+gbicrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbicrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

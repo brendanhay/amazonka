@@ -22,61 +22,58 @@ module Network.AWS.Glue.Types.DatabaseIdentifier
   )
 where
 
+import qualified Network.AWS.Glue.Types.CatalogIdString as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that describes a target database for resource linking.
 --
 -- /See:/ 'mkDatabaseIdentifier' smart constructor.
 data DatabaseIdentifier = DatabaseIdentifier'
   { -- | The ID of the Data Catalog in which the database resides.
-    catalogId :: Lude.Maybe Lude.Text,
+    catalogId :: Core.Maybe Types.CatalogIdString,
     -- | The name of the catalog database.
-    databaseName :: Lude.Maybe Lude.Text
+    databaseName :: Core.Maybe Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatabaseIdentifier' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog in which the database resides.
--- * 'databaseName' - The name of the catalog database.
+-- | Creates a 'DatabaseIdentifier' value with any optional fields omitted.
 mkDatabaseIdentifier ::
   DatabaseIdentifier
 mkDatabaseIdentifier =
   DatabaseIdentifier'
-    { catalogId = Lude.Nothing,
-      databaseName = Lude.Nothing
+    { catalogId = Core.Nothing,
+      databaseName = Core.Nothing
     }
 
 -- | The ID of the Data Catalog in which the database resides.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diCatalogId :: Lens.Lens' DatabaseIdentifier (Lude.Maybe Lude.Text)
-diCatalogId = Lens.lens (catalogId :: DatabaseIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DatabaseIdentifier)
+diCatalogId :: Lens.Lens' DatabaseIdentifier (Core.Maybe Types.CatalogIdString)
+diCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED diCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDatabaseName :: Lens.Lens' DatabaseIdentifier (Lude.Maybe Lude.Text)
-diDatabaseName = Lens.lens (databaseName :: DatabaseIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: DatabaseIdentifier)
+diDatabaseName :: Lens.Lens' DatabaseIdentifier (Core.Maybe Types.NameString)
+diDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED diDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
-instance Lude.FromJSON DatabaseIdentifier where
-  parseJSON =
-    Lude.withObject
-      "DatabaseIdentifier"
-      ( \x ->
-          DatabaseIdentifier'
-            Lude.<$> (x Lude..:? "CatalogId") Lude.<*> (x Lude..:? "DatabaseName")
-      )
-
-instance Lude.ToJSON DatabaseIdentifier where
-  toJSON DatabaseIdentifier' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            ("DatabaseName" Lude..=) Lude.<$> databaseName
+instance Core.FromJSON DatabaseIdentifier where
+  toJSON DatabaseIdentifier {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            ("DatabaseName" Core..=) Core.<$> databaseName
           ]
       )
+
+instance Core.FromJSON DatabaseIdentifier where
+  parseJSON =
+    Core.withObject "DatabaseIdentifier" Core.$
+      \x ->
+        DatabaseIdentifier'
+          Core.<$> (x Core..:? "CatalogId") Core.<*> (x Core..:? "DatabaseName")

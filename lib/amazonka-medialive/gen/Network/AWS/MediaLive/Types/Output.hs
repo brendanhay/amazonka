@@ -17,113 +17,105 @@ module Network.AWS.MediaLive.Types.Output
     mkOutput,
 
     -- * Lenses
-    oCaptionDescriptionNames,
-    oVideoDescriptionName,
-    oOutputName,
-    oAudioDescriptionNames,
     oOutputSettings,
+    oAudioDescriptionNames,
+    oCaptionDescriptionNames,
+    oOutputName,
+    oVideoDescriptionName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.OutputSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.OutputSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Output settings. There can be multiple outputs within a group.
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { -- | The names of the CaptionDescriptions used as caption sources for this output.
-    captionDescriptionNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the VideoDescription used as the source for this output.
-    videoDescriptionName :: Lude.Maybe Lude.Text,
-    -- | The name used to identify an output.
-    outputName :: Lude.Maybe Lude.Text,
+  { -- | Output type-specific settings.
+    outputSettings :: Types.OutputSettings,
     -- | The names of the AudioDescriptions used as audio sources for this output.
-    audioDescriptionNames :: Lude.Maybe [Lude.Text],
-    -- | Output type-specific settings.
-    outputSettings :: OutputSettings
+    audioDescriptionNames :: Core.Maybe [Core.Text],
+    -- | The names of the CaptionDescriptions used as caption sources for this output.
+    captionDescriptionNames :: Core.Maybe [Core.Text],
+    -- | The name used to identify an output.
+    outputName :: Core.Maybe Core.Text,
+    -- | The name of the VideoDescription used as the source for this output.
+    videoDescriptionName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Output' with the minimum fields required to make a request.
---
--- * 'captionDescriptionNames' - The names of the CaptionDescriptions used as caption sources for this output.
--- * 'videoDescriptionName' - The name of the VideoDescription used as the source for this output.
--- * 'outputName' - The name used to identify an output.
--- * 'audioDescriptionNames' - The names of the AudioDescriptions used as audio sources for this output.
--- * 'outputSettings' - Output type-specific settings.
+-- | Creates a 'Output' value with any optional fields omitted.
 mkOutput ::
   -- | 'outputSettings'
-  OutputSettings ->
+  Types.OutputSettings ->
   Output
-mkOutput pOutputSettings_ =
+mkOutput outputSettings =
   Output'
-    { captionDescriptionNames = Lude.Nothing,
-      videoDescriptionName = Lude.Nothing,
-      outputName = Lude.Nothing,
-      audioDescriptionNames = Lude.Nothing,
-      outputSettings = pOutputSettings_
+    { outputSettings,
+      audioDescriptionNames = Core.Nothing,
+      captionDescriptionNames = Core.Nothing,
+      outputName = Core.Nothing,
+      videoDescriptionName = Core.Nothing
     }
-
--- | The names of the CaptionDescriptions used as caption sources for this output.
---
--- /Note:/ Consider using 'captionDescriptionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oCaptionDescriptionNames :: Lens.Lens' Output (Lude.Maybe [Lude.Text])
-oCaptionDescriptionNames = Lens.lens (captionDescriptionNames :: Output -> Lude.Maybe [Lude.Text]) (\s a -> s {captionDescriptionNames = a} :: Output)
-{-# DEPRECATED oCaptionDescriptionNames "Use generic-lens or generic-optics with 'captionDescriptionNames' instead." #-}
-
--- | The name of the VideoDescription used as the source for this output.
---
--- /Note:/ Consider using 'videoDescriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oVideoDescriptionName :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oVideoDescriptionName = Lens.lens (videoDescriptionName :: Output -> Lude.Maybe Lude.Text) (\s a -> s {videoDescriptionName = a} :: Output)
-{-# DEPRECATED oVideoDescriptionName "Use generic-lens or generic-optics with 'videoDescriptionName' instead." #-}
-
--- | The name used to identify an output.
---
--- /Note:/ Consider using 'outputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oOutputName :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oOutputName = Lens.lens (outputName :: Output -> Lude.Maybe Lude.Text) (\s a -> s {outputName = a} :: Output)
-{-# DEPRECATED oOutputName "Use generic-lens or generic-optics with 'outputName' instead." #-}
-
--- | The names of the AudioDescriptions used as audio sources for this output.
---
--- /Note:/ Consider using 'audioDescriptionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oAudioDescriptionNames :: Lens.Lens' Output (Lude.Maybe [Lude.Text])
-oAudioDescriptionNames = Lens.lens (audioDescriptionNames :: Output -> Lude.Maybe [Lude.Text]) (\s a -> s {audioDescriptionNames = a} :: Output)
-{-# DEPRECATED oAudioDescriptionNames "Use generic-lens or generic-optics with 'audioDescriptionNames' instead." #-}
 
 -- | Output type-specific settings.
 --
 -- /Note:/ Consider using 'outputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oOutputSettings :: Lens.Lens' Output OutputSettings
-oOutputSettings = Lens.lens (outputSettings :: Output -> OutputSettings) (\s a -> s {outputSettings = a} :: Output)
+oOutputSettings :: Lens.Lens' Output Types.OutputSettings
+oOutputSettings = Lens.field @"outputSettings"
 {-# DEPRECATED oOutputSettings "Use generic-lens or generic-optics with 'outputSettings' instead." #-}
 
-instance Lude.FromJSON Output where
-  parseJSON =
-    Lude.withObject
-      "Output"
-      ( \x ->
-          Output'
-            Lude.<$> (x Lude..:? "captionDescriptionNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "videoDescriptionName")
-            Lude.<*> (x Lude..:? "outputName")
-            Lude.<*> (x Lude..:? "audioDescriptionNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "outputSettings")
-      )
+-- | The names of the AudioDescriptions used as audio sources for this output.
+--
+-- /Note:/ Consider using 'audioDescriptionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oAudioDescriptionNames :: Lens.Lens' Output (Core.Maybe [Core.Text])
+oAudioDescriptionNames = Lens.field @"audioDescriptionNames"
+{-# DEPRECATED oAudioDescriptionNames "Use generic-lens or generic-optics with 'audioDescriptionNames' instead." #-}
 
-instance Lude.ToJSON Output where
-  toJSON Output' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("captionDescriptionNames" Lude..=)
-              Lude.<$> captionDescriptionNames,
-            ("videoDescriptionName" Lude..=) Lude.<$> videoDescriptionName,
-            ("outputName" Lude..=) Lude.<$> outputName,
-            ("audioDescriptionNames" Lude..=) Lude.<$> audioDescriptionNames,
-            Lude.Just ("outputSettings" Lude..= outputSettings)
+-- | The names of the CaptionDescriptions used as caption sources for this output.
+--
+-- /Note:/ Consider using 'captionDescriptionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oCaptionDescriptionNames :: Lens.Lens' Output (Core.Maybe [Core.Text])
+oCaptionDescriptionNames = Lens.field @"captionDescriptionNames"
+{-# DEPRECATED oCaptionDescriptionNames "Use generic-lens or generic-optics with 'captionDescriptionNames' instead." #-}
+
+-- | The name used to identify an output.
+--
+-- /Note:/ Consider using 'outputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOutputName :: Lens.Lens' Output (Core.Maybe Core.Text)
+oOutputName = Lens.field @"outputName"
+{-# DEPRECATED oOutputName "Use generic-lens or generic-optics with 'outputName' instead." #-}
+
+-- | The name of the VideoDescription used as the source for this output.
+--
+-- /Note:/ Consider using 'videoDescriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oVideoDescriptionName :: Lens.Lens' Output (Core.Maybe Core.Text)
+oVideoDescriptionName = Lens.field @"videoDescriptionName"
+{-# DEPRECATED oVideoDescriptionName "Use generic-lens or generic-optics with 'videoDescriptionName' instead." #-}
+
+instance Core.FromJSON Output where
+  toJSON Output {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("outputSettings" Core..= outputSettings),
+            ("audioDescriptionNames" Core..=) Core.<$> audioDescriptionNames,
+            ("captionDescriptionNames" Core..=)
+              Core.<$> captionDescriptionNames,
+            ("outputName" Core..=) Core.<$> outputName,
+            ("videoDescriptionName" Core..=) Core.<$> videoDescriptionName
           ]
       )
+
+instance Core.FromJSON Output where
+  parseJSON =
+    Core.withObject "Output" Core.$
+      \x ->
+        Output'
+          Core.<$> (x Core..: "outputSettings")
+          Core.<*> (x Core..:? "audioDescriptionNames")
+          Core.<*> (x Core..:? "captionDescriptionNames")
+          Core.<*> (x Core..:? "outputName")
+          Core.<*> (x Core..:? "videoDescriptionName")

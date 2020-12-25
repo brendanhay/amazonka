@@ -20,213 +20,194 @@ module Network.AWS.Glue.QuerySchemaVersionMetadata
     mkQuerySchemaVersionMetadata,
 
     -- ** Request lenses
-    qsvmSchemaVersionId,
-    qsvmSchemaId,
-    qsvmNextToken,
-    qsvmMetadataList,
-    qsvmSchemaVersionNumber,
     qsvmMaxResults,
+    qsvmMetadataList,
+    qsvmNextToken,
+    qsvmSchemaId,
+    qsvmSchemaVersionId,
+    qsvmSchemaVersionNumber,
 
     -- * Destructuring the response
     QuerySchemaVersionMetadataResponse (..),
     mkQuerySchemaVersionMetadataResponse,
 
     -- ** Response lenses
-    qsvmrsSchemaVersionId,
-    qsvmrsNextToken,
-    qsvmrsMetadataInfoMap,
-    qsvmrsResponseStatus,
+    qsvmrrsMetadataInfoMap,
+    qsvmrrsNextToken,
+    qsvmrrsSchemaVersionId,
+    qsvmrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkQuerySchemaVersionMetadata' smart constructor.
 data QuerySchemaVersionMetadata = QuerySchemaVersionMetadata'
-  { -- | The unique version ID of the schema version.
-    schemaVersionId :: Lude.Maybe Lude.Text,
-    -- | A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
-    schemaId :: Lude.Maybe SchemaId,
-    -- | A continuation token, if this is a continuation call.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+    maxResults :: Core.Maybe Core.Natural,
     -- | Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
-    metadataList :: Lude.Maybe [MetadataKeyValuePair],
+    metadataList :: Core.Maybe [Types.MetadataKeyValuePair],
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Core.Maybe Types.SchemaRegistryTokenString,
+    -- | A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+    schemaId :: Core.Maybe Types.SchemaId,
+    -- | The unique version ID of the schema version.
+    schemaVersionId :: Core.Maybe Types.SchemaVersionId,
     -- | The version number of the schema.
-    schemaVersionNumber :: Lude.Maybe SchemaVersionNumber,
-    -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    schemaVersionNumber :: Core.Maybe Types.SchemaVersionNumber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QuerySchemaVersionMetadata' with the minimum fields required to make a request.
---
--- * 'schemaVersionId' - The unique version ID of the schema version.
--- * 'schemaId' - A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
--- * 'nextToken' - A continuation token, if this is a continuation call.
--- * 'metadataList' - Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
--- * 'schemaVersionNumber' - The version number of the schema.
--- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+-- | Creates a 'QuerySchemaVersionMetadata' value with any optional fields omitted.
 mkQuerySchemaVersionMetadata ::
   QuerySchemaVersionMetadata
 mkQuerySchemaVersionMetadata =
   QuerySchemaVersionMetadata'
-    { schemaVersionId = Lude.Nothing,
-      schemaId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      metadataList = Lude.Nothing,
-      schemaVersionNumber = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      metadataList = Core.Nothing,
+      nextToken = Core.Nothing,
+      schemaId = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      schemaVersionNumber = Core.Nothing
     }
-
--- | The unique version ID of the schema version.
---
--- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmSchemaVersionId :: Lens.Lens' QuerySchemaVersionMetadata (Lude.Maybe Lude.Text)
-qsvmSchemaVersionId = Lens.lens (schemaVersionId :: QuerySchemaVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: QuerySchemaVersionMetadata)
-{-# DEPRECATED qsvmSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
-
--- | A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmSchemaId :: Lens.Lens' QuerySchemaVersionMetadata (Lude.Maybe SchemaId)
-qsvmSchemaId = Lens.lens (schemaId :: QuerySchemaVersionMetadata -> Lude.Maybe SchemaId) (\s a -> s {schemaId = a} :: QuerySchemaVersionMetadata)
-{-# DEPRECATED qsvmSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
-
--- | A continuation token, if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmNextToken :: Lens.Lens' QuerySchemaVersionMetadata (Lude.Maybe Lude.Text)
-qsvmNextToken = Lens.lens (nextToken :: QuerySchemaVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: QuerySchemaVersionMetadata)
-{-# DEPRECATED qsvmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
---
--- /Note:/ Consider using 'metadataList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmMetadataList :: Lens.Lens' QuerySchemaVersionMetadata (Lude.Maybe [MetadataKeyValuePair])
-qsvmMetadataList = Lens.lens (metadataList :: QuerySchemaVersionMetadata -> Lude.Maybe [MetadataKeyValuePair]) (\s a -> s {metadataList = a} :: QuerySchemaVersionMetadata)
-{-# DEPRECATED qsvmMetadataList "Use generic-lens or generic-optics with 'metadataList' instead." #-}
-
--- | The version number of the schema.
---
--- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmSchemaVersionNumber :: Lens.Lens' QuerySchemaVersionMetadata (Lude.Maybe SchemaVersionNumber)
-qsvmSchemaVersionNumber = Lens.lens (schemaVersionNumber :: QuerySchemaVersionMetadata -> Lude.Maybe SchemaVersionNumber) (\s a -> s {schemaVersionNumber = a} :: QuerySchemaVersionMetadata)
-{-# DEPRECATED qsvmSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
 
 -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmMaxResults :: Lens.Lens' QuerySchemaVersionMetadata (Lude.Maybe Lude.Natural)
-qsvmMaxResults = Lens.lens (maxResults :: QuerySchemaVersionMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: QuerySchemaVersionMetadata)
+qsvmMaxResults :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Core.Natural)
+qsvmMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED qsvmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest QuerySchemaVersionMetadata where
-  type
-    Rs QuerySchemaVersionMetadata =
-      QuerySchemaVersionMetadataResponse
-  request = Req.postJSON glueService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          QuerySchemaVersionMetadataResponse'
-            Lude.<$> (x Lude..?> "SchemaVersionId")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "MetadataInfoMap" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders QuerySchemaVersionMetadata where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.QuerySchemaVersionMetadata" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON QuerySchemaVersionMetadata where
-  toJSON QuerySchemaVersionMetadata' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SchemaVersionId" Lude..=) Lude.<$> schemaVersionId,
-            ("SchemaId" Lude..=) Lude.<$> schemaId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MetadataList" Lude..=) Lude.<$> metadataList,
-            ("SchemaVersionNumber" Lude..=) Lude.<$> schemaVersionNumber,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath QuerySchemaVersionMetadata where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery QuerySchemaVersionMetadata where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkQuerySchemaVersionMetadataResponse' smart constructor.
-data QuerySchemaVersionMetadataResponse = QuerySchemaVersionMetadataResponse'
-  { -- | The unique version ID of the schema version.
-    schemaVersionId :: Lude.Maybe Lude.Text,
-    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A map of a metadata key and associated values.
-    metadataInfoMap :: Lude.Maybe (Lude.HashMap Lude.Text (MetadataInfo)),
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'QuerySchemaVersionMetadataResponse' with the minimum fields required to make a request.
+-- | Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
 --
--- * 'schemaVersionId' - The unique version ID of the schema version.
--- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
--- * 'metadataInfoMap' - A map of a metadata key and associated values.
--- * 'responseStatus' - The response status code.
-mkQuerySchemaVersionMetadataResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  QuerySchemaVersionMetadataResponse
-mkQuerySchemaVersionMetadataResponse pResponseStatus_ =
-  QuerySchemaVersionMetadataResponse'
-    { schemaVersionId =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      metadataInfoMap = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+-- /Note:/ Consider using 'metadataList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsvmMetadataList :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe [Types.MetadataKeyValuePair])
+qsvmMetadataList = Lens.field @"metadataList"
+{-# DEPRECATED qsvmMetadataList "Use generic-lens or generic-optics with 'metadataList' instead." #-}
+
+-- | A continuation token, if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsvmNextToken :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Types.SchemaRegistryTokenString)
+qsvmNextToken = Lens.field @"nextToken"
+{-# DEPRECATED qsvmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsvmSchemaId :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Types.SchemaId)
+qsvmSchemaId = Lens.field @"schemaId"
+{-# DEPRECATED qsvmSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | The unique version ID of the schema version.
 --
 -- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmrsSchemaVersionId :: Lens.Lens' QuerySchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
-qsvmrsSchemaVersionId = Lens.lens (schemaVersionId :: QuerySchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: QuerySchemaVersionMetadataResponse)
-{-# DEPRECATED qsvmrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
+qsvmSchemaVersionId :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Types.SchemaVersionId)
+qsvmSchemaVersionId = Lens.field @"schemaVersionId"
+{-# DEPRECATED qsvmSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
--- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+-- | The version number of the schema.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmrsNextToken :: Lens.Lens' QuerySchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
-qsvmrsNextToken = Lens.lens (nextToken :: QuerySchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: QuerySchemaVersionMetadataResponse)
-{-# DEPRECATED qsvmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsvmSchemaVersionNumber :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Types.SchemaVersionNumber)
+qsvmSchemaVersionNumber = Lens.field @"schemaVersionNumber"
+{-# DEPRECATED qsvmSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
+
+instance Core.FromJSON QuerySchemaVersionMetadata where
+  toJSON QuerySchemaVersionMetadata {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("MetadataList" Core..=) Core.<$> metadataList,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SchemaId" Core..=) Core.<$> schemaId,
+            ("SchemaVersionId" Core..=) Core.<$> schemaVersionId,
+            ("SchemaVersionNumber" Core..=) Core.<$> schemaVersionNumber
+          ]
+      )
+
+instance Core.AWSRequest QuerySchemaVersionMetadata where
+  type
+    Rs QuerySchemaVersionMetadata =
+      QuerySchemaVersionMetadataResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.QuerySchemaVersionMetadata")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          QuerySchemaVersionMetadataResponse'
+            Core.<$> (x Core..:? "MetadataInfoMap")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SchemaVersionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkQuerySchemaVersionMetadataResponse' smart constructor.
+data QuerySchemaVersionMetadataResponse = QuerySchemaVersionMetadataResponse'
+  { -- | A map of a metadata key and associated values.
+    metadataInfoMap :: Core.Maybe (Core.HashMap Types.MetadataKeyString Types.MetadataInfo),
+    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The unique version ID of the schema version.
+    schemaVersionId :: Core.Maybe Types.SchemaVersionId,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'QuerySchemaVersionMetadataResponse' value with any optional fields omitted.
+mkQuerySchemaVersionMetadataResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  QuerySchemaVersionMetadataResponse
+mkQuerySchemaVersionMetadataResponse responseStatus =
+  QuerySchemaVersionMetadataResponse'
+    { metadataInfoMap =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      responseStatus
+    }
 
 -- | A map of a metadata key and associated values.
 --
 -- /Note:/ Consider using 'metadataInfoMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmrsMetadataInfoMap :: Lens.Lens' QuerySchemaVersionMetadataResponse (Lude.Maybe (Lude.HashMap Lude.Text (MetadataInfo)))
-qsvmrsMetadataInfoMap = Lens.lens (metadataInfoMap :: QuerySchemaVersionMetadataResponse -> Lude.Maybe (Lude.HashMap Lude.Text (MetadataInfo))) (\s a -> s {metadataInfoMap = a} :: QuerySchemaVersionMetadataResponse)
-{-# DEPRECATED qsvmrsMetadataInfoMap "Use generic-lens or generic-optics with 'metadataInfoMap' instead." #-}
+qsvmrrsMetadataInfoMap :: Lens.Lens' QuerySchemaVersionMetadataResponse (Core.Maybe (Core.HashMap Types.MetadataKeyString Types.MetadataInfo))
+qsvmrrsMetadataInfoMap = Lens.field @"metadataInfoMap"
+{-# DEPRECATED qsvmrrsMetadataInfoMap "Use generic-lens or generic-optics with 'metadataInfoMap' instead." #-}
+
+-- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsvmrrsNextToken :: Lens.Lens' QuerySchemaVersionMetadataResponse (Core.Maybe Types.NextToken)
+qsvmrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED qsvmrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The unique version ID of the schema version.
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsvmrrsSchemaVersionId :: Lens.Lens' QuerySchemaVersionMetadataResponse (Core.Maybe Types.SchemaVersionId)
+qsvmrrsSchemaVersionId = Lens.field @"schemaVersionId"
+{-# DEPRECATED qsvmrrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsvmrsResponseStatus :: Lens.Lens' QuerySchemaVersionMetadataResponse Lude.Int
-qsvmrsResponseStatus = Lens.lens (responseStatus :: QuerySchemaVersionMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: QuerySchemaVersionMetadataResponse)
-{-# DEPRECATED qsvmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+qsvmrrsResponseStatus :: Lens.Lens' QuerySchemaVersionMetadataResponse Core.Int
+qsvmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED qsvmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

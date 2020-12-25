@@ -22,166 +22,151 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     mkListIdentityPoolUsage,
 
     -- ** Request lenses
-    lipuNextToken,
     lipuMaxResults,
+    lipuNextToken,
 
     -- * Destructuring the response
     ListIdentityPoolUsageResponse (..),
     mkListIdentityPoolUsageResponse,
 
     -- ** Response lenses
-    lipursIdentityPoolUsages,
-    lipursCount,
-    lipursNextToken,
-    lipursMaxResults,
-    lipursResponseStatus,
+    lipurrsCount,
+    lipurrsIdentityPoolUsages,
+    lipurrsMaxResults,
+    lipurrsNextToken,
+    lipurrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.CognitoSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request for usage information on an identity pool.
 --
 -- /See:/ 'mkListIdentityPoolUsage' smart constructor.
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-  { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to be returned.
-    maxResults :: Lude.Maybe Lude.Int
+  { -- | The maximum number of results to be returned.
+    maxResults :: Core.Maybe Core.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListIdentityPoolUsage' with the minimum fields required to make a request.
---
--- * 'nextToken' - A pagination token for obtaining the next page of results.
--- * 'maxResults' - The maximum number of results to be returned.
+-- | Creates a 'ListIdentityPoolUsage' value with any optional fields omitted.
 mkListIdentityPoolUsage ::
   ListIdentityPoolUsage
 mkListIdentityPoolUsage =
   ListIdentityPoolUsage'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | A pagination token for obtaining the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipuNextToken :: Lens.Lens' ListIdentityPoolUsage (Lude.Maybe Lude.Text)
-lipuNextToken = Lens.lens (nextToken :: ListIdentityPoolUsage -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentityPoolUsage)
-{-# DEPRECATED lipuNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipuMaxResults :: Lens.Lens' ListIdentityPoolUsage (Lude.Maybe Lude.Int)
-lipuMaxResults = Lens.lens (maxResults :: ListIdentityPoolUsage -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListIdentityPoolUsage)
+lipuMaxResults :: Lens.Lens' ListIdentityPoolUsage (Core.Maybe Core.Int)
+lipuMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lipuMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListIdentityPoolUsage where
+-- | A pagination token for obtaining the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipuNextToken :: Lens.Lens' ListIdentityPoolUsage (Core.Maybe Types.NextToken)
+lipuNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lipuNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListIdentityPoolUsage where
   type Rs ListIdentityPoolUsage = ListIdentityPoolUsageResponse
-  request = Req.get cognitoSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/identitypools",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListIdentityPoolUsageResponse'
-            Lude.<$> (x Lude..?> "IdentityPoolUsages" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Count")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "MaxResults")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Count")
+            Core.<*> (x Core..:? "IdentityPoolUsages")
+            Core.<*> (x Core..:? "MaxResults")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListIdentityPoolUsage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListIdentityPoolUsage where
-  toPath = Lude.const "/identitypools"
-
-instance Lude.ToQuery ListIdentityPoolUsage where
-  toQuery ListIdentityPoolUsage' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Returned for a successful ListIdentityPoolUsage request.
 --
 -- /See:/ 'mkListIdentityPoolUsageResponse' smart constructor.
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
-  { -- | Usage information for the identity pools.
-    identityPoolUsages :: Lude.Maybe [IdentityPoolUsage],
-    -- | Total number of identities for the identity pool.
-    count :: Lude.Maybe Lude.Int,
-    -- | A pagination token for obtaining the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Total number of identities for the identity pool.
+    count :: Core.Maybe Core.Int,
+    -- | Usage information for the identity pools.
+    identityPoolUsages :: Core.Maybe [Types.IdentityPoolUsage],
     -- | The maximum number of results to be returned.
-    maxResults :: Lude.Maybe Lude.Int,
+    maxResults :: Core.Maybe Core.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListIdentityPoolUsageResponse' with the minimum fields required to make a request.
---
--- * 'identityPoolUsages' - Usage information for the identity pools.
--- * 'count' - Total number of identities for the identity pool.
--- * 'nextToken' - A pagination token for obtaining the next page of results.
--- * 'maxResults' - The maximum number of results to be returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListIdentityPoolUsageResponse' value with any optional fields omitted.
 mkListIdentityPoolUsageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListIdentityPoolUsageResponse
-mkListIdentityPoolUsageResponse pResponseStatus_ =
+mkListIdentityPoolUsageResponse responseStatus =
   ListIdentityPoolUsageResponse'
-    { identityPoolUsages = Lude.Nothing,
-      count = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { count = Core.Nothing,
+      identityPoolUsages = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Usage information for the identity pools.
---
--- /Note:/ Consider using 'identityPoolUsages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipursIdentityPoolUsages :: Lens.Lens' ListIdentityPoolUsageResponse (Lude.Maybe [IdentityPoolUsage])
-lipursIdentityPoolUsages = Lens.lens (identityPoolUsages :: ListIdentityPoolUsageResponse -> Lude.Maybe [IdentityPoolUsage]) (\s a -> s {identityPoolUsages = a} :: ListIdentityPoolUsageResponse)
-{-# DEPRECATED lipursIdentityPoolUsages "Use generic-lens or generic-optics with 'identityPoolUsages' instead." #-}
 
 -- | Total number of identities for the identity pool.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipursCount :: Lens.Lens' ListIdentityPoolUsageResponse (Lude.Maybe Lude.Int)
-lipursCount = Lens.lens (count :: ListIdentityPoolUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: ListIdentityPoolUsageResponse)
-{-# DEPRECATED lipursCount "Use generic-lens or generic-optics with 'count' instead." #-}
+lipurrsCount :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe Core.Int)
+lipurrsCount = Lens.field @"count"
+{-# DEPRECATED lipurrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
--- | A pagination token for obtaining the next page of results.
+-- | Usage information for the identity pools.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipursNextToken :: Lens.Lens' ListIdentityPoolUsageResponse (Lude.Maybe Lude.Text)
-lipursNextToken = Lens.lens (nextToken :: ListIdentityPoolUsageResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentityPoolUsageResponse)
-{-# DEPRECATED lipursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'identityPoolUsages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipurrsIdentityPoolUsages :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe [Types.IdentityPoolUsage])
+lipurrsIdentityPoolUsages = Lens.field @"identityPoolUsages"
+{-# DEPRECATED lipurrsIdentityPoolUsages "Use generic-lens or generic-optics with 'identityPoolUsages' instead." #-}
 
 -- | The maximum number of results to be returned.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipursMaxResults :: Lens.Lens' ListIdentityPoolUsageResponse (Lude.Maybe Lude.Int)
-lipursMaxResults = Lens.lens (maxResults :: ListIdentityPoolUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListIdentityPoolUsageResponse)
-{-# DEPRECATED lipursMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lipurrsMaxResults :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe Core.Int)
+lipurrsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lipurrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A pagination token for obtaining the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipurrsNextToken :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe Types.String)
+lipurrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lipurrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lipursResponseStatus :: Lens.Lens' ListIdentityPoolUsageResponse Lude.Int
-lipursResponseStatus = Lens.lens (responseStatus :: ListIdentityPoolUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentityPoolUsageResponse)
-{-# DEPRECATED lipursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lipurrsResponseStatus :: Lens.Lens' ListIdentityPoolUsageResponse Core.Int
+lipurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lipurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

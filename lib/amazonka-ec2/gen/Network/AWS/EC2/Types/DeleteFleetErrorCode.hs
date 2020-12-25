@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.DeleteFleetErrorCode
   ( DeleteFleetErrorCode
       ( DeleteFleetErrorCode',
-        DFECFleetIdDoesNotExist,
-        DFECFleetIdMalformed,
-        DFECFleetNotInDeletableState,
-        DFECUnexpectedError
+        DeleteFleetErrorCodeFleetIdDoesNotExist,
+        DeleteFleetErrorCodeFleetIdMalformed,
+        DeleteFleetErrorCodeFleetNotInDeletableState,
+        DeleteFleetErrorCodeUnexpectedError,
+        fromDeleteFleetErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeleteFleetErrorCode = DeleteFleetErrorCode' Lude.Text
+newtype DeleteFleetErrorCode = DeleteFleetErrorCode'
+  { fromDeleteFleetErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DFECFleetIdDoesNotExist :: DeleteFleetErrorCode
-pattern DFECFleetIdDoesNotExist = DeleteFleetErrorCode' "fleetIdDoesNotExist"
+pattern DeleteFleetErrorCodeFleetIdDoesNotExist :: DeleteFleetErrorCode
+pattern DeleteFleetErrorCodeFleetIdDoesNotExist = DeleteFleetErrorCode' "fleetIdDoesNotExist"
 
-pattern DFECFleetIdMalformed :: DeleteFleetErrorCode
-pattern DFECFleetIdMalformed = DeleteFleetErrorCode' "fleetIdMalformed"
+pattern DeleteFleetErrorCodeFleetIdMalformed :: DeleteFleetErrorCode
+pattern DeleteFleetErrorCodeFleetIdMalformed = DeleteFleetErrorCode' "fleetIdMalformed"
 
-pattern DFECFleetNotInDeletableState :: DeleteFleetErrorCode
-pattern DFECFleetNotInDeletableState = DeleteFleetErrorCode' "fleetNotInDeletableState"
+pattern DeleteFleetErrorCodeFleetNotInDeletableState :: DeleteFleetErrorCode
+pattern DeleteFleetErrorCodeFleetNotInDeletableState = DeleteFleetErrorCode' "fleetNotInDeletableState"
 
-pattern DFECUnexpectedError :: DeleteFleetErrorCode
-pattern DFECUnexpectedError = DeleteFleetErrorCode' "unexpectedError"
+pattern DeleteFleetErrorCodeUnexpectedError :: DeleteFleetErrorCode
+pattern DeleteFleetErrorCodeUnexpectedError = DeleteFleetErrorCode' "unexpectedError"
 
 {-# COMPLETE
-  DFECFleetIdDoesNotExist,
-  DFECFleetIdMalformed,
-  DFECFleetNotInDeletableState,
-  DFECUnexpectedError,
+  DeleteFleetErrorCodeFleetIdDoesNotExist,
+  DeleteFleetErrorCodeFleetIdMalformed,
+  DeleteFleetErrorCodeFleetNotInDeletableState,
+  DeleteFleetErrorCodeUnexpectedError,
   DeleteFleetErrorCode'
   #-}

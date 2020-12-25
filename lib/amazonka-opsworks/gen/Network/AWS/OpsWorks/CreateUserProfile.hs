@@ -22,161 +22,146 @@ module Network.AWS.OpsWorks.CreateUserProfile
     mkCreateUserProfile,
 
     -- ** Request lenses
+    cupIamUserArn,
     cupAllowSelfManagement,
-    cupSSHPublicKey,
-    cupSSHUsername,
-    cupIAMUserARN,
+    cupSshPublicKey,
+    cupSshUsername,
 
     -- * Destructuring the response
     CreateUserProfileResponse (..),
     mkCreateUserProfileResponse,
 
     -- ** Response lenses
-    cuprsIAMUserARN,
-    cuprsResponseStatus,
+    cuprrsIamUserArn,
+    cuprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
-    allowSelfManagement :: Lude.Maybe Lude.Bool,
+  { -- | The user's IAM ARN; this can also be a federated user's ARN.
+    iamUserArn :: Types.String,
+    -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
+    allowSelfManagement :: Core.Maybe Core.Bool,
     -- | The user's public SSH key.
-    sshPublicKey :: Lude.Maybe Lude.Text,
+    sshPublicKey :: Core.Maybe Types.String,
     -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
-    sshUsername :: Lude.Maybe Lude.Text,
-    -- | The user's IAM ARN; this can also be a federated user's ARN.
-    iamUserARN :: Lude.Text
+    sshUsername :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
---
--- * 'allowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
--- * 'sshPublicKey' - The user's public SSH key.
--- * 'sshUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
--- * 'iamUserARN' - The user's IAM ARN; this can also be a federated user's ARN.
+-- | Creates a 'CreateUserProfile' value with any optional fields omitted.
 mkCreateUserProfile ::
-  -- | 'iamUserARN'
-  Lude.Text ->
+  -- | 'iamUserArn'
+  Types.String ->
   CreateUserProfile
-mkCreateUserProfile pIAMUserARN_ =
+mkCreateUserProfile iamUserArn =
   CreateUserProfile'
-    { allowSelfManagement = Lude.Nothing,
-      sshPublicKey = Lude.Nothing,
-      sshUsername = Lude.Nothing,
-      iamUserARN = pIAMUserARN_
+    { iamUserArn,
+      allowSelfManagement = Core.Nothing,
+      sshPublicKey = Core.Nothing,
+      sshUsername = Core.Nothing
     }
+
+-- | The user's IAM ARN; this can also be a federated user's ARN.
+--
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupIamUserArn :: Lens.Lens' CreateUserProfile Types.String
+cupIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED cupIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
 
 -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
 --
 -- /Note:/ Consider using 'allowSelfManagement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupAllowSelfManagement :: Lens.Lens' CreateUserProfile (Lude.Maybe Lude.Bool)
-cupAllowSelfManagement = Lens.lens (allowSelfManagement :: CreateUserProfile -> Lude.Maybe Lude.Bool) (\s a -> s {allowSelfManagement = a} :: CreateUserProfile)
+cupAllowSelfManagement :: Lens.Lens' CreateUserProfile (Core.Maybe Core.Bool)
+cupAllowSelfManagement = Lens.field @"allowSelfManagement"
 {-# DEPRECATED cupAllowSelfManagement "Use generic-lens or generic-optics with 'allowSelfManagement' instead." #-}
 
 -- | The user's public SSH key.
 --
 -- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupSSHPublicKey :: Lens.Lens' CreateUserProfile (Lude.Maybe Lude.Text)
-cupSSHPublicKey = Lens.lens (sshPublicKey :: CreateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: CreateUserProfile)
-{-# DEPRECATED cupSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
+cupSshPublicKey :: Lens.Lens' CreateUserProfile (Core.Maybe Types.String)
+cupSshPublicKey = Lens.field @"sshPublicKey"
+{-# DEPRECATED cupSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
 --
 -- /Note:/ Consider using 'sshUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupSSHUsername :: Lens.Lens' CreateUserProfile (Lude.Maybe Lude.Text)
-cupSSHUsername = Lens.lens (sshUsername :: CreateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshUsername = a} :: CreateUserProfile)
-{-# DEPRECATED cupSSHUsername "Use generic-lens or generic-optics with 'sshUsername' instead." #-}
+cupSshUsername :: Lens.Lens' CreateUserProfile (Core.Maybe Types.String)
+cupSshUsername = Lens.field @"sshUsername"
+{-# DEPRECATED cupSshUsername "Use generic-lens or generic-optics with 'sshUsername' instead." #-}
 
--- | The user's IAM ARN; this can also be a federated user's ARN.
---
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupIAMUserARN :: Lens.Lens' CreateUserProfile Lude.Text
-cupIAMUserARN = Lens.lens (iamUserARN :: CreateUserProfile -> Lude.Text) (\s a -> s {iamUserARN = a} :: CreateUserProfile)
-{-# DEPRECATED cupIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
+instance Core.FromJSON CreateUserProfile where
+  toJSON CreateUserProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IamUserArn" Core..= iamUserArn),
+            ("AllowSelfManagement" Core..=) Core.<$> allowSelfManagement,
+            ("SshPublicKey" Core..=) Core.<$> sshPublicKey,
+            ("SshUsername" Core..=) Core.<$> sshUsername
+          ]
+      )
 
-instance Lude.AWSRequest CreateUserProfile where
+instance Core.AWSRequest CreateUserProfile where
   type Rs CreateUserProfile = CreateUserProfileResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.CreateUserProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Lude.<$> (x Lude..?> "IamUserArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "IamUserArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateUserProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.CreateUserProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateUserProfile where
-  toJSON CreateUserProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AllowSelfManagement" Lude..=) Lude.<$> allowSelfManagement,
-            ("SshPublicKey" Lude..=) Lude.<$> sshPublicKey,
-            ("SshUsername" Lude..=) Lude.<$> sshUsername,
-            Lude.Just ("IamUserArn" Lude..= iamUserARN)
-          ]
-      )
-
-instance Lude.ToPath CreateUserProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUserProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @CreateUserProfile@ request.
 --
 -- /See:/ 'mkCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
   { -- | The user's IAM ARN.
-    iamUserARN :: Lude.Maybe Lude.Text,
+    iamUserArn :: Core.Maybe Types.IamUserArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
---
--- * 'iamUserARN' - The user's IAM ARN.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateUserProfileResponse' value with any optional fields omitted.
 mkCreateUserProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateUserProfileResponse
-mkCreateUserProfileResponse pResponseStatus_ =
+mkCreateUserProfileResponse responseStatus =
   CreateUserProfileResponse'
-    { iamUserARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { iamUserArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The user's IAM ARN.
 --
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuprsIAMUserARN :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe Lude.Text)
-cuprsIAMUserARN = Lens.lens (iamUserARN :: CreateUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: CreateUserProfileResponse)
-{-# DEPRECATED cuprsIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprrsIamUserArn :: Lens.Lens' CreateUserProfileResponse (Core.Maybe Types.IamUserArn)
+cuprrsIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED cuprrsIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuprsResponseStatus :: Lens.Lens' CreateUserProfileResponse Lude.Int
-cuprsResponseStatus = Lens.lens (responseStatus :: CreateUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserProfileResponse)
-{-# DEPRECATED cuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cuprrsResponseStatus :: Lens.Lens' CreateUserProfileResponse Core.Int
+cuprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cuprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

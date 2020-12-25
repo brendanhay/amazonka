@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafManifestDurationFormat
   ( CmafManifestDurationFormat
       ( CmafManifestDurationFormat',
-        FloatingPoint,
-        Integer
+        CmafManifestDurationFormatFloatingPoint,
+        CmafManifestDurationFormatInteger,
+        fromCmafManifestDurationFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the output manifest should use floating point values for segment duration.
-newtype CmafManifestDurationFormat = CmafManifestDurationFormat' Lude.Text
+newtype CmafManifestDurationFormat = CmafManifestDurationFormat'
+  { fromCmafManifestDurationFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FloatingPoint :: CmafManifestDurationFormat
-pattern FloatingPoint = CmafManifestDurationFormat' "FLOATING_POINT"
+pattern CmafManifestDurationFormatFloatingPoint :: CmafManifestDurationFormat
+pattern CmafManifestDurationFormatFloatingPoint = CmafManifestDurationFormat' "FLOATING_POINT"
 
-pattern Integer :: CmafManifestDurationFormat
-pattern Integer = CmafManifestDurationFormat' "INTEGER"
+pattern CmafManifestDurationFormatInteger :: CmafManifestDurationFormat
+pattern CmafManifestDurationFormatInteger = CmafManifestDurationFormat' "INTEGER"
 
 {-# COMPLETE
-  FloatingPoint,
-  Integer,
+  CmafManifestDurationFormatFloatingPoint,
+  CmafManifestDurationFormatInteger,
   CmafManifestDurationFormat'
   #-}

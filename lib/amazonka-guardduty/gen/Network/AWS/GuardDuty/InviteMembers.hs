@@ -20,8 +20,8 @@ module Network.AWS.GuardDuty.InviteMembers
     mkInviteMembers,
 
     -- ** Request lenses
-    imAccountIds,
     imDetectorId,
+    imAccountIds,
     imDisableEmailNotification,
     imMessage,
 
@@ -30,152 +30,140 @@ module Network.AWS.GuardDuty.InviteMembers
     mkInviteMembersResponse,
 
     -- ** Response lenses
-    imrsUnprocessedAccounts,
-    imrsResponseStatus,
+    imrrsUnprocessedAccounts,
+    imrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkInviteMembers' smart constructor.
 data InviteMembers = InviteMembers'
-  { -- | A list of account IDs of the accounts that you want to invite to GuardDuty as members.
-    accountIds :: Lude.NonEmpty Lude.Text,
-    -- | The unique ID of the detector of the GuardDuty account that you want to invite members with.
-    detectorId :: Lude.Text,
+  { -- | The unique ID of the detector of the GuardDuty account that you want to invite members with.
+    detectorId :: Types.DetectorId,
+    -- | A list of account IDs of the accounts that you want to invite to GuardDuty as members.
+    accountIds :: Core.NonEmpty Types.AccountId,
     -- | A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.
-    disableEmailNotification :: Lude.Maybe Lude.Bool,
+    disableEmailNotification :: Core.Maybe Core.Bool,
     -- | The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InviteMembers' with the minimum fields required to make a request.
---
--- * 'accountIds' - A list of account IDs of the accounts that you want to invite to GuardDuty as members.
--- * 'detectorId' - The unique ID of the detector of the GuardDuty account that you want to invite members with.
--- * 'disableEmailNotification' - A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.
--- * 'message' - The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
+-- | Creates a 'InviteMembers' value with any optional fields omitted.
 mkInviteMembers ::
-  -- | 'accountIds'
-  Lude.NonEmpty Lude.Text ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'accountIds'
+  Core.NonEmpty Types.AccountId ->
   InviteMembers
-mkInviteMembers pAccountIds_ pDetectorId_ =
+mkInviteMembers detectorId accountIds =
   InviteMembers'
-    { accountIds = pAccountIds_,
-      detectorId = pDetectorId_,
-      disableEmailNotification = Lude.Nothing,
-      message = Lude.Nothing
+    { detectorId,
+      accountIds,
+      disableEmailNotification = Core.Nothing,
+      message = Core.Nothing
     }
-
--- | A list of account IDs of the accounts that you want to invite to GuardDuty as members.
---
--- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imAccountIds :: Lens.Lens' InviteMembers (Lude.NonEmpty Lude.Text)
-imAccountIds = Lens.lens (accountIds :: InviteMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: InviteMembers)
-{-# DEPRECATED imAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 -- | The unique ID of the detector of the GuardDuty account that you want to invite members with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imDetectorId :: Lens.Lens' InviteMembers Lude.Text
-imDetectorId = Lens.lens (detectorId :: InviteMembers -> Lude.Text) (\s a -> s {detectorId = a} :: InviteMembers)
+imDetectorId :: Lens.Lens' InviteMembers Types.DetectorId
+imDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED imDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | A list of account IDs of the accounts that you want to invite to GuardDuty as members.
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imAccountIds :: Lens.Lens' InviteMembers (Core.NonEmpty Types.AccountId)
+imAccountIds = Lens.field @"accountIds"
+{-# DEPRECATED imAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 -- | A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.
 --
 -- /Note:/ Consider using 'disableEmailNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imDisableEmailNotification :: Lens.Lens' InviteMembers (Lude.Maybe Lude.Bool)
-imDisableEmailNotification = Lens.lens (disableEmailNotification :: InviteMembers -> Lude.Maybe Lude.Bool) (\s a -> s {disableEmailNotification = a} :: InviteMembers)
+imDisableEmailNotification :: Lens.Lens' InviteMembers (Core.Maybe Core.Bool)
+imDisableEmailNotification = Lens.field @"disableEmailNotification"
 {-# DEPRECATED imDisableEmailNotification "Use generic-lens or generic-optics with 'disableEmailNotification' instead." #-}
 
 -- | The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imMessage :: Lens.Lens' InviteMembers (Lude.Maybe Lude.Text)
-imMessage = Lens.lens (message :: InviteMembers -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: InviteMembers)
+imMessage :: Lens.Lens' InviteMembers (Core.Maybe Types.String)
+imMessage = Lens.field @"message"
 {-# DEPRECATED imMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.AWSRequest InviteMembers where
+instance Core.FromJSON InviteMembers where
+  toJSON InviteMembers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("accountIds" Core..= accountIds),
+            ("disableEmailNotification" Core..=)
+              Core.<$> disableEmailNotification,
+            ("message" Core..=) Core.<$> message
+          ]
+      )
+
+instance Core.AWSRequest InviteMembers where
   type Rs InviteMembers = InviteMembersResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/member/invite")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           InviteMembersResponse'
-            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "unprocessedAccounts" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders InviteMembers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON InviteMembers where
-  toJSON InviteMembers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("accountIds" Lude..= accountIds),
-            ("disableEmailNotification" Lude..=)
-              Lude.<$> disableEmailNotification,
-            ("message" Lude..=) Lude.<$> message
-          ]
-      )
-
-instance Lude.ToPath InviteMembers where
-  toPath InviteMembers' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/member/invite"]
-
-instance Lude.ToQuery InviteMembers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkInviteMembersResponse' smart constructor.
 data InviteMembersResponse = InviteMembersResponse'
   { -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
-    unprocessedAccounts :: [UnprocessedAccount],
+    unprocessedAccounts :: [Types.UnprocessedAccount],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InviteMembersResponse' with the minimum fields required to make a request.
---
--- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'InviteMembersResponse' value with any optional fields omitted.
 mkInviteMembersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   InviteMembersResponse
-mkInviteMembersResponse pResponseStatus_ =
+mkInviteMembersResponse responseStatus =
   InviteMembersResponse'
-    { unprocessedAccounts = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { unprocessedAccounts = Core.mempty,
+      responseStatus
     }
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
 --
 -- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imrsUnprocessedAccounts :: Lens.Lens' InviteMembersResponse [UnprocessedAccount]
-imrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: InviteMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: InviteMembersResponse)
-{-# DEPRECATED imrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+imrrsUnprocessedAccounts :: Lens.Lens' InviteMembersResponse [Types.UnprocessedAccount]
+imrrsUnprocessedAccounts = Lens.field @"unprocessedAccounts"
+{-# DEPRECATED imrrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imrsResponseStatus :: Lens.Lens' InviteMembersResponse Lude.Int
-imrsResponseStatus = Lens.lens (responseStatus :: InviteMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InviteMembersResponse)
-{-# DEPRECATED imrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+imrrsResponseStatus :: Lens.Lens' InviteMembersResponse Core.Int
+imrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED imrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

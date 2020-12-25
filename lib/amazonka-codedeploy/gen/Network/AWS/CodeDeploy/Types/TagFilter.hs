@@ -17,24 +17,24 @@ module Network.AWS.CodeDeploy.Types.TagFilter
     mkTagFilter,
 
     -- * Lenses
-    tfValue,
     tfKey,
     tfType,
+    tfValue,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.TagFilterType
+import qualified Network.AWS.CodeDeploy.Types.Key as Types
+import qualified Network.AWS.CodeDeploy.Types.TagFilterType as Types
+import qualified Network.AWS.CodeDeploy.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an on-premises instance tag filter.
 --
 -- /See:/ 'mkTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | The on-premises instance tag filter value.
-    value :: Lude.Maybe Lude.Text,
-    -- | The on-premises instance tag filter key.
-    key :: Lude.Maybe Lude.Text,
+  { -- | The on-premises instance tag filter key.
+    key :: Core.Maybe Types.Key,
     -- | The on-premises instance tag filter type:
     --
     --
@@ -45,46 +45,28 @@ data TagFilter = TagFilter'
     --
     --
     --     * KEY_AND_VALUE: Key and value.
-    type' :: Lude.Maybe TagFilterType
+    type' :: Core.Maybe Types.TagFilterType,
+    -- | The on-premises instance tag filter value.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
---
--- * 'value' - The on-premises instance tag filter value.
--- * 'key' - The on-premises instance tag filter key.
--- * 'type'' - The on-premises instance tag filter type:
---
---
---     * KEY_ONLY: Key only.
---
---
---     * VALUE_ONLY: Value only.
---
---
---     * KEY_AND_VALUE: Key and value.
+-- | Creates a 'TagFilter' value with any optional fields omitted.
 mkTagFilter ::
   TagFilter
 mkTagFilter =
   TagFilter'
-    { value = Lude.Nothing,
-      key = Lude.Nothing,
-      type' = Lude.Nothing
+    { key = Core.Nothing,
+      type' = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The on-premises instance tag filter value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfValue :: Lens.Lens' TagFilter (Lude.Maybe Lude.Text)
-tfValue = Lens.lens (value :: TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: TagFilter)
-{-# DEPRECATED tfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The on-premises instance tag filter key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfKey :: Lens.Lens' TagFilter (Lude.Maybe Lude.Text)
-tfKey = Lens.lens (key :: TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagFilter)
+tfKey :: Lens.Lens' TagFilter (Core.Maybe Types.Key)
+tfKey = Lens.field @"key"
 {-# DEPRECATED tfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The on-premises instance tag filter type:
@@ -101,27 +83,32 @@ tfKey = Lens.lens (key :: TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfType :: Lens.Lens' TagFilter (Lude.Maybe TagFilterType)
-tfType = Lens.lens (type' :: TagFilter -> Lude.Maybe TagFilterType) (\s a -> s {type' = a} :: TagFilter)
+tfType :: Lens.Lens' TagFilter (Core.Maybe Types.TagFilterType)
+tfType = Lens.field @"type'"
 {-# DEPRECATED tfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON TagFilter where
-  parseJSON =
-    Lude.withObject
-      "TagFilter"
-      ( \x ->
-          TagFilter'
-            Lude.<$> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "Key")
-            Lude.<*> (x Lude..:? "Type")
-      )
+-- | The on-premises instance tag filter value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfValue :: Lens.Lens' TagFilter (Core.Maybe Types.Value)
+tfValue = Lens.field @"value"
+{-# DEPRECATED tfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON TagFilter where
-  toJSON TagFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Key" Lude..=) Lude.<$> key,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON TagFilter where
+  toJSON TagFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Type" Core..=) Core.<$> type',
+            ("Value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON TagFilter where
+  parseJSON =
+    Core.withObject "TagFilter" Core.$
+      \x ->
+        TagFilter'
+          Core.<$> (x Core..:? "Key")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "Value")

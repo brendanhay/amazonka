@@ -17,19 +17,20 @@ module Network.AWS.Rekognition.Types.TextDetection
     mkTextDetection,
 
     -- * Lenses
-    tdDetectedText,
     tdConfidence,
+    tdDetectedText,
     tdGeometry,
     tdId,
-    tdType,
     tdParentId,
+    tdType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.Geometry
-import Network.AWS.Rekognition.Types.TextTypes
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Geometry as Types
+import qualified Network.AWS.Rekognition.Types.String as Types
+import qualified Network.AWS.Rekognition.Types.TextTypes as Types
 
 -- | Information about a word or line of text detected by 'DetectText' .
 --
@@ -39,94 +40,85 @@ import Network.AWS.Rekognition.Types.TextTypes
 --
 -- /See:/ 'mkTextDetection' smart constructor.
 data TextDetection = TextDetection'
-  { -- | The word or line of text recognized by Amazon Rekognition.
-    detectedText :: Lude.Maybe Lude.Text,
-    -- | The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
-    confidence :: Lude.Maybe Lude.Double,
+  { -- | The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
+    confidence :: Core.Maybe Core.Double,
+    -- | The word or line of text recognized by Amazon Rekognition.
+    detectedText :: Core.Maybe Types.String,
     -- | The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.
-    geometry :: Lude.Maybe Geometry,
+    geometry :: Core.Maybe Types.Geometry,
     -- | The identifier for the detected text. The identifier is only unique for a single call to @DetectText@ .
-    id :: Lude.Maybe Lude.Natural,
-    -- | The type of text that was detected.
-    type' :: Lude.Maybe TextTypes,
+    id :: Core.Maybe Core.Natural,
     -- | The Parent identifier for the detected text identified by the value of @ID@ . If the type of detected text is @LINE@ , the value of @ParentId@ is @Null@ .
-    parentId :: Lude.Maybe Lude.Natural
+    parentId :: Core.Maybe Core.Natural,
+    -- | The type of text that was detected.
+    type' :: Core.Maybe Types.TextTypes
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TextDetection' with the minimum fields required to make a request.
---
--- * 'detectedText' - The word or line of text recognized by Amazon Rekognition.
--- * 'confidence' - The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
--- * 'geometry' - The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.
--- * 'id' - The identifier for the detected text. The identifier is only unique for a single call to @DetectText@ .
--- * 'type'' - The type of text that was detected.
--- * 'parentId' - The Parent identifier for the detected text identified by the value of @ID@ . If the type of detected text is @LINE@ , the value of @ParentId@ is @Null@ .
+-- | Creates a 'TextDetection' value with any optional fields omitted.
 mkTextDetection ::
   TextDetection
 mkTextDetection =
   TextDetection'
-    { detectedText = Lude.Nothing,
-      confidence = Lude.Nothing,
-      geometry = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      parentId = Lude.Nothing
+    { confidence = Core.Nothing,
+      detectedText = Core.Nothing,
+      geometry = Core.Nothing,
+      id = Core.Nothing,
+      parentId = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The word or line of text recognized by Amazon Rekognition.
---
--- /Note:/ Consider using 'detectedText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdDetectedText :: Lens.Lens' TextDetection (Lude.Maybe Lude.Text)
-tdDetectedText = Lens.lens (detectedText :: TextDetection -> Lude.Maybe Lude.Text) (\s a -> s {detectedText = a} :: TextDetection)
-{-# DEPRECATED tdDetectedText "Use generic-lens or generic-optics with 'detectedText' instead." #-}
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdConfidence :: Lens.Lens' TextDetection (Lude.Maybe Lude.Double)
-tdConfidence = Lens.lens (confidence :: TextDetection -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: TextDetection)
+tdConfidence :: Lens.Lens' TextDetection (Core.Maybe Core.Double)
+tdConfidence = Lens.field @"confidence"
 {-# DEPRECATED tdConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
+
+-- | The word or line of text recognized by Amazon Rekognition.
+--
+-- /Note:/ Consider using 'detectedText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdDetectedText :: Lens.Lens' TextDetection (Core.Maybe Types.String)
+tdDetectedText = Lens.field @"detectedText"
+{-# DEPRECATED tdDetectedText "Use generic-lens or generic-optics with 'detectedText' instead." #-}
 
 -- | The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.
 --
 -- /Note:/ Consider using 'geometry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdGeometry :: Lens.Lens' TextDetection (Lude.Maybe Geometry)
-tdGeometry = Lens.lens (geometry :: TextDetection -> Lude.Maybe Geometry) (\s a -> s {geometry = a} :: TextDetection)
+tdGeometry :: Lens.Lens' TextDetection (Core.Maybe Types.Geometry)
+tdGeometry = Lens.field @"geometry"
 {-# DEPRECATED tdGeometry "Use generic-lens or generic-optics with 'geometry' instead." #-}
 
 -- | The identifier for the detected text. The identifier is only unique for a single call to @DetectText@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdId :: Lens.Lens' TextDetection (Lude.Maybe Lude.Natural)
-tdId = Lens.lens (id :: TextDetection -> Lude.Maybe Lude.Natural) (\s a -> s {id = a} :: TextDetection)
+tdId :: Lens.Lens' TextDetection (Core.Maybe Core.Natural)
+tdId = Lens.field @"id"
 {-# DEPRECATED tdId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The type of text that was detected.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdType :: Lens.Lens' TextDetection (Lude.Maybe TextTypes)
-tdType = Lens.lens (type' :: TextDetection -> Lude.Maybe TextTypes) (\s a -> s {type' = a} :: TextDetection)
-{-# DEPRECATED tdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The Parent identifier for the detected text identified by the value of @ID@ . If the type of detected text is @LINE@ , the value of @ParentId@ is @Null@ .
 --
 -- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdParentId :: Lens.Lens' TextDetection (Lude.Maybe Lude.Natural)
-tdParentId = Lens.lens (parentId :: TextDetection -> Lude.Maybe Lude.Natural) (\s a -> s {parentId = a} :: TextDetection)
+tdParentId :: Lens.Lens' TextDetection (Core.Maybe Core.Natural)
+tdParentId = Lens.field @"parentId"
 {-# DEPRECATED tdParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
-instance Lude.FromJSON TextDetection where
+-- | The type of text that was detected.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdType :: Lens.Lens' TextDetection (Core.Maybe Types.TextTypes)
+tdType = Lens.field @"type'"
+{-# DEPRECATED tdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON TextDetection where
   parseJSON =
-    Lude.withObject
-      "TextDetection"
-      ( \x ->
-          TextDetection'
-            Lude.<$> (x Lude..:? "DetectedText")
-            Lude.<*> (x Lude..:? "Confidence")
-            Lude.<*> (x Lude..:? "Geometry")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "ParentId")
-      )
+    Core.withObject "TextDetection" Core.$
+      \x ->
+        TextDetection'
+          Core.<$> (x Core..:? "Confidence")
+          Core.<*> (x Core..:? "DetectedText")
+          Core.<*> (x Core..:? "Geometry")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "ParentId")
+          Core.<*> (x Core..:? "Type")

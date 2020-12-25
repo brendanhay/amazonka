@@ -17,57 +17,54 @@ module Network.AWS.CodeBuild.Types.NetworkInterface
     mkNetworkInterface,
 
     -- * Lenses
-    niSubnetId,
     niNetworkInterfaceId,
+    niSubnetId,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.NetworkInterfaceId as Types
+import qualified Network.AWS.CodeBuild.Types.SubnetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a network interface.
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The ID of the subnet.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Lude.Maybe Lude.Text
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Core.Maybe Types.NetworkInterfaceId,
+    -- | The ID of the subnet.
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
---
--- * 'subnetId' - The ID of the subnet.
--- * 'networkInterfaceId' - The ID of the network interface.
+-- | Creates a 'NetworkInterface' value with any optional fields omitted.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =
   NetworkInterface'
-    { subnetId = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing
+    { networkInterfaceId = Core.Nothing,
+      subnetId = Core.Nothing
     }
-
--- | The ID of the subnet.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niSubnetId :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niSubnetId = Lens.lens (subnetId :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: NetworkInterface)
-{-# DEPRECATED niSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The ID of the network interface.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niNetworkInterfaceId :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niNetworkInterfaceId = Lens.lens (networkInterfaceId :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: NetworkInterface)
+niNetworkInterfaceId :: Lens.Lens' NetworkInterface (Core.Maybe Types.NetworkInterfaceId)
+niNetworkInterfaceId = Lens.field @"networkInterfaceId"
 {-# DEPRECATED niNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
-instance Lude.FromJSON NetworkInterface where
+-- | The ID of the subnet.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niSubnetId :: Lens.Lens' NetworkInterface (Core.Maybe Types.SubnetId)
+niSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED niSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+instance Core.FromJSON NetworkInterface where
   parseJSON =
-    Lude.withObject
-      "NetworkInterface"
-      ( \x ->
-          NetworkInterface'
-            Lude.<$> (x Lude..:? "subnetId") Lude.<*> (x Lude..:? "networkInterfaceId")
-      )
+    Core.withObject "NetworkInterface" Core.$
+      \x ->
+        NetworkInterface'
+          Core.<$> (x Core..:? "networkInterfaceId") Core.<*> (x Core..:? "subnetId")

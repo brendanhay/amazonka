@@ -32,61 +32,61 @@ module Network.AWS.SDB.CreateDomain
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SDB.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SDB.Types as Types
 
 -- | /See:/ 'mkCreateDomain' smart constructor.
 newtype CreateDomain = CreateDomain'
   { -- | The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
+-- | Creates a 'CreateDomain' value with any optional fields omitted.
 mkCreateDomain ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   CreateDomain
-mkCreateDomain pDomainName_ =
-  CreateDomain' {domainName = pDomainName_}
+mkCreateDomain domainName = CreateDomain' {domainName}
 
 -- | The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDomainName :: Lens.Lens' CreateDomain Lude.Text
-cdDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
+cdDomainName :: Lens.Lens' CreateDomain Types.DomainName
+cdDomainName = Lens.field @"domainName"
 {-# DEPRECATED cdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest CreateDomain where
+instance Core.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
-  request = Req.postQuery sdbService
-  response = Res.receiveNull CreateDomainResponse'
-
-instance Lude.ToHeaders CreateDomain where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDomain where
-  toQuery CreateDomain' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDomain" :: Lude.ByteString),
-        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDomain")
+                Core.<> (Core.pure ("Version", "2009-04-15"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+            )
+      }
+  response = Response.receiveNull CreateDomainResponse'
 
 -- | /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateDomainResponse' value with any optional fields omitted.
 mkCreateDomainResponse ::
   CreateDomainResponse
 mkCreateDomainResponse = CreateDomainResponse'

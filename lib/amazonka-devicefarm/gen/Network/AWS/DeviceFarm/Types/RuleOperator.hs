@@ -13,76 +13,78 @@
 module Network.AWS.DeviceFarm.Types.RuleOperator
   ( RuleOperator
       ( RuleOperator',
-        Equals,
-        LessThan,
-        LessThanOrEquals,
-        GreaterThan,
-        GreaterThanOrEquals,
-        IN,
-        NotIn,
-        Contains
+        RuleOperatorEquals,
+        RuleOperatorLessThan,
+        RuleOperatorLessThanOrEquals,
+        RuleOperatorGreaterThan,
+        RuleOperatorGreaterThanOrEquals,
+        RuleOperatorIN,
+        RuleOperatorNotIn,
+        RuleOperatorContains,
+        fromRuleOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RuleOperator = RuleOperator' Lude.Text
+newtype RuleOperator = RuleOperator' {fromRuleOperator :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Equals :: RuleOperator
-pattern Equals = RuleOperator' "EQUALS"
+pattern RuleOperatorEquals :: RuleOperator
+pattern RuleOperatorEquals = RuleOperator' "EQUALS"
 
-pattern LessThan :: RuleOperator
-pattern LessThan = RuleOperator' "LESS_THAN"
+pattern RuleOperatorLessThan :: RuleOperator
+pattern RuleOperatorLessThan = RuleOperator' "LESS_THAN"
 
-pattern LessThanOrEquals :: RuleOperator
-pattern LessThanOrEquals = RuleOperator' "LESS_THAN_OR_EQUALS"
+pattern RuleOperatorLessThanOrEquals :: RuleOperator
+pattern RuleOperatorLessThanOrEquals = RuleOperator' "LESS_THAN_OR_EQUALS"
 
-pattern GreaterThan :: RuleOperator
-pattern GreaterThan = RuleOperator' "GREATER_THAN"
+pattern RuleOperatorGreaterThan :: RuleOperator
+pattern RuleOperatorGreaterThan = RuleOperator' "GREATER_THAN"
 
-pattern GreaterThanOrEquals :: RuleOperator
-pattern GreaterThanOrEquals = RuleOperator' "GREATER_THAN_OR_EQUALS"
+pattern RuleOperatorGreaterThanOrEquals :: RuleOperator
+pattern RuleOperatorGreaterThanOrEquals = RuleOperator' "GREATER_THAN_OR_EQUALS"
 
-pattern IN :: RuleOperator
-pattern IN = RuleOperator' "IN"
+pattern RuleOperatorIN :: RuleOperator
+pattern RuleOperatorIN = RuleOperator' "IN"
 
-pattern NotIn :: RuleOperator
-pattern NotIn = RuleOperator' "NOT_IN"
+pattern RuleOperatorNotIn :: RuleOperator
+pattern RuleOperatorNotIn = RuleOperator' "NOT_IN"
 
-pattern Contains :: RuleOperator
-pattern Contains = RuleOperator' "CONTAINS"
+pattern RuleOperatorContains :: RuleOperator
+pattern RuleOperatorContains = RuleOperator' "CONTAINS"
 
 {-# COMPLETE
-  Equals,
-  LessThan,
-  LessThanOrEquals,
-  GreaterThan,
-  GreaterThanOrEquals,
-  IN,
-  NotIn,
-  Contains,
+  RuleOperatorEquals,
+  RuleOperatorLessThan,
+  RuleOperatorLessThanOrEquals,
+  RuleOperatorGreaterThan,
+  RuleOperatorGreaterThanOrEquals,
+  RuleOperatorIN,
+  RuleOperatorNotIn,
+  RuleOperatorContains,
   RuleOperator'
   #-}

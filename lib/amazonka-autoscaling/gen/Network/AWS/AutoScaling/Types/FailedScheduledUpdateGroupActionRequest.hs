@@ -23,64 +23,62 @@ module Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.XmlString as Types
+import qualified Network.AWS.AutoScaling.Types.XmlStringMaxLen255 as Types
+import qualified Network.AWS.AutoScaling.Types.XmlStringMaxLen64 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a scheduled action that could not be created, updated, or deleted.
 --
 -- /See:/ 'mkFailedScheduledUpdateGroupActionRequest' smart constructor.
 data FailedScheduledUpdateGroupActionRequest = FailedScheduledUpdateGroupActionRequest'
   { -- | The name of the scheduled action.
-    scheduledActionName :: Lude.Text,
+    scheduledActionName :: Types.XmlStringMaxLen255,
     -- | The error code.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.XmlStringMaxLen64,
     -- | The error message accompanying the error code.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedScheduledUpdateGroupActionRequest' with the minimum fields required to make a request.
---
--- * 'scheduledActionName' - The name of the scheduled action.
--- * 'errorCode' - The error code.
--- * 'errorMessage' - The error message accompanying the error code.
+-- | Creates a 'FailedScheduledUpdateGroupActionRequest' value with any optional fields omitted.
 mkFailedScheduledUpdateGroupActionRequest ::
   -- | 'scheduledActionName'
-  Lude.Text ->
+  Types.XmlStringMaxLen255 ->
   FailedScheduledUpdateGroupActionRequest
-mkFailedScheduledUpdateGroupActionRequest pScheduledActionName_ =
+mkFailedScheduledUpdateGroupActionRequest scheduledActionName =
   FailedScheduledUpdateGroupActionRequest'
-    { scheduledActionName =
-        pScheduledActionName_,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { scheduledActionName,
+      errorCode = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | The name of the scheduled action.
 --
 -- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsugarScheduledActionName :: Lens.Lens' FailedScheduledUpdateGroupActionRequest Lude.Text
-fsugarScheduledActionName = Lens.lens (scheduledActionName :: FailedScheduledUpdateGroupActionRequest -> Lude.Text) (\s a -> s {scheduledActionName = a} :: FailedScheduledUpdateGroupActionRequest)
+fsugarScheduledActionName :: Lens.Lens' FailedScheduledUpdateGroupActionRequest Types.XmlStringMaxLen255
+fsugarScheduledActionName = Lens.field @"scheduledActionName"
 {-# DEPRECATED fsugarScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsugarErrorCode :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Lude.Maybe Lude.Text)
-fsugarErrorCode = Lens.lens (errorCode :: FailedScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: FailedScheduledUpdateGroupActionRequest)
+fsugarErrorCode :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Core.Maybe Types.XmlStringMaxLen64)
+fsugarErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED fsugarErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message accompanying the error code.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsugarErrorMessage :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Lude.Maybe Lude.Text)
-fsugarErrorMessage = Lens.lens (errorMessage :: FailedScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedScheduledUpdateGroupActionRequest)
+fsugarErrorMessage :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Core.Maybe Types.XmlString)
+fsugarErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED fsugarErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromXML FailedScheduledUpdateGroupActionRequest where
+instance Core.FromXML FailedScheduledUpdateGroupActionRequest where
   parseXML x =
     FailedScheduledUpdateGroupActionRequest'
-      Lude.<$> (x Lude..@ "ScheduledActionName")
-      Lude.<*> (x Lude..@? "ErrorCode")
-      Lude.<*> (x Lude..@? "ErrorMessage")
+      Core.<$> (x Core..@ "ScheduledActionName")
+      Core.<*> (x Core..@? "ErrorCode")
+      Core.<*> (x Core..@? "ErrorMessage")

@@ -13,61 +13,63 @@
 module Network.AWS.Glue.Types.TaskType
   ( TaskType
       ( TaskType',
-        Evaluation,
-        LabelingSetGeneration,
-        ImportLabels,
-        ExportLabels,
-        FindMatches
+        TaskTypeEvaluation,
+        TaskTypeLabelingSetGeneration,
+        TaskTypeImportLabels,
+        TaskTypeExportLabels,
+        TaskTypeFindMatches,
+        fromTaskType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TaskType = TaskType' Lude.Text
+newtype TaskType = TaskType' {fromTaskType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Evaluation :: TaskType
-pattern Evaluation = TaskType' "EVALUATION"
+pattern TaskTypeEvaluation :: TaskType
+pattern TaskTypeEvaluation = TaskType' "EVALUATION"
 
-pattern LabelingSetGeneration :: TaskType
-pattern LabelingSetGeneration = TaskType' "LABELING_SET_GENERATION"
+pattern TaskTypeLabelingSetGeneration :: TaskType
+pattern TaskTypeLabelingSetGeneration = TaskType' "LABELING_SET_GENERATION"
 
-pattern ImportLabels :: TaskType
-pattern ImportLabels = TaskType' "IMPORT_LABELS"
+pattern TaskTypeImportLabels :: TaskType
+pattern TaskTypeImportLabels = TaskType' "IMPORT_LABELS"
 
-pattern ExportLabels :: TaskType
-pattern ExportLabels = TaskType' "EXPORT_LABELS"
+pattern TaskTypeExportLabels :: TaskType
+pattern TaskTypeExportLabels = TaskType' "EXPORT_LABELS"
 
-pattern FindMatches :: TaskType
-pattern FindMatches = TaskType' "FIND_MATCHES"
+pattern TaskTypeFindMatches :: TaskType
+pattern TaskTypeFindMatches = TaskType' "FIND_MATCHES"
 
 {-# COMPLETE
-  Evaluation,
-  LabelingSetGeneration,
-  ImportLabels,
-  ExportLabels,
-  FindMatches,
+  TaskTypeEvaluation,
+  TaskTypeLabelingSetGeneration,
+  TaskTypeImportLabels,
+  TaskTypeExportLabels,
+  TaskTypeFindMatches,
   TaskType'
   #-}

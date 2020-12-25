@@ -22,33 +22,35 @@ module Network.AWS.EC2.DescribeLocalGatewayRouteTables
     mkDescribeLocalGatewayRouteTables,
 
     -- ** Request lenses
-    dlgrtFilters,
-    dlgrtNextToken,
-    dlgrtLocalGatewayRouteTableIds,
     dlgrtDryRun,
+    dlgrtFilters,
+    dlgrtLocalGatewayRouteTableIds,
     dlgrtMaxResults,
+    dlgrtNextToken,
 
     -- * Destructuring the response
     DescribeLocalGatewayRouteTablesResponse (..),
     mkDescribeLocalGatewayRouteTablesResponse,
 
     -- ** Response lenses
-    dlgrtrsNextToken,
-    dlgrtrsLocalGatewayRouteTables,
-    dlgrtrsResponseStatus,
+    dlgrtrrsLocalGatewayRouteTables,
+    dlgrtrrsNextToken,
+    dlgrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLocalGatewayRouteTables' smart constructor.
 data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
-  { -- | One or more filters.
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | One or more filters.
     --
     --
     --     * @local-gateway-id@ - The ID of a local gateway.
@@ -61,50 +63,35 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
     --
     --
     --     * @state@ - The state of the local gateway route table.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | The IDs of the local gateway route tables.
-    localGatewayRouteTableIds :: Lude.Maybe [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    localGatewayRouteTableIds :: Core.Maybe [Types.LocalGatewayRoutetableId],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLocalGatewayRouteTables' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @local-gateway-id@ - The ID of a local gateway.
---
---
---     * @local-gateway-route-table-id@ - The ID of a local gateway route table.
---
---
---     * @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
---
---
---     * @state@ - The state of the local gateway route table.
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'localGatewayRouteTableIds' - The IDs of the local gateway route tables.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeLocalGatewayRouteTables' value with any optional fields omitted.
 mkDescribeLocalGatewayRouteTables ::
   DescribeLocalGatewayRouteTables
 mkDescribeLocalGatewayRouteTables =
   DescribeLocalGatewayRouteTables'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      localGatewayRouteTableIds = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      localGatewayRouteTableIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrtDryRun :: Lens.Lens' DescribeLocalGatewayRouteTables (Core.Maybe Core.Bool)
+dlgrtDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dlgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -123,132 +110,126 @@ mkDescribeLocalGatewayRouteTables =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtFilters :: Lens.Lens' DescribeLocalGatewayRouteTables (Lude.Maybe [Filter])
-dlgrtFilters = Lens.lens (filters :: DescribeLocalGatewayRouteTables -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeLocalGatewayRouteTables)
+dlgrtFilters :: Lens.Lens' DescribeLocalGatewayRouteTables (Core.Maybe [Types.Filter])
+dlgrtFilters = Lens.field @"filters"
 {-# DEPRECATED dlgrtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtNextToken :: Lens.Lens' DescribeLocalGatewayRouteTables (Lude.Maybe Lude.Text)
-dlgrtNextToken = Lens.lens (nextToken :: DescribeLocalGatewayRouteTables -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLocalGatewayRouteTables)
-{-# DEPRECATED dlgrtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The IDs of the local gateway route tables.
 --
 -- /Note:/ Consider using 'localGatewayRouteTableIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtLocalGatewayRouteTableIds :: Lens.Lens' DescribeLocalGatewayRouteTables (Lude.Maybe [Lude.Text])
-dlgrtLocalGatewayRouteTableIds = Lens.lens (localGatewayRouteTableIds :: DescribeLocalGatewayRouteTables -> Lude.Maybe [Lude.Text]) (\s a -> s {localGatewayRouteTableIds = a} :: DescribeLocalGatewayRouteTables)
+dlgrtLocalGatewayRouteTableIds :: Lens.Lens' DescribeLocalGatewayRouteTables (Core.Maybe [Types.LocalGatewayRoutetableId])
+dlgrtLocalGatewayRouteTableIds = Lens.field @"localGatewayRouteTableIds"
 {-# DEPRECATED dlgrtLocalGatewayRouteTableIds "Use generic-lens or generic-optics with 'localGatewayRouteTableIds' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtDryRun :: Lens.Lens' DescribeLocalGatewayRouteTables (Lude.Maybe Lude.Bool)
-dlgrtDryRun = Lens.lens (dryRun :: DescribeLocalGatewayRouteTables -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeLocalGatewayRouteTables)
-{-# DEPRECATED dlgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtMaxResults :: Lens.Lens' DescribeLocalGatewayRouteTables (Lude.Maybe Lude.Natural)
-dlgrtMaxResults = Lens.lens (maxResults :: DescribeLocalGatewayRouteTables -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeLocalGatewayRouteTables)
+dlgrtMaxResults :: Lens.Lens' DescribeLocalGatewayRouteTables (Core.Maybe Core.Natural)
+dlgrtMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dlgrtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeLocalGatewayRouteTables where
-  page rq rs
-    | Page.stop (rs Lens.^. dlgrtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlgrtrsLocalGatewayRouteTables) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dlgrtNextToken Lens..~ rs Lens.^. dlgrtrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrtNextToken :: Lens.Lens' DescribeLocalGatewayRouteTables (Core.Maybe Types.String)
+dlgrtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlgrtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeLocalGatewayRouteTables where
+instance Core.AWSRequest DescribeLocalGatewayRouteTables where
   type
     Rs DescribeLocalGatewayRouteTables =
       DescribeLocalGatewayRouteTablesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLocalGatewayRouteTables")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> ( Core.toQueryList "LocalGatewayRouteTableId"
+                            Core.<$> localGatewayRouteTableIds
+                        )
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewayRouteTablesResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "localGatewayRouteTableSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "localGatewayRouteTableSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLocalGatewayRouteTables where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLocalGatewayRouteTables where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLocalGatewayRouteTables where
-  toQuery DescribeLocalGatewayRouteTables' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeLocalGatewayRouteTables" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        Lude.toQuery
-          ( Lude.toQueryList "LocalGatewayRouteTableId"
-              Lude.<$> localGatewayRouteTableIds
-          ),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeLocalGatewayRouteTables where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"localGatewayRouteTables" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLocalGatewayRouteTablesResponse' smart constructor.
 data DescribeLocalGatewayRouteTablesResponse = DescribeLocalGatewayRouteTablesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the local gateway route tables.
-    localGatewayRouteTables :: Lude.Maybe [LocalGatewayRouteTable],
+  { -- | Information about the local gateway route tables.
+    localGatewayRouteTables :: Core.Maybe [Types.LocalGatewayRouteTable],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLocalGatewayRouteTablesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'localGatewayRouteTables' - Information about the local gateway route tables.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLocalGatewayRouteTablesResponse' value with any optional fields omitted.
 mkDescribeLocalGatewayRouteTablesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLocalGatewayRouteTablesResponse
-mkDescribeLocalGatewayRouteTablesResponse pResponseStatus_ =
+mkDescribeLocalGatewayRouteTablesResponse responseStatus =
   DescribeLocalGatewayRouteTablesResponse'
-    { nextToken =
-        Lude.Nothing,
-      localGatewayRouteTables = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { localGatewayRouteTables =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtrsNextToken :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse (Lude.Maybe Lude.Text)
-dlgrtrsNextToken = Lens.lens (nextToken :: DescribeLocalGatewayRouteTablesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLocalGatewayRouteTablesResponse)
-{-# DEPRECATED dlgrtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the local gateway route tables.
 --
 -- /Note:/ Consider using 'localGatewayRouteTables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtrsLocalGatewayRouteTables :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse (Lude.Maybe [LocalGatewayRouteTable])
-dlgrtrsLocalGatewayRouteTables = Lens.lens (localGatewayRouteTables :: DescribeLocalGatewayRouteTablesResponse -> Lude.Maybe [LocalGatewayRouteTable]) (\s a -> s {localGatewayRouteTables = a} :: DescribeLocalGatewayRouteTablesResponse)
-{-# DEPRECATED dlgrtrsLocalGatewayRouteTables "Use generic-lens or generic-optics with 'localGatewayRouteTables' instead." #-}
+dlgrtrrsLocalGatewayRouteTables :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse (Core.Maybe [Types.LocalGatewayRouteTable])
+dlgrtrrsLocalGatewayRouteTables = Lens.field @"localGatewayRouteTables"
+{-# DEPRECATED dlgrtrrsLocalGatewayRouteTables "Use generic-lens or generic-optics with 'localGatewayRouteTables' instead." #-}
+
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrtrrsNextToken :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse (Core.Maybe Types.String)
+dlgrtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlgrtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtrsResponseStatus :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse Lude.Int
-dlgrtrsResponseStatus = Lens.lens (responseStatus :: DescribeLocalGatewayRouteTablesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocalGatewayRouteTablesResponse)
-{-# DEPRECATED dlgrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlgrtrrsResponseStatus :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse Core.Int
+dlgrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlgrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

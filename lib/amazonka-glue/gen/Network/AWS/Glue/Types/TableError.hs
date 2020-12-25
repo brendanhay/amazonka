@@ -17,55 +17,51 @@ module Network.AWS.Glue.Types.TableError
     mkTableError,
 
     -- * Lenses
-    teTableName,
     teErrorDetail,
+    teTableName,
   )
 where
 
-import Network.AWS.Glue.Types.ErrorDetail
+import qualified Network.AWS.Glue.Types.ErrorDetail as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An error record for table operations.
 --
 -- /See:/ 'mkTableError' smart constructor.
 data TableError = TableError'
-  { -- | The name of the table. For Hive compatibility, this must be entirely lowercase.
-    tableName :: Lude.Maybe Lude.Text,
-    -- | The details about the error.
-    errorDetail :: Lude.Maybe ErrorDetail
+  { -- | The details about the error.
+    errorDetail :: Core.Maybe Types.ErrorDetail,
+    -- | The name of the table. For Hive compatibility, this must be entirely lowercase.
+    tableName :: Core.Maybe Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TableError' with the minimum fields required to make a request.
---
--- * 'tableName' - The name of the table. For Hive compatibility, this must be entirely lowercase.
--- * 'errorDetail' - The details about the error.
+-- | Creates a 'TableError' value with any optional fields omitted.
 mkTableError ::
   TableError
 mkTableError =
-  TableError' {tableName = Lude.Nothing, errorDetail = Lude.Nothing}
-
--- | The name of the table. For Hive compatibility, this must be entirely lowercase.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teTableName :: Lens.Lens' TableError (Lude.Maybe Lude.Text)
-teTableName = Lens.lens (tableName :: TableError -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: TableError)
-{-# DEPRECATED teTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+  TableError' {errorDetail = Core.Nothing, tableName = Core.Nothing}
 
 -- | The details about the error.
 --
 -- /Note:/ Consider using 'errorDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teErrorDetail :: Lens.Lens' TableError (Lude.Maybe ErrorDetail)
-teErrorDetail = Lens.lens (errorDetail :: TableError -> Lude.Maybe ErrorDetail) (\s a -> s {errorDetail = a} :: TableError)
+teErrorDetail :: Lens.Lens' TableError (Core.Maybe Types.ErrorDetail)
+teErrorDetail = Lens.field @"errorDetail"
 {-# DEPRECATED teErrorDetail "Use generic-lens or generic-optics with 'errorDetail' instead." #-}
 
-instance Lude.FromJSON TableError where
+-- | The name of the table. For Hive compatibility, this must be entirely lowercase.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teTableName :: Lens.Lens' TableError (Core.Maybe Types.NameString)
+teTableName = Lens.field @"tableName"
+{-# DEPRECATED teTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
+instance Core.FromJSON TableError where
   parseJSON =
-    Lude.withObject
-      "TableError"
-      ( \x ->
-          TableError'
-            Lude.<$> (x Lude..:? "TableName") Lude.<*> (x Lude..:? "ErrorDetail")
-      )
+    Core.withObject "TableError" Core.$
+      \x ->
+        TableError'
+          Core.<$> (x Core..:? "ErrorDetail") Core.<*> (x Core..:? "TableName")

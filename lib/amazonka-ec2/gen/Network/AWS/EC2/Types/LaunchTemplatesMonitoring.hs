@@ -22,33 +22,31 @@ module Network.AWS.EC2.Types.LaunchTemplatesMonitoring
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'mkLaunchTemplatesMonitoring' smart constructor.
 newtype LaunchTemplatesMonitoring = LaunchTemplatesMonitoring'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplatesMonitoring' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+-- | Creates a 'LaunchTemplatesMonitoring' value with any optional fields omitted.
 mkLaunchTemplatesMonitoring ::
   LaunchTemplatesMonitoring
 mkLaunchTemplatesMonitoring =
-  LaunchTemplatesMonitoring' {enabled = Lude.Nothing}
+  LaunchTemplatesMonitoring' {enabled = Core.Nothing}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltmEnabled :: Lens.Lens' LaunchTemplatesMonitoring (Lude.Maybe Lude.Bool)
-ltmEnabled = Lens.lens (enabled :: LaunchTemplatesMonitoring -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: LaunchTemplatesMonitoring)
+ltmEnabled :: Lens.Lens' LaunchTemplatesMonitoring (Core.Maybe Core.Bool)
+ltmEnabled = Lens.field @"enabled"
 {-# DEPRECATED ltmEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromXML LaunchTemplatesMonitoring where
+instance Core.FromXML LaunchTemplatesMonitoring where
   parseXML x =
-    LaunchTemplatesMonitoring' Lude.<$> (x Lude..@? "enabled")
+    LaunchTemplatesMonitoring' Core.<$> (x Core..@? "enabled")

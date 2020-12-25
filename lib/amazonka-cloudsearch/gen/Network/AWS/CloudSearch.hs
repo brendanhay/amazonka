@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,31 @@
 -- The endpoint for configuration service requests is region-specific: cloudsearch./region/ .amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints> .
 module Network.AWS.CloudSearch
   ( -- * Service configuration
-    cloudSearchService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** BaseException
+    _BaseException,
+
+    -- ** DisabledOperationException
+    _DisabledOperationException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** InvalidTypeException
+    _InvalidTypeException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -108,198 +128,170 @@ module Network.AWS.CloudSearch
 
     -- * Types
 
-    -- ** AlgorithmicStemming
-    AlgorithmicStemming (..),
-
-    -- ** AnalysisSchemeLanguage
-    AnalysisSchemeLanguage (..),
-
-    -- ** IndexFieldType
-    IndexFieldType (..),
-
-    -- ** OptionState
-    OptionState (..),
-
-    -- ** PartitionInstanceType
-    PartitionInstanceType (..),
-
-    -- ** SuggesterFuzzyMatching
-    SuggesterFuzzyMatching (..),
-
-    -- ** TLSSecurityPolicy
-    TLSSecurityPolicy (..),
-
-    -- ** AccessPoliciesStatus
-    AccessPoliciesStatus (..),
-    mkAccessPoliciesStatus,
-    apsStatus,
-    apsOptions,
-
-    -- ** AnalysisOptions
-    AnalysisOptions (..),
-    mkAnalysisOptions,
-    aoAlgorithmicStemming,
-    aoStopwords,
-    aoJapaneseTokenizationDictionary,
-    aoSynonyms,
-    aoStemmingDictionary,
-
-    -- ** AnalysisScheme
-    AnalysisScheme (..),
-    mkAnalysisScheme,
-    asAnalysisOptions,
-    asAnalysisSchemeLanguage,
-    asAnalysisSchemeName,
-
-    -- ** AnalysisSchemeStatus
-    AnalysisSchemeStatus (..),
-    mkAnalysisSchemeStatus,
-    assStatus,
-    assOptions,
-
-    -- ** AvailabilityOptionsStatus
-    AvailabilityOptionsStatus (..),
-    mkAvailabilityOptionsStatus,
-    aosStatus,
-    aosOptions,
-
-    -- ** DateArrayOptions
-    DateArrayOptions (..),
-    mkDateArrayOptions,
-    daosSourceFields,
-    daosReturnEnabled,
-    daosFacetEnabled,
-    daosSearchEnabled,
-    daosDefaultValue,
-
-    -- ** DateOptions
-    DateOptions (..),
-    mkDateOptions,
-    doSourceField,
-    doReturnEnabled,
-    doFacetEnabled,
-    doSearchEnabled,
-    doSortEnabled,
-    doDefaultValue,
+    -- ** DomainStatus
+    DomainStatus (..),
+    mkDomainStatus,
+    dsDomainId,
+    dsDomainName,
+    dsRequiresIndexDocuments,
+    dsARN,
+    dsCreated,
+    dsDeleted,
+    dsDocService,
+    dsLimits,
+    dsProcessing,
+    dsSearchInstanceCount,
+    dsSearchInstanceType,
+    dsSearchPartitionCount,
+    dsSearchService,
 
     -- ** DocumentSuggesterOptions
     DocumentSuggesterOptions (..),
     mkDocumentSuggesterOptions,
     dsoSourceField,
-    dsoSortExpression,
     dsoFuzzyMatching,
-
-    -- ** DomainEndpointOptions
-    DomainEndpointOptions (..),
-    mkDomainEndpointOptions,
-    deoEnforceHTTPS,
-    deoTLSSecurityPolicy,
-
-    -- ** DomainEndpointOptionsStatus
-    DomainEndpointOptionsStatus (..),
-    mkDomainEndpointOptionsStatus,
-    deosStatus,
-    deosOptions,
-
-    -- ** DomainStatus
-    DomainStatus (..),
-    mkDomainStatus,
-    dsSearchInstanceCount,
-    dsSearchInstanceType,
-    dsDocService,
-    dsARN,
-    dsCreated,
-    dsSearchService,
-    dsLimits,
-    dsRequiresIndexDocuments,
-    dsDomainName,
-    dsSearchPartitionCount,
-    dsDeleted,
-    dsDomainId,
-    dsProcessing,
+    dsoSortExpression,
 
     -- ** DoubleArrayOptions
     DoubleArrayOptions (..),
     mkDoubleArrayOptions,
-    daoSourceFields,
-    daoReturnEnabled,
-    daoFacetEnabled,
-    daoSearchEnabled,
     daoDefaultValue,
-
-    -- ** DoubleOptions
-    DoubleOptions (..),
-    mkDoubleOptions,
-    dSourceField,
-    dReturnEnabled,
-    dFacetEnabled,
-    dSearchEnabled,
-    dSortEnabled,
-    dDefaultValue,
-
-    -- ** Expression
-    Expression (..),
-    mkExpression,
-    eExpressionName,
-    eExpressionValue,
-
-    -- ** ExpressionStatus
-    ExpressionStatus (..),
-    mkExpressionStatus,
-    esStatus,
-    esOptions,
+    daoFacetEnabled,
+    daoReturnEnabled,
+    daoSearchEnabled,
+    daoSourceFields,
 
     -- ** IndexField
     IndexField (..),
     mkIndexField,
-    ifDoubleArrayOptions,
-    ifDateOptions,
-    ifTextArrayOptions,
-    ifDoubleOptions,
-    ifTextOptions,
+    ifIndexFieldName,
     ifIndexFieldType,
+    ifDateArrayOptions,
+    ifDateOptions,
+    ifDoubleArrayOptions,
+    ifDoubleOptions,
+    ifIntArrayOptions,
+    ifIntOptions,
     ifLatLonOptions,
     ifLiteralArrayOptions,
-    ifIntArrayOptions,
-    ifDateArrayOptions,
-    ifIntOptions,
     ifLiteralOptions,
-    ifIndexFieldName,
+    ifTextArrayOptions,
+    ifTextOptions,
+
+    -- ** DateOptions
+    DateOptions (..),
+    mkDateOptions,
+    doDefaultValue,
+    doFacetEnabled,
+    doReturnEnabled,
+    doSearchEnabled,
+    doSortEnabled,
+    doSourceField,
+
+    -- ** OptionState
+    OptionState (..),
+
+    -- ** TextArrayOptions
+    TextArrayOptions (..),
+    mkTextArrayOptions,
+    taoAnalysisScheme,
+    taoDefaultValue,
+    taoHighlightEnabled,
+    taoReturnEnabled,
+    taoSourceFields,
+
+    -- ** SearchInstanceType
+    SearchInstanceType (..),
+
+    -- ** PolicyDocument
+    PolicyDocument (..),
+
+    -- ** AlgorithmicStemming
+    AlgorithmicStemming (..),
+
+    -- ** AnalysisScheme
+    AnalysisScheme (..),
+    mkAnalysisScheme,
+    asAnalysisSchemeName,
+    asAnalysisSchemeLanguage,
+    asAnalysisOptions,
+
+    -- ** ScalingParameters
+    ScalingParameters (..),
+    mkScalingParameters,
+    spDesiredInstanceType,
+    spDesiredPartitionCount,
+    spDesiredReplicationCount,
+
+    -- ** FieldNameCommaList
+    FieldNameCommaList (..),
+
+    -- ** APIVersion
+    APIVersion (..),
+
+    -- ** AnalysisOptions
+    AnalysisOptions (..),
+    mkAnalysisOptions,
+    aoAlgorithmicStemming,
+    aoJapaneseTokenizationDictionary,
+    aoStemmingDictionary,
+    aoStopwords,
+    aoSynonyms,
+
+    -- ** DoubleOptions
+    DoubleOptions (..),
+    mkDoubleOptions,
+    dosDefaultValue,
+    dosFacetEnabled,
+    dosReturnEnabled,
+    dosSearchEnabled,
+    dosSortEnabled,
+    dosSourceField,
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** TextOptions
+    TextOptions (..),
+    mkTextOptions,
+    toAnalysisScheme,
+    toDefaultValue,
+    toHighlightEnabled,
+    toReturnEnabled,
+    toSortEnabled,
+    toSourceField,
+
+    -- ** AvailabilityOptionsStatus
+    AvailabilityOptionsStatus (..),
+    mkAvailabilityOptionsStatus,
+    aosOptions,
+    aosStatus,
+
+    -- ** DynamicFieldName
+    DynamicFieldName (..),
 
     -- ** IndexFieldStatus
     IndexFieldStatus (..),
     mkIndexFieldStatus,
-    ifsStatus,
     ifsOptions,
+    ifsStatus,
 
-    -- ** IntArrayOptions
-    IntArrayOptions (..),
-    mkIntArrayOptions,
-    iaoSourceFields,
-    iaoReturnEnabled,
-    iaoFacetEnabled,
-    iaoSearchEnabled,
-    iaoDefaultValue,
+    -- ** ScalingParametersStatus
+    ScalingParametersStatus (..),
+    mkScalingParametersStatus,
+    spsOptions,
+    spsStatus,
 
-    -- ** IntOptions
-    IntOptions (..),
-    mkIntOptions,
-    ioSourceField,
-    ioReturnEnabled,
-    ioFacetEnabled,
-    ioSearchEnabled,
-    ioSortEnabled,
-    ioDefaultValue,
+    -- ** AnalysisSchemeStatus
+    AnalysisSchemeStatus (..),
+    mkAnalysisSchemeStatus,
+    assOptions,
+    assStatus,
 
-    -- ** LatLonOptions
-    LatLonOptions (..),
-    mkLatLonOptions,
-    lloSourceField,
-    lloReturnEnabled,
-    lloFacetEnabled,
-    lloSearchEnabled,
-    lloSortEnabled,
-    lloDefaultValue,
+    -- ** ServiceEndpoint
+    ServiceEndpoint (..),
+    mkServiceEndpoint,
+    seEndpoint,
 
     -- ** Limits
     Limits (..),
@@ -307,92 +299,196 @@ module Network.AWS.CloudSearch
     lMaximumReplicationCount,
     lMaximumPartitionCount,
 
-    -- ** LiteralArrayOptions
-    LiteralArrayOptions (..),
-    mkLiteralArrayOptions,
-    laoSourceFields,
-    laoReturnEnabled,
-    laoFacetEnabled,
-    laoSearchEnabled,
-    laoDefaultValue,
+    -- ** ExpressionStatus
+    ExpressionStatus (..),
+    mkExpressionStatus,
+    esOptions,
+    esStatus,
 
-    -- ** LiteralOptions
-    LiteralOptions (..),
-    mkLiteralOptions,
-    loSourceField,
-    loReturnEnabled,
-    loFacetEnabled,
-    loSearchEnabled,
-    loSortEnabled,
-    loDefaultValue,
+    -- ** FieldValue
+    FieldValue (..),
 
-    -- ** OptionStatus
-    OptionStatus (..),
-    mkOptionStatus,
-    osState,
-    osUpdateDate,
-    osPendingDeletion,
-    osCreationDate,
-    osUpdateVersion,
+    -- ** IndexFieldType
+    IndexFieldType (..),
 
-    -- ** ScalingParameters
-    ScalingParameters (..),
-    mkScalingParameters,
-    spDesiredInstanceType,
-    spDesiredReplicationCount,
-    spDesiredPartitionCount,
+    -- ** StandardName
+    StandardName (..),
 
-    -- ** ScalingParametersStatus
-    ScalingParametersStatus (..),
-    mkScalingParametersStatus,
-    spsStatus,
-    spsOptions,
-
-    -- ** ServiceEndpoint
-    ServiceEndpoint (..),
-    mkServiceEndpoint,
-    seEndpoint,
-
-    -- ** Suggester
-    Suggester (..),
-    mkSuggester,
-    sDocumentSuggesterOptions,
-    sSuggesterName,
+    -- ** LatLonOptions
+    LatLonOptions (..),
+    mkLatLonOptions,
+    lloDefaultValue,
+    lloFacetEnabled,
+    lloReturnEnabled,
+    lloSearchEnabled,
+    lloSortEnabled,
+    lloSourceField,
 
     -- ** SuggesterStatus
     SuggesterStatus (..),
     mkSuggesterStatus,
-    ssStatus,
     ssOptions,
+    ssStatus,
 
-    -- ** TextArrayOptions
-    TextArrayOptions (..),
-    mkTextArrayOptions,
-    taoSourceFields,
-    taoReturnEnabled,
-    taoAnalysisScheme,
-    taoHighlightEnabled,
-    taoDefaultValue,
+    -- ** DomainName
+    DomainName (..),
 
-    -- ** TextOptions
-    TextOptions (..),
-    mkTextOptions,
-    toSourceField,
-    toReturnEnabled,
-    toAnalysisScheme,
-    toHighlightEnabled,
-    toSortEnabled,
-    toDefaultValue,
+    -- ** OptionStatus
+    OptionStatus (..),
+    mkOptionStatus,
+    osCreationDate,
+    osUpdateDate,
+    osState,
+    osPendingDeletion,
+    osUpdateVersion,
+
+    -- ** DomainEndpointOptionsStatus
+    DomainEndpointOptionsStatus (..),
+    mkDomainEndpointOptionsStatus,
+    deosOptions,
+    deosStatus,
+
+    -- ** LiteralArrayOptions
+    LiteralArrayOptions (..),
+    mkLiteralArrayOptions,
+    laoDefaultValue,
+    laoFacetEnabled,
+    laoReturnEnabled,
+    laoSearchEnabled,
+    laoSourceFields,
+
+    -- ** IntArrayOptions
+    IntArrayOptions (..),
+    mkIntArrayOptions,
+    iaoDefaultValue,
+    iaoFacetEnabled,
+    iaoReturnEnabled,
+    iaoSearchEnabled,
+    iaoSourceFields,
+
+    -- ** Expression
+    Expression (..),
+    mkExpression,
+    eExpressionName,
+    eExpressionValue,
+
+    -- ** SuggesterFuzzyMatching
+    SuggesterFuzzyMatching (..),
+
+    -- ** FieldName
+    FieldName (..),
+
+    -- ** TLSSecurityPolicy
+    TLSSecurityPolicy (..),
+
+    -- ** DateArrayOptions
+    DateArrayOptions (..),
+    mkDateArrayOptions,
+    dDefaultValue,
+    dFacetEnabled,
+    dReturnEnabled,
+    dSearchEnabled,
+    dSourceFields,
+
+    -- ** DomainId
+    DomainId (..),
+
+    -- ** AnalysisSchemeLanguage
+    AnalysisSchemeLanguage (..),
+
+    -- ** PartitionInstanceType
+    PartitionInstanceType (..),
+
+    -- ** Suggester
+    Suggester (..),
+    mkSuggester,
+    sSuggesterName,
+    sDocumentSuggesterOptions,
+
+    -- ** IntOptions
+    IntOptions (..),
+    mkIntOptions,
+    ioDefaultValue,
+    ioFacetEnabled,
+    ioReturnEnabled,
+    ioSearchEnabled,
+    ioSortEnabled,
+    ioSourceField,
+
+    -- ** LiteralOptions
+    LiteralOptions (..),
+    mkLiteralOptions,
+    loDefaultValue,
+    loFacetEnabled,
+    loReturnEnabled,
+    loSearchEnabled,
+    loSortEnabled,
+    loSourceField,
+
+    -- ** DomainEndpointOptions
+    DomainEndpointOptions (..),
+    mkDomainEndpointOptions,
+    deoEnforceHTTPS,
+    deoTLSSecurityPolicy,
+
+    -- ** Word
+    Word (..),
+
+    -- ** AccessPoliciesStatus
+    AccessPoliciesStatus (..),
+    mkAccessPoliciesStatus,
+    apsOptions,
+    apsStatus,
+
+    -- ** ExpressionValue
+    ExpressionValue (..),
+
+    -- ** SourceField
+    SourceField (..),
+
+    -- ** SortExpression
+    SortExpression (..),
+
+    -- ** SourceFields
+    SourceFields (..),
+
+    -- ** IndexFieldName
+    IndexFieldName (..),
+
+    -- ** DefaultValue
+    DefaultValue (..),
+
+    -- ** AnalysisSchemeName
+    AnalysisSchemeName (..),
+
+    -- ** ExpressionName
+    ExpressionName (..),
+
+    -- ** JapaneseTokenizationDictionary
+    JapaneseTokenizationDictionary (..),
+
+    -- ** StemmingDictionary
+    StemmingDictionary (..),
+
+    -- ** Stopwords
+    Stopwords (..),
+
+    -- ** Synonyms
+    Synonyms (..),
+
+    -- ** SuggesterName
+    SuggesterName (..),
+
+    -- ** Endpoint
+    Endpoint (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

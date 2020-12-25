@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints
   ( MpdAccessibilityCaptionHints
       ( MpdAccessibilityCaptionHints',
-        MACHInclude,
-        MACHExclude
+        MpdAccessibilityCaptionHintsInclude,
+        MpdAccessibilityCaptionHintsExclude,
+        fromMpdAccessibilityCaptionHints
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | <Accessibility>elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility>
-newtype MpdAccessibilityCaptionHints = MpdAccessibilityCaptionHints' Lude.Text
+newtype MpdAccessibilityCaptionHints = MpdAccessibilityCaptionHints'
+  { fromMpdAccessibilityCaptionHints ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MACHInclude :: MpdAccessibilityCaptionHints
-pattern MACHInclude = MpdAccessibilityCaptionHints' "INCLUDE"
+pattern MpdAccessibilityCaptionHintsInclude :: MpdAccessibilityCaptionHints
+pattern MpdAccessibilityCaptionHintsInclude = MpdAccessibilityCaptionHints' "INCLUDE"
 
-pattern MACHExclude :: MpdAccessibilityCaptionHints
-pattern MACHExclude = MpdAccessibilityCaptionHints' "EXCLUDE"
+pattern MpdAccessibilityCaptionHintsExclude :: MpdAccessibilityCaptionHints
+pattern MpdAccessibilityCaptionHintsExclude = MpdAccessibilityCaptionHints' "EXCLUDE"
 
 {-# COMPLETE
-  MACHInclude,
-  MACHExclude,
+  MpdAccessibilityCaptionHintsInclude,
+  MpdAccessibilityCaptionHintsExclude,
   MpdAccessibilityCaptionHints'
   #-}

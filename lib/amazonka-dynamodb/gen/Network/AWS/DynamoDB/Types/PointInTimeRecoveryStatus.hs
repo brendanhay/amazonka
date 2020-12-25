@@ -13,46 +13,51 @@
 module Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus
   ( PointInTimeRecoveryStatus
       ( PointInTimeRecoveryStatus',
-        PITRSEnabled,
-        PITRSDisabled
+        PointInTimeRecoveryStatusEnabled,
+        PointInTimeRecoveryStatusDisabled,
+        fromPointInTimeRecoveryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PointInTimeRecoveryStatus = PointInTimeRecoveryStatus' Lude.Text
+newtype PointInTimeRecoveryStatus = PointInTimeRecoveryStatus'
+  { fromPointInTimeRecoveryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PITRSEnabled :: PointInTimeRecoveryStatus
-pattern PITRSEnabled = PointInTimeRecoveryStatus' "ENABLED"
+pattern PointInTimeRecoveryStatusEnabled :: PointInTimeRecoveryStatus
+pattern PointInTimeRecoveryStatusEnabled = PointInTimeRecoveryStatus' "ENABLED"
 
-pattern PITRSDisabled :: PointInTimeRecoveryStatus
-pattern PITRSDisabled = PointInTimeRecoveryStatus' "DISABLED"
+pattern PointInTimeRecoveryStatusDisabled :: PointInTimeRecoveryStatus
+pattern PointInTimeRecoveryStatusDisabled = PointInTimeRecoveryStatus' "DISABLED"
 
 {-# COMPLETE
-  PITRSEnabled,
-  PITRSDisabled,
+  PointInTimeRecoveryStatusEnabled,
+  PointInTimeRecoveryStatusDisabled,
   PointInTimeRecoveryStatus'
   #-}

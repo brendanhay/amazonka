@@ -13,61 +13,66 @@
 module Network.AWS.Lightsail.Types.MetricStatistic
   ( MetricStatistic
       ( MetricStatistic',
-        Minimum,
-        Maximum,
-        Sum,
-        Average,
-        SampleCount
+        MetricStatisticMinimum,
+        MetricStatisticMaximum,
+        MetricStatisticSum,
+        MetricStatisticAverage,
+        MetricStatisticSampleCount,
+        fromMetricStatistic
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MetricStatistic = MetricStatistic' Lude.Text
+newtype MetricStatistic = MetricStatistic'
+  { fromMetricStatistic ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Minimum :: MetricStatistic
-pattern Minimum = MetricStatistic' "Minimum"
+pattern MetricStatisticMinimum :: MetricStatistic
+pattern MetricStatisticMinimum = MetricStatistic' "Minimum"
 
-pattern Maximum :: MetricStatistic
-pattern Maximum = MetricStatistic' "Maximum"
+pattern MetricStatisticMaximum :: MetricStatistic
+pattern MetricStatisticMaximum = MetricStatistic' "Maximum"
 
-pattern Sum :: MetricStatistic
-pattern Sum = MetricStatistic' "Sum"
+pattern MetricStatisticSum :: MetricStatistic
+pattern MetricStatisticSum = MetricStatistic' "Sum"
 
-pattern Average :: MetricStatistic
-pattern Average = MetricStatistic' "Average"
+pattern MetricStatisticAverage :: MetricStatistic
+pattern MetricStatisticAverage = MetricStatistic' "Average"
 
-pattern SampleCount :: MetricStatistic
-pattern SampleCount = MetricStatistic' "SampleCount"
+pattern MetricStatisticSampleCount :: MetricStatistic
+pattern MetricStatisticSampleCount = MetricStatistic' "SampleCount"
 
 {-# COMPLETE
-  Minimum,
-  Maximum,
-  Sum,
-  Average,
-  SampleCount,
+  MetricStatisticMinimum,
+  MetricStatisticMaximum,
+  MetricStatisticSum,
+  MetricStatisticAverage,
+  MetricStatisticSampleCount,
   MetricStatistic'
   #-}

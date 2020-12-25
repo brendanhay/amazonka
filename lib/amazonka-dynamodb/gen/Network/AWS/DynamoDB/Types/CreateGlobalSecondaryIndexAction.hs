@@ -17,102 +17,92 @@ module Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction
     mkCreateGlobalSecondaryIndexAction,
 
     -- * Lenses
-    cgsiaProvisionedThroughput,
+    cgsiaIndexName,
     cgsiaKeySchema,
     cgsiaProjection,
-    cgsiaIndexName,
+    cgsiaProvisionedThroughput,
   )
 where
 
-import Network.AWS.DynamoDB.Types.KeySchemaElement
-import Network.AWS.DynamoDB.Types.Projection
-import Network.AWS.DynamoDB.Types.ProvisionedThroughput
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
+import qualified Network.AWS.DynamoDB.Types.KeySchemaElement as Types
+import qualified Network.AWS.DynamoDB.Types.Projection as Types
+import qualified Network.AWS.DynamoDB.Types.ProvisionedThroughput as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a new global secondary index to be added to an existing table.
 --
 -- /See:/ 'mkCreateGlobalSecondaryIndexAction' smart constructor.
 data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
-  { -- | Represents the provisioned throughput settings for the specified global secondary index.
+  { -- | The name of the global secondary index to be created.
+    indexName :: Types.IndexName,
+    -- | The key schema for the global secondary index.
+    keySchema :: Core.NonEmpty Types.KeySchemaElement,
+    -- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+    projection :: Types.Projection,
+    -- | Represents the provisioned throughput settings for the specified global secondary index.
     --
     -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
-    provisionedThroughput :: Lude.Maybe ProvisionedThroughput,
-    -- | The key schema for the global secondary index.
-    keySchema :: Lude.NonEmpty KeySchemaElement,
-    -- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-    projection :: Projection,
-    -- | The name of the global secondary index to be created.
-    indexName :: Lude.Text
+    provisionedThroughput :: Core.Maybe Types.ProvisionedThroughput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGlobalSecondaryIndexAction' with the minimum fields required to make a request.
---
--- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
---
--- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
--- * 'keySchema' - The key schema for the global secondary index.
--- * 'projection' - Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
--- * 'indexName' - The name of the global secondary index to be created.
+-- | Creates a 'CreateGlobalSecondaryIndexAction' value with any optional fields omitted.
 mkCreateGlobalSecondaryIndexAction ::
-  -- | 'keySchema'
-  Lude.NonEmpty KeySchemaElement ->
-  -- | 'projection'
-  Projection ->
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
+  -- | 'keySchema'
+  Core.NonEmpty Types.KeySchemaElement ->
+  -- | 'projection'
+  Types.Projection ->
   CreateGlobalSecondaryIndexAction
-mkCreateGlobalSecondaryIndexAction
-  pKeySchema_
-  pProjection_
-  pIndexName_ =
-    CreateGlobalSecondaryIndexAction'
-      { provisionedThroughput =
-          Lude.Nothing,
-        keySchema = pKeySchema_,
-        projection = pProjection_,
-        indexName = pIndexName_
-      }
+mkCreateGlobalSecondaryIndexAction indexName keySchema projection =
+  CreateGlobalSecondaryIndexAction'
+    { indexName,
+      keySchema,
+      projection,
+      provisionedThroughput = Core.Nothing
+    }
+
+-- | The name of the global secondary index to be created.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsiaIndexName :: Lens.Lens' CreateGlobalSecondaryIndexAction Types.IndexName
+cgsiaIndexName = Lens.field @"indexName"
+{-# DEPRECATED cgsiaIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
+-- | The key schema for the global secondary index.
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsiaKeySchema :: Lens.Lens' CreateGlobalSecondaryIndexAction (Core.NonEmpty Types.KeySchemaElement)
+cgsiaKeySchema = Lens.field @"keySchema"
+{-# DEPRECATED cgsiaKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
+
+-- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+--
+-- /Note:/ Consider using 'projection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsiaProjection :: Lens.Lens' CreateGlobalSecondaryIndexAction Types.Projection
+cgsiaProjection = Lens.field @"projection"
+{-# DEPRECATED cgsiaProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
 -- | Represents the provisioned throughput settings for the specified global secondary index.
 --
 -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsiaProvisionedThroughput :: Lens.Lens' CreateGlobalSecondaryIndexAction (Lude.Maybe ProvisionedThroughput)
-cgsiaProvisionedThroughput = Lens.lens (provisionedThroughput :: CreateGlobalSecondaryIndexAction -> Lude.Maybe ProvisionedThroughput) (\s a -> s {provisionedThroughput = a} :: CreateGlobalSecondaryIndexAction)
+cgsiaProvisionedThroughput :: Lens.Lens' CreateGlobalSecondaryIndexAction (Core.Maybe Types.ProvisionedThroughput)
+cgsiaProvisionedThroughput = Lens.field @"provisionedThroughput"
 {-# DEPRECATED cgsiaProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
 
--- | The key schema for the global secondary index.
---
--- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsiaKeySchema :: Lens.Lens' CreateGlobalSecondaryIndexAction (Lude.NonEmpty KeySchemaElement)
-cgsiaKeySchema = Lens.lens (keySchema :: CreateGlobalSecondaryIndexAction -> Lude.NonEmpty KeySchemaElement) (\s a -> s {keySchema = a} :: CreateGlobalSecondaryIndexAction)
-{-# DEPRECATED cgsiaKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
-
--- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
---
--- /Note:/ Consider using 'projection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsiaProjection :: Lens.Lens' CreateGlobalSecondaryIndexAction Projection
-cgsiaProjection = Lens.lens (projection :: CreateGlobalSecondaryIndexAction -> Projection) (\s a -> s {projection = a} :: CreateGlobalSecondaryIndexAction)
-{-# DEPRECATED cgsiaProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
-
--- | The name of the global secondary index to be created.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsiaIndexName :: Lens.Lens' CreateGlobalSecondaryIndexAction Lude.Text
-cgsiaIndexName = Lens.lens (indexName :: CreateGlobalSecondaryIndexAction -> Lude.Text) (\s a -> s {indexName = a} :: CreateGlobalSecondaryIndexAction)
-{-# DEPRECATED cgsiaIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
-instance Lude.ToJSON CreateGlobalSecondaryIndexAction where
-  toJSON CreateGlobalSecondaryIndexAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProvisionedThroughput" Lude..=) Lude.<$> provisionedThroughput,
-            Lude.Just ("KeySchema" Lude..= keySchema),
-            Lude.Just ("Projection" Lude..= projection),
-            Lude.Just ("IndexName" Lude..= indexName)
+instance Core.FromJSON CreateGlobalSecondaryIndexAction where
+  toJSON CreateGlobalSecondaryIndexAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IndexName" Core..= indexName),
+            Core.Just ("KeySchema" Core..= keySchema),
+            Core.Just ("Projection" Core..= projection),
+            ("ProvisionedThroughput" Core..=) Core.<$> provisionedThroughput
           ]
       )

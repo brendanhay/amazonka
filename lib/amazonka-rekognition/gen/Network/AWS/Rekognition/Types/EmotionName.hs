@@ -13,81 +13,83 @@
 module Network.AWS.Rekognition.Types.EmotionName
   ( EmotionName
       ( EmotionName',
-        Happy,
-        Sad,
-        Angry,
-        Confused,
-        Disgusted,
-        Surprised,
-        Calm,
-        Unknown,
-        Fear
+        EmotionNameHappy,
+        EmotionNameSad,
+        EmotionNameAngry,
+        EmotionNameConfused,
+        EmotionNameDisgusted,
+        EmotionNameSurprised,
+        EmotionNameCalm,
+        EmotionNameUnknown,
+        EmotionNameFear,
+        fromEmotionName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EmotionName = EmotionName' Lude.Text
+newtype EmotionName = EmotionName' {fromEmotionName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Happy :: EmotionName
-pattern Happy = EmotionName' "HAPPY"
+pattern EmotionNameHappy :: EmotionName
+pattern EmotionNameHappy = EmotionName' "HAPPY"
 
-pattern Sad :: EmotionName
-pattern Sad = EmotionName' "SAD"
+pattern EmotionNameSad :: EmotionName
+pattern EmotionNameSad = EmotionName' "SAD"
 
-pattern Angry :: EmotionName
-pattern Angry = EmotionName' "ANGRY"
+pattern EmotionNameAngry :: EmotionName
+pattern EmotionNameAngry = EmotionName' "ANGRY"
 
-pattern Confused :: EmotionName
-pattern Confused = EmotionName' "CONFUSED"
+pattern EmotionNameConfused :: EmotionName
+pattern EmotionNameConfused = EmotionName' "CONFUSED"
 
-pattern Disgusted :: EmotionName
-pattern Disgusted = EmotionName' "DISGUSTED"
+pattern EmotionNameDisgusted :: EmotionName
+pattern EmotionNameDisgusted = EmotionName' "DISGUSTED"
 
-pattern Surprised :: EmotionName
-pattern Surprised = EmotionName' "SURPRISED"
+pattern EmotionNameSurprised :: EmotionName
+pattern EmotionNameSurprised = EmotionName' "SURPRISED"
 
-pattern Calm :: EmotionName
-pattern Calm = EmotionName' "CALM"
+pattern EmotionNameCalm :: EmotionName
+pattern EmotionNameCalm = EmotionName' "CALM"
 
-pattern Unknown :: EmotionName
-pattern Unknown = EmotionName' "UNKNOWN"
+pattern EmotionNameUnknown :: EmotionName
+pattern EmotionNameUnknown = EmotionName' "UNKNOWN"
 
-pattern Fear :: EmotionName
-pattern Fear = EmotionName' "FEAR"
+pattern EmotionNameFear :: EmotionName
+pattern EmotionNameFear = EmotionName' "FEAR"
 
 {-# COMPLETE
-  Happy,
-  Sad,
-  Angry,
-  Confused,
-  Disgusted,
-  Surprised,
-  Calm,
-  Unknown,
-  Fear,
+  EmotionNameHappy,
+  EmotionNameSad,
+  EmotionNameAngry,
+  EmotionNameConfused,
+  EmotionNameDisgusted,
+  EmotionNameSurprised,
+  EmotionNameCalm,
+  EmotionNameUnknown,
+  EmotionNameFear,
   EmotionName'
   #-}

@@ -18,67 +18,63 @@ module Network.AWS.SageMaker.Types.AutoMLS3DataSource
 
     -- * Lenses
     amlsdsS3DataType,
-    amlsdsS3URI,
+    amlsdsS3Uri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AutoMLS3DataType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AutoMLS3DataType as Types
+import qualified Network.AWS.SageMaker.Types.S3Uri as Types
 
 -- | The Amazon S3 data source.
 --
 -- /See:/ 'mkAutoMLS3DataSource' smart constructor.
 data AutoMLS3DataSource = AutoMLS3DataSource'
   { -- | The data type.
-    s3DataType :: AutoMLS3DataType,
+    s3DataType :: Types.AutoMLS3DataType,
     -- | The URL to the Amazon S3 data source.
-    s3URI :: Lude.Text
+    s3Uri :: Types.S3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLS3DataSource' with the minimum fields required to make a request.
---
--- * 's3DataType' - The data type.
--- * 's3URI' - The URL to the Amazon S3 data source.
+-- | Creates a 'AutoMLS3DataSource' value with any optional fields omitted.
 mkAutoMLS3DataSource ::
   -- | 's3DataType'
-  AutoMLS3DataType ->
-  -- | 's3URI'
-  Lude.Text ->
+  Types.AutoMLS3DataType ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   AutoMLS3DataSource
-mkAutoMLS3DataSource pS3DataType_ pS3URI_ =
-  AutoMLS3DataSource' {s3DataType = pS3DataType_, s3URI = pS3URI_}
+mkAutoMLS3DataSource s3DataType s3Uri =
+  AutoMLS3DataSource' {s3DataType, s3Uri}
 
 -- | The data type.
 --
 -- /Note:/ Consider using 's3DataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlsdsS3DataType :: Lens.Lens' AutoMLS3DataSource AutoMLS3DataType
-amlsdsS3DataType = Lens.lens (s3DataType :: AutoMLS3DataSource -> AutoMLS3DataType) (\s a -> s {s3DataType = a} :: AutoMLS3DataSource)
+amlsdsS3DataType :: Lens.Lens' AutoMLS3DataSource Types.AutoMLS3DataType
+amlsdsS3DataType = Lens.field @"s3DataType"
 {-# DEPRECATED amlsdsS3DataType "Use generic-lens or generic-optics with 's3DataType' instead." #-}
 
 -- | The URL to the Amazon S3 data source.
 --
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlsdsS3URI :: Lens.Lens' AutoMLS3DataSource Lude.Text
-amlsdsS3URI = Lens.lens (s3URI :: AutoMLS3DataSource -> Lude.Text) (\s a -> s {s3URI = a} :: AutoMLS3DataSource)
-{-# DEPRECATED amlsdsS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlsdsS3Uri :: Lens.Lens' AutoMLS3DataSource Types.S3Uri
+amlsdsS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED amlsdsS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
-instance Lude.FromJSON AutoMLS3DataSource where
-  parseJSON =
-    Lude.withObject
-      "AutoMLS3DataSource"
-      ( \x ->
-          AutoMLS3DataSource'
-            Lude.<$> (x Lude..: "S3DataType") Lude.<*> (x Lude..: "S3Uri")
-      )
-
-instance Lude.ToJSON AutoMLS3DataSource where
-  toJSON AutoMLS3DataSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("S3DataType" Lude..= s3DataType),
-            Lude.Just ("S3Uri" Lude..= s3URI)
+instance Core.FromJSON AutoMLS3DataSource where
+  toJSON AutoMLS3DataSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3DataType" Core..= s3DataType),
+            Core.Just ("S3Uri" Core..= s3Uri)
           ]
       )
+
+instance Core.FromJSON AutoMLS3DataSource where
+  parseJSON =
+    Core.withObject "AutoMLS3DataSource" Core.$
+      \x ->
+        AutoMLS3DataSource'
+          Core.<$> (x Core..: "S3DataType") Core.<*> (x Core..: "S3Uri")

@@ -31,69 +31,60 @@ module Network.AWS.KMS.DeleteAlias
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAlias' smart constructor.
 newtype DeleteAlias = DeleteAlias'
   { -- | The alias to be deleted. The alias name must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ .
-    aliasName :: Lude.Text
+    aliasName :: Types.AliasName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
---
--- * 'aliasName' - The alias to be deleted. The alias name must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ .
+-- | Creates a 'DeleteAlias' value with any optional fields omitted.
 mkDeleteAlias ::
   -- | 'aliasName'
-  Lude.Text ->
+  Types.AliasName ->
   DeleteAlias
-mkDeleteAlias pAliasName_ = DeleteAlias' {aliasName = pAliasName_}
+mkDeleteAlias aliasName = DeleteAlias' {aliasName}
 
 -- | The alias to be deleted. The alias name must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ .
 --
 -- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAliasName :: Lens.Lens' DeleteAlias Lude.Text
-daAliasName = Lens.lens (aliasName :: DeleteAlias -> Lude.Text) (\s a -> s {aliasName = a} :: DeleteAlias)
+daAliasName :: Lens.Lens' DeleteAlias Types.AliasName
+daAliasName = Lens.field @"aliasName"
 {-# DEPRECATED daAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
 
-instance Lude.AWSRequest DeleteAlias where
+instance Core.FromJSON DeleteAlias where
+  toJSON DeleteAlias {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AliasName" Core..= aliasName)])
+
+instance Core.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull DeleteAliasResponse'
-
-instance Lude.ToHeaders DeleteAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.DeleteAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAlias where
-  toJSON DeleteAlias' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AliasName" Lude..= aliasName)])
-
-instance Lude.ToPath DeleteAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAlias where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.DeleteAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAliasResponse'
 
 -- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAliasResponse' value with any optional fields omitted.
 mkDeleteAliasResponse ::
   DeleteAliasResponse
 mkDeleteAliasResponse = DeleteAliasResponse'

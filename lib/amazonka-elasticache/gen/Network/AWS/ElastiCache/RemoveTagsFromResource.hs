@@ -24,19 +24,19 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     rtfrTagKeys,
 
     -- * Destructuring the response
-    TagListMessage (..),
-    mkTagListMessage,
+    Types.TagListMessage (..),
+    Types.mkTagListMessage,
 
     -- ** Response lenses
-    tlmTagList,
+    Types.tlmTagList,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @RemoveTagsFromResource@ operation.
 --
@@ -45,64 +45,59 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
   { -- | The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ .
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    resourceName :: Lude.Text,
+    resourceName :: Types.String,
     -- | A list of @TagKeys@ identifying the tags you want removed from the named resource.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
---
--- * 'resourceName' - The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ .
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'tagKeys' - A list of @TagKeys@ identifying the tags you want removed from the named resource.
+-- | Creates a 'RemoveTagsFromResource' value with any optional fields omitted.
 mkRemoveTagsFromResource ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.String ->
   RemoveTagsFromResource
-mkRemoveTagsFromResource pResourceName_ =
-  RemoveTagsFromResource'
-    { resourceName = pResourceName_,
-      tagKeys = Lude.mempty
-    }
+mkRemoveTagsFromResource resourceName =
+  RemoveTagsFromResource' {resourceName, tagKeys = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ .
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrResourceName :: Lens.Lens' RemoveTagsFromResource Lude.Text
-rtfrResourceName = Lens.lens (resourceName :: RemoveTagsFromResource -> Lude.Text) (\s a -> s {resourceName = a} :: RemoveTagsFromResource)
+rtfrResourceName :: Lens.Lens' RemoveTagsFromResource Types.String
+rtfrResourceName = Lens.field @"resourceName"
 {-# DEPRECATED rtfrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | A list of @TagKeys@ identifying the tags you want removed from the named resource.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrTagKeys :: Lens.Lens' RemoveTagsFromResource [Lude.Text]
-rtfrTagKeys = Lens.lens (tagKeys :: RemoveTagsFromResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTagsFromResource)
+rtfrTagKeys :: Lens.Lens' RemoveTagsFromResource [Types.String]
+rtfrTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED rtfrTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest RemoveTagsFromResource where
-  type Rs RemoveTagsFromResource = TagListMessage
-  request = Req.postQuery elastiCacheService
+instance Core.AWSRequest RemoveTagsFromResource where
+  type Rs RemoveTagsFromResource = Types.TagListMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveTagsFromResource")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "ResourceName" resourceName)
+                Core.<> (Core.toQueryValue "TagKeys" (Core.toQueryList "member" tagKeys))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RemoveTagsFromResourceResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders RemoveTagsFromResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveTagsFromResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTagsFromResource where
-  toQuery RemoveTagsFromResource' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemoveTagsFromResource" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "ResourceName" Lude.=: resourceName,
-        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys
-      ]
+      (\s h x -> Core.parseXML x)

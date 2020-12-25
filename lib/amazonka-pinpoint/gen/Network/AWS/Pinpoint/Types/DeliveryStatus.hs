@@ -13,71 +13,76 @@
 module Network.AWS.Pinpoint.Types.DeliveryStatus
   ( DeliveryStatus
       ( DeliveryStatus',
-        Successful,
-        Throttled,
-        TemporaryFailure,
-        PermanentFailure,
-        UnknownFailure,
-        OptOut,
-        Duplicate
+        DeliveryStatusSuccessful,
+        DeliveryStatusThrottled,
+        DeliveryStatusTemporaryFailure,
+        DeliveryStatusPermanentFailure,
+        DeliveryStatusUnknownFailure,
+        DeliveryStatusOptOut,
+        DeliveryStatusDuplicate,
+        fromDeliveryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeliveryStatus = DeliveryStatus' Lude.Text
+newtype DeliveryStatus = DeliveryStatus'
+  { fromDeliveryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Successful :: DeliveryStatus
-pattern Successful = DeliveryStatus' "SUCCESSFUL"
+pattern DeliveryStatusSuccessful :: DeliveryStatus
+pattern DeliveryStatusSuccessful = DeliveryStatus' "SUCCESSFUL"
 
-pattern Throttled :: DeliveryStatus
-pattern Throttled = DeliveryStatus' "THROTTLED"
+pattern DeliveryStatusThrottled :: DeliveryStatus
+pattern DeliveryStatusThrottled = DeliveryStatus' "THROTTLED"
 
-pattern TemporaryFailure :: DeliveryStatus
-pattern TemporaryFailure = DeliveryStatus' "TEMPORARY_FAILURE"
+pattern DeliveryStatusTemporaryFailure :: DeliveryStatus
+pattern DeliveryStatusTemporaryFailure = DeliveryStatus' "TEMPORARY_FAILURE"
 
-pattern PermanentFailure :: DeliveryStatus
-pattern PermanentFailure = DeliveryStatus' "PERMANENT_FAILURE"
+pattern DeliveryStatusPermanentFailure :: DeliveryStatus
+pattern DeliveryStatusPermanentFailure = DeliveryStatus' "PERMANENT_FAILURE"
 
-pattern UnknownFailure :: DeliveryStatus
-pattern UnknownFailure = DeliveryStatus' "UNKNOWN_FAILURE"
+pattern DeliveryStatusUnknownFailure :: DeliveryStatus
+pattern DeliveryStatusUnknownFailure = DeliveryStatus' "UNKNOWN_FAILURE"
 
-pattern OptOut :: DeliveryStatus
-pattern OptOut = DeliveryStatus' "OPT_OUT"
+pattern DeliveryStatusOptOut :: DeliveryStatus
+pattern DeliveryStatusOptOut = DeliveryStatus' "OPT_OUT"
 
-pattern Duplicate :: DeliveryStatus
-pattern Duplicate = DeliveryStatus' "DUPLICATE"
+pattern DeliveryStatusDuplicate :: DeliveryStatus
+pattern DeliveryStatusDuplicate = DeliveryStatus' "DUPLICATE"
 
 {-# COMPLETE
-  Successful,
-  Throttled,
-  TemporaryFailure,
-  PermanentFailure,
-  UnknownFailure,
-  OptOut,
-  Duplicate,
+  DeliveryStatusSuccessful,
+  DeliveryStatusThrottled,
+  DeliveryStatusTemporaryFailure,
+  DeliveryStatusPermanentFailure,
+  DeliveryStatusUnknownFailure,
+  DeliveryStatusOptOut,
+  DeliveryStatusDuplicate,
   DeliveryStatus'
   #-}

@@ -20,161 +20,143 @@ module Network.AWS.Glue.GetPartition
     mkGetPartition,
 
     -- ** Request lenses
-    gpfCatalogId,
-    gpfDatabaseName,
-    gpfPartitionValues,
-    gpfTableName,
+    gpDatabaseName,
+    gpTableName,
+    gpPartitionValues,
+    gpCatalogId,
 
     -- * Destructuring the response
     GetPartitionResponse (..),
     mkGetPartitionResponse,
 
     -- ** Response lenses
-    gprsPartition,
-    gprsResponseStatus,
+    gprrsPartition,
+    gprrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPartition' smart constructor.
 data GetPartition = GetPartition'
-  { -- | The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database where the partition resides.
-    databaseName :: Lude.Text,
-    -- | The values that define the partition.
-    partitionValues :: [Lude.Text],
+  { -- | The name of the catalog database where the partition resides.
+    databaseName :: Types.NameString,
     -- | The name of the partition's table.
-    tableName :: Lude.Text
+    tableName :: Types.NameString,
+    -- | The values that define the partition.
+    partitionValues :: [Types.ValueString],
+    -- | The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPartition' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database where the partition resides.
--- * 'partitionValues' - The values that define the partition.
--- * 'tableName' - The name of the partition's table.
+-- | Creates a 'GetPartition' value with any optional fields omitted.
 mkGetPartition ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.NameString ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.NameString ->
   GetPartition
-mkGetPartition pDatabaseName_ pTableName_ =
+mkGetPartition databaseName tableName =
   GetPartition'
-    { catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      partitionValues = Lude.mempty,
-      tableName = pTableName_
+    { databaseName,
+      tableName,
+      partitionValues = Core.mempty,
+      catalogId = Core.Nothing
     }
-
--- | The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfCatalogId :: Lens.Lens' GetPartition (Lude.Maybe Lude.Text)
-gpfCatalogId = Lens.lens (catalogId :: GetPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetPartition)
-{-# DEPRECATED gpfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the partition resides.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfDatabaseName :: Lens.Lens' GetPartition Lude.Text
-gpfDatabaseName = Lens.lens (databaseName :: GetPartition -> Lude.Text) (\s a -> s {databaseName = a} :: GetPartition)
-{-# DEPRECATED gpfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
--- | The values that define the partition.
---
--- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfPartitionValues :: Lens.Lens' GetPartition [Lude.Text]
-gpfPartitionValues = Lens.lens (partitionValues :: GetPartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: GetPartition)
-{-# DEPRECATED gpfPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
+gpDatabaseName :: Lens.Lens' GetPartition Types.NameString
+gpDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED gpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partition's table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfTableName :: Lens.Lens' GetPartition Lude.Text
-gpfTableName = Lens.lens (tableName :: GetPartition -> Lude.Text) (\s a -> s {tableName = a} :: GetPartition)
-{-# DEPRECATED gpfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+gpTableName :: Lens.Lens' GetPartition Types.NameString
+gpTableName = Lens.field @"tableName"
+{-# DEPRECATED gpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest GetPartition where
+-- | The values that define the partition.
+--
+-- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpPartitionValues :: Lens.Lens' GetPartition [Types.ValueString]
+gpPartitionValues = Lens.field @"partitionValues"
+{-# DEPRECATED gpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
+
+-- | The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpCatalogId :: Lens.Lens' GetPartition (Core.Maybe Types.CatalogId)
+gpCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED gpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON GetPartition where
+  toJSON GetPartition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("PartitionValues" Core..= partitionValues),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest GetPartition where
   type Rs GetPartition = GetPartitionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetPartition")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPartitionResponse'
-            Lude.<$> (x Lude..?> "Partition") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Partition") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPartition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetPartition" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPartition where
-  toJSON GetPartition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("PartitionValues" Lude..= partitionValues),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath GetPartition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPartition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPartitionResponse' smart constructor.
 data GetPartitionResponse = GetPartitionResponse'
   { -- | The requested information, in the form of a @Partition@ object.
-    partition :: Lude.Maybe Partition,
+    partition :: Core.Maybe Types.Partition,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPartitionResponse' with the minimum fields required to make a request.
---
--- * 'partition' - The requested information, in the form of a @Partition@ object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPartitionResponse' value with any optional fields omitted.
 mkGetPartitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPartitionResponse
-mkGetPartitionResponse pResponseStatus_ =
-  GetPartitionResponse'
-    { partition = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetPartitionResponse responseStatus =
+  GetPartitionResponse' {partition = Core.Nothing, responseStatus}
 
 -- | The requested information, in the form of a @Partition@ object.
 --
 -- /Note:/ Consider using 'partition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsPartition :: Lens.Lens' GetPartitionResponse (Lude.Maybe Partition)
-gprsPartition = Lens.lens (partition :: GetPartitionResponse -> Lude.Maybe Partition) (\s a -> s {partition = a} :: GetPartitionResponse)
-{-# DEPRECATED gprsPartition "Use generic-lens or generic-optics with 'partition' instead." #-}
+gprrsPartition :: Lens.Lens' GetPartitionResponse (Core.Maybe Types.Partition)
+gprrsPartition = Lens.field @"partition"
+{-# DEPRECATED gprrsPartition "Use generic-lens or generic-optics with 'partition' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsResponseStatus :: Lens.Lens' GetPartitionResponse Lude.Int
-gprsResponseStatus = Lens.lens (responseStatus :: GetPartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPartitionResponse)
-{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprrsResponseStatus :: Lens.Lens' GetPartitionResponse Core.Int
+gprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

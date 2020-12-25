@@ -17,13 +17,13 @@ module Network.AWS.Rekognition.Types.AgeRange
     mkAgeRange,
 
     -- * Lenses
-    arLow,
     arHigh,
+    arLow,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Structure containing the estimated age range, in years, for a face.
 --
@@ -31,40 +31,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgeRange' smart constructor.
 data AgeRange = AgeRange'
-  { -- | The lowest estimated age.
-    low :: Lude.Maybe Lude.Natural,
-    -- | The highest estimated age.
-    high :: Lude.Maybe Lude.Natural
+  { -- | The highest estimated age.
+    high :: Core.Maybe Core.Natural,
+    -- | The lowest estimated age.
+    low :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AgeRange' with the minimum fields required to make a request.
---
--- * 'low' - The lowest estimated age.
--- * 'high' - The highest estimated age.
+-- | Creates a 'AgeRange' value with any optional fields omitted.
 mkAgeRange ::
   AgeRange
-mkAgeRange = AgeRange' {low = Lude.Nothing, high = Lude.Nothing}
-
--- | The lowest estimated age.
---
--- /Note:/ Consider using 'low' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arLow :: Lens.Lens' AgeRange (Lude.Maybe Lude.Natural)
-arLow = Lens.lens (low :: AgeRange -> Lude.Maybe Lude.Natural) (\s a -> s {low = a} :: AgeRange)
-{-# DEPRECATED arLow "Use generic-lens or generic-optics with 'low' instead." #-}
+mkAgeRange = AgeRange' {high = Core.Nothing, low = Core.Nothing}
 
 -- | The highest estimated age.
 --
 -- /Note:/ Consider using 'high' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arHigh :: Lens.Lens' AgeRange (Lude.Maybe Lude.Natural)
-arHigh = Lens.lens (high :: AgeRange -> Lude.Maybe Lude.Natural) (\s a -> s {high = a} :: AgeRange)
+arHigh :: Lens.Lens' AgeRange (Core.Maybe Core.Natural)
+arHigh = Lens.field @"high"
 {-# DEPRECATED arHigh "Use generic-lens or generic-optics with 'high' instead." #-}
 
-instance Lude.FromJSON AgeRange where
+-- | The lowest estimated age.
+--
+-- /Note:/ Consider using 'low' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arLow :: Lens.Lens' AgeRange (Core.Maybe Core.Natural)
+arLow = Lens.field @"low"
+{-# DEPRECATED arLow "Use generic-lens or generic-optics with 'low' instead." #-}
+
+instance Core.FromJSON AgeRange where
   parseJSON =
-    Lude.withObject
-      "AgeRange"
-      ( \x ->
-          AgeRange' Lude.<$> (x Lude..:? "Low") Lude.<*> (x Lude..:? "High")
-      )
+    Core.withObject "AgeRange" Core.$
+      \x ->
+        AgeRange' Core.<$> (x Core..:? "High") Core.<*> (x Core..:? "Low")

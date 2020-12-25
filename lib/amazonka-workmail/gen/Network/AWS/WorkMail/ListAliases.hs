@@ -22,185 +22,171 @@ module Network.AWS.WorkMail.ListAliases
     mkListAliases,
 
     -- ** Request lenses
-    laNextToken,
+    laOrganizationId,
     laEntityId,
     laMaxResults,
-    laOrganizationId,
+    laNextToken,
 
     -- * Destructuring the response
     ListAliasesResponse (..),
     mkListAliasesResponse,
 
     -- ** Response lenses
-    larsAliases,
-    larsNextToken,
-    larsResponseStatus,
+    larrsAliases,
+    larrsNextToken,
+    larrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The identifier for the organization under which the entity exists.
+    organizationId :: Types.OrganizationId,
     -- | The identifier for the entity for which to list the aliases.
-    entityId :: Lude.Text,
+    entityId :: Types.WorkMailIdentifier,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The identifier for the organization under which the entity exists.
-    organizationId :: Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
--- * 'entityId' - The identifier for the entity for which to list the aliases.
--- * 'maxResults' - The maximum number of results to return in a single call.
--- * 'organizationId' - The identifier for the organization under which the entity exists.
+-- | Creates a 'ListAliases' value with any optional fields omitted.
 mkListAliases ::
-  -- | 'entityId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'entityId'
+  Types.WorkMailIdentifier ->
   ListAliases
-mkListAliases pEntityId_ pOrganizationId_ =
+mkListAliases organizationId entityId =
   ListAliases'
-    { nextToken = Lude.Nothing,
-      entityId = pEntityId_,
-      maxResults = Lude.Nothing,
-      organizationId = pOrganizationId_
+    { organizationId,
+      entityId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
--- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- | The identifier for the organization under which the entity exists.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNextToken :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
-laNextToken = Lens.lens (nextToken :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAliases)
-{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laOrganizationId :: Lens.Lens' ListAliases Types.OrganizationId
+laOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED laOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the entity for which to list the aliases.
 --
 -- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laEntityId :: Lens.Lens' ListAliases Lude.Text
-laEntityId = Lens.lens (entityId :: ListAliases -> Lude.Text) (\s a -> s {entityId = a} :: ListAliases)
+laEntityId :: Lens.Lens' ListAliases Types.WorkMailIdentifier
+laEntityId = Lens.field @"entityId"
 {-# DEPRECATED laEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The maximum number of results to return in a single call.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laMaxResults :: Lens.Lens' ListAliases (Lude.Maybe Lude.Natural)
-laMaxResults = Lens.lens (maxResults :: ListAliases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAliases)
+laMaxResults :: Lens.Lens' ListAliases (Core.Maybe Core.Natural)
+laMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED laMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The identifier for the organization under which the entity exists.
+-- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laOrganizationId :: Lens.Lens' ListAliases Lude.Text
-laOrganizationId = Lens.lens (organizationId :: ListAliases -> Lude.Text) (\s a -> s {organizationId = a} :: ListAliases)
-{-# DEPRECATED laOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListAliases (Core.Maybe Types.NextToken)
+laNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListAliases where
-  page rq rs
-    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. larsAliases) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
+instance Core.FromJSON ListAliases where
+  toJSON ListAliases {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest ListAliases where
+instance Core.AWSRequest ListAliases where
   type Rs ListAliases = ListAliasesResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.ListAliases")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Lude.<$> (x Lude..?> "Aliases" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Aliases")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAliases where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.ListAliases" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAliases where
-  toJSON ListAliases' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("EntityId" Lude..= entityId),
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath ListAliases where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAliases where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAliases where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"aliases" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
   { -- | The entity's paginated aliases.
-    aliases :: Lude.Maybe [Lude.Text],
+    aliases :: Core.Maybe [Types.EmailAddress],
     -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
---
--- * 'aliases' - The entity's paginated aliases.
--- * 'nextToken' - The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAliasesResponse' value with any optional fields omitted.
 mkListAliasesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAliasesResponse
-mkListAliasesResponse pResponseStatus_ =
+mkListAliasesResponse responseStatus =
   ListAliasesResponse'
-    { aliases = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { aliases = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The entity's paginated aliases.
 --
 -- /Note:/ Consider using 'aliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsAliases :: Lens.Lens' ListAliasesResponse (Lude.Maybe [Lude.Text])
-larsAliases = Lens.lens (aliases :: ListAliasesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {aliases = a} :: ListAliasesResponse)
-{-# DEPRECATED larsAliases "Use generic-lens or generic-optics with 'aliases' instead." #-}
+larrsAliases :: Lens.Lens' ListAliasesResponse (Core.Maybe [Types.EmailAddress])
+larrsAliases = Lens.field @"aliases"
+{-# DEPRECATED larrsAliases "Use generic-lens or generic-optics with 'aliases' instead." #-}
 
 -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsNextToken :: Lens.Lens' ListAliasesResponse (Lude.Maybe Lude.Text)
-larsNextToken = Lens.lens (nextToken :: ListAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAliasesResponse)
-{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+larrsNextToken :: Lens.Lens' ListAliasesResponse (Core.Maybe Types.NextToken)
+larrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED larrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListAliasesResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAliasesResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListAliasesResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

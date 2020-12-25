@@ -20,128 +20,112 @@ module Network.AWS.Pinpoint.GetImportJob
     mkGetImportJob,
 
     -- ** Request lenses
-    gijfJobId,
-    gijfApplicationId,
+    gijApplicationId,
+    gijJobId,
 
     -- * Destructuring the response
     GetImportJobResponse (..),
     mkGetImportJobResponse,
 
     -- ** Response lenses
-    gijrsImportJobResponse,
-    gijrsResponseStatus,
+    gijrrsImportJobResponse,
+    gijrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetImportJob' smart constructor.
 data GetImportJob = GetImportJob'
-  { -- | The unique identifier for the job.
-    jobId :: Lude.Text,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text,
+    -- | The unique identifier for the job.
+    jobId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetImportJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique identifier for the job.
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'GetImportJob' value with any optional fields omitted.
 mkGetImportJob ::
-  -- | 'jobId'
-  Lude.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'jobId'
+  Core.Text ->
   GetImportJob
-mkGetImportJob pJobId_ pApplicationId_ =
-  GetImportJob' {jobId = pJobId_, applicationId = pApplicationId_}
-
--- | The unique identifier for the job.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijfJobId :: Lens.Lens' GetImportJob Lude.Text
-gijfJobId = Lens.lens (jobId :: GetImportJob -> Lude.Text) (\s a -> s {jobId = a} :: GetImportJob)
-{-# DEPRECATED gijfJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+mkGetImportJob applicationId jobId =
+  GetImportJob' {applicationId, jobId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijfApplicationId :: Lens.Lens' GetImportJob Lude.Text
-gijfApplicationId = Lens.lens (applicationId :: GetImportJob -> Lude.Text) (\s a -> s {applicationId = a} :: GetImportJob)
-{-# DEPRECATED gijfApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+gijApplicationId :: Lens.Lens' GetImportJob Core.Text
+gijApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED gijApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest GetImportJob where
+-- | The unique identifier for the job.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gijJobId :: Lens.Lens' GetImportJob Core.Text
+gijJobId = Lens.field @"jobId"
+{-# DEPRECATED gijJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+instance Core.AWSRequest GetImportJob where
   type Rs GetImportJob = GetImportJobResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/jobs/import/")
+                Core.<> (Core.toText jobId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetImportJobResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetImportJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetImportJob where
-  toPath GetImportJob' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/jobs/import/",
-        Lude.toBS jobId
-      ]
-
-instance Lude.ToQuery GetImportJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetImportJobResponse' smart constructor.
 data GetImportJobResponse = GetImportJobResponse'
-  { importJobResponse :: ImportJobResponse,
+  { importJobResponse :: Types.ImportJobResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetImportJobResponse' with the minimum fields required to make a request.
---
--- * 'importJobResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetImportJobResponse' value with any optional fields omitted.
 mkGetImportJobResponse ::
   -- | 'importJobResponse'
-  ImportJobResponse ->
+  Types.ImportJobResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetImportJobResponse
-mkGetImportJobResponse pImportJobResponse_ pResponseStatus_ =
-  GetImportJobResponse'
-    { importJobResponse = pImportJobResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetImportJobResponse importJobResponse responseStatus =
+  GetImportJobResponse' {importJobResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'importJobResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijrsImportJobResponse :: Lens.Lens' GetImportJobResponse ImportJobResponse
-gijrsImportJobResponse = Lens.lens (importJobResponse :: GetImportJobResponse -> ImportJobResponse) (\s a -> s {importJobResponse = a} :: GetImportJobResponse)
-{-# DEPRECATED gijrsImportJobResponse "Use generic-lens or generic-optics with 'importJobResponse' instead." #-}
+gijrrsImportJobResponse :: Lens.Lens' GetImportJobResponse Types.ImportJobResponse
+gijrrsImportJobResponse = Lens.field @"importJobResponse"
+{-# DEPRECATED gijrrsImportJobResponse "Use generic-lens or generic-optics with 'importJobResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijrsResponseStatus :: Lens.Lens' GetImportJobResponse Lude.Int
-gijrsResponseStatus = Lens.lens (responseStatus :: GetImportJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetImportJobResponse)
-{-# DEPRECATED gijrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gijrrsResponseStatus :: Lens.Lens' GetImportJobResponse Core.Int
+gijrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gijrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

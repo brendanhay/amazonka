@@ -13,51 +13,56 @@
 module Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause
   ( RequestCancelExternalWorkflowExecutionFailedCause
       ( RequestCancelExternalWorkflowExecutionFailedCause',
-        RCEWEFCUnknownExternalWorkflowExecution,
-        RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
-        RCEWEFCOperationNotPermitted
+        RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution,
+        RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded,
+        RequestCancelExternalWorkflowExecutionFailedCauseOperationNotPermitted,
+        fromRequestCancelExternalWorkflowExecutionFailedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RequestCancelExternalWorkflowExecutionFailedCause = RequestCancelExternalWorkflowExecutionFailedCause' Lude.Text
+newtype RequestCancelExternalWorkflowExecutionFailedCause = RequestCancelExternalWorkflowExecutionFailedCause'
+  { fromRequestCancelExternalWorkflowExecutionFailedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RCEWEFCUnknownExternalWorkflowExecution :: RequestCancelExternalWorkflowExecutionFailedCause
-pattern RCEWEFCUnknownExternalWorkflowExecution = RequestCancelExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+pattern RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution = RequestCancelExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
-pattern RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded :: RequestCancelExternalWorkflowExecutionFailedCause
-pattern RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded = RequestCancelExternalWorkflowExecutionFailedCause' "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+pattern RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded = RequestCancelExternalWorkflowExecutionFailedCause' "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
 
-pattern RCEWEFCOperationNotPermitted :: RequestCancelExternalWorkflowExecutionFailedCause
-pattern RCEWEFCOperationNotPermitted = RequestCancelExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+pattern RequestCancelExternalWorkflowExecutionFailedCauseOperationNotPermitted :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RequestCancelExternalWorkflowExecutionFailedCauseOperationNotPermitted = RequestCancelExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  RCEWEFCUnknownExternalWorkflowExecution,
-  RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
-  RCEWEFCOperationNotPermitted,
+  RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution,
+  RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded,
+  RequestCancelExternalWorkflowExecutionFailedCauseOperationNotPermitted,
   RequestCancelExternalWorkflowExecutionFailedCause'
   #-}

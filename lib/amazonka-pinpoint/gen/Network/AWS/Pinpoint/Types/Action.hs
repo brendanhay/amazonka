@@ -13,51 +13,53 @@
 module Network.AWS.Pinpoint.Types.Action
   ( Action
       ( Action',
-        OpenApp,
-        DeepLink,
-        URL
+        ActionOpenApp,
+        ActionDeepLink,
+        ActionUrl,
+        fromAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Action = Action' Lude.Text
+newtype Action = Action' {fromAction :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OpenApp :: Action
-pattern OpenApp = Action' "OPEN_APP"
+pattern ActionOpenApp :: Action
+pattern ActionOpenApp = Action' "OPEN_APP"
 
-pattern DeepLink :: Action
-pattern DeepLink = Action' "DEEP_LINK"
+pattern ActionDeepLink :: Action
+pattern ActionDeepLink = Action' "DEEP_LINK"
 
-pattern URL :: Action
-pattern URL = Action' "URL"
+pattern ActionUrl :: Action
+pattern ActionUrl = Action' "URL"
 
 {-# COMPLETE
-  OpenApp,
-  DeepLink,
-  URL,
+  ActionOpenApp,
+  ActionDeepLink,
+  ActionUrl,
   Action'
   #-}

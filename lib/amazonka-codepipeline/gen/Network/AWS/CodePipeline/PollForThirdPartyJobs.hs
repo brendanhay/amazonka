@@ -22,138 +22,122 @@ module Network.AWS.CodePipeline.PollForThirdPartyJobs
     mkPollForThirdPartyJobs,
 
     -- ** Request lenses
-    pftpjMaxBatchSize,
     pftpjActionTypeId,
+    pftpjMaxBatchSize,
 
     -- * Destructuring the response
     PollForThirdPartyJobsResponse (..),
     mkPollForThirdPartyJobsResponse,
 
     -- ** Response lenses
-    pftpjrsJobs,
-    pftpjrsResponseStatus,
+    pftpjrrsJobs,
+    pftpjrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @PollForThirdPartyJobs@ action.
 --
 -- /See:/ 'mkPollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-  { -- | The maximum number of jobs to return in a poll for jobs call.
-    maxBatchSize :: Lude.Maybe Lude.Natural,
-    -- | Represents information about an action type.
-    actionTypeId :: ActionTypeId
+  { -- | Represents information about an action type.
+    actionTypeId :: Types.ActionTypeId,
+    -- | The maximum number of jobs to return in a poll for jobs call.
+    maxBatchSize :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PollForThirdPartyJobs' with the minimum fields required to make a request.
---
--- * 'maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
--- * 'actionTypeId' - Represents information about an action type.
+-- | Creates a 'PollForThirdPartyJobs' value with any optional fields omitted.
 mkPollForThirdPartyJobs ::
   -- | 'actionTypeId'
-  ActionTypeId ->
+  Types.ActionTypeId ->
   PollForThirdPartyJobs
-mkPollForThirdPartyJobs pActionTypeId_ =
-  PollForThirdPartyJobs'
-    { maxBatchSize = Lude.Nothing,
-      actionTypeId = pActionTypeId_
-    }
-
--- | The maximum number of jobs to return in a poll for jobs call.
---
--- /Note:/ Consider using 'maxBatchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pftpjMaxBatchSize :: Lens.Lens' PollForThirdPartyJobs (Lude.Maybe Lude.Natural)
-pftpjMaxBatchSize = Lens.lens (maxBatchSize :: PollForThirdPartyJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxBatchSize = a} :: PollForThirdPartyJobs)
-{-# DEPRECATED pftpjMaxBatchSize "Use generic-lens or generic-optics with 'maxBatchSize' instead." #-}
+mkPollForThirdPartyJobs actionTypeId =
+  PollForThirdPartyJobs' {actionTypeId, maxBatchSize = Core.Nothing}
 
 -- | Represents information about an action type.
 --
 -- /Note:/ Consider using 'actionTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pftpjActionTypeId :: Lens.Lens' PollForThirdPartyJobs ActionTypeId
-pftpjActionTypeId = Lens.lens (actionTypeId :: PollForThirdPartyJobs -> ActionTypeId) (\s a -> s {actionTypeId = a} :: PollForThirdPartyJobs)
+pftpjActionTypeId :: Lens.Lens' PollForThirdPartyJobs Types.ActionTypeId
+pftpjActionTypeId = Lens.field @"actionTypeId"
 {-# DEPRECATED pftpjActionTypeId "Use generic-lens or generic-optics with 'actionTypeId' instead." #-}
 
-instance Lude.AWSRequest PollForThirdPartyJobs where
+-- | The maximum number of jobs to return in a poll for jobs call.
+--
+-- /Note:/ Consider using 'maxBatchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftpjMaxBatchSize :: Lens.Lens' PollForThirdPartyJobs (Core.Maybe Core.Natural)
+pftpjMaxBatchSize = Lens.field @"maxBatchSize"
+{-# DEPRECATED pftpjMaxBatchSize "Use generic-lens or generic-optics with 'maxBatchSize' instead." #-}
+
+instance Core.FromJSON PollForThirdPartyJobs where
+  toJSON PollForThirdPartyJobs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("actionTypeId" Core..= actionTypeId),
+            ("maxBatchSize" Core..=) Core.<$> maxBatchSize
+          ]
+      )
+
+instance Core.AWSRequest PollForThirdPartyJobs where
   type Rs PollForThirdPartyJobs = PollForThirdPartyJobsResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodePipeline_20150709.PollForThirdPartyJobs")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PollForThirdPartyJobsResponse'
-            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobs") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PollForThirdPartyJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.PollForThirdPartyJobs" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PollForThirdPartyJobs where
-  toJSON PollForThirdPartyJobs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("maxBatchSize" Lude..=) Lude.<$> maxBatchSize,
-            Lude.Just ("actionTypeId" Lude..= actionTypeId)
-          ]
-      )
-
-instance Lude.ToPath PollForThirdPartyJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PollForThirdPartyJobs where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @PollForThirdPartyJobs@ action.
 --
 -- /See:/ 'mkPollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
   { -- | Information about the jobs to take action on.
-    jobs :: Lude.Maybe [ThirdPartyJob],
+    jobs :: Core.Maybe [Types.ThirdPartyJob],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PollForThirdPartyJobsResponse' with the minimum fields required to make a request.
---
--- * 'jobs' - Information about the jobs to take action on.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PollForThirdPartyJobsResponse' value with any optional fields omitted.
 mkPollForThirdPartyJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PollForThirdPartyJobsResponse
-mkPollForThirdPartyJobsResponse pResponseStatus_ =
+mkPollForThirdPartyJobsResponse responseStatus =
   PollForThirdPartyJobsResponse'
-    { jobs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobs = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the jobs to take action on.
 --
 -- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pftpjrsJobs :: Lens.Lens' PollForThirdPartyJobsResponse (Lude.Maybe [ThirdPartyJob])
-pftpjrsJobs = Lens.lens (jobs :: PollForThirdPartyJobsResponse -> Lude.Maybe [ThirdPartyJob]) (\s a -> s {jobs = a} :: PollForThirdPartyJobsResponse)
-{-# DEPRECATED pftpjrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+pftpjrrsJobs :: Lens.Lens' PollForThirdPartyJobsResponse (Core.Maybe [Types.ThirdPartyJob])
+pftpjrrsJobs = Lens.field @"jobs"
+{-# DEPRECATED pftpjrrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pftpjrsResponseStatus :: Lens.Lens' PollForThirdPartyJobsResponse Lude.Int
-pftpjrsResponseStatus = Lens.lens (responseStatus :: PollForThirdPartyJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PollForThirdPartyJobsResponse)
-{-# DEPRECATED pftpjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pftpjrrsResponseStatus :: Lens.Lens' PollForThirdPartyJobsResponse Core.Int
+pftpjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pftpjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

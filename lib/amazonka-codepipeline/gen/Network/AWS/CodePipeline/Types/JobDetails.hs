@@ -17,72 +17,68 @@ module Network.AWS.CodePipeline.Types.JobDetails
     mkJobDetails,
 
     -- * Lenses
-    jdData,
     jdAccountId,
+    jdData,
     jdId,
   )
 where
 
-import Network.AWS.CodePipeline.Types.JobData
+import qualified Network.AWS.CodePipeline.Types.AccountId as Types
+import qualified Network.AWS.CodePipeline.Types.JobData as Types
+import qualified Network.AWS.CodePipeline.Types.JobId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about the details of a job.
 --
 -- /See:/ 'mkJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { -- | Represents other information about a job required for a job worker to complete the job.
-    data' :: Lude.Maybe JobData,
-    -- | The AWS account ID associated with the job.
-    accountId :: Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the job.
+    accountId :: Core.Maybe Types.AccountId,
+    -- | Represents other information about a job required for a job worker to complete the job.
+    data' :: Core.Maybe Types.JobData,
     -- | The unique system-generated ID of the job.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
---
--- * 'data'' - Represents other information about a job required for a job worker to complete the job.
--- * 'accountId' - The AWS account ID associated with the job.
--- * 'id' - The unique system-generated ID of the job.
+-- | Creates a 'JobDetails' value with any optional fields omitted.
 mkJobDetails ::
   JobDetails
 mkJobDetails =
   JobDetails'
-    { data' = Lude.Nothing,
-      accountId = Lude.Nothing,
-      id = Lude.Nothing
+    { accountId = Core.Nothing,
+      data' = Core.Nothing,
+      id = Core.Nothing
     }
-
--- | Represents other information about a job required for a job worker to complete the job.
---
--- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdData :: Lens.Lens' JobDetails (Lude.Maybe JobData)
-jdData = Lens.lens (data' :: JobDetails -> Lude.Maybe JobData) (\s a -> s {data' = a} :: JobDetails)
-{-# DEPRECATED jdData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The AWS account ID associated with the job.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdAccountId :: Lens.Lens' JobDetails (Lude.Maybe Lude.Text)
-jdAccountId = Lens.lens (accountId :: JobDetails -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: JobDetails)
+jdAccountId :: Lens.Lens' JobDetails (Core.Maybe Types.AccountId)
+jdAccountId = Lens.field @"accountId"
 {-# DEPRECATED jdAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | Represents other information about a job required for a job worker to complete the job.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdData :: Lens.Lens' JobDetails (Core.Maybe Types.JobData)
+jdData = Lens.field @"data'"
+{-# DEPRECATED jdData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The unique system-generated ID of the job.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdId :: Lens.Lens' JobDetails (Lude.Maybe Lude.Text)
-jdId = Lens.lens (id :: JobDetails -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: JobDetails)
+jdId :: Lens.Lens' JobDetails (Core.Maybe Types.JobId)
+jdId = Lens.field @"id"
 {-# DEPRECATED jdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON JobDetails where
+instance Core.FromJSON JobDetails where
   parseJSON =
-    Lude.withObject
-      "JobDetails"
-      ( \x ->
-          JobDetails'
-            Lude.<$> (x Lude..:? "data")
-            Lude.<*> (x Lude..:? "accountId")
-            Lude.<*> (x Lude..:? "id")
-      )
+    Core.withObject "JobDetails" Core.$
+      \x ->
+        JobDetails'
+          Core.<$> (x Core..:? "accountId")
+          Core.<*> (x Core..:? "data")
+          Core.<*> (x Core..:? "id")

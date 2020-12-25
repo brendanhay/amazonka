@@ -13,46 +13,48 @@
 module Network.AWS.KMS.Types.DataKeySpec
   ( DataKeySpec
       ( DataKeySpec',
-        AES256,
-        AES128
+        DataKeySpecAes256,
+        DataKeySpecAes128,
+        fromDataKeySpec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DataKeySpec = DataKeySpec' Lude.Text
+newtype DataKeySpec = DataKeySpec' {fromDataKeySpec :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AES256 :: DataKeySpec
-pattern AES256 = DataKeySpec' "AES_256"
+pattern DataKeySpecAes256 :: DataKeySpec
+pattern DataKeySpecAes256 = DataKeySpec' "AES_256"
 
-pattern AES128 :: DataKeySpec
-pattern AES128 = DataKeySpec' "AES_128"
+pattern DataKeySpecAes128 :: DataKeySpec
+pattern DataKeySpecAes128 = DataKeySpec' "AES_128"
 
 {-# COMPLETE
-  AES256,
-  AES128,
+  DataKeySpecAes256,
+  DataKeySpecAes128,
   DataKeySpec'
   #-}

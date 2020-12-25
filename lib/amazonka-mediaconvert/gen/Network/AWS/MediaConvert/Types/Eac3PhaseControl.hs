@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Eac3PhaseControl
   ( Eac3PhaseControl
       ( Eac3PhaseControl',
-        Shift90Degrees,
-        NoShift
+        Eac3PhaseControlShift90Degrees,
+        Eac3PhaseControlNoShift,
+        fromEac3PhaseControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
-newtype Eac3PhaseControl = Eac3PhaseControl' Lude.Text
+newtype Eac3PhaseControl = Eac3PhaseControl'
+  { fromEac3PhaseControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Shift90Degrees :: Eac3PhaseControl
-pattern Shift90Degrees = Eac3PhaseControl' "SHIFT_90_DEGREES"
+pattern Eac3PhaseControlShift90Degrees :: Eac3PhaseControl
+pattern Eac3PhaseControlShift90Degrees = Eac3PhaseControl' "SHIFT_90_DEGREES"
 
-pattern NoShift :: Eac3PhaseControl
-pattern NoShift = Eac3PhaseControl' "NO_SHIFT"
+pattern Eac3PhaseControlNoShift :: Eac3PhaseControl
+pattern Eac3PhaseControlNoShift = Eac3PhaseControl' "NO_SHIFT"
 
 {-# COMPLETE
-  Shift90Degrees,
-  NoShift,
+  Eac3PhaseControlShift90Degrees,
+  Eac3PhaseControlNoShift,
   Eac3PhaseControl'
   #-}

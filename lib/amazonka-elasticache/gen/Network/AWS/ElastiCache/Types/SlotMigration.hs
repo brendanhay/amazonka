@@ -22,32 +22,30 @@ module Network.AWS.ElastiCache.Types.SlotMigration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the progress of an online resharding operation.
 --
 -- /See:/ 'mkSlotMigration' smart constructor.
 newtype SlotMigration = SlotMigration'
   { -- | The percentage of the slot migration that is complete.
-    progressPercentage :: Lude.Maybe Lude.Double
+    progressPercentage :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SlotMigration' with the minimum fields required to make a request.
---
--- * 'progressPercentage' - The percentage of the slot migration that is complete.
+-- | Creates a 'SlotMigration' value with any optional fields omitted.
 mkSlotMigration ::
   SlotMigration
-mkSlotMigration = SlotMigration' {progressPercentage = Lude.Nothing}
+mkSlotMigration = SlotMigration' {progressPercentage = Core.Nothing}
 
 -- | The percentage of the slot migration that is complete.
 --
 -- /Note:/ Consider using 'progressPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smProgressPercentage :: Lens.Lens' SlotMigration (Lude.Maybe Lude.Double)
-smProgressPercentage = Lens.lens (progressPercentage :: SlotMigration -> Lude.Maybe Lude.Double) (\s a -> s {progressPercentage = a} :: SlotMigration)
+smProgressPercentage :: Lens.Lens' SlotMigration (Core.Maybe Core.Double)
+smProgressPercentage = Lens.field @"progressPercentage"
 {-# DEPRECATED smProgressPercentage "Use generic-lens or generic-optics with 'progressPercentage' instead." #-}
 
-instance Lude.FromXML SlotMigration where
+instance Core.FromXML SlotMigration where
   parseXML x =
-    SlotMigration' Lude.<$> (x Lude..@? "ProgressPercentage")
+    SlotMigration' Core.<$> (x Core..@? "ProgressPercentage")

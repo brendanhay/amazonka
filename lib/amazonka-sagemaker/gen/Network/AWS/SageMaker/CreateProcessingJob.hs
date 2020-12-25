@@ -20,263 +20,237 @@ module Network.AWS.SageMaker.CreateProcessingJob
     mkCreateProcessingJob,
 
     -- ** Request lenses
-    cpjAppSpecification,
-    cpjProcessingResources,
-    cpjEnvironment,
     cpjProcessingJobName,
-    cpjStoppingCondition,
+    cpjProcessingResources,
+    cpjAppSpecification,
+    cpjRoleArn,
+    cpjEnvironment,
     cpjExperimentConfig,
-    cpjProcessingInputs,
     cpjNetworkConfig,
+    cpjProcessingInputs,
     cpjProcessingOutputConfig,
+    cpjStoppingCondition,
     cpjTags,
-    cpjRoleARN,
 
     -- * Destructuring the response
     CreateProcessingJobResponse (..),
     mkCreateProcessingJobResponse,
 
     -- ** Response lenses
-    cpjrsProcessingJobARN,
-    cpjrsResponseStatus,
+    cpjrrsProcessingJobArn,
+    cpjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateProcessingJob' smart constructor.
 data CreateProcessingJob = CreateProcessingJob'
-  { -- | Configures the processing job to run a specified Docker container image.
-    appSpecification :: AppSpecification,
+  { -- | The name of the processing job. The name must be unique within an AWS Region in the AWS account.
+    processingJobName :: Types.ProcessingJobName,
     -- | Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
-    processingResources :: ProcessingResources,
-    -- | Sets the environment variables in the Docker container.
-    environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The name of the processing job. The name must be unique within an AWS Region in the AWS account.
-    processingJobName :: Lude.Text,
-    -- | The time limit for how long the processing job is allowed to run.
-    stoppingCondition :: Lude.Maybe ProcessingStoppingCondition,
-    experimentConfig :: Lude.Maybe ExperimentConfig,
-    -- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
-    processingInputs :: Lude.Maybe [ProcessingInput],
-    -- | Networking options for a processing job.
-    networkConfig :: Lude.Maybe NetworkConfig,
-    -- | Output configuration for the processing job.
-    processingOutputConfig :: Lude.Maybe ProcessingOutputConfig,
-    -- | (Optional) An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-    tags :: Lude.Maybe [Tag],
+    processingResources :: Types.ProcessingResources,
+    -- | Configures the processing job to run a specified Docker container image.
+    appSpecification :: Types.AppSpecification,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn,
+    -- | Sets the environment variables in the Docker container.
+    environment :: Core.Maybe (Core.HashMap Types.ProcessingEnvironmentKey Types.ProcessingEnvironmentValue),
+    experimentConfig :: Core.Maybe Types.ExperimentConfig,
+    -- | Networking options for a processing job.
+    networkConfig :: Core.Maybe Types.NetworkConfig,
+    -- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
+    processingInputs :: Core.Maybe [Types.ProcessingInput],
+    -- | Output configuration for the processing job.
+    processingOutputConfig :: Core.Maybe Types.ProcessingOutputConfig,
+    -- | The time limit for how long the processing job is allowed to run.
+    stoppingCondition :: Core.Maybe Types.ProcessingStoppingCondition,
+    -- | (Optional) An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProcessingJob' with the minimum fields required to make a request.
---
--- * 'appSpecification' - Configures the processing job to run a specified Docker container image.
--- * 'processingResources' - Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
--- * 'environment' - Sets the environment variables in the Docker container.
--- * 'processingJobName' - The name of the processing job. The name must be unique within an AWS Region in the AWS account.
--- * 'stoppingCondition' - The time limit for how long the processing job is allowed to run.
--- * 'experimentConfig' -
--- * 'processingInputs' - For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
--- * 'networkConfig' - Networking options for a processing job.
--- * 'processingOutputConfig' - Output configuration for the processing job.
--- * 'tags' - (Optional) An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
--- * 'roleARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+-- | Creates a 'CreateProcessingJob' value with any optional fields omitted.
 mkCreateProcessingJob ::
-  -- | 'appSpecification'
-  AppSpecification ->
-  -- | 'processingResources'
-  ProcessingResources ->
   -- | 'processingJobName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.ProcessingJobName ->
+  -- | 'processingResources'
+  Types.ProcessingResources ->
+  -- | 'appSpecification'
+  Types.AppSpecification ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   CreateProcessingJob
 mkCreateProcessingJob
-  pAppSpecification_
-  pProcessingResources_
-  pProcessingJobName_
-  pRoleARN_ =
+  processingJobName
+  processingResources
+  appSpecification
+  roleArn =
     CreateProcessingJob'
-      { appSpecification = pAppSpecification_,
-        processingResources = pProcessingResources_,
-        environment = Lude.Nothing,
-        processingJobName = pProcessingJobName_,
-        stoppingCondition = Lude.Nothing,
-        experimentConfig = Lude.Nothing,
-        processingInputs = Lude.Nothing,
-        networkConfig = Lude.Nothing,
-        processingOutputConfig = Lude.Nothing,
-        tags = Lude.Nothing,
-        roleARN = pRoleARN_
+      { processingJobName,
+        processingResources,
+        appSpecification,
+        roleArn,
+        environment = Core.Nothing,
+        experimentConfig = Core.Nothing,
+        networkConfig = Core.Nothing,
+        processingInputs = Core.Nothing,
+        processingOutputConfig = Core.Nothing,
+        stoppingCondition = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | Configures the processing job to run a specified Docker container image.
---
--- /Note:/ Consider using 'appSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjAppSpecification :: Lens.Lens' CreateProcessingJob AppSpecification
-cpjAppSpecification = Lens.lens (appSpecification :: CreateProcessingJob -> AppSpecification) (\s a -> s {appSpecification = a} :: CreateProcessingJob)
-{-# DEPRECATED cpjAppSpecification "Use generic-lens or generic-optics with 'appSpecification' instead." #-}
-
--- | Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
---
--- /Note:/ Consider using 'processingResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjProcessingResources :: Lens.Lens' CreateProcessingJob ProcessingResources
-cpjProcessingResources = Lens.lens (processingResources :: CreateProcessingJob -> ProcessingResources) (\s a -> s {processingResources = a} :: CreateProcessingJob)
-{-# DEPRECATED cpjProcessingResources "Use generic-lens or generic-optics with 'processingResources' instead." #-}
-
--- | Sets the environment variables in the Docker container.
---
--- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjEnvironment :: Lens.Lens' CreateProcessingJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cpjEnvironment = Lens.lens (environment :: CreateProcessingJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: CreateProcessingJob)
-{-# DEPRECATED cpjEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | The name of the processing job. The name must be unique within an AWS Region in the AWS account.
 --
 -- /Note:/ Consider using 'processingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjProcessingJobName :: Lens.Lens' CreateProcessingJob Lude.Text
-cpjProcessingJobName = Lens.lens (processingJobName :: CreateProcessingJob -> Lude.Text) (\s a -> s {processingJobName = a} :: CreateProcessingJob)
+cpjProcessingJobName :: Lens.Lens' CreateProcessingJob Types.ProcessingJobName
+cpjProcessingJobName = Lens.field @"processingJobName"
 {-# DEPRECATED cpjProcessingJobName "Use generic-lens or generic-optics with 'processingJobName' instead." #-}
 
--- | The time limit for how long the processing job is allowed to run.
+-- | Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
 --
--- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjStoppingCondition :: Lens.Lens' CreateProcessingJob (Lude.Maybe ProcessingStoppingCondition)
-cpjStoppingCondition = Lens.lens (stoppingCondition :: CreateProcessingJob -> Lude.Maybe ProcessingStoppingCondition) (\s a -> s {stoppingCondition = a} :: CreateProcessingJob)
-{-# DEPRECATED cpjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
+-- /Note:/ Consider using 'processingResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjProcessingResources :: Lens.Lens' CreateProcessingJob Types.ProcessingResources
+cpjProcessingResources = Lens.field @"processingResources"
+{-# DEPRECATED cpjProcessingResources "Use generic-lens or generic-optics with 'processingResources' instead." #-}
+
+-- | Configures the processing job to run a specified Docker container image.
+--
+-- /Note:/ Consider using 'appSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjAppSpecification :: Lens.Lens' CreateProcessingJob Types.AppSpecification
+cpjAppSpecification = Lens.field @"appSpecification"
+{-# DEPRECATED cpjAppSpecification "Use generic-lens or generic-optics with 'appSpecification' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjRoleArn :: Lens.Lens' CreateProcessingJob Types.RoleArn
+cpjRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cpjRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | Sets the environment variables in the Docker container.
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjEnvironment :: Lens.Lens' CreateProcessingJob (Core.Maybe (Core.HashMap Types.ProcessingEnvironmentKey Types.ProcessingEnvironmentValue))
+cpjEnvironment = Lens.field @"environment"
+{-# DEPRECATED cpjEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjExperimentConfig :: Lens.Lens' CreateProcessingJob (Lude.Maybe ExperimentConfig)
-cpjExperimentConfig = Lens.lens (experimentConfig :: CreateProcessingJob -> Lude.Maybe ExperimentConfig) (\s a -> s {experimentConfig = a} :: CreateProcessingJob)
+cpjExperimentConfig :: Lens.Lens' CreateProcessingJob (Core.Maybe Types.ExperimentConfig)
+cpjExperimentConfig = Lens.field @"experimentConfig"
 {-# DEPRECATED cpjExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
-
--- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
---
--- /Note:/ Consider using 'processingInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjProcessingInputs :: Lens.Lens' CreateProcessingJob (Lude.Maybe [ProcessingInput])
-cpjProcessingInputs = Lens.lens (processingInputs :: CreateProcessingJob -> Lude.Maybe [ProcessingInput]) (\s a -> s {processingInputs = a} :: CreateProcessingJob)
-{-# DEPRECATED cpjProcessingInputs "Use generic-lens or generic-optics with 'processingInputs' instead." #-}
 
 -- | Networking options for a processing job.
 --
 -- /Note:/ Consider using 'networkConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjNetworkConfig :: Lens.Lens' CreateProcessingJob (Lude.Maybe NetworkConfig)
-cpjNetworkConfig = Lens.lens (networkConfig :: CreateProcessingJob -> Lude.Maybe NetworkConfig) (\s a -> s {networkConfig = a} :: CreateProcessingJob)
+cpjNetworkConfig :: Lens.Lens' CreateProcessingJob (Core.Maybe Types.NetworkConfig)
+cpjNetworkConfig = Lens.field @"networkConfig"
 {-# DEPRECATED cpjNetworkConfig "Use generic-lens or generic-optics with 'networkConfig' instead." #-}
+
+-- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
+--
+-- /Note:/ Consider using 'processingInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjProcessingInputs :: Lens.Lens' CreateProcessingJob (Core.Maybe [Types.ProcessingInput])
+cpjProcessingInputs = Lens.field @"processingInputs"
+{-# DEPRECATED cpjProcessingInputs "Use generic-lens or generic-optics with 'processingInputs' instead." #-}
 
 -- | Output configuration for the processing job.
 --
 -- /Note:/ Consider using 'processingOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjProcessingOutputConfig :: Lens.Lens' CreateProcessingJob (Lude.Maybe ProcessingOutputConfig)
-cpjProcessingOutputConfig = Lens.lens (processingOutputConfig :: CreateProcessingJob -> Lude.Maybe ProcessingOutputConfig) (\s a -> s {processingOutputConfig = a} :: CreateProcessingJob)
+cpjProcessingOutputConfig :: Lens.Lens' CreateProcessingJob (Core.Maybe Types.ProcessingOutputConfig)
+cpjProcessingOutputConfig = Lens.field @"processingOutputConfig"
 {-# DEPRECATED cpjProcessingOutputConfig "Use generic-lens or generic-optics with 'processingOutputConfig' instead." #-}
+
+-- | The time limit for how long the processing job is allowed to run.
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjStoppingCondition :: Lens.Lens' CreateProcessingJob (Core.Maybe Types.ProcessingStoppingCondition)
+cpjStoppingCondition = Lens.field @"stoppingCondition"
+{-# DEPRECATED cpjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
 -- | (Optional) An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjTags :: Lens.Lens' CreateProcessingJob (Lude.Maybe [Tag])
-cpjTags = Lens.lens (tags :: CreateProcessingJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProcessingJob)
+cpjTags :: Lens.Lens' CreateProcessingJob (Core.Maybe [Types.Tag])
+cpjTags = Lens.field @"tags"
 {-# DEPRECATED cpjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjRoleARN :: Lens.Lens' CreateProcessingJob Lude.Text
-cpjRoleARN = Lens.lens (roleARN :: CreateProcessingJob -> Lude.Text) (\s a -> s {roleARN = a} :: CreateProcessingJob)
-{-# DEPRECATED cpjRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+instance Core.FromJSON CreateProcessingJob where
+  toJSON CreateProcessingJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProcessingJobName" Core..= processingJobName),
+            Core.Just ("ProcessingResources" Core..= processingResources),
+            Core.Just ("AppSpecification" Core..= appSpecification),
+            Core.Just ("RoleArn" Core..= roleArn),
+            ("Environment" Core..=) Core.<$> environment,
+            ("ExperimentConfig" Core..=) Core.<$> experimentConfig,
+            ("NetworkConfig" Core..=) Core.<$> networkConfig,
+            ("ProcessingInputs" Core..=) Core.<$> processingInputs,
+            ("ProcessingOutputConfig" Core..=) Core.<$> processingOutputConfig,
+            ("StoppingCondition" Core..=) Core.<$> stoppingCondition,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
 
-instance Lude.AWSRequest CreateProcessingJob where
+instance Core.AWSRequest CreateProcessingJob where
   type Rs CreateProcessingJob = CreateProcessingJobResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateProcessingJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateProcessingJobResponse'
-            Lude.<$> (x Lude..:> "ProcessingJobArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "ProcessingJobArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateProcessingJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateProcessingJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateProcessingJob where
-  toJSON CreateProcessingJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AppSpecification" Lude..= appSpecification),
-            Lude.Just ("ProcessingResources" Lude..= processingResources),
-            ("Environment" Lude..=) Lude.<$> environment,
-            Lude.Just ("ProcessingJobName" Lude..= processingJobName),
-            ("StoppingCondition" Lude..=) Lude.<$> stoppingCondition,
-            ("ExperimentConfig" Lude..=) Lude.<$> experimentConfig,
-            ("ProcessingInputs" Lude..=) Lude.<$> processingInputs,
-            ("NetworkConfig" Lude..=) Lude.<$> networkConfig,
-            ("ProcessingOutputConfig" Lude..=) Lude.<$> processingOutputConfig,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RoleArn" Lude..= roleARN)
-          ]
-      )
-
-instance Lude.ToPath CreateProcessingJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateProcessingJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateProcessingJobResponse' smart constructor.
 data CreateProcessingJobResponse = CreateProcessingJobResponse'
   { -- | The Amazon Resource Name (ARN) of the processing job.
-    processingJobARN :: Lude.Text,
+    processingJobArn :: Types.ProcessingJobArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProcessingJobResponse' with the minimum fields required to make a request.
---
--- * 'processingJobARN' - The Amazon Resource Name (ARN) of the processing job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateProcessingJobResponse' value with any optional fields omitted.
 mkCreateProcessingJobResponse ::
-  -- | 'processingJobARN'
-  Lude.Text ->
+  -- | 'processingJobArn'
+  Types.ProcessingJobArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateProcessingJobResponse
-mkCreateProcessingJobResponse pProcessingJobARN_ pResponseStatus_ =
-  CreateProcessingJobResponse'
-    { processingJobARN =
-        pProcessingJobARN_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateProcessingJobResponse processingJobArn responseStatus =
+  CreateProcessingJobResponse' {processingJobArn, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the processing job.
 --
--- /Note:/ Consider using 'processingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjrsProcessingJobARN :: Lens.Lens' CreateProcessingJobResponse Lude.Text
-cpjrsProcessingJobARN = Lens.lens (processingJobARN :: CreateProcessingJobResponse -> Lude.Text) (\s a -> s {processingJobARN = a} :: CreateProcessingJobResponse)
-{-# DEPRECATED cpjrsProcessingJobARN "Use generic-lens or generic-optics with 'processingJobARN' instead." #-}
+-- /Note:/ Consider using 'processingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpjrrsProcessingJobArn :: Lens.Lens' CreateProcessingJobResponse Types.ProcessingJobArn
+cpjrrsProcessingJobArn = Lens.field @"processingJobArn"
+{-# DEPRECATED cpjrrsProcessingJobArn "Use generic-lens or generic-optics with 'processingJobArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpjrsResponseStatus :: Lens.Lens' CreateProcessingJobResponse Lude.Int
-cpjrsResponseStatus = Lens.lens (responseStatus :: CreateProcessingJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProcessingJobResponse)
-{-# DEPRECATED cpjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpjrrsResponseStatus :: Lens.Lens' CreateProcessingJobResponse Core.Int
+cpjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

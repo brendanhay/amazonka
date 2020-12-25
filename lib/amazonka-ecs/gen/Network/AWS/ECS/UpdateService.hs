@@ -57,60 +57,39 @@ module Network.AWS.ECS.UpdateService
     mkUpdateService,
 
     -- ** Request lenses
-    usCluster,
     usService,
-    usPlatformVersion,
+    usCapacityProviderStrategy,
+    usCluster,
+    usDeploymentConfiguration,
     usDesiredCount,
-    usPlacementConstraints,
-    usPlacementStrategy,
     usForceNewDeployment,
-    usTaskDefinition,
     usHealthCheckGracePeriodSeconds,
     usNetworkConfiguration,
-    usCapacityProviderStrategy,
-    usDeploymentConfiguration,
+    usPlacementConstraints,
+    usPlacementStrategy,
+    usPlatformVersion,
+    usTaskDefinition,
 
     -- * Destructuring the response
     UpdateServiceResponse (..),
     mkUpdateServiceResponse,
 
     -- ** Response lenses
-    usrsService,
-    usrsResponseStatus,
+    usrrsService,
+    usrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateService' smart constructor.
 data UpdateService = UpdateService'
-  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
-    cluster :: Lude.Maybe Lude.Text,
-    -- | The name of the service to update.
-    service :: Lude.Text,
-    -- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
-    platformVersion :: Lude.Maybe Lude.Text,
-    -- | The number of instantiations of the task to place and keep running in your service.
-    desiredCount :: Lude.Maybe Lude.Int,
-    -- | An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
-    --
-    -- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
-    placementConstraints :: Lude.Maybe [PlacementConstraint],
-    -- | The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
-    --
-    -- You can specify a maximum of five strategy rules per service.
-    placementStrategy :: Lude.Maybe [PlacementStrategy],
-    -- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
-    forceNewDeployment :: Lude.Maybe Lude.Bool,
-    -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
-    taskDefinition :: Lude.Maybe Lude.Text,
-    -- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
-    healthCheckGracePeriodSeconds :: Lude.Maybe Lude.Int,
-    networkConfiguration :: Lude.Maybe NetworkConfiguration,
+  { -- | The name of the service to update.
+    service :: Types.String,
     -- | The capacity provider strategy to update the service to use.
     --
     -- If the service is using the default capacity provider strategy for the cluster, the service can be updated to use one or more capacity providers as opposed to the default capacity provider strategy. However, when a service is using a capacity provider strategy that is not the default capacity provider strategy, the service cannot be updated to use the cluster's default capacity provider strategy.
@@ -118,131 +97,61 @@ data UpdateService = UpdateService'
     -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
     -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
     -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
-    capacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem],
+    capacityProviderStrategy :: Core.Maybe [Types.CapacityProviderStrategyItem],
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Core.Maybe Types.String,
     -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-    deploymentConfiguration :: Lude.Maybe DeploymentConfiguration
+    deploymentConfiguration :: Core.Maybe Types.DeploymentConfiguration,
+    -- | The number of instantiations of the task to place and keep running in your service.
+    desiredCount :: Core.Maybe Core.Int,
+    -- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
+    forceNewDeployment :: Core.Maybe Core.Bool,
+    -- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+    healthCheckGracePeriodSeconds :: Core.Maybe Core.Int,
+    networkConfiguration :: Core.Maybe Types.NetworkConfiguration,
+    -- | An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
+    --
+    -- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+    placementConstraints :: Core.Maybe [Types.PlacementConstraint],
+    -- | The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
+    --
+    -- You can specify a maximum of five strategy rules per service.
+    placementStrategy :: Core.Maybe [Types.PlacementStrategy],
+    -- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+    platformVersion :: Core.Maybe Types.String,
+    -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
+    taskDefinition :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
---
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
--- * 'service' - The name of the service to update.
--- * 'platformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'desiredCount' - The number of instantiations of the task to place and keep running in your service.
--- * 'placementConstraints' - An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
---
--- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
--- * 'placementStrategy' - The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
---
--- You can specify a maximum of five strategy rules per service.
--- * 'forceNewDeployment' - Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
--- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
--- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
--- * 'networkConfiguration' -
--- * 'capacityProviderStrategy' - The capacity provider strategy to update the service to use.
---
--- If the service is using the default capacity provider strategy for the cluster, the service can be updated to use one or more capacity providers as opposed to the default capacity provider strategy. However, when a service is using a capacity provider strategy that is not the default capacity provider strategy, the service cannot be updated to use the cluster's default capacity provider strategy.
--- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
--- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
---
--- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+-- | Creates a 'UpdateService' value with any optional fields omitted.
 mkUpdateService ::
   -- | 'service'
-  Lude.Text ->
+  Types.String ->
   UpdateService
-mkUpdateService pService_ =
+mkUpdateService service =
   UpdateService'
-    { cluster = Lude.Nothing,
-      service = pService_,
-      platformVersion = Lude.Nothing,
-      desiredCount = Lude.Nothing,
-      placementConstraints = Lude.Nothing,
-      placementStrategy = Lude.Nothing,
-      forceNewDeployment = Lude.Nothing,
-      taskDefinition = Lude.Nothing,
-      healthCheckGracePeriodSeconds = Lude.Nothing,
-      networkConfiguration = Lude.Nothing,
-      capacityProviderStrategy = Lude.Nothing,
-      deploymentConfiguration = Lude.Nothing
+    { service,
+      capacityProviderStrategy = Core.Nothing,
+      cluster = Core.Nothing,
+      deploymentConfiguration = Core.Nothing,
+      desiredCount = Core.Nothing,
+      forceNewDeployment = Core.Nothing,
+      healthCheckGracePeriodSeconds = Core.Nothing,
+      networkConfiguration = Core.Nothing,
+      placementConstraints = Core.Nothing,
+      placementStrategy = Core.Nothing,
+      platformVersion = Core.Nothing,
+      taskDefinition = Core.Nothing
     }
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
---
--- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usCluster :: Lens.Lens' UpdateService (Lude.Maybe Lude.Text)
-usCluster = Lens.lens (cluster :: UpdateService -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: UpdateService)
-{-# DEPRECATED usCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The name of the service to update.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usService :: Lens.Lens' UpdateService Lude.Text
-usService = Lens.lens (service :: UpdateService -> Lude.Text) (\s a -> s {service = a} :: UpdateService)
+usService :: Lens.Lens' UpdateService Types.String
+usService = Lens.field @"service"
 {-# DEPRECATED usService "Use generic-lens or generic-optics with 'service' instead." #-}
-
--- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
---
--- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPlatformVersion :: Lens.Lens' UpdateService (Lude.Maybe Lude.Text)
-usPlatformVersion = Lens.lens (platformVersion :: UpdateService -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: UpdateService)
-{-# DEPRECATED usPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
-
--- | The number of instantiations of the task to place and keep running in your service.
---
--- /Note:/ Consider using 'desiredCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDesiredCount :: Lens.Lens' UpdateService (Lude.Maybe Lude.Int)
-usDesiredCount = Lens.lens (desiredCount :: UpdateService -> Lude.Maybe Lude.Int) (\s a -> s {desiredCount = a} :: UpdateService)
-{-# DEPRECATED usDesiredCount "Use generic-lens or generic-optics with 'desiredCount' instead." #-}
-
--- | An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
---
--- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
---
--- /Note:/ Consider using 'placementConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPlacementConstraints :: Lens.Lens' UpdateService (Lude.Maybe [PlacementConstraint])
-usPlacementConstraints = Lens.lens (placementConstraints :: UpdateService -> Lude.Maybe [PlacementConstraint]) (\s a -> s {placementConstraints = a} :: UpdateService)
-{-# DEPRECATED usPlacementConstraints "Use generic-lens or generic-optics with 'placementConstraints' instead." #-}
-
--- | The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
---
--- You can specify a maximum of five strategy rules per service.
---
--- /Note:/ Consider using 'placementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPlacementStrategy :: Lens.Lens' UpdateService (Lude.Maybe [PlacementStrategy])
-usPlacementStrategy = Lens.lens (placementStrategy :: UpdateService -> Lude.Maybe [PlacementStrategy]) (\s a -> s {placementStrategy = a} :: UpdateService)
-{-# DEPRECATED usPlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
-
--- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
---
--- /Note:/ Consider using 'forceNewDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usForceNewDeployment :: Lens.Lens' UpdateService (Lude.Maybe Lude.Bool)
-usForceNewDeployment = Lens.lens (forceNewDeployment :: UpdateService -> Lude.Maybe Lude.Bool) (\s a -> s {forceNewDeployment = a} :: UpdateService)
-{-# DEPRECATED usForceNewDeployment "Use generic-lens or generic-optics with 'forceNewDeployment' instead." #-}
-
--- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
---
--- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usTaskDefinition :: Lens.Lens' UpdateService (Lude.Maybe Lude.Text)
-usTaskDefinition = Lens.lens (taskDefinition :: UpdateService -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinition = a} :: UpdateService)
-{-# DEPRECATED usTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
-
--- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
---
--- /Note:/ Consider using 'healthCheckGracePeriodSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usHealthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Lude.Maybe Lude.Int)
-usHealthCheckGracePeriodSeconds = Lens.lens (healthCheckGracePeriodSeconds :: UpdateService -> Lude.Maybe Lude.Int) (\s a -> s {healthCheckGracePeriodSeconds = a} :: UpdateService)
-{-# DEPRECATED usHealthCheckGracePeriodSeconds "Use generic-lens or generic-optics with 'healthCheckGracePeriodSeconds' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usNetworkConfiguration :: Lens.Lens' UpdateService (Lude.Maybe NetworkConfiguration)
-usNetworkConfiguration = Lens.lens (networkConfiguration :: UpdateService -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: UpdateService)
-{-# DEPRECATED usNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
 -- | The capacity provider strategy to update the service to use.
 --
@@ -254,102 +163,157 @@ usNetworkConfiguration = Lens.lens (networkConfiguration :: UpdateService -> Lud
 --
 --
 -- /Note:/ Consider using 'capacityProviderStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usCapacityProviderStrategy :: Lens.Lens' UpdateService (Lude.Maybe [CapacityProviderStrategyItem])
-usCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: UpdateService -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {capacityProviderStrategy = a} :: UpdateService)
+usCapacityProviderStrategy :: Lens.Lens' UpdateService (Core.Maybe [Types.CapacityProviderStrategyItem])
+usCapacityProviderStrategy = Lens.field @"capacityProviderStrategy"
 {-# DEPRECATED usCapacityProviderStrategy "Use generic-lens or generic-optics with 'capacityProviderStrategy' instead." #-}
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usCluster :: Lens.Lens' UpdateService (Core.Maybe Types.String)
+usCluster = Lens.field @"cluster"
+{-# DEPRECATED usCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 --
 -- /Note:/ Consider using 'deploymentConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDeploymentConfiguration :: Lens.Lens' UpdateService (Lude.Maybe DeploymentConfiguration)
-usDeploymentConfiguration = Lens.lens (deploymentConfiguration :: UpdateService -> Lude.Maybe DeploymentConfiguration) (\s a -> s {deploymentConfiguration = a} :: UpdateService)
+usDeploymentConfiguration :: Lens.Lens' UpdateService (Core.Maybe Types.DeploymentConfiguration)
+usDeploymentConfiguration = Lens.field @"deploymentConfiguration"
 {-# DEPRECATED usDeploymentConfiguration "Use generic-lens or generic-optics with 'deploymentConfiguration' instead." #-}
 
-instance Lude.AWSRequest UpdateService where
+-- | The number of instantiations of the task to place and keep running in your service.
+--
+-- /Note:/ Consider using 'desiredCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usDesiredCount :: Lens.Lens' UpdateService (Core.Maybe Core.Int)
+usDesiredCount = Lens.field @"desiredCount"
+{-# DEPRECATED usDesiredCount "Use generic-lens or generic-optics with 'desiredCount' instead." #-}
+
+-- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
+--
+-- /Note:/ Consider using 'forceNewDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usForceNewDeployment :: Lens.Lens' UpdateService (Core.Maybe Core.Bool)
+usForceNewDeployment = Lens.field @"forceNewDeployment"
+{-# DEPRECATED usForceNewDeployment "Use generic-lens or generic-optics with 'forceNewDeployment' instead." #-}
+
+-- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+--
+-- /Note:/ Consider using 'healthCheckGracePeriodSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usHealthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Core.Maybe Core.Int)
+usHealthCheckGracePeriodSeconds = Lens.field @"healthCheckGracePeriodSeconds"
+{-# DEPRECATED usHealthCheckGracePeriodSeconds "Use generic-lens or generic-optics with 'healthCheckGracePeriodSeconds' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usNetworkConfiguration :: Lens.Lens' UpdateService (Core.Maybe Types.NetworkConfiguration)
+usNetworkConfiguration = Lens.field @"networkConfiguration"
+{-# DEPRECATED usNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
+
+-- | An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
+--
+-- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+--
+-- /Note:/ Consider using 'placementConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPlacementConstraints :: Lens.Lens' UpdateService (Core.Maybe [Types.PlacementConstraint])
+usPlacementConstraints = Lens.field @"placementConstraints"
+{-# DEPRECATED usPlacementConstraints "Use generic-lens or generic-optics with 'placementConstraints' instead." #-}
+
+-- | The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
+--
+-- You can specify a maximum of five strategy rules per service.
+--
+-- /Note:/ Consider using 'placementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPlacementStrategy :: Lens.Lens' UpdateService (Core.Maybe [Types.PlacementStrategy])
+usPlacementStrategy = Lens.field @"placementStrategy"
+{-# DEPRECATED usPlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
+
+-- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPlatformVersion :: Lens.Lens' UpdateService (Core.Maybe Types.String)
+usPlatformVersion = Lens.field @"platformVersion"
+{-# DEPRECATED usPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
+
+-- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usTaskDefinition :: Lens.Lens' UpdateService (Core.Maybe Types.String)
+usTaskDefinition = Lens.field @"taskDefinition"
+{-# DEPRECATED usTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
+
+instance Core.FromJSON UpdateService where
+  toJSON UpdateService {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("service" Core..= service),
+            ("capacityProviderStrategy" Core..=)
+              Core.<$> capacityProviderStrategy,
+            ("cluster" Core..=) Core.<$> cluster,
+            ("deploymentConfiguration" Core..=)
+              Core.<$> deploymentConfiguration,
+            ("desiredCount" Core..=) Core.<$> desiredCount,
+            ("forceNewDeployment" Core..=) Core.<$> forceNewDeployment,
+            ("healthCheckGracePeriodSeconds" Core..=)
+              Core.<$> healthCheckGracePeriodSeconds,
+            ("networkConfiguration" Core..=) Core.<$> networkConfiguration,
+            ("placementConstraints" Core..=) Core.<$> placementConstraints,
+            ("placementStrategy" Core..=) Core.<$> placementStrategy,
+            ("platformVersion" Core..=) Core.<$> platformVersion,
+            ("taskDefinition" Core..=) Core.<$> taskDefinition
+          ]
+      )
+
+instance Core.AWSRequest UpdateService where
   type Rs UpdateService = UpdateServiceResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.UpdateService"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateServiceResponse'
-            Lude.<$> (x Lude..?> "service") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "service") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateService where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateService" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateService where
-  toJSON UpdateService' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cluster" Lude..=) Lude.<$> cluster,
-            Lude.Just ("service" Lude..= service),
-            ("platformVersion" Lude..=) Lude.<$> platformVersion,
-            ("desiredCount" Lude..=) Lude.<$> desiredCount,
-            ("placementConstraints" Lude..=) Lude.<$> placementConstraints,
-            ("placementStrategy" Lude..=) Lude.<$> placementStrategy,
-            ("forceNewDeployment" Lude..=) Lude.<$> forceNewDeployment,
-            ("taskDefinition" Lude..=) Lude.<$> taskDefinition,
-            ("healthCheckGracePeriodSeconds" Lude..=)
-              Lude.<$> healthCheckGracePeriodSeconds,
-            ("networkConfiguration" Lude..=) Lude.<$> networkConfiguration,
-            ("capacityProviderStrategy" Lude..=)
-              Lude.<$> capacityProviderStrategy,
-            ("deploymentConfiguration" Lude..=)
-              Lude.<$> deploymentConfiguration
-          ]
-      )
-
-instance Lude.ToPath UpdateService where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateService where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
   { -- | The full description of your service following the update call.
-    service :: Lude.Maybe ContainerService,
+    service :: Core.Maybe Types.ContainerService,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
---
--- * 'service' - The full description of your service following the update call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateServiceResponse' value with any optional fields omitted.
 mkUpdateServiceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateServiceResponse
-mkUpdateServiceResponse pResponseStatus_ =
-  UpdateServiceResponse'
-    { service = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateServiceResponse responseStatus =
+  UpdateServiceResponse' {service = Core.Nothing, responseStatus}
 
 -- | The full description of your service following the update call.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsService :: Lens.Lens' UpdateServiceResponse (Lude.Maybe ContainerService)
-usrsService = Lens.lens (service :: UpdateServiceResponse -> Lude.Maybe ContainerService) (\s a -> s {service = a} :: UpdateServiceResponse)
-{-# DEPRECATED usrsService "Use generic-lens or generic-optics with 'service' instead." #-}
+usrrsService :: Lens.Lens' UpdateServiceResponse (Core.Maybe Types.ContainerService)
+usrrsService = Lens.field @"service"
+{-# DEPRECATED usrrsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateServiceResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateServiceResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateServiceResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

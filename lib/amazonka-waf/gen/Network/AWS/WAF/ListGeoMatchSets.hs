@@ -22,155 +22,145 @@ module Network.AWS.WAF.ListGeoMatchSets
     mkListGeoMatchSets,
 
     -- ** Request lenses
-    lgmsNextMarker,
     lgmsLimit,
+    lgmsNextMarker,
 
     -- * Destructuring the response
     ListGeoMatchSetsResponse (..),
     mkListGeoMatchSetsResponse,
 
     -- ** Response lenses
-    lgmsrsGeoMatchSets,
-    lgmsrsNextMarker,
-    lgmsrsResponseStatus,
+    lgmsrrsGeoMatchSets,
+    lgmsrrsNextMarker,
+    lgmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkListGeoMatchSets' smart constructor.
 data ListGeoMatchSets = ListGeoMatchSets'
-  { -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@ s than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @GeoMatchSet@ objects. For the second and subsequent @ListGeoMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @GeoMatchSet@ objects.
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to return for this request. If you have more @GeoMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @GeoMatchSet@ objects.
-    limit :: Lude.Maybe Lude.Natural
+  { -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to return for this request. If you have more @GeoMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @GeoMatchSet@ objects.
+    limit :: Core.Maybe Core.Natural,
+    -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@ s than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @GeoMatchSet@ objects. For the second and subsequent @ListGeoMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @GeoMatchSet@ objects.
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListGeoMatchSets' with the minimum fields required to make a request.
---
--- * 'nextMarker' - If you specify a value for @Limit@ and you have more @GeoMatchSet@ s than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @GeoMatchSet@ objects. For the second and subsequent @ListGeoMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @GeoMatchSet@ objects.
--- * 'limit' - Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to return for this request. If you have more @GeoMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @GeoMatchSet@ objects.
+-- | Creates a 'ListGeoMatchSets' value with any optional fields omitted.
 mkListGeoMatchSets ::
   ListGeoMatchSets
 mkListGeoMatchSets =
   ListGeoMatchSets'
-    { nextMarker = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      nextMarker = Core.Nothing
     }
-
--- | If you specify a value for @Limit@ and you have more @GeoMatchSet@ s than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @GeoMatchSet@ objects. For the second and subsequent @ListGeoMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @GeoMatchSet@ objects.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgmsNextMarker :: Lens.Lens' ListGeoMatchSets (Lude.Maybe Lude.Text)
-lgmsNextMarker = Lens.lens (nextMarker :: ListGeoMatchSets -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListGeoMatchSets)
-{-# DEPRECATED lgmsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to return for this request. If you have more @GeoMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @GeoMatchSet@ objects.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgmsLimit :: Lens.Lens' ListGeoMatchSets (Lude.Maybe Lude.Natural)
-lgmsLimit = Lens.lens (limit :: ListGeoMatchSets -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGeoMatchSets)
+lgmsLimit :: Lens.Lens' ListGeoMatchSets (Core.Maybe Core.Natural)
+lgmsLimit = Lens.field @"limit"
 {-# DEPRECATED lgmsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListGeoMatchSets where
-  page rq rs
-    | Page.stop (rs Lens.^. lgmsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lgmsrsGeoMatchSets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lgmsNextMarker Lens..~ rs Lens.^. lgmsrsNextMarker
+-- | If you specify a value for @Limit@ and you have more @GeoMatchSet@ s than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @GeoMatchSet@ objects. For the second and subsequent @ListGeoMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @GeoMatchSet@ objects.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmsNextMarker :: Lens.Lens' ListGeoMatchSets (Core.Maybe Types.NextMarker)
+lgmsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lgmsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
-instance Lude.AWSRequest ListGeoMatchSets where
+instance Core.FromJSON ListGeoMatchSets where
+  toJSON ListGeoMatchSets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextMarker" Core..=) Core.<$> nextMarker
+          ]
+      )
+
+instance Core.AWSRequest ListGeoMatchSets where
   type Rs ListGeoMatchSets = ListGeoMatchSetsResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.ListGeoMatchSets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListGeoMatchSetsResponse'
-            Lude.<$> (x Lude..?> "GeoMatchSets" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GeoMatchSets")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListGeoMatchSets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.ListGeoMatchSets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListGeoMatchSets where
-  toJSON ListGeoMatchSets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListGeoMatchSets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListGeoMatchSets where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListGeoMatchSets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"geoMatchSets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextMarker"
+            Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListGeoMatchSetsResponse' smart constructor.
 data ListGeoMatchSetsResponse = ListGeoMatchSetsResponse'
   { -- | An array of 'GeoMatchSetSummary' objects.
-    geoMatchSets :: Lude.Maybe [GeoMatchSetSummary],
+    geoMatchSets :: Core.Maybe [Types.GeoMatchSetSummary],
     -- | If you have more @GeoMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @GeoMatchSet@ objects, submit another @ListGeoMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.NextMarker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListGeoMatchSetsResponse' with the minimum fields required to make a request.
---
--- * 'geoMatchSets' - An array of 'GeoMatchSetSummary' objects.
--- * 'nextMarker' - If you have more @GeoMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @GeoMatchSet@ objects, submit another @ListGeoMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListGeoMatchSetsResponse' value with any optional fields omitted.
 mkListGeoMatchSetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListGeoMatchSetsResponse
-mkListGeoMatchSetsResponse pResponseStatus_ =
+mkListGeoMatchSetsResponse responseStatus =
   ListGeoMatchSetsResponse'
-    { geoMatchSets = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { geoMatchSets = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of 'GeoMatchSetSummary' objects.
 --
 -- /Note:/ Consider using 'geoMatchSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgmsrsGeoMatchSets :: Lens.Lens' ListGeoMatchSetsResponse (Lude.Maybe [GeoMatchSetSummary])
-lgmsrsGeoMatchSets = Lens.lens (geoMatchSets :: ListGeoMatchSetsResponse -> Lude.Maybe [GeoMatchSetSummary]) (\s a -> s {geoMatchSets = a} :: ListGeoMatchSetsResponse)
-{-# DEPRECATED lgmsrsGeoMatchSets "Use generic-lens or generic-optics with 'geoMatchSets' instead." #-}
+lgmsrrsGeoMatchSets :: Lens.Lens' ListGeoMatchSetsResponse (Core.Maybe [Types.GeoMatchSetSummary])
+lgmsrrsGeoMatchSets = Lens.field @"geoMatchSets"
+{-# DEPRECATED lgmsrrsGeoMatchSets "Use generic-lens or generic-optics with 'geoMatchSets' instead." #-}
 
 -- | If you have more @GeoMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @GeoMatchSet@ objects, submit another @ListGeoMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgmsrsNextMarker :: Lens.Lens' ListGeoMatchSetsResponse (Lude.Maybe Lude.Text)
-lgmsrsNextMarker = Lens.lens (nextMarker :: ListGeoMatchSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListGeoMatchSetsResponse)
-{-# DEPRECATED lgmsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lgmsrrsNextMarker :: Lens.Lens' ListGeoMatchSetsResponse (Core.Maybe Types.NextMarker)
+lgmsrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lgmsrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgmsrsResponseStatus :: Lens.Lens' ListGeoMatchSetsResponse Lude.Int
-lgmsrsResponseStatus = Lens.lens (responseStatus :: ListGeoMatchSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGeoMatchSetsResponse)
-{-# DEPRECATED lgmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lgmsrrsResponseStatus :: Lens.Lens' ListGeoMatchSetsResponse Core.Int
+lgmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lgmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

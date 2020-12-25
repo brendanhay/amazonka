@@ -17,144 +17,134 @@ module Network.AWS.Discovery.Types.CustomerAgentInfo
     mkCustomerAgentInfo,
 
     -- * Lenses
-    caiUnhealthyAgents,
-    caiHealthyAgents,
-    caiUnknownAgents,
-    caiShutdownAgents,
     caiActiveAgents,
-    caiTotalAgents,
+    caiHealthyAgents,
     caiBlackListedAgents,
+    caiShutdownAgents,
+    caiUnhealthyAgents,
+    caiTotalAgents,
+    caiUnknownAgents,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Inventory data for installed discovery agents.
 --
 -- /See:/ 'mkCustomerAgentInfo' smart constructor.
 data CustomerAgentInfo = CustomerAgentInfo'
-  { -- | Number of unhealthy discovery agents.
-    unhealthyAgents :: Lude.Int,
+  { -- | Number of active discovery agents.
+    activeAgents :: Core.Int,
     -- | Number of healthy discovery agents
-    healthyAgents :: Lude.Int,
-    -- | Number of unknown discovery agents.
-    unknownAgents :: Lude.Int,
-    -- | Number of discovery agents with status SHUTDOWN.
-    shutdownAgents :: Lude.Int,
-    -- | Number of active discovery agents.
-    activeAgents :: Lude.Int,
-    -- | Total number of discovery agents.
-    totalAgents :: Lude.Int,
+    healthyAgents :: Core.Int,
     -- | Number of blacklisted discovery agents.
-    blackListedAgents :: Lude.Int
+    blackListedAgents :: Core.Int,
+    -- | Number of discovery agents with status SHUTDOWN.
+    shutdownAgents :: Core.Int,
+    -- | Number of unhealthy discovery agents.
+    unhealthyAgents :: Core.Int,
+    -- | Total number of discovery agents.
+    totalAgents :: Core.Int,
+    -- | Number of unknown discovery agents.
+    unknownAgents :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomerAgentInfo' with the minimum fields required to make a request.
---
--- * 'unhealthyAgents' - Number of unhealthy discovery agents.
--- * 'healthyAgents' - Number of healthy discovery agents
--- * 'unknownAgents' - Number of unknown discovery agents.
--- * 'shutdownAgents' - Number of discovery agents with status SHUTDOWN.
--- * 'activeAgents' - Number of active discovery agents.
--- * 'totalAgents' - Total number of discovery agents.
--- * 'blackListedAgents' - Number of blacklisted discovery agents.
+-- | Creates a 'CustomerAgentInfo' value with any optional fields omitted.
 mkCustomerAgentInfo ::
-  -- | 'unhealthyAgents'
-  Lude.Int ->
-  -- | 'healthyAgents'
-  Lude.Int ->
-  -- | 'unknownAgents'
-  Lude.Int ->
-  -- | 'shutdownAgents'
-  Lude.Int ->
   -- | 'activeAgents'
-  Lude.Int ->
-  -- | 'totalAgents'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'healthyAgents'
+  Core.Int ->
   -- | 'blackListedAgents'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'shutdownAgents'
+  Core.Int ->
+  -- | 'unhealthyAgents'
+  Core.Int ->
+  -- | 'totalAgents'
+  Core.Int ->
+  -- | 'unknownAgents'
+  Core.Int ->
   CustomerAgentInfo
 mkCustomerAgentInfo
-  pUnhealthyAgents_
-  pHealthyAgents_
-  pUnknownAgents_
-  pShutdownAgents_
-  pActiveAgents_
-  pTotalAgents_
-  pBlackListedAgents_ =
+  activeAgents
+  healthyAgents
+  blackListedAgents
+  shutdownAgents
+  unhealthyAgents
+  totalAgents
+  unknownAgents =
     CustomerAgentInfo'
-      { unhealthyAgents = pUnhealthyAgents_,
-        healthyAgents = pHealthyAgents_,
-        unknownAgents = pUnknownAgents_,
-        shutdownAgents = pShutdownAgents_,
-        activeAgents = pActiveAgents_,
-        totalAgents = pTotalAgents_,
-        blackListedAgents = pBlackListedAgents_
+      { activeAgents,
+        healthyAgents,
+        blackListedAgents,
+        shutdownAgents,
+        unhealthyAgents,
+        totalAgents,
+        unknownAgents
       }
-
--- | Number of unhealthy discovery agents.
---
--- /Note:/ Consider using 'unhealthyAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiUnhealthyAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiUnhealthyAgents = Lens.lens (unhealthyAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {unhealthyAgents = a} :: CustomerAgentInfo)
-{-# DEPRECATED caiUnhealthyAgents "Use generic-lens or generic-optics with 'unhealthyAgents' instead." #-}
-
--- | Number of healthy discovery agents
---
--- /Note:/ Consider using 'healthyAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiHealthyAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiHealthyAgents = Lens.lens (healthyAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {healthyAgents = a} :: CustomerAgentInfo)
-{-# DEPRECATED caiHealthyAgents "Use generic-lens or generic-optics with 'healthyAgents' instead." #-}
-
--- | Number of unknown discovery agents.
---
--- /Note:/ Consider using 'unknownAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiUnknownAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiUnknownAgents = Lens.lens (unknownAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {unknownAgents = a} :: CustomerAgentInfo)
-{-# DEPRECATED caiUnknownAgents "Use generic-lens or generic-optics with 'unknownAgents' instead." #-}
-
--- | Number of discovery agents with status SHUTDOWN.
---
--- /Note:/ Consider using 'shutdownAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiShutdownAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiShutdownAgents = Lens.lens (shutdownAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {shutdownAgents = a} :: CustomerAgentInfo)
-{-# DEPRECATED caiShutdownAgents "Use generic-lens or generic-optics with 'shutdownAgents' instead." #-}
 
 -- | Number of active discovery agents.
 --
 -- /Note:/ Consider using 'activeAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiActiveAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiActiveAgents = Lens.lens (activeAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {activeAgents = a} :: CustomerAgentInfo)
+caiActiveAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiActiveAgents = Lens.field @"activeAgents"
 {-# DEPRECATED caiActiveAgents "Use generic-lens or generic-optics with 'activeAgents' instead." #-}
 
--- | Total number of discovery agents.
+-- | Number of healthy discovery agents
 --
--- /Note:/ Consider using 'totalAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiTotalAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiTotalAgents = Lens.lens (totalAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {totalAgents = a} :: CustomerAgentInfo)
-{-# DEPRECATED caiTotalAgents "Use generic-lens or generic-optics with 'totalAgents' instead." #-}
+-- /Note:/ Consider using 'healthyAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiHealthyAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiHealthyAgents = Lens.field @"healthyAgents"
+{-# DEPRECATED caiHealthyAgents "Use generic-lens or generic-optics with 'healthyAgents' instead." #-}
 
 -- | Number of blacklisted discovery agents.
 --
 -- /Note:/ Consider using 'blackListedAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caiBlackListedAgents :: Lens.Lens' CustomerAgentInfo Lude.Int
-caiBlackListedAgents = Lens.lens (blackListedAgents :: CustomerAgentInfo -> Lude.Int) (\s a -> s {blackListedAgents = a} :: CustomerAgentInfo)
+caiBlackListedAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiBlackListedAgents = Lens.field @"blackListedAgents"
 {-# DEPRECATED caiBlackListedAgents "Use generic-lens or generic-optics with 'blackListedAgents' instead." #-}
 
-instance Lude.FromJSON CustomerAgentInfo where
+-- | Number of discovery agents with status SHUTDOWN.
+--
+-- /Note:/ Consider using 'shutdownAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiShutdownAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiShutdownAgents = Lens.field @"shutdownAgents"
+{-# DEPRECATED caiShutdownAgents "Use generic-lens or generic-optics with 'shutdownAgents' instead." #-}
+
+-- | Number of unhealthy discovery agents.
+--
+-- /Note:/ Consider using 'unhealthyAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiUnhealthyAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiUnhealthyAgents = Lens.field @"unhealthyAgents"
+{-# DEPRECATED caiUnhealthyAgents "Use generic-lens or generic-optics with 'unhealthyAgents' instead." #-}
+
+-- | Total number of discovery agents.
+--
+-- /Note:/ Consider using 'totalAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiTotalAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiTotalAgents = Lens.field @"totalAgents"
+{-# DEPRECATED caiTotalAgents "Use generic-lens or generic-optics with 'totalAgents' instead." #-}
+
+-- | Number of unknown discovery agents.
+--
+-- /Note:/ Consider using 'unknownAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caiUnknownAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+caiUnknownAgents = Lens.field @"unknownAgents"
+{-# DEPRECATED caiUnknownAgents "Use generic-lens or generic-optics with 'unknownAgents' instead." #-}
+
+instance Core.FromJSON CustomerAgentInfo where
   parseJSON =
-    Lude.withObject
-      "CustomerAgentInfo"
-      ( \x ->
-          CustomerAgentInfo'
-            Lude.<$> (x Lude..: "unhealthyAgents")
-            Lude.<*> (x Lude..: "healthyAgents")
-            Lude.<*> (x Lude..: "unknownAgents")
-            Lude.<*> (x Lude..: "shutdownAgents")
-            Lude.<*> (x Lude..: "activeAgents")
-            Lude.<*> (x Lude..: "totalAgents")
-            Lude.<*> (x Lude..: "blackListedAgents")
-      )
+    Core.withObject "CustomerAgentInfo" Core.$
+      \x ->
+        CustomerAgentInfo'
+          Core.<$> (x Core..: "activeAgents")
+          Core.<*> (x Core..: "healthyAgents")
+          Core.<*> (x Core..: "blackListedAgents")
+          Core.<*> (x Core..: "shutdownAgents")
+          Core.<*> (x Core..: "unhealthyAgents")
+          Core.<*> (x Core..: "totalAgents")
+          Core.<*> (x Core..: "unknownAgents")

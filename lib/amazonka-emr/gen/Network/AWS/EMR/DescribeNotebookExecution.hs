@@ -27,117 +27,103 @@ module Network.AWS.EMR.DescribeNotebookExecution
     mkDescribeNotebookExecutionResponse,
 
     -- ** Response lenses
-    dnersNotebookExecution,
-    dnersResponseStatus,
+    dnerrsNotebookExecution,
+    dnerrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeNotebookExecution' smart constructor.
 newtype DescribeNotebookExecution = DescribeNotebookExecution'
   { -- | The unique identifier of the notebook execution.
-    notebookExecutionId :: Lude.Text
+    notebookExecutionId :: Types.XmlStringMaxLen256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeNotebookExecution' with the minimum fields required to make a request.
---
--- * 'notebookExecutionId' - The unique identifier of the notebook execution.
+-- | Creates a 'DescribeNotebookExecution' value with any optional fields omitted.
 mkDescribeNotebookExecution ::
   -- | 'notebookExecutionId'
-  Lude.Text ->
+  Types.XmlStringMaxLen256 ->
   DescribeNotebookExecution
-mkDescribeNotebookExecution pNotebookExecutionId_ =
-  DescribeNotebookExecution'
-    { notebookExecutionId =
-        pNotebookExecutionId_
-    }
+mkDescribeNotebookExecution notebookExecutionId =
+  DescribeNotebookExecution' {notebookExecutionId}
 
 -- | The unique identifier of the notebook execution.
 --
 -- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dneNotebookExecutionId :: Lens.Lens' DescribeNotebookExecution Lude.Text
-dneNotebookExecutionId = Lens.lens (notebookExecutionId :: DescribeNotebookExecution -> Lude.Text) (\s a -> s {notebookExecutionId = a} :: DescribeNotebookExecution)
+dneNotebookExecutionId :: Lens.Lens' DescribeNotebookExecution Types.XmlStringMaxLen256
+dneNotebookExecutionId = Lens.field @"notebookExecutionId"
 {-# DEPRECATED dneNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
 
-instance Lude.AWSRequest DescribeNotebookExecution where
+instance Core.FromJSON DescribeNotebookExecution where
+  toJSON DescribeNotebookExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NotebookExecutionId" Core..= notebookExecutionId)]
+      )
+
+instance Core.AWSRequest DescribeNotebookExecution where
   type
     Rs DescribeNotebookExecution =
       DescribeNotebookExecutionResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.DescribeNotebookExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeNotebookExecutionResponse'
-            Lude.<$> (x Lude..?> "NotebookExecution")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NotebookExecution")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeNotebookExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.DescribeNotebookExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeNotebookExecution where
-  toJSON DescribeNotebookExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("NotebookExecutionId" Lude..= notebookExecutionId)]
-      )
-
-instance Lude.ToPath DescribeNotebookExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeNotebookExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeNotebookExecutionResponse' smart constructor.
 data DescribeNotebookExecutionResponse = DescribeNotebookExecutionResponse'
   { -- | Properties of the notebook execution.
-    notebookExecution :: Lude.Maybe NotebookExecution,
+    notebookExecution :: Core.Maybe Types.NotebookExecution,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeNotebookExecutionResponse' with the minimum fields required to make a request.
---
--- * 'notebookExecution' - Properties of the notebook execution.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeNotebookExecutionResponse' value with any optional fields omitted.
 mkDescribeNotebookExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeNotebookExecutionResponse
-mkDescribeNotebookExecutionResponse pResponseStatus_ =
+mkDescribeNotebookExecutionResponse responseStatus =
   DescribeNotebookExecutionResponse'
     { notebookExecution =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Properties of the notebook execution.
 --
 -- /Note:/ Consider using 'notebookExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnersNotebookExecution :: Lens.Lens' DescribeNotebookExecutionResponse (Lude.Maybe NotebookExecution)
-dnersNotebookExecution = Lens.lens (notebookExecution :: DescribeNotebookExecutionResponse -> Lude.Maybe NotebookExecution) (\s a -> s {notebookExecution = a} :: DescribeNotebookExecutionResponse)
-{-# DEPRECATED dnersNotebookExecution "Use generic-lens or generic-optics with 'notebookExecution' instead." #-}
+dnerrsNotebookExecution :: Lens.Lens' DescribeNotebookExecutionResponse (Core.Maybe Types.NotebookExecution)
+dnerrsNotebookExecution = Lens.field @"notebookExecution"
+{-# DEPRECATED dnerrsNotebookExecution "Use generic-lens or generic-optics with 'notebookExecution' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnersResponseStatus :: Lens.Lens' DescribeNotebookExecutionResponse Lude.Int
-dnersResponseStatus = Lens.lens (responseStatus :: DescribeNotebookExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotebookExecutionResponse)
-{-# DEPRECATED dnersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dnerrsResponseStatus :: Lens.Lens' DescribeNotebookExecutionResponse Core.Int
+dnerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dnerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,61 +13,66 @@
 module Network.AWS.Lightsail.Types.OperationStatus
   ( OperationStatus
       ( OperationStatus',
-        NotStarted,
-        Started,
-        Failed,
-        Completed,
-        Succeeded
+        OperationStatusNotStarted,
+        OperationStatusStarted,
+        OperationStatusFailed,
+        OperationStatusCompleted,
+        OperationStatusSucceeded,
+        fromOperationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationStatus = OperationStatus' Lude.Text
+newtype OperationStatus = OperationStatus'
+  { fromOperationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotStarted :: OperationStatus
-pattern NotStarted = OperationStatus' "NotStarted"
+pattern OperationStatusNotStarted :: OperationStatus
+pattern OperationStatusNotStarted = OperationStatus' "NotStarted"
 
-pattern Started :: OperationStatus
-pattern Started = OperationStatus' "Started"
+pattern OperationStatusStarted :: OperationStatus
+pattern OperationStatusStarted = OperationStatus' "Started"
 
-pattern Failed :: OperationStatus
-pattern Failed = OperationStatus' "Failed"
+pattern OperationStatusFailed :: OperationStatus
+pattern OperationStatusFailed = OperationStatus' "Failed"
 
-pattern Completed :: OperationStatus
-pattern Completed = OperationStatus' "Completed"
+pattern OperationStatusCompleted :: OperationStatus
+pattern OperationStatusCompleted = OperationStatus' "Completed"
 
-pattern Succeeded :: OperationStatus
-pattern Succeeded = OperationStatus' "Succeeded"
+pattern OperationStatusSucceeded :: OperationStatus
+pattern OperationStatusSucceeded = OperationStatus' "Succeeded"
 
 {-# COMPLETE
-  NotStarted,
-  Started,
-  Failed,
-  Completed,
-  Succeeded,
+  OperationStatusNotStarted,
+  OperationStatusStarted,
+  OperationStatusFailed,
+  OperationStatusCompleted,
+  OperationStatusSucceeded,
   OperationStatus'
   #-}

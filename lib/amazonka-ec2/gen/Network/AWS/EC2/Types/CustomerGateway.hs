@@ -17,150 +17,135 @@ module Network.AWS.EC2.Types.CustomerGateway
     mkCustomerGateway,
 
     -- * Lenses
-    cgfState,
-    cgfIPAddress,
-    cgfCertificateARN,
-    cgfBGPASN,
-    cgfCustomerGatewayId,
-    cgfDeviceName,
-    cgfType,
-    cgfTags,
+    cBgpAsn,
+    cCertificateArn,
+    cCustomerGatewayId,
+    cDeviceName,
+    cIpAddress,
+    cState,
+    cTags,
+    cType,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a customer gateway.
 --
 -- /See:/ 'mkCustomerGateway' smart constructor.
 data CustomerGateway = CustomerGateway'
-  { -- | The current state of the customer gateway (@pending | available | deleting | deleted@ ).
-    state :: Lude.Text,
-    -- | The Internet-routable IP address of the customer gateway's outside interface.
-    ipAddress :: Lude.Text,
+  { -- | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+    bgpAsn :: Types.String,
     -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-    bgpASN :: Lude.Text,
+    certificateArn :: Core.Maybe Types.String,
     -- | The ID of the customer gateway.
-    customerGatewayId :: Lude.Text,
+    customerGatewayId :: Types.String,
     -- | The name of customer gateway device.
-    deviceName :: Lude.Maybe Lude.Text,
-    -- | The type of VPN connection the customer gateway supports (@ipsec.1@ ).
-    type' :: Lude.Text,
+    deviceName :: Core.Maybe Types.String,
+    -- | The Internet-routable IP address of the customer gateway's outside interface.
+    ipAddress :: Types.String,
+    -- | The current state of the customer gateway (@pending | available | deleting | deleted@ ).
+    state :: Types.String,
     -- | Any tags assigned to the customer gateway.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The type of VPN connection the customer gateway supports (@ipsec.1@ ).
+    type' :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomerGateway' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the customer gateway (@pending | available | deleting | deleted@ ).
--- * 'ipAddress' - The Internet-routable IP address of the customer gateway's outside interface.
--- * 'certificateARN' - The Amazon Resource Name (ARN) for the customer gateway certificate.
--- * 'bgpASN' - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
--- * 'customerGatewayId' - The ID of the customer gateway.
--- * 'deviceName' - The name of customer gateway device.
--- * 'type'' - The type of VPN connection the customer gateway supports (@ipsec.1@ ).
--- * 'tags' - Any tags assigned to the customer gateway.
+-- | Creates a 'CustomerGateway' value with any optional fields omitted.
 mkCustomerGateway ::
-  -- | 'state'
-  Lude.Text ->
-  -- | 'ipAddress'
-  Lude.Text ->
-  -- | 'bgpASN'
-  Lude.Text ->
+  -- | 'bgpAsn'
+  Types.String ->
   -- | 'customerGatewayId'
-  Lude.Text ->
-  -- | 'type''
-  Lude.Text ->
+  Types.String ->
+  -- | 'ipAddress'
+  Types.String ->
+  -- | 'state'
+  Types.String ->
+  -- | 'type\''
+  Types.String ->
   CustomerGateway
-mkCustomerGateway
-  pState_
-  pIPAddress_
-  pBGPASN_
-  pCustomerGatewayId_
-  pType_ =
-    CustomerGateway'
-      { state = pState_,
-        ipAddress = pIPAddress_,
-        certificateARN = Lude.Nothing,
-        bgpASN = pBGPASN_,
-        customerGatewayId = pCustomerGatewayId_,
-        deviceName = Lude.Nothing,
-        type' = pType_,
-        tags = Lude.Nothing
-      }
-
--- | The current state of the customer gateway (@pending | available | deleting | deleted@ ).
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfState :: Lens.Lens' CustomerGateway Lude.Text
-cgfState = Lens.lens (state :: CustomerGateway -> Lude.Text) (\s a -> s {state = a} :: CustomerGateway)
-{-# DEPRECATED cgfState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The Internet-routable IP address of the customer gateway's outside interface.
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfIPAddress :: Lens.Lens' CustomerGateway Lude.Text
-cgfIPAddress = Lens.lens (ipAddress :: CustomerGateway -> Lude.Text) (\s a -> s {ipAddress = a} :: CustomerGateway)
-{-# DEPRECATED cgfIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the customer gateway certificate.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfCertificateARN :: Lens.Lens' CustomerGateway (Lude.Maybe Lude.Text)
-cgfCertificateARN = Lens.lens (certificateARN :: CustomerGateway -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CustomerGateway)
-{-# DEPRECATED cgfCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+mkCustomerGateway bgpAsn customerGatewayId ipAddress state type' =
+  CustomerGateway'
+    { bgpAsn,
+      certificateArn = Core.Nothing,
+      customerGatewayId,
+      deviceName = Core.Nothing,
+      ipAddress,
+      state,
+      tags = Core.Nothing,
+      type'
+    }
 
 -- | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 --
--- /Note:/ Consider using 'bgpASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfBGPASN :: Lens.Lens' CustomerGateway Lude.Text
-cgfBGPASN = Lens.lens (bgpASN :: CustomerGateway -> Lude.Text) (\s a -> s {bgpASN = a} :: CustomerGateway)
-{-# DEPRECATED cgfBGPASN "Use generic-lens or generic-optics with 'bgpASN' instead." #-}
+-- /Note:/ Consider using 'bgpAsn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cBgpAsn :: Lens.Lens' CustomerGateway Types.String
+cBgpAsn = Lens.field @"bgpAsn"
+{-# DEPRECATED cBgpAsn "Use generic-lens or generic-optics with 'bgpAsn' instead." #-}
+
+-- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+--
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateArn :: Lens.Lens' CustomerGateway (Core.Maybe Types.String)
+cCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED cCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The ID of the customer gateway.
 --
 -- /Note:/ Consider using 'customerGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfCustomerGatewayId :: Lens.Lens' CustomerGateway Lude.Text
-cgfCustomerGatewayId = Lens.lens (customerGatewayId :: CustomerGateway -> Lude.Text) (\s a -> s {customerGatewayId = a} :: CustomerGateway)
-{-# DEPRECATED cgfCustomerGatewayId "Use generic-lens or generic-optics with 'customerGatewayId' instead." #-}
+cCustomerGatewayId :: Lens.Lens' CustomerGateway Types.String
+cCustomerGatewayId = Lens.field @"customerGatewayId"
+{-# DEPRECATED cCustomerGatewayId "Use generic-lens or generic-optics with 'customerGatewayId' instead." #-}
 
 -- | The name of customer gateway device.
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfDeviceName :: Lens.Lens' CustomerGateway (Lude.Maybe Lude.Text)
-cgfDeviceName = Lens.lens (deviceName :: CustomerGateway -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: CustomerGateway)
-{-# DEPRECATED cgfDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
+cDeviceName :: Lens.Lens' CustomerGateway (Core.Maybe Types.String)
+cDeviceName = Lens.field @"deviceName"
+{-# DEPRECATED cDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
--- | The type of VPN connection the customer gateway supports (@ipsec.1@ ).
+-- | The Internet-routable IP address of the customer gateway's outside interface.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfType :: Lens.Lens' CustomerGateway Lude.Text
-cgfType = Lens.lens (type' :: CustomerGateway -> Lude.Text) (\s a -> s {type' = a} :: CustomerGateway)
-{-# DEPRECATED cgfType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cIpAddress :: Lens.Lens' CustomerGateway Types.String
+cIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED cIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
+
+-- | The current state of the customer gateway (@pending | available | deleting | deleted@ ).
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cState :: Lens.Lens' CustomerGateway Types.String
+cState = Lens.field @"state"
+{-# DEPRECATED cState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Any tags assigned to the customer gateway.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgfTags :: Lens.Lens' CustomerGateway (Lude.Maybe [Tag])
-cgfTags = Lens.lens (tags :: CustomerGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CustomerGateway)
-{-# DEPRECATED cgfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cTags :: Lens.Lens' CustomerGateway (Core.Maybe [Types.Tag])
+cTags = Lens.field @"tags"
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML CustomerGateway where
+-- | The type of VPN connection the customer gateway supports (@ipsec.1@ ).
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cType :: Lens.Lens' CustomerGateway Types.String
+cType = Lens.field @"type'"
+{-# DEPRECATED cType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromXML CustomerGateway where
   parseXML x =
     CustomerGateway'
-      Lude.<$> (x Lude..@ "state")
-      Lude.<*> (x Lude..@ "ipAddress")
-      Lude.<*> (x Lude..@? "certificateArn")
-      Lude.<*> (x Lude..@ "bgpAsn")
-      Lude.<*> (x Lude..@ "customerGatewayId")
-      Lude.<*> (x Lude..@? "deviceName")
-      Lude.<*> (x Lude..@ "type")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@ "bgpAsn")
+      Core.<*> (x Core..@? "certificateArn")
+      Core.<*> (x Core..@ "customerGatewayId")
+      Core.<*> (x Core..@? "deviceName")
+      Core.<*> (x Core..@ "ipAddress")
+      Core.<*> (x Core..@ "state")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@ "type")

@@ -17,98 +17,84 @@ module Network.AWS.ELB.Types.AccessLog
     mkAccessLog,
 
     -- * Lenses
-    alEmitInterval,
     alEnabled,
-    alS3BucketPrefix,
+    alEmitInterval,
     alS3BucketName,
+    alS3BucketPrefix,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.S3BucketName as Types
+import qualified Network.AWS.ELB.Types.S3BucketPrefix as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the @AccessLog@ attribute.
 --
 -- /See:/ 'mkAccessLog' smart constructor.
 data AccessLog = AccessLog'
-  { -- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
+  { -- | Specifies whether access logs are enabled for the load balancer.
+    enabled :: Core.Bool,
+    -- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
     --
     -- Default: 60 minutes
-    emitInterval :: Lude.Maybe Lude.Int,
-    -- | Specifies whether access logs are enabled for the load balancer.
-    enabled :: Lude.Bool,
-    -- | The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
-    s3BucketPrefix :: Lude.Maybe Lude.Text,
+    emitInterval :: Core.Maybe Core.Int,
     -- | The name of the Amazon S3 bucket where the access logs are stored.
-    s3BucketName :: Lude.Maybe Lude.Text
+    s3BucketName :: Core.Maybe Types.S3BucketName,
+    -- | The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
+    s3BucketPrefix :: Core.Maybe Types.S3BucketPrefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccessLog' with the minimum fields required to make a request.
---
--- * 'emitInterval' - The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
---
--- Default: 60 minutes
--- * 'enabled' - Specifies whether access logs are enabled for the load balancer.
--- * 's3BucketPrefix' - The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
--- * 's3BucketName' - The name of the Amazon S3 bucket where the access logs are stored.
+-- | Creates a 'AccessLog' value with any optional fields omitted.
 mkAccessLog ::
   -- | 'enabled'
-  Lude.Bool ->
+  Core.Bool ->
   AccessLog
-mkAccessLog pEnabled_ =
+mkAccessLog enabled =
   AccessLog'
-    { emitInterval = Lude.Nothing,
-      enabled = pEnabled_,
-      s3BucketPrefix = Lude.Nothing,
-      s3BucketName = Lude.Nothing
+    { enabled,
+      emitInterval = Core.Nothing,
+      s3BucketName = Core.Nothing,
+      s3BucketPrefix = Core.Nothing
     }
+
+-- | Specifies whether access logs are enabled for the load balancer.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alEnabled :: Lens.Lens' AccessLog Core.Bool
+alEnabled = Lens.field @"enabled"
+{-# DEPRECATED alEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 --
 -- Default: 60 minutes
 --
 -- /Note:/ Consider using 'emitInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alEmitInterval :: Lens.Lens' AccessLog (Lude.Maybe Lude.Int)
-alEmitInterval = Lens.lens (emitInterval :: AccessLog -> Lude.Maybe Lude.Int) (\s a -> s {emitInterval = a} :: AccessLog)
+alEmitInterval :: Lens.Lens' AccessLog (Core.Maybe Core.Int)
+alEmitInterval = Lens.field @"emitInterval"
 {-# DEPRECATED alEmitInterval "Use generic-lens or generic-optics with 'emitInterval' instead." #-}
-
--- | Specifies whether access logs are enabled for the load balancer.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alEnabled :: Lens.Lens' AccessLog Lude.Bool
-alEnabled = Lens.lens (enabled :: AccessLog -> Lude.Bool) (\s a -> s {enabled = a} :: AccessLog)
-{-# DEPRECATED alEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
---
--- /Note:/ Consider using 's3BucketPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alS3BucketPrefix :: Lens.Lens' AccessLog (Lude.Maybe Lude.Text)
-alS3BucketPrefix = Lens.lens (s3BucketPrefix :: AccessLog -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketPrefix = a} :: AccessLog)
-{-# DEPRECATED alS3BucketPrefix "Use generic-lens or generic-optics with 's3BucketPrefix' instead." #-}
 
 -- | The name of the Amazon S3 bucket where the access logs are stored.
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alS3BucketName :: Lens.Lens' AccessLog (Lude.Maybe Lude.Text)
-alS3BucketName = Lens.lens (s3BucketName :: AccessLog -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: AccessLog)
+alS3BucketName :: Lens.Lens' AccessLog (Core.Maybe Types.S3BucketName)
+alS3BucketName = Lens.field @"s3BucketName"
 {-# DEPRECATED alS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
-instance Lude.FromXML AccessLog where
+-- | The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
+--
+-- /Note:/ Consider using 's3BucketPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alS3BucketPrefix :: Lens.Lens' AccessLog (Core.Maybe Types.S3BucketPrefix)
+alS3BucketPrefix = Lens.field @"s3BucketPrefix"
+{-# DEPRECATED alS3BucketPrefix "Use generic-lens or generic-optics with 's3BucketPrefix' instead." #-}
+
+instance Core.FromXML AccessLog where
   parseXML x =
     AccessLog'
-      Lude.<$> (x Lude..@? "EmitInterval")
-      Lude.<*> (x Lude..@ "Enabled")
-      Lude.<*> (x Lude..@? "S3BucketPrefix")
-      Lude.<*> (x Lude..@? "S3BucketName")
-
-instance Lude.ToQuery AccessLog where
-  toQuery AccessLog' {..} =
-    Lude.mconcat
-      [ "EmitInterval" Lude.=: emitInterval,
-        "Enabled" Lude.=: enabled,
-        "S3BucketPrefix" Lude.=: s3BucketPrefix,
-        "S3BucketName" Lude.=: s3BucketName
-      ]
+      Core.<$> (x Core..@ "Enabled")
+      Core.<*> (x Core..@? "EmitInterval")
+      Core.<*> (x Core..@? "S3BucketName")
+      Core.<*> (x Core..@? "S3BucketPrefix")

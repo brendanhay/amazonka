@@ -13,51 +13,56 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
   ( OriginRequestPolicyQueryStringBehavior
       ( OriginRequestPolicyQueryStringBehavior',
-        ORPQSBNone,
-        ORPQSBWhitelist,
-        ORPQSBAll
+        OriginRequestPolicyQueryStringBehaviorNone,
+        OriginRequestPolicyQueryStringBehaviorWhitelist,
+        OriginRequestPolicyQueryStringBehaviorAll,
+        fromOriginRequestPolicyQueryStringBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OriginRequestPolicyQueryStringBehavior = OriginRequestPolicyQueryStringBehavior' Lude.Text
+newtype OriginRequestPolicyQueryStringBehavior = OriginRequestPolicyQueryStringBehavior'
+  { fromOriginRequestPolicyQueryStringBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ORPQSBNone :: OriginRequestPolicyQueryStringBehavior
-pattern ORPQSBNone = OriginRequestPolicyQueryStringBehavior' "none"
+pattern OriginRequestPolicyQueryStringBehaviorNone :: OriginRequestPolicyQueryStringBehavior
+pattern OriginRequestPolicyQueryStringBehaviorNone = OriginRequestPolicyQueryStringBehavior' "none"
 
-pattern ORPQSBWhitelist :: OriginRequestPolicyQueryStringBehavior
-pattern ORPQSBWhitelist = OriginRequestPolicyQueryStringBehavior' "whitelist"
+pattern OriginRequestPolicyQueryStringBehaviorWhitelist :: OriginRequestPolicyQueryStringBehavior
+pattern OriginRequestPolicyQueryStringBehaviorWhitelist = OriginRequestPolicyQueryStringBehavior' "whitelist"
 
-pattern ORPQSBAll :: OriginRequestPolicyQueryStringBehavior
-pattern ORPQSBAll = OriginRequestPolicyQueryStringBehavior' "all"
+pattern OriginRequestPolicyQueryStringBehaviorAll :: OriginRequestPolicyQueryStringBehavior
+pattern OriginRequestPolicyQueryStringBehaviorAll = OriginRequestPolicyQueryStringBehavior' "all"
 
 {-# COMPLETE
-  ORPQSBNone,
-  ORPQSBWhitelist,
-  ORPQSBAll,
+  OriginRequestPolicyQueryStringBehaviorNone,
+  OriginRequestPolicyQueryStringBehaviorWhitelist,
+  OriginRequestPolicyQueryStringBehaviorAll,
   OriginRequestPolicyQueryStringBehavior'
   #-}

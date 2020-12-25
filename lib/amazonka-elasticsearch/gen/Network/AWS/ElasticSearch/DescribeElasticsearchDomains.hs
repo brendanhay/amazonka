@@ -27,106 +27,100 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
     mkDescribeElasticsearchDomainsResponse,
 
     -- ** Response lenses
-    dedsrsDomainStatusList,
-    dedsrsResponseStatus,
+    dedrfrsDomainStatusList,
+    dedrfrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeElasticsearchDomains' @ operation. By default, the API returns the status of all Elasticsearch domains.
 --
 -- /See:/ 'mkDescribeElasticsearchDomains' smart constructor.
 newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
   { -- | The Elasticsearch domains for which you want information.
-    domainNames :: [Lude.Text]
+    domainNames :: [Types.DomainName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeElasticsearchDomains' with the minimum fields required to make a request.
---
--- * 'domainNames' - The Elasticsearch domains for which you want information.
+-- | Creates a 'DescribeElasticsearchDomains' value with any optional fields omitted.
 mkDescribeElasticsearchDomains ::
   DescribeElasticsearchDomains
 mkDescribeElasticsearchDomains =
-  DescribeElasticsearchDomains' {domainNames = Lude.mempty}
+  DescribeElasticsearchDomains' {domainNames = Core.mempty}
 
 -- | The Elasticsearch domains for which you want information.
 --
 -- /Note:/ Consider using 'domainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedDomainNames :: Lens.Lens' DescribeElasticsearchDomains [Lude.Text]
-dedDomainNames = Lens.lens (domainNames :: DescribeElasticsearchDomains -> [Lude.Text]) (\s a -> s {domainNames = a} :: DescribeElasticsearchDomains)
+dedDomainNames :: Lens.Lens' DescribeElasticsearchDomains [Types.DomainName]
+dedDomainNames = Lens.field @"domainNames"
 {-# DEPRECATED dedDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
 
-instance Lude.AWSRequest DescribeElasticsearchDomains where
+instance Core.FromJSON DescribeElasticsearchDomains where
+  toJSON DescribeElasticsearchDomains {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DomainNames" Core..= domainNames)])
+
+instance Core.AWSRequest DescribeElasticsearchDomains where
   type
     Rs DescribeElasticsearchDomains =
       DescribeElasticsearchDomainsResponse
-  request = Req.postJSON elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2015-01-01/es/domain-info",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeElasticsearchDomainsResponse'
-            Lude.<$> (x Lude..?> "DomainStatusList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DomainStatusList" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeElasticsearchDomains where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DescribeElasticsearchDomains where
-  toJSON DescribeElasticsearchDomains' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DomainNames" Lude..= domainNames)])
-
-instance Lude.ToPath DescribeElasticsearchDomains where
-  toPath = Lude.const "/2015-01-01/es/domain-info"
-
-instance Lude.ToQuery DescribeElasticsearchDomains where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @DescribeElasticsearchDomains@ request. Contains the status of the specified domains or all domains owned by the account.
 --
 -- /See:/ 'mkDescribeElasticsearchDomainsResponse' smart constructor.
 data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse'
   { -- | The status of the domains requested in the @DescribeElasticsearchDomains@ request.
-    domainStatusList :: [ElasticsearchDomainStatus],
+    domainStatusList :: [Types.ElasticsearchDomainStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeElasticsearchDomainsResponse' with the minimum fields required to make a request.
---
--- * 'domainStatusList' - The status of the domains requested in the @DescribeElasticsearchDomains@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeElasticsearchDomainsResponse' value with any optional fields omitted.
 mkDescribeElasticsearchDomainsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeElasticsearchDomainsResponse
-mkDescribeElasticsearchDomainsResponse pResponseStatus_ =
+mkDescribeElasticsearchDomainsResponse responseStatus =
   DescribeElasticsearchDomainsResponse'
     { domainStatusList =
-        Lude.mempty,
-      responseStatus = pResponseStatus_
+        Core.mempty,
+      responseStatus
     }
 
 -- | The status of the domains requested in the @DescribeElasticsearchDomains@ request.
 --
 -- /Note:/ Consider using 'domainStatusList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedsrsDomainStatusList :: Lens.Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
-dedsrsDomainStatusList = Lens.lens (domainStatusList :: DescribeElasticsearchDomainsResponse -> [ElasticsearchDomainStatus]) (\s a -> s {domainStatusList = a} :: DescribeElasticsearchDomainsResponse)
-{-# DEPRECATED dedsrsDomainStatusList "Use generic-lens or generic-optics with 'domainStatusList' instead." #-}
+dedrfrsDomainStatusList :: Lens.Lens' DescribeElasticsearchDomainsResponse [Types.ElasticsearchDomainStatus]
+dedrfrsDomainStatusList = Lens.field @"domainStatusList"
+{-# DEPRECATED dedrfrsDomainStatusList "Use generic-lens or generic-optics with 'domainStatusList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedsrsResponseStatus :: Lens.Lens' DescribeElasticsearchDomainsResponse Lude.Int
-dedsrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticsearchDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticsearchDomainsResponse)
-{-# DEPRECATED dedsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dedrfrsResponseStatus :: Lens.Lens' DescribeElasticsearchDomainsResponse Core.Int
+dedrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dedrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,76 +13,78 @@
 module Network.AWS.ECS.Types.LogDriver
   ( LogDriver
       ( LogDriver',
-        LDJSONFile,
-        LDSyslog,
-        LDJournald,
-        LDGelf,
-        LDFluentd,
-        LDAWSlogs,
-        LDSplunk,
-        LDAWSfirelens
+        LogDriverJsonFile,
+        LogDriverSyslog,
+        LogDriverJournald,
+        LogDriverGelf,
+        LogDriverFluentd,
+        LogDriverAwslogs,
+        LogDriverSplunk,
+        LogDriverAwsfirelens,
+        fromLogDriver
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogDriver = LogDriver' Lude.Text
+newtype LogDriver = LogDriver' {fromLogDriver :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LDJSONFile :: LogDriver
-pattern LDJSONFile = LogDriver' "json-file"
+pattern LogDriverJsonFile :: LogDriver
+pattern LogDriverJsonFile = LogDriver' "json-file"
 
-pattern LDSyslog :: LogDriver
-pattern LDSyslog = LogDriver' "syslog"
+pattern LogDriverSyslog :: LogDriver
+pattern LogDriverSyslog = LogDriver' "syslog"
 
-pattern LDJournald :: LogDriver
-pattern LDJournald = LogDriver' "journald"
+pattern LogDriverJournald :: LogDriver
+pattern LogDriverJournald = LogDriver' "journald"
 
-pattern LDGelf :: LogDriver
-pattern LDGelf = LogDriver' "gelf"
+pattern LogDriverGelf :: LogDriver
+pattern LogDriverGelf = LogDriver' "gelf"
 
-pattern LDFluentd :: LogDriver
-pattern LDFluentd = LogDriver' "fluentd"
+pattern LogDriverFluentd :: LogDriver
+pattern LogDriverFluentd = LogDriver' "fluentd"
 
-pattern LDAWSlogs :: LogDriver
-pattern LDAWSlogs = LogDriver' "awslogs"
+pattern LogDriverAwslogs :: LogDriver
+pattern LogDriverAwslogs = LogDriver' "awslogs"
 
-pattern LDSplunk :: LogDriver
-pattern LDSplunk = LogDriver' "splunk"
+pattern LogDriverSplunk :: LogDriver
+pattern LogDriverSplunk = LogDriver' "splunk"
 
-pattern LDAWSfirelens :: LogDriver
-pattern LDAWSfirelens = LogDriver' "awsfirelens"
+pattern LogDriverAwsfirelens :: LogDriver
+pattern LogDriverAwsfirelens = LogDriver' "awsfirelens"
 
 {-# COMPLETE
-  LDJSONFile,
-  LDSyslog,
-  LDJournald,
-  LDGelf,
-  LDFluentd,
-  LDAWSlogs,
-  LDSplunk,
-  LDAWSfirelens,
+  LogDriverJsonFile,
+  LogDriverSyslog,
+  LogDriverJournald,
+  LogDriverGelf,
+  LogDriverFluentd,
+  LogDriverAwslogs,
+  LogDriverSplunk,
+  LogDriverAwsfirelens,
   LogDriver'
   #-}

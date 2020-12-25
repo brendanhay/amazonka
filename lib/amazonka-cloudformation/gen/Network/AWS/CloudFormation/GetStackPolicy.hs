@@ -27,106 +27,103 @@ module Network.AWS.CloudFormation.GetStackPolicy
     mkGetStackPolicyResponse,
 
     -- ** Response lenses
-    gsprsStackPolicyBody,
-    gsprsResponseStatus,
+    gsprrsStackPolicyBody,
+    gsprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'GetStackPolicy' action.
 --
 -- /See:/ 'mkGetStackPolicy' smart constructor.
 newtype GetStackPolicy = GetStackPolicy'
   { -- | The name or unique stack ID that is associated with the stack whose policy you want to get.
-    stackName :: Lude.Text
+    stackName :: Types.StackName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetStackPolicy' with the minimum fields required to make a request.
---
--- * 'stackName' - The name or unique stack ID that is associated with the stack whose policy you want to get.
+-- | Creates a 'GetStackPolicy' value with any optional fields omitted.
 mkGetStackPolicy ::
   -- | 'stackName'
-  Lude.Text ->
+  Types.StackName ->
   GetStackPolicy
-mkGetStackPolicy pStackName_ =
-  GetStackPolicy' {stackName = pStackName_}
+mkGetStackPolicy stackName = GetStackPolicy' {stackName}
 
 -- | The name or unique stack ID that is associated with the stack whose policy you want to get.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspStackName :: Lens.Lens' GetStackPolicy Lude.Text
-gspStackName = Lens.lens (stackName :: GetStackPolicy -> Lude.Text) (\s a -> s {stackName = a} :: GetStackPolicy)
+gspStackName :: Lens.Lens' GetStackPolicy Types.StackName
+gspStackName = Lens.field @"stackName"
 {-# DEPRECATED gspStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.AWSRequest GetStackPolicy where
+instance Core.AWSRequest GetStackPolicy where
   type Rs GetStackPolicy = GetStackPolicyResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetStackPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackName" stackName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetStackPolicyResult"
       ( \s h x ->
           GetStackPolicyResponse'
-            Lude.<$> (x Lude..@? "StackPolicyBody")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "StackPolicyBody")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetStackPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetStackPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetStackPolicy where
-  toQuery GetStackPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetStackPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "StackName" Lude.=: stackName
-      ]
 
 -- | The output for the 'GetStackPolicy' action.
 --
 -- /See:/ 'mkGetStackPolicyResponse' smart constructor.
 data GetStackPolicyResponse = GetStackPolicyResponse'
   { -- | Structure containing the stack policy body. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
-    stackPolicyBody :: Lude.Maybe Lude.Text,
+    stackPolicyBody :: Core.Maybe Types.StackPolicyBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetStackPolicyResponse' with the minimum fields required to make a request.
---
--- * 'stackPolicyBody' - Structure containing the stack policy body. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetStackPolicyResponse' value with any optional fields omitted.
 mkGetStackPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetStackPolicyResponse
-mkGetStackPolicyResponse pResponseStatus_ =
+mkGetStackPolicyResponse responseStatus =
   GetStackPolicyResponse'
-    { stackPolicyBody = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { stackPolicyBody = Core.Nothing,
+      responseStatus
     }
 
 -- | Structure containing the stack policy body. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
 --
 -- /Note:/ Consider using 'stackPolicyBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsprsStackPolicyBody :: Lens.Lens' GetStackPolicyResponse (Lude.Maybe Lude.Text)
-gsprsStackPolicyBody = Lens.lens (stackPolicyBody :: GetStackPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackPolicyBody = a} :: GetStackPolicyResponse)
-{-# DEPRECATED gsprsStackPolicyBody "Use generic-lens or generic-optics with 'stackPolicyBody' instead." #-}
+gsprrsStackPolicyBody :: Lens.Lens' GetStackPolicyResponse (Core.Maybe Types.StackPolicyBody)
+gsprrsStackPolicyBody = Lens.field @"stackPolicyBody"
+{-# DEPRECATED gsprrsStackPolicyBody "Use generic-lens or generic-optics with 'stackPolicyBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsprsResponseStatus :: Lens.Lens' GetStackPolicyResponse Lude.Int
-gsprsResponseStatus = Lens.lens (responseStatus :: GetStackPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStackPolicyResponse)
-{-# DEPRECATED gsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsprrsResponseStatus :: Lens.Lens' GetStackPolicyResponse Core.Int
+gsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

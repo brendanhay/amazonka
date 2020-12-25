@@ -24,196 +24,183 @@ module Network.AWS.SMS.GetServers
     mkGetServers,
 
     -- ** Request lenses
-    gsVmServerAddressList,
-    gsNextToken,
     gsMaxResults,
+    gsNextToken,
+    gsVmServerAddressList,
 
     -- * Destructuring the response
     GetServersResponse (..),
     mkGetServersResponse,
 
     -- ** Response lenses
-    gsrsServerCatalogStatus,
-    gsrsLastModifiedOn,
-    gsrsNextToken,
-    gsrsServerList,
-    gsrsResponseStatus,
+    gsrrsLastModifiedOn,
+    gsrrsNextToken,
+    gsrrsServerCatalogStatus,
+    gsrrsServerList,
+    gsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkGetServers' smart constructor.
 data GetServers = GetServers'
-  { -- | The server addresses.
-    vmServerAddressList :: Lude.Maybe [VMServerAddress],
+  { -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Core.Maybe Core.Int,
     -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-    maxResults :: Lude.Maybe Lude.Int
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The server addresses.
+    vmServerAddressList :: Core.Maybe [Types.VmServerAddress]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetServers' with the minimum fields required to make a request.
---
--- * 'vmServerAddressList' - The server addresses.
--- * 'nextToken' - The token for the next set of results.
--- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- | Creates a 'GetServers' value with any optional fields omitted.
 mkGetServers ::
   GetServers
 mkGetServers =
   GetServers'
-    { vmServerAddressList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      vmServerAddressList = Core.Nothing
     }
-
--- | The server addresses.
---
--- /Note:/ Consider using 'vmServerAddressList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsVmServerAddressList :: Lens.Lens' GetServers (Lude.Maybe [VMServerAddress])
-gsVmServerAddressList = Lens.lens (vmServerAddressList :: GetServers -> Lude.Maybe [VMServerAddress]) (\s a -> s {vmServerAddressList = a} :: GetServers)
-{-# DEPRECATED gsVmServerAddressList "Use generic-lens or generic-optics with 'vmServerAddressList' instead." #-}
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsNextToken :: Lens.Lens' GetServers (Lude.Maybe Lude.Text)
-gsNextToken = Lens.lens (nextToken :: GetServers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetServers)
-{-# DEPRECATED gsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsMaxResults :: Lens.Lens' GetServers (Lude.Maybe Lude.Int)
-gsMaxResults = Lens.lens (maxResults :: GetServers -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetServers)
+gsMaxResults :: Lens.Lens' GetServers (Core.Maybe Core.Int)
+gsMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetServers where
-  page rq rs
-    | Page.stop (rs Lens.^. gsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gsrsServerList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gsNextToken Lens..~ rs Lens.^. gsrsNextToken
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsNextToken :: Lens.Lens' GetServers (Core.Maybe Types.NextToken)
+gsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetServers where
+-- | The server addresses.
+--
+-- /Note:/ Consider using 'vmServerAddressList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsVmServerAddressList :: Lens.Lens' GetServers (Core.Maybe [Types.VmServerAddress])
+gsVmServerAddressList = Lens.field @"vmServerAddressList"
+{-# DEPRECATED gsVmServerAddressList "Use generic-lens or generic-optics with 'vmServerAddressList' instead." #-}
+
+instance Core.FromJSON GetServers where
+  toJSON GetServers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("vmServerAddressList" Core..=) Core.<$> vmServerAddressList
+          ]
+      )
+
+instance Core.AWSRequest GetServers where
   type Rs GetServers = GetServersResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.GetServers"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetServersResponse'
-            Lude.<$> (x Lude..?> "serverCatalogStatus")
-            Lude.<*> (x Lude..?> "lastModifiedOn")
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "serverList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "lastModifiedOn")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "serverCatalogStatus")
+            Core.<*> (x Core..:? "serverList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetServers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetServers" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetServers where
-  toJSON GetServers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("vmServerAddressList" Lude..=) Lude.<$> vmServerAddressList,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetServers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetServers where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetServers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"serverList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetServersResponse' smart constructor.
 data GetServersResponse = GetServersResponse'
-  { -- | The status of the server catalog.
-    serverCatalogStatus :: Lude.Maybe ServerCatalogStatus,
-    -- | The time when the server was last modified.
-    lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+  { -- | The time when the server was last modified.
+    lastModifiedOn :: Core.Maybe Core.NominalDiffTime,
     -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The status of the server catalog.
+    serverCatalogStatus :: Core.Maybe Types.ServerCatalogStatus,
     -- | Information about the servers.
-    serverList :: Lude.Maybe [Server],
+    serverList :: Core.Maybe [Types.Server],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetServersResponse' with the minimum fields required to make a request.
---
--- * 'serverCatalogStatus' - The status of the server catalog.
--- * 'lastModifiedOn' - The time when the server was last modified.
--- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
--- * 'serverList' - Information about the servers.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetServersResponse' value with any optional fields omitted.
 mkGetServersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetServersResponse
-mkGetServersResponse pResponseStatus_ =
+mkGetServersResponse responseStatus =
   GetServersResponse'
-    { serverCatalogStatus = Lude.Nothing,
-      lastModifiedOn = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      serverList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lastModifiedOn = Core.Nothing,
+      nextToken = Core.Nothing,
+      serverCatalogStatus = Core.Nothing,
+      serverList = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the server catalog.
---
--- /Note:/ Consider using 'serverCatalogStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsServerCatalogStatus :: Lens.Lens' GetServersResponse (Lude.Maybe ServerCatalogStatus)
-gsrsServerCatalogStatus = Lens.lens (serverCatalogStatus :: GetServersResponse -> Lude.Maybe ServerCatalogStatus) (\s a -> s {serverCatalogStatus = a} :: GetServersResponse)
-{-# DEPRECATED gsrsServerCatalogStatus "Use generic-lens or generic-optics with 'serverCatalogStatus' instead." #-}
 
 -- | The time when the server was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsLastModifiedOn :: Lens.Lens' GetServersResponse (Lude.Maybe Lude.Timestamp)
-gsrsLastModifiedOn = Lens.lens (lastModifiedOn :: GetServersResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedOn = a} :: GetServersResponse)
-{-# DEPRECATED gsrsLastModifiedOn "Use generic-lens or generic-optics with 'lastModifiedOn' instead." #-}
+gsrrsLastModifiedOn :: Lens.Lens' GetServersResponse (Core.Maybe Core.NominalDiffTime)
+gsrrsLastModifiedOn = Lens.field @"lastModifiedOn"
+{-# DEPRECATED gsrrsLastModifiedOn "Use generic-lens or generic-optics with 'lastModifiedOn' instead." #-}
 
 -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsNextToken :: Lens.Lens' GetServersResponse (Lude.Maybe Lude.Text)
-gsrsNextToken = Lens.lens (nextToken :: GetServersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetServersResponse)
-{-# DEPRECATED gsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gsrrsNextToken :: Lens.Lens' GetServersResponse (Core.Maybe Types.NextToken)
+gsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The status of the server catalog.
+--
+-- /Note:/ Consider using 'serverCatalogStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrrsServerCatalogStatus :: Lens.Lens' GetServersResponse (Core.Maybe Types.ServerCatalogStatus)
+gsrrsServerCatalogStatus = Lens.field @"serverCatalogStatus"
+{-# DEPRECATED gsrrsServerCatalogStatus "Use generic-lens or generic-optics with 'serverCatalogStatus' instead." #-}
 
 -- | Information about the servers.
 --
 -- /Note:/ Consider using 'serverList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsServerList :: Lens.Lens' GetServersResponse (Lude.Maybe [Server])
-gsrsServerList = Lens.lens (serverList :: GetServersResponse -> Lude.Maybe [Server]) (\s a -> s {serverList = a} :: GetServersResponse)
-{-# DEPRECATED gsrsServerList "Use generic-lens or generic-optics with 'serverList' instead." #-}
+gsrrsServerList :: Lens.Lens' GetServersResponse (Core.Maybe [Types.Server])
+gsrrsServerList = Lens.field @"serverList"
+{-# DEPRECATED gsrrsServerList "Use generic-lens or generic-optics with 'serverList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsResponseStatus :: Lens.Lens' GetServersResponse Lude.Int
-gsrsResponseStatus = Lens.lens (responseStatus :: GetServersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServersResponse)
-{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsrrsResponseStatus :: Lens.Lens' GetServersResponse Core.Int
+gsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

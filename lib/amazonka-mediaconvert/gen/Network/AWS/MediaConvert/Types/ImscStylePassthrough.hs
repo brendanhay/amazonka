@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.ImscStylePassthrough
   ( ImscStylePassthrough
       ( ImscStylePassthrough',
-        ISPEnabled,
-        ISPDisabled
+        ImscStylePassthroughEnabled,
+        ImscStylePassthroughDisabled,
+        fromImscStylePassthrough
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
-newtype ImscStylePassthrough = ImscStylePassthrough' Lude.Text
+newtype ImscStylePassthrough = ImscStylePassthrough'
+  { fromImscStylePassthrough ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISPEnabled :: ImscStylePassthrough
-pattern ISPEnabled = ImscStylePassthrough' "ENABLED"
+pattern ImscStylePassthroughEnabled :: ImscStylePassthrough
+pattern ImscStylePassthroughEnabled = ImscStylePassthrough' "ENABLED"
 
-pattern ISPDisabled :: ImscStylePassthrough
-pattern ISPDisabled = ImscStylePassthrough' "DISABLED"
+pattern ImscStylePassthroughDisabled :: ImscStylePassthrough
+pattern ImscStylePassthroughDisabled = ImscStylePassthrough' "DISABLED"
 
 {-# COMPLETE
-  ISPEnabled,
-  ISPDisabled,
+  ImscStylePassthroughEnabled,
+  ImscStylePassthroughDisabled,
   ImscStylePassthrough'
   #-}

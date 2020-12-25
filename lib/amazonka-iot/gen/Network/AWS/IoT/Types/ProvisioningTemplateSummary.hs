@@ -17,110 +17,104 @@ module Network.AWS.IoT.Types.ProvisioningTemplateSummary
     mkProvisioningTemplateSummary,
 
     -- * Lenses
-    ptsLastModifiedDate,
-    ptsTemplateName,
-    ptsEnabled,
     ptsCreationDate,
-    ptsTemplateARN,
     ptsDescription,
+    ptsEnabled,
+    ptsLastModifiedDate,
+    ptsTemplateArn,
+    ptsTemplateName,
   )
 where
 
+import qualified Network.AWS.IoT.Types.Description as Types
+import qualified Network.AWS.IoT.Types.TemplateArn as Types
+import qualified Network.AWS.IoT.Types.TemplateName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A summary of information about a fleet provisioning template.
 --
 -- /See:/ 'mkProvisioningTemplateSummary' smart constructor.
 data ProvisioningTemplateSummary = ProvisioningTemplateSummary'
-  { -- | The date when the fleet provisioning template summary was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the fleet provisioning template.
-    templateName :: Lude.Maybe Lude.Text,
-    -- | True if the fleet provision template is enabled, otherwise false.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The date when the fleet provisioning template summary was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    -- | The ARN of the fleet provisioning template.
-    templateARN :: Lude.Maybe Lude.Text,
+  { -- | The date when the fleet provisioning template summary was created.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the fleet provisioning template.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | True if the fleet provision template is enabled, otherwise false.
+    enabled :: Core.Maybe Core.Bool,
+    -- | The date when the fleet provisioning template summary was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The ARN of the fleet provisioning template.
+    templateArn :: Core.Maybe Types.TemplateArn,
+    -- | The name of the fleet provisioning template.
+    templateName :: Core.Maybe Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProvisioningTemplateSummary' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - The date when the fleet provisioning template summary was last modified.
--- * 'templateName' - The name of the fleet provisioning template.
--- * 'enabled' - True if the fleet provision template is enabled, otherwise false.
--- * 'creationDate' - The date when the fleet provisioning template summary was created.
--- * 'templateARN' - The ARN of the fleet provisioning template.
--- * 'description' - The description of the fleet provisioning template.
+-- | Creates a 'ProvisioningTemplateSummary' value with any optional fields omitted.
 mkProvisioningTemplateSummary ::
   ProvisioningTemplateSummary
 mkProvisioningTemplateSummary =
   ProvisioningTemplateSummary'
-    { lastModifiedDate = Lude.Nothing,
-      templateName = Lude.Nothing,
-      enabled = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      templateARN = Lude.Nothing,
-      description = Lude.Nothing
+    { creationDate = Core.Nothing,
+      description = Core.Nothing,
+      enabled = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      templateArn = Core.Nothing,
+      templateName = Core.Nothing
     }
-
--- | The date when the fleet provisioning template summary was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsLastModifiedDate :: Lens.Lens' ProvisioningTemplateSummary (Lude.Maybe Lude.Timestamp)
-ptsLastModifiedDate = Lens.lens (lastModifiedDate :: ProvisioningTemplateSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: ProvisioningTemplateSummary)
-{-# DEPRECATED ptsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The name of the fleet provisioning template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsTemplateName :: Lens.Lens' ProvisioningTemplateSummary (Lude.Maybe Lude.Text)
-ptsTemplateName = Lens.lens (templateName :: ProvisioningTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: ProvisioningTemplateSummary)
-{-# DEPRECATED ptsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | True if the fleet provision template is enabled, otherwise false.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsEnabled :: Lens.Lens' ProvisioningTemplateSummary (Lude.Maybe Lude.Bool)
-ptsEnabled = Lens.lens (enabled :: ProvisioningTemplateSummary -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ProvisioningTemplateSummary)
-{-# DEPRECATED ptsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The date when the fleet provisioning template summary was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsCreationDate :: Lens.Lens' ProvisioningTemplateSummary (Lude.Maybe Lude.Timestamp)
-ptsCreationDate = Lens.lens (creationDate :: ProvisioningTemplateSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: ProvisioningTemplateSummary)
+ptsCreationDate :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.NominalDiffTime)
+ptsCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED ptsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The ARN of the fleet provisioning template.
---
--- /Note:/ Consider using 'templateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsTemplateARN :: Lens.Lens' ProvisioningTemplateSummary (Lude.Maybe Lude.Text)
-ptsTemplateARN = Lens.lens (templateARN :: ProvisioningTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {templateARN = a} :: ProvisioningTemplateSummary)
-{-# DEPRECATED ptsTemplateARN "Use generic-lens or generic-optics with 'templateARN' instead." #-}
 
 -- | The description of the fleet provisioning template.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsDescription :: Lens.Lens' ProvisioningTemplateSummary (Lude.Maybe Lude.Text)
-ptsDescription = Lens.lens (description :: ProvisioningTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningTemplateSummary)
+ptsDescription :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Types.Description)
+ptsDescription = Lens.field @"description"
 {-# DEPRECATED ptsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ProvisioningTemplateSummary where
+-- | True if the fleet provision template is enabled, otherwise false.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptsEnabled :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.Bool)
+ptsEnabled = Lens.field @"enabled"
+{-# DEPRECATED ptsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | The date when the fleet provisioning template summary was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptsLastModifiedDate :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.NominalDiffTime)
+ptsLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED ptsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The ARN of the fleet provisioning template.
+--
+-- /Note:/ Consider using 'templateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptsTemplateArn :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Types.TemplateArn)
+ptsTemplateArn = Lens.field @"templateArn"
+{-# DEPRECATED ptsTemplateArn "Use generic-lens or generic-optics with 'templateArn' instead." #-}
+
+-- | The name of the fleet provisioning template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptsTemplateName :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Types.TemplateName)
+ptsTemplateName = Lens.field @"templateName"
+{-# DEPRECATED ptsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+instance Core.FromJSON ProvisioningTemplateSummary where
   parseJSON =
-    Lude.withObject
-      "ProvisioningTemplateSummary"
-      ( \x ->
-          ProvisioningTemplateSummary'
-            Lude.<$> (x Lude..:? "lastModifiedDate")
-            Lude.<*> (x Lude..:? "templateName")
-            Lude.<*> (x Lude..:? "enabled")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "templateArn")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "ProvisioningTemplateSummary" Core.$
+      \x ->
+        ProvisioningTemplateSummary'
+          Core.<$> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "enabled")
+          Core.<*> (x Core..:? "lastModifiedDate")
+          Core.<*> (x Core..:? "templateArn")
+          Core.<*> (x Core..:? "templateName")

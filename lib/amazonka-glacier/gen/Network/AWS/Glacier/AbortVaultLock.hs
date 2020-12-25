@@ -23,8 +23,8 @@ module Network.AWS.Glacier.AbortVaultLock
     mkAbortVaultLock,
 
     -- ** Request lenses
-    avlVaultName,
     avlAccountId,
+    avlVaultName,
 
     -- * Destructuring the response
     AbortVaultLockResponse (..),
@@ -32,78 +32,72 @@ module Network.AWS.Glacier.AbortVaultLock
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input values for @AbortVaultLock@ .
 --
 -- /See:/ 'mkAbortVaultLock' smart constructor.
 data AbortVaultLock = AbortVaultLock'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.AccountId,
+    -- | The name of the vault.
+    vaultName :: Types.VaultName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortVaultLock' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'AbortVaultLock' value with any optional fields omitted.
 mkAbortVaultLock ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'vaultName'
+  Types.VaultName ->
   AbortVaultLock
-mkAbortVaultLock pVaultName_ pAccountId_ =
-  AbortVaultLock' {vaultName = pVaultName_, accountId = pAccountId_}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avlVaultName :: Lens.Lens' AbortVaultLock Lude.Text
-avlVaultName = Lens.lens (vaultName :: AbortVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: AbortVaultLock)
-{-# DEPRECATED avlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkAbortVaultLock accountId vaultName =
+  AbortVaultLock' {accountId, vaultName}
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avlAccountId :: Lens.Lens' AbortVaultLock Lude.Text
-avlAccountId = Lens.lens (accountId :: AbortVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: AbortVaultLock)
+avlAccountId :: Lens.Lens' AbortVaultLock Types.AccountId
+avlAccountId = Lens.field @"accountId"
 {-# DEPRECATED avlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest AbortVaultLock where
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avlVaultName :: Lens.Lens' AbortVaultLock Types.VaultName
+avlVaultName = Lens.field @"vaultName"
+{-# DEPRECATED avlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+instance Core.AWSRequest AbortVaultLock where
   type Rs AbortVaultLock = AbortVaultLockResponse
-  request = Req.delete glacierService
-  response = Res.receiveNull AbortVaultLockResponse'
-
-instance Lude.ToHeaders AbortVaultLock where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AbortVaultLock where
-  toPath AbortVaultLock' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/lock-policy"
-      ]
-
-instance Lude.ToQuery AbortVaultLock where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/lock-policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull AbortVaultLockResponse'
 
 -- | /See:/ 'mkAbortVaultLockResponse' smart constructor.
 data AbortVaultLockResponse = AbortVaultLockResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortVaultLockResponse' with the minimum fields required to make a request.
+-- | Creates a 'AbortVaultLockResponse' value with any optional fields omitted.
 mkAbortVaultLockResponse ::
   AbortVaultLockResponse
 mkAbortVaultLockResponse = AbortVaultLockResponse'

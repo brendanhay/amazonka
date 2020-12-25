@@ -20,7 +20,7 @@ module Network.AWS.EMR.DeleteStudio
     mkDeleteStudio,
 
     -- ** Request lenses
-    dsStudioId,
+    dStudioId,
 
     -- * Destructuring the response
     DeleteStudioResponse (..),
@@ -28,69 +28,60 @@ module Network.AWS.EMR.DeleteStudio
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteStudio' smart constructor.
 newtype DeleteStudio = DeleteStudio'
   { -- | The ID of the Amazon EMR Studio.
-    studioId :: Lude.Text
+    studioId :: Types.StudioId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStudio' with the minimum fields required to make a request.
---
--- * 'studioId' - The ID of the Amazon EMR Studio.
+-- | Creates a 'DeleteStudio' value with any optional fields omitted.
 mkDeleteStudio ::
   -- | 'studioId'
-  Lude.Text ->
+  Types.StudioId ->
   DeleteStudio
-mkDeleteStudio pStudioId_ = DeleteStudio' {studioId = pStudioId_}
+mkDeleteStudio studioId = DeleteStudio' {studioId}
 
 -- | The ID of the Amazon EMR Studio.
 --
 -- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStudioId :: Lens.Lens' DeleteStudio Lude.Text
-dsStudioId = Lens.lens (studioId :: DeleteStudio -> Lude.Text) (\s a -> s {studioId = a} :: DeleteStudio)
-{-# DEPRECATED dsStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
+dStudioId :: Lens.Lens' DeleteStudio Types.StudioId
+dStudioId = Lens.field @"studioId"
+{-# DEPRECATED dStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
-instance Lude.AWSRequest DeleteStudio where
+instance Core.FromJSON DeleteStudio where
+  toJSON DeleteStudio {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("StudioId" Core..= studioId)])
+
+instance Core.AWSRequest DeleteStudio where
   type Rs DeleteStudio = DeleteStudioResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull DeleteStudioResponse'
-
-instance Lude.ToHeaders DeleteStudio where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.DeleteStudio" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteStudio where
-  toJSON DeleteStudio' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("StudioId" Lude..= studioId)])
-
-instance Lude.ToPath DeleteStudio where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStudio where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.DeleteStudio")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteStudioResponse'
 
 -- | /See:/ 'mkDeleteStudioResponse' smart constructor.
 data DeleteStudioResponse = DeleteStudioResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStudioResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteStudioResponse' value with any optional fields omitted.
 mkDeleteStudioResponse ::
   DeleteStudioResponse
 mkDeleteStudioResponse = DeleteStudioResponse'

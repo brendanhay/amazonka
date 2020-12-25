@@ -28,116 +28,99 @@ module Network.AWS.WorkSpaces.ModifyClientProperties
     mkModifyClientPropertiesResponse,
 
     -- ** Response lenses
-    mcprsResponseStatus,
+    mcprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkModifyClientProperties' smart constructor.
 data ModifyClientProperties = ModifyClientProperties'
   { -- | The resource identifiers, in the form of directory IDs.
-    resourceId :: Lude.Text,
+    resourceId :: Types.ResourceId,
     -- | Information about the Amazon WorkSpaces client.
-    clientProperties :: ClientProperties
+    clientProperties :: Types.ClientProperties
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyClientProperties' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource identifiers, in the form of directory IDs.
--- * 'clientProperties' - Information about the Amazon WorkSpaces client.
+-- | Creates a 'ModifyClientProperties' value with any optional fields omitted.
 mkModifyClientProperties ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'clientProperties'
-  ClientProperties ->
+  Types.ClientProperties ->
   ModifyClientProperties
-mkModifyClientProperties pResourceId_ pClientProperties_ =
-  ModifyClientProperties'
-    { resourceId = pResourceId_,
-      clientProperties = pClientProperties_
-    }
+mkModifyClientProperties resourceId clientProperties =
+  ModifyClientProperties' {resourceId, clientProperties}
 
 -- | The resource identifiers, in the form of directory IDs.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcpResourceId :: Lens.Lens' ModifyClientProperties Lude.Text
-mcpResourceId = Lens.lens (resourceId :: ModifyClientProperties -> Lude.Text) (\s a -> s {resourceId = a} :: ModifyClientProperties)
+mcpResourceId :: Lens.Lens' ModifyClientProperties Types.ResourceId
+mcpResourceId = Lens.field @"resourceId"
 {-# DEPRECATED mcpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Information about the Amazon WorkSpaces client.
 --
 -- /Note:/ Consider using 'clientProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcpClientProperties :: Lens.Lens' ModifyClientProperties ClientProperties
-mcpClientProperties = Lens.lens (clientProperties :: ModifyClientProperties -> ClientProperties) (\s a -> s {clientProperties = a} :: ModifyClientProperties)
+mcpClientProperties :: Lens.Lens' ModifyClientProperties Types.ClientProperties
+mcpClientProperties = Lens.field @"clientProperties"
 {-# DEPRECATED mcpClientProperties "Use generic-lens or generic-optics with 'clientProperties' instead." #-}
 
-instance Lude.AWSRequest ModifyClientProperties where
+instance Core.FromJSON ModifyClientProperties where
+  toJSON ModifyClientProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ClientProperties" Core..= clientProperties)
+          ]
+      )
+
+instance Core.AWSRequest ModifyClientProperties where
   type Rs ModifyClientProperties = ModifyClientPropertiesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.ModifyClientProperties")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ModifyClientPropertiesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyClientProperties where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.ModifyClientProperties" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyClientProperties where
-  toJSON ModifyClientProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ClientProperties" Lude..= clientProperties)
-          ]
-      )
-
-instance Lude.ToPath ModifyClientProperties where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyClientProperties where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifyClientPropertiesResponse' smart constructor.
 newtype ModifyClientPropertiesResponse = ModifyClientPropertiesResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyClientPropertiesResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyClientPropertiesResponse' value with any optional fields omitted.
 mkModifyClientPropertiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyClientPropertiesResponse
-mkModifyClientPropertiesResponse pResponseStatus_ =
-  ModifyClientPropertiesResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkModifyClientPropertiesResponse responseStatus =
+  ModifyClientPropertiesResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcprsResponseStatus :: Lens.Lens' ModifyClientPropertiesResponse Lude.Int
-mcprsResponseStatus = Lens.lens (responseStatus :: ModifyClientPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClientPropertiesResponse)
-{-# DEPRECATED mcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mcprrsResponseStatus :: Lens.Lens' ModifyClientPropertiesResponse Core.Int
+mcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

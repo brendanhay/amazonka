@@ -17,39 +17,38 @@ module Network.AWS.EC2.Types.LicenseConfiguration
     mkLicenseConfiguration,
 
     -- * Lenses
-    lcLicenseConfigurationARN,
+    lcLicenseConfigurationArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'mkLicenseConfiguration' smart constructor.
 newtype LicenseConfiguration = LicenseConfiguration'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationARN :: Lude.Maybe Lude.Text
+    licenseConfigurationArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LicenseConfiguration' with the minimum fields required to make a request.
---
--- * 'licenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+-- | Creates a 'LicenseConfiguration' value with any optional fields omitted.
 mkLicenseConfiguration ::
   LicenseConfiguration
 mkLicenseConfiguration =
-  LicenseConfiguration' {licenseConfigurationARN = Lude.Nothing}
+  LicenseConfiguration' {licenseConfigurationArn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
 --
--- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcLicenseConfigurationARN :: Lens.Lens' LicenseConfiguration (Lude.Maybe Lude.Text)
-lcLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: LicenseConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: LicenseConfiguration)
-{-# DEPRECATED lcLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
+-- /Note:/ Consider using 'licenseConfigurationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLicenseConfigurationArn :: Lens.Lens' LicenseConfiguration (Core.Maybe Types.String)
+lcLicenseConfigurationArn = Lens.field @"licenseConfigurationArn"
+{-# DEPRECATED lcLicenseConfigurationArn "Use generic-lens or generic-optics with 'licenseConfigurationArn' instead." #-}
 
-instance Lude.FromXML LicenseConfiguration where
+instance Core.FromXML LicenseConfiguration where
   parseXML x =
     LicenseConfiguration'
-      Lude.<$> (x Lude..@? "licenseConfigurationArn")
+      Core.<$> (x Core..@? "licenseConfigurationArn")

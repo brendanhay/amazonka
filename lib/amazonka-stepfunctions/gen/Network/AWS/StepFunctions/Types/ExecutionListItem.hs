@@ -17,29 +17,29 @@ module Network.AWS.StepFunctions.Types.ExecutionListItem
     mkExecutionListItem,
 
     -- * Lenses
-    eliStopDate,
+    eliExecutionArn,
+    eliStateMachineArn,
+    eliName,
     eliStatus,
     eliStartDate,
-    eliName,
-    eliStateMachineARN,
-    eliExecutionARN,
+    eliStopDate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.ExecutionStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Arn as Types
+import qualified Network.AWS.StepFunctions.Types.ExecutionStatus as Types
+import qualified Network.AWS.StepFunctions.Types.Name as Types
 
 -- | Contains details about an execution.
 --
 -- /See:/ 'mkExecutionListItem' smart constructor.
 data ExecutionListItem = ExecutionListItem'
-  { -- | If the execution already ended, the date the execution stopped.
-    stopDate :: Lude.Maybe Lude.Timestamp,
-    -- | The current status of the execution.
-    status :: ExecutionStatus,
-    -- | The date the execution started.
-    startDate :: Lude.Timestamp,
+  { -- | The Amazon Resource Name (ARN) that identifies the execution.
+    executionArn :: Types.Arn,
+    -- | The Amazon Resource Name (ARN) of the executed state machine.
+    stateMachineArn :: Types.Arn,
     -- | The name of the execution.
     --
     -- A name must /not/ contain:
@@ -60,89 +60,58 @@ data ExecutionListItem = ExecutionListItem'
     --
     --
     -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-    name :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the executed state machine.
-    stateMachineARN :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) that identifies the execution.
-    executionARN :: Lude.Text
+    name :: Types.Name,
+    -- | The current status of the execution.
+    status :: Types.ExecutionStatus,
+    -- | The date the execution started.
+    startDate :: Core.NominalDiffTime,
+    -- | If the execution already ended, the date the execution stopped.
+    stopDate :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExecutionListItem' with the minimum fields required to make a request.
---
--- * 'stopDate' - If the execution already ended, the date the execution stopped.
--- * 'status' - The current status of the execution.
--- * 'startDate' - The date the execution started.
--- * 'name' - The name of the execution.
---
--- A name must /not/ contain:
---
---     * white space
---
---
---     * brackets @< > { } [ ]@
---
---
---     * wildcard characters @? *@
---
---
---     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
---
---
---     * control characters (@U+0000-001F@ , @U+007F-009F@ )
---
---
--- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
--- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the executed state machine.
--- * 'executionARN' - The Amazon Resource Name (ARN) that identifies the execution.
+-- | Creates a 'ExecutionListItem' value with any optional fields omitted.
 mkExecutionListItem ::
-  -- | 'status'
-  ExecutionStatus ->
-  -- | 'startDate'
-  Lude.Timestamp ->
+  -- | 'executionArn'
+  Types.Arn ->
+  -- | 'stateMachineArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'stateMachineARN'
-  Lude.Text ->
-  -- | 'executionARN'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'status'
+  Types.ExecutionStatus ->
+  -- | 'startDate'
+  Core.NominalDiffTime ->
   ExecutionListItem
 mkExecutionListItem
-  pStatus_
-  pStartDate_
-  pName_
-  pStateMachineARN_
-  pExecutionARN_ =
+  executionArn
+  stateMachineArn
+  name
+  status
+  startDate =
     ExecutionListItem'
-      { stopDate = Lude.Nothing,
-        status = pStatus_,
-        startDate = pStartDate_,
-        name = pName_,
-        stateMachineARN = pStateMachineARN_,
-        executionARN = pExecutionARN_
+      { executionArn,
+        stateMachineArn,
+        name,
+        status,
+        startDate,
+        stopDate = Core.Nothing
       }
 
--- | If the execution already ended, the date the execution stopped.
+-- | The Amazon Resource Name (ARN) that identifies the execution.
 --
--- /Note:/ Consider using 'stopDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eliStopDate :: Lens.Lens' ExecutionListItem (Lude.Maybe Lude.Timestamp)
-eliStopDate = Lens.lens (stopDate :: ExecutionListItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopDate = a} :: ExecutionListItem)
-{-# DEPRECATED eliStopDate "Use generic-lens or generic-optics with 'stopDate' instead." #-}
+-- /Note:/ Consider using 'executionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eliExecutionArn :: Lens.Lens' ExecutionListItem Types.Arn
+eliExecutionArn = Lens.field @"executionArn"
+{-# DEPRECATED eliExecutionArn "Use generic-lens or generic-optics with 'executionArn' instead." #-}
 
--- | The current status of the execution.
+-- | The Amazon Resource Name (ARN) of the executed state machine.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eliStatus :: Lens.Lens' ExecutionListItem ExecutionStatus
-eliStatus = Lens.lens (status :: ExecutionListItem -> ExecutionStatus) (\s a -> s {status = a} :: ExecutionListItem)
-{-# DEPRECATED eliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date the execution started.
---
--- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eliStartDate :: Lens.Lens' ExecutionListItem Lude.Timestamp
-eliStartDate = Lens.lens (startDate :: ExecutionListItem -> Lude.Timestamp) (\s a -> s {startDate = a} :: ExecutionListItem)
-{-# DEPRECATED eliStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+-- /Note:/ Consider using 'stateMachineArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eliStateMachineArn :: Lens.Lens' ExecutionListItem Types.Arn
+eliStateMachineArn = Lens.field @"stateMachineArn"
+{-# DEPRECATED eliStateMachineArn "Use generic-lens or generic-optics with 'stateMachineArn' instead." #-}
 
 -- | The name of the execution.
 --
@@ -166,34 +135,39 @@ eliStartDate = Lens.lens (startDate :: ExecutionListItem -> Lude.Timestamp) (\s 
 -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eliName :: Lens.Lens' ExecutionListItem Lude.Text
-eliName = Lens.lens (name :: ExecutionListItem -> Lude.Text) (\s a -> s {name = a} :: ExecutionListItem)
+eliName :: Lens.Lens' ExecutionListItem Types.Name
+eliName = Lens.field @"name"
 {-# DEPRECATED eliName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the executed state machine.
+-- | The current status of the execution.
 --
--- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eliStateMachineARN :: Lens.Lens' ExecutionListItem Lude.Text
-eliStateMachineARN = Lens.lens (stateMachineARN :: ExecutionListItem -> Lude.Text) (\s a -> s {stateMachineARN = a} :: ExecutionListItem)
-{-# DEPRECATED eliStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eliStatus :: Lens.Lens' ExecutionListItem Types.ExecutionStatus
+eliStatus = Lens.field @"status"
+{-# DEPRECATED eliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The Amazon Resource Name (ARN) that identifies the execution.
+-- | The date the execution started.
 --
--- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eliExecutionARN :: Lens.Lens' ExecutionListItem Lude.Text
-eliExecutionARN = Lens.lens (executionARN :: ExecutionListItem -> Lude.Text) (\s a -> s {executionARN = a} :: ExecutionListItem)
-{-# DEPRECATED eliExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eliStartDate :: Lens.Lens' ExecutionListItem Core.NominalDiffTime
+eliStartDate = Lens.field @"startDate"
+{-# DEPRECATED eliStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
-instance Lude.FromJSON ExecutionListItem where
+-- | If the execution already ended, the date the execution stopped.
+--
+-- /Note:/ Consider using 'stopDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eliStopDate :: Lens.Lens' ExecutionListItem (Core.Maybe Core.NominalDiffTime)
+eliStopDate = Lens.field @"stopDate"
+{-# DEPRECATED eliStopDate "Use generic-lens or generic-optics with 'stopDate' instead." #-}
+
+instance Core.FromJSON ExecutionListItem where
   parseJSON =
-    Lude.withObject
-      "ExecutionListItem"
-      ( \x ->
-          ExecutionListItem'
-            Lude.<$> (x Lude..:? "stopDate")
-            Lude.<*> (x Lude..: "status")
-            Lude.<*> (x Lude..: "startDate")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "stateMachineArn")
-            Lude.<*> (x Lude..: "executionArn")
-      )
+    Core.withObject "ExecutionListItem" Core.$
+      \x ->
+        ExecutionListItem'
+          Core.<$> (x Core..: "executionArn")
+          Core.<*> (x Core..: "stateMachineArn")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..: "status")
+          Core.<*> (x Core..: "startDate")
+          Core.<*> (x Core..:? "stopDate")

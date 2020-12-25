@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.AacRawFormat
   ( AacRawFormat
       ( AacRawFormat',
-        ARFLatmLoas,
-        ARFNone
+        AacRawFormatLatmLoas,
+        AacRawFormatNone,
+        fromAacRawFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Aac Raw Format
-newtype AacRawFormat = AacRawFormat' Lude.Text
+newtype AacRawFormat = AacRawFormat' {fromAacRawFormat :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ARFLatmLoas :: AacRawFormat
-pattern ARFLatmLoas = AacRawFormat' "LATM_LOAS"
+pattern AacRawFormatLatmLoas :: AacRawFormat
+pattern AacRawFormatLatmLoas = AacRawFormat' "LATM_LOAS"
 
-pattern ARFNone :: AacRawFormat
-pattern ARFNone = AacRawFormat' "NONE"
+pattern AacRawFormatNone :: AacRawFormat
+pattern AacRawFormatNone = AacRawFormat' "NONE"
 
 {-# COMPLETE
-  ARFLatmLoas,
-  ARFNone,
+  AacRawFormatLatmLoas,
+  AacRawFormatNone,
   AacRawFormat'
   #-}

@@ -32,145 +32,135 @@ module Network.AWS.EC2.EnableFastSnapshotRestores
     mkEnableFastSnapshotRestoresResponse,
 
     -- ** Response lenses
-    efsrrsUnsuccessful,
-    efsrrsSuccessful,
-    efsrrsResponseStatus,
+    efsrrrsSuccessful,
+    efsrrrsUnsuccessful,
+    efsrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableFastSnapshotRestores' smart constructor.
 data EnableFastSnapshotRestores = EnableFastSnapshotRestores'
   { -- | One or more Availability Zones. For example, @us-east-2a@ .
-    availabilityZones :: [Lude.Text],
+    availabilityZones :: [Types.String],
     -- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@ . You can specify a snapshot that was shared with you from another AWS account.
-    sourceSnapshotIds :: [Lude.Text],
+    sourceSnapshotIds :: [Types.SnapshotId],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableFastSnapshotRestores' with the minimum fields required to make a request.
---
--- * 'availabilityZones' - One or more Availability Zones. For example, @us-east-2a@ .
--- * 'sourceSnapshotIds' - The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@ . You can specify a snapshot that was shared with you from another AWS account.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'EnableFastSnapshotRestores' value with any optional fields omitted.
 mkEnableFastSnapshotRestores ::
   EnableFastSnapshotRestores
 mkEnableFastSnapshotRestores =
   EnableFastSnapshotRestores'
-    { availabilityZones = Lude.mempty,
-      sourceSnapshotIds = Lude.mempty,
-      dryRun = Lude.Nothing
+    { availabilityZones = Core.mempty,
+      sourceSnapshotIds = Core.mempty,
+      dryRun = Core.Nothing
     }
 
 -- | One or more Availability Zones. For example, @us-east-2a@ .
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrAvailabilityZones :: Lens.Lens' EnableFastSnapshotRestores [Lude.Text]
-efsrAvailabilityZones = Lens.lens (availabilityZones :: EnableFastSnapshotRestores -> [Lude.Text]) (\s a -> s {availabilityZones = a} :: EnableFastSnapshotRestores)
+efsrAvailabilityZones :: Lens.Lens' EnableFastSnapshotRestores [Types.String]
+efsrAvailabilityZones = Lens.field @"availabilityZones"
 {-# DEPRECATED efsrAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@ . You can specify a snapshot that was shared with you from another AWS account.
 --
 -- /Note:/ Consider using 'sourceSnapshotIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrSourceSnapshotIds :: Lens.Lens' EnableFastSnapshotRestores [Lude.Text]
-efsrSourceSnapshotIds = Lens.lens (sourceSnapshotIds :: EnableFastSnapshotRestores -> [Lude.Text]) (\s a -> s {sourceSnapshotIds = a} :: EnableFastSnapshotRestores)
+efsrSourceSnapshotIds :: Lens.Lens' EnableFastSnapshotRestores [Types.SnapshotId]
+efsrSourceSnapshotIds = Lens.field @"sourceSnapshotIds"
 {-# DEPRECATED efsrSourceSnapshotIds "Use generic-lens or generic-optics with 'sourceSnapshotIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrDryRun :: Lens.Lens' EnableFastSnapshotRestores (Lude.Maybe Lude.Bool)
-efsrDryRun = Lens.lens (dryRun :: EnableFastSnapshotRestores -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableFastSnapshotRestores)
+efsrDryRun :: Lens.Lens' EnableFastSnapshotRestores (Core.Maybe Core.Bool)
+efsrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED efsrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest EnableFastSnapshotRestores where
+instance Core.AWSRequest EnableFastSnapshotRestores where
   type
     Rs EnableFastSnapshotRestores =
       EnableFastSnapshotRestoresResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnableFastSnapshotRestores")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "AvailabilityZone" availabilityZones)
+                Core.<> (Core.toQueryList "SourceSnapshotId" sourceSnapshotIds)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           EnableFastSnapshotRestoresResponse'
-            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> ( x Lude..@? "successful" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "successful" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "unsuccessful" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableFastSnapshotRestores where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnableFastSnapshotRestores where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableFastSnapshotRestores where
-  toQuery EnableFastSnapshotRestores' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("EnableFastSnapshotRestores" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "AvailabilityZone" availabilityZones,
-        Lude.toQueryList "SourceSnapshotId" sourceSnapshotIds,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkEnableFastSnapshotRestoresResponse' smart constructor.
 data EnableFastSnapshotRestoresResponse = EnableFastSnapshotRestoresResponse'
-  { -- | Information about the snapshots for which fast snapshot restores could not be enabled.
-    unsuccessful :: Lude.Maybe [EnableFastSnapshotRestoreErrorItem],
-    -- | Information about the snapshots for which fast snapshot restores were successfully enabled.
-    successful :: Lude.Maybe [EnableFastSnapshotRestoreSuccessItem],
+  { -- | Information about the snapshots for which fast snapshot restores were successfully enabled.
+    successful :: Core.Maybe [Types.EnableFastSnapshotRestoreSuccessItem],
+    -- | Information about the snapshots for which fast snapshot restores could not be enabled.
+    unsuccessful :: Core.Maybe [Types.EnableFastSnapshotRestoreErrorItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnableFastSnapshotRestoresResponse' with the minimum fields required to make a request.
---
--- * 'unsuccessful' - Information about the snapshots for which fast snapshot restores could not be enabled.
--- * 'successful' - Information about the snapshots for which fast snapshot restores were successfully enabled.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableFastSnapshotRestoresResponse' value with any optional fields omitted.
 mkEnableFastSnapshotRestoresResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableFastSnapshotRestoresResponse
-mkEnableFastSnapshotRestoresResponse pResponseStatus_ =
+mkEnableFastSnapshotRestoresResponse responseStatus =
   EnableFastSnapshotRestoresResponse'
-    { unsuccessful = Lude.Nothing,
-      successful = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { successful = Core.Nothing,
+      unsuccessful = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the snapshots for which fast snapshot restores could not be enabled.
---
--- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrrsUnsuccessful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Lude.Maybe [EnableFastSnapshotRestoreErrorItem])
-efsrrsUnsuccessful = Lens.lens (unsuccessful :: EnableFastSnapshotRestoresResponse -> Lude.Maybe [EnableFastSnapshotRestoreErrorItem]) (\s a -> s {unsuccessful = a} :: EnableFastSnapshotRestoresResponse)
-{-# DEPRECATED efsrrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
 -- | Information about the snapshots for which fast snapshot restores were successfully enabled.
 --
 -- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrrsSuccessful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Lude.Maybe [EnableFastSnapshotRestoreSuccessItem])
-efsrrsSuccessful = Lens.lens (successful :: EnableFastSnapshotRestoresResponse -> Lude.Maybe [EnableFastSnapshotRestoreSuccessItem]) (\s a -> s {successful = a} :: EnableFastSnapshotRestoresResponse)
-{-# DEPRECATED efsrrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
+efsrrrsSuccessful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Core.Maybe [Types.EnableFastSnapshotRestoreSuccessItem])
+efsrrrsSuccessful = Lens.field @"successful"
+{-# DEPRECATED efsrrrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
+
+-- | Information about the snapshots for which fast snapshot restores could not be enabled.
+--
+-- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrrrsUnsuccessful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Core.Maybe [Types.EnableFastSnapshotRestoreErrorItem])
+efsrrrsUnsuccessful = Lens.field @"unsuccessful"
+{-# DEPRECATED efsrrrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrrsResponseStatus :: Lens.Lens' EnableFastSnapshotRestoresResponse Lude.Int
-efsrrsResponseStatus = Lens.lens (responseStatus :: EnableFastSnapshotRestoresResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableFastSnapshotRestoresResponse)
-{-# DEPRECATED efsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+efsrrrsResponseStatus :: Lens.Lens' EnableFastSnapshotRestoresResponse Core.Int
+efsrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED efsrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

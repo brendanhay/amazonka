@@ -27,91 +27,82 @@ module Network.AWS.CloudFront.DeleteMonitoringSubscription
     mkDeleteMonitoringSubscriptionResponse,
 
     -- ** Response lenses
-    dmsrsResponseStatus,
+    dmsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteMonitoringSubscription' smart constructor.
 newtype DeleteMonitoringSubscription = DeleteMonitoringSubscription'
   { -- | The ID of the distribution that you are disabling metrics for.
-    distributionId :: Lude.Text
+    distributionId :: Types.DistributionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMonitoringSubscription' with the minimum fields required to make a request.
---
--- * 'distributionId' - The ID of the distribution that you are disabling metrics for.
+-- | Creates a 'DeleteMonitoringSubscription' value with any optional fields omitted.
 mkDeleteMonitoringSubscription ::
   -- | 'distributionId'
-  Lude.Text ->
+  Types.DistributionId ->
   DeleteMonitoringSubscription
-mkDeleteMonitoringSubscription pDistributionId_ =
-  DeleteMonitoringSubscription' {distributionId = pDistributionId_}
+mkDeleteMonitoringSubscription distributionId =
+  DeleteMonitoringSubscription' {distributionId}
 
 -- | The ID of the distribution that you are disabling metrics for.
 --
 -- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmsDistributionId :: Lens.Lens' DeleteMonitoringSubscription Lude.Text
-dmsDistributionId = Lens.lens (distributionId :: DeleteMonitoringSubscription -> Lude.Text) (\s a -> s {distributionId = a} :: DeleteMonitoringSubscription)
+dmsDistributionId :: Lens.Lens' DeleteMonitoringSubscription Types.DistributionId
+dmsDistributionId = Lens.field @"distributionId"
 {-# DEPRECATED dmsDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
-instance Lude.AWSRequest DeleteMonitoringSubscription where
+instance Core.AWSRequest DeleteMonitoringSubscription where
   type
     Rs DeleteMonitoringSubscription =
       DeleteMonitoringSubscriptionResponse
-  request = Req.delete cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distributions/" Core.<> (Core.toText distributionId)
+                Core.<> ("/monitoring-subscription")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteMonitoringSubscriptionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteMonitoringSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteMonitoringSubscription where
-  toPath DeleteMonitoringSubscription' {..} =
-    Lude.mconcat
-      [ "/2020-05-31/distributions/",
-        Lude.toBS distributionId,
-        "/monitoring-subscription"
-      ]
-
-instance Lude.ToQuery DeleteMonitoringSubscription where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteMonitoringSubscriptionResponse' smart constructor.
 newtype DeleteMonitoringSubscriptionResponse = DeleteMonitoringSubscriptionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMonitoringSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteMonitoringSubscriptionResponse' value with any optional fields omitted.
 mkDeleteMonitoringSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteMonitoringSubscriptionResponse
-mkDeleteMonitoringSubscriptionResponse pResponseStatus_ =
-  DeleteMonitoringSubscriptionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteMonitoringSubscriptionResponse responseStatus =
+  DeleteMonitoringSubscriptionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmsrsResponseStatus :: Lens.Lens' DeleteMonitoringSubscriptionResponse Lude.Int
-dmsrsResponseStatus = Lens.lens (responseStatus :: DeleteMonitoringSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMonitoringSubscriptionResponse)
-{-# DEPRECATED dmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmsrrsResponseStatus :: Lens.Lens' DeleteMonitoringSubscriptionResponse Core.Int
+dmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

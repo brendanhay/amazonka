@@ -20,119 +20,108 @@ module Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
     mkUpdateHITTypeOfHIT,
 
     -- ** Request lenses
-    uhittohitHITTypeId,
     uhittohitHITId,
+    uhittohitHITTypeId,
 
     -- * Destructuring the response
     UpdateHITTypeOfHITResponse (..),
     mkUpdateHITTypeOfHITResponse,
 
     -- ** Response lenses
-    uhittohitrsResponseStatus,
+    uhittohitrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateHITTypeOfHIT' smart constructor.
 data UpdateHITTypeOfHIT = UpdateHITTypeOfHIT'
-  { -- | The ID of the new HIT type.
-    hITTypeId :: Lude.Text,
-    -- | The HIT to update.
-    hITId :: Lude.Text
+  { -- | The HIT to update.
+    hITId :: Types.EntityId,
+    -- | The ID of the new HIT type.
+    hITTypeId :: Types.EntityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateHITTypeOfHIT' with the minimum fields required to make a request.
---
--- * 'hITTypeId' - The ID of the new HIT type.
--- * 'hITId' - The HIT to update.
+-- | Creates a 'UpdateHITTypeOfHIT' value with any optional fields omitted.
 mkUpdateHITTypeOfHIT ::
-  -- | 'hITTypeId'
-  Lude.Text ->
   -- | 'hITId'
-  Lude.Text ->
+  Types.EntityId ->
+  -- | 'hITTypeId'
+  Types.EntityId ->
   UpdateHITTypeOfHIT
-mkUpdateHITTypeOfHIT pHITTypeId_ pHITId_ =
-  UpdateHITTypeOfHIT' {hITTypeId = pHITTypeId_, hITId = pHITId_}
-
--- | The ID of the new HIT type.
---
--- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhittohitHITTypeId :: Lens.Lens' UpdateHITTypeOfHIT Lude.Text
-uhittohitHITTypeId = Lens.lens (hITTypeId :: UpdateHITTypeOfHIT -> Lude.Text) (\s a -> s {hITTypeId = a} :: UpdateHITTypeOfHIT)
-{-# DEPRECATED uhittohitHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
+mkUpdateHITTypeOfHIT hITId hITTypeId =
+  UpdateHITTypeOfHIT' {hITId, hITTypeId}
 
 -- | The HIT to update.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhittohitHITId :: Lens.Lens' UpdateHITTypeOfHIT Lude.Text
-uhittohitHITId = Lens.lens (hITId :: UpdateHITTypeOfHIT -> Lude.Text) (\s a -> s {hITId = a} :: UpdateHITTypeOfHIT)
+uhittohitHITId :: Lens.Lens' UpdateHITTypeOfHIT Types.EntityId
+uhittohitHITId = Lens.field @"hITId"
 {-# DEPRECATED uhittohitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
-instance Lude.AWSRequest UpdateHITTypeOfHIT where
+-- | The ID of the new HIT type.
+--
+-- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhittohitHITTypeId :: Lens.Lens' UpdateHITTypeOfHIT Types.EntityId
+uhittohitHITTypeId = Lens.field @"hITTypeId"
+{-# DEPRECATED uhittohitHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
+
+instance Core.FromJSON UpdateHITTypeOfHIT where
+  toJSON UpdateHITTypeOfHIT {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HITId" Core..= hITId),
+            Core.Just ("HITTypeId" Core..= hITTypeId)
+          ]
+      )
+
+instance Core.AWSRequest UpdateHITTypeOfHIT where
   type Rs UpdateHITTypeOfHIT = UpdateHITTypeOfHITResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateHITTypeOfHITResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateHITTypeOfHITResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateHITTypeOfHIT where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateHITTypeOfHIT where
-  toJSON UpdateHITTypeOfHIT' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("HITTypeId" Lude..= hITTypeId),
-            Lude.Just ("HITId" Lude..= hITId)
-          ]
-      )
-
-instance Lude.ToPath UpdateHITTypeOfHIT where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateHITTypeOfHIT where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateHITTypeOfHITResponse' smart constructor.
 newtype UpdateHITTypeOfHITResponse = UpdateHITTypeOfHITResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateHITTypeOfHITResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateHITTypeOfHITResponse' value with any optional fields omitted.
 mkUpdateHITTypeOfHITResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateHITTypeOfHITResponse
-mkUpdateHITTypeOfHITResponse pResponseStatus_ =
-  UpdateHITTypeOfHITResponse' {responseStatus = pResponseStatus_}
+mkUpdateHITTypeOfHITResponse responseStatus =
+  UpdateHITTypeOfHITResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhittohitrsResponseStatus :: Lens.Lens' UpdateHITTypeOfHITResponse Lude.Int
-uhittohitrsResponseStatus = Lens.lens (responseStatus :: UpdateHITTypeOfHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateHITTypeOfHITResponse)
-{-# DEPRECATED uhittohitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uhittohitrrsResponseStatus :: Lens.Lens' UpdateHITTypeOfHITResponse Core.Int
+uhittohitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uhittohitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

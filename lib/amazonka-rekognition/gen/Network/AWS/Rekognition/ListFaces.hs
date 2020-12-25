@@ -25,182 +25,168 @@ module Network.AWS.Rekognition.ListFaces
 
     -- ** Request lenses
     lfCollectionId,
-    lfNextToken,
     lfMaxResults,
+    lfNextToken,
 
     -- * Destructuring the response
     ListFacesResponse (..),
     mkListFacesResponse,
 
     -- ** Response lenses
-    lfrsFaceModelVersion,
-    lfrsNextToken,
-    lfrsFaces,
-    lfrsResponseStatus,
+    lfrrsFaceModelVersion,
+    lfrrsFaces,
+    lfrrsNextToken,
+    lfrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFaces' smart constructor.
 data ListFaces = ListFaces'
   { -- | ID of the collection from which to list the faces.
-    collectionId :: Lude.Text,
-    -- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
-    nextToken :: Lude.Maybe Lude.Text,
+    collectionId :: Types.CollectionId,
     -- | Maximum number of faces to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFaces' with the minimum fields required to make a request.
---
--- * 'collectionId' - ID of the collection from which to list the faces.
--- * 'nextToken' - If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
--- * 'maxResults' - Maximum number of faces to return.
+-- | Creates a 'ListFaces' value with any optional fields omitted.
 mkListFaces ::
   -- | 'collectionId'
-  Lude.Text ->
+  Types.CollectionId ->
   ListFaces
-mkListFaces pCollectionId_ =
+mkListFaces collectionId =
   ListFaces'
-    { collectionId = pCollectionId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { collectionId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | ID of the collection from which to list the faces.
 --
 -- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfCollectionId :: Lens.Lens' ListFaces Lude.Text
-lfCollectionId = Lens.lens (collectionId :: ListFaces -> Lude.Text) (\s a -> s {collectionId = a} :: ListFaces)
+lfCollectionId :: Lens.Lens' ListFaces Types.CollectionId
+lfCollectionId = Lens.field @"collectionId"
 {-# DEPRECATED lfCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
-
--- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfNextToken :: Lens.Lens' ListFaces (Lude.Maybe Lude.Text)
-lfNextToken = Lens.lens (nextToken :: ListFaces -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFaces)
-{-# DEPRECATED lfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of faces to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfMaxResults :: Lens.Lens' ListFaces (Lude.Maybe Lude.Natural)
-lfMaxResults = Lens.lens (maxResults :: ListFaces -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFaces)
+lfMaxResults :: Lens.Lens' ListFaces (Core.Maybe Core.Natural)
+lfMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListFaces where
-  page rq rs
-    | Page.stop (rs Lens.^. lfrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfrsFaces) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lfNextToken Lens..~ rs Lens.^. lfrsNextToken
+-- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfNextToken :: Lens.Lens' ListFaces (Core.Maybe Types.PaginationToken)
+lfNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListFaces where
+instance Core.FromJSON ListFaces where
+  toJSON ListFaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CollectionId" Core..= collectionId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListFaces where
   type Rs ListFaces = ListFacesResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.ListFaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListFacesResponse'
-            Lude.<$> (x Lude..?> "FaceModelVersion")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Faces" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FaceModelVersion")
+            Core.<*> (x Core..:? "Faces")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListFaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.ListFaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListFaces where
-  toJSON ListFaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CollectionId" Lude..= collectionId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListFaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListFaces where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListFaces where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"faces" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListFacesResponse' smart constructor.
 data ListFacesResponse = ListFacesResponse'
   { -- | Version number of the face detection model associated with the input collection (@CollectionId@ ).
-    faceModelVersion :: Lude.Maybe Lude.Text,
-    -- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
-    nextToken :: Lude.Maybe Lude.Text,
+    faceModelVersion :: Core.Maybe Types.String,
     -- | An array of @Face@ objects.
-    faces :: Lude.Maybe [Face],
+    faces :: Core.Maybe [Types.Face],
+    -- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFacesResponse' with the minimum fields required to make a request.
---
--- * 'faceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
--- * 'nextToken' - If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
--- * 'faces' - An array of @Face@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFacesResponse' value with any optional fields omitted.
 mkListFacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFacesResponse
-mkListFacesResponse pResponseStatus_ =
+mkListFacesResponse responseStatus =
   ListFacesResponse'
-    { faceModelVersion = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      faces = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { faceModelVersion = Core.Nothing,
+      faces = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Version number of the face detection model associated with the input collection (@CollectionId@ ).
 --
 -- /Note:/ Consider using 'faceModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsFaceModelVersion :: Lens.Lens' ListFacesResponse (Lude.Maybe Lude.Text)
-lfrsFaceModelVersion = Lens.lens (faceModelVersion :: ListFacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {faceModelVersion = a} :: ListFacesResponse)
-{-# DEPRECATED lfrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
-
--- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsNextToken :: Lens.Lens' ListFacesResponse (Lude.Maybe Lude.Text)
-lfrsNextToken = Lens.lens (nextToken :: ListFacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacesResponse)
-{-# DEPRECATED lfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lfrrsFaceModelVersion :: Lens.Lens' ListFacesResponse (Core.Maybe Types.String)
+lfrrsFaceModelVersion = Lens.field @"faceModelVersion"
+{-# DEPRECATED lfrrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
 
 -- | An array of @Face@ objects.
 --
 -- /Note:/ Consider using 'faces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsFaces :: Lens.Lens' ListFacesResponse (Lude.Maybe [Face])
-lfrsFaces = Lens.lens (faces :: ListFacesResponse -> Lude.Maybe [Face]) (\s a -> s {faces = a} :: ListFacesResponse)
-{-# DEPRECATED lfrsFaces "Use generic-lens or generic-optics with 'faces' instead." #-}
+lfrrsFaces :: Lens.Lens' ListFacesResponse (Core.Maybe [Types.Face])
+lfrrsFaces = Lens.field @"faces"
+{-# DEPRECATED lfrrsFaces "Use generic-lens or generic-optics with 'faces' instead." #-}
+
+-- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrrsNextToken :: Lens.Lens' ListFacesResponse (Core.Maybe Types.String)
+lfrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsResponseStatus :: Lens.Lens' ListFacesResponse Lude.Int
-lfrsResponseStatus = Lens.lens (responseStatus :: ListFacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFacesResponse)
-{-# DEPRECATED lfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfrrsResponseStatus :: Lens.Lens' ListFacesResponse Core.Int
+lfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

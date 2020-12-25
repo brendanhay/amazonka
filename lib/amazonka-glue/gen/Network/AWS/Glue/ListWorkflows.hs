@@ -20,145 +20,131 @@ module Network.AWS.Glue.ListWorkflows
     mkListWorkflows,
 
     -- ** Request lenses
-    lwNextToken,
     lwMaxResults,
+    lwNextToken,
 
     -- * Destructuring the response
     ListWorkflowsResponse (..),
     mkListWorkflowsResponse,
 
     -- ** Response lenses
-    lwrsNextToken,
-    lwrsWorkflows,
-    lwrsResponseStatus,
+    lwrrsNextToken,
+    lwrrsWorkflows,
+    lwrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListWorkflows' smart constructor.
 data ListWorkflows = ListWorkflows'
-  { -- | A continuation token, if this is a continuation request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum size of a list to return.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum size of a list to return.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListWorkflows' with the minimum fields required to make a request.
---
--- * 'nextToken' - A continuation token, if this is a continuation request.
--- * 'maxResults' - The maximum size of a list to return.
+-- | Creates a 'ListWorkflows' value with any optional fields omitted.
 mkListWorkflows ::
   ListWorkflows
 mkListWorkflows =
   ListWorkflows'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | A continuation token, if this is a continuation request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwNextToken :: Lens.Lens' ListWorkflows (Lude.Maybe Lude.Text)
-lwNextToken = Lens.lens (nextToken :: ListWorkflows -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkflows)
-{-# DEPRECATED lwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of a list to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwMaxResults :: Lens.Lens' ListWorkflows (Lude.Maybe Lude.Natural)
-lwMaxResults = Lens.lens (maxResults :: ListWorkflows -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkflows)
+lwMaxResults :: Lens.Lens' ListWorkflows (Core.Maybe Core.Natural)
+lwMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lwMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListWorkflows where
+-- | A continuation token, if this is a continuation request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwNextToken :: Lens.Lens' ListWorkflows (Core.Maybe Types.NextToken)
+lwNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListWorkflows where
+  toJSON ListWorkflows {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListWorkflows where
   type Rs ListWorkflows = ListWorkflowsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.ListWorkflows")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListWorkflowsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Workflows")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Workflows")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListWorkflows where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.ListWorkflows" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListWorkflows where
-  toJSON ListWorkflows' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListWorkflows where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListWorkflows where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListWorkflowsResponse' smart constructor.
 data ListWorkflowsResponse = ListWorkflowsResponse'
   { -- | A continuation token, if not all workflow names have been returned.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.GenericString,
     -- | List of names of workflows in the account.
-    workflows :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    workflows :: Core.Maybe (Core.NonEmpty Types.NameString),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListWorkflowsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A continuation token, if not all workflow names have been returned.
--- * 'workflows' - List of names of workflows in the account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListWorkflowsResponse' value with any optional fields omitted.
 mkListWorkflowsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListWorkflowsResponse
-mkListWorkflowsResponse pResponseStatus_ =
+mkListWorkflowsResponse responseStatus =
   ListWorkflowsResponse'
-    { nextToken = Lude.Nothing,
-      workflows = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      workflows = Core.Nothing,
+      responseStatus
     }
 
 -- | A continuation token, if not all workflow names have been returned.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwrsNextToken :: Lens.Lens' ListWorkflowsResponse (Lude.Maybe Lude.Text)
-lwrsNextToken = Lens.lens (nextToken :: ListWorkflowsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkflowsResponse)
-{-# DEPRECATED lwrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lwrrsNextToken :: Lens.Lens' ListWorkflowsResponse (Core.Maybe Types.GenericString)
+lwrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lwrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of names of workflows in the account.
 --
 -- /Note:/ Consider using 'workflows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwrsWorkflows :: Lens.Lens' ListWorkflowsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-lwrsWorkflows = Lens.lens (workflows :: ListWorkflowsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {workflows = a} :: ListWorkflowsResponse)
-{-# DEPRECATED lwrsWorkflows "Use generic-lens or generic-optics with 'workflows' instead." #-}
+lwrrsWorkflows :: Lens.Lens' ListWorkflowsResponse (Core.Maybe (Core.NonEmpty Types.NameString))
+lwrrsWorkflows = Lens.field @"workflows"
+{-# DEPRECATED lwrrsWorkflows "Use generic-lens or generic-optics with 'workflows' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwrsResponseStatus :: Lens.Lens' ListWorkflowsResponse Lude.Int
-lwrsResponseStatus = Lens.lens (responseStatus :: ListWorkflowsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkflowsResponse)
-{-# DEPRECATED lwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lwrrsResponseStatus :: Lens.Lens' ListWorkflowsResponse Core.Int
+lwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

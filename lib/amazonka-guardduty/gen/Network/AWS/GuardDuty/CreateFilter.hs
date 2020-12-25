@@ -20,11 +20,11 @@ module Network.AWS.GuardDuty.CreateFilter
     mkCreateFilter,
 
     -- ** Request lenses
-    cfClientToken,
-    cfFindingCriteria,
-    cfAction,
     cfDetectorId,
     cfName,
+    cfFindingCriteria,
+    cfAction,
+    cfClientToken,
     cfDescription,
     cfRank,
     cfTags,
@@ -34,21 +34,23 @@ module Network.AWS.GuardDuty.CreateFilter
     mkCreateFilterResponse,
 
     -- ** Response lenses
-    cfrsName,
-    cfrsResponseStatus,
+    cfrrsName,
+    cfrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateFilter' smart constructor.
 data CreateFilter = CreateFilter'
-  { -- | The idempotency token for the create request.
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | The unique ID of the detector of the GuardDuty account that you want to create a filter for.
+    detectorId :: Types.DetectorId,
+    -- | The name of the filter.
+    name :: Types.FilterName,
     -- | Represents the criteria to be used in the filter for querying findings.
     --
     -- You can only use the following attributes to query findings:
@@ -203,214 +205,55 @@ data CreateFilter = CreateFilter'
     --
     --     * updatedAt
     -- Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
-    findingCriteria :: FindingCriteria,
+    findingCriteria :: Types.FindingCriteria,
     -- | Specifies the action that is to be applied to the findings that match the filter.
-    action :: Lude.Maybe FilterAction,
-    -- | The unique ID of the detector of the GuardDuty account that you want to create a filter for.
-    detectorId :: Lude.Text,
-    -- | The name of the filter.
-    name :: Lude.Text,
+    action :: Core.Maybe Types.FilterAction,
+    -- | The idempotency token for the create request.
+    clientToken :: Core.Maybe Types.ClientToken,
     -- | The description of the filter.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.FilterDescription,
     -- | Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-    rank :: Lude.Maybe Lude.Natural,
+    rank :: Core.Maybe Core.Natural,
     -- | The tags to be added to a new filter resource.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFilter' with the minimum fields required to make a request.
---
--- * 'clientToken' - The idempotency token for the create request.
--- * 'findingCriteria' - Represents the criteria to be used in the filter for querying findings.
---
--- You can only use the following attributes to query findings:
---
---     * accountId
---
---
---     * region
---
---
---     * confidence
---
---
---     * id
---
---
---     * resource.accessKeyDetails.accessKeyId
---
---
---     * resource.accessKeyDetails.principalId
---
---
---     * resource.accessKeyDetails.userName
---
---
---     * resource.accessKeyDetails.userType
---
---
---     * resource.instanceDetails.iamInstanceProfile.id
---
---
---     * resource.instanceDetails.imageId
---
---
---     * resource.instanceDetails.instanceId
---
---
---     * resource.instanceDetails.outpostArn
---
---
---     * resource.instanceDetails.networkInterfaces.ipv6Addresses
---
---
---     * resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
---
---
---     * resource.instanceDetails.networkInterfaces.publicDnsName
---
---
---     * resource.instanceDetails.networkInterfaces.publicIp
---
---
---     * resource.instanceDetails.networkInterfaces.securityGroups.groupId
---
---
---     * resource.instanceDetails.networkInterfaces.securityGroups.groupName
---
---
---     * resource.instanceDetails.networkInterfaces.subnetId
---
---
---     * resource.instanceDetails.networkInterfaces.vpcId
---
---
---     * resource.instanceDetails.tags.key
---
---
---     * resource.instanceDetails.tags.value
---
---
---     * resource.resourceType
---
---
---     * service.action.actionType
---
---
---     * service.action.awsApiCallAction.api
---
---
---     * service.action.awsApiCallAction.callerType
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.city.cityName
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.country.countryName
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.organization.asn
---
---
---     * service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
---
---
---     * service.action.awsApiCallAction.serviceName
---
---
---     * service.action.dnsRequestAction.domain
---
---
---     * service.action.networkConnectionAction.blocked
---
---
---     * service.action.networkConnectionAction.connectionDirection
---
---
---     * service.action.networkConnectionAction.localPortDetails.port
---
---
---     * service.action.networkConnectionAction.protocol
---
---
---     * service.action.networkConnectionAction.localIpDetails.ipAddressV4
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.city.cityName
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.country.countryName
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.organization.asn
---
---
---     * service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
---
---
---     * service.action.networkConnectionAction.remotePortDetails.port
---
---
---     * service.additionalInfo.threatListName
---
---
---     * service.archived
--- When this attribute is set to TRUE, only archived findings are listed. When it's set to FALSE, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.
---
---
---     * service.resourceRole
---
---
---     * severity
---
---
---     * type
---
---
---     * updatedAt
--- Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
---
---
--- * 'action' - Specifies the action that is to be applied to the findings that match the filter.
--- * 'detectorId' - The unique ID of the detector of the GuardDuty account that you want to create a filter for.
--- * 'name' - The name of the filter.
--- * 'description' - The description of the filter.
--- * 'rank' - Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
--- * 'tags' - The tags to be added to a new filter resource.
+-- | Creates a 'CreateFilter' value with any optional fields omitted.
 mkCreateFilter ::
-  -- | 'findingCriteria'
-  FindingCriteria ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   -- | 'name'
-  Lude.Text ->
+  Types.FilterName ->
+  -- | 'findingCriteria'
+  Types.FindingCriteria ->
   CreateFilter
-mkCreateFilter pFindingCriteria_ pDetectorId_ pName_ =
+mkCreateFilter detectorId name findingCriteria =
   CreateFilter'
-    { clientToken = Lude.Nothing,
-      findingCriteria = pFindingCriteria_,
-      action = Lude.Nothing,
-      detectorId = pDetectorId_,
-      name = pName_,
-      description = Lude.Nothing,
-      rank = Lude.Nothing,
-      tags = Lude.Nothing
+    { detectorId,
+      name,
+      findingCriteria,
+      action = Core.Nothing,
+      clientToken = Core.Nothing,
+      description = Core.Nothing,
+      rank = Core.Nothing,
+      tags = Core.Nothing
     }
 
--- | The idempotency token for the create request.
+-- | The unique ID of the detector of the GuardDuty account that you want to create a filter for.
 --
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfClientToken :: Lens.Lens' CreateFilter (Lude.Maybe Lude.Text)
-cfClientToken = Lens.lens (clientToken :: CreateFilter -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateFilter)
-{-# DEPRECATED cfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfDetectorId :: Lens.Lens' CreateFilter Types.DetectorId
+cfDetectorId = Lens.field @"detectorId"
+{-# DEPRECATED cfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfName :: Lens.Lens' CreateFilter Types.FilterName
+cfName = Lens.field @"name"
+{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Represents the criteria to be used in the filter for querying findings.
 --
@@ -570,128 +413,112 @@ cfClientToken = Lens.lens (clientToken :: CreateFilter -> Lude.Maybe Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfFindingCriteria :: Lens.Lens' CreateFilter FindingCriteria
-cfFindingCriteria = Lens.lens (findingCriteria :: CreateFilter -> FindingCriteria) (\s a -> s {findingCriteria = a} :: CreateFilter)
+cfFindingCriteria :: Lens.Lens' CreateFilter Types.FindingCriteria
+cfFindingCriteria = Lens.field @"findingCriteria"
 {-# DEPRECATED cfFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
 
 -- | Specifies the action that is to be applied to the findings that match the filter.
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfAction :: Lens.Lens' CreateFilter (Lude.Maybe FilterAction)
-cfAction = Lens.lens (action :: CreateFilter -> Lude.Maybe FilterAction) (\s a -> s {action = a} :: CreateFilter)
+cfAction :: Lens.Lens' CreateFilter (Core.Maybe Types.FilterAction)
+cfAction = Lens.field @"action"
 {-# DEPRECATED cfAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
--- | The unique ID of the detector of the GuardDuty account that you want to create a filter for.
+-- | The idempotency token for the create request.
 --
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfDetectorId :: Lens.Lens' CreateFilter Lude.Text
-cfDetectorId = Lens.lens (detectorId :: CreateFilter -> Lude.Text) (\s a -> s {detectorId = a} :: CreateFilter)
-{-# DEPRECATED cfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfName :: Lens.Lens' CreateFilter Lude.Text
-cfName = Lens.lens (name :: CreateFilter -> Lude.Text) (\s a -> s {name = a} :: CreateFilter)
-{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfClientToken :: Lens.Lens' CreateFilter (Core.Maybe Types.ClientToken)
+cfClientToken = Lens.field @"clientToken"
+{-# DEPRECATED cfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The description of the filter.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfDescription :: Lens.Lens' CreateFilter (Lude.Maybe Lude.Text)
-cfDescription = Lens.lens (description :: CreateFilter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateFilter)
+cfDescription :: Lens.Lens' CreateFilter (Core.Maybe Types.FilterDescription)
+cfDescription = Lens.field @"description"
 {-# DEPRECATED cfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 --
 -- /Note:/ Consider using 'rank' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfRank :: Lens.Lens' CreateFilter (Lude.Maybe Lude.Natural)
-cfRank = Lens.lens (rank :: CreateFilter -> Lude.Maybe Lude.Natural) (\s a -> s {rank = a} :: CreateFilter)
+cfRank :: Lens.Lens' CreateFilter (Core.Maybe Core.Natural)
+cfRank = Lens.field @"rank"
 {-# DEPRECATED cfRank "Use generic-lens or generic-optics with 'rank' instead." #-}
 
 -- | The tags to be added to a new filter resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfTags :: Lens.Lens' CreateFilter (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cfTags = Lens.lens (tags :: CreateFilter -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateFilter)
+cfTags :: Lens.Lens' CreateFilter (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+cfTags = Lens.field @"tags"
 {-# DEPRECATED cfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateFilter where
+instance Core.FromJSON CreateFilter where
+  toJSON CreateFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("findingCriteria" Core..= findingCriteria),
+            ("action" Core..=) Core.<$> action,
+            ("clientToken" Core..=) Core.<$> clientToken,
+            ("description" Core..=) Core.<$> description,
+            ("rank" Core..=) Core.<$> rank,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateFilter where
   type Rs CreateFilter = CreateFilterResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/filter")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateFilterResponse'
-            Lude.<$> (x Lude..:> "name") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "name") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateFilter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateFilter where
-  toJSON CreateFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("clientToken" Lude..=) Lude.<$> clientToken,
-            Lude.Just ("findingCriteria" Lude..= findingCriteria),
-            ("action" Lude..=) Lude.<$> action,
-            Lude.Just ("name" Lude..= name),
-            ("description" Lude..=) Lude.<$> description,
-            ("rank" Lude..=) Lude.<$> rank,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateFilter where
-  toPath CreateFilter' {..} =
-    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/filter"]
-
-instance Lude.ToQuery CreateFilter where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateFilterResponse' smart constructor.
 data CreateFilterResponse = CreateFilterResponse'
   { -- | The name of the successfully created filter.
-    name :: Lude.Text,
+    name :: Types.FilterName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFilterResponse' with the minimum fields required to make a request.
---
--- * 'name' - The name of the successfully created filter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateFilterResponse' value with any optional fields omitted.
 mkCreateFilterResponse ::
   -- | 'name'
-  Lude.Text ->
+  Types.FilterName ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateFilterResponse
-mkCreateFilterResponse pName_ pResponseStatus_ =
-  CreateFilterResponse'
-    { name = pName_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateFilterResponse name responseStatus =
+  CreateFilterResponse' {name, responseStatus}
 
 -- | The name of the successfully created filter.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfrsName :: Lens.Lens' CreateFilterResponse Lude.Text
-cfrsName = Lens.lens (name :: CreateFilterResponse -> Lude.Text) (\s a -> s {name = a} :: CreateFilterResponse)
-{-# DEPRECATED cfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+cfrrsName :: Lens.Lens' CreateFilterResponse Types.FilterName
+cfrrsName = Lens.field @"name"
+{-# DEPRECATED cfrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfrsResponseStatus :: Lens.Lens' CreateFilterResponse Lude.Int
-cfrsResponseStatus = Lens.lens (responseStatus :: CreateFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFilterResponse)
-{-# DEPRECATED cfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cfrrsResponseStatus :: Lens.Lens' CreateFilterResponse Core.Int
+cfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

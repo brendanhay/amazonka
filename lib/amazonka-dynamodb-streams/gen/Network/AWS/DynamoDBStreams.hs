@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,25 @@
 -- Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams> in the Amazon DynamoDB Developer Guide.
 module Network.AWS.DynamoDBStreams
   ( -- * Service configuration
-    dynamoDBStreamsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** TrimmedDataAccessException
+    _TrimmedDataAccessException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -41,63 +55,15 @@ module Network.AWS.DynamoDBStreams
 
     -- * Types
 
-    -- ** KeyType
-    KeyType (..),
+    -- ** SequenceNumber
+    SequenceNumber (..),
 
-    -- ** OperationType
-    OperationType (..),
-
-    -- ** ShardIteratorType
-    ShardIteratorType (..),
-
-    -- ** StreamStatus
-    StreamStatus (..),
-
-    -- ** StreamViewType
-    StreamViewType (..),
-
-    -- ** AttributeValue
-    AttributeValue (..),
-    mkAttributeValue,
-    avL,
-    avNS,
-    avM,
-    avNULL,
-    avN,
-    avBS,
-    avB,
-    avSS,
-    avS,
-    avBOOL,
-
-    -- ** Identity
-    Identity (..),
-    mkIdentity,
-    iPrincipalId,
-    iType,
-
-    -- ** KeySchemaElement
-    KeySchemaElement (..),
-    mkKeySchemaElement,
-    kseKeyType,
-    kseAttributeName,
-
-    -- ** Record
-    Record (..),
-    mkRecord,
-    rUserIdentity,
-    rEventVersion,
-    rDynamodb,
-    rAwsRegion,
-    rEventName,
-    rEventSource,
-    rEventId,
-
-    -- ** SequenceNumberRange
-    SequenceNumberRange (..),
-    mkSequenceNumberRange,
-    snrStartingSequenceNumber,
-    snrEndingSequenceNumber,
+    -- ** Stream
+    Stream (..),
+    mkStream,
+    sStreamArn,
+    sStreamLabel,
+    sTableName,
 
     -- ** Shard
     Shard (..),
@@ -106,46 +72,143 @@ module Network.AWS.DynamoDBStreams
     sSequenceNumberRange,
     sShardId,
 
-    -- ** Stream
-    Stream (..),
-    mkStream,
-    sStreamLabel,
-    sStreamARN,
-    sTableName,
+    -- ** KeyType
+    KeyType (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+    mkAttributeValue,
+    avB,
+    avBOOL,
+    avBS,
+    avL,
+    avM,
+    avN,
+    avNS,
+    avNULL,
+    avS,
+    avSS,
 
     -- ** StreamDescription
     StreamDescription (..),
     mkStreamDescription,
+    sdCreationRequestDateTime,
+    sdKeySchema,
     sdLastEvaluatedShardId,
+    sdShards,
+    sdStreamArn,
     sdStreamLabel,
     sdStreamStatus,
-    sdKeySchema,
     sdStreamViewType,
-    sdStreamARN,
-    sdShards,
     sdTableName,
-    sdCreationRequestDateTime,
+
+    -- ** StringAttributeValue
+    StringAttributeValue (..),
+
+    -- ** String
+    String (..),
+
+    -- ** KeySchemaAttributeName
+    KeySchemaAttributeName (..),
+
+    -- ** StreamStatus
+    StreamStatus (..),
+
+    -- ** ShardIterator
+    ShardIterator (..),
+
+    -- ** StreamViewType
+    StreamViewType (..),
+
+    -- ** StreamArn
+    StreamArn (..),
+
+    -- ** NumberAttributeValue
+    NumberAttributeValue (..),
+
+    -- ** OperationType
+    OperationType (..),
+
+    -- ** Record
+    Record (..),
+    mkRecord,
+    rAwsRegion,
+    rDynamodb,
+    rEventID,
+    rEventName,
+    rEventSource,
+    rEventVersion,
+    rUserIdentity,
+
+    -- ** KeySchemaElement
+    KeySchemaElement (..),
+    mkKeySchemaElement,
+    kseAttributeName,
+    kseKeyType,
+
+    -- ** SequenceNumberRange
+    SequenceNumberRange (..),
+    mkSequenceNumberRange,
+    snrEndingSequenceNumber,
+    snrStartingSequenceNumber,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** Identity
+    Identity (..),
+    mkIdentity,
+    iPrincipalId,
+    iType,
+
+    -- ** ShardIteratorType
+    ShardIteratorType (..),
+
+    -- ** TableName
+    TableName (..),
 
     -- ** StreamRecord
     StreamRecord (..),
     mkStreamRecord,
-    srSizeBytes,
-    srSequenceNumber,
     srApproximateCreationDateTime,
-    srStreamViewType,
     srKeys,
-    srOldImage,
     srNewImage,
+    srOldImage,
+    srSequenceNumber,
+    srSizeBytes,
+    srStreamViewType,
+
+    -- ** ShardId
+    ShardId (..),
+
+    -- ** StreamLabel
+    StreamLabel (..),
+
+    -- ** ParentShardId
+    ParentShardId (..),
+
+    -- ** N
+    N (..),
+
+    -- ** S
+    S (..),
+
+    -- ** LastEvaluatedShardId
+    LastEvaluatedShardId (..),
+
+    -- ** LastEvaluatedStreamArn
+    LastEvaluatedStreamArn (..),
+
+    -- ** ExclusiveStartShardId
+    ExclusiveStartShardId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

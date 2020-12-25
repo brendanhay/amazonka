@@ -23,52 +23,47 @@ module Network.AWS.Rekognition.Types.TextDetectionResult
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.TextDetection
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.TextDetection as Types
 
 -- | Information about text detected in a video. Incudes the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.
 --
 -- /See:/ 'mkTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
   { -- | Details about text detected in a video.
-    textDetection :: Lude.Maybe TextDetection,
+    textDetection :: Core.Maybe Types.TextDetection,
     -- | The time, in milliseconds from the start of the video, that the text was detected.
-    timestamp :: Lude.Maybe Lude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TextDetectionResult' with the minimum fields required to make a request.
---
--- * 'textDetection' - Details about text detected in a video.
--- * 'timestamp' - The time, in milliseconds from the start of the video, that the text was detected.
+-- | Creates a 'TextDetectionResult' value with any optional fields omitted.
 mkTextDetectionResult ::
   TextDetectionResult
 mkTextDetectionResult =
   TextDetectionResult'
-    { textDetection = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { textDetection = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | Details about text detected in a video.
 --
 -- /Note:/ Consider using 'textDetection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdrTextDetection :: Lens.Lens' TextDetectionResult (Lude.Maybe TextDetection)
-tdrTextDetection = Lens.lens (textDetection :: TextDetectionResult -> Lude.Maybe TextDetection) (\s a -> s {textDetection = a} :: TextDetectionResult)
+tdrTextDetection :: Lens.Lens' TextDetectionResult (Core.Maybe Types.TextDetection)
+tdrTextDetection = Lens.field @"textDetection"
 {-# DEPRECATED tdrTextDetection "Use generic-lens or generic-optics with 'textDetection' instead." #-}
 
 -- | The time, in milliseconds from the start of the video, that the text was detected.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdrTimestamp :: Lens.Lens' TextDetectionResult (Lude.Maybe Lude.Integer)
-tdrTimestamp = Lens.lens (timestamp :: TextDetectionResult -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: TextDetectionResult)
+tdrTimestamp :: Lens.Lens' TextDetectionResult (Core.Maybe Core.Integer)
+tdrTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED tdrTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON TextDetectionResult where
+instance Core.FromJSON TextDetectionResult where
   parseJSON =
-    Lude.withObject
-      "TextDetectionResult"
-      ( \x ->
-          TextDetectionResult'
-            Lude.<$> (x Lude..:? "TextDetection") Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "TextDetectionResult" Core.$
+      \x ->
+        TextDetectionResult'
+          Core.<$> (x Core..:? "TextDetection") Core.<*> (x Core..:? "Timestamp")

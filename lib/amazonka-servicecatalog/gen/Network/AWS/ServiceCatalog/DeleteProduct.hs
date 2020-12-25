@@ -23,27 +23,29 @@ module Network.AWS.ServiceCatalog.DeleteProduct
     mkDeleteProduct,
 
     -- ** Request lenses
-    dpAcceptLanguage,
-    dpId,
+    dpgId,
+    dpgAcceptLanguage,
 
     -- * Destructuring the response
     DeleteProductResponse (..),
     mkDeleteProductResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dprgrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDeleteProduct' smart constructor.
 data DeleteProduct = DeleteProduct'
-  { -- | The language code.
+  { -- | The product identifier.
+    id :: Types.Id,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -53,34 +55,25 @@ data DeleteProduct = DeleteProduct'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The product identifier.
-    id :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProduct' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'id' - The product identifier.
+-- | Creates a 'DeleteProduct' value with any optional fields omitted.
 mkDeleteProduct ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteProduct
-mkDeleteProduct pId_ =
-  DeleteProduct' {acceptLanguage = Lude.Nothing, id = pId_}
+mkDeleteProduct id =
+  DeleteProduct' {id, acceptLanguage = Core.Nothing}
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgId :: Lens.Lens' DeleteProduct Types.Id
+dpgId = Lens.field @"id"
+{-# DEPRECATED dpgId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The language code.
 --
@@ -96,73 +89,58 @@ mkDeleteProduct pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpAcceptLanguage :: Lens.Lens' DeleteProduct (Lude.Maybe Lude.Text)
-dpAcceptLanguage = Lens.lens (acceptLanguage :: DeleteProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteProduct)
-{-# DEPRECATED dpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dpgAcceptLanguage :: Lens.Lens' DeleteProduct (Core.Maybe Types.AcceptLanguage)
+dpgAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED dpgAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The product identifier.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpId :: Lens.Lens' DeleteProduct Lude.Text
-dpId = Lens.lens (id :: DeleteProduct -> Lude.Text) (\s a -> s {id = a} :: DeleteProduct)
-{-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
+instance Core.FromJSON DeleteProduct where
+  toJSON DeleteProduct {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
-instance Lude.AWSRequest DeleteProduct where
+instance Core.AWSRequest DeleteProduct where
   type Rs DeleteProduct = DeleteProductResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.DeleteProduct")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteProductResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteProductResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProduct where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWS242ServiceCatalogService.DeleteProduct" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProduct where
-  toJSON DeleteProduct' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath DeleteProduct where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProduct where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProductResponse' smart constructor.
 newtype DeleteProductResponse = DeleteProductResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProductResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProductResponse' value with any optional fields omitted.
 mkDeleteProductResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProductResponse
-mkDeleteProductResponse pResponseStatus_ =
-  DeleteProductResponse' {responseStatus = pResponseStatus_}
+mkDeleteProductResponse responseStatus =
+  DeleteProductResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteProductResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProductResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprgrsResponseStatus :: Lens.Lens' DeleteProductResponse Core.Int
+dprgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

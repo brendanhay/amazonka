@@ -29,71 +29,62 @@ module Network.AWS.SageMaker.StopProcessingJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopProcessingJob' smart constructor.
 newtype StopProcessingJob = StopProcessingJob'
   { -- | The name of the processing job to stop.
-    processingJobName :: Lude.Text
+    processingJobName :: Types.ProcessingJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopProcessingJob' with the minimum fields required to make a request.
---
--- * 'processingJobName' - The name of the processing job to stop.
+-- | Creates a 'StopProcessingJob' value with any optional fields omitted.
 mkStopProcessingJob ::
   -- | 'processingJobName'
-  Lude.Text ->
+  Types.ProcessingJobName ->
   StopProcessingJob
-mkStopProcessingJob pProcessingJobName_ =
-  StopProcessingJob' {processingJobName = pProcessingJobName_}
+mkStopProcessingJob processingJobName =
+  StopProcessingJob' {processingJobName}
 
 -- | The name of the processing job to stop.
 --
 -- /Note:/ Consider using 'processingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spjProcessingJobName :: Lens.Lens' StopProcessingJob Lude.Text
-spjProcessingJobName = Lens.lens (processingJobName :: StopProcessingJob -> Lude.Text) (\s a -> s {processingJobName = a} :: StopProcessingJob)
+spjProcessingJobName :: Lens.Lens' StopProcessingJob Types.ProcessingJobName
+spjProcessingJobName = Lens.field @"processingJobName"
 {-# DEPRECATED spjProcessingJobName "Use generic-lens or generic-optics with 'processingJobName' instead." #-}
 
-instance Lude.AWSRequest StopProcessingJob where
+instance Core.FromJSON StopProcessingJob where
+  toJSON StopProcessingJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ProcessingJobName" Core..= processingJobName)]
+      )
+
+instance Core.AWSRequest StopProcessingJob where
   type Rs StopProcessingJob = StopProcessingJobResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopProcessingJobResponse'
-
-instance Lude.ToHeaders StopProcessingJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopProcessingJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopProcessingJob where
-  toJSON StopProcessingJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ProcessingJobName" Lude..= processingJobName)]
-      )
-
-instance Lude.ToPath StopProcessingJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopProcessingJob where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopProcessingJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopProcessingJobResponse'
 
 -- | /See:/ 'mkStopProcessingJobResponse' smart constructor.
 data StopProcessingJobResponse = StopProcessingJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopProcessingJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopProcessingJobResponse' value with any optional fields omitted.
 mkStopProcessingJobResponse ::
   StopProcessingJobResponse
 mkStopProcessingJobResponse = StopProcessingJobResponse'

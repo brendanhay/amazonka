@@ -24,17 +24,18 @@ module Network.AWS.Route53.Types.ResourceTagSet
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.Tag
-import Network.AWS.Route53.Types.TagResourceType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.Tag as Types
+import qualified Network.AWS.Route53.Types.TagResourceId as Types
+import qualified Network.AWS.Route53.Types.TagResourceType as Types
 
 -- | A complex type containing a resource and its associated tags.
 --
 -- /See:/ 'mkResourceTagSet' smart constructor.
 data ResourceTagSet = ResourceTagSet'
   { -- | The ID for the specified resource.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.TagResourceId,
     -- | The type of the resource.
     --
     --
@@ -42,40 +43,28 @@ data ResourceTagSet = ResourceTagSet'
     --
     --
     --     * The resource type for hosted zones is @hostedzone@ .
-    resourceType :: Lude.Maybe TagResourceType,
+    resourceType :: Core.Maybe Types.TagResourceType,
     -- | The tags associated with the specified resource.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceTagSet' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID for the specified resource.
--- * 'resourceType' - The type of the resource.
---
---
---     * The resource type for health checks is @healthcheck@ .
---
---
---     * The resource type for hosted zones is @hostedzone@ .
---
---
--- * 'tags' - The tags associated with the specified resource.
+-- | Creates a 'ResourceTagSet' value with any optional fields omitted.
 mkResourceTagSet ::
   ResourceTagSet
 mkResourceTagSet =
   ResourceTagSet'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      tags = Lude.Nothing
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The ID for the specified resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtsResourceId :: Lens.Lens' ResourceTagSet (Lude.Maybe Lude.Text)
-rtsResourceId = Lens.lens (resourceId :: ResourceTagSet -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceTagSet)
+rtsResourceId :: Lens.Lens' ResourceTagSet (Core.Maybe Types.TagResourceId)
+rtsResourceId = Lens.field @"resourceId"
 {-# DEPRECATED rtsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the resource.
@@ -89,22 +78,20 @@ rtsResourceId = Lens.lens (resourceId :: ResourceTagSet -> Lude.Maybe Lude.Text)
 --
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtsResourceType :: Lens.Lens' ResourceTagSet (Lude.Maybe TagResourceType)
-rtsResourceType = Lens.lens (resourceType :: ResourceTagSet -> Lude.Maybe TagResourceType) (\s a -> s {resourceType = a} :: ResourceTagSet)
+rtsResourceType :: Lens.Lens' ResourceTagSet (Core.Maybe Types.TagResourceType)
+rtsResourceType = Lens.field @"resourceType"
 {-# DEPRECATED rtsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tags associated with the specified resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtsTags :: Lens.Lens' ResourceTagSet (Lude.Maybe (Lude.NonEmpty Tag))
-rtsTags = Lens.lens (tags :: ResourceTagSet -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: ResourceTagSet)
+rtsTags :: Lens.Lens' ResourceTagSet (Core.Maybe (Core.NonEmpty Types.Tag))
+rtsTags = Lens.field @"tags"
 {-# DEPRECATED rtsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ResourceTagSet where
+instance Core.FromXML ResourceTagSet where
   parseXML x =
     ResourceTagSet'
-      Lude.<$> (x Lude..@? "ResourceId")
-      Lude.<*> (x Lude..@? "ResourceType")
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "Tag")
-               )
+      Core.<$> (x Core..@? "ResourceId")
+      Core.<*> (x Core..@? "ResourceType")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLNonEmpty "Tag")

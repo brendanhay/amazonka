@@ -17,192 +17,162 @@ module Network.AWS.EC2.Types.ScheduledInstancesNetworkInterface
     mkScheduledInstancesNetworkInterface,
 
     -- * Lenses
-    siniGroups,
+    siniAssociatePublicIpAddress,
     siniDeleteOnTermination,
-    siniAssociatePublicIPAddress,
-    siniPrivateIPAddressConfigs,
-    siniNetworkInterfaceId,
-    siniSubnetId,
-    siniIPv6AddressCount,
-    siniPrivateIPAddress,
-    siniSecondaryPrivateIPAddressCount,
     siniDescription,
     siniDeviceIndex,
-    siniIPv6Addresses,
+    siniGroups,
+    siniIpv6AddressCount,
+    siniIpv6Addresses,
+    siniNetworkInterfaceId,
+    siniPrivateIpAddress,
+    siniPrivateIpAddressConfigs,
+    siniSecondaryPrivateIpAddressCount,
+    siniSubnetId,
   )
 where
 
-import Network.AWS.EC2.Types.ScheduledInstancesIPv6Address
-import Network.AWS.EC2.Types.ScheduledInstancesPrivateIPAddressConfig
+import qualified Network.AWS.EC2.Types.NetworkInterfaceId as Types
+import qualified Network.AWS.EC2.Types.ScheduledInstancesIpv6Address as Types
+import qualified Network.AWS.EC2.Types.ScheduledInstancesPrivateIpAddressConfig as Types
+import qualified Network.AWS.EC2.Types.SecurityGroupId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.SubnetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a network interface for a Scheduled Instance.
 --
 -- /See:/ 'mkScheduledInstancesNetworkInterface' smart constructor.
 data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
-  { -- | The IDs of the security groups.
-    groups :: Lude.Maybe [Lude.Text],
+  { -- | Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+    associatePublicIpAddress :: Core.Maybe Core.Bool,
     -- | Indicates whether to delete the interface when the instance is terminated.
-    deleteOnTermination :: Lude.Maybe Lude.Bool,
-    -- | Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
-    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
-    -- | The private IPv4 addresses.
-    privateIPAddressConfigs :: Lude.Maybe [ScheduledInstancesPrivateIPAddressConfig],
-    -- | The ID of the network interface.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | The ID of the subnet.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
-    ipv6AddressCount :: Lude.Maybe Lude.Int,
-    -- | The IPv4 address of the network interface within the subnet.
-    privateIPAddress :: Lude.Maybe Lude.Text,
-    -- | The number of secondary private IPv4 addresses.
-    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
+    deleteOnTermination :: Core.Maybe Core.Bool,
     -- | The description.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | The index of the device for the network interface attachment.
-    deviceIndex :: Lude.Maybe Lude.Int,
+    deviceIndex :: Core.Maybe Core.Int,
+    -- | The IDs of the security groups.
+    groups :: Core.Maybe [Types.SecurityGroupId],
+    -- | The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
+    ipv6AddressCount :: Core.Maybe Core.Int,
     -- | The specific IPv6 addresses from the subnet range.
-    ipv6Addresses :: Lude.Maybe [ScheduledInstancesIPv6Address]
+    ipv6Addresses :: Core.Maybe [Types.ScheduledInstancesIpv6Address],
+    -- | The ID of the network interface.
+    networkInterfaceId :: Core.Maybe Types.NetworkInterfaceId,
+    -- | The IPv4 address of the network interface within the subnet.
+    privateIpAddress :: Core.Maybe Types.String,
+    -- | The private IPv4 addresses.
+    privateIpAddressConfigs :: Core.Maybe [Types.ScheduledInstancesPrivateIpAddressConfig],
+    -- | The number of secondary private IPv4 addresses.
+    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
+    -- | The ID of the subnet.
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledInstancesNetworkInterface' with the minimum fields required to make a request.
---
--- * 'groups' - The IDs of the security groups.
--- * 'deleteOnTermination' - Indicates whether to delete the interface when the instance is terminated.
--- * 'associatePublicIPAddress' - Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
--- * 'privateIPAddressConfigs' - The private IPv4 addresses.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'subnetId' - The ID of the subnet.
--- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
--- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses.
--- * 'description' - The description.
--- * 'deviceIndex' - The index of the device for the network interface attachment.
--- * 'ipv6Addresses' - The specific IPv6 addresses from the subnet range.
+-- | Creates a 'ScheduledInstancesNetworkInterface' value with any optional fields omitted.
 mkScheduledInstancesNetworkInterface ::
   ScheduledInstancesNetworkInterface
 mkScheduledInstancesNetworkInterface =
   ScheduledInstancesNetworkInterface'
-    { groups = Lude.Nothing,
-      deleteOnTermination = Lude.Nothing,
-      associatePublicIPAddress = Lude.Nothing,
-      privateIPAddressConfigs = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      ipv6AddressCount = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      secondaryPrivateIPAddressCount = Lude.Nothing,
-      description = Lude.Nothing,
-      deviceIndex = Lude.Nothing,
-      ipv6Addresses = Lude.Nothing
+    { associatePublicIpAddress =
+        Core.Nothing,
+      deleteOnTermination = Core.Nothing,
+      description = Core.Nothing,
+      deviceIndex = Core.Nothing,
+      groups = Core.Nothing,
+      ipv6AddressCount = Core.Nothing,
+      ipv6Addresses = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      privateIpAddressConfigs = Core.Nothing,
+      secondaryPrivateIpAddressCount = Core.Nothing,
+      subnetId = Core.Nothing
     }
 
--- | The IDs of the security groups.
+-- | Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
 --
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniGroups :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe [Lude.Text])
-siniGroups = Lens.lens (groups :: ScheduledInstancesNetworkInterface -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+-- /Note:/ Consider using 'associatePublicIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniAssociatePublicIpAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Bool)
+siniAssociatePublicIpAddress = Lens.field @"associatePublicIpAddress"
+{-# DEPRECATED siniAssociatePublicIpAddress "Use generic-lens or generic-optics with 'associatePublicIpAddress' instead." #-}
 
 -- | Indicates whether to delete the interface when the instance is terminated.
 --
 -- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniDeleteOnTermination :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Bool)
-siniDeleteOnTermination = Lens.lens (deleteOnTermination :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: ScheduledInstancesNetworkInterface)
+siniDeleteOnTermination :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Bool)
+siniDeleteOnTermination = Lens.field @"deleteOnTermination"
 {-# DEPRECATED siniDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
-
--- | Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
---
--- /Note:/ Consider using 'associatePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniAssociatePublicIPAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Bool)
-siniAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {associatePublicIPAddress = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniAssociatePublicIPAddress "Use generic-lens or generic-optics with 'associatePublicIPAddress' instead." #-}
-
--- | The private IPv4 addresses.
---
--- /Note:/ Consider using 'privateIPAddressConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniPrivateIPAddressConfigs :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe [ScheduledInstancesPrivateIPAddressConfig])
-siniPrivateIPAddressConfigs = Lens.lens (privateIPAddressConfigs :: ScheduledInstancesNetworkInterface -> Lude.Maybe [ScheduledInstancesPrivateIPAddressConfig]) (\s a -> s {privateIPAddressConfigs = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniPrivateIPAddressConfigs "Use generic-lens or generic-optics with 'privateIPAddressConfigs' instead." #-}
-
--- | The ID of the network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniNetworkInterfaceId :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Text)
-siniNetworkInterfaceId = Lens.lens (networkInterfaceId :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
--- | The ID of the subnet.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniSubnetId :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Text)
-siniSubnetId = Lens.lens (subnetId :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
---
--- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniIPv6AddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Int)
-siniIPv6AddressCount = Lens.lens (ipv6AddressCount :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Int) (\s a -> s {ipv6AddressCount = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniIPv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
-
--- | The IPv4 address of the network interface within the subnet.
---
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniPrivateIPAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Text)
-siniPrivateIPAddress = Lens.lens (privateIPAddress :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
-
--- | The number of secondary private IPv4 addresses.
---
--- /Note:/ Consider using 'secondaryPrivateIPAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniSecondaryPrivateIPAddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Int)
-siniSecondaryPrivateIPAddressCount = Lens.lens (secondaryPrivateIPAddressCount :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Int) (\s a -> s {secondaryPrivateIPAddressCount = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniSecondaryPrivateIPAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIPAddressCount' instead." #-}
 
 -- | The description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniDescription :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Text)
-siniDescription = Lens.lens (description :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ScheduledInstancesNetworkInterface)
+siniDescription :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Types.String)
+siniDescription = Lens.field @"description"
 {-# DEPRECATED siniDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The index of the device for the network interface attachment.
 --
 -- /Note:/ Consider using 'deviceIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniDeviceIndex :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe Lude.Int)
-siniDeviceIndex = Lens.lens (deviceIndex :: ScheduledInstancesNetworkInterface -> Lude.Maybe Lude.Int) (\s a -> s {deviceIndex = a} :: ScheduledInstancesNetworkInterface)
+siniDeviceIndex :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Int)
+siniDeviceIndex = Lens.field @"deviceIndex"
 {-# DEPRECATED siniDeviceIndex "Use generic-lens or generic-optics with 'deviceIndex' instead." #-}
+
+-- | The IDs of the security groups.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniGroups :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe [Types.SecurityGroupId])
+siniGroups = Lens.field @"groups"
+{-# DEPRECATED siniGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+
+-- | The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
+--
+-- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniIpv6AddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Int)
+siniIpv6AddressCount = Lens.field @"ipv6AddressCount"
+{-# DEPRECATED siniIpv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
 
 -- | The specific IPv6 addresses from the subnet range.
 --
 -- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siniIPv6Addresses :: Lens.Lens' ScheduledInstancesNetworkInterface (Lude.Maybe [ScheduledInstancesIPv6Address])
-siniIPv6Addresses = Lens.lens (ipv6Addresses :: ScheduledInstancesNetworkInterface -> Lude.Maybe [ScheduledInstancesIPv6Address]) (\s a -> s {ipv6Addresses = a} :: ScheduledInstancesNetworkInterface)
-{-# DEPRECATED siniIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
+siniIpv6Addresses :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe [Types.ScheduledInstancesIpv6Address])
+siniIpv6Addresses = Lens.field @"ipv6Addresses"
+{-# DEPRECATED siniIpv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
-instance Lude.ToQuery ScheduledInstancesNetworkInterface where
-  toQuery ScheduledInstancesNetworkInterface' {..} =
-    Lude.mconcat
-      [ Lude.toQuery (Lude.toQueryList "Group" Lude.<$> groups),
-        "DeleteOnTermination" Lude.=: deleteOnTermination,
-        "AssociatePublicIpAddress" Lude.=: associatePublicIPAddress,
-        Lude.toQuery
-          ( Lude.toQueryList "PrivateIpAddressConfig"
-              Lude.<$> privateIPAddressConfigs
-          ),
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "SubnetId" Lude.=: subnetId,
-        "Ipv6AddressCount" Lude.=: ipv6AddressCount,
-        "PrivateIpAddress" Lude.=: privateIPAddress,
-        "SecondaryPrivateIpAddressCount"
-          Lude.=: secondaryPrivateIPAddressCount,
-        "Description" Lude.=: description,
-        "DeviceIndex" Lude.=: deviceIndex,
-        Lude.toQuery
-          (Lude.toQueryList "Ipv6Address" Lude.<$> ipv6Addresses)
-      ]
+-- | The ID of the network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniNetworkInterfaceId :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Types.NetworkInterfaceId)
+siniNetworkInterfaceId = Lens.field @"networkInterfaceId"
+{-# DEPRECATED siniNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The IPv4 address of the network interface within the subnet.
+--
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniPrivateIpAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Types.String)
+siniPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED siniPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
+
+-- | The private IPv4 addresses.
+--
+-- /Note:/ Consider using 'privateIpAddressConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniPrivateIpAddressConfigs :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe [Types.ScheduledInstancesPrivateIpAddressConfig])
+siniPrivateIpAddressConfigs = Lens.field @"privateIpAddressConfigs"
+{-# DEPRECATED siniPrivateIpAddressConfigs "Use generic-lens or generic-optics with 'privateIpAddressConfigs' instead." #-}
+
+-- | The number of secondary private IPv4 addresses.
+--
+-- /Note:/ Consider using 'secondaryPrivateIpAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniSecondaryPrivateIpAddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Int)
+siniSecondaryPrivateIpAddressCount = Lens.field @"secondaryPrivateIpAddressCount"
+{-# DEPRECATED siniSecondaryPrivateIpAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIpAddressCount' instead." #-}
+
+-- | The ID of the subnet.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siniSubnetId :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Types.SubnetId)
+siniSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED siniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}

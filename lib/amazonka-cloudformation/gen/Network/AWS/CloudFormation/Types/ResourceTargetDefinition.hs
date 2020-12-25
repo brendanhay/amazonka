@@ -18,68 +18,65 @@ module Network.AWS.CloudFormation.Types.ResourceTargetDefinition
 
     -- * Lenses
     rtdAttribute,
-    rtdRequiresRecreation,
     rtdName,
+    rtdRequiresRecreation,
   )
 where
 
-import Network.AWS.CloudFormation.Types.RequiresRecreation
-import Network.AWS.CloudFormation.Types.ResourceAttribute
+import qualified Network.AWS.CloudFormation.Types.PropertyName as Types
+import qualified Network.AWS.CloudFormation.Types.RequiresRecreation as Types
+import qualified Network.AWS.CloudFormation.Types.ResourceAttribute as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The field that AWS CloudFormation will change, such as the name of a resource's property, and whether the resource will be recreated.
 --
 -- /See:/ 'mkResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
   { -- | Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
-    attribute :: Lude.Maybe ResourceAttribute,
-    -- | If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
-    requiresRecreation :: Lude.Maybe RequiresRecreation,
+    attribute :: Core.Maybe Types.ResourceAttribute,
     -- | If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.PropertyName,
+    -- | If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
+    requiresRecreation :: Core.Maybe Types.RequiresRecreation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceTargetDefinition' with the minimum fields required to make a request.
---
--- * 'attribute' - Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
--- * 'requiresRecreation' - If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
--- * 'name' - If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
+-- | Creates a 'ResourceTargetDefinition' value with any optional fields omitted.
 mkResourceTargetDefinition ::
   ResourceTargetDefinition
 mkResourceTargetDefinition =
   ResourceTargetDefinition'
-    { attribute = Lude.Nothing,
-      requiresRecreation = Lude.Nothing,
-      name = Lude.Nothing
+    { attribute = Core.Nothing,
+      name = Core.Nothing,
+      requiresRecreation = Core.Nothing
     }
 
 -- | Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdAttribute :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe ResourceAttribute)
-rtdAttribute = Lens.lens (attribute :: ResourceTargetDefinition -> Lude.Maybe ResourceAttribute) (\s a -> s {attribute = a} :: ResourceTargetDefinition)
+rtdAttribute :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Types.ResourceAttribute)
+rtdAttribute = Lens.field @"attribute"
 {-# DEPRECATED rtdAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
-
--- | If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
---
--- /Note:/ Consider using 'requiresRecreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdRequiresRecreation :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe RequiresRecreation)
-rtdRequiresRecreation = Lens.lens (requiresRecreation :: ResourceTargetDefinition -> Lude.Maybe RequiresRecreation) (\s a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
-{-# DEPRECATED rtdRequiresRecreation "Use generic-lens or generic-optics with 'requiresRecreation' instead." #-}
 
 -- | If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdName :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe Lude.Text)
-rtdName = Lens.lens (name :: ResourceTargetDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceTargetDefinition)
+rtdName :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Types.PropertyName)
+rtdName = Lens.field @"name"
 {-# DEPRECATED rtdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML ResourceTargetDefinition where
+-- | If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
+--
+-- /Note:/ Consider using 'requiresRecreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdRequiresRecreation :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Types.RequiresRecreation)
+rtdRequiresRecreation = Lens.field @"requiresRecreation"
+{-# DEPRECATED rtdRequiresRecreation "Use generic-lens or generic-optics with 'requiresRecreation' instead." #-}
+
+instance Core.FromXML ResourceTargetDefinition where
   parseXML x =
     ResourceTargetDefinition'
-      Lude.<$> (x Lude..@? "Attribute")
-      Lude.<*> (x Lude..@? "RequiresRecreation")
-      Lude.<*> (x Lude..@? "Name")
+      Core.<$> (x Core..@? "Attribute")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> (x Core..@? "RequiresRecreation")

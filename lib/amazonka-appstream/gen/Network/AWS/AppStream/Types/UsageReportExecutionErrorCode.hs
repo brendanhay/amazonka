@@ -13,51 +13,56 @@
 module Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
   ( UsageReportExecutionErrorCode
       ( UsageReportExecutionErrorCode',
-        UREECResourceNotFound,
-        UREECAccessDenied,
-        UREECInternalServiceError
+        UsageReportExecutionErrorCodeResourceNotFound,
+        UsageReportExecutionErrorCodeAccessDenied,
+        UsageReportExecutionErrorCodeInternalServiceError,
+        fromUsageReportExecutionErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UsageReportExecutionErrorCode = UsageReportExecutionErrorCode' Lude.Text
+newtype UsageReportExecutionErrorCode = UsageReportExecutionErrorCode'
+  { fromUsageReportExecutionErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UREECResourceNotFound :: UsageReportExecutionErrorCode
-pattern UREECResourceNotFound = UsageReportExecutionErrorCode' "RESOURCE_NOT_FOUND"
+pattern UsageReportExecutionErrorCodeResourceNotFound :: UsageReportExecutionErrorCode
+pattern UsageReportExecutionErrorCodeResourceNotFound = UsageReportExecutionErrorCode' "RESOURCE_NOT_FOUND"
 
-pattern UREECAccessDenied :: UsageReportExecutionErrorCode
-pattern UREECAccessDenied = UsageReportExecutionErrorCode' "ACCESS_DENIED"
+pattern UsageReportExecutionErrorCodeAccessDenied :: UsageReportExecutionErrorCode
+pattern UsageReportExecutionErrorCodeAccessDenied = UsageReportExecutionErrorCode' "ACCESS_DENIED"
 
-pattern UREECInternalServiceError :: UsageReportExecutionErrorCode
-pattern UREECInternalServiceError = UsageReportExecutionErrorCode' "INTERNAL_SERVICE_ERROR"
+pattern UsageReportExecutionErrorCodeInternalServiceError :: UsageReportExecutionErrorCode
+pattern UsageReportExecutionErrorCodeInternalServiceError = UsageReportExecutionErrorCode' "INTERNAL_SERVICE_ERROR"
 
 {-# COMPLETE
-  UREECResourceNotFound,
-  UREECAccessDenied,
-  UREECInternalServiceError,
+  UsageReportExecutionErrorCodeResourceNotFound,
+  UsageReportExecutionErrorCodeAccessDenied,
+  UsageReportExecutionErrorCodeInternalServiceError,
   UsageReportExecutionErrorCode'
   #-}

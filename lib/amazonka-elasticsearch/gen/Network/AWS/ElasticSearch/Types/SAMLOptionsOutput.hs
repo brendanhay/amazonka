@@ -25,90 +25,84 @@ module Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
   )
 where
 
-import Network.AWS.ElasticSearch.Types.SAMLIdp
+import qualified Network.AWS.ElasticSearch.Types.RolesKey as Types
+import qualified Network.AWS.ElasticSearch.Types.SAMLIdp as Types
+import qualified Network.AWS.ElasticSearch.Types.SubjectKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the SAML application configured for the domain.
 --
 -- /See:/ 'mkSAMLOptionsOutput' smart constructor.
 data SAMLOptionsOutput = SAMLOptionsOutput'
   { -- | True if SAML is enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Describes the SAML Identity Provider's information.
-    idp :: Lude.Maybe SAMLIdp,
+    idp :: Core.Maybe Types.SAMLIdp,
     -- | The key used for matching the SAML Roles attribute.
-    rolesKey :: Lude.Maybe Lude.Text,
+    rolesKey :: Core.Maybe Types.RolesKey,
     -- | The duration, in minutes, after which a user session becomes inactive.
-    sessionTimeoutMinutes :: Lude.Maybe Lude.Int,
+    sessionTimeoutMinutes :: Core.Maybe Core.Int,
     -- | The key used for matching the SAML Subject attribute.
-    subjectKey :: Lude.Maybe Lude.Text
+    subjectKey :: Core.Maybe Types.SubjectKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SAMLOptionsOutput' with the minimum fields required to make a request.
---
--- * 'enabled' - True if SAML is enabled.
--- * 'idp' - Describes the SAML Identity Provider's information.
--- * 'rolesKey' - The key used for matching the SAML Roles attribute.
--- * 'sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
--- * 'subjectKey' - The key used for matching the SAML Subject attribute.
+-- | Creates a 'SAMLOptionsOutput' value with any optional fields omitted.
 mkSAMLOptionsOutput ::
   SAMLOptionsOutput
 mkSAMLOptionsOutput =
   SAMLOptionsOutput'
-    { enabled = Lude.Nothing,
-      idp = Lude.Nothing,
-      rolesKey = Lude.Nothing,
-      sessionTimeoutMinutes = Lude.Nothing,
-      subjectKey = Lude.Nothing
+    { enabled = Core.Nothing,
+      idp = Core.Nothing,
+      rolesKey = Core.Nothing,
+      sessionTimeoutMinutes = Core.Nothing,
+      subjectKey = Core.Nothing
     }
 
 -- | True if SAML is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlooEnabled :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Bool)
-samlooEnabled = Lens.lens (enabled :: SAMLOptionsOutput -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SAMLOptionsOutput)
+samlooEnabled :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Core.Bool)
+samlooEnabled = Lens.field @"enabled"
 {-# DEPRECATED samlooEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Describes the SAML Identity Provider's information.
 --
 -- /Note:/ Consider using 'idp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlooIdp :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe SAMLIdp)
-samlooIdp = Lens.lens (idp :: SAMLOptionsOutput -> Lude.Maybe SAMLIdp) (\s a -> s {idp = a} :: SAMLOptionsOutput)
+samlooIdp :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Types.SAMLIdp)
+samlooIdp = Lens.field @"idp"
 {-# DEPRECATED samlooIdp "Use generic-lens or generic-optics with 'idp' instead." #-}
 
 -- | The key used for matching the SAML Roles attribute.
 --
 -- /Note:/ Consider using 'rolesKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlooRolesKey :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Text)
-samlooRolesKey = Lens.lens (rolesKey :: SAMLOptionsOutput -> Lude.Maybe Lude.Text) (\s a -> s {rolesKey = a} :: SAMLOptionsOutput)
+samlooRolesKey :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Types.RolesKey)
+samlooRolesKey = Lens.field @"rolesKey"
 {-# DEPRECATED samlooRolesKey "Use generic-lens or generic-optics with 'rolesKey' instead." #-}
 
 -- | The duration, in minutes, after which a user session becomes inactive.
 --
 -- /Note:/ Consider using 'sessionTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlooSessionTimeoutMinutes :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Int)
-samlooSessionTimeoutMinutes = Lens.lens (sessionTimeoutMinutes :: SAMLOptionsOutput -> Lude.Maybe Lude.Int) (\s a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsOutput)
+samlooSessionTimeoutMinutes :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Core.Int)
+samlooSessionTimeoutMinutes = Lens.field @"sessionTimeoutMinutes"
 {-# DEPRECATED samlooSessionTimeoutMinutes "Use generic-lens or generic-optics with 'sessionTimeoutMinutes' instead." #-}
 
 -- | The key used for matching the SAML Subject attribute.
 --
 -- /Note:/ Consider using 'subjectKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlooSubjectKey :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Text)
-samlooSubjectKey = Lens.lens (subjectKey :: SAMLOptionsOutput -> Lude.Maybe Lude.Text) (\s a -> s {subjectKey = a} :: SAMLOptionsOutput)
+samlooSubjectKey :: Lens.Lens' SAMLOptionsOutput (Core.Maybe Types.SubjectKey)
+samlooSubjectKey = Lens.field @"subjectKey"
 {-# DEPRECATED samlooSubjectKey "Use generic-lens or generic-optics with 'subjectKey' instead." #-}
 
-instance Lude.FromJSON SAMLOptionsOutput where
+instance Core.FromJSON SAMLOptionsOutput where
   parseJSON =
-    Lude.withObject
-      "SAMLOptionsOutput"
-      ( \x ->
-          SAMLOptionsOutput'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "Idp")
-            Lude.<*> (x Lude..:? "RolesKey")
-            Lude.<*> (x Lude..:? "SessionTimeoutMinutes")
-            Lude.<*> (x Lude..:? "SubjectKey")
-      )
+    Core.withObject "SAMLOptionsOutput" Core.$
+      \x ->
+        SAMLOptionsOutput'
+          Core.<$> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "Idp")
+          Core.<*> (x Core..:? "RolesKey")
+          Core.<*> (x Core..:? "SessionTimeoutMinutes")
+          Core.<*> (x Core..:? "SubjectKey")

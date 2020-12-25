@@ -20,147 +20,130 @@ module Network.AWS.ServiceCatalog.UpdateTagOption
     mkUpdateTagOption,
 
     -- ** Request lenses
-    utoValue,
-    utoActive,
     utoId,
+    utoActive,
+    utoValue,
 
     -- * Destructuring the response
     UpdateTagOptionResponse (..),
     mkUpdateTagOptionResponse,
 
     -- ** Response lenses
-    utorsTagOptionDetail,
-    utorsResponseStatus,
+    utorrsTagOptionDetail,
+    utorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkUpdateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'
-  { -- | The updated value.
-    value :: Lude.Maybe Lude.Text,
+  { -- | The TagOption identifier.
+    id :: Types.TagOptionId,
     -- | The updated active state.
-    active :: Lude.Maybe Lude.Bool,
-    -- | The TagOption identifier.
-    id :: Lude.Text
+    active :: Core.Maybe Core.Bool,
+    -- | The updated value.
+    value :: Core.Maybe Types.TagOptionValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTagOption' with the minimum fields required to make a request.
---
--- * 'value' - The updated value.
--- * 'active' - The updated active state.
--- * 'id' - The TagOption identifier.
+-- | Creates a 'UpdateTagOption' value with any optional fields omitted.
 mkUpdateTagOption ::
   -- | 'id'
-  Lude.Text ->
+  Types.TagOptionId ->
   UpdateTagOption
-mkUpdateTagOption pId_ =
-  UpdateTagOption'
-    { value = Lude.Nothing,
-      active = Lude.Nothing,
-      id = pId_
-    }
-
--- | The updated value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utoValue :: Lens.Lens' UpdateTagOption (Lude.Maybe Lude.Text)
-utoValue = Lens.lens (value :: UpdateTagOption -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: UpdateTagOption)
-{-# DEPRECATED utoValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The updated active state.
---
--- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utoActive :: Lens.Lens' UpdateTagOption (Lude.Maybe Lude.Bool)
-utoActive = Lens.lens (active :: UpdateTagOption -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: UpdateTagOption)
-{-# DEPRECATED utoActive "Use generic-lens or generic-optics with 'active' instead." #-}
+mkUpdateTagOption id =
+  UpdateTagOption' {id, active = Core.Nothing, value = Core.Nothing}
 
 -- | The TagOption identifier.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utoId :: Lens.Lens' UpdateTagOption Lude.Text
-utoId = Lens.lens (id :: UpdateTagOption -> Lude.Text) (\s a -> s {id = a} :: UpdateTagOption)
+utoId :: Lens.Lens' UpdateTagOption Types.TagOptionId
+utoId = Lens.field @"id"
 {-# DEPRECATED utoId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest UpdateTagOption where
+-- | The updated active state.
+--
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utoActive :: Lens.Lens' UpdateTagOption (Core.Maybe Core.Bool)
+utoActive = Lens.field @"active"
+{-# DEPRECATED utoActive "Use generic-lens or generic-optics with 'active' instead." #-}
+
+-- | The updated value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utoValue :: Lens.Lens' UpdateTagOption (Core.Maybe Types.TagOptionValue)
+utoValue = Lens.field @"value"
+{-# DEPRECATED utoValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON UpdateTagOption where
+  toJSON UpdateTagOption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("Active" Core..=) Core.<$> active,
+            ("Value" Core..=) Core.<$> value
+          ]
+      )
+
+instance Core.AWSRequest UpdateTagOption where
   type Rs UpdateTagOption = UpdateTagOptionResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.UpdateTagOption")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTagOptionResponse'
-            Lude.<$> (x Lude..?> "TagOptionDetail")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TagOptionDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTagOption where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWS242ServiceCatalogService.UpdateTagOption" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTagOption where
-  toJSON UpdateTagOption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Active" Lude..=) Lude.<$> active,
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath UpdateTagOption where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTagOption where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTagOptionResponse' smart constructor.
 data UpdateTagOptionResponse = UpdateTagOptionResponse'
   { -- | Information about the TagOption.
-    tagOptionDetail :: Lude.Maybe TagOptionDetail,
+    tagOptionDetail :: Core.Maybe Types.TagOptionDetail,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTagOptionResponse' with the minimum fields required to make a request.
---
--- * 'tagOptionDetail' - Information about the TagOption.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTagOptionResponse' value with any optional fields omitted.
 mkUpdateTagOptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTagOptionResponse
-mkUpdateTagOptionResponse pResponseStatus_ =
+mkUpdateTagOptionResponse responseStatus =
   UpdateTagOptionResponse'
-    { tagOptionDetail = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { tagOptionDetail = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the TagOption.
 --
 -- /Note:/ Consider using 'tagOptionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utorsTagOptionDetail :: Lens.Lens' UpdateTagOptionResponse (Lude.Maybe TagOptionDetail)
-utorsTagOptionDetail = Lens.lens (tagOptionDetail :: UpdateTagOptionResponse -> Lude.Maybe TagOptionDetail) (\s a -> s {tagOptionDetail = a} :: UpdateTagOptionResponse)
-{-# DEPRECATED utorsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
+utorrsTagOptionDetail :: Lens.Lens' UpdateTagOptionResponse (Core.Maybe Types.TagOptionDetail)
+utorrsTagOptionDetail = Lens.field @"tagOptionDetail"
+{-# DEPRECATED utorrsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utorsResponseStatus :: Lens.Lens' UpdateTagOptionResponse Lude.Int
-utorsResponseStatus = Lens.lens (responseStatus :: UpdateTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTagOptionResponse)
-{-# DEPRECATED utorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utorrsResponseStatus :: Lens.Lens' UpdateTagOptionResponse Core.Int
+utorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

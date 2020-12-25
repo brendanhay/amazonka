@@ -70,198 +70,184 @@ module Network.AWS.SSM.DescribePatchProperties
     mkDescribePatchProperties,
 
     -- ** Request lenses
-    dppProperty,
     dppOperatingSystem,
-    dppPatchSet,
-    dppNextToken,
+    dppProperty,
     dppMaxResults,
+    dppNextToken,
+    dppPatchSet,
 
     -- * Destructuring the response
     DescribePatchPropertiesResponse (..),
     mkDescribePatchPropertiesResponse,
 
     -- ** Response lenses
-    dpprsNextToken,
-    dpprsProperties,
-    dpprsResponseStatus,
+    dpprrsNextToken,
+    dpprrsProperties,
+    dpprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribePatchProperties' smart constructor.
 data DescribePatchProperties = DescribePatchProperties'
-  { -- | The patch property for which you want to view patch details.
-    property :: PatchProperty,
-    -- | The operating system type for which to list patches.
-    operatingSystem :: OperatingSystem,
-    -- | Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
-    patchSet :: Lude.Maybe PatchSet,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The operating system type for which to list patches.
+    operatingSystem :: Types.OperatingSystem,
+    -- | The patch property for which you want to view patch details.
+    property :: Types.PatchProperty,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
+    patchSet :: Core.Maybe Types.PatchSet
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePatchProperties' with the minimum fields required to make a request.
---
--- * 'property' - The patch property for which you want to view patch details.
--- * 'operatingSystem' - The operating system type for which to list patches.
--- * 'patchSet' - Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'DescribePatchProperties' value with any optional fields omitted.
 mkDescribePatchProperties ::
-  -- | 'property'
-  PatchProperty ->
   -- | 'operatingSystem'
-  OperatingSystem ->
+  Types.OperatingSystem ->
+  -- | 'property'
+  Types.PatchProperty ->
   DescribePatchProperties
-mkDescribePatchProperties pProperty_ pOperatingSystem_ =
+mkDescribePatchProperties operatingSystem property =
   DescribePatchProperties'
-    { property = pProperty_,
-      operatingSystem = pOperatingSystem_,
-      patchSet = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { operatingSystem,
+      property,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      patchSet = Core.Nothing
     }
-
--- | The patch property for which you want to view patch details.
---
--- /Note:/ Consider using 'property' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppProperty :: Lens.Lens' DescribePatchProperties PatchProperty
-dppProperty = Lens.lens (property :: DescribePatchProperties -> PatchProperty) (\s a -> s {property = a} :: DescribePatchProperties)
-{-# DEPRECATED dppProperty "Use generic-lens or generic-optics with 'property' instead." #-}
 
 -- | The operating system type for which to list patches.
 --
 -- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppOperatingSystem :: Lens.Lens' DescribePatchProperties OperatingSystem
-dppOperatingSystem = Lens.lens (operatingSystem :: DescribePatchProperties -> OperatingSystem) (\s a -> s {operatingSystem = a} :: DescribePatchProperties)
+dppOperatingSystem :: Lens.Lens' DescribePatchProperties Types.OperatingSystem
+dppOperatingSystem = Lens.field @"operatingSystem"
 {-# DEPRECATED dppOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
--- | Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
+-- | The patch property for which you want to view patch details.
 --
--- /Note:/ Consider using 'patchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppPatchSet :: Lens.Lens' DescribePatchProperties (Lude.Maybe PatchSet)
-dppPatchSet = Lens.lens (patchSet :: DescribePatchProperties -> Lude.Maybe PatchSet) (\s a -> s {patchSet = a} :: DescribePatchProperties)
-{-# DEPRECATED dppPatchSet "Use generic-lens or generic-optics with 'patchSet' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppNextToken :: Lens.Lens' DescribePatchProperties (Lude.Maybe Lude.Text)
-dppNextToken = Lens.lens (nextToken :: DescribePatchProperties -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePatchProperties)
-{-# DEPRECATED dppNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'property' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppProperty :: Lens.Lens' DescribePatchProperties Types.PatchProperty
+dppProperty = Lens.field @"property"
+{-# DEPRECATED dppProperty "Use generic-lens or generic-optics with 'property' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppMaxResults :: Lens.Lens' DescribePatchProperties (Lude.Maybe Lude.Natural)
-dppMaxResults = Lens.lens (maxResults :: DescribePatchProperties -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribePatchProperties)
+dppMaxResults :: Lens.Lens' DescribePatchProperties (Core.Maybe Core.Natural)
+dppMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dppMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribePatchProperties where
-  page rq rs
-    | Page.stop (rs Lens.^. dpprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dpprsProperties) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dppNextToken Lens..~ rs Lens.^. dpprsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppNextToken :: Lens.Lens' DescribePatchProperties (Core.Maybe Types.NextToken)
+dppNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dppNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribePatchProperties where
+-- | Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
+--
+-- /Note:/ Consider using 'patchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppPatchSet :: Lens.Lens' DescribePatchProperties (Core.Maybe Types.PatchSet)
+dppPatchSet = Lens.field @"patchSet"
+{-# DEPRECATED dppPatchSet "Use generic-lens or generic-optics with 'patchSet' instead." #-}
+
+instance Core.FromJSON DescribePatchProperties where
+  toJSON DescribePatchProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OperatingSystem" Core..= operatingSystem),
+            Core.Just ("Property" Core..= property),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("PatchSet" Core..=) Core.<$> patchSet
+          ]
+      )
+
+instance Core.AWSRequest DescribePatchProperties where
   type Rs DescribePatchProperties = DescribePatchPropertiesResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DescribePatchProperties")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePatchPropertiesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Properties" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Properties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribePatchProperties where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DescribePatchProperties" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribePatchProperties where
-  toJSON DescribePatchProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Property" Lude..= property),
-            Lude.Just ("OperatingSystem" Lude..= operatingSystem),
-            ("PatchSet" Lude..=) Lude.<$> patchSet,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribePatchProperties where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePatchProperties where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribePatchProperties where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"properties" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribePatchPropertiesResponse' smart constructor.
 data DescribePatchPropertiesResponse = DescribePatchPropertiesResponse'
   { -- | The token for the next set of items to return. (You use this token in the next call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of the properties for patches matching the filter request parameters.
-    properties :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    properties :: Core.Maybe [Core.HashMap Types.AttributeName Types.AttributeValue],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePatchPropertiesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of items to return. (You use this token in the next call.)
--- * 'properties' - A list of the properties for patches matching the filter request parameters.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePatchPropertiesResponse' value with any optional fields omitted.
 mkDescribePatchPropertiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePatchPropertiesResponse
-mkDescribePatchPropertiesResponse pResponseStatus_ =
+mkDescribePatchPropertiesResponse responseStatus =
   DescribePatchPropertiesResponse'
-    { nextToken = Lude.Nothing,
-      properties = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      properties = Core.Nothing,
+      responseStatus
     }
 
 -- | The token for the next set of items to return. (You use this token in the next call.)
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpprsNextToken :: Lens.Lens' DescribePatchPropertiesResponse (Lude.Maybe Lude.Text)
-dpprsNextToken = Lens.lens (nextToken :: DescribePatchPropertiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePatchPropertiesResponse)
-{-# DEPRECATED dpprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpprrsNextToken :: Lens.Lens' DescribePatchPropertiesResponse (Core.Maybe Types.NextToken)
+dpprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of the properties for patches matching the filter request parameters.
 --
 -- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpprsProperties :: Lens.Lens' DescribePatchPropertiesResponse (Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)])
-dpprsProperties = Lens.lens (properties :: DescribePatchPropertiesResponse -> Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {properties = a} :: DescribePatchPropertiesResponse)
-{-# DEPRECATED dpprsProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
+dpprrsProperties :: Lens.Lens' DescribePatchPropertiesResponse (Core.Maybe [Core.HashMap Types.AttributeName Types.AttributeValue])
+dpprrsProperties = Lens.field @"properties"
+{-# DEPRECATED dpprrsProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpprsResponseStatus :: Lens.Lens' DescribePatchPropertiesResponse Lude.Int
-dpprsResponseStatus = Lens.lens (responseStatus :: DescribePatchPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePatchPropertiesResponse)
-{-# DEPRECATED dpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpprrsResponseStatus :: Lens.Lens' DescribePatchPropertiesResponse Core.Int
+dpprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

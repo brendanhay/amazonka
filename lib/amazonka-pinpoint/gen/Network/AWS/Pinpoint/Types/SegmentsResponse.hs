@@ -17,56 +17,51 @@ module Network.AWS.Pinpoint.Types.SegmentsResponse
     mkSegmentsResponse,
 
     -- * Lenses
-    sNextToken,
-    sItem,
+    srItem,
+    srNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.SegmentResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.SegmentResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about all the segments that are associated with an application.
 --
 -- /See:/ 'mkSegmentsResponse' smart constructor.
 data SegmentsResponse = SegmentsResponse'
-  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of responses, one for each segment that's associated with the application (Segments resource) or each version of a segment that's associated with the application (Segment Versions resource).
-    item :: [SegmentResponse]
+  { -- | An array of responses, one for each segment that's associated with the application (Segments resource) or each version of a segment that's associated with the application (Segment Versions resource).
+    item :: [Types.SegmentResponse],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'item' - An array of responses, one for each segment that's associated with the application (Segments resource) or each version of a segment that's associated with the application (Segment Versions resource).
+-- | Creates a 'SegmentsResponse' value with any optional fields omitted.
 mkSegmentsResponse ::
   SegmentsResponse
 mkSegmentsResponse =
-  SegmentsResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
-
--- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sNextToken :: Lens.Lens' SegmentsResponse (Lude.Maybe Lude.Text)
-sNextToken = Lens.lens (nextToken :: SegmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SegmentsResponse)
-{-# DEPRECATED sNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  SegmentsResponse' {item = Core.mempty, nextToken = Core.Nothing}
 
 -- | An array of responses, one for each segment that's associated with the application (Segments resource) or each version of a segment that's associated with the application (Segment Versions resource).
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sItem :: Lens.Lens' SegmentsResponse [SegmentResponse]
-sItem = Lens.lens (item :: SegmentsResponse -> [SegmentResponse]) (\s a -> s {item = a} :: SegmentsResponse)
-{-# DEPRECATED sItem "Use generic-lens or generic-optics with 'item' instead." #-}
+srItem :: Lens.Lens' SegmentsResponse [Types.SegmentResponse]
+srItem = Lens.field @"item"
+{-# DEPRECATED srItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON SegmentsResponse where
+-- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srNextToken :: Lens.Lens' SegmentsResponse (Core.Maybe Core.Text)
+srNextToken = Lens.field @"nextToken"
+{-# DEPRECATED srNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON SegmentsResponse where
   parseJSON =
-    Lude.withObject
-      "SegmentsResponse"
-      ( \x ->
-          SegmentsResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "SegmentsResponse" Core.$
+      \x ->
+        SegmentsResponse'
+          Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "NextToken")

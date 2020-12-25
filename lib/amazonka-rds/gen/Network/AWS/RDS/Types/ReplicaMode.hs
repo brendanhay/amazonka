@@ -13,46 +13,48 @@
 module Network.AWS.RDS.Types.ReplicaMode
   ( ReplicaMode
       ( ReplicaMode',
-        OpenReadOnly,
-        Mounted
+        ReplicaModeOpenReadOnly,
+        ReplicaModeMounted,
+        fromReplicaMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReplicaMode = ReplicaMode' Lude.Text
+newtype ReplicaMode = ReplicaMode' {fromReplicaMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OpenReadOnly :: ReplicaMode
-pattern OpenReadOnly = ReplicaMode' "open-read-only"
+pattern ReplicaModeOpenReadOnly :: ReplicaMode
+pattern ReplicaModeOpenReadOnly = ReplicaMode' "open-read-only"
 
-pattern Mounted :: ReplicaMode
-pattern Mounted = ReplicaMode' "mounted"
+pattern ReplicaModeMounted :: ReplicaMode
+pattern ReplicaModeMounted = ReplicaMode' "mounted"
 
 {-# COMPLETE
-  OpenReadOnly,
-  Mounted,
+  ReplicaModeOpenReadOnly,
+  ReplicaModeMounted,
   ReplicaMode'
   #-}

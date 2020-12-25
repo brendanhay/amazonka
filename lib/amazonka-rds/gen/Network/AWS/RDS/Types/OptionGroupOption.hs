@@ -17,247 +17,230 @@ module Network.AWS.RDS.Types.OptionGroupOption
     mkOptionGroupOption,
 
     -- * Lenses
-    ogoMinimumRequiredMinorEngineVersion,
-    ogoOptionsConflictsWith,
-    ogoPermanent,
-    ogoPersistent,
-    ogoOptionGroupOptionVersions,
+    ogoDefaultPort,
+    ogoDescription,
     ogoEngineName,
     ogoMajorEngineVersion,
+    ogoMinimumRequiredMinorEngineVersion,
     ogoName,
-    ogoSupportsOptionVersionDowngrade,
-    ogoDefaultPort,
     ogoOptionGroupOptionSettings,
-    ogoRequiresAutoMinorEngineVersionUpgrade,
-    ogoPortRequired,
-    ogoDescription,
+    ogoOptionGroupOptionVersions,
+    ogoOptionsConflictsWith,
     ogoOptionsDependedOn,
-    ogoVPCOnly,
+    ogoPermanent,
+    ogoPersistent,
+    ogoPortRequired,
+    ogoRequiresAutoMinorEngineVersionUpgrade,
+    ogoSupportsOptionVersionDowngrade,
+    ogoVpcOnly,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.OptionGroupOptionSetting
-import Network.AWS.RDS.Types.OptionVersion
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.OptionGroupOptionSetting as Types
+import qualified Network.AWS.RDS.Types.OptionVersion as Types
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Available option.
 --
 -- /See:/ 'mkOptionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
-  { -- | The minimum required engine version for the option to be applied.
-    minimumRequiredMinorEngineVersion :: Lude.Maybe Lude.Text,
-    -- | The options that conflict with this option.
-    optionsConflictsWith :: Lude.Maybe [Lude.Text],
-    -- | Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
-    permanent :: Lude.Maybe Lude.Bool,
-    -- | Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
-    persistent :: Lude.Maybe Lude.Bool,
-    -- | The versions that are available for the option.
-    optionGroupOptionVersions :: Lude.Maybe [OptionVersion],
-    -- | The name of the engine that this option can be applied to.
-    engineName :: Lude.Maybe Lude.Text,
-    -- | Indicates the major engine version that the option is available for.
-    majorEngineVersion :: Lude.Maybe Lude.Text,
-    -- | The name of the option.
-    name :: Lude.Maybe Lude.Text,
-    -- | If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
-    supportsOptionVersionDowngrade :: Lude.Maybe Lude.Bool,
-    -- | If the option requires a port, specifies the default port for the option.
-    defaultPort :: Lude.Maybe Lude.Int,
-    -- | The option settings that are available (and the default value) for each option in an option group.
-    optionGroupOptionSettings :: Lude.Maybe [OptionGroupOptionSetting],
-    -- | If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
-    requiresAutoMinorEngineVersionUpgrade :: Lude.Maybe Lude.Bool,
-    -- | Specifies whether the option requires a port.
-    portRequired :: Lude.Maybe Lude.Bool,
+  { -- | If the option requires a port, specifies the default port for the option.
+    defaultPort :: Core.Maybe Core.Int,
     -- | The description of the option.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
+    -- | The name of the engine that this option can be applied to.
+    engineName :: Core.Maybe Types.String,
+    -- | Indicates the major engine version that the option is available for.
+    majorEngineVersion :: Core.Maybe Types.String,
+    -- | The minimum required engine version for the option to be applied.
+    minimumRequiredMinorEngineVersion :: Core.Maybe Types.String,
+    -- | The name of the option.
+    name :: Core.Maybe Types.String,
+    -- | The option settings that are available (and the default value) for each option in an option group.
+    optionGroupOptionSettings :: Core.Maybe [Types.OptionGroupOptionSetting],
+    -- | The versions that are available for the option.
+    optionGroupOptionVersions :: Core.Maybe [Types.OptionVersion],
+    -- | The options that conflict with this option.
+    optionsConflictsWith :: Core.Maybe [Types.String],
     -- | The options that are prerequisites for this option.
-    optionsDependedOn :: Lude.Maybe [Lude.Text],
+    optionsDependedOn :: Core.Maybe [Types.String],
+    -- | Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
+    permanent :: Core.Maybe Core.Bool,
+    -- | Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
+    persistent :: Core.Maybe Core.Bool,
+    -- | Specifies whether the option requires a port.
+    portRequired :: Core.Maybe Core.Bool,
+    -- | If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+    requiresAutoMinorEngineVersionUpgrade :: Core.Maybe Core.Bool,
+    -- | If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
+    supportsOptionVersionDowngrade :: Core.Maybe Core.Bool,
     -- | If true, you can only use this option with a DB instance that is in a VPC.
-    vpcOnly :: Lude.Maybe Lude.Bool
+    vpcOnly :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OptionGroupOption' with the minimum fields required to make a request.
---
--- * 'minimumRequiredMinorEngineVersion' - The minimum required engine version for the option to be applied.
--- * 'optionsConflictsWith' - The options that conflict with this option.
--- * 'permanent' - Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
--- * 'persistent' - Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
--- * 'optionGroupOptionVersions' - The versions that are available for the option.
--- * 'engineName' - The name of the engine that this option can be applied to.
--- * 'majorEngineVersion' - Indicates the major engine version that the option is available for.
--- * 'name' - The name of the option.
--- * 'supportsOptionVersionDowngrade' - If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
--- * 'defaultPort' - If the option requires a port, specifies the default port for the option.
--- * 'optionGroupOptionSettings' - The option settings that are available (and the default value) for each option in an option group.
--- * 'requiresAutoMinorEngineVersionUpgrade' - If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
--- * 'portRequired' - Specifies whether the option requires a port.
--- * 'description' - The description of the option.
--- * 'optionsDependedOn' - The options that are prerequisites for this option.
--- * 'vpcOnly' - If true, you can only use this option with a DB instance that is in a VPC.
+-- | Creates a 'OptionGroupOption' value with any optional fields omitted.
 mkOptionGroupOption ::
   OptionGroupOption
 mkOptionGroupOption =
   OptionGroupOption'
-    { minimumRequiredMinorEngineVersion =
-        Lude.Nothing,
-      optionsConflictsWith = Lude.Nothing,
-      permanent = Lude.Nothing,
-      persistent = Lude.Nothing,
-      optionGroupOptionVersions = Lude.Nothing,
-      engineName = Lude.Nothing,
-      majorEngineVersion = Lude.Nothing,
-      name = Lude.Nothing,
-      supportsOptionVersionDowngrade = Lude.Nothing,
-      defaultPort = Lude.Nothing,
-      optionGroupOptionSettings = Lude.Nothing,
-      requiresAutoMinorEngineVersionUpgrade = Lude.Nothing,
-      portRequired = Lude.Nothing,
-      description = Lude.Nothing,
-      optionsDependedOn = Lude.Nothing,
-      vpcOnly = Lude.Nothing
+    { defaultPort = Core.Nothing,
+      description = Core.Nothing,
+      engineName = Core.Nothing,
+      majorEngineVersion = Core.Nothing,
+      minimumRequiredMinorEngineVersion = Core.Nothing,
+      name = Core.Nothing,
+      optionGroupOptionSettings = Core.Nothing,
+      optionGroupOptionVersions = Core.Nothing,
+      optionsConflictsWith = Core.Nothing,
+      optionsDependedOn = Core.Nothing,
+      permanent = Core.Nothing,
+      persistent = Core.Nothing,
+      portRequired = Core.Nothing,
+      requiresAutoMinorEngineVersionUpgrade = Core.Nothing,
+      supportsOptionVersionDowngrade = Core.Nothing,
+      vpcOnly = Core.Nothing
     }
 
--- | The minimum required engine version for the option to be applied.
+-- | If the option requires a port, specifies the default port for the option.
 --
--- /Note:/ Consider using 'minimumRequiredMinorEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoMinimumRequiredMinorEngineVersion :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Text)
-ogoMinimumRequiredMinorEngineVersion = Lens.lens (minimumRequiredMinorEngineVersion :: OptionGroupOption -> Lude.Maybe Lude.Text) (\s a -> s {minimumRequiredMinorEngineVersion = a} :: OptionGroupOption)
-{-# DEPRECATED ogoMinimumRequiredMinorEngineVersion "Use generic-lens or generic-optics with 'minimumRequiredMinorEngineVersion' instead." #-}
+-- /Note:/ Consider using 'defaultPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoDefaultPort :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Int)
+ogoDefaultPort = Lens.field @"defaultPort"
+{-# DEPRECATED ogoDefaultPort "Use generic-lens or generic-optics with 'defaultPort' instead." #-}
 
--- | The options that conflict with this option.
+-- | The description of the option.
 --
--- /Note:/ Consider using 'optionsConflictsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoOptionsConflictsWith :: Lens.Lens' OptionGroupOption (Lude.Maybe [Lude.Text])
-ogoOptionsConflictsWith = Lens.lens (optionsConflictsWith :: OptionGroupOption -> Lude.Maybe [Lude.Text]) (\s a -> s {optionsConflictsWith = a} :: OptionGroupOption)
-{-# DEPRECATED ogoOptionsConflictsWith "Use generic-lens or generic-optics with 'optionsConflictsWith' instead." #-}
-
--- | Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
---
--- /Note:/ Consider using 'permanent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoPermanent :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Bool)
-ogoPermanent = Lens.lens (permanent :: OptionGroupOption -> Lude.Maybe Lude.Bool) (\s a -> s {permanent = a} :: OptionGroupOption)
-{-# DEPRECATED ogoPermanent "Use generic-lens or generic-optics with 'permanent' instead." #-}
-
--- | Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
---
--- /Note:/ Consider using 'persistent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoPersistent :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Bool)
-ogoPersistent = Lens.lens (persistent :: OptionGroupOption -> Lude.Maybe Lude.Bool) (\s a -> s {persistent = a} :: OptionGroupOption)
-{-# DEPRECATED ogoPersistent "Use generic-lens or generic-optics with 'persistent' instead." #-}
-
--- | The versions that are available for the option.
---
--- /Note:/ Consider using 'optionGroupOptionVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoOptionGroupOptionVersions :: Lens.Lens' OptionGroupOption (Lude.Maybe [OptionVersion])
-ogoOptionGroupOptionVersions = Lens.lens (optionGroupOptionVersions :: OptionGroupOption -> Lude.Maybe [OptionVersion]) (\s a -> s {optionGroupOptionVersions = a} :: OptionGroupOption)
-{-# DEPRECATED ogoOptionGroupOptionVersions "Use generic-lens or generic-optics with 'optionGroupOptionVersions' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoDescription :: Lens.Lens' OptionGroupOption (Core.Maybe Types.String)
+ogoDescription = Lens.field @"description"
+{-# DEPRECATED ogoDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the engine that this option can be applied to.
 --
 -- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoEngineName :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Text)
-ogoEngineName = Lens.lens (engineName :: OptionGroupOption -> Lude.Maybe Lude.Text) (\s a -> s {engineName = a} :: OptionGroupOption)
+ogoEngineName :: Lens.Lens' OptionGroupOption (Core.Maybe Types.String)
+ogoEngineName = Lens.field @"engineName"
 {-# DEPRECATED ogoEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
 -- | Indicates the major engine version that the option is available for.
 --
 -- /Note:/ Consider using 'majorEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoMajorEngineVersion :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Text)
-ogoMajorEngineVersion = Lens.lens (majorEngineVersion :: OptionGroupOption -> Lude.Maybe Lude.Text) (\s a -> s {majorEngineVersion = a} :: OptionGroupOption)
+ogoMajorEngineVersion :: Lens.Lens' OptionGroupOption (Core.Maybe Types.String)
+ogoMajorEngineVersion = Lens.field @"majorEngineVersion"
 {-# DEPRECATED ogoMajorEngineVersion "Use generic-lens or generic-optics with 'majorEngineVersion' instead." #-}
+
+-- | The minimum required engine version for the option to be applied.
+--
+-- /Note:/ Consider using 'minimumRequiredMinorEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoMinimumRequiredMinorEngineVersion :: Lens.Lens' OptionGroupOption (Core.Maybe Types.String)
+ogoMinimumRequiredMinorEngineVersion = Lens.field @"minimumRequiredMinorEngineVersion"
+{-# DEPRECATED ogoMinimumRequiredMinorEngineVersion "Use generic-lens or generic-optics with 'minimumRequiredMinorEngineVersion' instead." #-}
 
 -- | The name of the option.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoName :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Text)
-ogoName = Lens.lens (name :: OptionGroupOption -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OptionGroupOption)
+ogoName :: Lens.Lens' OptionGroupOption (Core.Maybe Types.String)
+ogoName = Lens.field @"name"
 {-# DEPRECATED ogoName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
---
--- /Note:/ Consider using 'supportsOptionVersionDowngrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoSupportsOptionVersionDowngrade :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Bool)
-ogoSupportsOptionVersionDowngrade = Lens.lens (supportsOptionVersionDowngrade :: OptionGroupOption -> Lude.Maybe Lude.Bool) (\s a -> s {supportsOptionVersionDowngrade = a} :: OptionGroupOption)
-{-# DEPRECATED ogoSupportsOptionVersionDowngrade "Use generic-lens or generic-optics with 'supportsOptionVersionDowngrade' instead." #-}
-
--- | If the option requires a port, specifies the default port for the option.
---
--- /Note:/ Consider using 'defaultPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoDefaultPort :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Int)
-ogoDefaultPort = Lens.lens (defaultPort :: OptionGroupOption -> Lude.Maybe Lude.Int) (\s a -> s {defaultPort = a} :: OptionGroupOption)
-{-# DEPRECATED ogoDefaultPort "Use generic-lens or generic-optics with 'defaultPort' instead." #-}
 
 -- | The option settings that are available (and the default value) for each option in an option group.
 --
 -- /Note:/ Consider using 'optionGroupOptionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoOptionGroupOptionSettings :: Lens.Lens' OptionGroupOption (Lude.Maybe [OptionGroupOptionSetting])
-ogoOptionGroupOptionSettings = Lens.lens (optionGroupOptionSettings :: OptionGroupOption -> Lude.Maybe [OptionGroupOptionSetting]) (\s a -> s {optionGroupOptionSettings = a} :: OptionGroupOption)
+ogoOptionGroupOptionSettings :: Lens.Lens' OptionGroupOption (Core.Maybe [Types.OptionGroupOptionSetting])
+ogoOptionGroupOptionSettings = Lens.field @"optionGroupOptionSettings"
 {-# DEPRECATED ogoOptionGroupOptionSettings "Use generic-lens or generic-optics with 'optionGroupOptionSettings' instead." #-}
 
--- | If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+-- | The versions that are available for the option.
 --
--- /Note:/ Consider using 'requiresAutoMinorEngineVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoRequiresAutoMinorEngineVersionUpgrade :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Bool)
-ogoRequiresAutoMinorEngineVersionUpgrade = Lens.lens (requiresAutoMinorEngineVersionUpgrade :: OptionGroupOption -> Lude.Maybe Lude.Bool) (\s a -> s {requiresAutoMinorEngineVersionUpgrade = a} :: OptionGroupOption)
-{-# DEPRECATED ogoRequiresAutoMinorEngineVersionUpgrade "Use generic-lens or generic-optics with 'requiresAutoMinorEngineVersionUpgrade' instead." #-}
+-- /Note:/ Consider using 'optionGroupOptionVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoOptionGroupOptionVersions :: Lens.Lens' OptionGroupOption (Core.Maybe [Types.OptionVersion])
+ogoOptionGroupOptionVersions = Lens.field @"optionGroupOptionVersions"
+{-# DEPRECATED ogoOptionGroupOptionVersions "Use generic-lens or generic-optics with 'optionGroupOptionVersions' instead." #-}
 
--- | Specifies whether the option requires a port.
+-- | The options that conflict with this option.
 --
--- /Note:/ Consider using 'portRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoPortRequired :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Bool)
-ogoPortRequired = Lens.lens (portRequired :: OptionGroupOption -> Lude.Maybe Lude.Bool) (\s a -> s {portRequired = a} :: OptionGroupOption)
-{-# DEPRECATED ogoPortRequired "Use generic-lens or generic-optics with 'portRequired' instead." #-}
-
--- | The description of the option.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoDescription :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Text)
-ogoDescription = Lens.lens (description :: OptionGroupOption -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: OptionGroupOption)
-{-# DEPRECATED ogoDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'optionsConflictsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoOptionsConflictsWith :: Lens.Lens' OptionGroupOption (Core.Maybe [Types.String])
+ogoOptionsConflictsWith = Lens.field @"optionsConflictsWith"
+{-# DEPRECATED ogoOptionsConflictsWith "Use generic-lens or generic-optics with 'optionsConflictsWith' instead." #-}
 
 -- | The options that are prerequisites for this option.
 --
 -- /Note:/ Consider using 'optionsDependedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoOptionsDependedOn :: Lens.Lens' OptionGroupOption (Lude.Maybe [Lude.Text])
-ogoOptionsDependedOn = Lens.lens (optionsDependedOn :: OptionGroupOption -> Lude.Maybe [Lude.Text]) (\s a -> s {optionsDependedOn = a} :: OptionGroupOption)
+ogoOptionsDependedOn :: Lens.Lens' OptionGroupOption (Core.Maybe [Types.String])
+ogoOptionsDependedOn = Lens.field @"optionsDependedOn"
 {-# DEPRECATED ogoOptionsDependedOn "Use generic-lens or generic-optics with 'optionsDependedOn' instead." #-}
+
+-- | Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
+--
+-- /Note:/ Consider using 'permanent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoPermanent :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Bool)
+ogoPermanent = Lens.field @"permanent"
+{-# DEPRECATED ogoPermanent "Use generic-lens or generic-optics with 'permanent' instead." #-}
+
+-- | Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
+--
+-- /Note:/ Consider using 'persistent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoPersistent :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Bool)
+ogoPersistent = Lens.field @"persistent"
+{-# DEPRECATED ogoPersistent "Use generic-lens or generic-optics with 'persistent' instead." #-}
+
+-- | Specifies whether the option requires a port.
+--
+-- /Note:/ Consider using 'portRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoPortRequired :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Bool)
+ogoPortRequired = Lens.field @"portRequired"
+{-# DEPRECATED ogoPortRequired "Use generic-lens or generic-optics with 'portRequired' instead." #-}
+
+-- | If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+--
+-- /Note:/ Consider using 'requiresAutoMinorEngineVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoRequiresAutoMinorEngineVersionUpgrade :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Bool)
+ogoRequiresAutoMinorEngineVersionUpgrade = Lens.field @"requiresAutoMinorEngineVersionUpgrade"
+{-# DEPRECATED ogoRequiresAutoMinorEngineVersionUpgrade "Use generic-lens or generic-optics with 'requiresAutoMinorEngineVersionUpgrade' instead." #-}
+
+-- | If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
+--
+-- /Note:/ Consider using 'supportsOptionVersionDowngrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogoSupportsOptionVersionDowngrade :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Bool)
+ogoSupportsOptionVersionDowngrade = Lens.field @"supportsOptionVersionDowngrade"
+{-# DEPRECATED ogoSupportsOptionVersionDowngrade "Use generic-lens or generic-optics with 'supportsOptionVersionDowngrade' instead." #-}
 
 -- | If true, you can only use this option with a DB instance that is in a VPC.
 --
 -- /Note:/ Consider using 'vpcOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogoVPCOnly :: Lens.Lens' OptionGroupOption (Lude.Maybe Lude.Bool)
-ogoVPCOnly = Lens.lens (vpcOnly :: OptionGroupOption -> Lude.Maybe Lude.Bool) (\s a -> s {vpcOnly = a} :: OptionGroupOption)
-{-# DEPRECATED ogoVPCOnly "Use generic-lens or generic-optics with 'vpcOnly' instead." #-}
+ogoVpcOnly :: Lens.Lens' OptionGroupOption (Core.Maybe Core.Bool)
+ogoVpcOnly = Lens.field @"vpcOnly"
+{-# DEPRECATED ogoVpcOnly "Use generic-lens or generic-optics with 'vpcOnly' instead." #-}
 
-instance Lude.FromXML OptionGroupOption where
+instance Core.FromXML OptionGroupOption where
   parseXML x =
     OptionGroupOption'
-      Lude.<$> (x Lude..@? "MinimumRequiredMinorEngineVersion")
-      Lude.<*> ( x Lude..@? "OptionsConflictsWith" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "OptionConflictName")
+      Core.<$> (x Core..@? "DefaultPort")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "EngineName")
+      Core.<*> (x Core..@? "MajorEngineVersion")
+      Core.<*> (x Core..@? "MinimumRequiredMinorEngineVersion")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> ( x Core..@? "OptionGroupOptionSettings"
+                   Core..<@> Core.parseXMLList "OptionGroupOptionSetting"
                )
-      Lude.<*> (x Lude..@? "Permanent")
-      Lude.<*> (x Lude..@? "Persistent")
-      Lude.<*> ( x Lude..@? "OptionGroupOptionVersions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "OptionVersion")
+      Core.<*> ( x Core..@? "OptionGroupOptionVersions"
+                   Core..<@> Core.parseXMLList "OptionVersion"
                )
-      Lude.<*> (x Lude..@? "EngineName")
-      Lude.<*> (x Lude..@? "MajorEngineVersion")
-      Lude.<*> (x Lude..@? "Name")
-      Lude.<*> (x Lude..@? "SupportsOptionVersionDowngrade")
-      Lude.<*> (x Lude..@? "DefaultPort")
-      Lude.<*> ( x Lude..@? "OptionGroupOptionSettings" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "OptionGroupOptionSetting")
+      Core.<*> ( x Core..@? "OptionsConflictsWith"
+                   Core..<@> Core.parseXMLList "OptionConflictName"
                )
-      Lude.<*> (x Lude..@? "RequiresAutoMinorEngineVersionUpgrade")
-      Lude.<*> (x Lude..@? "PortRequired")
-      Lude.<*> (x Lude..@? "Description")
-      Lude.<*> ( x Lude..@? "OptionsDependedOn" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "OptionName")
+      Core.<*> ( x Core..@? "OptionsDependedOn"
+                   Core..<@> Core.parseXMLList "OptionName"
                )
-      Lude.<*> (x Lude..@? "VpcOnly")
+      Core.<*> (x Core..@? "Permanent")
+      Core.<*> (x Core..@? "Persistent")
+      Core.<*> (x Core..@? "PortRequired")
+      Core.<*> (x Core..@? "RequiresAutoMinorEngineVersionUpgrade")
+      Core.<*> (x Core..@? "SupportsOptionVersionDowngrade")
+      Core.<*> (x Core..@? "VpcOnly")

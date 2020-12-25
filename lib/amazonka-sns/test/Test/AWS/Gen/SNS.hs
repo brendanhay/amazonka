@@ -438,7 +438,7 @@ responseListPhoneNumbersOptedOut =
   res
     "ListPhoneNumbersOptedOutResponse"
     "fixture/ListPhoneNumbersOptedOutResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListPhoneNumbersOptedOut)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -446,7 +446,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -454,7 +454,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
@@ -462,7 +462,7 @@ responseRemovePermission =
   res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy RemovePermission)
 
 responseDeleteTopic :: DeleteTopicResponse -> TestTree
@@ -470,7 +470,7 @@ responseDeleteTopic =
   res
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTopic)
 
 responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
@@ -478,7 +478,7 @@ responseSetSMSAttributes =
   res
     "SetSMSAttributesResponse"
     "fixture/SetSMSAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy SetSMSAttributes)
 
 responseListTopics :: ListTopicsResponse -> TestTree
@@ -486,7 +486,7 @@ responseListTopics =
   res
     "ListTopicsResponse"
     "fixture/ListTopicsResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListTopics)
 
 responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
@@ -494,7 +494,7 @@ responseCreatePlatformEndpoint =
   res
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy CreatePlatformEndpoint)
 
 responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
@@ -502,7 +502,7 @@ responseSetPlatformApplicationAttributes =
   res
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
 responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
@@ -510,7 +510,7 @@ responseListSubscriptionsByTopic =
   res
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
 responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
@@ -518,7 +518,7 @@ responseGetTopicAttributes =
   res
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy GetTopicAttributes)
 
 responseOptInPhoneNumber :: OptInPhoneNumberResponse -> TestTree
@@ -526,7 +526,7 @@ responseOptInPhoneNumber =
   res
     "OptInPhoneNumberResponse"
     "fixture/OptInPhoneNumberResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy OptInPhoneNumber)
 
 responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
@@ -534,7 +534,7 @@ responseCreatePlatformApplication =
   res
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy CreatePlatformApplication)
 
 responseGetPlatformApplicationAttributes :: GetPlatformApplicationAttributesResponse -> TestTree
@@ -542,7 +542,7 @@ responseGetPlatformApplicationAttributes =
   res
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
 responseListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplicationResponse -> TestTree
@@ -550,7 +550,7 @@ responseListEndpointsByPlatformApplication =
   res
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
 responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
@@ -558,7 +558,7 @@ responseSetTopicAttributes =
   res
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy SetTopicAttributes)
 
 responseDeletePlatformApplication :: DeletePlatformApplicationResponse -> TestTree
@@ -566,7 +566,7 @@ responseDeletePlatformApplication =
   res
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy DeletePlatformApplication)
 
 responseGetSMSAttributes :: GetSMSAttributesResponse -> TestTree
@@ -574,7 +574,7 @@ responseGetSMSAttributes =
   res
     "GetSMSAttributesResponse"
     "fixture/GetSMSAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy GetSMSAttributes)
 
 responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
@@ -582,7 +582,7 @@ responseListPlatformApplications =
   res
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListPlatformApplications)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
@@ -590,7 +590,7 @@ responseAddPermission =
   res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy AddPermission)
 
 responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
@@ -598,7 +598,7 @@ responseGetEndpointAttributes =
   res
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy GetEndpointAttributes)
 
 responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
@@ -606,7 +606,7 @@ responseListSubscriptions =
   res
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ListSubscriptions)
 
 responseGetSubscriptionAttributes :: GetSubscriptionAttributesResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetSubscriptionAttributes =
   res
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy GetSubscriptionAttributes)
 
 responseCreateTopic :: CreateTopicResponse -> TestTree
@@ -622,7 +622,7 @@ responseCreateTopic =
   res
     "CreateTopicResponse"
     "fixture/CreateTopicResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy CreateTopic)
 
 responseCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> TestTree
@@ -630,7 +630,7 @@ responseCheckIfPhoneNumberIsOptedOut =
   res
     "CheckIfPhoneNumberIsOptedOutResponse"
     "fixture/CheckIfPhoneNumberIsOptedOutResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy CheckIfPhoneNumberIsOptedOut)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -638,7 +638,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseSubscribe :: SubscribeResponse -> TestTree
@@ -646,7 +646,7 @@ responseSubscribe =
   res
     "SubscribeResponse"
     "fixture/SubscribeResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy Subscribe)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -654,7 +654,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
@@ -662,7 +662,7 @@ responseUnsubscribe =
   res
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy Unsubscribe)
 
 responseSetEndpointAttributes :: SetEndpointAttributesResponse -> TestTree
@@ -670,7 +670,7 @@ responseSetEndpointAttributes =
   res
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy SetEndpointAttributes)
 
 responseSetSubscriptionAttributes :: SetSubscriptionAttributesResponse -> TestTree
@@ -678,7 +678,7 @@ responseSetSubscriptionAttributes =
   res
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy SetSubscriptionAttributes)
 
 responseConfirmSubscription :: ConfirmSubscriptionResponse -> TestTree
@@ -686,7 +686,7 @@ responseConfirmSubscription =
   res
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy ConfirmSubscription)
 
 responsePublish :: PublishResponse -> TestTree
@@ -694,5 +694,5 @@ responsePublish =
   res
     "PublishResponse"
     "fixture/PublishResponse.proto"
-    snsService
+    mkServiceConfig
     (Proxy :: Proxy Publish)

@@ -18,110 +18,107 @@ module Network.AWS.SSM.Types.TargetLocation
 
     -- * Lenses
     tlAccounts,
+    tlExecutionRoleName,
+    tlRegions,
     tlTargetLocationMaxConcurrency,
     tlTargetLocationMaxErrors,
-    tlRegions,
-    tlExecutionRoleName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.Account as Types
+import qualified Network.AWS.SSM.Types.ExecutionRoleName as Types
+import qualified Network.AWS.SSM.Types.Region as Types
+import qualified Network.AWS.SSM.Types.TargetLocationMaxConcurrency as Types
+import qualified Network.AWS.SSM.Types.TargetLocationMaxErrors as Types
 
 -- | The combination of AWS Regions and accounts targeted by the current Automation execution.
 --
 -- /See:/ 'mkTargetLocation' smart constructor.
 data TargetLocation = TargetLocation'
   { -- | The AWS accounts targeted by the current Automation execution.
-    accounts :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently
-    targetLocationMaxConcurrency :: Lude.Maybe Lude.Text,
-    -- | The maximum number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation.
-    targetLocationMaxErrors :: Lude.Maybe Lude.Text,
-    -- | The AWS Regions targeted by the current Automation execution.
-    regions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    accounts :: Core.Maybe (Core.NonEmpty Types.Account),
     -- | The Automation execution role used by the currently running Automation.
-    executionRoleName :: Lude.Maybe Lude.Text
+    executionRoleName :: Core.Maybe Types.ExecutionRoleName,
+    -- | The AWS Regions targeted by the current Automation execution.
+    regions :: Core.Maybe (Core.NonEmpty Types.Region),
+    -- | The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently
+    targetLocationMaxConcurrency :: Core.Maybe Types.TargetLocationMaxConcurrency,
+    -- | The maximum number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation.
+    targetLocationMaxErrors :: Core.Maybe Types.TargetLocationMaxErrors
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetLocation' with the minimum fields required to make a request.
---
--- * 'accounts' - The AWS accounts targeted by the current Automation execution.
--- * 'targetLocationMaxConcurrency' - The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently
--- * 'targetLocationMaxErrors' - The maximum number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation.
--- * 'regions' - The AWS Regions targeted by the current Automation execution.
--- * 'executionRoleName' - The Automation execution role used by the currently running Automation.
+-- | Creates a 'TargetLocation' value with any optional fields omitted.
 mkTargetLocation ::
   TargetLocation
 mkTargetLocation =
   TargetLocation'
-    { accounts = Lude.Nothing,
-      targetLocationMaxConcurrency = Lude.Nothing,
-      targetLocationMaxErrors = Lude.Nothing,
-      regions = Lude.Nothing,
-      executionRoleName = Lude.Nothing
+    { accounts = Core.Nothing,
+      executionRoleName = Core.Nothing,
+      regions = Core.Nothing,
+      targetLocationMaxConcurrency = Core.Nothing,
+      targetLocationMaxErrors = Core.Nothing
     }
 
 -- | The AWS accounts targeted by the current Automation execution.
 --
 -- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlAccounts :: Lens.Lens' TargetLocation (Lude.Maybe (Lude.NonEmpty Lude.Text))
-tlAccounts = Lens.lens (accounts :: TargetLocation -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {accounts = a} :: TargetLocation)
+tlAccounts :: Lens.Lens' TargetLocation (Core.Maybe (Core.NonEmpty Types.Account))
+tlAccounts = Lens.field @"accounts"
 {-# DEPRECATED tlAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
+
+-- | The Automation execution role used by the currently running Automation.
+--
+-- /Note:/ Consider using 'executionRoleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlExecutionRoleName :: Lens.Lens' TargetLocation (Core.Maybe Types.ExecutionRoleName)
+tlExecutionRoleName = Lens.field @"executionRoleName"
+{-# DEPRECATED tlExecutionRoleName "Use generic-lens or generic-optics with 'executionRoleName' instead." #-}
+
+-- | The AWS Regions targeted by the current Automation execution.
+--
+-- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlRegions :: Lens.Lens' TargetLocation (Core.Maybe (Core.NonEmpty Types.Region))
+tlRegions = Lens.field @"regions"
+{-# DEPRECATED tlRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
 
 -- | The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently
 --
 -- /Note:/ Consider using 'targetLocationMaxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlTargetLocationMaxConcurrency :: Lens.Lens' TargetLocation (Lude.Maybe Lude.Text)
-tlTargetLocationMaxConcurrency = Lens.lens (targetLocationMaxConcurrency :: TargetLocation -> Lude.Maybe Lude.Text) (\s a -> s {targetLocationMaxConcurrency = a} :: TargetLocation)
+tlTargetLocationMaxConcurrency :: Lens.Lens' TargetLocation (Core.Maybe Types.TargetLocationMaxConcurrency)
+tlTargetLocationMaxConcurrency = Lens.field @"targetLocationMaxConcurrency"
 {-# DEPRECATED tlTargetLocationMaxConcurrency "Use generic-lens or generic-optics with 'targetLocationMaxConcurrency' instead." #-}
 
 -- | The maximum number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation.
 --
 -- /Note:/ Consider using 'targetLocationMaxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlTargetLocationMaxErrors :: Lens.Lens' TargetLocation (Lude.Maybe Lude.Text)
-tlTargetLocationMaxErrors = Lens.lens (targetLocationMaxErrors :: TargetLocation -> Lude.Maybe Lude.Text) (\s a -> s {targetLocationMaxErrors = a} :: TargetLocation)
+tlTargetLocationMaxErrors :: Lens.Lens' TargetLocation (Core.Maybe Types.TargetLocationMaxErrors)
+tlTargetLocationMaxErrors = Lens.field @"targetLocationMaxErrors"
 {-# DEPRECATED tlTargetLocationMaxErrors "Use generic-lens or generic-optics with 'targetLocationMaxErrors' instead." #-}
 
--- | The AWS Regions targeted by the current Automation execution.
---
--- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlRegions :: Lens.Lens' TargetLocation (Lude.Maybe (Lude.NonEmpty Lude.Text))
-tlRegions = Lens.lens (regions :: TargetLocation -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {regions = a} :: TargetLocation)
-{-# DEPRECATED tlRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
-
--- | The Automation execution role used by the currently running Automation.
---
--- /Note:/ Consider using 'executionRoleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlExecutionRoleName :: Lens.Lens' TargetLocation (Lude.Maybe Lude.Text)
-tlExecutionRoleName = Lens.lens (executionRoleName :: TargetLocation -> Lude.Maybe Lude.Text) (\s a -> s {executionRoleName = a} :: TargetLocation)
-{-# DEPRECATED tlExecutionRoleName "Use generic-lens or generic-optics with 'executionRoleName' instead." #-}
-
-instance Lude.FromJSON TargetLocation where
-  parseJSON =
-    Lude.withObject
-      "TargetLocation"
-      ( \x ->
-          TargetLocation'
-            Lude.<$> (x Lude..:? "Accounts")
-            Lude.<*> (x Lude..:? "TargetLocationMaxConcurrency")
-            Lude.<*> (x Lude..:? "TargetLocationMaxErrors")
-            Lude.<*> (x Lude..:? "Regions")
-            Lude.<*> (x Lude..:? "ExecutionRoleName")
-      )
-
-instance Lude.ToJSON TargetLocation where
-  toJSON TargetLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Accounts" Lude..=) Lude.<$> accounts,
-            ("TargetLocationMaxConcurrency" Lude..=)
-              Lude.<$> targetLocationMaxConcurrency,
-            ("TargetLocationMaxErrors" Lude..=)
-              Lude.<$> targetLocationMaxErrors,
-            ("Regions" Lude..=) Lude.<$> regions,
-            ("ExecutionRoleName" Lude..=) Lude.<$> executionRoleName
+instance Core.FromJSON TargetLocation where
+  toJSON TargetLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Accounts" Core..=) Core.<$> accounts,
+            ("ExecutionRoleName" Core..=) Core.<$> executionRoleName,
+            ("Regions" Core..=) Core.<$> regions,
+            ("TargetLocationMaxConcurrency" Core..=)
+              Core.<$> targetLocationMaxConcurrency,
+            ("TargetLocationMaxErrors" Core..=)
+              Core.<$> targetLocationMaxErrors
           ]
       )
+
+instance Core.FromJSON TargetLocation where
+  parseJSON =
+    Core.withObject "TargetLocation" Core.$
+      \x ->
+        TargetLocation'
+          Core.<$> (x Core..:? "Accounts")
+          Core.<*> (x Core..:? "ExecutionRoleName")
+          Core.<*> (x Core..:? "Regions")
+          Core.<*> (x Core..:? "TargetLocationMaxConcurrency")
+          Core.<*> (x Core..:? "TargetLocationMaxErrors")

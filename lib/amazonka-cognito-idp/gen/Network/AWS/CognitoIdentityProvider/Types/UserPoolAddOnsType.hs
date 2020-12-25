@@ -21,51 +21,44 @@ module Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The user pool add-ons type.
 --
 -- /See:/ 'mkUserPoolAddOnsType' smart constructor.
 newtype UserPoolAddOnsType = UserPoolAddOnsType'
   { -- | The advanced security mode.
-    advancedSecurityMode :: AdvancedSecurityModeType
+    advancedSecurityMode :: Types.AdvancedSecurityModeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserPoolAddOnsType' with the minimum fields required to make a request.
---
--- * 'advancedSecurityMode' - The advanced security mode.
+-- | Creates a 'UserPoolAddOnsType' value with any optional fields omitted.
 mkUserPoolAddOnsType ::
   -- | 'advancedSecurityMode'
-  AdvancedSecurityModeType ->
+  Types.AdvancedSecurityModeType ->
   UserPoolAddOnsType
-mkUserPoolAddOnsType pAdvancedSecurityMode_ =
-  UserPoolAddOnsType'
-    { advancedSecurityMode =
-        pAdvancedSecurityMode_
-    }
+mkUserPoolAddOnsType advancedSecurityMode =
+  UserPoolAddOnsType' {advancedSecurityMode}
 
 -- | The advanced security mode.
 --
 -- /Note:/ Consider using 'advancedSecurityMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaotAdvancedSecurityMode :: Lens.Lens' UserPoolAddOnsType AdvancedSecurityModeType
-upaotAdvancedSecurityMode = Lens.lens (advancedSecurityMode :: UserPoolAddOnsType -> AdvancedSecurityModeType) (\s a -> s {advancedSecurityMode = a} :: UserPoolAddOnsType)
+upaotAdvancedSecurityMode :: Lens.Lens' UserPoolAddOnsType Types.AdvancedSecurityModeType
+upaotAdvancedSecurityMode = Lens.field @"advancedSecurityMode"
 {-# DEPRECATED upaotAdvancedSecurityMode "Use generic-lens or generic-optics with 'advancedSecurityMode' instead." #-}
 
-instance Lude.FromJSON UserPoolAddOnsType where
-  parseJSON =
-    Lude.withObject
-      "UserPoolAddOnsType"
-      ( \x ->
-          UserPoolAddOnsType' Lude.<$> (x Lude..: "AdvancedSecurityMode")
+instance Core.FromJSON UserPoolAddOnsType where
+  toJSON UserPoolAddOnsType {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AdvancedSecurityMode" Core..= advancedSecurityMode)]
       )
 
-instance Lude.ToJSON UserPoolAddOnsType where
-  toJSON UserPoolAddOnsType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("AdvancedSecurityMode" Lude..= advancedSecurityMode)]
-      )
+instance Core.FromJSON UserPoolAddOnsType where
+  parseJSON =
+    Core.withObject "UserPoolAddOnsType" Core.$
+      \x ->
+        UserPoolAddOnsType' Core.<$> (x Core..: "AdvancedSecurityMode")

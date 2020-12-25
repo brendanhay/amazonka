@@ -23,60 +23,56 @@ module Network.AWS.OpsWorks.Types.StackConfigurationManager
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the configuration manager.
 --
 -- /See:/ 'mkStackConfigurationManager' smart constructor.
 data StackConfigurationManager = StackConfigurationManager'
   { -- | The name. This parameter must be set to "Chef".
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.String,
     -- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StackConfigurationManager' with the minimum fields required to make a request.
---
--- * 'name' - The name. This parameter must be set to "Chef".
--- * 'version' - The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.
+-- | Creates a 'StackConfigurationManager' value with any optional fields omitted.
 mkStackConfigurationManager ::
   StackConfigurationManager
 mkStackConfigurationManager =
   StackConfigurationManager'
-    { name = Lude.Nothing,
-      version = Lude.Nothing
+    { name = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The name. This parameter must be set to "Chef".
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmName :: Lens.Lens' StackConfigurationManager (Lude.Maybe Lude.Text)
-scmName = Lens.lens (name :: StackConfigurationManager -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StackConfigurationManager)
+scmName :: Lens.Lens' StackConfigurationManager (Core.Maybe Types.String)
+scmName = Lens.field @"name"
 {-# DEPRECATED scmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmVersion :: Lens.Lens' StackConfigurationManager (Lude.Maybe Lude.Text)
-scmVersion = Lens.lens (version :: StackConfigurationManager -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: StackConfigurationManager)
+scmVersion :: Lens.Lens' StackConfigurationManager (Core.Maybe Types.String)
+scmVersion = Lens.field @"version"
 {-# DEPRECATED scmVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON StackConfigurationManager where
-  parseJSON =
-    Lude.withObject
-      "StackConfigurationManager"
-      ( \x ->
-          StackConfigurationManager'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Version")
-      )
-
-instance Lude.ToJSON StackConfigurationManager where
-  toJSON StackConfigurationManager' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            ("Version" Lude..=) Lude.<$> version
+instance Core.FromJSON StackConfigurationManager where
+  toJSON StackConfigurationManager {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Version" Core..=) Core.<$> version
           ]
       )
+
+instance Core.FromJSON StackConfigurationManager where
+  parseJSON =
+    Core.withObject "StackConfigurationManager" Core.$
+      \x ->
+        StackConfigurationManager'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Version")

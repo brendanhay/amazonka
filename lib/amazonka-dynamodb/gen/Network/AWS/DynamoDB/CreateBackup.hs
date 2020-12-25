@@ -38,133 +38,120 @@ module Network.AWS.DynamoDB.CreateBackup
     mkCreateBackup,
 
     -- ** Request lenses
-    cbBackupName,
     cbTableName,
+    cbBackupName,
 
     -- * Destructuring the response
     CreateBackupResponse (..),
     mkCreateBackupResponse,
 
     -- ** Response lenses
-    cbrsBackupDetails,
-    cbrsResponseStatus,
+    cbrrsBackupDetails,
+    cbrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { -- | Specified name for the backup.
-    backupName :: Lude.Text,
-    -- | The name of the table.
-    tableName :: Lude.Text
+  { -- | The name of the table.
+    tableName :: Types.TableName,
+    -- | Specified name for the backup.
+    backupName :: Types.BackupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBackup' with the minimum fields required to make a request.
---
--- * 'backupName' - Specified name for the backup.
--- * 'tableName' - The name of the table.
+-- | Creates a 'CreateBackup' value with any optional fields omitted.
 mkCreateBackup ::
-  -- | 'backupName'
-  Lude.Text ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'backupName'
+  Types.BackupName ->
   CreateBackup
-mkCreateBackup pBackupName_ pTableName_ =
-  CreateBackup' {backupName = pBackupName_, tableName = pTableName_}
-
--- | Specified name for the backup.
---
--- /Note:/ Consider using 'backupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbBackupName :: Lens.Lens' CreateBackup Lude.Text
-cbBackupName = Lens.lens (backupName :: CreateBackup -> Lude.Text) (\s a -> s {backupName = a} :: CreateBackup)
-{-# DEPRECATED cbBackupName "Use generic-lens or generic-optics with 'backupName' instead." #-}
+mkCreateBackup tableName backupName =
+  CreateBackup' {tableName, backupName}
 
 -- | The name of the table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbTableName :: Lens.Lens' CreateBackup Lude.Text
-cbTableName = Lens.lens (tableName :: CreateBackup -> Lude.Text) (\s a -> s {tableName = a} :: CreateBackup)
+cbTableName :: Lens.Lens' CreateBackup Types.TableName
+cbTableName = Lens.field @"tableName"
 {-# DEPRECATED cbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest CreateBackup where
+-- | Specified name for the backup.
+--
+-- /Note:/ Consider using 'backupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbBackupName :: Lens.Lens' CreateBackup Types.BackupName
+cbBackupName = Lens.field @"backupName"
+{-# DEPRECATED cbBackupName "Use generic-lens or generic-optics with 'backupName' instead." #-}
+
+instance Core.FromJSON CreateBackup where
+  toJSON CreateBackup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just ("BackupName" Core..= backupName)
+          ]
+      )
+
+instance Core.AWSRequest CreateBackup where
   type Rs CreateBackup = CreateBackupResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.CreateBackup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateBackupResponse'
-            Lude.<$> (x Lude..?> "BackupDetails")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BackupDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateBackup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.CreateBackup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateBackup where
-  toJSON CreateBackup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("BackupName" Lude..= backupName),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath CreateBackup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateBackup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
   { -- | Contains the details of the backup created for the table.
-    backupDetails :: Lude.Maybe BackupDetails,
+    backupDetails :: Core.Maybe Types.BackupDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateBackupResponse' with the minimum fields required to make a request.
---
--- * 'backupDetails' - Contains the details of the backup created for the table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateBackupResponse' value with any optional fields omitted.
 mkCreateBackupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateBackupResponse
-mkCreateBackupResponse pResponseStatus_ =
+mkCreateBackupResponse responseStatus =
   CreateBackupResponse'
-    { backupDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { backupDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | Contains the details of the backup created for the table.
 --
 -- /Note:/ Consider using 'backupDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsBackupDetails :: Lens.Lens' CreateBackupResponse (Lude.Maybe BackupDetails)
-cbrsBackupDetails = Lens.lens (backupDetails :: CreateBackupResponse -> Lude.Maybe BackupDetails) (\s a -> s {backupDetails = a} :: CreateBackupResponse)
-{-# DEPRECATED cbrsBackupDetails "Use generic-lens or generic-optics with 'backupDetails' instead." #-}
+cbrrsBackupDetails :: Lens.Lens' CreateBackupResponse (Core.Maybe Types.BackupDetails)
+cbrrsBackupDetails = Lens.field @"backupDetails"
+{-# DEPRECATED cbrrsBackupDetails "Use generic-lens or generic-optics with 'backupDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsResponseStatus :: Lens.Lens' CreateBackupResponse Lude.Int
-cbrsResponseStatus = Lens.lens (responseStatus :: CreateBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBackupResponse)
-{-# DEPRECATED cbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbrrsResponseStatus :: Lens.Lens' CreateBackupResponse Core.Int
+cbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

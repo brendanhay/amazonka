@@ -13,71 +13,73 @@
 module Network.AWS.CognitoIdentityProvider.Types.AuthFlowType
   ( AuthFlowType
       ( AuthFlowType',
-        AFTUserSrpAuth,
-        AFTRefreshTokenAuth,
-        AFTRefreshToken,
-        AFTCustomAuth,
-        AFTAdminNoSrpAuth,
-        AFTUserPasswordAuth,
-        AFTAdminUserPasswordAuth
+        AuthFlowTypeUserSrpAuth,
+        AuthFlowTypeRefreshTokenAuth,
+        AuthFlowTypeRefreshToken,
+        AuthFlowTypeCustomAuth,
+        AuthFlowTypeAdminNoSrpAuth,
+        AuthFlowTypeUserPasswordAuth,
+        AuthFlowTypeAdminUserPasswordAuth,
+        fromAuthFlowType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthFlowType = AuthFlowType' Lude.Text
+newtype AuthFlowType = AuthFlowType' {fromAuthFlowType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AFTUserSrpAuth :: AuthFlowType
-pattern AFTUserSrpAuth = AuthFlowType' "USER_SRP_AUTH"
+pattern AuthFlowTypeUserSrpAuth :: AuthFlowType
+pattern AuthFlowTypeUserSrpAuth = AuthFlowType' "USER_SRP_AUTH"
 
-pattern AFTRefreshTokenAuth :: AuthFlowType
-pattern AFTRefreshTokenAuth = AuthFlowType' "REFRESH_TOKEN_AUTH"
+pattern AuthFlowTypeRefreshTokenAuth :: AuthFlowType
+pattern AuthFlowTypeRefreshTokenAuth = AuthFlowType' "REFRESH_TOKEN_AUTH"
 
-pattern AFTRefreshToken :: AuthFlowType
-pattern AFTRefreshToken = AuthFlowType' "REFRESH_TOKEN"
+pattern AuthFlowTypeRefreshToken :: AuthFlowType
+pattern AuthFlowTypeRefreshToken = AuthFlowType' "REFRESH_TOKEN"
 
-pattern AFTCustomAuth :: AuthFlowType
-pattern AFTCustomAuth = AuthFlowType' "CUSTOM_AUTH"
+pattern AuthFlowTypeCustomAuth :: AuthFlowType
+pattern AuthFlowTypeCustomAuth = AuthFlowType' "CUSTOM_AUTH"
 
-pattern AFTAdminNoSrpAuth :: AuthFlowType
-pattern AFTAdminNoSrpAuth = AuthFlowType' "ADMIN_NO_SRP_AUTH"
+pattern AuthFlowTypeAdminNoSrpAuth :: AuthFlowType
+pattern AuthFlowTypeAdminNoSrpAuth = AuthFlowType' "ADMIN_NO_SRP_AUTH"
 
-pattern AFTUserPasswordAuth :: AuthFlowType
-pattern AFTUserPasswordAuth = AuthFlowType' "USER_PASSWORD_AUTH"
+pattern AuthFlowTypeUserPasswordAuth :: AuthFlowType
+pattern AuthFlowTypeUserPasswordAuth = AuthFlowType' "USER_PASSWORD_AUTH"
 
-pattern AFTAdminUserPasswordAuth :: AuthFlowType
-pattern AFTAdminUserPasswordAuth = AuthFlowType' "ADMIN_USER_PASSWORD_AUTH"
+pattern AuthFlowTypeAdminUserPasswordAuth :: AuthFlowType
+pattern AuthFlowTypeAdminUserPasswordAuth = AuthFlowType' "ADMIN_USER_PASSWORD_AUTH"
 
 {-# COMPLETE
-  AFTUserSrpAuth,
-  AFTRefreshTokenAuth,
-  AFTRefreshToken,
-  AFTCustomAuth,
-  AFTAdminNoSrpAuth,
-  AFTUserPasswordAuth,
-  AFTAdminUserPasswordAuth,
+  AuthFlowTypeUserSrpAuth,
+  AuthFlowTypeRefreshTokenAuth,
+  AuthFlowTypeRefreshToken,
+  AuthFlowTypeCustomAuth,
+  AuthFlowTypeAdminNoSrpAuth,
+  AuthFlowTypeUserPasswordAuth,
+  AuthFlowTypeAdminUserPasswordAuth,
   AuthFlowType'
   #-}

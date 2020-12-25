@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
   ( DashIsoPlaybackDeviceCompatibility
       ( DashIsoPlaybackDeviceCompatibility',
-        CencV1,
-        UnencryptedSei
+        DashIsoPlaybackDeviceCompatibilityCencV1,
+        DashIsoPlaybackDeviceCompatibilityUnencryptedSei,
+        fromDashIsoPlaybackDeviceCompatibility
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This setting can improve the compatibility of your output with video players on obsolete devices. It applies only to DASH H.264 outputs with DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that output, the service will exclude the access unit delimiter and will leave the SEI NAL units unencrypted.
-newtype DashIsoPlaybackDeviceCompatibility = DashIsoPlaybackDeviceCompatibility' Lude.Text
+newtype DashIsoPlaybackDeviceCompatibility = DashIsoPlaybackDeviceCompatibility'
+  { fromDashIsoPlaybackDeviceCompatibility ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CencV1 :: DashIsoPlaybackDeviceCompatibility
-pattern CencV1 = DashIsoPlaybackDeviceCompatibility' "CENC_V1"
+pattern DashIsoPlaybackDeviceCompatibilityCencV1 :: DashIsoPlaybackDeviceCompatibility
+pattern DashIsoPlaybackDeviceCompatibilityCencV1 = DashIsoPlaybackDeviceCompatibility' "CENC_V1"
 
-pattern UnencryptedSei :: DashIsoPlaybackDeviceCompatibility
-pattern UnencryptedSei = DashIsoPlaybackDeviceCompatibility' "UNENCRYPTED_SEI"
+pattern DashIsoPlaybackDeviceCompatibilityUnencryptedSei :: DashIsoPlaybackDeviceCompatibility
+pattern DashIsoPlaybackDeviceCompatibilityUnencryptedSei = DashIsoPlaybackDeviceCompatibility' "UNENCRYPTED_SEI"
 
 {-# COMPLETE
-  CencV1,
-  UnencryptedSei,
+  DashIsoPlaybackDeviceCompatibilityCencV1,
+  DashIsoPlaybackDeviceCompatibilityUnencryptedSei,
   DashIsoPlaybackDeviceCompatibility'
   #-}

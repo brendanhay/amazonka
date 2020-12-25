@@ -30,127 +30,112 @@ module Network.AWS.Lightsail.CloseInstancePublicPorts
     mkCloseInstancePublicPortsResponse,
 
     -- ** Response lenses
-    cipprsOperation,
-    cipprsResponseStatus,
+    cipprrsOperation,
+    cipprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCloseInstancePublicPorts' smart constructor.
 data CloseInstancePublicPorts = CloseInstancePublicPorts'
   { -- | An object to describe the ports to close for the specified instance.
-    portInfo :: PortInfo,
+    portInfo :: Types.PortInfo,
     -- | The name of the instance for which to close ports.
-    instanceName :: Lude.Text
+    instanceName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloseInstancePublicPorts' with the minimum fields required to make a request.
---
--- * 'portInfo' - An object to describe the ports to close for the specified instance.
--- * 'instanceName' - The name of the instance for which to close ports.
+-- | Creates a 'CloseInstancePublicPorts' value with any optional fields omitted.
 mkCloseInstancePublicPorts ::
   -- | 'portInfo'
-  PortInfo ->
+  Types.PortInfo ->
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   CloseInstancePublicPorts
-mkCloseInstancePublicPorts pPortInfo_ pInstanceName_ =
-  CloseInstancePublicPorts'
-    { portInfo = pPortInfo_,
-      instanceName = pInstanceName_
-    }
+mkCloseInstancePublicPorts portInfo instanceName =
+  CloseInstancePublicPorts' {portInfo, instanceName}
 
 -- | An object to describe the ports to close for the specified instance.
 --
 -- /Note:/ Consider using 'portInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cippPortInfo :: Lens.Lens' CloseInstancePublicPorts PortInfo
-cippPortInfo = Lens.lens (portInfo :: CloseInstancePublicPorts -> PortInfo) (\s a -> s {portInfo = a} :: CloseInstancePublicPorts)
+cippPortInfo :: Lens.Lens' CloseInstancePublicPorts Types.PortInfo
+cippPortInfo = Lens.field @"portInfo"
 {-# DEPRECATED cippPortInfo "Use generic-lens or generic-optics with 'portInfo' instead." #-}
 
 -- | The name of the instance for which to close ports.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cippInstanceName :: Lens.Lens' CloseInstancePublicPorts Lude.Text
-cippInstanceName = Lens.lens (instanceName :: CloseInstancePublicPorts -> Lude.Text) (\s a -> s {instanceName = a} :: CloseInstancePublicPorts)
+cippInstanceName :: Lens.Lens' CloseInstancePublicPorts Types.ResourceName
+cippInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED cippInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest CloseInstancePublicPorts where
+instance Core.FromJSON CloseInstancePublicPorts where
+  toJSON CloseInstancePublicPorts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("portInfo" Core..= portInfo),
+            Core.Just ("instanceName" Core..= instanceName)
+          ]
+      )
+
+instance Core.AWSRequest CloseInstancePublicPorts where
   type Rs CloseInstancePublicPorts = CloseInstancePublicPortsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.CloseInstancePublicPorts")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CloseInstancePublicPortsResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CloseInstancePublicPorts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.CloseInstancePublicPorts" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CloseInstancePublicPorts where
-  toJSON CloseInstancePublicPorts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("portInfo" Lude..= portInfo),
-            Lude.Just ("instanceName" Lude..= instanceName)
-          ]
-      )
-
-instance Lude.ToPath CloseInstancePublicPorts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CloseInstancePublicPorts where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCloseInstancePublicPortsResponse' smart constructor.
 data CloseInstancePublicPortsResponse = CloseInstancePublicPortsResponse'
   { -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CloseInstancePublicPortsResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CloseInstancePublicPortsResponse' value with any optional fields omitted.
 mkCloseInstancePublicPortsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CloseInstancePublicPortsResponse
-mkCloseInstancePublicPortsResponse pResponseStatus_ =
+mkCloseInstancePublicPortsResponse responseStatus =
   CloseInstancePublicPortsResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operation = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipprsOperation :: Lens.Lens' CloseInstancePublicPortsResponse (Lude.Maybe Operation)
-cipprsOperation = Lens.lens (operation :: CloseInstancePublicPortsResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CloseInstancePublicPortsResponse)
-{-# DEPRECATED cipprsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+cipprrsOperation :: Lens.Lens' CloseInstancePublicPortsResponse (Core.Maybe Types.Operation)
+cipprrsOperation = Lens.field @"operation"
+{-# DEPRECATED cipprrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipprsResponseStatus :: Lens.Lens' CloseInstancePublicPortsResponse Lude.Int
-cipprsResponseStatus = Lens.lens (responseStatus :: CloseInstancePublicPortsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CloseInstancePublicPortsResponse)
-{-# DEPRECATED cipprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cipprrsResponseStatus :: Lens.Lens' CloseInstancePublicPortsResponse Core.Int
+cipprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cipprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

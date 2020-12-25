@@ -32,107 +32,96 @@ module Network.AWS.CostAndUsageReport.DeleteReportDefinition
   )
 where
 
-import Network.AWS.CostAndUsageReport.Types
+import qualified Network.AWS.CostAndUsageReport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Deletes the specified report.
 --
 -- /See:/ 'mkDeleteReportDefinition' smart constructor.
 newtype DeleteReportDefinition = DeleteReportDefinition'
   { -- | The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.
-    reportName :: Lude.Maybe Lude.Text
+    reportName :: Core.Maybe Types.ReportName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReportDefinition' with the minimum fields required to make a request.
---
--- * 'reportName' - The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.
+-- | Creates a 'DeleteReportDefinition' value with any optional fields omitted.
 mkDeleteReportDefinition ::
   DeleteReportDefinition
 mkDeleteReportDefinition =
-  DeleteReportDefinition' {reportName = Lude.Nothing}
+  DeleteReportDefinition' {reportName = Core.Nothing}
 
 -- | The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.
 --
 -- /Note:/ Consider using 'reportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdReportName :: Lens.Lens' DeleteReportDefinition (Lude.Maybe Lude.Text)
-drdReportName = Lens.lens (reportName :: DeleteReportDefinition -> Lude.Maybe Lude.Text) (\s a -> s {reportName = a} :: DeleteReportDefinition)
+drdReportName :: Lens.Lens' DeleteReportDefinition (Core.Maybe Types.ReportName)
+drdReportName = Lens.field @"reportName"
 {-# DEPRECATED drdReportName "Use generic-lens or generic-optics with 'reportName' instead." #-}
 
-instance Lude.AWSRequest DeleteReportDefinition where
+instance Core.FromJSON DeleteReportDefinition where
+  toJSON DeleteReportDefinition {..} =
+    Core.object
+      (Core.catMaybes [("ReportName" Core..=) Core.<$> reportName])
+
+instance Core.AWSRequest DeleteReportDefinition where
   type Rs DeleteReportDefinition = DeleteReportDefinitionResponse
-  request = Req.postJSON costAndUsageReportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrigamiServiceGatewayService.DeleteReportDefinition"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteReportDefinitionResponse'
-            Lude.<$> (x Lude..?> "ResponseMessage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ResponseMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteReportDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrigamiServiceGatewayService.DeleteReportDefinition" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteReportDefinition where
-  toJSON DeleteReportDefinition' {..} =
-    Lude.object
-      (Lude.catMaybes [("ReportName" Lude..=) Lude.<$> reportName])
-
-instance Lude.ToPath DeleteReportDefinition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteReportDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | If the action is successful, the service sends back an HTTP 200 response.
 --
 -- /See:/ 'mkDeleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
-  { responseMessage :: Lude.Maybe Lude.Text,
+  { responseMessage :: Core.Maybe Types.ResponseMessage,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReportDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseMessage' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteReportDefinitionResponse' value with any optional fields omitted.
 mkDeleteReportDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteReportDefinitionResponse
-mkDeleteReportDefinitionResponse pResponseStatus_ =
+mkDeleteReportDefinitionResponse responseStatus =
   DeleteReportDefinitionResponse'
-    { responseMessage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { responseMessage = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'responseMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseMessage :: Lens.Lens' DeleteReportDefinitionResponse (Lude.Maybe Lude.Text)
-drsResponseMessage = Lens.lens (responseMessage :: DeleteReportDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {responseMessage = a} :: DeleteReportDefinitionResponse)
+drsResponseMessage :: Lens.Lens' DeleteReportDefinitionResponse (Core.Maybe Types.ResponseMessage)
+drsResponseMessage = Lens.field @"responseMessage"
 {-# DEPRECATED drsResponseMessage "Use generic-lens or generic-optics with 'responseMessage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteReportDefinitionResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteReportDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReportDefinitionResponse)
+drsResponseStatus :: Lens.Lens' DeleteReportDefinitionResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

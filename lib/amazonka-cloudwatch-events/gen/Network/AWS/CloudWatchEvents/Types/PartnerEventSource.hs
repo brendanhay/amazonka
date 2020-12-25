@@ -17,54 +17,51 @@ module Network.AWS.CloudWatchEvents.Types.PartnerEventSource
     mkPartnerEventSource,
 
     -- * Lenses
-    pesARN,
+    pesArn,
     pesName,
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.Name as Types
+import qualified Network.AWS.CloudWatchEvents.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A partner event source is created by an SaaS partner. If a customer creates a partner event bus that matches this event source, that AWS account can receive events from the partner's applications or services.
 --
 -- /See:/ 'mkPartnerEventSource' smart constructor.
 data PartnerEventSource = PartnerEventSource'
   { -- | The ARN of the partner event source.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.String,
     -- | The name of the partner event source.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PartnerEventSource' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the partner event source.
--- * 'name' - The name of the partner event source.
+-- | Creates a 'PartnerEventSource' value with any optional fields omitted.
 mkPartnerEventSource ::
   PartnerEventSource
 mkPartnerEventSource =
-  PartnerEventSource' {arn = Lude.Nothing, name = Lude.Nothing}
+  PartnerEventSource' {arn = Core.Nothing, name = Core.Nothing}
 
 -- | The ARN of the partner event source.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesARN :: Lens.Lens' PartnerEventSource (Lude.Maybe Lude.Text)
-pesARN = Lens.lens (arn :: PartnerEventSource -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PartnerEventSource)
-{-# DEPRECATED pesARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+pesArn :: Lens.Lens' PartnerEventSource (Core.Maybe Types.String)
+pesArn = Lens.field @"arn"
+{-# DEPRECATED pesArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the partner event source.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesName :: Lens.Lens' PartnerEventSource (Lude.Maybe Lude.Text)
-pesName = Lens.lens (name :: PartnerEventSource -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PartnerEventSource)
+pesName :: Lens.Lens' PartnerEventSource (Core.Maybe Types.Name)
+pesName = Lens.field @"name"
 {-# DEPRECATED pesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON PartnerEventSource where
+instance Core.FromJSON PartnerEventSource where
   parseJSON =
-    Lude.withObject
-      "PartnerEventSource"
-      ( \x ->
-          PartnerEventSource'
-            Lude.<$> (x Lude..:? "Arn") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "PartnerEventSource" Core.$
+      \x ->
+        PartnerEventSource'
+          Core.<$> (x Core..:? "Arn") Core.<*> (x Core..:? "Name")

@@ -17,15 +17,16 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicy
     mkOriginRequestPolicy,
 
     -- * Lenses
-    orpOriginRequestPolicyConfig,
-    orpLastModifiedTime,
     orpId,
+    orpLastModifiedTime,
+    orpOriginRequestPolicyConfig,
   )
 where
 
-import Network.AWS.CloudFront.Types.OriginRequestPolicyConfig
+import qualified Network.AWS.CloudFront.Types.Id as Types
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An origin request policy.
 --
@@ -44,64 +45,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginRequestPolicy' smart constructor.
 data OriginRequestPolicy = OriginRequestPolicy'
-  { -- | The origin request policy configuration.
-    originRequestPolicyConfig :: OriginRequestPolicyConfig,
+  { -- | The unique identifier for the origin request policy.
+    id :: Types.Id,
     -- | The date and time when the origin request policy was last modified.
-    lastModifiedTime :: Lude.DateTime,
-    -- | The unique identifier for the origin request policy.
-    id :: Lude.Text
+    lastModifiedTime :: Core.UTCTime,
+    -- | The origin request policy configuration.
+    originRequestPolicyConfig :: Types.OriginRequestPolicyConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OriginRequestPolicy' with the minimum fields required to make a request.
---
--- * 'originRequestPolicyConfig' - The origin request policy configuration.
--- * 'lastModifiedTime' - The date and time when the origin request policy was last modified.
--- * 'id' - The unique identifier for the origin request policy.
+-- | Creates a 'OriginRequestPolicy' value with any optional fields omitted.
 mkOriginRequestPolicy ::
-  -- | 'originRequestPolicyConfig'
-  OriginRequestPolicyConfig ->
-  -- | 'lastModifiedTime'
-  Lude.DateTime ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'lastModifiedTime'
+  Core.UTCTime ->
+  -- | 'originRequestPolicyConfig'
+  Types.OriginRequestPolicyConfig ->
   OriginRequestPolicy
-mkOriginRequestPolicy
-  pOriginRequestPolicyConfig_
-  pLastModifiedTime_
-  pId_ =
-    OriginRequestPolicy'
-      { originRequestPolicyConfig =
-          pOriginRequestPolicyConfig_,
-        lastModifiedTime = pLastModifiedTime_,
-        id = pId_
-      }
-
--- | The origin request policy configuration.
---
--- /Note:/ Consider using 'originRequestPolicyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpOriginRequestPolicyConfig :: Lens.Lens' OriginRequestPolicy OriginRequestPolicyConfig
-orpOriginRequestPolicyConfig = Lens.lens (originRequestPolicyConfig :: OriginRequestPolicy -> OriginRequestPolicyConfig) (\s a -> s {originRequestPolicyConfig = a} :: OriginRequestPolicy)
-{-# DEPRECATED orpOriginRequestPolicyConfig "Use generic-lens or generic-optics with 'originRequestPolicyConfig' instead." #-}
-
--- | The date and time when the origin request policy was last modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpLastModifiedTime :: Lens.Lens' OriginRequestPolicy Lude.DateTime
-orpLastModifiedTime = Lens.lens (lastModifiedTime :: OriginRequestPolicy -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: OriginRequestPolicy)
-{-# DEPRECATED orpLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+mkOriginRequestPolicy id lastModifiedTime originRequestPolicyConfig =
+  OriginRequestPolicy'
+    { id,
+      lastModifiedTime,
+      originRequestPolicyConfig
+    }
 
 -- | The unique identifier for the origin request policy.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpId :: Lens.Lens' OriginRequestPolicy Lude.Text
-orpId = Lens.lens (id :: OriginRequestPolicy -> Lude.Text) (\s a -> s {id = a} :: OriginRequestPolicy)
+orpId :: Lens.Lens' OriginRequestPolicy Types.Id
+orpId = Lens.field @"id"
 {-# DEPRECATED orpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML OriginRequestPolicy where
+-- | The date and time when the origin request policy was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpLastModifiedTime :: Lens.Lens' OriginRequestPolicy Core.UTCTime
+orpLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED orpLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The origin request policy configuration.
+--
+-- /Note:/ Consider using 'originRequestPolicyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpOriginRequestPolicyConfig :: Lens.Lens' OriginRequestPolicy Types.OriginRequestPolicyConfig
+orpOriginRequestPolicyConfig = Lens.field @"originRequestPolicyConfig"
+{-# DEPRECATED orpOriginRequestPolicyConfig "Use generic-lens or generic-optics with 'originRequestPolicyConfig' instead." #-}
+
+instance Core.FromXML OriginRequestPolicy where
   parseXML x =
     OriginRequestPolicy'
-      Lude.<$> (x Lude..@ "OriginRequestPolicyConfig")
-      Lude.<*> (x Lude..@ "LastModifiedTime")
-      Lude.<*> (x Lude..@ "Id")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "OriginRequestPolicyConfig")

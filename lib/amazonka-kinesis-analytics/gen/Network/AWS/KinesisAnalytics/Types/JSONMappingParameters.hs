@@ -17,51 +17,47 @@ module Network.AWS.KinesisAnalytics.Types.JSONMappingParameters
     mkJSONMappingParameters,
 
     -- * Lenses
-    jmpRecordRowPath,
+    jsonmpRecordRowPath,
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.RecordRowPath as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides additional mapping information when JSON is the record format on the streaming source.
 --
 -- /See:/ 'mkJSONMappingParameters' smart constructor.
 newtype JSONMappingParameters = JSONMappingParameters'
   { -- | Path to the top-level parent that contains the records.
-    recordRowPath :: Lude.Text
+    recordRowPath :: Types.RecordRowPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JSONMappingParameters' with the minimum fields required to make a request.
---
--- * 'recordRowPath' - Path to the top-level parent that contains the records.
+-- | Creates a 'JSONMappingParameters' value with any optional fields omitted.
 mkJSONMappingParameters ::
   -- | 'recordRowPath'
-  Lude.Text ->
+  Types.RecordRowPath ->
   JSONMappingParameters
-mkJSONMappingParameters pRecordRowPath_ =
-  JSONMappingParameters' {recordRowPath = pRecordRowPath_}
+mkJSONMappingParameters recordRowPath =
+  JSONMappingParameters' {recordRowPath}
 
 -- | Path to the top-level parent that contains the records.
 --
 -- /Note:/ Consider using 'recordRowPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jmpRecordRowPath :: Lens.Lens' JSONMappingParameters Lude.Text
-jmpRecordRowPath = Lens.lens (recordRowPath :: JSONMappingParameters -> Lude.Text) (\s a -> s {recordRowPath = a} :: JSONMappingParameters)
-{-# DEPRECATED jmpRecordRowPath "Use generic-lens or generic-optics with 'recordRowPath' instead." #-}
+jsonmpRecordRowPath :: Lens.Lens' JSONMappingParameters Types.RecordRowPath
+jsonmpRecordRowPath = Lens.field @"recordRowPath"
+{-# DEPRECATED jsonmpRecordRowPath "Use generic-lens or generic-optics with 'recordRowPath' instead." #-}
 
-instance Lude.FromJSON JSONMappingParameters where
+instance Core.FromJSON JSONMappingParameters where
+  toJSON JSONMappingParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RecordRowPath" Core..= recordRowPath)]
+      )
+
+instance Core.FromJSON JSONMappingParameters where
   parseJSON =
-    Lude.withObject
-      "JSONMappingParameters"
-      ( \x ->
-          JSONMappingParameters' Lude.<$> (x Lude..: "RecordRowPath")
-      )
-
-instance Lude.ToJSON JSONMappingParameters where
-  toJSON JSONMappingParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("RecordRowPath" Lude..= recordRowPath)]
-      )
+    Core.withObject "JSONMappingParameters" Core.$
+      \x -> JSONMappingParameters' Core.<$> (x Core..: "RecordRowPath")

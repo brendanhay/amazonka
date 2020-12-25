@@ -18,104 +18,98 @@ module Network.AWS.Inspector.Types.AssessmentTarget
 
     -- * Lenses
     aArn,
-    aCreatedAt,
-    aResourceGroupARN,
     aName,
+    aCreatedAt,
     aUpdatedAt,
+    aResourceGroupArn,
   )
 where
 
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.AssessmentTargetName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an Amazon Inspector application. This data type is used as the response element in the 'DescribeAssessmentTargets' action.
 --
 -- /See:/ 'mkAssessmentTarget' smart constructor.
 data AssessmentTarget = AssessmentTarget'
   { -- | The ARN that specifies the Amazon Inspector assessment target.
-    arn :: Lude.Text,
-    -- | The time at which the assessment target is created.
-    createdAt :: Lude.Timestamp,
-    -- | The ARN that specifies the resource group that is associated with the assessment target.
-    resourceGroupARN :: Lude.Maybe Lude.Text,
+    arn :: Types.Arn,
     -- | The name of the Amazon Inspector assessment target.
-    name :: Lude.Text,
+    name :: Types.AssessmentTargetName,
+    -- | The time at which the assessment target is created.
+    createdAt :: Core.NominalDiffTime,
     -- | The time at which 'UpdateAssessmentTarget' is called.
-    updatedAt :: Lude.Timestamp
+    updatedAt :: Core.NominalDiffTime,
+    -- | The ARN that specifies the resource group that is associated with the assessment target.
+    resourceGroupArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AssessmentTarget' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN that specifies the Amazon Inspector assessment target.
--- * 'createdAt' - The time at which the assessment target is created.
--- * 'resourceGroupARN' - The ARN that specifies the resource group that is associated with the assessment target.
--- * 'name' - The name of the Amazon Inspector assessment target.
--- * 'updatedAt' - The time at which 'UpdateAssessmentTarget' is called.
+-- | Creates a 'AssessmentTarget' value with any optional fields omitted.
 mkAssessmentTarget ::
   -- | 'arn'
-  Lude.Text ->
-  -- | 'createdAt'
-  Lude.Timestamp ->
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.AssessmentTargetName ->
+  -- | 'createdAt'
+  Core.NominalDiffTime ->
   -- | 'updatedAt'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   AssessmentTarget
-mkAssessmentTarget pArn_ pCreatedAt_ pName_ pUpdatedAt_ =
+mkAssessmentTarget arn name createdAt updatedAt =
   AssessmentTarget'
-    { arn = pArn_,
-      createdAt = pCreatedAt_,
-      resourceGroupARN = Lude.Nothing,
-      name = pName_,
-      updatedAt = pUpdatedAt_
+    { arn,
+      name,
+      createdAt,
+      updatedAt,
+      resourceGroupArn = Core.Nothing
     }
 
 -- | The ARN that specifies the Amazon Inspector assessment target.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aArn :: Lens.Lens' AssessmentTarget Lude.Text
-aArn = Lens.lens (arn :: AssessmentTarget -> Lude.Text) (\s a -> s {arn = a} :: AssessmentTarget)
+aArn :: Lens.Lens' AssessmentTarget Types.Arn
+aArn = Lens.field @"arn"
 {-# DEPRECATED aArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The time at which the assessment target is created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCreatedAt :: Lens.Lens' AssessmentTarget Lude.Timestamp
-aCreatedAt = Lens.lens (createdAt :: AssessmentTarget -> Lude.Timestamp) (\s a -> s {createdAt = a} :: AssessmentTarget)
-{-# DEPRECATED aCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The ARN that specifies the resource group that is associated with the assessment target.
---
--- /Note:/ Consider using 'resourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aResourceGroupARN :: Lens.Lens' AssessmentTarget (Lude.Maybe Lude.Text)
-aResourceGroupARN = Lens.lens (resourceGroupARN :: AssessmentTarget -> Lude.Maybe Lude.Text) (\s a -> s {resourceGroupARN = a} :: AssessmentTarget)
-{-# DEPRECATED aResourceGroupARN "Use generic-lens or generic-optics with 'resourceGroupARN' instead." #-}
 
 -- | The name of the Amazon Inspector assessment target.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' AssessmentTarget Lude.Text
-aName = Lens.lens (name :: AssessmentTarget -> Lude.Text) (\s a -> s {name = a} :: AssessmentTarget)
+aName :: Lens.Lens' AssessmentTarget Types.AssessmentTargetName
+aName = Lens.field @"name"
 {-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The time at which the assessment target is created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreatedAt :: Lens.Lens' AssessmentTarget Core.NominalDiffTime
+aCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED aCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The time at which 'UpdateAssessmentTarget' is called.
 --
 -- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aUpdatedAt :: Lens.Lens' AssessmentTarget Lude.Timestamp
-aUpdatedAt = Lens.lens (updatedAt :: AssessmentTarget -> Lude.Timestamp) (\s a -> s {updatedAt = a} :: AssessmentTarget)
+aUpdatedAt :: Lens.Lens' AssessmentTarget Core.NominalDiffTime
+aUpdatedAt = Lens.field @"updatedAt"
 {-# DEPRECATED aUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
 
-instance Lude.FromJSON AssessmentTarget where
+-- | The ARN that specifies the resource group that is associated with the assessment target.
+--
+-- /Note:/ Consider using 'resourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aResourceGroupArn :: Lens.Lens' AssessmentTarget (Core.Maybe Types.Arn)
+aResourceGroupArn = Lens.field @"resourceGroupArn"
+{-# DEPRECATED aResourceGroupArn "Use generic-lens or generic-optics with 'resourceGroupArn' instead." #-}
+
+instance Core.FromJSON AssessmentTarget where
   parseJSON =
-    Lude.withObject
-      "AssessmentTarget"
-      ( \x ->
-          AssessmentTarget'
-            Lude.<$> (x Lude..: "arn")
-            Lude.<*> (x Lude..: "createdAt")
-            Lude.<*> (x Lude..:? "resourceGroupArn")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "updatedAt")
-      )
+    Core.withObject "AssessmentTarget" Core.$
+      \x ->
+        AssessmentTarget'
+          Core.<$> (x Core..: "arn")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..: "createdAt")
+          Core.<*> (x Core..: "updatedAt")
+          Core.<*> (x Core..:? "resourceGroupArn")

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,49 @@
 -- In addition to monitoring the built-in metrics that come with AWS, you can monitor your own custom metrics. With CloudWatch, you gain system-wide visibility into resource utilization, application performance, and operational health.
 module Network.AWS.CloudWatch
   ( -- * Service configuration
-    cloudWatchService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** DashboardNotFoundError
+    _DashboardNotFoundError,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** InternalServiceFault
+    _InternalServiceFault,
+
+    -- ** DashboardInvalidInputError
+    _DashboardInvalidInputError,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidFormatFault
+    _InvalidFormatFault,
+
+    -- ** MissingRequiredParameterException
+    _MissingRequiredParameterException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- * Waiters
     -- $waiters
@@ -126,86 +164,8 @@ module Network.AWS.CloudWatch
 
     -- * Types
 
-    -- ** AlarmType
-    AlarmType (..),
-
-    -- ** AnomalyDetectorStateValue
-    AnomalyDetectorStateValue (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** HistoryItemType
-    HistoryItemType (..),
-
-    -- ** RecentlyActive
-    RecentlyActive (..),
-
-    -- ** ScanBy
-    ScanBy (..),
-
-    -- ** StandardUnit
-    StandardUnit (..),
-
-    -- ** StateValue
-    StateValue (..),
-
-    -- ** Statistic
-    Statistic (..),
-
-    -- ** StatusCode
-    StatusCode (..),
-
-    -- ** AlarmHistoryItem
-    AlarmHistoryItem (..),
-    mkAlarmHistoryItem,
-    ahiAlarmName,
-    ahiHistoryItemType,
-    ahiHistoryData,
-    ahiAlarmType,
-    ahiHistorySummary,
-    ahiTimestamp,
-
-    -- ** AnomalyDetector
-    AnomalyDetector (..),
-    mkAnomalyDetector,
-    adMetricName,
-    adNamespace,
-    adStateValue,
-    adStat,
-    adConfiguration,
-    adDimensions,
-
-    -- ** AnomalyDetectorConfiguration
-    AnomalyDetectorConfiguration (..),
-    mkAnomalyDetectorConfiguration,
-    adcMetricTimezone,
-    adcExcludedTimeRanges,
-
-    -- ** CompositeAlarm
-    CompositeAlarm (..),
-    mkCompositeAlarm,
-    caAlarmName,
-    caStateUpdatedTimestamp,
-    caAlarmDescription,
-    caAlarmRule,
-    caOKActions,
-    caStateValue,
-    caAlarmConfigurationUpdatedTimestamp,
-    caActionsEnabled,
-    caInsufficientDataActions,
-    caStateReason,
-    caStateReasonData,
-    caAlarmARN,
-    caAlarmActions,
-
-    -- ** DashboardEntry
-    DashboardEntry (..),
-    mkDashboardEntry,
-    deSize,
-    deDashboardName,
-    deLastModified,
-    deDashboardARN,
+    -- ** AlarmName
+    AlarmName (..),
 
     -- ** DashboardValidationMessage
     DashboardValidationMessage (..),
@@ -213,155 +173,264 @@ module Network.AWS.CloudWatch
     dvmDataPath,
     dvmMessage,
 
-    -- ** Datapoint
-    Datapoint (..),
-    mkDatapoint,
-    dSampleCount,
-    dMaximum,
-    dAverage,
-    dMinimum,
-    dExtendedStatistics,
-    dSum,
-    dUnit,
-    dTimestamp,
+    -- ** AlarmNamePrefix
+    AlarmNamePrefix (..),
 
-    -- ** Dimension
-    Dimension (..),
-    mkDimension,
-    dValue,
-    dName,
+    -- ** StatisticSet
+    StatisticSet (..),
+    mkStatisticSet,
+    ssSampleCount,
+    ssSum,
+    ssMinimum,
+    ssMaximum,
 
-    -- ** DimensionFilter
-    DimensionFilter (..),
-    mkDimensionFilter,
-    dfValue,
-    dfName,
-
-    -- ** InsightRule
-    InsightRule (..),
-    mkInsightRule,
-    irState,
-    irDefinition,
-    irSchema,
-    irName,
-
-    -- ** InsightRuleContributor
-    InsightRuleContributor (..),
-    mkInsightRuleContributor,
-    ircDatapoints,
-    ircApproximateAggregateValue,
-    ircKeys,
-
-    -- ** InsightRuleContributorDatapoint
-    InsightRuleContributorDatapoint (..),
-    mkInsightRuleContributorDatapoint,
-    ircdApproximateValue,
-    ircdTimestamp,
-
-    -- ** InsightRuleMetricDatapoint
-    InsightRuleMetricDatapoint (..),
-    mkInsightRuleMetricDatapoint,
-    irmdMaxContributorValue,
-    irmdSampleCount,
-    irmdMaximum,
-    irmdAverage,
-    irmdMinimum,
-    irmdUniqueContributors,
-    irmdSum,
-    irmdTimestamp,
-
-    -- ** MessageData
-    MessageData (..),
-    mkMessageData,
-    mValue,
-    mCode,
-
-    -- ** Metric
-    Metric (..),
-    mkMetric,
-    mMetricName,
-    mNamespace,
-    mDimensions,
+    -- ** AnomalyDetectorMetricTimezone
+    AnomalyDetectorMetricTimezone (..),
 
     -- ** MetricAlarm
     MetricAlarm (..),
     mkMetricAlarm,
-    maAlarmName,
-    maStateUpdatedTimestamp,
-    maMetrics,
-    maTreatMissingData,
-    maPeriod,
-    maAlarmDescription,
-    maEvaluationPeriods,
-    maMetricName,
-    maNamespace,
-    maThresholdMetricId,
-    maComparisonOperator,
-    maOKActions,
-    maEvaluateLowSampleCountPercentile,
-    maStateValue,
-    maDatapointsToAlarm,
-    maThreshold,
-    maAlarmConfigurationUpdatedTimestamp,
     maActionsEnabled,
+    maAlarmActions,
+    maAlarmArn,
+    maAlarmConfigurationUpdatedTimestamp,
+    maAlarmDescription,
+    maAlarmName,
+    maComparisonOperator,
+    maDatapointsToAlarm,
+    maDimensions,
+    maEvaluateLowSampleCountPercentile,
+    maEvaluationPeriods,
+    maExtendedStatistic,
     maInsufficientDataActions,
+    maMetricName,
+    maMetrics,
+    maNamespace,
+    maOKActions,
+    maPeriod,
     maStateReason,
     maStateReasonData,
-    maDimensions,
-    maAlarmARN,
-    maAlarmActions,
-    maUnit,
+    maStateUpdatedTimestamp,
+    maStateValue,
     maStatistic,
-    maExtendedStatistic,
+    maThreshold,
+    maThresholdMetricId,
+    maTreatMissingData,
+    maUnit,
 
-    -- ** MetricDataQuery
-    MetricDataQuery (..),
-    mkMetricDataQuery,
-    mdqReturnData,
-    mdqPeriod,
-    mdqExpression,
-    mdqId,
-    mdqLabel,
-    mdqMetricStat,
+    -- ** HistoryItemType
+    HistoryItemType (..),
 
-    -- ** MetricDataResult
-    MetricDataResult (..),
-    mkMetricDataResult,
-    mdrValues,
-    mdrId,
-    mdrTimestamps,
-    mdrMessages,
-    mdrLabel,
-    mdrStatusCode,
+    -- ** InsightRuleState
+    InsightRuleState (..),
+
+    -- ** HistoryData
+    HistoryData (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** FailureResource
+    FailureResource (..),
+
+    -- ** TreatMissingData
+    TreatMissingData (..),
+
+    -- ** InsightRuleOrderBy
+    InsightRuleOrderBy (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** InsightRuleDefinition
+    InsightRuleDefinition (..),
 
     -- ** MetricDatum
     MetricDatum (..),
     mkMetricDatum,
-    mdValues,
-    mdCounts,
     mdMetricName,
-    mdValue,
-    mdStorageResolution,
+    mdCounts,
     mdDimensions,
-    mdUnit,
-    mdTimestamp,
     mdStatisticValues,
+    mdStorageResolution,
+    mdTimestamp,
+    mdUnit,
+    mdValue,
+    mdValues,
 
-    -- ** MetricStat
-    MetricStat (..),
-    mkMetricStat,
-    msPeriod,
-    msMetric,
-    msStat,
-    msUnit,
+    -- ** AnomalyDetectorMetricStat
+    AnomalyDetectorMetricStat (..),
 
-    -- ** PartialFailure
-    PartialFailure (..),
-    mkPartialFailure,
-    pfFailureResource,
-    pfFailureCode,
-    pfFailureDescription,
-    pfExceptionType,
+    -- ** FailureCode
+    FailureCode (..),
+
+    -- ** DataPath
+    DataPath (..),
+
+    -- ** AlarmDescription
+    AlarmDescription (..),
+
+    -- ** StandardUnit
+    StandardUnit (..),
+
+    -- ** AlarmRule
+    AlarmRule (..),
+
+    -- ** InsightRule
+    InsightRule (..),
+    mkInsightRule,
+    irName,
+    irState,
+    irSchema,
+    irDefinition,
+
+    -- ** InsightRuleMetricDatapoint
+    InsightRuleMetricDatapoint (..),
+    mkInsightRuleMetricDatapoint,
+    irmdTimestamp,
+    irmdAverage,
+    irmdMaxContributorValue,
+    irmdMaximum,
+    irmdMinimum,
+    irmdSampleCount,
+    irmdSum,
+    irmdUniqueContributors,
+
+    -- ** MessageDataValue
+    MessageDataValue (..),
+
+    -- ** DashboardEntry
+    DashboardEntry (..),
+    mkDashboardEntry,
+    deDashboardArn,
+    deDashboardName,
+    deLastModified,
+    deSize,
+
+    -- ** Dimension
+    Dimension (..),
+    mkDimension,
+    dName,
+    dValue,
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** AnomalyDetectorConfiguration
+    AnomalyDetectorConfiguration (..),
+    mkAnomalyDetectorConfiguration,
+    adcExcludedTimeRanges,
+    adcMetricTimezone,
+
+    -- ** Namespace
+    Namespace (..),
+
+    -- ** DashboardName
+    DashboardName (..),
+
+    -- ** DashboardNamePrefix
+    DashboardNamePrefix (..),
+
+    -- ** AnomalyDetector
+    AnomalyDetector (..),
+    mkAnomalyDetector,
+    adConfiguration,
+    adDimensions,
+    adMetricName,
+    adNamespace,
+    adStat,
+    adStateValue,
+
+    -- ** DimensionValue
+    DimensionValue (..),
+
+    -- ** InsightRuleMetricName
+    InsightRuleMetricName (..),
+
+    -- ** AlarmType
+    AlarmType (..),
+
+    -- ** ActionPrefix
+    ActionPrefix (..),
+
+    -- ** CompositeAlarm
+    CompositeAlarm (..),
+    mkCompositeAlarm,
+    caActionsEnabled,
+    caAlarmActions,
+    caAlarmArn,
+    caAlarmConfigurationUpdatedTimestamp,
+    caAlarmDescription,
+    caAlarmName,
+    caAlarmRule,
+    caInsufficientDataActions,
+    caOKActions,
+    caStateReason,
+    caStateReasonData,
+    caStateUpdatedTimestamp,
+    caStateValue,
+
+    -- ** FailureDescription
+    FailureDescription (..),
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** MetricId
+    MetricId (..),
+
+    -- ** EvaluateLowSampleCountPercentile
+    EvaluateLowSampleCountPercentile (..),
+
+    -- ** InsightRuleContributorKey
+    InsightRuleContributorKey (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ScanBy
+    ScanBy (..),
+
+    -- ** AlarmHistoryItem
+    AlarmHistoryItem (..),
+    mkAlarmHistoryItem,
+    ahiAlarmName,
+    ahiAlarmType,
+    ahiHistoryData,
+    ahiHistoryItemType,
+    ahiHistorySummary,
+    ahiTimestamp,
+
+    -- ** Metric
+    Metric (..),
+    mkMetric,
+    mDimensions,
+    mMetricName,
+    mNamespace,
+
+    -- ** OutputFormat
+    OutputFormat (..),
+
+    -- ** StateValue
+    StateValue (..),
+
+    -- ** DashboardBody
+    DashboardBody (..),
+
+    -- ** Datapoint
+    Datapoint (..),
+    mkDatapoint,
+    dAverage,
+    dExtendedStatistics,
+    dMaximum,
+    dMinimum,
+    dSampleCount,
+    dSum,
+    dTimestamp,
+    dUnit,
 
     -- ** Range
     Range (..),
@@ -369,29 +438,173 @@ module Network.AWS.CloudWatch
     rStartTime,
     rEndTime,
 
-    -- ** StatisticSet
-    StatisticSet (..),
-    mkStatisticSet,
-    ssSampleCount,
-    ssMaximum,
-    ssMinimum,
-    ssSum,
+    -- ** AnomalyDetectorStateValue
+    AnomalyDetectorStateValue (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** InsightRuleName
+    InsightRuleName (..),
+
+    -- ** InsightRuleContributorDatapoint
+    InsightRuleContributorDatapoint (..),
+    mkInsightRuleContributorDatapoint,
+    ircdTimestamp,
+    ircdApproximateValue,
+
+    -- ** ExceptionType
+    ExceptionType (..),
+
+    -- ** DimensionName
+    DimensionName (..),
+
+    -- ** MetricLabel
+    MetricLabel (..),
+
+    -- ** RecentlyActive
+    RecentlyActive (..),
+
+    -- ** Stat
+    Stat (..),
+
+    -- ** InsightRuleContributorKeyLabel
+    InsightRuleContributorKeyLabel (..),
+
+    -- ** MetricDataResult
+    MetricDataResult (..),
+    mkMetricDataResult,
+    mdrId,
+    mdrLabel,
+    mdrMessages,
+    mdrStatusCode,
+    mdrTimestamps,
+    mdrValues,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** MetricWidget
+    MetricWidget (..),
+
+    -- ** DimensionFilter
+    DimensionFilter (..),
+    mkDimensionFilter,
+    dfName,
+    dfValue,
+
+    -- ** StateReason
+    StateReason (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** InsightRuleContributor
+    InsightRuleContributor (..),
+    mkInsightRuleContributor,
+    ircKeys,
+    ircApproximateAggregateValue,
+    ircDatapoints,
+
+    -- ** StateReasonData
+    StateReasonData (..),
+
+    -- ** MessageData
+    MessageData (..),
+    mkMessageData,
+    mCode,
+    mValue,
+
+    -- ** PartialFailure
+    PartialFailure (..),
+    mkPartialFailure,
+    pfExceptionType,
+    pfFailureCode,
+    pfFailureDescription,
+    pfFailureResource,
+
+    -- ** MetricDataQuery
+    MetricDataQuery (..),
+    mkMetricDataQuery,
+    mdqId,
+    mdqExpression,
+    mdqLabel,
+    mdqMetricStat,
+    mdqPeriod,
+    mdqReturnData,
+
+    -- ** AlarmArn
+    AlarmArn (..),
+
+    -- ** HistorySummary
+    HistorySummary (..),
+
+    -- ** MetricStat
+    MetricStat (..),
+    mkMetricStat,
+    msMetric,
+    msPeriod,
+    msStat,
+    msUnit,
+
+    -- ** Statistic
+    Statistic (..),
+
+    -- ** ExtendedStatistic
+    ExtendedStatistic (..),
+
+    -- ** DashboardArn
+    DashboardArn (..),
+
+    -- ** StatusCode
+    StatusCode (..),
+
+    -- ** ThresholdMetricId
+    ThresholdMetricId (..),
+
+    -- ** RuleName
+    RuleName (..),
+
+    -- ** RuleDefinition
+    RuleDefinition (..),
+
+    -- ** RuleState
+    RuleState (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Schema
+    Schema (..),
+
+    -- ** Label
+    Label (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** AggregationStatistic
+    AggregationStatistic (..),
+
+    -- ** Code
+    Code (..),
+
+    -- ** Expression
+    Expression (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

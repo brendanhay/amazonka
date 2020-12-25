@@ -13,51 +13,56 @@
 module Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
   ( MetricAggregationType
       ( MetricAggregationType',
-        MATAverage,
-        MATMinimum,
-        MATMaximum
+        MetricAggregationTypeAverage,
+        MetricAggregationTypeMinimum,
+        MetricAggregationTypeMaximum,
+        fromMetricAggregationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MetricAggregationType = MetricAggregationType' Lude.Text
+newtype MetricAggregationType = MetricAggregationType'
+  { fromMetricAggregationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MATAverage :: MetricAggregationType
-pattern MATAverage = MetricAggregationType' "Average"
+pattern MetricAggregationTypeAverage :: MetricAggregationType
+pattern MetricAggregationTypeAverage = MetricAggregationType' "Average"
 
-pattern MATMinimum :: MetricAggregationType
-pattern MATMinimum = MetricAggregationType' "Minimum"
+pattern MetricAggregationTypeMinimum :: MetricAggregationType
+pattern MetricAggregationTypeMinimum = MetricAggregationType' "Minimum"
 
-pattern MATMaximum :: MetricAggregationType
-pattern MATMaximum = MetricAggregationType' "Maximum"
+pattern MetricAggregationTypeMaximum :: MetricAggregationType
+pattern MetricAggregationTypeMaximum = MetricAggregationType' "Maximum"
 
 {-# COMPLETE
-  MATAverage,
-  MATMinimum,
-  MATMaximum,
+  MetricAggregationTypeAverage,
+  MetricAggregationTypeMinimum,
+  MetricAggregationTypeMaximum,
   MetricAggregationType'
   #-}

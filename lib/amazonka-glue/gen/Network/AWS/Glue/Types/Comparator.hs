@@ -13,61 +13,63 @@
 module Network.AWS.Glue.Types.Comparator
   ( Comparator
       ( Comparator',
-        CEquals,
-        CGreaterThan,
-        CLessThan,
-        CGreaterThanEquals,
-        CLessThanEquals
+        ComparatorEquals,
+        ComparatorGreaterThan,
+        ComparatorLessThan,
+        ComparatorGreaterThanEquals,
+        ComparatorLessThanEquals,
+        fromComparator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Comparator = Comparator' Lude.Text
+newtype Comparator = Comparator' {fromComparator :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CEquals :: Comparator
-pattern CEquals = Comparator' "EQUALS"
+pattern ComparatorEquals :: Comparator
+pattern ComparatorEquals = Comparator' "EQUALS"
 
-pattern CGreaterThan :: Comparator
-pattern CGreaterThan = Comparator' "GREATER_THAN"
+pattern ComparatorGreaterThan :: Comparator
+pattern ComparatorGreaterThan = Comparator' "GREATER_THAN"
 
-pattern CLessThan :: Comparator
-pattern CLessThan = Comparator' "LESS_THAN"
+pattern ComparatorLessThan :: Comparator
+pattern ComparatorLessThan = Comparator' "LESS_THAN"
 
-pattern CGreaterThanEquals :: Comparator
-pattern CGreaterThanEquals = Comparator' "GREATER_THAN_EQUALS"
+pattern ComparatorGreaterThanEquals :: Comparator
+pattern ComparatorGreaterThanEquals = Comparator' "GREATER_THAN_EQUALS"
 
-pattern CLessThanEquals :: Comparator
-pattern CLessThanEquals = Comparator' "LESS_THAN_EQUALS"
+pattern ComparatorLessThanEquals :: Comparator
+pattern ComparatorLessThanEquals = Comparator' "LESS_THAN_EQUALS"
 
 {-# COMPLETE
-  CEquals,
-  CGreaterThan,
-  CLessThan,
-  CGreaterThanEquals,
-  CLessThanEquals,
+  ComparatorEquals,
+  ComparatorGreaterThan,
+  ComparatorLessThan,
+  ComparatorGreaterThanEquals,
+  ComparatorLessThanEquals,
   Comparator'
   #-}

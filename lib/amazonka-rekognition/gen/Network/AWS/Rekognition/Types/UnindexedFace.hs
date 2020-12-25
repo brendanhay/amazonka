@@ -17,21 +17,23 @@ module Network.AWS.Rekognition.Types.UnindexedFace
     mkUnindexedFace,
 
     -- * Lenses
-    ufReasons,
     ufFaceDetail,
+    ufReasons,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.FaceDetail
-import Network.AWS.Rekognition.Types.Reason
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.FaceDetail as Types
+import qualified Network.AWS.Rekognition.Types.Reason as Types
 
 -- | A face that 'IndexFaces' detected, but didn't index. Use the @Reasons@ response attribute to determine why a face wasn't indexed.
 --
 -- /See:/ 'mkUnindexedFace' smart constructor.
 data UnindexedFace = UnindexedFace'
-  { -- | An array of reasons that specify why a face wasn't indexed.
+  { -- | The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
+    faceDetail :: Core.Maybe Types.FaceDetail,
+    -- | An array of reasons that specify why a face wasn't indexed.
     --
     --
     --     * EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.
@@ -50,41 +52,23 @@ data UnindexedFace = UnindexedFace'
     --
     --
     --     * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
-    reasons :: Lude.Maybe [Reason],
-    -- | The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
-    faceDetail :: Lude.Maybe FaceDetail
+    reasons :: Core.Maybe [Types.Reason]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnindexedFace' with the minimum fields required to make a request.
---
--- * 'reasons' - An array of reasons that specify why a face wasn't indexed.
---
---
---     * EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.
---
---
---     * EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the @MaxFaces@ input parameter for @IndexFaces@ .
---
---
---     * LOW_BRIGHTNESS - The image is too dark.
---
---
---     * LOW_SHARPNESS - The image is too blurry.
---
---
---     * LOW_CONFIDENCE - The face was detected with a low confidence.
---
---
---     * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
---
---
--- * 'faceDetail' - The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
+-- | Creates a 'UnindexedFace' value with any optional fields omitted.
 mkUnindexedFace ::
   UnindexedFace
 mkUnindexedFace =
-  UnindexedFace' {reasons = Lude.Nothing, faceDetail = Lude.Nothing}
+  UnindexedFace' {faceDetail = Core.Nothing, reasons = Core.Nothing}
+
+-- | The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
+--
+-- /Note:/ Consider using 'faceDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFaceDetail :: Lens.Lens' UnindexedFace (Core.Maybe Types.FaceDetail)
+ufFaceDetail = Lens.field @"faceDetail"
+{-# DEPRECATED ufFaceDetail "Use generic-lens or generic-optics with 'faceDetail' instead." #-}
 
 -- | An array of reasons that specify why a face wasn't indexed.
 --
@@ -109,23 +93,13 @@ mkUnindexedFace =
 --
 --
 -- /Note:/ Consider using 'reasons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufReasons :: Lens.Lens' UnindexedFace (Lude.Maybe [Reason])
-ufReasons = Lens.lens (reasons :: UnindexedFace -> Lude.Maybe [Reason]) (\s a -> s {reasons = a} :: UnindexedFace)
+ufReasons :: Lens.Lens' UnindexedFace (Core.Maybe [Types.Reason])
+ufReasons = Lens.field @"reasons"
 {-# DEPRECATED ufReasons "Use generic-lens or generic-optics with 'reasons' instead." #-}
 
--- | The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
---
--- /Note:/ Consider using 'faceDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufFaceDetail :: Lens.Lens' UnindexedFace (Lude.Maybe FaceDetail)
-ufFaceDetail = Lens.lens (faceDetail :: UnindexedFace -> Lude.Maybe FaceDetail) (\s a -> s {faceDetail = a} :: UnindexedFace)
-{-# DEPRECATED ufFaceDetail "Use generic-lens or generic-optics with 'faceDetail' instead." #-}
-
-instance Lude.FromJSON UnindexedFace where
+instance Core.FromJSON UnindexedFace where
   parseJSON =
-    Lude.withObject
-      "UnindexedFace"
-      ( \x ->
-          UnindexedFace'
-            Lude.<$> (x Lude..:? "Reasons" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "FaceDetail")
-      )
+    Core.withObject "UnindexedFace" Core.$
+      \x ->
+        UnindexedFace'
+          Core.<$> (x Core..:? "FaceDetail") Core.<*> (x Core..:? "Reasons")

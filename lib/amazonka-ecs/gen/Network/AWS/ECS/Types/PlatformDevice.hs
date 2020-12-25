@@ -22,52 +22,49 @@ module Network.AWS.ECS.Types.PlatformDevice
   )
 where
 
-import Network.AWS.ECS.Types.PlatformDeviceType
+import qualified Network.AWS.ECS.Types.Id as Types
+import qualified Network.AWS.ECS.Types.PlatformDeviceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The devices that are available on the container instance. The only supported device type is a GPU.
 --
 -- /See:/ 'mkPlatformDevice' smart constructor.
 data PlatformDevice = PlatformDevice'
   { -- | The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
-    id :: Lude.Text,
+    id :: Types.Id,
     -- | The type of device that is available on the container instance. The only supported value is @GPU@ .
-    type' :: PlatformDeviceType
+    type' :: Types.PlatformDeviceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlatformDevice' with the minimum fields required to make a request.
---
--- * 'id' - The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
--- * 'type'' - The type of device that is available on the container instance. The only supported value is @GPU@ .
+-- | Creates a 'PlatformDevice' value with any optional fields omitted.
 mkPlatformDevice ::
   -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  PlatformDeviceType ->
+  Types.Id ->
+  -- | 'type\''
+  Types.PlatformDeviceType ->
   PlatformDevice
-mkPlatformDevice pId_ pType_ =
-  PlatformDevice' {id = pId_, type' = pType_}
+mkPlatformDevice id type' = PlatformDevice' {id, type'}
 
 -- | The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdId :: Lens.Lens' PlatformDevice Lude.Text
-pdId = Lens.lens (id :: PlatformDevice -> Lude.Text) (\s a -> s {id = a} :: PlatformDevice)
+pdId :: Lens.Lens' PlatformDevice Types.Id
+pdId = Lens.field @"id"
 {-# DEPRECATED pdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of device that is available on the container instance. The only supported value is @GPU@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdType :: Lens.Lens' PlatformDevice PlatformDeviceType
-pdType = Lens.lens (type' :: PlatformDevice -> PlatformDeviceType) (\s a -> s {type' = a} :: PlatformDevice)
+pdType :: Lens.Lens' PlatformDevice Types.PlatformDeviceType
+pdType = Lens.field @"type'"
 {-# DEPRECATED pdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON PlatformDevice where
-  toJSON PlatformDevice' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("id" Lude..= id), Lude.Just ("type" Lude..= type')]
+instance Core.FromJSON PlatformDevice where
+  toJSON PlatformDevice {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("id" Core..= id), Core.Just ("type" Core..= type')]
       )

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.LexRuntime
     Network.AWS.LexRuntime.DeleteSession
@@ -76,9 +82,19 @@ library
     Network.AWS.LexRuntime.Waiters
 
   other-modules:
+    Network.AWS.LexRuntime.Types.Accept
     Network.AWS.LexRuntime.Types.ActiveContext
+    Network.AWS.LexRuntime.Types.ActiveContextName
+    Network.AWS.LexRuntime.Types.ActiveContexts
     Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
+    Network.AWS.LexRuntime.Types.AlternativeIntents
+    Network.AWS.LexRuntime.Types.AttachmentLinkUrl
+    Network.AWS.LexRuntime.Types.BotAlias
+    Network.AWS.LexRuntime.Types.BotName
+    Network.AWS.LexRuntime.Types.BotVersion
     Network.AWS.LexRuntime.Types.Button
+    Network.AWS.LexRuntime.Types.ButtonValueStringWithLength
+    Network.AWS.LexRuntime.Types.CheckpointLabelFilter
     Network.AWS.LexRuntime.Types.ConfirmationStatus
     Network.AWS.LexRuntime.Types.ContentType
     Network.AWS.LexRuntime.Types.DialogAction
@@ -86,12 +102,33 @@ library
     Network.AWS.LexRuntime.Types.DialogState
     Network.AWS.LexRuntime.Types.FulfillmentState
     Network.AWS.LexRuntime.Types.GenericAttachment
+    Network.AWS.LexRuntime.Types.HttpContentType
+    Network.AWS.LexRuntime.Types.ImageUrl
+    Network.AWS.LexRuntime.Types.InputText
+    Network.AWS.LexRuntime.Types.InputTranscript
     Network.AWS.LexRuntime.Types.IntentConfidence
+    Network.AWS.LexRuntime.Types.IntentName
     Network.AWS.LexRuntime.Types.IntentSummary
+    Network.AWS.LexRuntime.Types.IntentSummaryCheckpointLabel
+    Network.AWS.LexRuntime.Types.Message
     Network.AWS.LexRuntime.Types.MessageFormatType
+    Network.AWS.LexRuntime.Types.NluIntentConfidence
+    Network.AWS.LexRuntime.Types.ParameterName
     Network.AWS.LexRuntime.Types.PredictedIntent
+    Network.AWS.LexRuntime.Types.RequestAttributes
     Network.AWS.LexRuntime.Types.ResponseCard
+    Network.AWS.LexRuntime.Types.SentimentLabel
     Network.AWS.LexRuntime.Types.SentimentResponse
+    Network.AWS.LexRuntime.Types.SentimentScore
+    Network.AWS.LexRuntime.Types.SessionAttributes
+    Network.AWS.LexRuntime.Types.SessionId
+    Network.AWS.LexRuntime.Types.Slots
+    Network.AWS.LexRuntime.Types.SlotToElicit
+    Network.AWS.LexRuntime.Types.String
+    Network.AWS.LexRuntime.Types.StringWithLength
+    Network.AWS.LexRuntime.Types.Text
+    Network.AWS.LexRuntime.Types.UserId
+    Network.AWS.LexRuntime.Types.Version
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

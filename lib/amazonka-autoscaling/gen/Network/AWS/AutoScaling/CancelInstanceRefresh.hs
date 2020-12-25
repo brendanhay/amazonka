@@ -29,105 +29,100 @@ module Network.AWS.AutoScaling.CancelInstanceRefresh
     mkCancelInstanceRefreshResponse,
 
     -- ** Response lenses
-    cirrsInstanceRefreshId,
-    cirrsResponseStatus,
+    cirrrsInstanceRefreshId,
+    cirrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelInstanceRefresh' smart constructor.
 newtype CancelInstanceRefresh = CancelInstanceRefresh'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+    autoScalingGroupName :: Types.XmlStringMaxLen255
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelInstanceRefresh' with the minimum fields required to make a request.
---
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'CancelInstanceRefresh' value with any optional fields omitted.
 mkCancelInstanceRefresh ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.XmlStringMaxLen255 ->
   CancelInstanceRefresh
-mkCancelInstanceRefresh pAutoScalingGroupName_ =
-  CancelInstanceRefresh'
-    { autoScalingGroupName =
-        pAutoScalingGroupName_
-    }
+mkCancelInstanceRefresh autoScalingGroupName =
+  CancelInstanceRefresh' {autoScalingGroupName}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirAutoScalingGroupName :: Lens.Lens' CancelInstanceRefresh Lude.Text
-cirAutoScalingGroupName = Lens.lens (autoScalingGroupName :: CancelInstanceRefresh -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: CancelInstanceRefresh)
+cirAutoScalingGroupName :: Lens.Lens' CancelInstanceRefresh Types.XmlStringMaxLen255
+cirAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED cirAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest CancelInstanceRefresh where
+instance Core.AWSRequest CancelInstanceRefresh where
   type Rs CancelInstanceRefresh = CancelInstanceRefreshResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelInstanceRefresh")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CancelInstanceRefreshResult"
       ( \s h x ->
           CancelInstanceRefreshResponse'
-            Lude.<$> (x Lude..@? "InstanceRefreshId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "InstanceRefreshId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelInstanceRefresh where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelInstanceRefresh where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelInstanceRefresh where
-  toQuery CancelInstanceRefresh' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelInstanceRefresh" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
 
 -- | /See:/ 'mkCancelInstanceRefreshResponse' smart constructor.
 data CancelInstanceRefreshResponse = CancelInstanceRefreshResponse'
   { -- | The instance refresh ID.
-    instanceRefreshId :: Lude.Maybe Lude.Text,
+    instanceRefreshId :: Core.Maybe Types.XmlStringMaxLen255,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelInstanceRefreshResponse' with the minimum fields required to make a request.
---
--- * 'instanceRefreshId' - The instance refresh ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelInstanceRefreshResponse' value with any optional fields omitted.
 mkCancelInstanceRefreshResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelInstanceRefreshResponse
-mkCancelInstanceRefreshResponse pResponseStatus_ =
+mkCancelInstanceRefreshResponse responseStatus =
   CancelInstanceRefreshResponse'
-    { instanceRefreshId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceRefreshId = Core.Nothing,
+      responseStatus
     }
 
 -- | The instance refresh ID.
 --
 -- /Note:/ Consider using 'instanceRefreshId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirrsInstanceRefreshId :: Lens.Lens' CancelInstanceRefreshResponse (Lude.Maybe Lude.Text)
-cirrsInstanceRefreshId = Lens.lens (instanceRefreshId :: CancelInstanceRefreshResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceRefreshId = a} :: CancelInstanceRefreshResponse)
-{-# DEPRECATED cirrsInstanceRefreshId "Use generic-lens or generic-optics with 'instanceRefreshId' instead." #-}
+cirrrsInstanceRefreshId :: Lens.Lens' CancelInstanceRefreshResponse (Core.Maybe Types.XmlStringMaxLen255)
+cirrrsInstanceRefreshId = Lens.field @"instanceRefreshId"
+{-# DEPRECATED cirrrsInstanceRefreshId "Use generic-lens or generic-optics with 'instanceRefreshId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirrsResponseStatus :: Lens.Lens' CancelInstanceRefreshResponse Lude.Int
-cirrsResponseStatus = Lens.lens (responseStatus :: CancelInstanceRefreshResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelInstanceRefreshResponse)
-{-# DEPRECATED cirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cirrrsResponseStatus :: Lens.Lens' CancelInstanceRefreshResponse Core.Int
+cirrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cirrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

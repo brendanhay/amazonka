@@ -18,96 +18,93 @@ module Network.AWS.DirectConnect.Types.Location
 
     -- * Lenses
     lAvailablePortSpeeds,
-    lLocationName,
-    lLocationCode,
-    lRegion,
     lAvailableProviders,
+    lLocationCode,
+    lLocationName,
+    lRegion,
   )
 where
 
+import qualified Network.AWS.DirectConnect.Types.LocationCode as Types
+import qualified Network.AWS.DirectConnect.Types.LocationName as Types
+import qualified Network.AWS.DirectConnect.Types.PortSpeed as Types
+import qualified Network.AWS.DirectConnect.Types.ProviderName as Types
+import qualified Network.AWS.DirectConnect.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an AWS Direct Connect location.
 --
 -- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
   { -- | The available port speeds for the location.
-    availablePortSpeeds :: Lude.Maybe [Lude.Text],
-    -- | The name of the location. This includes the name of the colocation partner and the physical site of the building.
-    locationName :: Lude.Maybe Lude.Text,
-    -- | The code for the location.
-    locationCode :: Lude.Maybe Lude.Text,
-    -- | The AWS Region for the location.
-    region :: Lude.Maybe Lude.Text,
+    availablePortSpeeds :: Core.Maybe [Types.PortSpeed],
     -- | The name of the service provider for the location.
-    availableProviders :: Lude.Maybe [Lude.Text]
+    availableProviders :: Core.Maybe [Types.ProviderName],
+    -- | The code for the location.
+    locationCode :: Core.Maybe Types.LocationCode,
+    -- | The name of the location. This includes the name of the colocation partner and the physical site of the building.
+    locationName :: Core.Maybe Types.LocationName,
+    -- | The AWS Region for the location.
+    region :: Core.Maybe Types.Region
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Location' with the minimum fields required to make a request.
---
--- * 'availablePortSpeeds' - The available port speeds for the location.
--- * 'locationName' - The name of the location. This includes the name of the colocation partner and the physical site of the building.
--- * 'locationCode' - The code for the location.
--- * 'region' - The AWS Region for the location.
--- * 'availableProviders' - The name of the service provider for the location.
+-- | Creates a 'Location' value with any optional fields omitted.
 mkLocation ::
   Location
 mkLocation =
   Location'
-    { availablePortSpeeds = Lude.Nothing,
-      locationName = Lude.Nothing,
-      locationCode = Lude.Nothing,
-      region = Lude.Nothing,
-      availableProviders = Lude.Nothing
+    { availablePortSpeeds = Core.Nothing,
+      availableProviders = Core.Nothing,
+      locationCode = Core.Nothing,
+      locationName = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The available port speeds for the location.
 --
 -- /Note:/ Consider using 'availablePortSpeeds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAvailablePortSpeeds :: Lens.Lens' Location (Lude.Maybe [Lude.Text])
-lAvailablePortSpeeds = Lens.lens (availablePortSpeeds :: Location -> Lude.Maybe [Lude.Text]) (\s a -> s {availablePortSpeeds = a} :: Location)
+lAvailablePortSpeeds :: Lens.Lens' Location (Core.Maybe [Types.PortSpeed])
+lAvailablePortSpeeds = Lens.field @"availablePortSpeeds"
 {-# DEPRECATED lAvailablePortSpeeds "Use generic-lens or generic-optics with 'availablePortSpeeds' instead." #-}
-
--- | The name of the location. This includes the name of the colocation partner and the physical site of the building.
---
--- /Note:/ Consider using 'locationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLocationName :: Lens.Lens' Location (Lude.Maybe Lude.Text)
-lLocationName = Lens.lens (locationName :: Location -> Lude.Maybe Lude.Text) (\s a -> s {locationName = a} :: Location)
-{-# DEPRECATED lLocationName "Use generic-lens or generic-optics with 'locationName' instead." #-}
-
--- | The code for the location.
---
--- /Note:/ Consider using 'locationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLocationCode :: Lens.Lens' Location (Lude.Maybe Lude.Text)
-lLocationCode = Lens.lens (locationCode :: Location -> Lude.Maybe Lude.Text) (\s a -> s {locationCode = a} :: Location)
-{-# DEPRECATED lLocationCode "Use generic-lens or generic-optics with 'locationCode' instead." #-}
-
--- | The AWS Region for the location.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lRegion :: Lens.Lens' Location (Lude.Maybe Lude.Text)
-lRegion = Lens.lens (region :: Location -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: Location)
-{-# DEPRECATED lRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The name of the service provider for the location.
 --
 -- /Note:/ Consider using 'availableProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAvailableProviders :: Lens.Lens' Location (Lude.Maybe [Lude.Text])
-lAvailableProviders = Lens.lens (availableProviders :: Location -> Lude.Maybe [Lude.Text]) (\s a -> s {availableProviders = a} :: Location)
+lAvailableProviders :: Lens.Lens' Location (Core.Maybe [Types.ProviderName])
+lAvailableProviders = Lens.field @"availableProviders"
 {-# DEPRECATED lAvailableProviders "Use generic-lens or generic-optics with 'availableProviders' instead." #-}
 
-instance Lude.FromJSON Location where
+-- | The code for the location.
+--
+-- /Note:/ Consider using 'locationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLocationCode :: Lens.Lens' Location (Core.Maybe Types.LocationCode)
+lLocationCode = Lens.field @"locationCode"
+{-# DEPRECATED lLocationCode "Use generic-lens or generic-optics with 'locationCode' instead." #-}
+
+-- | The name of the location. This includes the name of the colocation partner and the physical site of the building.
+--
+-- /Note:/ Consider using 'locationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLocationName :: Lens.Lens' Location (Core.Maybe Types.LocationName)
+lLocationName = Lens.field @"locationName"
+{-# DEPRECATED lLocationName "Use generic-lens or generic-optics with 'locationName' instead." #-}
+
+-- | The AWS Region for the location.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lRegion :: Lens.Lens' Location (Core.Maybe Types.Region)
+lRegion = Lens.field @"region"
+{-# DEPRECATED lRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+instance Core.FromJSON Location where
   parseJSON =
-    Lude.withObject
-      "Location"
-      ( \x ->
-          Location'
-            Lude.<$> (x Lude..:? "availablePortSpeeds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "locationName")
-            Lude.<*> (x Lude..:? "locationCode")
-            Lude.<*> (x Lude..:? "region")
-            Lude.<*> (x Lude..:? "availableProviders" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Location" Core.$
+      \x ->
+        Location'
+          Core.<$> (x Core..:? "availablePortSpeeds")
+          Core.<*> (x Core..:? "availableProviders")
+          Core.<*> (x Core..:? "locationCode")
+          Core.<*> (x Core..:? "locationName")
+          Core.<*> (x Core..:? "region")

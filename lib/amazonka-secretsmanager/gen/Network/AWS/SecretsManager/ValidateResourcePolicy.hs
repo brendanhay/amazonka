@@ -28,139 +28,123 @@ module Network.AWS.SecretsManager.ValidateResourcePolicy
     mkValidateResourcePolicyResponse,
 
     -- ** Response lenses
-    vrprsValidationErrors,
-    vrprsPolicyValidationPassed,
-    vrprsResponseStatus,
+    vrprrsPolicyValidationPassed,
+    vrprrsValidationErrors,
+    vrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SecretsManager.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SecretsManager.Types as Types
 
 -- | /See:/ 'mkValidateResourcePolicy' smart constructor.
 data ValidateResourcePolicy = ValidateResourcePolicy'
   { -- | Identifies the Resource Policy attached to the secret.
-    resourcePolicy :: Lude.Text,
+    resourcePolicy :: Types.NonEmptyResourcePolicyType,
     -- | The identifier for the secret that you want to validate a resource policy. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-    secretId :: Lude.Maybe Lude.Text
+    secretId :: Core.Maybe Types.SecretId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateResourcePolicy' with the minimum fields required to make a request.
---
--- * 'resourcePolicy' - Identifies the Resource Policy attached to the secret.
--- * 'secretId' - The identifier for the secret that you want to validate a resource policy. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- | Creates a 'ValidateResourcePolicy' value with any optional fields omitted.
 mkValidateResourcePolicy ::
   -- | 'resourcePolicy'
-  Lude.Text ->
+  Types.NonEmptyResourcePolicyType ->
   ValidateResourcePolicy
-mkValidateResourcePolicy pResourcePolicy_ =
-  ValidateResourcePolicy'
-    { resourcePolicy = pResourcePolicy_,
-      secretId = Lude.Nothing
-    }
+mkValidateResourcePolicy resourcePolicy =
+  ValidateResourcePolicy' {resourcePolicy, secretId = Core.Nothing}
 
 -- | Identifies the Resource Policy attached to the secret.
 --
 -- /Note:/ Consider using 'resourcePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vrpResourcePolicy :: Lens.Lens' ValidateResourcePolicy Lude.Text
-vrpResourcePolicy = Lens.lens (resourcePolicy :: ValidateResourcePolicy -> Lude.Text) (\s a -> s {resourcePolicy = a} :: ValidateResourcePolicy)
+vrpResourcePolicy :: Lens.Lens' ValidateResourcePolicy Types.NonEmptyResourcePolicyType
+vrpResourcePolicy = Lens.field @"resourcePolicy"
 {-# DEPRECATED vrpResourcePolicy "Use generic-lens or generic-optics with 'resourcePolicy' instead." #-}
 
 -- | The identifier for the secret that you want to validate a resource policy. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vrpSecretId :: Lens.Lens' ValidateResourcePolicy (Lude.Maybe Lude.Text)
-vrpSecretId = Lens.lens (secretId :: ValidateResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {secretId = a} :: ValidateResourcePolicy)
+vrpSecretId :: Lens.Lens' ValidateResourcePolicy (Core.Maybe Types.SecretId)
+vrpSecretId = Lens.field @"secretId"
 {-# DEPRECATED vrpSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
-instance Lude.AWSRequest ValidateResourcePolicy where
+instance Core.FromJSON ValidateResourcePolicy where
+  toJSON ValidateResourcePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourcePolicy" Core..= resourcePolicy),
+            ("SecretId" Core..=) Core.<$> secretId
+          ]
+      )
+
+instance Core.AWSRequest ValidateResourcePolicy where
   type Rs ValidateResourcePolicy = ValidateResourcePolicyResponse
-  request = Req.postJSON secretsManagerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "secretsmanager.ValidateResourcePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ValidateResourcePolicyResponse'
-            Lude.<$> (x Lude..?> "ValidationErrors" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "PolicyValidationPassed")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PolicyValidationPassed")
+            Core.<*> (x Core..:? "ValidationErrors")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ValidateResourcePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("secretsmanager.ValidateResourcePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ValidateResourcePolicy where
-  toJSON ValidateResourcePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourcePolicy" Lude..= resourcePolicy),
-            ("SecretId" Lude..=) Lude.<$> secretId
-          ]
-      )
-
-instance Lude.ToPath ValidateResourcePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ValidateResourcePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkValidateResourcePolicyResponse' smart constructor.
 data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
-  { -- | Returns an error message if your policy doesn't pass validatation.
-    validationErrors :: Lude.Maybe [ValidationErrorsEntry],
-    -- | Returns a message stating that your Reource Policy passed validation.
-    policyValidationPassed :: Lude.Maybe Lude.Bool,
+  { -- | Returns a message stating that your Reource Policy passed validation.
+    policyValidationPassed :: Core.Maybe Core.Bool,
+    -- | Returns an error message if your policy doesn't pass validatation.
+    validationErrors :: Core.Maybe [Types.ValidationErrorsEntry],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateResourcePolicyResponse' with the minimum fields required to make a request.
---
--- * 'validationErrors' - Returns an error message if your policy doesn't pass validatation.
--- * 'policyValidationPassed' - Returns a message stating that your Reource Policy passed validation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ValidateResourcePolicyResponse' value with any optional fields omitted.
 mkValidateResourcePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ValidateResourcePolicyResponse
-mkValidateResourcePolicyResponse pResponseStatus_ =
+mkValidateResourcePolicyResponse responseStatus =
   ValidateResourcePolicyResponse'
-    { validationErrors = Lude.Nothing,
-      policyValidationPassed = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { policyValidationPassed =
+        Core.Nothing,
+      validationErrors = Core.Nothing,
+      responseStatus
     }
-
--- | Returns an error message if your policy doesn't pass validatation.
---
--- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vrprsValidationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Lude.Maybe [ValidationErrorsEntry])
-vrprsValidationErrors = Lens.lens (validationErrors :: ValidateResourcePolicyResponse -> Lude.Maybe [ValidationErrorsEntry]) (\s a -> s {validationErrors = a} :: ValidateResourcePolicyResponse)
-{-# DEPRECATED vrprsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
 
 -- | Returns a message stating that your Reource Policy passed validation.
 --
 -- /Note:/ Consider using 'policyValidationPassed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vrprsPolicyValidationPassed :: Lens.Lens' ValidateResourcePolicyResponse (Lude.Maybe Lude.Bool)
-vrprsPolicyValidationPassed = Lens.lens (policyValidationPassed :: ValidateResourcePolicyResponse -> Lude.Maybe Lude.Bool) (\s a -> s {policyValidationPassed = a} :: ValidateResourcePolicyResponse)
-{-# DEPRECATED vrprsPolicyValidationPassed "Use generic-lens or generic-optics with 'policyValidationPassed' instead." #-}
+vrprrsPolicyValidationPassed :: Lens.Lens' ValidateResourcePolicyResponse (Core.Maybe Core.Bool)
+vrprrsPolicyValidationPassed = Lens.field @"policyValidationPassed"
+{-# DEPRECATED vrprrsPolicyValidationPassed "Use generic-lens or generic-optics with 'policyValidationPassed' instead." #-}
+
+-- | Returns an error message if your policy doesn't pass validatation.
+--
+-- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vrprrsValidationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Core.Maybe [Types.ValidationErrorsEntry])
+vrprrsValidationErrors = Lens.field @"validationErrors"
+{-# DEPRECATED vrprrsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vrprsResponseStatus :: Lens.Lens' ValidateResourcePolicyResponse Lude.Int
-vrprsResponseStatus = Lens.lens (responseStatus :: ValidateResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ValidateResourcePolicyResponse)
-{-# DEPRECATED vrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vrprrsResponseStatus :: Lens.Lens' ValidateResourcePolicyResponse Core.Int
+vrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

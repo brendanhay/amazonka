@@ -24,35 +24,31 @@ module Network.AWS.Organizations.ListOrganizationalUnitsForParent
     mkListOrganizationalUnitsForParent,
 
     -- ** Request lenses
-    loufpNextToken,
-    loufpMaxResults,
     loufpParentId,
+    loufpMaxResults,
+    loufpNextToken,
 
     -- * Destructuring the response
     ListOrganizationalUnitsForParentResponse (..),
     mkListOrganizationalUnitsForParentResponse,
 
     -- ** Response lenses
-    loufprsNextToken,
-    loufprsOrganizationalUnits,
-    loufprsResponseStatus,
+    loufprrsNextToken,
+    loufprrsOrganizationalUnits,
+    loufprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListOrganizationalUnitsForParent' smart constructor.
 data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
-  { -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The unique identifier (ID) of the root or OU whose child OUs you want to list.
+  { -- | The unique identifier (ID) of the root or OU whose child OUs you want to list.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
     --
@@ -60,47 +56,26 @@ data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
     --
     --
     --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-    parentId :: Lude.Text
+    parentId :: Types.ParentId,
+    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOrganizationalUnitsForParent' with the minimum fields required to make a request.
---
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'parentId' - The unique identifier (ID) of the root or OU whose child OUs you want to list.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
---
---     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
---
---
---     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+-- | Creates a 'ListOrganizationalUnitsForParent' value with any optional fields omitted.
 mkListOrganizationalUnitsForParent ::
   -- | 'parentId'
-  Lude.Text ->
+  Types.ParentId ->
   ListOrganizationalUnitsForParent
-mkListOrganizationalUnitsForParent pParentId_ =
+mkListOrganizationalUnitsForParent parentId =
   ListOrganizationalUnitsForParent'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      parentId = pParentId_
+    { parentId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loufpNextToken :: Lens.Lens' ListOrganizationalUnitsForParent (Lude.Maybe Lude.Text)
-loufpNextToken = Lens.lens (nextToken :: ListOrganizationalUnitsForParent -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOrganizationalUnitsForParent)
-{-# DEPRECATED loufpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loufpMaxResults :: Lens.Lens' ListOrganizationalUnitsForParent (Lude.Maybe Lude.Natural)
-loufpMaxResults = Lens.lens (maxResults :: ListOrganizationalUnitsForParent -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListOrganizationalUnitsForParent)
-{-# DEPRECATED loufpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The unique identifier (ID) of the root or OU whose child OUs you want to list.
 --
@@ -114,108 +89,115 @@ loufpMaxResults = Lens.lens (maxResults :: ListOrganizationalUnitsForParent -> L
 --
 --
 -- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loufpParentId :: Lens.Lens' ListOrganizationalUnitsForParent Lude.Text
-loufpParentId = Lens.lens (parentId :: ListOrganizationalUnitsForParent -> Lude.Text) (\s a -> s {parentId = a} :: ListOrganizationalUnitsForParent)
+loufpParentId :: Lens.Lens' ListOrganizationalUnitsForParent Types.ParentId
+loufpParentId = Lens.field @"parentId"
 {-# DEPRECATED loufpParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
-instance Page.AWSPager ListOrganizationalUnitsForParent where
-  page rq rs
-    | Page.stop (rs Lens.^. loufprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. loufprsOrganizationalUnits) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& loufpNextToken Lens..~ rs Lens.^. loufprsNextToken
+-- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loufpMaxResults :: Lens.Lens' ListOrganizationalUnitsForParent (Core.Maybe Core.Natural)
+loufpMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED loufpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListOrganizationalUnitsForParent where
+-- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loufpNextToken :: Lens.Lens' ListOrganizationalUnitsForParent (Core.Maybe Types.NextToken)
+loufpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED loufpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListOrganizationalUnitsForParent where
+  toJSON ListOrganizationalUnitsForParent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParentId" Core..= parentId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListOrganizationalUnitsForParent where
   type
     Rs ListOrganizationalUnitsForParent =
       ListOrganizationalUnitsForParentResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListOrganizationalUnitsForParentResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "OrganizationalUnits" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "OrganizationalUnits")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListOrganizationalUnitsForParent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListOrganizationalUnitsForParent where
-  toJSON ListOrganizationalUnitsForParent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ParentId" Lude..= parentId)
-          ]
-      )
-
-instance Lude.ToPath ListOrganizationalUnitsForParent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListOrganizationalUnitsForParent where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListOrganizationalUnitsForParent where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"organizationalUnits" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListOrganizationalUnitsForParentResponse' smart constructor.
 data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParentResponse'
   { -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of the OUs in the specified root or parent OU.
-    organizationalUnits :: Lude.Maybe [OrganizationalUnit],
+    organizationalUnits :: Core.Maybe [Types.OrganizationalUnit],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOrganizationalUnitsForParentResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
--- * 'organizationalUnits' - A list of the OUs in the specified root or parent OU.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListOrganizationalUnitsForParentResponse' value with any optional fields omitted.
 mkListOrganizationalUnitsForParentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListOrganizationalUnitsForParentResponse
-mkListOrganizationalUnitsForParentResponse pResponseStatus_ =
+mkListOrganizationalUnitsForParentResponse responseStatus =
   ListOrganizationalUnitsForParentResponse'
     { nextToken =
-        Lude.Nothing,
-      organizationalUnits = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      organizationalUnits = Core.Nothing,
+      responseStatus
     }
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loufprsNextToken :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Lude.Maybe Lude.Text)
-loufprsNextToken = Lens.lens (nextToken :: ListOrganizationalUnitsForParentResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOrganizationalUnitsForParentResponse)
-{-# DEPRECATED loufprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+loufprrsNextToken :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Core.Maybe Types.NextToken)
+loufprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED loufprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of the OUs in the specified root or parent OU.
 --
 -- /Note:/ Consider using 'organizationalUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loufprsOrganizationalUnits :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Lude.Maybe [OrganizationalUnit])
-loufprsOrganizationalUnits = Lens.lens (organizationalUnits :: ListOrganizationalUnitsForParentResponse -> Lude.Maybe [OrganizationalUnit]) (\s a -> s {organizationalUnits = a} :: ListOrganizationalUnitsForParentResponse)
-{-# DEPRECATED loufprsOrganizationalUnits "Use generic-lens or generic-optics with 'organizationalUnits' instead." #-}
+loufprrsOrganizationalUnits :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Core.Maybe [Types.OrganizationalUnit])
+loufprrsOrganizationalUnits = Lens.field @"organizationalUnits"
+{-# DEPRECATED loufprrsOrganizationalUnits "Use generic-lens or generic-optics with 'organizationalUnits' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loufprsResponseStatus :: Lens.Lens' ListOrganizationalUnitsForParentResponse Lude.Int
-loufprsResponseStatus = Lens.lens (responseStatus :: ListOrganizationalUnitsForParentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOrganizationalUnitsForParentResponse)
-{-# DEPRECATED loufprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+loufprrsResponseStatus :: Lens.Lens' ListOrganizationalUnitsForParentResponse Core.Int
+loufprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED loufprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

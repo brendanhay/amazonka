@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsAbsentInputAudioBehavior
   ( M2tsAbsentInputAudioBehavior
       ( M2tsAbsentInputAudioBehavior',
-        Drop,
-        EncodeSilence
+        M2tsAbsentInputAudioBehaviorDrop,
+        M2tsAbsentInputAudioBehaviorEncodeSilence,
+        fromM2tsAbsentInputAudioBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Absent Input Audio Behavior
-newtype M2tsAbsentInputAudioBehavior = M2tsAbsentInputAudioBehavior' Lude.Text
+newtype M2tsAbsentInputAudioBehavior = M2tsAbsentInputAudioBehavior'
+  { fromM2tsAbsentInputAudioBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Drop :: M2tsAbsentInputAudioBehavior
-pattern Drop = M2tsAbsentInputAudioBehavior' "DROP"
+pattern M2tsAbsentInputAudioBehaviorDrop :: M2tsAbsentInputAudioBehavior
+pattern M2tsAbsentInputAudioBehaviorDrop = M2tsAbsentInputAudioBehavior' "DROP"
 
-pattern EncodeSilence :: M2tsAbsentInputAudioBehavior
-pattern EncodeSilence = M2tsAbsentInputAudioBehavior' "ENCODE_SILENCE"
+pattern M2tsAbsentInputAudioBehaviorEncodeSilence :: M2tsAbsentInputAudioBehavior
+pattern M2tsAbsentInputAudioBehaviorEncodeSilence = M2tsAbsentInputAudioBehavior' "ENCODE_SILENCE"
 
 {-# COMPLETE
-  Drop,
-  EncodeSilence,
+  M2tsAbsentInputAudioBehaviorDrop,
+  M2tsAbsentInputAudioBehaviorEncodeSilence,
   M2tsAbsentInputAudioBehavior'
   #-}

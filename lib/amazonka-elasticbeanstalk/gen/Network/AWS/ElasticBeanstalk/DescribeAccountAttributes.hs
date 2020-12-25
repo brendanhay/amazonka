@@ -26,90 +26,88 @@ module Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
     mkDescribeAccountAttributesResponse,
 
     -- ** Response lenses
-    daarsResourceQuotas,
-    daarsResponseStatus,
+    daarrsResourceQuotas,
+    daarrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeAccountAttributes' value with any optional fields omitted.
 mkDescribeAccountAttributes ::
   DescribeAccountAttributes
 mkDescribeAccountAttributes = DescribeAccountAttributes'
 
-instance Lude.AWSRequest DescribeAccountAttributes where
+instance Core.AWSRequest DescribeAccountAttributes where
   type
     Rs DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAccountAttributes")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAccountAttributesResult"
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Lude.<$> (x Lude..@? "ResourceQuotas")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeAccountAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAccountAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAccountAttributes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("DescribeAccountAttributes" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "ResourceQuotas")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
   { -- | The Elastic Beanstalk resource quotas associated with the calling AWS account.
-    resourceQuotas :: Lude.Maybe ResourceQuotas,
+    resourceQuotas :: Core.Maybe Types.ResourceQuotas,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
---
--- * 'resourceQuotas' - The Elastic Beanstalk resource quotas associated with the calling AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAccountAttributesResponse' value with any optional fields omitted.
 mkDescribeAccountAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAccountAttributesResponse
-mkDescribeAccountAttributesResponse pResponseStatus_ =
+mkDescribeAccountAttributesResponse responseStatus =
   DescribeAccountAttributesResponse'
-    { resourceQuotas = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { resourceQuotas = Core.Nothing,
+      responseStatus
     }
 
 -- | The Elastic Beanstalk resource quotas associated with the calling AWS account.
 --
 -- /Note:/ Consider using 'resourceQuotas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResourceQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Lude.Maybe ResourceQuotas)
-daarsResourceQuotas = Lens.lens (resourceQuotas :: DescribeAccountAttributesResponse -> Lude.Maybe ResourceQuotas) (\s a -> s {resourceQuotas = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsResourceQuotas "Use generic-lens or generic-optics with 'resourceQuotas' instead." #-}
+daarrsResourceQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe Types.ResourceQuotas)
+daarrsResourceQuotas = Lens.field @"resourceQuotas"
+{-# DEPRECATED daarrsResourceQuotas "Use generic-lens or generic-optics with 'resourceQuotas' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Lude.Int
-daarsResponseStatus = Lens.lens (responseStatus :: DescribeAccountAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daarrsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
+daarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

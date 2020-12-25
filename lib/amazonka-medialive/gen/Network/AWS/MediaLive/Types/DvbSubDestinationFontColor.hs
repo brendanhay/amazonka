@@ -13,67 +13,72 @@
 module Network.AWS.MediaLive.Types.DvbSubDestinationFontColor
   ( DvbSubDestinationFontColor
       ( DvbSubDestinationFontColor',
-        DSDFCBlack,
-        DSDFCBlue,
-        DSDFCGreen,
-        DSDFCRed,
-        DSDFCWhite,
-        DSDFCYellow
+        DvbSubDestinationFontColorBlack,
+        DvbSubDestinationFontColorBlue,
+        DvbSubDestinationFontColorGreen,
+        DvbSubDestinationFontColorRed,
+        DvbSubDestinationFontColorWhite,
+        DvbSubDestinationFontColorYellow,
+        fromDvbSubDestinationFontColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Dvb Sub Destination Font Color
-newtype DvbSubDestinationFontColor = DvbSubDestinationFontColor' Lude.Text
+newtype DvbSubDestinationFontColor = DvbSubDestinationFontColor'
+  { fromDvbSubDestinationFontColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSDFCBlack :: DvbSubDestinationFontColor
-pattern DSDFCBlack = DvbSubDestinationFontColor' "BLACK"
+pattern DvbSubDestinationFontColorBlack :: DvbSubDestinationFontColor
+pattern DvbSubDestinationFontColorBlack = DvbSubDestinationFontColor' "BLACK"
 
-pattern DSDFCBlue :: DvbSubDestinationFontColor
-pattern DSDFCBlue = DvbSubDestinationFontColor' "BLUE"
+pattern DvbSubDestinationFontColorBlue :: DvbSubDestinationFontColor
+pattern DvbSubDestinationFontColorBlue = DvbSubDestinationFontColor' "BLUE"
 
-pattern DSDFCGreen :: DvbSubDestinationFontColor
-pattern DSDFCGreen = DvbSubDestinationFontColor' "GREEN"
+pattern DvbSubDestinationFontColorGreen :: DvbSubDestinationFontColor
+pattern DvbSubDestinationFontColorGreen = DvbSubDestinationFontColor' "GREEN"
 
-pattern DSDFCRed :: DvbSubDestinationFontColor
-pattern DSDFCRed = DvbSubDestinationFontColor' "RED"
+pattern DvbSubDestinationFontColorRed :: DvbSubDestinationFontColor
+pattern DvbSubDestinationFontColorRed = DvbSubDestinationFontColor' "RED"
 
-pattern DSDFCWhite :: DvbSubDestinationFontColor
-pattern DSDFCWhite = DvbSubDestinationFontColor' "WHITE"
+pattern DvbSubDestinationFontColorWhite :: DvbSubDestinationFontColor
+pattern DvbSubDestinationFontColorWhite = DvbSubDestinationFontColor' "WHITE"
 
-pattern DSDFCYellow :: DvbSubDestinationFontColor
-pattern DSDFCYellow = DvbSubDestinationFontColor' "YELLOW"
+pattern DvbSubDestinationFontColorYellow :: DvbSubDestinationFontColor
+pattern DvbSubDestinationFontColorYellow = DvbSubDestinationFontColor' "YELLOW"
 
 {-# COMPLETE
-  DSDFCBlack,
-  DSDFCBlue,
-  DSDFCGreen,
-  DSDFCRed,
-  DSDFCWhite,
-  DSDFCYellow,
+  DvbSubDestinationFontColorBlack,
+  DvbSubDestinationFontColorBlue,
+  DvbSubDestinationFontColorGreen,
+  DvbSubDestinationFontColorRed,
+  DvbSubDestinationFontColorWhite,
+  DvbSubDestinationFontColorYellow,
   DvbSubDestinationFontColor'
   #-}

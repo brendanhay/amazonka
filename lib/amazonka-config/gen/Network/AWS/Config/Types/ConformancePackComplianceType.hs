@@ -13,46 +13,51 @@
 module Network.AWS.Config.Types.ConformancePackComplianceType
   ( ConformancePackComplianceType
       ( ConformancePackComplianceType',
-        CPCTCompliant,
-        CPCTNonCompliant
+        ConformancePackComplianceTypeCompliant,
+        ConformancePackComplianceTypeNonCompliant,
+        fromConformancePackComplianceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConformancePackComplianceType = ConformancePackComplianceType' Lude.Text
+newtype ConformancePackComplianceType = ConformancePackComplianceType'
+  { fromConformancePackComplianceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPCTCompliant :: ConformancePackComplianceType
-pattern CPCTCompliant = ConformancePackComplianceType' "COMPLIANT"
+pattern ConformancePackComplianceTypeCompliant :: ConformancePackComplianceType
+pattern ConformancePackComplianceTypeCompliant = ConformancePackComplianceType' "COMPLIANT"
 
-pattern CPCTNonCompliant :: ConformancePackComplianceType
-pattern CPCTNonCompliant = ConformancePackComplianceType' "NON_COMPLIANT"
+pattern ConformancePackComplianceTypeNonCompliant :: ConformancePackComplianceType
+pattern ConformancePackComplianceTypeNonCompliant = ConformancePackComplianceType' "NON_COMPLIANT"
 
 {-# COMPLETE
-  CPCTCompliant,
-  CPCTNonCompliant,
+  ConformancePackComplianceTypeCompliant,
+  ConformancePackComplianceTypeNonCompliant,
   ConformancePackComplianceType'
   #-}

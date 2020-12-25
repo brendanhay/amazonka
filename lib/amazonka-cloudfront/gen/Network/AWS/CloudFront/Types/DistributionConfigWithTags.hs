@@ -22,57 +22,48 @@ module Network.AWS.CloudFront.Types.DistributionConfigWithTags
   )
 where
 
-import Network.AWS.CloudFront.Types.DistributionConfig
-import Network.AWS.CloudFront.Types.Tags
+import qualified Network.AWS.CloudFront.Types.DistributionConfig as Types
+import qualified Network.AWS.CloudFront.Types.Tags as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A distribution Configuration and a list of tags to be associated with the distribution.
 --
 -- /See:/ 'mkDistributionConfigWithTags' smart constructor.
 data DistributionConfigWithTags = DistributionConfigWithTags'
   { -- | A distribution configuration.
-    distributionConfig :: DistributionConfig,
+    distributionConfig :: Types.DistributionConfig,
     -- | A complex type that contains zero or more @Tag@ elements.
-    tags :: Tags
+    tags :: Types.Tags
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DistributionConfigWithTags' with the minimum fields required to make a request.
---
--- * 'distributionConfig' - A distribution configuration.
--- * 'tags' - A complex type that contains zero or more @Tag@ elements.
+-- | Creates a 'DistributionConfigWithTags' value with any optional fields omitted.
 mkDistributionConfigWithTags ::
   -- | 'distributionConfig'
-  DistributionConfig ->
+  Types.DistributionConfig ->
   -- | 'tags'
-  Tags ->
+  Types.Tags ->
   DistributionConfigWithTags
-mkDistributionConfigWithTags pDistributionConfig_ pTags_ =
-  DistributionConfigWithTags'
-    { distributionConfig =
-        pDistributionConfig_,
-      tags = pTags_
-    }
+mkDistributionConfigWithTags distributionConfig tags =
+  DistributionConfigWithTags' {distributionConfig, tags}
 
 -- | A distribution configuration.
 --
 -- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcwtDistributionConfig :: Lens.Lens' DistributionConfigWithTags DistributionConfig
-dcwtDistributionConfig = Lens.lens (distributionConfig :: DistributionConfigWithTags -> DistributionConfig) (\s a -> s {distributionConfig = a} :: DistributionConfigWithTags)
+dcwtDistributionConfig :: Lens.Lens' DistributionConfigWithTags Types.DistributionConfig
+dcwtDistributionConfig = Lens.field @"distributionConfig"
 {-# DEPRECATED dcwtDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
 
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcwtTags :: Lens.Lens' DistributionConfigWithTags Tags
-dcwtTags = Lens.lens (tags :: DistributionConfigWithTags -> Tags) (\s a -> s {tags = a} :: DistributionConfigWithTags)
+dcwtTags :: Lens.Lens' DistributionConfigWithTags Types.Tags
+dcwtTags = Lens.field @"tags"
 {-# DEPRECATED dcwtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.ToXML DistributionConfigWithTags where
-  toXML DistributionConfigWithTags' {..} =
-    Lude.mconcat
-      [ "DistributionConfig" Lude.@= distributionConfig,
-        "Tags" Lude.@= tags
-      ]
+instance Core.ToXML DistributionConfigWithTags where
+  toXML DistributionConfigWithTags {..} =
+    Core.toXMLNode "DistributionConfig" distributionConfig
+      Core.<> Core.toXMLNode "Tags" tags

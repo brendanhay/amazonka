@@ -22,34 +22,32 @@ module Network.AWS.LexModels.Types.BuiltinIntentSlot
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a slot used in a built-in intent.
 --
 -- /See:/ 'mkBuiltinIntentSlot' smart constructor.
 newtype BuiltinIntentSlot = BuiltinIntentSlot'
   { -- | A list of the slots defined for the intent.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuiltinIntentSlot' with the minimum fields required to make a request.
---
--- * 'name' - A list of the slots defined for the intent.
+-- | Creates a 'BuiltinIntentSlot' value with any optional fields omitted.
 mkBuiltinIntentSlot ::
   BuiltinIntentSlot
-mkBuiltinIntentSlot = BuiltinIntentSlot' {name = Lude.Nothing}
+mkBuiltinIntentSlot = BuiltinIntentSlot' {name = Core.Nothing}
 
 -- | A list of the slots defined for the intent.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bisName :: Lens.Lens' BuiltinIntentSlot (Lude.Maybe Lude.Text)
-bisName = Lens.lens (name :: BuiltinIntentSlot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: BuiltinIntentSlot)
+bisName :: Lens.Lens' BuiltinIntentSlot (Core.Maybe Types.String)
+bisName = Lens.field @"name"
 {-# DEPRECATED bisName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON BuiltinIntentSlot where
+instance Core.FromJSON BuiltinIntentSlot where
   parseJSON =
-    Lude.withObject
-      "BuiltinIntentSlot"
-      (\x -> BuiltinIntentSlot' Lude.<$> (x Lude..:? "name"))
+    Core.withObject "BuiltinIntentSlot" Core.$
+      \x -> BuiltinIntentSlot' Core.<$> (x Core..:? "name")

@@ -40,72 +40,66 @@ module Network.AWS.S3.DeleteBucketLifecycle
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketLifecycle' smart constructor.
 data DeleteBucketLifecycle = DeleteBucketLifecycle'
   { -- | The bucket name of the lifecycle to delete.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketLifecycle' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name of the lifecycle to delete.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeleteBucketLifecycle' value with any optional fields omitted.
 mkDeleteBucketLifecycle ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   DeleteBucketLifecycle
-mkDeleteBucketLifecycle pBucket_ =
+mkDeleteBucketLifecycle bucket =
   DeleteBucketLifecycle'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The bucket name of the lifecycle to delete.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dblBucket :: Lens.Lens' DeleteBucketLifecycle BucketName
-dblBucket = Lens.lens (bucket :: DeleteBucketLifecycle -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketLifecycle)
+dblBucket :: Lens.Lens' DeleteBucketLifecycle Types.BucketName
+dblBucket = Lens.field @"bucket"
 {-# DEPRECATED dblBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dblExpectedBucketOwner :: Lens.Lens' DeleteBucketLifecycle (Lude.Maybe Lude.Text)
-dblExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketLifecycle -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketLifecycle)
+dblExpectedBucketOwner :: Lens.Lens' DeleteBucketLifecycle (Core.Maybe Types.ExpectedBucketOwner)
+dblExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dblExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeleteBucketLifecycle where
+instance Core.AWSRequest DeleteBucketLifecycle where
   type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
-  request = Req.delete s3Service
-  response = Res.receiveNull DeleteBucketLifecycleResponse'
-
-instance Lude.ToHeaders DeleteBucketLifecycle where
-  toHeaders DeleteBucketLifecycle' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeleteBucketLifecycle where
-  toPath DeleteBucketLifecycle' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketLifecycle where
-  toQuery = Lude.const (Lude.mconcat ["lifecycle"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("lifecycle", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBucketLifecycleResponse'
 
 -- | /See:/ 'mkDeleteBucketLifecycleResponse' smart constructor.
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketLifecycleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketLifecycleResponse' value with any optional fields omitted.
 mkDeleteBucketLifecycleResponse ::
   DeleteBucketLifecycleResponse
 mkDeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'

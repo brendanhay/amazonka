@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion
   )
 where
 
-import Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError
+import qualified Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Reserved Instance whose queued purchase was not deleted.
 --
 -- /See:/ 'mkFailedQueuedPurchaseDeletion' smart constructor.
 data FailedQueuedPurchaseDeletion = FailedQueuedPurchaseDeletion'
   { -- | The error.
-    error :: Lude.Maybe DeleteQueuedReservedInstancesError,
+    error :: Core.Maybe Types.DeleteQueuedReservedInstancesError,
     -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Lude.Maybe Lude.Text
+    reservedInstancesId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedQueuedPurchaseDeletion' with the minimum fields required to make a request.
---
--- * 'error' - The error.
--- * 'reservedInstancesId' - The ID of the Reserved Instance.
+-- | Creates a 'FailedQueuedPurchaseDeletion' value with any optional fields omitted.
 mkFailedQueuedPurchaseDeletion ::
   FailedQueuedPurchaseDeletion
 mkFailedQueuedPurchaseDeletion =
   FailedQueuedPurchaseDeletion'
-    { error = Lude.Nothing,
-      reservedInstancesId = Lude.Nothing
+    { error = Core.Nothing,
+      reservedInstancesId = Core.Nothing
     }
 
 -- | The error.
 --
 -- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fqpdError :: Lens.Lens' FailedQueuedPurchaseDeletion (Lude.Maybe DeleteQueuedReservedInstancesError)
-fqpdError = Lens.lens (error :: FailedQueuedPurchaseDeletion -> Lude.Maybe DeleteQueuedReservedInstancesError) (\s a -> s {error = a} :: FailedQueuedPurchaseDeletion)
+fqpdError :: Lens.Lens' FailedQueuedPurchaseDeletion (Core.Maybe Types.DeleteQueuedReservedInstancesError)
+fqpdError = Lens.field @"error"
 {-# DEPRECATED fqpdError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The ID of the Reserved Instance.
 --
 -- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fqpdReservedInstancesId :: Lens.Lens' FailedQueuedPurchaseDeletion (Lude.Maybe Lude.Text)
-fqpdReservedInstancesId = Lens.lens (reservedInstancesId :: FailedQueuedPurchaseDeletion -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesId = a} :: FailedQueuedPurchaseDeletion)
+fqpdReservedInstancesId :: Lens.Lens' FailedQueuedPurchaseDeletion (Core.Maybe Types.String)
+fqpdReservedInstancesId = Lens.field @"reservedInstancesId"
 {-# DEPRECATED fqpdReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
-instance Lude.FromXML FailedQueuedPurchaseDeletion where
+instance Core.FromXML FailedQueuedPurchaseDeletion where
   parseXML x =
     FailedQueuedPurchaseDeletion'
-      Lude.<$> (x Lude..@? "error") Lude.<*> (x Lude..@? "reservedInstancesId")
+      Core.<$> (x Core..@? "error") Core.<*> (x Core..@? "reservedInstancesId")

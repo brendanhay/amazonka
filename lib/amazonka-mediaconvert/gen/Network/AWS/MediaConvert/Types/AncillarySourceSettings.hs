@@ -18,83 +18,77 @@ module Network.AWS.MediaConvert.Types.AncillarySourceSettings
 
     -- * Lenses
     assConvert608To708,
-    assTerminateCaptions,
     assSourceAncillaryChannelNumber,
+    assTerminateCaptions,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AncillaryConvert608To708
-import Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AncillaryConvert608To708 as Types
+import qualified Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for ancillary captions source.
 --
 -- /See:/ 'mkAncillarySourceSettings' smart constructor.
 data AncillarySourceSettings = AncillarySourceSettings'
   { -- | Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
-    convert608To708 :: Lude.Maybe AncillaryConvert608To708,
-    -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
-    terminateCaptions :: Lude.Maybe AncillaryTerminateCaptions,
+    convert608To708 :: Core.Maybe Types.AncillaryConvert608To708,
     -- | Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
-    sourceAncillaryChannelNumber :: Lude.Maybe Lude.Natural
+    sourceAncillaryChannelNumber :: Core.Maybe Core.Natural,
+    -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
+    terminateCaptions :: Core.Maybe Types.AncillaryTerminateCaptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AncillarySourceSettings' with the minimum fields required to make a request.
---
--- * 'convert608To708' - Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
--- * 'terminateCaptions' - By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
--- * 'sourceAncillaryChannelNumber' - Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
+-- | Creates a 'AncillarySourceSettings' value with any optional fields omitted.
 mkAncillarySourceSettings ::
   AncillarySourceSettings
 mkAncillarySourceSettings =
   AncillarySourceSettings'
-    { convert608To708 = Lude.Nothing,
-      terminateCaptions = Lude.Nothing,
-      sourceAncillaryChannelNumber = Lude.Nothing
+    { convert608To708 = Core.Nothing,
+      sourceAncillaryChannelNumber = Core.Nothing,
+      terminateCaptions = Core.Nothing
     }
 
 -- | Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
 --
 -- /Note:/ Consider using 'convert608To708' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assConvert608To708 :: Lens.Lens' AncillarySourceSettings (Lude.Maybe AncillaryConvert608To708)
-assConvert608To708 = Lens.lens (convert608To708 :: AncillarySourceSettings -> Lude.Maybe AncillaryConvert608To708) (\s a -> s {convert608To708 = a} :: AncillarySourceSettings)
+assConvert608To708 :: Lens.Lens' AncillarySourceSettings (Core.Maybe Types.AncillaryConvert608To708)
+assConvert608To708 = Lens.field @"convert608To708"
 {-# DEPRECATED assConvert608To708 "Use generic-lens or generic-optics with 'convert608To708' instead." #-}
-
--- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
---
--- /Note:/ Consider using 'terminateCaptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assTerminateCaptions :: Lens.Lens' AncillarySourceSettings (Lude.Maybe AncillaryTerminateCaptions)
-assTerminateCaptions = Lens.lens (terminateCaptions :: AncillarySourceSettings -> Lude.Maybe AncillaryTerminateCaptions) (\s a -> s {terminateCaptions = a} :: AncillarySourceSettings)
-{-# DEPRECATED assTerminateCaptions "Use generic-lens or generic-optics with 'terminateCaptions' instead." #-}
 
 -- | Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
 --
 -- /Note:/ Consider using 'sourceAncillaryChannelNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assSourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Lude.Maybe Lude.Natural)
-assSourceAncillaryChannelNumber = Lens.lens (sourceAncillaryChannelNumber :: AncillarySourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
+assSourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Core.Maybe Core.Natural)
+assSourceAncillaryChannelNumber = Lens.field @"sourceAncillaryChannelNumber"
 {-# DEPRECATED assSourceAncillaryChannelNumber "Use generic-lens or generic-optics with 'sourceAncillaryChannelNumber' instead." #-}
 
-instance Lude.FromJSON AncillarySourceSettings where
-  parseJSON =
-    Lude.withObject
-      "AncillarySourceSettings"
-      ( \x ->
-          AncillarySourceSettings'
-            Lude.<$> (x Lude..:? "convert608To708")
-            Lude.<*> (x Lude..:? "terminateCaptions")
-            Lude.<*> (x Lude..:? "sourceAncillaryChannelNumber")
-      )
+-- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
+--
+-- /Note:/ Consider using 'terminateCaptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assTerminateCaptions :: Lens.Lens' AncillarySourceSettings (Core.Maybe Types.AncillaryTerminateCaptions)
+assTerminateCaptions = Lens.field @"terminateCaptions"
+{-# DEPRECATED assTerminateCaptions "Use generic-lens or generic-optics with 'terminateCaptions' instead." #-}
 
-instance Lude.ToJSON AncillarySourceSettings where
-  toJSON AncillarySourceSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("convert608To708" Lude..=) Lude.<$> convert608To708,
-            ("terminateCaptions" Lude..=) Lude.<$> terminateCaptions,
-            ("sourceAncillaryChannelNumber" Lude..=)
-              Lude.<$> sourceAncillaryChannelNumber
+instance Core.FromJSON AncillarySourceSettings where
+  toJSON AncillarySourceSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("convert608To708" Core..=) Core.<$> convert608To708,
+            ("sourceAncillaryChannelNumber" Core..=)
+              Core.<$> sourceAncillaryChannelNumber,
+            ("terminateCaptions" Core..=) Core.<$> terminateCaptions
           ]
       )
+
+instance Core.FromJSON AncillarySourceSettings where
+  parseJSON =
+    Core.withObject "AncillarySourceSettings" Core.$
+      \x ->
+        AncillarySourceSettings'
+          Core.<$> (x Core..:? "convert608To708")
+          Core.<*> (x Core..:? "sourceAncillaryChannelNumber")
+          Core.<*> (x Core..:? "terminateCaptions")

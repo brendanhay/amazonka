@@ -20,103 +20,90 @@ module Network.AWS.CodeDeploy.StopDeployment
     mkStopDeployment,
 
     -- ** Request lenses
-    sdAutoRollbackEnabled,
     sdDeploymentId,
+    sdAutoRollbackEnabled,
 
     -- * Destructuring the response
     StopDeploymentResponse (..),
     mkStopDeploymentResponse,
 
     -- ** Response lenses
-    sdrsStatus,
-    sdrsStatusMessage,
-    sdrsResponseStatus,
+    sdrrsStatus,
+    sdrrsStatusMessage,
+    sdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @StopDeployment@ operation.
 --
 -- /See:/ 'mkStopDeployment' smart constructor.
 data StopDeployment = StopDeployment'
-  { -- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
-    autoRollbackEnabled :: Lude.Maybe Lude.Bool,
-    -- | The unique ID of a deployment.
-    deploymentId :: Lude.Text
+  { -- | The unique ID of a deployment.
+    deploymentId :: Types.DeploymentId,
+    -- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
+    autoRollbackEnabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopDeployment' with the minimum fields required to make a request.
---
--- * 'autoRollbackEnabled' - Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
--- * 'deploymentId' - The unique ID of a deployment.
+-- | Creates a 'StopDeployment' value with any optional fields omitted.
 mkStopDeployment ::
   -- | 'deploymentId'
-  Lude.Text ->
+  Types.DeploymentId ->
   StopDeployment
-mkStopDeployment pDeploymentId_ =
-  StopDeployment'
-    { autoRollbackEnabled = Lude.Nothing,
-      deploymentId = pDeploymentId_
-    }
-
--- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
---
--- /Note:/ Consider using 'autoRollbackEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdAutoRollbackEnabled :: Lens.Lens' StopDeployment (Lude.Maybe Lude.Bool)
-sdAutoRollbackEnabled = Lens.lens (autoRollbackEnabled :: StopDeployment -> Lude.Maybe Lude.Bool) (\s a -> s {autoRollbackEnabled = a} :: StopDeployment)
-{-# DEPRECATED sdAutoRollbackEnabled "Use generic-lens or generic-optics with 'autoRollbackEnabled' instead." #-}
+mkStopDeployment deploymentId =
+  StopDeployment' {deploymentId, autoRollbackEnabled = Core.Nothing}
 
 -- | The unique ID of a deployment.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdDeploymentId :: Lens.Lens' StopDeployment Lude.Text
-sdDeploymentId = Lens.lens (deploymentId :: StopDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: StopDeployment)
+sdDeploymentId :: Lens.Lens' StopDeployment Types.DeploymentId
+sdDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED sdDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
-instance Lude.AWSRequest StopDeployment where
+-- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
+--
+-- /Note:/ Consider using 'autoRollbackEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdAutoRollbackEnabled :: Lens.Lens' StopDeployment (Core.Maybe Core.Bool)
+sdAutoRollbackEnabled = Lens.field @"autoRollbackEnabled"
+{-# DEPRECATED sdAutoRollbackEnabled "Use generic-lens or generic-optics with 'autoRollbackEnabled' instead." #-}
+
+instance Core.FromJSON StopDeployment where
+  toJSON StopDeployment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("deploymentId" Core..= deploymentId),
+            ("autoRollbackEnabled" Core..=) Core.<$> autoRollbackEnabled
+          ]
+      )
+
+instance Core.AWSRequest StopDeployment where
   type Rs StopDeployment = StopDeploymentResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeDeploy_20141006.StopDeployment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopDeploymentResponse'
-            Lude.<$> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "statusMessage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "statusMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopDeployment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.StopDeployment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopDeployment where
-  toJSON StopDeployment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("autoRollbackEnabled" Lude..=) Lude.<$> autoRollbackEnabled,
-            Lude.Just ("deploymentId" Lude..= deploymentId)
-          ]
-      )
-
-instance Lude.ToPath StopDeployment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopDeployment where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @StopDeployment@ operation.
 --
@@ -129,37 +116,25 @@ data StopDeploymentResponse = StopDeploymentResponse'
     --
     --
     --     * Succeeded: The stop operation was successful.
-    status :: Lude.Maybe StopStatus,
+    status :: Core.Maybe Types.StopStatus,
     -- | An accompanying status message.
-    statusMessage :: Lude.Maybe Lude.Text,
+    statusMessage :: Core.Maybe Types.StatusMessage,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the stop deployment operation:
---
---
---     * Pending: The stop operation is pending.
---
---
---     * Succeeded: The stop operation was successful.
---
---
--- * 'statusMessage' - An accompanying status message.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopDeploymentResponse' value with any optional fields omitted.
 mkStopDeploymentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopDeploymentResponse
-mkStopDeploymentResponse pResponseStatus_ =
+mkStopDeploymentResponse responseStatus =
   StopDeploymentResponse'
-    { status = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      responseStatus
     }
 
 -- | The status of the stop deployment operation:
@@ -173,20 +148,20 @@ mkStopDeploymentResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdrsStatus :: Lens.Lens' StopDeploymentResponse (Lude.Maybe StopStatus)
-sdrsStatus = Lens.lens (status :: StopDeploymentResponse -> Lude.Maybe StopStatus) (\s a -> s {status = a} :: StopDeploymentResponse)
-{-# DEPRECATED sdrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+sdrrsStatus :: Lens.Lens' StopDeploymentResponse (Core.Maybe Types.StopStatus)
+sdrrsStatus = Lens.field @"status"
+{-# DEPRECATED sdrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | An accompanying status message.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdrsStatusMessage :: Lens.Lens' StopDeploymentResponse (Lude.Maybe Lude.Text)
-sdrsStatusMessage = Lens.lens (statusMessage :: StopDeploymentResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: StopDeploymentResponse)
-{-# DEPRECATED sdrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+sdrrsStatusMessage :: Lens.Lens' StopDeploymentResponse (Core.Maybe Types.StatusMessage)
+sdrrsStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED sdrrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdrsResponseStatus :: Lens.Lens' StopDeploymentResponse Lude.Int
-sdrsResponseStatus = Lens.lens (responseStatus :: StopDeploymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDeploymentResponse)
-{-# DEPRECATED sdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdrrsResponseStatus :: Lens.Lens' StopDeploymentResponse Core.Int
+sdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

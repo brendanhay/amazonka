@@ -13,56 +13,58 @@
 module Network.AWS.CodeBuild.Types.ComputeType
   ( ComputeType
       ( ComputeType',
-        BuildGENERAL1Small,
-        BuildGENERAL1Medium,
-        BuildGENERAL1Large,
-        BuildGENERAL12XLARGE
+        ComputeTypeBuildGENERAL1Small,
+        ComputeTypeBuildGENERAL1Medium,
+        ComputeTypeBuildGENERAL1Large,
+        ComputeTypeBuildGENERAL12XLARGE,
+        fromComputeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComputeType = ComputeType' Lude.Text
+newtype ComputeType = ComputeType' {fromComputeType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BuildGENERAL1Small :: ComputeType
-pattern BuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
+pattern ComputeTypeBuildGENERAL1Small :: ComputeType
+pattern ComputeTypeBuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
 
-pattern BuildGENERAL1Medium :: ComputeType
-pattern BuildGENERAL1Medium = ComputeType' "BUILD_GENERAL1_MEDIUM"
+pattern ComputeTypeBuildGENERAL1Medium :: ComputeType
+pattern ComputeTypeBuildGENERAL1Medium = ComputeType' "BUILD_GENERAL1_MEDIUM"
 
-pattern BuildGENERAL1Large :: ComputeType
-pattern BuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
+pattern ComputeTypeBuildGENERAL1Large :: ComputeType
+pattern ComputeTypeBuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
 
-pattern BuildGENERAL12XLARGE :: ComputeType
-pattern BuildGENERAL12XLARGE = ComputeType' "BUILD_GENERAL1_2XLARGE"
+pattern ComputeTypeBuildGENERAL12XLARGE :: ComputeType
+pattern ComputeTypeBuildGENERAL12XLARGE = ComputeType' "BUILD_GENERAL1_2XLARGE"
 
 {-# COMPLETE
-  BuildGENERAL1Small,
-  BuildGENERAL1Medium,
-  BuildGENERAL1Large,
-  BuildGENERAL12XLARGE,
+  ComputeTypeBuildGENERAL1Small,
+  ComputeTypeBuildGENERAL1Medium,
+  ComputeTypeBuildGENERAL1Large,
+  ComputeTypeBuildGENERAL12XLARGE,
   ComputeType'
   #-}

@@ -21,35 +21,31 @@ module Network.AWS.EC2.Types.AttributeValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a value for a resource attribute that is a String.
 --
 -- /See:/ 'mkAttributeValue' smart constructor.
 newtype AttributeValue = AttributeValue'
   { -- | The attribute value. The value is case-sensitive.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
---
--- * 'value' - The attribute value. The value is case-sensitive.
+-- | Creates a 'AttributeValue' value with any optional fields omitted.
 mkAttributeValue ::
   AttributeValue
-mkAttributeValue = AttributeValue' {value = Lude.Nothing}
+mkAttributeValue = AttributeValue' {value = Core.Nothing}
 
 -- | The attribute value. The value is case-sensitive.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avValue :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
-avValue = Lens.lens (value :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AttributeValue)
+avValue :: Lens.Lens' AttributeValue (Core.Maybe Types.Value)
+avValue = Lens.field @"value"
 {-# DEPRECATED avValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML AttributeValue where
-  parseXML x = AttributeValue' Lude.<$> (x Lude..@? "value")
-
-instance Lude.ToQuery AttributeValue where
-  toQuery AttributeValue' {..} = Lude.mconcat ["Value" Lude.=: value]
+instance Core.FromXML AttributeValue where
+  parseXML x = AttributeValue' Core.<$> (x Core..@? "value")

@@ -21,45 +21,40 @@ module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
+import qualified Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes updates to an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> .
 --
 -- /See:/ 'mkInputProcessingConfigurationUpdate' smart constructor.
 newtype InputProcessingConfigurationUpdate = InputProcessingConfigurationUpdate'
   { -- | Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
-    inputLambdaProcessorUpdate :: InputLambdaProcessorUpdate
+    inputLambdaProcessorUpdate :: Types.InputLambdaProcessorUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputProcessingConfigurationUpdate' with the minimum fields required to make a request.
---
--- * 'inputLambdaProcessorUpdate' - Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
+-- | Creates a 'InputProcessingConfigurationUpdate' value with any optional fields omitted.
 mkInputProcessingConfigurationUpdate ::
   -- | 'inputLambdaProcessorUpdate'
-  InputLambdaProcessorUpdate ->
+  Types.InputLambdaProcessorUpdate ->
   InputProcessingConfigurationUpdate
-mkInputProcessingConfigurationUpdate pInputLambdaProcessorUpdate_ =
-  InputProcessingConfigurationUpdate'
-    { inputLambdaProcessorUpdate =
-        pInputLambdaProcessorUpdate_
-    }
+mkInputProcessingConfigurationUpdate inputLambdaProcessorUpdate =
+  InputProcessingConfigurationUpdate' {inputLambdaProcessorUpdate}
 
 -- | Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
 --
 -- /Note:/ Consider using 'inputLambdaProcessorUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipcuInputLambdaProcessorUpdate :: Lens.Lens' InputProcessingConfigurationUpdate InputLambdaProcessorUpdate
-ipcuInputLambdaProcessorUpdate = Lens.lens (inputLambdaProcessorUpdate :: InputProcessingConfigurationUpdate -> InputLambdaProcessorUpdate) (\s a -> s {inputLambdaProcessorUpdate = a} :: InputProcessingConfigurationUpdate)
+ipcuInputLambdaProcessorUpdate :: Lens.Lens' InputProcessingConfigurationUpdate Types.InputLambdaProcessorUpdate
+ipcuInputLambdaProcessorUpdate = Lens.field @"inputLambdaProcessorUpdate"
 {-# DEPRECATED ipcuInputLambdaProcessorUpdate "Use generic-lens or generic-optics with 'inputLambdaProcessorUpdate' instead." #-}
 
-instance Lude.ToJSON InputProcessingConfigurationUpdate where
-  toJSON InputProcessingConfigurationUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("InputLambdaProcessorUpdate" Lude..= inputLambdaProcessorUpdate)
+instance Core.FromJSON InputProcessingConfigurationUpdate where
+  toJSON InputProcessingConfigurationUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("InputLambdaProcessorUpdate" Core..= inputLambdaProcessorUpdate)
           ]
       )

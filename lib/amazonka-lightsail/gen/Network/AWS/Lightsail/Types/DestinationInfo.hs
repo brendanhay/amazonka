@@ -17,54 +17,51 @@ module Network.AWS.Lightsail.Types.DestinationInfo
     mkDestinationInfo,
 
     -- * Lenses
-    diService,
     diId,
+    diService,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Id as Types
+import qualified Network.AWS.Lightsail.Types.Service as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the destination of a record.
 --
 -- /See:/ 'mkDestinationInfo' smart constructor.
 data DestinationInfo = DestinationInfo'
-  { -- | The destination service of the record.
-    service :: Lude.Maybe Lude.Text,
-    -- | The ID of the resource created at the destination.
-    id :: Lude.Maybe Lude.Text
+  { -- | The ID of the resource created at the destination.
+    id :: Core.Maybe Types.Id,
+    -- | The destination service of the record.
+    service :: Core.Maybe Types.Service
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DestinationInfo' with the minimum fields required to make a request.
---
--- * 'service' - The destination service of the record.
--- * 'id' - The ID of the resource created at the destination.
+-- | Creates a 'DestinationInfo' value with any optional fields omitted.
 mkDestinationInfo ::
   DestinationInfo
 mkDestinationInfo =
-  DestinationInfo' {service = Lude.Nothing, id = Lude.Nothing}
-
--- | The destination service of the record.
---
--- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diService :: Lens.Lens' DestinationInfo (Lude.Maybe Lude.Text)
-diService = Lens.lens (service :: DestinationInfo -> Lude.Maybe Lude.Text) (\s a -> s {service = a} :: DestinationInfo)
-{-# DEPRECATED diService "Use generic-lens or generic-optics with 'service' instead." #-}
+  DestinationInfo' {id = Core.Nothing, service = Core.Nothing}
 
 -- | The ID of the resource created at the destination.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diId :: Lens.Lens' DestinationInfo (Lude.Maybe Lude.Text)
-diId = Lens.lens (id :: DestinationInfo -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DestinationInfo)
+diId :: Lens.Lens' DestinationInfo (Core.Maybe Types.Id)
+diId = Lens.field @"id"
 {-# DEPRECATED diId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON DestinationInfo where
+-- | The destination service of the record.
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diService :: Lens.Lens' DestinationInfo (Core.Maybe Types.Service)
+diService = Lens.field @"service"
+{-# DEPRECATED diService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+instance Core.FromJSON DestinationInfo where
   parseJSON =
-    Lude.withObject
-      "DestinationInfo"
-      ( \x ->
-          DestinationInfo'
-            Lude.<$> (x Lude..:? "service") Lude.<*> (x Lude..:? "id")
-      )
+    Core.withObject "DestinationInfo" Core.$
+      \x ->
+        DestinationInfo'
+          Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "service")

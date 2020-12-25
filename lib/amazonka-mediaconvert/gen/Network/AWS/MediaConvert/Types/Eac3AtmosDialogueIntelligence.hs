@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence
   ( Eac3AtmosDialogueIntelligence
       ( Eac3AtmosDialogueIntelligence',
-        EADIEnabled,
-        EADIDisabled
+        Eac3AtmosDialogueIntelligenceEnabled,
+        Eac3AtmosDialogueIntelligenceDisabled,
+        fromEac3AtmosDialogueIntelligence
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable Dolby Dialogue Intelligence to adjust loudness based on dialogue analysis.
-newtype Eac3AtmosDialogueIntelligence = Eac3AtmosDialogueIntelligence' Lude.Text
+newtype Eac3AtmosDialogueIntelligence = Eac3AtmosDialogueIntelligence'
+  { fromEac3AtmosDialogueIntelligence ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EADIEnabled :: Eac3AtmosDialogueIntelligence
-pattern EADIEnabled = Eac3AtmosDialogueIntelligence' "ENABLED"
+pattern Eac3AtmosDialogueIntelligenceEnabled :: Eac3AtmosDialogueIntelligence
+pattern Eac3AtmosDialogueIntelligenceEnabled = Eac3AtmosDialogueIntelligence' "ENABLED"
 
-pattern EADIDisabled :: Eac3AtmosDialogueIntelligence
-pattern EADIDisabled = Eac3AtmosDialogueIntelligence' "DISABLED"
+pattern Eac3AtmosDialogueIntelligenceDisabled :: Eac3AtmosDialogueIntelligence
+pattern Eac3AtmosDialogueIntelligenceDisabled = Eac3AtmosDialogueIntelligence' "DISABLED"
 
 {-# COMPLETE
-  EADIEnabled,
-  EADIDisabled,
+  Eac3AtmosDialogueIntelligenceEnabled,
+  Eac3AtmosDialogueIntelligenceDisabled,
   Eac3AtmosDialogueIntelligence'
   #-}

@@ -31,9 +31,9 @@ module Network.AWS.S3.PutBucketEncryption
 
     -- ** Request lenses
     pbeBucket,
+    pbeServerSideEncryptionConfiguration,
     pbeContentMD5,
     pbeExpectedBucketOwner,
-    pbeServerSideEncryptionConfiguration,
 
     -- * Destructuring the response
     PutBucketEncryptionResponse (..),
@@ -42,110 +42,92 @@ module Network.AWS.S3.PutBucketEncryption
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketEncryption' smart constructor.
 data PutBucketEncryption = PutBucketEncryption'
   { -- | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about the Amazon S3 default encryption feature, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
+    serverSideEncryptionConfiguration :: Types.ServerSideEncryptionConfiguration,
     -- | The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-    contentMD5 :: Lude.Maybe Lude.Text,
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketEncryption' with the minimum fields required to make a request.
---
--- * 'bucket' - Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about the Amazon S3 default encryption feature, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'serverSideEncryptionConfiguration' -
+-- | Creates a 'PutBucketEncryption' value with any optional fields omitted.
 mkPutBucketEncryption ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'serverSideEncryptionConfiguration'
-  ServerSideEncryptionConfiguration ->
+  Types.ServerSideEncryptionConfiguration ->
   PutBucketEncryption
-mkPutBucketEncryption pBucket_ pServerSideEncryptionConfiguration_ =
+mkPutBucketEncryption bucket serverSideEncryptionConfiguration =
   PutBucketEncryption'
-    { bucket = pBucket_,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      serverSideEncryptionConfiguration =
-        pServerSideEncryptionConfiguration_
+    { bucket,
+      serverSideEncryptionConfiguration,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about the Amazon S3 default encryption feature, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbeBucket :: Lens.Lens' PutBucketEncryption BucketName
-pbeBucket = Lens.lens (bucket :: PutBucketEncryption -> BucketName) (\s a -> s {bucket = a} :: PutBucketEncryption)
+pbeBucket :: Lens.Lens' PutBucketEncryption Types.BucketName
+pbeBucket = Lens.field @"bucket"
 {-# DEPRECATED pbeBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'serverSideEncryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbeServerSideEncryptionConfiguration :: Lens.Lens' PutBucketEncryption Types.ServerSideEncryptionConfiguration
+pbeServerSideEncryptionConfiguration = Lens.field @"serverSideEncryptionConfiguration"
+{-# DEPRECATED pbeServerSideEncryptionConfiguration "Use generic-lens or generic-optics with 'serverSideEncryptionConfiguration' instead." #-}
 
 -- | The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 --
 -- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbeContentMD5 :: Lens.Lens' PutBucketEncryption (Lude.Maybe Lude.Text)
-pbeContentMD5 = Lens.lens (contentMD5 :: PutBucketEncryption -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutBucketEncryption)
+pbeContentMD5 :: Lens.Lens' PutBucketEncryption (Core.Maybe Types.ContentMD5)
+pbeContentMD5 = Lens.field @"contentMD5"
 {-# DEPRECATED pbeContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbeExpectedBucketOwner :: Lens.Lens' PutBucketEncryption (Lude.Maybe Lude.Text)
-pbeExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketEncryption -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketEncryption)
+pbeExpectedBucketOwner :: Lens.Lens' PutBucketEncryption (Core.Maybe Types.ExpectedBucketOwner)
+pbeExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED pbeExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'serverSideEncryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbeServerSideEncryptionConfiguration :: Lens.Lens' PutBucketEncryption ServerSideEncryptionConfiguration
-pbeServerSideEncryptionConfiguration = Lens.lens (serverSideEncryptionConfiguration :: PutBucketEncryption -> ServerSideEncryptionConfiguration) (\s a -> s {serverSideEncryptionConfiguration = a} :: PutBucketEncryption)
-{-# DEPRECATED pbeServerSideEncryptionConfiguration "Use generic-lens or generic-optics with 'serverSideEncryptionConfiguration' instead." #-}
-
-instance Lude.AWSRequest PutBucketEncryption where
+instance Core.AWSRequest PutBucketEncryption where
   type Rs PutBucketEncryption = PutBucketEncryptionResponse
-  request = Req.putXML s3Service
-  response = Res.receiveNull PutBucketEncryptionResponse'
-
-instance Lude.ToElement PutBucketEncryption where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}ServerSideEncryptionConfiguration"
-      Lude.. serverSideEncryptionConfiguration
-
-instance Lude.ToHeaders PutBucketEncryption where
-  toHeaders PutBucketEncryption' {..} =
-    Lude.mconcat
-      [ "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath PutBucketEncryption where
-  toPath PutBucketEncryption' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketEncryption where
-  toQuery = Lude.const (Lude.mconcat ["encryption"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("encryption", ""),
+        Core._rqHeaders =
+          Core.toHeaders "Content-MD5" contentMD5
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner),
+        Core._rqBody = Core.toXMLBody x
+      }
+  response = Response.receiveNull PutBucketEncryptionResponse'
 
 -- | /See:/ 'mkPutBucketEncryptionResponse' smart constructor.
 data PutBucketEncryptionResponse = PutBucketEncryptionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketEncryptionResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketEncryptionResponse' value with any optional fields omitted.
 mkPutBucketEncryptionResponse ::
   PutBucketEncryptionResponse
 mkPutBucketEncryptionResponse = PutBucketEncryptionResponse'

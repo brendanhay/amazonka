@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Kinesis
     Network.AWS.Kinesis.AddTagsToStream
@@ -99,31 +105,60 @@ library
     Network.AWS.Kinesis.Waiters
 
   other-modules:
+    Network.AWS.Kinesis.Types.AdjacentParentShardId
+    Network.AWS.Kinesis.Types.AdjacentShardToMerge
     Network.AWS.Kinesis.Types.ChildShard
     Network.AWS.Kinesis.Types.Consumer
+    Network.AWS.Kinesis.Types.ConsumerARN
     Network.AWS.Kinesis.Types.ConsumerDescription
+    Network.AWS.Kinesis.Types.ConsumerName
     Network.AWS.Kinesis.Types.ConsumerStatus
     Network.AWS.Kinesis.Types.EncryptionType
+    Network.AWS.Kinesis.Types.EndingHashKey
     Network.AWS.Kinesis.Types.EnhancedMetrics
     Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
+    Network.AWS.Kinesis.Types.ErrorCode
+    Network.AWS.Kinesis.Types.ErrorMessage
+    Network.AWS.Kinesis.Types.ExclusiveStartShardId
+    Network.AWS.Kinesis.Types.ExclusiveStartStreamName
+    Network.AWS.Kinesis.Types.ExclusiveStartTagKey
+    Network.AWS.Kinesis.Types.ExplicitHashKey
+    Network.AWS.Kinesis.Types.HashKey
     Network.AWS.Kinesis.Types.HashKeyRange
+    Network.AWS.Kinesis.Types.Key
+    Network.AWS.Kinesis.Types.KeyId
+    Network.AWS.Kinesis.Types.Message
     Network.AWS.Kinesis.Types.MetricsName
+    Network.AWS.Kinesis.Types.NextToken
+    Network.AWS.Kinesis.Types.ParentShardId
+    Network.AWS.Kinesis.Types.PartitionKey
     Network.AWS.Kinesis.Types.PutRecordsRequestEntry
     Network.AWS.Kinesis.Types.PutRecordsResultEntry
     Network.AWS.Kinesis.Types.Record
     Network.AWS.Kinesis.Types.ScalingType
+    Network.AWS.Kinesis.Types.SequenceNumber
     Network.AWS.Kinesis.Types.SequenceNumberRange
     Network.AWS.Kinesis.Types.Shard
     Network.AWS.Kinesis.Types.ShardFilter
     Network.AWS.Kinesis.Types.ShardFilterType
+    Network.AWS.Kinesis.Types.ShardId
+    Network.AWS.Kinesis.Types.ShardIterator
     Network.AWS.Kinesis.Types.ShardIteratorType
+    Network.AWS.Kinesis.Types.ShardToMerge
+    Network.AWS.Kinesis.Types.ShardToSplit
+    Network.AWS.Kinesis.Types.StartingHashKey
     Network.AWS.Kinesis.Types.StartingPosition
+    Network.AWS.Kinesis.Types.StreamARN
     Network.AWS.Kinesis.Types.StreamDescription
     Network.AWS.Kinesis.Types.StreamDescriptionSummary
+    Network.AWS.Kinesis.Types.StreamName
     Network.AWS.Kinesis.Types.StreamStatus
     Network.AWS.Kinesis.Types.SubscribeToShardEvent
     Network.AWS.Kinesis.Types.SubscribeToShardEventStream
     Network.AWS.Kinesis.Types.Tag
+    Network.AWS.Kinesis.Types.TagKey
+    Network.AWS.Kinesis.Types.TagValue
+    Network.AWS.Kinesis.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

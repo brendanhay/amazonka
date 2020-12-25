@@ -17,73 +17,68 @@ module Network.AWS.SSM.Types.ComplianceSummaryItem
     mkComplianceSummaryItem,
 
     -- * Lenses
-    csiNonCompliantSummary,
-    csiCompliantSummary,
     csiComplianceType,
+    csiCompliantSummary,
+    csiNonCompliantSummary,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.CompliantSummary
-import Network.AWS.SSM.Types.NonCompliantSummary
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.ComplianceType as Types
+import qualified Network.AWS.SSM.Types.CompliantSummary as Types
+import qualified Network.AWS.SSM.Types.NonCompliantSummary as Types
 
 -- | A summary of compliance information by compliance type.
 --
 -- /See:/ 'mkComplianceSummaryItem' smart constructor.
 data ComplianceSummaryItem = ComplianceSummaryItem'
-  { -- | A list of NON_COMPLIANT items for the specified compliance type.
-    nonCompliantSummary :: Lude.Maybe NonCompliantSummary,
+  { -- | The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
+    complianceType :: Core.Maybe Types.ComplianceType,
     -- | A list of COMPLIANT items for the specified compliance type.
-    compliantSummary :: Lude.Maybe CompliantSummary,
-    -- | The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
-    complianceType :: Lude.Maybe Lude.Text
+    compliantSummary :: Core.Maybe Types.CompliantSummary,
+    -- | A list of NON_COMPLIANT items for the specified compliance type.
+    nonCompliantSummary :: Core.Maybe Types.NonCompliantSummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComplianceSummaryItem' with the minimum fields required to make a request.
---
--- * 'nonCompliantSummary' - A list of NON_COMPLIANT items for the specified compliance type.
--- * 'compliantSummary' - A list of COMPLIANT items for the specified compliance type.
--- * 'complianceType' - The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
+-- | Creates a 'ComplianceSummaryItem' value with any optional fields omitted.
 mkComplianceSummaryItem ::
   ComplianceSummaryItem
 mkComplianceSummaryItem =
   ComplianceSummaryItem'
-    { nonCompliantSummary = Lude.Nothing,
-      compliantSummary = Lude.Nothing,
-      complianceType = Lude.Nothing
+    { complianceType = Core.Nothing,
+      compliantSummary = Core.Nothing,
+      nonCompliantSummary = Core.Nothing
     }
-
--- | A list of NON_COMPLIANT items for the specified compliance type.
---
--- /Note:/ Consider using 'nonCompliantSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiNonCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Lude.Maybe NonCompliantSummary)
-csiNonCompliantSummary = Lens.lens (nonCompliantSummary :: ComplianceSummaryItem -> Lude.Maybe NonCompliantSummary) (\s a -> s {nonCompliantSummary = a} :: ComplianceSummaryItem)
-{-# DEPRECATED csiNonCompliantSummary "Use generic-lens or generic-optics with 'nonCompliantSummary' instead." #-}
-
--- | A list of COMPLIANT items for the specified compliance type.
---
--- /Note:/ Consider using 'compliantSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Lude.Maybe CompliantSummary)
-csiCompliantSummary = Lens.lens (compliantSummary :: ComplianceSummaryItem -> Lude.Maybe CompliantSummary) (\s a -> s {compliantSummary = a} :: ComplianceSummaryItem)
-{-# DEPRECATED csiCompliantSummary "Use generic-lens or generic-optics with 'compliantSummary' instead." #-}
 
 -- | The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
 --
 -- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiComplianceType :: Lens.Lens' ComplianceSummaryItem (Lude.Maybe Lude.Text)
-csiComplianceType = Lens.lens (complianceType :: ComplianceSummaryItem -> Lude.Maybe Lude.Text) (\s a -> s {complianceType = a} :: ComplianceSummaryItem)
+csiComplianceType :: Lens.Lens' ComplianceSummaryItem (Core.Maybe Types.ComplianceType)
+csiComplianceType = Lens.field @"complianceType"
 {-# DEPRECATED csiComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
-instance Lude.FromJSON ComplianceSummaryItem where
+-- | A list of COMPLIANT items for the specified compliance type.
+--
+-- /Note:/ Consider using 'compliantSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Core.Maybe Types.CompliantSummary)
+csiCompliantSummary = Lens.field @"compliantSummary"
+{-# DEPRECATED csiCompliantSummary "Use generic-lens or generic-optics with 'compliantSummary' instead." #-}
+
+-- | A list of NON_COMPLIANT items for the specified compliance type.
+--
+-- /Note:/ Consider using 'nonCompliantSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiNonCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Core.Maybe Types.NonCompliantSummary)
+csiNonCompliantSummary = Lens.field @"nonCompliantSummary"
+{-# DEPRECATED csiNonCompliantSummary "Use generic-lens or generic-optics with 'nonCompliantSummary' instead." #-}
+
+instance Core.FromJSON ComplianceSummaryItem where
   parseJSON =
-    Lude.withObject
-      "ComplianceSummaryItem"
-      ( \x ->
-          ComplianceSummaryItem'
-            Lude.<$> (x Lude..:? "NonCompliantSummary")
-            Lude.<*> (x Lude..:? "CompliantSummary")
-            Lude.<*> (x Lude..:? "ComplianceType")
-      )
+    Core.withObject "ComplianceSummaryItem" Core.$
+      \x ->
+        ComplianceSummaryItem'
+          Core.<$> (x Core..:? "ComplianceType")
+          Core.<*> (x Core..:? "CompliantSummary")
+          Core.<*> (x Core..:? "NonCompliantSummary")

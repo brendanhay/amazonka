@@ -29,116 +29,101 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     mkDescribeTimeBasedAutoScalingResponse,
 
     -- ** Response lenses
-    dtbasrsTimeBasedAutoScalingConfigurations,
-    dtbasrsResponseStatus,
+    dtbasrrsTimeBasedAutoScalingConfigurations,
+    dtbasrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTimeBasedAutoScaling' smart constructor.
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
   { -- | An array of instance IDs.
-    instanceIds :: [Lude.Text]
+    instanceIds :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTimeBasedAutoScaling' with the minimum fields required to make a request.
---
--- * 'instanceIds' - An array of instance IDs.
+-- | Creates a 'DescribeTimeBasedAutoScaling' value with any optional fields omitted.
 mkDescribeTimeBasedAutoScaling ::
   DescribeTimeBasedAutoScaling
 mkDescribeTimeBasedAutoScaling =
-  DescribeTimeBasedAutoScaling' {instanceIds = Lude.mempty}
+  DescribeTimeBasedAutoScaling' {instanceIds = Core.mempty}
 
 -- | An array of instance IDs.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtbasInstanceIds :: Lens.Lens' DescribeTimeBasedAutoScaling [Lude.Text]
-dtbasInstanceIds = Lens.lens (instanceIds :: DescribeTimeBasedAutoScaling -> [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeTimeBasedAutoScaling)
+dtbasInstanceIds :: Lens.Lens' DescribeTimeBasedAutoScaling [Types.String]
+dtbasInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED dtbasInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance Lude.AWSRequest DescribeTimeBasedAutoScaling where
+instance Core.FromJSON DescribeTimeBasedAutoScaling where
+  toJSON DescribeTimeBasedAutoScaling {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("InstanceIds" Core..= instanceIds)])
+
+instance Core.AWSRequest DescribeTimeBasedAutoScaling where
   type
     Rs DescribeTimeBasedAutoScaling =
       DescribeTimeBasedAutoScalingResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorks_20130218.DescribeTimeBasedAutoScaling")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTimeBasedAutoScalingResponse'
-            Lude.<$> ( x Lude..?> "TimeBasedAutoScalingConfigurations"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TimeBasedAutoScalingConfigurations")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTimeBasedAutoScaling where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OpsWorks_20130218.DescribeTimeBasedAutoScaling" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTimeBasedAutoScaling where
-  toJSON DescribeTimeBasedAutoScaling' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("InstanceIds" Lude..= instanceIds)])
-
-instance Lude.ToPath DescribeTimeBasedAutoScaling where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTimeBasedAutoScaling where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeTimeBasedAutoScaling@ request.
 --
 -- /See:/ 'mkDescribeTimeBasedAutoScalingResponse' smart constructor.
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
   { -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe the configuration for the specified instances.
-    timeBasedAutoScalingConfigurations :: Lude.Maybe [TimeBasedAutoScalingConfiguration],
+    timeBasedAutoScalingConfigurations :: Core.Maybe [Types.TimeBasedAutoScalingConfiguration],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
---
--- * 'timeBasedAutoScalingConfigurations' - An array of @TimeBasedAutoScalingConfiguration@ objects that describe the configuration for the specified instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTimeBasedAutoScalingResponse' value with any optional fields omitted.
 mkDescribeTimeBasedAutoScalingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTimeBasedAutoScalingResponse
-mkDescribeTimeBasedAutoScalingResponse pResponseStatus_ =
+mkDescribeTimeBasedAutoScalingResponse responseStatus =
   DescribeTimeBasedAutoScalingResponse'
     { timeBasedAutoScalingConfigurations =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe the configuration for the specified instances.
 --
 -- /Note:/ Consider using 'timeBasedAutoScalingConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtbasrsTimeBasedAutoScalingConfigurations :: Lens.Lens' DescribeTimeBasedAutoScalingResponse (Lude.Maybe [TimeBasedAutoScalingConfiguration])
-dtbasrsTimeBasedAutoScalingConfigurations = Lens.lens (timeBasedAutoScalingConfigurations :: DescribeTimeBasedAutoScalingResponse -> Lude.Maybe [TimeBasedAutoScalingConfiguration]) (\s a -> s {timeBasedAutoScalingConfigurations = a} :: DescribeTimeBasedAutoScalingResponse)
-{-# DEPRECATED dtbasrsTimeBasedAutoScalingConfigurations "Use generic-lens or generic-optics with 'timeBasedAutoScalingConfigurations' instead." #-}
+dtbasrrsTimeBasedAutoScalingConfigurations :: Lens.Lens' DescribeTimeBasedAutoScalingResponse (Core.Maybe [Types.TimeBasedAutoScalingConfiguration])
+dtbasrrsTimeBasedAutoScalingConfigurations = Lens.field @"timeBasedAutoScalingConfigurations"
+{-# DEPRECATED dtbasrrsTimeBasedAutoScalingConfigurations "Use generic-lens or generic-optics with 'timeBasedAutoScalingConfigurations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtbasrsResponseStatus :: Lens.Lens' DescribeTimeBasedAutoScalingResponse Lude.Int
-dtbasrsResponseStatus = Lens.lens (responseStatus :: DescribeTimeBasedAutoScalingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTimeBasedAutoScalingResponse)
-{-# DEPRECATED dtbasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtbasrrsResponseStatus :: Lens.Lens' DescribeTimeBasedAutoScalingResponse Core.Int
+dtbasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtbasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

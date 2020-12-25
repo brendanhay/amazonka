@@ -23,8 +23,8 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     mkRemoveRoleFromInstanceProfile,
 
     -- ** Request lenses
-    rrfipRoleName,
     rrfipInstanceProfileName,
+    rrfipRoleName,
 
     -- * Destructuring the response
     RemoveRoleFromInstanceProfileResponse (..),
@@ -32,93 +32,86 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveRoleFromInstanceProfile' smart constructor.
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
-  { -- | The name of the role to remove.
+  { -- | The name of the instance profile to update.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text,
-    -- | The name of the instance profile to update.
+    instanceProfileName :: Types.InstanceProfileName,
+    -- | The name of the role to remove.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    instanceProfileName :: Lude.Text
+    roleName :: Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRoleFromInstanceProfile' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the role to remove.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'instanceProfileName' - The name of the instance profile to update.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'RemoveRoleFromInstanceProfile' value with any optional fields omitted.
 mkRemoveRoleFromInstanceProfile ::
-  -- | 'roleName'
-  Lude.Text ->
   -- | 'instanceProfileName'
-  Lude.Text ->
+  Types.InstanceProfileName ->
+  -- | 'roleName'
+  Types.RoleName ->
   RemoveRoleFromInstanceProfile
-mkRemoveRoleFromInstanceProfile pRoleName_ pInstanceProfileName_ =
-  RemoveRoleFromInstanceProfile'
-    { roleName = pRoleName_,
-      instanceProfileName = pInstanceProfileName_
-    }
-
--- | The name of the role to remove.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfipRoleName :: Lens.Lens' RemoveRoleFromInstanceProfile Lude.Text
-rrfipRoleName = Lens.lens (roleName :: RemoveRoleFromInstanceProfile -> Lude.Text) (\s a -> s {roleName = a} :: RemoveRoleFromInstanceProfile)
-{-# DEPRECATED rrfipRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+mkRemoveRoleFromInstanceProfile instanceProfileName roleName =
+  RemoveRoleFromInstanceProfile' {instanceProfileName, roleName}
 
 -- | The name of the instance profile to update.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfipInstanceProfileName :: Lens.Lens' RemoveRoleFromInstanceProfile Lude.Text
-rrfipInstanceProfileName = Lens.lens (instanceProfileName :: RemoveRoleFromInstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: RemoveRoleFromInstanceProfile)
+rrfipInstanceProfileName :: Lens.Lens' RemoveRoleFromInstanceProfile Types.InstanceProfileName
+rrfipInstanceProfileName = Lens.field @"instanceProfileName"
 {-# DEPRECATED rrfipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
 
-instance Lude.AWSRequest RemoveRoleFromInstanceProfile where
+-- | The name of the role to remove.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfipRoleName :: Lens.Lens' RemoveRoleFromInstanceProfile Types.RoleName
+rrfipRoleName = Lens.field @"roleName"
+{-# DEPRECATED rrfipRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+instance Core.AWSRequest RemoveRoleFromInstanceProfile where
   type
     Rs RemoveRoleFromInstanceProfile =
       RemoveRoleFromInstanceProfileResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull RemoveRoleFromInstanceProfileResponse'
-
-instance Lude.ToHeaders RemoveRoleFromInstanceProfile where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveRoleFromInstanceProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveRoleFromInstanceProfile where
-  toQuery RemoveRoleFromInstanceProfile' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("RemoveRoleFromInstanceProfile" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "InstanceProfileName" Lude.=: instanceProfileName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveRoleFromInstanceProfile")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "InstanceProfileName" instanceProfileName)
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+            )
+      }
+  response =
+    Response.receiveNull RemoveRoleFromInstanceProfileResponse'
 
 -- | /See:/ 'mkRemoveRoleFromInstanceProfileResponse' smart constructor.
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRoleFromInstanceProfileResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveRoleFromInstanceProfileResponse' value with any optional fields omitted.
 mkRemoveRoleFromInstanceProfileResponse ::
   RemoveRoleFromInstanceProfileResponse
 mkRemoveRoleFromInstanceProfileResponse =

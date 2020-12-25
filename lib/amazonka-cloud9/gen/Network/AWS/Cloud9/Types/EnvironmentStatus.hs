@@ -13,71 +13,76 @@
 module Network.AWS.Cloud9.Types.EnvironmentStatus
   ( EnvironmentStatus
       ( EnvironmentStatus',
-        ESError,
-        ESCreating,
-        ESConnecting,
-        ESReady,
-        ESStopping,
-        ESStopped,
-        ESDeleting
+        EnvironmentStatusError,
+        EnvironmentStatusCreating,
+        EnvironmentStatusConnecting,
+        EnvironmentStatusReady,
+        EnvironmentStatusStopping,
+        EnvironmentStatusStopped,
+        EnvironmentStatusDeleting,
+        fromEnvironmentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentStatus = EnvironmentStatus' Lude.Text
+newtype EnvironmentStatus = EnvironmentStatus'
+  { fromEnvironmentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESError :: EnvironmentStatus
-pattern ESError = EnvironmentStatus' "error"
+pattern EnvironmentStatusError :: EnvironmentStatus
+pattern EnvironmentStatusError = EnvironmentStatus' "error"
 
-pattern ESCreating :: EnvironmentStatus
-pattern ESCreating = EnvironmentStatus' "creating"
+pattern EnvironmentStatusCreating :: EnvironmentStatus
+pattern EnvironmentStatusCreating = EnvironmentStatus' "creating"
 
-pattern ESConnecting :: EnvironmentStatus
-pattern ESConnecting = EnvironmentStatus' "connecting"
+pattern EnvironmentStatusConnecting :: EnvironmentStatus
+pattern EnvironmentStatusConnecting = EnvironmentStatus' "connecting"
 
-pattern ESReady :: EnvironmentStatus
-pattern ESReady = EnvironmentStatus' "ready"
+pattern EnvironmentStatusReady :: EnvironmentStatus
+pattern EnvironmentStatusReady = EnvironmentStatus' "ready"
 
-pattern ESStopping :: EnvironmentStatus
-pattern ESStopping = EnvironmentStatus' "stopping"
+pattern EnvironmentStatusStopping :: EnvironmentStatus
+pattern EnvironmentStatusStopping = EnvironmentStatus' "stopping"
 
-pattern ESStopped :: EnvironmentStatus
-pattern ESStopped = EnvironmentStatus' "stopped"
+pattern EnvironmentStatusStopped :: EnvironmentStatus
+pattern EnvironmentStatusStopped = EnvironmentStatus' "stopped"
 
-pattern ESDeleting :: EnvironmentStatus
-pattern ESDeleting = EnvironmentStatus' "deleting"
+pattern EnvironmentStatusDeleting :: EnvironmentStatus
+pattern EnvironmentStatusDeleting = EnvironmentStatus' "deleting"
 
 {-# COMPLETE
-  ESError,
-  ESCreating,
-  ESConnecting,
-  ESReady,
-  ESStopping,
-  ESStopped,
-  ESDeleting,
+  EnvironmentStatusError,
+  EnvironmentStatusCreating,
+  EnvironmentStatusConnecting,
+  EnvironmentStatusReady,
+  EnvironmentStatusStopping,
+  EnvironmentStatusStopped,
+  EnvironmentStatusDeleting,
   EnvironmentStatus'
   #-}

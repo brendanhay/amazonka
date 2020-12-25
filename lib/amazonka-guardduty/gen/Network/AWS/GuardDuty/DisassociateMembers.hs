@@ -20,132 +20,119 @@ module Network.AWS.GuardDuty.DisassociateMembers
     mkDisassociateMembers,
 
     -- ** Request lenses
-    dmAccountIds,
-    dmDetectorId,
+    dmsDetectorId,
+    dmsAccountIds,
 
     -- * Destructuring the response
     DisassociateMembersResponse (..),
     mkDisassociateMembersResponse,
 
     -- ** Response lenses
-    dmrsUnprocessedAccounts,
-    dmrsResponseStatus,
+    dmrrsUnprocessedAccounts,
+    dmrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateMembers' smart constructor.
 data DisassociateMembers = DisassociateMembers'
-  { -- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
-    accountIds :: Lude.NonEmpty Lude.Text,
-    -- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
-    detectorId :: Lude.Text
+  { -- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
+    detectorId :: Types.DetectorId,
+    -- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
+    accountIds :: Core.NonEmpty Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateMembers' with the minimum fields required to make a request.
---
--- * 'accountIds' - A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
--- * 'detectorId' - The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
+-- | Creates a 'DisassociateMembers' value with any optional fields omitted.
 mkDisassociateMembers ::
-  -- | 'accountIds'
-  Lude.NonEmpty Lude.Text ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'accountIds'
+  Core.NonEmpty Types.AccountId ->
   DisassociateMembers
-mkDisassociateMembers pAccountIds_ pDetectorId_ =
-  DisassociateMembers'
-    { accountIds = pAccountIds_,
-      detectorId = pDetectorId_
-    }
-
--- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
---
--- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmAccountIds :: Lens.Lens' DisassociateMembers (Lude.NonEmpty Lude.Text)
-dmAccountIds = Lens.lens (accountIds :: DisassociateMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DisassociateMembers)
-{-# DEPRECATED dmAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+mkDisassociateMembers detectorId accountIds =
+  DisassociateMembers' {detectorId, accountIds}
 
 -- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmDetectorId :: Lens.Lens' DisassociateMembers Lude.Text
-dmDetectorId = Lens.lens (detectorId :: DisassociateMembers -> Lude.Text) (\s a -> s {detectorId = a} :: DisassociateMembers)
-{-# DEPRECATED dmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+dmsDetectorId :: Lens.Lens' DisassociateMembers Types.DetectorId
+dmsDetectorId = Lens.field @"detectorId"
+{-# DEPRECATED dmsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest DisassociateMembers where
+-- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsAccountIds :: Lens.Lens' DisassociateMembers (Core.NonEmpty Types.AccountId)
+dmsAccountIds = Lens.field @"accountIds"
+{-# DEPRECATED dmsAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+
+instance Core.FromJSON DisassociateMembers where
+  toJSON DisassociateMembers {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("accountIds" Core..= accountIds)])
+
+instance Core.AWSRequest DisassociateMembers where
   type Rs DisassociateMembers = DisassociateMembersResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/member/disassociate")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DisassociateMembersResponse'
-            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "unprocessedAccounts" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateMembers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateMembers where
-  toJSON DisassociateMembers' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("accountIds" Lude..= accountIds)])
-
-instance Lude.ToPath DisassociateMembers where
-  toPath DisassociateMembers' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/member/disassociate"]
-
-instance Lude.ToQuery DisassociateMembers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateMembersResponse' smart constructor.
 data DisassociateMembersResponse = DisassociateMembersResponse'
   { -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
-    unprocessedAccounts :: [UnprocessedAccount],
+    unprocessedAccounts :: [Types.UnprocessedAccount],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateMembersResponse' with the minimum fields required to make a request.
---
--- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateMembersResponse' value with any optional fields omitted.
 mkDisassociateMembersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateMembersResponse
-mkDisassociateMembersResponse pResponseStatus_ =
+mkDisassociateMembersResponse responseStatus =
   DisassociateMembersResponse'
-    { unprocessedAccounts = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { unprocessedAccounts = Core.mempty,
+      responseStatus
     }
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
 --
 -- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsUnprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [UnprocessedAccount]
-dmrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: DisassociateMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse)
-{-# DEPRECATED dmrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+dmrrsUnprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [Types.UnprocessedAccount]
+dmrrsUnprocessedAccounts = Lens.field @"unprocessedAccounts"
+{-# DEPRECATED dmrrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsResponseStatus :: Lens.Lens' DisassociateMembersResponse Lude.Int
-dmrsResponseStatus = Lens.lens (responseStatus :: DisassociateMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateMembersResponse)
-{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmrrsResponseStatus :: Lens.Lens' DisassociateMembersResponse Core.Int
+dmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

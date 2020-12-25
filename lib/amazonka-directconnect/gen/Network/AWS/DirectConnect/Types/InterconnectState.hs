@@ -13,71 +13,76 @@
 module Network.AWS.DirectConnect.Types.InterconnectState
   ( InterconnectState
       ( InterconnectState',
-        ISRequested,
-        ISPending,
-        ISAvailable,
-        ISDown,
-        ISDeleting,
-        ISDeleted,
-        ISUnknown
+        InterconnectStateRequested,
+        InterconnectStatePending,
+        InterconnectStateAvailable,
+        InterconnectStateDown,
+        InterconnectStateDeleting,
+        InterconnectStateDeleted,
+        InterconnectStateUnknown,
+        fromInterconnectState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InterconnectState = InterconnectState' Lude.Text
+newtype InterconnectState = InterconnectState'
+  { fromInterconnectState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISRequested :: InterconnectState
-pattern ISRequested = InterconnectState' "requested"
+pattern InterconnectStateRequested :: InterconnectState
+pattern InterconnectStateRequested = InterconnectState' "requested"
 
-pattern ISPending :: InterconnectState
-pattern ISPending = InterconnectState' "pending"
+pattern InterconnectStatePending :: InterconnectState
+pattern InterconnectStatePending = InterconnectState' "pending"
 
-pattern ISAvailable :: InterconnectState
-pattern ISAvailable = InterconnectState' "available"
+pattern InterconnectStateAvailable :: InterconnectState
+pattern InterconnectStateAvailable = InterconnectState' "available"
 
-pattern ISDown :: InterconnectState
-pattern ISDown = InterconnectState' "down"
+pattern InterconnectStateDown :: InterconnectState
+pattern InterconnectStateDown = InterconnectState' "down"
 
-pattern ISDeleting :: InterconnectState
-pattern ISDeleting = InterconnectState' "deleting"
+pattern InterconnectStateDeleting :: InterconnectState
+pattern InterconnectStateDeleting = InterconnectState' "deleting"
 
-pattern ISDeleted :: InterconnectState
-pattern ISDeleted = InterconnectState' "deleted"
+pattern InterconnectStateDeleted :: InterconnectState
+pattern InterconnectStateDeleted = InterconnectState' "deleted"
 
-pattern ISUnknown :: InterconnectState
-pattern ISUnknown = InterconnectState' "unknown"
+pattern InterconnectStateUnknown :: InterconnectState
+pattern InterconnectStateUnknown = InterconnectState' "unknown"
 
 {-# COMPLETE
-  ISRequested,
-  ISPending,
-  ISAvailable,
-  ISDown,
-  ISDeleting,
-  ISDeleted,
-  ISUnknown,
+  InterconnectStateRequested,
+  InterconnectStatePending,
+  InterconnectStateAvailable,
+  InterconnectStateDown,
+  InterconnectStateDeleting,
+  InterconnectStateDeleted,
+  InterconnectStateUnknown,
   InterconnectState'
   #-}

@@ -22,40 +22,38 @@ module Network.AWS.SWF.Types.TaskList
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Name as Types
 
 -- | Represents a task list.
 --
 -- /See:/ 'mkTaskList' smart constructor.
 newtype TaskList = TaskList'
   { -- | The name of the task list.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskList' with the minimum fields required to make a request.
---
--- * 'name' - The name of the task list.
+-- | Creates a 'TaskList' value with any optional fields omitted.
 mkTaskList ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   TaskList
-mkTaskList pName_ = TaskList' {name = pName_}
+mkTaskList name = TaskList' {name}
 
 -- | The name of the task list.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlName :: Lens.Lens' TaskList Lude.Text
-tlName = Lens.lens (name :: TaskList -> Lude.Text) (\s a -> s {name = a} :: TaskList)
+tlName :: Lens.Lens' TaskList Types.Name
+tlName = Lens.field @"name"
 {-# DEPRECATED tlName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON TaskList where
-  parseJSON =
-    Lude.withObject
-      "TaskList"
-      (\x -> TaskList' Lude.<$> (x Lude..: "name"))
+instance Core.FromJSON TaskList where
+  toJSON TaskList {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Lude.ToJSON TaskList where
-  toJSON TaskList' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
+instance Core.FromJSON TaskList where
+  parseJSON =
+    Core.withObject "TaskList" Core.$
+      \x -> TaskList' Core.<$> (x Core..: "name")

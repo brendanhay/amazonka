@@ -23,51 +23,47 @@ module Network.AWS.WorkMail.Types.Delegate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkMail.Types.MemberType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkMail.Types.Id as Types
+import qualified Network.AWS.WorkMail.Types.MemberType as Types
 
 -- | The name of the attribute, which is one of the values defined in the UserAttribute enumeration.
 --
 -- /See:/ 'mkDelegate' smart constructor.
 data Delegate = Delegate'
   { -- | The identifier for the user or group associated as the resource's delegate.
-    id :: Lude.Text,
+    id :: Types.Id,
     -- | The type of the delegate: user or group.
-    type' :: MemberType
+    type' :: Types.MemberType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Delegate' with the minimum fields required to make a request.
---
--- * 'id' - The identifier for the user or group associated as the resource's delegate.
--- * 'type'' - The type of the delegate: user or group.
+-- | Creates a 'Delegate' value with any optional fields omitted.
 mkDelegate ::
   -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  MemberType ->
+  Types.Id ->
+  -- | 'type\''
+  Types.MemberType ->
   Delegate
-mkDelegate pId_ pType_ = Delegate' {id = pId_, type' = pType_}
+mkDelegate id type' = Delegate' {id, type'}
 
 -- | The identifier for the user or group associated as the resource's delegate.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dId :: Lens.Lens' Delegate Lude.Text
-dId = Lens.lens (id :: Delegate -> Lude.Text) (\s a -> s {id = a} :: Delegate)
+dId :: Lens.Lens' Delegate Types.Id
+dId = Lens.field @"id"
 {-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of the delegate: user or group.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dType :: Lens.Lens' Delegate MemberType
-dType = Lens.lens (type' :: Delegate -> MemberType) (\s a -> s {type' = a} :: Delegate)
+dType :: Lens.Lens' Delegate Types.MemberType
+dType = Lens.field @"type'"
 {-# DEPRECATED dType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Delegate where
+instance Core.FromJSON Delegate where
   parseJSON =
-    Lude.withObject
-      "Delegate"
-      ( \x ->
-          Delegate' Lude.<$> (x Lude..: "Id") Lude.<*> (x Lude..: "Type")
-      )
+    Core.withObject "Delegate" Core.$
+      \x ->
+        Delegate' Core.<$> (x Core..: "Id") Core.<*> (x Core..: "Type")

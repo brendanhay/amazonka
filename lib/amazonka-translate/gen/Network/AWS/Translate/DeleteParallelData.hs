@@ -27,122 +27,110 @@ module Network.AWS.Translate.DeleteParallelData
     mkDeleteParallelDataResponse,
 
     -- ** Response lenses
-    dpdrsStatus,
-    dpdrsName,
-    dpdrsResponseStatus,
+    dpdrrsName,
+    dpdrrsStatus,
+    dpdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkDeleteParallelData' smart constructor.
 newtype DeleteParallelData = DeleteParallelData'
   { -- | The name of the parallel data resource that is being deleted.
-    name :: Lude.Text
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteParallelData' with the minimum fields required to make a request.
---
--- * 'name' - The name of the parallel data resource that is being deleted.
+-- | Creates a 'DeleteParallelData' value with any optional fields omitted.
 mkDeleteParallelData ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteParallelData
-mkDeleteParallelData pName_ = DeleteParallelData' {name = pName_}
+mkDeleteParallelData name = DeleteParallelData' {name}
 
 -- | The name of the parallel data resource that is being deleted.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdName :: Lens.Lens' DeleteParallelData Lude.Text
-dpdName = Lens.lens (name :: DeleteParallelData -> Lude.Text) (\s a -> s {name = a} :: DeleteParallelData)
+dpdName :: Lens.Lens' DeleteParallelData Types.ResourceName
+dpdName = Lens.field @"name"
 {-# DEPRECATED dpdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteParallelData where
+instance Core.FromJSON DeleteParallelData where
+  toJSON DeleteParallelData {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteParallelData where
   type Rs DeleteParallelData = DeleteParallelDataResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.DeleteParallelData"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteParallelDataResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteParallelData where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.DeleteParallelData" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteParallelData where
-  toJSON DeleteParallelData' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteParallelData where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteParallelData where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteParallelDataResponse' smart constructor.
 data DeleteParallelDataResponse = DeleteParallelDataResponse'
-  { -- | The status of the parallel data deletion.
-    status :: Lude.Maybe ParallelDataStatus,
-    -- | The name of the parallel data resource that is being deleted.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The name of the parallel data resource that is being deleted.
+    name :: Core.Maybe Types.ResourceName,
+    -- | The status of the parallel data deletion.
+    status :: Core.Maybe Types.ParallelDataStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteParallelDataResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the parallel data deletion.
--- * 'name' - The name of the parallel data resource that is being deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteParallelDataResponse' value with any optional fields omitted.
 mkDeleteParallelDataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteParallelDataResponse
-mkDeleteParallelDataResponse pResponseStatus_ =
+mkDeleteParallelDataResponse responseStatus =
   DeleteParallelDataResponse'
-    { status = Lude.Nothing,
-      name = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { name = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
+
+-- | The name of the parallel data resource that is being deleted.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdrrsName :: Lens.Lens' DeleteParallelDataResponse (Core.Maybe Types.ResourceName)
+dpdrrsName = Lens.field @"name"
+{-# DEPRECATED dpdrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The status of the parallel data deletion.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdrsStatus :: Lens.Lens' DeleteParallelDataResponse (Lude.Maybe ParallelDataStatus)
-dpdrsStatus = Lens.lens (status :: DeleteParallelDataResponse -> Lude.Maybe ParallelDataStatus) (\s a -> s {status = a} :: DeleteParallelDataResponse)
-{-# DEPRECATED dpdrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The name of the parallel data resource that is being deleted.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdrsName :: Lens.Lens' DeleteParallelDataResponse (Lude.Maybe Lude.Text)
-dpdrsName = Lens.lens (name :: DeleteParallelDataResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteParallelDataResponse)
-{-# DEPRECATED dpdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+dpdrrsStatus :: Lens.Lens' DeleteParallelDataResponse (Core.Maybe Types.ParallelDataStatus)
+dpdrrsStatus = Lens.field @"status"
+{-# DEPRECATED dpdrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpdrsResponseStatus :: Lens.Lens' DeleteParallelDataResponse Lude.Int
-dpdrsResponseStatus = Lens.lens (responseStatus :: DeleteParallelDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteParallelDataResponse)
-{-# DEPRECATED dpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpdrrsResponseStatus :: Lens.Lens' DeleteParallelDataResponse Core.Int
+dpdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

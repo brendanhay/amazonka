@@ -58,8 +58,8 @@ module Network.AWS.S3.PutBucketLifecycleConfiguration
 
     -- ** Request lenses
     pblcBucket,
-    pblcLifecycleConfiguration,
     pblcExpectedBucketOwner,
+    pblcLifecycleConfiguration,
 
     -- * Destructuring the response
     PutBucketLifecycleConfigurationResponse (..),
@@ -68,91 +68,79 @@ module Network.AWS.S3.PutBucketLifecycleConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketLifecycleConfiguration' smart constructor.
 data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
   { -- | The name of the bucket for which to set the configuration.
-    bucket :: BucketName,
-    -- | Container for lifecycle rules. You can add as many as 1,000 rules.
-    lifecycleConfiguration :: Lude.Maybe BucketLifecycleConfiguration,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | Container for lifecycle rules. You can add as many as 1,000 rules.
+    lifecycleConfiguration :: Core.Maybe Types.BucketLifecycleConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PutBucketLifecycleConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket for which to set the configuration.
--- * 'lifecycleConfiguration' - Container for lifecycle rules. You can add as many as 1,000 rules.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutBucketLifecycleConfiguration' value with any optional fields omitted.
 mkPutBucketLifecycleConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   PutBucketLifecycleConfiguration
-mkPutBucketLifecycleConfiguration pBucket_ =
+mkPutBucketLifecycleConfiguration bucket =
   PutBucketLifecycleConfiguration'
-    { bucket = pBucket_,
-      lifecycleConfiguration = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing,
+      lifecycleConfiguration = Core.Nothing
     }
 
 -- | The name of the bucket for which to set the configuration.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pblcBucket :: Lens.Lens' PutBucketLifecycleConfiguration BucketName
-pblcBucket = Lens.lens (bucket :: PutBucketLifecycleConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketLifecycleConfiguration)
+pblcBucket :: Lens.Lens' PutBucketLifecycleConfiguration Types.BucketName
+pblcBucket = Lens.field @"bucket"
 {-# DEPRECATED pblcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Container for lifecycle rules. You can add as many as 1,000 rules.
---
--- /Note:/ Consider using 'lifecycleConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pblcLifecycleConfiguration :: Lens.Lens' PutBucketLifecycleConfiguration (Lude.Maybe BucketLifecycleConfiguration)
-pblcLifecycleConfiguration = Lens.lens (lifecycleConfiguration :: PutBucketLifecycleConfiguration -> Lude.Maybe BucketLifecycleConfiguration) (\s a -> s {lifecycleConfiguration = a} :: PutBucketLifecycleConfiguration)
-{-# DEPRECATED pblcLifecycleConfiguration "Use generic-lens or generic-optics with 'lifecycleConfiguration' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pblcExpectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Lude.Maybe Lude.Text)
-pblcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketLifecycleConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketLifecycleConfiguration)
+pblcExpectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+pblcExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED pblcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutBucketLifecycleConfiguration where
+-- | Container for lifecycle rules. You can add as many as 1,000 rules.
+--
+-- /Note:/ Consider using 'lifecycleConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pblcLifecycleConfiguration :: Lens.Lens' PutBucketLifecycleConfiguration (Core.Maybe Types.BucketLifecycleConfiguration)
+pblcLifecycleConfiguration = Lens.field @"lifecycleConfiguration"
+{-# DEPRECATED pblcLifecycleConfiguration "Use generic-lens or generic-optics with 'lifecycleConfiguration' instead." #-}
+
+instance Core.AWSRequest PutBucketLifecycleConfiguration where
   type
     Rs PutBucketLifecycleConfiguration =
       PutBucketLifecycleConfigurationResponse
-  request = Req.putXML s3Service
-  response = Res.receiveNull PutBucketLifecycleConfigurationResponse'
-
-instance Lude.ToElement PutBucketLifecycleConfiguration where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}LifecycleConfiguration"
-      Lude.. lifecycleConfiguration
-
-instance Lude.ToHeaders PutBucketLifecycleConfiguration where
-  toHeaders PutBucketLifecycleConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath PutBucketLifecycleConfiguration where
-  toPath PutBucketLifecycleConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketLifecycleConfiguration where
-  toQuery = Lude.const (Lude.mconcat ["lifecycle"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("lifecycle", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveNull PutBucketLifecycleConfigurationResponse'
 
 -- | /See:/ 'mkPutBucketLifecycleConfigurationResponse' smart constructor.
 data PutBucketLifecycleConfigurationResponse = PutBucketLifecycleConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketLifecycleConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketLifecycleConfigurationResponse' value with any optional fields omitted.
 mkPutBucketLifecycleConfigurationResponse ::
   PutBucketLifecycleConfigurationResponse
 mkPutBucketLifecycleConfigurationResponse =

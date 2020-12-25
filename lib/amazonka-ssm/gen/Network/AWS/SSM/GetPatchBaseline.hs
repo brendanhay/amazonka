@@ -27,291 +27,264 @@ module Network.AWS.SSM.GetPatchBaseline
     mkGetPatchBaselineResponse,
 
     -- ** Response lenses
-    gpbrsApprovalRules,
-    gpbrsOperatingSystem,
-    gpbrsGlobalFilters,
-    gpbrsApprovedPatchesComplianceLevel,
-    gpbrsRejectedPatchesAction,
-    gpbrsApprovedPatches,
-    gpbrsApprovedPatchesEnableNonSecurity,
-    gpbrsRejectedPatches,
-    gpbrsSources,
-    gpbrsCreatedDate,
-    gpbrsName,
-    gpbrsPatchGroups,
-    gpbrsModifiedDate,
-    gpbrsDescription,
-    gpbrsBaselineId,
-    gpbrsResponseStatus,
+    gpbrrsApprovalRules,
+    gpbrrsApprovedPatches,
+    gpbrrsApprovedPatchesComplianceLevel,
+    gpbrrsApprovedPatchesEnableNonSecurity,
+    gpbrrsBaselineId,
+    gpbrrsCreatedDate,
+    gpbrrsDescription,
+    gpbrrsGlobalFilters,
+    gpbrrsModifiedDate,
+    gpbrrsName,
+    gpbrrsOperatingSystem,
+    gpbrrsPatchGroups,
+    gpbrrsRejectedPatches,
+    gpbrrsRejectedPatchesAction,
+    gpbrrsSources,
+    gpbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetPatchBaseline' smart constructor.
 newtype GetPatchBaseline = GetPatchBaseline'
   { -- | The ID of the patch baseline to retrieve.
-    baselineId :: Lude.Text
+    baselineId :: Types.BaselineId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPatchBaseline' with the minimum fields required to make a request.
---
--- * 'baselineId' - The ID of the patch baseline to retrieve.
+-- | Creates a 'GetPatchBaseline' value with any optional fields omitted.
 mkGetPatchBaseline ::
   -- | 'baselineId'
-  Lude.Text ->
+  Types.BaselineId ->
   GetPatchBaseline
-mkGetPatchBaseline pBaselineId_ =
-  GetPatchBaseline' {baselineId = pBaselineId_}
+mkGetPatchBaseline baselineId = GetPatchBaseline' {baselineId}
 
 -- | The ID of the patch baseline to retrieve.
 --
 -- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbBaselineId :: Lens.Lens' GetPatchBaseline Lude.Text
-gpbBaselineId = Lens.lens (baselineId :: GetPatchBaseline -> Lude.Text) (\s a -> s {baselineId = a} :: GetPatchBaseline)
+gpbBaselineId :: Lens.Lens' GetPatchBaseline Types.BaselineId
+gpbBaselineId = Lens.field @"baselineId"
 {-# DEPRECATED gpbBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
-instance Lude.AWSRequest GetPatchBaseline where
+instance Core.FromJSON GetPatchBaseline where
+  toJSON GetPatchBaseline {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("BaselineId" Core..= baselineId)])
+
+instance Core.AWSRequest GetPatchBaseline where
   type Rs GetPatchBaseline = GetPatchBaselineResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetPatchBaseline")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPatchBaselineResponse'
-            Lude.<$> (x Lude..?> "ApprovalRules")
-            Lude.<*> (x Lude..?> "OperatingSystem")
-            Lude.<*> (x Lude..?> "GlobalFilters")
-            Lude.<*> (x Lude..?> "ApprovedPatchesComplianceLevel")
-            Lude.<*> (x Lude..?> "RejectedPatchesAction")
-            Lude.<*> (x Lude..?> "ApprovedPatches" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ApprovedPatchesEnableNonSecurity")
-            Lude.<*> (x Lude..?> "RejectedPatches" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Sources" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "CreatedDate")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "PatchGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ModifiedDate")
-            Lude.<*> (x Lude..?> "Description")
-            Lude.<*> (x Lude..?> "BaselineId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ApprovalRules")
+            Core.<*> (x Core..:? "ApprovedPatches")
+            Core.<*> (x Core..:? "ApprovedPatchesComplianceLevel")
+            Core.<*> (x Core..:? "ApprovedPatchesEnableNonSecurity")
+            Core.<*> (x Core..:? "BaselineId")
+            Core.<*> (x Core..:? "CreatedDate")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "GlobalFilters")
+            Core.<*> (x Core..:? "ModifiedDate")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "OperatingSystem")
+            Core.<*> (x Core..:? "PatchGroups")
+            Core.<*> (x Core..:? "RejectedPatches")
+            Core.<*> (x Core..:? "RejectedPatchesAction")
+            Core.<*> (x Core..:? "Sources")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPatchBaseline where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetPatchBaseline" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPatchBaseline where
-  toJSON GetPatchBaseline' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("BaselineId" Lude..= baselineId)])
-
-instance Lude.ToPath GetPatchBaseline where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPatchBaseline where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPatchBaselineResponse' smart constructor.
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
   { -- | A set of rules used to include patches in the baseline.
-    approvalRules :: Lude.Maybe PatchRuleGroup,
-    -- | Returns the operating system specified for the patch baseline.
-    operatingSystem :: Lude.Maybe OperatingSystem,
-    -- | A set of global filters used to exclude patches from the baseline.
-    globalFilters :: Lude.Maybe PatchFilterGroup,
-    -- | Returns the specified compliance severity level for approved patches in the patch baseline.
-    approvedPatchesComplianceLevel :: Lude.Maybe PatchComplianceLevel,
-    -- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
-    rejectedPatchesAction :: Lude.Maybe PatchAction,
+    approvalRules :: Core.Maybe Types.PatchRuleGroup,
     -- | A list of explicitly approved patches for the baseline.
-    approvedPatches :: Lude.Maybe [Lude.Text],
+    approvedPatches :: Core.Maybe [Types.PatchId],
+    -- | Returns the specified compliance severity level for approved patches in the patch baseline.
+    approvedPatchesComplianceLevel :: Core.Maybe Types.PatchComplianceLevel,
     -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
-    approvedPatchesEnableNonSecurity :: Lude.Maybe Lude.Bool,
-    -- | A list of explicitly rejected patches for the baseline.
-    rejectedPatches :: Lude.Maybe [Lude.Text],
-    -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
-    sources :: Lude.Maybe [PatchSource],
-    -- | The date the patch baseline was created.
-    createdDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the patch baseline.
-    name :: Lude.Maybe Lude.Text,
-    -- | Patch groups included in the patch baseline.
-    patchGroups :: Lude.Maybe [Lude.Text],
-    -- | The date the patch baseline was last modified.
-    modifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | A description of the patch baseline.
-    description :: Lude.Maybe Lude.Text,
+    approvedPatchesEnableNonSecurity :: Core.Maybe Core.Bool,
     -- | The ID of the retrieved patch baseline.
-    baselineId :: Lude.Maybe Lude.Text,
+    baselineId :: Core.Maybe Types.BaselineId,
+    -- | The date the patch baseline was created.
+    createdDate :: Core.Maybe Core.NominalDiffTime,
+    -- | A description of the patch baseline.
+    description :: Core.Maybe Types.BaselineDescription,
+    -- | A set of global filters used to exclude patches from the baseline.
+    globalFilters :: Core.Maybe Types.PatchFilterGroup,
+    -- | The date the patch baseline was last modified.
+    modifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the patch baseline.
+    name :: Core.Maybe Types.BaselineName,
+    -- | Returns the operating system specified for the patch baseline.
+    operatingSystem :: Core.Maybe Types.OperatingSystem,
+    -- | Patch groups included in the patch baseline.
+    patchGroups :: Core.Maybe [Types.PatchGroup],
+    -- | A list of explicitly rejected patches for the baseline.
+    rejectedPatches :: Core.Maybe [Types.PatchId],
+    -- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
+    rejectedPatchesAction :: Core.Maybe Types.PatchAction,
+    -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+    sources :: Core.Maybe [Types.PatchSource],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPatchBaselineResponse' with the minimum fields required to make a request.
---
--- * 'approvalRules' - A set of rules used to include patches in the baseline.
--- * 'operatingSystem' - Returns the operating system specified for the patch baseline.
--- * 'globalFilters' - A set of global filters used to exclude patches from the baseline.
--- * 'approvedPatchesComplianceLevel' - Returns the specified compliance severity level for approved patches in the patch baseline.
--- * 'rejectedPatchesAction' - The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
--- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
--- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
--- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
--- * 'sources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
--- * 'createdDate' - The date the patch baseline was created.
--- * 'name' - The name of the patch baseline.
--- * 'patchGroups' - Patch groups included in the patch baseline.
--- * 'modifiedDate' - The date the patch baseline was last modified.
--- * 'description' - A description of the patch baseline.
--- * 'baselineId' - The ID of the retrieved patch baseline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPatchBaselineResponse' value with any optional fields omitted.
 mkGetPatchBaselineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPatchBaselineResponse
-mkGetPatchBaselineResponse pResponseStatus_ =
+mkGetPatchBaselineResponse responseStatus =
   GetPatchBaselineResponse'
-    { approvalRules = Lude.Nothing,
-      operatingSystem = Lude.Nothing,
-      globalFilters = Lude.Nothing,
-      approvedPatchesComplianceLevel = Lude.Nothing,
-      rejectedPatchesAction = Lude.Nothing,
-      approvedPatches = Lude.Nothing,
-      approvedPatchesEnableNonSecurity = Lude.Nothing,
-      rejectedPatches = Lude.Nothing,
-      sources = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      name = Lude.Nothing,
-      patchGroups = Lude.Nothing,
-      modifiedDate = Lude.Nothing,
-      description = Lude.Nothing,
-      baselineId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { approvalRules = Core.Nothing,
+      approvedPatches = Core.Nothing,
+      approvedPatchesComplianceLevel = Core.Nothing,
+      approvedPatchesEnableNonSecurity = Core.Nothing,
+      baselineId = Core.Nothing,
+      createdDate = Core.Nothing,
+      description = Core.Nothing,
+      globalFilters = Core.Nothing,
+      modifiedDate = Core.Nothing,
+      name = Core.Nothing,
+      operatingSystem = Core.Nothing,
+      patchGroups = Core.Nothing,
+      rejectedPatches = Core.Nothing,
+      rejectedPatchesAction = Core.Nothing,
+      sources = Core.Nothing,
+      responseStatus
     }
 
 -- | A set of rules used to include patches in the baseline.
 --
 -- /Note:/ Consider using 'approvalRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsApprovalRules :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe PatchRuleGroup)
-gpbrsApprovalRules = Lens.lens (approvalRules :: GetPatchBaselineResponse -> Lude.Maybe PatchRuleGroup) (\s a -> s {approvalRules = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsApprovalRules "Use generic-lens or generic-optics with 'approvalRules' instead." #-}
-
--- | Returns the operating system specified for the patch baseline.
---
--- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsOperatingSystem :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe OperatingSystem)
-gpbrsOperatingSystem = Lens.lens (operatingSystem :: GetPatchBaselineResponse -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
-
--- | A set of global filters used to exclude patches from the baseline.
---
--- /Note:/ Consider using 'globalFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsGlobalFilters :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe PatchFilterGroup)
-gpbrsGlobalFilters = Lens.lens (globalFilters :: GetPatchBaselineResponse -> Lude.Maybe PatchFilterGroup) (\s a -> s {globalFilters = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsGlobalFilters "Use generic-lens or generic-optics with 'globalFilters' instead." #-}
-
--- | Returns the specified compliance severity level for approved patches in the patch baseline.
---
--- /Note:/ Consider using 'approvedPatchesComplianceLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsApprovedPatchesComplianceLevel :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe PatchComplianceLevel)
-gpbrsApprovedPatchesComplianceLevel = Lens.lens (approvedPatchesComplianceLevel :: GetPatchBaselineResponse -> Lude.Maybe PatchComplianceLevel) (\s a -> s {approvedPatchesComplianceLevel = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsApprovedPatchesComplianceLevel "Use generic-lens or generic-optics with 'approvedPatchesComplianceLevel' instead." #-}
-
--- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
---
--- /Note:/ Consider using 'rejectedPatchesAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsRejectedPatchesAction :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe PatchAction)
-gpbrsRejectedPatchesAction = Lens.lens (rejectedPatchesAction :: GetPatchBaselineResponse -> Lude.Maybe PatchAction) (\s a -> s {rejectedPatchesAction = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsRejectedPatchesAction "Use generic-lens or generic-optics with 'rejectedPatchesAction' instead." #-}
+gpbrrsApprovalRules :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.PatchRuleGroup)
+gpbrrsApprovalRules = Lens.field @"approvalRules"
+{-# DEPRECATED gpbrrsApprovalRules "Use generic-lens or generic-optics with 'approvalRules' instead." #-}
 
 -- | A list of explicitly approved patches for the baseline.
 --
 -- /Note:/ Consider using 'approvedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsApprovedPatches :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe [Lude.Text])
-gpbrsApprovedPatches = Lens.lens (approvedPatches :: GetPatchBaselineResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {approvedPatches = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsApprovedPatches "Use generic-lens or generic-optics with 'approvedPatches' instead." #-}
+gpbrrsApprovedPatches :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Types.PatchId])
+gpbrrsApprovedPatches = Lens.field @"approvedPatches"
+{-# DEPRECATED gpbrrsApprovedPatches "Use generic-lens or generic-optics with 'approvedPatches' instead." #-}
+
+-- | Returns the specified compliance severity level for approved patches in the patch baseline.
+--
+-- /Note:/ Consider using 'approvedPatchesComplianceLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsApprovedPatchesComplianceLevel :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.PatchComplianceLevel)
+gpbrrsApprovedPatchesComplianceLevel = Lens.field @"approvedPatchesComplianceLevel"
+{-# DEPRECATED gpbrrsApprovedPatchesComplianceLevel "Use generic-lens or generic-optics with 'approvedPatchesComplianceLevel' instead." #-}
 
 -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 --
 -- /Note:/ Consider using 'approvedPatchesEnableNonSecurity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsApprovedPatchesEnableNonSecurity :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe Lude.Bool)
-gpbrsApprovedPatchesEnableNonSecurity = Lens.lens (approvedPatchesEnableNonSecurity :: GetPatchBaselineResponse -> Lude.Maybe Lude.Bool) (\s a -> s {approvedPatchesEnableNonSecurity = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsApprovedPatchesEnableNonSecurity "Use generic-lens or generic-optics with 'approvedPatchesEnableNonSecurity' instead." #-}
-
--- | A list of explicitly rejected patches for the baseline.
---
--- /Note:/ Consider using 'rejectedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsRejectedPatches :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe [Lude.Text])
-gpbrsRejectedPatches = Lens.lens (rejectedPatches :: GetPatchBaselineResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {rejectedPatches = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsRejectedPatches "Use generic-lens or generic-optics with 'rejectedPatches' instead." #-}
-
--- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
---
--- /Note:/ Consider using 'sources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsSources :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe [PatchSource])
-gpbrsSources = Lens.lens (sources :: GetPatchBaselineResponse -> Lude.Maybe [PatchSource]) (\s a -> s {sources = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsSources "Use generic-lens or generic-optics with 'sources' instead." #-}
-
--- | The date the patch baseline was created.
---
--- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsCreatedDate :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe Lude.Timestamp)
-gpbrsCreatedDate = Lens.lens (createdDate :: GetPatchBaselineResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The name of the patch baseline.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsName :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe Lude.Text)
-gpbrsName = Lens.lens (name :: GetPatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Patch groups included in the patch baseline.
---
--- /Note:/ Consider using 'patchGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsPatchGroups :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe [Lude.Text])
-gpbrsPatchGroups = Lens.lens (patchGroups :: GetPatchBaselineResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {patchGroups = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsPatchGroups "Use generic-lens or generic-optics with 'patchGroups' instead." #-}
-
--- | The date the patch baseline was last modified.
---
--- /Note:/ Consider using 'modifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsModifiedDate :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe Lude.Timestamp)
-gpbrsModifiedDate = Lens.lens (modifiedDate :: GetPatchBaselineResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedDate = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsModifiedDate "Use generic-lens or generic-optics with 'modifiedDate' instead." #-}
-
--- | A description of the patch baseline.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsDescription :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe Lude.Text)
-gpbrsDescription = Lens.lens (description :: GetPatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+gpbrrsApprovedPatchesEnableNonSecurity :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.Bool)
+gpbrrsApprovedPatchesEnableNonSecurity = Lens.field @"approvedPatchesEnableNonSecurity"
+{-# DEPRECATED gpbrrsApprovedPatchesEnableNonSecurity "Use generic-lens or generic-optics with 'approvedPatchesEnableNonSecurity' instead." #-}
 
 -- | The ID of the retrieved patch baseline.
 --
 -- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsBaselineId :: Lens.Lens' GetPatchBaselineResponse (Lude.Maybe Lude.Text)
-gpbrsBaselineId = Lens.lens (baselineId :: GetPatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
+gpbrrsBaselineId :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.BaselineId)
+gpbrrsBaselineId = Lens.field @"baselineId"
+{-# DEPRECATED gpbrrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
+
+-- | The date the patch baseline was created.
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsCreatedDate :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.NominalDiffTime)
+gpbrrsCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED gpbrrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+
+-- | A description of the patch baseline.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsDescription :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.BaselineDescription)
+gpbrrsDescription = Lens.field @"description"
+{-# DEPRECATED gpbrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A set of global filters used to exclude patches from the baseline.
+--
+-- /Note:/ Consider using 'globalFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsGlobalFilters :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.PatchFilterGroup)
+gpbrrsGlobalFilters = Lens.field @"globalFilters"
+{-# DEPRECATED gpbrrsGlobalFilters "Use generic-lens or generic-optics with 'globalFilters' instead." #-}
+
+-- | The date the patch baseline was last modified.
+--
+-- /Note:/ Consider using 'modifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsModifiedDate :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.NominalDiffTime)
+gpbrrsModifiedDate = Lens.field @"modifiedDate"
+{-# DEPRECATED gpbrrsModifiedDate "Use generic-lens or generic-optics with 'modifiedDate' instead." #-}
+
+-- | The name of the patch baseline.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsName :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.BaselineName)
+gpbrrsName = Lens.field @"name"
+{-# DEPRECATED gpbrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Returns the operating system specified for the patch baseline.
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsOperatingSystem :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.OperatingSystem)
+gpbrrsOperatingSystem = Lens.field @"operatingSystem"
+{-# DEPRECATED gpbrrsOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
+
+-- | Patch groups included in the patch baseline.
+--
+-- /Note:/ Consider using 'patchGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsPatchGroups :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Types.PatchGroup])
+gpbrrsPatchGroups = Lens.field @"patchGroups"
+{-# DEPRECATED gpbrrsPatchGroups "Use generic-lens or generic-optics with 'patchGroups' instead." #-}
+
+-- | A list of explicitly rejected patches for the baseline.
+--
+-- /Note:/ Consider using 'rejectedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsRejectedPatches :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Types.PatchId])
+gpbrrsRejectedPatches = Lens.field @"rejectedPatches"
+{-# DEPRECATED gpbrrsRejectedPatches "Use generic-lens or generic-optics with 'rejectedPatches' instead." #-}
+
+-- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
+--
+-- /Note:/ Consider using 'rejectedPatchesAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsRejectedPatchesAction :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Types.PatchAction)
+gpbrrsRejectedPatchesAction = Lens.field @"rejectedPatchesAction"
+{-# DEPRECATED gpbrrsRejectedPatchesAction "Use generic-lens or generic-optics with 'rejectedPatchesAction' instead." #-}
+
+-- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+--
+-- /Note:/ Consider using 'sources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbrrsSources :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Types.PatchSource])
+gpbrrsSources = Lens.field @"sources"
+{-# DEPRECATED gpbrrsSources "Use generic-lens or generic-optics with 'sources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbrsResponseStatus :: Lens.Lens' GetPatchBaselineResponse Lude.Int
-gpbrsResponseStatus = Lens.lens (responseStatus :: GetPatchBaselineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPatchBaselineResponse)
-{-# DEPRECATED gpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpbrrsResponseStatus :: Lens.Lens' GetPatchBaselineResponse Core.Int
+gpbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

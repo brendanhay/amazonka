@@ -28,120 +28,111 @@ module Network.AWS.CloudSearch.DefineSuggester
     mkDefineSuggesterResponse,
 
     -- ** Response lenses
-    dsrsSuggester,
-    dsrsResponseStatus,
+    dsrrsSuggester,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DefineSuggester' @ operation. Specifies the name of the domain you want to update and the suggester configuration.
 --
 -- /See:/ 'mkDefineSuggester' smart constructor.
 data DefineSuggester = DefineSuggester'
-  { domainName :: Lude.Text,
-    suggester :: Suggester
+  { domainName :: Types.DomainName,
+    suggester :: Types.Suggester
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefineSuggester' with the minimum fields required to make a request.
---
--- * 'domainName' -
--- * 'suggester' -
+-- | Creates a 'DefineSuggester' value with any optional fields omitted.
 mkDefineSuggester ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'suggester'
-  Suggester ->
+  Types.Suggester ->
   DefineSuggester
-mkDefineSuggester pDomainName_ pSuggester_ =
-  DefineSuggester'
-    { domainName = pDomainName_,
-      suggester = pSuggester_
-    }
+mkDefineSuggester domainName suggester =
+  DefineSuggester' {domainName, suggester}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfDomainName :: Lens.Lens' DefineSuggester Lude.Text
-dsfDomainName = Lens.lens (domainName :: DefineSuggester -> Lude.Text) (\s a -> s {domainName = a} :: DefineSuggester)
+dsfDomainName :: Lens.Lens' DefineSuggester Types.DomainName
+dsfDomainName = Lens.field @"domainName"
 {-# DEPRECATED dsfDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'suggester' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfSuggester :: Lens.Lens' DefineSuggester Suggester
-dsfSuggester = Lens.lens (suggester :: DefineSuggester -> Suggester) (\s a -> s {suggester = a} :: DefineSuggester)
+dsfSuggester :: Lens.Lens' DefineSuggester Types.Suggester
+dsfSuggester = Lens.field @"suggester"
 {-# DEPRECATED dsfSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
 
-instance Lude.AWSRequest DefineSuggester where
+instance Core.AWSRequest DefineSuggester where
   type Rs DefineSuggester = DefineSuggesterResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DefineSuggester")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "Suggester" suggester)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DefineSuggesterResult"
       ( \s h x ->
           DefineSuggesterResponse'
-            Lude.<$> (x Lude..@ "Suggester") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "Suggester") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DefineSuggester where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DefineSuggester where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DefineSuggester where
-  toQuery DefineSuggester' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DefineSuggester" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName,
-        "Suggester" Lude.=: suggester
-      ]
 
 -- | The result of a @DefineSuggester@ request. Contains the status of the newly-configured suggester.
 --
 -- /See:/ 'mkDefineSuggesterResponse' smart constructor.
 data DefineSuggesterResponse = DefineSuggesterResponse'
-  { suggester :: SuggesterStatus,
+  { suggester :: Types.SuggesterStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DefineSuggesterResponse' with the minimum fields required to make a request.
---
--- * 'suggester' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DefineSuggesterResponse' value with any optional fields omitted.
 mkDefineSuggesterResponse ::
   -- | 'suggester'
-  SuggesterStatus ->
+  Types.SuggesterStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DefineSuggesterResponse
-mkDefineSuggesterResponse pSuggester_ pResponseStatus_ =
-  DefineSuggesterResponse'
-    { suggester = pSuggester_,
-      responseStatus = pResponseStatus_
-    }
+mkDefineSuggesterResponse suggester responseStatus =
+  DefineSuggesterResponse' {suggester, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'suggester' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSuggester :: Lens.Lens' DefineSuggesterResponse SuggesterStatus
-dsrsSuggester = Lens.lens (suggester :: DefineSuggesterResponse -> SuggesterStatus) (\s a -> s {suggester = a} :: DefineSuggesterResponse)
-{-# DEPRECATED dsrsSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
+dsrrsSuggester :: Lens.Lens' DefineSuggesterResponse Types.SuggesterStatus
+dsrrsSuggester = Lens.field @"suggester"
+{-# DEPRECATED dsrrsSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DefineSuggesterResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DefineSuggesterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineSuggesterResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DefineSuggesterResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

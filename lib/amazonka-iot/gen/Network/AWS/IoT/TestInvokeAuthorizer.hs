@@ -20,230 +20,219 @@ module Network.AWS.IoT.TestInvokeAuthorizer
     mkTestInvokeAuthorizer,
 
     -- ** Request lenses
-    tiaToken,
     tiaAuthorizerName,
-    tiaTlsContext,
-    tiaTokenSignature,
     tiaHttpContext,
     tiaMqttContext,
+    tiaTlsContext,
+    tiaToken,
+    tiaTokenSignature,
 
     -- * Destructuring the response
     TestInvokeAuthorizerResponse (..),
     mkTestInvokeAuthorizerResponse,
 
     -- ** Response lenses
-    tiarsPolicyDocuments,
-    tiarsPrincipalId,
-    tiarsDisconnectAfterInSeconds,
-    tiarsIsAuthenticated,
-    tiarsRefreshAfterInSeconds,
-    tiarsResponseStatus,
+    tiarrsDisconnectAfterInSeconds,
+    tiarrsIsAuthenticated,
+    tiarrsPolicyDocuments,
+    tiarrsPrincipalId,
+    tiarrsRefreshAfterInSeconds,
+    tiarrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTestInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-  { -- | The token returned by your custom authentication service.
-    token :: Lude.Maybe Lude.Text,
-    -- | The custom authorizer name.
-    authorizerName :: Lude.Text,
-    -- | Specifies a test TLS authorization request.
-    tlsContext :: Lude.Maybe TLSContext,
-    -- | The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
-    tokenSignature :: Lude.Maybe Lude.Text,
+  { -- | The custom authorizer name.
+    authorizerName :: Types.AuthorizerName,
     -- | Specifies a test HTTP authorization request.
-    httpContext :: Lude.Maybe HTTPContext,
+    httpContext :: Core.Maybe Types.HttpContext,
     -- | Specifies a test MQTT authorization request.
-    mqttContext :: Lude.Maybe MqttContext
+    mqttContext :: Core.Maybe Types.MqttContext,
+    -- | Specifies a test TLS authorization request.
+    tlsContext :: Core.Maybe Types.TlsContext,
+    -- | The token returned by your custom authentication service.
+    token :: Core.Maybe Types.Token,
+    -- | The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
+    tokenSignature :: Core.Maybe Types.TokenSignature
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestInvokeAuthorizer' with the minimum fields required to make a request.
---
--- * 'token' - The token returned by your custom authentication service.
--- * 'authorizerName' - The custom authorizer name.
--- * 'tlsContext' - Specifies a test TLS authorization request.
--- * 'tokenSignature' - The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
--- * 'httpContext' - Specifies a test HTTP authorization request.
--- * 'mqttContext' - Specifies a test MQTT authorization request.
+-- | Creates a 'TestInvokeAuthorizer' value with any optional fields omitted.
 mkTestInvokeAuthorizer ::
   -- | 'authorizerName'
-  Lude.Text ->
+  Types.AuthorizerName ->
   TestInvokeAuthorizer
-mkTestInvokeAuthorizer pAuthorizerName_ =
+mkTestInvokeAuthorizer authorizerName =
   TestInvokeAuthorizer'
-    { token = Lude.Nothing,
-      authorizerName = pAuthorizerName_,
-      tlsContext = Lude.Nothing,
-      tokenSignature = Lude.Nothing,
-      httpContext = Lude.Nothing,
-      mqttContext = Lude.Nothing
+    { authorizerName,
+      httpContext = Core.Nothing,
+      mqttContext = Core.Nothing,
+      tlsContext = Core.Nothing,
+      token = Core.Nothing,
+      tokenSignature = Core.Nothing
     }
-
--- | The token returned by your custom authentication service.
---
--- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaToken :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe Lude.Text)
-tiaToken = Lens.lens (token :: TestInvokeAuthorizer -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: TestInvokeAuthorizer)
-{-# DEPRECATED tiaToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The custom authorizer name.
 --
 -- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaAuthorizerName :: Lens.Lens' TestInvokeAuthorizer Lude.Text
-tiaAuthorizerName = Lens.lens (authorizerName :: TestInvokeAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: TestInvokeAuthorizer)
+tiaAuthorizerName :: Lens.Lens' TestInvokeAuthorizer Types.AuthorizerName
+tiaAuthorizerName = Lens.field @"authorizerName"
 {-# DEPRECATED tiaAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
-
--- | Specifies a test TLS authorization request.
---
--- /Note:/ Consider using 'tlsContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaTlsContext :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe TLSContext)
-tiaTlsContext = Lens.lens (tlsContext :: TestInvokeAuthorizer -> Lude.Maybe TLSContext) (\s a -> s {tlsContext = a} :: TestInvokeAuthorizer)
-{-# DEPRECATED tiaTlsContext "Use generic-lens or generic-optics with 'tlsContext' instead." #-}
-
--- | The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
---
--- /Note:/ Consider using 'tokenSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaTokenSignature :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe Lude.Text)
-tiaTokenSignature = Lens.lens (tokenSignature :: TestInvokeAuthorizer -> Lude.Maybe Lude.Text) (\s a -> s {tokenSignature = a} :: TestInvokeAuthorizer)
-{-# DEPRECATED tiaTokenSignature "Use generic-lens or generic-optics with 'tokenSignature' instead." #-}
 
 -- | Specifies a test HTTP authorization request.
 --
 -- /Note:/ Consider using 'httpContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaHttpContext :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe HTTPContext)
-tiaHttpContext = Lens.lens (httpContext :: TestInvokeAuthorizer -> Lude.Maybe HTTPContext) (\s a -> s {httpContext = a} :: TestInvokeAuthorizer)
+tiaHttpContext :: Lens.Lens' TestInvokeAuthorizer (Core.Maybe Types.HttpContext)
+tiaHttpContext = Lens.field @"httpContext"
 {-# DEPRECATED tiaHttpContext "Use generic-lens or generic-optics with 'httpContext' instead." #-}
 
 -- | Specifies a test MQTT authorization request.
 --
 -- /Note:/ Consider using 'mqttContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaMqttContext :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe MqttContext)
-tiaMqttContext = Lens.lens (mqttContext :: TestInvokeAuthorizer -> Lude.Maybe MqttContext) (\s a -> s {mqttContext = a} :: TestInvokeAuthorizer)
+tiaMqttContext :: Lens.Lens' TestInvokeAuthorizer (Core.Maybe Types.MqttContext)
+tiaMqttContext = Lens.field @"mqttContext"
 {-# DEPRECATED tiaMqttContext "Use generic-lens or generic-optics with 'mqttContext' instead." #-}
 
-instance Lude.AWSRequest TestInvokeAuthorizer where
-  type Rs TestInvokeAuthorizer = TestInvokeAuthorizerResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          TestInvokeAuthorizerResponse'
-            Lude.<$> (x Lude..?> "policyDocuments" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "principalId")
-            Lude.<*> (x Lude..?> "disconnectAfterInSeconds")
-            Lude.<*> (x Lude..?> "isAuthenticated")
-            Lude.<*> (x Lude..?> "refreshAfterInSeconds")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Specifies a test TLS authorization request.
+--
+-- /Note:/ Consider using 'tlsContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiaTlsContext :: Lens.Lens' TestInvokeAuthorizer (Core.Maybe Types.TlsContext)
+tiaTlsContext = Lens.field @"tlsContext"
+{-# DEPRECATED tiaTlsContext "Use generic-lens or generic-optics with 'tlsContext' instead." #-}
 
-instance Lude.ToHeaders TestInvokeAuthorizer where
-  toHeaders = Lude.const Lude.mempty
+-- | The token returned by your custom authentication service.
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiaToken :: Lens.Lens' TestInvokeAuthorizer (Core.Maybe Types.Token)
+tiaToken = Lens.field @"token"
+{-# DEPRECATED tiaToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
-instance Lude.ToJSON TestInvokeAuthorizer where
-  toJSON TestInvokeAuthorizer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("token" Lude..=) Lude.<$> token,
-            ("tlsContext" Lude..=) Lude.<$> tlsContext,
-            ("tokenSignature" Lude..=) Lude.<$> tokenSignature,
-            ("httpContext" Lude..=) Lude.<$> httpContext,
-            ("mqttContext" Lude..=) Lude.<$> mqttContext
+-- | The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
+--
+-- /Note:/ Consider using 'tokenSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiaTokenSignature :: Lens.Lens' TestInvokeAuthorizer (Core.Maybe Types.TokenSignature)
+tiaTokenSignature = Lens.field @"tokenSignature"
+{-# DEPRECATED tiaTokenSignature "Use generic-lens or generic-optics with 'tokenSignature' instead." #-}
+
+instance Core.FromJSON TestInvokeAuthorizer where
+  toJSON TestInvokeAuthorizer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("httpContext" Core..=) Core.<$> httpContext,
+            ("mqttContext" Core..=) Core.<$> mqttContext,
+            ("tlsContext" Core..=) Core.<$> tlsContext,
+            ("token" Core..=) Core.<$> token,
+            ("tokenSignature" Core..=) Core.<$> tokenSignature
           ]
       )
 
-instance Lude.ToPath TestInvokeAuthorizer where
-  toPath TestInvokeAuthorizer' {..} =
-    Lude.mconcat ["/authorizer/", Lude.toBS authorizerName, "/test"]
-
-instance Lude.ToQuery TestInvokeAuthorizer where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest TestInvokeAuthorizer where
+  type Rs TestInvokeAuthorizer = TestInvokeAuthorizerResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/authorizer/" Core.<> (Core.toText authorizerName)
+                Core.<> ("/test")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          TestInvokeAuthorizerResponse'
+            Core.<$> (x Core..:? "disconnectAfterInSeconds")
+            Core.<*> (x Core..:? "isAuthenticated")
+            Core.<*> (x Core..:? "policyDocuments")
+            Core.<*> (x Core..:? "principalId")
+            Core.<*> (x Core..:? "refreshAfterInSeconds")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkTestInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
-  { -- | IAM policy documents.
-    policyDocuments :: Lude.Maybe [Lude.Text],
-    -- | The principal ID.
-    principalId :: Lude.Maybe Lude.Text,
-    -- | The number of seconds after which the connection is terminated.
-    disconnectAfterInSeconds :: Lude.Maybe Lude.Int,
+  { -- | The number of seconds after which the connection is terminated.
+    disconnectAfterInSeconds :: Core.Maybe Core.Int,
     -- | True if the token is authenticated, otherwise false.
-    isAuthenticated :: Lude.Maybe Lude.Bool,
+    isAuthenticated :: Core.Maybe Core.Bool,
+    -- | IAM policy documents.
+    policyDocuments :: Core.Maybe [Types.PolicyDocument],
+    -- | The principal ID.
+    principalId :: Core.Maybe Types.PrincipalId,
     -- | The number of seconds after which the temporary credentials are refreshed.
-    refreshAfterInSeconds :: Lude.Maybe Lude.Int,
+    refreshAfterInSeconds :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestInvokeAuthorizerResponse' with the minimum fields required to make a request.
---
--- * 'policyDocuments' - IAM policy documents.
--- * 'principalId' - The principal ID.
--- * 'disconnectAfterInSeconds' - The number of seconds after which the connection is terminated.
--- * 'isAuthenticated' - True if the token is authenticated, otherwise false.
--- * 'refreshAfterInSeconds' - The number of seconds after which the temporary credentials are refreshed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TestInvokeAuthorizerResponse' value with any optional fields omitted.
 mkTestInvokeAuthorizerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TestInvokeAuthorizerResponse
-mkTestInvokeAuthorizerResponse pResponseStatus_ =
+mkTestInvokeAuthorizerResponse responseStatus =
   TestInvokeAuthorizerResponse'
-    { policyDocuments = Lude.Nothing,
-      principalId = Lude.Nothing,
-      disconnectAfterInSeconds = Lude.Nothing,
-      isAuthenticated = Lude.Nothing,
-      refreshAfterInSeconds = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { disconnectAfterInSeconds =
+        Core.Nothing,
+      isAuthenticated = Core.Nothing,
+      policyDocuments = Core.Nothing,
+      principalId = Core.Nothing,
+      refreshAfterInSeconds = Core.Nothing,
+      responseStatus
     }
-
--- | IAM policy documents.
---
--- /Note:/ Consider using 'policyDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiarsPolicyDocuments :: Lens.Lens' TestInvokeAuthorizerResponse (Lude.Maybe [Lude.Text])
-tiarsPolicyDocuments = Lens.lens (policyDocuments :: TestInvokeAuthorizerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {policyDocuments = a} :: TestInvokeAuthorizerResponse)
-{-# DEPRECATED tiarsPolicyDocuments "Use generic-lens or generic-optics with 'policyDocuments' instead." #-}
-
--- | The principal ID.
---
--- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiarsPrincipalId :: Lens.Lens' TestInvokeAuthorizerResponse (Lude.Maybe Lude.Text)
-tiarsPrincipalId = Lens.lens (principalId :: TestInvokeAuthorizerResponse -> Lude.Maybe Lude.Text) (\s a -> s {principalId = a} :: TestInvokeAuthorizerResponse)
-{-# DEPRECATED tiarsPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The number of seconds after which the connection is terminated.
 --
 -- /Note:/ Consider using 'disconnectAfterInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiarsDisconnectAfterInSeconds :: Lens.Lens' TestInvokeAuthorizerResponse (Lude.Maybe Lude.Int)
-tiarsDisconnectAfterInSeconds = Lens.lens (disconnectAfterInSeconds :: TestInvokeAuthorizerResponse -> Lude.Maybe Lude.Int) (\s a -> s {disconnectAfterInSeconds = a} :: TestInvokeAuthorizerResponse)
-{-# DEPRECATED tiarsDisconnectAfterInSeconds "Use generic-lens or generic-optics with 'disconnectAfterInSeconds' instead." #-}
+tiarrsDisconnectAfterInSeconds :: Lens.Lens' TestInvokeAuthorizerResponse (Core.Maybe Core.Int)
+tiarrsDisconnectAfterInSeconds = Lens.field @"disconnectAfterInSeconds"
+{-# DEPRECATED tiarrsDisconnectAfterInSeconds "Use generic-lens or generic-optics with 'disconnectAfterInSeconds' instead." #-}
 
 -- | True if the token is authenticated, otherwise false.
 --
 -- /Note:/ Consider using 'isAuthenticated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiarsIsAuthenticated :: Lens.Lens' TestInvokeAuthorizerResponse (Lude.Maybe Lude.Bool)
-tiarsIsAuthenticated = Lens.lens (isAuthenticated :: TestInvokeAuthorizerResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isAuthenticated = a} :: TestInvokeAuthorizerResponse)
-{-# DEPRECATED tiarsIsAuthenticated "Use generic-lens or generic-optics with 'isAuthenticated' instead." #-}
+tiarrsIsAuthenticated :: Lens.Lens' TestInvokeAuthorizerResponse (Core.Maybe Core.Bool)
+tiarrsIsAuthenticated = Lens.field @"isAuthenticated"
+{-# DEPRECATED tiarrsIsAuthenticated "Use generic-lens or generic-optics with 'isAuthenticated' instead." #-}
+
+-- | IAM policy documents.
+--
+-- /Note:/ Consider using 'policyDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiarrsPolicyDocuments :: Lens.Lens' TestInvokeAuthorizerResponse (Core.Maybe [Types.PolicyDocument])
+tiarrsPolicyDocuments = Lens.field @"policyDocuments"
+{-# DEPRECATED tiarrsPolicyDocuments "Use generic-lens or generic-optics with 'policyDocuments' instead." #-}
+
+-- | The principal ID.
+--
+-- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiarrsPrincipalId :: Lens.Lens' TestInvokeAuthorizerResponse (Core.Maybe Types.PrincipalId)
+tiarrsPrincipalId = Lens.field @"principalId"
+{-# DEPRECATED tiarrsPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The number of seconds after which the temporary credentials are refreshed.
 --
 -- /Note:/ Consider using 'refreshAfterInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiarsRefreshAfterInSeconds :: Lens.Lens' TestInvokeAuthorizerResponse (Lude.Maybe Lude.Int)
-tiarsRefreshAfterInSeconds = Lens.lens (refreshAfterInSeconds :: TestInvokeAuthorizerResponse -> Lude.Maybe Lude.Int) (\s a -> s {refreshAfterInSeconds = a} :: TestInvokeAuthorizerResponse)
-{-# DEPRECATED tiarsRefreshAfterInSeconds "Use generic-lens or generic-optics with 'refreshAfterInSeconds' instead." #-}
+tiarrsRefreshAfterInSeconds :: Lens.Lens' TestInvokeAuthorizerResponse (Core.Maybe Core.Int)
+tiarrsRefreshAfterInSeconds = Lens.field @"refreshAfterInSeconds"
+{-# DEPRECATED tiarrsRefreshAfterInSeconds "Use generic-lens or generic-optics with 'refreshAfterInSeconds' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiarsResponseStatus :: Lens.Lens' TestInvokeAuthorizerResponse Lude.Int
-tiarsResponseStatus = Lens.lens (responseStatus :: TestInvokeAuthorizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestInvokeAuthorizerResponse)
-{-# DEPRECATED tiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tiarrsResponseStatus :: Lens.Lens' TestInvokeAuthorizerResponse Core.Int
+tiarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tiarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

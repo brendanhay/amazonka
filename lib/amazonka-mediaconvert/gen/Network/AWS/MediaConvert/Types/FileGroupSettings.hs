@@ -23,62 +23,57 @@ module Network.AWS.MediaConvert.Types.FileGroupSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.DestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
 --
 -- /See:/ 'mkFileGroupSettings' smart constructor.
 data FileGroupSettings = FileGroupSettings'
   { -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-    destination :: Lude.Maybe Lude.Text,
+    destination :: Core.Maybe Core.Text,
     -- | Settings associated with the destination. Will vary based on the type of destination
-    destinationSettings :: Lude.Maybe DestinationSettings
+    destinationSettings :: Core.Maybe Types.DestinationSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FileGroupSettings' with the minimum fields required to make a request.
---
--- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
--- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
+-- | Creates a 'FileGroupSettings' value with any optional fields omitted.
 mkFileGroupSettings ::
   FileGroupSettings
 mkFileGroupSettings =
   FileGroupSettings'
-    { destination = Lude.Nothing,
-      destinationSettings = Lude.Nothing
+    { destination = Core.Nothing,
+      destinationSettings = Core.Nothing
     }
 
 -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fgsDestination :: Lens.Lens' FileGroupSettings (Lude.Maybe Lude.Text)
-fgsDestination = Lens.lens (destination :: FileGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: FileGroupSettings)
+fgsDestination :: Lens.Lens' FileGroupSettings (Core.Maybe Core.Text)
+fgsDestination = Lens.field @"destination"
 {-# DEPRECATED fgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Settings associated with the destination. Will vary based on the type of destination
 --
 -- /Note:/ Consider using 'destinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fgsDestinationSettings :: Lens.Lens' FileGroupSettings (Lude.Maybe DestinationSettings)
-fgsDestinationSettings = Lens.lens (destinationSettings :: FileGroupSettings -> Lude.Maybe DestinationSettings) (\s a -> s {destinationSettings = a} :: FileGroupSettings)
+fgsDestinationSettings :: Lens.Lens' FileGroupSettings (Core.Maybe Types.DestinationSettings)
+fgsDestinationSettings = Lens.field @"destinationSettings"
 {-# DEPRECATED fgsDestinationSettings "Use generic-lens or generic-optics with 'destinationSettings' instead." #-}
 
-instance Lude.FromJSON FileGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "FileGroupSettings"
-      ( \x ->
-          FileGroupSettings'
-            Lude.<$> (x Lude..:? "destination")
-            Lude.<*> (x Lude..:? "destinationSettings")
-      )
-
-instance Lude.ToJSON FileGroupSettings where
-  toJSON FileGroupSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("destination" Lude..=) Lude.<$> destination,
-            ("destinationSettings" Lude..=) Lude.<$> destinationSettings
+instance Core.FromJSON FileGroupSettings where
+  toJSON FileGroupSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("destination" Core..=) Core.<$> destination,
+            ("destinationSettings" Core..=) Core.<$> destinationSettings
           ]
       )
+
+instance Core.FromJSON FileGroupSettings where
+  parseJSON =
+    Core.withObject "FileGroupSettings" Core.$
+      \x ->
+        FileGroupSettings'
+          Core.<$> (x Core..:? "destination")
+          Core.<*> (x Core..:? "destinationSettings")

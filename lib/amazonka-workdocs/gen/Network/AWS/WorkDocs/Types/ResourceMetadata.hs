@@ -17,125 +17,120 @@ module Network.AWS.WorkDocs.Types.ResourceMetadata
     mkResourceMetadata,
 
     -- * Lenses
-    rmVersionId,
-    rmOwner,
-    rmName,
     rmId,
-    rmType,
+    rmName,
     rmOriginalName,
+    rmOwner,
     rmParentId,
+    rmType,
+    rmVersionId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.ResourceType
-import Network.AWS.WorkDocs.Types.UserMetadata
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.Id as Types
+import qualified Network.AWS.WorkDocs.Types.Name as Types
+import qualified Network.AWS.WorkDocs.Types.OriginalName as Types
+import qualified Network.AWS.WorkDocs.Types.ParentId as Types
+import qualified Network.AWS.WorkDocs.Types.ResourceType as Types
+import qualified Network.AWS.WorkDocs.Types.UserMetadata as Types
+import qualified Network.AWS.WorkDocs.Types.VersionId as Types
 
 -- | Describes the metadata of a resource.
 --
 -- /See:/ 'mkResourceMetadata' smart constructor.
 data ResourceMetadata = ResourceMetadata'
-  { -- | The version ID of the resource. This is an optional field and is filled for action on document version.
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The owner of the resource.
-    owner :: Lude.Maybe UserMetadata,
+  { -- | The ID of the resource.
+    id :: Core.Maybe Types.Id,
     -- | The name of the resource.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the resource.
-    id :: Lude.Maybe Lude.Text,
-    -- | The type of resource.
-    type' :: Lude.Maybe ResourceType,
+    name :: Core.Maybe Types.Name,
     -- | The original name of the resource before a rename operation.
-    originalName :: Lude.Maybe Lude.Text,
+    originalName :: Core.Maybe Types.OriginalName,
+    -- | The owner of the resource.
+    owner :: Core.Maybe Types.UserMetadata,
     -- | The parent ID of the resource before a rename operation.
-    parentId :: Lude.Maybe Lude.Text
+    parentId :: Core.Maybe Types.ParentId,
+    -- | The type of resource.
+    type' :: Core.Maybe Types.ResourceType,
+    -- | The version ID of the resource. This is an optional field and is filled for action on document version.
+    versionId :: Core.Maybe Types.VersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceMetadata' with the minimum fields required to make a request.
---
--- * 'versionId' - The version ID of the resource. This is an optional field and is filled for action on document version.
--- * 'owner' - The owner of the resource.
--- * 'name' - The name of the resource.
--- * 'id' - The ID of the resource.
--- * 'type'' - The type of resource.
--- * 'originalName' - The original name of the resource before a rename operation.
--- * 'parentId' - The parent ID of the resource before a rename operation.
+-- | Creates a 'ResourceMetadata' value with any optional fields omitted.
 mkResourceMetadata ::
   ResourceMetadata
 mkResourceMetadata =
   ResourceMetadata'
-    { versionId = Lude.Nothing,
-      owner = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      originalName = Lude.Nothing,
-      parentId = Lude.Nothing
+    { id = Core.Nothing,
+      name = Core.Nothing,
+      originalName = Core.Nothing,
+      owner = Core.Nothing,
+      parentId = Core.Nothing,
+      type' = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | The version ID of the resource. This is an optional field and is filled for action on document version.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmVersionId :: Lens.Lens' ResourceMetadata (Lude.Maybe Lude.Text)
-rmVersionId = Lens.lens (versionId :: ResourceMetadata -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: ResourceMetadata)
-{-# DEPRECATED rmVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The owner of the resource.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmOwner :: Lens.Lens' ResourceMetadata (Lude.Maybe UserMetadata)
-rmOwner = Lens.lens (owner :: ResourceMetadata -> Lude.Maybe UserMetadata) (\s a -> s {owner = a} :: ResourceMetadata)
-{-# DEPRECATED rmOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The name of the resource.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmName :: Lens.Lens' ResourceMetadata (Lude.Maybe Lude.Text)
-rmName = Lens.lens (name :: ResourceMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceMetadata)
-{-# DEPRECATED rmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmId :: Lens.Lens' ResourceMetadata (Lude.Maybe Lude.Text)
-rmId = Lens.lens (id :: ResourceMetadata -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ResourceMetadata)
+rmId :: Lens.Lens' ResourceMetadata (Core.Maybe Types.Id)
+rmId = Lens.field @"id"
 {-# DEPRECATED rmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The type of resource.
+-- | The name of the resource.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmType :: Lens.Lens' ResourceMetadata (Lude.Maybe ResourceType)
-rmType = Lens.lens (type' :: ResourceMetadata -> Lude.Maybe ResourceType) (\s a -> s {type' = a} :: ResourceMetadata)
-{-# DEPRECATED rmType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmName :: Lens.Lens' ResourceMetadata (Core.Maybe Types.Name)
+rmName = Lens.field @"name"
+{-# DEPRECATED rmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The original name of the resource before a rename operation.
 --
 -- /Note:/ Consider using 'originalName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmOriginalName :: Lens.Lens' ResourceMetadata (Lude.Maybe Lude.Text)
-rmOriginalName = Lens.lens (originalName :: ResourceMetadata -> Lude.Maybe Lude.Text) (\s a -> s {originalName = a} :: ResourceMetadata)
+rmOriginalName :: Lens.Lens' ResourceMetadata (Core.Maybe Types.OriginalName)
+rmOriginalName = Lens.field @"originalName"
 {-# DEPRECATED rmOriginalName "Use generic-lens or generic-optics with 'originalName' instead." #-}
+
+-- | The owner of the resource.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmOwner :: Lens.Lens' ResourceMetadata (Core.Maybe Types.UserMetadata)
+rmOwner = Lens.field @"owner"
+{-# DEPRECATED rmOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The parent ID of the resource before a rename operation.
 --
 -- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmParentId :: Lens.Lens' ResourceMetadata (Lude.Maybe Lude.Text)
-rmParentId = Lens.lens (parentId :: ResourceMetadata -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: ResourceMetadata)
+rmParentId :: Lens.Lens' ResourceMetadata (Core.Maybe Types.ParentId)
+rmParentId = Lens.field @"parentId"
 {-# DEPRECATED rmParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
-instance Lude.FromJSON ResourceMetadata where
+-- | The type of resource.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmType :: Lens.Lens' ResourceMetadata (Core.Maybe Types.ResourceType)
+rmType = Lens.field @"type'"
+{-# DEPRECATED rmType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The version ID of the resource. This is an optional field and is filled for action on document version.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmVersionId :: Lens.Lens' ResourceMetadata (Core.Maybe Types.VersionId)
+rmVersionId = Lens.field @"versionId"
+{-# DEPRECATED rmVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.FromJSON ResourceMetadata where
   parseJSON =
-    Lude.withObject
-      "ResourceMetadata"
-      ( \x ->
-          ResourceMetadata'
-            Lude.<$> (x Lude..:? "VersionId")
-            Lude.<*> (x Lude..:? "Owner")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "OriginalName")
-            Lude.<*> (x Lude..:? "ParentId")
-      )
+    Core.withObject "ResourceMetadata" Core.$
+      \x ->
+        ResourceMetadata'
+          Core.<$> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "OriginalName")
+          Core.<*> (x Core..:? "Owner")
+          Core.<*> (x Core..:? "ParentId")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "VersionId")

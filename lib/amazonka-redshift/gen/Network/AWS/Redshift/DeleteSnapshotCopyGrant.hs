@@ -20,7 +20,7 @@ module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     mkDeleteSnapshotCopyGrant,
 
     -- ** Request lenses
-    dSnapshotCopyGrantName,
+    dscgSnapshotCopyGrantName,
 
     -- * Destructuring the response
     DeleteSnapshotCopyGrantResponse (..),
@@ -29,66 +29,64 @@ module Network.AWS.Redshift.DeleteSnapshotCopyGrant
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The result of the @DeleteSnapshotCopyGrant@ action.
 --
 -- /See:/ 'mkDeleteSnapshotCopyGrant' smart constructor.
 newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
   { -- | The name of the snapshot copy grant to delete.
-    snapshotCopyGrantName :: Lude.Text
+    snapshotCopyGrantName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshotCopyGrant' with the minimum fields required to make a request.
---
--- * 'snapshotCopyGrantName' - The name of the snapshot copy grant to delete.
+-- | Creates a 'DeleteSnapshotCopyGrant' value with any optional fields omitted.
 mkDeleteSnapshotCopyGrant ::
   -- | 'snapshotCopyGrantName'
-  Lude.Text ->
+  Types.String ->
   DeleteSnapshotCopyGrant
-mkDeleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
-  DeleteSnapshotCopyGrant'
-    { snapshotCopyGrantName =
-        pSnapshotCopyGrantName_
-    }
+mkDeleteSnapshotCopyGrant snapshotCopyGrantName =
+  DeleteSnapshotCopyGrant' {snapshotCopyGrantName}
 
 -- | The name of the snapshot copy grant to delete.
 --
 -- /Note:/ Consider using 'snapshotCopyGrantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSnapshotCopyGrantName :: Lens.Lens' DeleteSnapshotCopyGrant Lude.Text
-dSnapshotCopyGrantName = Lens.lens (snapshotCopyGrantName :: DeleteSnapshotCopyGrant -> Lude.Text) (\s a -> s {snapshotCopyGrantName = a} :: DeleteSnapshotCopyGrant)
-{-# DEPRECATED dSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
+dscgSnapshotCopyGrantName :: Lens.Lens' DeleteSnapshotCopyGrant Types.String
+dscgSnapshotCopyGrantName = Lens.field @"snapshotCopyGrantName"
+{-# DEPRECATED dscgSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
 
-instance Lude.AWSRequest DeleteSnapshotCopyGrant where
+instance Core.AWSRequest DeleteSnapshotCopyGrant where
   type Rs DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrantResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteSnapshotCopyGrantResponse'
-
-instance Lude.ToHeaders DeleteSnapshotCopyGrant where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteSnapshotCopyGrant where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSnapshotCopyGrant where
-  toQuery DeleteSnapshotCopyGrant' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteSnapshotCopyGrant" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SnapshotCopyGrantName" Lude.=: snapshotCopyGrantName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteSnapshotCopyGrant")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "SnapshotCopyGrantName" snapshotCopyGrantName)
+            )
+      }
+  response = Response.receiveNull DeleteSnapshotCopyGrantResponse'
 
 -- | /See:/ 'mkDeleteSnapshotCopyGrantResponse' smart constructor.
 data DeleteSnapshotCopyGrantResponse = DeleteSnapshotCopyGrantResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshotCopyGrantResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSnapshotCopyGrantResponse' value with any optional fields omitted.
 mkDeleteSnapshotCopyGrantResponse ::
   DeleteSnapshotCopyGrantResponse
 mkDeleteSnapshotCopyGrantResponse =

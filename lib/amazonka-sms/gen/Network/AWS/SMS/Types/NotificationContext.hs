@@ -24,64 +24,62 @@ module Network.AWS.SMS.Types.NotificationContext
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ValidationStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ValidationId as Types
+import qualified Network.AWS.SMS.Types.ValidationStatus as Types
+import qualified Network.AWS.SMS.Types.ValidationStatusMessage as Types
 
 -- | Contains the status of validating an application.
 --
 -- /See:/ 'mkNotificationContext' smart constructor.
 data NotificationContext = NotificationContext'
   { -- | The status of the validation.
-    status :: Lude.Maybe ValidationStatus,
+    status :: Core.Maybe Types.ValidationStatus,
     -- | The status message.
-    statusMessage :: Lude.Maybe Lude.Text,
+    statusMessage :: Core.Maybe Types.ValidationStatusMessage,
     -- | The ID of the validation.
-    validationId :: Lude.Maybe Lude.Text
+    validationId :: Core.Maybe Types.ValidationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationContext' with the minimum fields required to make a request.
---
--- * 'status' - The status of the validation.
--- * 'statusMessage' - The status message.
--- * 'validationId' - The ID of the validation.
+-- | Creates a 'NotificationContext' value with any optional fields omitted.
 mkNotificationContext ::
   NotificationContext
 mkNotificationContext =
   NotificationContext'
-    { status = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      validationId = Lude.Nothing
+    { status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      validationId = Core.Nothing
     }
 
 -- | The status of the validation.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncStatus :: Lens.Lens' NotificationContext (Lude.Maybe ValidationStatus)
-ncStatus = Lens.lens (status :: NotificationContext -> Lude.Maybe ValidationStatus) (\s a -> s {status = a} :: NotificationContext)
+ncStatus :: Lens.Lens' NotificationContext (Core.Maybe Types.ValidationStatus)
+ncStatus = Lens.field @"status"
 {-# DEPRECATED ncStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The status message.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncStatusMessage :: Lens.Lens' NotificationContext (Lude.Maybe Lude.Text)
-ncStatusMessage = Lens.lens (statusMessage :: NotificationContext -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: NotificationContext)
+ncStatusMessage :: Lens.Lens' NotificationContext (Core.Maybe Types.ValidationStatusMessage)
+ncStatusMessage = Lens.field @"statusMessage"
 {-# DEPRECATED ncStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The ID of the validation.
 --
 -- /Note:/ Consider using 'validationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncValidationId :: Lens.Lens' NotificationContext (Lude.Maybe Lude.Text)
-ncValidationId = Lens.lens (validationId :: NotificationContext -> Lude.Maybe Lude.Text) (\s a -> s {validationId = a} :: NotificationContext)
+ncValidationId :: Lens.Lens' NotificationContext (Core.Maybe Types.ValidationId)
+ncValidationId = Lens.field @"validationId"
 {-# DEPRECATED ncValidationId "Use generic-lens or generic-optics with 'validationId' instead." #-}
 
-instance Lude.ToJSON NotificationContext where
-  toJSON NotificationContext' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("statusMessage" Lude..=) Lude.<$> statusMessage,
-            ("validationId" Lude..=) Lude.<$> validationId
+instance Core.FromJSON NotificationContext where
+  toJSON NotificationContext {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("status" Core..=) Core.<$> status,
+            ("statusMessage" Core..=) Core.<$> statusMessage,
+            ("validationId" Core..=) Core.<$> validationId
           ]
       )

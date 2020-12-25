@@ -18,84 +18,79 @@ module Network.AWS.Athena.Types.WorkGroupSummary
 
     -- * Lenses
     wgsCreationTime,
-    wgsState,
-    wgsName,
     wgsDescription,
+    wgsName,
+    wgsState,
   )
 where
 
-import Network.AWS.Athena.Types.WorkGroupState
+import qualified Network.AWS.Athena.Types.Description as Types
+import qualified Network.AWS.Athena.Types.Name as Types
+import qualified Network.AWS.Athena.Types.WorkGroupState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary information for the workgroup, which includes its name, state, description, and the date and time it was created.
 --
 -- /See:/ 'mkWorkGroupSummary' smart constructor.
 data WorkGroupSummary = WorkGroupSummary'
   { -- | The workgroup creation date and time.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The state of the workgroup.
-    state :: Lude.Maybe WorkGroupState,
-    -- | The name of the workgroup.
-    name :: Lude.Maybe Lude.Text,
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The workgroup description.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The name of the workgroup.
+    name :: Core.Maybe Types.Name,
+    -- | The state of the workgroup.
+    state :: Core.Maybe Types.WorkGroupState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'WorkGroupSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - The workgroup creation date and time.
--- * 'state' - The state of the workgroup.
--- * 'name' - The name of the workgroup.
--- * 'description' - The workgroup description.
+-- | Creates a 'WorkGroupSummary' value with any optional fields omitted.
 mkWorkGroupSummary ::
   WorkGroupSummary
 mkWorkGroupSummary =
   WorkGroupSummary'
-    { creationTime = Lude.Nothing,
-      state = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing
+    { creationTime = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing,
+      state = Core.Nothing
     }
 
 -- | The workgroup creation date and time.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgsCreationTime :: Lens.Lens' WorkGroupSummary (Lude.Maybe Lude.Timestamp)
-wgsCreationTime = Lens.lens (creationTime :: WorkGroupSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: WorkGroupSummary)
+wgsCreationTime :: Lens.Lens' WorkGroupSummary (Core.Maybe Core.NominalDiffTime)
+wgsCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED wgsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The state of the workgroup.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgsState :: Lens.Lens' WorkGroupSummary (Lude.Maybe WorkGroupState)
-wgsState = Lens.lens (state :: WorkGroupSummary -> Lude.Maybe WorkGroupState) (\s a -> s {state = a} :: WorkGroupSummary)
-{-# DEPRECATED wgsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The name of the workgroup.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgsName :: Lens.Lens' WorkGroupSummary (Lude.Maybe Lude.Text)
-wgsName = Lens.lens (name :: WorkGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WorkGroupSummary)
-{-# DEPRECATED wgsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The workgroup description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgsDescription :: Lens.Lens' WorkGroupSummary (Lude.Maybe Lude.Text)
-wgsDescription = Lens.lens (description :: WorkGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: WorkGroupSummary)
+wgsDescription :: Lens.Lens' WorkGroupSummary (Core.Maybe Types.Description)
+wgsDescription = Lens.field @"description"
 {-# DEPRECATED wgsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON WorkGroupSummary where
+-- | The name of the workgroup.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wgsName :: Lens.Lens' WorkGroupSummary (Core.Maybe Types.Name)
+wgsName = Lens.field @"name"
+{-# DEPRECATED wgsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The state of the workgroup.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wgsState :: Lens.Lens' WorkGroupSummary (Core.Maybe Types.WorkGroupState)
+wgsState = Lens.field @"state"
+{-# DEPRECATED wgsState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON WorkGroupSummary where
   parseJSON =
-    Lude.withObject
-      "WorkGroupSummary"
-      ( \x ->
-          WorkGroupSummary'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "WorkGroupSummary" Core.$
+      \x ->
+        WorkGroupSummary'
+          Core.<$> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "State")

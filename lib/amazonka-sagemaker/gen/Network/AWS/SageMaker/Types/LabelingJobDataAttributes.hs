@@ -22,46 +22,42 @@ module Network.AWS.SageMaker.Types.LabelingJobDataAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ContentClassifier
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ContentClassifier as Types
 
 -- | Attributes of the data specified by the customer. Use these to describe the data to be labeled.
 --
 -- /See:/ 'mkLabelingJobDataAttributes' smart constructor.
 newtype LabelingJobDataAttributes = LabelingJobDataAttributes'
   { -- | Declares that your content is free of personally identifiable information or adult content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.
-    contentClassifiers :: Lude.Maybe [ContentClassifier]
+    contentClassifiers :: Core.Maybe [Types.ContentClassifier]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LabelingJobDataAttributes' with the minimum fields required to make a request.
---
--- * 'contentClassifiers' - Declares that your content is free of personally identifiable information or adult content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.
+-- | Creates a 'LabelingJobDataAttributes' value with any optional fields omitted.
 mkLabelingJobDataAttributes ::
   LabelingJobDataAttributes
 mkLabelingJobDataAttributes =
-  LabelingJobDataAttributes' {contentClassifiers = Lude.Nothing}
+  LabelingJobDataAttributes' {contentClassifiers = Core.Nothing}
 
 -- | Declares that your content is free of personally identifiable information or adult content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.
 --
 -- /Note:/ Consider using 'contentClassifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljdaContentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Lude.Maybe [ContentClassifier])
-ljdaContentClassifiers = Lens.lens (contentClassifiers :: LabelingJobDataAttributes -> Lude.Maybe [ContentClassifier]) (\s a -> s {contentClassifiers = a} :: LabelingJobDataAttributes)
+ljdaContentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Core.Maybe [Types.ContentClassifier])
+ljdaContentClassifiers = Lens.field @"contentClassifiers"
 {-# DEPRECATED ljdaContentClassifiers "Use generic-lens or generic-optics with 'contentClassifiers' instead." #-}
 
-instance Lude.FromJSON LabelingJobDataAttributes where
-  parseJSON =
-    Lude.withObject
-      "LabelingJobDataAttributes"
-      ( \x ->
-          LabelingJobDataAttributes'
-            Lude.<$> (x Lude..:? "ContentClassifiers" Lude..!= Lude.mempty)
+instance Core.FromJSON LabelingJobDataAttributes where
+  toJSON LabelingJobDataAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [("ContentClassifiers" Core..=) Core.<$> contentClassifiers]
       )
 
-instance Lude.ToJSON LabelingJobDataAttributes where
-  toJSON LabelingJobDataAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("ContentClassifiers" Lude..=) Lude.<$> contentClassifiers]
-      )
+instance Core.FromJSON LabelingJobDataAttributes where
+  parseJSON =
+    Core.withObject "LabelingJobDataAttributes" Core.$
+      \x ->
+        LabelingJobDataAttributes'
+          Core.<$> (x Core..:? "ContentClassifiers")

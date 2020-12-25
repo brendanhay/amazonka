@@ -17,46 +17,43 @@ module Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
     mkBatchDetachObjectResponse,
 
     -- * Lenses
-    bdoDetachedObjectIdentifier,
+    bdorDetachedObjectIdentifier,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'DetachObject' response operation.
 --
 -- /See:/ 'mkBatchDetachObjectResponse' smart constructor.
 newtype BatchDetachObjectResponse = BatchDetachObjectResponse'
   { -- | The @ObjectIdentifier@ of the detached object.
-    detachedObjectIdentifier :: Lude.Maybe Lude.Text
+    detachedObjectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetachObjectResponse' with the minimum fields required to make a request.
---
--- * 'detachedObjectIdentifier' - The @ObjectIdentifier@ of the detached object.
+-- | Creates a 'BatchDetachObjectResponse' value with any optional fields omitted.
 mkBatchDetachObjectResponse ::
   BatchDetachObjectResponse
 mkBatchDetachObjectResponse =
   BatchDetachObjectResponse'
     { detachedObjectIdentifier =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the detached object.
 --
 -- /Note:/ Consider using 'detachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdoDetachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Lude.Maybe Lude.Text)
-bdoDetachedObjectIdentifier = Lens.lens (detachedObjectIdentifier :: BatchDetachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {detachedObjectIdentifier = a} :: BatchDetachObjectResponse)
-{-# DEPRECATED bdoDetachedObjectIdentifier "Use generic-lens or generic-optics with 'detachedObjectIdentifier' instead." #-}
+bdorDetachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Core.Maybe Types.ObjectIdentifier)
+bdorDetachedObjectIdentifier = Lens.field @"detachedObjectIdentifier"
+{-# DEPRECATED bdorDetachedObjectIdentifier "Use generic-lens or generic-optics with 'detachedObjectIdentifier' instead." #-}
 
-instance Lude.FromJSON BatchDetachObjectResponse where
+instance Core.FromJSON BatchDetachObjectResponse where
   parseJSON =
-    Lude.withObject
-      "BatchDetachObjectResponse"
-      ( \x ->
-          BatchDetachObjectResponse'
-            Lude.<$> (x Lude..:? "detachedObjectIdentifier")
-      )
+    Core.withObject "BatchDetachObjectResponse" Core.$
+      \x ->
+        BatchDetachObjectResponse'
+          Core.<$> (x Core..:? "detachedObjectIdentifier")

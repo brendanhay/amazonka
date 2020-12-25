@@ -17,43 +17,41 @@ module Network.AWS.SSM.Types.OpsItemNotification
     mkOpsItemNotification,
 
     -- * Lenses
-    oinARN,
+    oinArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.String as Types
 
 -- | A notification about the OpsItem.
 --
 -- /See:/ 'mkOpsItemNotification' smart constructor.
 newtype OpsItemNotification = OpsItemNotification'
   { -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsItemNotification' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+-- | Creates a 'OpsItemNotification' value with any optional fields omitted.
 mkOpsItemNotification ::
   OpsItemNotification
-mkOpsItemNotification = OpsItemNotification' {arn = Lude.Nothing}
+mkOpsItemNotification = OpsItemNotification' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oinARN :: Lens.Lens' OpsItemNotification (Lude.Maybe Lude.Text)
-oinARN = Lens.lens (arn :: OpsItemNotification -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: OpsItemNotification)
-{-# DEPRECATED oinARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+oinArn :: Lens.Lens' OpsItemNotification (Core.Maybe Types.String)
+oinArn = Lens.field @"arn"
+{-# DEPRECATED oinArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromJSON OpsItemNotification where
+instance Core.FromJSON OpsItemNotification where
+  toJSON OpsItemNotification {..} =
+    Core.object (Core.catMaybes [("Arn" Core..=) Core.<$> arn])
+
+instance Core.FromJSON OpsItemNotification where
   parseJSON =
-    Lude.withObject
-      "OpsItemNotification"
-      (\x -> OpsItemNotification' Lude.<$> (x Lude..:? "Arn"))
-
-instance Lude.ToJSON OpsItemNotification where
-  toJSON OpsItemNotification' {..} =
-    Lude.object (Lude.catMaybes [("Arn" Lude..=) Lude.<$> arn])
+    Core.withObject "OpsItemNotification" Core.$
+      \x -> OpsItemNotification' Core.<$> (x Core..:? "Arn")

@@ -22,49 +22,45 @@ module Network.AWS.CodeBuild.Types.PhaseContext
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Additional information about a build phase that has an error. You can use this information for troubleshooting.
 --
 -- /See:/ 'mkPhaseContext' smart constructor.
 data PhaseContext = PhaseContext'
   { -- | An explanation of the build phase's context. This might include a command ID and an exit code.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Types.String,
     -- | The status code for the context of the build phase.
-    statusCode :: Lude.Maybe Lude.Text
+    statusCode :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PhaseContext' with the minimum fields required to make a request.
---
--- * 'message' - An explanation of the build phase's context. This might include a command ID and an exit code.
--- * 'statusCode' - The status code for the context of the build phase.
+-- | Creates a 'PhaseContext' value with any optional fields omitted.
 mkPhaseContext ::
   PhaseContext
 mkPhaseContext =
-  PhaseContext' {message = Lude.Nothing, statusCode = Lude.Nothing}
+  PhaseContext' {message = Core.Nothing, statusCode = Core.Nothing}
 
 -- | An explanation of the build phase's context. This might include a command ID and an exit code.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcMessage :: Lens.Lens' PhaseContext (Lude.Maybe Lude.Text)
-pcMessage = Lens.lens (message :: PhaseContext -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PhaseContext)
+pcMessage :: Lens.Lens' PhaseContext (Core.Maybe Types.String)
+pcMessage = Lens.field @"message"
 {-# DEPRECATED pcMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status code for the context of the build phase.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcStatusCode :: Lens.Lens' PhaseContext (Lude.Maybe Lude.Text)
-pcStatusCode = Lens.lens (statusCode :: PhaseContext -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: PhaseContext)
+pcStatusCode :: Lens.Lens' PhaseContext (Core.Maybe Types.String)
+pcStatusCode = Lens.field @"statusCode"
 {-# DEPRECATED pcStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON PhaseContext where
+instance Core.FromJSON PhaseContext where
   parseJSON =
-    Lude.withObject
-      "PhaseContext"
-      ( \x ->
-          PhaseContext'
-            Lude.<$> (x Lude..:? "message") Lude.<*> (x Lude..:? "statusCode")
-      )
+    Core.withObject "PhaseContext" Core.$
+      \x ->
+        PhaseContext'
+          Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "statusCode")

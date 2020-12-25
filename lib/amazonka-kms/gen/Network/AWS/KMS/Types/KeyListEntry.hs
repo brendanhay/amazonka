@@ -17,54 +17,51 @@ module Network.AWS.KMS.Types.KeyListEntry
     mkKeyListEntry,
 
     -- * Lenses
+    kleKeyArn,
     kleKeyId,
-    kleKeyARN,
   )
 where
 
+import qualified Network.AWS.KMS.Types.ArnType as Types
+import qualified Network.AWS.KMS.Types.KeyIdType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about each entry in the key list.
 --
 -- /See:/ 'mkKeyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-  { -- | Unique identifier of the key.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | ARN of the key.
-    keyARN :: Lude.Maybe Lude.Text
+  { -- | ARN of the key.
+    keyArn :: Core.Maybe Types.ArnType,
+    -- | Unique identifier of the key.
+    keyId :: Core.Maybe Types.KeyIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyListEntry' with the minimum fields required to make a request.
---
--- * 'keyId' - Unique identifier of the key.
--- * 'keyARN' - ARN of the key.
+-- | Creates a 'KeyListEntry' value with any optional fields omitted.
 mkKeyListEntry ::
   KeyListEntry
 mkKeyListEntry =
-  KeyListEntry' {keyId = Lude.Nothing, keyARN = Lude.Nothing}
+  KeyListEntry' {keyArn = Core.Nothing, keyId = Core.Nothing}
+
+-- | ARN of the key.
+--
+-- /Note:/ Consider using 'keyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kleKeyArn :: Lens.Lens' KeyListEntry (Core.Maybe Types.ArnType)
+kleKeyArn = Lens.field @"keyArn"
+{-# DEPRECATED kleKeyArn "Use generic-lens or generic-optics with 'keyArn' instead." #-}
 
 -- | Unique identifier of the key.
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kleKeyId :: Lens.Lens' KeyListEntry (Lude.Maybe Lude.Text)
-kleKeyId = Lens.lens (keyId :: KeyListEntry -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: KeyListEntry)
+kleKeyId :: Lens.Lens' KeyListEntry (Core.Maybe Types.KeyIdType)
+kleKeyId = Lens.field @"keyId"
 {-# DEPRECATED kleKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
--- | ARN of the key.
---
--- /Note:/ Consider using 'keyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kleKeyARN :: Lens.Lens' KeyListEntry (Lude.Maybe Lude.Text)
-kleKeyARN = Lens.lens (keyARN :: KeyListEntry -> Lude.Maybe Lude.Text) (\s a -> s {keyARN = a} :: KeyListEntry)
-{-# DEPRECATED kleKeyARN "Use generic-lens or generic-optics with 'keyARN' instead." #-}
-
-instance Lude.FromJSON KeyListEntry where
+instance Core.FromJSON KeyListEntry where
   parseJSON =
-    Lude.withObject
-      "KeyListEntry"
-      ( \x ->
-          KeyListEntry'
-            Lude.<$> (x Lude..:? "KeyId") Lude.<*> (x Lude..:? "KeyArn")
-      )
+    Core.withObject "KeyListEntry" Core.$
+      \x ->
+        KeyListEntry'
+          Core.<$> (x Core..:? "KeyArn") Core.<*> (x Core..:? "KeyId")

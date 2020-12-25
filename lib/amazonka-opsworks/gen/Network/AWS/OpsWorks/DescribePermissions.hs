@@ -22,7 +22,7 @@ module Network.AWS.OpsWorks.DescribePermissions
     mkDescribePermissions,
 
     -- ** Request lenses
-    dpIAMUserARN,
+    dpIamUserArn,
     dpStackId,
 
     -- * Destructuring the response
@@ -30,89 +30,78 @@ module Network.AWS.OpsWorks.DescribePermissions
     mkDescribePermissionsResponse,
 
     -- ** Response lenses
-    dprsPermissions,
-    dprsResponseStatus,
+    dprrsPermissions,
+    dprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribePermissions' smart constructor.
 data DescribePermissions = DescribePermissions'
   { -- | The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-    iamUserARN :: Lude.Maybe Lude.Text,
+    iamUserArn :: Core.Maybe Types.String,
     -- | The stack ID.
-    stackId :: Lude.Maybe Lude.Text
+    stackId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePermissions' with the minimum fields required to make a request.
---
--- * 'iamUserARN' - The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'stackId' - The stack ID.
+-- | Creates a 'DescribePermissions' value with any optional fields omitted.
 mkDescribePermissions ::
   DescribePermissions
 mkDescribePermissions =
   DescribePermissions'
-    { iamUserARN = Lude.Nothing,
-      stackId = Lude.Nothing
+    { iamUserArn = Core.Nothing,
+      stackId = Core.Nothing
     }
 
 -- | The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpIAMUserARN :: Lens.Lens' DescribePermissions (Lude.Maybe Lude.Text)
-dpIAMUserARN = Lens.lens (iamUserARN :: DescribePermissions -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: DescribePermissions)
-{-# DEPRECATED dpIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpIamUserArn :: Lens.Lens' DescribePermissions (Core.Maybe Types.String)
+dpIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED dpIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
 
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpStackId :: Lens.Lens' DescribePermissions (Lude.Maybe Lude.Text)
-dpStackId = Lens.lens (stackId :: DescribePermissions -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribePermissions)
+dpStackId :: Lens.Lens' DescribePermissions (Core.Maybe Types.String)
+dpStackId = Lens.field @"stackId"
 {-# DEPRECATED dpStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.AWSRequest DescribePermissions where
+instance Core.FromJSON DescribePermissions where
+  toJSON DescribePermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("IamUserArn" Core..=) Core.<$> iamUserArn,
+            ("StackId" Core..=) Core.<$> stackId
+          ]
+      )
+
+instance Core.AWSRequest DescribePermissions where
   type Rs DescribePermissions = DescribePermissionsResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DescribePermissions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePermissionsResponse'
-            Lude.<$> (x Lude..?> "Permissions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Permissions") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribePermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DescribePermissions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribePermissions where
-  toJSON DescribePermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("IamUserArn" Lude..=) Lude.<$> iamUserARN,
-            ("StackId" Lude..=) Lude.<$> stackId
-          ]
-      )
-
-instance Lude.ToPath DescribePermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePermissions where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribePermissions@ request.
 --
@@ -128,36 +117,22 @@ data DescribePermissionsResponse = DescribePermissionsResponse'
     --
     --
     --     * If the request contains a stack ID and an IAM ARN, the array contains a single @Permission@ object with permissions for the specified stack and IAM ARN.
-    permissions :: Lude.Maybe [Permission],
+    permissions :: Core.Maybe [Types.Permission],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePermissionsResponse' with the minimum fields required to make a request.
---
--- * 'permissions' - An array of @Permission@ objects that describe the stack permissions.
---
---
---     * If the request object contains only a stack ID, the array contains a @Permission@ object with permissions for each of the stack IAM ARNs.
---
---
---     * If the request object contains only an IAM ARN, the array contains a @Permission@ object with permissions for each of the user's stack IDs.
---
---
---     * If the request contains a stack ID and an IAM ARN, the array contains a single @Permission@ object with permissions for the specified stack and IAM ARN.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePermissionsResponse' value with any optional fields omitted.
 mkDescribePermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePermissionsResponse
-mkDescribePermissionsResponse pResponseStatus_ =
+mkDescribePermissionsResponse responseStatus =
   DescribePermissionsResponse'
-    { permissions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { permissions = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @Permission@ objects that describe the stack permissions.
@@ -174,13 +149,13 @@ mkDescribePermissionsResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsPermissions :: Lens.Lens' DescribePermissionsResponse (Lude.Maybe [Permission])
-dprsPermissions = Lens.lens (permissions :: DescribePermissionsResponse -> Lude.Maybe [Permission]) (\s a -> s {permissions = a} :: DescribePermissionsResponse)
-{-# DEPRECATED dprsPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
+dprrsPermissions :: Lens.Lens' DescribePermissionsResponse (Core.Maybe [Types.Permission])
+dprrsPermissions = Lens.field @"permissions"
+{-# DEPRECATED dprrsPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DescribePermissionsResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DescribePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePermissionsResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DescribePermissionsResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

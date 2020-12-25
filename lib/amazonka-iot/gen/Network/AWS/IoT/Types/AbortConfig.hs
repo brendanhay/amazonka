@@ -21,44 +21,40 @@ module Network.AWS.IoT.Types.AbortConfig
   )
 where
 
-import Network.AWS.IoT.Types.AbortCriteria
+import qualified Network.AWS.IoT.Types.AbortCriteria as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The criteria that determine when and how a job abort takes place.
 --
 -- /See:/ 'mkAbortConfig' smart constructor.
 newtype AbortConfig = AbortConfig'
   { -- | The list of criteria that determine when and how to abort the job.
-    criteriaList :: Lude.NonEmpty AbortCriteria
+    criteriaList :: Core.NonEmpty Types.AbortCriteria
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortConfig' with the minimum fields required to make a request.
---
--- * 'criteriaList' - The list of criteria that determine when and how to abort the job.
+-- | Creates a 'AbortConfig' value with any optional fields omitted.
 mkAbortConfig ::
   -- | 'criteriaList'
-  Lude.NonEmpty AbortCriteria ->
+  Core.NonEmpty Types.AbortCriteria ->
   AbortConfig
-mkAbortConfig pCriteriaList_ =
-  AbortConfig' {criteriaList = pCriteriaList_}
+mkAbortConfig criteriaList = AbortConfig' {criteriaList}
 
 -- | The list of criteria that determine when and how to abort the job.
 --
 -- /Note:/ Consider using 'criteriaList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acCriteriaList :: Lens.Lens' AbortConfig (Lude.NonEmpty AbortCriteria)
-acCriteriaList = Lens.lens (criteriaList :: AbortConfig -> Lude.NonEmpty AbortCriteria) (\s a -> s {criteriaList = a} :: AbortConfig)
+acCriteriaList :: Lens.Lens' AbortConfig (Core.NonEmpty Types.AbortCriteria)
+acCriteriaList = Lens.field @"criteriaList"
 {-# DEPRECATED acCriteriaList "Use generic-lens or generic-optics with 'criteriaList' instead." #-}
 
-instance Lude.FromJSON AbortConfig where
-  parseJSON =
-    Lude.withObject
-      "AbortConfig"
-      (\x -> AbortConfig' Lude.<$> (x Lude..: "criteriaList"))
+instance Core.FromJSON AbortConfig where
+  toJSON AbortConfig {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("criteriaList" Core..= criteriaList)])
 
-instance Lude.ToJSON AbortConfig where
-  toJSON AbortConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("criteriaList" Lude..= criteriaList)])
+instance Core.FromJSON AbortConfig where
+  parseJSON =
+    Core.withObject "AbortConfig" Core.$
+      \x -> AbortConfig' Core.<$> (x Core..: "criteriaList")

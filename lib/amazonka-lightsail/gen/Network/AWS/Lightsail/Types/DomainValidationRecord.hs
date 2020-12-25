@@ -17,58 +17,54 @@ module Network.AWS.Lightsail.Types.DomainValidationRecord
     mkDomainValidationRecord,
 
     -- * Lenses
-    dvrResourceRecord,
     dvrDomainName,
+    dvrResourceRecord,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ResourceRecord
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.DomainName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceRecord as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.
 --
 -- /See:/ 'mkDomainValidationRecord' smart constructor.
 data DomainValidationRecord = DomainValidationRecord'
-  { -- | An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
-    resourceRecord :: Lude.Maybe ResourceRecord,
-    -- | The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
-    domainName :: Lude.Maybe Lude.Text
+  { -- | The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
+    domainName :: Core.Maybe Types.DomainName,
+    -- | An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
+    resourceRecord :: Core.Maybe Types.ResourceRecord
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainValidationRecord' with the minimum fields required to make a request.
---
--- * 'resourceRecord' - An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
--- * 'domainName' - The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
+-- | Creates a 'DomainValidationRecord' value with any optional fields omitted.
 mkDomainValidationRecord ::
   DomainValidationRecord
 mkDomainValidationRecord =
   DomainValidationRecord'
-    { resourceRecord = Lude.Nothing,
-      domainName = Lude.Nothing
+    { domainName = Core.Nothing,
+      resourceRecord = Core.Nothing
     }
-
--- | An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
---
--- /Note:/ Consider using 'resourceRecord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvrResourceRecord :: Lens.Lens' DomainValidationRecord (Lude.Maybe ResourceRecord)
-dvrResourceRecord = Lens.lens (resourceRecord :: DomainValidationRecord -> Lude.Maybe ResourceRecord) (\s a -> s {resourceRecord = a} :: DomainValidationRecord)
-{-# DEPRECATED dvrResourceRecord "Use generic-lens or generic-optics with 'resourceRecord' instead." #-}
 
 -- | The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvrDomainName :: Lens.Lens' DomainValidationRecord (Lude.Maybe Lude.Text)
-dvrDomainName = Lens.lens (domainName :: DomainValidationRecord -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainValidationRecord)
+dvrDomainName :: Lens.Lens' DomainValidationRecord (Core.Maybe Types.DomainName)
+dvrDomainName = Lens.field @"domainName"
 {-# DEPRECATED dvrDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.FromJSON DomainValidationRecord where
+-- | An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
+--
+-- /Note:/ Consider using 'resourceRecord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvrResourceRecord :: Lens.Lens' DomainValidationRecord (Core.Maybe Types.ResourceRecord)
+dvrResourceRecord = Lens.field @"resourceRecord"
+{-# DEPRECATED dvrResourceRecord "Use generic-lens or generic-optics with 'resourceRecord' instead." #-}
+
+instance Core.FromJSON DomainValidationRecord where
   parseJSON =
-    Lude.withObject
-      "DomainValidationRecord"
-      ( \x ->
-          DomainValidationRecord'
-            Lude.<$> (x Lude..:? "resourceRecord") Lude.<*> (x Lude..:? "domainName")
-      )
+    Core.withObject "DomainValidationRecord" Core.$
+      \x ->
+        DomainValidationRecord'
+          Core.<$> (x Core..:? "domainName") Core.<*> (x Core..:? "resourceRecord")

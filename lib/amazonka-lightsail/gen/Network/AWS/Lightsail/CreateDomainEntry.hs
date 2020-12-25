@@ -22,135 +22,119 @@ module Network.AWS.Lightsail.CreateDomainEntry
     mkCreateDomainEntry,
 
     -- ** Request lenses
-    cdeDomainEntry,
     cdeDomainName,
+    cdeDomainEntry,
 
     -- * Destructuring the response
     CreateDomainEntryResponse (..),
     mkCreateDomainEntryResponse,
 
     -- ** Response lenses
-    cdersOperation,
-    cdersResponseStatus,
+    cderrsOperation,
+    cderrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDomainEntry' smart constructor.
 data CreateDomainEntry = CreateDomainEntry'
-  { -- | An array of key-value pairs containing information about the domain entry request.
-    domainEntry :: DomainEntry,
-    -- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
-    domainName :: Lude.Text
+  { -- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
+    domainName :: Types.DomainName,
+    -- | An array of key-value pairs containing information about the domain entry request.
+    domainEntry :: Types.DomainEntry
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDomainEntry' with the minimum fields required to make a request.
---
--- * 'domainEntry' - An array of key-value pairs containing information about the domain entry request.
--- * 'domainName' - The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
+-- | Creates a 'CreateDomainEntry' value with any optional fields omitted.
 mkCreateDomainEntry ::
-  -- | 'domainEntry'
-  DomainEntry ->
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
+  -- | 'domainEntry'
+  Types.DomainEntry ->
   CreateDomainEntry
-mkCreateDomainEntry pDomainEntry_ pDomainName_ =
-  CreateDomainEntry'
-    { domainEntry = pDomainEntry_,
-      domainName = pDomainName_
-    }
-
--- | An array of key-value pairs containing information about the domain entry request.
---
--- /Note:/ Consider using 'domainEntry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdeDomainEntry :: Lens.Lens' CreateDomainEntry DomainEntry
-cdeDomainEntry = Lens.lens (domainEntry :: CreateDomainEntry -> DomainEntry) (\s a -> s {domainEntry = a} :: CreateDomainEntry)
-{-# DEPRECATED cdeDomainEntry "Use generic-lens or generic-optics with 'domainEntry' instead." #-}
+mkCreateDomainEntry domainName domainEntry =
+  CreateDomainEntry' {domainName, domainEntry}
 
 -- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdeDomainName :: Lens.Lens' CreateDomainEntry Lude.Text
-cdeDomainName = Lens.lens (domainName :: CreateDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomainEntry)
+cdeDomainName :: Lens.Lens' CreateDomainEntry Types.DomainName
+cdeDomainName = Lens.field @"domainName"
 {-# DEPRECATED cdeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest CreateDomainEntry where
+-- | An array of key-value pairs containing information about the domain entry request.
+--
+-- /Note:/ Consider using 'domainEntry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdeDomainEntry :: Lens.Lens' CreateDomainEntry Types.DomainEntry
+cdeDomainEntry = Lens.field @"domainEntry"
+{-# DEPRECATED cdeDomainEntry "Use generic-lens or generic-optics with 'domainEntry' instead." #-}
+
+instance Core.FromJSON CreateDomainEntry where
+  toJSON CreateDomainEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domainName" Core..= domainName),
+            Core.Just ("domainEntry" Core..= domainEntry)
+          ]
+      )
+
+instance Core.AWSRequest CreateDomainEntry where
   type Rs CreateDomainEntry = CreateDomainEntryResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.CreateDomainEntry")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateDomainEntryResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDomainEntry where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.CreateDomainEntry" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDomainEntry where
-  toJSON CreateDomainEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domainEntry" Lude..= domainEntry),
-            Lude.Just ("domainName" Lude..= domainName)
-          ]
-      )
-
-instance Lude.ToPath CreateDomainEntry where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDomainEntry where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateDomainEntryResponse' smart constructor.
 data CreateDomainEntryResponse = CreateDomainEntryResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDomainEntryResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDomainEntryResponse' value with any optional fields omitted.
 mkCreateDomainEntryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDomainEntryResponse
-mkCreateDomainEntryResponse pResponseStatus_ =
+mkCreateDomainEntryResponse responseStatus =
   CreateDomainEntryResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operation = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdersOperation :: Lens.Lens' CreateDomainEntryResponse (Lude.Maybe Operation)
-cdersOperation = Lens.lens (operation :: CreateDomainEntryResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateDomainEntryResponse)
-{-# DEPRECATED cdersOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+cderrsOperation :: Lens.Lens' CreateDomainEntryResponse (Core.Maybe Types.Operation)
+cderrsOperation = Lens.field @"operation"
+{-# DEPRECATED cderrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdersResponseStatus :: Lens.Lens' CreateDomainEntryResponse Lude.Int
-cdersResponseStatus = Lens.lens (responseStatus :: CreateDomainEntryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainEntryResponse)
-{-# DEPRECATED cdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cderrsResponseStatus :: Lens.Lens' CreateDomainEntryResponse Core.Int
+cderrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cderrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

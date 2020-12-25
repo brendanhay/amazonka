@@ -13,76 +13,81 @@
 module Network.AWS.CloudFormation.Types.ChangeSetStatus
   ( ChangeSetStatus
       ( ChangeSetStatus',
-        CSSCreatePending,
-        CSSCreateInProgress,
-        CSSCreateComplete,
-        CSSDeletePending,
-        CSSDeleteInProgress,
-        CSSDeleteComplete,
-        CSSDeleteFailed,
-        CSSFailed
+        ChangeSetStatusCreatePending,
+        ChangeSetStatusCreateInProgress,
+        ChangeSetStatusCreateComplete,
+        ChangeSetStatusDeletePending,
+        ChangeSetStatusDeleteInProgress,
+        ChangeSetStatusDeleteComplete,
+        ChangeSetStatusDeleteFailed,
+        ChangeSetStatusFailed,
+        fromChangeSetStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChangeSetStatus = ChangeSetStatus' Lude.Text
+newtype ChangeSetStatus = ChangeSetStatus'
+  { fromChangeSetStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSSCreatePending :: ChangeSetStatus
-pattern CSSCreatePending = ChangeSetStatus' "CREATE_PENDING"
+pattern ChangeSetStatusCreatePending :: ChangeSetStatus
+pattern ChangeSetStatusCreatePending = ChangeSetStatus' "CREATE_PENDING"
 
-pattern CSSCreateInProgress :: ChangeSetStatus
-pattern CSSCreateInProgress = ChangeSetStatus' "CREATE_IN_PROGRESS"
+pattern ChangeSetStatusCreateInProgress :: ChangeSetStatus
+pattern ChangeSetStatusCreateInProgress = ChangeSetStatus' "CREATE_IN_PROGRESS"
 
-pattern CSSCreateComplete :: ChangeSetStatus
-pattern CSSCreateComplete = ChangeSetStatus' "CREATE_COMPLETE"
+pattern ChangeSetStatusCreateComplete :: ChangeSetStatus
+pattern ChangeSetStatusCreateComplete = ChangeSetStatus' "CREATE_COMPLETE"
 
-pattern CSSDeletePending :: ChangeSetStatus
-pattern CSSDeletePending = ChangeSetStatus' "DELETE_PENDING"
+pattern ChangeSetStatusDeletePending :: ChangeSetStatus
+pattern ChangeSetStatusDeletePending = ChangeSetStatus' "DELETE_PENDING"
 
-pattern CSSDeleteInProgress :: ChangeSetStatus
-pattern CSSDeleteInProgress = ChangeSetStatus' "DELETE_IN_PROGRESS"
+pattern ChangeSetStatusDeleteInProgress :: ChangeSetStatus
+pattern ChangeSetStatusDeleteInProgress = ChangeSetStatus' "DELETE_IN_PROGRESS"
 
-pattern CSSDeleteComplete :: ChangeSetStatus
-pattern CSSDeleteComplete = ChangeSetStatus' "DELETE_COMPLETE"
+pattern ChangeSetStatusDeleteComplete :: ChangeSetStatus
+pattern ChangeSetStatusDeleteComplete = ChangeSetStatus' "DELETE_COMPLETE"
 
-pattern CSSDeleteFailed :: ChangeSetStatus
-pattern CSSDeleteFailed = ChangeSetStatus' "DELETE_FAILED"
+pattern ChangeSetStatusDeleteFailed :: ChangeSetStatus
+pattern ChangeSetStatusDeleteFailed = ChangeSetStatus' "DELETE_FAILED"
 
-pattern CSSFailed :: ChangeSetStatus
-pattern CSSFailed = ChangeSetStatus' "FAILED"
+pattern ChangeSetStatusFailed :: ChangeSetStatus
+pattern ChangeSetStatusFailed = ChangeSetStatus' "FAILED"
 
 {-# COMPLETE
-  CSSCreatePending,
-  CSSCreateInProgress,
-  CSSCreateComplete,
-  CSSDeletePending,
-  CSSDeleteInProgress,
-  CSSDeleteComplete,
-  CSSDeleteFailed,
-  CSSFailed,
+  ChangeSetStatusCreatePending,
+  ChangeSetStatusCreateInProgress,
+  ChangeSetStatusCreateComplete,
+  ChangeSetStatusDeletePending,
+  ChangeSetStatusDeleteInProgress,
+  ChangeSetStatusDeleteComplete,
+  ChangeSetStatusDeleteFailed,
+  ChangeSetStatusFailed,
   ChangeSetStatus'
   #-}

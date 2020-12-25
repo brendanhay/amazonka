@@ -20,133 +20,127 @@ module Network.AWS.IoT.DescribeJobExecution
     mkDescribeJobExecution,
 
     -- ** Request lenses
-    djefJobId,
-    djefExecutionNumber,
-    djefThingName,
+    dJobId,
+    dThingName,
+    dExecutionNumber,
 
     -- * Destructuring the response
     DescribeJobExecutionResponse (..),
     mkDescribeJobExecutionResponse,
 
     -- ** Response lenses
-    djersExecution,
-    djersResponseStatus,
+    djerrsExecution,
+    djerrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeJobExecution' smart constructor.
 data DescribeJobExecution = DescribeJobExecution'
   { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Lude.Text,
-    -- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
-    executionNumber :: Lude.Maybe Lude.Integer,
+    jobId :: Types.JobId,
     -- | The name of the thing on which the job execution is running.
-    thingName :: Lude.Text
+    thingName :: Types.ThingName,
+    -- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
+    executionNumber :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeJobExecution' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
--- * 'executionNumber' - A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
--- * 'thingName' - The name of the thing on which the job execution is running.
+-- | Creates a 'DescribeJobExecution' value with any optional fields omitted.
 mkDescribeJobExecution ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   -- | 'thingName'
-  Lude.Text ->
+  Types.ThingName ->
   DescribeJobExecution
-mkDescribeJobExecution pJobId_ pThingName_ =
+mkDescribeJobExecution jobId thingName =
   DescribeJobExecution'
-    { jobId = pJobId_,
-      executionNumber = Lude.Nothing,
-      thingName = pThingName_
+    { jobId,
+      thingName,
+      executionNumber = Core.Nothing
     }
 
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djefJobId :: Lens.Lens' DescribeJobExecution Lude.Text
-djefJobId = Lens.lens (jobId :: DescribeJobExecution -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJobExecution)
-{-# DEPRECATED djefJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
---
--- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djefExecutionNumber :: Lens.Lens' DescribeJobExecution (Lude.Maybe Lude.Integer)
-djefExecutionNumber = Lens.lens (executionNumber :: DescribeJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: DescribeJobExecution)
-{-# DEPRECATED djefExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
+dJobId :: Lens.Lens' DescribeJobExecution Types.JobId
+dJobId = Lens.field @"jobId"
+{-# DEPRECATED dJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The name of the thing on which the job execution is running.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djefThingName :: Lens.Lens' DescribeJobExecution Lude.Text
-djefThingName = Lens.lens (thingName :: DescribeJobExecution -> Lude.Text) (\s a -> s {thingName = a} :: DescribeJobExecution)
-{-# DEPRECATED djefThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+dThingName :: Lens.Lens' DescribeJobExecution Types.ThingName
+dThingName = Lens.field @"thingName"
+{-# DEPRECATED dThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest DescribeJobExecution where
+-- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
+--
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExecutionNumber :: Lens.Lens' DescribeJobExecution (Core.Maybe Core.Integer)
+dExecutionNumber = Lens.field @"executionNumber"
+{-# DEPRECATED dExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
+
+instance Core.AWSRequest DescribeJobExecution where
   type Rs DescribeJobExecution = DescribeJobExecutionResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/things/" Core.<> (Core.toText thingName) Core.<> ("/jobs/")
+                Core.<> (Core.toText jobId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "executionNumber" Core.<$> executionNumber,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeJobExecutionResponse'
-            Lude.<$> (x Lude..?> "execution") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "execution") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeJobExecution where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeJobExecution where
-  toPath DescribeJobExecution' {..} =
-    Lude.mconcat
-      ["/things/", Lude.toBS thingName, "/jobs/", Lude.toBS jobId]
-
-instance Lude.ToQuery DescribeJobExecution where
-  toQuery DescribeJobExecution' {..} =
-    Lude.mconcat ["executionNumber" Lude.=: executionNumber]
 
 -- | /See:/ 'mkDescribeJobExecutionResponse' smart constructor.
 data DescribeJobExecutionResponse = DescribeJobExecutionResponse'
   { -- | Information about the job execution.
-    execution :: Lude.Maybe JobExecution,
+    execution :: Core.Maybe Types.JobExecution,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeJobExecutionResponse' with the minimum fields required to make a request.
---
--- * 'execution' - Information about the job execution.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeJobExecutionResponse' value with any optional fields omitted.
 mkDescribeJobExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeJobExecutionResponse
-mkDescribeJobExecutionResponse pResponseStatus_ =
+mkDescribeJobExecutionResponse responseStatus =
   DescribeJobExecutionResponse'
-    { execution = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { execution = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the job execution.
 --
 -- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djersExecution :: Lens.Lens' DescribeJobExecutionResponse (Lude.Maybe JobExecution)
-djersExecution = Lens.lens (execution :: DescribeJobExecutionResponse -> Lude.Maybe JobExecution) (\s a -> s {execution = a} :: DescribeJobExecutionResponse)
-{-# DEPRECATED djersExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
+djerrsExecution :: Lens.Lens' DescribeJobExecutionResponse (Core.Maybe Types.JobExecution)
+djerrsExecution = Lens.field @"execution"
+{-# DEPRECATED djerrsExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djersResponseStatus :: Lens.Lens' DescribeJobExecutionResponse Lude.Int
-djersResponseStatus = Lens.lens (responseStatus :: DescribeJobExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeJobExecutionResponse)
-{-# DEPRECATED djersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djerrsResponseStatus :: Lens.Lens' DescribeJobExecutionResponse Core.Int
+djerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED djerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

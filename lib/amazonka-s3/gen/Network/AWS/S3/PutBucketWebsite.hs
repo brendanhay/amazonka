@@ -87,8 +87,8 @@ module Network.AWS.S3.PutBucketWebsite
     mkPutBucketWebsite,
 
     -- ** Request lenses
-    pbwWebsiteConfiguration,
     pbwBucket,
+    pbwWebsiteConfiguration,
     pbwContentMD5,
     pbwExpectedBucketOwner,
 
@@ -99,109 +99,93 @@ module Network.AWS.S3.PutBucketWebsite
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketWebsite' smart constructor.
 data PutBucketWebsite = PutBucketWebsite'
-  { -- | Container for the request.
-    websiteConfiguration :: WebsiteConfiguration,
-    -- | The bucket name.
-    bucket :: BucketName,
+  { -- | The bucket name.
+    bucket :: Types.BucketName,
+    -- | Container for the request.
+    websiteConfiguration :: Types.WebsiteConfiguration,
     -- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-    contentMD5 :: Lude.Maybe Lude.Text,
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketWebsite' with the minimum fields required to make a request.
---
--- * 'websiteConfiguration' - Container for the request.
--- * 'bucket' - The bucket name.
--- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutBucketWebsite' value with any optional fields omitted.
 mkPutBucketWebsite ::
-  -- | 'websiteConfiguration'
-  WebsiteConfiguration ->
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
+  -- | 'websiteConfiguration'
+  Types.WebsiteConfiguration ->
   PutBucketWebsite
-mkPutBucketWebsite pWebsiteConfiguration_ pBucket_ =
+mkPutBucketWebsite bucket websiteConfiguration =
   PutBucketWebsite'
-    { websiteConfiguration = pWebsiteConfiguration_,
-      bucket = pBucket_,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      websiteConfiguration,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing
     }
-
--- | Container for the request.
---
--- /Note:/ Consider using 'websiteConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbwWebsiteConfiguration :: Lens.Lens' PutBucketWebsite WebsiteConfiguration
-pbwWebsiteConfiguration = Lens.lens (websiteConfiguration :: PutBucketWebsite -> WebsiteConfiguration) (\s a -> s {websiteConfiguration = a} :: PutBucketWebsite)
-{-# DEPRECATED pbwWebsiteConfiguration "Use generic-lens or generic-optics with 'websiteConfiguration' instead." #-}
 
 -- | The bucket name.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbwBucket :: Lens.Lens' PutBucketWebsite BucketName
-pbwBucket = Lens.lens (bucket :: PutBucketWebsite -> BucketName) (\s a -> s {bucket = a} :: PutBucketWebsite)
+pbwBucket :: Lens.Lens' PutBucketWebsite Types.BucketName
+pbwBucket = Lens.field @"bucket"
 {-# DEPRECATED pbwBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Container for the request.
+--
+-- /Note:/ Consider using 'websiteConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbwWebsiteConfiguration :: Lens.Lens' PutBucketWebsite Types.WebsiteConfiguration
+pbwWebsiteConfiguration = Lens.field @"websiteConfiguration"
+{-# DEPRECATED pbwWebsiteConfiguration "Use generic-lens or generic-optics with 'websiteConfiguration' instead." #-}
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 --
 -- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbwContentMD5 :: Lens.Lens' PutBucketWebsite (Lude.Maybe Lude.Text)
-pbwContentMD5 = Lens.lens (contentMD5 :: PutBucketWebsite -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutBucketWebsite)
+pbwContentMD5 :: Lens.Lens' PutBucketWebsite (Core.Maybe Types.ContentMD5)
+pbwContentMD5 = Lens.field @"contentMD5"
 {-# DEPRECATED pbwContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbwExpectedBucketOwner :: Lens.Lens' PutBucketWebsite (Lude.Maybe Lude.Text)
-pbwExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketWebsite -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketWebsite)
+pbwExpectedBucketOwner :: Lens.Lens' PutBucketWebsite (Core.Maybe Types.ExpectedBucketOwner)
+pbwExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED pbwExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutBucketWebsite where
+instance Core.AWSRequest PutBucketWebsite where
   type Rs PutBucketWebsite = PutBucketWebsiteResponse
-  request = Req.putXML s3Service
-  response = Res.receiveNull PutBucketWebsiteResponse'
-
-instance Lude.ToElement PutBucketWebsite where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}WebsiteConfiguration"
-      Lude.. websiteConfiguration
-
-instance Lude.ToHeaders PutBucketWebsite where
-  toHeaders PutBucketWebsite' {..} =
-    Lude.mconcat
-      [ "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath PutBucketWebsite where
-  toPath PutBucketWebsite' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketWebsite where
-  toQuery = Lude.const (Lude.mconcat ["website"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("website", ""),
+        Core._rqHeaders =
+          Core.toHeaders "Content-MD5" contentMD5
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner),
+        Core._rqBody = Core.toXMLBody x
+      }
+  response = Response.receiveNull PutBucketWebsiteResponse'
 
 -- | /See:/ 'mkPutBucketWebsiteResponse' smart constructor.
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketWebsiteResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketWebsiteResponse' value with any optional fields omitted.
 mkPutBucketWebsiteResponse ::
   PutBucketWebsiteResponse
 mkPutBucketWebsiteResponse = PutBucketWebsiteResponse'

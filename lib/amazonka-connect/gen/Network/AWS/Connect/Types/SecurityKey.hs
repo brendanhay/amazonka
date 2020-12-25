@@ -17,71 +17,67 @@ module Network.AWS.Connect.Types.SecurityKey
     mkSecurityKey,
 
     -- * Lenses
-    skCreationTime,
     skAssociationId,
+    skCreationTime,
     skKey,
   )
 where
 
+import qualified Network.AWS.Connect.Types.AssociationId as Types
+import qualified Network.AWS.Connect.Types.PEM as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information of the security key.
 --
 -- /See:/ 'mkSecurityKey' smart constructor.
 data SecurityKey = SecurityKey'
-  { -- | When the security key was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-    associationId :: Lude.Maybe Lude.Text,
+  { -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    associationId :: Core.Maybe Types.AssociationId,
+    -- | When the security key was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The key of the security key.
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.PEM
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SecurityKey' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the security key was created.
--- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
--- * 'key' - The key of the security key.
+-- | Creates a 'SecurityKey' value with any optional fields omitted.
 mkSecurityKey ::
   SecurityKey
 mkSecurityKey =
   SecurityKey'
-    { creationTime = Lude.Nothing,
-      associationId = Lude.Nothing,
-      key = Lude.Nothing
+    { associationId = Core.Nothing,
+      creationTime = Core.Nothing,
+      key = Core.Nothing
     }
-
--- | When the security key was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skCreationTime :: Lens.Lens' SecurityKey (Lude.Maybe Lude.Timestamp)
-skCreationTime = Lens.lens (creationTime :: SecurityKey -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: SecurityKey)
-{-# DEPRECATED skCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skAssociationId :: Lens.Lens' SecurityKey (Lude.Maybe Lude.Text)
-skAssociationId = Lens.lens (associationId :: SecurityKey -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: SecurityKey)
+skAssociationId :: Lens.Lens' SecurityKey (Core.Maybe Types.AssociationId)
+skAssociationId = Lens.field @"associationId"
 {-# DEPRECATED skAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+
+-- | When the security key was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skCreationTime :: Lens.Lens' SecurityKey (Core.Maybe Core.NominalDiffTime)
+skCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED skCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The key of the security key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skKey :: Lens.Lens' SecurityKey (Lude.Maybe Lude.Text)
-skKey = Lens.lens (key :: SecurityKey -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: SecurityKey)
+skKey :: Lens.Lens' SecurityKey (Core.Maybe Types.PEM)
+skKey = Lens.field @"key"
 {-# DEPRECATED skKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON SecurityKey where
+instance Core.FromJSON SecurityKey where
   parseJSON =
-    Lude.withObject
-      "SecurityKey"
-      ( \x ->
-          SecurityKey'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "AssociationId")
-            Lude.<*> (x Lude..:? "Key")
-      )
+    Core.withObject "SecurityKey" Core.$
+      \x ->
+        SecurityKey'
+          Core.<$> (x Core..:? "AssociationId")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "Key")

@@ -27,108 +27,93 @@ module Network.AWS.Route53AutoNaming.GetOperation
     mkGetOperationResponse,
 
     -- ** Response lenses
-    gorsOperation,
-    gorsResponseStatus,
+    gorrsOperation,
+    gorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkGetOperation' smart constructor.
 newtype GetOperation = GetOperation'
   { -- | The ID of the operation that you want to get more information about.
-    operationId :: Lude.Text
+    operationId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetOperation' with the minimum fields required to make a request.
---
--- * 'operationId' - The ID of the operation that you want to get more information about.
+-- | Creates a 'GetOperation' value with any optional fields omitted.
 mkGetOperation ::
   -- | 'operationId'
-  Lude.Text ->
+  Types.ResourceId ->
   GetOperation
-mkGetOperation pOperationId_ =
-  GetOperation' {operationId = pOperationId_}
+mkGetOperation operationId = GetOperation' {operationId}
 
 -- | The ID of the operation that you want to get more information about.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goOperationId :: Lens.Lens' GetOperation Lude.Text
-goOperationId = Lens.lens (operationId :: GetOperation -> Lude.Text) (\s a -> s {operationId = a} :: GetOperation)
+goOperationId :: Lens.Lens' GetOperation Types.ResourceId
+goOperationId = Lens.field @"operationId"
 {-# DEPRECATED goOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
-instance Lude.AWSRequest GetOperation where
+instance Core.FromJSON GetOperation where
+  toJSON GetOperation {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("OperationId" Core..= operationId)])
+
+instance Core.AWSRequest GetOperation where
   type Rs GetOperation = GetOperationResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.GetOperation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetOperationResponse'
-            Lude.<$> (x Lude..?> "Operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetOperation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.GetOperation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetOperation where
-  toJSON GetOperation' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("OperationId" Lude..= operationId)])
-
-instance Lude.ToPath GetOperation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetOperation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
   { -- | A complex type that contains information about the operation.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetOperationResponse' with the minimum fields required to make a request.
---
--- * 'operation' - A complex type that contains information about the operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetOperationResponse' value with any optional fields omitted.
 mkGetOperationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetOperationResponse
-mkGetOperationResponse pResponseStatus_ =
-  GetOperationResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetOperationResponse responseStatus =
+  GetOperationResponse' {operation = Core.Nothing, responseStatus}
 
 -- | A complex type that contains information about the operation.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsOperation :: Lens.Lens' GetOperationResponse (Lude.Maybe Operation)
-gorsOperation = Lens.lens (operation :: GetOperationResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: GetOperationResponse)
-{-# DEPRECATED gorsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+gorrsOperation :: Lens.Lens' GetOperationResponse (Core.Maybe Types.Operation)
+gorrsOperation = Lens.field @"operation"
+{-# DEPRECATED gorrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsResponseStatus :: Lens.Lens' GetOperationResponse Lude.Int
-gorsResponseStatus = Lens.lens (responseStatus :: GetOperationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOperationResponse)
-{-# DEPRECATED gorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gorrsResponseStatus :: Lens.Lens' GetOperationResponse Core.Int
+gorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

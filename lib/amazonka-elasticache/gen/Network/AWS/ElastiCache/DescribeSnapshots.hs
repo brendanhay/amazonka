@@ -22,95 +22,84 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     mkDescribeSnapshots,
 
     -- ** Request lenses
-    dCacheClusterId,
-    dMarker,
-    dMaxRecords,
-    dSnapshotName,
-    dShowNodeGroupConfig,
-    dReplicationGroupId,
-    dSnapshotSource,
+    dsCacheClusterId,
+    dsMarker,
+    dsMaxRecords,
+    dsReplicationGroupId,
+    dsShowNodeGroupConfig,
+    dsSnapshotName,
+    dsSnapshotSource,
 
     -- * Destructuring the response
     DescribeSnapshotsResponse (..),
     mkDescribeSnapshotsResponse,
 
     -- ** Response lenses
-    dsrsSnapshots,
-    dsrsMarker,
-    dsrsResponseStatus,
+    dsrrsMarker,
+    dsrrsSnapshots,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeSnapshotsMessage@ operation.
 --
 -- /See:/ 'mkDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
   { -- | A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.
-    cacheClusterId :: Lude.Maybe Lude.Text,
+    cacheClusterId :: Core.Maybe Types.String,
     -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 50
     -- Constraints: minimum 20; maximum 50.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | A user-supplied name of the snapshot. If this parameter is specified, only this snapshot are described.
-    snapshotName :: Lude.Maybe Lude.Text,
-    -- | A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.
-    showNodeGroupConfig :: Lude.Maybe Lude.Bool,
+    maxRecords :: Core.Maybe Core.Int,
     -- | A user-supplied replication group identifier. If this parameter is specified, only snapshots associated with that specific replication group are described.
-    replicationGroupId :: Lude.Maybe Lude.Text,
+    replicationGroupId :: Core.Maybe Types.String,
+    -- | A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.
+    showNodeGroupConfig :: Core.Maybe Core.Bool,
+    -- | A user-supplied name of the snapshot. If this parameter is specified, only this snapshot are described.
+    snapshotName :: Core.Maybe Types.String,
     -- | If set to @system@ , the output shows snapshots that were automatically created by ElastiCache. If set to @user@ the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots.
-    snapshotSource :: Lude.Maybe Lude.Text
+    snapshotSource :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSnapshots' with the minimum fields required to make a request.
---
--- * 'cacheClusterId' - A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 50
--- Constraints: minimum 20; maximum 50.
--- * 'snapshotName' - A user-supplied name of the snapshot. If this parameter is specified, only this snapshot are described.
--- * 'showNodeGroupConfig' - A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.
--- * 'replicationGroupId' - A user-supplied replication group identifier. If this parameter is specified, only snapshots associated with that specific replication group are described.
--- * 'snapshotSource' - If set to @system@ , the output shows snapshots that were automatically created by ElastiCache. If set to @user@ the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots.
+-- | Creates a 'DescribeSnapshots' value with any optional fields omitted.
 mkDescribeSnapshots ::
   DescribeSnapshots
 mkDescribeSnapshots =
   DescribeSnapshots'
-    { cacheClusterId = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      snapshotName = Lude.Nothing,
-      showNodeGroupConfig = Lude.Nothing,
-      replicationGroupId = Lude.Nothing,
-      snapshotSource = Lude.Nothing
+    { cacheClusterId = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      replicationGroupId = Core.Nothing,
+      showNodeGroupConfig = Core.Nothing,
+      snapshotName = Core.Nothing,
+      snapshotSource = Core.Nothing
     }
 
 -- | A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCacheClusterId :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Text)
-dCacheClusterId = Lens.lens (cacheClusterId :: DescribeSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: DescribeSnapshots)
-{-# DEPRECATED dCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
+dsCacheClusterId :: Lens.Lens' DescribeSnapshots (Core.Maybe Types.String)
+dsCacheClusterId = Lens.field @"cacheClusterId"
+{-# DEPRECATED dsCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMarker :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Text)
-dMarker = Lens.lens (marker :: DescribeSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSnapshots)
-{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dsMarker :: Lens.Lens' DescribeSnapshots (Core.Maybe Types.String)
+dsMarker = Lens.field @"marker"
+{-# DEPRECATED dsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -118,127 +107,132 @@ dMarker = Lens.lens (marker :: DescribeSnapshots -> Lude.Maybe Lude.Text) (\s a 
 -- Constraints: minimum 20; maximum 50.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxRecords :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Int)
-dMaxRecords = Lens.lens (maxRecords :: DescribeSnapshots -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeSnapshots)
-{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | A user-supplied name of the snapshot. If this parameter is specified, only this snapshot are described.
---
--- /Note:/ Consider using 'snapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSnapshotName :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Text)
-dSnapshotName = Lens.lens (snapshotName :: DescribeSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {snapshotName = a} :: DescribeSnapshots)
-{-# DEPRECATED dSnapshotName "Use generic-lens or generic-optics with 'snapshotName' instead." #-}
-
--- | A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.
---
--- /Note:/ Consider using 'showNodeGroupConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dShowNodeGroupConfig :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Bool)
-dShowNodeGroupConfig = Lens.lens (showNodeGroupConfig :: DescribeSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {showNodeGroupConfig = a} :: DescribeSnapshots)
-{-# DEPRECATED dShowNodeGroupConfig "Use generic-lens or generic-optics with 'showNodeGroupConfig' instead." #-}
+dsMaxRecords :: Lens.Lens' DescribeSnapshots (Core.Maybe Core.Int)
+dsMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | A user-supplied replication group identifier. If this parameter is specified, only snapshots associated with that specific replication group are described.
 --
 -- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dReplicationGroupId :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Text)
-dReplicationGroupId = Lens.lens (replicationGroupId :: DescribeSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: DescribeSnapshots)
-{-# DEPRECATED dReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
+dsReplicationGroupId :: Lens.Lens' DescribeSnapshots (Core.Maybe Types.String)
+dsReplicationGroupId = Lens.field @"replicationGroupId"
+{-# DEPRECATED dsReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
+
+-- | A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.
+--
+-- /Note:/ Consider using 'showNodeGroupConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsShowNodeGroupConfig :: Lens.Lens' DescribeSnapshots (Core.Maybe Core.Bool)
+dsShowNodeGroupConfig = Lens.field @"showNodeGroupConfig"
+{-# DEPRECATED dsShowNodeGroupConfig "Use generic-lens or generic-optics with 'showNodeGroupConfig' instead." #-}
+
+-- | A user-supplied name of the snapshot. If this parameter is specified, only this snapshot are described.
+--
+-- /Note:/ Consider using 'snapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSnapshotName :: Lens.Lens' DescribeSnapshots (Core.Maybe Types.String)
+dsSnapshotName = Lens.field @"snapshotName"
+{-# DEPRECATED dsSnapshotName "Use generic-lens or generic-optics with 'snapshotName' instead." #-}
 
 -- | If set to @system@ , the output shows snapshots that were automatically created by ElastiCache. If set to @user@ the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots.
 --
 -- /Note:/ Consider using 'snapshotSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSnapshotSource :: Lens.Lens' DescribeSnapshots (Lude.Maybe Lude.Text)
-dSnapshotSource = Lens.lens (snapshotSource :: DescribeSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {snapshotSource = a} :: DescribeSnapshots)
-{-# DEPRECATED dSnapshotSource "Use generic-lens or generic-optics with 'snapshotSource' instead." #-}
+dsSnapshotSource :: Lens.Lens' DescribeSnapshots (Core.Maybe Types.String)
+dsSnapshotSource = Lens.field @"snapshotSource"
+{-# DEPRECATED dsSnapshotSource "Use generic-lens or generic-optics with 'snapshotSource' instead." #-}
 
-instance Page.AWSPager DescribeSnapshots where
-  page rq rs
-    | Page.stop (rs Lens.^. dsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsrsSnapshots) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. dsrsMarker
-
-instance Lude.AWSRequest DescribeSnapshots where
+instance Core.AWSRequest DescribeSnapshots where
   type Rs DescribeSnapshots = DescribeSnapshotsResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSnapshots")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "CacheClusterId" Core.<$> cacheClusterId)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> ( Core.toQueryValue "ReplicationGroupId"
+                            Core.<$> replicationGroupId
+                        )
+                Core.<> ( Core.toQueryValue "ShowNodeGroupConfig"
+                            Core.<$> showNodeGroupConfig
+                        )
+                Core.<> (Core.toQueryValue "SnapshotName" Core.<$> snapshotName)
+                Core.<> (Core.toQueryValue "SnapshotSource" Core.<$> snapshotSource)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeSnapshotsResult"
       ( \s h x ->
           DescribeSnapshotsResponse'
-            Lude.<$> ( x Lude..@? "Snapshots" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "Snapshot")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> (x Core..@? "Snapshots" Core..<@> Core.parseXMLList "Snapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSnapshots where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSnapshots where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSnapshots where
-  toQuery DescribeSnapshots' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeSnapshots" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheClusterId" Lude.=: cacheClusterId,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "SnapshotName" Lude.=: snapshotName,
-        "ShowNodeGroupConfig" Lude.=: showNodeGroupConfig,
-        "ReplicationGroupId" Lude.=: replicationGroupId,
-        "SnapshotSource" Lude.=: snapshotSource
-      ]
+instance Pager.AWSPager DescribeSnapshots where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"snapshots" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Represents the output of a @DescribeSnapshots@ operation.
 --
 -- /See:/ 'mkDescribeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { -- | A list of snapshots. Each item in the list contains detailed information about one snapshot.
-    snapshots :: Lude.Maybe [Snapshot],
-    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
+    -- | A list of snapshots. Each item in the list contains detailed information about one snapshot.
+    snapshots :: Core.Maybe [Types.Snapshot],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
---
--- * 'snapshots' - A list of snapshots. Each item in the list contains detailed information about one snapshot.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSnapshotsResponse' value with any optional fields omitted.
 mkDescribeSnapshotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSnapshotsResponse
-mkDescribeSnapshotsResponse pResponseStatus_ =
+mkDescribeSnapshotsResponse responseStatus =
   DescribeSnapshotsResponse'
-    { snapshots = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      snapshots = Core.Nothing,
+      responseStatus
     }
-
--- | A list of snapshots. Each item in the list contains detailed information about one snapshot.
---
--- /Note:/ Consider using 'snapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSnapshots :: Lens.Lens' DescribeSnapshotsResponse (Lude.Maybe [Snapshot])
-dsrsSnapshots = Lens.lens (snapshots :: DescribeSnapshotsResponse -> Lude.Maybe [Snapshot]) (\s a -> s {snapshots = a} :: DescribeSnapshotsResponse)
-{-# DEPRECATED dsrsSnapshots "Use generic-lens or generic-optics with 'snapshots' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsMarker :: Lens.Lens' DescribeSnapshotsResponse (Lude.Maybe Lude.Text)
-dsrsMarker = Lens.lens (marker :: DescribeSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSnapshotsResponse)
-{-# DEPRECATED dsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dsrrsMarker :: Lens.Lens' DescribeSnapshotsResponse (Core.Maybe Types.String)
+dsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of snapshots. Each item in the list contains detailed information about one snapshot.
+--
+-- /Note:/ Consider using 'snapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsSnapshots :: Lens.Lens' DescribeSnapshotsResponse (Core.Maybe [Types.Snapshot])
+dsrrsSnapshots = Lens.field @"snapshots"
+{-# DEPRECATED dsrrsSnapshots "Use generic-lens or generic-optics with 'snapshots' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeSnapshotsResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSnapshotsResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DescribeSnapshotsResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

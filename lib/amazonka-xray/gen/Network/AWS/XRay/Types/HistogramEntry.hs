@@ -23,48 +23,43 @@ module Network.AWS.XRay.Types.HistogramEntry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.
 --
 -- /See:/ 'mkHistogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
   { -- | The prevalence of the entry.
-    count :: Lude.Maybe Lude.Int,
+    count :: Core.Maybe Core.Int,
     -- | The value of the entry.
-    value :: Lude.Maybe Lude.Double
+    value :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HistogramEntry' with the minimum fields required to make a request.
---
--- * 'count' - The prevalence of the entry.
--- * 'value' - The value of the entry.
+-- | Creates a 'HistogramEntry' value with any optional fields omitted.
 mkHistogramEntry ::
   HistogramEntry
 mkHistogramEntry =
-  HistogramEntry' {count = Lude.Nothing, value = Lude.Nothing}
+  HistogramEntry' {count = Core.Nothing, value = Core.Nothing}
 
 -- | The prevalence of the entry.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heCount :: Lens.Lens' HistogramEntry (Lude.Maybe Lude.Int)
-heCount = Lens.lens (count :: HistogramEntry -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: HistogramEntry)
+heCount :: Lens.Lens' HistogramEntry (Core.Maybe Core.Int)
+heCount = Lens.field @"count"
 {-# DEPRECATED heCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The value of the entry.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heValue :: Lens.Lens' HistogramEntry (Lude.Maybe Lude.Double)
-heValue = Lens.lens (value :: HistogramEntry -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: HistogramEntry)
+heValue :: Lens.Lens' HistogramEntry (Core.Maybe Core.Double)
+heValue = Lens.field @"value"
 {-# DEPRECATED heValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromJSON HistogramEntry where
+instance Core.FromJSON HistogramEntry where
   parseJSON =
-    Lude.withObject
-      "HistogramEntry"
-      ( \x ->
-          HistogramEntry'
-            Lude.<$> (x Lude..:? "Count") Lude.<*> (x Lude..:? "Value")
-      )
+    Core.withObject "HistogramEntry" Core.$
+      \x ->
+        HistogramEntry'
+          Core.<$> (x Core..:? "Count") Core.<*> (x Core..:? "Value")

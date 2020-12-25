@@ -24,36 +24,34 @@ module Network.AWS.EC2.DescribeSubnets
     mkDescribeSubnets,
 
     -- ** Request lenses
-    dsSubnetIds,
-    dsFilters,
-    dsNextToken,
     dsDryRun,
+    dsFilters,
     dsMaxResults,
+    dsNextToken,
+    dsSubnetIds,
 
     -- * Destructuring the response
     DescribeSubnetsResponse (..),
     mkDescribeSubnetsResponse,
 
     -- ** Response lenses
-    dsrsSubnets,
-    dsrsNextToken,
-    dsrsResponseStatus,
+    dsrrsNextToken,
+    dsrrsSubnets,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
-  { -- | One or more subnet IDs.
-    --
-    -- Default: Describes all your subnets.
-    subnetIds :: Lude.Maybe [Lude.Text],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters.
     --
     --
@@ -100,92 +98,37 @@ data DescribeSubnets = DescribeSubnets'
     --
     --
     --     * @vpc-id@ - The ID of the VPC for the subnet.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | One or more subnet IDs.
+    --
+    -- Default: Describes all your subnets.
+    subnetIds :: Core.Maybe [Types.SubnetId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSubnets' with the minimum fields required to make a request.
---
--- * 'subnetIds' - One or more subnet IDs.
---
--- Default: Describes all your subnets.
--- * 'filters' - One or more filters.
---
---
---     * @availability-zone@ - The Availability Zone for the subnet. You can also use @availabilityZone@ as the filter name.
---
---
---     * @availability-zone-id@ - The ID of the Availability Zone for the subnet. You can also use @availabilityZoneId@ as the filter name.
---
---
---     * @available-ip-address-count@ - The number of IPv4 addresses in the subnet that are available.
---
---
---     * @cidr-block@ - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use @cidr@ or @cidrBlock@ as the filter names.
---
---
---     * @default-for-az@ - Indicates whether this is the default subnet for the Availability Zone. You can also use @defaultForAz@ as the filter name.
---
---
---     * @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block associated with the subnet.
---
---
---     * @ipv6-cidr-block-association.association-id@ - An association ID for an IPv6 CIDR block associated with the subnet.
---
---
---     * @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR block associated with the subnet.
---
---
---     * @owner-id@ - The ID of the AWS account that owns the subnet.
---
---
---     * @state@ - The state of the subnet (@pending@ | @available@ ).
---
---
---     * @subnet-arn@ - The Amazon Resource Name (ARN) of the subnet.
---
---
---     * @subnet-id@ - The ID of the subnet.
---
---
---     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
---
---
---     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
---
---
---     * @vpc-id@ - The ID of the VPC for the subnet.
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeSubnets' value with any optional fields omitted.
 mkDescribeSubnets ::
   DescribeSubnets
 mkDescribeSubnets =
   DescribeSubnets'
-    { subnetIds = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      subnetIds = Core.Nothing
     }
 
--- | One or more subnet IDs.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- Default: Describes all your subnets.
---
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSubnetIds :: Lens.Lens' DescribeSubnets (Lude.Maybe [Lude.Text])
-dsSubnetIds = Lens.lens (subnetIds :: DescribeSubnets -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: DescribeSubnets)
-{-# DEPRECATED dsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDryRun :: Lens.Lens' DescribeSubnets (Core.Maybe Core.Bool)
+dsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -237,117 +180,118 @@ dsSubnetIds = Lens.lens (subnetIds :: DescribeSubnets -> Lude.Maybe [Lude.Text])
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsFilters :: Lens.Lens' DescribeSubnets (Lude.Maybe [Filter])
-dsFilters = Lens.lens (filters :: DescribeSubnets -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeSubnets)
+dsFilters :: Lens.Lens' DescribeSubnets (Core.Maybe [Types.Filter])
+dsFilters = Lens.field @"filters"
 {-# DEPRECATED dsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsNextToken :: Lens.Lens' DescribeSubnets (Lude.Maybe Lude.Text)
-dsNextToken = Lens.lens (nextToken :: DescribeSubnets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSubnets)
-{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDryRun :: Lens.Lens' DescribeSubnets (Lude.Maybe Lude.Bool)
-dsDryRun = Lens.lens (dryRun :: DescribeSubnets -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSubnets)
-{-# DEPRECATED dsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsMaxResults :: Lens.Lens' DescribeSubnets (Lude.Maybe Lude.Natural)
-dsMaxResults = Lens.lens (maxResults :: DescribeSubnets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSubnets)
+dsMaxResults :: Lens.Lens' DescribeSubnets (Core.Maybe Core.Natural)
+dsMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeSubnets where
-  page rq rs
-    | Page.stop (rs Lens.^. dsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsrsSubnets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsNextToken Lens..~ rs Lens.^. dsrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNextToken :: Lens.Lens' DescribeSubnets (Core.Maybe Types.NextToken)
+dsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeSubnets where
+-- | One or more subnet IDs.
+--
+-- Default: Describes all your subnets.
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSubnetIds :: Lens.Lens' DescribeSubnets (Core.Maybe [Types.SubnetId])
+dsSubnetIds = Lens.field @"subnetIds"
+{-# DEPRECATED dsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+
+instance Core.AWSRequest DescribeSubnets where
   type Rs DescribeSubnets = DescribeSubnetsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSubnets")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryList "SubnetId" Core.<$> subnetIds)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeSubnetsResponse'
-            Lude.<$> ( x Lude..@? "subnetSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> (x Core..@? "subnetSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSubnets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSubnets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSubnets where
-  toQuery DescribeSubnets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeSubnets" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "SubnetId" Lude.<$> subnetIds),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeSubnets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"subnets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
-  { -- | Information about one or more subnets.
-    subnets :: Lude.Maybe [Subnet],
-    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Information about one or more subnets.
+    subnets :: Core.Maybe [Types.Subnet],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSubnetsResponse' with the minimum fields required to make a request.
---
--- * 'subnets' - Information about one or more subnets.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSubnetsResponse' value with any optional fields omitted.
 mkDescribeSubnetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSubnetsResponse
-mkDescribeSubnetsResponse pResponseStatus_ =
+mkDescribeSubnetsResponse responseStatus =
   DescribeSubnetsResponse'
-    { subnets = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      subnets = Core.Nothing,
+      responseStatus
     }
-
--- | Information about one or more subnets.
---
--- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSubnets :: Lens.Lens' DescribeSubnetsResponse (Lude.Maybe [Subnet])
-dsrsSubnets = Lens.lens (subnets :: DescribeSubnetsResponse -> Lude.Maybe [Subnet]) (\s a -> s {subnets = a} :: DescribeSubnetsResponse)
-{-# DEPRECATED dsrsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsNextToken :: Lens.Lens' DescribeSubnetsResponse (Lude.Maybe Lude.Text)
-dsrsNextToken = Lens.lens (nextToken :: DescribeSubnetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSubnetsResponse)
-{-# DEPRECATED dsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsrrsNextToken :: Lens.Lens' DescribeSubnetsResponse (Core.Maybe Types.NextToken)
+dsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about one or more subnets.
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsSubnets :: Lens.Lens' DescribeSubnetsResponse (Core.Maybe [Types.Subnet])
+dsrrsSubnets = Lens.field @"subnets"
+{-# DEPRECATED dsrrsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeSubnetsResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeSubnetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSubnetsResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DescribeSubnetsResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

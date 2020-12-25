@@ -17,70 +17,69 @@ module Network.AWS.ElasticSearch.Types.MasterUserOptions
     mkMasterUserOptions,
 
     -- * Lenses
-    muoMasterUserPassword,
-    muoMasterUserName,
     muoMasterUserARN,
+    muoMasterUserName,
+    muoMasterUserPassword,
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.ARN as Types
+import qualified Network.AWS.ElasticSearch.Types.Password as Types
+import qualified Network.AWS.ElasticSearch.Types.Username as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Credentials for the master user: username and password, ARN, or both.
 --
 -- /See:/ 'mkMasterUserOptions' smart constructor.
 data MasterUserOptions = MasterUserOptions'
-  { -- | The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
-    masterUserPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | ARN for the master user (if IAM is enabled).
+    masterUserARN :: Core.Maybe Types.ARN,
     -- | The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
-    masterUserName :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | ARN for the master user (if IAM is enabled).
-    masterUserARN :: Lude.Maybe Lude.Text
+    masterUserName :: Core.Maybe Types.Username,
+    -- | The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
+    masterUserPassword :: Core.Maybe Types.Password
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MasterUserOptions' with the minimum fields required to make a request.
---
--- * 'masterUserPassword' - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
--- * 'masterUserName' - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
--- * 'masterUserARN' - ARN for the master user (if IAM is enabled).
+-- | Creates a 'MasterUserOptions' value with any optional fields omitted.
 mkMasterUserOptions ::
   MasterUserOptions
 mkMasterUserOptions =
   MasterUserOptions'
-    { masterUserPassword = Lude.Nothing,
-      masterUserName = Lude.Nothing,
-      masterUserARN = Lude.Nothing
+    { masterUserARN = Core.Nothing,
+      masterUserName = Core.Nothing,
+      masterUserPassword = Core.Nothing
     }
-
--- | The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
---
--- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muoMasterUserPassword :: Lens.Lens' MasterUserOptions (Lude.Maybe (Lude.Sensitive Lude.Text))
-muoMasterUserPassword = Lens.lens (masterUserPassword :: MasterUserOptions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {masterUserPassword = a} :: MasterUserOptions)
-{-# DEPRECATED muoMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
-
--- | The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
---
--- /Note:/ Consider using 'masterUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muoMasterUserName :: Lens.Lens' MasterUserOptions (Lude.Maybe (Lude.Sensitive Lude.Text))
-muoMasterUserName = Lens.lens (masterUserName :: MasterUserOptions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {masterUserName = a} :: MasterUserOptions)
-{-# DEPRECATED muoMasterUserName "Use generic-lens or generic-optics with 'masterUserName' instead." #-}
 
 -- | ARN for the master user (if IAM is enabled).
 --
 -- /Note:/ Consider using 'masterUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muoMasterUserARN :: Lens.Lens' MasterUserOptions (Lude.Maybe Lude.Text)
-muoMasterUserARN = Lens.lens (masterUserARN :: MasterUserOptions -> Lude.Maybe Lude.Text) (\s a -> s {masterUserARN = a} :: MasterUserOptions)
+muoMasterUserARN :: Lens.Lens' MasterUserOptions (Core.Maybe Types.ARN)
+muoMasterUserARN = Lens.field @"masterUserARN"
 {-# DEPRECATED muoMasterUserARN "Use generic-lens or generic-optics with 'masterUserARN' instead." #-}
 
-instance Lude.ToJSON MasterUserOptions where
-  toJSON MasterUserOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MasterUserPassword" Lude..=) Lude.<$> masterUserPassword,
-            ("MasterUserName" Lude..=) Lude.<$> masterUserName,
-            ("MasterUserARN" Lude..=) Lude.<$> masterUserARN
+-- | The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+--
+-- /Note:/ Consider using 'masterUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muoMasterUserName :: Lens.Lens' MasterUserOptions (Core.Maybe Types.Username)
+muoMasterUserName = Lens.field @"masterUserName"
+{-# DEPRECATED muoMasterUserName "Use generic-lens or generic-optics with 'masterUserName' instead." #-}
+
+-- | The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
+--
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muoMasterUserPassword :: Lens.Lens' MasterUserOptions (Core.Maybe Types.Password)
+muoMasterUserPassword = Lens.field @"masterUserPassword"
+{-# DEPRECATED muoMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
+
+instance Core.FromJSON MasterUserOptions where
+  toJSON MasterUserOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MasterUserARN" Core..=) Core.<$> masterUserARN,
+            ("MasterUserName" Core..=) Core.<$> masterUserName,
+            ("MasterUserPassword" Core..=) Core.<$> masterUserPassword
           ]
       )

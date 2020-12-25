@@ -13,76 +13,81 @@
 module Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
   ( ScalingPlanStatusCode
       ( ScalingPlanStatusCode',
-        SPSCActive,
-        SPSCActiveWithProblems,
-        SPSCCreationInProgress,
-        SPSCCreationFailed,
-        SPSCDeletionInProgress,
-        SPSCDeletionFailed,
-        SPSCUpdateInProgress,
-        SPSCUpdateFailed
+        ScalingPlanStatusCodeActive,
+        ScalingPlanStatusCodeActiveWithProblems,
+        ScalingPlanStatusCodeCreationInProgress,
+        ScalingPlanStatusCodeCreationFailed,
+        ScalingPlanStatusCodeDeletionInProgress,
+        ScalingPlanStatusCodeDeletionFailed,
+        ScalingPlanStatusCodeUpdateInProgress,
+        ScalingPlanStatusCodeUpdateFailed,
+        fromScalingPlanStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalingPlanStatusCode = ScalingPlanStatusCode' Lude.Text
+newtype ScalingPlanStatusCode = ScalingPlanStatusCode'
+  { fromScalingPlanStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SPSCActive :: ScalingPlanStatusCode
-pattern SPSCActive = ScalingPlanStatusCode' "Active"
+pattern ScalingPlanStatusCodeActive :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeActive = ScalingPlanStatusCode' "Active"
 
-pattern SPSCActiveWithProblems :: ScalingPlanStatusCode
-pattern SPSCActiveWithProblems = ScalingPlanStatusCode' "ActiveWithProblems"
+pattern ScalingPlanStatusCodeActiveWithProblems :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeActiveWithProblems = ScalingPlanStatusCode' "ActiveWithProblems"
 
-pattern SPSCCreationInProgress :: ScalingPlanStatusCode
-pattern SPSCCreationInProgress = ScalingPlanStatusCode' "CreationInProgress"
+pattern ScalingPlanStatusCodeCreationInProgress :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeCreationInProgress = ScalingPlanStatusCode' "CreationInProgress"
 
-pattern SPSCCreationFailed :: ScalingPlanStatusCode
-pattern SPSCCreationFailed = ScalingPlanStatusCode' "CreationFailed"
+pattern ScalingPlanStatusCodeCreationFailed :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeCreationFailed = ScalingPlanStatusCode' "CreationFailed"
 
-pattern SPSCDeletionInProgress :: ScalingPlanStatusCode
-pattern SPSCDeletionInProgress = ScalingPlanStatusCode' "DeletionInProgress"
+pattern ScalingPlanStatusCodeDeletionInProgress :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeDeletionInProgress = ScalingPlanStatusCode' "DeletionInProgress"
 
-pattern SPSCDeletionFailed :: ScalingPlanStatusCode
-pattern SPSCDeletionFailed = ScalingPlanStatusCode' "DeletionFailed"
+pattern ScalingPlanStatusCodeDeletionFailed :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeDeletionFailed = ScalingPlanStatusCode' "DeletionFailed"
 
-pattern SPSCUpdateInProgress :: ScalingPlanStatusCode
-pattern SPSCUpdateInProgress = ScalingPlanStatusCode' "UpdateInProgress"
+pattern ScalingPlanStatusCodeUpdateInProgress :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeUpdateInProgress = ScalingPlanStatusCode' "UpdateInProgress"
 
-pattern SPSCUpdateFailed :: ScalingPlanStatusCode
-pattern SPSCUpdateFailed = ScalingPlanStatusCode' "UpdateFailed"
+pattern ScalingPlanStatusCodeUpdateFailed :: ScalingPlanStatusCode
+pattern ScalingPlanStatusCodeUpdateFailed = ScalingPlanStatusCode' "UpdateFailed"
 
 {-# COMPLETE
-  SPSCActive,
-  SPSCActiveWithProblems,
-  SPSCCreationInProgress,
-  SPSCCreationFailed,
-  SPSCDeletionInProgress,
-  SPSCDeletionFailed,
-  SPSCUpdateInProgress,
-  SPSCUpdateFailed,
+  ScalingPlanStatusCodeActive,
+  ScalingPlanStatusCodeActiveWithProblems,
+  ScalingPlanStatusCodeCreationInProgress,
+  ScalingPlanStatusCodeCreationFailed,
+  ScalingPlanStatusCodeDeletionInProgress,
+  ScalingPlanStatusCodeDeletionFailed,
+  ScalingPlanStatusCodeUpdateInProgress,
+  ScalingPlanStatusCodeUpdateFailed,
   ScalingPlanStatusCode'
   #-}

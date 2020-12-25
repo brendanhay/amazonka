@@ -13,56 +13,58 @@
 module Network.AWS.CloudDirectory.Types.RuleType
   ( RuleType
       ( RuleType',
-        BinaryLength,
-        NumberComparison,
-        StringFromSet,
-        StringLength
+        RuleTypeBinaryLength,
+        RuleTypeNumberComparison,
+        RuleTypeStringFromSet,
+        RuleTypeStringLength,
+        fromRuleType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RuleType = RuleType' Lude.Text
+newtype RuleType = RuleType' {fromRuleType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BinaryLength :: RuleType
-pattern BinaryLength = RuleType' "BINARY_LENGTH"
+pattern RuleTypeBinaryLength :: RuleType
+pattern RuleTypeBinaryLength = RuleType' "BINARY_LENGTH"
 
-pattern NumberComparison :: RuleType
-pattern NumberComparison = RuleType' "NUMBER_COMPARISON"
+pattern RuleTypeNumberComparison :: RuleType
+pattern RuleTypeNumberComparison = RuleType' "NUMBER_COMPARISON"
 
-pattern StringFromSet :: RuleType
-pattern StringFromSet = RuleType' "STRING_FROM_SET"
+pattern RuleTypeStringFromSet :: RuleType
+pattern RuleTypeStringFromSet = RuleType' "STRING_FROM_SET"
 
-pattern StringLength :: RuleType
-pattern StringLength = RuleType' "STRING_LENGTH"
+pattern RuleTypeStringLength :: RuleType
+pattern RuleTypeStringLength = RuleType' "STRING_LENGTH"
 
 {-# COMPLETE
-  BinaryLength,
-  NumberComparison,
-  StringFromSet,
-  StringLength,
+  RuleTypeBinaryLength,
+  RuleTypeNumberComparison,
+  RuleTypeStringFromSet,
+  RuleTypeStringLength,
   RuleType'
   #-}

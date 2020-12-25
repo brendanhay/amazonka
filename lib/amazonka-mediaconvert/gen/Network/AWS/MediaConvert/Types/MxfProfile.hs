@@ -13,52 +13,54 @@
 module Network.AWS.MediaConvert.Types.MxfProfile
   ( MxfProfile
       ( MxfProfile',
-        MPD10,
-        MPXdcam,
-        MPOP1A
+        MxfProfileD10,
+        MxfProfileXdcam,
+        MxfProfileOP1A,
+        fromMxfProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
-newtype MxfProfile = MxfProfile' Lude.Text
+newtype MxfProfile = MxfProfile' {fromMxfProfile :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MPD10 :: MxfProfile
-pattern MPD10 = MxfProfile' "D_10"
+pattern MxfProfileD10 :: MxfProfile
+pattern MxfProfileD10 = MxfProfile' "D_10"
 
-pattern MPXdcam :: MxfProfile
-pattern MPXdcam = MxfProfile' "XDCAM"
+pattern MxfProfileXdcam :: MxfProfile
+pattern MxfProfileXdcam = MxfProfile' "XDCAM"
 
-pattern MPOP1A :: MxfProfile
-pattern MPOP1A = MxfProfile' "OP1A"
+pattern MxfProfileOP1A :: MxfProfile
+pattern MxfProfileOP1A = MxfProfile' "OP1A"
 
 {-# COMPLETE
-  MPD10,
-  MPXdcam,
-  MPOP1A,
+  MxfProfileD10,
+  MxfProfileXdcam,
+  MxfProfileOP1A,
   MxfProfile'
   #-}

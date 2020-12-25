@@ -17,14 +17,15 @@ module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
     mkChangeMessageVisibilityBatchRequestEntry,
 
     -- * Lenses
-    cVisibilityTimeout,
     cId,
     cReceiptHandle,
+    cVisibilityTimeout,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SQS.Types.String as Types
 
 -- | Encloses a receipt handle and an entry id for each message in @'ChangeMessageVisibilityBatch' .@
 --
@@ -35,60 +36,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChangeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-  { -- | The new value (in seconds) for the message's visibility timeout.
-    visibilityTimeout :: Lude.Maybe Lude.Int,
-    -- | An identifier for this particular receipt handle used to communicate the result.
-    id :: Lude.Text,
+  { -- | An identifier for this particular receipt handle used to communicate the result.
+    id :: Types.String,
     -- | A receipt handle.
-    receiptHandle :: Lude.Text
+    receiptHandle :: Types.String,
+    -- | The new value (in seconds) for the message's visibility timeout.
+    visibilityTimeout :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangeMessageVisibilityBatchRequestEntry' with the minimum fields required to make a request.
---
--- * 'visibilityTimeout' - The new value (in seconds) for the message's visibility timeout.
--- * 'id' - An identifier for this particular receipt handle used to communicate the result.
--- * 'receiptHandle' - A receipt handle.
+-- | Creates a 'ChangeMessageVisibilityBatchRequestEntry' value with any optional fields omitted.
 mkChangeMessageVisibilityBatchRequestEntry ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   -- | 'receiptHandle'
-  Lude.Text ->
+  Types.String ->
   ChangeMessageVisibilityBatchRequestEntry
-mkChangeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
+mkChangeMessageVisibilityBatchRequestEntry id receiptHandle =
   ChangeMessageVisibilityBatchRequestEntry'
-    { visibilityTimeout =
-        Lude.Nothing,
-      id = pId_,
-      receiptHandle = pReceiptHandle_
+    { id,
+      receiptHandle,
+      visibilityTimeout = Core.Nothing
     }
-
--- | The new value (in seconds) for the message's visibility timeout.
---
--- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVisibilityTimeout :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry (Lude.Maybe Lude.Int)
-cVisibilityTimeout = Lens.lens (visibilityTimeout :: ChangeMessageVisibilityBatchRequestEntry -> Lude.Maybe Lude.Int) (\s a -> s {visibilityTimeout = a} :: ChangeMessageVisibilityBatchRequestEntry)
-{-# DEPRECATED cVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
 
 -- | An identifier for this particular receipt handle used to communicate the result.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cId :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Lude.Text
-cId = Lens.lens (id :: ChangeMessageVisibilityBatchRequestEntry -> Lude.Text) (\s a -> s {id = a} :: ChangeMessageVisibilityBatchRequestEntry)
+cId :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Types.String
+cId = Lens.field @"id"
 {-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A receipt handle.
 --
 -- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cReceiptHandle :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Lude.Text
-cReceiptHandle = Lens.lens (receiptHandle :: ChangeMessageVisibilityBatchRequestEntry -> Lude.Text) (\s a -> s {receiptHandle = a} :: ChangeMessageVisibilityBatchRequestEntry)
+cReceiptHandle :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Types.String
+cReceiptHandle = Lens.field @"receiptHandle"
 {-# DEPRECATED cReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance Lude.ToQuery ChangeMessageVisibilityBatchRequestEntry where
-  toQuery ChangeMessageVisibilityBatchRequestEntry' {..} =
-    Lude.mconcat
-      [ "VisibilityTimeout" Lude.=: visibilityTimeout,
-        "Id" Lude.=: id,
-        "ReceiptHandle" Lude.=: receiptHandle
-      ]
+-- | The new value (in seconds) for the message's visibility timeout.
+--
+-- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVisibilityTimeout :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry (Core.Maybe Core.Int)
+cVisibilityTimeout = Lens.field @"visibilityTimeout"
+{-# DEPRECATED cVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}

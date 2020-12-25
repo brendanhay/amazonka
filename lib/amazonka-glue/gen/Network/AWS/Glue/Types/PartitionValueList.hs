@@ -21,43 +21,40 @@ module Network.AWS.Glue.Types.PartitionValueList
   )
 where
 
+import qualified Network.AWS.Glue.Types.ValueString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a list of values defining partitions.
 --
 -- /See:/ 'mkPartitionValueList' smart constructor.
 newtype PartitionValueList = PartitionValueList'
   { -- | The list of values.
-    values :: [Lude.Text]
+    values :: [Types.ValueString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PartitionValueList' with the minimum fields required to make a request.
---
--- * 'values' - The list of values.
+-- | Creates a 'PartitionValueList' value with any optional fields omitted.
 mkPartitionValueList ::
   PartitionValueList
-mkPartitionValueList = PartitionValueList' {values = Lude.mempty}
+mkPartitionValueList = PartitionValueList' {values = Core.mempty}
 
 -- | The list of values.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvlValues :: Lens.Lens' PartitionValueList [Lude.Text]
-pvlValues = Lens.lens (values :: PartitionValueList -> [Lude.Text]) (\s a -> s {values = a} :: PartitionValueList)
+pvlValues :: Lens.Lens' PartitionValueList [Types.ValueString]
+pvlValues = Lens.field @"values"
 {-# DEPRECATED pvlValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.FromJSON PartitionValueList where
-  parseJSON =
-    Lude.withObject
-      "PartitionValueList"
-      ( \x ->
-          PartitionValueList'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON PartitionValueList where
+  toJSON PartitionValueList {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Values" Core..= values)])
 
-instance Lude.ToJSON PartitionValueList where
-  toJSON PartitionValueList' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Values" Lude..= values)])
+instance Core.FromJSON PartitionValueList where
+  parseJSON =
+    Core.withObject "PartitionValueList" Core.$
+      \x ->
+        PartitionValueList'
+          Core.<$> (x Core..:? "Values" Core..!= Core.mempty)

@@ -17,51 +17,49 @@ module Network.AWS.EC2.Types.VolumeStatusDetails
     mkVolumeStatusDetails,
 
     -- * Lenses
-    vsdStatus,
     vsdName,
+    vsdStatus,
   )
 where
 
-import Network.AWS.EC2.Types.VolumeStatusName
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.VolumeStatusName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a volume status.
 --
 -- /See:/ 'mkVolumeStatusDetails' smart constructor.
 data VolumeStatusDetails = VolumeStatusDetails'
-  { -- | The intended status of the volume status.
-    status :: Lude.Maybe Lude.Text,
-    -- | The name of the volume status.
-    name :: Lude.Maybe VolumeStatusName
+  { -- | The name of the volume status.
+    name :: Core.Maybe Types.VolumeStatusName,
+    -- | The intended status of the volume status.
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VolumeStatusDetails' with the minimum fields required to make a request.
---
--- * 'status' - The intended status of the volume status.
--- * 'name' - The name of the volume status.
+-- | Creates a 'VolumeStatusDetails' value with any optional fields omitted.
 mkVolumeStatusDetails ::
   VolumeStatusDetails
 mkVolumeStatusDetails =
-  VolumeStatusDetails' {status = Lude.Nothing, name = Lude.Nothing}
-
--- | The intended status of the volume status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsdStatus :: Lens.Lens' VolumeStatusDetails (Lude.Maybe Lude.Text)
-vsdStatus = Lens.lens (status :: VolumeStatusDetails -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: VolumeStatusDetails)
-{-# DEPRECATED vsdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+  VolumeStatusDetails' {name = Core.Nothing, status = Core.Nothing}
 
 -- | The name of the volume status.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsdName :: Lens.Lens' VolumeStatusDetails (Lude.Maybe VolumeStatusName)
-vsdName = Lens.lens (name :: VolumeStatusDetails -> Lude.Maybe VolumeStatusName) (\s a -> s {name = a} :: VolumeStatusDetails)
+vsdName :: Lens.Lens' VolumeStatusDetails (Core.Maybe Types.VolumeStatusName)
+vsdName = Lens.field @"name"
 {-# DEPRECATED vsdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML VolumeStatusDetails where
+-- | The intended status of the volume status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsdStatus :: Lens.Lens' VolumeStatusDetails (Core.Maybe Types.String)
+vsdStatus = Lens.field @"status"
+{-# DEPRECATED vsdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML VolumeStatusDetails where
   parseXML x =
     VolumeStatusDetails'
-      Lude.<$> (x Lude..@? "status") Lude.<*> (x Lude..@? "name")
+      Core.<$> (x Core..@? "name") Core.<*> (x Core..@? "status")

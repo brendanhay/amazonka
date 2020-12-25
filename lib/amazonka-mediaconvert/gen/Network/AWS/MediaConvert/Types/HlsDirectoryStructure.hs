@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsDirectoryStructure
   ( HlsDirectoryStructure
       ( HlsDirectoryStructure',
-        SingleDirectory,
-        SubdirectoryPerStream
+        HlsDirectoryStructureSingleDirectory,
+        HlsDirectoryStructureSubdirectoryPerStream,
+        fromHlsDirectoryStructure
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether segments should be placed in subdirectories.
-newtype HlsDirectoryStructure = HlsDirectoryStructure' Lude.Text
+newtype HlsDirectoryStructure = HlsDirectoryStructure'
+  { fromHlsDirectoryStructure ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SingleDirectory :: HlsDirectoryStructure
-pattern SingleDirectory = HlsDirectoryStructure' "SINGLE_DIRECTORY"
+pattern HlsDirectoryStructureSingleDirectory :: HlsDirectoryStructure
+pattern HlsDirectoryStructureSingleDirectory = HlsDirectoryStructure' "SINGLE_DIRECTORY"
 
-pattern SubdirectoryPerStream :: HlsDirectoryStructure
-pattern SubdirectoryPerStream = HlsDirectoryStructure' "SUBDIRECTORY_PER_STREAM"
+pattern HlsDirectoryStructureSubdirectoryPerStream :: HlsDirectoryStructure
+pattern HlsDirectoryStructureSubdirectoryPerStream = HlsDirectoryStructure' "SUBDIRECTORY_PER_STREAM"
 
 {-# COMPLETE
-  SingleDirectory,
-  SubdirectoryPerStream,
+  HlsDirectoryStructureSingleDirectory,
+  HlsDirectoryStructureSubdirectoryPerStream,
   HlsDirectoryStructure'
   #-}

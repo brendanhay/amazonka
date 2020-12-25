@@ -17,113 +17,103 @@ module Network.AWS.Redshift.Types.ClusterSubnetGroup
     mkClusterSubnetGroup,
 
     -- * Lenses
-    csgVPCId,
-    csgSubnets,
     csgClusterSubnetGroupName,
-    csgSubnetGroupStatus,
     csgDescription,
+    csgSubnetGroupStatus,
+    csgSubnets,
     csgTags,
+    csgVpcId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.Subnet
-import Network.AWS.Redshift.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
+import qualified Network.AWS.Redshift.Types.Subnet as Types
+import qualified Network.AWS.Redshift.Types.Tag as Types
 
 -- | Describes a subnet group.
 --
 -- /See:/ 'mkClusterSubnetGroup' smart constructor.
 data ClusterSubnetGroup = ClusterSubnetGroup'
-  { -- | The VPC ID of the cluster subnet group.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | A list of the VPC 'Subnet' elements.
-    subnets :: Lude.Maybe [Subnet],
-    -- | The name of the cluster subnet group.
-    clusterSubnetGroupName :: Lude.Maybe Lude.Text,
-    -- | The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
-    subnetGroupStatus :: Lude.Maybe Lude.Text,
+  { -- | The name of the cluster subnet group.
+    clusterSubnetGroupName :: Core.Maybe Types.String,
     -- | The description of the cluster subnet group.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
+    -- | The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
+    subnetGroupStatus :: Core.Maybe Types.String,
+    -- | A list of the VPC 'Subnet' elements.
+    subnets :: Core.Maybe [Types.Subnet],
     -- | The list of tags for the cluster subnet group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The VPC ID of the cluster subnet group.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClusterSubnetGroup' with the minimum fields required to make a request.
---
--- * 'vpcId' - The VPC ID of the cluster subnet group.
--- * 'subnets' - A list of the VPC 'Subnet' elements.
--- * 'clusterSubnetGroupName' - The name of the cluster subnet group.
--- * 'subnetGroupStatus' - The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
--- * 'description' - The description of the cluster subnet group.
--- * 'tags' - The list of tags for the cluster subnet group.
+-- | Creates a 'ClusterSubnetGroup' value with any optional fields omitted.
 mkClusterSubnetGroup ::
   ClusterSubnetGroup
 mkClusterSubnetGroup =
   ClusterSubnetGroup'
-    { vpcId = Lude.Nothing,
-      subnets = Lude.Nothing,
-      clusterSubnetGroupName = Lude.Nothing,
-      subnetGroupStatus = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { clusterSubnetGroupName = Core.Nothing,
+      description = Core.Nothing,
+      subnetGroupStatus = Core.Nothing,
+      subnets = Core.Nothing,
+      tags = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | The VPC ID of the cluster subnet group.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgVPCId :: Lens.Lens' ClusterSubnetGroup (Lude.Maybe Lude.Text)
-csgVPCId = Lens.lens (vpcId :: ClusterSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: ClusterSubnetGroup)
-{-# DEPRECATED csgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | A list of the VPC 'Subnet' elements.
---
--- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgSubnets :: Lens.Lens' ClusterSubnetGroup (Lude.Maybe [Subnet])
-csgSubnets = Lens.lens (subnets :: ClusterSubnetGroup -> Lude.Maybe [Subnet]) (\s a -> s {subnets = a} :: ClusterSubnetGroup)
-{-# DEPRECATED csgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The name of the cluster subnet group.
 --
 -- /Note:/ Consider using 'clusterSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgClusterSubnetGroupName :: Lens.Lens' ClusterSubnetGroup (Lude.Maybe Lude.Text)
-csgClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: ClusterSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: ClusterSubnetGroup)
+csgClusterSubnetGroupName :: Lens.Lens' ClusterSubnetGroup (Core.Maybe Types.String)
+csgClusterSubnetGroupName = Lens.field @"clusterSubnetGroupName"
 {-# DEPRECATED csgClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
-
--- | The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
---
--- /Note:/ Consider using 'subnetGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgSubnetGroupStatus :: Lens.Lens' ClusterSubnetGroup (Lude.Maybe Lude.Text)
-csgSubnetGroupStatus = Lens.lens (subnetGroupStatus :: ClusterSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {subnetGroupStatus = a} :: ClusterSubnetGroup)
-{-# DEPRECATED csgSubnetGroupStatus "Use generic-lens or generic-optics with 'subnetGroupStatus' instead." #-}
 
 -- | The description of the cluster subnet group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgDescription :: Lens.Lens' ClusterSubnetGroup (Lude.Maybe Lude.Text)
-csgDescription = Lens.lens (description :: ClusterSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClusterSubnetGroup)
+csgDescription :: Lens.Lens' ClusterSubnetGroup (Core.Maybe Types.String)
+csgDescription = Lens.field @"description"
 {-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
+--
+-- /Note:/ Consider using 'subnetGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSubnetGroupStatus :: Lens.Lens' ClusterSubnetGroup (Core.Maybe Types.String)
+csgSubnetGroupStatus = Lens.field @"subnetGroupStatus"
+{-# DEPRECATED csgSubnetGroupStatus "Use generic-lens or generic-optics with 'subnetGroupStatus' instead." #-}
+
+-- | A list of the VPC 'Subnet' elements.
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSubnets :: Lens.Lens' ClusterSubnetGroup (Core.Maybe [Types.Subnet])
+csgSubnets = Lens.field @"subnets"
+{-# DEPRECATED csgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The list of tags for the cluster subnet group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgTags :: Lens.Lens' ClusterSubnetGroup (Lude.Maybe [Tag])
-csgTags = Lens.lens (tags :: ClusterSubnetGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ClusterSubnetGroup)
+csgTags :: Lens.Lens' ClusterSubnetGroup (Core.Maybe [Types.Tag])
+csgTags = Lens.field @"tags"
 {-# DEPRECATED csgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ClusterSubnetGroup where
+-- | The VPC ID of the cluster subnet group.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgVpcId :: Lens.Lens' ClusterSubnetGroup (Core.Maybe Types.String)
+csgVpcId = Lens.field @"vpcId"
+{-# DEPRECATED csgVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML ClusterSubnetGroup where
   parseXML x =
     ClusterSubnetGroup'
-      Lude.<$> (x Lude..@? "VpcId")
-      Lude.<*> ( x Lude..@? "Subnets" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Subnet")
-               )
-      Lude.<*> (x Lude..@? "ClusterSubnetGroupName")
-      Lude.<*> (x Lude..@? "SubnetGroupStatus")
-      Lude.<*> (x Lude..@? "Description")
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
+      Core.<$> (x Core..@? "ClusterSubnetGroupName")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "SubnetGroupStatus")
+      Core.<*> (x Core..@? "Subnets" Core..<@> Core.parseXMLList "Subnet")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLList "Tag")
+      Core.<*> (x Core..@? "VpcId")

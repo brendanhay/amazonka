@@ -17,35 +17,59 @@ module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionDescription
     mkConfigurationOptionDescription,
 
     -- * Lenses
-    codMaxValue,
-    codRegex,
-    codMaxLength,
-    codUserDefined,
-    codNamespace,
-    codValueOptions,
-    codName,
     codChangeSeverity,
     codDefaultValue,
-    codValueType,
+    codMaxLength,
+    codMaxValue,
     codMinValue,
+    codName,
+    codNamespace,
+    codRegex,
+    codUserDefined,
+    codValueOptions,
+    codValueType,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
-import Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionPossibleValue as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSeverity as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.DefaultValue as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.OptionNamespace as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the possible values for a configuration option.
 --
 -- /See:/ 'mkConfigurationOptionDescription' smart constructor.
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
-  { -- | If specified, the configuration option must be a numeric value less than this value.
-    maxValue :: Lude.Maybe Lude.Int,
-    -- | If specified, the configuration option must be a string value that satisfies this regular expression.
-    regex :: Lude.Maybe OptionRestrictionRegex,
+  { -- | An indication of which action is required if the value for this configuration option changes:
+    --
+    --
+    --     * @NoInterruption@ : There is no interruption to the environment or application availability.
+    --
+    --
+    --     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.
+    --
+    --
+    --     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
+    changeSeverity :: Core.Maybe Types.ConfigurationOptionSeverity,
+    -- | The default value for this configuration option.
+    defaultValue :: Core.Maybe Types.DefaultValue,
     -- | If specified, the configuration option must be a string value no longer than this value.
-    maxLength :: Lude.Maybe Lude.Int,
+    maxLength :: Core.Maybe Core.Int,
+    -- | If specified, the configuration option must be a numeric value less than this value.
+    maxValue :: Core.Maybe Core.Int,
+    -- | If specified, the configuration option must be a numeric value greater than this value.
+    minValue :: Core.Maybe Core.Int,
+    -- | The name of the configuration option.
+    name :: Core.Maybe Types.ConfigurationOptionName,
+    -- | A unique namespace identifying the option's associated AWS resource.
+    namespace :: Core.Maybe Types.OptionNamespace,
+    -- | If specified, the configuration option must be a string value that satisfies this regular expression.
+    regex :: Core.Maybe Types.OptionRestrictionRegex,
     -- | An indication of whether the user defined this configuration option:
     --
     --
@@ -57,26 +81,9 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     --
     -- Constraint: You can remove only @UserDefined@ options from a configuration.
     -- Valid Values: @true@ | @false@
-    userDefined :: Lude.Maybe Lude.Bool,
-    -- | A unique namespace identifying the option's associated AWS resource.
-    namespace :: Lude.Maybe Lude.Text,
+    userDefined :: Core.Maybe Core.Bool,
     -- | If specified, values for the configuration option are selected from this list.
-    valueOptions :: Lude.Maybe [Lude.Text],
-    -- | The name of the configuration option.
-    name :: Lude.Maybe Lude.Text,
-    -- | An indication of which action is required if the value for this configuration option changes:
-    --
-    --
-    --     * @NoInterruption@ : There is no interruption to the environment or application availability.
-    --
-    --
-    --     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.
-    --
-    --
-    --     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
-    changeSeverity :: Lude.Maybe Lude.Text,
-    -- | The default value for this configuration option.
-    defaultValue :: Lude.Maybe Lude.Text,
+    valueOptions :: Core.Maybe [Types.ConfigurationOptionPossibleValue],
     -- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
     --
     --
@@ -90,136 +97,28 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     --
     --
     --     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
-    valueType :: Lude.Maybe ConfigurationOptionValueType,
-    -- | If specified, the configuration option must be a numeric value greater than this value.
-    minValue :: Lude.Maybe Lude.Int
+    valueType :: Core.Maybe Types.ConfigurationOptionValueType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfigurationOptionDescription' with the minimum fields required to make a request.
---
--- * 'maxValue' - If specified, the configuration option must be a numeric value less than this value.
--- * 'regex' - If specified, the configuration option must be a string value that satisfies this regular expression.
--- * 'maxLength' - If specified, the configuration option must be a string value no longer than this value.
--- * 'userDefined' - An indication of whether the user defined this configuration option:
---
---
---     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.
---
---
---     * @false@ : This configuration was not defined by the user.
---
---
--- Constraint: You can remove only @UserDefined@ options from a configuration.
--- Valid Values: @true@ | @false@
--- * 'namespace' - A unique namespace identifying the option's associated AWS resource.
--- * 'valueOptions' - If specified, values for the configuration option are selected from this list.
--- * 'name' - The name of the configuration option.
--- * 'changeSeverity' - An indication of which action is required if the value for this configuration option changes:
---
---
---     * @NoInterruption@ : There is no interruption to the environment or application availability.
---
---
---     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.
---
---
---     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
---
---
--- * 'defaultValue' - The default value for this configuration option.
--- * 'valueType' - An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
---
---
---     * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.
---
---
---     * @List@ : Values for this option are multiple selections from the possible values.
---
---
---     * @Boolean@ : Values for this option are either @true@ or @false@ .
---
---
---     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
---
---
--- * 'minValue' - If specified, the configuration option must be a numeric value greater than this value.
+-- | Creates a 'ConfigurationOptionDescription' value with any optional fields omitted.
 mkConfigurationOptionDescription ::
   ConfigurationOptionDescription
 mkConfigurationOptionDescription =
   ConfigurationOptionDescription'
-    { maxValue = Lude.Nothing,
-      regex = Lude.Nothing,
-      maxLength = Lude.Nothing,
-      userDefined = Lude.Nothing,
-      namespace = Lude.Nothing,
-      valueOptions = Lude.Nothing,
-      name = Lude.Nothing,
-      changeSeverity = Lude.Nothing,
-      defaultValue = Lude.Nothing,
-      valueType = Lude.Nothing,
-      minValue = Lude.Nothing
+    { changeSeverity = Core.Nothing,
+      defaultValue = Core.Nothing,
+      maxLength = Core.Nothing,
+      maxValue = Core.Nothing,
+      minValue = Core.Nothing,
+      name = Core.Nothing,
+      namespace = Core.Nothing,
+      regex = Core.Nothing,
+      userDefined = Core.Nothing,
+      valueOptions = Core.Nothing,
+      valueType = Core.Nothing
     }
-
--- | If specified, the configuration option must be a numeric value less than this value.
---
--- /Note:/ Consider using 'maxValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codMaxValue :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Int)
-codMaxValue = Lens.lens (maxValue :: ConfigurationOptionDescription -> Lude.Maybe Lude.Int) (\s a -> s {maxValue = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
-
--- | If specified, the configuration option must be a string value that satisfies this regular expression.
---
--- /Note:/ Consider using 'regex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codRegex :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe OptionRestrictionRegex)
-codRegex = Lens.lens (regex :: ConfigurationOptionDescription -> Lude.Maybe OptionRestrictionRegex) (\s a -> s {regex = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codRegex "Use generic-lens or generic-optics with 'regex' instead." #-}
-
--- | If specified, the configuration option must be a string value no longer than this value.
---
--- /Note:/ Consider using 'maxLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codMaxLength :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Int)
-codMaxLength = Lens.lens (maxLength :: ConfigurationOptionDescription -> Lude.Maybe Lude.Int) (\s a -> s {maxLength = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codMaxLength "Use generic-lens or generic-optics with 'maxLength' instead." #-}
-
--- | An indication of whether the user defined this configuration option:
---
---
---     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.
---
---
---     * @false@ : This configuration was not defined by the user.
---
---
--- Constraint: You can remove only @UserDefined@ options from a configuration.
--- Valid Values: @true@ | @false@
---
--- /Note:/ Consider using 'userDefined' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codUserDefined :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Bool)
-codUserDefined = Lens.lens (userDefined :: ConfigurationOptionDescription -> Lude.Maybe Lude.Bool) (\s a -> s {userDefined = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codUserDefined "Use generic-lens or generic-optics with 'userDefined' instead." #-}
-
--- | A unique namespace identifying the option's associated AWS resource.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codNamespace :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Text)
-codNamespace = Lens.lens (namespace :: ConfigurationOptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
--- | If specified, values for the configuration option are selected from this list.
---
--- /Note:/ Consider using 'valueOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codValueOptions :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe [Lude.Text])
-codValueOptions = Lens.lens (valueOptions :: ConfigurationOptionDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {valueOptions = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codValueOptions "Use generic-lens or generic-optics with 'valueOptions' instead." #-}
-
--- | The name of the configuration option.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codName :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Text)
-codName = Lens.lens (name :: ConfigurationOptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An indication of which action is required if the value for this configuration option changes:
 --
@@ -235,16 +134,82 @@ codName = Lens.lens (name :: ConfigurationOptionDescription -> Lude.Maybe Lude.T
 --
 --
 -- /Note:/ Consider using 'changeSeverity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codChangeSeverity :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Text)
-codChangeSeverity = Lens.lens (changeSeverity :: ConfigurationOptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {changeSeverity = a} :: ConfigurationOptionDescription)
+codChangeSeverity :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Types.ConfigurationOptionSeverity)
+codChangeSeverity = Lens.field @"changeSeverity"
 {-# DEPRECATED codChangeSeverity "Use generic-lens or generic-optics with 'changeSeverity' instead." #-}
 
 -- | The default value for this configuration option.
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codDefaultValue :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Text)
-codDefaultValue = Lens.lens (defaultValue :: ConfigurationOptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: ConfigurationOptionDescription)
+codDefaultValue :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Types.DefaultValue)
+codDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED codDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
+
+-- | If specified, the configuration option must be a string value no longer than this value.
+--
+-- /Note:/ Consider using 'maxLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codMaxLength :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Int)
+codMaxLength = Lens.field @"maxLength"
+{-# DEPRECATED codMaxLength "Use generic-lens or generic-optics with 'maxLength' instead." #-}
+
+-- | If specified, the configuration option must be a numeric value less than this value.
+--
+-- /Note:/ Consider using 'maxValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codMaxValue :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Int)
+codMaxValue = Lens.field @"maxValue"
+{-# DEPRECATED codMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
+
+-- | If specified, the configuration option must be a numeric value greater than this value.
+--
+-- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codMinValue :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Int)
+codMinValue = Lens.field @"minValue"
+{-# DEPRECATED codMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
+
+-- | The name of the configuration option.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codName :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Types.ConfigurationOptionName)
+codName = Lens.field @"name"
+{-# DEPRECATED codName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A unique namespace identifying the option's associated AWS resource.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codNamespace :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Types.OptionNamespace)
+codNamespace = Lens.field @"namespace"
+{-# DEPRECATED codNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+
+-- | If specified, the configuration option must be a string value that satisfies this regular expression.
+--
+-- /Note:/ Consider using 'regex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codRegex :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Types.OptionRestrictionRegex)
+codRegex = Lens.field @"regex"
+{-# DEPRECATED codRegex "Use generic-lens or generic-optics with 'regex' instead." #-}
+
+-- | An indication of whether the user defined this configuration option:
+--
+--
+--     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.
+--
+--
+--     * @false@ : This configuration was not defined by the user.
+--
+--
+-- Constraint: You can remove only @UserDefined@ options from a configuration.
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'userDefined' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codUserDefined :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Bool)
+codUserDefined = Lens.field @"userDefined"
+{-# DEPRECATED codUserDefined "Use generic-lens or generic-optics with 'userDefined' instead." #-}
+
+-- | If specified, values for the configuration option are selected from this list.
+--
+-- /Note:/ Consider using 'valueOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+codValueOptions :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe [Types.ConfigurationOptionPossibleValue])
+codValueOptions = Lens.field @"valueOptions"
+{-# DEPRECATED codValueOptions "Use generic-lens or generic-optics with 'valueOptions' instead." #-}
 
 -- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
 --
@@ -263,30 +228,21 @@ codDefaultValue = Lens.lens (defaultValue :: ConfigurationOptionDescription -> L
 --
 --
 -- /Note:/ Consider using 'valueType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codValueType :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe ConfigurationOptionValueType)
-codValueType = Lens.lens (valueType :: ConfigurationOptionDescription -> Lude.Maybe ConfigurationOptionValueType) (\s a -> s {valueType = a} :: ConfigurationOptionDescription)
+codValueType :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Types.ConfigurationOptionValueType)
+codValueType = Lens.field @"valueType"
 {-# DEPRECATED codValueType "Use generic-lens or generic-optics with 'valueType' instead." #-}
 
--- | If specified, the configuration option must be a numeric value greater than this value.
---
--- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-codMinValue :: Lens.Lens' ConfigurationOptionDescription (Lude.Maybe Lude.Int)
-codMinValue = Lens.lens (minValue :: ConfigurationOptionDescription -> Lude.Maybe Lude.Int) (\s a -> s {minValue = a} :: ConfigurationOptionDescription)
-{-# DEPRECATED codMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
-
-instance Lude.FromXML ConfigurationOptionDescription where
+instance Core.FromXML ConfigurationOptionDescription where
   parseXML x =
     ConfigurationOptionDescription'
-      Lude.<$> (x Lude..@? "MaxValue")
-      Lude.<*> (x Lude..@? "Regex")
-      Lude.<*> (x Lude..@? "MaxLength")
-      Lude.<*> (x Lude..@? "UserDefined")
-      Lude.<*> (x Lude..@? "Namespace")
-      Lude.<*> ( x Lude..@? "ValueOptions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "Name")
-      Lude.<*> (x Lude..@? "ChangeSeverity")
-      Lude.<*> (x Lude..@? "DefaultValue")
-      Lude.<*> (x Lude..@? "ValueType")
-      Lude.<*> (x Lude..@? "MinValue")
+      Core.<$> (x Core..@? "ChangeSeverity")
+      Core.<*> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "MaxLength")
+      Core.<*> (x Core..@? "MaxValue")
+      Core.<*> (x Core..@? "MinValue")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> (x Core..@? "Namespace")
+      Core.<*> (x Core..@? "Regex")
+      Core.<*> (x Core..@? "UserDefined")
+      Core.<*> (x Core..@? "ValueOptions" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "ValueType")

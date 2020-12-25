@@ -22,148 +22,136 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     mkDescribeBandwidthRateLimit,
 
     -- ** Request lenses
-    dbrlfGatewayARN,
+    dbrlGatewayARN,
 
     -- * Destructuring the response
     DescribeBandwidthRateLimitResponse (..),
     mkDescribeBandwidthRateLimitResponse,
 
     -- ** Response lenses
-    dbrlrsGatewayARN,
-    dbrlrsAverageUploadRateLimitInBitsPerSec,
-    dbrlrsAverageDownloadRateLimitInBitsPerSec,
-    dbrlrsResponseStatus,
+    dbrlrrsAverageDownloadRateLimitInBitsPerSec,
+    dbrlrrsAverageUploadRateLimitInBitsPerSec,
+    dbrlrrsGatewayARN,
+    dbrlrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway.
 --
 -- /See:/ 'mkDescribeBandwidthRateLimit' smart constructor.
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBandwidthRateLimit' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DescribeBandwidthRateLimit' value with any optional fields omitted.
 mkDescribeBandwidthRateLimit ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DescribeBandwidthRateLimit
-mkDescribeBandwidthRateLimit pGatewayARN_ =
-  DescribeBandwidthRateLimit' {gatewayARN = pGatewayARN_}
+mkDescribeBandwidthRateLimit gatewayARN =
+  DescribeBandwidthRateLimit' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlfGatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Lude.Text
-dbrlfGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimit -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimit)
-{-# DEPRECATED dbrlfGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dbrlGatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Types.GatewayARN
+dbrlGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dbrlGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DescribeBandwidthRateLimit where
+instance Core.FromJSON DescribeBandwidthRateLimit where
+  toJSON DescribeBandwidthRateLimit {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DescribeBandwidthRateLimit where
   type
     Rs DescribeBandwidthRateLimit =
       DescribeBandwidthRateLimitResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.DescribeBandwidthRateLimit"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitResponse'
-            Lude.<$> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "AverageUploadRateLimitInBitsPerSec")
-            Lude.<*> (x Lude..?> "AverageDownloadRateLimitInBitsPerSec")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AverageDownloadRateLimitInBitsPerSec")
+            Core.<*> (x Core..:? "AverageUploadRateLimitInBitsPerSec")
+            Core.<*> (x Core..:? "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeBandwidthRateLimit where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimit" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBandwidthRateLimit where
-  toJSON DescribeBandwidthRateLimit' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DescribeBandwidthRateLimit where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBandwidthRateLimit where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'mkDescribeBandwidthRateLimitResponse' smart constructor.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { -- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
+    averageDownloadRateLimitInBitsPerSec :: Core.Maybe Core.Natural,
     -- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
-    averageUploadRateLimitInBitsPerSec :: Lude.Maybe Lude.Natural,
-    -- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
-    averageDownloadRateLimitInBitsPerSec :: Lude.Maybe Lude.Natural,
+    averageUploadRateLimitInBitsPerSec :: Core.Maybe Core.Natural,
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBandwidthRateLimitResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
--- * 'averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBandwidthRateLimitResponse' value with any optional fields omitted.
 mkDescribeBandwidthRateLimitResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBandwidthRateLimitResponse
-mkDescribeBandwidthRateLimitResponse pResponseStatus_ =
+mkDescribeBandwidthRateLimitResponse responseStatus =
   DescribeBandwidthRateLimitResponse'
-    { gatewayARN = Lude.Nothing,
-      averageUploadRateLimitInBitsPerSec = Lude.Nothing,
-      averageDownloadRateLimitInBitsPerSec = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { averageDownloadRateLimitInBitsPerSec =
+        Core.Nothing,
+      averageUploadRateLimitInBitsPerSec = Core.Nothing,
+      gatewayARN = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlrsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Lude.Maybe Lude.Text)
-dbrlrsGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimitResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitResponse)
-{-# DEPRECATED dbrlrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
---
--- /Note:/ Consider using 'averageUploadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlrsAverageUploadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Lude.Maybe Lude.Natural)
-dbrlrsAverageUploadRateLimitInBitsPerSec = Lens.lens (averageUploadRateLimitInBitsPerSec :: DescribeBandwidthRateLimitResponse -> Lude.Maybe Lude.Natural) (\s a -> s {averageUploadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
-{-# DEPRECATED dbrlrsAverageUploadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageUploadRateLimitInBitsPerSec' instead." #-}
 
 -- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
 --
 -- /Note:/ Consider using 'averageDownloadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Lude.Maybe Lude.Natural)
-dbrlrsAverageDownloadRateLimitInBitsPerSec = Lens.lens (averageDownloadRateLimitInBitsPerSec :: DescribeBandwidthRateLimitResponse -> Lude.Maybe Lude.Natural) (\s a -> s {averageDownloadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
-{-# DEPRECATED dbrlrsAverageDownloadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageDownloadRateLimitInBitsPerSec' instead." #-}
+dbrlrrsAverageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Core.Maybe Core.Natural)
+dbrlrrsAverageDownloadRateLimitInBitsPerSec = Lens.field @"averageDownloadRateLimitInBitsPerSec"
+{-# DEPRECATED dbrlrrsAverageDownloadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageDownloadRateLimitInBitsPerSec' instead." #-}
+
+-- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
+--
+-- /Note:/ Consider using 'averageUploadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlrrsAverageUploadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Core.Maybe Core.Natural)
+dbrlrrsAverageUploadRateLimitInBitsPerSec = Lens.field @"averageUploadRateLimitInBitsPerSec"
+{-# DEPRECATED dbrlrrsAverageUploadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageUploadRateLimitInBitsPerSec' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlrrsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Core.Maybe Types.GatewayARN)
+dbrlrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dbrlrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlrsResponseStatus :: Lens.Lens' DescribeBandwidthRateLimitResponse Lude.Int
-dbrlrsResponseStatus = Lens.lens (responseStatus :: DescribeBandwidthRateLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBandwidthRateLimitResponse)
-{-# DEPRECATED dbrlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrlrrsResponseStatus :: Lens.Lens' DescribeBandwidthRateLimitResponse Core.Int
+dbrlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

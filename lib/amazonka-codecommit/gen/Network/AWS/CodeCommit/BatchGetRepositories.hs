@@ -27,126 +27,114 @@ module Network.AWS.CodeCommit.BatchGetRepositories
     mkBatchGetRepositoriesResponse,
 
     -- ** Response lenses
-    bgrrsRepositories,
-    bgrrsRepositoriesNotFound,
-    bgrrsResponseStatus,
+    bgrrrsRepositories,
+    bgrrrsRepositoriesNotFound,
+    bgrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a batch get repositories operation.
 --
 -- /See:/ 'mkBatchGetRepositories' smart constructor.
 newtype BatchGetRepositories = BatchGetRepositories'
   { -- | The names of the repositories to get information about.
-    repositoryNames :: [Lude.Text]
+    repositoryNames :: [Types.RepositoryName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetRepositories' with the minimum fields required to make a request.
---
--- * 'repositoryNames' - The names of the repositories to get information about.
+-- | Creates a 'BatchGetRepositories' value with any optional fields omitted.
 mkBatchGetRepositories ::
   BatchGetRepositories
 mkBatchGetRepositories =
-  BatchGetRepositories' {repositoryNames = Lude.mempty}
+  BatchGetRepositories' {repositoryNames = Core.mempty}
 
 -- | The names of the repositories to get information about.
 --
 -- /Note:/ Consider using 'repositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrRepositoryNames :: Lens.Lens' BatchGetRepositories [Lude.Text]
-bgrRepositoryNames = Lens.lens (repositoryNames :: BatchGetRepositories -> [Lude.Text]) (\s a -> s {repositoryNames = a} :: BatchGetRepositories)
+bgrRepositoryNames :: Lens.Lens' BatchGetRepositories [Types.RepositoryName]
+bgrRepositoryNames = Lens.field @"repositoryNames"
 {-# DEPRECATED bgrRepositoryNames "Use generic-lens or generic-optics with 'repositoryNames' instead." #-}
 
-instance Lude.AWSRequest BatchGetRepositories where
+instance Core.FromJSON BatchGetRepositories where
+  toJSON BatchGetRepositories {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("repositoryNames" Core..= repositoryNames)]
+      )
+
+instance Core.AWSRequest BatchGetRepositories where
   type Rs BatchGetRepositories = BatchGetRepositoriesResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.BatchGetRepositories")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetRepositoriesResponse'
-            Lude.<$> (x Lude..?> "repositories" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "repositoriesNotFound" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "repositories")
+            Core.<*> (x Core..:? "repositoriesNotFound")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetRepositories where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.BatchGetRepositories" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetRepositories where
-  toJSON BatchGetRepositories' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("repositoryNames" Lude..= repositoryNames)]
-      )
-
-instance Lude.ToPath BatchGetRepositories where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetRepositories where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a batch get repositories operation.
 --
 -- /See:/ 'mkBatchGetRepositoriesResponse' smart constructor.
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
   { -- | A list of repositories returned by the batch get repositories operation.
-    repositories :: Lude.Maybe [RepositoryMetadata],
+    repositories :: Core.Maybe [Types.RepositoryMetadata],
     -- | Returns a list of repository names for which information could not be found.
-    repositoriesNotFound :: Lude.Maybe [Lude.Text],
+    repositoriesNotFound :: Core.Maybe [Types.RepositoryName],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetRepositoriesResponse' with the minimum fields required to make a request.
---
--- * 'repositories' - A list of repositories returned by the batch get repositories operation.
--- * 'repositoriesNotFound' - Returns a list of repository names for which information could not be found.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetRepositoriesResponse' value with any optional fields omitted.
 mkBatchGetRepositoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetRepositoriesResponse
-mkBatchGetRepositoriesResponse pResponseStatus_ =
+mkBatchGetRepositoriesResponse responseStatus =
   BatchGetRepositoriesResponse'
-    { repositories = Lude.Nothing,
-      repositoriesNotFound = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { repositories = Core.Nothing,
+      repositoriesNotFound = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of repositories returned by the batch get repositories operation.
 --
 -- /Note:/ Consider using 'repositories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrrsRepositories :: Lens.Lens' BatchGetRepositoriesResponse (Lude.Maybe [RepositoryMetadata])
-bgrrsRepositories = Lens.lens (repositories :: BatchGetRepositoriesResponse -> Lude.Maybe [RepositoryMetadata]) (\s a -> s {repositories = a} :: BatchGetRepositoriesResponse)
-{-# DEPRECATED bgrrsRepositories "Use generic-lens or generic-optics with 'repositories' instead." #-}
+bgrrrsRepositories :: Lens.Lens' BatchGetRepositoriesResponse (Core.Maybe [Types.RepositoryMetadata])
+bgrrrsRepositories = Lens.field @"repositories"
+{-# DEPRECATED bgrrrsRepositories "Use generic-lens or generic-optics with 'repositories' instead." #-}
 
 -- | Returns a list of repository names for which information could not be found.
 --
 -- /Note:/ Consider using 'repositoriesNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrrsRepositoriesNotFound :: Lens.Lens' BatchGetRepositoriesResponse (Lude.Maybe [Lude.Text])
-bgrrsRepositoriesNotFound = Lens.lens (repositoriesNotFound :: BatchGetRepositoriesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {repositoriesNotFound = a} :: BatchGetRepositoriesResponse)
-{-# DEPRECATED bgrrsRepositoriesNotFound "Use generic-lens or generic-optics with 'repositoriesNotFound' instead." #-}
+bgrrrsRepositoriesNotFound :: Lens.Lens' BatchGetRepositoriesResponse (Core.Maybe [Types.RepositoryName])
+bgrrrsRepositoriesNotFound = Lens.field @"repositoriesNotFound"
+{-# DEPRECATED bgrrrsRepositoriesNotFound "Use generic-lens or generic-optics with 'repositoriesNotFound' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrrsResponseStatus :: Lens.Lens' BatchGetRepositoriesResponse Lude.Int
-bgrrsResponseStatus = Lens.lens (responseStatus :: BatchGetRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetRepositoriesResponse)
-{-# DEPRECATED bgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgrrrsResponseStatus :: Lens.Lens' BatchGetRepositoriesResponse Core.Int
+bgrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

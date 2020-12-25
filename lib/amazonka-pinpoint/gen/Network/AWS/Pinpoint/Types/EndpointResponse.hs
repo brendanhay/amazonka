@@ -17,237 +17,217 @@ module Network.AWS.Pinpoint.Types.EndpointResponse
     mkEndpointResponse,
 
     -- * Lenses
-    efRequestId,
-    efMetrics,
-    efLocation,
-    efDemographic,
-    efCohortId,
-    efAddress,
-    efEffectiveDate,
-    efUser,
-    efApplicationId,
-    efAttributes,
-    efEndpointStatus,
-    efOptOut,
-    efId,
-    efCreationDate,
-    efChannelType,
+    erAddress,
+    erApplicationId,
+    erAttributes,
+    erChannelType,
+    erCohortId,
+    erCreationDate,
+    erDemographic,
+    erEffectiveDate,
+    erEndpointStatus,
+    erId,
+    erLocation,
+    erMetrics,
+    erOptOut,
+    erRequestId,
+    erUser,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ChannelType
-import Network.AWS.Pinpoint.Types.EndpointDemographic
-import Network.AWS.Pinpoint.Types.EndpointLocation
-import Network.AWS.Pinpoint.Types.EndpointUser
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ChannelType as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointDemographic as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointLocation as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointUser as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the channel type and other settings for an endpoint.
 --
 -- /See:/ 'mkEndpointResponse' smart constructor.
 data EndpointResponse = EndpointResponse'
-  { -- | The unique identifier for the most recent request to update the endpoint.
-    requestId :: Lude.Maybe Lude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
-    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
-    -- | The geographic information for the endpoint.
-    location :: Lude.Maybe EndpointLocation,
-    -- | The demographic information for the endpoint, such as the time zone and platform.
-    demographic :: Lude.Maybe EndpointDemographic,
-    -- | A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.
-    cohortId :: Lude.Maybe Lude.Text,
-    -- | The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For example, the address for a push-notification channel is typically the token provided by a push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. The address for the SMS channel is a phone number in E.164 format, such as +12065550100. The address for the email channel is an email address.
-    address :: Lude.Maybe Lude.Text,
-    -- | The date and time, in ISO 8601 format, when the endpoint was last updated.
-    effectiveDate :: Lude.Maybe Lude.Text,
-    -- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
-    user :: Lude.Maybe EndpointUser,
+  { -- | The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For example, the address for a push-notification channel is typically the token provided by a push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. The address for the SMS channel is a phone number in E.164 format, such as +12065550100. The address for the email channel is an email address.
+    address :: Core.Maybe Core.Text,
     -- | The unique identifier for the application that's associated with the endpoint.
-    applicationId :: Lude.Maybe Lude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    attributes :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    -- | The channel that's used when sending messages or push notifications to the endpoint.
+    channelType :: Core.Maybe Types.ChannelType,
+    -- | A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.
+    cohortId :: Core.Maybe Core.Text,
+    -- | The date and time, in ISO 8601 format, when the endpoint was created.
+    creationDate :: Core.Maybe Core.Text,
+    -- | The demographic information for the endpoint, such as the time zone and platform.
+    demographic :: Core.Maybe Types.EndpointDemographic,
+    -- | The date and time, in ISO 8601 format, when the endpoint was last updated.
+    effectiveDate :: Core.Maybe Core.Text,
     -- | Specifies whether messages or push notifications are sent to the endpoint. Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
     --
     -- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
-    endpointStatus :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
-    optOut :: Lude.Maybe Lude.Text,
+    endpointStatus :: Core.Maybe Core.Text,
     -- | The unique identifier that you assigned to the endpoint. The identifier should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint identifiers that are associated with the application.
-    id :: Lude.Maybe Lude.Text,
-    -- | The date and time, in ISO 8601 format, when the endpoint was created.
-    creationDate :: Lude.Maybe Lude.Text,
-    -- | The channel that's used when sending messages or push notifications to the endpoint.
-    channelType :: Lude.Maybe ChannelType
+    id :: Core.Maybe Core.Text,
+    -- | The geographic information for the endpoint.
+    location :: Core.Maybe Types.EndpointLocation,
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
+    metrics :: Core.Maybe (Core.HashMap Core.Text Core.Double),
+    -- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
+    optOut :: Core.Maybe Core.Text,
+    -- | The unique identifier for the most recent request to update the endpoint.
+    requestId :: Core.Maybe Core.Text,
+    -- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
+    user :: Core.Maybe Types.EndpointUser
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointResponse' with the minimum fields required to make a request.
---
--- * 'requestId' - The unique identifier for the most recent request to update the endpoint.
--- * 'metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
--- * 'location' - The geographic information for the endpoint.
--- * 'demographic' - The demographic information for the endpoint, such as the time zone and platform.
--- * 'cohortId' - A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.
--- * 'address' - The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For example, the address for a push-notification channel is typically the token provided by a push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. The address for the SMS channel is a phone number in E.164 format, such as +12065550100. The address for the email channel is an email address.
--- * 'effectiveDate' - The date and time, in ISO 8601 format, when the endpoint was last updated.
--- * 'user' - One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
--- * 'applicationId' - The unique identifier for the application that's associated with the endpoint.
--- * 'attributes' - One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments.
--- * 'endpointStatus' - Specifies whether messages or push notifications are sent to the endpoint. Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
---
--- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
--- * 'optOut' - Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
--- * 'id' - The unique identifier that you assigned to the endpoint. The identifier should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint identifiers that are associated with the application.
--- * 'creationDate' - The date and time, in ISO 8601 format, when the endpoint was created.
--- * 'channelType' - The channel that's used when sending messages or push notifications to the endpoint.
+-- | Creates a 'EndpointResponse' value with any optional fields omitted.
 mkEndpointResponse ::
   EndpointResponse
 mkEndpointResponse =
   EndpointResponse'
-    { requestId = Lude.Nothing,
-      metrics = Lude.Nothing,
-      location = Lude.Nothing,
-      demographic = Lude.Nothing,
-      cohortId = Lude.Nothing,
-      address = Lude.Nothing,
-      effectiveDate = Lude.Nothing,
-      user = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      attributes = Lude.Nothing,
-      endpointStatus = Lude.Nothing,
-      optOut = Lude.Nothing,
-      id = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      channelType = Lude.Nothing
+    { address = Core.Nothing,
+      applicationId = Core.Nothing,
+      attributes = Core.Nothing,
+      channelType = Core.Nothing,
+      cohortId = Core.Nothing,
+      creationDate = Core.Nothing,
+      demographic = Core.Nothing,
+      effectiveDate = Core.Nothing,
+      endpointStatus = Core.Nothing,
+      id = Core.Nothing,
+      location = Core.Nothing,
+      metrics = Core.Nothing,
+      optOut = Core.Nothing,
+      requestId = Core.Nothing,
+      user = Core.Nothing
     }
-
--- | The unique identifier for the most recent request to update the endpoint.
---
--- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efRequestId :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efRequestId = Lens.lens (requestId :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: EndpointResponse)
-{-# DEPRECATED efRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efMetrics :: Lens.Lens' EndpointResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
-efMetrics = Lens.lens (metrics :: EndpointResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {metrics = a} :: EndpointResponse)
-{-# DEPRECATED efMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
-
--- | The geographic information for the endpoint.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efLocation :: Lens.Lens' EndpointResponse (Lude.Maybe EndpointLocation)
-efLocation = Lens.lens (location :: EndpointResponse -> Lude.Maybe EndpointLocation) (\s a -> s {location = a} :: EndpointResponse)
-{-# DEPRECATED efLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The demographic information for the endpoint, such as the time zone and platform.
---
--- /Note:/ Consider using 'demographic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efDemographic :: Lens.Lens' EndpointResponse (Lude.Maybe EndpointDemographic)
-efDemographic = Lens.lens (demographic :: EndpointResponse -> Lude.Maybe EndpointDemographic) (\s a -> s {demographic = a} :: EndpointResponse)
-{-# DEPRECATED efDemographic "Use generic-lens or generic-optics with 'demographic' instead." #-}
-
--- | A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.
---
--- /Note:/ Consider using 'cohortId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efCohortId :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efCohortId = Lens.lens (cohortId :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {cohortId = a} :: EndpointResponse)
-{-# DEPRECATED efCohortId "Use generic-lens or generic-optics with 'cohortId' instead." #-}
 
 -- | The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For example, the address for a push-notification channel is typically the token provided by a push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. The address for the SMS channel is a phone number in E.164 format, such as +12065550100. The address for the email channel is an email address.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efAddress :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efAddress = Lens.lens (address :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: EndpointResponse)
-{-# DEPRECATED efAddress "Use generic-lens or generic-optics with 'address' instead." #-}
-
--- | The date and time, in ISO 8601 format, when the endpoint was last updated.
---
--- /Note:/ Consider using 'effectiveDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efEffectiveDate :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efEffectiveDate = Lens.lens (effectiveDate :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {effectiveDate = a} :: EndpointResponse)
-{-# DEPRECATED efEffectiveDate "Use generic-lens or generic-optics with 'effectiveDate' instead." #-}
-
--- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
---
--- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efUser :: Lens.Lens' EndpointResponse (Lude.Maybe EndpointUser)
-efUser = Lens.lens (user :: EndpointResponse -> Lude.Maybe EndpointUser) (\s a -> s {user = a} :: EndpointResponse)
-{-# DEPRECATED efUser "Use generic-lens or generic-optics with 'user' instead." #-}
+erAddress :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erAddress = Lens.field @"address"
+{-# DEPRECATED erAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The unique identifier for the application that's associated with the endpoint.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efApplicationId :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efApplicationId = Lens.lens (applicationId :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: EndpointResponse)
-{-# DEPRECATED efApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+erApplicationId :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED erApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efAttributes :: Lens.Lens' EndpointResponse (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-efAttributes = Lens.lens (attributes :: EndpointResponse -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {attributes = a} :: EndpointResponse)
-{-# DEPRECATED efAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+erAttributes :: Lens.Lens' EndpointResponse (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+erAttributes = Lens.field @"attributes"
+{-# DEPRECATED erAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The channel that's used when sending messages or push notifications to the endpoint.
+--
+-- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erChannelType :: Lens.Lens' EndpointResponse (Core.Maybe Types.ChannelType)
+erChannelType = Lens.field @"channelType"
+{-# DEPRECATED erChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
+
+-- | A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.
+--
+-- /Note:/ Consider using 'cohortId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erCohortId :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erCohortId = Lens.field @"cohortId"
+{-# DEPRECATED erCohortId "Use generic-lens or generic-optics with 'cohortId' instead." #-}
+
+-- | The date and time, in ISO 8601 format, when the endpoint was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erCreationDate :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED erCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The demographic information for the endpoint, such as the time zone and platform.
+--
+-- /Note:/ Consider using 'demographic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erDemographic :: Lens.Lens' EndpointResponse (Core.Maybe Types.EndpointDemographic)
+erDemographic = Lens.field @"demographic"
+{-# DEPRECATED erDemographic "Use generic-lens or generic-optics with 'demographic' instead." #-}
+
+-- | The date and time, in ISO 8601 format, when the endpoint was last updated.
+--
+-- /Note:/ Consider using 'effectiveDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erEffectiveDate :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erEffectiveDate = Lens.field @"effectiveDate"
+{-# DEPRECATED erEffectiveDate "Use generic-lens or generic-optics with 'effectiveDate' instead." #-}
 
 -- | Specifies whether messages or push notifications are sent to the endpoint. Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
 --
 -- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
 --
 -- /Note:/ Consider using 'endpointStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efEndpointStatus :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efEndpointStatus = Lens.lens (endpointStatus :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {endpointStatus = a} :: EndpointResponse)
-{-# DEPRECATED efEndpointStatus "Use generic-lens or generic-optics with 'endpointStatus' instead." #-}
-
--- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
---
--- /Note:/ Consider using 'optOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efOptOut :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efOptOut = Lens.lens (optOut :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {optOut = a} :: EndpointResponse)
-{-# DEPRECATED efOptOut "Use generic-lens or generic-optics with 'optOut' instead." #-}
+erEndpointStatus :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erEndpointStatus = Lens.field @"endpointStatus"
+{-# DEPRECATED erEndpointStatus "Use generic-lens or generic-optics with 'endpointStatus' instead." #-}
 
 -- | The unique identifier that you assigned to the endpoint. The identifier should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint identifiers that are associated with the application.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efId :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efId = Lens.lens (id :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: EndpointResponse)
-{-# DEPRECATED efId "Use generic-lens or generic-optics with 'id' instead." #-}
+erId :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erId = Lens.field @"id"
+{-# DEPRECATED erId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The date and time, in ISO 8601 format, when the endpoint was created.
+-- | The geographic information for the endpoint.
 --
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efCreationDate :: Lens.Lens' EndpointResponse (Lude.Maybe Lude.Text)
-efCreationDate = Lens.lens (creationDate :: EndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: EndpointResponse)
-{-# DEPRECATED efCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erLocation :: Lens.Lens' EndpointResponse (Core.Maybe Types.EndpointLocation)
+erLocation = Lens.field @"location"
+{-# DEPRECATED erLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | The channel that's used when sending messages or push notifications to the endpoint.
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
 --
--- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efChannelType :: Lens.Lens' EndpointResponse (Lude.Maybe ChannelType)
-efChannelType = Lens.lens (channelType :: EndpointResponse -> Lude.Maybe ChannelType) (\s a -> s {channelType = a} :: EndpointResponse)
-{-# DEPRECATED efChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erMetrics :: Lens.Lens' EndpointResponse (Core.Maybe (Core.HashMap Core.Text Core.Double))
+erMetrics = Lens.field @"metrics"
+{-# DEPRECATED erMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
-instance Lude.FromJSON EndpointResponse where
+-- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
+--
+-- /Note:/ Consider using 'optOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erOptOut :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erOptOut = Lens.field @"optOut"
+{-# DEPRECATED erOptOut "Use generic-lens or generic-optics with 'optOut' instead." #-}
+
+-- | The unique identifier for the most recent request to update the endpoint.
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erRequestId :: Lens.Lens' EndpointResponse (Core.Maybe Core.Text)
+erRequestId = Lens.field @"requestId"
+{-# DEPRECATED erRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
+
+-- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
+--
+-- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erUser :: Lens.Lens' EndpointResponse (Core.Maybe Types.EndpointUser)
+erUser = Lens.field @"user"
+{-# DEPRECATED erUser "Use generic-lens or generic-optics with 'user' instead." #-}
+
+instance Core.FromJSON EndpointResponse where
   parseJSON =
-    Lude.withObject
-      "EndpointResponse"
-      ( \x ->
-          EndpointResponse'
-            Lude.<$> (x Lude..:? "RequestId")
-            Lude.<*> (x Lude..:? "Metrics" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Location")
-            Lude.<*> (x Lude..:? "Demographic")
-            Lude.<*> (x Lude..:? "CohortId")
-            Lude.<*> (x Lude..:? "Address")
-            Lude.<*> (x Lude..:? "EffectiveDate")
-            Lude.<*> (x Lude..:? "User")
-            Lude.<*> (x Lude..:? "ApplicationId")
-            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "EndpointStatus")
-            Lude.<*> (x Lude..:? "OptOut")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "ChannelType")
-      )
+    Core.withObject "EndpointResponse" Core.$
+      \x ->
+        EndpointResponse'
+          Core.<$> (x Core..:? "Address")
+          Core.<*> (x Core..:? "ApplicationId")
+          Core.<*> (x Core..:? "Attributes")
+          Core.<*> (x Core..:? "ChannelType")
+          Core.<*> (x Core..:? "CohortId")
+          Core.<*> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "Demographic")
+          Core.<*> (x Core..:? "EffectiveDate")
+          Core.<*> (x Core..:? "EndpointStatus")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Location")
+          Core.<*> (x Core..:? "Metrics")
+          Core.<*> (x Core..:? "OptOut")
+          Core.<*> (x Core..:? "RequestId")
+          Core.<*> (x Core..:? "User")

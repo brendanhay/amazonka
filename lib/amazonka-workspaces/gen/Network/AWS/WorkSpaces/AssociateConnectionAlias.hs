@@ -20,137 +20,122 @@ module Network.AWS.WorkSpaces.AssociateConnectionAlias
     mkAssociateConnectionAlias,
 
     -- ** Request lenses
-    acaResourceId,
     acaAliasId,
+    acaResourceId,
 
     -- * Destructuring the response
     AssociateConnectionAliasResponse (..),
     mkAssociateConnectionAliasResponse,
 
     -- ** Response lenses
-    acarsConnectionIdentifier,
-    acarsResponseStatus,
+    acarrsConnectionIdentifier,
+    acarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkAssociateConnectionAlias' smart constructor.
 data AssociateConnectionAlias = AssociateConnectionAlias'
-  { -- | The identifier of the directory to associate the connection alias with.
-    resourceId :: Lude.Text,
-    -- | The identifier of the connection alias.
-    aliasId :: Lude.Text
+  { -- | The identifier of the connection alias.
+    aliasId :: Types.AliasId,
+    -- | The identifier of the directory to associate the connection alias with.
+    resourceId :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateConnectionAlias' with the minimum fields required to make a request.
---
--- * 'resourceId' - The identifier of the directory to associate the connection alias with.
--- * 'aliasId' - The identifier of the connection alias.
+-- | Creates a 'AssociateConnectionAlias' value with any optional fields omitted.
 mkAssociateConnectionAlias ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'aliasId'
-  Lude.Text ->
+  Types.AliasId ->
+  -- | 'resourceId'
+  Types.NonEmptyString ->
   AssociateConnectionAlias
-mkAssociateConnectionAlias pResourceId_ pAliasId_ =
-  AssociateConnectionAlias'
-    { resourceId = pResourceId_,
-      aliasId = pAliasId_
-    }
-
--- | The identifier of the directory to associate the connection alias with.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaResourceId :: Lens.Lens' AssociateConnectionAlias Lude.Text
-acaResourceId = Lens.lens (resourceId :: AssociateConnectionAlias -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateConnectionAlias)
-{-# DEPRECATED acaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+mkAssociateConnectionAlias aliasId resourceId =
+  AssociateConnectionAlias' {aliasId, resourceId}
 
 -- | The identifier of the connection alias.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaAliasId :: Lens.Lens' AssociateConnectionAlias Lude.Text
-acaAliasId = Lens.lens (aliasId :: AssociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: AssociateConnectionAlias)
+acaAliasId :: Lens.Lens' AssociateConnectionAlias Types.AliasId
+acaAliasId = Lens.field @"aliasId"
 {-# DEPRECATED acaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance Lude.AWSRequest AssociateConnectionAlias where
+-- | The identifier of the directory to associate the connection alias with.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acaResourceId :: Lens.Lens' AssociateConnectionAlias Types.NonEmptyString
+acaResourceId = Lens.field @"resourceId"
+{-# DEPRECATED acaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+instance Core.FromJSON AssociateConnectionAlias where
+  toJSON AssociateConnectionAlias {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasId" Core..= aliasId),
+            Core.Just ("ResourceId" Core..= resourceId)
+          ]
+      )
+
+instance Core.AWSRequest AssociateConnectionAlias where
   type Rs AssociateConnectionAlias = AssociateConnectionAliasResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.AssociateConnectionAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AssociateConnectionAliasResponse'
-            Lude.<$> (x Lude..?> "ConnectionIdentifier")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConnectionIdentifier")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateConnectionAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.AssociateConnectionAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateConnectionAlias where
-  toJSON AssociateConnectionAlias' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("AliasId" Lude..= aliasId)
-          ]
-      )
-
-instance Lude.ToPath AssociateConnectionAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateConnectionAlias where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateConnectionAliasResponse' smart constructor.
 data AssociateConnectionAliasResponse = AssociateConnectionAliasResponse'
   { -- | The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
-    connectionIdentifier :: Lude.Maybe Lude.Text,
+    connectionIdentifier :: Core.Maybe Types.ConnectionIdentifier,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateConnectionAliasResponse' with the minimum fields required to make a request.
---
--- * 'connectionIdentifier' - The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateConnectionAliasResponse' value with any optional fields omitted.
 mkAssociateConnectionAliasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateConnectionAliasResponse
-mkAssociateConnectionAliasResponse pResponseStatus_ =
+mkAssociateConnectionAliasResponse responseStatus =
   AssociateConnectionAliasResponse'
     { connectionIdentifier =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
 --
 -- /Note:/ Consider using 'connectionIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acarsConnectionIdentifier :: Lens.Lens' AssociateConnectionAliasResponse (Lude.Maybe Lude.Text)
-acarsConnectionIdentifier = Lens.lens (connectionIdentifier :: AssociateConnectionAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {connectionIdentifier = a} :: AssociateConnectionAliasResponse)
-{-# DEPRECATED acarsConnectionIdentifier "Use generic-lens or generic-optics with 'connectionIdentifier' instead." #-}
+acarrsConnectionIdentifier :: Lens.Lens' AssociateConnectionAliasResponse (Core.Maybe Types.ConnectionIdentifier)
+acarrsConnectionIdentifier = Lens.field @"connectionIdentifier"
+{-# DEPRECATED acarrsConnectionIdentifier "Use generic-lens or generic-optics with 'connectionIdentifier' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acarsResponseStatus :: Lens.Lens' AssociateConnectionAliasResponse Lude.Int
-acarsResponseStatus = Lens.lens (responseStatus :: AssociateConnectionAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateConnectionAliasResponse)
-{-# DEPRECATED acarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+acarrsResponseStatus :: Lens.Lens' AssociateConnectionAliasResponse Core.Int
+acarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED acarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

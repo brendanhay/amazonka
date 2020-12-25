@@ -26,76 +26,67 @@ module Network.AWS.Shield.CreateSubscription
     mkCreateSubscriptionResponse,
 
     -- ** Response lenses
-    csrsResponseStatus,
+    csrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkCreateSubscription' smart constructor.
 data CreateSubscription = CreateSubscription'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSubscription' with the minimum fields required to make a request.
+-- | Creates a 'CreateSubscription' value with any optional fields omitted.
 mkCreateSubscription ::
   CreateSubscription
 mkCreateSubscription = CreateSubscription'
 
-instance Lude.AWSRequest CreateSubscription where
+instance Core.FromJSON CreateSubscription where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest CreateSubscription where
   type Rs CreateSubscription = CreateSubscriptionResponse
-  request = Req.postJSON shieldService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSShield_20160616.CreateSubscription")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateSubscriptionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateSubscriptionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSubscription where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.CreateSubscription" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSubscription where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath CreateSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSubscription where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSubscriptionResponse' smart constructor.
 newtype CreateSubscriptionResponse = CreateSubscriptionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSubscriptionResponse' value with any optional fields omitted.
 mkCreateSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSubscriptionResponse
-mkCreateSubscriptionResponse pResponseStatus_ =
-  CreateSubscriptionResponse' {responseStatus = pResponseStatus_}
+mkCreateSubscriptionResponse responseStatus =
+  CreateSubscriptionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateSubscriptionResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubscriptionResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CreateSubscriptionResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

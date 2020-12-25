@@ -17,62 +17,55 @@ module Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
     mkElasticsearchVersionStatus,
 
     -- * Lenses
-    evsStatus,
     evsOptions,
+    evsStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.ElasticsearchVersionString as Types
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Status of the Elasticsearch version options for the specified Elasticsearch domain.
 --
 -- /See:/ 'mkElasticsearchVersionStatus' smart constructor.
 data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
-  { -- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
-    status :: OptionStatus,
-    -- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
-    options :: Lude.Text
+  { -- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
+    options :: Types.ElasticsearchVersionString,
+    -- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ElasticsearchVersionStatus' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
--- * 'options' - Specifies the Elasticsearch version for the specified Elasticsearch domain.
+-- | Creates a 'ElasticsearchVersionStatus' value with any optional fields omitted.
 mkElasticsearchVersionStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  Lude.Text ->
+  Types.ElasticsearchVersionString ->
+  -- | 'status'
+  Types.OptionStatus ->
   ElasticsearchVersionStatus
-mkElasticsearchVersionStatus pStatus_ pOptions_ =
-  ElasticsearchVersionStatus'
-    { status = pStatus_,
-      options = pOptions_
-    }
-
--- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evsStatus :: Lens.Lens' ElasticsearchVersionStatus OptionStatus
-evsStatus = Lens.lens (status :: ElasticsearchVersionStatus -> OptionStatus) (\s a -> s {status = a} :: ElasticsearchVersionStatus)
-{-# DEPRECATED evsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkElasticsearchVersionStatus options status =
+  ElasticsearchVersionStatus' {options, status}
 
 -- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evsOptions :: Lens.Lens' ElasticsearchVersionStatus Lude.Text
-evsOptions = Lens.lens (options :: ElasticsearchVersionStatus -> Lude.Text) (\s a -> s {options = a} :: ElasticsearchVersionStatus)
+evsOptions :: Lens.Lens' ElasticsearchVersionStatus Types.ElasticsearchVersionString
+evsOptions = Lens.field @"options"
 {-# DEPRECATED evsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON ElasticsearchVersionStatus where
+-- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evsStatus :: Lens.Lens' ElasticsearchVersionStatus Types.OptionStatus
+evsStatus = Lens.field @"status"
+{-# DEPRECATED evsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON ElasticsearchVersionStatus where
   parseJSON =
-    Lude.withObject
-      "ElasticsearchVersionStatus"
-      ( \x ->
-          ElasticsearchVersionStatus'
-            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
-      )
+    Core.withObject "ElasticsearchVersionStatus" Core.$
+      \x ->
+        ElasticsearchVersionStatus'
+          Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")

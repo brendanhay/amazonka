@@ -35,24 +35,24 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     mkUpdateAutoScalingGroup,
 
     -- ** Request lenses
-    uasgTerminationPolicies,
-    uasgHealthCheckGracePeriod,
-    uasgServiceLinkedRoleARN,
-    uasgNewInstancesProtectedFromScaleIn,
-    uasgVPCZoneIdentifier,
-    uasgMaxInstanceLifetime,
-    uasgDefaultCooldown,
-    uasgMaxSize,
-    uasgAvailabilityZones,
-    uasgDesiredCapacity,
-    uasgMixedInstancesPolicy,
-    uasgMinSize,
     uasgAutoScalingGroupName,
-    uasgLaunchConfigurationName,
-    uasgHealthCheckType,
-    uasgLaunchTemplate,
+    uasgAvailabilityZones,
     uasgCapacityRebalance,
+    uasgDefaultCooldown,
+    uasgDesiredCapacity,
+    uasgHealthCheckGracePeriod,
+    uasgHealthCheckType,
+    uasgLaunchConfigurationName,
+    uasgLaunchTemplate,
+    uasgMaxInstanceLifetime,
+    uasgMaxSize,
+    uasgMinSize,
+    uasgMixedInstancesPolicy,
+    uasgNewInstancesProtectedFromScaleIn,
     uasgPlacementGroup,
+    uasgServiceLinkedRoleARN,
+    uasgTerminationPolicies,
+    uasgVPCZoneIdentifier,
 
     -- * Destructuring the response
     UpdateAutoScalingGroupResponse (..),
@@ -60,279 +60,276 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateAutoScalingGroup' smart constructor.
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-  { -- | A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
-    terminationPolicies :: Lude.Maybe [Lude.Text],
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.AutoScalingGroupName,
+    -- | One or more Availability Zones for the group.
+    availabilityZones :: Core.Maybe (Core.NonEmpty Types.XmlStringMaxLen255),
+    -- | Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
+    capacityRebalance :: Core.Maybe Core.Bool,
+    -- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+    defaultCooldown :: Core.Maybe Core.Int,
+    -- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+    desiredCapacity :: Core.Maybe Core.Int,
     -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
     --
     -- Conditional: Required if you are adding an @ELB@ health check.
-    healthCheckGracePeriod :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
-    serviceLinkedRoleARN :: Lude.Maybe Lude.Text,
-    -- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
-    newInstancesProtectedFromScaleIn :: Lude.Maybe Lude.Bool,
-    -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
-    vpcZoneIdentifier :: Lude.Maybe Lude.Text,
-    -- | The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
-    maxInstanceLifetime :: Lude.Maybe Lude.Int,
-    -- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
-    defaultCooldown :: Lude.Maybe Lude.Int,
-    -- | The maximum size of the Auto Scaling group.
-    maxSize :: Lude.Maybe Lude.Int,
-    -- | One or more Availability Zones for the group.
-    availabilityZones :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
-    desiredCapacity :: Lude.Maybe Lude.Int,
-    -- | An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
-    mixedInstancesPolicy :: Lude.Maybe MixedInstancesPolicy,
-    -- | The minimum size of the Auto Scaling group.
-    minSize :: Lude.Maybe Lude.Int,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
-    -- | The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
-    launchConfigurationName :: Lude.Maybe Lude.Text,
+    healthCheckGracePeriod :: Core.Maybe Core.Int,
     -- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
-    healthCheckType :: Lude.Maybe Lude.Text,
+    healthCheckType :: Core.Maybe Types.HealthCheckType,
+    -- | The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
+    launchConfigurationName :: Core.Maybe Types.LaunchConfigurationName,
     -- | The launch template and version to use to specify the updates. If you specify @LaunchTemplate@ in your update request, you can't specify @LaunchConfigurationName@ or @MixedInstancesPolicy@ .
-    launchTemplate :: Lude.Maybe LaunchTemplateSpecification,
-    -- | Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
-    capacityRebalance :: Lude.Maybe Lude.Bool,
+    launchTemplate :: Core.Maybe Types.LaunchTemplateSpecification,
+    -- | The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
+    maxInstanceLifetime :: Core.Maybe Core.Int,
+    -- | The maximum size of the Auto Scaling group.
+    maxSize :: Core.Maybe Core.Int,
+    -- | The minimum size of the Auto Scaling group.
+    minSize :: Core.Maybe Core.Int,
+    -- | An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
+    mixedInstancesPolicy :: Core.Maybe Types.MixedInstancesPolicy,
+    -- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
+    newInstancesProtectedFromScaleIn :: Core.Maybe Core.Bool,
     -- | The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
-    placementGroup :: Lude.Maybe Lude.Text
+    placementGroup :: Core.Maybe Types.PlacementGroup,
+    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
+    serviceLinkedRoleARN :: Core.Maybe Types.ServiceLinkedRoleARN,
+    -- | A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
+    terminationPolicies :: Core.Maybe [Types.XmlStringMaxLen1600],
+    -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
+    vPCZoneIdentifier :: Core.Maybe Types.VPCZoneIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAutoScalingGroup' with the minimum fields required to make a request.
---
--- * 'terminationPolicies' - A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- Conditional: Required if you are adding an @ELB@ health check.
--- * 'serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'vpcZoneIdentifier' - A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
--- * 'maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'defaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'maxSize' - The maximum size of the Auto Scaling group.
--- * 'availabilityZones' - One or more Availability Zones for the group.
--- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
--- * 'mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'minSize' - The minimum size of the Auto Scaling group.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'launchConfigurationName' - The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
--- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
--- * 'launchTemplate' - The launch template and version to use to specify the updates. If you specify @LaunchTemplate@ in your update request, you can't specify @LaunchConfigurationName@ or @MixedInstancesPolicy@ .
--- * 'capacityRebalance' - Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'placementGroup' - The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- | Creates a 'UpdateAutoScalingGroup' value with any optional fields omitted.
 mkUpdateAutoScalingGroup ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
   UpdateAutoScalingGroup
-mkUpdateAutoScalingGroup pAutoScalingGroupName_ =
+mkUpdateAutoScalingGroup autoScalingGroupName =
   UpdateAutoScalingGroup'
-    { terminationPolicies = Lude.Nothing,
-      healthCheckGracePeriod = Lude.Nothing,
-      serviceLinkedRoleARN = Lude.Nothing,
-      newInstancesProtectedFromScaleIn = Lude.Nothing,
-      vpcZoneIdentifier = Lude.Nothing,
-      maxInstanceLifetime = Lude.Nothing,
-      defaultCooldown = Lude.Nothing,
-      maxSize = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      desiredCapacity = Lude.Nothing,
-      mixedInstancesPolicy = Lude.Nothing,
-      minSize = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_,
-      launchConfigurationName = Lude.Nothing,
-      healthCheckType = Lude.Nothing,
-      launchTemplate = Lude.Nothing,
-      capacityRebalance = Lude.Nothing,
-      placementGroup = Lude.Nothing
+    { autoScalingGroupName,
+      availabilityZones = Core.Nothing,
+      capacityRebalance = Core.Nothing,
+      defaultCooldown = Core.Nothing,
+      desiredCapacity = Core.Nothing,
+      healthCheckGracePeriod = Core.Nothing,
+      healthCheckType = Core.Nothing,
+      launchConfigurationName = Core.Nothing,
+      launchTemplate = Core.Nothing,
+      maxInstanceLifetime = Core.Nothing,
+      maxSize = Core.Nothing,
+      minSize = Core.Nothing,
+      mixedInstancesPolicy = Core.Nothing,
+      newInstancesProtectedFromScaleIn = Core.Nothing,
+      placementGroup = Core.Nothing,
+      serviceLinkedRoleARN = Core.Nothing,
+      terminationPolicies = Core.Nothing,
+      vPCZoneIdentifier = Core.Nothing
     }
 
--- | A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- | The name of the Auto Scaling group.
 --
--- /Note:/ Consider using 'terminationPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgTerminationPolicies :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe [Lude.Text])
-uasgTerminationPolicies = Lens.lens (terminationPolicies :: UpdateAutoScalingGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {terminationPolicies = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgTerminationPolicies "Use generic-lens or generic-optics with 'terminationPolicies' instead." #-}
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgAutoScalingGroupName :: Lens.Lens' UpdateAutoScalingGroup Types.AutoScalingGroupName
+uasgAutoScalingGroupName = Lens.field @"autoScalingGroupName"
+{-# DEPRECATED uasgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+
+-- | One or more Availability Zones for the group.
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgAvailabilityZones :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe (Core.NonEmpty Types.XmlStringMaxLen255))
+uasgAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED uasgAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+-- | Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'capacityRebalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgCapacityRebalance :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Bool)
+uasgCapacityRebalance = Lens.field @"capacityRebalance"
+{-# DEPRECATED uasgCapacityRebalance "Use generic-lens or generic-optics with 'capacityRebalance' instead." #-}
+
+-- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'defaultCooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgDefaultCooldown :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Int)
+uasgDefaultCooldown = Lens.field @"defaultCooldown"
+{-# DEPRECATED uasgDefaultCooldown "Use generic-lens or generic-optics with 'defaultCooldown' instead." #-}
+
+-- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+--
+-- /Note:/ Consider using 'desiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgDesiredCapacity :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Int)
+uasgDesiredCapacity = Lens.field @"desiredCapacity"
+{-# DEPRECATED uasgDesiredCapacity "Use generic-lens or generic-optics with 'desiredCapacity' instead." #-}
 
 -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- Conditional: Required if you are adding an @ELB@ health check.
 --
 -- /Note:/ Consider using 'healthCheckGracePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgHealthCheckGracePeriod :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
-uasgHealthCheckGracePeriod = Lens.lens (healthCheckGracePeriod :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {healthCheckGracePeriod = a} :: UpdateAutoScalingGroup)
+uasgHealthCheckGracePeriod :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Int)
+uasgHealthCheckGracePeriod = Lens.field @"healthCheckGracePeriod"
 {-# DEPRECATED uasgHealthCheckGracePeriod "Use generic-lens or generic-optics with 'healthCheckGracePeriod' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- /Note:/ Consider using 'serviceLinkedRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgServiceLinkedRoleARN :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Text)
-uasgServiceLinkedRoleARN = Lens.lens (serviceLinkedRoleARN :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {serviceLinkedRoleARN = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgServiceLinkedRoleARN "Use generic-lens or generic-optics with 'serviceLinkedRoleARN' instead." #-}
-
--- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- /Note:/ Consider using 'newInstancesProtectedFromScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgNewInstancesProtectedFromScaleIn :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Bool)
-uasgNewInstancesProtectedFromScaleIn = Lens.lens (newInstancesProtectedFromScaleIn :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Bool) (\s a -> s {newInstancesProtectedFromScaleIn = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgNewInstancesProtectedFromScaleIn "Use generic-lens or generic-optics with 'newInstancesProtectedFromScaleIn' instead." #-}
-
--- | A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
---
--- /Note:/ Consider using 'vpcZoneIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgVPCZoneIdentifier :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Text)
-uasgVPCZoneIdentifier = Lens.lens (vpcZoneIdentifier :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcZoneIdentifier = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgVPCZoneIdentifier "Use generic-lens or generic-optics with 'vpcZoneIdentifier' instead." #-}
-
--- | The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- /Note:/ Consider using 'maxInstanceLifetime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgMaxInstanceLifetime :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
-uasgMaxInstanceLifetime = Lens.lens (maxInstanceLifetime :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {maxInstanceLifetime = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgMaxInstanceLifetime "Use generic-lens or generic-optics with 'maxInstanceLifetime' instead." #-}
-
--- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- /Note:/ Consider using 'defaultCooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgDefaultCooldown :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
-uasgDefaultCooldown = Lens.lens (defaultCooldown :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {defaultCooldown = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgDefaultCooldown "Use generic-lens or generic-optics with 'defaultCooldown' instead." #-}
-
--- | The maximum size of the Auto Scaling group.
---
--- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgMaxSize :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
-uasgMaxSize = Lens.lens (maxSize :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {maxSize = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
-
--- | One or more Availability Zones for the group.
---
--- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgAvailabilityZones :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe (Lude.NonEmpty Lude.Text))
-uasgAvailabilityZones = Lens.lens (availabilityZones :: UpdateAutoScalingGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {availabilityZones = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
--- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
---
--- /Note:/ Consider using 'desiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgDesiredCapacity :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
-uasgDesiredCapacity = Lens.lens (desiredCapacity :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {desiredCapacity = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgDesiredCapacity "Use generic-lens or generic-optics with 'desiredCapacity' instead." #-}
-
--- | An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- /Note:/ Consider using 'mixedInstancesPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgMixedInstancesPolicy :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe MixedInstancesPolicy)
-uasgMixedInstancesPolicy = Lens.lens (mixedInstancesPolicy :: UpdateAutoScalingGroup -> Lude.Maybe MixedInstancesPolicy) (\s a -> s {mixedInstancesPolicy = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgMixedInstancesPolicy "Use generic-lens or generic-optics with 'mixedInstancesPolicy' instead." #-}
-
--- | The minimum size of the Auto Scaling group.
---
--- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgMinSize :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
-uasgMinSize = Lens.lens (minSize :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {minSize = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgAutoScalingGroupName :: Lens.Lens' UpdateAutoScalingGroup Lude.Text
-uasgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: UpdateAutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
--- | The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
---
--- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgLaunchConfigurationName :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Text)
-uasgLaunchConfigurationName = Lens.lens (launchConfigurationName :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {launchConfigurationName = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
 -- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
 --
 -- /Note:/ Consider using 'healthCheckType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgHealthCheckType :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Text)
-uasgHealthCheckType = Lens.lens (healthCheckType :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {healthCheckType = a} :: UpdateAutoScalingGroup)
+uasgHealthCheckType :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.HealthCheckType)
+uasgHealthCheckType = Lens.field @"healthCheckType"
 {-# DEPRECATED uasgHealthCheckType "Use generic-lens or generic-optics with 'healthCheckType' instead." #-}
+
+-- | The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
+--
+-- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgLaunchConfigurationName :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.LaunchConfigurationName)
+uasgLaunchConfigurationName = Lens.field @"launchConfigurationName"
+{-# DEPRECATED uasgLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
 -- | The launch template and version to use to specify the updates. If you specify @LaunchTemplate@ in your update request, you can't specify @LaunchConfigurationName@ or @MixedInstancesPolicy@ .
 --
 -- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgLaunchTemplate :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe LaunchTemplateSpecification)
-uasgLaunchTemplate = Lens.lens (launchTemplate :: UpdateAutoScalingGroup -> Lude.Maybe LaunchTemplateSpecification) (\s a -> s {launchTemplate = a} :: UpdateAutoScalingGroup)
+uasgLaunchTemplate :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.LaunchTemplateSpecification)
+uasgLaunchTemplate = Lens.field @"launchTemplate"
 {-# DEPRECATED uasgLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
 
--- | Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- | The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
--- /Note:/ Consider using 'capacityRebalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgCapacityRebalance :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Bool)
-uasgCapacityRebalance = Lens.lens (capacityRebalance :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Bool) (\s a -> s {capacityRebalance = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgCapacityRebalance "Use generic-lens or generic-optics with 'capacityRebalance' instead." #-}
+-- /Note:/ Consider using 'maxInstanceLifetime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgMaxInstanceLifetime :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Int)
+uasgMaxInstanceLifetime = Lens.field @"maxInstanceLifetime"
+{-# DEPRECATED uasgMaxInstanceLifetime "Use generic-lens or generic-optics with 'maxInstanceLifetime' instead." #-}
+
+-- | The maximum size of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgMaxSize :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Int)
+uasgMaxSize = Lens.field @"maxSize"
+{-# DEPRECATED uasgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
+
+-- | The minimum size of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgMinSize :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Int)
+uasgMinSize = Lens.field @"minSize"
+{-# DEPRECATED uasgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
+
+-- | An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'mixedInstancesPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgMixedInstancesPolicy :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.MixedInstancesPolicy)
+uasgMixedInstancesPolicy = Lens.field @"mixedInstancesPolicy"
+{-# DEPRECATED uasgMixedInstancesPolicy "Use generic-lens or generic-optics with 'mixedInstancesPolicy' instead." #-}
+
+-- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'newInstancesProtectedFromScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgNewInstancesProtectedFromScaleIn :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Core.Bool)
+uasgNewInstancesProtectedFromScaleIn = Lens.field @"newInstancesProtectedFromScaleIn"
+{-# DEPRECATED uasgNewInstancesProtectedFromScaleIn "Use generic-lens or generic-optics with 'newInstancesProtectedFromScaleIn' instead." #-}
 
 -- | The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- /Note:/ Consider using 'placementGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgPlacementGroup :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Text)
-uasgPlacementGroup = Lens.lens (placementGroup :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {placementGroup = a} :: UpdateAutoScalingGroup)
+uasgPlacementGroup :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.PlacementGroup)
+uasgPlacementGroup = Lens.field @"placementGroup"
 {-# DEPRECATED uasgPlacementGroup "Use generic-lens or generic-optics with 'placementGroup' instead." #-}
 
-instance Lude.AWSRequest UpdateAutoScalingGroup where
+-- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'serviceLinkedRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgServiceLinkedRoleARN :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.ServiceLinkedRoleARN)
+uasgServiceLinkedRoleARN = Lens.field @"serviceLinkedRoleARN"
+{-# DEPRECATED uasgServiceLinkedRoleARN "Use generic-lens or generic-optics with 'serviceLinkedRoleARN' instead." #-}
+
+-- | A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'terminationPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgTerminationPolicies :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe [Types.XmlStringMaxLen1600])
+uasgTerminationPolicies = Lens.field @"terminationPolicies"
+{-# DEPRECATED uasgTerminationPolicies "Use generic-lens or generic-optics with 'terminationPolicies' instead." #-}
+
+-- | A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
+--
+-- /Note:/ Consider using 'vPCZoneIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgVPCZoneIdentifier :: Lens.Lens' UpdateAutoScalingGroup (Core.Maybe Types.VPCZoneIdentifier)
+uasgVPCZoneIdentifier = Lens.field @"vPCZoneIdentifier"
+{-# DEPRECATED uasgVPCZoneIdentifier "Use generic-lens or generic-optics with 'vPCZoneIdentifier' instead." #-}
+
+instance Core.AWSRequest UpdateAutoScalingGroup where
   type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull UpdateAutoScalingGroupResponse'
-
-instance Lude.ToHeaders UpdateAutoScalingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateAutoScalingGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateAutoScalingGroup where
-  toQuery UpdateAutoScalingGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateAutoScalingGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "TerminationPolicies"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> terminationPolicies),
-        "HealthCheckGracePeriod" Lude.=: healthCheckGracePeriod,
-        "ServiceLinkedRoleARN" Lude.=: serviceLinkedRoleARN,
-        "NewInstancesProtectedFromScaleIn"
-          Lude.=: newInstancesProtectedFromScaleIn,
-        "VPCZoneIdentifier" Lude.=: vpcZoneIdentifier,
-        "MaxInstanceLifetime" Lude.=: maxInstanceLifetime,
-        "DefaultCooldown" Lude.=: defaultCooldown,
-        "MaxSize" Lude.=: maxSize,
-        "AvailabilityZones"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> availabilityZones),
-        "DesiredCapacity" Lude.=: desiredCapacity,
-        "MixedInstancesPolicy" Lude.=: mixedInstancesPolicy,
-        "MinSize" Lude.=: minSize,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "LaunchConfigurationName" Lude.=: launchConfigurationName,
-        "HealthCheckType" Lude.=: healthCheckType,
-        "LaunchTemplate" Lude.=: launchTemplate,
-        "CapacityRebalance" Lude.=: capacityRebalance,
-        "PlacementGroup" Lude.=: placementGroup
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateAutoScalingGroup")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "AvailabilityZones"
+                            (Core.toQueryList "member" Core.<$> availabilityZones)
+                        )
+                Core.<> (Core.toQueryValue "CapacityRebalance" Core.<$> capacityRebalance)
+                Core.<> (Core.toQueryValue "DefaultCooldown" Core.<$> defaultCooldown)
+                Core.<> (Core.toQueryValue "DesiredCapacity" Core.<$> desiredCapacity)
+                Core.<> ( Core.toQueryValue "HealthCheckGracePeriod"
+                            Core.<$> healthCheckGracePeriod
+                        )
+                Core.<> (Core.toQueryValue "HealthCheckType" Core.<$> healthCheckType)
+                Core.<> ( Core.toQueryValue "LaunchConfigurationName"
+                            Core.<$> launchConfigurationName
+                        )
+                Core.<> (Core.toQueryValue "LaunchTemplate" Core.<$> launchTemplate)
+                Core.<> ( Core.toQueryValue "MaxInstanceLifetime"
+                            Core.<$> maxInstanceLifetime
+                        )
+                Core.<> (Core.toQueryValue "MaxSize" Core.<$> maxSize)
+                Core.<> (Core.toQueryValue "MinSize" Core.<$> minSize)
+                Core.<> ( Core.toQueryValue "MixedInstancesPolicy"
+                            Core.<$> mixedInstancesPolicy
+                        )
+                Core.<> ( Core.toQueryValue "NewInstancesProtectedFromScaleIn"
+                            Core.<$> newInstancesProtectedFromScaleIn
+                        )
+                Core.<> (Core.toQueryValue "PlacementGroup" Core.<$> placementGroup)
+                Core.<> ( Core.toQueryValue "ServiceLinkedRoleARN"
+                            Core.<$> serviceLinkedRoleARN
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TerminationPolicies"
+                            (Core.toQueryList "member" Core.<$> terminationPolicies)
+                        )
+                Core.<> ( Core.toQueryValue "VPCZoneIdentifier"
+                            Core.<$> vPCZoneIdentifier
+                        )
+            )
+      }
+  response = Response.receiveNull UpdateAutoScalingGroupResponse'
 
 -- | /See:/ 'mkUpdateAutoScalingGroupResponse' smart constructor.
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAutoScalingGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateAutoScalingGroupResponse' value with any optional fields omitted.
 mkUpdateAutoScalingGroupResponse ::
   UpdateAutoScalingGroupResponse
 mkUpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'

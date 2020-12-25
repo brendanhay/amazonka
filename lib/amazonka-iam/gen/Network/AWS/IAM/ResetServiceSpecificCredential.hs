@@ -20,132 +20,125 @@ module Network.AWS.IAM.ResetServiceSpecificCredential
     mkResetServiceSpecificCredential,
 
     -- ** Request lenses
-    rsscUserName,
     rsscServiceSpecificCredentialId,
+    rsscUserName,
 
     -- * Destructuring the response
     ResetServiceSpecificCredentialResponse (..),
     mkResetServiceSpecificCredentialResponse,
 
     -- ** Response lenses
-    rsscrsServiceSpecificCredential,
-    rsscrsResponseStatus,
+    rsscrrsServiceSpecificCredential,
+    rsscrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResetServiceSpecificCredential' smart constructor.
 data ResetServiceSpecificCredential = ResetServiceSpecificCredential'
-  { -- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of the service-specific credential.
+  { -- | The unique identifier of the service-specific credential.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-    serviceSpecificCredentialId :: Lude.Text
+    serviceSpecificCredentialId :: Types.ServiceSpecificCredentialId,
+    -- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Core.Maybe Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetServiceSpecificCredential' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'serviceSpecificCredentialId' - The unique identifier of the service-specific credential.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- | Creates a 'ResetServiceSpecificCredential' value with any optional fields omitted.
 mkResetServiceSpecificCredential ::
   -- | 'serviceSpecificCredentialId'
-  Lude.Text ->
+  Types.ServiceSpecificCredentialId ->
   ResetServiceSpecificCredential
-mkResetServiceSpecificCredential pServiceSpecificCredentialId_ =
+mkResetServiceSpecificCredential serviceSpecificCredentialId =
   ResetServiceSpecificCredential'
-    { userName = Lude.Nothing,
-      serviceSpecificCredentialId = pServiceSpecificCredentialId_
+    { serviceSpecificCredentialId,
+      userName = Core.Nothing
     }
-
--- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsscUserName :: Lens.Lens' ResetServiceSpecificCredential (Lude.Maybe Lude.Text)
-rsscUserName = Lens.lens (userName :: ResetServiceSpecificCredential -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: ResetServiceSpecificCredential)
-{-# DEPRECATED rsscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The unique identifier of the service-specific credential.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- /Note:/ Consider using 'serviceSpecificCredentialId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsscServiceSpecificCredentialId :: Lens.Lens' ResetServiceSpecificCredential Lude.Text
-rsscServiceSpecificCredentialId = Lens.lens (serviceSpecificCredentialId :: ResetServiceSpecificCredential -> Lude.Text) (\s a -> s {serviceSpecificCredentialId = a} :: ResetServiceSpecificCredential)
+rsscServiceSpecificCredentialId :: Lens.Lens' ResetServiceSpecificCredential Types.ServiceSpecificCredentialId
+rsscServiceSpecificCredentialId = Lens.field @"serviceSpecificCredentialId"
 {-# DEPRECATED rsscServiceSpecificCredentialId "Use generic-lens or generic-optics with 'serviceSpecificCredentialId' instead." #-}
 
-instance Lude.AWSRequest ResetServiceSpecificCredential where
+-- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsscUserName :: Lens.Lens' ResetServiceSpecificCredential (Core.Maybe Types.UserName)
+rsscUserName = Lens.field @"userName"
+{-# DEPRECATED rsscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+instance Core.AWSRequest ResetServiceSpecificCredential where
   type
     Rs ResetServiceSpecificCredential =
       ResetServiceSpecificCredentialResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ResetServiceSpecificCredential")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> ( Core.toQueryValue
+                            "ServiceSpecificCredentialId"
+                            serviceSpecificCredentialId
+                        )
+                Core.<> (Core.toQueryValue "UserName" Core.<$> userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ResetServiceSpecificCredentialResult"
       ( \s h x ->
           ResetServiceSpecificCredentialResponse'
-            Lude.<$> (x Lude..@? "ServiceSpecificCredential")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ServiceSpecificCredential")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResetServiceSpecificCredential where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ResetServiceSpecificCredential where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetServiceSpecificCredential where
-  toQuery ResetServiceSpecificCredential' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ResetServiceSpecificCredential" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "ServiceSpecificCredentialId" Lude.=: serviceSpecificCredentialId
-      ]
 
 -- | /See:/ 'mkResetServiceSpecificCredentialResponse' smart constructor.
 data ResetServiceSpecificCredentialResponse = ResetServiceSpecificCredentialResponse'
   { -- | A structure with details about the updated service-specific credential, including the new password.
     --
     -- /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
-    serviceSpecificCredential :: Lude.Maybe ServiceSpecificCredential,
+    serviceSpecificCredential :: Core.Maybe Types.ServiceSpecificCredential,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResetServiceSpecificCredentialResponse' with the minimum fields required to make a request.
---
--- * 'serviceSpecificCredential' - A structure with details about the updated service-specific credential, including the new password.
---
--- /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResetServiceSpecificCredentialResponse' value with any optional fields omitted.
 mkResetServiceSpecificCredentialResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResetServiceSpecificCredentialResponse
-mkResetServiceSpecificCredentialResponse pResponseStatus_ =
+mkResetServiceSpecificCredentialResponse responseStatus =
   ResetServiceSpecificCredentialResponse'
     { serviceSpecificCredential =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A structure with details about the updated service-specific credential, including the new password.
@@ -153,13 +146,13 @@ mkResetServiceSpecificCredentialResponse pResponseStatus_ =
 -- /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
 --
 -- /Note:/ Consider using 'serviceSpecificCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsscrsServiceSpecificCredential :: Lens.Lens' ResetServiceSpecificCredentialResponse (Lude.Maybe ServiceSpecificCredential)
-rsscrsServiceSpecificCredential = Lens.lens (serviceSpecificCredential :: ResetServiceSpecificCredentialResponse -> Lude.Maybe ServiceSpecificCredential) (\s a -> s {serviceSpecificCredential = a} :: ResetServiceSpecificCredentialResponse)
-{-# DEPRECATED rsscrsServiceSpecificCredential "Use generic-lens or generic-optics with 'serviceSpecificCredential' instead." #-}
+rsscrrsServiceSpecificCredential :: Lens.Lens' ResetServiceSpecificCredentialResponse (Core.Maybe Types.ServiceSpecificCredential)
+rsscrrsServiceSpecificCredential = Lens.field @"serviceSpecificCredential"
+{-# DEPRECATED rsscrrsServiceSpecificCredential "Use generic-lens or generic-optics with 'serviceSpecificCredential' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsscrsResponseStatus :: Lens.Lens' ResetServiceSpecificCredentialResponse Lude.Int
-rsscrsResponseStatus = Lens.lens (responseStatus :: ResetServiceSpecificCredentialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetServiceSpecificCredentialResponse)
-{-# DEPRECATED rsscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rsscrrsResponseStatus :: Lens.Lens' ResetServiceSpecificCredentialResponse Core.Int
+rsscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rsscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

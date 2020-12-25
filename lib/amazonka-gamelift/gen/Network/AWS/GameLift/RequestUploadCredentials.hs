@@ -46,126 +46,113 @@ module Network.AWS.GameLift.RequestUploadCredentials
     mkRequestUploadCredentialsResponse,
 
     -- ** Response lenses
-    rucrsStorageLocation,
-    rucrsUploadCredentials,
-    rucrsResponseStatus,
+    rucrrsStorageLocation,
+    rucrrsUploadCredentials,
+    rucrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkRequestUploadCredentials' smart constructor.
 newtype RequestUploadCredentials = RequestUploadCredentials'
   { -- | A unique identifier for a build to get credentials for. You can use either the build ID or ARN value.
-    buildId :: Lude.Text
+    buildId :: Types.BuildId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestUploadCredentials' with the minimum fields required to make a request.
---
--- * 'buildId' - A unique identifier for a build to get credentials for. You can use either the build ID or ARN value.
+-- | Creates a 'RequestUploadCredentials' value with any optional fields omitted.
 mkRequestUploadCredentials ::
   -- | 'buildId'
-  Lude.Text ->
+  Types.BuildId ->
   RequestUploadCredentials
-mkRequestUploadCredentials pBuildId_ =
-  RequestUploadCredentials' {buildId = pBuildId_}
+mkRequestUploadCredentials buildId =
+  RequestUploadCredentials' {buildId}
 
 -- | A unique identifier for a build to get credentials for. You can use either the build ID or ARN value.
 --
 -- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rucBuildId :: Lens.Lens' RequestUploadCredentials Lude.Text
-rucBuildId = Lens.lens (buildId :: RequestUploadCredentials -> Lude.Text) (\s a -> s {buildId = a} :: RequestUploadCredentials)
+rucBuildId :: Lens.Lens' RequestUploadCredentials Types.BuildId
+rucBuildId = Lens.field @"buildId"
 {-# DEPRECATED rucBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
-instance Lude.AWSRequest RequestUploadCredentials where
+instance Core.FromJSON RequestUploadCredentials where
+  toJSON RequestUploadCredentials {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("BuildId" Core..= buildId)])
+
+instance Core.AWSRequest RequestUploadCredentials where
   type Rs RequestUploadCredentials = RequestUploadCredentialsResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.RequestUploadCredentials")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RequestUploadCredentialsResponse'
-            Lude.<$> (x Lude..?> "StorageLocation")
-            Lude.<*> (x Lude..?> "UploadCredentials")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "StorageLocation")
+            Core.<*> (x Core..:? "UploadCredentials")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RequestUploadCredentials where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.RequestUploadCredentials" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RequestUploadCredentials where
-  toJSON RequestUploadCredentials' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("BuildId" Lude..= buildId)])
-
-instance Lude.ToPath RequestUploadCredentials where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RequestUploadCredentials where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkRequestUploadCredentialsResponse' smart constructor.
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
   { -- | Amazon S3 path and key, identifying where the game build files are stored.
-    storageLocation :: Lude.Maybe S3Location,
+    storageLocation :: Core.Maybe Types.S3Location,
     -- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
-    uploadCredentials :: Lude.Maybe AWSCredentials,
+    uploadCredentials :: Core.Maybe Types.AwsCredentials,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestUploadCredentialsResponse' with the minimum fields required to make a request.
---
--- * 'storageLocation' - Amazon S3 path and key, identifying where the game build files are stored.
--- * 'uploadCredentials' - AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RequestUploadCredentialsResponse' value with any optional fields omitted.
 mkRequestUploadCredentialsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RequestUploadCredentialsResponse
-mkRequestUploadCredentialsResponse pResponseStatus_ =
+mkRequestUploadCredentialsResponse responseStatus =
   RequestUploadCredentialsResponse'
-    { storageLocation = Lude.Nothing,
-      uploadCredentials = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { storageLocation = Core.Nothing,
+      uploadCredentials = Core.Nothing,
+      responseStatus
     }
 
 -- | Amazon S3 path and key, identifying where the game build files are stored.
 --
 -- /Note:/ Consider using 'storageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rucrsStorageLocation :: Lens.Lens' RequestUploadCredentialsResponse (Lude.Maybe S3Location)
-rucrsStorageLocation = Lens.lens (storageLocation :: RequestUploadCredentialsResponse -> Lude.Maybe S3Location) (\s a -> s {storageLocation = a} :: RequestUploadCredentialsResponse)
-{-# DEPRECATED rucrsStorageLocation "Use generic-lens or generic-optics with 'storageLocation' instead." #-}
+rucrrsStorageLocation :: Lens.Lens' RequestUploadCredentialsResponse (Core.Maybe Types.S3Location)
+rucrrsStorageLocation = Lens.field @"storageLocation"
+{-# DEPRECATED rucrrsStorageLocation "Use generic-lens or generic-optics with 'storageLocation' instead." #-}
 
 -- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
 --
 -- /Note:/ Consider using 'uploadCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rucrsUploadCredentials :: Lens.Lens' RequestUploadCredentialsResponse (Lude.Maybe AWSCredentials)
-rucrsUploadCredentials = Lens.lens (uploadCredentials :: RequestUploadCredentialsResponse -> Lude.Maybe AWSCredentials) (\s a -> s {uploadCredentials = a} :: RequestUploadCredentialsResponse)
-{-# DEPRECATED rucrsUploadCredentials "Use generic-lens or generic-optics with 'uploadCredentials' instead." #-}
+rucrrsUploadCredentials :: Lens.Lens' RequestUploadCredentialsResponse (Core.Maybe Types.AwsCredentials)
+rucrrsUploadCredentials = Lens.field @"uploadCredentials"
+{-# DEPRECATED rucrrsUploadCredentials "Use generic-lens or generic-optics with 'uploadCredentials' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rucrsResponseStatus :: Lens.Lens' RequestUploadCredentialsResponse Lude.Int
-rucrsResponseStatus = Lens.lens (responseStatus :: RequestUploadCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RequestUploadCredentialsResponse)
-{-# DEPRECATED rucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rucrrsResponseStatus :: Lens.Lens' RequestUploadCredentialsResponse Core.Int
+rucrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

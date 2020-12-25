@@ -20,132 +20,116 @@ module Network.AWS.CodeCommit.UpdateComment
     mkUpdateComment,
 
     -- ** Request lenses
-    ucContent,
     ucCommentId,
+    ucContent,
 
     -- * Destructuring the response
     UpdateCommentResponse (..),
     mkUpdateCommentResponse,
 
     -- ** Response lenses
-    ucrsComment,
-    ucrsResponseStatus,
+    ucrrsComment,
+    ucrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateComment' smart constructor.
 data UpdateComment = UpdateComment'
-  { -- | The updated content to replace the existing content of the comment.
-    content :: Lude.Text,
-    -- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
-    commentId :: Lude.Text
+  { -- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+    commentId :: Types.CommentId,
+    -- | The updated content to replace the existing content of the comment.
+    content :: Types.Content
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateComment' with the minimum fields required to make a request.
---
--- * 'content' - The updated content to replace the existing content of the comment.
--- * 'commentId' - The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+-- | Creates a 'UpdateComment' value with any optional fields omitted.
 mkUpdateComment ::
-  -- | 'content'
-  Lude.Text ->
   -- | 'commentId'
-  Lude.Text ->
+  Types.CommentId ->
+  -- | 'content'
+  Types.Content ->
   UpdateComment
-mkUpdateComment pContent_ pCommentId_ =
-  UpdateComment' {content = pContent_, commentId = pCommentId_}
-
--- | The updated content to replace the existing content of the comment.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucContent :: Lens.Lens' UpdateComment Lude.Text
-ucContent = Lens.lens (content :: UpdateComment -> Lude.Text) (\s a -> s {content = a} :: UpdateComment)
-{-# DEPRECATED ucContent "Use generic-lens or generic-optics with 'content' instead." #-}
+mkUpdateComment commentId content =
+  UpdateComment' {commentId, content}
 
 -- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
 --
 -- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucCommentId :: Lens.Lens' UpdateComment Lude.Text
-ucCommentId = Lens.lens (commentId :: UpdateComment -> Lude.Text) (\s a -> s {commentId = a} :: UpdateComment)
+ucCommentId :: Lens.Lens' UpdateComment Types.CommentId
+ucCommentId = Lens.field @"commentId"
 {-# DEPRECATED ucCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
-instance Lude.AWSRequest UpdateComment where
+-- | The updated content to replace the existing content of the comment.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucContent :: Lens.Lens' UpdateComment Types.Content
+ucContent = Lens.field @"content"
+{-# DEPRECATED ucContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+instance Core.FromJSON UpdateComment where
+  toJSON UpdateComment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("commentId" Core..= commentId),
+            Core.Just ("content" Core..= content)
+          ]
+      )
+
+instance Core.AWSRequest UpdateComment where
   type Rs UpdateComment = UpdateCommentResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.UpdateComment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateCommentResponse'
-            Lude.<$> (x Lude..?> "comment") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "comment") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateComment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.UpdateComment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateComment where
-  toJSON UpdateComment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("content" Lude..= content),
-            Lude.Just ("commentId" Lude..= commentId)
-          ]
-      )
-
-instance Lude.ToPath UpdateComment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateComment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateCommentResponse' smart constructor.
 data UpdateCommentResponse = UpdateCommentResponse'
   { -- | Information about the updated comment.
-    comment :: Lude.Maybe Comment,
+    comment :: Core.Maybe Types.Comment,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateCommentResponse' with the minimum fields required to make a request.
---
--- * 'comment' - Information about the updated comment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateCommentResponse' value with any optional fields omitted.
 mkUpdateCommentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateCommentResponse
-mkUpdateCommentResponse pResponseStatus_ =
-  UpdateCommentResponse'
-    { comment = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateCommentResponse responseStatus =
+  UpdateCommentResponse' {comment = Core.Nothing, responseStatus}
 
 -- | Information about the updated comment.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsComment :: Lens.Lens' UpdateCommentResponse (Lude.Maybe Comment)
-ucrsComment = Lens.lens (comment :: UpdateCommentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: UpdateCommentResponse)
-{-# DEPRECATED ucrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+ucrrsComment :: Lens.Lens' UpdateCommentResponse (Core.Maybe Types.Comment)
+ucrrsComment = Lens.field @"comment"
+{-# DEPRECATED ucrrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsResponseStatus :: Lens.Lens' UpdateCommentResponse Lude.Int
-ucrsResponseStatus = Lens.lens (responseStatus :: UpdateCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCommentResponse)
-{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucrrsResponseStatus :: Lens.Lens' UpdateCommentResponse Core.Int
+ucrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

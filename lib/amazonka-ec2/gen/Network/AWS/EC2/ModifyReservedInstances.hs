@@ -22,141 +22,138 @@ module Network.AWS.EC2.ModifyReservedInstances
     mkModifyReservedInstances,
 
     -- ** Request lenses
-    mriClientToken,
-    mriTargetConfigurations,
     mriReservedInstancesIds,
+    mriTargetConfigurations,
+    mriClientToken,
 
     -- * Destructuring the response
     ModifyReservedInstancesResponse (..),
     mkModifyReservedInstancesResponse,
 
     -- ** Response lenses
-    mrirsReservedInstancesModificationId,
-    mrirsResponseStatus,
+    mrirrsReservedInstancesModificationId,
+    mrirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ModifyReservedInstances.
 --
 -- /See:/ 'mkModifyReservedInstances' smart constructor.
 data ModifyReservedInstances = ModifyReservedInstances'
-  { -- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | The IDs of the Reserved Instances to modify.
+    reservedInstancesIds :: [Types.ReservationId],
     -- | The configuration settings for the Reserved Instances to modify.
-    targetConfigurations :: [ReservedInstancesConfiguration],
-    -- | The IDs of the Reserved Instances to modify.
-    reservedInstancesIds :: [Lude.Text]
+    targetConfigurations :: [Types.ReservedInstancesConfiguration],
+    -- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Core.Maybe Types.ClientToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyReservedInstances' with the minimum fields required to make a request.
---
--- * 'clientToken' - A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'targetConfigurations' - The configuration settings for the Reserved Instances to modify.
--- * 'reservedInstancesIds' - The IDs of the Reserved Instances to modify.
+-- | Creates a 'ModifyReservedInstances' value with any optional fields omitted.
 mkModifyReservedInstances ::
   ModifyReservedInstances
 mkModifyReservedInstances =
   ModifyReservedInstances'
-    { clientToken = Lude.Nothing,
-      targetConfigurations = Lude.mempty,
-      reservedInstancesIds = Lude.mempty
+    { reservedInstancesIds = Core.mempty,
+      targetConfigurations = Core.mempty,
+      clientToken = Core.Nothing
     }
-
--- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriClientToken :: Lens.Lens' ModifyReservedInstances (Lude.Maybe Lude.Text)
-mriClientToken = Lens.lens (clientToken :: ModifyReservedInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ModifyReservedInstances)
-{-# DEPRECATED mriClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The configuration settings for the Reserved Instances to modify.
---
--- /Note:/ Consider using 'targetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriTargetConfigurations :: Lens.Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-mriTargetConfigurations = Lens.lens (targetConfigurations :: ModifyReservedInstances -> [ReservedInstancesConfiguration]) (\s a -> s {targetConfigurations = a} :: ModifyReservedInstances)
-{-# DEPRECATED mriTargetConfigurations "Use generic-lens or generic-optics with 'targetConfigurations' instead." #-}
 
 -- | The IDs of the Reserved Instances to modify.
 --
 -- /Note:/ Consider using 'reservedInstancesIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriReservedInstancesIds :: Lens.Lens' ModifyReservedInstances [Lude.Text]
-mriReservedInstancesIds = Lens.lens (reservedInstancesIds :: ModifyReservedInstances -> [Lude.Text]) (\s a -> s {reservedInstancesIds = a} :: ModifyReservedInstances)
+mriReservedInstancesIds :: Lens.Lens' ModifyReservedInstances [Types.ReservationId]
+mriReservedInstancesIds = Lens.field @"reservedInstancesIds"
 {-# DEPRECATED mriReservedInstancesIds "Use generic-lens or generic-optics with 'reservedInstancesIds' instead." #-}
 
-instance Lude.AWSRequest ModifyReservedInstances where
+-- | The configuration settings for the Reserved Instances to modify.
+--
+-- /Note:/ Consider using 'targetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriTargetConfigurations :: Lens.Lens' ModifyReservedInstances [Types.ReservedInstancesConfiguration]
+mriTargetConfigurations = Lens.field @"targetConfigurations"
+{-# DEPRECATED mriTargetConfigurations "Use generic-lens or generic-optics with 'targetConfigurations' instead." #-}
+
+-- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriClientToken :: Lens.Lens' ModifyReservedInstances (Core.Maybe Types.ClientToken)
+mriClientToken = Lens.field @"clientToken"
+{-# DEPRECATED mriClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+instance Core.AWSRequest ModifyReservedInstances where
   type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyReservedInstances")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "ReservedInstancesId" reservedInstancesIds)
+                Core.<> ( Core.toQueryList
+                            "ReservedInstancesConfigurationSetItemType"
+                            targetConfigurations
+                        )
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyReservedInstancesResponse'
-            Lude.<$> (x Lude..@? "reservedInstancesModificationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "reservedInstancesModificationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyReservedInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyReservedInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyReservedInstances where
-  toQuery ModifyReservedInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyReservedInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        Lude.toQueryList
-          "ReservedInstancesConfigurationSetItemType"
-          targetConfigurations,
-        Lude.toQueryList "ReservedInstancesId" reservedInstancesIds
-      ]
 
 -- | Contains the output of ModifyReservedInstances.
 --
 -- /See:/ 'mkModifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
   { -- | The ID for the modification.
-    reservedInstancesModificationId :: Lude.Maybe Lude.Text,
+    reservedInstancesModificationId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyReservedInstancesResponse' with the minimum fields required to make a request.
---
--- * 'reservedInstancesModificationId' - The ID for the modification.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyReservedInstancesResponse' value with any optional fields omitted.
 mkModifyReservedInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyReservedInstancesResponse
-mkModifyReservedInstancesResponse pResponseStatus_ =
+mkModifyReservedInstancesResponse responseStatus =
   ModifyReservedInstancesResponse'
     { reservedInstancesModificationId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The ID for the modification.
 --
 -- /Note:/ Consider using 'reservedInstancesModificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrirsReservedInstancesModificationId :: Lens.Lens' ModifyReservedInstancesResponse (Lude.Maybe Lude.Text)
-mrirsReservedInstancesModificationId = Lens.lens (reservedInstancesModificationId :: ModifyReservedInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesModificationId = a} :: ModifyReservedInstancesResponse)
-{-# DEPRECATED mrirsReservedInstancesModificationId "Use generic-lens or generic-optics with 'reservedInstancesModificationId' instead." #-}
+mrirrsReservedInstancesModificationId :: Lens.Lens' ModifyReservedInstancesResponse (Core.Maybe Types.String)
+mrirrsReservedInstancesModificationId = Lens.field @"reservedInstancesModificationId"
+{-# DEPRECATED mrirrsReservedInstancesModificationId "Use generic-lens or generic-optics with 'reservedInstancesModificationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrirsResponseStatus :: Lens.Lens' ModifyReservedInstancesResponse Lude.Int
-mrirsResponseStatus = Lens.lens (responseStatus :: ModifyReservedInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyReservedInstancesResponse)
-{-# DEPRECATED mrirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mrirrsResponseStatus :: Lens.Lens' ModifyReservedInstancesResponse Core.Int
+mrirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mrirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

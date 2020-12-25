@@ -17,14 +17,15 @@ module Network.AWS.SES.Types.StopAction
     mkStopAction,
 
     -- * Lenses
-    sTopicARN,
     sScope,
+    sTopicArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.StopScope
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.AmazonResourceName as Types
+import qualified Network.AWS.SES.Types.StopScope as Types
 
 -- | When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
@@ -32,44 +33,36 @@ import Network.AWS.SES.Types.StopScope
 --
 -- /See:/ 'mkStopAction' smart constructor.
 data StopAction = StopAction'
-  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-    topicARN :: Lude.Maybe Lude.Text,
-    -- | The scope of the StopAction. The only acceptable value is @RuleSet@ .
-    scope :: StopScope
+  { -- | The scope of the StopAction. The only acceptable value is @RuleSet@ .
+    scope :: Types.StopScope,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+    topicArn :: Core.Maybe Types.AmazonResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopAction' with the minimum fields required to make a request.
---
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
--- * 'scope' - The scope of the StopAction. The only acceptable value is @RuleSet@ .
+-- | Creates a 'StopAction' value with any optional fields omitted.
 mkStopAction ::
   -- | 'scope'
-  StopScope ->
+  Types.StopScope ->
   StopAction
-mkStopAction pScope_ =
-  StopAction' {topicARN = Lude.Nothing, scope = pScope_}
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTopicARN :: Lens.Lens' StopAction (Lude.Maybe Lude.Text)
-sTopicARN = Lens.lens (topicARN :: StopAction -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: StopAction)
-{-# DEPRECATED sTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+mkStopAction scope = StopAction' {scope, topicArn = Core.Nothing}
 
 -- | The scope of the StopAction. The only acceptable value is @RuleSet@ .
 --
 -- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sScope :: Lens.Lens' StopAction StopScope
-sScope = Lens.lens (scope :: StopAction -> StopScope) (\s a -> s {scope = a} :: StopAction)
+sScope :: Lens.Lens' StopAction Types.StopScope
+sScope = Lens.field @"scope"
 {-# DEPRECATED sScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
-instance Lude.FromXML StopAction where
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+--
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTopicArn :: Lens.Lens' StopAction (Core.Maybe Types.AmazonResourceName)
+sTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED sTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
+
+instance Core.FromXML StopAction where
   parseXML x =
     StopAction'
-      Lude.<$> (x Lude..@? "TopicArn") Lude.<*> (x Lude..@ "Scope")
-
-instance Lude.ToQuery StopAction where
-  toQuery StopAction' {..} =
-    Lude.mconcat ["TopicArn" Lude.=: topicARN, "Scope" Lude.=: scope]
+      Core.<$> (x Core..@ "Scope") Core.<*> (x Core..@? "TopicArn")

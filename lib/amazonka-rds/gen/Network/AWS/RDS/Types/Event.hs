@@ -17,109 +17,106 @@ module Network.AWS.RDS.Types.Event
     mkEvent,
 
     -- * Lenses
-    eSourceType,
-    eSourceARN,
-    eSourceIdentifier,
     eDate,
     eEventCategories,
     eMessage,
+    eSourceArn,
+    eSourceIdentifier,
+    eSourceType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.SourceType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.Message as Types
+import qualified Network.AWS.RDS.Types.SourceArn as Types
+import qualified Network.AWS.RDS.Types.SourceIdentifier as Types
+import qualified Network.AWS.RDS.Types.SourceType as Types
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | This data type is used as a response element in the @DescribeEvents@ action.
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { -- | Specifies the source type for this event.
-    sourceType :: Lude.Maybe SourceType,
-    -- | The Amazon Resource Name (ARN) for the event.
-    sourceARN :: Lude.Maybe Lude.Text,
-    -- | Provides the identifier for the source of the event.
-    sourceIdentifier :: Lude.Maybe Lude.Text,
-    -- | Specifies the date and time of the event.
-    date :: Lude.Maybe Lude.DateTime,
+  { -- | Specifies the date and time of the event.
+    date :: Core.Maybe Core.UTCTime,
     -- | Specifies the category for the event.
-    eventCategories :: Lude.Maybe [Lude.Text],
+    eventCategories :: Core.Maybe [Types.String],
     -- | Provides the text of this event.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message,
+    -- | The Amazon Resource Name (ARN) for the event.
+    sourceArn :: Core.Maybe Types.SourceArn,
+    -- | Provides the identifier for the source of the event.
+    sourceIdentifier :: Core.Maybe Types.SourceIdentifier,
+    -- | Specifies the source type for this event.
+    sourceType :: Core.Maybe Types.SourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Event' with the minimum fields required to make a request.
---
--- * 'sourceType' - Specifies the source type for this event.
--- * 'sourceARN' - The Amazon Resource Name (ARN) for the event.
--- * 'sourceIdentifier' - Provides the identifier for the source of the event.
--- * 'date' - Specifies the date and time of the event.
--- * 'eventCategories' - Specifies the category for the event.
--- * 'message' - Provides the text of this event.
+-- | Creates a 'Event' value with any optional fields omitted.
 mkEvent ::
   Event
 mkEvent =
   Event'
-    { sourceType = Lude.Nothing,
-      sourceARN = Lude.Nothing,
-      sourceIdentifier = Lude.Nothing,
-      date = Lude.Nothing,
-      eventCategories = Lude.Nothing,
-      message = Lude.Nothing
+    { date = Core.Nothing,
+      eventCategories = Core.Nothing,
+      message = Core.Nothing,
+      sourceArn = Core.Nothing,
+      sourceIdentifier = Core.Nothing,
+      sourceType = Core.Nothing
     }
-
--- | Specifies the source type for this event.
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceType :: Lens.Lens' Event (Lude.Maybe SourceType)
-eSourceType = Lens.lens (sourceType :: Event -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: Event)
-{-# DEPRECATED eSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the event.
---
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceARN :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eSourceARN = Lens.lens (sourceARN :: Event -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: Event)
-{-# DEPRECATED eSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
-
--- | Provides the identifier for the source of the event.
---
--- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceIdentifier :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eSourceIdentifier = Lens.lens (sourceIdentifier :: Event -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: Event)
-{-# DEPRECATED eSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
 -- | Specifies the date and time of the event.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDate :: Lens.Lens' Event (Lude.Maybe Lude.DateTime)
-eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.DateTime) (\s a -> s {date = a} :: Event)
+eDate :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
+eDate = Lens.field @"date"
 {-# DEPRECATED eDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | Specifies the category for the event.
 --
 -- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEventCategories :: Lens.Lens' Event (Lude.Maybe [Lude.Text])
-eEventCategories = Lens.lens (eventCategories :: Event -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: Event)
+eEventCategories :: Lens.Lens' Event (Core.Maybe [Types.String])
+eEventCategories = Lens.field @"eventCategories"
 {-# DEPRECATED eEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | Provides the text of this event.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMessage :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eMessage = Lens.lens (message :: Event -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Event)
+eMessage :: Lens.Lens' Event (Core.Maybe Types.Message)
+eMessage = Lens.field @"message"
 {-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML Event where
+-- | The Amazon Resource Name (ARN) for the event.
+--
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceArn :: Lens.Lens' Event (Core.Maybe Types.SourceArn)
+eSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED eSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
+
+-- | Provides the identifier for the source of the event.
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceIdentifier :: Lens.Lens' Event (Core.Maybe Types.SourceIdentifier)
+eSourceIdentifier = Lens.field @"sourceIdentifier"
+{-# DEPRECATED eSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
+
+-- | Specifies the source type for this event.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceType :: Lens.Lens' Event (Core.Maybe Types.SourceType)
+eSourceType = Lens.field @"sourceType"
+{-# DEPRECATED eSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+
+instance Core.FromXML Event where
   parseXML x =
     Event'
-      Lude.<$> (x Lude..@? "SourceType")
-      Lude.<*> (x Lude..@? "SourceArn")
-      Lude.<*> (x Lude..@? "SourceIdentifier")
-      Lude.<*> (x Lude..@? "Date")
-      Lude.<*> ( x Lude..@? "EventCategories" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "EventCategory")
+      Core.<$> (x Core..@? "Date")
+      Core.<*> ( x Core..@? "EventCategories"
+                   Core..<@> Core.parseXMLList "EventCategory"
                )
-      Lude.<*> (x Lude..@? "Message")
+      Core.<*> (x Core..@? "Message")
+      Core.<*> (x Core..@? "SourceArn")
+      Core.<*> (x Core..@? "SourceIdentifier")
+      Core.<*> (x Core..@? "SourceType")

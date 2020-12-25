@@ -22,51 +22,48 @@ module Network.AWS.EC2.Types.TargetReservationValue
   )
 where
 
-import Network.AWS.EC2.Types.ReservationValue
-import Network.AWS.EC2.Types.TargetConfiguration
+import qualified Network.AWS.EC2.Types.ReservationValue as Types
+import qualified Network.AWS.EC2.Types.TargetConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The total value of the new Convertible Reserved Instances.
 --
 -- /See:/ 'mkTargetReservationValue' smart constructor.
 data TargetReservationValue = TargetReservationValue'
   { -- | The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
-    reservationValue :: Lude.Maybe ReservationValue,
+    reservationValue :: Core.Maybe Types.ReservationValue,
     -- | The configuration of the Convertible Reserved Instances that make up the exchange.
-    targetConfiguration :: Lude.Maybe TargetConfiguration
+    targetConfiguration :: Core.Maybe Types.TargetConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetReservationValue' with the minimum fields required to make a request.
---
--- * 'reservationValue' - The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
--- * 'targetConfiguration' - The configuration of the Convertible Reserved Instances that make up the exchange.
+-- | Creates a 'TargetReservationValue' value with any optional fields omitted.
 mkTargetReservationValue ::
   TargetReservationValue
 mkTargetReservationValue =
   TargetReservationValue'
-    { reservationValue = Lude.Nothing,
-      targetConfiguration = Lude.Nothing
+    { reservationValue = Core.Nothing,
+      targetConfiguration = Core.Nothing
     }
 
 -- | The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
 --
 -- /Note:/ Consider using 'reservationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trvReservationValue :: Lens.Lens' TargetReservationValue (Lude.Maybe ReservationValue)
-trvReservationValue = Lens.lens (reservationValue :: TargetReservationValue -> Lude.Maybe ReservationValue) (\s a -> s {reservationValue = a} :: TargetReservationValue)
+trvReservationValue :: Lens.Lens' TargetReservationValue (Core.Maybe Types.ReservationValue)
+trvReservationValue = Lens.field @"reservationValue"
 {-# DEPRECATED trvReservationValue "Use generic-lens or generic-optics with 'reservationValue' instead." #-}
 
 -- | The configuration of the Convertible Reserved Instances that make up the exchange.
 --
 -- /Note:/ Consider using 'targetConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trvTargetConfiguration :: Lens.Lens' TargetReservationValue (Lude.Maybe TargetConfiguration)
-trvTargetConfiguration = Lens.lens (targetConfiguration :: TargetReservationValue -> Lude.Maybe TargetConfiguration) (\s a -> s {targetConfiguration = a} :: TargetReservationValue)
+trvTargetConfiguration :: Lens.Lens' TargetReservationValue (Core.Maybe Types.TargetConfiguration)
+trvTargetConfiguration = Lens.field @"targetConfiguration"
 {-# DEPRECATED trvTargetConfiguration "Use generic-lens or generic-optics with 'targetConfiguration' instead." #-}
 
-instance Lude.FromXML TargetReservationValue where
+instance Core.FromXML TargetReservationValue where
   parseXML x =
     TargetReservationValue'
-      Lude.<$> (x Lude..@? "reservationValue")
-      Lude.<*> (x Lude..@? "targetConfiguration")
+      Core.<$> (x Core..@? "reservationValue")
+      Core.<*> (x Core..@? "targetConfiguration")

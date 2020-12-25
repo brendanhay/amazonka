@@ -17,211 +17,204 @@ module Network.AWS.SMS.Types.ServerLaunchConfiguration
     mkServerLaunchConfiguration,
 
     -- * Lenses
-    slcEc2KeyName,
+    slcAssociatePublicIpAddress,
+    slcConfigureScript,
     slcConfigureScriptType,
-    slcAssociatePublicIPAddress,
+    slcEc2KeyName,
     slcIamInstanceProfileName,
-    slcSubnet,
+    slcInstanceType,
     slcLogicalId,
     slcSecurityGroup,
-    slcUserData,
-    slcInstanceType,
-    slcConfigureScript,
     slcServer,
+    slcSubnet,
+    slcUserData,
     slcVpc,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.S3Location
-import Network.AWS.SMS.Types.ScriptType
-import Network.AWS.SMS.Types.Server
-import Network.AWS.SMS.Types.UserData
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.EC2KeyName as Types
+import qualified Network.AWS.SMS.Types.IamInstanceProfileName as Types
+import qualified Network.AWS.SMS.Types.InstanceType as Types
+import qualified Network.AWS.SMS.Types.LogicalId as Types
+import qualified Network.AWS.SMS.Types.S3Location as Types
+import qualified Network.AWS.SMS.Types.ScriptType as Types
+import qualified Network.AWS.SMS.Types.SecurityGroup as Types
+import qualified Network.AWS.SMS.Types.Server as Types
+import qualified Network.AWS.SMS.Types.Subnet as Types
+import qualified Network.AWS.SMS.Types.UserData as Types
+import qualified Network.AWS.SMS.Types.Vpc as Types
 
 -- | Launch configuration for a server.
 --
 -- /See:/ 'mkServerLaunchConfiguration' smart constructor.
 data ServerLaunchConfiguration = ServerLaunchConfiguration'
-  { -- | The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
-    ec2KeyName :: Lude.Maybe Lude.Text,
+  { -- | Indicates whether a publicly accessible IP address is created when launching the server.
+    associatePublicIpAddress :: Core.Maybe Core.Bool,
+    configureScript :: Core.Maybe Types.S3Location,
     -- | The type of configuration script.
-    configureScriptType :: Lude.Maybe ScriptType,
-    -- | Indicates whether a publicly accessible IP address is created when launching the server.
-    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    configureScriptType :: Core.Maybe Types.ScriptType,
+    -- | The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
+    ec2KeyName :: Core.Maybe Types.EC2KeyName,
     -- | The name of the IAM instance profile.
-    iamInstanceProfileName :: Lude.Maybe Lude.Text,
-    -- | The ID of the subnet the server should be launched into.
-    subnet :: Lude.Maybe Lude.Text,
-    -- | The logical ID of the server in the AWS CloudFormation template.
-    logicalId :: Lude.Maybe Lude.Text,
-    -- | The ID of the security group that applies to the launched server.
-    securityGroup :: Lude.Maybe Lude.Text,
-    -- | Location of the user-data script to be executed when launching the server.
-    userData :: Lude.Maybe UserData,
+    iamInstanceProfileName :: Core.Maybe Types.IamInstanceProfileName,
     -- | The instance type to use when launching the server.
-    instanceType :: Lude.Maybe Lude.Text,
-    configureScript :: Lude.Maybe S3Location,
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The logical ID of the server in the AWS CloudFormation template.
+    logicalId :: Core.Maybe Types.LogicalId,
+    -- | The ID of the security group that applies to the launched server.
+    securityGroup :: Core.Maybe Types.SecurityGroup,
     -- | The ID of the server with which the launch configuration is associated.
-    server :: Lude.Maybe Server,
+    server :: Core.Maybe Types.Server,
+    -- | The ID of the subnet the server should be launched into.
+    subnet :: Core.Maybe Types.Subnet,
+    -- | Location of the user-data script to be executed when launching the server.
+    userData :: Core.Maybe Types.UserData,
     -- | The ID of the VPC into which the server should be launched.
-    vpc :: Lude.Maybe Lude.Text
+    vpc :: Core.Maybe Types.Vpc
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServerLaunchConfiguration' with the minimum fields required to make a request.
---
--- * 'ec2KeyName' - The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
--- * 'configureScriptType' - The type of configuration script.
--- * 'associatePublicIPAddress' - Indicates whether a publicly accessible IP address is created when launching the server.
--- * 'iamInstanceProfileName' - The name of the IAM instance profile.
--- * 'subnet' - The ID of the subnet the server should be launched into.
--- * 'logicalId' - The logical ID of the server in the AWS CloudFormation template.
--- * 'securityGroup' - The ID of the security group that applies to the launched server.
--- * 'userData' - Location of the user-data script to be executed when launching the server.
--- * 'instanceType' - The instance type to use when launching the server.
--- * 'configureScript' -
--- * 'server' - The ID of the server with which the launch configuration is associated.
--- * 'vpc' - The ID of the VPC into which the server should be launched.
+-- | Creates a 'ServerLaunchConfiguration' value with any optional fields omitted.
 mkServerLaunchConfiguration ::
   ServerLaunchConfiguration
 mkServerLaunchConfiguration =
   ServerLaunchConfiguration'
-    { ec2KeyName = Lude.Nothing,
-      configureScriptType = Lude.Nothing,
-      associatePublicIPAddress = Lude.Nothing,
-      iamInstanceProfileName = Lude.Nothing,
-      subnet = Lude.Nothing,
-      logicalId = Lude.Nothing,
-      securityGroup = Lude.Nothing,
-      userData = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      configureScript = Lude.Nothing,
-      server = Lude.Nothing,
-      vpc = Lude.Nothing
+    { associatePublicIpAddress =
+        Core.Nothing,
+      configureScript = Core.Nothing,
+      configureScriptType = Core.Nothing,
+      ec2KeyName = Core.Nothing,
+      iamInstanceProfileName = Core.Nothing,
+      instanceType = Core.Nothing,
+      logicalId = Core.Nothing,
+      securityGroup = Core.Nothing,
+      server = Core.Nothing,
+      subnet = Core.Nothing,
+      userData = Core.Nothing,
+      vpc = Core.Nothing
     }
 
--- | The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
+-- | Indicates whether a publicly accessible IP address is created when launching the server.
 --
--- /Note:/ Consider using 'ec2KeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcEc2KeyName :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcEc2KeyName = Lens.lens (ec2KeyName :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {ec2KeyName = a} :: ServerLaunchConfiguration)
-{-# DEPRECATED slcEc2KeyName "Use generic-lens or generic-optics with 'ec2KeyName' instead." #-}
+-- /Note:/ Consider using 'associatePublicIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcAssociatePublicIpAddress :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Core.Bool)
+slcAssociatePublicIpAddress = Lens.field @"associatePublicIpAddress"
+{-# DEPRECATED slcAssociatePublicIpAddress "Use generic-lens or generic-optics with 'associatePublicIpAddress' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'configureScript' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcConfigureScript :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.S3Location)
+slcConfigureScript = Lens.field @"configureScript"
+{-# DEPRECATED slcConfigureScript "Use generic-lens or generic-optics with 'configureScript' instead." #-}
 
 -- | The type of configuration script.
 --
 -- /Note:/ Consider using 'configureScriptType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcConfigureScriptType :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe ScriptType)
-slcConfigureScriptType = Lens.lens (configureScriptType :: ServerLaunchConfiguration -> Lude.Maybe ScriptType) (\s a -> s {configureScriptType = a} :: ServerLaunchConfiguration)
+slcConfigureScriptType :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.ScriptType)
+slcConfigureScriptType = Lens.field @"configureScriptType"
 {-# DEPRECATED slcConfigureScriptType "Use generic-lens or generic-optics with 'configureScriptType' instead." #-}
 
--- | Indicates whether a publicly accessible IP address is created when launching the server.
+-- | The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
 --
--- /Note:/ Consider using 'associatePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcAssociatePublicIPAddress :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Bool)
-slcAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: ServerLaunchConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {associatePublicIPAddress = a} :: ServerLaunchConfiguration)
-{-# DEPRECATED slcAssociatePublicIPAddress "Use generic-lens or generic-optics with 'associatePublicIPAddress' instead." #-}
+-- /Note:/ Consider using 'ec2KeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcEc2KeyName :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.EC2KeyName)
+slcEc2KeyName = Lens.field @"ec2KeyName"
+{-# DEPRECATED slcEc2KeyName "Use generic-lens or generic-optics with 'ec2KeyName' instead." #-}
 
 -- | The name of the IAM instance profile.
 --
 -- /Note:/ Consider using 'iamInstanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcIamInstanceProfileName :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcIamInstanceProfileName = Lens.lens (iamInstanceProfileName :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {iamInstanceProfileName = a} :: ServerLaunchConfiguration)
+slcIamInstanceProfileName :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.IamInstanceProfileName)
+slcIamInstanceProfileName = Lens.field @"iamInstanceProfileName"
 {-# DEPRECATED slcIamInstanceProfileName "Use generic-lens or generic-optics with 'iamInstanceProfileName' instead." #-}
 
--- | The ID of the subnet the server should be launched into.
+-- | The instance type to use when launching the server.
 --
--- /Note:/ Consider using 'subnet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcSubnet :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcSubnet = Lens.lens (subnet :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {subnet = a} :: ServerLaunchConfiguration)
-{-# DEPRECATED slcSubnet "Use generic-lens or generic-optics with 'subnet' instead." #-}
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcInstanceType :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.InstanceType)
+slcInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED slcInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The logical ID of the server in the AWS CloudFormation template.
 --
 -- /Note:/ Consider using 'logicalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcLogicalId :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcLogicalId = Lens.lens (logicalId :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {logicalId = a} :: ServerLaunchConfiguration)
+slcLogicalId :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.LogicalId)
+slcLogicalId = Lens.field @"logicalId"
 {-# DEPRECATED slcLogicalId "Use generic-lens or generic-optics with 'logicalId' instead." #-}
 
 -- | The ID of the security group that applies to the launched server.
 --
 -- /Note:/ Consider using 'securityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcSecurityGroup :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcSecurityGroup = Lens.lens (securityGroup :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {securityGroup = a} :: ServerLaunchConfiguration)
+slcSecurityGroup :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.SecurityGroup)
+slcSecurityGroup = Lens.field @"securityGroup"
 {-# DEPRECATED slcSecurityGroup "Use generic-lens or generic-optics with 'securityGroup' instead." #-}
-
--- | Location of the user-data script to be executed when launching the server.
---
--- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcUserData :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe UserData)
-slcUserData = Lens.lens (userData :: ServerLaunchConfiguration -> Lude.Maybe UserData) (\s a -> s {userData = a} :: ServerLaunchConfiguration)
-{-# DEPRECATED slcUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
-
--- | The instance type to use when launching the server.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcInstanceType :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcInstanceType = Lens.lens (instanceType :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: ServerLaunchConfiguration)
-{-# DEPRECATED slcInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'configureScript' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcConfigureScript :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe S3Location)
-slcConfigureScript = Lens.lens (configureScript :: ServerLaunchConfiguration -> Lude.Maybe S3Location) (\s a -> s {configureScript = a} :: ServerLaunchConfiguration)
-{-# DEPRECATED slcConfigureScript "Use generic-lens or generic-optics with 'configureScript' instead." #-}
 
 -- | The ID of the server with which the launch configuration is associated.
 --
 -- /Note:/ Consider using 'server' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcServer :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Server)
-slcServer = Lens.lens (server :: ServerLaunchConfiguration -> Lude.Maybe Server) (\s a -> s {server = a} :: ServerLaunchConfiguration)
+slcServer :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.Server)
+slcServer = Lens.field @"server"
 {-# DEPRECATED slcServer "Use generic-lens or generic-optics with 'server' instead." #-}
+
+-- | The ID of the subnet the server should be launched into.
+--
+-- /Note:/ Consider using 'subnet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcSubnet :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.Subnet)
+slcSubnet = Lens.field @"subnet"
+{-# DEPRECATED slcSubnet "Use generic-lens or generic-optics with 'subnet' instead." #-}
+
+-- | Location of the user-data script to be executed when launching the server.
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcUserData :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.UserData)
+slcUserData = Lens.field @"userData"
+{-# DEPRECATED slcUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
 -- | The ID of the VPC into which the server should be launched.
 --
 -- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcVpc :: Lens.Lens' ServerLaunchConfiguration (Lude.Maybe Lude.Text)
-slcVpc = Lens.lens (vpc :: ServerLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpc = a} :: ServerLaunchConfiguration)
+slcVpc :: Lens.Lens' ServerLaunchConfiguration (Core.Maybe Types.Vpc)
+slcVpc = Lens.field @"vpc"
 {-# DEPRECATED slcVpc "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
-instance Lude.FromJSON ServerLaunchConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ServerLaunchConfiguration"
-      ( \x ->
-          ServerLaunchConfiguration'
-            Lude.<$> (x Lude..:? "ec2KeyName")
-            Lude.<*> (x Lude..:? "configureScriptType")
-            Lude.<*> (x Lude..:? "associatePublicIpAddress")
-            Lude.<*> (x Lude..:? "iamInstanceProfileName")
-            Lude.<*> (x Lude..:? "subnet")
-            Lude.<*> (x Lude..:? "logicalId")
-            Lude.<*> (x Lude..:? "securityGroup")
-            Lude.<*> (x Lude..:? "userData")
-            Lude.<*> (x Lude..:? "instanceType")
-            Lude.<*> (x Lude..:? "configureScript")
-            Lude.<*> (x Lude..:? "server")
-            Lude.<*> (x Lude..:? "vpc")
-      )
-
-instance Lude.ToJSON ServerLaunchConfiguration where
-  toJSON ServerLaunchConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ec2KeyName" Lude..=) Lude.<$> ec2KeyName,
-            ("configureScriptType" Lude..=) Lude.<$> configureScriptType,
-            ("associatePublicIpAddress" Lude..=)
-              Lude.<$> associatePublicIPAddress,
-            ("iamInstanceProfileName" Lude..=) Lude.<$> iamInstanceProfileName,
-            ("subnet" Lude..=) Lude.<$> subnet,
-            ("logicalId" Lude..=) Lude.<$> logicalId,
-            ("securityGroup" Lude..=) Lude.<$> securityGroup,
-            ("userData" Lude..=) Lude.<$> userData,
-            ("instanceType" Lude..=) Lude.<$> instanceType,
-            ("configureScript" Lude..=) Lude.<$> configureScript,
-            ("server" Lude..=) Lude.<$> server,
-            ("vpc" Lude..=) Lude.<$> vpc
+instance Core.FromJSON ServerLaunchConfiguration where
+  toJSON ServerLaunchConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("associatePublicIpAddress" Core..=)
+              Core.<$> associatePublicIpAddress,
+            ("configureScript" Core..=) Core.<$> configureScript,
+            ("configureScriptType" Core..=) Core.<$> configureScriptType,
+            ("ec2KeyName" Core..=) Core.<$> ec2KeyName,
+            ("iamInstanceProfileName" Core..=) Core.<$> iamInstanceProfileName,
+            ("instanceType" Core..=) Core.<$> instanceType,
+            ("logicalId" Core..=) Core.<$> logicalId,
+            ("securityGroup" Core..=) Core.<$> securityGroup,
+            ("server" Core..=) Core.<$> server,
+            ("subnet" Core..=) Core.<$> subnet,
+            ("userData" Core..=) Core.<$> userData,
+            ("vpc" Core..=) Core.<$> vpc
           ]
       )
+
+instance Core.FromJSON ServerLaunchConfiguration where
+  parseJSON =
+    Core.withObject "ServerLaunchConfiguration" Core.$
+      \x ->
+        ServerLaunchConfiguration'
+          Core.<$> (x Core..:? "associatePublicIpAddress")
+          Core.<*> (x Core..:? "configureScript")
+          Core.<*> (x Core..:? "configureScriptType")
+          Core.<*> (x Core..:? "ec2KeyName")
+          Core.<*> (x Core..:? "iamInstanceProfileName")
+          Core.<*> (x Core..:? "instanceType")
+          Core.<*> (x Core..:? "logicalId")
+          Core.<*> (x Core..:? "securityGroup")
+          Core.<*> (x Core..:? "server")
+          Core.<*> (x Core..:? "subnet")
+          Core.<*> (x Core..:? "userData")
+          Core.<*> (x Core..:? "vpc")

@@ -31,127 +31,123 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     mkDeregisterInstancesFromLoadBalancerResponse,
 
     -- ** Response lenses
-    diflbrsInstances,
-    diflbrsResponseStatus,
+    diflbrrsInstances,
+    diflbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DeregisterInstancesFromLoadBalancer.
 --
 -- /See:/ 'mkDeregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.AccessPointName,
     -- | The IDs of the instances.
-    instances :: [Instance]
+    instances :: [Types.Instance]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterInstancesFromLoadBalancer' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'instances' - The IDs of the instances.
+-- | Creates a 'DeregisterInstancesFromLoadBalancer' value with any optional fields omitted.
 mkDeregisterInstancesFromLoadBalancer ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   DeregisterInstancesFromLoadBalancer
-mkDeregisterInstancesFromLoadBalancer pLoadBalancerName_ =
+mkDeregisterInstancesFromLoadBalancer loadBalancerName =
   DeregisterInstancesFromLoadBalancer'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      instances = Lude.mempty
+    { loadBalancerName,
+      instances = Core.mempty
     }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbLoadBalancerName :: Lens.Lens' DeregisterInstancesFromLoadBalancer Lude.Text
-diflbLoadBalancerName = Lens.lens (loadBalancerName :: DeregisterInstancesFromLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeregisterInstancesFromLoadBalancer)
+diflbLoadBalancerName :: Lens.Lens' DeregisterInstancesFromLoadBalancer Types.AccessPointName
+diflbLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED diflbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the instances.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbInstances :: Lens.Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = Lens.lens (instances :: DeregisterInstancesFromLoadBalancer -> [Instance]) (\s a -> s {instances = a} :: DeregisterInstancesFromLoadBalancer)
+diflbInstances :: Lens.Lens' DeregisterInstancesFromLoadBalancer [Types.Instance]
+diflbInstances = Lens.field @"instances"
 {-# DEPRECATED diflbInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
-instance Lude.AWSRequest DeregisterInstancesFromLoadBalancer where
+instance Core.AWSRequest DeregisterInstancesFromLoadBalancer where
   type
     Rs DeregisterInstancesFromLoadBalancer =
       DeregisterInstancesFromLoadBalancerResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeregisterInstancesFromLoadBalancer")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "Instances"
+                            (Core.toQueryList "member" instances)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeregisterInstancesFromLoadBalancerResult"
       ( \s h x ->
           DeregisterInstancesFromLoadBalancerResponse'
-            Lude.<$> ( x Lude..@? "Instances" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Instances" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeregisterInstancesFromLoadBalancer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeregisterInstancesFromLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterInstancesFromLoadBalancer where
-  toQuery DeregisterInstancesFromLoadBalancer' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeregisterInstancesFromLoadBalancer" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Instances" Lude.=: Lude.toQueryList "member" instances
-      ]
 
 -- | Contains the output of DeregisterInstancesFromLoadBalancer.
 --
 -- /See:/ 'mkDeregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
   { -- | The remaining instances registered with the load balancer.
-    instances :: Lude.Maybe [Instance],
+    instances :: Core.Maybe [Types.Instance],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'instances' - The remaining instances registered with the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeregisterInstancesFromLoadBalancerResponse' value with any optional fields omitted.
 mkDeregisterInstancesFromLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeregisterInstancesFromLoadBalancerResponse
-mkDeregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
+mkDeregisterInstancesFromLoadBalancerResponse responseStatus =
   DeregisterInstancesFromLoadBalancerResponse'
     { instances =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The remaining instances registered with the load balancer.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbrsInstances :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse (Lude.Maybe [Instance])
-diflbrsInstances = Lens.lens (instances :: DeregisterInstancesFromLoadBalancerResponse -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: DeregisterInstancesFromLoadBalancerResponse)
-{-# DEPRECATED diflbrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+diflbrrsInstances :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse (Core.Maybe [Types.Instance])
+diflbrrsInstances = Lens.field @"instances"
+{-# DEPRECATED diflbrrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diflbrsResponseStatus :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse Lude.Int
-diflbrsResponseStatus = Lens.lens (responseStatus :: DeregisterInstancesFromLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterInstancesFromLoadBalancerResponse)
-{-# DEPRECATED diflbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diflbrrsResponseStatus :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse Core.Int
+diflbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diflbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

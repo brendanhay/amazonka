@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.M2tsKlv
   ( M2tsKlv
       ( M2tsKlv',
-        MKNone,
-        MKPassthrough
+        M2tsKlvNone,
+        M2tsKlvPassthrough,
+        fromM2tsKlv
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Klv
-newtype M2tsKlv = M2tsKlv' Lude.Text
+newtype M2tsKlv = M2tsKlv' {fromM2tsKlv :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MKNone :: M2tsKlv
-pattern MKNone = M2tsKlv' "NONE"
+pattern M2tsKlvNone :: M2tsKlv
+pattern M2tsKlvNone = M2tsKlv' "NONE"
 
-pattern MKPassthrough :: M2tsKlv
-pattern MKPassthrough = M2tsKlv' "PASSTHROUGH"
+pattern M2tsKlvPassthrough :: M2tsKlv
+pattern M2tsKlvPassthrough = M2tsKlv' "PASSTHROUGH"
 
 {-# COMPLETE
-  MKNone,
-  MKPassthrough,
+  M2tsKlvNone,
+  M2tsKlvPassthrough,
   M2tsKlv'
   #-}

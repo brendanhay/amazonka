@@ -22,13 +22,15 @@ module Network.AWS.AutoScaling.Types.ScalingProcessQuery
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.ResourceName as Types
+import qualified Network.AWS.AutoScaling.Types.XmlStringMaxLen255 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkScalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
+    autoScalingGroupName :: Types.ResourceName,
     -- | One or more of the following processes:
     --
     --
@@ -60,61 +62,27 @@ data ScalingProcessQuery = ScalingProcessQuery'
     --
     --
     -- If you omit this parameter, all processes are specified.
-    scalingProcesses :: Lude.Maybe [Lude.Text]
+    scalingProcesses :: Core.Maybe [Types.XmlStringMaxLen255]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingProcessQuery' with the minimum fields required to make a request.
---
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'scalingProcesses' - One or more of the following processes:
---
---
---     * @Launch@
---
---
---     * @Terminate@
---
---
---     * @AddToLoadBalancer@
---
---
---     * @AlarmNotification@
---
---
---     * @AZRebalance@
---
---
---     * @HealthCheck@
---
---
---     * @InstanceRefresh@
---
---
---     * @ReplaceUnhealthy@
---
---
---     * @ScheduledActions@
---
---
--- If you omit this parameter, all processes are specified.
+-- | Creates a 'ScalingProcessQuery' value with any optional fields omitted.
 mkScalingProcessQuery ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
   ScalingProcessQuery
-mkScalingProcessQuery pAutoScalingGroupName_ =
+mkScalingProcessQuery autoScalingGroupName =
   ScalingProcessQuery'
-    { autoScalingGroupName =
-        pAutoScalingGroupName_,
-      scalingProcesses = Lude.Nothing
+    { autoScalingGroupName,
+      scalingProcesses = Core.Nothing
     }
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spqAutoScalingGroupName :: Lens.Lens' ScalingProcessQuery Lude.Text
-spqAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ScalingProcessQuery -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: ScalingProcessQuery)
+spqAutoScalingGroupName :: Lens.Lens' ScalingProcessQuery Types.ResourceName
+spqAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED spqAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One or more of the following processes:
@@ -150,14 +118,6 @@ spqAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ScalingProcessQuery
 -- If you omit this parameter, all processes are specified.
 --
 -- /Note:/ Consider using 'scalingProcesses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spqScalingProcesses :: Lens.Lens' ScalingProcessQuery (Lude.Maybe [Lude.Text])
-spqScalingProcesses = Lens.lens (scalingProcesses :: ScalingProcessQuery -> Lude.Maybe [Lude.Text]) (\s a -> s {scalingProcesses = a} :: ScalingProcessQuery)
+spqScalingProcesses :: Lens.Lens' ScalingProcessQuery (Core.Maybe [Types.XmlStringMaxLen255])
+spqScalingProcesses = Lens.field @"scalingProcesses"
 {-# DEPRECATED spqScalingProcesses "Use generic-lens or generic-optics with 'scalingProcesses' instead." #-}
-
-instance Lude.ToQuery ScalingProcessQuery where
-  toQuery ScalingProcessQuery' {..} =
-    Lude.mconcat
-      [ "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "ScalingProcesses"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses)
-      ]

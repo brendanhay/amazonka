@@ -17,13 +17,14 @@ module Network.AWS.CloudFormation.Types.AccountLimit
     mkAccountLimit,
 
     -- * Lenses
-    alValue,
     alName,
+    alValue,
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The AccountLimit data type.
 --
@@ -42,44 +43,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { -- | The value that is associated with the account limit name.
-    value :: Lude.Maybe Lude.Int,
-    -- | The name of the account limit.
+  { -- | The name of the account limit.
     --
     -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name,
+    -- | The value that is associated with the account limit name.
+    value :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
---
--- * 'value' - The value that is associated with the account limit name.
--- * 'name' - The name of the account limit.
---
--- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
+-- | Creates a 'AccountLimit' value with any optional fields omitted.
 mkAccountLimit ::
   AccountLimit
 mkAccountLimit =
-  AccountLimit' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The value that is associated with the account limit name.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alValue :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Int)
-alValue = Lens.lens (value :: AccountLimit -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: AccountLimit)
-{-# DEPRECATED alValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  AccountLimit' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The name of the account limit.
 --
 -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alName :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Text)
-alName = Lens.lens (name :: AccountLimit -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AccountLimit)
+alName :: Lens.Lens' AccountLimit (Core.Maybe Types.Name)
+alName = Lens.field @"name"
 {-# DEPRECATED alName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML AccountLimit where
+-- | The value that is associated with the account limit name.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alValue :: Lens.Lens' AccountLimit (Core.Maybe Core.Int)
+alValue = Lens.field @"value"
+{-# DEPRECATED alValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Name")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")

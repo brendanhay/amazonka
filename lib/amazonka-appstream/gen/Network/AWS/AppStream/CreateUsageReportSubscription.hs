@@ -24,115 +24,104 @@ module Network.AWS.AppStream.CreateUsageReportSubscription
     mkCreateUsageReportSubscriptionResponse,
 
     -- ** Response lenses
-    cursrsSchedule,
-    cursrsS3BucketName,
-    cursrsResponseStatus,
+    cursrrsS3BucketName,
+    cursrrsSchedule,
+    cursrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUsageReportSubscription' smart constructor.
 data CreateUsageReportSubscription = CreateUsageReportSubscription'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUsageReportSubscription' with the minimum fields required to make a request.
+-- | Creates a 'CreateUsageReportSubscription' value with any optional fields omitted.
 mkCreateUsageReportSubscription ::
   CreateUsageReportSubscription
 mkCreateUsageReportSubscription = CreateUsageReportSubscription'
 
-instance Lude.AWSRequest CreateUsageReportSubscription where
+instance Core.FromJSON CreateUsageReportSubscription where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest CreateUsageReportSubscription where
   type
     Rs CreateUsageReportSubscription =
       CreateUsageReportSubscriptionResponse
-  request = Req.postJSON appStreamService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "PhotonAdminProxyService.CreateUsageReportSubscription"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateUsageReportSubscriptionResponse'
-            Lude.<$> (x Lude..?> "Schedule")
-            Lude.<*> (x Lude..?> "S3BucketName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "S3BucketName")
+            Core.<*> (x Core..:? "Schedule")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateUsageReportSubscription where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.CreateUsageReportSubscription" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateUsageReportSubscription where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath CreateUsageReportSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUsageReportSubscription where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateUsageReportSubscriptionResponse' smart constructor.
 data CreateUsageReportSubscriptionResponse = CreateUsageReportSubscriptionResponse'
-  { -- | The schedule for generating usage reports.
-    schedule :: Lude.Maybe UsageReportSchedule,
-    -- | The Amazon S3 bucket where generated reports are stored.
+  { -- | The Amazon S3 bucket where generated reports are stored.
     --
     -- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
-    s3BucketName :: Lude.Maybe Lude.Text,
+    s3BucketName :: Core.Maybe Types.S3BucketName,
+    -- | The schedule for generating usage reports.
+    schedule :: Core.Maybe Types.UsageReportSchedule,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUsageReportSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'schedule' - The schedule for generating usage reports.
--- * 's3BucketName' - The Amazon S3 bucket where generated reports are stored.
---
--- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateUsageReportSubscriptionResponse' value with any optional fields omitted.
 mkCreateUsageReportSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateUsageReportSubscriptionResponse
-mkCreateUsageReportSubscriptionResponse pResponseStatus_ =
+mkCreateUsageReportSubscriptionResponse responseStatus =
   CreateUsageReportSubscriptionResponse'
-    { schedule = Lude.Nothing,
-      s3BucketName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { s3BucketName =
+        Core.Nothing,
+      schedule = Core.Nothing,
+      responseStatus
     }
-
--- | The schedule for generating usage reports.
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cursrsSchedule :: Lens.Lens' CreateUsageReportSubscriptionResponse (Lude.Maybe UsageReportSchedule)
-cursrsSchedule = Lens.lens (schedule :: CreateUsageReportSubscriptionResponse -> Lude.Maybe UsageReportSchedule) (\s a -> s {schedule = a} :: CreateUsageReportSubscriptionResponse)
-{-# DEPRECATED cursrsSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The Amazon S3 bucket where generated reports are stored.
 --
 -- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cursrsS3BucketName :: Lens.Lens' CreateUsageReportSubscriptionResponse (Lude.Maybe Lude.Text)
-cursrsS3BucketName = Lens.lens (s3BucketName :: CreateUsageReportSubscriptionResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: CreateUsageReportSubscriptionResponse)
-{-# DEPRECATED cursrsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+cursrrsS3BucketName :: Lens.Lens' CreateUsageReportSubscriptionResponse (Core.Maybe Types.S3BucketName)
+cursrrsS3BucketName = Lens.field @"s3BucketName"
+{-# DEPRECATED cursrrsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+
+-- | The schedule for generating usage reports.
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cursrrsSchedule :: Lens.Lens' CreateUsageReportSubscriptionResponse (Core.Maybe Types.UsageReportSchedule)
+cursrrsSchedule = Lens.field @"schedule"
+{-# DEPRECATED cursrrsSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cursrsResponseStatus :: Lens.Lens' CreateUsageReportSubscriptionResponse Lude.Int
-cursrsResponseStatus = Lens.lens (responseStatus :: CreateUsageReportSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUsageReportSubscriptionResponse)
-{-# DEPRECATED cursrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cursrrsResponseStatus :: Lens.Lens' CreateUsageReportSubscriptionResponse Core.Int
+cursrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cursrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

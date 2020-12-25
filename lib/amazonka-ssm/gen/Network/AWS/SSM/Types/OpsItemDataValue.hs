@@ -17,64 +17,60 @@ module Network.AWS.SSM.Types.OpsItemDataValue
     mkOpsItemDataValue,
 
     -- * Lenses
-    oidvValue,
     oidvType,
+    oidvValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.OpsItemDataType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.OpsItemDataType as Types
+import qualified Network.AWS.SSM.Types.OpsItemDataValueString as Types
 
 -- | An object that defines the value of the key and its type in the OperationalData map.
 --
 -- /See:/ 'mkOpsItemDataValue' smart constructor.
 data OpsItemDataValue = OpsItemDataValue'
-  { -- | The value of the OperationalData key.
-    value :: Lude.Maybe Lude.Text,
-    -- | The type of key-value pair. Valid types include @SearchableString@ and @String@ .
-    type' :: Lude.Maybe OpsItemDataType
+  { -- | The type of key-value pair. Valid types include @SearchableString@ and @String@ .
+    type' :: Core.Maybe Types.OpsItemDataType,
+    -- | The value of the OperationalData key.
+    value :: Core.Maybe Types.OpsItemDataValueString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsItemDataValue' with the minimum fields required to make a request.
---
--- * 'value' - The value of the OperationalData key.
--- * 'type'' - The type of key-value pair. Valid types include @SearchableString@ and @String@ .
+-- | Creates a 'OpsItemDataValue' value with any optional fields omitted.
 mkOpsItemDataValue ::
   OpsItemDataValue
 mkOpsItemDataValue =
-  OpsItemDataValue' {value = Lude.Nothing, type' = Lude.Nothing}
-
--- | The value of the OperationalData key.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oidvValue :: Lens.Lens' OpsItemDataValue (Lude.Maybe Lude.Text)
-oidvValue = Lens.lens (value :: OpsItemDataValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: OpsItemDataValue)
-{-# DEPRECATED oidvValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  OpsItemDataValue' {type' = Core.Nothing, value = Core.Nothing}
 
 -- | The type of key-value pair. Valid types include @SearchableString@ and @String@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oidvType :: Lens.Lens' OpsItemDataValue (Lude.Maybe OpsItemDataType)
-oidvType = Lens.lens (type' :: OpsItemDataValue -> Lude.Maybe OpsItemDataType) (\s a -> s {type' = a} :: OpsItemDataValue)
+oidvType :: Lens.Lens' OpsItemDataValue (Core.Maybe Types.OpsItemDataType)
+oidvType = Lens.field @"type'"
 {-# DEPRECATED oidvType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON OpsItemDataValue where
-  parseJSON =
-    Lude.withObject
-      "OpsItemDataValue"
-      ( \x ->
-          OpsItemDataValue'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
-      )
+-- | The value of the OperationalData key.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oidvValue :: Lens.Lens' OpsItemDataValue (Core.Maybe Types.OpsItemDataValueString)
+oidvValue = Lens.field @"value"
+{-# DEPRECATED oidvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON OpsItemDataValue where
-  toJSON OpsItemDataValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON OpsItemDataValue where
+  toJSON OpsItemDataValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            ("Value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON OpsItemDataValue where
+  parseJSON =
+    Core.withObject "OpsItemDataValue" Core.$
+      \x ->
+        OpsItemDataValue'
+          Core.<$> (x Core..:? "Type") Core.<*> (x Core..:? "Value")

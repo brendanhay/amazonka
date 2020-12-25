@@ -17,82 +17,79 @@ module Network.AWS.IoT.Types.SigningProfileParameter
     mkSigningProfileParameter,
 
     -- * Lenses
-    sppPlatform,
-    sppCertificateARN,
+    sppCertificateArn,
     sppCertificatePathOnDevice,
+    sppPlatform,
   )
 where
 
+import qualified Network.AWS.IoT.Types.CertificateArn as Types
+import qualified Network.AWS.IoT.Types.CertificatePathOnDevice as Types
+import qualified Network.AWS.IoT.Types.Platform as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the code-signing profile.
 --
 -- /See:/ 'mkSigningProfileParameter' smart constructor.
 data SigningProfileParameter = SigningProfileParameter'
-  { -- | The hardware platform of your device.
-    platform :: Lude.Maybe Lude.Text,
-    -- | Certificate ARN.
-    certificateARN :: Lude.Maybe Lude.Text,
+  { -- | Certificate ARN.
+    certificateArn :: Core.Maybe Types.CertificateArn,
     -- | The location of the code-signing certificate on your device.
-    certificatePathOnDevice :: Lude.Maybe Lude.Text
+    certificatePathOnDevice :: Core.Maybe Types.CertificatePathOnDevice,
+    -- | The hardware platform of your device.
+    platform :: Core.Maybe Types.Platform
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SigningProfileParameter' with the minimum fields required to make a request.
---
--- * 'platform' - The hardware platform of your device.
--- * 'certificateARN' - Certificate ARN.
--- * 'certificatePathOnDevice' - The location of the code-signing certificate on your device.
+-- | Creates a 'SigningProfileParameter' value with any optional fields omitted.
 mkSigningProfileParameter ::
   SigningProfileParameter
 mkSigningProfileParameter =
   SigningProfileParameter'
-    { platform = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      certificatePathOnDevice = Lude.Nothing
+    { certificateArn = Core.Nothing,
+      certificatePathOnDevice = Core.Nothing,
+      platform = Core.Nothing
     }
-
--- | The hardware platform of your device.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sppPlatform :: Lens.Lens' SigningProfileParameter (Lude.Maybe Lude.Text)
-sppPlatform = Lens.lens (platform :: SigningProfileParameter -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: SigningProfileParameter)
-{-# DEPRECATED sppPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | Certificate ARN.
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sppCertificateARN :: Lens.Lens' SigningProfileParameter (Lude.Maybe Lude.Text)
-sppCertificateARN = Lens.lens (certificateARN :: SigningProfileParameter -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: SigningProfileParameter)
-{-# DEPRECATED sppCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppCertificateArn :: Lens.Lens' SigningProfileParameter (Core.Maybe Types.CertificateArn)
+sppCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED sppCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The location of the code-signing certificate on your device.
 --
 -- /Note:/ Consider using 'certificatePathOnDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sppCertificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Lude.Maybe Lude.Text)
-sppCertificatePathOnDevice = Lens.lens (certificatePathOnDevice :: SigningProfileParameter -> Lude.Maybe Lude.Text) (\s a -> s {certificatePathOnDevice = a} :: SigningProfileParameter)
+sppCertificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Core.Maybe Types.CertificatePathOnDevice)
+sppCertificatePathOnDevice = Lens.field @"certificatePathOnDevice"
 {-# DEPRECATED sppCertificatePathOnDevice "Use generic-lens or generic-optics with 'certificatePathOnDevice' instead." #-}
 
-instance Lude.FromJSON SigningProfileParameter where
-  parseJSON =
-    Lude.withObject
-      "SigningProfileParameter"
-      ( \x ->
-          SigningProfileParameter'
-            Lude.<$> (x Lude..:? "platform")
-            Lude.<*> (x Lude..:? "certificateArn")
-            Lude.<*> (x Lude..:? "certificatePathOnDevice")
-      )
+-- | The hardware platform of your device.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppPlatform :: Lens.Lens' SigningProfileParameter (Core.Maybe Types.Platform)
+sppPlatform = Lens.field @"platform"
+{-# DEPRECATED sppPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
-instance Lude.ToJSON SigningProfileParameter where
-  toJSON SigningProfileParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("platform" Lude..=) Lude.<$> platform,
-            ("certificateArn" Lude..=) Lude.<$> certificateARN,
-            ("certificatePathOnDevice" Lude..=)
-              Lude.<$> certificatePathOnDevice
+instance Core.FromJSON SigningProfileParameter where
+  toJSON SigningProfileParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("certificateArn" Core..=) Core.<$> certificateArn,
+            ("certificatePathOnDevice" Core..=)
+              Core.<$> certificatePathOnDevice,
+            ("platform" Core..=) Core.<$> platform
           ]
       )
+
+instance Core.FromJSON SigningProfileParameter where
+  parseJSON =
+    Core.withObject "SigningProfileParameter" Core.$
+      \x ->
+        SigningProfileParameter'
+          Core.<$> (x Core..:? "certificateArn")
+          Core.<*> (x Core..:? "certificatePathOnDevice")
+          Core.<*> (x Core..:? "platform")

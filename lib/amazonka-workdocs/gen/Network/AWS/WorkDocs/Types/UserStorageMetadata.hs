@@ -17,59 +17,54 @@ module Network.AWS.WorkDocs.Types.UserStorageMetadata
     mkUserStorageMetadata,
 
     -- * Lenses
-    usmStorageUtilizedInBytes,
     usmStorageRule,
+    usmStorageUtilizedInBytes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.StorageRuleType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.StorageRuleType as Types
 
 -- | Describes the storage for a user.
 --
 -- /See:/ 'mkUserStorageMetadata' smart constructor.
 data UserStorageMetadata = UserStorageMetadata'
-  { -- | The amount of storage used, in bytes.
-    storageUtilizedInBytes :: Lude.Maybe Lude.Integer,
-    -- | The storage for a user.
-    storageRule :: Lude.Maybe StorageRuleType
+  { -- | The storage for a user.
+    storageRule :: Core.Maybe Types.StorageRuleType,
+    -- | The amount of storage used, in bytes.
+    storageUtilizedInBytes :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserStorageMetadata' with the minimum fields required to make a request.
---
--- * 'storageUtilizedInBytes' - The amount of storage used, in bytes.
--- * 'storageRule' - The storage for a user.
+-- | Creates a 'UserStorageMetadata' value with any optional fields omitted.
 mkUserStorageMetadata ::
   UserStorageMetadata
 mkUserStorageMetadata =
   UserStorageMetadata'
-    { storageUtilizedInBytes = Lude.Nothing,
-      storageRule = Lude.Nothing
+    { storageRule = Core.Nothing,
+      storageUtilizedInBytes = Core.Nothing
     }
-
--- | The amount of storage used, in bytes.
---
--- /Note:/ Consider using 'storageUtilizedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmStorageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Lude.Maybe Lude.Integer)
-usmStorageUtilizedInBytes = Lens.lens (storageUtilizedInBytes :: UserStorageMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {storageUtilizedInBytes = a} :: UserStorageMetadata)
-{-# DEPRECATED usmStorageUtilizedInBytes "Use generic-lens or generic-optics with 'storageUtilizedInBytes' instead." #-}
 
 -- | The storage for a user.
 --
 -- /Note:/ Consider using 'storageRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmStorageRule :: Lens.Lens' UserStorageMetadata (Lude.Maybe StorageRuleType)
-usmStorageRule = Lens.lens (storageRule :: UserStorageMetadata -> Lude.Maybe StorageRuleType) (\s a -> s {storageRule = a} :: UserStorageMetadata)
+usmStorageRule :: Lens.Lens' UserStorageMetadata (Core.Maybe Types.StorageRuleType)
+usmStorageRule = Lens.field @"storageRule"
 {-# DEPRECATED usmStorageRule "Use generic-lens or generic-optics with 'storageRule' instead." #-}
 
-instance Lude.FromJSON UserStorageMetadata where
+-- | The amount of storage used, in bytes.
+--
+-- /Note:/ Consider using 'storageUtilizedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmStorageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Core.Maybe Core.Integer)
+usmStorageUtilizedInBytes = Lens.field @"storageUtilizedInBytes"
+{-# DEPRECATED usmStorageUtilizedInBytes "Use generic-lens or generic-optics with 'storageUtilizedInBytes' instead." #-}
+
+instance Core.FromJSON UserStorageMetadata where
   parseJSON =
-    Lude.withObject
-      "UserStorageMetadata"
-      ( \x ->
-          UserStorageMetadata'
-            Lude.<$> (x Lude..:? "StorageUtilizedInBytes")
-            Lude.<*> (x Lude..:? "StorageRule")
-      )
+    Core.withObject "UserStorageMetadata" Core.$
+      \x ->
+        UserStorageMetadata'
+          Core.<$> (x Core..:? "StorageRule")
+          Core.<*> (x Core..:? "StorageUtilizedInBytes")

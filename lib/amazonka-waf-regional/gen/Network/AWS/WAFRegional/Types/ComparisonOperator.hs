@@ -13,66 +13,71 @@
 module Network.AWS.WAFRegional.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        EQ,
-        NE,
-        LE,
-        LT,
-        GE,
-        GT
+        ComparisonOperatorEQ,
+        ComparisonOperatorNE,
+        ComparisonOperatorLE,
+        ComparisonOperatorLT,
+        ComparisonOperatorGE,
+        ComparisonOperatorGT,
+        fromComparisonOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComparisonOperator = ComparisonOperator' Lude.Text
+newtype ComparisonOperator = ComparisonOperator'
+  { fromComparisonOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EQ :: ComparisonOperator
-pattern EQ = ComparisonOperator' "EQ"
+pattern ComparisonOperatorEQ :: ComparisonOperator
+pattern ComparisonOperatorEQ = ComparisonOperator' "EQ"
 
-pattern NE :: ComparisonOperator
-pattern NE = ComparisonOperator' "NE"
+pattern ComparisonOperatorNE :: ComparisonOperator
+pattern ComparisonOperatorNE = ComparisonOperator' "NE"
 
-pattern LE :: ComparisonOperator
-pattern LE = ComparisonOperator' "LE"
+pattern ComparisonOperatorLE :: ComparisonOperator
+pattern ComparisonOperatorLE = ComparisonOperator' "LE"
 
-pattern LT :: ComparisonOperator
-pattern LT = ComparisonOperator' "LT"
+pattern ComparisonOperatorLT :: ComparisonOperator
+pattern ComparisonOperatorLT = ComparisonOperator' "LT"
 
-pattern GE :: ComparisonOperator
-pattern GE = ComparisonOperator' "GE"
+pattern ComparisonOperatorGE :: ComparisonOperator
+pattern ComparisonOperatorGE = ComparisonOperator' "GE"
 
-pattern GT :: ComparisonOperator
-pattern GT = ComparisonOperator' "GT"
+pattern ComparisonOperatorGT :: ComparisonOperator
+pattern ComparisonOperatorGT = ComparisonOperator' "GT"
 
 {-# COMPLETE
-  EQ,
-  NE,
-  LE,
-  LT,
-  GE,
-  GT,
+  ComparisonOperatorEQ,
+  ComparisonOperatorNE,
+  ComparisonOperatorLE,
+  ComparisonOperatorLT,
+  ComparisonOperatorGE,
+  ComparisonOperatorGT,
   ComparisonOperator'
   #-}

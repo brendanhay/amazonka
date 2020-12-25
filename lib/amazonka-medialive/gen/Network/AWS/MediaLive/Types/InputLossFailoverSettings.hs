@@ -22,47 +22,43 @@ module Network.AWS.MediaLive.Types.InputLossFailoverSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | MediaLive will perform a failover if content is not detected in this input for the specified period.
 --
 -- /See:/ 'mkInputLossFailoverSettings' smart constructor.
 newtype InputLossFailoverSettings = InputLossFailoverSettings'
   { -- | The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
-    inputLossThresholdMsec :: Lude.Maybe Lude.Natural
+    inputLossThresholdMsec :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputLossFailoverSettings' with the minimum fields required to make a request.
---
--- * 'inputLossThresholdMsec' - The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+-- | Creates a 'InputLossFailoverSettings' value with any optional fields omitted.
 mkInputLossFailoverSettings ::
   InputLossFailoverSettings
 mkInputLossFailoverSettings =
-  InputLossFailoverSettings' {inputLossThresholdMsec = Lude.Nothing}
+  InputLossFailoverSettings' {inputLossThresholdMsec = Core.Nothing}
 
 -- | The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 --
 -- /Note:/ Consider using 'inputLossThresholdMsec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilfsInputLossThresholdMsec :: Lens.Lens' InputLossFailoverSettings (Lude.Maybe Lude.Natural)
-ilfsInputLossThresholdMsec = Lens.lens (inputLossThresholdMsec :: InputLossFailoverSettings -> Lude.Maybe Lude.Natural) (\s a -> s {inputLossThresholdMsec = a} :: InputLossFailoverSettings)
+ilfsInputLossThresholdMsec :: Lens.Lens' InputLossFailoverSettings (Core.Maybe Core.Natural)
+ilfsInputLossThresholdMsec = Lens.field @"inputLossThresholdMsec"
 {-# DEPRECATED ilfsInputLossThresholdMsec "Use generic-lens or generic-optics with 'inputLossThresholdMsec' instead." #-}
 
-instance Lude.FromJSON InputLossFailoverSettings where
-  parseJSON =
-    Lude.withObject
-      "InputLossFailoverSettings"
-      ( \x ->
-          InputLossFailoverSettings'
-            Lude.<$> (x Lude..:? "inputLossThresholdMsec")
-      )
-
-instance Lude.ToJSON InputLossFailoverSettings where
-  toJSON InputLossFailoverSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("inputLossThresholdMsec" Lude..=)
-              Lude.<$> inputLossThresholdMsec
+instance Core.FromJSON InputLossFailoverSettings where
+  toJSON InputLossFailoverSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("inputLossThresholdMsec" Core..=)
+              Core.<$> inputLossThresholdMsec
           ]
       )
+
+instance Core.FromJSON InputLossFailoverSettings where
+  parseJSON =
+    Core.withObject "InputLossFailoverSettings" Core.$
+      \x ->
+        InputLossFailoverSettings'
+          Core.<$> (x Core..:? "inputLossThresholdMsec")

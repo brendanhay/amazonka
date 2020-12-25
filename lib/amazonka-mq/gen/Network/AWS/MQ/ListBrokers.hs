@@ -22,143 +22,133 @@ module Network.AWS.MQ.ListBrokers
     mkListBrokers,
 
     -- ** Request lenses
-    lbNextToken,
     lbMaxResults,
+    lbNextToken,
 
     -- * Destructuring the response
     ListBrokersResponse (..),
     mkListBrokersResponse,
 
     -- ** Response lenses
-    lbrsNextToken,
-    lbrsBrokerSummaries,
-    lbrsResponseStatus,
+    lbrrsBrokerSummaries,
+    lbrrsNextToken,
+    lbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListBrokers' smart constructor.
 data ListBrokers = ListBrokers'
-  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBrokers' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'maxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+-- | Creates a 'ListBrokers' value with any optional fields omitted.
 mkListBrokers ::
   ListBrokers
 mkListBrokers =
-  ListBrokers' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
-
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbNextToken :: Lens.Lens' ListBrokers (Lude.Maybe Lude.Text)
-lbNextToken = Lens.lens (nextToken :: ListBrokers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBrokers)
-{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListBrokers' {maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbMaxResults :: Lens.Lens' ListBrokers (Lude.Maybe Lude.Natural)
-lbMaxResults = Lens.lens (maxResults :: ListBrokers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListBrokers)
+lbMaxResults :: Lens.Lens' ListBrokers (Core.Maybe Core.Natural)
+lbMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListBrokers where
-  page rq rs
-    | Page.stop (rs Lens.^. lbrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbrsBrokerSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lbNextToken Lens..~ rs Lens.^. lbrsNextToken
-
-instance Lude.AWSRequest ListBrokers where
-  type Rs ListBrokers = ListBrokersResponse
-  request = Req.get mqService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListBrokersResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "brokerSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListBrokers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListBrokers where
-  toPath = Lude.const "/v1/brokers"
-
-instance Lude.ToQuery ListBrokers where
-  toQuery ListBrokers' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
-
--- | /See:/ 'mkListBrokersResponse' smart constructor.
-data ListBrokersResponse = ListBrokersResponse'
-  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of information about all brokers.
-    brokerSummaries :: Lude.Maybe [BrokerSummary],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListBrokersResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'brokerSummaries' - A list of information about all brokers.
--- * 'responseStatus' - The response status code.
-mkListBrokersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListBrokersResponse
-mkListBrokersResponse pResponseStatus_ =
-  ListBrokersResponse'
-    { nextToken = Lude.Nothing,
-      brokerSummaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsNextToken :: Lens.Lens' ListBrokersResponse (Lude.Maybe Lude.Text)
-lbrsNextToken = Lens.lens (nextToken :: ListBrokersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBrokersResponse)
-{-# DEPRECATED lbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lbNextToken :: Lens.Lens' ListBrokers (Core.Maybe Core.Text)
+lbNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListBrokers where
+  type Rs ListBrokers = ListBrokersResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/v1/brokers",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListBrokersResponse'
+            Core.<$> (x Core..:? "brokerSummaries")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListBrokers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"brokerSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListBrokersResponse' smart constructor.
+data ListBrokersResponse = ListBrokersResponse'
+  { -- | A list of information about all brokers.
+    brokerSummaries :: Core.Maybe [Types.BrokerSummary],
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Core.Maybe Core.Text,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListBrokersResponse' value with any optional fields omitted.
+mkListBrokersResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListBrokersResponse
+mkListBrokersResponse responseStatus =
+  ListBrokersResponse'
+    { brokerSummaries = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | A list of information about all brokers.
 --
 -- /Note:/ Consider using 'brokerSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsBrokerSummaries :: Lens.Lens' ListBrokersResponse (Lude.Maybe [BrokerSummary])
-lbrsBrokerSummaries = Lens.lens (brokerSummaries :: ListBrokersResponse -> Lude.Maybe [BrokerSummary]) (\s a -> s {brokerSummaries = a} :: ListBrokersResponse)
-{-# DEPRECATED lbrsBrokerSummaries "Use generic-lens or generic-optics with 'brokerSummaries' instead." #-}
+lbrrsBrokerSummaries :: Lens.Lens' ListBrokersResponse (Core.Maybe [Types.BrokerSummary])
+lbrrsBrokerSummaries = Lens.field @"brokerSummaries"
+{-# DEPRECATED lbrrsBrokerSummaries "Use generic-lens or generic-optics with 'brokerSummaries' instead." #-}
+
+-- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrrsNextToken :: Lens.Lens' ListBrokersResponse (Core.Maybe Core.Text)
+lbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsResponseStatus :: Lens.Lens' ListBrokersResponse Lude.Int
-lbrsResponseStatus = Lens.lens (responseStatus :: ListBrokersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBrokersResponse)
-{-# DEPRECATED lbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbrrsResponseStatus :: Lens.Lens' ListBrokersResponse Core.Int
+lbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

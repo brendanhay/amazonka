@@ -18,97 +18,92 @@ module Network.AWS.SSM.Types.AttachmentContent
 
     -- * Lenses
     acHash,
-    acSize,
-    acURL,
-    acName,
     acHashType,
+    acName,
+    acSize,
+    acUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.AttachmentHashType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AttachmentHash as Types
+import qualified Network.AWS.SSM.Types.AttachmentHashType as Types
+import qualified Network.AWS.SSM.Types.AttachmentName as Types
+import qualified Network.AWS.SSM.Types.AttachmentUrl as Types
 
 -- | A structure that includes attributes that describe a document attachment.
 --
 -- /See:/ 'mkAttachmentContent' smart constructor.
 data AttachmentContent = AttachmentContent'
   { -- | The cryptographic hash value of the document content.
-    hash :: Lude.Maybe Lude.Text,
-    -- | The size of an attachment in bytes.
-    size :: Lude.Maybe Lude.Integer,
-    -- | The URL location of the attachment content.
-    url :: Lude.Maybe Lude.Text,
-    -- | The name of an attachment.
-    name :: Lude.Maybe Lude.Text,
+    hash :: Core.Maybe Types.AttachmentHash,
     -- | The hash algorithm used to calculate the hash value.
-    hashType :: Lude.Maybe AttachmentHashType
+    hashType :: Core.Maybe Types.AttachmentHashType,
+    -- | The name of an attachment.
+    name :: Core.Maybe Types.AttachmentName,
+    -- | The size of an attachment in bytes.
+    size :: Core.Maybe Core.Integer,
+    -- | The URL location of the attachment content.
+    url :: Core.Maybe Types.AttachmentUrl
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachmentContent' with the minimum fields required to make a request.
---
--- * 'hash' - The cryptographic hash value of the document content.
--- * 'size' - The size of an attachment in bytes.
--- * 'url' - The URL location of the attachment content.
--- * 'name' - The name of an attachment.
--- * 'hashType' - The hash algorithm used to calculate the hash value.
+-- | Creates a 'AttachmentContent' value with any optional fields omitted.
 mkAttachmentContent ::
   AttachmentContent
 mkAttachmentContent =
   AttachmentContent'
-    { hash = Lude.Nothing,
-      size = Lude.Nothing,
-      url = Lude.Nothing,
-      name = Lude.Nothing,
-      hashType = Lude.Nothing
+    { hash = Core.Nothing,
+      hashType = Core.Nothing,
+      name = Core.Nothing,
+      size = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | The cryptographic hash value of the document content.
 --
 -- /Note:/ Consider using 'hash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acHash :: Lens.Lens' AttachmentContent (Lude.Maybe Lude.Text)
-acHash = Lens.lens (hash :: AttachmentContent -> Lude.Maybe Lude.Text) (\s a -> s {hash = a} :: AttachmentContent)
+acHash :: Lens.Lens' AttachmentContent (Core.Maybe Types.AttachmentHash)
+acHash = Lens.field @"hash"
 {-# DEPRECATED acHash "Use generic-lens or generic-optics with 'hash' instead." #-}
+
+-- | The hash algorithm used to calculate the hash value.
+--
+-- /Note:/ Consider using 'hashType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acHashType :: Lens.Lens' AttachmentContent (Core.Maybe Types.AttachmentHashType)
+acHashType = Lens.field @"hashType"
+{-# DEPRECATED acHashType "Use generic-lens or generic-optics with 'hashType' instead." #-}
+
+-- | The name of an attachment.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acName :: Lens.Lens' AttachmentContent (Core.Maybe Types.AttachmentName)
+acName = Lens.field @"name"
+{-# DEPRECATED acName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The size of an attachment in bytes.
 --
 -- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acSize :: Lens.Lens' AttachmentContent (Lude.Maybe Lude.Integer)
-acSize = Lens.lens (size :: AttachmentContent -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: AttachmentContent)
+acSize :: Lens.Lens' AttachmentContent (Core.Maybe Core.Integer)
+acSize = Lens.field @"size"
 {-# DEPRECATED acSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The URL location of the attachment content.
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acURL :: Lens.Lens' AttachmentContent (Lude.Maybe Lude.Text)
-acURL = Lens.lens (url :: AttachmentContent -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: AttachmentContent)
-{-# DEPRECATED acURL "Use generic-lens or generic-optics with 'url' instead." #-}
+acUrl :: Lens.Lens' AttachmentContent (Core.Maybe Types.AttachmentUrl)
+acUrl = Lens.field @"url"
+{-# DEPRECATED acUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | The name of an attachment.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acName :: Lens.Lens' AttachmentContent (Lude.Maybe Lude.Text)
-acName = Lens.lens (name :: AttachmentContent -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AttachmentContent)
-{-# DEPRECATED acName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The hash algorithm used to calculate the hash value.
---
--- /Note:/ Consider using 'hashType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acHashType :: Lens.Lens' AttachmentContent (Lude.Maybe AttachmentHashType)
-acHashType = Lens.lens (hashType :: AttachmentContent -> Lude.Maybe AttachmentHashType) (\s a -> s {hashType = a} :: AttachmentContent)
-{-# DEPRECATED acHashType "Use generic-lens or generic-optics with 'hashType' instead." #-}
-
-instance Lude.FromJSON AttachmentContent where
+instance Core.FromJSON AttachmentContent where
   parseJSON =
-    Lude.withObject
-      "AttachmentContent"
-      ( \x ->
-          AttachmentContent'
-            Lude.<$> (x Lude..:? "Hash")
-            Lude.<*> (x Lude..:? "Size")
-            Lude.<*> (x Lude..:? "Url")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "HashType")
-      )
+    Core.withObject "AttachmentContent" Core.$
+      \x ->
+        AttachmentContent'
+          Core.<$> (x Core..:? "Hash")
+          Core.<*> (x Core..:? "HashType")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Size")
+          Core.<*> (x Core..:? "Url")

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CertificateManager
     Network.AWS.CertificateManager.AddTagsToCertificate
@@ -84,12 +90,19 @@ library
     Network.AWS.CertificateManager.Waiters
 
   other-modules:
+    Network.AWS.CertificateManager.Types.Arn
+    Network.AWS.CertificateManager.Types.Certificate
+    Network.AWS.CertificateManager.Types.CertificateArn
+    Network.AWS.CertificateManager.Types.CertificateAuthorityArn
+    Network.AWS.CertificateManager.Types.CertificateChain
     Network.AWS.CertificateManager.Types.CertificateDetail
     Network.AWS.CertificateManager.Types.CertificateOptions
     Network.AWS.CertificateManager.Types.CertificateStatus
     Network.AWS.CertificateManager.Types.CertificateSummary
     Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
     Network.AWS.CertificateManager.Types.CertificateType
+    Network.AWS.CertificateManager.Types.DomainName
+    Network.AWS.CertificateManager.Types.DomainNameString
     Network.AWS.CertificateManager.Types.DomainStatus
     Network.AWS.CertificateManager.Types.DomainValidation
     Network.AWS.CertificateManager.Types.DomainValidationOption
@@ -97,17 +110,29 @@ library
     Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
     Network.AWS.CertificateManager.Types.FailureReason
     Network.AWS.CertificateManager.Types.Filters
+    Network.AWS.CertificateManager.Types.IdempotencyToken
+    Network.AWS.CertificateManager.Types.Issuer
+    Network.AWS.CertificateManager.Types.Key
     Network.AWS.CertificateManager.Types.KeyAlgorithm
     Network.AWS.CertificateManager.Types.KeyUsage
     Network.AWS.CertificateManager.Types.KeyUsageName
+    Network.AWS.CertificateManager.Types.Name
+    Network.AWS.CertificateManager.Types.NextToken
+    Network.AWS.CertificateManager.Types.PrivateKey
     Network.AWS.CertificateManager.Types.RecordType
     Network.AWS.CertificateManager.Types.RenewalEligibility
     Network.AWS.CertificateManager.Types.RenewalStatus
     Network.AWS.CertificateManager.Types.RenewalSummary
     Network.AWS.CertificateManager.Types.ResourceRecord
     Network.AWS.CertificateManager.Types.RevocationReason
+    Network.AWS.CertificateManager.Types.Serial
+    Network.AWS.CertificateManager.Types.SignatureAlgorithm
+    Network.AWS.CertificateManager.Types.String
+    Network.AWS.CertificateManager.Types.Subject
     Network.AWS.CertificateManager.Types.Tag
+    Network.AWS.CertificateManager.Types.ValidationDomain
     Network.AWS.CertificateManager.Types.ValidationMethod
+    Network.AWS.CertificateManager.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

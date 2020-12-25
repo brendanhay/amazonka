@@ -17,20 +17,21 @@ module Network.AWS.ElastiCache.Types.CacheNode
     mkCacheNode,
 
     -- * Lenses
-    cnSourceCacheNodeId,
-    cnParameterGroupStatus,
     cnCacheNodeCreateTime,
-    cnCustomerAvailabilityZone,
     cnCacheNodeId,
-    cnCustomerOutpostARN,
     cnCacheNodeStatus,
+    cnCustomerAvailabilityZone,
+    cnCustomerOutpostArn,
     cnEndpoint,
+    cnParameterGroupStatus,
+    cnSourceCacheNodeId,
   )
 where
 
-import Network.AWS.ElastiCache.Types.Endpoint
+import qualified Network.AWS.ElastiCache.Types.Endpoint as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
 --
@@ -96,114 +97,105 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheNode' smart constructor.
 data CacheNode = CacheNode'
-  { -- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
-    sourceCacheNodeId :: Lude.Maybe Lude.Text,
-    -- | The status of the parameter group applied to this cache node.
-    parameterGroupStatus :: Lude.Maybe Lude.Text,
-    -- | The date and time when the cache node was created.
-    cacheNodeCreateTime :: Lude.Maybe Lude.DateTime,
-    -- | The Availability Zone where this node was created and now resides.
-    customerAvailabilityZone :: Lude.Maybe Lude.Text,
+  { -- | The date and time when the cache node was created.
+    cacheNodeCreateTime :: Core.Maybe Core.UTCTime,
     -- | The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
-    cacheNodeId :: Lude.Maybe Lude.Text,
-    -- | The customer outpost ARN of the cache node.
-    customerOutpostARN :: Lude.Maybe Lude.Text,
+    cacheNodeId :: Core.Maybe Types.String,
     -- | The current state of this cache node, one of the following values: @available@ , @creating@ , @rebooting@ , or @deleting@ .
-    cacheNodeStatus :: Lude.Maybe Lude.Text,
+    cacheNodeStatus :: Core.Maybe Types.String,
+    -- | The Availability Zone where this node was created and now resides.
+    customerAvailabilityZone :: Core.Maybe Types.String,
+    -- | The customer outpost ARN of the cache node.
+    customerOutpostArn :: Core.Maybe Types.String,
     -- | The hostname for connecting to this cache node.
-    endpoint :: Lude.Maybe Endpoint
+    endpoint :: Core.Maybe Types.Endpoint,
+    -- | The status of the parameter group applied to this cache node.
+    parameterGroupStatus :: Core.Maybe Types.String,
+    -- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
+    sourceCacheNodeId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CacheNode' with the minimum fields required to make a request.
---
--- * 'sourceCacheNodeId' - The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
--- * 'parameterGroupStatus' - The status of the parameter group applied to this cache node.
--- * 'cacheNodeCreateTime' - The date and time when the cache node was created.
--- * 'customerAvailabilityZone' - The Availability Zone where this node was created and now resides.
--- * 'cacheNodeId' - The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
--- * 'customerOutpostARN' - The customer outpost ARN of the cache node.
--- * 'cacheNodeStatus' - The current state of this cache node, one of the following values: @available@ , @creating@ , @rebooting@ , or @deleting@ .
--- * 'endpoint' - The hostname for connecting to this cache node.
+-- | Creates a 'CacheNode' value with any optional fields omitted.
 mkCacheNode ::
   CacheNode
 mkCacheNode =
   CacheNode'
-    { sourceCacheNodeId = Lude.Nothing,
-      parameterGroupStatus = Lude.Nothing,
-      cacheNodeCreateTime = Lude.Nothing,
-      customerAvailabilityZone = Lude.Nothing,
-      cacheNodeId = Lude.Nothing,
-      customerOutpostARN = Lude.Nothing,
-      cacheNodeStatus = Lude.Nothing,
-      endpoint = Lude.Nothing
+    { cacheNodeCreateTime = Core.Nothing,
+      cacheNodeId = Core.Nothing,
+      cacheNodeStatus = Core.Nothing,
+      customerAvailabilityZone = Core.Nothing,
+      customerOutpostArn = Core.Nothing,
+      endpoint = Core.Nothing,
+      parameterGroupStatus = Core.Nothing,
+      sourceCacheNodeId = Core.Nothing
     }
-
--- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
---
--- /Note:/ Consider using 'sourceCacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnSourceCacheNodeId :: Lens.Lens' CacheNode (Lude.Maybe Lude.Text)
-cnSourceCacheNodeId = Lens.lens (sourceCacheNodeId :: CacheNode -> Lude.Maybe Lude.Text) (\s a -> s {sourceCacheNodeId = a} :: CacheNode)
-{-# DEPRECATED cnSourceCacheNodeId "Use generic-lens or generic-optics with 'sourceCacheNodeId' instead." #-}
-
--- | The status of the parameter group applied to this cache node.
---
--- /Note:/ Consider using 'parameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnParameterGroupStatus :: Lens.Lens' CacheNode (Lude.Maybe Lude.Text)
-cnParameterGroupStatus = Lens.lens (parameterGroupStatus :: CacheNode -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupStatus = a} :: CacheNode)
-{-# DEPRECATED cnParameterGroupStatus "Use generic-lens or generic-optics with 'parameterGroupStatus' instead." #-}
 
 -- | The date and time when the cache node was created.
 --
 -- /Note:/ Consider using 'cacheNodeCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnCacheNodeCreateTime :: Lens.Lens' CacheNode (Lude.Maybe Lude.DateTime)
-cnCacheNodeCreateTime = Lens.lens (cacheNodeCreateTime :: CacheNode -> Lude.Maybe Lude.DateTime) (\s a -> s {cacheNodeCreateTime = a} :: CacheNode)
+cnCacheNodeCreateTime :: Lens.Lens' CacheNode (Core.Maybe Core.UTCTime)
+cnCacheNodeCreateTime = Lens.field @"cacheNodeCreateTime"
 {-# DEPRECATED cnCacheNodeCreateTime "Use generic-lens or generic-optics with 'cacheNodeCreateTime' instead." #-}
-
--- | The Availability Zone where this node was created and now resides.
---
--- /Note:/ Consider using 'customerAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnCustomerAvailabilityZone :: Lens.Lens' CacheNode (Lude.Maybe Lude.Text)
-cnCustomerAvailabilityZone = Lens.lens (customerAvailabilityZone :: CacheNode -> Lude.Maybe Lude.Text) (\s a -> s {customerAvailabilityZone = a} :: CacheNode)
-{-# DEPRECATED cnCustomerAvailabilityZone "Use generic-lens or generic-optics with 'customerAvailabilityZone' instead." #-}
 
 -- | The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
 --
 -- /Note:/ Consider using 'cacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnCacheNodeId :: Lens.Lens' CacheNode (Lude.Maybe Lude.Text)
-cnCacheNodeId = Lens.lens (cacheNodeId :: CacheNode -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeId = a} :: CacheNode)
+cnCacheNodeId :: Lens.Lens' CacheNode (Core.Maybe Types.String)
+cnCacheNodeId = Lens.field @"cacheNodeId"
 {-# DEPRECATED cnCacheNodeId "Use generic-lens or generic-optics with 'cacheNodeId' instead." #-}
-
--- | The customer outpost ARN of the cache node.
---
--- /Note:/ Consider using 'customerOutpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnCustomerOutpostARN :: Lens.Lens' CacheNode (Lude.Maybe Lude.Text)
-cnCustomerOutpostARN = Lens.lens (customerOutpostARN :: CacheNode -> Lude.Maybe Lude.Text) (\s a -> s {customerOutpostARN = a} :: CacheNode)
-{-# DEPRECATED cnCustomerOutpostARN "Use generic-lens or generic-optics with 'customerOutpostARN' instead." #-}
 
 -- | The current state of this cache node, one of the following values: @available@ , @creating@ , @rebooting@ , or @deleting@ .
 --
 -- /Note:/ Consider using 'cacheNodeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnCacheNodeStatus :: Lens.Lens' CacheNode (Lude.Maybe Lude.Text)
-cnCacheNodeStatus = Lens.lens (cacheNodeStatus :: CacheNode -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeStatus = a} :: CacheNode)
+cnCacheNodeStatus :: Lens.Lens' CacheNode (Core.Maybe Types.String)
+cnCacheNodeStatus = Lens.field @"cacheNodeStatus"
 {-# DEPRECATED cnCacheNodeStatus "Use generic-lens or generic-optics with 'cacheNodeStatus' instead." #-}
+
+-- | The Availability Zone where this node was created and now resides.
+--
+-- /Note:/ Consider using 'customerAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnCustomerAvailabilityZone :: Lens.Lens' CacheNode (Core.Maybe Types.String)
+cnCustomerAvailabilityZone = Lens.field @"customerAvailabilityZone"
+{-# DEPRECATED cnCustomerAvailabilityZone "Use generic-lens or generic-optics with 'customerAvailabilityZone' instead." #-}
+
+-- | The customer outpost ARN of the cache node.
+--
+-- /Note:/ Consider using 'customerOutpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnCustomerOutpostArn :: Lens.Lens' CacheNode (Core.Maybe Types.String)
+cnCustomerOutpostArn = Lens.field @"customerOutpostArn"
+{-# DEPRECATED cnCustomerOutpostArn "Use generic-lens or generic-optics with 'customerOutpostArn' instead." #-}
 
 -- | The hostname for connecting to this cache node.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnEndpoint :: Lens.Lens' CacheNode (Lude.Maybe Endpoint)
-cnEndpoint = Lens.lens (endpoint :: CacheNode -> Lude.Maybe Endpoint) (\s a -> s {endpoint = a} :: CacheNode)
+cnEndpoint :: Lens.Lens' CacheNode (Core.Maybe Types.Endpoint)
+cnEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED cnEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.FromXML CacheNode where
+-- | The status of the parameter group applied to this cache node.
+--
+-- /Note:/ Consider using 'parameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnParameterGroupStatus :: Lens.Lens' CacheNode (Core.Maybe Types.String)
+cnParameterGroupStatus = Lens.field @"parameterGroupStatus"
+{-# DEPRECATED cnParameterGroupStatus "Use generic-lens or generic-optics with 'parameterGroupStatus' instead." #-}
+
+-- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
+--
+-- /Note:/ Consider using 'sourceCacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnSourceCacheNodeId :: Lens.Lens' CacheNode (Core.Maybe Types.String)
+cnSourceCacheNodeId = Lens.field @"sourceCacheNodeId"
+{-# DEPRECATED cnSourceCacheNodeId "Use generic-lens or generic-optics with 'sourceCacheNodeId' instead." #-}
+
+instance Core.FromXML CacheNode where
   parseXML x =
     CacheNode'
-      Lude.<$> (x Lude..@? "SourceCacheNodeId")
-      Lude.<*> (x Lude..@? "ParameterGroupStatus")
-      Lude.<*> (x Lude..@? "CacheNodeCreateTime")
-      Lude.<*> (x Lude..@? "CustomerAvailabilityZone")
-      Lude.<*> (x Lude..@? "CacheNodeId")
-      Lude.<*> (x Lude..@? "CustomerOutpostArn")
-      Lude.<*> (x Lude..@? "CacheNodeStatus")
-      Lude.<*> (x Lude..@? "Endpoint")
+      Core.<$> (x Core..@? "CacheNodeCreateTime")
+      Core.<*> (x Core..@? "CacheNodeId")
+      Core.<*> (x Core..@? "CacheNodeStatus")
+      Core.<*> (x Core..@? "CustomerAvailabilityZone")
+      Core.<*> (x Core..@? "CustomerOutpostArn")
+      Core.<*> (x Core..@? "Endpoint")
+      Core.<*> (x Core..@? "ParameterGroupStatus")
+      Core.<*> (x Core..@? "SourceCacheNodeId")

@@ -13,86 +13,91 @@
 module Network.AWS.CognitoIdentityProvider.Types.ChallengeNameType
   ( ChallengeNameType
       ( ChallengeNameType',
-        SmsMFA,
-        SoftwareTokenMFA,
-        SelectMFAType,
-        MFASetup,
-        PasswordVerifier,
-        CustomChallenge,
-        DeviceSrpAuth,
-        DevicePasswordVerifier,
-        AdminNoSrpAuth,
-        NewPasswordRequired
+        ChallengeNameTypeSmsMfa,
+        ChallengeNameTypeSoftwareTokenMfa,
+        ChallengeNameTypeSelectMfaType,
+        ChallengeNameTypeMfaSetup,
+        ChallengeNameTypePasswordVerifier,
+        ChallengeNameTypeCustomChallenge,
+        ChallengeNameTypeDeviceSrpAuth,
+        ChallengeNameTypeDevicePasswordVerifier,
+        ChallengeNameTypeAdminNoSrpAuth,
+        ChallengeNameTypeNewPasswordRequired,
+        fromChallengeNameType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChallengeNameType = ChallengeNameType' Lude.Text
+newtype ChallengeNameType = ChallengeNameType'
+  { fromChallengeNameType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SmsMFA :: ChallengeNameType
-pattern SmsMFA = ChallengeNameType' "SMS_MFA"
+pattern ChallengeNameTypeSmsMfa :: ChallengeNameType
+pattern ChallengeNameTypeSmsMfa = ChallengeNameType' "SMS_MFA"
 
-pattern SoftwareTokenMFA :: ChallengeNameType
-pattern SoftwareTokenMFA = ChallengeNameType' "SOFTWARE_TOKEN_MFA"
+pattern ChallengeNameTypeSoftwareTokenMfa :: ChallengeNameType
+pattern ChallengeNameTypeSoftwareTokenMfa = ChallengeNameType' "SOFTWARE_TOKEN_MFA"
 
-pattern SelectMFAType :: ChallengeNameType
-pattern SelectMFAType = ChallengeNameType' "SELECT_MFA_TYPE"
+pattern ChallengeNameTypeSelectMfaType :: ChallengeNameType
+pattern ChallengeNameTypeSelectMfaType = ChallengeNameType' "SELECT_MFA_TYPE"
 
-pattern MFASetup :: ChallengeNameType
-pattern MFASetup = ChallengeNameType' "MFA_SETUP"
+pattern ChallengeNameTypeMfaSetup :: ChallengeNameType
+pattern ChallengeNameTypeMfaSetup = ChallengeNameType' "MFA_SETUP"
 
-pattern PasswordVerifier :: ChallengeNameType
-pattern PasswordVerifier = ChallengeNameType' "PASSWORD_VERIFIER"
+pattern ChallengeNameTypePasswordVerifier :: ChallengeNameType
+pattern ChallengeNameTypePasswordVerifier = ChallengeNameType' "PASSWORD_VERIFIER"
 
-pattern CustomChallenge :: ChallengeNameType
-pattern CustomChallenge = ChallengeNameType' "CUSTOM_CHALLENGE"
+pattern ChallengeNameTypeCustomChallenge :: ChallengeNameType
+pattern ChallengeNameTypeCustomChallenge = ChallengeNameType' "CUSTOM_CHALLENGE"
 
-pattern DeviceSrpAuth :: ChallengeNameType
-pattern DeviceSrpAuth = ChallengeNameType' "DEVICE_SRP_AUTH"
+pattern ChallengeNameTypeDeviceSrpAuth :: ChallengeNameType
+pattern ChallengeNameTypeDeviceSrpAuth = ChallengeNameType' "DEVICE_SRP_AUTH"
 
-pattern DevicePasswordVerifier :: ChallengeNameType
-pattern DevicePasswordVerifier = ChallengeNameType' "DEVICE_PASSWORD_VERIFIER"
+pattern ChallengeNameTypeDevicePasswordVerifier :: ChallengeNameType
+pattern ChallengeNameTypeDevicePasswordVerifier = ChallengeNameType' "DEVICE_PASSWORD_VERIFIER"
 
-pattern AdminNoSrpAuth :: ChallengeNameType
-pattern AdminNoSrpAuth = ChallengeNameType' "ADMIN_NO_SRP_AUTH"
+pattern ChallengeNameTypeAdminNoSrpAuth :: ChallengeNameType
+pattern ChallengeNameTypeAdminNoSrpAuth = ChallengeNameType' "ADMIN_NO_SRP_AUTH"
 
-pattern NewPasswordRequired :: ChallengeNameType
-pattern NewPasswordRequired = ChallengeNameType' "NEW_PASSWORD_REQUIRED"
+pattern ChallengeNameTypeNewPasswordRequired :: ChallengeNameType
+pattern ChallengeNameTypeNewPasswordRequired = ChallengeNameType' "NEW_PASSWORD_REQUIRED"
 
 {-# COMPLETE
-  SmsMFA,
-  SoftwareTokenMFA,
-  SelectMFAType,
-  MFASetup,
-  PasswordVerifier,
-  CustomChallenge,
-  DeviceSrpAuth,
-  DevicePasswordVerifier,
-  AdminNoSrpAuth,
-  NewPasswordRequired,
+  ChallengeNameTypeSmsMfa,
+  ChallengeNameTypeSoftwareTokenMfa,
+  ChallengeNameTypeSelectMfaType,
+  ChallengeNameTypeMfaSetup,
+  ChallengeNameTypePasswordVerifier,
+  ChallengeNameTypeCustomChallenge,
+  ChallengeNameTypeDeviceSrpAuth,
+  ChallengeNameTypeDevicePasswordVerifier,
+  ChallengeNameTypeAdminNoSrpAuth,
+  ChallengeNameTypeNewPasswordRequired,
   ChallengeNameType'
   #-}

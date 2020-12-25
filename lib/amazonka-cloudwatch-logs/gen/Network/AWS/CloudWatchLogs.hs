@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +23,43 @@
 --     * __Archive log data__ : You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.
 module Network.AWS.CloudWatchLogs
   ( -- * Service configuration
-    cloudWatchLogsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidSequenceTokenException
+    _InvalidSequenceTokenException,
+
+    -- ** UnrecognizedClientException
+    _UnrecognizedClientException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** OperationAbortedException
+    _OperationAbortedException,
+
+    -- ** MalformedQueryException
+    _MalformedQueryException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** DataAlreadyAcceptedException
+    _DataAlreadyAcceptedException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -68,8 +100,8 @@ module Network.AWS.CloudWatchLogs
     -- ** DeleteDestination
     module Network.AWS.CloudWatchLogs.DeleteDestination,
 
-    -- ** DisassociateKMSKey
-    module Network.AWS.CloudWatchLogs.DisassociateKMSKey,
+    -- ** DisassociateKmsKey
+    module Network.AWS.CloudWatchLogs.DisassociateKmsKey,
 
     -- ** FilterLogEvents (Paginated)
     module Network.AWS.CloudWatchLogs.FilterLogEvents,
@@ -152,8 +184,8 @@ module Network.AWS.CloudWatchLogs
     -- ** DeleteResourcePolicy
     module Network.AWS.CloudWatchLogs.DeleteResourcePolicy,
 
-    -- ** AssociateKMSKey
-    module Network.AWS.CloudWatchLogs.AssociateKMSKey,
+    -- ** AssociateKmsKey
+    module Network.AWS.CloudWatchLogs.AssociateKmsKey,
 
     -- ** GetQueryResults
     module Network.AWS.CloudWatchLogs.GetQueryResults,
@@ -163,112 +195,84 @@ module Network.AWS.CloudWatchLogs
 
     -- * Types
 
-    -- ** Distribution
-    Distribution (..),
-
-    -- ** ExportTaskStatusCode
-    ExportTaskStatusCode (..),
-
-    -- ** OrderBy
-    OrderBy (..),
-
-    -- ** QueryStatus
-    QueryStatus (..),
-
-    -- ** Destination
-    Destination (..),
-    mkDestination,
-    dTargetARN,
-    dCreationTime,
-    dArn,
-    dAccessPolicy,
-    dDestinationName,
-    dRoleARN,
-
-    -- ** ExportTask
-    ExportTask (..),
-    mkExportTask,
-    etDestinationPrefix,
-    etDestination,
-    etStatus,
-    etTaskName,
-    etTaskId,
-    etTo,
-    etFrom,
-    etLogGroupName,
-    etExecutionInfo,
-
-    -- ** ExportTaskExecutionInfo
-    ExportTaskExecutionInfo (..),
-    mkExportTaskExecutionInfo,
-    eteiCreationTime,
-    eteiCompletionTime,
-
-    -- ** ExportTaskStatus
-    ExportTaskStatus (..),
-    mkExportTaskStatus,
-    etsCode,
-    etsMessage,
-
-    -- ** FilteredLogEvent
-    FilteredLogEvent (..),
-    mkFilteredLogEvent,
-    fleIngestionTime,
-    fleLogStreamName,
-    fleMessage,
-    fleTimestamp,
-    fleEventId,
-
-    -- ** InputLogEvent
-    InputLogEvent (..),
-    mkInputLogEvent,
-    ileMessage,
-    ileTimestamp,
-
-    -- ** LogGroup
-    LogGroup (..),
-    mkLogGroup,
-    lgCreationTime,
-    lgMetricFilterCount,
-    lgArn,
-    lgLogGroupName,
-    lgRetentionInDays,
-    lgKmsKeyId,
-    lgStoredBytes,
-
-    -- ** LogGroupField
-    LogGroupField (..),
-    mkLogGroupField,
-    lgfPercent,
-    lgfName,
-
-    -- ** LogStream
-    LogStream (..),
-    mkLogStream,
-    lsCreationTime,
-    lsUploadSequenceToken,
-    lsArn,
-    lsFirstEventTimestamp,
-    lsLogStreamName,
-    lsStoredBytes,
-    lsLastIngestionTime,
-    lsLastEventTimestamp,
-
     -- ** MetricFilter
     MetricFilter (..),
     mkMetricFilter,
     mfCreationTime,
     mfFilterName,
-    mfLogGroupName,
     mfFilterPattern,
+    mfLogGroupName,
     mfMetricTransformations,
+
+    -- ** SequenceToken
+    SequenceToken (..),
+
+    -- ** ExportTaskId
+    ExportTaskId (..),
+
+    -- ** TargetArn
+    TargetArn (..),
+
+    -- ** Destination
+    Destination (..),
+    mkDestination,
+    dAccessPolicy,
+    dArn,
+    dCreationTime,
+    dDestinationName,
+    dRoleArn,
+    dTargetArn,
+
+    -- ** QueryId
+    QueryId (..),
+
+    -- ** PolicyDocument
+    PolicyDocument (..),
+
+    -- ** FilterName
+    FilterName (..),
+
+    -- ** QueryStatistics
+    QueryStatistics (..),
+    mkQueryStatistics,
+    qsBytesScanned,
+    qsRecordsMatched,
+    qsRecordsScanned,
+
+    -- ** SearchedLogStream
+    SearchedLogStream (..),
+    mkSearchedLogStream,
+    slsLogStreamName,
+    slsSearchedCompletely,
+
+    -- ** PolicyName
+    PolicyName (..),
 
     -- ** MetricFilterMatchRecord
     MetricFilterMatchRecord (..),
     mkMetricFilterMatchRecord,
-    mfmrExtractedValues,
-    mfmrEventNumber,
     mfmrEventMessage,
+    mfmrEventNumber,
+    mfmrExtractedValues,
+
+    -- ** Field
+    Field (..),
+
+    -- ** ResourcePolicy
+    ResourcePolicy (..),
+    mkResourcePolicy,
+    rpLastUpdatedTime,
+    rpPolicyDocument,
+    rpPolicyName,
+
+    -- ** Distribution
+    Distribution (..),
+
+    -- ** LogRecordPointer
+    LogRecordPointer (..),
+
+    -- ** Arn
+    Arn (..),
 
     -- ** MetricTransformation
     MetricTransformation (..),
@@ -277,6 +281,134 @@ module Network.AWS.CloudWatchLogs
     mtMetricNamespace,
     mtMetricValue,
     mtDefaultValue,
+
+    -- ** OrderBy
+    OrderBy (..),
+
+    -- ** QueryDefinitionName
+    QueryDefinitionName (..),
+
+    -- ** ExportTaskStatusCode
+    ExportTaskStatusCode (..),
+
+    -- ** LogStream
+    LogStream (..),
+    mkLogStream,
+    lsArn,
+    lsCreationTime,
+    lsFirstEventTimestamp,
+    lsLastEventTimestamp,
+    lsLastIngestionTime,
+    lsLogStreamName,
+    lsStoredBytes,
+    lsUploadSequenceToken,
+
+    -- ** ExportDestinationPrefix
+    ExportDestinationPrefix (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** LogGroup
+    LogGroup (..),
+    mkLogGroup,
+    lgArn,
+    lgCreationTime,
+    lgKmsKeyId,
+    lgLogGroupName,
+    lgMetricFilterCount,
+    lgRetentionInDays,
+    lgStoredBytes,
+
+    -- ** SubscriptionFilter
+    SubscriptionFilter (..),
+    mkSubscriptionFilter,
+    sfCreationTime,
+    sfDestinationArn,
+    sfDistribution,
+    sfFilterName,
+    sfFilterPattern,
+    sfLogGroupName,
+    sfRoleArn,
+
+    -- ** RejectedLogEventsInfo
+    RejectedLogEventsInfo (..),
+    mkRejectedLogEventsInfo,
+    rleiExpiredLogEventEndIndex,
+    rleiTooNewLogEventStartIndex,
+    rleiTooOldLogEventEndIndex,
+
+    -- ** Value
+    Value (..),
+
+    -- ** ExportTaskStatusMessage
+    ExportTaskStatusMessage (..),
+
+    -- ** ExportDestinationBucket
+    ExportDestinationBucket (..),
+
+    -- ** QueryStatus
+    QueryStatus (..),
+
+    -- ** InputLogEvent
+    InputLogEvent (..),
+    mkInputLogEvent,
+    ileTimestamp,
+    ileMessage,
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** FilteredLogEvent
+    FilteredLogEvent (..),
+    mkFilteredLogEvent,
+    fleEventId,
+    fleIngestionTime,
+    fleLogStreamName,
+    fleMessage,
+    fleTimestamp,
+
+    -- ** DestinationArn
+    DestinationArn (..),
+
+    -- ** LogGroupName
+    LogGroupName (..),
+
+    -- ** QueryInfo
+    QueryInfo (..),
+    mkQueryInfo,
+    qiCreateTime,
+    qiLogGroupName,
+    qiQueryId,
+    qiQueryString,
+    qiStatus,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** AccessPolicy
+    AccessPolicy (..),
+
+    -- ** LogStreamName
+    LogStreamName (..),
+
+    -- ** MetricNamespace
+    MetricNamespace (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** MetricValue
+    MetricValue (..),
+
+    -- ** EventMessage
+    EventMessage (..),
+
+    -- ** QueryString
+    QueryString (..),
 
     -- ** OutputLogEvent
     OutputLogEvent (..),
@@ -288,41 +420,38 @@ module Network.AWS.CloudWatchLogs
     -- ** QueryDefinition
     QueryDefinition (..),
     mkQueryDefinition,
-    qdLogGroupNames,
-    qdQueryDefinitionId,
-    qdName,
-    qdQueryString,
     qdLastModified,
+    qdLogGroupNames,
+    qdName,
+    qdQueryDefinitionId,
+    qdQueryString,
 
-    -- ** QueryInfo
-    QueryInfo (..),
-    mkQueryInfo,
-    qiStatus,
-    qiQueryId,
-    qiLogGroupName,
-    qiQueryString,
-    qiCreateTime,
+    -- ** QueryDefinitionString
+    QueryDefinitionString (..),
 
-    -- ** QueryStatistics
-    QueryStatistics (..),
-    mkQueryStatistics,
-    qsRecordsScanned,
-    qsBytesScanned,
-    qsRecordsMatched,
+    -- ** ExportTaskStatus
+    ExportTaskStatus (..),
+    mkExportTaskStatus,
+    etsCode,
+    etsMessage,
 
-    -- ** RejectedLogEventsInfo
-    RejectedLogEventsInfo (..),
-    mkRejectedLogEventsInfo,
-    rleiTooOldLogEventEndIndex,
-    rleiTooNewLogEventStartIndex,
-    rleiExpiredLogEventEndIndex,
+    -- ** ExportTaskExecutionInfo
+    ExportTaskExecutionInfo (..),
+    mkExportTaskExecutionInfo,
+    eteiCompletionTime,
+    eteiCreationTime,
 
-    -- ** ResourcePolicy
-    ResourcePolicy (..),
-    mkResourcePolicy,
-    rpPolicyName,
-    rpPolicyDocument,
-    rpLastUpdatedTime,
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** FilterPattern
+    FilterPattern (..),
+
+    -- ** DestinationName
+    DestinationName (..),
+
+    -- ** Message
+    Message (..),
 
     -- ** ResultField
     ResultField (..),
@@ -330,36 +459,63 @@ module Network.AWS.CloudWatchLogs
     rfField,
     rfValue,
 
-    -- ** SearchedLogStream
-    SearchedLogStream (..),
-    mkSearchedLogStream,
-    slsLogStreamName,
-    slsSearchedCompletely,
+    -- ** ExportTaskName
+    ExportTaskName (..),
 
-    -- ** SubscriptionFilter
-    SubscriptionFilter (..),
-    mkSubscriptionFilter,
-    sfCreationTime,
-    sfFilterName,
-    sfDistribution,
-    sfDestinationARN,
-    sfLogGroupName,
-    sfFilterPattern,
-    sfRoleARN,
+    -- ** ExportTask
+    ExportTask (..),
+    mkExportTask,
+    etDestination,
+    etDestinationPrefix,
+    etExecutionInfo,
+    etFrom,
+    etLogGroupName,
+    etStatus,
+    etTaskId,
+    etTaskName,
+    etTo,
+
+    -- ** EventId
+    EventId (..),
+
+    -- ** LogGroupField
+    LogGroupField (..),
+    mkLogGroupField,
+    lgfName,
+    lgfPercent,
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** DestinationPrefix
+    DestinationPrefix (..),
+
+    -- ** LogStreamNamePrefix
+    LogStreamNamePrefix (..),
+
+    -- ** TaskName
+    TaskName (..),
+
+    -- ** FilterNamePrefix
+    FilterNamePrefix (..),
+
+    -- ** LogGroupNamePrefix
+    LogGroupNamePrefix (..),
+
+    -- ** Name
+    Name (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
-import Network.AWS.CloudWatchLogs.AssociateKMSKey
+import Network.AWS.CloudWatchLogs.AssociateKmsKey
 import Network.AWS.CloudWatchLogs.CancelExportTask
 import Network.AWS.CloudWatchLogs.CreateExportTask
 import Network.AWS.CloudWatchLogs.CreateLogGroup
@@ -381,7 +537,7 @@ import Network.AWS.CloudWatchLogs.DescribeQueries
 import Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
 import Network.AWS.CloudWatchLogs.DescribeResourcePolicies
 import Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-import Network.AWS.CloudWatchLogs.DisassociateKMSKey
+import Network.AWS.CloudWatchLogs.DisassociateKmsKey
 import Network.AWS.CloudWatchLogs.FilterLogEvents
 import Network.AWS.CloudWatchLogs.GetLogEvents
 import Network.AWS.CloudWatchLogs.GetLogGroupFields

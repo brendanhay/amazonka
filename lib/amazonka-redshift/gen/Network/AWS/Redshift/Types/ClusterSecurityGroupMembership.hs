@@ -17,55 +17,54 @@ module Network.AWS.Redshift.Types.ClusterSecurityGroupMembership
     mkClusterSecurityGroupMembership,
 
     -- * Lenses
-    csgmStatus,
     csgmClusterSecurityGroupName,
+    csgmStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a cluster security group.
 --
 -- /See:/ 'mkClusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-  { -- | The status of the cluster security group.
-    status :: Lude.Maybe Lude.Text,
-    -- | The name of the cluster security group.
-    clusterSecurityGroupName :: Lude.Maybe Lude.Text
+  { -- | The name of the cluster security group.
+    clusterSecurityGroupName :: Core.Maybe Types.String,
+    -- | The status of the cluster security group.
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClusterSecurityGroupMembership' with the minimum fields required to make a request.
---
--- * 'status' - The status of the cluster security group.
--- * 'clusterSecurityGroupName' - The name of the cluster security group.
+-- | Creates a 'ClusterSecurityGroupMembership' value with any optional fields omitted.
 mkClusterSecurityGroupMembership ::
   ClusterSecurityGroupMembership
 mkClusterSecurityGroupMembership =
   ClusterSecurityGroupMembership'
-    { status = Lude.Nothing,
-      clusterSecurityGroupName = Lude.Nothing
+    { clusterSecurityGroupName =
+        Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the cluster security group.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgmStatus :: Lens.Lens' ClusterSecurityGroupMembership (Lude.Maybe Lude.Text)
-csgmStatus = Lens.lens (status :: ClusterSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ClusterSecurityGroupMembership)
-{-# DEPRECATED csgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the cluster security group.
 --
 -- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgmClusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroupMembership (Lude.Maybe Lude.Text)
-csgmClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: ClusterSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: ClusterSecurityGroupMembership)
+csgmClusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroupMembership (Core.Maybe Types.String)
+csgmClusterSecurityGroupName = Lens.field @"clusterSecurityGroupName"
 {-# DEPRECATED csgmClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
-instance Lude.FromXML ClusterSecurityGroupMembership where
+-- | The status of the cluster security group.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgmStatus :: Lens.Lens' ClusterSecurityGroupMembership (Core.Maybe Types.String)
+csgmStatus = Lens.field @"status"
+{-# DEPRECATED csgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML ClusterSecurityGroupMembership where
   parseXML x =
     ClusterSecurityGroupMembership'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "ClusterSecurityGroupName")
+      Core.<$> (x Core..@? "ClusterSecurityGroupName")
+      Core.<*> (x Core..@? "Status")

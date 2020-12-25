@@ -22,176 +22,164 @@ module Network.AWS.GuardDuty.ListMembers
     mkListMembers,
 
     -- ** Request lenses
-    lmOnlyAssociated,
-    lmNextToken,
     lmDetectorId,
     lmMaxResults,
+    lmNextToken,
+    lmOnlyAssociated,
 
     -- * Destructuring the response
     ListMembersResponse (..),
     mkListMembersResponse,
 
     -- ** Response lenses
-    lmrsMembers,
-    lmrsNextToken,
-    lmrsResponseStatus,
+    lmrrsMembers,
+    lmrrsNextToken,
+    lmrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListMembers' smart constructor.
 data ListMembers = ListMembers'
-  { -- | Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
-    onlyAssociated :: Lude.Maybe Lude.Text,
-    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The unique ID of the detector the member is associated with.
-    detectorId :: Lude.Text,
+  { -- | The unique ID of the detector the member is associated with.
+    detectorId :: Types.DetectorId,
     -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.String,
+    -- | Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
+    onlyAssociated :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMembers' with the minimum fields required to make a request.
---
--- * 'onlyAssociated' - Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
--- * 'detectorId' - The unique ID of the detector the member is associated with.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+-- | Creates a 'ListMembers' value with any optional fields omitted.
 mkListMembers ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   ListMembers
-mkListMembers pDetectorId_ =
+mkListMembers detectorId =
   ListMembers'
-    { onlyAssociated = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      detectorId = pDetectorId_,
-      maxResults = Lude.Nothing
+    { detectorId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      onlyAssociated = Core.Nothing
     }
-
--- | Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
---
--- /Note:/ Consider using 'onlyAssociated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmOnlyAssociated :: Lens.Lens' ListMembers (Lude.Maybe Lude.Text)
-lmOnlyAssociated = Lens.lens (onlyAssociated :: ListMembers -> Lude.Maybe Lude.Text) (\s a -> s {onlyAssociated = a} :: ListMembers)
-{-# DEPRECATED lmOnlyAssociated "Use generic-lens or generic-optics with 'onlyAssociated' instead." #-}
-
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmNextToken :: Lens.Lens' ListMembers (Lude.Maybe Lude.Text)
-lmNextToken = Lens.lens (nextToken :: ListMembers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMembers)
-{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique ID of the detector the member is associated with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmDetectorId :: Lens.Lens' ListMembers Lude.Text
-lmDetectorId = Lens.lens (detectorId :: ListMembers -> Lude.Text) (\s a -> s {detectorId = a} :: ListMembers)
+lmDetectorId :: Lens.Lens' ListMembers Types.DetectorId
+lmDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED lmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmMaxResults :: Lens.Lens' ListMembers (Lude.Maybe Lude.Natural)
-lmMaxResults = Lens.lens (maxResults :: ListMembers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMembers)
+lmMaxResults :: Lens.Lens' ListMembers (Core.Maybe Core.Natural)
+lmMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListMembers where
-  page rq rs
-    | Page.stop (rs Lens.^. lmrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lmrsMembers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lmNextToken Lens..~ rs Lens.^. lmrsNextToken
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNextToken :: Lens.Lens' ListMembers (Core.Maybe Types.String)
+lmNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListMembers where
+-- | Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
+--
+-- /Note:/ Consider using 'onlyAssociated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmOnlyAssociated :: Lens.Lens' ListMembers (Core.Maybe Types.String)
+lmOnlyAssociated = Lens.field @"onlyAssociated"
+{-# DEPRECATED lmOnlyAssociated "Use generic-lens or generic-optics with 'onlyAssociated' instead." #-}
+
+instance Core.AWSRequest ListMembers where
   type Rs ListMembers = ListMembersResponse
-  request = Req.get guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/member")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "onlyAssociated" Core.<$> onlyAssociated),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMembersResponse'
-            Lude.<$> (x Lude..?> "members" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "members")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListMembers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListMembers where
-  toPath ListMembers' {..} =
-    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/member"]
-
-instance Lude.ToQuery ListMembers where
-  toQuery ListMembers' {..} =
-    Lude.mconcat
-      [ "onlyAssociated" Lude.=: onlyAssociated,
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListMembers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"members" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListMembersResponse' smart constructor.
 data ListMembersResponse = ListMembersResponse'
   { -- | A list of members.
-    members :: Lude.Maybe [Member],
+    members :: Core.Maybe [Types.Member],
     -- | The pagination parameter to be used on the next list operation to retrieve more items.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMembersResponse' with the minimum fields required to make a request.
---
--- * 'members' - A list of members.
--- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMembersResponse' value with any optional fields omitted.
 mkListMembersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMembersResponse
-mkListMembersResponse pResponseStatus_ =
+mkListMembersResponse responseStatus =
   ListMembersResponse'
-    { members = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { members = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of members.
 --
 -- /Note:/ Consider using 'members' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmrsMembers :: Lens.Lens' ListMembersResponse (Lude.Maybe [Member])
-lmrsMembers = Lens.lens (members :: ListMembersResponse -> Lude.Maybe [Member]) (\s a -> s {members = a} :: ListMembersResponse)
-{-# DEPRECATED lmrsMembers "Use generic-lens or generic-optics with 'members' instead." #-}
+lmrrsMembers :: Lens.Lens' ListMembersResponse (Core.Maybe [Types.Member])
+lmrrsMembers = Lens.field @"members"
+{-# DEPRECATED lmrrsMembers "Use generic-lens or generic-optics with 'members' instead." #-}
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmrsNextToken :: Lens.Lens' ListMembersResponse (Lude.Maybe Lude.Text)
-lmrsNextToken = Lens.lens (nextToken :: ListMembersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMembersResponse)
-{-# DEPRECATED lmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lmrrsNextToken :: Lens.Lens' ListMembersResponse (Core.Maybe Types.NextToken)
+lmrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmrsResponseStatus :: Lens.Lens' ListMembersResponse Lude.Int
-lmrsResponseStatus = Lens.lens (responseStatus :: ListMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMembersResponse)
-{-# DEPRECATED lmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmrrsResponseStatus :: Lens.Lens' ListMembersResponse Core.Int
+lmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -35,8 +35,8 @@ module Network.AWS.Config.DescribeComplianceByConfigRule
     mkDescribeComplianceByConfigRule,
 
     -- ** Request lenses
-    dcbcrConfigRuleNames,
     dcbcrComplianceTypes,
+    dcbcrConfigRuleNames,
     dcbcrNextToken,
 
     -- * Destructuring the response
@@ -44,175 +44,163 @@ module Network.AWS.Config.DescribeComplianceByConfigRule
     mkDescribeComplianceByConfigRuleResponse,
 
     -- ** Response lenses
-    dcbcrrsComplianceByConfigRules,
-    dcbcrrsNextToken,
-    dcbcrrsResponseStatus,
+    dcbcrrrsComplianceByConfigRules,
+    dcbcrrrsNextToken,
+    dcbcrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeComplianceByConfigRule' smart constructor.
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
-  { -- | Specify one or more AWS Config rule names to filter the results by rule.
-    configRuleNames :: Lude.Maybe [Lude.Text],
-    -- | Filters the results by compliance.
+  { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
-    complianceTypes :: Lude.Maybe [ComplianceType],
+    complianceTypes :: Core.Maybe [Types.ComplianceType],
+    -- | Specify one or more AWS Config rule names to filter the results by rule.
+    configRuleNames :: Core.Maybe [Types.ConfigRuleName],
     -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeComplianceByConfigRule' with the minimum fields required to make a request.
---
--- * 'configRuleNames' - Specify one or more AWS Config rule names to filter the results by rule.
--- * 'complianceTypes' - Filters the results by compliance.
---
--- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | Creates a 'DescribeComplianceByConfigRule' value with any optional fields omitted.
 mkDescribeComplianceByConfigRule ::
   DescribeComplianceByConfigRule
 mkDescribeComplianceByConfigRule =
   DescribeComplianceByConfigRule'
-    { configRuleNames = Lude.Nothing,
-      complianceTypes = Lude.Nothing,
-      nextToken = Lude.Nothing
+    { complianceTypes = Core.Nothing,
+      configRuleNames = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Specify one or more AWS Config rule names to filter the results by rule.
---
--- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbcrConfigRuleNames :: Lens.Lens' DescribeComplianceByConfigRule (Lude.Maybe [Lude.Text])
-dcbcrConfigRuleNames = Lens.lens (configRuleNames :: DescribeComplianceByConfigRule -> Lude.Maybe [Lude.Text]) (\s a -> s {configRuleNames = a} :: DescribeComplianceByConfigRule)
-{-# DEPRECATED dcbcrConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 --
 -- /Note:/ Consider using 'complianceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbcrComplianceTypes :: Lens.Lens' DescribeComplianceByConfigRule (Lude.Maybe [ComplianceType])
-dcbcrComplianceTypes = Lens.lens (complianceTypes :: DescribeComplianceByConfigRule -> Lude.Maybe [ComplianceType]) (\s a -> s {complianceTypes = a} :: DescribeComplianceByConfigRule)
+dcbcrComplianceTypes :: Lens.Lens' DescribeComplianceByConfigRule (Core.Maybe [Types.ComplianceType])
+dcbcrComplianceTypes = Lens.field @"complianceTypes"
 {-# DEPRECATED dcbcrComplianceTypes "Use generic-lens or generic-optics with 'complianceTypes' instead." #-}
+
+-- | Specify one or more AWS Config rule names to filter the results by rule.
+--
+-- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbcrConfigRuleNames :: Lens.Lens' DescribeComplianceByConfigRule (Core.Maybe [Types.ConfigRuleName])
+dcbcrConfigRuleNames = Lens.field @"configRuleNames"
+{-# DEPRECATED dcbcrConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbcrNextToken :: Lens.Lens' DescribeComplianceByConfigRule (Lude.Maybe Lude.Text)
-dcbcrNextToken = Lens.lens (nextToken :: DescribeComplianceByConfigRule -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeComplianceByConfigRule)
+dcbcrNextToken :: Lens.Lens' DescribeComplianceByConfigRule (Core.Maybe Types.String)
+dcbcrNextToken = Lens.field @"nextToken"
 {-# DEPRECATED dcbcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeComplianceByConfigRule where
-  page rq rs
-    | Page.stop (rs Lens.^. dcbcrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcbcrrsComplianceByConfigRules) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcbcrNextToken Lens..~ rs Lens.^. dcbcrrsNextToken
+instance Core.FromJSON DescribeComplianceByConfigRule where
+  toJSON DescribeComplianceByConfigRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ComplianceTypes" Core..=) Core.<$> complianceTypes,
+            ("ConfigRuleNames" Core..=) Core.<$> configRuleNames,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest DescribeComplianceByConfigRule where
+instance Core.AWSRequest DescribeComplianceByConfigRule where
   type
     Rs DescribeComplianceByConfigRule =
       DescribeComplianceByConfigRuleResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeComplianceByConfigRule"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByConfigRuleResponse'
-            Lude.<$> (x Lude..?> "ComplianceByConfigRules" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ComplianceByConfigRules")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeComplianceByConfigRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeComplianceByConfigRule" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeComplianceByConfigRule where
-  toJSON DescribeComplianceByConfigRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ConfigRuleNames" Lude..=) Lude.<$> configRuleNames,
-            ("ComplianceTypes" Lude..=) Lude.<$> complianceTypes,
-            ("NextToken" Lude..=) Lude.<$> nextToken
-          ]
-      )
-
-instance Lude.ToPath DescribeComplianceByConfigRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeComplianceByConfigRule where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeComplianceByConfigRule where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"complianceByConfigRules" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeComplianceByConfigRuleResponse' smart constructor.
 data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResponse'
   { -- | Indicates whether each of the specified AWS Config rules is compliant.
-    complianceByConfigRules :: Lude.Maybe [ComplianceByConfigRule],
+    complianceByConfigRules :: Core.Maybe [Types.ComplianceByConfigRule],
     -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeComplianceByConfigRuleResponse' with the minimum fields required to make a request.
---
--- * 'complianceByConfigRules' - Indicates whether each of the specified AWS Config rules is compliant.
--- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeComplianceByConfigRuleResponse' value with any optional fields omitted.
 mkDescribeComplianceByConfigRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeComplianceByConfigRuleResponse
-mkDescribeComplianceByConfigRuleResponse pResponseStatus_ =
+mkDescribeComplianceByConfigRuleResponse responseStatus =
   DescribeComplianceByConfigRuleResponse'
     { complianceByConfigRules =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Indicates whether each of the specified AWS Config rules is compliant.
 --
 -- /Note:/ Consider using 'complianceByConfigRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbcrrsComplianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Lude.Maybe [ComplianceByConfigRule])
-dcbcrrsComplianceByConfigRules = Lens.lens (complianceByConfigRules :: DescribeComplianceByConfigRuleResponse -> Lude.Maybe [ComplianceByConfigRule]) (\s a -> s {complianceByConfigRules = a} :: DescribeComplianceByConfigRuleResponse)
-{-# DEPRECATED dcbcrrsComplianceByConfigRules "Use generic-lens or generic-optics with 'complianceByConfigRules' instead." #-}
+dcbcrrrsComplianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Core.Maybe [Types.ComplianceByConfigRule])
+dcbcrrrsComplianceByConfigRules = Lens.field @"complianceByConfigRules"
+{-# DEPRECATED dcbcrrrsComplianceByConfigRules "Use generic-lens or generic-optics with 'complianceByConfigRules' instead." #-}
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbcrrsNextToken :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Lude.Maybe Lude.Text)
-dcbcrrsNextToken = Lens.lens (nextToken :: DescribeComplianceByConfigRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeComplianceByConfigRuleResponse)
-{-# DEPRECATED dcbcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcbcrrrsNextToken :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Core.Maybe Types.NextToken)
+dcbcrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcbcrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbcrrsResponseStatus :: Lens.Lens' DescribeComplianceByConfigRuleResponse Lude.Int
-dcbcrrsResponseStatus = Lens.lens (responseStatus :: DescribeComplianceByConfigRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeComplianceByConfigRuleResponse)
-{-# DEPRECATED dcbcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcbcrrrsResponseStatus :: Lens.Lens' DescribeComplianceByConfigRuleResponse Core.Int
+dcbcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcbcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

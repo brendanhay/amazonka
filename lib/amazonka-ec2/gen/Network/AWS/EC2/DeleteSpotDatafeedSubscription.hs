@@ -28,65 +28,66 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DeleteSpotDatafeedSubscription.
 --
 -- /See:/ 'mkDeleteSpotDatafeedSubscription' smart constructor.
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
   { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSpotDatafeedSubscription' with the minimum fields required to make a request.
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteSpotDatafeedSubscription' value with any optional fields omitted.
 mkDeleteSpotDatafeedSubscription ::
   DeleteSpotDatafeedSubscription
 mkDeleteSpotDatafeedSubscription =
-  DeleteSpotDatafeedSubscription' {dryRun = Lude.Nothing}
+  DeleteSpotDatafeedSubscription' {dryRun = Core.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdsfDryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Lude.Maybe Lude.Bool)
-dsdsfDryRun = Lens.lens (dryRun :: DeleteSpotDatafeedSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSpotDatafeedSubscription)
+dsdsfDryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Core.Maybe Core.Bool)
+dsdsfDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dsdsfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteSpotDatafeedSubscription where
+instance Core.AWSRequest DeleteSpotDatafeedSubscription where
   type
     Rs DeleteSpotDatafeedSubscription =
       DeleteSpotDatafeedSubscriptionResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteSpotDatafeedSubscriptionResponse'
-
-instance Lude.ToHeaders DeleteSpotDatafeedSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteSpotDatafeedSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSpotDatafeedSubscription where
-  toQuery DeleteSpotDatafeedSubscription' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteSpotDatafeedSubscription" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteSpotDatafeedSubscription")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response =
+    Response.receiveNull DeleteSpotDatafeedSubscriptionResponse'
 
 -- | /See:/ 'mkDeleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSpotDatafeedSubscriptionResponse' value with any optional fields omitted.
 mkDeleteSpotDatafeedSubscriptionResponse ::
   DeleteSpotDatafeedSubscriptionResponse
 mkDeleteSpotDatafeedSubscriptionResponse =

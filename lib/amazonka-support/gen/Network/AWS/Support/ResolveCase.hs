@@ -27,120 +27,107 @@ module Network.AWS.Support.ResolveCase
     mkResolveCaseResponse,
 
     -- ** Response lenses
-    rcrsInitialCaseStatus,
-    rcrsFinalCaseStatus,
-    rcrsResponseStatus,
+    rcrrsFinalCaseStatus,
+    rcrrsInitialCaseStatus,
+    rcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkResolveCase' smart constructor.
 newtype ResolveCase = ResolveCase'
   { -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Lude.Maybe Lude.Text
+    caseId :: Core.Maybe Types.CaseId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResolveCase' with the minimum fields required to make a request.
---
--- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+-- | Creates a 'ResolveCase' value with any optional fields omitted.
 mkResolveCase ::
   ResolveCase
-mkResolveCase = ResolveCase' {caseId = Lude.Nothing}
+mkResolveCase = ResolveCase' {caseId = Core.Nothing}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- /Note:/ Consider using 'caseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCaseId :: Lens.Lens' ResolveCase (Lude.Maybe Lude.Text)
-rcCaseId = Lens.lens (caseId :: ResolveCase -> Lude.Maybe Lude.Text) (\s a -> s {caseId = a} :: ResolveCase)
+rcCaseId :: Lens.Lens' ResolveCase (Core.Maybe Types.CaseId)
+rcCaseId = Lens.field @"caseId"
 {-# DEPRECATED rcCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
 
-instance Lude.AWSRequest ResolveCase where
+instance Core.FromJSON ResolveCase where
+  toJSON ResolveCase {..} =
+    Core.object (Core.catMaybes [("caseId" Core..=) Core.<$> caseId])
+
+instance Core.AWSRequest ResolveCase where
   type Rs ResolveCase = ResolveCaseResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSSupport_20130415.ResolveCase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ResolveCaseResponse'
-            Lude.<$> (x Lude..?> "initialCaseStatus")
-            Lude.<*> (x Lude..?> "finalCaseStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "finalCaseStatus")
+            Core.<*> (x Core..:? "initialCaseStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResolveCase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.ResolveCase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResolveCase where
-  toJSON ResolveCase' {..} =
-    Lude.object (Lude.catMaybes [("caseId" Lude..=) Lude.<$> caseId])
-
-instance Lude.ToPath ResolveCase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResolveCase where
-  toQuery = Lude.const Lude.mempty
 
 -- | The status of the case returned by the 'ResolveCase' operation.
 --
 -- /See:/ 'mkResolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
-  { -- | The status of the case when the 'ResolveCase' request was sent.
-    initialCaseStatus :: Lude.Maybe Lude.Text,
-    -- | The status of the case after the 'ResolveCase' request was processed.
-    finalCaseStatus :: Lude.Maybe Lude.Text,
+  { -- | The status of the case after the 'ResolveCase' request was processed.
+    finalCaseStatus :: Core.Maybe Types.FinalCaseStatus,
+    -- | The status of the case when the 'ResolveCase' request was sent.
+    initialCaseStatus :: Core.Maybe Types.InitialCaseStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResolveCaseResponse' with the minimum fields required to make a request.
---
--- * 'initialCaseStatus' - The status of the case when the 'ResolveCase' request was sent.
--- * 'finalCaseStatus' - The status of the case after the 'ResolveCase' request was processed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResolveCaseResponse' value with any optional fields omitted.
 mkResolveCaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResolveCaseResponse
-mkResolveCaseResponse pResponseStatus_ =
+mkResolveCaseResponse responseStatus =
   ResolveCaseResponse'
-    { initialCaseStatus = Lude.Nothing,
-      finalCaseStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { finalCaseStatus = Core.Nothing,
+      initialCaseStatus = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the case when the 'ResolveCase' request was sent.
---
--- /Note:/ Consider using 'initialCaseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsInitialCaseStatus :: Lens.Lens' ResolveCaseResponse (Lude.Maybe Lude.Text)
-rcrsInitialCaseStatus = Lens.lens (initialCaseStatus :: ResolveCaseResponse -> Lude.Maybe Lude.Text) (\s a -> s {initialCaseStatus = a} :: ResolveCaseResponse)
-{-# DEPRECATED rcrsInitialCaseStatus "Use generic-lens or generic-optics with 'initialCaseStatus' instead." #-}
 
 -- | The status of the case after the 'ResolveCase' request was processed.
 --
 -- /Note:/ Consider using 'finalCaseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsFinalCaseStatus :: Lens.Lens' ResolveCaseResponse (Lude.Maybe Lude.Text)
-rcrsFinalCaseStatus = Lens.lens (finalCaseStatus :: ResolveCaseResponse -> Lude.Maybe Lude.Text) (\s a -> s {finalCaseStatus = a} :: ResolveCaseResponse)
-{-# DEPRECATED rcrsFinalCaseStatus "Use generic-lens or generic-optics with 'finalCaseStatus' instead." #-}
+rcrrsFinalCaseStatus :: Lens.Lens' ResolveCaseResponse (Core.Maybe Types.FinalCaseStatus)
+rcrrsFinalCaseStatus = Lens.field @"finalCaseStatus"
+{-# DEPRECATED rcrrsFinalCaseStatus "Use generic-lens or generic-optics with 'finalCaseStatus' instead." #-}
+
+-- | The status of the case when the 'ResolveCase' request was sent.
+--
+-- /Note:/ Consider using 'initialCaseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrrsInitialCaseStatus :: Lens.Lens' ResolveCaseResponse (Core.Maybe Types.InitialCaseStatus)
+rcrrsInitialCaseStatus = Lens.field @"initialCaseStatus"
+{-# DEPRECATED rcrrsInitialCaseStatus "Use generic-lens or generic-optics with 'initialCaseStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsResponseStatus :: Lens.Lens' ResolveCaseResponse Lude.Int
-rcrsResponseStatus = Lens.lens (responseStatus :: ResolveCaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResolveCaseResponse)
-{-# DEPRECATED rcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rcrrsResponseStatus :: Lens.Lens' ResolveCaseResponse Core.Int
+rcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

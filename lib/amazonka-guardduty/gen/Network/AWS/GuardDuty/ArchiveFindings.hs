@@ -20,114 +20,102 @@ module Network.AWS.GuardDuty.ArchiveFindings
     mkArchiveFindings,
 
     -- ** Request lenses
-    afFindingIds,
     afDetectorId,
+    afFindingIds,
 
     -- * Destructuring the response
     ArchiveFindingsResponse (..),
     mkArchiveFindingsResponse,
 
     -- ** Response lenses
-    afrsResponseStatus,
+    afrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkArchiveFindings' smart constructor.
 data ArchiveFindings = ArchiveFindings'
-  { -- | The IDs of the findings that you want to archive.
-    findingIds :: [Lude.Text],
-    -- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
-    detectorId :: Lude.Text
+  { -- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
+    detectorId :: Types.DetectorId,
+    -- | The IDs of the findings that you want to archive.
+    findingIds :: [Types.FindingId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArchiveFindings' with the minimum fields required to make a request.
---
--- * 'findingIds' - The IDs of the findings that you want to archive.
--- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
+-- | Creates a 'ArchiveFindings' value with any optional fields omitted.
 mkArchiveFindings ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   ArchiveFindings
-mkArchiveFindings pDetectorId_ =
-  ArchiveFindings'
-    { findingIds = Lude.mempty,
-      detectorId = pDetectorId_
-    }
-
--- | The IDs of the findings that you want to archive.
---
--- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afFindingIds :: Lens.Lens' ArchiveFindings [Lude.Text]
-afFindingIds = Lens.lens (findingIds :: ArchiveFindings -> [Lude.Text]) (\s a -> s {findingIds = a} :: ArchiveFindings)
-{-# DEPRECATED afFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
+mkArchiveFindings detectorId =
+  ArchiveFindings' {detectorId, findingIds = Core.mempty}
 
 -- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afDetectorId :: Lens.Lens' ArchiveFindings Lude.Text
-afDetectorId = Lens.lens (detectorId :: ArchiveFindings -> Lude.Text) (\s a -> s {detectorId = a} :: ArchiveFindings)
+afDetectorId :: Lens.Lens' ArchiveFindings Types.DetectorId
+afDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED afDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest ArchiveFindings where
+-- | The IDs of the findings that you want to archive.
+--
+-- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afFindingIds :: Lens.Lens' ArchiveFindings [Types.FindingId]
+afFindingIds = Lens.field @"findingIds"
+{-# DEPRECATED afFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
+
+instance Core.FromJSON ArchiveFindings where
+  toJSON ArchiveFindings {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("findingIds" Core..= findingIds)])
+
+instance Core.AWSRequest ArchiveFindings where
   type Rs ArchiveFindings = ArchiveFindingsResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/findings/archive")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          ArchiveFindingsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          ArchiveFindingsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ArchiveFindings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ArchiveFindings where
-  toJSON ArchiveFindings' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("findingIds" Lude..= findingIds)])
-
-instance Lude.ToPath ArchiveFindings where
-  toPath ArchiveFindings' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/findings/archive"]
-
-instance Lude.ToQuery ArchiveFindings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkArchiveFindingsResponse' smart constructor.
 newtype ArchiveFindingsResponse = ArchiveFindingsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArchiveFindingsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ArchiveFindingsResponse' value with any optional fields omitted.
 mkArchiveFindingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ArchiveFindingsResponse
-mkArchiveFindingsResponse pResponseStatus_ =
-  ArchiveFindingsResponse' {responseStatus = pResponseStatus_}
+mkArchiveFindingsResponse responseStatus =
+  ArchiveFindingsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afrsResponseStatus :: Lens.Lens' ArchiveFindingsResponse Lude.Int
-afrsResponseStatus = Lens.lens (responseStatus :: ArchiveFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ArchiveFindingsResponse)
-{-# DEPRECATED afrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+afrrsResponseStatus :: Lens.Lens' ArchiveFindingsResponse Core.Int
+afrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED afrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

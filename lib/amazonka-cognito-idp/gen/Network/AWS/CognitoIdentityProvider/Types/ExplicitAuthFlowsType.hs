@@ -13,76 +13,81 @@
 module Network.AWS.CognitoIdentityProvider.Types.ExplicitAuthFlowsType
   ( ExplicitAuthFlowsType
       ( ExplicitAuthFlowsType',
-        EAFTAdminNoSrpAuth,
-        EAFTCustomAuthFlowOnly,
-        EAFTUserPasswordAuth,
-        EAFTAllowAdminUserPasswordAuth,
-        EAFTAllowCustomAuth,
-        EAFTAllowUserPasswordAuth,
-        EAFTAllowUserSrpAuth,
-        EAFTAllowRefreshTokenAuth
+        ExplicitAuthFlowsTypeAdminNoSrpAuth,
+        ExplicitAuthFlowsTypeCustomAuthFlowOnly,
+        ExplicitAuthFlowsTypeUserPasswordAuth,
+        ExplicitAuthFlowsTypeAllowAdminUserPasswordAuth,
+        ExplicitAuthFlowsTypeAllowCustomAuth,
+        ExplicitAuthFlowsTypeAllowUserPasswordAuth,
+        ExplicitAuthFlowsTypeAllowUserSrpAuth,
+        ExplicitAuthFlowsTypeAllowRefreshTokenAuth,
+        fromExplicitAuthFlowsType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExplicitAuthFlowsType = ExplicitAuthFlowsType' Lude.Text
+newtype ExplicitAuthFlowsType = ExplicitAuthFlowsType'
+  { fromExplicitAuthFlowsType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EAFTAdminNoSrpAuth :: ExplicitAuthFlowsType
-pattern EAFTAdminNoSrpAuth = ExplicitAuthFlowsType' "ADMIN_NO_SRP_AUTH"
+pattern ExplicitAuthFlowsTypeAdminNoSrpAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeAdminNoSrpAuth = ExplicitAuthFlowsType' "ADMIN_NO_SRP_AUTH"
 
-pattern EAFTCustomAuthFlowOnly :: ExplicitAuthFlowsType
-pattern EAFTCustomAuthFlowOnly = ExplicitAuthFlowsType' "CUSTOM_AUTH_FLOW_ONLY"
+pattern ExplicitAuthFlowsTypeCustomAuthFlowOnly :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeCustomAuthFlowOnly = ExplicitAuthFlowsType' "CUSTOM_AUTH_FLOW_ONLY"
 
-pattern EAFTUserPasswordAuth :: ExplicitAuthFlowsType
-pattern EAFTUserPasswordAuth = ExplicitAuthFlowsType' "USER_PASSWORD_AUTH"
+pattern ExplicitAuthFlowsTypeUserPasswordAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeUserPasswordAuth = ExplicitAuthFlowsType' "USER_PASSWORD_AUTH"
 
-pattern EAFTAllowAdminUserPasswordAuth :: ExplicitAuthFlowsType
-pattern EAFTAllowAdminUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_ADMIN_USER_PASSWORD_AUTH"
+pattern ExplicitAuthFlowsTypeAllowAdminUserPasswordAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeAllowAdminUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_ADMIN_USER_PASSWORD_AUTH"
 
-pattern EAFTAllowCustomAuth :: ExplicitAuthFlowsType
-pattern EAFTAllowCustomAuth = ExplicitAuthFlowsType' "ALLOW_CUSTOM_AUTH"
+pattern ExplicitAuthFlowsTypeAllowCustomAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeAllowCustomAuth = ExplicitAuthFlowsType' "ALLOW_CUSTOM_AUTH"
 
-pattern EAFTAllowUserPasswordAuth :: ExplicitAuthFlowsType
-pattern EAFTAllowUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_USER_PASSWORD_AUTH"
+pattern ExplicitAuthFlowsTypeAllowUserPasswordAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeAllowUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_USER_PASSWORD_AUTH"
 
-pattern EAFTAllowUserSrpAuth :: ExplicitAuthFlowsType
-pattern EAFTAllowUserSrpAuth = ExplicitAuthFlowsType' "ALLOW_USER_SRP_AUTH"
+pattern ExplicitAuthFlowsTypeAllowUserSrpAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeAllowUserSrpAuth = ExplicitAuthFlowsType' "ALLOW_USER_SRP_AUTH"
 
-pattern EAFTAllowRefreshTokenAuth :: ExplicitAuthFlowsType
-pattern EAFTAllowRefreshTokenAuth = ExplicitAuthFlowsType' "ALLOW_REFRESH_TOKEN_AUTH"
+pattern ExplicitAuthFlowsTypeAllowRefreshTokenAuth :: ExplicitAuthFlowsType
+pattern ExplicitAuthFlowsTypeAllowRefreshTokenAuth = ExplicitAuthFlowsType' "ALLOW_REFRESH_TOKEN_AUTH"
 
 {-# COMPLETE
-  EAFTAdminNoSrpAuth,
-  EAFTCustomAuthFlowOnly,
-  EAFTUserPasswordAuth,
-  EAFTAllowAdminUserPasswordAuth,
-  EAFTAllowCustomAuth,
-  EAFTAllowUserPasswordAuth,
-  EAFTAllowUserSrpAuth,
-  EAFTAllowRefreshTokenAuth,
+  ExplicitAuthFlowsTypeAdminNoSrpAuth,
+  ExplicitAuthFlowsTypeCustomAuthFlowOnly,
+  ExplicitAuthFlowsTypeUserPasswordAuth,
+  ExplicitAuthFlowsTypeAllowAdminUserPasswordAuth,
+  ExplicitAuthFlowsTypeAllowCustomAuth,
+  ExplicitAuthFlowsTypeAllowUserPasswordAuth,
+  ExplicitAuthFlowsTypeAllowUserSrpAuth,
+  ExplicitAuthFlowsTypeAllowRefreshTokenAuth,
   ExplicitAuthFlowsType'
   #-}

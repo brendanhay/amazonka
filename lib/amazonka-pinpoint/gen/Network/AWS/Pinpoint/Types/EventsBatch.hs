@@ -17,58 +17,55 @@ module Network.AWS.Pinpoint.Types.EventsBatch
     mkEventsBatch,
 
     -- * Lenses
-    ebEvents,
     ebEndpoint,
+    ebEvents,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Event
-import Network.AWS.Pinpoint.Types.PublicEndpoint
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.Event as Types
+import qualified Network.AWS.Pinpoint.Types.PublicEndpoint as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a batch of endpoints and events to process.
 --
 -- /See:/ 'mkEventsBatch' smart constructor.
 data EventsBatch = EventsBatch'
-  { -- | A set of properties that are associated with the event.
-    events :: Lude.HashMap Lude.Text (Event),
-    -- | A set of properties and attributes that are associated with the endpoint.
-    endpoint :: PublicEndpoint
+  { -- | A set of properties and attributes that are associated with the endpoint.
+    endpoint :: Types.PublicEndpoint,
+    -- | A set of properties that are associated with the event.
+    events :: Core.HashMap Core.Text Types.Event
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventsBatch' with the minimum fields required to make a request.
---
--- * 'events' - A set of properties that are associated with the event.
--- * 'endpoint' - A set of properties and attributes that are associated with the endpoint.
+-- | Creates a 'EventsBatch' value with any optional fields omitted.
 mkEventsBatch ::
   -- | 'endpoint'
-  PublicEndpoint ->
+  Types.PublicEndpoint ->
   EventsBatch
-mkEventsBatch pEndpoint_ =
-  EventsBatch' {events = Lude.mempty, endpoint = pEndpoint_}
-
--- | A set of properties that are associated with the event.
---
--- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebEvents :: Lens.Lens' EventsBatch (Lude.HashMap Lude.Text (Event))
-ebEvents = Lens.lens (events :: EventsBatch -> Lude.HashMap Lude.Text (Event)) (\s a -> s {events = a} :: EventsBatch)
-{-# DEPRECATED ebEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+mkEventsBatch endpoint =
+  EventsBatch' {endpoint, events = Core.mempty}
 
 -- | A set of properties and attributes that are associated with the endpoint.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebEndpoint :: Lens.Lens' EventsBatch PublicEndpoint
-ebEndpoint = Lens.lens (endpoint :: EventsBatch -> PublicEndpoint) (\s a -> s {endpoint = a} :: EventsBatch)
+ebEndpoint :: Lens.Lens' EventsBatch Types.PublicEndpoint
+ebEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED ebEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.ToJSON EventsBatch where
-  toJSON EventsBatch' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Events" Lude..= events),
-            Lude.Just ("Endpoint" Lude..= endpoint)
+-- | A set of properties that are associated with the event.
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebEvents :: Lens.Lens' EventsBatch (Core.HashMap Core.Text Types.Event)
+ebEvents = Lens.field @"events"
+{-# DEPRECATED ebEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+
+instance Core.FromJSON EventsBatch where
+  toJSON EventsBatch {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Endpoint" Core..= endpoint),
+            Core.Just ("Events" Core..= events)
           ]
       )

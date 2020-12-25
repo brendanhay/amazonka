@@ -54,114 +54,104 @@ module Network.AWS.S3.GetBucketLifecycleConfiguration
     mkGetBucketLifecycleConfigurationResponse,
 
     -- ** Response lenses
-    gblcrsRules,
-    gblcrsResponseStatus,
+    gblcrrsRules,
+    gblcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketLifecycleConfiguration' smart constructor.
 data GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
   { -- | The name of the bucket for which to get the lifecycle information.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketLifecycleConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket for which to get the lifecycle information.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketLifecycleConfiguration' value with any optional fields omitted.
 mkGetBucketLifecycleConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketLifecycleConfiguration
-mkGetBucketLifecycleConfiguration pBucket_ =
+mkGetBucketLifecycleConfiguration bucket =
   GetBucketLifecycleConfiguration'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket for which to get the lifecycle information.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblcBucket :: Lens.Lens' GetBucketLifecycleConfiguration BucketName
-gblcBucket = Lens.lens (bucket :: GetBucketLifecycleConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketLifecycleConfiguration)
+gblcBucket :: Lens.Lens' GetBucketLifecycleConfiguration Types.BucketName
+gblcBucket = Lens.field @"bucket"
 {-# DEPRECATED gblcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblcExpectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Lude.Maybe Lude.Text)
-gblcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketLifecycleConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketLifecycleConfiguration)
+gblcExpectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Core.Maybe Types.AccountId)
+gblcExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gblcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketLifecycleConfiguration where
+instance Core.AWSRequest GetBucketLifecycleConfiguration where
   type
     Rs GetBucketLifecycleConfiguration =
       GetBucketLifecycleConfigurationResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("lifecycle", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketLifecycleConfigurationResponse'
-            Lude.<$> (Lude.may (Lude.parseXMLList "Rule") x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Rule") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketLifecycleConfiguration where
-  toHeaders GetBucketLifecycleConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketLifecycleConfiguration where
-  toPath GetBucketLifecycleConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketLifecycleConfiguration where
-  toQuery = Lude.const (Lude.mconcat ["lifecycle"])
 
 -- | /See:/ 'mkGetBucketLifecycleConfigurationResponse' smart constructor.
 data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationResponse'
   { -- | Container for a lifecycle rule.
-    rules :: Lude.Maybe [LifecycleRule],
+    rules :: Core.Maybe [Types.LifecycleRule],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetBucketLifecycleConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'rules' - Container for a lifecycle rule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketLifecycleConfigurationResponse' value with any optional fields omitted.
 mkGetBucketLifecycleConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketLifecycleConfigurationResponse
-mkGetBucketLifecycleConfigurationResponse pResponseStatus_ =
+mkGetBucketLifecycleConfigurationResponse responseStatus =
   GetBucketLifecycleConfigurationResponse'
-    { rules = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { rules = Core.Nothing,
+      responseStatus
     }
 
 -- | Container for a lifecycle rule.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblcrsRules :: Lens.Lens' GetBucketLifecycleConfigurationResponse (Lude.Maybe [LifecycleRule])
-gblcrsRules = Lens.lens (rules :: GetBucketLifecycleConfigurationResponse -> Lude.Maybe [LifecycleRule]) (\s a -> s {rules = a} :: GetBucketLifecycleConfigurationResponse)
-{-# DEPRECATED gblcrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+gblcrrsRules :: Lens.Lens' GetBucketLifecycleConfigurationResponse (Core.Maybe [Types.LifecycleRule])
+gblcrrsRules = Lens.field @"rules"
+{-# DEPRECATED gblcrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblcrsResponseStatus :: Lens.Lens' GetBucketLifecycleConfigurationResponse Lude.Int
-gblcrsResponseStatus = Lens.lens (responseStatus :: GetBucketLifecycleConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketLifecycleConfigurationResponse)
-{-# DEPRECATED gblcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gblcrrsResponseStatus :: Lens.Lens' GetBucketLifecycleConfigurationResponse Core.Int
+gblcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gblcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

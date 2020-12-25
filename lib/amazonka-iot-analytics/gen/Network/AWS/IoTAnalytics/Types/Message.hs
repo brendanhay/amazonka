@@ -17,38 +17,42 @@ module Network.AWS.IoTAnalytics.Types.Message
     mkMessage,
 
     -- * Lenses
-    mPayload,
     mMessageId,
+    mPayload,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.MessageId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a message.
 --
 -- /See:/ 'mkMessage' smart constructor.
 data Message = Message'
-  { -- | The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.
-    payload :: Lude.Base64,
-    -- | The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
-    messageId :: Lude.Text
+  { -- | The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
+    messageId :: Types.MessageId,
+    -- | The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.
+    payload :: Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Message' with the minimum fields required to make a request.
---
--- * 'payload' - The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.
--- * 'messageId' - The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
+-- | Creates a 'Message' value with any optional fields omitted.
 mkMessage ::
-  -- | 'payload'
-  Lude.Base64 ->
   -- | 'messageId'
-  Lude.Text ->
+  Types.MessageId ->
+  -- | 'payload'
+  Core.Base64 ->
   Message
-mkMessage pPayload_ pMessageId_ =
-  Message' {payload = pPayload_, messageId = pMessageId_}
+mkMessage messageId payload = Message' {messageId, payload}
+
+-- | The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
+--
+-- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMessageId :: Lens.Lens' Message Types.MessageId
+mMessageId = Lens.field @"messageId"
+{-# DEPRECATED mMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
 -- | The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -57,22 +61,15 @@ mkMessage pPayload_ pMessageId_ =
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPayload :: Lens.Lens' Message Lude.Base64
-mPayload = Lens.lens (payload :: Message -> Lude.Base64) (\s a -> s {payload = a} :: Message)
+mPayload :: Lens.Lens' Message Core.Base64
+mPayload = Lens.field @"payload"
 {-# DEPRECATED mPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
--- | The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
---
--- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMessageId :: Lens.Lens' Message Lude.Text
-mMessageId = Lens.lens (messageId :: Message -> Lude.Text) (\s a -> s {messageId = a} :: Message)
-{-# DEPRECATED mMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
-
-instance Lude.ToJSON Message where
-  toJSON Message' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("payload" Lude..= payload),
-            Lude.Just ("messageId" Lude..= messageId)
+instance Core.FromJSON Message where
+  toJSON Message {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("messageId" Core..= messageId),
+            Core.Just ("payload" Core..= payload)
           ]
       )

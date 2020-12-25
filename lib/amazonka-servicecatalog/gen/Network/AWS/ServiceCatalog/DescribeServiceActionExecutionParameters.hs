@@ -20,29 +20,33 @@ module Network.AWS.ServiceCatalog.DescribeServiceActionExecutionParameters
     mkDescribeServiceActionExecutionParameters,
 
     -- ** Request lenses
-    dsaepAcceptLanguage,
     dsaepProvisionedProductId,
     dsaepServiceActionId,
+    dsaepAcceptLanguage,
 
     -- * Destructuring the response
     DescribeServiceActionExecutionParametersResponse (..),
     mkDescribeServiceActionExecutionParametersResponse,
 
     -- ** Response lenses
-    dsaeprsServiceActionParameters,
-    dsaeprsResponseStatus,
+    dsaeprrsServiceActionParameters,
+    dsaeprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDescribeServiceActionExecutionParameters' smart constructor.
 data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionParameters'
-  { -- | The language code.
+  { -- | The identifier of the provisioned product.
+    provisionedProductId :: Types.ProvisionedProductId,
+    -- | The self-service action identifier.
+    serviceActionId :: Types.ServiceActionId,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -52,46 +56,40 @@ data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionPa
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The identifier of the provisioned product.
-    provisionedProductId :: Lude.Text,
-    -- | The self-service action identifier.
-    serviceActionId :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeServiceActionExecutionParameters' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'provisionedProductId' - The identifier of the provisioned product.
--- * 'serviceActionId' - The self-service action identifier.
+-- | Creates a 'DescribeServiceActionExecutionParameters' value with any optional fields omitted.
 mkDescribeServiceActionExecutionParameters ::
   -- | 'provisionedProductId'
-  Lude.Text ->
+  Types.ProvisionedProductId ->
   -- | 'serviceActionId'
-  Lude.Text ->
+  Types.ServiceActionId ->
   DescribeServiceActionExecutionParameters
 mkDescribeServiceActionExecutionParameters
-  pProvisionedProductId_
-  pServiceActionId_ =
+  provisionedProductId
+  serviceActionId =
     DescribeServiceActionExecutionParameters'
-      { acceptLanguage =
-          Lude.Nothing,
-        provisionedProductId = pProvisionedProductId_,
-        serviceActionId = pServiceActionId_
+      { provisionedProductId,
+        serviceActionId,
+        acceptLanguage = Core.Nothing
       }
+
+-- | The identifier of the provisioned product.
+--
+-- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaepProvisionedProductId :: Lens.Lens' DescribeServiceActionExecutionParameters Types.ProvisionedProductId
+dsaepProvisionedProductId = Lens.field @"provisionedProductId"
+{-# DEPRECATED dsaepProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
+
+-- | The self-service action identifier.
+--
+-- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaepServiceActionId :: Lens.Lens' DescribeServiceActionExecutionParameters Types.ServiceActionId
+dsaepServiceActionId = Lens.field @"serviceActionId"
+{-# DEPRECATED dsaepServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
 
 -- | The language code.
 --
@@ -107,101 +105,78 @@ mkDescribeServiceActionExecutionParameters
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaepAcceptLanguage :: Lens.Lens' DescribeServiceActionExecutionParameters (Lude.Maybe Lude.Text)
-dsaepAcceptLanguage = Lens.lens (acceptLanguage :: DescribeServiceActionExecutionParameters -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeServiceActionExecutionParameters)
+dsaepAcceptLanguage :: Lens.Lens' DescribeServiceActionExecutionParameters (Core.Maybe Types.AcceptLanguage)
+dsaepAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED dsaepAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The identifier of the provisioned product.
---
--- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaepProvisionedProductId :: Lens.Lens' DescribeServiceActionExecutionParameters Lude.Text
-dsaepProvisionedProductId = Lens.lens (provisionedProductId :: DescribeServiceActionExecutionParameters -> Lude.Text) (\s a -> s {provisionedProductId = a} :: DescribeServiceActionExecutionParameters)
-{-# DEPRECATED dsaepProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
+instance Core.FromJSON DescribeServiceActionExecutionParameters where
+  toJSON DescribeServiceActionExecutionParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProvisionedProductId" Core..= provisionedProductId),
+            Core.Just ("ServiceActionId" Core..= serviceActionId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
--- | The self-service action identifier.
---
--- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaepServiceActionId :: Lens.Lens' DescribeServiceActionExecutionParameters Lude.Text
-dsaepServiceActionId = Lens.lens (serviceActionId :: DescribeServiceActionExecutionParameters -> Lude.Text) (\s a -> s {serviceActionId = a} :: DescribeServiceActionExecutionParameters)
-{-# DEPRECATED dsaepServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
-
-instance Lude.AWSRequest DescribeServiceActionExecutionParameters where
+instance Core.AWSRequest DescribeServiceActionExecutionParameters where
   type
     Rs DescribeServiceActionExecutionParameters =
       DescribeServiceActionExecutionParametersResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeServiceActionExecutionParametersResponse'
-            Lude.<$> (x Lude..?> "ServiceActionParameters" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ServiceActionParameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeServiceActionExecutionParameters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeServiceActionExecutionParameters where
-  toJSON DescribeServiceActionExecutionParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("ProvisionedProductId" Lude..= provisionedProductId),
-            Lude.Just ("ServiceActionId" Lude..= serviceActionId)
-          ]
-      )
-
-instance Lude.ToPath DescribeServiceActionExecutionParameters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeServiceActionExecutionParameters where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeServiceActionExecutionParametersResponse' smart constructor.
 data DescribeServiceActionExecutionParametersResponse = DescribeServiceActionExecutionParametersResponse'
   { -- | The parameters of the self-service action.
-    serviceActionParameters :: Lude.Maybe [ExecutionParameter],
+    serviceActionParameters :: Core.Maybe [Types.ExecutionParameter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeServiceActionExecutionParametersResponse' with the minimum fields required to make a request.
---
--- * 'serviceActionParameters' - The parameters of the self-service action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeServiceActionExecutionParametersResponse' value with any optional fields omitted.
 mkDescribeServiceActionExecutionParametersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeServiceActionExecutionParametersResponse
-mkDescribeServiceActionExecutionParametersResponse pResponseStatus_ =
+mkDescribeServiceActionExecutionParametersResponse responseStatus =
   DescribeServiceActionExecutionParametersResponse'
     { serviceActionParameters =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The parameters of the self-service action.
 --
 -- /Note:/ Consider using 'serviceActionParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaeprsServiceActionParameters :: Lens.Lens' DescribeServiceActionExecutionParametersResponse (Lude.Maybe [ExecutionParameter])
-dsaeprsServiceActionParameters = Lens.lens (serviceActionParameters :: DescribeServiceActionExecutionParametersResponse -> Lude.Maybe [ExecutionParameter]) (\s a -> s {serviceActionParameters = a} :: DescribeServiceActionExecutionParametersResponse)
-{-# DEPRECATED dsaeprsServiceActionParameters "Use generic-lens or generic-optics with 'serviceActionParameters' instead." #-}
+dsaeprrsServiceActionParameters :: Lens.Lens' DescribeServiceActionExecutionParametersResponse (Core.Maybe [Types.ExecutionParameter])
+dsaeprrsServiceActionParameters = Lens.field @"serviceActionParameters"
+{-# DEPRECATED dsaeprrsServiceActionParameters "Use generic-lens or generic-optics with 'serviceActionParameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaeprsResponseStatus :: Lens.Lens' DescribeServiceActionExecutionParametersResponse Lude.Int
-dsaeprsResponseStatus = Lens.lens (responseStatus :: DescribeServiceActionExecutionParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServiceActionExecutionParametersResponse)
-{-# DEPRECATED dsaeprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsaeprrsResponseStatus :: Lens.Lens' DescribeServiceActionExecutionParametersResponse Core.Int
+dsaeprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsaeprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

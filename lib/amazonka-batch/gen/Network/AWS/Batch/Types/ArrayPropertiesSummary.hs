@@ -17,57 +17,52 @@ module Network.AWS.Batch.Types.ArrayPropertiesSummary
     mkArrayPropertiesSummary,
 
     -- * Lenses
-    apsSize,
     apsIndex,
+    apsSize,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing the array properties of a job.
 --
 -- /See:/ 'mkArrayPropertiesSummary' smart constructor.
 data ArrayPropertiesSummary = ArrayPropertiesSummary'
-  { -- | The size of the array job. This parameter is returned for parent array jobs.
-    size :: Lude.Maybe Lude.Int,
-    -- | The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
-    index :: Lude.Maybe Lude.Int
+  { -- | The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
+    index :: Core.Maybe Core.Int,
+    -- | The size of the array job. This parameter is returned for parent array jobs.
+    size :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArrayPropertiesSummary' with the minimum fields required to make a request.
---
--- * 'size' - The size of the array job. This parameter is returned for parent array jobs.
--- * 'index' - The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
+-- | Creates a 'ArrayPropertiesSummary' value with any optional fields omitted.
 mkArrayPropertiesSummary ::
   ArrayPropertiesSummary
 mkArrayPropertiesSummary =
   ArrayPropertiesSummary'
-    { size = Lude.Nothing,
-      index = Lude.Nothing
+    { index = Core.Nothing,
+      size = Core.Nothing
     }
-
--- | The size of the array job. This parameter is returned for parent array jobs.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsSize :: Lens.Lens' ArrayPropertiesSummary (Lude.Maybe Lude.Int)
-apsSize = Lens.lens (size :: ArrayPropertiesSummary -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: ArrayPropertiesSummary)
-{-# DEPRECATED apsSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsIndex :: Lens.Lens' ArrayPropertiesSummary (Lude.Maybe Lude.Int)
-apsIndex = Lens.lens (index :: ArrayPropertiesSummary -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: ArrayPropertiesSummary)
+apsIndex :: Lens.Lens' ArrayPropertiesSummary (Core.Maybe Core.Int)
+apsIndex = Lens.field @"index"
 {-# DEPRECATED apsIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance Lude.FromJSON ArrayPropertiesSummary where
+-- | The size of the array job. This parameter is returned for parent array jobs.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apsSize :: Lens.Lens' ArrayPropertiesSummary (Core.Maybe Core.Int)
+apsSize = Lens.field @"size"
+{-# DEPRECATED apsSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+instance Core.FromJSON ArrayPropertiesSummary where
   parseJSON =
-    Lude.withObject
-      "ArrayPropertiesSummary"
-      ( \x ->
-          ArrayPropertiesSummary'
-            Lude.<$> (x Lude..:? "size") Lude.<*> (x Lude..:? "index")
-      )
+    Core.withObject "ArrayPropertiesSummary" Core.$
+      \x ->
+        ArrayPropertiesSummary'
+          Core.<$> (x Core..:? "index") Core.<*> (x Core..:? "size")

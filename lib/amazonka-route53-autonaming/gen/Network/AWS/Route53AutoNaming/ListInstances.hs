@@ -22,176 +22,162 @@ module Network.AWS.Route53AutoNaming.ListInstances
     mkListInstances,
 
     -- ** Request lenses
-    liNextToken,
     liServiceId,
     liMaxResults,
+    liNextToken,
 
     -- * Destructuring the response
     ListInstancesResponse (..),
     mkListInstancesResponse,
 
     -- ** Response lenses
-    lirsNextToken,
-    lirsInstances,
-    lirsResponseStatus,
+    lirrsInstances,
+    lirrsNextToken,
+    lirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { -- | For the first @ListInstances@ request, omit this value.
+  { -- | The ID of the service that you want to list instances for.
+    serviceId :: Types.ResourceId,
+    -- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | For the first @ListInstances@ request, omit this value.
     --
     -- If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the service that you want to list instances for.
-    serviceId :: Lude.Text,
-    -- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
---
--- * 'nextToken' - For the first @ListInstances@ request, omit this value.
---
--- If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
--- * 'serviceId' - The ID of the service that you want to list instances for.
--- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+-- | Creates a 'ListInstances' value with any optional fields omitted.
 mkListInstances ::
   -- | 'serviceId'
-  Lude.Text ->
+  Types.ResourceId ->
   ListInstances
-mkListInstances pServiceId_ =
+mkListInstances serviceId =
   ListInstances'
-    { nextToken = Lude.Nothing,
-      serviceId = pServiceId_,
-      maxResults = Lude.Nothing
+    { serviceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | The ID of the service that you want to list instances for.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liServiceId :: Lens.Lens' ListInstances Types.ResourceId
+liServiceId = Lens.field @"serviceId"
+{-# DEPRECATED liServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
+-- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListInstances (Core.Maybe Core.Natural)
+liMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | For the first @ListInstances@ request, omit this value.
 --
 -- If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liNextToken :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
-liNextToken = Lens.lens (nextToken :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstances)
+liNextToken :: Lens.Lens' ListInstances (Core.Maybe Types.NextToken)
+liNextToken = Lens.field @"nextToken"
 {-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The ID of the service that you want to list instances for.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liServiceId :: Lens.Lens' ListInstances Lude.Text
-liServiceId = Lens.lens (serviceId :: ListInstances -> Lude.Text) (\s a -> s {serviceId = a} :: ListInstances)
-{-# DEPRECATED liServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+instance Core.FromJSON ListInstances where
+  toJSON ListInstances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceId" Core..= serviceId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
--- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liMaxResults :: Lens.Lens' ListInstances (Lude.Maybe Lude.Natural)
-liMaxResults = Lens.lens (maxResults :: ListInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstances)
-{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lirsInstances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
-
-instance Lude.AWSRequest ListInstances where
+instance Core.AWSRequest ListInstances where
   type Rs ListInstances = ListInstancesResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.ListInstances")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Instances" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Instances")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.ListInstances" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListInstances where
-  toJSON ListInstances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ServiceId" Lude..= serviceId),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListInstances where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"instances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { -- | If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Summary information about the instances that are associated with the specified service.
-    instances :: Lude.Maybe [InstanceSummary],
+  { -- | Summary information about the instances that are associated with the specified service.
+    instances :: Core.Maybe [Types.InstanceSummary],
+    -- | If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
--- * 'instances' - Summary information about the instances that are associated with the specified service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListInstancesResponse' value with any optional fields omitted.
 mkListInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListInstancesResponse
-mkListInstancesResponse pResponseStatus_ =
+mkListInstancesResponse responseStatus =
   ListInstancesResponse'
-    { nextToken = Lude.Nothing,
-      instances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instances = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsNextToken :: Lens.Lens' ListInstancesResponse (Lude.Maybe Lude.Text)
-lirsNextToken = Lens.lens (nextToken :: ListInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstancesResponse)
-{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Summary information about the instances that are associated with the specified service.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsInstances :: Lens.Lens' ListInstancesResponse (Lude.Maybe [InstanceSummary])
-lirsInstances = Lens.lens (instances :: ListInstancesResponse -> Lude.Maybe [InstanceSummary]) (\s a -> s {instances = a} :: ListInstancesResponse)
-{-# DEPRECATED lirsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+lirrsInstances :: Lens.Lens' ListInstancesResponse (Core.Maybe [Types.InstanceSummary])
+lirrsInstances = Lens.field @"instances"
+{-# DEPRECATED lirrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+
+-- | If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirrsNextToken :: Lens.Lens' ListInstancesResponse (Core.Maybe Types.NextToken)
+lirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListInstancesResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstancesResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lirrsResponseStatus :: Lens.Lens' ListInstancesResponse Core.Int
+lirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

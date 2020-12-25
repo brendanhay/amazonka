@@ -13,12 +13,13 @@
 module Network.AWS.MachineLearning.Types.Algorithm
   ( Algorithm
       ( Algorithm',
-        SGD
+        AlgorithmSgd,
+        fromAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The function used to train an @MLModel@ . Training choices supported by Amazon ML include the following:
 --
@@ -26,34 +27,35 @@ import qualified Network.AWS.Prelude as Lude
 --     * @SGD@ - Stochastic Gradient Descent.
 --
 --     * @RandomForest@ - Random forest of decision trees.
-newtype Algorithm = Algorithm' Lude.Text
+newtype Algorithm = Algorithm' {fromAlgorithm :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SGD :: Algorithm
-pattern SGD = Algorithm' "sgd"
+pattern AlgorithmSgd :: Algorithm
+pattern AlgorithmSgd = Algorithm' "sgd"
 
 {-# COMPLETE
-  SGD,
+  AlgorithmSgd,
   Algorithm'
   #-}

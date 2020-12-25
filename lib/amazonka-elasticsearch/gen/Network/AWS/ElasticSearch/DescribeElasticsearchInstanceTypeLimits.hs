@@ -21,146 +21,135 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 
     -- ** Request lenses
     deitlInstanceType,
-    deitlDomainName,
     deitlElasticsearchVersion,
+    deitlDomainName,
 
     -- * Destructuring the response
     DescribeElasticsearchInstanceTypeLimitsResponse (..),
     mkDescribeElasticsearchInstanceTypeLimitsResponse,
 
     -- ** Response lenses
-    deitlrsLimitsByRole,
-    deitlrsResponseStatus,
+    deitlrrsLimitsByRole,
+    deitlrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to @'DescribeElasticsearchInstanceTypeLimits' @ operation.
 --
 -- /See:/ 'mkDescribeElasticsearchInstanceTypeLimits' smart constructor.
 data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceTypeLimits'
   { -- | The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
-    instanceType :: ESPartitionInstanceType,
-    -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
-    domainName :: Lude.Maybe Lude.Text,
+    instanceType :: Types.ESPartitionInstanceType,
     -- | Version of Elasticsearch for which @'Limits' @ are needed.
-    elasticsearchVersion :: Lude.Text
+    elasticsearchVersion :: Types.ElasticsearchVersion,
+    -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
+    domainName :: Core.Maybe Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeElasticsearchInstanceTypeLimits' with the minimum fields required to make a request.
---
--- * 'instanceType' - The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
--- * 'domainName' - DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
--- * 'elasticsearchVersion' - Version of Elasticsearch for which @'Limits' @ are needed.
+-- | Creates a 'DescribeElasticsearchInstanceTypeLimits' value with any optional fields omitted.
 mkDescribeElasticsearchInstanceTypeLimits ::
   -- | 'instanceType'
-  ESPartitionInstanceType ->
+  Types.ESPartitionInstanceType ->
   -- | 'elasticsearchVersion'
-  Lude.Text ->
+  Types.ElasticsearchVersion ->
   DescribeElasticsearchInstanceTypeLimits
 mkDescribeElasticsearchInstanceTypeLimits
-  pInstanceType_
-  pElasticsearchVersion_ =
+  instanceType
+  elasticsearchVersion =
     DescribeElasticsearchInstanceTypeLimits'
-      { instanceType =
-          pInstanceType_,
-        domainName = Lude.Nothing,
-        elasticsearchVersion = pElasticsearchVersion_
+      { instanceType,
+        elasticsearchVersion,
+        domainName = Core.Nothing
       }
 
 -- | The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitlInstanceType :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits ESPartitionInstanceType
-deitlInstanceType = Lens.lens (instanceType :: DescribeElasticsearchInstanceTypeLimits -> ESPartitionInstanceType) (\s a -> s {instanceType = a} :: DescribeElasticsearchInstanceTypeLimits)
+deitlInstanceType :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits Types.ESPartitionInstanceType
+deitlInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED deitlInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitlDomainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Lude.Maybe Lude.Text)
-deitlDomainName = Lens.lens (domainName :: DescribeElasticsearchInstanceTypeLimits -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DescribeElasticsearchInstanceTypeLimits)
-{-# DEPRECATED deitlDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Version of Elasticsearch for which @'Limits' @ are needed.
 --
 -- /Note:/ Consider using 'elasticsearchVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitlElasticsearchVersion :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits Lude.Text
-deitlElasticsearchVersion = Lens.lens (elasticsearchVersion :: DescribeElasticsearchInstanceTypeLimits -> Lude.Text) (\s a -> s {elasticsearchVersion = a} :: DescribeElasticsearchInstanceTypeLimits)
+deitlElasticsearchVersion :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits Types.ElasticsearchVersion
+deitlElasticsearchVersion = Lens.field @"elasticsearchVersion"
 {-# DEPRECATED deitlElasticsearchVersion "Use generic-lens or generic-optics with 'elasticsearchVersion' instead." #-}
 
-instance Lude.AWSRequest DescribeElasticsearchInstanceTypeLimits where
+-- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deitlDomainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Core.Maybe Types.DomainName)
+deitlDomainName = Lens.field @"domainName"
+{-# DEPRECATED deitlDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+instance Core.AWSRequest DescribeElasticsearchInstanceTypeLimits where
   type
     Rs DescribeElasticsearchInstanceTypeLimits =
       DescribeElasticsearchInstanceTypeLimitsResponse
-  request = Req.get elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-01-01/es/instanceTypeLimits/"
+                Core.<> (Core.toText elasticsearchVersion)
+                Core.<> ("/")
+                Core.<> (Core.toText instanceType)
+            ),
+        Core._rqQuery = Core.toQueryValue "domainName" Core.<$> domainName,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeElasticsearchInstanceTypeLimitsResponse'
-            Lude.<$> (x Lude..?> "LimitsByRole" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LimitsByRole") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeElasticsearchInstanceTypeLimits where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeElasticsearchInstanceTypeLimits where
-  toPath DescribeElasticsearchInstanceTypeLimits' {..} =
-    Lude.mconcat
-      [ "/2015-01-01/es/instanceTypeLimits/",
-        Lude.toBS elasticsearchVersion,
-        "/",
-        Lude.toBS instanceType
-      ]
-
-instance Lude.ToQuery DescribeElasticsearchInstanceTypeLimits where
-  toQuery DescribeElasticsearchInstanceTypeLimits' {..} =
-    Lude.mconcat ["domainName" Lude.=: domainName]
 
 -- | Container for the parameters received from @'DescribeElasticsearchInstanceTypeLimits' @ operation.
 --
 -- /See:/ 'mkDescribeElasticsearchInstanceTypeLimitsResponse' smart constructor.
 data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInstanceTypeLimitsResponse'
-  { limitsByRole :: Lude.Maybe (Lude.HashMap Lude.Text (Limits)),
+  { limitsByRole :: Core.Maybe (Core.HashMap Types.InstanceRole Types.Limits),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeElasticsearchInstanceTypeLimitsResponse' with the minimum fields required to make a request.
---
--- * 'limitsByRole' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeElasticsearchInstanceTypeLimitsResponse' value with any optional fields omitted.
 mkDescribeElasticsearchInstanceTypeLimitsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeElasticsearchInstanceTypeLimitsResponse
-mkDescribeElasticsearchInstanceTypeLimitsResponse pResponseStatus_ =
+mkDescribeElasticsearchInstanceTypeLimitsResponse responseStatus =
   DescribeElasticsearchInstanceTypeLimitsResponse'
     { limitsByRole =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'limitsByRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitlrsLimitsByRole :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Limits)))
-deitlrsLimitsByRole = Lens.lens (limitsByRole :: DescribeElasticsearchInstanceTypeLimitsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Limits))) (\s a -> s {limitsByRole = a} :: DescribeElasticsearchInstanceTypeLimitsResponse)
-{-# DEPRECATED deitlrsLimitsByRole "Use generic-lens or generic-optics with 'limitsByRole' instead." #-}
+deitlrrsLimitsByRole :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse (Core.Maybe (Core.HashMap Types.InstanceRole Types.Limits))
+deitlrrsLimitsByRole = Lens.field @"limitsByRole"
+{-# DEPRECATED deitlrrsLimitsByRole "Use generic-lens or generic-optics with 'limitsByRole' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitlrsResponseStatus :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse Lude.Int
-deitlrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticsearchInstanceTypeLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticsearchInstanceTypeLimitsResponse)
-{-# DEPRECATED deitlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deitlrrsResponseStatus :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse Core.Int
+deitlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED deitlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

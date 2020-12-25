@@ -46,177 +46,161 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     mkPutLogEvents,
 
     -- ** Request lenses
-    pleSequenceToken,
     pleLogGroupName,
     pleLogStreamName,
     pleLogEvents,
+    pleSequenceToken,
 
     -- * Destructuring the response
     PutLogEventsResponse (..),
     mkPutLogEventsResponse,
 
     -- ** Response lenses
-    plersRejectedLogEventsInfo,
-    plersNextSequenceToken,
-    plersResponseStatus,
+    plerrsNextSequenceToken,
+    plerrsRejectedLogEventsInfo,
+    plerrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutLogEvents' smart constructor.
 data PutLogEvents = PutLogEvents'
-  { -- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
-    sequenceToken :: Lude.Maybe Lude.Text,
-    -- | The name of the log group.
-    logGroupName :: Lude.Text,
+  { -- | The name of the log group.
+    logGroupName :: Types.LogGroupName,
     -- | The name of the log stream.
-    logStreamName :: Lude.Text,
+    logStreamName :: Types.LogStreamName,
     -- | The log events.
-    logEvents :: Lude.NonEmpty InputLogEvent
+    logEvents :: Core.NonEmpty Types.InputLogEvent,
+    -- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
+    sequenceToken :: Core.Maybe Types.SequenceToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLogEvents' with the minimum fields required to make a request.
---
--- * 'sequenceToken' - The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
--- * 'logGroupName' - The name of the log group.
--- * 'logStreamName' - The name of the log stream.
--- * 'logEvents' - The log events.
+-- | Creates a 'PutLogEvents' value with any optional fields omitted.
 mkPutLogEvents ::
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
   -- | 'logStreamName'
-  Lude.Text ->
+  Types.LogStreamName ->
   -- | 'logEvents'
-  Lude.NonEmpty InputLogEvent ->
+  Core.NonEmpty Types.InputLogEvent ->
   PutLogEvents
-mkPutLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
+mkPutLogEvents logGroupName logStreamName logEvents =
   PutLogEvents'
-    { sequenceToken = Lude.Nothing,
-      logGroupName = pLogGroupName_,
-      logStreamName = pLogStreamName_,
-      logEvents = pLogEvents_
+    { logGroupName,
+      logStreamName,
+      logEvents,
+      sequenceToken = Core.Nothing
     }
-
--- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
---
--- /Note:/ Consider using 'sequenceToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pleSequenceToken :: Lens.Lens' PutLogEvents (Lude.Maybe Lude.Text)
-pleSequenceToken = Lens.lens (sequenceToken :: PutLogEvents -> Lude.Maybe Lude.Text) (\s a -> s {sequenceToken = a} :: PutLogEvents)
-{-# DEPRECATED pleSequenceToken "Use generic-lens or generic-optics with 'sequenceToken' instead." #-}
 
 -- | The name of the log group.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pleLogGroupName :: Lens.Lens' PutLogEvents Lude.Text
-pleLogGroupName = Lens.lens (logGroupName :: PutLogEvents -> Lude.Text) (\s a -> s {logGroupName = a} :: PutLogEvents)
+pleLogGroupName :: Lens.Lens' PutLogEvents Types.LogGroupName
+pleLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED pleLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The name of the log stream.
 --
 -- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pleLogStreamName :: Lens.Lens' PutLogEvents Lude.Text
-pleLogStreamName = Lens.lens (logStreamName :: PutLogEvents -> Lude.Text) (\s a -> s {logStreamName = a} :: PutLogEvents)
+pleLogStreamName :: Lens.Lens' PutLogEvents Types.LogStreamName
+pleLogStreamName = Lens.field @"logStreamName"
 {-# DEPRECATED pleLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 -- | The log events.
 --
 -- /Note:/ Consider using 'logEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pleLogEvents :: Lens.Lens' PutLogEvents (Lude.NonEmpty InputLogEvent)
-pleLogEvents = Lens.lens (logEvents :: PutLogEvents -> Lude.NonEmpty InputLogEvent) (\s a -> s {logEvents = a} :: PutLogEvents)
+pleLogEvents :: Lens.Lens' PutLogEvents (Core.NonEmpty Types.InputLogEvent)
+pleLogEvents = Lens.field @"logEvents"
 {-# DEPRECATED pleLogEvents "Use generic-lens or generic-optics with 'logEvents' instead." #-}
 
-instance Lude.AWSRequest PutLogEvents where
+-- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
+--
+-- /Note:/ Consider using 'sequenceToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pleSequenceToken :: Lens.Lens' PutLogEvents (Core.Maybe Types.SequenceToken)
+pleSequenceToken = Lens.field @"sequenceToken"
+{-# DEPRECATED pleSequenceToken "Use generic-lens or generic-optics with 'sequenceToken' instead." #-}
+
+instance Core.FromJSON PutLogEvents where
+  toJSON PutLogEvents {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("logStreamName" Core..= logStreamName),
+            Core.Just ("logEvents" Core..= logEvents),
+            ("sequenceToken" Core..=) Core.<$> sequenceToken
+          ]
+      )
+
+instance Core.AWSRequest PutLogEvents where
   type Rs PutLogEvents = PutLogEventsResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.PutLogEvents")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutLogEventsResponse'
-            Lude.<$> (x Lude..?> "rejectedLogEventsInfo")
-            Lude.<*> (x Lude..?> "nextSequenceToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextSequenceToken")
+            Core.<*> (x Core..:? "rejectedLogEventsInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutLogEvents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.PutLogEvents" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutLogEvents where
-  toJSON PutLogEvents' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sequenceToken" Lude..=) Lude.<$> sequenceToken,
-            Lude.Just ("logGroupName" Lude..= logGroupName),
-            Lude.Just ("logStreamName" Lude..= logStreamName),
-            Lude.Just ("logEvents" Lude..= logEvents)
-          ]
-      )
-
-instance Lude.ToPath PutLogEvents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutLogEvents where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
-  { -- | The rejected events.
-    rejectedLogEventsInfo :: Lude.Maybe RejectedLogEventsInfo,
-    -- | The next sequence token.
-    nextSequenceToken :: Lude.Maybe Lude.Text,
+  { -- | The next sequence token.
+    nextSequenceToken :: Core.Maybe Types.SequenceToken,
+    -- | The rejected events.
+    rejectedLogEventsInfo :: Core.Maybe Types.RejectedLogEventsInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLogEventsResponse' with the minimum fields required to make a request.
---
--- * 'rejectedLogEventsInfo' - The rejected events.
--- * 'nextSequenceToken' - The next sequence token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutLogEventsResponse' value with any optional fields omitted.
 mkPutLogEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutLogEventsResponse
-mkPutLogEventsResponse pResponseStatus_ =
+mkPutLogEventsResponse responseStatus =
   PutLogEventsResponse'
-    { rejectedLogEventsInfo = Lude.Nothing,
-      nextSequenceToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextSequenceToken = Core.Nothing,
+      rejectedLogEventsInfo = Core.Nothing,
+      responseStatus
     }
-
--- | The rejected events.
---
--- /Note:/ Consider using 'rejectedLogEventsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plersRejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Lude.Maybe RejectedLogEventsInfo)
-plersRejectedLogEventsInfo = Lens.lens (rejectedLogEventsInfo :: PutLogEventsResponse -> Lude.Maybe RejectedLogEventsInfo) (\s a -> s {rejectedLogEventsInfo = a} :: PutLogEventsResponse)
-{-# DEPRECATED plersRejectedLogEventsInfo "Use generic-lens or generic-optics with 'rejectedLogEventsInfo' instead." #-}
 
 -- | The next sequence token.
 --
 -- /Note:/ Consider using 'nextSequenceToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plersNextSequenceToken :: Lens.Lens' PutLogEventsResponse (Lude.Maybe Lude.Text)
-plersNextSequenceToken = Lens.lens (nextSequenceToken :: PutLogEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextSequenceToken = a} :: PutLogEventsResponse)
-{-# DEPRECATED plersNextSequenceToken "Use generic-lens or generic-optics with 'nextSequenceToken' instead." #-}
+plerrsNextSequenceToken :: Lens.Lens' PutLogEventsResponse (Core.Maybe Types.SequenceToken)
+plerrsNextSequenceToken = Lens.field @"nextSequenceToken"
+{-# DEPRECATED plerrsNextSequenceToken "Use generic-lens or generic-optics with 'nextSequenceToken' instead." #-}
+
+-- | The rejected events.
+--
+-- /Note:/ Consider using 'rejectedLogEventsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plerrsRejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Core.Maybe Types.RejectedLogEventsInfo)
+plerrsRejectedLogEventsInfo = Lens.field @"rejectedLogEventsInfo"
+{-# DEPRECATED plerrsRejectedLogEventsInfo "Use generic-lens or generic-optics with 'rejectedLogEventsInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plersResponseStatus :: Lens.Lens' PutLogEventsResponse Lude.Int
-plersResponseStatus = Lens.lens (responseStatus :: PutLogEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLogEventsResponse)
-{-# DEPRECATED plersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+plerrsResponseStatus :: Lens.Lens' PutLogEventsResponse Core.Int
+plerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED plerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

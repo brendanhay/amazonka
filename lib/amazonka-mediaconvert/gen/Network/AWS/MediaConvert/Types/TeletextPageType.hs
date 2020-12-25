@@ -13,62 +13,67 @@
 module Network.AWS.MediaConvert.Types.TeletextPageType
   ( TeletextPageType
       ( TeletextPageType',
-        PageTypeInitial,
-        PageTypeSubtitle,
-        PageTypeAddlInfo,
-        PageTypeProgramSchedule,
-        PageTypeHearingImpairedSubtitle
+        TeletextPageTypePageTypeInitial,
+        TeletextPageTypePageTypeSubtitle,
+        TeletextPageTypePageTypeAddlInfo,
+        TeletextPageTypePageTypeProgramSchedule,
+        TeletextPageTypePageTypeHearingImpairedSubtitle,
+        fromTeletextPageType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A page type as defined in the standard ETSI EN 300 468, Table 94
-newtype TeletextPageType = TeletextPageType' Lude.Text
+newtype TeletextPageType = TeletextPageType'
+  { fromTeletextPageType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PageTypeInitial :: TeletextPageType
-pattern PageTypeInitial = TeletextPageType' "PAGE_TYPE_INITIAL"
+pattern TeletextPageTypePageTypeInitial :: TeletextPageType
+pattern TeletextPageTypePageTypeInitial = TeletextPageType' "PAGE_TYPE_INITIAL"
 
-pattern PageTypeSubtitle :: TeletextPageType
-pattern PageTypeSubtitle = TeletextPageType' "PAGE_TYPE_SUBTITLE"
+pattern TeletextPageTypePageTypeSubtitle :: TeletextPageType
+pattern TeletextPageTypePageTypeSubtitle = TeletextPageType' "PAGE_TYPE_SUBTITLE"
 
-pattern PageTypeAddlInfo :: TeletextPageType
-pattern PageTypeAddlInfo = TeletextPageType' "PAGE_TYPE_ADDL_INFO"
+pattern TeletextPageTypePageTypeAddlInfo :: TeletextPageType
+pattern TeletextPageTypePageTypeAddlInfo = TeletextPageType' "PAGE_TYPE_ADDL_INFO"
 
-pattern PageTypeProgramSchedule :: TeletextPageType
-pattern PageTypeProgramSchedule = TeletextPageType' "PAGE_TYPE_PROGRAM_SCHEDULE"
+pattern TeletextPageTypePageTypeProgramSchedule :: TeletextPageType
+pattern TeletextPageTypePageTypeProgramSchedule = TeletextPageType' "PAGE_TYPE_PROGRAM_SCHEDULE"
 
-pattern PageTypeHearingImpairedSubtitle :: TeletextPageType
-pattern PageTypeHearingImpairedSubtitle = TeletextPageType' "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE"
+pattern TeletextPageTypePageTypeHearingImpairedSubtitle :: TeletextPageType
+pattern TeletextPageTypePageTypeHearingImpairedSubtitle = TeletextPageType' "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE"
 
 {-# COMPLETE
-  PageTypeInitial,
-  PageTypeSubtitle,
-  PageTypeAddlInfo,
-  PageTypeProgramSchedule,
-  PageTypeHearingImpairedSubtitle,
+  TeletextPageTypePageTypeInitial,
+  TeletextPageTypePageTypeSubtitle,
+  TeletextPageTypePageTypeAddlInfo,
+  TeletextPageTypePageTypeProgramSchedule,
+  TeletextPageTypePageTypeHearingImpairedSubtitle,
   TeletextPageType'
   #-}

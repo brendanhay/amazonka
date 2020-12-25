@@ -28,15 +28,15 @@ module Network.AWS.CloudTrail.RemoveTags
     mkRemoveTagsResponse,
 
     -- ** Response lenses
-    rtrsResponseStatus,
+    rtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.CloudTrail.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Specifies the tags to remove from a trail.
 --
@@ -45,102 +45,89 @@ data RemoveTags = RemoveTags'
   { -- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-    resourceId :: Lude.Text,
+    resourceId :: Types.String,
     -- | Specifies a list of tags to be removed.
-    tagsList :: Lude.Maybe [Tag]
+    tagsList :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
---
--- * 'resourceId' - Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
---
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
--- * 'tagsList' - Specifies a list of tags to be removed.
+-- | Creates a 'RemoveTags' value with any optional fields omitted.
 mkRemoveTags ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.String ->
   RemoveTags
-mkRemoveTags pResourceId_ =
-  RemoveTags' {resourceId = pResourceId_, tagsList = Lude.Nothing}
+mkRemoveTags resourceId =
+  RemoveTags' {resourceId, tagsList = Core.Nothing}
 
 -- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResourceId :: Lens.Lens' RemoveTags Lude.Text
-rResourceId = Lens.lens (resourceId :: RemoveTags -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveTags)
+rResourceId :: Lens.Lens' RemoveTags Types.String
+rResourceId = Lens.field @"resourceId"
 {-# DEPRECATED rResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Specifies a list of tags to be removed.
 --
 -- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rTagsList :: Lens.Lens' RemoveTags (Lude.Maybe [Tag])
-rTagsList = Lens.lens (tagsList :: RemoveTags -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: RemoveTags)
+rTagsList :: Lens.Lens' RemoveTags (Core.Maybe [Types.Tag])
+rTagsList = Lens.field @"tagsList"
 {-# DEPRECATED rTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
 
-instance Lude.AWSRequest RemoveTags where
+instance Core.FromJSON RemoveTags where
+  toJSON RemoveTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            ("TagsList" Core..=) Core.<$> tagsList
+          ]
+      )
+
+instance Core.AWSRequest RemoveTags where
   type Rs RemoveTags = RemoveTagsResponse
-  request = Req.postJSON cloudTrailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RemoveTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RemoveTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTags where
-  toJSON RemoveTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            ("TagsList" Lude..=) Lude.<$> tagsList
-          ]
-      )
-
-instance Lude.ToPath RemoveTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
 -- /See:/ 'mkRemoveTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveTagsResponse' value with any optional fields omitted.
 mkRemoveTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveTagsResponse
-mkRemoveTagsResponse pResponseStatus_ =
-  RemoveTagsResponse' {responseStatus = pResponseStatus_}
+mkRemoveTagsResponse responseStatus =
+  RemoveTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResponseStatus :: Lens.Lens' RemoveTagsResponse Lude.Int
-rtrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsResponse)
-{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrrsResponseStatus :: Lens.Lens' RemoveTagsResponse Core.Int
+rtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

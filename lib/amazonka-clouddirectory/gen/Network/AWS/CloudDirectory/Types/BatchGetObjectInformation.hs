@@ -21,40 +21,38 @@ module Network.AWS.CloudDirectory.Types.BatchGetObjectInformation
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Retrieves metadata about an object inside a 'BatchRead' operation. For more information, see 'GetObjectInformation' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchGetObjectInformation' smart constructor.
 newtype BatchGetObjectInformation = BatchGetObjectInformation'
   { -- | A reference to the object.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetObjectInformation' with the minimum fields required to make a request.
---
--- * 'objectReference' - A reference to the object.
+-- | Creates a 'BatchGetObjectInformation' value with any optional fields omitted.
 mkBatchGetObjectInformation ::
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchGetObjectInformation
-mkBatchGetObjectInformation pObjectReference_ =
-  BatchGetObjectInformation' {objectReference = pObjectReference_}
+mkBatchGetObjectInformation objectReference =
+  BatchGetObjectInformation' {objectReference}
 
 -- | A reference to the object.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgoiObjectReference :: Lens.Lens' BatchGetObjectInformation ObjectReference
-bgoiObjectReference = Lens.lens (objectReference :: BatchGetObjectInformation -> ObjectReference) (\s a -> s {objectReference = a} :: BatchGetObjectInformation)
+bgoiObjectReference :: Lens.Lens' BatchGetObjectInformation Types.ObjectReference
+bgoiObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED bgoiObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.ToJSON BatchGetObjectInformation where
-  toJSON BatchGetObjectInformation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ObjectReference" Lude..= objectReference)]
+instance Core.FromJSON BatchGetObjectInformation where
+  toJSON BatchGetObjectInformation {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ObjectReference" Core..= objectReference)]
       )

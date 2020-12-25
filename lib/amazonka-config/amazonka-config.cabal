@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Config
     Network.AWS.Config.BatchGetAggregateResourceConfig
@@ -151,6 +157,7 @@ library
 
   other-modules:
     Network.AWS.Config.Types.AccountAggregationSource
+    Network.AWS.Config.Types.AccountId
     Network.AWS.Config.Types.AggregateComplianceByConfigRule
     Network.AWS.Config.Types.AggregateComplianceCount
     Network.AWS.Config.Types.AggregatedSourceStatus
@@ -159,7 +166,15 @@ library
     Network.AWS.Config.Types.AggregateEvaluationResult
     Network.AWS.Config.Types.AggregateResourceIdentifier
     Network.AWS.Config.Types.AggregationAuthorization
+    Network.AWS.Config.Types.AmazonResourceName
+    Network.AWS.Config.Types.Annotation
+    Network.AWS.Config.Types.ARN
+    Network.AWS.Config.Types.AuthorizedAwsRegion
+    Network.AWS.Config.Types.AvailabilityZone
+    Network.AWS.Config.Types.AwsRegion
     Network.AWS.Config.Types.BaseConfigurationItem
+    Network.AWS.Config.Types.BaseResourceId
+    Network.AWS.Config.Types.ChannelName
     Network.AWS.Config.Types.ChronologicalOrder
     Network.AWS.Config.Types.Compliance
     Network.AWS.Config.Types.ComplianceByConfigRule
@@ -174,48 +189,77 @@ library
     Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters
     Network.AWS.Config.Types.ConfigRuleComplianceSummaryGroupKey
     Network.AWS.Config.Types.ConfigRuleEvaluationStatus
+    Network.AWS.Config.Types.ConfigRuleName
     Network.AWS.Config.Types.ConfigRuleState
     Network.AWS.Config.Types.ConfigSnapshotDeliveryProperties
     Network.AWS.Config.Types.ConfigStreamDeliveryInfo
+    Network.AWS.Config.Types.Configuration
     Network.AWS.Config.Types.ConfigurationAggregator
+    Network.AWS.Config.Types.ConfigurationAggregatorArn
+    Network.AWS.Config.Types.ConfigurationAggregatorName
     Network.AWS.Config.Types.ConfigurationItem
+    Network.AWS.Config.Types.ConfigurationItemMD5Hash
     Network.AWS.Config.Types.ConfigurationItemStatus
     Network.AWS.Config.Types.ConfigurationRecorder
+    Network.AWS.Config.Types.ConfigurationRecorderName
     Network.AWS.Config.Types.ConfigurationRecorderStatus
+    Network.AWS.Config.Types.ConfigurationStateId
+    Network.AWS.Config.Types.ConformancePackArn
     Network.AWS.Config.Types.ConformancePackComplianceFilters
     Network.AWS.Config.Types.ConformancePackComplianceSummary
     Network.AWS.Config.Types.ConformancePackComplianceType
     Network.AWS.Config.Types.ConformancePackDetail
     Network.AWS.Config.Types.ConformancePackEvaluationFilters
     Network.AWS.Config.Types.ConformancePackEvaluationResult
+    Network.AWS.Config.Types.ConformancePackId
     Network.AWS.Config.Types.ConformancePackInputParameter
+    Network.AWS.Config.Types.ConformancePackName
     Network.AWS.Config.Types.ConformancePackRuleCompliance
     Network.AWS.Config.Types.ConformancePackState
     Network.AWS.Config.Types.ConformancePackStatusDetail
+    Network.AWS.Config.Types.ConformancePackStatusReason
+    Network.AWS.Config.Types.CreatedBy
     Network.AWS.Config.Types.DeliveryChannel
+    Network.AWS.Config.Types.DeliveryChannelName
     Network.AWS.Config.Types.DeliveryChannelStatus
+    Network.AWS.Config.Types.DeliveryS3Bucket
+    Network.AWS.Config.Types.DeliveryS3KeyPrefix
     Network.AWS.Config.Types.DeliveryStatus
+    Network.AWS.Config.Types.Description
+    Network.AWS.Config.Types.EmptiableStringWithCharLimit256
+    Network.AWS.Config.Types.ErrorMessage
     Network.AWS.Config.Types.Evaluation
     Network.AWS.Config.Types.EvaluationResult
     Network.AWS.Config.Types.EvaluationResultIdentifier
     Network.AWS.Config.Types.EvaluationResultQualifier
     Network.AWS.Config.Types.EventSource
     Network.AWS.Config.Types.ExecutionControls
+    Network.AWS.Config.Types.Expression
     Network.AWS.Config.Types.FailedDeleteRemediationExceptionsBatch
     Network.AWS.Config.Types.FailedRemediationBatch
     Network.AWS.Config.Types.FailedRemediationExceptionBatch
+    Network.AWS.Config.Types.FailureMessage
     Network.AWS.Config.Types.FieldInfo
     Network.AWS.Config.Types.GroupedResourceCount
+    Network.AWS.Config.Types.GroupName
+    Network.AWS.Config.Types.Key
+    Network.AWS.Config.Types.LastErrorCode
+    Network.AWS.Config.Types.LastErrorMessage
     Network.AWS.Config.Types.MaximumExecutionFrequency
     Network.AWS.Config.Types.MemberAccountRuleStatus
     Network.AWS.Config.Types.MemberAccountStatus
     Network.AWS.Config.Types.MessageType
+    Network.AWS.Config.Types.Name
+    Network.AWS.Config.Types.NextToken
     Network.AWS.Config.Types.OrganizationAggregationSource
     Network.AWS.Config.Types.OrganizationConfigRule
+    Network.AWS.Config.Types.OrganizationConfigRuleArn
+    Network.AWS.Config.Types.OrganizationConfigRuleName
     Network.AWS.Config.Types.OrganizationConfigRuleStatus
     Network.AWS.Config.Types.OrganizationConfigRuleTriggerType
     Network.AWS.Config.Types.OrganizationConformancePack
     Network.AWS.Config.Types.OrganizationConformancePackDetailedStatus
+    Network.AWS.Config.Types.OrganizationConformancePackName
     Network.AWS.Config.Types.OrganizationConformancePackStatus
     Network.AWS.Config.Types.OrganizationCustomRuleMetadata
     Network.AWS.Config.Types.OrganizationManagedRuleMetadata
@@ -224,11 +268,17 @@ library
     Network.AWS.Config.Types.OrganizationResourceStatus
     Network.AWS.Config.Types.OrganizationRuleStatus
     Network.AWS.Config.Types.Owner
+    Network.AWS.Config.Types.ParameterName
+    Network.AWS.Config.Types.ParameterValue
     Network.AWS.Config.Types.PendingAggregationRequest
     Network.AWS.Config.Types.QueryInfo
+    Network.AWS.Config.Types.RecorderName
     Network.AWS.Config.Types.RecorderStatus
     Network.AWS.Config.Types.RecordingGroup
+    Network.AWS.Config.Types.Region
+    Network.AWS.Config.Types.RelatedEvent
     Network.AWS.Config.Types.Relationship
+    Network.AWS.Config.Types.RelationshipName
     Network.AWS.Config.Types.RemediationConfiguration
     Network.AWS.Config.Types.RemediationException
     Network.AWS.Config.Types.RemediationExceptionResourceKey
@@ -238,23 +288,55 @@ library
     Network.AWS.Config.Types.RemediationExecutionStepState
     Network.AWS.Config.Types.RemediationParameterValue
     Network.AWS.Config.Types.RemediationTargetType
+    Network.AWS.Config.Types.RequesterAccountId
+    Network.AWS.Config.Types.RequesterAwsRegion
+    Network.AWS.Config.Types.ResourceArn
     Network.AWS.Config.Types.ResourceCount
     Network.AWS.Config.Types.ResourceCountFilters
     Network.AWS.Config.Types.ResourceCountGroupKey
     Network.AWS.Config.Types.ResourceFilters
+    Network.AWS.Config.Types.ResourceId
     Network.AWS.Config.Types.ResourceIdentifier
+    Network.AWS.Config.Types.ResourceIdScope
     Network.AWS.Config.Types.ResourceKey
+    Network.AWS.Config.Types.ResourceName
     Network.AWS.Config.Types.ResourceType
+    Network.AWS.Config.Types.ResourceTypeString
     Network.AWS.Config.Types.ResourceValue
     Network.AWS.Config.Types.ResourceValueType
+    Network.AWS.Config.Types.ResultToken
     Network.AWS.Config.Types.RetentionConfiguration
+    Network.AWS.Config.Types.RetentionConfigurationName
+    Network.AWS.Config.Types.RoleArn
+    Network.AWS.Config.Types.RuleIdentifier
+    Network.AWS.Config.Types.S3BucketName
+    Network.AWS.Config.Types.S3KeyPrefix
+    Network.AWS.Config.Types.SchemaVersionId
     Network.AWS.Config.Types.Scope
+    Network.AWS.Config.Types.SnsTopicARN
     Network.AWS.Config.Types.Source
     Network.AWS.Config.Types.SourceDetail
     Network.AWS.Config.Types.SsmControls
+    Network.AWS.Config.Types.StackArn
     Network.AWS.Config.Types.StaticValue
     Network.AWS.Config.Types.StatusDetailFilters
+    Network.AWS.Config.Types.String
+    Network.AWS.Config.Types.StringWithCharLimit1024
+    Network.AWS.Config.Types.StringWithCharLimit128
+    Network.AWS.Config.Types.StringWithCharLimit2048
+    Network.AWS.Config.Types.StringWithCharLimit256
+    Network.AWS.Config.Types.StringWithCharLimit64
+    Network.AWS.Config.Types.StringWithCharLimit768
+    Network.AWS.Config.Types.SupplementaryConfigurationName
+    Network.AWS.Config.Types.SupplementaryConfigurationValue
     Network.AWS.Config.Types.Tag
+    Network.AWS.Config.Types.TagKey
+    Network.AWS.Config.Types.TagKeyScope
+    Network.AWS.Config.Types.TagValueScope
+    Network.AWS.Config.Types.TemplateBody
+    Network.AWS.Config.Types.TemplateS3Uri
+    Network.AWS.Config.Types.Value
+    Network.AWS.Config.Types.Version
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

@@ -48,8 +48,8 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     mkDeleteStreamingDistribution,
 
     -- ** Request lenses
-    dsdIfMatch,
     dsdId,
+    dsdIfMatch,
 
     -- * Destructuring the response
     DeleteStreamingDistributionResponse (..),
@@ -57,74 +57,70 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to delete a streaming distribution.
 --
 -- /See:/ 'mkDeleteStreamingDistribution' smart constructor.
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
-  { -- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The distribution ID.
-    id :: Lude.Text
+  { -- | The distribution ID.
+    id :: Types.String,
+    -- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStreamingDistribution' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
--- * 'id' - The distribution ID.
+-- | Creates a 'DeleteStreamingDistribution' value with any optional fields omitted.
 mkDeleteStreamingDistribution ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   DeleteStreamingDistribution
-mkDeleteStreamingDistribution pId_ =
-  DeleteStreamingDistribution' {ifMatch = Lude.Nothing, id = pId_}
-
--- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdIfMatch :: Lens.Lens' DeleteStreamingDistribution (Lude.Maybe Lude.Text)
-dsdIfMatch = Lens.lens (ifMatch :: DeleteStreamingDistribution -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: DeleteStreamingDistribution)
-{-# DEPRECATED dsdIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+mkDeleteStreamingDistribution id =
+  DeleteStreamingDistribution' {id, ifMatch = Core.Nothing}
 
 -- | The distribution ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdId :: Lens.Lens' DeleteStreamingDistribution Lude.Text
-dsdId = Lens.lens (id :: DeleteStreamingDistribution -> Lude.Text) (\s a -> s {id = a} :: DeleteStreamingDistribution)
+dsdId :: Lens.Lens' DeleteStreamingDistribution Types.String
+dsdId = Lens.field @"id"
 {-# DEPRECATED dsdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteStreamingDistribution where
+-- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdIfMatch :: Lens.Lens' DeleteStreamingDistribution (Core.Maybe Types.String)
+dsdIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED dsdIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest DeleteStreamingDistribution where
   type
     Rs DeleteStreamingDistribution =
       DeleteStreamingDistributionResponse
-  request = Req.delete cloudFrontService
-  response = Res.receiveNull DeleteStreamingDistributionResponse'
-
-instance Lude.ToHeaders DeleteStreamingDistribution where
-  toHeaders DeleteStreamingDistribution' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath DeleteStreamingDistribution where
-  toPath DeleteStreamingDistribution' {..} =
-    Lude.mconcat
-      ["/2020-05-31/streaming-distribution/", Lude.toBS id]
-
-instance Lude.ToQuery DeleteStreamingDistribution where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2020-05-31/streaming-distribution/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveNull DeleteStreamingDistributionResponse'
 
 -- | /See:/ 'mkDeleteStreamingDistributionResponse' smart constructor.
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStreamingDistributionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteStreamingDistributionResponse' value with any optional fields omitted.
 mkDeleteStreamingDistributionResponse ::
   DeleteStreamingDistributionResponse
 mkDeleteStreamingDistributionResponse =

@@ -28,180 +28,159 @@ module Network.AWS.MediaLive.DescribeMultiplexProgram
     mkDescribeMultiplexProgramResponse,
 
     -- ** Response lenses
-    dmpfrsPacketIdentifiersMap,
-    dmpfrsPipelineDetails,
-    dmpfrsProgramName,
-    dmpfrsChannelId,
-    dmpfrsMultiplexProgramSettings,
-    dmpfrsResponseStatus,
+    dmprfrsChannelId,
+    dmprfrsMultiplexProgramSettings,
+    dmprfrsPacketIdentifiersMap,
+    dmprfrsPipelineDetails,
+    dmprfrsProgramName,
+    dmprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DescribeMultiplexProgramRequest
 --
 -- /See:/ 'mkDescribeMultiplexProgram' smart constructor.
 data DescribeMultiplexProgram = DescribeMultiplexProgram'
   { -- | The ID of the multiplex that the program belongs to.
-    multiplexId :: Lude.Text,
+    multiplexId :: Core.Text,
     -- | The name of the program.
-    programName :: Lude.Text
+    programName :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMultiplexProgram' with the minimum fields required to make a request.
---
--- * 'multiplexId' - The ID of the multiplex that the program belongs to.
--- * 'programName' - The name of the program.
+-- | Creates a 'DescribeMultiplexProgram' value with any optional fields omitted.
 mkDescribeMultiplexProgram ::
   -- | 'multiplexId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'programName'
-  Lude.Text ->
+  Core.Text ->
   DescribeMultiplexProgram
-mkDescribeMultiplexProgram pMultiplexId_ pProgramName_ =
-  DescribeMultiplexProgram'
-    { multiplexId = pMultiplexId_,
-      programName = pProgramName_
-    }
+mkDescribeMultiplexProgram multiplexId programName =
+  DescribeMultiplexProgram' {multiplexId, programName}
 
 -- | The ID of the multiplex that the program belongs to.
 --
 -- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfMultiplexId :: Lens.Lens' DescribeMultiplexProgram Lude.Text
-dmpfMultiplexId = Lens.lens (multiplexId :: DescribeMultiplexProgram -> Lude.Text) (\s a -> s {multiplexId = a} :: DescribeMultiplexProgram)
+dmpfMultiplexId :: Lens.Lens' DescribeMultiplexProgram Core.Text
+dmpfMultiplexId = Lens.field @"multiplexId"
 {-# DEPRECATED dmpfMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | The name of the program.
 --
 -- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfProgramName :: Lens.Lens' DescribeMultiplexProgram Lude.Text
-dmpfProgramName = Lens.lens (programName :: DescribeMultiplexProgram -> Lude.Text) (\s a -> s {programName = a} :: DescribeMultiplexProgram)
+dmpfProgramName :: Lens.Lens' DescribeMultiplexProgram Core.Text
+dmpfProgramName = Lens.field @"programName"
 {-# DEPRECATED dmpfProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
-instance Lude.AWSRequest DescribeMultiplexProgram where
+instance Core.AWSRequest DescribeMultiplexProgram where
   type Rs DescribeMultiplexProgram = DescribeMultiplexProgramResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/multiplexes/" Core.<> (Core.toText multiplexId)
+                Core.<> ("/programs/")
+                Core.<> (Core.toText programName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMultiplexProgramResponse'
-            Lude.<$> (x Lude..?> "packetIdentifiersMap")
-            Lude.<*> (x Lude..?> "pipelineDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "programName")
-            Lude.<*> (x Lude..?> "channelId")
-            Lude.<*> (x Lude..?> "multiplexProgramSettings")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "channelId")
+            Core.<*> (x Core..:? "multiplexProgramSettings")
+            Core.<*> (x Core..:? "packetIdentifiersMap")
+            Core.<*> (x Core..:? "pipelineDetails")
+            Core.<*> (x Core..:? "programName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeMultiplexProgram where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeMultiplexProgram where
-  toPath DescribeMultiplexProgram' {..} =
-    Lude.mconcat
-      [ "/prod/multiplexes/",
-        Lude.toBS multiplexId,
-        "/programs/",
-        Lude.toBS programName
-      ]
-
-instance Lude.ToQuery DescribeMultiplexProgram where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeMultiplexProgramResponse
 --
 -- /See:/ 'mkDescribeMultiplexProgramResponse' smart constructor.
 data DescribeMultiplexProgramResponse = DescribeMultiplexProgramResponse'
-  { -- | The packet identifier map for this multiplex program.
-    packetIdentifiersMap :: Lude.Maybe MultiplexProgramPacketIdentifiersMap,
-    -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
-    pipelineDetails :: Lude.Maybe [MultiplexProgramPipelineDetail],
-    -- | The name of the multiplex program.
-    programName :: Lude.Maybe Lude.Text,
-    -- | The MediaLive channel associated with the program.
-    channelId :: Lude.Maybe Lude.Text,
+  { -- | The MediaLive channel associated with the program.
+    channelId :: Core.Maybe Core.Text,
     -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Lude.Maybe MultiplexProgramSettings,
+    multiplexProgramSettings :: Core.Maybe Types.MultiplexProgramSettings,
+    -- | The packet identifier map for this multiplex program.
+    packetIdentifiersMap :: Core.Maybe Types.MultiplexProgramPacketIdentifiersMap,
+    -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+    pipelineDetails :: Core.Maybe [Types.MultiplexProgramPipelineDetail],
+    -- | The name of the multiplex program.
+    programName :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMultiplexProgramResponse' with the minimum fields required to make a request.
---
--- * 'packetIdentifiersMap' - The packet identifier map for this multiplex program.
--- * 'pipelineDetails' - Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
--- * 'programName' - The name of the multiplex program.
--- * 'channelId' - The MediaLive channel associated with the program.
--- * 'multiplexProgramSettings' - The settings for this multiplex program.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMultiplexProgramResponse' value with any optional fields omitted.
 mkDescribeMultiplexProgramResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMultiplexProgramResponse
-mkDescribeMultiplexProgramResponse pResponseStatus_ =
+mkDescribeMultiplexProgramResponse responseStatus =
   DescribeMultiplexProgramResponse'
-    { packetIdentifiersMap =
-        Lude.Nothing,
-      pipelineDetails = Lude.Nothing,
-      programName = Lude.Nothing,
-      channelId = Lude.Nothing,
-      multiplexProgramSettings = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { channelId = Core.Nothing,
+      multiplexProgramSettings = Core.Nothing,
+      packetIdentifiersMap = Core.Nothing,
+      pipelineDetails = Core.Nothing,
+      programName = Core.Nothing,
+      responseStatus
     }
-
--- | The packet identifier map for this multiplex program.
---
--- /Note:/ Consider using 'packetIdentifiersMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfrsPacketIdentifiersMap :: Lens.Lens' DescribeMultiplexProgramResponse (Lude.Maybe MultiplexProgramPacketIdentifiersMap)
-dmpfrsPacketIdentifiersMap = Lens.lens (packetIdentifiersMap :: DescribeMultiplexProgramResponse -> Lude.Maybe MultiplexProgramPacketIdentifiersMap) (\s a -> s {packetIdentifiersMap = a} :: DescribeMultiplexProgramResponse)
-{-# DEPRECATED dmpfrsPacketIdentifiersMap "Use generic-lens or generic-optics with 'packetIdentifiersMap' instead." #-}
-
--- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
---
--- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfrsPipelineDetails :: Lens.Lens' DescribeMultiplexProgramResponse (Lude.Maybe [MultiplexProgramPipelineDetail])
-dmpfrsPipelineDetails = Lens.lens (pipelineDetails :: DescribeMultiplexProgramResponse -> Lude.Maybe [MultiplexProgramPipelineDetail]) (\s a -> s {pipelineDetails = a} :: DescribeMultiplexProgramResponse)
-{-# DEPRECATED dmpfrsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
-
--- | The name of the multiplex program.
---
--- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfrsProgramName :: Lens.Lens' DescribeMultiplexProgramResponse (Lude.Maybe Lude.Text)
-dmpfrsProgramName = Lens.lens (programName :: DescribeMultiplexProgramResponse -> Lude.Maybe Lude.Text) (\s a -> s {programName = a} :: DescribeMultiplexProgramResponse)
-{-# DEPRECATED dmpfrsProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
 -- | The MediaLive channel associated with the program.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfrsChannelId :: Lens.Lens' DescribeMultiplexProgramResponse (Lude.Maybe Lude.Text)
-dmpfrsChannelId = Lens.lens (channelId :: DescribeMultiplexProgramResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: DescribeMultiplexProgramResponse)
-{-# DEPRECATED dmpfrsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+dmprfrsChannelId :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe Core.Text)
+dmprfrsChannelId = Lens.field @"channelId"
+{-# DEPRECATED dmprfrsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 -- | The settings for this multiplex program.
 --
 -- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfrsMultiplexProgramSettings :: Lens.Lens' DescribeMultiplexProgramResponse (Lude.Maybe MultiplexProgramSettings)
-dmpfrsMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: DescribeMultiplexProgramResponse -> Lude.Maybe MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: DescribeMultiplexProgramResponse)
-{-# DEPRECATED dmpfrsMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
+dmprfrsMultiplexProgramSettings :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe Types.MultiplexProgramSettings)
+dmprfrsMultiplexProgramSettings = Lens.field @"multiplexProgramSettings"
+{-# DEPRECATED dmprfrsMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
+
+-- | The packet identifier map for this multiplex program.
+--
+-- /Note:/ Consider using 'packetIdentifiersMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprfrsPacketIdentifiersMap :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe Types.MultiplexProgramPacketIdentifiersMap)
+dmprfrsPacketIdentifiersMap = Lens.field @"packetIdentifiersMap"
+{-# DEPRECATED dmprfrsPacketIdentifiersMap "Use generic-lens or generic-optics with 'packetIdentifiersMap' instead." #-}
+
+-- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+--
+-- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprfrsPipelineDetails :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe [Types.MultiplexProgramPipelineDetail])
+dmprfrsPipelineDetails = Lens.field @"pipelineDetails"
+{-# DEPRECATED dmprfrsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
+
+-- | The name of the multiplex program.
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprfrsProgramName :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe Core.Text)
+dmprfrsProgramName = Lens.field @"programName"
+{-# DEPRECATED dmprfrsProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpfrsResponseStatus :: Lens.Lens' DescribeMultiplexProgramResponse Lude.Int
-dmpfrsResponseStatus = Lens.lens (responseStatus :: DescribeMultiplexProgramResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMultiplexProgramResponse)
-{-# DEPRECATED dmpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmprfrsResponseStatus :: Lens.Lens' DescribeMultiplexProgramResponse Core.Int
+dmprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

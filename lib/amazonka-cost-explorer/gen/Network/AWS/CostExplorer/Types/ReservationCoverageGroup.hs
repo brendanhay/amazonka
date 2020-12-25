@@ -17,59 +17,55 @@ module Network.AWS.CostExplorer.Types.ReservationCoverageGroup
     mkReservationCoverageGroup,
 
     -- * Lenses
-    rcgCoverage,
     rcgAttributes,
+    rcgCoverage,
   )
 where
 
-import Network.AWS.CostExplorer.Types.Coverage
+import qualified Network.AWS.CostExplorer.Types.AttributeType as Types
+import qualified Network.AWS.CostExplorer.Types.AttributeValue as Types
+import qualified Network.AWS.CostExplorer.Types.Coverage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A group of reservations that share a set of attributes.
 --
 -- /See:/ 'mkReservationCoverageGroup' smart constructor.
 data ReservationCoverageGroup = ReservationCoverageGroup'
-  { -- | How much instance usage this group of reservations covered.
-    coverage :: Lude.Maybe Coverage,
-    -- | The attributes for this group of reservations.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The attributes for this group of reservations.
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeType Types.AttributeValue),
+    -- | How much instance usage this group of reservations covered.
+    coverage :: Core.Maybe Types.Coverage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservationCoverageGroup' with the minimum fields required to make a request.
---
--- * 'coverage' - How much instance usage this group of reservations covered.
--- * 'attributes' - The attributes for this group of reservations.
+-- | Creates a 'ReservationCoverageGroup' value with any optional fields omitted.
 mkReservationCoverageGroup ::
   ReservationCoverageGroup
 mkReservationCoverageGroup =
   ReservationCoverageGroup'
-    { coverage = Lude.Nothing,
-      attributes = Lude.Nothing
+    { attributes = Core.Nothing,
+      coverage = Core.Nothing
     }
-
--- | How much instance usage this group of reservations covered.
---
--- /Note:/ Consider using 'coverage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcgCoverage :: Lens.Lens' ReservationCoverageGroup (Lude.Maybe Coverage)
-rcgCoverage = Lens.lens (coverage :: ReservationCoverageGroup -> Lude.Maybe Coverage) (\s a -> s {coverage = a} :: ReservationCoverageGroup)
-{-# DEPRECATED rcgCoverage "Use generic-lens or generic-optics with 'coverage' instead." #-}
 
 -- | The attributes for this group of reservations.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcgAttributes :: Lens.Lens' ReservationCoverageGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-rcgAttributes = Lens.lens (attributes :: ReservationCoverageGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: ReservationCoverageGroup)
+rcgAttributes :: Lens.Lens' ReservationCoverageGroup (Core.Maybe (Core.HashMap Types.AttributeType Types.AttributeValue))
+rcgAttributes = Lens.field @"attributes"
 {-# DEPRECATED rcgAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.FromJSON ReservationCoverageGroup where
+-- | How much instance usage this group of reservations covered.
+--
+-- /Note:/ Consider using 'coverage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcgCoverage :: Lens.Lens' ReservationCoverageGroup (Core.Maybe Types.Coverage)
+rcgCoverage = Lens.field @"coverage"
+{-# DEPRECATED rcgCoverage "Use generic-lens or generic-optics with 'coverage' instead." #-}
+
+instance Core.FromJSON ReservationCoverageGroup where
   parseJSON =
-    Lude.withObject
-      "ReservationCoverageGroup"
-      ( \x ->
-          ReservationCoverageGroup'
-            Lude.<$> (x Lude..:? "Coverage")
-            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ReservationCoverageGroup" Core.$
+      \x ->
+        ReservationCoverageGroup'
+          Core.<$> (x Core..:? "Attributes") Core.<*> (x Core..:? "Coverage")

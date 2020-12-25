@@ -17,64 +17,59 @@ module Network.AWS.Glacier.Types.Grant
     mkGrant,
 
     -- * Lenses
-    gPermission,
     gGrantee,
+    gPermission,
   )
 where
 
-import Network.AWS.Glacier.Types.Grantee
-import Network.AWS.Glacier.Types.Permission
+import qualified Network.AWS.Glacier.Types.Grantee as Types
+import qualified Network.AWS.Glacier.Types.Permission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a grant.
 --
 -- /See:/ 'mkGrant' smart constructor.
 data Grant = Grant'
-  { -- | Specifies the permission given to the grantee.
-    permission :: Lude.Maybe Permission,
-    -- | The grantee.
-    grantee :: Lude.Maybe Grantee
+  { -- | The grantee.
+    grantee :: Core.Maybe Types.Grantee,
+    -- | Specifies the permission given to the grantee.
+    permission :: Core.Maybe Types.Permission
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Grant' with the minimum fields required to make a request.
---
--- * 'permission' - Specifies the permission given to the grantee.
--- * 'grantee' - The grantee.
+-- | Creates a 'Grant' value with any optional fields omitted.
 mkGrant ::
   Grant
-mkGrant = Grant' {permission = Lude.Nothing, grantee = Lude.Nothing}
-
--- | Specifies the permission given to the grantee.
---
--- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gPermission :: Lens.Lens' Grant (Lude.Maybe Permission)
-gPermission = Lens.lens (permission :: Grant -> Lude.Maybe Permission) (\s a -> s {permission = a} :: Grant)
-{-# DEPRECATED gPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
+mkGrant = Grant' {grantee = Core.Nothing, permission = Core.Nothing}
 
 -- | The grantee.
 --
 -- /Note:/ Consider using 'grantee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gGrantee :: Lens.Lens' Grant (Lude.Maybe Grantee)
-gGrantee = Lens.lens (grantee :: Grant -> Lude.Maybe Grantee) (\s a -> s {grantee = a} :: Grant)
+gGrantee :: Lens.Lens' Grant (Core.Maybe Types.Grantee)
+gGrantee = Lens.field @"grantee"
 {-# DEPRECATED gGrantee "Use generic-lens or generic-optics with 'grantee' instead." #-}
 
-instance Lude.FromJSON Grant where
-  parseJSON =
-    Lude.withObject
-      "Grant"
-      ( \x ->
-          Grant'
-            Lude.<$> (x Lude..:? "Permission") Lude.<*> (x Lude..:? "Grantee")
-      )
+-- | Specifies the permission given to the grantee.
+--
+-- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gPermission :: Lens.Lens' Grant (Core.Maybe Types.Permission)
+gPermission = Lens.field @"permission"
+{-# DEPRECATED gPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
 
-instance Lude.ToJSON Grant where
-  toJSON Grant' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Permission" Lude..=) Lude.<$> permission,
-            ("Grantee" Lude..=) Lude.<$> grantee
+instance Core.FromJSON Grant where
+  toJSON Grant {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Grantee" Core..=) Core.<$> grantee,
+            ("Permission" Core..=) Core.<$> permission
           ]
       )
+
+instance Core.FromJSON Grant where
+  parseJSON =
+    Core.withObject "Grant" Core.$
+      \x ->
+        Grant'
+          Core.<$> (x Core..:? "Grantee") Core.<*> (x Core..:? "Permission")

@@ -17,45 +17,56 @@ module Network.AWS.MediaPackage.Types.HlsPackage
     mkHlsPackage,
 
     -- * Lenses
-    hpAdsOnDeliveryRestrictions,
-    hpUseAudioRenditionGroup,
-    hpPlaylistType,
-    hpSegmentDurationSeconds,
-    hpProgramDateTimeIntervalSeconds,
-    hpStreamSelection,
     hpAdMarkers,
+    hpAdTriggers,
+    hpAdsOnDeliveryRestrictions,
     hpEncryption,
     hpIncludeIframeOnlyStream,
-    hpAdTriggers,
+    hpPlaylistType,
     hpPlaylistWindowSeconds,
+    hpProgramDateTimeIntervalSeconds,
+    hpSegmentDurationSeconds,
+    hpStreamSelection,
+    hpUseAudioRenditionGroup,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.AdMarkers
-import Network.AWS.MediaPackage.Types.AdTriggersElement
-import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
-import Network.AWS.MediaPackage.Types.HlsEncryption
-import Network.AWS.MediaPackage.Types.PlaylistType
-import Network.AWS.MediaPackage.Types.StreamSelection
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.AdMarkers as Types
+import qualified Network.AWS.MediaPackage.Types.AdTriggersElement as Types
+import qualified Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions as Types
+import qualified Network.AWS.MediaPackage.Types.HlsEncryption as Types
+import qualified Network.AWS.MediaPackage.Types.PlaylistType as Types
+import qualified Network.AWS.MediaPackage.Types.StreamSelection as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An HTTP Live Streaming (HLS) packaging configuration.
 --
 -- /See:/ 'mkHlsPackage' smart constructor.
 data HlsPackage = HlsPackage'
-  { adsOnDeliveryRestrictions :: Lude.Maybe AdsOnDeliveryRestrictions,
-    -- | When enabled, audio streams will be placed in rendition groups in the output.
-    useAudioRenditionGroup :: Lude.Maybe Lude.Bool,
+  { -- | This setting controls how ad markers are included in the packaged OriginEndpoint.
+    --
+    -- "NONE" will omit all SCTE-35 ad markers from the output.
+    -- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+    -- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+    -- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+    -- messages in the input source.
+    -- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+    -- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+    -- that is greater than 0.
+    adMarkers :: Core.Maybe Types.AdMarkers,
+    adTriggers :: Core.Maybe [Types.AdTriggersElement],
+    adsOnDeliveryRestrictions :: Core.Maybe Types.AdsOnDeliveryRestrictions,
+    encryption :: Core.Maybe Types.HlsEncryption,
+    -- | When enabled, an I-Frame only stream will be included in the output.
+    includeIframeOnlyStream :: Core.Maybe Core.Bool,
     -- | The HTTP Live Streaming (HLS) playlist type.
     --
     -- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
     -- entry will be included in the media playlist.
-    playlistType :: Lude.Maybe PlaylistType,
-    -- | Duration (in seconds) of each fragment. Actual fragments will be
-    --
-    -- rounded to the nearest multiple of the source fragment duration.
-    segmentDurationSeconds :: Lude.Maybe Lude.Int,
+    playlistType :: Core.Maybe Types.PlaylistType,
+    -- | Time window (in seconds) contained in each parent manifest.
+    playlistWindowSeconds :: Core.Maybe Core.Int,
     -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
     --
     -- inserted into manifests. Additionally, when an interval is specified
@@ -66,137 +77,35 @@ data HlsPackage = HlsPackage'
     -- ID3Timed Metadata messages will be generated. Note that irrespective
     -- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
     -- it will be passed through to HLS output.
-    programDateTimeIntervalSeconds :: Lude.Maybe Lude.Int,
-    streamSelection :: Lude.Maybe StreamSelection,
-    -- | This setting controls how ad markers are included in the packaged OriginEndpoint.
+    programDateTimeIntervalSeconds :: Core.Maybe Core.Int,
+    -- | Duration (in seconds) of each fragment. Actual fragments will be
     --
-    -- "NONE" will omit all SCTE-35 ad markers from the output.
-    -- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
-    -- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
-    -- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
-    -- messages in the input source.
-    -- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
-    -- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
-    -- that is greater than 0.
-    adMarkers :: Lude.Maybe AdMarkers,
-    encryption :: Lude.Maybe HlsEncryption,
-    -- | When enabled, an I-Frame only stream will be included in the output.
-    includeIframeOnlyStream :: Lude.Maybe Lude.Bool,
-    adTriggers :: Lude.Maybe [AdTriggersElement],
-    -- | Time window (in seconds) contained in each parent manifest.
-    playlistWindowSeconds :: Lude.Maybe Lude.Int
+    -- rounded to the nearest multiple of the source fragment duration.
+    segmentDurationSeconds :: Core.Maybe Core.Int,
+    streamSelection :: Core.Maybe Types.StreamSelection,
+    -- | When enabled, audio streams will be placed in rendition groups in the output.
+    useAudioRenditionGroup :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsPackage' with the minimum fields required to make a request.
---
--- * 'adsOnDeliveryRestrictions' -
--- * 'useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the output.
--- * 'playlistType' - The HTTP Live Streaming (HLS) playlist type.
---
--- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
--- entry will be included in the media playlist.
--- * 'segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be
---
--- rounded to the nearest multiple of the source fragment duration.
--- * 'programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
---
--- inserted into manifests. Additionally, when an interval is specified
--- ID3Timed Metadata messages will be generated every 5 seconds using the
--- ingest time of the content.
--- If the interval is not specified, or set to 0, then
--- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
--- ID3Timed Metadata messages will be generated. Note that irrespective
--- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
--- it will be passed through to HLS output.
--- * 'streamSelection' -
--- * 'adMarkers' - This setting controls how ad markers are included in the packaged OriginEndpoint.
---
--- "NONE" will omit all SCTE-35 ad markers from the output.
--- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
--- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
--- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
--- messages in the input source.
--- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
--- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
--- that is greater than 0.
--- * 'encryption' -
--- * 'includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
--- * 'adTriggers' -
--- * 'playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+-- | Creates a 'HlsPackage' value with any optional fields omitted.
 mkHlsPackage ::
   HlsPackage
 mkHlsPackage =
   HlsPackage'
-    { adsOnDeliveryRestrictions = Lude.Nothing,
-      useAudioRenditionGroup = Lude.Nothing,
-      playlistType = Lude.Nothing,
-      segmentDurationSeconds = Lude.Nothing,
-      programDateTimeIntervalSeconds = Lude.Nothing,
-      streamSelection = Lude.Nothing,
-      adMarkers = Lude.Nothing,
-      encryption = Lude.Nothing,
-      includeIframeOnlyStream = Lude.Nothing,
-      adTriggers = Lude.Nothing,
-      playlistWindowSeconds = Lude.Nothing
+    { adMarkers = Core.Nothing,
+      adTriggers = Core.Nothing,
+      adsOnDeliveryRestrictions = Core.Nothing,
+      encryption = Core.Nothing,
+      includeIframeOnlyStream = Core.Nothing,
+      playlistType = Core.Nothing,
+      playlistWindowSeconds = Core.Nothing,
+      programDateTimeIntervalSeconds = Core.Nothing,
+      segmentDurationSeconds = Core.Nothing,
+      streamSelection = Core.Nothing,
+      useAudioRenditionGroup = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'adsOnDeliveryRestrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpAdsOnDeliveryRestrictions :: Lens.Lens' HlsPackage (Lude.Maybe AdsOnDeliveryRestrictions)
-hpAdsOnDeliveryRestrictions = Lens.lens (adsOnDeliveryRestrictions :: HlsPackage -> Lude.Maybe AdsOnDeliveryRestrictions) (\s a -> s {adsOnDeliveryRestrictions = a} :: HlsPackage)
-{-# DEPRECATED hpAdsOnDeliveryRestrictions "Use generic-lens or generic-optics with 'adsOnDeliveryRestrictions' instead." #-}
-
--- | When enabled, audio streams will be placed in rendition groups in the output.
---
--- /Note:/ Consider using 'useAudioRenditionGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpUseAudioRenditionGroup :: Lens.Lens' HlsPackage (Lude.Maybe Lude.Bool)
-hpUseAudioRenditionGroup = Lens.lens (useAudioRenditionGroup :: HlsPackage -> Lude.Maybe Lude.Bool) (\s a -> s {useAudioRenditionGroup = a} :: HlsPackage)
-{-# DEPRECATED hpUseAudioRenditionGroup "Use generic-lens or generic-optics with 'useAudioRenditionGroup' instead." #-}
-
--- | The HTTP Live Streaming (HLS) playlist type.
---
--- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
--- entry will be included in the media playlist.
---
--- /Note:/ Consider using 'playlistType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpPlaylistType :: Lens.Lens' HlsPackage (Lude.Maybe PlaylistType)
-hpPlaylistType = Lens.lens (playlistType :: HlsPackage -> Lude.Maybe PlaylistType) (\s a -> s {playlistType = a} :: HlsPackage)
-{-# DEPRECATED hpPlaylistType "Use generic-lens or generic-optics with 'playlistType' instead." #-}
-
--- | Duration (in seconds) of each fragment. Actual fragments will be
---
--- rounded to the nearest multiple of the source fragment duration.
---
--- /Note:/ Consider using 'segmentDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpSegmentDurationSeconds :: Lens.Lens' HlsPackage (Lude.Maybe Lude.Int)
-hpSegmentDurationSeconds = Lens.lens (segmentDurationSeconds :: HlsPackage -> Lude.Maybe Lude.Int) (\s a -> s {segmentDurationSeconds = a} :: HlsPackage)
-{-# DEPRECATED hpSegmentDurationSeconds "Use generic-lens or generic-optics with 'segmentDurationSeconds' instead." #-}
-
--- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
---
--- inserted into manifests. Additionally, when an interval is specified
--- ID3Timed Metadata messages will be generated every 5 seconds using the
--- ingest time of the content.
--- If the interval is not specified, or set to 0, then
--- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
--- ID3Timed Metadata messages will be generated. Note that irrespective
--- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
--- it will be passed through to HLS output.
---
--- /Note:/ Consider using 'programDateTimeIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpProgramDateTimeIntervalSeconds :: Lens.Lens' HlsPackage (Lude.Maybe Lude.Int)
-hpProgramDateTimeIntervalSeconds = Lens.lens (programDateTimeIntervalSeconds :: HlsPackage -> Lude.Maybe Lude.Int) (\s a -> s {programDateTimeIntervalSeconds = a} :: HlsPackage)
-{-# DEPRECATED hpProgramDateTimeIntervalSeconds "Use generic-lens or generic-optics with 'programDateTimeIntervalSeconds' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'streamSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpStreamSelection :: Lens.Lens' HlsPackage (Lude.Maybe StreamSelection)
-hpStreamSelection = Lens.lens (streamSelection :: HlsPackage -> Lude.Maybe StreamSelection) (\s a -> s {streamSelection = a} :: HlsPackage)
-{-# DEPRECATED hpStreamSelection "Use generic-lens or generic-optics with 'streamSelection' instead." #-}
 
 -- | This setting controls how ad markers are included in the packaged OriginEndpoint.
 --
@@ -210,74 +119,129 @@ hpStreamSelection = Lens.lens (streamSelection :: HlsPackage -> Lude.Maybe Strea
 -- that is greater than 0.
 --
 -- /Note:/ Consider using 'adMarkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpAdMarkers :: Lens.Lens' HlsPackage (Lude.Maybe AdMarkers)
-hpAdMarkers = Lens.lens (adMarkers :: HlsPackage -> Lude.Maybe AdMarkers) (\s a -> s {adMarkers = a} :: HlsPackage)
+hpAdMarkers :: Lens.Lens' HlsPackage (Core.Maybe Types.AdMarkers)
+hpAdMarkers = Lens.field @"adMarkers"
 {-# DEPRECATED hpAdMarkers "Use generic-lens or generic-optics with 'adMarkers' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'adTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpAdTriggers :: Lens.Lens' HlsPackage (Core.Maybe [Types.AdTriggersElement])
+hpAdTriggers = Lens.field @"adTriggers"
+{-# DEPRECATED hpAdTriggers "Use generic-lens or generic-optics with 'adTriggers' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'adsOnDeliveryRestrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpAdsOnDeliveryRestrictions :: Lens.Lens' HlsPackage (Core.Maybe Types.AdsOnDeliveryRestrictions)
+hpAdsOnDeliveryRestrictions = Lens.field @"adsOnDeliveryRestrictions"
+{-# DEPRECATED hpAdsOnDeliveryRestrictions "Use generic-lens or generic-optics with 'adsOnDeliveryRestrictions' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpEncryption :: Lens.Lens' HlsPackage (Lude.Maybe HlsEncryption)
-hpEncryption = Lens.lens (encryption :: HlsPackage -> Lude.Maybe HlsEncryption) (\s a -> s {encryption = a} :: HlsPackage)
+hpEncryption :: Lens.Lens' HlsPackage (Core.Maybe Types.HlsEncryption)
+hpEncryption = Lens.field @"encryption"
 {-# DEPRECATED hpEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | When enabled, an I-Frame only stream will be included in the output.
 --
 -- /Note:/ Consider using 'includeIframeOnlyStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpIncludeIframeOnlyStream :: Lens.Lens' HlsPackage (Lude.Maybe Lude.Bool)
-hpIncludeIframeOnlyStream = Lens.lens (includeIframeOnlyStream :: HlsPackage -> Lude.Maybe Lude.Bool) (\s a -> s {includeIframeOnlyStream = a} :: HlsPackage)
+hpIncludeIframeOnlyStream :: Lens.Lens' HlsPackage (Core.Maybe Core.Bool)
+hpIncludeIframeOnlyStream = Lens.field @"includeIframeOnlyStream"
 {-# DEPRECATED hpIncludeIframeOnlyStream "Use generic-lens or generic-optics with 'includeIframeOnlyStream' instead." #-}
 
--- | Undocumented field.
+-- | The HTTP Live Streaming (HLS) playlist type.
 --
--- /Note:/ Consider using 'adTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpAdTriggers :: Lens.Lens' HlsPackage (Lude.Maybe [AdTriggersElement])
-hpAdTriggers = Lens.lens (adTriggers :: HlsPackage -> Lude.Maybe [AdTriggersElement]) (\s a -> s {adTriggers = a} :: HlsPackage)
-{-# DEPRECATED hpAdTriggers "Use generic-lens or generic-optics with 'adTriggers' instead." #-}
+-- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+-- entry will be included in the media playlist.
+--
+-- /Note:/ Consider using 'playlistType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpPlaylistType :: Lens.Lens' HlsPackage (Core.Maybe Types.PlaylistType)
+hpPlaylistType = Lens.field @"playlistType"
+{-# DEPRECATED hpPlaylistType "Use generic-lens or generic-optics with 'playlistType' instead." #-}
 
 -- | Time window (in seconds) contained in each parent manifest.
 --
 -- /Note:/ Consider using 'playlistWindowSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hpPlaylistWindowSeconds :: Lens.Lens' HlsPackage (Lude.Maybe Lude.Int)
-hpPlaylistWindowSeconds = Lens.lens (playlistWindowSeconds :: HlsPackage -> Lude.Maybe Lude.Int) (\s a -> s {playlistWindowSeconds = a} :: HlsPackage)
+hpPlaylistWindowSeconds :: Lens.Lens' HlsPackage (Core.Maybe Core.Int)
+hpPlaylistWindowSeconds = Lens.field @"playlistWindowSeconds"
 {-# DEPRECATED hpPlaylistWindowSeconds "Use generic-lens or generic-optics with 'playlistWindowSeconds' instead." #-}
 
-instance Lude.FromJSON HlsPackage where
-  parseJSON =
-    Lude.withObject
-      "HlsPackage"
-      ( \x ->
-          HlsPackage'
-            Lude.<$> (x Lude..:? "adsOnDeliveryRestrictions")
-            Lude.<*> (x Lude..:? "useAudioRenditionGroup")
-            Lude.<*> (x Lude..:? "playlistType")
-            Lude.<*> (x Lude..:? "segmentDurationSeconds")
-            Lude.<*> (x Lude..:? "programDateTimeIntervalSeconds")
-            Lude.<*> (x Lude..:? "streamSelection")
-            Lude.<*> (x Lude..:? "adMarkers")
-            Lude.<*> (x Lude..:? "encryption")
-            Lude.<*> (x Lude..:? "includeIframeOnlyStream")
-            Lude.<*> (x Lude..:? "adTriggers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "playlistWindowSeconds")
-      )
+-- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+--
+-- inserted into manifests. Additionally, when an interval is specified
+-- ID3Timed Metadata messages will be generated every 5 seconds using the
+-- ingest time of the content.
+-- If the interval is not specified, or set to 0, then
+-- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+-- ID3Timed Metadata messages will be generated. Note that irrespective
+-- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+-- it will be passed through to HLS output.
+--
+-- /Note:/ Consider using 'programDateTimeIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpProgramDateTimeIntervalSeconds :: Lens.Lens' HlsPackage (Core.Maybe Core.Int)
+hpProgramDateTimeIntervalSeconds = Lens.field @"programDateTimeIntervalSeconds"
+{-# DEPRECATED hpProgramDateTimeIntervalSeconds "Use generic-lens or generic-optics with 'programDateTimeIntervalSeconds' instead." #-}
 
-instance Lude.ToJSON HlsPackage where
-  toJSON HlsPackage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("adsOnDeliveryRestrictions" Lude..=)
-              Lude.<$> adsOnDeliveryRestrictions,
-            ("useAudioRenditionGroup" Lude..=) Lude.<$> useAudioRenditionGroup,
-            ("playlistType" Lude..=) Lude.<$> playlistType,
-            ("segmentDurationSeconds" Lude..=) Lude.<$> segmentDurationSeconds,
-            ("programDateTimeIntervalSeconds" Lude..=)
-              Lude.<$> programDateTimeIntervalSeconds,
-            ("streamSelection" Lude..=) Lude.<$> streamSelection,
-            ("adMarkers" Lude..=) Lude.<$> adMarkers,
-            ("encryption" Lude..=) Lude.<$> encryption,
-            ("includeIframeOnlyStream" Lude..=)
-              Lude.<$> includeIframeOnlyStream,
-            ("adTriggers" Lude..=) Lude.<$> adTriggers,
-            ("playlistWindowSeconds" Lude..=) Lude.<$> playlistWindowSeconds
+-- | Duration (in seconds) of each fragment. Actual fragments will be
+--
+-- rounded to the nearest multiple of the source fragment duration.
+--
+-- /Note:/ Consider using 'segmentDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpSegmentDurationSeconds :: Lens.Lens' HlsPackage (Core.Maybe Core.Int)
+hpSegmentDurationSeconds = Lens.field @"segmentDurationSeconds"
+{-# DEPRECATED hpSegmentDurationSeconds "Use generic-lens or generic-optics with 'segmentDurationSeconds' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'streamSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpStreamSelection :: Lens.Lens' HlsPackage (Core.Maybe Types.StreamSelection)
+hpStreamSelection = Lens.field @"streamSelection"
+{-# DEPRECATED hpStreamSelection "Use generic-lens or generic-optics with 'streamSelection' instead." #-}
+
+-- | When enabled, audio streams will be placed in rendition groups in the output.
+--
+-- /Note:/ Consider using 'useAudioRenditionGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpUseAudioRenditionGroup :: Lens.Lens' HlsPackage (Core.Maybe Core.Bool)
+hpUseAudioRenditionGroup = Lens.field @"useAudioRenditionGroup"
+{-# DEPRECATED hpUseAudioRenditionGroup "Use generic-lens or generic-optics with 'useAudioRenditionGroup' instead." #-}
+
+instance Core.FromJSON HlsPackage where
+  toJSON HlsPackage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("adMarkers" Core..=) Core.<$> adMarkers,
+            ("adTriggers" Core..=) Core.<$> adTriggers,
+            ("adsOnDeliveryRestrictions" Core..=)
+              Core.<$> adsOnDeliveryRestrictions,
+            ("encryption" Core..=) Core.<$> encryption,
+            ("includeIframeOnlyStream" Core..=)
+              Core.<$> includeIframeOnlyStream,
+            ("playlistType" Core..=) Core.<$> playlistType,
+            ("playlistWindowSeconds" Core..=) Core.<$> playlistWindowSeconds,
+            ("programDateTimeIntervalSeconds" Core..=)
+              Core.<$> programDateTimeIntervalSeconds,
+            ("segmentDurationSeconds" Core..=) Core.<$> segmentDurationSeconds,
+            ("streamSelection" Core..=) Core.<$> streamSelection,
+            ("useAudioRenditionGroup" Core..=)
+              Core.<$> useAudioRenditionGroup
           ]
       )
+
+instance Core.FromJSON HlsPackage where
+  parseJSON =
+    Core.withObject "HlsPackage" Core.$
+      \x ->
+        HlsPackage'
+          Core.<$> (x Core..:? "adMarkers")
+          Core.<*> (x Core..:? "adTriggers")
+          Core.<*> (x Core..:? "adsOnDeliveryRestrictions")
+          Core.<*> (x Core..:? "encryption")
+          Core.<*> (x Core..:? "includeIframeOnlyStream")
+          Core.<*> (x Core..:? "playlistType")
+          Core.<*> (x Core..:? "playlistWindowSeconds")
+          Core.<*> (x Core..:? "programDateTimeIntervalSeconds")
+          Core.<*> (x Core..:? "segmentDurationSeconds")
+          Core.<*> (x Core..:? "streamSelection")
+          Core.<*> (x Core..:? "useAudioRenditionGroup")

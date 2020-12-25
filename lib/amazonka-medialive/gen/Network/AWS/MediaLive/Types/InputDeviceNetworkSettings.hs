@@ -17,98 +17,90 @@ module Network.AWS.MediaLive.Types.InputDeviceNetworkSettings
     mkInputDeviceNetworkSettings,
 
     -- * Lenses
-    idnsIPAddress,
+    idnsDnsAddresses,
     idnsGateway,
-    idnsDNSAddresses,
-    idnsIPScheme,
+    idnsIpAddress,
+    idnsIpScheme,
     idnsSubnetMask,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputDeviceIPScheme
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputDeviceIpScheme as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The network settings for the input device.
 --
 -- /See:/ 'mkInputDeviceNetworkSettings' smart constructor.
 data InputDeviceNetworkSettings = InputDeviceNetworkSettings'
-  { -- | The IP address of the input device.
-    ipAddress :: Lude.Maybe Lude.Text,
+  { -- | The DNS addresses of the input device.
+    dnsAddresses :: Core.Maybe [Core.Text],
     -- | The network gateway IP address.
-    gateway :: Lude.Maybe Lude.Text,
-    -- | The DNS addresses of the input device.
-    dnsAddresses :: Lude.Maybe [Lude.Text],
+    gateway :: Core.Maybe Core.Text,
+    -- | The IP address of the input device.
+    ipAddress :: Core.Maybe Core.Text,
     -- | Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
-    ipScheme :: Lude.Maybe InputDeviceIPScheme,
+    ipScheme :: Core.Maybe Types.InputDeviceIpScheme,
     -- | The subnet mask of the input device.
-    subnetMask :: Lude.Maybe Lude.Text
+    subnetMask :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputDeviceNetworkSettings' with the minimum fields required to make a request.
---
--- * 'ipAddress' - The IP address of the input device.
--- * 'gateway' - The network gateway IP address.
--- * 'dnsAddresses' - The DNS addresses of the input device.
--- * 'ipScheme' - Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
--- * 'subnetMask' - The subnet mask of the input device.
+-- | Creates a 'InputDeviceNetworkSettings' value with any optional fields omitted.
 mkInputDeviceNetworkSettings ::
   InputDeviceNetworkSettings
 mkInputDeviceNetworkSettings =
   InputDeviceNetworkSettings'
-    { ipAddress = Lude.Nothing,
-      gateway = Lude.Nothing,
-      dnsAddresses = Lude.Nothing,
-      ipScheme = Lude.Nothing,
-      subnetMask = Lude.Nothing
+    { dnsAddresses = Core.Nothing,
+      gateway = Core.Nothing,
+      ipAddress = Core.Nothing,
+      ipScheme = Core.Nothing,
+      subnetMask = Core.Nothing
     }
-
--- | The IP address of the input device.
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idnsIPAddress :: Lens.Lens' InputDeviceNetworkSettings (Lude.Maybe Lude.Text)
-idnsIPAddress = Lens.lens (ipAddress :: InputDeviceNetworkSettings -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: InputDeviceNetworkSettings)
-{-# DEPRECATED idnsIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | The network gateway IP address.
---
--- /Note:/ Consider using 'gateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idnsGateway :: Lens.Lens' InputDeviceNetworkSettings (Lude.Maybe Lude.Text)
-idnsGateway = Lens.lens (gateway :: InputDeviceNetworkSettings -> Lude.Maybe Lude.Text) (\s a -> s {gateway = a} :: InputDeviceNetworkSettings)
-{-# DEPRECATED idnsGateway "Use generic-lens or generic-optics with 'gateway' instead." #-}
 
 -- | The DNS addresses of the input device.
 --
 -- /Note:/ Consider using 'dnsAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idnsDNSAddresses :: Lens.Lens' InputDeviceNetworkSettings (Lude.Maybe [Lude.Text])
-idnsDNSAddresses = Lens.lens (dnsAddresses :: InputDeviceNetworkSettings -> Lude.Maybe [Lude.Text]) (\s a -> s {dnsAddresses = a} :: InputDeviceNetworkSettings)
-{-# DEPRECATED idnsDNSAddresses "Use generic-lens or generic-optics with 'dnsAddresses' instead." #-}
+idnsDnsAddresses :: Lens.Lens' InputDeviceNetworkSettings (Core.Maybe [Core.Text])
+idnsDnsAddresses = Lens.field @"dnsAddresses"
+{-# DEPRECATED idnsDnsAddresses "Use generic-lens or generic-optics with 'dnsAddresses' instead." #-}
+
+-- | The network gateway IP address.
+--
+-- /Note:/ Consider using 'gateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idnsGateway :: Lens.Lens' InputDeviceNetworkSettings (Core.Maybe Core.Text)
+idnsGateway = Lens.field @"gateway"
+{-# DEPRECATED idnsGateway "Use generic-lens or generic-optics with 'gateway' instead." #-}
+
+-- | The IP address of the input device.
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idnsIpAddress :: Lens.Lens' InputDeviceNetworkSettings (Core.Maybe Core.Text)
+idnsIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED idnsIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
 --
 -- /Note:/ Consider using 'ipScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idnsIPScheme :: Lens.Lens' InputDeviceNetworkSettings (Lude.Maybe InputDeviceIPScheme)
-idnsIPScheme = Lens.lens (ipScheme :: InputDeviceNetworkSettings -> Lude.Maybe InputDeviceIPScheme) (\s a -> s {ipScheme = a} :: InputDeviceNetworkSettings)
-{-# DEPRECATED idnsIPScheme "Use generic-lens or generic-optics with 'ipScheme' instead." #-}
+idnsIpScheme :: Lens.Lens' InputDeviceNetworkSettings (Core.Maybe Types.InputDeviceIpScheme)
+idnsIpScheme = Lens.field @"ipScheme"
+{-# DEPRECATED idnsIpScheme "Use generic-lens or generic-optics with 'ipScheme' instead." #-}
 
 -- | The subnet mask of the input device.
 --
 -- /Note:/ Consider using 'subnetMask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idnsSubnetMask :: Lens.Lens' InputDeviceNetworkSettings (Lude.Maybe Lude.Text)
-idnsSubnetMask = Lens.lens (subnetMask :: InputDeviceNetworkSettings -> Lude.Maybe Lude.Text) (\s a -> s {subnetMask = a} :: InputDeviceNetworkSettings)
+idnsSubnetMask :: Lens.Lens' InputDeviceNetworkSettings (Core.Maybe Core.Text)
+idnsSubnetMask = Lens.field @"subnetMask"
 {-# DEPRECATED idnsSubnetMask "Use generic-lens or generic-optics with 'subnetMask' instead." #-}
 
-instance Lude.FromJSON InputDeviceNetworkSettings where
+instance Core.FromJSON InputDeviceNetworkSettings where
   parseJSON =
-    Lude.withObject
-      "InputDeviceNetworkSettings"
-      ( \x ->
-          InputDeviceNetworkSettings'
-            Lude.<$> (x Lude..:? "ipAddress")
-            Lude.<*> (x Lude..:? "gateway")
-            Lude.<*> (x Lude..:? "dnsAddresses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ipScheme")
-            Lude.<*> (x Lude..:? "subnetMask")
-      )
+    Core.withObject "InputDeviceNetworkSettings" Core.$
+      \x ->
+        InputDeviceNetworkSettings'
+          Core.<$> (x Core..:? "dnsAddresses")
+          Core.<*> (x Core..:? "gateway")
+          Core.<*> (x Core..:? "ipAddress")
+          Core.<*> (x Core..:? "ipScheme")
+          Core.<*> (x Core..:? "subnetMask")

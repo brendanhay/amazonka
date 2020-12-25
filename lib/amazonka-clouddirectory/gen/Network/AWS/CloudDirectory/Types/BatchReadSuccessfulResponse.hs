@@ -17,227 +17,210 @@ module Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
     mkBatchReadSuccessfulResponse,
 
     -- * Lenses
-    brsListIndex,
-    brsGetObjectInformation,
-    brsListAttachedIndices,
-    brsLookupPolicy,
-    brsListObjectParentPaths,
-    brsListObjectAttributes,
-    brsListIncomingTypedLinks,
-    brsGetLinkAttributes,
-    brsGetObjectAttributes,
-    brsListObjectChildren,
-    brsListObjectParents,
-    brsListPolicyAttachments,
-    brsListOutgoingTypedLinks,
-    brsListObjectPolicies,
+    brsrGetLinkAttributes,
+    brsrGetObjectAttributes,
+    brsrGetObjectInformation,
+    brsrListAttachedIndices,
+    brsrListIncomingTypedLinks,
+    brsrListIndex,
+    brsrListObjectAttributes,
+    brsrListObjectChildren,
+    brsrListObjectParentPaths,
+    brsrListObjectParents,
+    brsrListObjectPolicies,
+    brsrListOutgoingTypedLinks,
+    brsrListPolicyAttachments,
+    brsrLookupPolicy,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
-import Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
-import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
-import Network.AWS.CloudDirectory.Types.BatchListIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse
-import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
-import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
-import Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
+import qualified Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListIndexResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse as Types
+import qualified Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a @BatchRead@ success response operation.
 --
 -- /See:/ 'mkBatchReadSuccessfulResponse' smart constructor.
 data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
-  { -- | Lists objects attached to the specified index.
-    listIndex :: Lude.Maybe BatchListIndexResponse,
-    -- | Retrieves metadata about an object.
-    getObjectInformation :: Lude.Maybe BatchGetObjectInformationResponse,
-    -- | Lists indices attached to an object.
-    listAttachedIndices :: Lude.Maybe BatchListAttachedIndicesResponse,
-    -- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
-    lookupPolicy :: Lude.Maybe BatchLookupPolicyResponse,
-    -- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
-    listObjectParentPaths :: Lude.Maybe BatchListObjectParentPathsResponse,
-    -- | Lists all attributes that are associated with an object.
-    listObjectAttributes :: Lude.Maybe BatchListObjectAttributesResponse,
-    -- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-    listIncomingTypedLinks :: Lude.Maybe BatchListIncomingTypedLinksResponse,
-    -- | The list of attributes to retrieve from the typed link.
-    getLinkAttributes :: Lude.Maybe BatchGetLinkAttributesResponse,
+  { -- | The list of attributes to retrieve from the typed link.
+    getLinkAttributes :: Core.Maybe Types.BatchGetLinkAttributesResponse,
     -- | Retrieves attributes within a facet that are associated with an object.
-    getObjectAttributes :: Lude.Maybe BatchGetObjectAttributesResponse,
+    getObjectAttributes :: Core.Maybe Types.BatchGetObjectAttributesResponse,
+    -- | Retrieves metadata about an object.
+    getObjectInformation :: Core.Maybe Types.BatchGetObjectInformationResponse,
+    -- | Lists indices attached to an object.
+    listAttachedIndices :: Core.Maybe Types.BatchListAttachedIndicesResponse,
+    -- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+    listIncomingTypedLinks :: Core.Maybe Types.BatchListIncomingTypedLinksResponse,
+    -- | Lists objects attached to the specified index.
+    listIndex :: Core.Maybe Types.BatchListIndexResponse,
+    -- | Lists all attributes that are associated with an object.
+    listObjectAttributes :: Core.Maybe Types.BatchListObjectAttributesResponse,
     -- | Returns a paginated list of child objects that are associated with a given object.
-    listObjectChildren :: Lude.Maybe BatchListObjectChildrenResponse,
-    listObjectParents :: Lude.Maybe BatchListObjectParentsResponse,
-    -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
-    listPolicyAttachments :: Lude.Maybe BatchListPolicyAttachmentsResponse,
-    -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-    listOutgoingTypedLinks :: Lude.Maybe BatchListOutgoingTypedLinksResponse,
+    listObjectChildren :: Core.Maybe Types.BatchListObjectChildrenResponse,
+    -- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
+    listObjectParentPaths :: Core.Maybe Types.BatchListObjectParentPathsResponse,
+    listObjectParents :: Core.Maybe Types.BatchListObjectParentsResponse,
     -- | Returns policies attached to an object in pagination fashion.
-    listObjectPolicies :: Lude.Maybe BatchListObjectPoliciesResponse
+    listObjectPolicies :: Core.Maybe Types.BatchListObjectPoliciesResponse,
+    -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+    listOutgoingTypedLinks :: Core.Maybe Types.BatchListOutgoingTypedLinksResponse,
+    -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
+    listPolicyAttachments :: Core.Maybe Types.BatchListPolicyAttachmentsResponse,
+    -- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
+    lookupPolicy :: Core.Maybe Types.BatchLookupPolicyResponse
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchReadSuccessfulResponse' with the minimum fields required to make a request.
---
--- * 'listIndex' - Lists objects attached to the specified index.
--- * 'getObjectInformation' - Retrieves metadata about an object.
--- * 'listAttachedIndices' - Lists indices attached to an object.
--- * 'lookupPolicy' - Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
--- * 'listObjectParentPaths' - Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
--- * 'listObjectAttributes' - Lists all attributes that are associated with an object.
--- * 'listIncomingTypedLinks' - Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
--- * 'getLinkAttributes' - The list of attributes to retrieve from the typed link.
--- * 'getObjectAttributes' - Retrieves attributes within a facet that are associated with an object.
--- * 'listObjectChildren' - Returns a paginated list of child objects that are associated with a given object.
--- * 'listObjectParents' -
--- * 'listPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
--- * 'listOutgoingTypedLinks' - Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
--- * 'listObjectPolicies' - Returns policies attached to an object in pagination fashion.
+-- | Creates a 'BatchReadSuccessfulResponse' value with any optional fields omitted.
 mkBatchReadSuccessfulResponse ::
   BatchReadSuccessfulResponse
 mkBatchReadSuccessfulResponse =
   BatchReadSuccessfulResponse'
-    { listIndex = Lude.Nothing,
-      getObjectInformation = Lude.Nothing,
-      listAttachedIndices = Lude.Nothing,
-      lookupPolicy = Lude.Nothing,
-      listObjectParentPaths = Lude.Nothing,
-      listObjectAttributes = Lude.Nothing,
-      listIncomingTypedLinks = Lude.Nothing,
-      getLinkAttributes = Lude.Nothing,
-      getObjectAttributes = Lude.Nothing,
-      listObjectChildren = Lude.Nothing,
-      listObjectParents = Lude.Nothing,
-      listPolicyAttachments = Lude.Nothing,
-      listOutgoingTypedLinks = Lude.Nothing,
-      listObjectPolicies = Lude.Nothing
+    { getLinkAttributes = Core.Nothing,
+      getObjectAttributes = Core.Nothing,
+      getObjectInformation = Core.Nothing,
+      listAttachedIndices = Core.Nothing,
+      listIncomingTypedLinks = Core.Nothing,
+      listIndex = Core.Nothing,
+      listObjectAttributes = Core.Nothing,
+      listObjectChildren = Core.Nothing,
+      listObjectParentPaths = Core.Nothing,
+      listObjectParents = Core.Nothing,
+      listObjectPolicies = Core.Nothing,
+      listOutgoingTypedLinks = Core.Nothing,
+      listPolicyAttachments = Core.Nothing,
+      lookupPolicy = Core.Nothing
     }
-
--- | Lists objects attached to the specified index.
---
--- /Note:/ Consider using 'listIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListIndex :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListIndexResponse)
-brsListIndex = Lens.lens (listIndex :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListIndexResponse) (\s a -> s {listIndex = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListIndex "Use generic-lens or generic-optics with 'listIndex' instead." #-}
-
--- | Retrieves metadata about an object.
---
--- /Note:/ Consider using 'getObjectInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsGetObjectInformation :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchGetObjectInformationResponse)
-brsGetObjectInformation = Lens.lens (getObjectInformation :: BatchReadSuccessfulResponse -> Lude.Maybe BatchGetObjectInformationResponse) (\s a -> s {getObjectInformation = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsGetObjectInformation "Use generic-lens or generic-optics with 'getObjectInformation' instead." #-}
-
--- | Lists indices attached to an object.
---
--- /Note:/ Consider using 'listAttachedIndices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListAttachedIndices :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListAttachedIndicesResponse)
-brsListAttachedIndices = Lens.lens (listAttachedIndices :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListAttachedIndicesResponse) (\s a -> s {listAttachedIndices = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListAttachedIndices "Use generic-lens or generic-optics with 'listAttachedIndices' instead." #-}
-
--- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
---
--- /Note:/ Consider using 'lookupPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsLookupPolicy :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchLookupPolicyResponse)
-brsLookupPolicy = Lens.lens (lookupPolicy :: BatchReadSuccessfulResponse -> Lude.Maybe BatchLookupPolicyResponse) (\s a -> s {lookupPolicy = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsLookupPolicy "Use generic-lens or generic-optics with 'lookupPolicy' instead." #-}
-
--- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
---
--- /Note:/ Consider using 'listObjectParentPaths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListObjectParentPaths :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListObjectParentPathsResponse)
-brsListObjectParentPaths = Lens.lens (listObjectParentPaths :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListObjectParentPathsResponse) (\s a -> s {listObjectParentPaths = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListObjectParentPaths "Use generic-lens or generic-optics with 'listObjectParentPaths' instead." #-}
-
--- | Lists all attributes that are associated with an object.
---
--- /Note:/ Consider using 'listObjectAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListObjectAttributes :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListObjectAttributesResponse)
-brsListObjectAttributes = Lens.lens (listObjectAttributes :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListObjectAttributesResponse) (\s a -> s {listObjectAttributes = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListObjectAttributes "Use generic-lens or generic-optics with 'listObjectAttributes' instead." #-}
-
--- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- /Note:/ Consider using 'listIncomingTypedLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListIncomingTypedLinks :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListIncomingTypedLinksResponse)
-brsListIncomingTypedLinks = Lens.lens (listIncomingTypedLinks :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListIncomingTypedLinksResponse) (\s a -> s {listIncomingTypedLinks = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListIncomingTypedLinks "Use generic-lens or generic-optics with 'listIncomingTypedLinks' instead." #-}
 
 -- | The list of attributes to retrieve from the typed link.
 --
 -- /Note:/ Consider using 'getLinkAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsGetLinkAttributes :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchGetLinkAttributesResponse)
-brsGetLinkAttributes = Lens.lens (getLinkAttributes :: BatchReadSuccessfulResponse -> Lude.Maybe BatchGetLinkAttributesResponse) (\s a -> s {getLinkAttributes = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsGetLinkAttributes "Use generic-lens or generic-optics with 'getLinkAttributes' instead." #-}
+brsrGetLinkAttributes :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchGetLinkAttributesResponse)
+brsrGetLinkAttributes = Lens.field @"getLinkAttributes"
+{-# DEPRECATED brsrGetLinkAttributes "Use generic-lens or generic-optics with 'getLinkAttributes' instead." #-}
 
 -- | Retrieves attributes within a facet that are associated with an object.
 --
 -- /Note:/ Consider using 'getObjectAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsGetObjectAttributes :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchGetObjectAttributesResponse)
-brsGetObjectAttributes = Lens.lens (getObjectAttributes :: BatchReadSuccessfulResponse -> Lude.Maybe BatchGetObjectAttributesResponse) (\s a -> s {getObjectAttributes = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsGetObjectAttributes "Use generic-lens or generic-optics with 'getObjectAttributes' instead." #-}
+brsrGetObjectAttributes :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchGetObjectAttributesResponse)
+brsrGetObjectAttributes = Lens.field @"getObjectAttributes"
+{-# DEPRECATED brsrGetObjectAttributes "Use generic-lens or generic-optics with 'getObjectAttributes' instead." #-}
+
+-- | Retrieves metadata about an object.
+--
+-- /Note:/ Consider using 'getObjectInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrGetObjectInformation :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchGetObjectInformationResponse)
+brsrGetObjectInformation = Lens.field @"getObjectInformation"
+{-# DEPRECATED brsrGetObjectInformation "Use generic-lens or generic-optics with 'getObjectInformation' instead." #-}
+
+-- | Lists indices attached to an object.
+--
+-- /Note:/ Consider using 'listAttachedIndices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListAttachedIndices :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListAttachedIndicesResponse)
+brsrListAttachedIndices = Lens.field @"listAttachedIndices"
+{-# DEPRECATED brsrListAttachedIndices "Use generic-lens or generic-optics with 'listAttachedIndices' instead." #-}
+
+-- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+--
+-- /Note:/ Consider using 'listIncomingTypedLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListIncomingTypedLinks :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListIncomingTypedLinksResponse)
+brsrListIncomingTypedLinks = Lens.field @"listIncomingTypedLinks"
+{-# DEPRECATED brsrListIncomingTypedLinks "Use generic-lens or generic-optics with 'listIncomingTypedLinks' instead." #-}
+
+-- | Lists objects attached to the specified index.
+--
+-- /Note:/ Consider using 'listIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListIndex :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListIndexResponse)
+brsrListIndex = Lens.field @"listIndex"
+{-# DEPRECATED brsrListIndex "Use generic-lens or generic-optics with 'listIndex' instead." #-}
+
+-- | Lists all attributes that are associated with an object.
+--
+-- /Note:/ Consider using 'listObjectAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListObjectAttributes :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListObjectAttributesResponse)
+brsrListObjectAttributes = Lens.field @"listObjectAttributes"
+{-# DEPRECATED brsrListObjectAttributes "Use generic-lens or generic-optics with 'listObjectAttributes' instead." #-}
 
 -- | Returns a paginated list of child objects that are associated with a given object.
 --
 -- /Note:/ Consider using 'listObjectChildren' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListObjectChildren :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListObjectChildrenResponse)
-brsListObjectChildren = Lens.lens (listObjectChildren :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListObjectChildrenResponse) (\s a -> s {listObjectChildren = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListObjectChildren "Use generic-lens or generic-optics with 'listObjectChildren' instead." #-}
+brsrListObjectChildren :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListObjectChildrenResponse)
+brsrListObjectChildren = Lens.field @"listObjectChildren"
+{-# DEPRECATED brsrListObjectChildren "Use generic-lens or generic-optics with 'listObjectChildren' instead." #-}
+
+-- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
+--
+-- /Note:/ Consider using 'listObjectParentPaths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListObjectParentPaths :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListObjectParentPathsResponse)
+brsrListObjectParentPaths = Lens.field @"listObjectParentPaths"
+{-# DEPRECATED brsrListObjectParentPaths "Use generic-lens or generic-optics with 'listObjectParentPaths' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'listObjectParents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListObjectParents :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListObjectParentsResponse)
-brsListObjectParents = Lens.lens (listObjectParents :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListObjectParentsResponse) (\s a -> s {listObjectParents = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListObjectParents "Use generic-lens or generic-optics with 'listObjectParents' instead." #-}
-
--- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
---
--- /Note:/ Consider using 'listPolicyAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListPolicyAttachments :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListPolicyAttachmentsResponse)
-brsListPolicyAttachments = Lens.lens (listPolicyAttachments :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListPolicyAttachmentsResponse) (\s a -> s {listPolicyAttachments = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListPolicyAttachments "Use generic-lens or generic-optics with 'listPolicyAttachments' instead." #-}
-
--- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- /Note:/ Consider using 'listOutgoingTypedLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListOutgoingTypedLinks :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListOutgoingTypedLinksResponse)
-brsListOutgoingTypedLinks = Lens.lens (listOutgoingTypedLinks :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListOutgoingTypedLinksResponse) (\s a -> s {listOutgoingTypedLinks = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListOutgoingTypedLinks "Use generic-lens or generic-optics with 'listOutgoingTypedLinks' instead." #-}
+brsrListObjectParents :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListObjectParentsResponse)
+brsrListObjectParents = Lens.field @"listObjectParents"
+{-# DEPRECATED brsrListObjectParents "Use generic-lens or generic-optics with 'listObjectParents' instead." #-}
 
 -- | Returns policies attached to an object in pagination fashion.
 --
 -- /Note:/ Consider using 'listObjectPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsListObjectPolicies :: Lens.Lens' BatchReadSuccessfulResponse (Lude.Maybe BatchListObjectPoliciesResponse)
-brsListObjectPolicies = Lens.lens (listObjectPolicies :: BatchReadSuccessfulResponse -> Lude.Maybe BatchListObjectPoliciesResponse) (\s a -> s {listObjectPolicies = a} :: BatchReadSuccessfulResponse)
-{-# DEPRECATED brsListObjectPolicies "Use generic-lens or generic-optics with 'listObjectPolicies' instead." #-}
+brsrListObjectPolicies :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListObjectPoliciesResponse)
+brsrListObjectPolicies = Lens.field @"listObjectPolicies"
+{-# DEPRECATED brsrListObjectPolicies "Use generic-lens or generic-optics with 'listObjectPolicies' instead." #-}
 
-instance Lude.FromJSON BatchReadSuccessfulResponse where
+-- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+--
+-- /Note:/ Consider using 'listOutgoingTypedLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListOutgoingTypedLinks :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListOutgoingTypedLinksResponse)
+brsrListOutgoingTypedLinks = Lens.field @"listOutgoingTypedLinks"
+{-# DEPRECATED brsrListOutgoingTypedLinks "Use generic-lens or generic-optics with 'listOutgoingTypedLinks' instead." #-}
+
+-- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
+--
+-- /Note:/ Consider using 'listPolicyAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrListPolicyAttachments :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchListPolicyAttachmentsResponse)
+brsrListPolicyAttachments = Lens.field @"listPolicyAttachments"
+{-# DEPRECATED brsrListPolicyAttachments "Use generic-lens or generic-optics with 'listPolicyAttachments' instead." #-}
+
+-- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
+--
+-- /Note:/ Consider using 'lookupPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsrLookupPolicy :: Lens.Lens' BatchReadSuccessfulResponse (Core.Maybe Types.BatchLookupPolicyResponse)
+brsrLookupPolicy = Lens.field @"lookupPolicy"
+{-# DEPRECATED brsrLookupPolicy "Use generic-lens or generic-optics with 'lookupPolicy' instead." #-}
+
+instance Core.FromJSON BatchReadSuccessfulResponse where
   parseJSON =
-    Lude.withObject
-      "BatchReadSuccessfulResponse"
-      ( \x ->
-          BatchReadSuccessfulResponse'
-            Lude.<$> (x Lude..:? "ListIndex")
-            Lude.<*> (x Lude..:? "GetObjectInformation")
-            Lude.<*> (x Lude..:? "ListAttachedIndices")
-            Lude.<*> (x Lude..:? "LookupPolicy")
-            Lude.<*> (x Lude..:? "ListObjectParentPaths")
-            Lude.<*> (x Lude..:? "ListObjectAttributes")
-            Lude.<*> (x Lude..:? "ListIncomingTypedLinks")
-            Lude.<*> (x Lude..:? "GetLinkAttributes")
-            Lude.<*> (x Lude..:? "GetObjectAttributes")
-            Lude.<*> (x Lude..:? "ListObjectChildren")
-            Lude.<*> (x Lude..:? "ListObjectParents")
-            Lude.<*> (x Lude..:? "ListPolicyAttachments")
-            Lude.<*> (x Lude..:? "ListOutgoingTypedLinks")
-            Lude.<*> (x Lude..:? "ListObjectPolicies")
-      )
+    Core.withObject "BatchReadSuccessfulResponse" Core.$
+      \x ->
+        BatchReadSuccessfulResponse'
+          Core.<$> (x Core..:? "GetLinkAttributes")
+          Core.<*> (x Core..:? "GetObjectAttributes")
+          Core.<*> (x Core..:? "GetObjectInformation")
+          Core.<*> (x Core..:? "ListAttachedIndices")
+          Core.<*> (x Core..:? "ListIncomingTypedLinks")
+          Core.<*> (x Core..:? "ListIndex")
+          Core.<*> (x Core..:? "ListObjectAttributes")
+          Core.<*> (x Core..:? "ListObjectChildren")
+          Core.<*> (x Core..:? "ListObjectParentPaths")
+          Core.<*> (x Core..:? "ListObjectParents")
+          Core.<*> (x Core..:? "ListObjectPolicies")
+          Core.<*> (x Core..:? "ListOutgoingTypedLinks")
+          Core.<*> (x Core..:? "ListPolicyAttachments")
+          Core.<*> (x Core..:? "LookupPolicy")

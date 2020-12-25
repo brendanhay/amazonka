@@ -20,139 +20,128 @@ module Network.AWS.IoT.RegisterThing
     mkRegisterThing,
 
     -- ** Request lenses
-    rtParameters,
     rtTemplateBody,
+    rtParameters,
 
     -- * Destructuring the response
     RegisterThingResponse (..),
     mkRegisterThingResponse,
 
     -- ** Response lenses
-    rtrsCertificatePem,
-    rtrsResourceARNs,
-    rtrsResponseStatus,
+    rtrrsCertificatePem,
+    rtrrsResourceArns,
+    rtrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterThing' smart constructor.
 data RegisterThing = RegisterThing'
-  { -- | The parameters for provisioning a thing. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates> for more information.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The provisioning template. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates> for more information.
-    templateBody :: Lude.Text
+  { -- | The provisioning template. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates> for more information.
+    templateBody :: Types.TemplateBody,
+    -- | The parameters for provisioning a thing. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates> for more information.
+    parameters :: Core.Maybe (Core.HashMap Types.Parameter Types.Value)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterThing' with the minimum fields required to make a request.
---
--- * 'parameters' - The parameters for provisioning a thing. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates> for more information.
--- * 'templateBody' - The provisioning template. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates> for more information.
+-- | Creates a 'RegisterThing' value with any optional fields omitted.
 mkRegisterThing ::
   -- | 'templateBody'
-  Lude.Text ->
+  Types.TemplateBody ->
   RegisterThing
-mkRegisterThing pTemplateBody_ =
-  RegisterThing'
-    { parameters = Lude.Nothing,
-      templateBody = pTemplateBody_
-    }
-
--- | The parameters for provisioning a thing. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates> for more information.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtParameters :: Lens.Lens' RegisterThing (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-rtParameters = Lens.lens (parameters :: RegisterThing -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: RegisterThing)
-{-# DEPRECATED rtParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+mkRegisterThing templateBody =
+  RegisterThing' {templateBody, parameters = Core.Nothing}
 
 -- | The provisioning template. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates> for more information.
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTemplateBody :: Lens.Lens' RegisterThing Lude.Text
-rtTemplateBody = Lens.lens (templateBody :: RegisterThing -> Lude.Text) (\s a -> s {templateBody = a} :: RegisterThing)
+rtTemplateBody :: Lens.Lens' RegisterThing Types.TemplateBody
+rtTemplateBody = Lens.field @"templateBody"
 {-# DEPRECATED rtTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
-instance Lude.AWSRequest RegisterThing where
-  type Rs RegisterThing = RegisterThingResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          RegisterThingResponse'
-            Lude.<$> (x Lude..?> "certificatePem")
-            Lude.<*> (x Lude..?> "resourceArns" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The parameters for provisioning a thing. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates> for more information.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtParameters :: Lens.Lens' RegisterThing (Core.Maybe (Core.HashMap Types.Parameter Types.Value))
+rtParameters = Lens.field @"parameters"
+{-# DEPRECATED rtParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance Lude.ToHeaders RegisterThing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON RegisterThing where
-  toJSON RegisterThing' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("templateBody" Lude..= templateBody)
+instance Core.FromJSON RegisterThing where
+  toJSON RegisterThing {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("templateBody" Core..= templateBody),
+            ("parameters" Core..=) Core.<$> parameters
           ]
       )
 
-instance Lude.ToPath RegisterThing where
-  toPath = Lude.const "/things"
-
-instance Lude.ToQuery RegisterThing where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest RegisterThing where
+  type Rs RegisterThing = RegisterThingResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/things",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterThingResponse'
+            Core.<$> (x Core..:? "certificatePem")
+            Core.<*> (x Core..:? "resourceArns")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkRegisterThingResponse' smart constructor.
 data RegisterThingResponse = RegisterThingResponse'
   { -- | The certificate data, in PEM format.
-    certificatePem :: Lude.Maybe Lude.Text,
+    certificatePem :: Core.Maybe Types.CertificatePem,
     -- | ARNs for the generated resources.
-    resourceARNs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    resourceArns :: Core.Maybe (Core.HashMap Types.ResourceLogicalId Types.ResourceArn),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterThingResponse' with the minimum fields required to make a request.
---
--- * 'certificatePem' - The certificate data, in PEM format.
--- * 'resourceARNs' - ARNs for the generated resources.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterThingResponse' value with any optional fields omitted.
 mkRegisterThingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterThingResponse
-mkRegisterThingResponse pResponseStatus_ =
+mkRegisterThingResponse responseStatus =
   RegisterThingResponse'
-    { certificatePem = Lude.Nothing,
-      resourceARNs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificatePem = Core.Nothing,
+      resourceArns = Core.Nothing,
+      responseStatus
     }
 
 -- | The certificate data, in PEM format.
 --
 -- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsCertificatePem :: Lens.Lens' RegisterThingResponse (Lude.Maybe Lude.Text)
-rtrsCertificatePem = Lens.lens (certificatePem :: RegisterThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificatePem = a} :: RegisterThingResponse)
-{-# DEPRECATED rtrsCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
+rtrrsCertificatePem :: Lens.Lens' RegisterThingResponse (Core.Maybe Types.CertificatePem)
+rtrrsCertificatePem = Lens.field @"certificatePem"
+{-# DEPRECATED rtrrsCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
 
 -- | ARNs for the generated resources.
 --
--- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResourceARNs :: Lens.Lens' RegisterThingResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-rtrsResourceARNs = Lens.lens (resourceARNs :: RegisterThingResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {resourceARNs = a} :: RegisterThingResponse)
-{-# DEPRECATED rtrsResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
+-- /Note:/ Consider using 'resourceArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrrsResourceArns :: Lens.Lens' RegisterThingResponse (Core.Maybe (Core.HashMap Types.ResourceLogicalId Types.ResourceArn))
+rtrrsResourceArns = Lens.field @"resourceArns"
+{-# DEPRECATED rtrrsResourceArns "Use generic-lens or generic-optics with 'resourceArns' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResponseStatus :: Lens.Lens' RegisterThingResponse Lude.Int
-rtrsResponseStatus = Lens.lens (responseStatus :: RegisterThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterThingResponse)
-{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrrsResponseStatus :: Lens.Lens' RegisterThingResponse Core.Int
+rtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,50 +22,48 @@ module Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayAssociationState
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAssociationState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an association.
 --
 -- /See:/ 'mkTransitGatewayAttachmentAssociation' smart constructor.
 data TransitGatewayAttachmentAssociation = TransitGatewayAttachmentAssociation'
   { -- | The state of the association.
-    state :: Lude.Maybe TransitGatewayAssociationState,
+    state :: Core.Maybe Types.TransitGatewayAssociationState,
     -- | The ID of the route table for the transit gateway.
-    transitGatewayRouteTableId :: Lude.Maybe Lude.Text
+    transitGatewayRouteTableId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayAttachmentAssociation' with the minimum fields required to make a request.
---
--- * 'state' - The state of the association.
--- * 'transitGatewayRouteTableId' - The ID of the route table for the transit gateway.
+-- | Creates a 'TransitGatewayAttachmentAssociation' value with any optional fields omitted.
 mkTransitGatewayAttachmentAssociation ::
   TransitGatewayAttachmentAssociation
 mkTransitGatewayAttachmentAssociation =
   TransitGatewayAttachmentAssociation'
-    { state = Lude.Nothing,
-      transitGatewayRouteTableId = Lude.Nothing
+    { state = Core.Nothing,
+      transitGatewayRouteTableId = Core.Nothing
     }
 
 -- | The state of the association.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaaState :: Lens.Lens' TransitGatewayAttachmentAssociation (Lude.Maybe TransitGatewayAssociationState)
-tgaaState = Lens.lens (state :: TransitGatewayAttachmentAssociation -> Lude.Maybe TransitGatewayAssociationState) (\s a -> s {state = a} :: TransitGatewayAttachmentAssociation)
+tgaaState :: Lens.Lens' TransitGatewayAttachmentAssociation (Core.Maybe Types.TransitGatewayAssociationState)
+tgaaState = Lens.field @"state"
 {-# DEPRECATED tgaaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the route table for the transit gateway.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaaTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentAssociation (Lude.Maybe Lude.Text)
-tgaaTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: TransitGatewayAttachmentAssociation -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: TransitGatewayAttachmentAssociation)
+tgaaTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentAssociation (Core.Maybe Types.String)
+tgaaTransitGatewayRouteTableId = Lens.field @"transitGatewayRouteTableId"
 {-# DEPRECATED tgaaTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
-instance Lude.FromXML TransitGatewayAttachmentAssociation where
+instance Core.FromXML TransitGatewayAttachmentAssociation where
   parseXML x =
     TransitGatewayAttachmentAssociation'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "transitGatewayRouteTableId")
+      Core.<$> (x Core..@? "state")
+      Core.<*> (x Core..@? "transitGatewayRouteTableId")

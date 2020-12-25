@@ -24,66 +24,66 @@ where
 
 import Network.AWS.Lambda.GetFunction
 import Network.AWS.Lambda.GetFunctionConfiguration
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-mkFunctionExists :: Wait.Wait GetFunction
+mkFunctionExists :: Waiter.Wait GetFunction
 mkFunctionExists =
-  Wait.Wait
-    { Wait._waitName = "FunctionExists",
-      Wait._waitAttempts = 20,
-      Wait._waitDelay = 1,
-      Wait._waitAcceptors =
-        [ Wait.matchStatus 200 Wait.AcceptSuccess,
-          Wait.matchError "ResourceNotFoundException" Wait.AcceptRetry
+  Waiter.Wait
+    { Waiter._waitName = "FunctionExists",
+      Waiter._waitAttempts = 20,
+      Waiter._waitDelay = 1,
+      Waiter._waitAcceptors =
+        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
+          Waiter.matchError "ResourceNotFoundException" Waiter.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkFunctionActive :: Wait.Wait GetFunctionConfiguration
+mkFunctionActive :: Waiter.Wait GetFunctionConfiguration
 mkFunctionActive =
-  Wait.Wait
-    { Wait._waitName = "FunctionActive",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 5,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "FunctionActive",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 5,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Active"
-            Wait.AcceptSuccess
-            (fcState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
-          Wait.matchAll
+            Waiter.AcceptSuccess
+            (Lens.field @"state" Core.. Lens._Just),
+          Waiter.matchAll
             "Failed"
-            Wait.AcceptFailure
-            (fcState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
-          Wait.matchAll
+            Waiter.AcceptFailure
+            (Lens.field @"state" Core.. Lens._Just),
+          Waiter.matchAll
             "Pending"
-            Wait.AcceptRetry
-            (fcState Lude.. Lens._Just Lude.. Lens.to Lude.toText)
+            Waiter.AcceptRetry
+            (Lens.field @"state" Core.. Lens._Just)
         ]
     }
 
 -- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkFunctionUpdated :: Wait.Wait GetFunctionConfiguration
+mkFunctionUpdated :: Waiter.Wait GetFunctionConfiguration
 mkFunctionUpdated =
-  Wait.Wait
-    { Wait._waitName = "FunctionUpdated",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 5,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "FunctionUpdated",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 5,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Successful"
-            Wait.AcceptSuccess
-            (fcLastUpdateStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
-          Wait.matchAll
+            Waiter.AcceptSuccess
+            (Lens.field @"lastUpdateStatus" Core.. Lens._Just),
+          Waiter.matchAll
             "Failed"
-            Wait.AcceptFailure
-            (fcLastUpdateStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText),
-          Wait.matchAll
+            Waiter.AcceptFailure
+            (Lens.field @"lastUpdateStatus" Core.. Lens._Just),
+          Waiter.matchAll
             "InProgress"
-            Wait.AcceptRetry
-            (fcLastUpdateStatus Lude.. Lens._Just Lude.. Lens.to Lude.toText)
+            Waiter.AcceptRetry
+            (Lens.field @"lastUpdateStatus" Core.. Lens._Just)
         ]
     }

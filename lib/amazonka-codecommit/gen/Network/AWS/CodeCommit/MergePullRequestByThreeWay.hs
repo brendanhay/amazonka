@@ -20,14 +20,14 @@ module Network.AWS.CodeCommit.MergePullRequestByThreeWay
     mkMergePullRequestByThreeWay,
 
     -- ** Request lenses
-    mprbtwEmail,
-    mprbtwAuthorName,
     mprbtwPullRequestId,
-    mprbtwConflictDetailLevel,
-    mprbtwCommitMessage,
     mprbtwRepositoryName,
+    mprbtwAuthorName,
+    mprbtwCommitMessage,
+    mprbtwConflictDetailLevel,
     mprbtwConflictResolution,
     mprbtwConflictResolutionStrategy,
+    mprbtwEmail,
     mprbtwKeepEmptyFolders,
     mprbtwSourceCommitId,
 
@@ -36,227 +36,205 @@ module Network.AWS.CodeCommit.MergePullRequestByThreeWay
     mkMergePullRequestByThreeWayResponse,
 
     -- ** Response lenses
-    mprbtwrsPullRequest,
-    mprbtwrsResponseStatus,
+    mprbtwrrsPullRequest,
+    mprbtwrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkMergePullRequestByThreeWay' smart constructor.
 data MergePullRequestByThreeWay = MergePullRequestByThreeWay'
-  { -- | The email address of the person merging the branches. This information is used in the commit information for the merge.
-    email :: Lude.Maybe Lude.Text,
-    -- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
-    authorName :: Lude.Maybe Lude.Text,
-    -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
-    pullRequestId :: Lude.Text,
-    -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
-    conflictDetailLevel :: Lude.Maybe ConflictDetailLevelTypeEnum,
-    -- | The commit message to include in the commit information for the merge.
-    commitMessage :: Lude.Maybe Lude.Text,
+  { -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+    pullRequestId :: Types.PullRequestId,
     -- | The name of the repository where the pull request was created.
-    repositoryName :: Lude.Text,
+    repositoryName :: Types.RepositoryName,
+    -- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
+    authorName :: Core.Maybe Types.Name,
+    -- | The commit message to include in the commit information for the merge.
+    commitMessage :: Core.Maybe Types.CommitMessage,
+    -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+    conflictDetailLevel :: Core.Maybe Types.ConflictDetailLevelTypeEnum,
     -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
-    conflictResolution :: Lude.Maybe ConflictResolution,
+    conflictResolution :: Core.Maybe Types.ConflictResolution,
     -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
-    conflictResolutionStrategy :: Lude.Maybe ConflictResolutionStrategyTypeEnum,
+    conflictResolutionStrategy :: Core.Maybe Types.ConflictResolutionStrategyTypeEnum,
+    -- | The email address of the person merging the branches. This information is used in the commit information for the merge.
+    email :: Core.Maybe Types.Email,
     -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.
-    keepEmptyFolders :: Lude.Maybe Lude.Bool,
+    keepEmptyFolders :: Core.Maybe Core.Bool,
     -- | The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
-    sourceCommitId :: Lude.Maybe Lude.Text
+    sourceCommitId :: Core.Maybe Types.ObjectId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergePullRequestByThreeWay' with the minimum fields required to make a request.
---
--- * 'email' - The email address of the person merging the branches. This information is used in the commit information for the merge.
--- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
--- * 'pullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
--- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
--- * 'commitMessage' - The commit message to include in the commit information for the merge.
--- * 'repositoryName' - The name of the repository where the pull request was created.
--- * 'conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
--- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
--- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.
--- * 'sourceCommitId' - The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
+-- | Creates a 'MergePullRequestByThreeWay' value with any optional fields omitted.
 mkMergePullRequestByThreeWay ::
   -- | 'pullRequestId'
-  Lude.Text ->
+  Types.PullRequestId ->
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   MergePullRequestByThreeWay
-mkMergePullRequestByThreeWay pPullRequestId_ pRepositoryName_ =
+mkMergePullRequestByThreeWay pullRequestId repositoryName =
   MergePullRequestByThreeWay'
-    { email = Lude.Nothing,
-      authorName = Lude.Nothing,
-      pullRequestId = pPullRequestId_,
-      conflictDetailLevel = Lude.Nothing,
-      commitMessage = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      conflictResolution = Lude.Nothing,
-      conflictResolutionStrategy = Lude.Nothing,
-      keepEmptyFolders = Lude.Nothing,
-      sourceCommitId = Lude.Nothing
+    { pullRequestId,
+      repositoryName,
+      authorName = Core.Nothing,
+      commitMessage = Core.Nothing,
+      conflictDetailLevel = Core.Nothing,
+      conflictResolution = Core.Nothing,
+      conflictResolutionStrategy = Core.Nothing,
+      email = Core.Nothing,
+      keepEmptyFolders = Core.Nothing,
+      sourceCommitId = Core.Nothing
     }
-
--- | The email address of the person merging the branches. This information is used in the commit information for the merge.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwEmail :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe Lude.Text)
-mprbtwEmail = Lens.lens (email :: MergePullRequestByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: MergePullRequestByThreeWay)
-{-# DEPRECATED mprbtwEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
---
--- /Note:/ Consider using 'authorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwAuthorName :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe Lude.Text)
-mprbtwAuthorName = Lens.lens (authorName :: MergePullRequestByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {authorName = a} :: MergePullRequestByThreeWay)
-{-# DEPRECATED mprbtwAuthorName "Use generic-lens or generic-optics with 'authorName' instead." #-}
 
 -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
 --
 -- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwPullRequestId :: Lens.Lens' MergePullRequestByThreeWay Lude.Text
-mprbtwPullRequestId = Lens.lens (pullRequestId :: MergePullRequestByThreeWay -> Lude.Text) (\s a -> s {pullRequestId = a} :: MergePullRequestByThreeWay)
+mprbtwPullRequestId :: Lens.Lens' MergePullRequestByThreeWay Types.PullRequestId
+mprbtwPullRequestId = Lens.field @"pullRequestId"
 {-# DEPRECATED mprbtwPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
-
--- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
---
--- /Note:/ Consider using 'conflictDetailLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwConflictDetailLevel :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe ConflictDetailLevelTypeEnum)
-mprbtwConflictDetailLevel = Lens.lens (conflictDetailLevel :: MergePullRequestByThreeWay -> Lude.Maybe ConflictDetailLevelTypeEnum) (\s a -> s {conflictDetailLevel = a} :: MergePullRequestByThreeWay)
-{-# DEPRECATED mprbtwConflictDetailLevel "Use generic-lens or generic-optics with 'conflictDetailLevel' instead." #-}
-
--- | The commit message to include in the commit information for the merge.
---
--- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwCommitMessage :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe Lude.Text)
-mprbtwCommitMessage = Lens.lens (commitMessage :: MergePullRequestByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: MergePullRequestByThreeWay)
-{-# DEPRECATED mprbtwCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
 -- | The name of the repository where the pull request was created.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwRepositoryName :: Lens.Lens' MergePullRequestByThreeWay Lude.Text
-mprbtwRepositoryName = Lens.lens (repositoryName :: MergePullRequestByThreeWay -> Lude.Text) (\s a -> s {repositoryName = a} :: MergePullRequestByThreeWay)
+mprbtwRepositoryName :: Lens.Lens' MergePullRequestByThreeWay Types.RepositoryName
+mprbtwRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED mprbtwRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
+--
+-- /Note:/ Consider using 'authorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbtwAuthorName :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.Name)
+mprbtwAuthorName = Lens.field @"authorName"
+{-# DEPRECATED mprbtwAuthorName "Use generic-lens or generic-optics with 'authorName' instead." #-}
+
+-- | The commit message to include in the commit information for the merge.
+--
+-- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbtwCommitMessage :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.CommitMessage)
+mprbtwCommitMessage = Lens.field @"commitMessage"
+{-# DEPRECATED mprbtwCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
+
+-- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+--
+-- /Note:/ Consider using 'conflictDetailLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbtwConflictDetailLevel :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.ConflictDetailLevelTypeEnum)
+mprbtwConflictDetailLevel = Lens.field @"conflictDetailLevel"
+{-# DEPRECATED mprbtwConflictDetailLevel "Use generic-lens or generic-optics with 'conflictDetailLevel' instead." #-}
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
 --
 -- /Note:/ Consider using 'conflictResolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwConflictResolution :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe ConflictResolution)
-mprbtwConflictResolution = Lens.lens (conflictResolution :: MergePullRequestByThreeWay -> Lude.Maybe ConflictResolution) (\s a -> s {conflictResolution = a} :: MergePullRequestByThreeWay)
+mprbtwConflictResolution :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.ConflictResolution)
+mprbtwConflictResolution = Lens.field @"conflictResolution"
 {-# DEPRECATED mprbtwConflictResolution "Use generic-lens or generic-optics with 'conflictResolution' instead." #-}
 
 -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
 --
 -- /Note:/ Consider using 'conflictResolutionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwConflictResolutionStrategy :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe ConflictResolutionStrategyTypeEnum)
-mprbtwConflictResolutionStrategy = Lens.lens (conflictResolutionStrategy :: MergePullRequestByThreeWay -> Lude.Maybe ConflictResolutionStrategyTypeEnum) (\s a -> s {conflictResolutionStrategy = a} :: MergePullRequestByThreeWay)
+mprbtwConflictResolutionStrategy :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.ConflictResolutionStrategyTypeEnum)
+mprbtwConflictResolutionStrategy = Lens.field @"conflictResolutionStrategy"
 {-# DEPRECATED mprbtwConflictResolutionStrategy "Use generic-lens or generic-optics with 'conflictResolutionStrategy' instead." #-}
+
+-- | The email address of the person merging the branches. This information is used in the commit information for the merge.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbtwEmail :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.Email)
+mprbtwEmail = Lens.field @"email"
+{-# DEPRECATED mprbtwEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.
 --
 -- /Note:/ Consider using 'keepEmptyFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwKeepEmptyFolders :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe Lude.Bool)
-mprbtwKeepEmptyFolders = Lens.lens (keepEmptyFolders :: MergePullRequestByThreeWay -> Lude.Maybe Lude.Bool) (\s a -> s {keepEmptyFolders = a} :: MergePullRequestByThreeWay)
+mprbtwKeepEmptyFolders :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Core.Bool)
+mprbtwKeepEmptyFolders = Lens.field @"keepEmptyFolders"
 {-# DEPRECATED mprbtwKeepEmptyFolders "Use generic-lens or generic-optics with 'keepEmptyFolders' instead." #-}
 
 -- | The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
 --
 -- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwSourceCommitId :: Lens.Lens' MergePullRequestByThreeWay (Lude.Maybe Lude.Text)
-mprbtwSourceCommitId = Lens.lens (sourceCommitId :: MergePullRequestByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: MergePullRequestByThreeWay)
+mprbtwSourceCommitId :: Lens.Lens' MergePullRequestByThreeWay (Core.Maybe Types.ObjectId)
+mprbtwSourceCommitId = Lens.field @"sourceCommitId"
 {-# DEPRECATED mprbtwSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
-instance Lude.AWSRequest MergePullRequestByThreeWay where
+instance Core.FromJSON MergePullRequestByThreeWay where
+  toJSON MergePullRequestByThreeWay {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just ("repositoryName" Core..= repositoryName),
+            ("authorName" Core..=) Core.<$> authorName,
+            ("commitMessage" Core..=) Core.<$> commitMessage,
+            ("conflictDetailLevel" Core..=) Core.<$> conflictDetailLevel,
+            ("conflictResolution" Core..=) Core.<$> conflictResolution,
+            ("conflictResolutionStrategy" Core..=)
+              Core.<$> conflictResolutionStrategy,
+            ("email" Core..=) Core.<$> email,
+            ("keepEmptyFolders" Core..=) Core.<$> keepEmptyFolders,
+            ("sourceCommitId" Core..=) Core.<$> sourceCommitId
+          ]
+      )
+
+instance Core.AWSRequest MergePullRequestByThreeWay where
   type
     Rs MergePullRequestByThreeWay =
       MergePullRequestByThreeWayResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.MergePullRequestByThreeWay")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           MergePullRequestByThreeWayResponse'
-            Lude.<$> (x Lude..?> "pullRequest") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "pullRequest") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders MergePullRequestByThreeWay where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.MergePullRequestByThreeWay" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON MergePullRequestByThreeWay where
-  toJSON MergePullRequestByThreeWay' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("email" Lude..=) Lude.<$> email,
-            ("authorName" Lude..=) Lude.<$> authorName,
-            Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            ("conflictDetailLevel" Lude..=) Lude.<$> conflictDetailLevel,
-            ("commitMessage" Lude..=) Lude.<$> commitMessage,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            ("conflictResolution" Lude..=) Lude.<$> conflictResolution,
-            ("conflictResolutionStrategy" Lude..=)
-              Lude.<$> conflictResolutionStrategy,
-            ("keepEmptyFolders" Lude..=) Lude.<$> keepEmptyFolders,
-            ("sourceCommitId" Lude..=) Lude.<$> sourceCommitId
-          ]
-      )
-
-instance Lude.ToPath MergePullRequestByThreeWay where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery MergePullRequestByThreeWay where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkMergePullRequestByThreeWayResponse' smart constructor.
 data MergePullRequestByThreeWayResponse = MergePullRequestByThreeWayResponse'
-  { pullRequest :: Lude.Maybe PullRequest,
+  { pullRequest :: Core.Maybe Types.PullRequest,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MergePullRequestByThreeWayResponse' with the minimum fields required to make a request.
---
--- * 'pullRequest' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'MergePullRequestByThreeWayResponse' value with any optional fields omitted.
 mkMergePullRequestByThreeWayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   MergePullRequestByThreeWayResponse
-mkMergePullRequestByThreeWayResponse pResponseStatus_ =
+mkMergePullRequestByThreeWayResponse responseStatus =
   MergePullRequestByThreeWayResponse'
-    { pullRequest = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { pullRequest = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'pullRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwrsPullRequest :: Lens.Lens' MergePullRequestByThreeWayResponse (Lude.Maybe PullRequest)
-mprbtwrsPullRequest = Lens.lens (pullRequest :: MergePullRequestByThreeWayResponse -> Lude.Maybe PullRequest) (\s a -> s {pullRequest = a} :: MergePullRequestByThreeWayResponse)
-{-# DEPRECATED mprbtwrsPullRequest "Use generic-lens or generic-optics with 'pullRequest' instead." #-}
+mprbtwrrsPullRequest :: Lens.Lens' MergePullRequestByThreeWayResponse (Core.Maybe Types.PullRequest)
+mprbtwrrsPullRequest = Lens.field @"pullRequest"
+{-# DEPRECATED mprbtwrrsPullRequest "Use generic-lens or generic-optics with 'pullRequest' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbtwrsResponseStatus :: Lens.Lens' MergePullRequestByThreeWayResponse Lude.Int
-mprbtwrsResponseStatus = Lens.lens (responseStatus :: MergePullRequestByThreeWayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MergePullRequestByThreeWayResponse)
-{-# DEPRECATED mprbtwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mprbtwrrsResponseStatus :: Lens.Lens' MergePullRequestByThreeWayResponse Core.Int
+mprbtwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mprbtwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

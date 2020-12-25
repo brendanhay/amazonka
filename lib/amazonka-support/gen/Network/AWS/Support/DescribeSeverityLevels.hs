@@ -27,109 +27,98 @@ module Network.AWS.Support.DescribeSeverityLevels
     mkDescribeSeverityLevelsResponse,
 
     -- ** Response lenses
-    dslrsSeverityLevels,
-    dslrsResponseStatus,
+    dslrrsSeverityLevels,
+    dslrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkDescribeSeverityLevels' smart constructor.
 newtype DescribeSeverityLevels = DescribeSeverityLevels'
   { -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-    language :: Lude.Maybe Lude.Text
+    language :: Core.Maybe Types.Language
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSeverityLevels' with the minimum fields required to make a request.
---
--- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+-- | Creates a 'DescribeSeverityLevels' value with any optional fields omitted.
 mkDescribeSeverityLevels ::
   DescribeSeverityLevels
 mkDescribeSeverityLevels =
-  DescribeSeverityLevels' {language = Lude.Nothing}
+  DescribeSeverityLevels' {language = Core.Nothing}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
 -- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslLanguage :: Lens.Lens' DescribeSeverityLevels (Lude.Maybe Lude.Text)
-dslLanguage = Lens.lens (language :: DescribeSeverityLevels -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeSeverityLevels)
+dslLanguage :: Lens.Lens' DescribeSeverityLevels (Core.Maybe Types.Language)
+dslLanguage = Lens.field @"language"
 {-# DEPRECATED dslLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
-instance Lude.AWSRequest DescribeSeverityLevels where
+instance Core.FromJSON DescribeSeverityLevels where
+  toJSON DescribeSeverityLevels {..} =
+    Core.object
+      (Core.catMaybes [("language" Core..=) Core.<$> language])
+
+instance Core.AWSRequest DescribeSeverityLevels where
   type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSSupport_20130415.DescribeSeverityLevels")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSeverityLevelsResponse'
-            Lude.<$> (x Lude..?> "severityLevels" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "severityLevels")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeSeverityLevels where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.DescribeSeverityLevels" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSeverityLevels where
-  toJSON DescribeSeverityLevels' {..} =
-    Lude.object
-      (Lude.catMaybes [("language" Lude..=) Lude.<$> language])
-
-instance Lude.ToPath DescribeSeverityLevels where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSeverityLevels where
-  toQuery = Lude.const Lude.mempty
 
 -- | The list of severity levels returned by the 'DescribeSeverityLevels' operation.
 --
 -- /See:/ 'mkDescribeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
   { -- | The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
-    severityLevels :: Lude.Maybe [SeverityLevel],
+    severityLevels :: Core.Maybe [Types.SeverityLevel],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSeverityLevelsResponse' with the minimum fields required to make a request.
---
--- * 'severityLevels' - The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSeverityLevelsResponse' value with any optional fields omitted.
 mkDescribeSeverityLevelsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSeverityLevelsResponse
-mkDescribeSeverityLevelsResponse pResponseStatus_ =
+mkDescribeSeverityLevelsResponse responseStatus =
   DescribeSeverityLevelsResponse'
-    { severityLevels = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { severityLevels = Core.Nothing,
+      responseStatus
     }
 
 -- | The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
 --
 -- /Note:/ Consider using 'severityLevels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslrsSeverityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Lude.Maybe [SeverityLevel])
-dslrsSeverityLevels = Lens.lens (severityLevels :: DescribeSeverityLevelsResponse -> Lude.Maybe [SeverityLevel]) (\s a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse)
-{-# DEPRECATED dslrsSeverityLevels "Use generic-lens or generic-optics with 'severityLevels' instead." #-}
+dslrrsSeverityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Core.Maybe [Types.SeverityLevel])
+dslrrsSeverityLevels = Lens.field @"severityLevels"
+{-# DEPRECATED dslrrsSeverityLevels "Use generic-lens or generic-optics with 'severityLevels' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslrsResponseStatus :: Lens.Lens' DescribeSeverityLevelsResponse Lude.Int
-dslrsResponseStatus = Lens.lens (responseStatus :: DescribeSeverityLevelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSeverityLevelsResponse)
-{-# DEPRECATED dslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dslrrsResponseStatus :: Lens.Lens' DescribeSeverityLevelsResponse Core.Int
+dslrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

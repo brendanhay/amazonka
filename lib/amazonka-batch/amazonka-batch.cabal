@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Batch
     Network.AWS.Batch.CancelJob
@@ -91,6 +97,7 @@ library
 
   other-modules:
     Network.AWS.Batch.Types.ArrayJobDependency
+    Network.AWS.Batch.Types.ArrayJobId
     Network.AWS.Batch.Types.ArrayProperties
     Network.AWS.Batch.Types.ArrayPropertiesDetail
     Network.AWS.Batch.Types.ArrayPropertiesSummary
@@ -99,7 +106,9 @@ library
     Network.AWS.Batch.Types.CEState
     Network.AWS.Batch.Types.CEStatus
     Network.AWS.Batch.Types.CEType
+    Network.AWS.Batch.Types.ComputeEnvironmentArn
     Network.AWS.Batch.Types.ComputeEnvironmentDetail
+    Network.AWS.Batch.Types.ComputeEnvironmentName
     Network.AWS.Batch.Types.ComputeEnvironmentOrder
     Network.AWS.Batch.Types.ComputeResource
     Network.AWS.Batch.Types.ComputeResourceUpdate
@@ -111,13 +120,19 @@ library
     Network.AWS.Batch.Types.CRType
     Network.AWS.Batch.Types.Device
     Network.AWS.Batch.Types.DeviceCgroupPermission
-    Network.AWS.Batch.Types.EC2Configuration
+    Network.AWS.Batch.Types.Ec2Configuration
     Network.AWS.Batch.Types.EvaluateOnExit
     Network.AWS.Batch.Types.Host
+    Network.AWS.Batch.Types.ImageIdOverride
+    Network.AWS.Batch.Types.ImageType
     Network.AWS.Batch.Types.JobDefinition
+    Network.AWS.Batch.Types.JobDefinitionName
     Network.AWS.Batch.Types.JobDefinitionType
     Network.AWS.Batch.Types.JobDependency
     Network.AWS.Batch.Types.JobDetail
+    Network.AWS.Batch.Types.JobId
+    Network.AWS.Batch.Types.JobName
+    Network.AWS.Batch.Types.JobQueue
     Network.AWS.Batch.Types.JobQueueDetail
     Network.AWS.Batch.Types.JobStatus
     Network.AWS.Batch.Types.JobSummary
@@ -130,18 +145,28 @@ library
     Network.AWS.Batch.Types.LogConfiguration
     Network.AWS.Batch.Types.LogDriver
     Network.AWS.Batch.Types.MountPoint
+    Network.AWS.Batch.Types.MultiNodeJobId
     Network.AWS.Batch.Types.NetworkInterface
+    Network.AWS.Batch.Types.NextToken
     Network.AWS.Batch.Types.NodeDetails
     Network.AWS.Batch.Types.NodeOverrides
     Network.AWS.Batch.Types.NodeProperties
     Network.AWS.Batch.Types.NodePropertiesSummary
     Network.AWS.Batch.Types.NodePropertyOverride
     Network.AWS.Batch.Types.NodeRangeProperty
+    Network.AWS.Batch.Types.OnExitCode
+    Network.AWS.Batch.Types.OnReason
+    Network.AWS.Batch.Types.OnStatusReason
+    Network.AWS.Batch.Types.Reason
     Network.AWS.Batch.Types.ResourceRequirement
     Network.AWS.Batch.Types.ResourceType
     Network.AWS.Batch.Types.RetryAction
     Network.AWS.Batch.Types.RetryStrategy
     Network.AWS.Batch.Types.Secret
+    Network.AWS.Batch.Types.StatusReason
+    Network.AWS.Batch.Types.String
+    Network.AWS.Batch.Types.TagKey
+    Network.AWS.Batch.Types.TagValue
     Network.AWS.Batch.Types.Tmpfs
     Network.AWS.Batch.Types.Ulimit
     Network.AWS.Batch.Types.Volume

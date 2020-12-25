@@ -17,65 +17,60 @@ module Network.AWS.CodeBuild.Types.LogsConfig
     mkLogsConfig,
 
     -- * Lenses
-    lcS3Logs,
     lcCloudWatchLogs,
+    lcS3Logs,
   )
 where
 
-import Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
-import Network.AWS.CodeBuild.Types.S3LogsConfig
+import qualified Network.AWS.CodeBuild.Types.CloudWatchLogsConfig as Types
+import qualified Network.AWS.CodeBuild.Types.S3LogsConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a specified S3 bucket, or both.
 --
 -- /See:/ 'mkLogsConfig' smart constructor.
 data LogsConfig = LogsConfig'
-  { -- | Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
-    s3Logs :: Lude.Maybe S3LogsConfig,
-    -- | Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
-    cloudWatchLogs :: Lude.Maybe CloudWatchLogsConfig
+  { -- | Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
+    cloudWatchLogs :: Core.Maybe Types.CloudWatchLogsConfig,
+    -- | Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+    s3Logs :: Core.Maybe Types.S3LogsConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogsConfig' with the minimum fields required to make a request.
---
--- * 's3Logs' - Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
--- * 'cloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
+-- | Creates a 'LogsConfig' value with any optional fields omitted.
 mkLogsConfig ::
   LogsConfig
 mkLogsConfig =
-  LogsConfig' {s3Logs = Lude.Nothing, cloudWatchLogs = Lude.Nothing}
-
--- | Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
---
--- /Note:/ Consider using 's3Logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcS3Logs :: Lens.Lens' LogsConfig (Lude.Maybe S3LogsConfig)
-lcS3Logs = Lens.lens (s3Logs :: LogsConfig -> Lude.Maybe S3LogsConfig) (\s a -> s {s3Logs = a} :: LogsConfig)
-{-# DEPRECATED lcS3Logs "Use generic-lens or generic-optics with 's3Logs' instead." #-}
+  LogsConfig' {cloudWatchLogs = Core.Nothing, s3Logs = Core.Nothing}
 
 -- | Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
 --
 -- /Note:/ Consider using 'cloudWatchLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcCloudWatchLogs :: Lens.Lens' LogsConfig (Lude.Maybe CloudWatchLogsConfig)
-lcCloudWatchLogs = Lens.lens (cloudWatchLogs :: LogsConfig -> Lude.Maybe CloudWatchLogsConfig) (\s a -> s {cloudWatchLogs = a} :: LogsConfig)
+lcCloudWatchLogs :: Lens.Lens' LogsConfig (Core.Maybe Types.CloudWatchLogsConfig)
+lcCloudWatchLogs = Lens.field @"cloudWatchLogs"
 {-# DEPRECATED lcCloudWatchLogs "Use generic-lens or generic-optics with 'cloudWatchLogs' instead." #-}
 
-instance Lude.FromJSON LogsConfig where
-  parseJSON =
-    Lude.withObject
-      "LogsConfig"
-      ( \x ->
-          LogsConfig'
-            Lude.<$> (x Lude..:? "s3Logs") Lude.<*> (x Lude..:? "cloudWatchLogs")
-      )
+-- | Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+--
+-- /Note:/ Consider using 's3Logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcS3Logs :: Lens.Lens' LogsConfig (Core.Maybe Types.S3LogsConfig)
+lcS3Logs = Lens.field @"s3Logs"
+{-# DEPRECATED lcS3Logs "Use generic-lens or generic-optics with 's3Logs' instead." #-}
 
-instance Lude.ToJSON LogsConfig where
-  toJSON LogsConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("s3Logs" Lude..=) Lude.<$> s3Logs,
-            ("cloudWatchLogs" Lude..=) Lude.<$> cloudWatchLogs
+instance Core.FromJSON LogsConfig where
+  toJSON LogsConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cloudWatchLogs" Core..=) Core.<$> cloudWatchLogs,
+            ("s3Logs" Core..=) Core.<$> s3Logs
           ]
       )
+
+instance Core.FromJSON LogsConfig where
+  parseJSON =
+    Core.withObject "LogsConfig" Core.$
+      \x ->
+        LogsConfig'
+          Core.<$> (x Core..:? "cloudWatchLogs") Core.<*> (x Core..:? "s3Logs")

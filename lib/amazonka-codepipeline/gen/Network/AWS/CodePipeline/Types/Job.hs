@@ -17,85 +17,81 @@ module Network.AWS.CodePipeline.Types.Job
     mkJob,
 
     -- * Lenses
-    jData,
     jAccountId,
+    jData,
     jId,
     jNonce,
   )
 where
 
-import Network.AWS.CodePipeline.Types.JobData
+import qualified Network.AWS.CodePipeline.Types.AccountId as Types
+import qualified Network.AWS.CodePipeline.Types.JobData as Types
+import qualified Network.AWS.CodePipeline.Types.JobId as Types
+import qualified Network.AWS.CodePipeline.Types.Nonce as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about a job.
 --
 -- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { -- | Other data about a job.
-    data' :: Lude.Maybe JobData,
-    -- | The ID of the AWS account to use when performing the job.
-    accountId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS account to use when performing the job.
+    accountId :: Core.Maybe Types.AccountId,
+    -- | Other data about a job.
+    data' :: Core.Maybe Types.JobData,
     -- | The unique system-generated ID of the job.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.JobId,
     -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
-    nonce :: Lude.Maybe Lude.Text
+    nonce :: Core.Maybe Types.Nonce
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Job' with the minimum fields required to make a request.
---
--- * 'data'' - Other data about a job.
--- * 'accountId' - The ID of the AWS account to use when performing the job.
--- * 'id' - The unique system-generated ID of the job.
--- * 'nonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
+-- | Creates a 'Job' value with any optional fields omitted.
 mkJob ::
   Job
 mkJob =
   Job'
-    { data' = Lude.Nothing,
-      accountId = Lude.Nothing,
-      id = Lude.Nothing,
-      nonce = Lude.Nothing
+    { accountId = Core.Nothing,
+      data' = Core.Nothing,
+      id = Core.Nothing,
+      nonce = Core.Nothing
     }
-
--- | Other data about a job.
---
--- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jData :: Lens.Lens' Job (Lude.Maybe JobData)
-jData = Lens.lens (data' :: Job -> Lude.Maybe JobData) (\s a -> s {data' = a} :: Job)
-{-# DEPRECATED jData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The ID of the AWS account to use when performing the job.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jAccountId :: Lens.Lens' Job (Lude.Maybe Lude.Text)
-jAccountId = Lens.lens (accountId :: Job -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: Job)
+jAccountId :: Lens.Lens' Job (Core.Maybe Types.AccountId)
+jAccountId = Lens.field @"accountId"
 {-# DEPRECATED jAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | Other data about a job.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jData :: Lens.Lens' Job (Core.Maybe Types.JobData)
+jData = Lens.field @"data'"
+{-# DEPRECATED jData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The unique system-generated ID of the job.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jId :: Lens.Lens' Job (Lude.Maybe Lude.Text)
-jId = Lens.lens (id :: Job -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Job)
+jId :: Lens.Lens' Job (Core.Maybe Types.JobId)
+jId = Lens.field @"id"
 {-# DEPRECATED jId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
 --
 -- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jNonce :: Lens.Lens' Job (Lude.Maybe Lude.Text)
-jNonce = Lens.lens (nonce :: Job -> Lude.Maybe Lude.Text) (\s a -> s {nonce = a} :: Job)
+jNonce :: Lens.Lens' Job (Core.Maybe Types.Nonce)
+jNonce = Lens.field @"nonce"
 {-# DEPRECATED jNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
 
-instance Lude.FromJSON Job where
+instance Core.FromJSON Job where
   parseJSON =
-    Lude.withObject
-      "Job"
-      ( \x ->
-          Job'
-            Lude.<$> (x Lude..:? "data")
-            Lude.<*> (x Lude..:? "accountId")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "nonce")
-      )
+    Core.withObject "Job" Core.$
+      \x ->
+        Job'
+          Core.<$> (x Core..:? "accountId")
+          Core.<*> (x Core..:? "data")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "nonce")

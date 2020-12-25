@@ -32,76 +32,69 @@ module Network.AWS.LexModels.DeleteIntentVersion
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteIntentVersion' smart constructor.
 data DeleteIntentVersion = DeleteIntentVersion'
   { -- | The name of the intent.
-    name :: Lude.Text,
+    name :: Types.IntentName,
     -- | The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
-    version :: Lude.Text
+    version :: Types.NumericalVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIntentVersion' with the minimum fields required to make a request.
---
--- * 'name' - The name of the intent.
--- * 'version' - The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
+-- | Creates a 'DeleteIntentVersion' value with any optional fields omitted.
 mkDeleteIntentVersion ::
   -- | 'name'
-  Lude.Text ->
+  Types.IntentName ->
   -- | 'version'
-  Lude.Text ->
+  Types.NumericalVersion ->
   DeleteIntentVersion
-mkDeleteIntentVersion pName_ pVersion_ =
-  DeleteIntentVersion' {name = pName_, version = pVersion_}
+mkDeleteIntentVersion name version =
+  DeleteIntentVersion' {name, version}
 
 -- | The name of the intent.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-divName :: Lens.Lens' DeleteIntentVersion Lude.Text
-divName = Lens.lens (name :: DeleteIntentVersion -> Lude.Text) (\s a -> s {name = a} :: DeleteIntentVersion)
+divName :: Lens.Lens' DeleteIntentVersion Types.IntentName
+divName = Lens.field @"name"
 {-# DEPRECATED divName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the intent to delete. You cannot delete the @> LATEST@ version of the intent. To delete the @> LATEST@ version, use the 'DeleteIntent' operation.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-divVersion :: Lens.Lens' DeleteIntentVersion Lude.Text
-divVersion = Lens.lens (version :: DeleteIntentVersion -> Lude.Text) (\s a -> s {version = a} :: DeleteIntentVersion)
+divVersion :: Lens.Lens' DeleteIntentVersion Types.NumericalVersion
+divVersion = Lens.field @"version"
 {-# DEPRECATED divVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest DeleteIntentVersion where
+instance Core.AWSRequest DeleteIntentVersion where
   type Rs DeleteIntentVersion = DeleteIntentVersionResponse
-  request = Req.delete lexModelsService
-  response = Res.receiveNull DeleteIntentVersionResponse'
-
-instance Lude.ToHeaders DeleteIntentVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteIntentVersion where
-  toPath DeleteIntentVersion' {..} =
-    Lude.mconcat
-      ["/intents/", Lude.toBS name, "/versions/", Lude.toBS version]
-
-instance Lude.ToQuery DeleteIntentVersion where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/intents/" Core.<> (Core.toText name) Core.<> ("/versions/")
+                Core.<> (Core.toText version)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteIntentVersionResponse'
 
 -- | /See:/ 'mkDeleteIntentVersionResponse' smart constructor.
 data DeleteIntentVersionResponse = DeleteIntentVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIntentVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteIntentVersionResponse' value with any optional fields omitted.
 mkDeleteIntentVersionResponse ::
   DeleteIntentVersionResponse
 mkDeleteIntentVersionResponse = DeleteIntentVersionResponse'

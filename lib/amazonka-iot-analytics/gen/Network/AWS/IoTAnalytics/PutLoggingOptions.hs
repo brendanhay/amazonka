@@ -30,64 +30,61 @@ module Network.AWS.IoTAnalytics.PutLoggingOptions
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutLoggingOptions' smart constructor.
 newtype PutLoggingOptions = PutLoggingOptions'
   { -- | The new values of the AWS IoT Analytics logging options.
-    loggingOptions :: LoggingOptions
+    loggingOptions :: Types.LoggingOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLoggingOptions' with the minimum fields required to make a request.
---
--- * 'loggingOptions' - The new values of the AWS IoT Analytics logging options.
+-- | Creates a 'PutLoggingOptions' value with any optional fields omitted.
 mkPutLoggingOptions ::
   -- | 'loggingOptions'
-  LoggingOptions ->
+  Types.LoggingOptions ->
   PutLoggingOptions
-mkPutLoggingOptions pLoggingOptions_ =
-  PutLoggingOptions' {loggingOptions = pLoggingOptions_}
+mkPutLoggingOptions loggingOptions =
+  PutLoggingOptions' {loggingOptions}
 
 -- | The new values of the AWS IoT Analytics logging options.
 --
 -- /Note:/ Consider using 'loggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ploLoggingOptions :: Lens.Lens' PutLoggingOptions LoggingOptions
-ploLoggingOptions = Lens.lens (loggingOptions :: PutLoggingOptions -> LoggingOptions) (\s a -> s {loggingOptions = a} :: PutLoggingOptions)
+ploLoggingOptions :: Lens.Lens' PutLoggingOptions Types.LoggingOptions
+ploLoggingOptions = Lens.field @"loggingOptions"
 {-# DEPRECATED ploLoggingOptions "Use generic-lens or generic-optics with 'loggingOptions' instead." #-}
 
-instance Lude.AWSRequest PutLoggingOptions where
-  type Rs PutLoggingOptions = PutLoggingOptionsResponse
-  request = Req.putJSON ioTAnalyticsService
-  response = Res.receiveNull PutLoggingOptionsResponse'
-
-instance Lude.ToHeaders PutLoggingOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PutLoggingOptions where
-  toJSON PutLoggingOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("loggingOptions" Lude..= loggingOptions)]
+instance Core.FromJSON PutLoggingOptions where
+  toJSON PutLoggingOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("loggingOptions" Core..= loggingOptions)]
       )
 
-instance Lude.ToPath PutLoggingOptions where
-  toPath = Lude.const "/logging"
-
-instance Lude.ToQuery PutLoggingOptions where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest PutLoggingOptions where
+  type Rs PutLoggingOptions = PutLoggingOptionsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath "/logging",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull PutLoggingOptionsResponse'
 
 -- | /See:/ 'mkPutLoggingOptionsResponse' smart constructor.
 data PutLoggingOptionsResponse = PutLoggingOptionsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLoggingOptionsResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutLoggingOptionsResponse' value with any optional fields omitted.
 mkPutLoggingOptionsResponse ::
   PutLoggingOptionsResponse
 mkPutLoggingOptionsResponse = PutLoggingOptionsResponse'

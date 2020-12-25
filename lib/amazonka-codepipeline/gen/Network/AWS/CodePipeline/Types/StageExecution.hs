@@ -17,62 +17,55 @@ module Network.AWS.CodePipeline.Types.StageExecution
     mkStageExecution,
 
     -- * Lenses
-    seStatus,
     sePipelineExecutionId,
+    seStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types.StageExecutionStatus
+import qualified Network.AWS.CodePipeline.Types.PipelineExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.StageExecutionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about the run of a stage.
 --
 -- /See:/ 'mkStageExecution' smart constructor.
 data StageExecution = StageExecution'
-  { -- | The status of the stage, or for a completed stage, the last status of the stage.
-    status :: StageExecutionStatus,
-    -- | The ID of the pipeline execution associated with the stage.
-    pipelineExecutionId :: Lude.Text
+  { -- | The ID of the pipeline execution associated with the stage.
+    pipelineExecutionId :: Types.PipelineExecutionId,
+    -- | The status of the stage, or for a completed stage, the last status of the stage.
+    status :: Types.StageExecutionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StageExecution' with the minimum fields required to make a request.
---
--- * 'status' - The status of the stage, or for a completed stage, the last status of the stage.
--- * 'pipelineExecutionId' - The ID of the pipeline execution associated with the stage.
+-- | Creates a 'StageExecution' value with any optional fields omitted.
 mkStageExecution ::
-  -- | 'status'
-  StageExecutionStatus ->
   -- | 'pipelineExecutionId'
-  Lude.Text ->
+  Types.PipelineExecutionId ->
+  -- | 'status'
+  Types.StageExecutionStatus ->
   StageExecution
-mkStageExecution pStatus_ pPipelineExecutionId_ =
-  StageExecution'
-    { status = pStatus_,
-      pipelineExecutionId = pPipelineExecutionId_
-    }
-
--- | The status of the stage, or for a completed stage, the last status of the stage.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seStatus :: Lens.Lens' StageExecution StageExecutionStatus
-seStatus = Lens.lens (status :: StageExecution -> StageExecutionStatus) (\s a -> s {status = a} :: StageExecution)
-{-# DEPRECATED seStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkStageExecution pipelineExecutionId status =
+  StageExecution' {pipelineExecutionId, status}
 
 -- | The ID of the pipeline execution associated with the stage.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sePipelineExecutionId :: Lens.Lens' StageExecution Lude.Text
-sePipelineExecutionId = Lens.lens (pipelineExecutionId :: StageExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StageExecution)
+sePipelineExecutionId :: Lens.Lens' StageExecution Types.PipelineExecutionId
+sePipelineExecutionId = Lens.field @"pipelineExecutionId"
 {-# DEPRECATED sePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
-instance Lude.FromJSON StageExecution where
+-- | The status of the stage, or for a completed stage, the last status of the stage.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seStatus :: Lens.Lens' StageExecution Types.StageExecutionStatus
+seStatus = Lens.field @"status"
+{-# DEPRECATED seStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON StageExecution where
   parseJSON =
-    Lude.withObject
-      "StageExecution"
-      ( \x ->
-          StageExecution'
-            Lude.<$> (x Lude..: "status") Lude.<*> (x Lude..: "pipelineExecutionId")
-      )
+    Core.withObject "StageExecution" Core.$
+      \x ->
+        StageExecution'
+          Core.<$> (x Core..: "pipelineExecutionId") Core.<*> (x Core..: "status")

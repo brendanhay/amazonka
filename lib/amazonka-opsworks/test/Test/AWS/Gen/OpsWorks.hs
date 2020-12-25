@@ -27,8 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeRDSDBInstances $
---             mkDescribeRDSDBInstances
+--         [ requestDescribeRdsDbInstances $
+--             mkDescribeRdsDbInstances
 --
 --         , requestDeleteStack $
 --             mkDeleteStack
@@ -42,8 +42,8 @@ import Test.Tasty
 --         , requestSetLoadBasedAutoScaling $
 --             mkSetLoadBasedAutoScaling
 --
---         , requestDeregisterRDSDBInstance $
---             mkDeregisterRDSDBInstance
+--         , requestDeregisterRdsDbInstance $
+--             mkDeregisterRdsDbInstance
 --
 --         , requestUnassignVolume $
 --             mkUnassignVolume
@@ -54,8 +54,8 @@ import Test.Tasty
 --         , requestDescribeLayers $
 --             mkDescribeLayers
 --
---         , requestRegisterElasticIP $
---             mkRegisterElasticIP
+--         , requestRegisterElasticIp $
+--             mkRegisterElasticIp
 --
 --         , requestDescribeAgentVersions $
 --             mkDescribeAgentVersions
@@ -87,8 +87,8 @@ import Test.Tasty
 --         , requestUpdateApp $
 --             mkUpdateApp
 --
---         , requestUpdateRDSDBInstance $
---             mkUpdateRDSDBInstance
+--         , requestUpdateRdsDbInstance $
+--             mkUpdateRdsDbInstance
 --
 --         , requestDescribeTimeBasedAutoScaling $
 --             mkDescribeTimeBasedAutoScaling
@@ -99,8 +99,8 @@ import Test.Tasty
 --         , requestDescribeVolumes $
 --             mkDescribeVolumes
 --
---         , requestDisassociateElasticIP $
---             mkDisassociateElasticIP
+--         , requestDisassociateElasticIp $
+--             mkDisassociateElasticIp
 --
 --         , requestRegisterEcsCluster $
 --             mkRegisterEcsCluster
@@ -120,8 +120,8 @@ import Test.Tasty
 --         , requestAttachElasticLoadBalancer $
 --             mkAttachElasticLoadBalancer
 --
---         , requestDeregisterElasticIP $
---             mkDeregisterElasticIP
+--         , requestDeregisterElasticIp $
+--             mkDeregisterElasticIp
 --
 --         , requestDeregisterEcsCluster $
 --             mkDeregisterEcsCluster
@@ -141,8 +141,8 @@ import Test.Tasty
 --         , requestDescribeDeployments $
 --             mkDescribeDeployments
 --
---         , requestDescribeElasticIPs $
---             mkDescribeElasticIPs
+--         , requestDescribeElasticIps $
+--             mkDescribeElasticIps
 --
 --         , requestGrantAccess $
 --             mkGrantAccess
@@ -156,8 +156,8 @@ import Test.Tasty
 --         , requestCreateStack $
 --             mkCreateStack
 --
---         , requestUpdateElasticIP $
---             mkUpdateElasticIP
+--         , requestUpdateElasticIp $
+--             mkUpdateElasticIp
 --
 --         , requestCreateApp $
 --             mkCreateApp
@@ -177,8 +177,8 @@ import Test.Tasty
 --         , requestRegisterInstance $
 --             mkRegisterInstance
 --
---         , requestAssociateElasticIP $
---             mkAssociateElasticIP
+--         , requestAssociateElasticIp $
+--             mkAssociateElasticIp
 --
 --         , requestDescribeLoadBasedAutoScaling $
 --             mkDescribeLoadBasedAutoScaling
@@ -207,8 +207,8 @@ import Test.Tasty
 --         , requestDescribeServiceErrors $
 --             mkDescribeServiceErrors
 --
---         , requestRegisterRDSDBInstance $
---             mkRegisterRDSDBInstance
+--         , requestRegisterRdsDbInstance $
+--             mkRegisterRdsDbInstance
 --
 --         , requestUntagResource $
 --             mkUntagResource
@@ -240,8 +240,8 @@ import Test.Tasty
 --         , requestDescribeEcsClusters $
 --             mkDescribeEcsClusters
 --
---         , requestDescribeRAIDArrays $
---             mkDescribeRAIDArrays
+--         , requestDescribeRaidArrays $
+--             mkDescribeRaidArrays
 --
 --         , requestUpdateVolume $
 --             mkUpdateVolume
@@ -252,8 +252,8 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeRDSDBInstances $
---             mkDescribeRDSDBInstancesResponse
+--         [ responseDescribeRdsDbInstances $
+--             mkDescribeRdsDbInstancesResponse
 --
 --         , responseDeleteStack $
 --             mkDeleteStackResponse
@@ -267,8 +267,8 @@ import Test.Tasty
 --         , responseSetLoadBasedAutoScaling $
 --             mkSetLoadBasedAutoScalingResponse
 --
---         , responseDeregisterRDSDBInstance $
---             mkDeregisterRDSDBInstanceResponse
+--         , responseDeregisterRdsDbInstance $
+--             mkDeregisterRdsDbInstanceResponse
 --
 --         , responseUnassignVolume $
 --             mkUnassignVolumeResponse
@@ -279,8 +279,8 @@ import Test.Tasty
 --         , responseDescribeLayers $
 --             mkDescribeLayersResponse
 --
---         , responseRegisterElasticIP $
---             mkRegisterElasticIPResponse
+--         , responseRegisterElasticIp $
+--             mkRegisterElasticIpResponse
 --
 --         , responseDescribeAgentVersions $
 --             mkDescribeAgentVersionsResponse
@@ -312,8 +312,8 @@ import Test.Tasty
 --         , responseUpdateApp $
 --             mkUpdateAppResponse
 --
---         , responseUpdateRDSDBInstance $
---             mkUpdateRDSDBInstanceResponse
+--         , responseUpdateRdsDbInstance $
+--             mkUpdateRdsDbInstanceResponse
 --
 --         , responseDescribeTimeBasedAutoScaling $
 --             mkDescribeTimeBasedAutoScalingResponse
@@ -324,8 +324,8 @@ import Test.Tasty
 --         , responseDescribeVolumes $
 --             mkDescribeVolumesResponse
 --
---         , responseDisassociateElasticIP $
---             mkDisassociateElasticIPResponse
+--         , responseDisassociateElasticIp $
+--             mkDisassociateElasticIpResponse
 --
 --         , responseRegisterEcsCluster $
 --             mkRegisterEcsClusterResponse
@@ -345,8 +345,8 @@ import Test.Tasty
 --         , responseAttachElasticLoadBalancer $
 --             mkAttachElasticLoadBalancerResponse
 --
---         , responseDeregisterElasticIP $
---             mkDeregisterElasticIPResponse
+--         , responseDeregisterElasticIp $
+--             mkDeregisterElasticIpResponse
 --
 --         , responseDeregisterEcsCluster $
 --             mkDeregisterEcsClusterResponse
@@ -366,8 +366,8 @@ import Test.Tasty
 --         , responseDescribeDeployments $
 --             mkDescribeDeploymentsResponse
 --
---         , responseDescribeElasticIPs $
---             mkDescribeElasticIPsResponse
+--         , responseDescribeElasticIps $
+--             mkDescribeElasticIpsResponse
 --
 --         , responseGrantAccess $
 --             mkGrantAccessResponse
@@ -381,8 +381,8 @@ import Test.Tasty
 --         , responseCreateStack $
 --             mkCreateStackResponse
 --
---         , responseUpdateElasticIP $
---             mkUpdateElasticIPResponse
+--         , responseUpdateElasticIp $
+--             mkUpdateElasticIpResponse
 --
 --         , responseCreateApp $
 --             mkCreateAppResponse
@@ -402,8 +402,8 @@ import Test.Tasty
 --         , responseRegisterInstance $
 --             mkRegisterInstanceResponse
 --
---         , responseAssociateElasticIP $
---             mkAssociateElasticIPResponse
+--         , responseAssociateElasticIp $
+--             mkAssociateElasticIpResponse
 --
 --         , responseDescribeLoadBasedAutoScaling $
 --             mkDescribeLoadBasedAutoScalingResponse
@@ -432,8 +432,8 @@ import Test.Tasty
 --         , responseDescribeServiceErrors $
 --             mkDescribeServiceErrorsResponse
 --
---         , responseRegisterRDSDBInstance $
---             mkRegisterRDSDBInstanceResponse
+--         , responseRegisterRdsDbInstance $
+--             mkRegisterRdsDbInstanceResponse
 --
 --         , responseUntagResource $
 --             mkUntagResourceResponse
@@ -465,8 +465,8 @@ import Test.Tasty
 --         , responseDescribeEcsClusters $
 --             mkDescribeEcsClustersResponse
 --
---         , responseDescribeRAIDArrays $
---             mkDescribeRAIdArraysResponse
+--         , responseDescribeRaidArrays $
+--             mkDescribeRaidArraysResponse
 --
 --         , responseUpdateVolume $
 --             mkUpdateVolumeResponse
@@ -479,11 +479,11 @@ import Test.Tasty
 
 -- Requests
 
-requestDescribeRDSDBInstances :: DescribeRDSDBInstances -> TestTree
-requestDescribeRDSDBInstances =
+requestDescribeRdsDbInstances :: DescribeRdsDbInstances -> TestTree
+requestDescribeRdsDbInstances =
   req
-    "DescribeRDSDBInstances"
-    "fixture/DescribeRDSDBInstances.yaml"
+    "DescribeRdsDbInstances"
+    "fixture/DescribeRdsDbInstances.yaml"
 
 requestDeleteStack :: DeleteStack -> TestTree
 requestDeleteStack =
@@ -509,11 +509,11 @@ requestSetLoadBasedAutoScaling =
     "SetLoadBasedAutoScaling"
     "fixture/SetLoadBasedAutoScaling.yaml"
 
-requestDeregisterRDSDBInstance :: DeregisterRDSDBInstance -> TestTree
-requestDeregisterRDSDBInstance =
+requestDeregisterRdsDbInstance :: DeregisterRdsDbInstance -> TestTree
+requestDeregisterRdsDbInstance =
   req
-    "DeregisterRDSDBInstance"
-    "fixture/DeregisterRDSDBInstance.yaml"
+    "DeregisterRdsDbInstance"
+    "fixture/DeregisterRdsDbInstance.yaml"
 
 requestUnassignVolume :: UnassignVolume -> TestTree
 requestUnassignVolume =
@@ -533,11 +533,11 @@ requestDescribeLayers =
     "DescribeLayers"
     "fixture/DescribeLayers.yaml"
 
-requestRegisterElasticIP :: RegisterElasticIP -> TestTree
-requestRegisterElasticIP =
+requestRegisterElasticIp :: RegisterElasticIp -> TestTree
+requestRegisterElasticIp =
   req
-    "RegisterElasticIP"
-    "fixture/RegisterElasticIP.yaml"
+    "RegisterElasticIp"
+    "fixture/RegisterElasticIp.yaml"
 
 requestDescribeAgentVersions :: DescribeAgentVersions -> TestTree
 requestDescribeAgentVersions =
@@ -599,11 +599,11 @@ requestUpdateApp =
     "UpdateApp"
     "fixture/UpdateApp.yaml"
 
-requestUpdateRDSDBInstance :: UpdateRDSDBInstance -> TestTree
-requestUpdateRDSDBInstance =
+requestUpdateRdsDbInstance :: UpdateRdsDbInstance -> TestTree
+requestUpdateRdsDbInstance =
   req
-    "UpdateRDSDBInstance"
-    "fixture/UpdateRDSDBInstance.yaml"
+    "UpdateRdsDbInstance"
+    "fixture/UpdateRdsDbInstance.yaml"
 
 requestDescribeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling -> TestTree
 requestDescribeTimeBasedAutoScaling =
@@ -623,11 +623,11 @@ requestDescribeVolumes =
     "DescribeVolumes"
     "fixture/DescribeVolumes.yaml"
 
-requestDisassociateElasticIP :: DisassociateElasticIP -> TestTree
-requestDisassociateElasticIP =
+requestDisassociateElasticIp :: DisassociateElasticIp -> TestTree
+requestDisassociateElasticIp =
   req
-    "DisassociateElasticIP"
-    "fixture/DisassociateElasticIP.yaml"
+    "DisassociateElasticIp"
+    "fixture/DisassociateElasticIp.yaml"
 
 requestRegisterEcsCluster :: RegisterEcsCluster -> TestTree
 requestRegisterEcsCluster =
@@ -665,11 +665,11 @@ requestAttachElasticLoadBalancer =
     "AttachElasticLoadBalancer"
     "fixture/AttachElasticLoadBalancer.yaml"
 
-requestDeregisterElasticIP :: DeregisterElasticIP -> TestTree
-requestDeregisterElasticIP =
+requestDeregisterElasticIp :: DeregisterElasticIp -> TestTree
+requestDeregisterElasticIp =
   req
-    "DeregisterElasticIP"
-    "fixture/DeregisterElasticIP.yaml"
+    "DeregisterElasticIp"
+    "fixture/DeregisterElasticIp.yaml"
 
 requestDeregisterEcsCluster :: DeregisterEcsCluster -> TestTree
 requestDeregisterEcsCluster =
@@ -707,11 +707,11 @@ requestDescribeDeployments =
     "DescribeDeployments"
     "fixture/DescribeDeployments.yaml"
 
-requestDescribeElasticIPs :: DescribeElasticIPs -> TestTree
-requestDescribeElasticIPs =
+requestDescribeElasticIps :: DescribeElasticIps -> TestTree
+requestDescribeElasticIps =
   req
-    "DescribeElasticIPs"
-    "fixture/DescribeElasticIPs.yaml"
+    "DescribeElasticIps"
+    "fixture/DescribeElasticIps.yaml"
 
 requestGrantAccess :: GrantAccess -> TestTree
 requestGrantAccess =
@@ -737,11 +737,11 @@ requestCreateStack =
     "CreateStack"
     "fixture/CreateStack.yaml"
 
-requestUpdateElasticIP :: UpdateElasticIP -> TestTree
-requestUpdateElasticIP =
+requestUpdateElasticIp :: UpdateElasticIp -> TestTree
+requestUpdateElasticIp =
   req
-    "UpdateElasticIP"
-    "fixture/UpdateElasticIP.yaml"
+    "UpdateElasticIp"
+    "fixture/UpdateElasticIp.yaml"
 
 requestCreateApp :: CreateApp -> TestTree
 requestCreateApp =
@@ -779,11 +779,11 @@ requestRegisterInstance =
     "RegisterInstance"
     "fixture/RegisterInstance.yaml"
 
-requestAssociateElasticIP :: AssociateElasticIP -> TestTree
-requestAssociateElasticIP =
+requestAssociateElasticIp :: AssociateElasticIp -> TestTree
+requestAssociateElasticIp =
   req
-    "AssociateElasticIP"
-    "fixture/AssociateElasticIP.yaml"
+    "AssociateElasticIp"
+    "fixture/AssociateElasticIp.yaml"
 
 requestDescribeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling -> TestTree
 requestDescribeLoadBasedAutoScaling =
@@ -839,11 +839,11 @@ requestDescribeServiceErrors =
     "DescribeServiceErrors"
     "fixture/DescribeServiceErrors.yaml"
 
-requestRegisterRDSDBInstance :: RegisterRDSDBInstance -> TestTree
-requestRegisterRDSDBInstance =
+requestRegisterRdsDbInstance :: RegisterRdsDbInstance -> TestTree
+requestRegisterRdsDbInstance =
   req
-    "RegisterRDSDBInstance"
-    "fixture/RegisterRDSDBInstance.yaml"
+    "RegisterRdsDbInstance"
+    "fixture/RegisterRdsDbInstance.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -905,11 +905,11 @@ requestDescribeEcsClusters =
     "DescribeEcsClusters"
     "fixture/DescribeEcsClusters.yaml"
 
-requestDescribeRAIDArrays :: DescribeRAIDArrays -> TestTree
-requestDescribeRAIDArrays =
+requestDescribeRaidArrays :: DescribeRaidArrays -> TestTree
+requestDescribeRaidArrays =
   req
-    "DescribeRAIDArrays"
-    "fixture/DescribeRAIDArrays.yaml"
+    "DescribeRaidArrays"
+    "fixture/DescribeRaidArrays.yaml"
 
 requestUpdateVolume :: UpdateVolume -> TestTree
 requestUpdateVolume =
@@ -925,20 +925,20 @@ requestStartInstance =
 
 -- Responses
 
-responseDescribeRDSDBInstances :: DescribeRDSDBInstancesResponse -> TestTree
-responseDescribeRDSDBInstances =
+responseDescribeRdsDbInstances :: DescribeRdsDbInstancesResponse -> TestTree
+responseDescribeRdsDbInstances =
   res
-    "DescribeRDSDBInstancesResponse"
-    "fixture/DescribeRDSDBInstancesResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy DescribeRDSDBInstances)
+    "DescribeRdsDbInstancesResponse"
+    "fixture/DescribeRdsDbInstancesResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeRdsDbInstances)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack =
   res
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStack)
 
 responseUpdateStack :: UpdateStackResponse -> TestTree
@@ -946,7 +946,7 @@ responseUpdateStack =
   res
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStack)
 
 responseCreateLayer :: CreateLayerResponse -> TestTree
@@ -954,7 +954,7 @@ responseCreateLayer =
   res
     "CreateLayerResponse"
     "fixture/CreateLayerResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CreateLayer)
 
 responseSetLoadBasedAutoScaling :: SetLoadBasedAutoScalingResponse -> TestTree
@@ -962,23 +962,23 @@ responseSetLoadBasedAutoScaling =
   res
     "SetLoadBasedAutoScalingResponse"
     "fixture/SetLoadBasedAutoScalingResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy SetLoadBasedAutoScaling)
 
-responseDeregisterRDSDBInstance :: DeregisterRDSDBInstanceResponse -> TestTree
-responseDeregisterRDSDBInstance =
+responseDeregisterRdsDbInstance :: DeregisterRdsDbInstanceResponse -> TestTree
+responseDeregisterRdsDbInstance =
   res
-    "DeregisterRDSDBInstanceResponse"
-    "fixture/DeregisterRDSDBInstanceResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy DeregisterRDSDBInstance)
+    "DeregisterRdsDbInstanceResponse"
+    "fixture/DeregisterRdsDbInstanceResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeregisterRdsDbInstance)
 
 responseUnassignVolume :: UnassignVolumeResponse -> TestTree
 responseUnassignVolume =
   res
     "UnassignVolumeResponse"
     "fixture/UnassignVolumeResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UnassignVolume)
 
 responseCreateInstance :: CreateInstanceResponse -> TestTree
@@ -986,7 +986,7 @@ responseCreateInstance =
   res
     "CreateInstanceResponse"
     "fixture/CreateInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CreateInstance)
 
 responseDescribeLayers :: DescribeLayersResponse -> TestTree
@@ -994,23 +994,23 @@ responseDescribeLayers =
   res
     "DescribeLayersResponse"
     "fixture/DescribeLayersResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLayers)
 
-responseRegisterElasticIP :: RegisterElasticIPResponse -> TestTree
-responseRegisterElasticIP =
+responseRegisterElasticIp :: RegisterElasticIpResponse -> TestTree
+responseRegisterElasticIp =
   res
-    "RegisterElasticIPResponse"
-    "fixture/RegisterElasticIPResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy RegisterElasticIP)
+    "RegisterElasticIpResponse"
+    "fixture/RegisterElasticIpResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy RegisterElasticIp)
 
 responseDescribeAgentVersions :: DescribeAgentVersionsResponse -> TestTree
 responseDescribeAgentVersions =
   res
     "DescribeAgentVersionsResponse"
     "fixture/DescribeAgentVersionsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAgentVersions)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseCreateDeployment =
   res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeployment)
 
 responseAssignInstance :: AssignInstanceResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseAssignInstance =
   res
     "AssignInstanceResponse"
     "fixture/AssignInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy AssignInstance)
 
 responseDescribeStacks :: DescribeStacksResponse -> TestTree
@@ -1034,7 +1034,7 @@ responseDescribeStacks =
   res
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStacks)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
@@ -1042,7 +1042,7 @@ responseDeleteInstance =
   res
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeleteInstance)
 
 responseUpdateInstance :: UpdateInstanceResponse -> TestTree
@@ -1050,7 +1050,7 @@ responseUpdateInstance =
   res
     "UpdateInstanceResponse"
     "fixture/UpdateInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateInstance)
 
 responseDeregisterVolume :: DeregisterVolumeResponse -> TestTree
@@ -1058,7 +1058,7 @@ responseDeregisterVolume =
   res
     "DeregisterVolumeResponse"
     "fixture/DeregisterVolumeResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterVolume)
 
 responseRebootInstance :: RebootInstanceResponse -> TestTree
@@ -1066,7 +1066,7 @@ responseRebootInstance =
   res
     "RebootInstanceResponse"
     "fixture/RebootInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy RebootInstance)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
@@ -1074,7 +1074,7 @@ responseDeleteApp =
   res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApp)
 
 responseUpdateApp :: UpdateAppResponse -> TestTree
@@ -1082,23 +1082,23 @@ responseUpdateApp =
   res
     "UpdateAppResponse"
     "fixture/UpdateAppResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApp)
 
-responseUpdateRDSDBInstance :: UpdateRDSDBInstanceResponse -> TestTree
-responseUpdateRDSDBInstance =
+responseUpdateRdsDbInstance :: UpdateRdsDbInstanceResponse -> TestTree
+responseUpdateRdsDbInstance =
   res
-    "UpdateRDSDBInstanceResponse"
-    "fixture/UpdateRDSDBInstanceResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy UpdateRDSDBInstance)
+    "UpdateRdsDbInstanceResponse"
+    "fixture/UpdateRdsDbInstanceResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy UpdateRdsDbInstance)
 
 responseDescribeTimeBasedAutoScaling :: DescribeTimeBasedAutoScalingResponse -> TestTree
 responseDescribeTimeBasedAutoScaling =
   res
     "DescribeTimeBasedAutoScalingResponse"
     "fixture/DescribeTimeBasedAutoScalingResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTimeBasedAutoScaling)
 
 responseStopStack :: StopStackResponse -> TestTree
@@ -1106,7 +1106,7 @@ responseStopStack =
   res
     "StopStackResponse"
     "fixture/StopStackResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy StopStack)
 
 responseDescribeVolumes :: DescribeVolumesResponse -> TestTree
@@ -1114,23 +1114,23 @@ responseDescribeVolumes =
   res
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeVolumes)
 
-responseDisassociateElasticIP :: DisassociateElasticIPResponse -> TestTree
-responseDisassociateElasticIP =
+responseDisassociateElasticIp :: DisassociateElasticIpResponse -> TestTree
+responseDisassociateElasticIp =
   res
-    "DisassociateElasticIPResponse"
-    "fixture/DisassociateElasticIPResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy DisassociateElasticIP)
+    "DisassociateElasticIpResponse"
+    "fixture/DisassociateElasticIpResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DisassociateElasticIp)
 
 responseRegisterEcsCluster :: RegisterEcsClusterResponse -> TestTree
 responseRegisterEcsCluster =
   res
     "RegisterEcsClusterResponse"
     "fixture/RegisterEcsClusterResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy RegisterEcsCluster)
 
 responseStopInstance :: StopInstanceResponse -> TestTree
@@ -1138,7 +1138,7 @@ responseStopInstance =
   res
     "StopInstanceResponse"
     "fixture/StopInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy StopInstance)
 
 responseRegisterVolume :: RegisterVolumeResponse -> TestTree
@@ -1146,7 +1146,7 @@ responseRegisterVolume =
   res
     "RegisterVolumeResponse"
     "fixture/RegisterVolumeResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy RegisterVolume)
 
 responseSetTimeBasedAutoScaling :: SetTimeBasedAutoScalingResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseSetTimeBasedAutoScaling =
   res
     "SetTimeBasedAutoScalingResponse"
     "fixture/SetTimeBasedAutoScalingResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy SetTimeBasedAutoScaling)
 
 responseDescribeUserProfiles :: DescribeUserProfilesResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseDescribeUserProfiles =
   res
     "DescribeUserProfilesResponse"
     "fixture/DescribeUserProfilesResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserProfiles)
 
 responseAttachElasticLoadBalancer :: AttachElasticLoadBalancerResponse -> TestTree
@@ -1170,23 +1170,23 @@ responseAttachElasticLoadBalancer =
   res
     "AttachElasticLoadBalancerResponse"
     "fixture/AttachElasticLoadBalancerResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy AttachElasticLoadBalancer)
 
-responseDeregisterElasticIP :: DeregisterElasticIPResponse -> TestTree
-responseDeregisterElasticIP =
+responseDeregisterElasticIp :: DeregisterElasticIpResponse -> TestTree
+responseDeregisterElasticIp =
   res
-    "DeregisterElasticIPResponse"
-    "fixture/DeregisterElasticIPResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy DeregisterElasticIP)
+    "DeregisterElasticIpResponse"
+    "fixture/DeregisterElasticIpResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeregisterElasticIp)
 
 responseDeregisterEcsCluster :: DeregisterEcsClusterResponse -> TestTree
 responseDeregisterEcsCluster =
   res
     "DeregisterEcsClusterResponse"
     "fixture/DeregisterEcsClusterResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterEcsCluster)
 
 responseDescribeApps :: DescribeAppsResponse -> TestTree
@@ -1194,7 +1194,7 @@ responseDescribeApps =
   res
     "DescribeAppsResponse"
     "fixture/DescribeAppsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeApps)
 
 responseUpdateMyUserProfile :: UpdateMyUserProfileResponse -> TestTree
@@ -1202,7 +1202,7 @@ responseUpdateMyUserProfile =
   res
     "UpdateMyUserProfileResponse"
     "fixture/UpdateMyUserProfileResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMyUserProfile)
 
 responseDescribeStackSummary :: DescribeStackSummaryResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseDescribeStackSummary =
   res
     "DescribeStackSummaryResponse"
     "fixture/DescribeStackSummaryResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackSummary)
 
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
@@ -1218,7 +1218,7 @@ responseDescribeInstances =
   res
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeInstances)
 
 responseDescribeDeployments :: DescribeDeploymentsResponse -> TestTree
@@ -1226,23 +1226,23 @@ responseDescribeDeployments =
   res
     "DescribeDeploymentsResponse"
     "fixture/DescribeDeploymentsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDeployments)
 
-responseDescribeElasticIPs :: DescribeElasticIPsResponse -> TestTree
-responseDescribeElasticIPs =
+responseDescribeElasticIps :: DescribeElasticIpsResponse -> TestTree
+responseDescribeElasticIps =
   res
-    "DescribeElasticIPsResponse"
-    "fixture/DescribeElasticIPsResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy DescribeElasticIPs)
+    "DescribeElasticIpsResponse"
+    "fixture/DescribeElasticIpsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeElasticIps)
 
 responseGrantAccess :: GrantAccessResponse -> TestTree
 responseGrantAccess =
   res
     "GrantAccessResponse"
     "fixture/GrantAccessResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy GrantAccess)
 
 responseDeleteLayer :: DeleteLayerResponse -> TestTree
@@ -1250,7 +1250,7 @@ responseDeleteLayer =
   res
     "DeleteLayerResponse"
     "fixture/DeleteLayerResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLayer)
 
 responseUpdateLayer :: UpdateLayerResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseUpdateLayer =
   res
     "UpdateLayerResponse"
     "fixture/UpdateLayerResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateLayer)
 
 responseCreateStack :: CreateStackResponse -> TestTree
@@ -1266,23 +1266,23 @@ responseCreateStack =
   res
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CreateStack)
 
-responseUpdateElasticIP :: UpdateElasticIPResponse -> TestTree
-responseUpdateElasticIP =
+responseUpdateElasticIp :: UpdateElasticIpResponse -> TestTree
+responseUpdateElasticIp =
   res
-    "UpdateElasticIPResponse"
-    "fixture/UpdateElasticIPResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy UpdateElasticIP)
+    "UpdateElasticIpResponse"
+    "fixture/UpdateElasticIpResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy UpdateElasticIp)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
   res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CreateApp)
 
 responseGetHostnameSuggestion :: GetHostnameSuggestionResponse -> TestTree
@@ -1290,7 +1290,7 @@ responseGetHostnameSuggestion =
   res
     "GetHostnameSuggestionResponse"
     "fixture/GetHostnameSuggestionResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy GetHostnameSuggestion)
 
 responseCloneStack :: CloneStackResponse -> TestTree
@@ -1298,7 +1298,7 @@ responseCloneStack =
   res
     "CloneStackResponse"
     "fixture/CloneStackResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CloneStack)
 
 responseDescribePermissions :: DescribePermissionsResponse -> TestTree
@@ -1306,7 +1306,7 @@ responseDescribePermissions =
   res
     "DescribePermissionsResponse"
     "fixture/DescribePermissionsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribePermissions)
 
 responseDetachElasticLoadBalancer :: DetachElasticLoadBalancerResponse -> TestTree
@@ -1314,7 +1314,7 @@ responseDetachElasticLoadBalancer =
   res
     "DetachElasticLoadBalancerResponse"
     "fixture/DetachElasticLoadBalancerResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DetachElasticLoadBalancer)
 
 responseRegisterInstance :: RegisterInstanceResponse -> TestTree
@@ -1322,23 +1322,23 @@ responseRegisterInstance =
   res
     "RegisterInstanceResponse"
     "fixture/RegisterInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy RegisterInstance)
 
-responseAssociateElasticIP :: AssociateElasticIPResponse -> TestTree
-responseAssociateElasticIP =
+responseAssociateElasticIp :: AssociateElasticIpResponse -> TestTree
+responseAssociateElasticIp =
   res
-    "AssociateElasticIPResponse"
-    "fixture/AssociateElasticIPResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy AssociateElasticIP)
+    "AssociateElasticIpResponse"
+    "fixture/AssociateElasticIpResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy AssociateElasticIp)
 
 responseDescribeLoadBasedAutoScaling :: DescribeLoadBasedAutoScalingResponse -> TestTree
 responseDescribeLoadBasedAutoScaling =
   res
     "DescribeLoadBasedAutoScalingResponse"
     "fixture/DescribeLoadBasedAutoScalingResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoadBasedAutoScaling)
 
 responseDescribeStackProvisioningParameters :: DescribeStackProvisioningParametersResponse -> TestTree
@@ -1346,7 +1346,7 @@ responseDescribeStackProvisioningParameters =
   res
     "DescribeStackProvisioningParametersResponse"
     "fixture/DescribeStackProvisioningParametersResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackProvisioningParameters)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1354,7 +1354,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -1362,7 +1362,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseUnassignInstance :: UnassignInstanceResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseUnassignInstance =
   res
     "UnassignInstanceResponse"
     "fixture/UnassignInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UnassignInstance)
 
 responseDescribeMyUserProfile :: DescribeMyUserProfileResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseDescribeMyUserProfile =
   res
     "DescribeMyUserProfileResponse"
     "fixture/DescribeMyUserProfileResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMyUserProfile)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
@@ -1386,7 +1386,7 @@ responseDeleteUserProfile =
   res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseUpdateUserProfile =
   res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserProfile)
 
 responseDescribeServiceErrors :: DescribeServiceErrorsResponse -> TestTree
@@ -1402,23 +1402,23 @@ responseDescribeServiceErrors =
   res
     "DescribeServiceErrorsResponse"
     "fixture/DescribeServiceErrorsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeServiceErrors)
 
-responseRegisterRDSDBInstance :: RegisterRDSDBInstanceResponse -> TestTree
-responseRegisterRDSDBInstance =
+responseRegisterRdsDbInstance :: RegisterRdsDbInstanceResponse -> TestTree
+responseRegisterRdsDbInstance =
   res
-    "RegisterRDSDBInstanceResponse"
-    "fixture/RegisterRDSDBInstanceResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy RegisterRDSDBInstance)
+    "RegisterRdsDbInstanceResponse"
+    "fixture/RegisterRdsDbInstanceResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy RegisterRdsDbInstance)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseStartStack :: StartStackResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseStartStack =
   res
     "StartStackResponse"
     "fixture/StartStackResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy StartStack)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseCreateUserProfile =
   res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserProfile)
 
 responseDescribeOperatingSystems :: DescribeOperatingSystemsResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseDescribeOperatingSystems =
   res
     "DescribeOperatingSystemsResponse"
     "fixture/DescribeOperatingSystemsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOperatingSystems)
 
 responseDescribeCommands :: DescribeCommandsResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseDescribeCommands =
   res
     "DescribeCommandsResponse"
     "fixture/DescribeCommandsResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCommands)
 
 responseAssignVolume :: AssignVolumeResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseAssignVolume =
   res
     "AssignVolumeResponse"
     "fixture/AssignVolumeResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy AssignVolume)
 
 responseDescribeElasticLoadBalancers :: DescribeElasticLoadBalancersResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseDescribeElasticLoadBalancers =
   res
     "DescribeElasticLoadBalancersResponse"
     "fixture/DescribeElasticLoadBalancersResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeElasticLoadBalancers)
 
 responseSetPermission :: SetPermissionResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseSetPermission =
   res
     "SetPermissionResponse"
     "fixture/SetPermissionResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy SetPermission)
 
 responseDeregisterInstance :: DeregisterInstanceResponse -> TestTree
@@ -1482,7 +1482,7 @@ responseDeregisterInstance =
   res
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterInstance)
 
 responseDescribeEcsClusters :: DescribeEcsClustersResponse -> TestTree
@@ -1490,23 +1490,23 @@ responseDescribeEcsClusters =
   res
     "DescribeEcsClustersResponse"
     "fixture/DescribeEcsClustersResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEcsClusters)
 
-responseDescribeRAIDArrays :: DescribeRAIdArraysResponse -> TestTree
-responseDescribeRAIDArrays =
+responseDescribeRaidArrays :: DescribeRaidArraysResponse -> TestTree
+responseDescribeRaidArrays =
   res
-    "DescribeRAIDArraysResponse"
-    "fixture/DescribeRAIDArraysResponse.proto"
-    opsWorksService
-    (Proxy :: Proxy DescribeRAIDArrays)
+    "DescribeRaidArraysResponse"
+    "fixture/DescribeRaidArraysResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeRaidArrays)
 
 responseUpdateVolume :: UpdateVolumeResponse -> TestTree
 responseUpdateVolume =
   res
     "UpdateVolumeResponse"
     "fixture/UpdateVolumeResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy UpdateVolume)
 
 responseStartInstance :: StartInstanceResponse -> TestTree
@@ -1514,5 +1514,5 @@ responseStartInstance =
   res
     "StartInstanceResponse"
     "fixture/StartInstanceResponse.proto"
-    opsWorksService
+    mkServiceConfig
     (Proxy :: Proxy StartInstance)

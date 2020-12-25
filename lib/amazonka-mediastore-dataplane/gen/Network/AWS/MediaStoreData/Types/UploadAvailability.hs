@@ -13,46 +13,51 @@
 module Network.AWS.MediaStoreData.Types.UploadAvailability
   ( UploadAvailability
       ( UploadAvailability',
-        Standard,
-        Streaming
+        UploadAvailabilityStandard,
+        UploadAvailabilityStreaming,
+        fromUploadAvailability
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UploadAvailability = UploadAvailability' Lude.Text
+newtype UploadAvailability = UploadAvailability'
+  { fromUploadAvailability ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: UploadAvailability
-pattern Standard = UploadAvailability' "STANDARD"
+pattern UploadAvailabilityStandard :: UploadAvailability
+pattern UploadAvailabilityStandard = UploadAvailability' "STANDARD"
 
-pattern Streaming :: UploadAvailability
-pattern Streaming = UploadAvailability' "STREAMING"
+pattern UploadAvailabilityStreaming :: UploadAvailability
+pattern UploadAvailabilityStreaming = UploadAvailability' "STREAMING"
 
 {-# COMPLETE
-  Standard,
-  Streaming,
+  UploadAvailabilityStandard,
+  UploadAvailabilityStreaming,
   UploadAvailability'
   #-}

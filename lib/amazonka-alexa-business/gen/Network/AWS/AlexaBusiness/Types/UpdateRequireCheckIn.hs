@@ -23,51 +23,48 @@ module Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.
 --
 -- /See:/ 'mkUpdateRequireCheckIn' smart constructor.
 data UpdateRequireCheckIn = UpdateRequireCheckIn'
   { -- | Whether require check in is enabled or not.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
-    releaseAfterMinutes :: Lude.Maybe Lude.Int
+    releaseAfterMinutes :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRequireCheckIn' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether require check in is enabled or not.
--- * 'releaseAfterMinutes' - Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
+-- | Creates a 'UpdateRequireCheckIn' value with any optional fields omitted.
 mkUpdateRequireCheckIn ::
   UpdateRequireCheckIn
 mkUpdateRequireCheckIn =
   UpdateRequireCheckIn'
-    { enabled = Lude.Nothing,
-      releaseAfterMinutes = Lude.Nothing
+    { enabled = Core.Nothing,
+      releaseAfterMinutes = Core.Nothing
     }
 
 -- | Whether require check in is enabled or not.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urciEnabled :: Lens.Lens' UpdateRequireCheckIn (Lude.Maybe Lude.Bool)
-urciEnabled = Lens.lens (enabled :: UpdateRequireCheckIn -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateRequireCheckIn)
+urciEnabled :: Lens.Lens' UpdateRequireCheckIn (Core.Maybe Core.Bool)
+urciEnabled = Lens.field @"enabled"
 {-# DEPRECATED urciEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
 --
 -- /Note:/ Consider using 'releaseAfterMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urciReleaseAfterMinutes :: Lens.Lens' UpdateRequireCheckIn (Lude.Maybe Lude.Int)
-urciReleaseAfterMinutes = Lens.lens (releaseAfterMinutes :: UpdateRequireCheckIn -> Lude.Maybe Lude.Int) (\s a -> s {releaseAfterMinutes = a} :: UpdateRequireCheckIn)
+urciReleaseAfterMinutes :: Lens.Lens' UpdateRequireCheckIn (Core.Maybe Core.Int)
+urciReleaseAfterMinutes = Lens.field @"releaseAfterMinutes"
 {-# DEPRECATED urciReleaseAfterMinutes "Use generic-lens or generic-optics with 'releaseAfterMinutes' instead." #-}
 
-instance Lude.ToJSON UpdateRequireCheckIn where
-  toJSON UpdateRequireCheckIn' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("ReleaseAfterMinutes" Lude..=) Lude.<$> releaseAfterMinutes
+instance Core.FromJSON UpdateRequireCheckIn where
+  toJSON UpdateRequireCheckIn {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("ReleaseAfterMinutes" Core..=) Core.<$> releaseAfterMinutes
           ]
       )

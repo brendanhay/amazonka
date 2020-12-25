@@ -22,7 +22,7 @@ module Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters for the technical segments returned by 'GetSegmentDetection' . For more information, see 'StartSegmentDetectionFilters' .
 --
@@ -31,22 +31,18 @@ newtype StartTechnicalCueDetectionFilter = StartTechnicalCueDetectionFilter'
   { -- | Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.
     --
     -- If you don't specify @MinSegmentConfidence@ , @GetSegmentDetection@ returns segments with confidence values greater than or equal to 50 percent.
-    minSegmentConfidence :: Lude.Maybe Lude.Double
+    minSegmentConfidence :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartTechnicalCueDetectionFilter' with the minimum fields required to make a request.
---
--- * 'minSegmentConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.
---
--- If you don't specify @MinSegmentConfidence@ , @GetSegmentDetection@ returns segments with confidence values greater than or equal to 50 percent.
+-- | Creates a 'StartTechnicalCueDetectionFilter' value with any optional fields omitted.
 mkStartTechnicalCueDetectionFilter ::
   StartTechnicalCueDetectionFilter
 mkStartTechnicalCueDetectionFilter =
   StartTechnicalCueDetectionFilter'
     { minSegmentConfidence =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.
@@ -54,13 +50,13 @@ mkStartTechnicalCueDetectionFilter =
 -- If you don't specify @MinSegmentConfidence@ , @GetSegmentDetection@ returns segments with confidence values greater than or equal to 50 percent.
 --
 -- /Note:/ Consider using 'minSegmentConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stcdfMinSegmentConfidence :: Lens.Lens' StartTechnicalCueDetectionFilter (Lude.Maybe Lude.Double)
-stcdfMinSegmentConfidence = Lens.lens (minSegmentConfidence :: StartTechnicalCueDetectionFilter -> Lude.Maybe Lude.Double) (\s a -> s {minSegmentConfidence = a} :: StartTechnicalCueDetectionFilter)
+stcdfMinSegmentConfidence :: Lens.Lens' StartTechnicalCueDetectionFilter (Core.Maybe Core.Double)
+stcdfMinSegmentConfidence = Lens.field @"minSegmentConfidence"
 {-# DEPRECATED stcdfMinSegmentConfidence "Use generic-lens or generic-optics with 'minSegmentConfidence' instead." #-}
 
-instance Lude.ToJSON StartTechnicalCueDetectionFilter where
-  toJSON StartTechnicalCueDetectionFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("MinSegmentConfidence" Lude..=) Lude.<$> minSegmentConfidence]
+instance Core.FromJSON StartTechnicalCueDetectionFilter where
+  toJSON StartTechnicalCueDetectionFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("MinSegmentConfidence" Core..=) Core.<$> minSegmentConfidence]
       )

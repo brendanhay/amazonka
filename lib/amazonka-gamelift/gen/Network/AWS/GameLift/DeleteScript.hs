@@ -39,7 +39,7 @@ module Network.AWS.GameLift.DeleteScript
     mkDeleteScript,
 
     -- ** Request lenses
-    dScriptId,
+    dsScriptId,
 
     -- * Destructuring the response
     DeleteScriptResponse (..),
@@ -47,69 +47,60 @@ module Network.AWS.GameLift.DeleteScript
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteScript' smart constructor.
 newtype DeleteScript = DeleteScript'
   { -- | A unique identifier for a Realtime script to delete. You can use either the script ID or ARN value.
-    scriptId :: Lude.Text
+    scriptId :: Types.ScriptIdOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScript' with the minimum fields required to make a request.
---
--- * 'scriptId' - A unique identifier for a Realtime script to delete. You can use either the script ID or ARN value.
+-- | Creates a 'DeleteScript' value with any optional fields omitted.
 mkDeleteScript ::
   -- | 'scriptId'
-  Lude.Text ->
+  Types.ScriptIdOrArn ->
   DeleteScript
-mkDeleteScript pScriptId_ = DeleteScript' {scriptId = pScriptId_}
+mkDeleteScript scriptId = DeleteScript' {scriptId}
 
 -- | A unique identifier for a Realtime script to delete. You can use either the script ID or ARN value.
 --
 -- /Note:/ Consider using 'scriptId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScriptId :: Lens.Lens' DeleteScript Lude.Text
-dScriptId = Lens.lens (scriptId :: DeleteScript -> Lude.Text) (\s a -> s {scriptId = a} :: DeleteScript)
-{-# DEPRECATED dScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
+dsScriptId :: Lens.Lens' DeleteScript Types.ScriptIdOrArn
+dsScriptId = Lens.field @"scriptId"
+{-# DEPRECATED dsScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
 
-instance Lude.AWSRequest DeleteScript where
+instance Core.FromJSON DeleteScript where
+  toJSON DeleteScript {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ScriptId" Core..= scriptId)])
+
+instance Core.AWSRequest DeleteScript where
   type Rs DeleteScript = DeleteScriptResponse
-  request = Req.postJSON gameLiftService
-  response = Res.receiveNull DeleteScriptResponse'
-
-instance Lude.ToHeaders DeleteScript where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteScript" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteScript where
-  toJSON DeleteScript' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ScriptId" Lude..= scriptId)])
-
-instance Lude.ToPath DeleteScript where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteScript where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeleteScript")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteScriptResponse'
 
 -- | /See:/ 'mkDeleteScriptResponse' smart constructor.
 data DeleteScriptResponse = DeleteScriptResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScriptResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteScriptResponse' value with any optional fields omitted.
 mkDeleteScriptResponse ::
   DeleteScriptResponse
 mkDeleteScriptResponse = DeleteScriptResponse'

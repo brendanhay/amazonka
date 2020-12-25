@@ -22,7 +22,7 @@ module Network.AWS.CertificateManager.RemoveTagsFromCertificate
     mkRemoveTagsFromCertificate,
 
     -- ** Request lenses
-    rtfcCertificateARN,
+    rtfcCertificateArn,
     rtfcTags,
 
     -- * Destructuring the response
@@ -31,11 +31,11 @@ module Network.AWS.CertificateManager.RemoveTagsFromCertificate
   )
 where
 
-import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.CertificateManager.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveTagsFromCertificate' smart constructor.
 data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
@@ -43,90 +43,73 @@ data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
     --
     -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    certificateARN :: Lude.Text,
+    certificateArn :: Types.CertificateArn,
     -- | The key-value pair that defines the tag to remove.
-    tags :: Lude.NonEmpty Tag
+    tags :: Core.NonEmpty Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromCertificate' with the minimum fields required to make a request.
---
--- * 'certificateARN' - String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:
---
--- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'tags' - The key-value pair that defines the tag to remove.
+-- | Creates a 'RemoveTagsFromCertificate' value with any optional fields omitted.
 mkRemoveTagsFromCertificate ::
-  -- | 'certificateARN'
-  Lude.Text ->
+  -- | 'certificateArn'
+  Types.CertificateArn ->
   -- | 'tags'
-  Lude.NonEmpty Tag ->
+  Core.NonEmpty Types.Tag ->
   RemoveTagsFromCertificate
-mkRemoveTagsFromCertificate pCertificateARN_ pTags_ =
-  RemoveTagsFromCertificate'
-    { certificateARN = pCertificateARN_,
-      tags = pTags_
-    }
+mkRemoveTagsFromCertificate certificateArn tags =
+  RemoveTagsFromCertificate' {certificateArn, tags}
 
 -- | String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:
 --
 -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfcCertificateARN :: Lens.Lens' RemoveTagsFromCertificate Lude.Text
-rtfcCertificateARN = Lens.lens (certificateARN :: RemoveTagsFromCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: RemoveTagsFromCertificate)
-{-# DEPRECATED rtfcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfcCertificateArn :: Lens.Lens' RemoveTagsFromCertificate Types.CertificateArn
+rtfcCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED rtfcCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The key-value pair that defines the tag to remove.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfcTags :: Lens.Lens' RemoveTagsFromCertificate (Lude.NonEmpty Tag)
-rtfcTags = Lens.lens (tags :: RemoveTagsFromCertificate -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: RemoveTagsFromCertificate)
+rtfcTags :: Lens.Lens' RemoveTagsFromCertificate (Core.NonEmpty Types.Tag)
+rtfcTags = Lens.field @"tags"
 {-# DEPRECATED rtfcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest RemoveTagsFromCertificate where
+instance Core.FromJSON RemoveTagsFromCertificate where
+  toJSON RemoveTagsFromCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest RemoveTagsFromCertificate where
   type
     Rs RemoveTagsFromCertificate =
       RemoveTagsFromCertificateResponse
-  request = Req.postJSON certificateManagerService
-  response = Res.receiveNull RemoveTagsFromCertificateResponse'
-
-instance Lude.ToHeaders RemoveTagsFromCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CertificateManager.RemoveTagsFromCertificate" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTagsFromCertificate where
-  toJSON RemoveTagsFromCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CertificateArn" Lude..= certificateARN),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath RemoveTagsFromCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTagsFromCertificate where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CertificateManager.RemoveTagsFromCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RemoveTagsFromCertificateResponse'
 
 -- | /See:/ 'mkRemoveTagsFromCertificateResponse' smart constructor.
 data RemoveTagsFromCertificateResponse = RemoveTagsFromCertificateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromCertificateResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveTagsFromCertificateResponse' value with any optional fields omitted.
 mkRemoveTagsFromCertificateResponse ::
   RemoveTagsFromCertificateResponse
 mkRemoveTagsFromCertificateResponse =

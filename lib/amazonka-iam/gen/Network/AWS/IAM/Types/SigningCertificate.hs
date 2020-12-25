@@ -17,17 +17,20 @@ module Network.AWS.IAM.Types.SigningCertificate
     mkSigningCertificate,
 
     -- * Lenses
+    scUserName,
+    scCertificateId,
+    scCertificateBody,
     scStatus,
     scUploadDate,
-    scCertificateId,
-    scUserName,
-    scCertificateBody,
   )
 where
 
-import Network.AWS.IAM.Types.StatusType
+import qualified Network.AWS.IAM.Types.CertificateBodyType as Types
+import qualified Network.AWS.IAM.Types.CertificateIdType as Types
+import qualified Network.AWS.IAM.Types.StatusType as Types
+import qualified Network.AWS.IAM.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an X.509 signing certificate.
 --
@@ -35,90 +38,80 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSigningCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
-  { -- | The status of the signing certificate. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
-    status :: StatusType,
-    -- | The date when the signing certificate was uploaded.
-    uploadDate :: Lude.Maybe Lude.DateTime,
+  { -- | The name of the user the signing certificate is associated with.
+    userName :: Types.UserName,
     -- | The ID for the signing certificate.
-    certificateId :: Lude.Text,
-    -- | The name of the user the signing certificate is associated with.
-    userName :: Lude.Text,
+    certificateId :: Types.CertificateIdType,
     -- | The contents of the signing certificate.
-    certificateBody :: Lude.Text
+    certificateBody :: Types.CertificateBodyType,
+    -- | The status of the signing certificate. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
+    status :: Types.StatusType,
+    -- | The date when the signing certificate was uploaded.
+    uploadDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SigningCertificate' with the minimum fields required to make a request.
---
--- * 'status' - The status of the signing certificate. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
--- * 'uploadDate' - The date when the signing certificate was uploaded.
--- * 'certificateId' - The ID for the signing certificate.
--- * 'userName' - The name of the user the signing certificate is associated with.
--- * 'certificateBody' - The contents of the signing certificate.
+-- | Creates a 'SigningCertificate' value with any optional fields omitted.
 mkSigningCertificate ::
-  -- | 'status'
-  StatusType ->
-  -- | 'certificateId'
-  Lude.Text ->
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
+  -- | 'certificateId'
+  Types.CertificateIdType ->
   -- | 'certificateBody'
-  Lude.Text ->
+  Types.CertificateBodyType ->
+  -- | 'status'
+  Types.StatusType ->
   SigningCertificate
-mkSigningCertificate
-  pStatus_
-  pCertificateId_
-  pUserName_
-  pCertificateBody_ =
-    SigningCertificate'
-      { status = pStatus_,
-        uploadDate = Lude.Nothing,
-        certificateId = pCertificateId_,
-        userName = pUserName_,
-        certificateBody = pCertificateBody_
-      }
+mkSigningCertificate userName certificateId certificateBody status =
+  SigningCertificate'
+    { userName,
+      certificateId,
+      certificateBody,
+      status,
+      uploadDate = Core.Nothing
+    }
+
+-- | The name of the user the signing certificate is associated with.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scUserName :: Lens.Lens' SigningCertificate Types.UserName
+scUserName = Lens.field @"userName"
+{-# DEPRECATED scUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | The ID for the signing certificate.
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scCertificateId :: Lens.Lens' SigningCertificate Types.CertificateIdType
+scCertificateId = Lens.field @"certificateId"
+{-# DEPRECATED scCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | The contents of the signing certificate.
+--
+-- /Note:/ Consider using 'certificateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scCertificateBody :: Lens.Lens' SigningCertificate Types.CertificateBodyType
+scCertificateBody = Lens.field @"certificateBody"
+{-# DEPRECATED scCertificateBody "Use generic-lens or generic-optics with 'certificateBody' instead." #-}
 
 -- | The status of the signing certificate. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scStatus :: Lens.Lens' SigningCertificate StatusType
-scStatus = Lens.lens (status :: SigningCertificate -> StatusType) (\s a -> s {status = a} :: SigningCertificate)
+scStatus :: Lens.Lens' SigningCertificate Types.StatusType
+scStatus = Lens.field @"status"
 {-# DEPRECATED scStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date when the signing certificate was uploaded.
 --
 -- /Note:/ Consider using 'uploadDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scUploadDate :: Lens.Lens' SigningCertificate (Lude.Maybe Lude.DateTime)
-scUploadDate = Lens.lens (uploadDate :: SigningCertificate -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadDate = a} :: SigningCertificate)
+scUploadDate :: Lens.Lens' SigningCertificate (Core.Maybe Core.UTCTime)
+scUploadDate = Lens.field @"uploadDate"
 {-# DEPRECATED scUploadDate "Use generic-lens or generic-optics with 'uploadDate' instead." #-}
 
--- | The ID for the signing certificate.
---
--- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scCertificateId :: Lens.Lens' SigningCertificate Lude.Text
-scCertificateId = Lens.lens (certificateId :: SigningCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: SigningCertificate)
-{-# DEPRECATED scCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
-
--- | The name of the user the signing certificate is associated with.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scUserName :: Lens.Lens' SigningCertificate Lude.Text
-scUserName = Lens.lens (userName :: SigningCertificate -> Lude.Text) (\s a -> s {userName = a} :: SigningCertificate)
-{-# DEPRECATED scUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | The contents of the signing certificate.
---
--- /Note:/ Consider using 'certificateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scCertificateBody :: Lens.Lens' SigningCertificate Lude.Text
-scCertificateBody = Lens.lens (certificateBody :: SigningCertificate -> Lude.Text) (\s a -> s {certificateBody = a} :: SigningCertificate)
-{-# DEPRECATED scCertificateBody "Use generic-lens or generic-optics with 'certificateBody' instead." #-}
-
-instance Lude.FromXML SigningCertificate where
+instance Core.FromXML SigningCertificate where
   parseXML x =
     SigningCertificate'
-      Lude.<$> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@? "UploadDate")
-      Lude.<*> (x Lude..@ "CertificateId")
-      Lude.<*> (x Lude..@ "UserName")
-      Lude.<*> (x Lude..@ "CertificateBody")
+      Core.<$> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "CertificateId")
+      Core.<*> (x Core..@ "CertificateBody")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@? "UploadDate")

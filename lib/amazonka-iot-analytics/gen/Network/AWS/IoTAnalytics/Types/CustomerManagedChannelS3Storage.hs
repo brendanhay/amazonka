@@ -18,84 +18,81 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage
 
     -- * Lenses
     cmcssBucket,
+    cmcssRoleArn,
     cmcssKeyPrefix,
-    cmcssRoleARN,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.BucketName as Types
+import qualified Network.AWS.IoTAnalytics.Types.RoleArn as Types
+import qualified Network.AWS.IoTAnalytics.Types.S3KeyPrefix as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
 --
 -- /See:/ 'mkCustomerManagedChannelS3Storage' smart constructor.
 data CustomerManagedChannelS3Storage = CustomerManagedChannelS3Storage'
   { -- | The name of the S3 bucket in which channel data is stored.
-    bucket :: Lude.Text,
-    -- | Optional. The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-    keyPrefix :: Lude.Maybe Lude.Text,
+    bucket :: Types.BucketName,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn,
+    -- | Optional. The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+    keyPrefix :: Core.Maybe Types.S3KeyPrefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomerManagedChannelS3Storage' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the S3 bucket in which channel data is stored.
--- * 'keyPrefix' - Optional. The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
--- * 'roleARN' - The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+-- | Creates a 'CustomerManagedChannelS3Storage' value with any optional fields omitted.
 mkCustomerManagedChannelS3Storage ::
   -- | 'bucket'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.BucketName ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   CustomerManagedChannelS3Storage
-mkCustomerManagedChannelS3Storage pBucket_ pRoleARN_ =
+mkCustomerManagedChannelS3Storage bucket roleArn =
   CustomerManagedChannelS3Storage'
-    { bucket = pBucket_,
-      keyPrefix = Lude.Nothing,
-      roleARN = pRoleARN_
+    { bucket,
+      roleArn,
+      keyPrefix = Core.Nothing
     }
 
 -- | The name of the S3 bucket in which channel data is stored.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmcssBucket :: Lens.Lens' CustomerManagedChannelS3Storage Lude.Text
-cmcssBucket = Lens.lens (bucket :: CustomerManagedChannelS3Storage -> Lude.Text) (\s a -> s {bucket = a} :: CustomerManagedChannelS3Storage)
+cmcssBucket :: Lens.Lens' CustomerManagedChannelS3Storage Types.BucketName
+cmcssBucket = Lens.field @"bucket"
 {-# DEPRECATED cmcssBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmcssRoleArn :: Lens.Lens' CustomerManagedChannelS3Storage Types.RoleArn
+cmcssRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cmcssRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | Optional. The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 --
 -- /Note:/ Consider using 'keyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmcssKeyPrefix :: Lens.Lens' CustomerManagedChannelS3Storage (Lude.Maybe Lude.Text)
-cmcssKeyPrefix = Lens.lens (keyPrefix :: CustomerManagedChannelS3Storage -> Lude.Maybe Lude.Text) (\s a -> s {keyPrefix = a} :: CustomerManagedChannelS3Storage)
+cmcssKeyPrefix :: Lens.Lens' CustomerManagedChannelS3Storage (Core.Maybe Types.S3KeyPrefix)
+cmcssKeyPrefix = Lens.field @"keyPrefix"
 {-# DEPRECATED cmcssKeyPrefix "Use generic-lens or generic-optics with 'keyPrefix' instead." #-}
 
--- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmcssRoleARN :: Lens.Lens' CustomerManagedChannelS3Storage Lude.Text
-cmcssRoleARN = Lens.lens (roleARN :: CustomerManagedChannelS3Storage -> Lude.Text) (\s a -> s {roleARN = a} :: CustomerManagedChannelS3Storage)
-{-# DEPRECATED cmcssRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON CustomerManagedChannelS3Storage where
-  parseJSON =
-    Lude.withObject
-      "CustomerManagedChannelS3Storage"
-      ( \x ->
-          CustomerManagedChannelS3Storage'
-            Lude.<$> (x Lude..: "bucket")
-            Lude.<*> (x Lude..:? "keyPrefix")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON CustomerManagedChannelS3Storage where
-  toJSON CustomerManagedChannelS3Storage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("bucket" Lude..= bucket),
-            ("keyPrefix" Lude..=) Lude.<$> keyPrefix,
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON CustomerManagedChannelS3Storage where
+  toJSON CustomerManagedChannelS3Storage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("bucket" Core..= bucket),
+            Core.Just ("roleArn" Core..= roleArn),
+            ("keyPrefix" Core..=) Core.<$> keyPrefix
           ]
       )
+
+instance Core.FromJSON CustomerManagedChannelS3Storage where
+  parseJSON =
+    Core.withObject "CustomerManagedChannelS3Storage" Core.$
+      \x ->
+        CustomerManagedChannelS3Storage'
+          Core.<$> (x Core..: "bucket")
+          Core.<*> (x Core..: "roleArn")
+          Core.<*> (x Core..:? "keyPrefix")

@@ -25,78 +25,69 @@ module Network.AWS.EC2.CreateImage
     -- ** Request lenses
     cifInstanceId,
     cifName,
-    cifNoReboot,
-    cifDescription,
     cifBlockDeviceMappings,
+    cifDescription,
     cifDryRun,
+    cifNoReboot,
 
     -- * Destructuring the response
     CreateImageResponse (..),
     mkCreateImageResponse,
 
     -- ** Response lenses
-    cirsImageId,
-    cirsResponseStatus,
+    cirfrsImageId,
+    cirfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateImage' smart constructor.
 data CreateImage = CreateImage'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | A name for the new image.
     --
     -- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
-    name :: Lude.Text,
-    -- | By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
-    noReboot :: Lude.Maybe Lude.Bool,
-    -- | A description for the new image.
-    description :: Lude.Maybe Lude.Text,
+    name :: Types.String,
     -- | The block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the 'CopyImage' action.
-    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Core.Maybe [Types.BlockDeviceMapping],
+    -- | A description for the new image.
+    description :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
+    noReboot :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateImage' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'name' - A name for the new image.
---
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
--- * 'noReboot' - By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
--- * 'description' - A description for the new image.
--- * 'blockDeviceMappings' - The block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the 'CopyImage' action.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateImage' value with any optional fields omitted.
 mkCreateImage ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   CreateImage
-mkCreateImage pInstanceId_ pName_ =
+mkCreateImage instanceId name =
   CreateImage'
-    { instanceId = pInstanceId_,
-      name = pName_,
-      noReboot = Lude.Nothing,
-      description = Lude.Nothing,
-      blockDeviceMappings = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { instanceId,
+      name,
+      blockDeviceMappings = Core.Nothing,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      noReboot = Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifInstanceId :: Lens.Lens' CreateImage Lude.Text
-cifInstanceId = Lens.lens (instanceId :: CreateImage -> Lude.Text) (\s a -> s {instanceId = a} :: CreateImage)
+cifInstanceId :: Lens.Lens' CreateImage Types.InstanceId
+cifInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED cifInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A name for the new image.
@@ -104,104 +95,100 @@ cifInstanceId = Lens.lens (instanceId :: CreateImage -> Lude.Text) (\s a -> s {i
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifName :: Lens.Lens' CreateImage Lude.Text
-cifName = Lens.lens (name :: CreateImage -> Lude.Text) (\s a -> s {name = a} :: CreateImage)
+cifName :: Lens.Lens' CreateImage Types.String
+cifName = Lens.field @"name"
 {-# DEPRECATED cifName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
---
--- /Note:/ Consider using 'noReboot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifNoReboot :: Lens.Lens' CreateImage (Lude.Maybe Lude.Bool)
-cifNoReboot = Lens.lens (noReboot :: CreateImage -> Lude.Maybe Lude.Bool) (\s a -> s {noReboot = a} :: CreateImage)
-{-# DEPRECATED cifNoReboot "Use generic-lens or generic-optics with 'noReboot' instead." #-}
-
--- | A description for the new image.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifDescription :: Lens.Lens' CreateImage (Lude.Maybe Lude.Text)
-cifDescription = Lens.lens (description :: CreateImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateImage)
-{-# DEPRECATED cifDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the 'CopyImage' action.
 --
 -- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifBlockDeviceMappings :: Lens.Lens' CreateImage (Lude.Maybe [BlockDeviceMapping])
-cifBlockDeviceMappings = Lens.lens (blockDeviceMappings :: CreateImage -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: CreateImage)
+cifBlockDeviceMappings :: Lens.Lens' CreateImage (Core.Maybe [Types.BlockDeviceMapping])
+cifBlockDeviceMappings = Lens.field @"blockDeviceMappings"
 {-# DEPRECATED cifBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
+
+-- | A description for the new image.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifDescription :: Lens.Lens' CreateImage (Core.Maybe Types.String)
+cifDescription = Lens.field @"description"
+{-# DEPRECATED cifDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifDryRun :: Lens.Lens' CreateImage (Lude.Maybe Lude.Bool)
-cifDryRun = Lens.lens (dryRun :: CreateImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateImage)
+cifDryRun :: Lens.Lens' CreateImage (Core.Maybe Core.Bool)
+cifDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateImage where
+-- | By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
+--
+-- /Note:/ Consider using 'noReboot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifNoReboot :: Lens.Lens' CreateImage (Core.Maybe Core.Bool)
+cifNoReboot = Lens.field @"noReboot"
+{-# DEPRECATED cifNoReboot "Use generic-lens or generic-optics with 'noReboot' instead." #-}
+
+instance Core.AWSRequest CreateImage where
   type Rs CreateImage = CreateImageResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateImage")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "Name" name)
+                Core.<> ( Core.toQueryList "BlockDeviceMapping"
+                            Core.<$> blockDeviceMappings
+                        )
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "NoReboot" Core.<$> noReboot)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateImageResponse'
-            Lude.<$> (x Lude..@? "imageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "imageId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateImage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateImage where
-  toQuery CreateImage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateImage" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "Name" Lude.=: name,
-        "NoReboot" Lude.=: noReboot,
-        "Description" Lude.=: description,
-        Lude.toQuery
-          ( Lude.toQueryList "BlockDeviceMapping"
-              Lude.<$> blockDeviceMappings
-          ),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
   { -- | The ID of the new AMI.
-    imageId :: Lude.Maybe Lude.Text,
+    imageId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateImageResponse' with the minimum fields required to make a request.
---
--- * 'imageId' - The ID of the new AMI.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateImageResponse' value with any optional fields omitted.
 mkCreateImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateImageResponse
-mkCreateImageResponse pResponseStatus_ =
-  CreateImageResponse'
-    { imageId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateImageResponse responseStatus =
+  CreateImageResponse' {imageId = Core.Nothing, responseStatus}
 
 -- | The ID of the new AMI.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirsImageId :: Lens.Lens' CreateImageResponse (Lude.Maybe Lude.Text)
-cirsImageId = Lens.lens (imageId :: CreateImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: CreateImageResponse)
-{-# DEPRECATED cirsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+cirfrsImageId :: Lens.Lens' CreateImageResponse (Core.Maybe Types.String)
+cirfrsImageId = Lens.field @"imageId"
+{-# DEPRECATED cirfrsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirsResponseStatus :: Lens.Lens' CreateImageResponse Lude.Int
-cirsResponseStatus = Lens.lens (responseStatus :: CreateImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateImageResponse)
-{-# DEPRECATED cirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cirfrsResponseStatus :: Lens.Lens' CreateImageResponse Core.Int
+cirfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cirfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

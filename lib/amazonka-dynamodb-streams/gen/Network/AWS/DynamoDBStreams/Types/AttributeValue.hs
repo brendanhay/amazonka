@@ -17,21 +17,26 @@ module Network.AWS.DynamoDBStreams.Types.AttributeValue
     mkAttributeValue,
 
     -- * Lenses
-    avL,
-    avNS,
-    avM,
-    avNULL,
-    avN,
-    avBS,
     avB,
-    avSS,
-    avS,
     avBOOL,
+    avBS,
+    avL,
+    avM,
+    avN,
+    avNS,
+    avNULL,
+    avS,
+    avSS,
   )
 where
 
+import qualified Network.AWS.DynamoDBStreams.Types.AttributeName as Types
+import qualified Network.AWS.DynamoDBStreams.Types.N as Types
+import qualified Network.AWS.DynamoDBStreams.Types.NumberAttributeValue as Types
+import qualified Network.AWS.DynamoDBStreams.Types.S as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StringAttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the data for an attribute.
 --
@@ -40,157 +45,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { -- | An attribute of type List. For example:
+  { -- | An attribute of type Binary. For example:
+    --
+    -- @"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"@
+    b :: Core.Maybe Core.Base64,
+    -- | An attribute of type Boolean. For example:
+    --
+    -- @"BOOL": true@
+    bool :: Core.Maybe Core.Bool,
+    -- | An attribute of type Binary Set. For example:
+    --
+    -- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
+    bs :: Core.Maybe [Core.Base64],
+    -- | An attribute of type List. For example:
     --
     -- @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
-    l :: Lude.Maybe [AttributeValue],
-    -- | An attribute of type Number Set. For example:
-    --
-    -- @"NS": ["42.2", "-19", "7.5", "3.14"]@
-    -- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
-    nS :: Lude.Maybe [Lude.Text],
+    l :: Core.Maybe [AttributeValue],
     -- | An attribute of type Map. For example:
     --
     -- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
-    m :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    -- | An attribute of type Null. For example:
-    --
-    -- @"NULL": true@
-    nULL :: Lude.Maybe Lude.Bool,
+    m :: Core.Maybe (Core.HashMap Types.AttributeName AttributeValue),
     -- | An attribute of type Number. For example:
     --
     -- @"N": "123.45"@
     -- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
-    n :: Lude.Maybe Lude.Text,
-    -- | An attribute of type Binary Set. For example:
+    n :: Core.Maybe Types.N,
+    -- | An attribute of type Number Set. For example:
     --
-    -- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
-    bS :: Lude.Maybe [Lude.Base64],
-    -- | An attribute of type Binary. For example:
+    -- @"NS": ["42.2", "-19", "7.5", "3.14"]@
+    -- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+    ns :: Core.Maybe [Types.NumberAttributeValue],
+    -- | An attribute of type Null. For example:
     --
-    -- @"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"@
-    b :: Lude.Maybe Lude.Base64,
-    -- | An attribute of type String Set. For example:
-    --
-    -- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
-    sS :: Lude.Maybe [Lude.Text],
+    -- @"NULL": true@
+    null :: Core.Maybe Core.Bool,
     -- | An attribute of type String. For example:
     --
     -- @"S": "Hello"@
-    s :: Lude.Maybe Lude.Text,
-    -- | An attribute of type Boolean. For example:
+    s :: Core.Maybe Types.S,
+    -- | An attribute of type String Set. For example:
     --
-    -- @"BOOL": true@
-    bOOL :: Lude.Maybe Lude.Bool
+    -- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
+    ss :: Core.Maybe [Types.StringAttributeValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
---
--- * 'l' - An attribute of type List. For example:
---
--- @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
--- * 'nS' - An attribute of type Number Set. For example:
---
--- @"NS": ["42.2", "-19", "7.5", "3.14"]@
--- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
--- * 'm' - An attribute of type Map. For example:
---
--- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
--- * 'nULL' - An attribute of type Null. For example:
---
--- @"NULL": true@
--- * 'n' - An attribute of type Number. For example:
---
--- @"N": "123.45"@
--- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
--- * 'bS' - An attribute of type Binary Set. For example:
---
--- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
--- * 'b' - An attribute of type Binary. For example:
---
--- @"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"@
--- * 'sS' - An attribute of type String Set. For example:
---
--- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
--- * 's' - An attribute of type String. For example:
---
--- @"S": "Hello"@
--- * 'bOOL' - An attribute of type Boolean. For example:
---
--- @"BOOL": true@
+-- | Creates a 'AttributeValue' value with any optional fields omitted.
 mkAttributeValue ::
   AttributeValue
 mkAttributeValue =
   AttributeValue'
-    { l = Lude.Nothing,
-      nS = Lude.Nothing,
-      m = Lude.Nothing,
-      nULL = Lude.Nothing,
-      n = Lude.Nothing,
-      bS = Lude.Nothing,
-      b = Lude.Nothing,
-      sS = Lude.Nothing,
-      s = Lude.Nothing,
-      bOOL = Lude.Nothing
+    { b = Core.Nothing,
+      bool = Core.Nothing,
+      bs = Core.Nothing,
+      l = Core.Nothing,
+      m = Core.Nothing,
+      n = Core.Nothing,
+      ns = Core.Nothing,
+      null = Core.Nothing,
+      s = Core.Nothing,
+      ss = Core.Nothing
     }
-
--- | An attribute of type List. For example:
---
--- @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
---
--- /Note:/ Consider using 'l' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avL :: Lens.Lens' AttributeValue (Lude.Maybe [AttributeValue])
-avL = Lens.lens (l :: AttributeValue -> Lude.Maybe [AttributeValue]) (\s a -> s {l = a} :: AttributeValue)
-{-# DEPRECATED avL "Use generic-lens or generic-optics with 'l' instead." #-}
-
--- | An attribute of type Number Set. For example:
---
--- @"NS": ["42.2", "-19", "7.5", "3.14"]@
--- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
---
--- /Note:/ Consider using 'nS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avNS :: Lens.Lens' AttributeValue (Lude.Maybe [Lude.Text])
-avNS = Lens.lens (nS :: AttributeValue -> Lude.Maybe [Lude.Text]) (\s a -> s {nS = a} :: AttributeValue)
-{-# DEPRECATED avNS "Use generic-lens or generic-optics with 'nS' instead." #-}
-
--- | An attribute of type Map. For example:
---
--- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
---
--- /Note:/ Consider using 'm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avM :: Lens.Lens' AttributeValue (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
-avM = Lens.lens (m :: AttributeValue -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {m = a} :: AttributeValue)
-{-# DEPRECATED avM "Use generic-lens or generic-optics with 'm' instead." #-}
-
--- | An attribute of type Null. For example:
---
--- @"NULL": true@
---
--- /Note:/ Consider using 'nULL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avNULL :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Bool)
-avNULL = Lens.lens (nULL :: AttributeValue -> Lude.Maybe Lude.Bool) (\s a -> s {nULL = a} :: AttributeValue)
-{-# DEPRECATED avNULL "Use generic-lens or generic-optics with 'nULL' instead." #-}
-
--- | An attribute of type Number. For example:
---
--- @"N": "123.45"@
--- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
---
--- /Note:/ Consider using 'n' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avN :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
-avN = Lens.lens (n :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {n = a} :: AttributeValue)
-{-# DEPRECATED avN "Use generic-lens or generic-optics with 'n' instead." #-}
-
--- | An attribute of type Binary Set. For example:
---
--- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
---
--- /Note:/ Consider using 'bS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avBS :: Lens.Lens' AttributeValue (Lude.Maybe [Lude.Base64])
-avBS = Lens.lens (bS :: AttributeValue -> Lude.Maybe [Lude.Base64]) (\s a -> s {bS = a} :: AttributeValue)
-{-# DEPRECATED avBS "Use generic-lens or generic-optics with 'bS' instead." #-}
 
 -- | An attribute of type Binary. For example:
 --
@@ -201,51 +117,105 @@ avBS = Lens.lens (bS :: AttributeValue -> Lude.Maybe [Lude.Base64]) (\s a -> s {
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'b' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avB :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Base64)
-avB = Lens.lens (b :: AttributeValue -> Lude.Maybe Lude.Base64) (\s a -> s {b = a} :: AttributeValue)
+avB :: Lens.Lens' AttributeValue (Core.Maybe Core.Base64)
+avB = Lens.field @"b"
 {-# DEPRECATED avB "Use generic-lens or generic-optics with 'b' instead." #-}
 
--- | An attribute of type String Set. For example:
+-- | An attribute of type Boolean. For example:
 --
--- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
+-- @"BOOL": true@
 --
--- /Note:/ Consider using 'sS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avSS :: Lens.Lens' AttributeValue (Lude.Maybe [Lude.Text])
-avSS = Lens.lens (sS :: AttributeValue -> Lude.Maybe [Lude.Text]) (\s a -> s {sS = a} :: AttributeValue)
-{-# DEPRECATED avSS "Use generic-lens or generic-optics with 'sS' instead." #-}
+-- /Note:/ Consider using 'bool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avBOOL :: Lens.Lens' AttributeValue (Core.Maybe Core.Bool)
+avBOOL = Lens.field @"bool"
+{-# DEPRECATED avBOOL "Use generic-lens or generic-optics with 'bool' instead." #-}
+
+-- | An attribute of type Binary Set. For example:
+--
+-- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
+--
+-- /Note:/ Consider using 'bs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avBS :: Lens.Lens' AttributeValue (Core.Maybe [Core.Base64])
+avBS = Lens.field @"bs"
+{-# DEPRECATED avBS "Use generic-lens or generic-optics with 'bs' instead." #-}
+
+-- | An attribute of type List. For example:
+--
+-- @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
+--
+-- /Note:/ Consider using 'l' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avL :: Lens.Lens' AttributeValue (Core.Maybe [AttributeValue])
+avL = Lens.field @"l"
+{-# DEPRECATED avL "Use generic-lens or generic-optics with 'l' instead." #-}
+
+-- | An attribute of type Map. For example:
+--
+-- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
+--
+-- /Note:/ Consider using 'm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avM :: Lens.Lens' AttributeValue (Core.Maybe (Core.HashMap Types.AttributeName AttributeValue))
+avM = Lens.field @"m"
+{-# DEPRECATED avM "Use generic-lens or generic-optics with 'm' instead." #-}
+
+-- | An attribute of type Number. For example:
+--
+-- @"N": "123.45"@
+-- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+--
+-- /Note:/ Consider using 'n' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avN :: Lens.Lens' AttributeValue (Core.Maybe Types.N)
+avN = Lens.field @"n"
+{-# DEPRECATED avN "Use generic-lens or generic-optics with 'n' instead." #-}
+
+-- | An attribute of type Number Set. For example:
+--
+-- @"NS": ["42.2", "-19", "7.5", "3.14"]@
+-- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+--
+-- /Note:/ Consider using 'ns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avNS :: Lens.Lens' AttributeValue (Core.Maybe [Types.NumberAttributeValue])
+avNS = Lens.field @"ns"
+{-# DEPRECATED avNS "Use generic-lens or generic-optics with 'ns' instead." #-}
+
+-- | An attribute of type Null. For example:
+--
+-- @"NULL": true@
+--
+-- /Note:/ Consider using 'null' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avNULL :: Lens.Lens' AttributeValue (Core.Maybe Core.Bool)
+avNULL = Lens.field @"null"
+{-# DEPRECATED avNULL "Use generic-lens or generic-optics with 'null' instead." #-}
 
 -- | An attribute of type String. For example:
 --
 -- @"S": "Hello"@
 --
 -- /Note:/ Consider using 's' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avS :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
-avS = Lens.lens (s :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {s = a} :: AttributeValue)
+avS :: Lens.Lens' AttributeValue (Core.Maybe Types.S)
+avS = Lens.field @"s"
 {-# DEPRECATED avS "Use generic-lens or generic-optics with 's' instead." #-}
 
--- | An attribute of type Boolean. For example:
+-- | An attribute of type String Set. For example:
 --
--- @"BOOL": true@
+-- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
 --
--- /Note:/ Consider using 'bOOL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avBOOL :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Bool)
-avBOOL = Lens.lens (bOOL :: AttributeValue -> Lude.Maybe Lude.Bool) (\s a -> s {bOOL = a} :: AttributeValue)
-{-# DEPRECATED avBOOL "Use generic-lens or generic-optics with 'bOOL' instead." #-}
+-- /Note:/ Consider using 'ss' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avSS :: Lens.Lens' AttributeValue (Core.Maybe [Types.StringAttributeValue])
+avSS = Lens.field @"ss"
+{-# DEPRECATED avSS "Use generic-lens or generic-optics with 'ss' instead." #-}
 
-instance Lude.FromJSON AttributeValue where
+instance Core.FromJSON AttributeValue where
   parseJSON =
-    Lude.withObject
-      "AttributeValue"
-      ( \x ->
-          AttributeValue'
-            Lude.<$> (x Lude..:? "L" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NS" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "M" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NULL")
-            Lude.<*> (x Lude..:? "N")
-            Lude.<*> (x Lude..:? "BS" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "B")
-            Lude.<*> (x Lude..:? "SS" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "S")
-            Lude.<*> (x Lude..:? "BOOL")
-      )
+    Core.withObject "AttributeValue" Core.$
+      \x ->
+        AttributeValue'
+          Core.<$> (x Core..:? "B")
+          Core.<*> (x Core..:? "BOOL")
+          Core.<*> (x Core..:? "BS")
+          Core.<*> (x Core..:? "L")
+          Core.<*> (x Core..:? "M")
+          Core.<*> (x Core..:? "N")
+          Core.<*> (x Core..:? "NS")
+          Core.<*> (x Core..:? "NULL")
+          Core.<*> (x Core..:? "S")
+          Core.<*> (x Core..:? "SS")

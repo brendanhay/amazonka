@@ -13,66 +13,71 @@
 module Network.AWS.ElasticBeanstalk.Types.EventSeverity
   ( EventSeverity
       ( EventSeverity',
-        LevelTrace,
-        LevelDebug,
-        LevelInfo,
-        LevelWarn,
-        LevelError,
-        LevelFatal
+        EventSeverityLevelTrace,
+        EventSeverityLevelDebug,
+        EventSeverityLevelInfo,
+        EventSeverityLevelWarn,
+        EventSeverityLevelError,
+        EventSeverityLevelFatal,
+        fromEventSeverity
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventSeverity = EventSeverity' Lude.Text
+newtype EventSeverity = EventSeverity'
+  { fromEventSeverity ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LevelTrace :: EventSeverity
-pattern LevelTrace = EventSeverity' "TRACE"
+pattern EventSeverityLevelTrace :: EventSeverity
+pattern EventSeverityLevelTrace = EventSeverity' "TRACE"
 
-pattern LevelDebug :: EventSeverity
-pattern LevelDebug = EventSeverity' "DEBUG"
+pattern EventSeverityLevelDebug :: EventSeverity
+pattern EventSeverityLevelDebug = EventSeverity' "DEBUG"
 
-pattern LevelInfo :: EventSeverity
-pattern LevelInfo = EventSeverity' "INFO"
+pattern EventSeverityLevelInfo :: EventSeverity
+pattern EventSeverityLevelInfo = EventSeverity' "INFO"
 
-pattern LevelWarn :: EventSeverity
-pattern LevelWarn = EventSeverity' "WARN"
+pattern EventSeverityLevelWarn :: EventSeverity
+pattern EventSeverityLevelWarn = EventSeverity' "WARN"
 
-pattern LevelError :: EventSeverity
-pattern LevelError = EventSeverity' "ERROR"
+pattern EventSeverityLevelError :: EventSeverity
+pattern EventSeverityLevelError = EventSeverity' "ERROR"
 
-pattern LevelFatal :: EventSeverity
-pattern LevelFatal = EventSeverity' "FATAL"
+pattern EventSeverityLevelFatal :: EventSeverity
+pattern EventSeverityLevelFatal = EventSeverity' "FATAL"
 
 {-# COMPLETE
-  LevelTrace,
-  LevelDebug,
-  LevelInfo,
-  LevelWarn,
-  LevelError,
-  LevelFatal,
+  EventSeverityLevelTrace,
+  EventSeverityLevelDebug,
+  EventSeverityLevelInfo,
+  EventSeverityLevelWarn,
+  EventSeverityLevelError,
+  EventSeverityLevelFatal,
   EventSeverity'
   #-}

@@ -22,53 +22,45 @@ module Network.AWS.ELB.Types.ConnectionDraining
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the @ConnectionDraining@ attribute.
 --
 -- /See:/ 'mkConnectionDraining' smart constructor.
 data ConnectionDraining = ConnectionDraining'
   { -- | Specifies whether connection draining is enabled for the load balancer.
-    enabled :: Lude.Bool,
+    enabled :: Core.Bool,
     -- | The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
-    timeout :: Lude.Maybe Lude.Int
+    timeout :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectionDraining' with the minimum fields required to make a request.
---
--- * 'enabled' - Specifies whether connection draining is enabled for the load balancer.
--- * 'timeout' - The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
+-- | Creates a 'ConnectionDraining' value with any optional fields omitted.
 mkConnectionDraining ::
   -- | 'enabled'
-  Lude.Bool ->
+  Core.Bool ->
   ConnectionDraining
-mkConnectionDraining pEnabled_ =
-  ConnectionDraining' {enabled = pEnabled_, timeout = Lude.Nothing}
+mkConnectionDraining enabled =
+  ConnectionDraining' {enabled, timeout = Core.Nothing}
 
 -- | Specifies whether connection draining is enabled for the load balancer.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdEnabled :: Lens.Lens' ConnectionDraining Lude.Bool
-cdEnabled = Lens.lens (enabled :: ConnectionDraining -> Lude.Bool) (\s a -> s {enabled = a} :: ConnectionDraining)
+cdEnabled :: Lens.Lens' ConnectionDraining Core.Bool
+cdEnabled = Lens.field @"enabled"
 {-# DEPRECATED cdEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
 --
 -- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTimeout :: Lens.Lens' ConnectionDraining (Lude.Maybe Lude.Int)
-cdTimeout = Lens.lens (timeout :: ConnectionDraining -> Lude.Maybe Lude.Int) (\s a -> s {timeout = a} :: ConnectionDraining)
+cdTimeout :: Lens.Lens' ConnectionDraining (Core.Maybe Core.Int)
+cdTimeout = Lens.field @"timeout"
 {-# DEPRECATED cdTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
-instance Lude.FromXML ConnectionDraining where
+instance Core.FromXML ConnectionDraining where
   parseXML x =
     ConnectionDraining'
-      Lude.<$> (x Lude..@ "Enabled") Lude.<*> (x Lude..@? "Timeout")
-
-instance Lude.ToQuery ConnectionDraining where
-  toQuery ConnectionDraining' {..} =
-    Lude.mconcat
-      ["Enabled" Lude.=: enabled, "Timeout" Lude.=: timeout]
+      Core.<$> (x Core..@ "Enabled") Core.<*> (x Core..@? "Timeout")

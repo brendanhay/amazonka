@@ -17,75 +17,71 @@ module Network.AWS.CostExplorer.Types.TotalImpactFilter
     mkTotalImpactFilter,
 
     -- * Lenses
-    tifEndValue,
-    tifStartValue,
     tifNumericOperator,
+    tifStartValue,
+    tifEndValue,
   )
 where
 
-import Network.AWS.CostExplorer.Types.NumericOperator
+import qualified Network.AWS.CostExplorer.Types.NumericOperator as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters cost anomalies based on the total impact.
 --
 -- /See:/ 'mkTotalImpactFilter' smart constructor.
 data TotalImpactFilter = TotalImpactFilter'
-  { -- | The upper bound dollar value used in the filter.
-    endValue :: Lude.Maybe Lude.Double,
+  { -- | The comparing value used in the filter.
+    numericOperator :: Types.NumericOperator,
     -- | The lower bound dollar value used in the filter.
-    startValue :: Lude.Double,
-    -- | The comparing value used in the filter.
-    numericOperator :: NumericOperator
+    startValue :: Core.Double,
+    -- | The upper bound dollar value used in the filter.
+    endValue :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TotalImpactFilter' with the minimum fields required to make a request.
---
--- * 'endValue' - The upper bound dollar value used in the filter.
--- * 'startValue' - The lower bound dollar value used in the filter.
--- * 'numericOperator' - The comparing value used in the filter.
+-- | Creates a 'TotalImpactFilter' value with any optional fields omitted.
 mkTotalImpactFilter ::
-  -- | 'startValue'
-  Lude.Double ->
   -- | 'numericOperator'
-  NumericOperator ->
+  Types.NumericOperator ->
+  -- | 'startValue'
+  Core.Double ->
   TotalImpactFilter
-mkTotalImpactFilter pStartValue_ pNumericOperator_ =
+mkTotalImpactFilter numericOperator startValue =
   TotalImpactFilter'
-    { endValue = Lude.Nothing,
-      startValue = pStartValue_,
-      numericOperator = pNumericOperator_
+    { numericOperator,
+      startValue,
+      endValue = Core.Nothing
     }
-
--- | The upper bound dollar value used in the filter.
---
--- /Note:/ Consider using 'endValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tifEndValue :: Lens.Lens' TotalImpactFilter (Lude.Maybe Lude.Double)
-tifEndValue = Lens.lens (endValue :: TotalImpactFilter -> Lude.Maybe Lude.Double) (\s a -> s {endValue = a} :: TotalImpactFilter)
-{-# DEPRECATED tifEndValue "Use generic-lens or generic-optics with 'endValue' instead." #-}
-
--- | The lower bound dollar value used in the filter.
---
--- /Note:/ Consider using 'startValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tifStartValue :: Lens.Lens' TotalImpactFilter Lude.Double
-tifStartValue = Lens.lens (startValue :: TotalImpactFilter -> Lude.Double) (\s a -> s {startValue = a} :: TotalImpactFilter)
-{-# DEPRECATED tifStartValue "Use generic-lens or generic-optics with 'startValue' instead." #-}
 
 -- | The comparing value used in the filter.
 --
 -- /Note:/ Consider using 'numericOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tifNumericOperator :: Lens.Lens' TotalImpactFilter NumericOperator
-tifNumericOperator = Lens.lens (numericOperator :: TotalImpactFilter -> NumericOperator) (\s a -> s {numericOperator = a} :: TotalImpactFilter)
+tifNumericOperator :: Lens.Lens' TotalImpactFilter Types.NumericOperator
+tifNumericOperator = Lens.field @"numericOperator"
 {-# DEPRECATED tifNumericOperator "Use generic-lens or generic-optics with 'numericOperator' instead." #-}
 
-instance Lude.ToJSON TotalImpactFilter where
-  toJSON TotalImpactFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EndValue" Lude..=) Lude.<$> endValue,
-            Lude.Just ("StartValue" Lude..= startValue),
-            Lude.Just ("NumericOperator" Lude..= numericOperator)
+-- | The lower bound dollar value used in the filter.
+--
+-- /Note:/ Consider using 'startValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tifStartValue :: Lens.Lens' TotalImpactFilter Core.Double
+tifStartValue = Lens.field @"startValue"
+{-# DEPRECATED tifStartValue "Use generic-lens or generic-optics with 'startValue' instead." #-}
+
+-- | The upper bound dollar value used in the filter.
+--
+-- /Note:/ Consider using 'endValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tifEndValue :: Lens.Lens' TotalImpactFilter (Core.Maybe Core.Double)
+tifEndValue = Lens.field @"endValue"
+{-# DEPRECATED tifEndValue "Use generic-lens or generic-optics with 'endValue' instead." #-}
+
+instance Core.FromJSON TotalImpactFilter where
+  toJSON TotalImpactFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("NumericOperator" Core..= numericOperator),
+            Core.Just ("StartValue" Core..= startValue),
+            ("EndValue" Core..=) Core.<$> endValue
           ]
       )

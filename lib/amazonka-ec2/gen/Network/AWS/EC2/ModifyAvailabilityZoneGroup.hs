@@ -22,8 +22,8 @@ module Network.AWS.EC2.ModifyAvailabilityZoneGroup
     mkModifyAvailabilityZoneGroup,
 
     -- ** Request lenses
-    mazgOptInStatus,
     mazgGroupName,
+    mazgOptInStatus,
     mazgDryRun,
 
     -- * Destructuring the response
@@ -31,131 +31,126 @@ module Network.AWS.EC2.ModifyAvailabilityZoneGroup
     mkModifyAvailabilityZoneGroupResponse,
 
     -- ** Response lenses
-    mazgrsReturn,
-    mazgrsResponseStatus,
+    mazgrrsReturn,
+    mazgrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyAvailabilityZoneGroup' smart constructor.
 data ModifyAvailabilityZoneGroup = ModifyAvailabilityZoneGroup'
-  { -- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
-    optInStatus :: ModifyAvailabilityZoneOptInStatus,
-    -- | The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
-    groupName :: Lude.Text,
+  { -- | The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+    groupName :: Types.String,
+    -- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
+    optInStatus :: Types.ModifyAvailabilityZoneOptInStatus,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyAvailabilityZoneGroup' with the minimum fields required to make a request.
---
--- * 'optInStatus' - Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
--- * 'groupName' - The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyAvailabilityZoneGroup' value with any optional fields omitted.
 mkModifyAvailabilityZoneGroup ::
-  -- | 'optInStatus'
-  ModifyAvailabilityZoneOptInStatus ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'optInStatus'
+  Types.ModifyAvailabilityZoneOptInStatus ->
   ModifyAvailabilityZoneGroup
-mkModifyAvailabilityZoneGroup pOptInStatus_ pGroupName_ =
+mkModifyAvailabilityZoneGroup groupName optInStatus =
   ModifyAvailabilityZoneGroup'
-    { optInStatus = pOptInStatus_,
-      groupName = pGroupName_,
-      dryRun = Lude.Nothing
+    { groupName,
+      optInStatus,
+      dryRun = Core.Nothing
     }
-
--- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
---
--- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgOptInStatus :: Lens.Lens' ModifyAvailabilityZoneGroup ModifyAvailabilityZoneOptInStatus
-mazgOptInStatus = Lens.lens (optInStatus :: ModifyAvailabilityZoneGroup -> ModifyAvailabilityZoneOptInStatus) (\s a -> s {optInStatus = a} :: ModifyAvailabilityZoneGroup)
-{-# DEPRECATED mazgOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
 
 -- | The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgGroupName :: Lens.Lens' ModifyAvailabilityZoneGroup Lude.Text
-mazgGroupName = Lens.lens (groupName :: ModifyAvailabilityZoneGroup -> Lude.Text) (\s a -> s {groupName = a} :: ModifyAvailabilityZoneGroup)
+mazgGroupName :: Lens.Lens' ModifyAvailabilityZoneGroup Types.String
+mazgGroupName = Lens.field @"groupName"
 {-# DEPRECATED mazgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
+--
+-- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mazgOptInStatus :: Lens.Lens' ModifyAvailabilityZoneGroup Types.ModifyAvailabilityZoneOptInStatus
+mazgOptInStatus = Lens.field @"optInStatus"
+{-# DEPRECATED mazgOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgDryRun :: Lens.Lens' ModifyAvailabilityZoneGroup (Lude.Maybe Lude.Bool)
-mazgDryRun = Lens.lens (dryRun :: ModifyAvailabilityZoneGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyAvailabilityZoneGroup)
+mazgDryRun :: Lens.Lens' ModifyAvailabilityZoneGroup (Core.Maybe Core.Bool)
+mazgDryRun = Lens.field @"dryRun"
 {-# DEPRECATED mazgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ModifyAvailabilityZoneGroup where
+instance Core.AWSRequest ModifyAvailabilityZoneGroup where
   type
     Rs ModifyAvailabilityZoneGroup =
       ModifyAvailabilityZoneGroupResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyAvailabilityZoneGroup")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "OptInStatus" optInStatus)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyAvailabilityZoneGroupResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyAvailabilityZoneGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyAvailabilityZoneGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyAvailabilityZoneGroup where
-  toQuery ModifyAvailabilityZoneGroup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyAvailabilityZoneGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "OptInStatus" Lude.=: optInStatus,
-        "GroupName" Lude.=: groupName,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkModifyAvailabilityZoneGroupResponse' smart constructor.
 data ModifyAvailabilityZoneGroupResponse = ModifyAvailabilityZoneGroupResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyAvailabilityZoneGroupResponse' with the minimum fields required to make a request.
---
--- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyAvailabilityZoneGroupResponse' value with any optional fields omitted.
 mkModifyAvailabilityZoneGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyAvailabilityZoneGroupResponse
-mkModifyAvailabilityZoneGroupResponse pResponseStatus_ =
+mkModifyAvailabilityZoneGroupResponse responseStatus =
   ModifyAvailabilityZoneGroupResponse'
-    { return = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { return = Core.Nothing,
+      responseStatus
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgrsReturn :: Lens.Lens' ModifyAvailabilityZoneGroupResponse (Lude.Maybe Lude.Bool)
-mazgrsReturn = Lens.lens (return :: ModifyAvailabilityZoneGroupResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ModifyAvailabilityZoneGroupResponse)
-{-# DEPRECATED mazgrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+mazgrrsReturn :: Lens.Lens' ModifyAvailabilityZoneGroupResponse (Core.Maybe Core.Bool)
+mazgrrsReturn = Lens.field @"return"
+{-# DEPRECATED mazgrrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgrsResponseStatus :: Lens.Lens' ModifyAvailabilityZoneGroupResponse Lude.Int
-mazgrsResponseStatus = Lens.lens (responseStatus :: ModifyAvailabilityZoneGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyAvailabilityZoneGroupResponse)
-{-# DEPRECATED mazgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mazgrrsResponseStatus :: Lens.Lens' ModifyAvailabilityZoneGroupResponse Core.Int
+mazgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mazgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

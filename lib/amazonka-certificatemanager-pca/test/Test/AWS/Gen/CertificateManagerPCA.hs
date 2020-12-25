@@ -48,8 +48,8 @@ import Test.Tasty
 --         , requestDeleteCertificateAuthority $
 --             mkDeleteCertificateAuthority
 --
---         , requestGetCertificateAuthorityCSR $
---             mkGetCertificateAuthorityCSR
+--         , requestGetCertificateAuthorityCsr $
+--             mkGetCertificateAuthorityCsr
 --
 --         , requestCreateCertificateAuthority $
 --             mkCreateCertificateAuthority
@@ -120,8 +120,8 @@ import Test.Tasty
 --         , responseDeleteCertificateAuthority $
 --             mkDeleteCertificateAuthorityResponse
 --
---         , responseGetCertificateAuthorityCSR $
---             mkGetCertificateAuthorityCSRResponse
+--         , responseGetCertificateAuthorityCsr $
+--             mkGetCertificateAuthorityCsrResponse
 --
 --         , responseCreateCertificateAuthority $
 --             mkCreateCertificateAuthorityResponse
@@ -215,11 +215,11 @@ requestDeleteCertificateAuthority =
     "DeleteCertificateAuthority"
     "fixture/DeleteCertificateAuthority.yaml"
 
-requestGetCertificateAuthorityCSR :: GetCertificateAuthorityCSR -> TestTree
-requestGetCertificateAuthorityCSR =
+requestGetCertificateAuthorityCsr :: GetCertificateAuthorityCsr -> TestTree
+requestGetCertificateAuthorityCsr =
   req
-    "GetCertificateAuthorityCSR"
-    "fixture/GetCertificateAuthorityCSR.yaml"
+    "GetCertificateAuthorityCsr"
+    "fixture/GetCertificateAuthorityCsr.yaml"
 
 requestCreateCertificateAuthority :: CreateCertificateAuthority -> TestTree
 requestCreateCertificateAuthority =
@@ -318,7 +318,7 @@ responseImportCertificateAuthorityCertificate =
   res
     "ImportCertificateAuthorityCertificateResponse"
     "fixture/ImportCertificateAuthorityCertificateResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy ImportCertificateAuthorityCertificate)
 
 responseCreatePermission :: CreatePermissionResponse -> TestTree
@@ -326,7 +326,7 @@ responseCreatePermission =
   res
     "CreatePermissionResponse"
     "fixture/CreatePermissionResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy CreatePermission)
 
 responseDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReportResponse -> TestTree
@@ -334,7 +334,7 @@ responseDescribeCertificateAuthorityAuditReport =
   res
     "DescribeCertificateAuthorityAuditReportResponse"
     "fixture/DescribeCertificateAuthorityAuditReportResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCertificateAuthorityAuditReport)
 
 responseDeletePermission :: DeletePermissionResponse -> TestTree
@@ -342,7 +342,7 @@ responseDeletePermission =
   res
     "DeletePermissionResponse"
     "fixture/DeletePermissionResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy DeletePermission)
 
 responseRevokeCertificate :: RevokeCertificateResponse -> TestTree
@@ -350,7 +350,7 @@ responseRevokeCertificate =
   res
     "RevokeCertificateResponse"
     "fixture/RevokeCertificateResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy RevokeCertificate)
 
 responseUpdateCertificateAuthority :: UpdateCertificateAuthorityResponse -> TestTree
@@ -358,7 +358,7 @@ responseUpdateCertificateAuthority =
   res
     "UpdateCertificateAuthorityResponse"
     "fixture/UpdateCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCertificateAuthority)
 
 responseDeleteCertificateAuthority :: DeleteCertificateAuthorityResponse -> TestTree
@@ -366,23 +366,23 @@ responseDeleteCertificateAuthority =
   res
     "DeleteCertificateAuthorityResponse"
     "fixture/DeleteCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCertificateAuthority)
 
-responseGetCertificateAuthorityCSR :: GetCertificateAuthorityCSRResponse -> TestTree
-responseGetCertificateAuthorityCSR =
+responseGetCertificateAuthorityCsr :: GetCertificateAuthorityCsrResponse -> TestTree
+responseGetCertificateAuthorityCsr =
   res
-    "GetCertificateAuthorityCSRResponse"
-    "fixture/GetCertificateAuthorityCSRResponse.proto"
-    certificateManagerPCAService
-    (Proxy :: Proxy GetCertificateAuthorityCSR)
+    "GetCertificateAuthorityCsrResponse"
+    "fixture/GetCertificateAuthorityCsrResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetCertificateAuthorityCsr)
 
 responseCreateCertificateAuthority :: CreateCertificateAuthorityResponse -> TestTree
 responseCreateCertificateAuthority =
   res
     "CreateCertificateAuthorityResponse"
     "fixture/CreateCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy CreateCertificateAuthority)
 
 responseListCertificateAuthorities :: ListCertificateAuthoritiesResponse -> TestTree
@@ -390,7 +390,7 @@ responseListCertificateAuthorities =
   res
     "ListCertificateAuthoritiesResponse"
     "fixture/ListCertificateAuthoritiesResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy ListCertificateAuthorities)
 
 responseGetCertificate :: GetCertificateResponse -> TestTree
@@ -398,7 +398,7 @@ responseGetCertificate =
   res
     "GetCertificateResponse"
     "fixture/GetCertificateResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy GetCertificate)
 
 responseTagCertificateAuthority :: TagCertificateAuthorityResponse -> TestTree
@@ -406,7 +406,7 @@ responseTagCertificateAuthority =
   res
     "TagCertificateAuthorityResponse"
     "fixture/TagCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy TagCertificateAuthority)
 
 responsePutPolicy :: PutPolicyResponse -> TestTree
@@ -414,7 +414,7 @@ responsePutPolicy =
   res
     "PutPolicyResponse"
     "fixture/PutPolicyResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy PutPolicy)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
@@ -422,7 +422,7 @@ responseDeletePolicy =
   res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy DeletePolicy)
 
 responseDescribeCertificateAuthority :: DescribeCertificateAuthorityResponse -> TestTree
@@ -430,7 +430,7 @@ responseDescribeCertificateAuthority =
   res
     "DescribeCertificateAuthorityResponse"
     "fixture/DescribeCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCertificateAuthority)
 
 responseRestoreCertificateAuthority :: RestoreCertificateAuthorityResponse -> TestTree
@@ -438,7 +438,7 @@ responseRestoreCertificateAuthority =
   res
     "RestoreCertificateAuthorityResponse"
     "fixture/RestoreCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy RestoreCertificateAuthority)
 
 responseIssueCertificate :: IssueCertificateResponse -> TestTree
@@ -446,7 +446,7 @@ responseIssueCertificate =
   res
     "IssueCertificateResponse"
     "fixture/IssueCertificateResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy IssueCertificate)
 
 responseGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificateResponse -> TestTree
@@ -454,7 +454,7 @@ responseGetCertificateAuthorityCertificate =
   res
     "GetCertificateAuthorityCertificateResponse"
     "fixture/GetCertificateAuthorityCertificateResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy GetCertificateAuthorityCertificate)
 
 responseListPermissions :: ListPermissionsResponse -> TestTree
@@ -462,7 +462,7 @@ responseListPermissions =
   res
     "ListPermissionsResponse"
     "fixture/ListPermissionsResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy ListPermissions)
 
 responseUntagCertificateAuthority :: UntagCertificateAuthorityResponse -> TestTree
@@ -470,7 +470,7 @@ responseUntagCertificateAuthority =
   res
     "UntagCertificateAuthorityResponse"
     "fixture/UntagCertificateAuthorityResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy UntagCertificateAuthority)
 
 responseCreateCertificateAuthorityAuditReport :: CreateCertificateAuthorityAuditReportResponse -> TestTree
@@ -478,7 +478,7 @@ responseCreateCertificateAuthorityAuditReport =
   res
     "CreateCertificateAuthorityAuditReportResponse"
     "fixture/CreateCertificateAuthorityAuditReportResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy CreateCertificateAuthorityAuditReport)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -486,7 +486,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
@@ -494,5 +494,5 @@ responseGetPolicy =
   res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
-    certificateManagerPCAService
+    mkServiceConfig
     (Proxy :: Proxy GetPolicy)

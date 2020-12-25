@@ -22,160 +22,150 @@ module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
     mkDescribeReportDefinitions,
 
     -- ** Request lenses
-    drdNextToken,
     drdMaxResults,
+    drdNextToken,
 
     -- * Destructuring the response
     DescribeReportDefinitionsResponse (..),
     mkDescribeReportDefinitionsResponse,
 
     -- ** Response lenses
-    drdrsNextToken,
-    drdrsReportDefinitions,
-    drdrsResponseStatus,
+    drdrrsNextToken,
+    drdrrsReportDefinitions,
+    drdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostAndUsageReport.Types
+import qualified Network.AWS.CostAndUsageReport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Requests a list of AWS Cost and Usage reports owned by the account.
 --
 -- /See:/ 'mkDescribeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural
+  { maxResults :: Core.Maybe Core.Natural,
+    nextToken :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReportDefinitions' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'maxResults' -
+-- | Creates a 'DescribeReportDefinitions' value with any optional fields omitted.
 mkDescribeReportDefinitions ::
   DescribeReportDefinitions
 mkDescribeReportDefinitions =
   DescribeReportDefinitions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdNextToken :: Lens.Lens' DescribeReportDefinitions (Lude.Maybe Lude.Text)
-drdNextToken = Lens.lens (nextToken :: DescribeReportDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReportDefinitions)
-{-# DEPRECATED drdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdMaxResults :: Lens.Lens' DescribeReportDefinitions (Core.Maybe Core.Natural)
+drdMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED drdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdMaxResults :: Lens.Lens' DescribeReportDefinitions (Lude.Maybe Lude.Natural)
-drdMaxResults = Lens.lens (maxResults :: DescribeReportDefinitions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeReportDefinitions)
-{-# DEPRECATED drdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdNextToken :: Lens.Lens' DescribeReportDefinitions (Core.Maybe Types.GenericString)
+drdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeReportDefinitions where
-  page rq rs
-    | Page.stop (rs Lens.^. drdrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. drdrsReportDefinitions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drdNextToken Lens..~ rs Lens.^. drdrsNextToken
+instance Core.FromJSON DescribeReportDefinitions where
+  toJSON DescribeReportDefinitions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest DescribeReportDefinitions where
+instance Core.AWSRequest DescribeReportDefinitions where
   type
     Rs DescribeReportDefinitions =
       DescribeReportDefinitionsResponse
-  request = Req.postJSON costAndUsageReportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrigamiServiceGatewayService.DescribeReportDefinitions"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeReportDefinitionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ReportDefinitions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "ReportDefinitions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReportDefinitions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrigamiServiceGatewayService.DescribeReportDefinitions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeReportDefinitions where
-  toJSON DescribeReportDefinitions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeReportDefinitions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReportDefinitions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeReportDefinitions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"reportDefinitions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | If the action is successful, the service sends back an HTTP 200 response.
 --
 -- /See:/ 'mkDescribeReportDefinitionsResponse' smart constructor.
 data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { nextToken :: Core.Maybe Types.NextToken,
     -- | A list of AWS Cost and Usage reports owned by the account.
-    reportDefinitions :: Lude.Maybe [ReportDefinition],
+    reportDefinitions :: Core.Maybe [Types.ReportDefinition],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReportDefinitionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'reportDefinitions' - A list of AWS Cost and Usage reports owned by the account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReportDefinitionsResponse' value with any optional fields omitted.
 mkDescribeReportDefinitionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReportDefinitionsResponse
-mkDescribeReportDefinitionsResponse pResponseStatus_ =
+mkDescribeReportDefinitionsResponse responseStatus =
   DescribeReportDefinitionsResponse'
-    { nextToken = Lude.Nothing,
-      reportDefinitions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      reportDefinitions = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdrsNextToken :: Lens.Lens' DescribeReportDefinitionsResponse (Lude.Maybe Lude.Text)
-drdrsNextToken = Lens.lens (nextToken :: DescribeReportDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReportDefinitionsResponse)
-{-# DEPRECATED drdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+drdrrsNextToken :: Lens.Lens' DescribeReportDefinitionsResponse (Core.Maybe Types.NextToken)
+drdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of AWS Cost and Usage reports owned by the account.
 --
 -- /Note:/ Consider using 'reportDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdrsReportDefinitions :: Lens.Lens' DescribeReportDefinitionsResponse (Lude.Maybe [ReportDefinition])
-drdrsReportDefinitions = Lens.lens (reportDefinitions :: DescribeReportDefinitionsResponse -> Lude.Maybe [ReportDefinition]) (\s a -> s {reportDefinitions = a} :: DescribeReportDefinitionsResponse)
-{-# DEPRECATED drdrsReportDefinitions "Use generic-lens or generic-optics with 'reportDefinitions' instead." #-}
+drdrrsReportDefinitions :: Lens.Lens' DescribeReportDefinitionsResponse (Core.Maybe [Types.ReportDefinition])
+drdrrsReportDefinitions = Lens.field @"reportDefinitions"
+{-# DEPRECATED drdrrsReportDefinitions "Use generic-lens or generic-optics with 'reportDefinitions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdrsResponseStatus :: Lens.Lens' DescribeReportDefinitionsResponse Lude.Int
-drdrsResponseStatus = Lens.lens (responseStatus :: DescribeReportDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReportDefinitionsResponse)
-{-# DEPRECATED drdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drdrrsResponseStatus :: Lens.Lens' DescribeReportDefinitionsResponse Core.Int
+drdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

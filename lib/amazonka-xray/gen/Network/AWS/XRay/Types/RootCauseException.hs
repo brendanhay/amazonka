@@ -17,54 +17,50 @@ module Network.AWS.XRay.Types.RootCauseException
     mkRootCauseException,
 
     -- * Lenses
-    rceName,
     rceMessage,
+    rceName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | The exception associated with a root cause.
 --
 -- /See:/ 'mkRootCauseException' smart constructor.
 data RootCauseException = RootCauseException'
-  { -- | The name of the exception.
-    name :: Lude.Maybe Lude.Text,
-    -- | The message of the exception.
-    message :: Lude.Maybe Lude.Text
+  { -- | The message of the exception.
+    message :: Core.Maybe Types.String,
+    -- | The name of the exception.
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RootCauseException' with the minimum fields required to make a request.
---
--- * 'name' - The name of the exception.
--- * 'message' - The message of the exception.
+-- | Creates a 'RootCauseException' value with any optional fields omitted.
 mkRootCauseException ::
   RootCauseException
 mkRootCauseException =
-  RootCauseException' {name = Lude.Nothing, message = Lude.Nothing}
-
--- | The name of the exception.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceName :: Lens.Lens' RootCauseException (Lude.Maybe Lude.Text)
-rceName = Lens.lens (name :: RootCauseException -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RootCauseException)
-{-# DEPRECATED rceName "Use generic-lens or generic-optics with 'name' instead." #-}
+  RootCauseException' {message = Core.Nothing, name = Core.Nothing}
 
 -- | The message of the exception.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceMessage :: Lens.Lens' RootCauseException (Lude.Maybe Lude.Text)
-rceMessage = Lens.lens (message :: RootCauseException -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: RootCauseException)
+rceMessage :: Lens.Lens' RootCauseException (Core.Maybe Types.String)
+rceMessage = Lens.field @"message"
 {-# DEPRECATED rceMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON RootCauseException where
+-- | The name of the exception.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rceName :: Lens.Lens' RootCauseException (Core.Maybe Types.String)
+rceName = Lens.field @"name"
+{-# DEPRECATED rceName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON RootCauseException where
   parseJSON =
-    Lude.withObject
-      "RootCauseException"
-      ( \x ->
-          RootCauseException'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "RootCauseException" Core.$
+      \x ->
+        RootCauseException'
+          Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Name")

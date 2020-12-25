@@ -17,13 +17,15 @@ module Network.AWS.LexRuntime.Types.SentimentResponse
     mkSentimentResponse,
 
     -- * Lenses
-    sSentimentScore,
-    sSentimentLabel,
+    srSentimentLabel,
+    srSentimentScore,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexRuntime.Types.SentimentLabel as Types
+import qualified Network.AWS.LexRuntime.Types.SentimentScore as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The sentiment expressed in an utterance.
 --
@@ -31,46 +33,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSentimentResponse' smart constructor.
 data SentimentResponse = SentimentResponse'
-  { -- | The likelihood that the sentiment was correctly inferred.
-    sentimentScore :: Lude.Maybe Lude.Text,
-    -- | The inferred sentiment that Amazon Comprehend has the highest confidence in.
-    sentimentLabel :: Lude.Maybe Lude.Text
+  { -- | The inferred sentiment that Amazon Comprehend has the highest confidence in.
+    sentimentLabel :: Core.Maybe Types.SentimentLabel,
+    -- | The likelihood that the sentiment was correctly inferred.
+    sentimentScore :: Core.Maybe Types.SentimentScore
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SentimentResponse' with the minimum fields required to make a request.
---
--- * 'sentimentScore' - The likelihood that the sentiment was correctly inferred.
--- * 'sentimentLabel' - The inferred sentiment that Amazon Comprehend has the highest confidence in.
+-- | Creates a 'SentimentResponse' value with any optional fields omitted.
 mkSentimentResponse ::
   SentimentResponse
 mkSentimentResponse =
   SentimentResponse'
-    { sentimentScore = Lude.Nothing,
-      sentimentLabel = Lude.Nothing
+    { sentimentLabel = Core.Nothing,
+      sentimentScore = Core.Nothing
     }
-
--- | The likelihood that the sentiment was correctly inferred.
---
--- /Note:/ Consider using 'sentimentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSentimentScore :: Lens.Lens' SentimentResponse (Lude.Maybe Lude.Text)
-sSentimentScore = Lens.lens (sentimentScore :: SentimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {sentimentScore = a} :: SentimentResponse)
-{-# DEPRECATED sSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
 
 -- | The inferred sentiment that Amazon Comprehend has the highest confidence in.
 --
 -- /Note:/ Consider using 'sentimentLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSentimentLabel :: Lens.Lens' SentimentResponse (Lude.Maybe Lude.Text)
-sSentimentLabel = Lens.lens (sentimentLabel :: SentimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {sentimentLabel = a} :: SentimentResponse)
-{-# DEPRECATED sSentimentLabel "Use generic-lens or generic-optics with 'sentimentLabel' instead." #-}
+srSentimentLabel :: Lens.Lens' SentimentResponse (Core.Maybe Types.SentimentLabel)
+srSentimentLabel = Lens.field @"sentimentLabel"
+{-# DEPRECATED srSentimentLabel "Use generic-lens or generic-optics with 'sentimentLabel' instead." #-}
 
-instance Lude.FromJSON SentimentResponse where
+-- | The likelihood that the sentiment was correctly inferred.
+--
+-- /Note:/ Consider using 'sentimentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srSentimentScore :: Lens.Lens' SentimentResponse (Core.Maybe Types.SentimentScore)
+srSentimentScore = Lens.field @"sentimentScore"
+{-# DEPRECATED srSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
+
+instance Core.FromJSON SentimentResponse where
   parseJSON =
-    Lude.withObject
-      "SentimentResponse"
-      ( \x ->
-          SentimentResponse'
-            Lude.<$> (x Lude..:? "sentimentScore")
-            Lude.<*> (x Lude..:? "sentimentLabel")
-      )
+    Core.withObject "SentimentResponse" Core.$
+      \x ->
+        SentimentResponse'
+          Core.<$> (x Core..:? "sentimentLabel")
+          Core.<*> (x Core..:? "sentimentScore")

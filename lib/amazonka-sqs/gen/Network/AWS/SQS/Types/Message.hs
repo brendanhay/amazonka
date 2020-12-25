@@ -17,32 +17,27 @@ module Network.AWS.SQS.Types.Message
     mkMessage,
 
     -- * Lenses
-    mMessageAttributes,
-    mMD5OfBody,
-    mBody,
     mAttributes,
-    mReceiptHandle,
-    mMessageId,
+    mBody,
+    mMD5OfBody,
     mMD5OfMessageAttributes,
+    mMessageAttributes,
+    mMessageId,
+    mReceiptHandle,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SQS.Types.MessageAttribute
-import Network.AWS.SQS.Types.MessageAttributeValue
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SQS.Types.MessageAttribute as Types
+import qualified Network.AWS.SQS.Types.MessageAttributeValue as Types
+import qualified Network.AWS.SQS.Types.String as Types
 
 -- | An Amazon SQS message.
 --
 -- /See:/ 'mkMessage' smart constructor.
 data Message = Message'
-  { -- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
-    messageAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (MessageAttributeValue)),
-    -- | An MD5 digest of the non-URL-encoded message body string.
-    md5OfBody :: Lude.Maybe Lude.Text,
-    -- | The message's contents (not URL-encoded).
-    body :: Lude.Maybe Lude.Text,
-    -- | A map of the attributes requested in @'ReceiveMessage' @ to their respective values. Supported attributes:
+  { -- | A map of the attributes requested in @'ReceiveMessage' @ to their respective values. Supported attributes:
     --
     --
     --     * @ApproximateReceiveCount@
@@ -67,83 +62,36 @@ data Message = Message'
     --
     --
     -- @ApproximateFirstReceiveTimestamp@ and @SentTimestamp@ are each returned as an integer representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in milliseconds.
-    attributes :: Lude.Maybe (Lude.HashMap MessageAttribute (Lude.Text)),
-    -- | An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.
-    receiptHandle :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
-    messageId :: Lude.Maybe Lude.Text,
+    attributes :: Core.Maybe (Core.HashMap Types.MessageAttribute Types.String),
+    -- | The message's contents (not URL-encoded).
+    body :: Core.Maybe Types.String,
+    -- | An MD5 digest of the non-URL-encoded message body string.
+    mD5OfBody :: Core.Maybe Types.String,
     -- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
-    md5OfMessageAttributes :: Lude.Maybe Lude.Text
+    mD5OfMessageAttributes :: Core.Maybe Types.String,
+    -- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
+    messageAttributes :: Core.Maybe (Core.HashMap Types.String Types.MessageAttributeValue),
+    -- | A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
+    messageId :: Core.Maybe Types.String,
+    -- | An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.
+    receiptHandle :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Message' with the minimum fields required to make a request.
---
--- * 'messageAttributes' - Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
--- * 'md5OfBody' - An MD5 digest of the non-URL-encoded message body string.
--- * 'body' - The message's contents (not URL-encoded).
--- * 'attributes' - A map of the attributes requested in @'ReceiveMessage' @ to their respective values. Supported attributes:
---
---
---     * @ApproximateReceiveCount@
---
---
---     * @ApproximateFirstReceiveTimestamp@
---
---
---     * @MessageDeduplicationId@
---
---
---     * @MessageGroupId@
---
---
---     * @SenderId@
---
---
---     * @SentTimestamp@
---
---
---     * @SequenceNumber@
---
---
--- @ApproximateFirstReceiveTimestamp@ and @SentTimestamp@ are each returned as an integer representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in milliseconds.
--- * 'receiptHandle' - An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.
--- * 'messageId' - A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
--- * 'md5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | Creates a 'Message' value with any optional fields omitted.
 mkMessage ::
   Message
 mkMessage =
   Message'
-    { messageAttributes = Lude.Nothing,
-      md5OfBody = Lude.Nothing,
-      body = Lude.Nothing,
-      attributes = Lude.Nothing,
-      receiptHandle = Lude.Nothing,
-      messageId = Lude.Nothing,
-      md5OfMessageAttributes = Lude.Nothing
+    { attributes = Core.Nothing,
+      body = Core.Nothing,
+      mD5OfBody = Core.Nothing,
+      mD5OfMessageAttributes = Core.Nothing,
+      messageAttributes = Core.Nothing,
+      messageId = Core.Nothing,
+      receiptHandle = Core.Nothing
     }
-
--- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
---
--- /Note:/ Consider using 'messageAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMessageAttributes :: Lens.Lens' Message (Lude.Maybe (Lude.HashMap Lude.Text (MessageAttributeValue)))
-mMessageAttributes = Lens.lens (messageAttributes :: Message -> Lude.Maybe (Lude.HashMap Lude.Text (MessageAttributeValue))) (\s a -> s {messageAttributes = a} :: Message)
-{-# DEPRECATED mMessageAttributes "Use generic-lens or generic-optics with 'messageAttributes' instead." #-}
-
--- | An MD5 digest of the non-URL-encoded message body string.
---
--- /Note:/ Consider using 'md5OfBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMD5OfBody :: Lens.Lens' Message (Lude.Maybe Lude.Text)
-mMD5OfBody = Lens.lens (md5OfBody :: Message -> Lude.Maybe Lude.Text) (\s a -> s {md5OfBody = a} :: Message)
-{-# DEPRECATED mMD5OfBody "Use generic-lens or generic-optics with 'md5OfBody' instead." #-}
-
--- | The message's contents (not URL-encoded).
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mBody :: Lens.Lens' Message (Lude.Maybe Lude.Text)
-mBody = Lens.lens (body :: Message -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: Message)
-{-# DEPRECATED mBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | A map of the attributes requested in @'ReceiveMessage' @ to their respective values. Supported attributes:
 --
@@ -172,38 +120,59 @@ mBody = Lens.lens (body :: Message -> Lude.Maybe Lude.Text) (\s a -> s {body = a
 -- @ApproximateFirstReceiveTimestamp@ and @SentTimestamp@ are each returned as an integer representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in milliseconds.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mAttributes :: Lens.Lens' Message (Lude.Maybe (Lude.HashMap MessageAttribute (Lude.Text)))
-mAttributes = Lens.lens (attributes :: Message -> Lude.Maybe (Lude.HashMap MessageAttribute (Lude.Text))) (\s a -> s {attributes = a} :: Message)
+mAttributes :: Lens.Lens' Message (Core.Maybe (Core.HashMap Types.MessageAttribute Types.String))
+mAttributes = Lens.field @"attributes"
 {-# DEPRECATED mAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.
+-- | The message's contents (not URL-encoded).
 --
--- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mReceiptHandle :: Lens.Lens' Message (Lude.Maybe Lude.Text)
-mReceiptHandle = Lens.lens (receiptHandle :: Message -> Lude.Maybe Lude.Text) (\s a -> s {receiptHandle = a} :: Message)
-{-# DEPRECATED mReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mBody :: Lens.Lens' Message (Core.Maybe Types.String)
+mBody = Lens.field @"body"
+{-# DEPRECATED mBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | An MD5 digest of the non-URL-encoded message body string.
+--
+-- /Note:/ Consider using 'mD5OfBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMD5OfBody :: Lens.Lens' Message (Core.Maybe Types.String)
+mMD5OfBody = Lens.field @"mD5OfBody"
+{-# DEPRECATED mMD5OfBody "Use generic-lens or generic-optics with 'mD5OfBody' instead." #-}
+
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+--
+-- /Note:/ Consider using 'mD5OfMessageAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMD5OfMessageAttributes :: Lens.Lens' Message (Core.Maybe Types.String)
+mMD5OfMessageAttributes = Lens.field @"mD5OfMessageAttributes"
+{-# DEPRECATED mMD5OfMessageAttributes "Use generic-lens or generic-optics with 'mD5OfMessageAttributes' instead." #-}
+
+-- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'messageAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMessageAttributes :: Lens.Lens' Message (Core.Maybe (Core.HashMap Types.String Types.MessageAttributeValue))
+mMessageAttributes = Lens.field @"messageAttributes"
+{-# DEPRECATED mMessageAttributes "Use generic-lens or generic-optics with 'messageAttributes' instead." #-}
 
 -- | A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
 --
 -- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMessageId :: Lens.Lens' Message (Lude.Maybe Lude.Text)
-mMessageId = Lens.lens (messageId :: Message -> Lude.Maybe Lude.Text) (\s a -> s {messageId = a} :: Message)
+mMessageId :: Lens.Lens' Message (Core.Maybe Types.String)
+mMessageId = Lens.field @"messageId"
 {-# DEPRECATED mMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
--- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.
 --
--- /Note:/ Consider using 'md5OfMessageAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMD5OfMessageAttributes :: Lens.Lens' Message (Lude.Maybe Lude.Text)
-mMD5OfMessageAttributes = Lens.lens (md5OfMessageAttributes :: Message -> Lude.Maybe Lude.Text) (\s a -> s {md5OfMessageAttributes = a} :: Message)
-{-# DEPRECATED mMD5OfMessageAttributes "Use generic-lens or generic-optics with 'md5OfMessageAttributes' instead." #-}
+-- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mReceiptHandle :: Lens.Lens' Message (Core.Maybe Types.String)
+mReceiptHandle = Lens.field @"receiptHandle"
+{-# DEPRECATED mReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance Lude.FromXML Message where
+instance Core.FromXML Message where
   parseXML x =
     Message'
-      Lude.<$> (Lude.may (Lude.parseXMLMap "MessageAttribute" "Name" "Value") x)
-      Lude.<*> (x Lude..@? "MD5OfBody")
-      Lude.<*> (x Lude..@? "Body")
-      Lude.<*> (Lude.may (Lude.parseXMLMap "Attribute" "Name" "Value") x)
-      Lude.<*> (x Lude..@? "ReceiptHandle")
-      Lude.<*> (x Lude..@? "MessageId")
-      Lude.<*> (x Lude..@? "MD5OfMessageAttributes")
+      Core.<$> (x Core..@? "Attribute")
+      Core.<*> (x Core..@? "Body")
+      Core.<*> (x Core..@? "MD5OfBody")
+      Core.<*> (x Core..@? "MD5OfMessageAttributes")
+      Core.<*> (x Core..@? "MessageAttribute")
+      Core.<*> (x Core..@? "MessageId")
+      Core.<*> (x Core..@? "ReceiptHandle")

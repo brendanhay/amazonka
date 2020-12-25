@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
   ( AudioDescriptionAudioTypeControl
       ( AudioDescriptionAudioTypeControl',
-        ADATCFollowInput,
-        ADATCUseConfigured
+        AudioDescriptionAudioTypeControlFollowInput,
+        AudioDescriptionAudioTypeControlUseConfigured,
+        fromAudioDescriptionAudioTypeControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Description Audio Type Control
-newtype AudioDescriptionAudioTypeControl = AudioDescriptionAudioTypeControl' Lude.Text
+newtype AudioDescriptionAudioTypeControl = AudioDescriptionAudioTypeControl'
+  { fromAudioDescriptionAudioTypeControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ADATCFollowInput :: AudioDescriptionAudioTypeControl
-pattern ADATCFollowInput = AudioDescriptionAudioTypeControl' "FOLLOW_INPUT"
+pattern AudioDescriptionAudioTypeControlFollowInput :: AudioDescriptionAudioTypeControl
+pattern AudioDescriptionAudioTypeControlFollowInput = AudioDescriptionAudioTypeControl' "FOLLOW_INPUT"
 
-pattern ADATCUseConfigured :: AudioDescriptionAudioTypeControl
-pattern ADATCUseConfigured = AudioDescriptionAudioTypeControl' "USE_CONFIGURED"
+pattern AudioDescriptionAudioTypeControlUseConfigured :: AudioDescriptionAudioTypeControl
+pattern AudioDescriptionAudioTypeControlUseConfigured = AudioDescriptionAudioTypeControl' "USE_CONFIGURED"
 
 {-# COMPLETE
-  ADATCFollowInput,
-  ADATCUseConfigured,
+  AudioDescriptionAudioTypeControlFollowInput,
+  AudioDescriptionAudioTypeControlUseConfigured,
   AudioDescriptionAudioTypeControl'
   #-}

@@ -27,109 +27,97 @@ module Network.AWS.DynamoDB.BatchExecuteStatement
     mkBatchExecuteStatementResponse,
 
     -- ** Response lenses
-    besrsResponses,
-    besrsResponseStatus,
+    besrrsResponses,
+    besrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchExecuteStatement' smart constructor.
 newtype BatchExecuteStatement = BatchExecuteStatement'
   { -- | The list of PartiQL statements representing the batch to run.
-    statements :: Lude.NonEmpty BatchStatementRequest
+    statements :: Core.NonEmpty Types.BatchStatementRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchExecuteStatement' with the minimum fields required to make a request.
---
--- * 'statements' - The list of PartiQL statements representing the batch to run.
+-- | Creates a 'BatchExecuteStatement' value with any optional fields omitted.
 mkBatchExecuteStatement ::
   -- | 'statements'
-  Lude.NonEmpty BatchStatementRequest ->
+  Core.NonEmpty Types.BatchStatementRequest ->
   BatchExecuteStatement
-mkBatchExecuteStatement pStatements_ =
-  BatchExecuteStatement' {statements = pStatements_}
+mkBatchExecuteStatement statements =
+  BatchExecuteStatement' {statements}
 
 -- | The list of PartiQL statements representing the batch to run.
 --
 -- /Note:/ Consider using 'statements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-besStatements :: Lens.Lens' BatchExecuteStatement (Lude.NonEmpty BatchStatementRequest)
-besStatements = Lens.lens (statements :: BatchExecuteStatement -> Lude.NonEmpty BatchStatementRequest) (\s a -> s {statements = a} :: BatchExecuteStatement)
+besStatements :: Lens.Lens' BatchExecuteStatement (Core.NonEmpty Types.BatchStatementRequest)
+besStatements = Lens.field @"statements"
 {-# DEPRECATED besStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
 
-instance Lude.AWSRequest BatchExecuteStatement where
+instance Core.FromJSON BatchExecuteStatement where
+  toJSON BatchExecuteStatement {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Statements" Core..= statements)])
+
+instance Core.AWSRequest BatchExecuteStatement where
   type Rs BatchExecuteStatement = BatchExecuteStatementResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.BatchExecuteStatement")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Lude.<$> (x Lude..?> "Responses" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Responses") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchExecuteStatement where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.BatchExecuteStatement" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchExecuteStatement where
-  toJSON BatchExecuteStatement' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Statements" Lude..= statements)])
-
-instance Lude.ToPath BatchExecuteStatement where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchExecuteStatement where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchExecuteStatementResponse' smart constructor.
 data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
   { -- | The response to each PartiQL statement in the batch.
-    responses :: Lude.Maybe [BatchStatementResponse],
+    responses :: Core.Maybe [Types.BatchStatementResponse],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchExecuteStatementResponse' with the minimum fields required to make a request.
---
--- * 'responses' - The response to each PartiQL statement in the batch.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchExecuteStatementResponse' value with any optional fields omitted.
 mkBatchExecuteStatementResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchExecuteStatementResponse
-mkBatchExecuteStatementResponse pResponseStatus_ =
+mkBatchExecuteStatementResponse responseStatus =
   BatchExecuteStatementResponse'
-    { responses = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { responses = Core.Nothing,
+      responseStatus
     }
 
 -- | The response to each PartiQL statement in the batch.
 --
 -- /Note:/ Consider using 'responses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-besrsResponses :: Lens.Lens' BatchExecuteStatementResponse (Lude.Maybe [BatchStatementResponse])
-besrsResponses = Lens.lens (responses :: BatchExecuteStatementResponse -> Lude.Maybe [BatchStatementResponse]) (\s a -> s {responses = a} :: BatchExecuteStatementResponse)
-{-# DEPRECATED besrsResponses "Use generic-lens or generic-optics with 'responses' instead." #-}
+besrrsResponses :: Lens.Lens' BatchExecuteStatementResponse (Core.Maybe [Types.BatchStatementResponse])
+besrrsResponses = Lens.field @"responses"
+{-# DEPRECATED besrrsResponses "Use generic-lens or generic-optics with 'responses' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-besrsResponseStatus :: Lens.Lens' BatchExecuteStatementResponse Lude.Int
-besrsResponseStatus = Lens.lens (responseStatus :: BatchExecuteStatementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchExecuteStatementResponse)
-{-# DEPRECATED besrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+besrrsResponseStatus :: Lens.Lens' BatchExecuteStatementResponse Core.Int
+besrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED besrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

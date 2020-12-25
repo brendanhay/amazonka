@@ -22,53 +22,47 @@ module Network.AWS.ElastiCache.Types.UserGroupPendingChanges
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.UserId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns the updates being applied to the user group.
 --
 -- /See:/ 'mkUserGroupPendingChanges' smart constructor.
 data UserGroupPendingChanges = UserGroupPendingChanges'
   { -- | The list of user IDs to add.
-    userIdsToAdd :: Lude.Maybe [Lude.Text],
+    userIdsToAdd :: Core.Maybe [Types.UserId],
     -- | The list of user group IDs ro remove.
-    userIdsToRemove :: Lude.Maybe [Lude.Text]
+    userIdsToRemove :: Core.Maybe [Types.UserId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserGroupPendingChanges' with the minimum fields required to make a request.
---
--- * 'userIdsToAdd' - The list of user IDs to add.
--- * 'userIdsToRemove' - The list of user group IDs ro remove.
+-- | Creates a 'UserGroupPendingChanges' value with any optional fields omitted.
 mkUserGroupPendingChanges ::
   UserGroupPendingChanges
 mkUserGroupPendingChanges =
   UserGroupPendingChanges'
-    { userIdsToAdd = Lude.Nothing,
-      userIdsToRemove = Lude.Nothing
+    { userIdsToAdd = Core.Nothing,
+      userIdsToRemove = Core.Nothing
     }
 
 -- | The list of user IDs to add.
 --
 -- /Note:/ Consider using 'userIdsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugpcUserIdsToAdd :: Lens.Lens' UserGroupPendingChanges (Lude.Maybe [Lude.Text])
-ugpcUserIdsToAdd = Lens.lens (userIdsToAdd :: UserGroupPendingChanges -> Lude.Maybe [Lude.Text]) (\s a -> s {userIdsToAdd = a} :: UserGroupPendingChanges)
+ugpcUserIdsToAdd :: Lens.Lens' UserGroupPendingChanges (Core.Maybe [Types.UserId])
+ugpcUserIdsToAdd = Lens.field @"userIdsToAdd"
 {-# DEPRECATED ugpcUserIdsToAdd "Use generic-lens or generic-optics with 'userIdsToAdd' instead." #-}
 
 -- | The list of user group IDs ro remove.
 --
 -- /Note:/ Consider using 'userIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugpcUserIdsToRemove :: Lens.Lens' UserGroupPendingChanges (Lude.Maybe [Lude.Text])
-ugpcUserIdsToRemove = Lens.lens (userIdsToRemove :: UserGroupPendingChanges -> Lude.Maybe [Lude.Text]) (\s a -> s {userIdsToRemove = a} :: UserGroupPendingChanges)
+ugpcUserIdsToRemove :: Lens.Lens' UserGroupPendingChanges (Core.Maybe [Types.UserId])
+ugpcUserIdsToRemove = Lens.field @"userIdsToRemove"
 {-# DEPRECATED ugpcUserIdsToRemove "Use generic-lens or generic-optics with 'userIdsToRemove' instead." #-}
 
-instance Lude.FromXML UserGroupPendingChanges where
+instance Core.FromXML UserGroupPendingChanges where
   parseXML x =
     UserGroupPendingChanges'
-      Lude.<$> ( x Lude..@? "UserIdsToAdd" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> ( x Lude..@? "UserIdsToRemove" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<$> (x Core..@? "UserIdsToAdd" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "UserIdsToRemove" Core..<@> Core.parseXMLList "member")

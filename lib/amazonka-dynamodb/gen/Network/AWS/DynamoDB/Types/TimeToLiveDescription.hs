@@ -17,59 +17,55 @@ module Network.AWS.DynamoDB.Types.TimeToLiveDescription
     mkTimeToLiveDescription,
 
     -- * Lenses
-    ttldTimeToLiveStatus,
     ttldAttributeName,
+    ttldTimeToLiveStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types.TimeToLiveStatus
+import qualified Network.AWS.DynamoDB.Types.TimeToLiveAttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.TimeToLiveStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The description of the Time to Live (TTL) status on the specified table.
 --
 -- /See:/ 'mkTimeToLiveDescription' smart constructor.
 data TimeToLiveDescription = TimeToLiveDescription'
-  { -- | The TTL status for the table.
-    timeToLiveStatus :: Lude.Maybe TimeToLiveStatus,
-    -- | The name of the TTL attribute for items in the table.
-    attributeName :: Lude.Maybe Lude.Text
+  { -- | The name of the TTL attribute for items in the table.
+    attributeName :: Core.Maybe Types.TimeToLiveAttributeName,
+    -- | The TTL status for the table.
+    timeToLiveStatus :: Core.Maybe Types.TimeToLiveStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimeToLiveDescription' with the minimum fields required to make a request.
---
--- * 'timeToLiveStatus' - The TTL status for the table.
--- * 'attributeName' - The name of the TTL attribute for items in the table.
+-- | Creates a 'TimeToLiveDescription' value with any optional fields omitted.
 mkTimeToLiveDescription ::
   TimeToLiveDescription
 mkTimeToLiveDescription =
   TimeToLiveDescription'
-    { timeToLiveStatus = Lude.Nothing,
-      attributeName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      timeToLiveStatus = Core.Nothing
     }
-
--- | The TTL status for the table.
---
--- /Note:/ Consider using 'timeToLiveStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttldTimeToLiveStatus :: Lens.Lens' TimeToLiveDescription (Lude.Maybe TimeToLiveStatus)
-ttldTimeToLiveStatus = Lens.lens (timeToLiveStatus :: TimeToLiveDescription -> Lude.Maybe TimeToLiveStatus) (\s a -> s {timeToLiveStatus = a} :: TimeToLiveDescription)
-{-# DEPRECATED ttldTimeToLiveStatus "Use generic-lens or generic-optics with 'timeToLiveStatus' instead." #-}
 
 -- | The name of the TTL attribute for items in the table.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttldAttributeName :: Lens.Lens' TimeToLiveDescription (Lude.Maybe Lude.Text)
-ttldAttributeName = Lens.lens (attributeName :: TimeToLiveDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: TimeToLiveDescription)
+ttldAttributeName :: Lens.Lens' TimeToLiveDescription (Core.Maybe Types.TimeToLiveAttributeName)
+ttldAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED ttldAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.FromJSON TimeToLiveDescription where
+-- | The TTL status for the table.
+--
+-- /Note:/ Consider using 'timeToLiveStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttldTimeToLiveStatus :: Lens.Lens' TimeToLiveDescription (Core.Maybe Types.TimeToLiveStatus)
+ttldTimeToLiveStatus = Lens.field @"timeToLiveStatus"
+{-# DEPRECATED ttldTimeToLiveStatus "Use generic-lens or generic-optics with 'timeToLiveStatus' instead." #-}
+
+instance Core.FromJSON TimeToLiveDescription where
   parseJSON =
-    Lude.withObject
-      "TimeToLiveDescription"
-      ( \x ->
-          TimeToLiveDescription'
-            Lude.<$> (x Lude..:? "TimeToLiveStatus")
-            Lude.<*> (x Lude..:? "AttributeName")
-      )
+    Core.withObject "TimeToLiveDescription" Core.$
+      \x ->
+        TimeToLiveDescription'
+          Core.<$> (x Core..:? "AttributeName")
+          Core.<*> (x Core..:? "TimeToLiveStatus")

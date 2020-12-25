@@ -17,13 +17,13 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
     mkClipTimestampRange,
 
     -- * Lenses
-    ctrEndTimestamp,
     ctrStartTimestamp,
+    ctrEndTimestamp,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The range of timestamps for which to return fragments.
 --
@@ -31,39 +31,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClipTimestampRange' smart constructor.
 data ClipTimestampRange = ClipTimestampRange'
-  { -- | The end of the timestamp range for the requested media.
+  { -- | The starting timestamp in the range of timestamps for which to return fragments.
+    --
+    -- This value is inclusive. Fragments that start before the @StartTimestamp@ and continue past it are included in the session. If @FragmentSelectorType@ is @SERVER_TIMESTAMP@ , the @StartTimestamp@ must be later than the stream head.
+    startTimestamp :: Core.NominalDiffTime,
+    -- | The end of the timestamp range for the requested media.
     --
     -- This value must be within 3 hours of the specified @StartTimestamp@ , and it must be later than the @StartTimestamp@ value. If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@ , this value must be in the past.
     -- This value is inclusive. The @EndTimestamp@ is compared to the (starting) timestamp of the fragment. Fragments that start before the @EndTimestamp@ value and continue past it are included in the session.
-    endTimestamp :: Lude.Timestamp,
-    -- | The starting timestamp in the range of timestamps for which to return fragments.
-    --
-    -- This value is inclusive. Fragments that start before the @StartTimestamp@ and continue past it are included in the session. If @FragmentSelectorType@ is @SERVER_TIMESTAMP@ , the @StartTimestamp@ must be later than the stream head.
-    startTimestamp :: Lude.Timestamp
+    endTimestamp :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ClipTimestampRange' with the minimum fields required to make a request.
---
--- * 'endTimestamp' - The end of the timestamp range for the requested media.
---
--- This value must be within 3 hours of the specified @StartTimestamp@ , and it must be later than the @StartTimestamp@ value. If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@ , this value must be in the past.
--- This value is inclusive. The @EndTimestamp@ is compared to the (starting) timestamp of the fragment. Fragments that start before the @EndTimestamp@ value and continue past it are included in the session.
--- * 'startTimestamp' - The starting timestamp in the range of timestamps for which to return fragments.
+-- | Creates a 'ClipTimestampRange' value with any optional fields omitted.
+mkClipTimestampRange ::
+  -- | 'startTimestamp'
+  Core.NominalDiffTime ->
+  -- | 'endTimestamp'
+  Core.NominalDiffTime ->
+  ClipTimestampRange
+mkClipTimestampRange startTimestamp endTimestamp =
+  ClipTimestampRange' {startTimestamp, endTimestamp}
+
+-- | The starting timestamp in the range of timestamps for which to return fragments.
 --
 -- This value is inclusive. Fragments that start before the @StartTimestamp@ and continue past it are included in the session. If @FragmentSelectorType@ is @SERVER_TIMESTAMP@ , the @StartTimestamp@ must be later than the stream head.
-mkClipTimestampRange ::
-  -- | 'endTimestamp'
-  Lude.Timestamp ->
-  -- | 'startTimestamp'
-  Lude.Timestamp ->
-  ClipTimestampRange
-mkClipTimestampRange pEndTimestamp_ pStartTimestamp_ =
-  ClipTimestampRange'
-    { endTimestamp = pEndTimestamp_,
-      startTimestamp = pStartTimestamp_
-    }
+--
+-- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrStartTimestamp :: Lens.Lens' ClipTimestampRange Core.NominalDiffTime
+ctrStartTimestamp = Lens.field @"startTimestamp"
+{-# DEPRECATED ctrStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
 -- | The end of the timestamp range for the requested media.
 --
@@ -71,24 +69,15 @@ mkClipTimestampRange pEndTimestamp_ pStartTimestamp_ =
 -- This value is inclusive. The @EndTimestamp@ is compared to the (starting) timestamp of the fragment. Fragments that start before the @EndTimestamp@ value and continue past it are included in the session.
 --
 -- /Note:/ Consider using 'endTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrEndTimestamp :: Lens.Lens' ClipTimestampRange Lude.Timestamp
-ctrEndTimestamp = Lens.lens (endTimestamp :: ClipTimestampRange -> Lude.Timestamp) (\s a -> s {endTimestamp = a} :: ClipTimestampRange)
+ctrEndTimestamp :: Lens.Lens' ClipTimestampRange Core.NominalDiffTime
+ctrEndTimestamp = Lens.field @"endTimestamp"
 {-# DEPRECATED ctrEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
 
--- | The starting timestamp in the range of timestamps for which to return fragments.
---
--- This value is inclusive. Fragments that start before the @StartTimestamp@ and continue past it are included in the session. If @FragmentSelectorType@ is @SERVER_TIMESTAMP@ , the @StartTimestamp@ must be later than the stream head.
---
--- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrStartTimestamp :: Lens.Lens' ClipTimestampRange Lude.Timestamp
-ctrStartTimestamp = Lens.lens (startTimestamp :: ClipTimestampRange -> Lude.Timestamp) (\s a -> s {startTimestamp = a} :: ClipTimestampRange)
-{-# DEPRECATED ctrStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
-
-instance Lude.ToJSON ClipTimestampRange where
-  toJSON ClipTimestampRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EndTimestamp" Lude..= endTimestamp),
-            Lude.Just ("StartTimestamp" Lude..= startTimestamp)
+instance Core.FromJSON ClipTimestampRange where
+  toJSON ClipTimestampRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartTimestamp" Core..= startTimestamp),
+            Core.Just ("EndTimestamp" Core..= endTimestamp)
           ]
       )

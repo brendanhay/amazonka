@@ -17,15 +17,15 @@ module Network.AWS.Glue.Types.ConfusionMatrix
     mkConfusionMatrix,
 
     -- * Lenses
-    cmNumTrueNegatives,
     cmNumFalseNegatives,
-    cmNumTruePositives,
     cmNumFalsePositives,
+    cmNumTrueNegatives,
+    cmNumTruePositives,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.
 --
@@ -33,70 +33,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfusionMatrix' smart constructor.
 data ConfusionMatrix = ConfusionMatrix'
-  { -- | The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
-    numTrueNegatives :: Lude.Maybe Lude.Integer,
-    -- | The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
-    numFalseNegatives :: Lude.Maybe Lude.Integer,
-    -- | The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
-    numTruePositives :: Lude.Maybe Lude.Integer,
+  { -- | The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
+    numFalseNegatives :: Core.Maybe Core.Integer,
     -- | The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.
-    numFalsePositives :: Lude.Maybe Lude.Integer
+    numFalsePositives :: Core.Maybe Core.Integer,
+    -- | The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
+    numTrueNegatives :: Core.Maybe Core.Integer,
+    -- | The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
+    numTruePositives :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfusionMatrix' with the minimum fields required to make a request.
---
--- * 'numTrueNegatives' - The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
--- * 'numFalseNegatives' - The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
--- * 'numTruePositives' - The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
--- * 'numFalsePositives' - The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.
+-- | Creates a 'ConfusionMatrix' value with any optional fields omitted.
 mkConfusionMatrix ::
   ConfusionMatrix
 mkConfusionMatrix =
   ConfusionMatrix'
-    { numTrueNegatives = Lude.Nothing,
-      numFalseNegatives = Lude.Nothing,
-      numTruePositives = Lude.Nothing,
-      numFalsePositives = Lude.Nothing
+    { numFalseNegatives = Core.Nothing,
+      numFalsePositives = Core.Nothing,
+      numTrueNegatives = Core.Nothing,
+      numTruePositives = Core.Nothing
     }
-
--- | The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
---
--- /Note:/ Consider using 'numTrueNegatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumTrueNegatives :: Lens.Lens' ConfusionMatrix (Lude.Maybe Lude.Integer)
-cmNumTrueNegatives = Lens.lens (numTrueNegatives :: ConfusionMatrix -> Lude.Maybe Lude.Integer) (\s a -> s {numTrueNegatives = a} :: ConfusionMatrix)
-{-# DEPRECATED cmNumTrueNegatives "Use generic-lens or generic-optics with 'numTrueNegatives' instead." #-}
 
 -- | The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
 --
 -- /Note:/ Consider using 'numFalseNegatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumFalseNegatives :: Lens.Lens' ConfusionMatrix (Lude.Maybe Lude.Integer)
-cmNumFalseNegatives = Lens.lens (numFalseNegatives :: ConfusionMatrix -> Lude.Maybe Lude.Integer) (\s a -> s {numFalseNegatives = a} :: ConfusionMatrix)
+cmNumFalseNegatives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+cmNumFalseNegatives = Lens.field @"numFalseNegatives"
 {-# DEPRECATED cmNumFalseNegatives "Use generic-lens or generic-optics with 'numFalseNegatives' instead." #-}
-
--- | The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
---
--- /Note:/ Consider using 'numTruePositives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumTruePositives :: Lens.Lens' ConfusionMatrix (Lude.Maybe Lude.Integer)
-cmNumTruePositives = Lens.lens (numTruePositives :: ConfusionMatrix -> Lude.Maybe Lude.Integer) (\s a -> s {numTruePositives = a} :: ConfusionMatrix)
-{-# DEPRECATED cmNumTruePositives "Use generic-lens or generic-optics with 'numTruePositives' instead." #-}
 
 -- | The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.
 --
 -- /Note:/ Consider using 'numFalsePositives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumFalsePositives :: Lens.Lens' ConfusionMatrix (Lude.Maybe Lude.Integer)
-cmNumFalsePositives = Lens.lens (numFalsePositives :: ConfusionMatrix -> Lude.Maybe Lude.Integer) (\s a -> s {numFalsePositives = a} :: ConfusionMatrix)
+cmNumFalsePositives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+cmNumFalsePositives = Lens.field @"numFalsePositives"
 {-# DEPRECATED cmNumFalsePositives "Use generic-lens or generic-optics with 'numFalsePositives' instead." #-}
 
-instance Lude.FromJSON ConfusionMatrix where
+-- | The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
+--
+-- /Note:/ Consider using 'numTrueNegatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmNumTrueNegatives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+cmNumTrueNegatives = Lens.field @"numTrueNegatives"
+{-# DEPRECATED cmNumTrueNegatives "Use generic-lens or generic-optics with 'numTrueNegatives' instead." #-}
+
+-- | The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
+--
+-- /Note:/ Consider using 'numTruePositives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmNumTruePositives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+cmNumTruePositives = Lens.field @"numTruePositives"
+{-# DEPRECATED cmNumTruePositives "Use generic-lens or generic-optics with 'numTruePositives' instead." #-}
+
+instance Core.FromJSON ConfusionMatrix where
   parseJSON =
-    Lude.withObject
-      "ConfusionMatrix"
-      ( \x ->
-          ConfusionMatrix'
-            Lude.<$> (x Lude..:? "NumTrueNegatives")
-            Lude.<*> (x Lude..:? "NumFalseNegatives")
-            Lude.<*> (x Lude..:? "NumTruePositives")
-            Lude.<*> (x Lude..:? "NumFalsePositives")
-      )
+    Core.withObject "ConfusionMatrix" Core.$
+      \x ->
+        ConfusionMatrix'
+          Core.<$> (x Core..:? "NumFalseNegatives")
+          Core.<*> (x Core..:? "NumFalsePositives")
+          Core.<*> (x Core..:? "NumTrueNegatives")
+          Core.<*> (x Core..:? "NumTruePositives")

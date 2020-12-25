@@ -13,96 +13,98 @@
 module Network.AWS.Comprehend.Types.LanguageCode
   ( LanguageCode
       ( LanguageCode',
-        EN,
-        ES,
-        FR,
-        DE,
-        IT,
-        PT,
-        AR,
-        HI,
-        JA,
-        KO,
-        ZH,
-        ZhTw
+        LanguageCodeEN,
+        LanguageCodeES,
+        LanguageCodeFR,
+        LanguageCodeDE,
+        LanguageCodeIT,
+        LanguageCodePT,
+        LanguageCodeAR,
+        LanguageCodeHI,
+        LanguageCodeJA,
+        LanguageCodeKO,
+        LanguageCodeZH,
+        LanguageCodeZhTw,
+        fromLanguageCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LanguageCode = LanguageCode' Lude.Text
+newtype LanguageCode = LanguageCode' {fromLanguageCode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EN :: LanguageCode
-pattern EN = LanguageCode' "en"
+pattern LanguageCodeEN :: LanguageCode
+pattern LanguageCodeEN = LanguageCode' "en"
 
-pattern ES :: LanguageCode
-pattern ES = LanguageCode' "es"
+pattern LanguageCodeES :: LanguageCode
+pattern LanguageCodeES = LanguageCode' "es"
 
-pattern FR :: LanguageCode
-pattern FR = LanguageCode' "fr"
+pattern LanguageCodeFR :: LanguageCode
+pattern LanguageCodeFR = LanguageCode' "fr"
 
-pattern DE :: LanguageCode
-pattern DE = LanguageCode' "de"
+pattern LanguageCodeDE :: LanguageCode
+pattern LanguageCodeDE = LanguageCode' "de"
 
-pattern IT :: LanguageCode
-pattern IT = LanguageCode' "it"
+pattern LanguageCodeIT :: LanguageCode
+pattern LanguageCodeIT = LanguageCode' "it"
 
-pattern PT :: LanguageCode
-pattern PT = LanguageCode' "pt"
+pattern LanguageCodePT :: LanguageCode
+pattern LanguageCodePT = LanguageCode' "pt"
 
-pattern AR :: LanguageCode
-pattern AR = LanguageCode' "ar"
+pattern LanguageCodeAR :: LanguageCode
+pattern LanguageCodeAR = LanguageCode' "ar"
 
-pattern HI :: LanguageCode
-pattern HI = LanguageCode' "hi"
+pattern LanguageCodeHI :: LanguageCode
+pattern LanguageCodeHI = LanguageCode' "hi"
 
-pattern JA :: LanguageCode
-pattern JA = LanguageCode' "ja"
+pattern LanguageCodeJA :: LanguageCode
+pattern LanguageCodeJA = LanguageCode' "ja"
 
-pattern KO :: LanguageCode
-pattern KO = LanguageCode' "ko"
+pattern LanguageCodeKO :: LanguageCode
+pattern LanguageCodeKO = LanguageCode' "ko"
 
-pattern ZH :: LanguageCode
-pattern ZH = LanguageCode' "zh"
+pattern LanguageCodeZH :: LanguageCode
+pattern LanguageCodeZH = LanguageCode' "zh"
 
-pattern ZhTw :: LanguageCode
-pattern ZhTw = LanguageCode' "zh-TW"
+pattern LanguageCodeZhTw :: LanguageCode
+pattern LanguageCodeZhTw = LanguageCode' "zh-TW"
 
 {-# COMPLETE
-  EN,
-  ES,
-  FR,
-  DE,
-  IT,
-  PT,
-  AR,
-  HI,
-  JA,
-  KO,
-  ZH,
-  ZhTw,
+  LanguageCodeEN,
+  LanguageCodeES,
+  LanguageCodeFR,
+  LanguageCodeDE,
+  LanguageCodeIT,
+  LanguageCodePT,
+  LanguageCodeAR,
+  LanguageCodeHI,
+  LanguageCodeJA,
+  LanguageCodeKO,
+  LanguageCodeZH,
+  LanguageCodeZhTw,
   LanguageCode'
   #-}

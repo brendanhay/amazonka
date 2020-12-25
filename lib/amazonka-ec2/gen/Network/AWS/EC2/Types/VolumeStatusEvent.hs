@@ -17,106 +17,100 @@ module Network.AWS.EC2.Types.VolumeStatusEvent
     mkVolumeStatusEvent,
 
     -- * Lenses
-    vseInstanceId,
-    vseNotBefore,
-    vseEventType,
     vseDescription,
-    vseNotAfter,
     vseEventId,
+    vseEventType,
+    vseInstanceId,
+    vseNotAfter,
+    vseNotBefore,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a volume status event.
 --
 -- /See:/ 'mkVolumeStatusEvent' smart constructor.
 data VolumeStatusEvent = VolumeStatusEvent'
-  { -- | The ID of the instance associated with the event.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The earliest start time of the event.
-    notBefore :: Lude.Maybe Lude.DateTime,
-    -- | The type of this event.
-    eventType :: Lude.Maybe Lude.Text,
-    -- | A description of the event.
-    description :: Lude.Maybe Lude.Text,
-    -- | The latest end time of the event.
-    notAfter :: Lude.Maybe Lude.DateTime,
+  { -- | A description of the event.
+    description :: Core.Maybe Types.String,
     -- | The ID of this event.
-    eventId :: Lude.Maybe Lude.Text
+    eventId :: Core.Maybe Types.String,
+    -- | The type of this event.
+    eventType :: Core.Maybe Types.String,
+    -- | The ID of the instance associated with the event.
+    instanceId :: Core.Maybe Types.String,
+    -- | The latest end time of the event.
+    notAfter :: Core.Maybe Core.UTCTime,
+    -- | The earliest start time of the event.
+    notBefore :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'VolumeStatusEvent' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance associated with the event.
--- * 'notBefore' - The earliest start time of the event.
--- * 'eventType' - The type of this event.
--- * 'description' - A description of the event.
--- * 'notAfter' - The latest end time of the event.
--- * 'eventId' - The ID of this event.
+-- | Creates a 'VolumeStatusEvent' value with any optional fields omitted.
 mkVolumeStatusEvent ::
   VolumeStatusEvent
 mkVolumeStatusEvent =
   VolumeStatusEvent'
-    { instanceId = Lude.Nothing,
-      notBefore = Lude.Nothing,
-      eventType = Lude.Nothing,
-      description = Lude.Nothing,
-      notAfter = Lude.Nothing,
-      eventId = Lude.Nothing
+    { description = Core.Nothing,
+      eventId = Core.Nothing,
+      eventType = Core.Nothing,
+      instanceId = Core.Nothing,
+      notAfter = Core.Nothing,
+      notBefore = Core.Nothing
     }
-
--- | The ID of the instance associated with the event.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseInstanceId :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.Text)
-vseInstanceId = Lens.lens (instanceId :: VolumeStatusEvent -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: VolumeStatusEvent)
-{-# DEPRECATED vseInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The earliest start time of the event.
---
--- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseNotBefore :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.DateTime)
-vseNotBefore = Lens.lens (notBefore :: VolumeStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notBefore = a} :: VolumeStatusEvent)
-{-# DEPRECATED vseNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
-
--- | The type of this event.
---
--- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseEventType :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.Text)
-vseEventType = Lens.lens (eventType :: VolumeStatusEvent -> Lude.Maybe Lude.Text) (\s a -> s {eventType = a} :: VolumeStatusEvent)
-{-# DEPRECATED vseEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
 -- | A description of the event.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseDescription :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.Text)
-vseDescription = Lens.lens (description :: VolumeStatusEvent -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: VolumeStatusEvent)
+vseDescription :: Lens.Lens' VolumeStatusEvent (Core.Maybe Types.String)
+vseDescription = Lens.field @"description"
 {-# DEPRECATED vseDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The latest end time of the event.
---
--- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseNotAfter :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.DateTime)
-vseNotAfter = Lens.lens (notAfter :: VolumeStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notAfter = a} :: VolumeStatusEvent)
-{-# DEPRECATED vseNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
 -- | The ID of this event.
 --
 -- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseEventId :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.Text)
-vseEventId = Lens.lens (eventId :: VolumeStatusEvent -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: VolumeStatusEvent)
+vseEventId :: Lens.Lens' VolumeStatusEvent (Core.Maybe Types.String)
+vseEventId = Lens.field @"eventId"
 {-# DEPRECATED vseEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance Lude.FromXML VolumeStatusEvent where
+-- | The type of this event.
+--
+-- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vseEventType :: Lens.Lens' VolumeStatusEvent (Core.Maybe Types.String)
+vseEventType = Lens.field @"eventType"
+{-# DEPRECATED vseEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
+
+-- | The ID of the instance associated with the event.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vseInstanceId :: Lens.Lens' VolumeStatusEvent (Core.Maybe Types.String)
+vseInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED vseInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The latest end time of the event.
+--
+-- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vseNotAfter :: Lens.Lens' VolumeStatusEvent (Core.Maybe Core.UTCTime)
+vseNotAfter = Lens.field @"notAfter"
+{-# DEPRECATED vseNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
+
+-- | The earliest start time of the event.
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vseNotBefore :: Lens.Lens' VolumeStatusEvent (Core.Maybe Core.UTCTime)
+vseNotBefore = Lens.field @"notBefore"
+{-# DEPRECATED vseNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
+
+instance Core.FromXML VolumeStatusEvent where
   parseXML x =
     VolumeStatusEvent'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "notBefore")
-      Lude.<*> (x Lude..@? "eventType")
-      Lude.<*> (x Lude..@? "description")
-      Lude.<*> (x Lude..@? "notAfter")
-      Lude.<*> (x Lude..@? "eventId")
+      Core.<$> (x Core..@? "description")
+      Core.<*> (x Core..@? "eventId")
+      Core.<*> (x Core..@? "eventType")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "notAfter")
+      Core.<*> (x Core..@? "notBefore")

@@ -17,59 +17,55 @@ module Network.AWS.CostExplorer.Types.AnomalyDateInterval
     mkAnomalyDateInterval,
 
     -- * Lenses
-    adiEndDate,
     adiStartDate,
+    adiEndDate,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.EndDate as Types
+import qualified Network.AWS.CostExplorer.Types.StartDate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The time period for an anomaly.
 --
 -- /See:/ 'mkAnomalyDateInterval' smart constructor.
 data AnomalyDateInterval = AnomalyDateInterval'
-  { -- | The last date an anomaly was observed.
-    endDate :: Lude.Maybe Lude.Text,
-    -- | The first date an anomaly was observed.
-    startDate :: Lude.Text
+  { -- | The first date an anomaly was observed.
+    startDate :: Types.StartDate,
+    -- | The last date an anomaly was observed.
+    endDate :: Core.Maybe Types.EndDate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnomalyDateInterval' with the minimum fields required to make a request.
---
--- * 'endDate' - The last date an anomaly was observed.
--- * 'startDate' - The first date an anomaly was observed.
+-- | Creates a 'AnomalyDateInterval' value with any optional fields omitted.
 mkAnomalyDateInterval ::
   -- | 'startDate'
-  Lude.Text ->
+  Types.StartDate ->
   AnomalyDateInterval
-mkAnomalyDateInterval pStartDate_ =
-  AnomalyDateInterval'
-    { endDate = Lude.Nothing,
-      startDate = pStartDate_
-    }
-
--- | The last date an anomaly was observed.
---
--- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adiEndDate :: Lens.Lens' AnomalyDateInterval (Lude.Maybe Lude.Text)
-adiEndDate = Lens.lens (endDate :: AnomalyDateInterval -> Lude.Maybe Lude.Text) (\s a -> s {endDate = a} :: AnomalyDateInterval)
-{-# DEPRECATED adiEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+mkAnomalyDateInterval startDate =
+  AnomalyDateInterval' {startDate, endDate = Core.Nothing}
 
 -- | The first date an anomaly was observed.
 --
 -- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adiStartDate :: Lens.Lens' AnomalyDateInterval Lude.Text
-adiStartDate = Lens.lens (startDate :: AnomalyDateInterval -> Lude.Text) (\s a -> s {startDate = a} :: AnomalyDateInterval)
+adiStartDate :: Lens.Lens' AnomalyDateInterval Types.StartDate
+adiStartDate = Lens.field @"startDate"
 {-# DEPRECATED adiStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
-instance Lude.ToJSON AnomalyDateInterval where
-  toJSON AnomalyDateInterval' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EndDate" Lude..=) Lude.<$> endDate,
-            Lude.Just ("StartDate" Lude..= startDate)
+-- | The last date an anomaly was observed.
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adiEndDate :: Lens.Lens' AnomalyDateInterval (Core.Maybe Types.EndDate)
+adiEndDate = Lens.field @"endDate"
+{-# DEPRECATED adiEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+
+instance Core.FromJSON AnomalyDateInterval where
+  toJSON AnomalyDateInterval {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartDate" Core..= startDate),
+            ("EndDate" Core..=) Core.<$> endDate
           ]
       )

@@ -51,8 +51,8 @@ import Test.Tasty
 --         , requestGetUserAttributeVerificationCode $
 --             mkGetUserAttributeVerificationCode
 --
---         , requestSetUserPoolMFAConfig $
---             mkSetUserPoolMFAConfig
+--         , requestSetUserPoolMfaConfig $
+--             mkSetUserPoolMfaConfig
 --
 --         , requestUpdateUserAttributes $
 --             mkUpdateUserAttributes
@@ -252,8 +252,8 @@ import Test.Tasty
 --         , requestCreateUserPoolClient $
 --             mkCreateUserPoolClient
 --
---         , requestGetUserPoolMFAConfig $
---             mkGetUserPoolMFAConfig
+--         , requestGetUserPoolMfaConfig $
+--             mkGetUserPoolMfaConfig
 --
 --         , requestCreateResourceServer $
 --             mkCreateResourceServer
@@ -354,8 +354,8 @@ import Test.Tasty
 --         , responseGetUserAttributeVerificationCode $
 --             mkGetUserAttributeVerificationCodeResponse
 --
---         , responseSetUserPoolMFAConfig $
---             mkSetUserPoolMFAConfigResponse
+--         , responseSetUserPoolMfaConfig $
+--             mkSetUserPoolMfaConfigResponse
 --
 --         , responseUpdateUserAttributes $
 --             mkUpdateUserAttributesResponse
@@ -555,8 +555,8 @@ import Test.Tasty
 --         , responseCreateUserPoolClient $
 --             mkCreateUserPoolClientResponse
 --
---         , responseGetUserPoolMFAConfig $
---             mkGetUserPoolMFAConfigResponse
+--         , responseGetUserPoolMfaConfig $
+--             mkGetUserPoolMfaConfigResponse
 --
 --         , responseCreateResourceServer $
 --             mkCreateResourceServerResponse
@@ -683,11 +683,11 @@ requestGetUserAttributeVerificationCode =
     "GetUserAttributeVerificationCode"
     "fixture/GetUserAttributeVerificationCode.yaml"
 
-requestSetUserPoolMFAConfig :: SetUserPoolMFAConfig -> TestTree
-requestSetUserPoolMFAConfig =
+requestSetUserPoolMfaConfig :: SetUserPoolMfaConfig -> TestTree
+requestSetUserPoolMfaConfig =
   req
-    "SetUserPoolMFAConfig"
-    "fixture/SetUserPoolMFAConfig.yaml"
+    "SetUserPoolMfaConfig"
+    "fixture/SetUserPoolMfaConfig.yaml"
 
 requestUpdateUserAttributes :: UpdateUserAttributes -> TestTree
 requestUpdateUserAttributes =
@@ -1085,11 +1085,11 @@ requestCreateUserPoolClient =
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
 
-requestGetUserPoolMFAConfig :: GetUserPoolMFAConfig -> TestTree
-requestGetUserPoolMFAConfig =
+requestGetUserPoolMfaConfig :: GetUserPoolMfaConfig -> TestTree
+requestGetUserPoolMfaConfig =
   req
-    "GetUserPoolMFAConfig"
-    "fixture/GetUserPoolMFAConfig.yaml"
+    "GetUserPoolMfaConfig"
+    "fixture/GetUserPoolMfaConfig.yaml"
 
 requestCreateResourceServer :: CreateResourceServer -> TestTree
 requestCreateResourceServer =
@@ -1242,7 +1242,7 @@ responseDeleteUserPool =
   res
     "DeleteUserPoolResponse"
     "fixture/DeleteUserPoolResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserPool)
 
 responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
@@ -1250,7 +1250,7 @@ responseUpdateUserPool =
   res
     "UpdateUserPoolResponse"
     "fixture/UpdateUserPoolResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserPool)
 
 responseUpdateUserPoolDomain :: UpdateUserPoolDomainResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseUpdateUserPoolDomain =
   res
     "UpdateUserPoolDomainResponse"
     "fixture/UpdateUserPoolDomainResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserPoolDomain)
 
 responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
@@ -1266,7 +1266,7 @@ responseDeleteUserPoolDomain =
   res
     "DeleteUserPoolDomainResponse"
     "fixture/DeleteUserPoolDomainResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserPoolDomain)
 
 responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
@@ -1274,7 +1274,7 @@ responseAdminInitiateAuth =
   res
     "AdminInitiateAuthResponse"
     "fixture/AdminInitiateAuthResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminInitiateAuth)
 
 responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
@@ -1282,7 +1282,7 @@ responseAdminLinkProviderForUser =
   res
     "AdminLinkProviderForUserResponse"
     "fixture/AdminLinkProviderForUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminLinkProviderForUser)
 
 responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
@@ -1290,7 +1290,7 @@ responseAdminEnableUser =
   res
     "AdminEnableUserResponse"
     "fixture/AdminEnableUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminEnableUser)
 
 responseGetUserAttributeVerificationCode :: GetUserAttributeVerificationCodeResponse -> TestTree
@@ -1298,23 +1298,23 @@ responseGetUserAttributeVerificationCode =
   res
     "GetUserAttributeVerificationCodeResponse"
     "fixture/GetUserAttributeVerificationCodeResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetUserAttributeVerificationCode)
 
-responseSetUserPoolMFAConfig :: SetUserPoolMFAConfigResponse -> TestTree
-responseSetUserPoolMFAConfig =
+responseSetUserPoolMfaConfig :: SetUserPoolMfaConfigResponse -> TestTree
+responseSetUserPoolMfaConfig =
   res
-    "SetUserPoolMFAConfigResponse"
-    "fixture/SetUserPoolMFAConfigResponse.proto"
-    cognitoIdentityProviderService
-    (Proxy :: Proxy SetUserPoolMFAConfig)
+    "SetUserPoolMfaConfigResponse"
+    "fixture/SetUserPoolMfaConfigResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy SetUserPoolMfaConfig)
 
 responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
 responseUpdateUserAttributes =
   res
     "UpdateUserAttributesResponse"
     "fixture/UpdateUserAttributesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserAttributes)
 
 responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
@@ -1322,7 +1322,7 @@ responseDeleteUserAttributes =
   res
     "DeleteUserAttributesResponse"
     "fixture/DeleteUserAttributesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserAttributes)
 
 responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
@@ -1330,7 +1330,7 @@ responseVerifyUserAttribute =
   res
     "VerifyUserAttributeResponse"
     "fixture/VerifyUserAttributeResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy VerifyUserAttribute)
 
 responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
@@ -1338,7 +1338,7 @@ responseAdminDisableUser =
   res
     "AdminDisableUserResponse"
     "fixture/AdminDisableUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminDisableUser)
 
 responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
@@ -1346,7 +1346,7 @@ responseConfirmDevice =
   res
     "ConfirmDeviceResponse"
     "fixture/ConfirmDeviceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ConfirmDevice)
 
 responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
@@ -1354,7 +1354,7 @@ responseConfirmForgotPassword =
   res
     "ConfirmForgotPasswordResponse"
     "fixture/ConfirmForgotPasswordResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ConfirmForgotPassword)
 
 responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
@@ -1362,7 +1362,7 @@ responseListUserImportJobs =
   res
     "ListUserImportJobsResponse"
     "fixture/ListUserImportJobsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListUserImportJobs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseDescribeIdentityProvider =
   res
     "DescribeIdentityProviderResponse"
     "fixture/DescribeIdentityProviderResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIdentityProvider)
 
 responseListUsers :: ListUsersResponse -> TestTree
@@ -1386,7 +1386,7 @@ responseListUsers =
   res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListUsers)
 
 responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseAdminDeleteUserAttributes =
   res
     "AdminDeleteUserAttributesResponse"
     "fixture/AdminDeleteUserAttributesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminDeleteUserAttributes)
 
 responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
@@ -1402,7 +1402,7 @@ responseDescribeUserPoolDomain =
   res
     "DescribeUserPoolDomainResponse"
     "fixture/DescribeUserPoolDomainResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserPoolDomain)
 
 responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
@@ -1410,7 +1410,7 @@ responseAdminUpdateUserAttributes =
   res
     "AdminUpdateUserAttributesResponse"
     "fixture/AdminUpdateUserAttributesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminUpdateUserAttributes)
 
 responseAdminGetUser :: AdminGetUserResponse -> TestTree
@@ -1418,7 +1418,7 @@ responseAdminGetUser =
   res
     "AdminGetUserResponse"
     "fixture/AdminGetUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminGetUser)
 
 responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseAdminUserGlobalSignOut =
   res
     "AdminUserGlobalSignOutResponse"
     "fixture/AdminUserGlobalSignOutResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminUserGlobalSignOut)
 
 responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseListUsersInGroup =
   res
     "ListUsersInGroupResponse"
     "fixture/ListUsersInGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListUsersInGroup)
 
 responseAssociateSoftwareToken :: AssociateSoftwareTokenResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseAssociateSoftwareToken =
   res
     "AssociateSoftwareTokenResponse"
     "fixture/AssociateSoftwareTokenResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AssociateSoftwareToken)
 
 responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseAdminDisableProviderForUser =
   res
     "AdminDisableProviderForUserResponse"
     "fixture/AdminDisableProviderForUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminDisableProviderForUser)
 
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseForgotPassword =
   res
     "ForgotPasswordResponse"
     "fixture/ForgotPasswordResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ForgotPassword)
 
 responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseDescribeUserPool =
   res
     "DescribeUserPoolResponse"
     "fixture/DescribeUserPoolResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserPool)
 
 responseInitiateAuth :: InitiateAuthResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseInitiateAuth =
   res
     "InitiateAuthResponse"
     "fixture/InitiateAuthResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy InitiateAuth)
 
 responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
@@ -1482,7 +1482,7 @@ responseAdminListGroupsForUser =
   res
     "AdminListGroupsForUserResponse"
     "fixture/AdminListGroupsForUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminListGroupsForUser)
 
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseAdminConfirmSignUp =
   res
     "AdminConfirmSignUpResponse"
     "fixture/AdminConfirmSignUpResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminConfirmSignUp)
 
 responseAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedbackResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseAdminUpdateAuthEventFeedback =
   res
     "AdminUpdateAuthEventFeedbackResponse"
     "fixture/AdminUpdateAuthEventFeedbackResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminUpdateAuthEventFeedback)
 
 responseAdminSetUserPassword :: AdminSetUserPasswordResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseAdminSetUserPassword =
   res
     "AdminSetUserPasswordResponse"
     "fixture/AdminSetUserPasswordResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminSetUserPassword)
 
 responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseStartUserImportJob =
   res
     "StartUserImportJobResponse"
     "fixture/StartUserImportJobResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy StartUserImportJob)
 
 responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseCreateIdentityProvider =
   res
     "CreateIdentityProviderResponse"
     "fixture/CreateIdentityProviderResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateIdentityProvider)
 
 responseSetUICustomization :: SetUICustomizationResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseSetUICustomization =
   res
     "SetUICustomizationResponse"
     "fixture/SetUICustomizationResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy SetUICustomization)
 
 responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseListIdentityProviders =
   res
     "ListIdentityProvidersResponse"
     "fixture/ListIdentityProvidersResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListIdentityProviders)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseGetDevice =
   res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetDevice)
 
 responseSignUp :: SignUpResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseSignUp =
   res
     "SignUpResponse"
     "fixture/SignUpResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy SignUp)
 
 responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseDeleteResourceServer =
   res
     "DeleteResourceServerResponse"
     "fixture/DeleteResourceServerResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResourceServer)
 
 responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseUpdateResourceServer =
   res
     "UpdateResourceServerResponse"
     "fixture/UpdateResourceServerResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateResourceServer)
 
 responseChangePassword :: ChangePasswordResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseChangePassword =
   res
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ChangePassword)
 
 responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseCreateUserPoolDomain =
   res
     "CreateUserPoolDomainResponse"
     "fixture/CreateUserPoolDomainResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserPoolDomain)
 
 responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseRespondToAuthChallenge =
   res
     "RespondToAuthChallengeResponse"
     "fixture/RespondToAuthChallengeResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy RespondToAuthChallenge)
 
 responseCreateUserPool :: CreateUserPoolResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseCreateUserPool =
   res
     "CreateUserPoolResponse"
     "fixture/CreateUserPoolResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserPool)
 
 responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseAdminGetDevice =
   res
     "AdminGetDeviceResponse"
     "fixture/AdminGetDeviceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminGetDevice)
 
 responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseGetIdentityProviderByIdentifier =
   res
     "GetIdentityProviderByIdentifierResponse"
     "fixture/GetIdentityProviderByIdentifierResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetIdentityProviderByIdentifier)
 
 responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseAdminRemoveUserFromGroup =
   res
     "AdminRemoveUserFromGroupResponse"
     "fixture/AdminRemoveUserFromGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminRemoveUserFromGroup)
 
 responseSetRiskConfiguration :: SetRiskConfigurationResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseSetRiskConfiguration =
   res
     "SetRiskConfigurationResponse"
     "fixture/SetRiskConfigurationResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy SetRiskConfiguration)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
@@ -1642,7 +1642,7 @@ responseConfirmSignUp =
   res
     "ConfirmSignUpResponse"
     "fixture/ConfirmSignUpResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ConfirmSignUp)
 
 responseListUserPools :: ListUserPoolsResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseListUserPools =
   res
     "ListUserPoolsResponse"
     "fixture/ListUserPoolsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListUserPools)
 
 responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseAdminResetUserPassword =
   res
     "AdminResetUserPasswordResponse"
     "fixture/AdminResetUserPasswordResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminResetUserPassword)
 
 responseUpdateAuthEventFeedback :: UpdateAuthEventFeedbackResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseUpdateAuthEventFeedback =
   res
     "UpdateAuthEventFeedbackResponse"
     "fixture/UpdateAuthEventFeedbackResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAuthEventFeedback)
 
 responseCreateUserImportJob :: CreateUserImportJobResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseCreateUserImportJob =
   res
     "CreateUserImportJobResponse"
     "fixture/CreateUserImportJobResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserImportJob)
 
 responseGetUser :: GetUserResponse -> TestTree
@@ -1682,7 +1682,7 @@ responseGetUser =
   res
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetUser)
 
 responseGetUICustomization :: GetUICustomizationResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseGetUICustomization =
   res
     "GetUICustomizationResponse"
     "fixture/GetUICustomizationResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetUICustomization)
 
 responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseGetCSVHeader =
   res
     "GetCSVHeaderResponse"
     "fixture/GetCSVHeaderResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetCSVHeader)
 
 responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseAdminDeleteUser =
   res
     "AdminDeleteUserResponse"
     "fixture/AdminDeleteUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminDeleteUser)
 
 responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseAdminForgetDevice =
   res
     "AdminForgetDeviceResponse"
     "fixture/AdminForgetDeviceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminForgetDevice)
 
 responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseDescribeResourceServer =
   res
     "DescribeResourceServerResponse"
     "fixture/DescribeResourceServerResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeResourceServer)
 
 responseSetUserMFAPreference :: SetUserMFAPreferenceResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseSetUserMFAPreference =
   res
     "SetUserMFAPreferenceResponse"
     "fixture/SetUserMFAPreferenceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy SetUserMFAPreference)
 
 responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseAdminUpdateDeviceStatus =
   res
     "AdminUpdateDeviceStatusResponse"
     "fixture/AdminUpdateDeviceStatusResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminUpdateDeviceStatus)
 
 responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseAdminCreateUser =
   res
     "AdminCreateUserResponse"
     "fixture/AdminCreateUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminCreateUser)
 
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseAddCustomAttributes =
   res
     "AddCustomAttributesResponse"
     "fixture/AddCustomAttributesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AddCustomAttributes)
 
 responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseListUserPoolClients =
   res
     "ListUserPoolClientsResponse"
     "fixture/ListUserPoolClientsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListUserPoolClients)
 
 responseAdminSetUserMFAPreference :: AdminSetUserMFAPreferenceResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseAdminSetUserMFAPreference =
   res
     "AdminSetUserMFAPreferenceResponse"
     "fixture/AdminSetUserMFAPreferenceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminSetUserMFAPreference)
 
 responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseUpdateUserPoolClient =
   res
     "UpdateUserPoolClientResponse"
     "fixture/UpdateUserPoolClientResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserPoolClient)
 
 responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseDeleteUserPoolClient =
   res
     "DeleteUserPoolClientResponse"
     "fixture/DeleteUserPoolClientResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserPoolClient)
 
 responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseUpdateDeviceStatus =
   res
     "UpdateDeviceStatusResponse"
     "fixture/UpdateDeviceStatusResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDeviceStatus)
 
 responseForgetDevice :: ForgetDeviceResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseForgetDevice =
   res
     "ForgetDeviceResponse"
     "fixture/ForgetDeviceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ForgetDevice)
 
 responseGetSigningCertificate :: GetSigningCertificateResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseGetSigningCertificate =
   res
     "GetSigningCertificateResponse"
     "fixture/GetSigningCertificateResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetSigningCertificate)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
@@ -1834,23 +1834,23 @@ responseCreateUserPoolClient =
   res
     "CreateUserPoolClientResponse"
     "fixture/CreateUserPoolClientResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserPoolClient)
 
-responseGetUserPoolMFAConfig :: GetUserPoolMFAConfigResponse -> TestTree
-responseGetUserPoolMFAConfig =
+responseGetUserPoolMfaConfig :: GetUserPoolMfaConfigResponse -> TestTree
+responseGetUserPoolMfaConfig =
   res
-    "GetUserPoolMFAConfigResponse"
-    "fixture/GetUserPoolMFAConfigResponse.proto"
-    cognitoIdentityProviderService
-    (Proxy :: Proxy GetUserPoolMFAConfig)
+    "GetUserPoolMfaConfigResponse"
+    "fixture/GetUserPoolMfaConfigResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetUserPoolMfaConfig)
 
 responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
 responseCreateResourceServer =
   res
     "CreateResourceServerResponse"
     "fixture/CreateResourceServerResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateResourceServer)
 
 responseAdminListUserAuthEvents :: AdminListUserAuthEventsResponse -> TestTree
@@ -1858,7 +1858,7 @@ responseAdminListUserAuthEvents =
   res
     "AdminListUserAuthEventsResponse"
     "fixture/AdminListUserAuthEventsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminListUserAuthEvents)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseCreateGroup =
   res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
@@ -1874,7 +1874,7 @@ responseAdminAddUserToGroup =
   res
     "AdminAddUserToGroupResponse"
     "fixture/AdminAddUserToGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminAddUserToGroup)
 
 responseVerifySoftwareToken :: VerifySoftwareTokenResponse -> TestTree
@@ -1882,7 +1882,7 @@ responseVerifySoftwareToken =
   res
     "VerifySoftwareTokenResponse"
     "fixture/VerifySoftwareTokenResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy VerifySoftwareToken)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1890,7 +1890,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
@@ -1898,7 +1898,7 @@ responseStopUserImportJob =
   res
     "StopUserImportJobResponse"
     "fixture/StopUserImportJobResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy StopUserImportJob)
 
 responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
@@ -1906,7 +1906,7 @@ responseDescribeUserImportJob =
   res
     "DescribeUserImportJobResponse"
     "fixture/DescribeUserImportJobResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserImportJob)
 
 responseDescribeRiskConfiguration :: DescribeRiskConfigurationResponse -> TestTree
@@ -1914,7 +1914,7 @@ responseDescribeRiskConfiguration =
   res
     "DescribeRiskConfigurationResponse"
     "fixture/DescribeRiskConfigurationResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeRiskConfiguration)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
@@ -1922,7 +1922,7 @@ responseDeleteGroup =
   res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
@@ -1930,7 +1930,7 @@ responseUpdateGroup =
   res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGroup)
 
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
@@ -1938,7 +1938,7 @@ responseGlobalSignOut =
   res
     "GlobalSignOutResponse"
     "fixture/GlobalSignOutResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GlobalSignOut)
 
 responseListGroups :: ListGroupsResponse -> TestTree
@@ -1946,7 +1946,7 @@ responseListGroups =
   res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseUpdateIdentityProvider :: UpdateIdentityProviderResponse -> TestTree
@@ -1954,7 +1954,7 @@ responseUpdateIdentityProvider =
   res
     "UpdateIdentityProviderResponse"
     "fixture/UpdateIdentityProviderResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy UpdateIdentityProvider)
 
 responseDeleteIdentityProvider :: DeleteIdentityProviderResponse -> TestTree
@@ -1962,7 +1962,7 @@ responseDeleteIdentityProvider =
   res
     "DeleteIdentityProviderResponse"
     "fixture/DeleteIdentityProviderResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIdentityProvider)
 
 responseListResourceServers :: ListResourceServersResponse -> TestTree
@@ -1970,7 +1970,7 @@ responseListResourceServers =
   res
     "ListResourceServersResponse"
     "fixture/ListResourceServersResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListResourceServers)
 
 responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
@@ -1978,7 +1978,7 @@ responseAdminRespondToAuthChallenge =
   res
     "AdminRespondToAuthChallengeResponse"
     "fixture/AdminRespondToAuthChallengeResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminRespondToAuthChallenge)
 
 responseSetUserSettings :: SetUserSettingsResponse -> TestTree
@@ -1986,7 +1986,7 @@ responseSetUserSettings =
   res
     "SetUserSettingsResponse"
     "fixture/SetUserSettingsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy SetUserSettings)
 
 responseAdminListDevices :: AdminListDevicesResponse -> TestTree
@@ -1994,7 +1994,7 @@ responseAdminListDevices =
   res
     "AdminListDevicesResponse"
     "fixture/AdminListDevicesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminListDevices)
 
 responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
@@ -2002,7 +2002,7 @@ responseDescribeUserPoolClient =
   res
     "DescribeUserPoolClientResponse"
     "fixture/DescribeUserPoolClientResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserPoolClient)
 
 responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
@@ -2010,7 +2010,7 @@ responseResendConfirmationCode =
   res
     "ResendConfirmationCodeResponse"
     "fixture/ResendConfirmationCodeResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ResendConfirmationCode)
 
 responseGetGroup :: GetGroupResponse -> TestTree
@@ -2018,7 +2018,7 @@ responseGetGroup =
   res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy GetGroup)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
@@ -2026,7 +2026,7 @@ responseAdminSetUserSettings =
   res
     "AdminSetUserSettingsResponse"
     "fixture/AdminSetUserSettingsResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy AdminSetUserSettings)
 
 responseListDevices :: ListDevicesResponse -> TestTree
@@ -2034,5 +2034,5 @@ responseListDevices =
   res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
-    cognitoIdentityProviderService
+    mkServiceConfig
     (Proxy :: Proxy ListDevices)

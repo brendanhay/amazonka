@@ -1,17 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PatternSynonyms #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -148,14 +134,13 @@ module Network.AWS.Types
     ResponseBody,
     clientRequest,
 
-    -- ** Seconds
+    -- * Seconds
     Seconds (..),
     seconds,
     microseconds,
   )
 where
 
-import Control.Applicative
 import Control.Concurrent (ThreadId)
 import Control.DeepSeq
 import Control.Exception
@@ -175,11 +160,10 @@ import GHC.Generics (Generic)
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
+import Network.AWS.Data.Headers  (Headers)
+import Network.AWS.Data.Query  (QueryBuilder)
 import Network.AWS.Data.Sensitive (Sensitive, _Sensitive)
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML
 import Network.AWS.Lens
   ( Lens',
@@ -207,27 +191,39 @@ type ClientResponse = Client.Response ResponseBody
 type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
 
 -- | Abbreviated service name.
-newtype Abbrev = Abbrev Text
-  deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+newtype Abbrev = Abbrev {fromAbbrev :: Text}
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
+      ToText,
+      FromText,
+      ToQuery,
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON
+    )
 
-newtype ErrorCode = ErrorCode Text
-  deriving (Eq, Ord, Show, ToText, ToLog)
-
-instance IsString ErrorCode where
-  fromString = errorCode . fromString
-
-instance FromJSON ErrorCode where
-  parseJSON = parseJSONText "ErrorCode"
-
-instance FromXML ErrorCode where
-  parseXML = parseXMLText "ErrorCode"
-
-instance FromText ErrorCode where
-  fromText = fmap errorCode . fromText
+newtype ErrorCode = ErrorCode {fromErrorCode :: Text}
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
+      ToText,
+      FromText,
+      ToQuery,
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON
+    )
 
 -- | Construct an 'ErrorCode'.
 errorCode :: Text -> ErrorCode
-errorCode = ErrorCode . strip . unnamespace
+errorCode = ErrorCode . strip . unNamespace
   where
     -- Common suffixes are stripped since the service definitions are ambigiuous
     -- as to whether the error shape's name, or the error code is present
@@ -237,52 +233,76 @@ errorCode = ErrorCode . strip . unnamespace
         Text.stripSuffix "Exception" x <|> Text.stripSuffix "Fault" x
 
     -- Removing the (potential) leading ...# namespace.
-    unnamespace x =
+    unNamespace x =
       case Text.break (== '#') x of
         (ns, e)
           | Text.null e -> ns
           | otherwise -> Text.drop 1 e
 
-newtype ErrorMessage = ErrorMessage Text
-  deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+newtype ErrorMessage = ErrorMessage {fromErrorMessage :: Text}
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
+      ToText,
+      FromText,
+      ToQuery,
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON
+    )
 
-newtype RequestId = RequestId Text
-  deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+newtype RequestId = RequestId {fromRequestId :: Text}
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
+      ToText,
+      FromText,
+      ToQuery,
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON
+    )
 
 -- | An error type representing errors that can be attributed to this library.
 data Error
   = TransportError HttpException
   | SerializeError SerializeError
   | ServiceError ServiceError
-  deriving (Show)
+  deriving stock (Show)
 
 instance Exception Error
 
-instance ToLog Error where
-  build = \case
-    TransportError e -> build e
-    SerializeError e -> build e
-    ServiceError e -> build e
+-- instance ToLog Error where
+--   build = \case
+--     TransportError e -> build e
+--     SerializeError e -> build e
+--     ServiceError e -> build e
 
 data SerializeError = SerializeError'
-  { _serializeAbbrev :: !Abbrev,
-    _serializeStatus :: !Status,
+  { _serializeAbbrev :: Abbrev,
+    _serializeStatus :: Status,
     -- | The response body, if the response was not streaming.
     _serializeBody :: Maybe LazyByteString,
     _serializeMessage :: String
   }
-  deriving (Eq, Show)
+  deriving stock (Show, Read, Eq, Generic)
 
-instance ToLog SerializeError where
-  build SerializeError' {..} =
-    buildLines
-      [ "[SerializeError] {",
-        "  service = " <> build _serializeAbbrev,
-        "  status  = " <> build _serializeStatus,
-        "  message = " <> build _serializeMessage,
-        "  body    = " <> build _serializeBody,
-        "}"
-      ]
+-- instance ToLog SerializeError where
+--   build SerializeError' {..} =
+--     buildLines
+--       [ "[SerializeError] {",
+--         "  service = " <> build serializeAbbrev,
+--         "  status  = " <> build serializeStatus,
+--         "  message = " <> build serializeMessage,
+--         "  body    = " <> build serializeBody,
+--         "}"
+--       ]
 
 serializeAbbrev :: Lens' SerializeError Abbrev
 serializeAbbrev = lens _serializeAbbrev (\s a -> s {_serializeAbbrev = a})
@@ -294,26 +314,26 @@ serializeMessage :: Lens' SerializeError String
 serializeMessage = lens _serializeMessage (\s a -> s {_serializeMessage = a})
 
 data ServiceError = ServiceError'
-  { _serviceAbbrev :: !Abbrev,
-    _serviceStatus :: !Status,
+  { _serviceAbbrev :: Abbrev,
+    _serviceStatus :: Status,
     _serviceHeaders :: [Header],
-    _serviceCode :: !ErrorCode,
+    _serviceCode :: ErrorCode,
     _serviceMessage :: Maybe ErrorMessage,
     _serviceRequestId :: Maybe RequestId
   }
-  deriving (Eq, Show)
+  deriving stock (Show, Read, Eq, Generic)
 
-instance ToLog ServiceError where
-  build ServiceError' {..} =
-    buildLines
-      [ "[ServiceError] {",
-        "  service    = " <> build _serviceAbbrev,
-        "  status     = " <> build _serviceStatus,
-        "  code       = " <> build _serviceCode,
-        "  message    = " <> build _serviceMessage,
-        "  request-id = " <> build _serviceRequestId,
-        "}"
-      ]
+-- instance ToLog ServiceError where
+--   build ServiceError' {..} =
+--     buildLines
+--       [ "[ServiceError] {",
+--         "  service    = " <> build _serviceAbbrev,
+--         "  status     = " <> build _serviceStatus,
+--         "  code       = " <> build _serviceCode,
+--         "  message    = " <> build _serviceMessage,
+--         "  request-id = " <> build _serviceRequestId,
+--         "}"
+--       ]
 
 serviceAbbrev :: Lens' ServiceError Abbrev
 serviceAbbrev = lens _serviceAbbrev (\s a -> s {_serviceAbbrev = a})
@@ -372,11 +392,11 @@ instance AsError Error where
 
 data Endpoint = Endpoint
   { _endpointHost :: ByteString,
-    _endpointSecure :: !Bool,
-    _endpointPort :: !Int,
+    _endpointSecure :: Bool,
+    _endpointPort :: Int,
     _endpointScope :: ByteString
   }
-  deriving (Eq, Show)
+  deriving stock (Show, Read, Eq)
 
 endpointHost :: Lens' Endpoint ByteString
 endpointHost = lens _endpointHost (\s a -> s {_endpointHost = a})
@@ -416,7 +436,7 @@ instance ToText LogLevel where
     Debug -> "debug"
     Trace -> "trace"
 
-instance ToByteString LogLevel
+-- instance ToByteString LogLevel
 
 -- | A function threaded through various request and serialisation routines
 -- to log informational and debug messages.
@@ -424,9 +444,9 @@ type Logger = LogLevel -> Builder -> IO ()
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
 data Retry = Exponential
-  { _retryBase :: !Double,
-    _retryGrowth :: !Int,
-    _retryAttempts :: !Int,
+  { _retryBase :: Double,
+    _retryGrowth :: Int,
+    _retryAttempts :: Int,
     -- | Returns a descriptive name for logging
     -- if the request should be retried.
     _retryCheck :: ServiceError -> Maybe Text
@@ -455,8 +475,8 @@ instance ToLog Meta where
 -- to the signing algorithm, tagged with the initial request type
 -- to be able to obtain the associated response, 'Rs a'.
 data Signed a = Signed
-  { sgMeta :: !Meta,
-    sgRequest :: !ClientRequest
+  { sgMeta :: Meta,
+    sgRequest :: ClientRequest
   }
 
 type Algorithm a = Request a -> AuthEnv -> Region -> UTCTime -> Signed a
@@ -468,15 +488,15 @@ data Signer = Signer
 
 -- | Attributes and functions specific to an AWS service.
 data Service = Service
-  { _svcAbbrev :: !Abbrev,
-    _svcSigner :: !Signer,
-    _svcPrefix :: !ByteString,
-    _svcVersion :: !ByteString,
-    _svcEndpoint :: !(Region -> Endpoint),
-    _svcTimeout :: !(Maybe Seconds),
-    _svcCheck :: !(Status -> Bool),
-    _svcError :: !(Status -> [Header] -> LazyByteString -> Error),
-    _svcRetry :: !Retry
+  { _svcAbbrev :: Abbrev,
+    _svcSigner :: Signer,
+    _svcPrefix :: ByteString,
+    _svcVersion :: ByteString,
+    _svcEndpoint :: Region -> Endpoint,
+    _svcTimeout :: Maybe Seconds,
+    _svcCheck :: Status -> Bool,
+    _svcError :: Status -> [Header] -> LazyByteString -> Error,
+    _svcRetry :: Retry
   }
 
 serviceSigner :: Lens' Service Signer
@@ -511,13 +531,14 @@ clientRequest e t =
 
 -- | An unsigned request.
 data Request a = Request
-  { _rqService :: !Service,
-    _rqMethod :: !StdMethod,
-    _rqPath :: !RawPath,
-    _rqQuery :: !QueryString,
-    _rqHeaders :: ![Header],
-    _rqBody :: !RqBody
-  }
+  { _rqService :: Service,
+    _rqMethod :: StdMethod,
+    _rqPath :: ByteString,
+    _rqQuery :: QueryBuilder,
+    _rqHeaders :: Headers,
+    _rqBody :: RqBody
+  } deriving stock (Generic)
+    deriving anyclass (NFData)
 
 rqService :: Lens' (Request a) Service
 rqService = lens _rqService (\s a -> s {_rqService = a})
@@ -555,7 +576,7 @@ class AWSRequest a where
     Monad m =>
     Logger ->
     Service ->
-    Proxy a -> -- For injectivity reasons.
+    Proxy a ->
     ClientResponse ->
     m (Either Error (Response a))
 
@@ -564,97 +585,86 @@ class AWSRequest a where
 -- For example: @AKIAIOSFODNN7EXAMPLE@
 --
 -- /See:/ <http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html Understanding and Getting Your Security Credentials>.
-newtype AccessKey = AccessKey ByteString
-  deriving
-    ( Eq,
-      Show,
-      Read,
-      IsString,
+newtype AccessKey = AccessKey {fromAccessKey :: ByteString}
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
       ToText,
       FromText,
-      ToByteString,
-      ToLog,
-      FromXML,
-      ToXML,
       ToQuery,
-      Hashable,
-      NFData
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON
     )
-
-instance ToJSON AccessKey where
-  toJSON = toJSONText
-
-instance FromJSON AccessKey where
-  parseJSON = parseJSONText "AccessKey"
 
 -- | Secret access key credential.
 --
 -- For example: @wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKE@
 --
 -- /See:/ <http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html Understanding and Getting Your Security Credentials>.
-newtype SecretKey = SecretKey ByteString
-  deriving
-    ( Eq,
-      IsString,
+newtype SecretKey = SecretKey {fromSecretKey :: ByteString}
+  deriving stock (Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
       ToText,
       FromText,
-      ToByteString,
-      FromXML,
+      ToQuery,
       ToXML,
-      Hashable,
-      NFData
+      FromXML,
+      ToJSON,
+      FromJSON
     )
 
-instance ToJSON SecretKey where
-  toJSON = toJSONText
-
-instance FromJSON SecretKey where
-  parseJSON = parseJSONText "SecretKey"
+instance Show SecretKey where
+  showsPrec _ = showString "SecretKey {fromSecretKey = \"*****\"}"
 
 -- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials>.
-newtype SessionToken = SessionToken ByteString
-  deriving
-    ( Eq,
-      IsString,
+newtype SessionToken = SessionToken {fromSessionToken :: ByteString}
+  deriving stock (Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
       ToText,
       FromText,
-      ToByteString,
-      FromXML,
+      ToQuery,
       ToXML,
-      Hashable,
-      NFData
+      FromXML,
+      ToJSON,
+      FromJSON
     )
 
-instance ToJSON SessionToken where
-  toJSON = toJSONText
-
-instance FromJSON SessionToken where
-  parseJSON = parseJSONText "SessionToken"
+instance Show SessionToken where
+  showsPrec _ = showString "SessionToken {fromSessionToken = \"*****\"}"
 
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
-  { _authAccess :: !AccessKey,
-    _authSecret :: !(Sensitive SecretKey),
+  { _authAccess :: AccessKey,
+    _authSecret :: (Sensitive SecretKey),
     _authToken :: Maybe (Sensitive SessionToken),
     _authExpiry :: Maybe UTCTime
   }
-  deriving (Eq, Show, Generic)
+  deriving stock (Show, Read, Eq, Generic)
+  deriving anyclass (NFData)
 
-instance NFData AuthEnv
-
-instance ToLog AuthEnv where
-  build AuthEnv {..} =
-    buildLines
-      [ "[Amazonka Auth] {",
-        "  access key id     = " <> build _authAccess,
-        "  secret access key = " <> build _authSecret,
-        "  session token     = " <> build _authToken,
-        "  expiration        = " <> build _authExpiry,
-        "}"
-      ]
+-- instance ToLog AuthEnv where
+--   build AuthEnv {..} =
+--     buildLines
+--       [ "[Amazonka Auth] {",
+--         "  access key id     = " <> build _authAccess,
+--         "  secret access key = " <> build _authSecret,
+--         "  session token     = " <> build _authToken,
+--         "  expiration        = " <> build _authExpiry,
+--         "}"
+--       ]
 
 instance FromJSON AuthEnv where
   parseJSON = withObject "AuthEnv" $ \o ->
@@ -700,9 +710,9 @@ data Auth
   = Ref ThreadId (IORef AuthEnv)
   | Auth AuthEnv
 
-instance ToLog Auth where
-  build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
-  build (Auth e) = build e
+-- instance ToLog Auth where
+--   build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
+--   build (Auth e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
@@ -710,22 +720,18 @@ withAuth (Auth e) f = f e
 
 -- | The available AWS regions.
 newtype Region = Region' Text
-  deriving
-    ( Eq,
-      Ord,
-      Show,
-      Read,
-      IsString,
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
       Hashable,
       NFData,
+      ToText,
+      FromText,
+      ToQuery,
       ToXML,
       FromXML,
       ToJSON,
-      FromJSON,
-      ToText,
-      FromText,
-      ToByteString,
-      ToLog
+      FromJSON
     )
 
 pattern NorthVirginia :: Region
@@ -834,29 +840,26 @@ pattern Ningxia = Region' "cn-northwest-1"
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( Enum,
       Num,
       Bounded,
       Integral,
       Real,
-      Generic,
-      ToQuery,
-      ToByteString,
+      Hashable,
+      NFData,
       ToText,
-      FromText
+      FromText,
+      ToQuery,
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON
     )
 
-instance Hashable Seconds
-
-instance NFData Seconds
-
-instance ToLog Seconds where
-  build s = build (seconds s) <> "s"
+-- instance ToLog Seconds where
+--   build s = build (seconds s) <> "s"
 
 seconds :: Seconds -> Int
 seconds (Seconds n)

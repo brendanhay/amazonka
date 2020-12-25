@@ -13,76 +13,81 @@
 module Network.AWS.Shield.Types.AttackPropertyIdentifier
   ( AttackPropertyIdentifier
       ( AttackPropertyIdentifier',
-        DestinationURL,
-        Referrer,
-        SourceASN,
-        SourceCountry,
-        SourceIPAddress,
-        SourceUserAgent,
-        WordpressPingbackReflector,
-        WordpressPingbackSource
+        AttackPropertyIdentifierDestinationUrl,
+        AttackPropertyIdentifierReferrer,
+        AttackPropertyIdentifierSourceAsn,
+        AttackPropertyIdentifierSourceCountry,
+        AttackPropertyIdentifierSourceIpAddress,
+        AttackPropertyIdentifierSourceUserAgent,
+        AttackPropertyIdentifierWordpressPingbackReflector,
+        AttackPropertyIdentifierWordpressPingbackSource,
+        fromAttackPropertyIdentifier
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AttackPropertyIdentifier = AttackPropertyIdentifier' Lude.Text
+newtype AttackPropertyIdentifier = AttackPropertyIdentifier'
+  { fromAttackPropertyIdentifier ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DestinationURL :: AttackPropertyIdentifier
-pattern DestinationURL = AttackPropertyIdentifier' "DESTINATION_URL"
+pattern AttackPropertyIdentifierDestinationUrl :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierDestinationUrl = AttackPropertyIdentifier' "DESTINATION_URL"
 
-pattern Referrer :: AttackPropertyIdentifier
-pattern Referrer = AttackPropertyIdentifier' "REFERRER"
+pattern AttackPropertyIdentifierReferrer :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierReferrer = AttackPropertyIdentifier' "REFERRER"
 
-pattern SourceASN :: AttackPropertyIdentifier
-pattern SourceASN = AttackPropertyIdentifier' "SOURCE_ASN"
+pattern AttackPropertyIdentifierSourceAsn :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierSourceAsn = AttackPropertyIdentifier' "SOURCE_ASN"
 
-pattern SourceCountry :: AttackPropertyIdentifier
-pattern SourceCountry = AttackPropertyIdentifier' "SOURCE_COUNTRY"
+pattern AttackPropertyIdentifierSourceCountry :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierSourceCountry = AttackPropertyIdentifier' "SOURCE_COUNTRY"
 
-pattern SourceIPAddress :: AttackPropertyIdentifier
-pattern SourceIPAddress = AttackPropertyIdentifier' "SOURCE_IP_ADDRESS"
+pattern AttackPropertyIdentifierSourceIpAddress :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierSourceIpAddress = AttackPropertyIdentifier' "SOURCE_IP_ADDRESS"
 
-pattern SourceUserAgent :: AttackPropertyIdentifier
-pattern SourceUserAgent = AttackPropertyIdentifier' "SOURCE_USER_AGENT"
+pattern AttackPropertyIdentifierSourceUserAgent :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierSourceUserAgent = AttackPropertyIdentifier' "SOURCE_USER_AGENT"
 
-pattern WordpressPingbackReflector :: AttackPropertyIdentifier
-pattern WordpressPingbackReflector = AttackPropertyIdentifier' "WORDPRESS_PINGBACK_REFLECTOR"
+pattern AttackPropertyIdentifierWordpressPingbackReflector :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierWordpressPingbackReflector = AttackPropertyIdentifier' "WORDPRESS_PINGBACK_REFLECTOR"
 
-pattern WordpressPingbackSource :: AttackPropertyIdentifier
-pattern WordpressPingbackSource = AttackPropertyIdentifier' "WORDPRESS_PINGBACK_SOURCE"
+pattern AttackPropertyIdentifierWordpressPingbackSource :: AttackPropertyIdentifier
+pattern AttackPropertyIdentifierWordpressPingbackSource = AttackPropertyIdentifier' "WORDPRESS_PINGBACK_SOURCE"
 
 {-# COMPLETE
-  DestinationURL,
-  Referrer,
-  SourceASN,
-  SourceCountry,
-  SourceIPAddress,
-  SourceUserAgent,
-  WordpressPingbackReflector,
-  WordpressPingbackSource,
+  AttackPropertyIdentifierDestinationUrl,
+  AttackPropertyIdentifierReferrer,
+  AttackPropertyIdentifierSourceAsn,
+  AttackPropertyIdentifierSourceCountry,
+  AttackPropertyIdentifierSourceIpAddress,
+  AttackPropertyIdentifierSourceUserAgent,
+  AttackPropertyIdentifierWordpressPingbackReflector,
+  AttackPropertyIdentifierWordpressPingbackSource,
   AttackPropertyIdentifier'
   #-}

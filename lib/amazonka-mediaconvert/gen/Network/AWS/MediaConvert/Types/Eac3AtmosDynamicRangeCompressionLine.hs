@@ -13,67 +13,72 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
   ( Eac3AtmosDynamicRangeCompressionLine
       ( Eac3AtmosDynamicRangeCompressionLine',
-        EADRCLNone,
-        EADRCLFilmStandard,
-        EADRCLFilmLight,
-        EADRCLMusicStandard,
-        EADRCLMusicLight,
-        EADRCLSpeech
+        Eac3AtmosDynamicRangeCompressionLineNone,
+        Eac3AtmosDynamicRangeCompressionLineFilmStandard,
+        Eac3AtmosDynamicRangeCompressionLineFilmLight,
+        Eac3AtmosDynamicRangeCompressionLineMusicStandard,
+        Eac3AtmosDynamicRangeCompressionLineMusicLight,
+        Eac3AtmosDynamicRangeCompressionLineSpeech,
+        fromEac3AtmosDynamicRangeCompressionLine
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the absolute peak level for a signal with dynamic range compression.
-newtype Eac3AtmosDynamicRangeCompressionLine = Eac3AtmosDynamicRangeCompressionLine' Lude.Text
+newtype Eac3AtmosDynamicRangeCompressionLine = Eac3AtmosDynamicRangeCompressionLine'
+  { fromEac3AtmosDynamicRangeCompressionLine ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EADRCLNone :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLNone = Eac3AtmosDynamicRangeCompressionLine' "NONE"
+pattern Eac3AtmosDynamicRangeCompressionLineNone :: Eac3AtmosDynamicRangeCompressionLine
+pattern Eac3AtmosDynamicRangeCompressionLineNone = Eac3AtmosDynamicRangeCompressionLine' "NONE"
 
-pattern EADRCLFilmStandard :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLFilmStandard = Eac3AtmosDynamicRangeCompressionLine' "FILM_STANDARD"
+pattern Eac3AtmosDynamicRangeCompressionLineFilmStandard :: Eac3AtmosDynamicRangeCompressionLine
+pattern Eac3AtmosDynamicRangeCompressionLineFilmStandard = Eac3AtmosDynamicRangeCompressionLine' "FILM_STANDARD"
 
-pattern EADRCLFilmLight :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLFilmLight = Eac3AtmosDynamicRangeCompressionLine' "FILM_LIGHT"
+pattern Eac3AtmosDynamicRangeCompressionLineFilmLight :: Eac3AtmosDynamicRangeCompressionLine
+pattern Eac3AtmosDynamicRangeCompressionLineFilmLight = Eac3AtmosDynamicRangeCompressionLine' "FILM_LIGHT"
 
-pattern EADRCLMusicStandard :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLMusicStandard = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_STANDARD"
+pattern Eac3AtmosDynamicRangeCompressionLineMusicStandard :: Eac3AtmosDynamicRangeCompressionLine
+pattern Eac3AtmosDynamicRangeCompressionLineMusicStandard = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_STANDARD"
 
-pattern EADRCLMusicLight :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLMusicLight = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_LIGHT"
+pattern Eac3AtmosDynamicRangeCompressionLineMusicLight :: Eac3AtmosDynamicRangeCompressionLine
+pattern Eac3AtmosDynamicRangeCompressionLineMusicLight = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_LIGHT"
 
-pattern EADRCLSpeech :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLSpeech = Eac3AtmosDynamicRangeCompressionLine' "SPEECH"
+pattern Eac3AtmosDynamicRangeCompressionLineSpeech :: Eac3AtmosDynamicRangeCompressionLine
+pattern Eac3AtmosDynamicRangeCompressionLineSpeech = Eac3AtmosDynamicRangeCompressionLine' "SPEECH"
 
 {-# COMPLETE
-  EADRCLNone,
-  EADRCLFilmStandard,
-  EADRCLFilmLight,
-  EADRCLMusicStandard,
-  EADRCLMusicLight,
-  EADRCLSpeech,
+  Eac3AtmosDynamicRangeCompressionLineNone,
+  Eac3AtmosDynamicRangeCompressionLineFilmStandard,
+  Eac3AtmosDynamicRangeCompressionLineFilmLight,
+  Eac3AtmosDynamicRangeCompressionLineMusicStandard,
+  Eac3AtmosDynamicRangeCompressionLineMusicLight,
+  Eac3AtmosDynamicRangeCompressionLineSpeech,
   Eac3AtmosDynamicRangeCompressionLine'
   #-}

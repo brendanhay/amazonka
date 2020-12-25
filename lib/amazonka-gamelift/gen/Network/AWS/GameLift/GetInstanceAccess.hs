@@ -32,140 +32,124 @@ module Network.AWS.GameLift.GetInstanceAccess
     mkGetInstanceAccess,
 
     -- ** Request lenses
-    giaInstanceId,
     giaFleetId,
+    giaInstanceId,
 
     -- * Destructuring the response
     GetInstanceAccessResponse (..),
     mkGetInstanceAccessResponse,
 
     -- ** Response lenses
-    giarsInstanceAccess,
-    giarsResponseStatus,
+    giarrsInstanceAccess,
+    giarrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkGetInstanceAccess' smart constructor.
 data GetInstanceAccess = GetInstanceAccess'
-  { -- | A unique identifier for an instance you want to get access to. You can access an instance in any status.
-    instanceId :: Lude.Text,
-    -- | A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
-    fleetId :: Lude.Text
+  { -- | A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
+    fleetId :: Types.FleetIdOrArn,
+    -- | A unique identifier for an instance you want to get access to. You can access an instance in any status.
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceAccess' with the minimum fields required to make a request.
---
--- * 'instanceId' - A unique identifier for an instance you want to get access to. You can access an instance in any status.
--- * 'fleetId' - A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
+-- | Creates a 'GetInstanceAccess' value with any optional fields omitted.
 mkGetInstanceAccess ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   GetInstanceAccess
-mkGetInstanceAccess pInstanceId_ pFleetId_ =
-  GetInstanceAccess'
-    { instanceId = pInstanceId_,
-      fleetId = pFleetId_
-    }
-
--- | A unique identifier for an instance you want to get access to. You can access an instance in any status.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giaInstanceId :: Lens.Lens' GetInstanceAccess Lude.Text
-giaInstanceId = Lens.lens (instanceId :: GetInstanceAccess -> Lude.Text) (\s a -> s {instanceId = a} :: GetInstanceAccess)
-{-# DEPRECATED giaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+mkGetInstanceAccess fleetId instanceId =
+  GetInstanceAccess' {fleetId, instanceId}
 
 -- | A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giaFleetId :: Lens.Lens' GetInstanceAccess Lude.Text
-giaFleetId = Lens.lens (fleetId :: GetInstanceAccess -> Lude.Text) (\s a -> s {fleetId = a} :: GetInstanceAccess)
+giaFleetId :: Lens.Lens' GetInstanceAccess Types.FleetIdOrArn
+giaFleetId = Lens.field @"fleetId"
 {-# DEPRECATED giaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest GetInstanceAccess where
+-- | A unique identifier for an instance you want to get access to. You can access an instance in any status.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giaInstanceId :: Lens.Lens' GetInstanceAccess Types.InstanceId
+giaInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED giaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON GetInstanceAccess where
+  toJSON GetInstanceAccess {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            Core.Just ("InstanceId" Core..= instanceId)
+          ]
+      )
+
+instance Core.AWSRequest GetInstanceAccess where
   type Rs GetInstanceAccess = GetInstanceAccessResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.GetInstanceAccess")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceAccessResponse'
-            Lude.<$> (x Lude..?> "InstanceAccess")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InstanceAccess")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInstanceAccess where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.GetInstanceAccess" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstanceAccess where
-  toJSON GetInstanceAccess' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("FleetId" Lude..= fleetId)
-          ]
-      )
-
-instance Lude.ToPath GetInstanceAccess where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstanceAccess where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkGetInstanceAccessResponse' smart constructor.
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
   { -- | The connection information for a fleet instance, including IP address and access credentials.
-    instanceAccess :: Lude.Maybe InstanceAccess,
+    instanceAccess :: Core.Maybe Types.InstanceAccess,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceAccessResponse' with the minimum fields required to make a request.
---
--- * 'instanceAccess' - The connection information for a fleet instance, including IP address and access credentials.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceAccessResponse' value with any optional fields omitted.
 mkGetInstanceAccessResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceAccessResponse
-mkGetInstanceAccessResponse pResponseStatus_ =
+mkGetInstanceAccessResponse responseStatus =
   GetInstanceAccessResponse'
-    { instanceAccess = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceAccess = Core.Nothing,
+      responseStatus
     }
 
 -- | The connection information for a fleet instance, including IP address and access credentials.
 --
 -- /Note:/ Consider using 'instanceAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giarsInstanceAccess :: Lens.Lens' GetInstanceAccessResponse (Lude.Maybe InstanceAccess)
-giarsInstanceAccess = Lens.lens (instanceAccess :: GetInstanceAccessResponse -> Lude.Maybe InstanceAccess) (\s a -> s {instanceAccess = a} :: GetInstanceAccessResponse)
-{-# DEPRECATED giarsInstanceAccess "Use generic-lens or generic-optics with 'instanceAccess' instead." #-}
+giarrsInstanceAccess :: Lens.Lens' GetInstanceAccessResponse (Core.Maybe Types.InstanceAccess)
+giarrsInstanceAccess = Lens.field @"instanceAccess"
+{-# DEPRECATED giarrsInstanceAccess "Use generic-lens or generic-optics with 'instanceAccess' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giarsResponseStatus :: Lens.Lens' GetInstanceAccessResponse Lude.Int
-giarsResponseStatus = Lens.lens (responseStatus :: GetInstanceAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceAccessResponse)
-{-# DEPRECATED giarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+giarrsResponseStatus :: Lens.Lens' GetInstanceAccessResponse Core.Int
+giarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED giarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

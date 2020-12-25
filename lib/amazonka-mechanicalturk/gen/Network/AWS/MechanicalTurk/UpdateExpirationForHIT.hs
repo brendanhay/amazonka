@@ -28,115 +28,101 @@ module Network.AWS.MechanicalTurk.UpdateExpirationForHIT
     mkUpdateExpirationForHITResponse,
 
     -- ** Response lenses
-    uefhitrsResponseStatus,
+    uefhitrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateExpirationForHIT' smart constructor.
 data UpdateExpirationForHIT = UpdateExpirationForHIT'
   { -- | The HIT to update.
-    hITId :: Lude.Text,
+    hITId :: Types.HITId,
     -- | The date and time at which you want the HIT to expire
-    expireAt :: Lude.Timestamp
+    expireAt :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateExpirationForHIT' with the minimum fields required to make a request.
---
--- * 'hITId' - The HIT to update.
--- * 'expireAt' - The date and time at which you want the HIT to expire
+-- | Creates a 'UpdateExpirationForHIT' value with any optional fields omitted.
 mkUpdateExpirationForHIT ::
   -- | 'hITId'
-  Lude.Text ->
+  Types.HITId ->
   -- | 'expireAt'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   UpdateExpirationForHIT
-mkUpdateExpirationForHIT pHITId_ pExpireAt_ =
-  UpdateExpirationForHIT' {hITId = pHITId_, expireAt = pExpireAt_}
+mkUpdateExpirationForHIT hITId expireAt =
+  UpdateExpirationForHIT' {hITId, expireAt}
 
 -- | The HIT to update.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uefhitHITId :: Lens.Lens' UpdateExpirationForHIT Lude.Text
-uefhitHITId = Lens.lens (hITId :: UpdateExpirationForHIT -> Lude.Text) (\s a -> s {hITId = a} :: UpdateExpirationForHIT)
+uefhitHITId :: Lens.Lens' UpdateExpirationForHIT Types.HITId
+uefhitHITId = Lens.field @"hITId"
 {-# DEPRECATED uefhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 -- | The date and time at which you want the HIT to expire
 --
 -- /Note:/ Consider using 'expireAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uefhitExpireAt :: Lens.Lens' UpdateExpirationForHIT Lude.Timestamp
-uefhitExpireAt = Lens.lens (expireAt :: UpdateExpirationForHIT -> Lude.Timestamp) (\s a -> s {expireAt = a} :: UpdateExpirationForHIT)
+uefhitExpireAt :: Lens.Lens' UpdateExpirationForHIT Core.NominalDiffTime
+uefhitExpireAt = Lens.field @"expireAt"
 {-# DEPRECATED uefhitExpireAt "Use generic-lens or generic-optics with 'expireAt' instead." #-}
 
-instance Lude.AWSRequest UpdateExpirationForHIT where
+instance Core.FromJSON UpdateExpirationForHIT where
+  toJSON UpdateExpirationForHIT {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HITId" Core..= hITId),
+            Core.Just ("ExpireAt" Core..= expireAt)
+          ]
+      )
+
+instance Core.AWSRequest UpdateExpirationForHIT where
   type Rs UpdateExpirationForHIT = UpdateExpirationForHITResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.UpdateExpirationForHIT"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateExpirationForHITResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateExpirationForHIT where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateExpirationForHIT where
-  toJSON UpdateExpirationForHIT' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("HITId" Lude..= hITId),
-            Lude.Just ("ExpireAt" Lude..= expireAt)
-          ]
-      )
-
-instance Lude.ToPath UpdateExpirationForHIT where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateExpirationForHIT where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateExpirationForHITResponse' smart constructor.
 newtype UpdateExpirationForHITResponse = UpdateExpirationForHITResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateExpirationForHITResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateExpirationForHITResponse' value with any optional fields omitted.
 mkUpdateExpirationForHITResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateExpirationForHITResponse
-mkUpdateExpirationForHITResponse pResponseStatus_ =
-  UpdateExpirationForHITResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateExpirationForHITResponse responseStatus =
+  UpdateExpirationForHITResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uefhitrsResponseStatus :: Lens.Lens' UpdateExpirationForHITResponse Lude.Int
-uefhitrsResponseStatus = Lens.lens (responseStatus :: UpdateExpirationForHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateExpirationForHITResponse)
-{-# DEPRECATED uefhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uefhitrrsResponseStatus :: Lens.Lens' UpdateExpirationForHITResponse Core.Int
+uefhitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uefhitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

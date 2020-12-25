@@ -23,107 +23,95 @@ module Network.AWS.DirectConnect.AssociateConnectionWithLag
     mkAssociateConnectionWithLag,
 
     -- ** Request lenses
-    acwlLagId,
     acwlConnectionId,
+    acwlLagId,
 
     -- * Destructuring the response
-    Connection (..),
-    mkConnection,
+    Types.Connection (..),
+    Types.mkConnection,
 
     -- ** Response lenses
-    cLagId,
-    cVlan,
-    cLocation,
-    cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
-    cAwsDeviceV2,
-    cConnectionState,
-    cTags,
+    Types.cAwsDevice,
+    Types.cAwsDeviceV2,
+    Types.cBandwidth,
+    Types.cConnectionId,
+    Types.cConnectionName,
+    Types.cConnectionState,
+    Types.cHasLogicalRedundancy,
+    Types.cJumboFrameCapable,
+    Types.cLagId,
+    Types.cLoaIssueTime,
+    Types.cLocation,
+    Types.cOwnerAccount,
+    Types.cPartnerName,
+    Types.cProviderName,
+    Types.cRegion,
+    Types.cTags,
+    Types.cVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
-  { -- | The ID of the LAG with which to associate the connection.
-    lagId :: Lude.Text,
-    -- | The ID of the connection.
-    connectionId :: Lude.Text
+  { -- | The ID of the connection.
+    connectionId :: Types.ConnectionId,
+    -- | The ID of the LAG with which to associate the connection.
+    lagId :: Types.LagId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateConnectionWithLag' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG with which to associate the connection.
--- * 'connectionId' - The ID of the connection.
+-- | Creates a 'AssociateConnectionWithLag' value with any optional fields omitted.
 mkAssociateConnectionWithLag ::
-  -- | 'lagId'
-  Lude.Text ->
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
+  -- | 'lagId'
+  Types.LagId ->
   AssociateConnectionWithLag
-mkAssociateConnectionWithLag pLagId_ pConnectionId_ =
-  AssociateConnectionWithLag'
-    { lagId = pLagId_,
-      connectionId = pConnectionId_
-    }
-
--- | The ID of the LAG with which to associate the connection.
---
--- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwlLagId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
-acwlLagId = Lens.lens (lagId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {lagId = a} :: AssociateConnectionWithLag)
-{-# DEPRECATED acwlLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
+mkAssociateConnectionWithLag connectionId lagId =
+  AssociateConnectionWithLag' {connectionId, lagId}
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwlConnectionId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
-acwlConnectionId = Lens.lens (connectionId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateConnectionWithLag)
+acwlConnectionId :: Lens.Lens' AssociateConnectionWithLag Types.ConnectionId
+acwlConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED acwlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest AssociateConnectionWithLag where
-  type Rs AssociateConnectionWithLag = Connection
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The ID of the LAG with which to associate the connection.
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwlLagId :: Lens.Lens' AssociateConnectionWithLag Types.LagId
+acwlLagId = Lens.field @"lagId"
+{-# DEPRECATED acwlLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance Lude.ToHeaders AssociateConnectionWithLag where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.AssociateConnectionWithLag" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON AssociateConnectionWithLag where
+  toJSON AssociateConnectionWithLag {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("lagId" Core..= lagId)
           ]
       )
 
-instance Lude.ToJSON AssociateConnectionWithLag where
-  toJSON AssociateConnectionWithLag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("lagId" Lude..= lagId),
-            Lude.Just ("connectionId" Lude..= connectionId)
-          ]
-      )
-
-instance Lude.ToPath AssociateConnectionWithLag where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateConnectionWithLag where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AssociateConnectionWithLag where
+  type Rs AssociateConnectionWithLag = Types.Connection
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.AssociateConnectionWithLag")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

@@ -27,15 +27,15 @@ module Network.AWS.ElasticTranscoder.CancelJob
     mkCancelJobResponse,
 
     -- ** Response lenses
-    cjfrsResponseStatus,
+    cjrfrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @CancelJobRequest@ structure.
 --
@@ -44,73 +44,66 @@ newtype CancelJob = CancelJob'
   { -- | The identifier of the job that you want to cancel.
     --
     -- To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the job that you want to cancel.
---
--- To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
+-- | Creates a 'CancelJob' value with any optional fields omitted.
 mkCancelJob ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   CancelJob
-mkCancelJob pId_ = CancelJob' {id = pId_}
+mkCancelJob id = CancelJob' {id}
 
 -- | The identifier of the job that you want to cancel.
 --
 -- To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjId :: Lens.Lens' CancelJob Lude.Text
-cjId = Lens.lens (id :: CancelJob -> Lude.Text) (\s a -> s {id = a} :: CancelJob)
+cjId :: Lens.Lens' CancelJob Types.Id
+cjId = Lens.field @"id"
 {-# DEPRECATED cjId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest CancelJob where
+instance Core.AWSRequest CancelJob where
   type Rs CancelJob = CancelJobResponse
-  request = Req.delete elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2012-09-25/jobs/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CancelJobResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CancelJobResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelJob where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelJob where
-  toPath CancelJob' {..} =
-    Lude.mconcat ["/2012-09-25/jobs/", Lude.toBS id]
-
-instance Lude.ToQuery CancelJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | The response body contains a JSON object. If the job is successfully canceled, the value of @Success@ is @true@ .
 --
 -- /See:/ 'mkCancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelJobResponse' value with any optional fields omitted.
 mkCancelJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelJobResponse
-mkCancelJobResponse pResponseStatus_ =
-  CancelJobResponse' {responseStatus = pResponseStatus_}
+mkCancelJobResponse responseStatus =
+  CancelJobResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjfrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
-cjfrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
-{-# DEPRECATED cjfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjrfrsResponseStatus :: Lens.Lens' CancelJobResponse Core.Int
+cjrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cjrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

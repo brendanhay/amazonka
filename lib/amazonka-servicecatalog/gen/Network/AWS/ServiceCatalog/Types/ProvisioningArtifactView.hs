@@ -23,54 +23,49 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ProductViewSummary
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ProductViewSummary as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifact as Types
 
 -- | An object that contains summary information about a product view and a provisioning artifact.
 --
 -- /See:/ 'mkProvisioningArtifactView' smart constructor.
 data ProvisioningArtifactView = ProvisioningArtifactView'
   { -- | Summary information about a product view.
-    productViewSummary :: Lude.Maybe ProductViewSummary,
+    productViewSummary :: Core.Maybe Types.ProductViewSummary,
     -- | Information about a provisioning artifact. A provisioning artifact is also known as a product version.
-    provisioningArtifact :: Lude.Maybe ProvisioningArtifact
+    provisioningArtifact :: Core.Maybe Types.ProvisioningArtifact
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProvisioningArtifactView' with the minimum fields required to make a request.
---
--- * 'productViewSummary' - Summary information about a product view.
--- * 'provisioningArtifact' - Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+-- | Creates a 'ProvisioningArtifactView' value with any optional fields omitted.
 mkProvisioningArtifactView ::
   ProvisioningArtifactView
 mkProvisioningArtifactView =
   ProvisioningArtifactView'
-    { productViewSummary = Lude.Nothing,
-      provisioningArtifact = Lude.Nothing
+    { productViewSummary = Core.Nothing,
+      provisioningArtifact = Core.Nothing
     }
 
 -- | Summary information about a product view.
 --
 -- /Note:/ Consider using 'productViewSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pavProductViewSummary :: Lens.Lens' ProvisioningArtifactView (Lude.Maybe ProductViewSummary)
-pavProductViewSummary = Lens.lens (productViewSummary :: ProvisioningArtifactView -> Lude.Maybe ProductViewSummary) (\s a -> s {productViewSummary = a} :: ProvisioningArtifactView)
+pavProductViewSummary :: Lens.Lens' ProvisioningArtifactView (Core.Maybe Types.ProductViewSummary)
+pavProductViewSummary = Lens.field @"productViewSummary"
 {-# DEPRECATED pavProductViewSummary "Use generic-lens or generic-optics with 'productViewSummary' instead." #-}
 
 -- | Information about a provisioning artifact. A provisioning artifact is also known as a product version.
 --
 -- /Note:/ Consider using 'provisioningArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pavProvisioningArtifact :: Lens.Lens' ProvisioningArtifactView (Lude.Maybe ProvisioningArtifact)
-pavProvisioningArtifact = Lens.lens (provisioningArtifact :: ProvisioningArtifactView -> Lude.Maybe ProvisioningArtifact) (\s a -> s {provisioningArtifact = a} :: ProvisioningArtifactView)
+pavProvisioningArtifact :: Lens.Lens' ProvisioningArtifactView (Core.Maybe Types.ProvisioningArtifact)
+pavProvisioningArtifact = Lens.field @"provisioningArtifact"
 {-# DEPRECATED pavProvisioningArtifact "Use generic-lens or generic-optics with 'provisioningArtifact' instead." #-}
 
-instance Lude.FromJSON ProvisioningArtifactView where
+instance Core.FromJSON ProvisioningArtifactView where
   parseJSON =
-    Lude.withObject
-      "ProvisioningArtifactView"
-      ( \x ->
-          ProvisioningArtifactView'
-            Lude.<$> (x Lude..:? "ProductViewSummary")
-            Lude.<*> (x Lude..:? "ProvisioningArtifact")
-      )
+    Core.withObject "ProvisioningArtifactView" Core.$
+      \x ->
+        ProvisioningArtifactView'
+          Core.<$> (x Core..:? "ProductViewSummary")
+          Core.<*> (x Core..:? "ProvisioningArtifact")

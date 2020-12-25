@@ -17,98 +17,92 @@ module Network.AWS.MarketplaceEntitlement.Types.Entitlement
     mkEntitlement,
 
     -- * Lenses
-    eDimension,
-    eValue,
-    eExpirationDate,
     eCustomerIdentifier,
+    eDimension,
+    eExpirationDate,
     eProductCode,
+    eValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MarketplaceEntitlement.Types.EntitlementValue as Types
+import qualified Network.AWS.MarketplaceEntitlement.Types.NonEmptyString as Types
+import qualified Network.AWS.MarketplaceEntitlement.Types.ProductCode as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.
 --
 -- /See:/ 'mkEntitlement' smart constructor.
 data Entitlement = Entitlement'
-  { -- | The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
-    dimension :: Lude.Maybe Lude.Text,
-    -- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
-    value :: Lude.Maybe EntitlementValue,
+  { -- | The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
+    customerIdentifier :: Core.Maybe Types.NonEmptyString,
+    -- | The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
+    dimension :: Core.Maybe Types.NonEmptyString,
     -- | The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
-    expirationDate :: Lude.Maybe Lude.Timestamp,
-    -- | The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
-    customerIdentifier :: Lude.Maybe Lude.Text,
+    expirationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.
-    productCode :: Lude.Maybe Lude.Text
+    productCode :: Core.Maybe Types.ProductCode,
+    -- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
+    value :: Core.Maybe Types.EntitlementValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Entitlement' with the minimum fields required to make a request.
---
--- * 'dimension' - The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
--- * 'value' - The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
--- * 'expirationDate' - The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
--- * 'customerIdentifier' - The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
--- * 'productCode' - The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.
+-- | Creates a 'Entitlement' value with any optional fields omitted.
 mkEntitlement ::
   Entitlement
 mkEntitlement =
   Entitlement'
-    { dimension = Lude.Nothing,
-      value = Lude.Nothing,
-      expirationDate = Lude.Nothing,
-      customerIdentifier = Lude.Nothing,
-      productCode = Lude.Nothing
+    { customerIdentifier = Core.Nothing,
+      dimension = Core.Nothing,
+      expirationDate = Core.Nothing,
+      productCode = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
---
--- /Note:/ Consider using 'dimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDimension :: Lens.Lens' Entitlement (Lude.Maybe Lude.Text)
-eDimension = Lens.lens (dimension :: Entitlement -> Lude.Maybe Lude.Text) (\s a -> s {dimension = a} :: Entitlement)
-{-# DEPRECATED eDimension "Use generic-lens or generic-optics with 'dimension' instead." #-}
-
--- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eValue :: Lens.Lens' Entitlement (Lude.Maybe EntitlementValue)
-eValue = Lens.lens (value :: Entitlement -> Lude.Maybe EntitlementValue) (\s a -> s {value = a} :: Entitlement)
-{-# DEPRECATED eValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
---
--- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eExpirationDate :: Lens.Lens' Entitlement (Lude.Maybe Lude.Timestamp)
-eExpirationDate = Lens.lens (expirationDate :: Entitlement -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: Entitlement)
-{-# DEPRECATED eExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
 --
 -- /Note:/ Consider using 'customerIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eCustomerIdentifier :: Lens.Lens' Entitlement (Lude.Maybe Lude.Text)
-eCustomerIdentifier = Lens.lens (customerIdentifier :: Entitlement -> Lude.Maybe Lude.Text) (\s a -> s {customerIdentifier = a} :: Entitlement)
+eCustomerIdentifier :: Lens.Lens' Entitlement (Core.Maybe Types.NonEmptyString)
+eCustomerIdentifier = Lens.field @"customerIdentifier"
 {-# DEPRECATED eCustomerIdentifier "Use generic-lens or generic-optics with 'customerIdentifier' instead." #-}
+
+-- | The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
+--
+-- /Note:/ Consider using 'dimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDimension :: Lens.Lens' Entitlement (Core.Maybe Types.NonEmptyString)
+eDimension = Lens.field @"dimension"
+{-# DEPRECATED eDimension "Use generic-lens or generic-optics with 'dimension' instead." #-}
+
+-- | The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eExpirationDate :: Lens.Lens' Entitlement (Core.Maybe Core.NominalDiffTime)
+eExpirationDate = Lens.field @"expirationDate"
+{-# DEPRECATED eExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.
 --
 -- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eProductCode :: Lens.Lens' Entitlement (Lude.Maybe Lude.Text)
-eProductCode = Lens.lens (productCode :: Entitlement -> Lude.Maybe Lude.Text) (\s a -> s {productCode = a} :: Entitlement)
+eProductCode :: Lens.Lens' Entitlement (Core.Maybe Types.ProductCode)
+eProductCode = Lens.field @"productCode"
 {-# DEPRECATED eProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
 
-instance Lude.FromJSON Entitlement where
+-- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eValue :: Lens.Lens' Entitlement (Core.Maybe Types.EntitlementValue)
+eValue = Lens.field @"value"
+{-# DEPRECATED eValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Entitlement where
   parseJSON =
-    Lude.withObject
-      "Entitlement"
-      ( \x ->
-          Entitlement'
-            Lude.<$> (x Lude..:? "Dimension")
-            Lude.<*> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "ExpirationDate")
-            Lude.<*> (x Lude..:? "CustomerIdentifier")
-            Lude.<*> (x Lude..:? "ProductCode")
-      )
+    Core.withObject "Entitlement" Core.$
+      \x ->
+        Entitlement'
+          Core.<$> (x Core..:? "CustomerIdentifier")
+          Core.<*> (x Core..:? "Dimension")
+          Core.<*> (x Core..:? "ExpirationDate")
+          Core.<*> (x Core..:? "ProductCode")
+          Core.<*> (x Core..:? "Value")

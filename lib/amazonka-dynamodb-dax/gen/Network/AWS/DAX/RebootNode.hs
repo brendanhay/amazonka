@@ -20,132 +20,115 @@ module Network.AWS.DAX.RebootNode
     mkRebootNode,
 
     -- ** Request lenses
-    rnNodeId,
     rnClusterName,
+    rnNodeId,
 
     -- * Destructuring the response
     RebootNodeResponse (..),
     mkRebootNodeResponse,
 
     -- ** Response lenses
-    rnrsCluster,
-    rnrsResponseStatus,
+    rnrrsCluster,
+    rnrrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRebootNode' smart constructor.
 data RebootNode = RebootNode'
-  { -- | The system-assigned ID of the node to be rebooted.
-    nodeId :: Lude.Text,
-    -- | The name of the DAX cluster containing the node to be rebooted.
-    clusterName :: Lude.Text
+  { -- | The name of the DAX cluster containing the node to be rebooted.
+    clusterName :: Types.String,
+    -- | The system-assigned ID of the node to be rebooted.
+    nodeId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootNode' with the minimum fields required to make a request.
---
--- * 'nodeId' - The system-assigned ID of the node to be rebooted.
--- * 'clusterName' - The name of the DAX cluster containing the node to be rebooted.
+-- | Creates a 'RebootNode' value with any optional fields omitted.
 mkRebootNode ::
-  -- | 'nodeId'
-  Lude.Text ->
   -- | 'clusterName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'nodeId'
+  Types.String ->
   RebootNode
-mkRebootNode pNodeId_ pClusterName_ =
-  RebootNode' {nodeId = pNodeId_, clusterName = pClusterName_}
-
--- | The system-assigned ID of the node to be rebooted.
---
--- /Note:/ Consider using 'nodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnNodeId :: Lens.Lens' RebootNode Lude.Text
-rnNodeId = Lens.lens (nodeId :: RebootNode -> Lude.Text) (\s a -> s {nodeId = a} :: RebootNode)
-{-# DEPRECATED rnNodeId "Use generic-lens or generic-optics with 'nodeId' instead." #-}
+mkRebootNode clusterName nodeId = RebootNode' {clusterName, nodeId}
 
 -- | The name of the DAX cluster containing the node to be rebooted.
 --
 -- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnClusterName :: Lens.Lens' RebootNode Lude.Text
-rnClusterName = Lens.lens (clusterName :: RebootNode -> Lude.Text) (\s a -> s {clusterName = a} :: RebootNode)
+rnClusterName :: Lens.Lens' RebootNode Types.String
+rnClusterName = Lens.field @"clusterName"
 {-# DEPRECATED rnClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
-instance Lude.AWSRequest RebootNode where
+-- | The system-assigned ID of the node to be rebooted.
+--
+-- /Note:/ Consider using 'nodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnNodeId :: Lens.Lens' RebootNode Types.String
+rnNodeId = Lens.field @"nodeId"
+{-# DEPRECATED rnNodeId "Use generic-lens or generic-optics with 'nodeId' instead." #-}
+
+instance Core.FromJSON RebootNode where
+  toJSON RebootNode {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterName" Core..= clusterName),
+            Core.Just ("NodeId" Core..= nodeId)
+          ]
+      )
+
+instance Core.AWSRequest RebootNode where
   type Rs RebootNode = RebootNodeResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.RebootNode")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RebootNodeResponse'
-            Lude.<$> (x Lude..?> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RebootNode where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.RebootNode" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RebootNode where
-  toJSON RebootNode' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("NodeId" Lude..= nodeId),
-            Lude.Just ("ClusterName" Lude..= clusterName)
-          ]
-      )
-
-instance Lude.ToPath RebootNode where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebootNode where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRebootNodeResponse' smart constructor.
 data RebootNodeResponse = RebootNodeResponse'
   { -- | A description of the DAX cluster after a node has been rebooted.
-    cluster :: Lude.Maybe Cluster,
+    cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RebootNodeResponse' with the minimum fields required to make a request.
---
--- * 'cluster' - A description of the DAX cluster after a node has been rebooted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RebootNodeResponse' value with any optional fields omitted.
 mkRebootNodeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RebootNodeResponse
-mkRebootNodeResponse pResponseStatus_ =
-  RebootNodeResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkRebootNodeResponse responseStatus =
+  RebootNodeResponse' {cluster = Core.Nothing, responseStatus}
 
 -- | A description of the DAX cluster after a node has been rebooted.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnrsCluster :: Lens.Lens' RebootNodeResponse (Lude.Maybe Cluster)
-rnrsCluster = Lens.lens (cluster :: RebootNodeResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: RebootNodeResponse)
-{-# DEPRECATED rnrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+rnrrsCluster :: Lens.Lens' RebootNodeResponse (Core.Maybe Types.Cluster)
+rnrrsCluster = Lens.field @"cluster"
+{-# DEPRECATED rnrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnrsResponseStatus :: Lens.Lens' RebootNodeResponse Lude.Int
-rnrsResponseStatus = Lens.lens (responseStatus :: RebootNodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootNodeResponse)
-{-# DEPRECATED rnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rnrrsResponseStatus :: Lens.Lens' RebootNodeResponse Core.Int
+rnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

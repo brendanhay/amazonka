@@ -17,124 +17,120 @@ module Network.AWS.CodePipeline.Types.ActionExecutionInput
     mkActionExecutionInput,
 
     -- * Lenses
-    aeiNamespace,
-    aeiResolvedConfiguration,
-    aeiRegion,
-    aeiConfiguration,
     aeiActionTypeId,
+    aeiConfiguration,
     aeiInputArtifacts,
-    aeiRoleARN,
+    aeiNamespace,
+    aeiRegion,
+    aeiResolvedConfiguration,
+    aeiRoleArn,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionTypeId
-import Network.AWS.CodePipeline.Types.ArtifactDetail
+import qualified Network.AWS.CodePipeline.Types.AWSRegionName as Types
+import qualified Network.AWS.CodePipeline.Types.ActionConfigurationKey as Types
+import qualified Network.AWS.CodePipeline.Types.ActionConfigurationValue as Types
+import qualified Network.AWS.CodePipeline.Types.ActionTypeId as Types
+import qualified Network.AWS.CodePipeline.Types.ArtifactDetail as Types
+import qualified Network.AWS.CodePipeline.Types.Namespace as Types
+import qualified Network.AWS.CodePipeline.Types.RoleArn as Types
+import qualified Network.AWS.CodePipeline.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input information used for an action execution.
 --
 -- /See:/ 'mkActionExecutionInput' smart constructor.
 data ActionExecutionInput = ActionExecutionInput'
-  { -- | The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
-    namespace :: Lude.Maybe Lude.Text,
-    -- | Configuration data for an action execution with all variable references replaced with their real values for the execution.
-    resolvedConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The AWS Region for the action, such as us-east-1.
-    region :: Lude.Maybe Lude.Text,
+  { actionTypeId :: Core.Maybe Types.ActionTypeId,
     -- | Configuration data for an action execution.
-    configuration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    actionTypeId :: Lude.Maybe ActionTypeId,
+    configuration :: Core.Maybe (Core.HashMap Types.ActionConfigurationKey Types.ActionConfigurationValue),
     -- | Details of input artifacts of the action that correspond to the action execution.
-    inputArtifacts :: Lude.Maybe [ArtifactDetail],
+    inputArtifacts :: Core.Maybe [Types.ArtifactDetail],
+    -- | The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
+    namespace :: Core.Maybe Types.Namespace,
+    -- | The AWS Region for the action, such as us-east-1.
+    region :: Core.Maybe Types.AWSRegionName,
+    -- | Configuration data for an action execution with all variable references replaced with their real values for the execution.
+    resolvedConfiguration :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionExecutionInput' with the minimum fields required to make a request.
---
--- * 'namespace' - The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
--- * 'resolvedConfiguration' - Configuration data for an action execution with all variable references replaced with their real values for the execution.
--- * 'region' - The AWS Region for the action, such as us-east-1.
--- * 'configuration' - Configuration data for an action execution.
--- * 'actionTypeId' -
--- * 'inputArtifacts' - Details of input artifacts of the action that correspond to the action execution.
--- * 'roleARN' - The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
+-- | Creates a 'ActionExecutionInput' value with any optional fields omitted.
 mkActionExecutionInput ::
   ActionExecutionInput
 mkActionExecutionInput =
   ActionExecutionInput'
-    { namespace = Lude.Nothing,
-      resolvedConfiguration = Lude.Nothing,
-      region = Lude.Nothing,
-      configuration = Lude.Nothing,
-      actionTypeId = Lude.Nothing,
-      inputArtifacts = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { actionTypeId = Core.Nothing,
+      configuration = Core.Nothing,
+      inputArtifacts = Core.Nothing,
+      namespace = Core.Nothing,
+      region = Core.Nothing,
+      resolvedConfiguration = Core.Nothing,
+      roleArn = Core.Nothing
     }
-
--- | The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiNamespace :: Lens.Lens' ActionExecutionInput (Lude.Maybe Lude.Text)
-aeiNamespace = Lens.lens (namespace :: ActionExecutionInput -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: ActionExecutionInput)
-{-# DEPRECATED aeiNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
--- | Configuration data for an action execution with all variable references replaced with their real values for the execution.
---
--- /Note:/ Consider using 'resolvedConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiResolvedConfiguration :: Lens.Lens' ActionExecutionInput (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-aeiResolvedConfiguration = Lens.lens (resolvedConfiguration :: ActionExecutionInput -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {resolvedConfiguration = a} :: ActionExecutionInput)
-{-# DEPRECATED aeiResolvedConfiguration "Use generic-lens or generic-optics with 'resolvedConfiguration' instead." #-}
-
--- | The AWS Region for the action, such as us-east-1.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiRegion :: Lens.Lens' ActionExecutionInput (Lude.Maybe Lude.Text)
-aeiRegion = Lens.lens (region :: ActionExecutionInput -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ActionExecutionInput)
-{-# DEPRECATED aeiRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | Configuration data for an action execution.
---
--- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiConfiguration :: Lens.Lens' ActionExecutionInput (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-aeiConfiguration = Lens.lens (configuration :: ActionExecutionInput -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {configuration = a} :: ActionExecutionInput)
-{-# DEPRECATED aeiConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'actionTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiActionTypeId :: Lens.Lens' ActionExecutionInput (Lude.Maybe ActionTypeId)
-aeiActionTypeId = Lens.lens (actionTypeId :: ActionExecutionInput -> Lude.Maybe ActionTypeId) (\s a -> s {actionTypeId = a} :: ActionExecutionInput)
+aeiActionTypeId :: Lens.Lens' ActionExecutionInput (Core.Maybe Types.ActionTypeId)
+aeiActionTypeId = Lens.field @"actionTypeId"
 {-# DEPRECATED aeiActionTypeId "Use generic-lens or generic-optics with 'actionTypeId' instead." #-}
+
+-- | Configuration data for an action execution.
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiConfiguration :: Lens.Lens' ActionExecutionInput (Core.Maybe (Core.HashMap Types.ActionConfigurationKey Types.ActionConfigurationValue))
+aeiConfiguration = Lens.field @"configuration"
+{-# DEPRECATED aeiConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | Details of input artifacts of the action that correspond to the action execution.
 --
 -- /Note:/ Consider using 'inputArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiInputArtifacts :: Lens.Lens' ActionExecutionInput (Lude.Maybe [ArtifactDetail])
-aeiInputArtifacts = Lens.lens (inputArtifacts :: ActionExecutionInput -> Lude.Maybe [ArtifactDetail]) (\s a -> s {inputArtifacts = a} :: ActionExecutionInput)
+aeiInputArtifacts :: Lens.Lens' ActionExecutionInput (Core.Maybe [Types.ArtifactDetail])
+aeiInputArtifacts = Lens.field @"inputArtifacts"
 {-# DEPRECATED aeiInputArtifacts "Use generic-lens or generic-optics with 'inputArtifacts' instead." #-}
+
+-- | The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiNamespace :: Lens.Lens' ActionExecutionInput (Core.Maybe Types.Namespace)
+aeiNamespace = Lens.field @"namespace"
+{-# DEPRECATED aeiNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+
+-- | The AWS Region for the action, such as us-east-1.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiRegion :: Lens.Lens' ActionExecutionInput (Core.Maybe Types.AWSRegionName)
+aeiRegion = Lens.field @"region"
+{-# DEPRECATED aeiRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | Configuration data for an action execution with all variable references replaced with their real values for the execution.
+--
+-- /Note:/ Consider using 'resolvedConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiResolvedConfiguration :: Lens.Lens' ActionExecutionInput (Core.Maybe (Core.HashMap Types.String Types.String))
+aeiResolvedConfiguration = Lens.field @"resolvedConfiguration"
+{-# DEPRECATED aeiResolvedConfiguration "Use generic-lens or generic-optics with 'resolvedConfiguration' instead." #-}
 
 -- | The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeiRoleARN :: Lens.Lens' ActionExecutionInput (Lude.Maybe Lude.Text)
-aeiRoleARN = Lens.lens (roleARN :: ActionExecutionInput -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ActionExecutionInput)
-{-# DEPRECATED aeiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiRoleArn :: Lens.Lens' ActionExecutionInput (Core.Maybe Types.RoleArn)
+aeiRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED aeiRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON ActionExecutionInput where
+instance Core.FromJSON ActionExecutionInput where
   parseJSON =
-    Lude.withObject
-      "ActionExecutionInput"
-      ( \x ->
-          ActionExecutionInput'
-            Lude.<$> (x Lude..:? "namespace")
-            Lude.<*> (x Lude..:? "resolvedConfiguration" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "region")
-            Lude.<*> (x Lude..:? "configuration" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "actionTypeId")
-            Lude.<*> (x Lude..:? "inputArtifacts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+    Core.withObject "ActionExecutionInput" Core.$
+      \x ->
+        ActionExecutionInput'
+          Core.<$> (x Core..:? "actionTypeId")
+          Core.<*> (x Core..:? "configuration")
+          Core.<*> (x Core..:? "inputArtifacts")
+          Core.<*> (x Core..:? "namespace")
+          Core.<*> (x Core..:? "region")
+          Core.<*> (x Core..:? "resolvedConfiguration")
+          Core.<*> (x Core..:? "roleArn")

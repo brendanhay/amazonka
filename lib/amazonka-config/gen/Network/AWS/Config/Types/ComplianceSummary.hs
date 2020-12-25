@@ -23,66 +23,60 @@ module Network.AWS.Config.Types.ComplianceSummary
   )
 where
 
-import Network.AWS.Config.Types.ComplianceContributorCount
+import qualified Network.AWS.Config.Types.ComplianceContributorCount as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The number of AWS Config rules or AWS resources that are compliant and noncompliant.
 --
 -- /See:/ 'mkComplianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
   { -- | The time that AWS Config created the compliance summary.
-    complianceSummaryTimestamp :: Lude.Maybe Lude.Timestamp,
+    complianceSummaryTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources.
-    compliantResourceCount :: Lude.Maybe ComplianceContributorCount,
+    compliantResourceCount :: Core.Maybe Types.ComplianceContributorCount,
     -- | The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.
-    nonCompliantResourceCount :: Lude.Maybe ComplianceContributorCount
+    nonCompliantResourceCount :: Core.Maybe Types.ComplianceContributorCount
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ComplianceSummary' with the minimum fields required to make a request.
---
--- * 'complianceSummaryTimestamp' - The time that AWS Config created the compliance summary.
--- * 'compliantResourceCount' - The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources.
--- * 'nonCompliantResourceCount' - The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.
+-- | Creates a 'ComplianceSummary' value with any optional fields omitted.
 mkComplianceSummary ::
   ComplianceSummary
 mkComplianceSummary =
   ComplianceSummary'
-    { complianceSummaryTimestamp = Lude.Nothing,
-      compliantResourceCount = Lude.Nothing,
-      nonCompliantResourceCount = Lude.Nothing
+    { complianceSummaryTimestamp = Core.Nothing,
+      compliantResourceCount = Core.Nothing,
+      nonCompliantResourceCount = Core.Nothing
     }
 
 -- | The time that AWS Config created the compliance summary.
 --
 -- /Note:/ Consider using 'complianceSummaryTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csComplianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Lude.Maybe Lude.Timestamp)
-csComplianceSummaryTimestamp = Lens.lens (complianceSummaryTimestamp :: ComplianceSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary)
+csComplianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Core.Maybe Core.NominalDiffTime)
+csComplianceSummaryTimestamp = Lens.field @"complianceSummaryTimestamp"
 {-# DEPRECATED csComplianceSummaryTimestamp "Use generic-lens or generic-optics with 'complianceSummaryTimestamp' instead." #-}
 
 -- | The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources.
 --
 -- /Note:/ Consider using 'compliantResourceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCompliantResourceCount :: Lens.Lens' ComplianceSummary (Lude.Maybe ComplianceContributorCount)
-csCompliantResourceCount = Lens.lens (compliantResourceCount :: ComplianceSummary -> Lude.Maybe ComplianceContributorCount) (\s a -> s {compliantResourceCount = a} :: ComplianceSummary)
+csCompliantResourceCount :: Lens.Lens' ComplianceSummary (Core.Maybe Types.ComplianceContributorCount)
+csCompliantResourceCount = Lens.field @"compliantResourceCount"
 {-# DEPRECATED csCompliantResourceCount "Use generic-lens or generic-optics with 'compliantResourceCount' instead." #-}
 
 -- | The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.
 --
 -- /Note:/ Consider using 'nonCompliantResourceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csNonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Lude.Maybe ComplianceContributorCount)
-csNonCompliantResourceCount = Lens.lens (nonCompliantResourceCount :: ComplianceSummary -> Lude.Maybe ComplianceContributorCount) (\s a -> s {nonCompliantResourceCount = a} :: ComplianceSummary)
+csNonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Core.Maybe Types.ComplianceContributorCount)
+csNonCompliantResourceCount = Lens.field @"nonCompliantResourceCount"
 {-# DEPRECATED csNonCompliantResourceCount "Use generic-lens or generic-optics with 'nonCompliantResourceCount' instead." #-}
 
-instance Lude.FromJSON ComplianceSummary where
+instance Core.FromJSON ComplianceSummary where
   parseJSON =
-    Lude.withObject
-      "ComplianceSummary"
-      ( \x ->
-          ComplianceSummary'
-            Lude.<$> (x Lude..:? "ComplianceSummaryTimestamp")
-            Lude.<*> (x Lude..:? "CompliantResourceCount")
-            Lude.<*> (x Lude..:? "NonCompliantResourceCount")
-      )
+    Core.withObject "ComplianceSummary" Core.$
+      \x ->
+        ComplianceSummary'
+          Core.<$> (x Core..:? "ComplianceSummaryTimestamp")
+          Core.<*> (x Core..:? "CompliantResourceCount")
+          Core.<*> (x Core..:? "NonCompliantResourceCount")

@@ -22,39 +22,36 @@ module Network.AWS.MediaLive.Types.DvbTdtSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | DVB Time and Date Table (SDT)
 --
 -- /See:/ 'mkDvbTdtSettings' smart constructor.
 newtype DvbTdtSettings = DvbTdtSettings'
   { -- | The number of milliseconds between instances of this table in the output transport stream.
-    repInterval :: Lude.Maybe Lude.Natural
+    repInterval :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DvbTdtSettings' with the minimum fields required to make a request.
---
--- * 'repInterval' - The number of milliseconds between instances of this table in the output transport stream.
+-- | Creates a 'DvbTdtSettings' value with any optional fields omitted.
 mkDvbTdtSettings ::
   DvbTdtSettings
-mkDvbTdtSettings = DvbTdtSettings' {repInterval = Lude.Nothing}
+mkDvbTdtSettings = DvbTdtSettings' {repInterval = Core.Nothing}
 
 -- | The number of milliseconds between instances of this table in the output transport stream.
 --
 -- /Note:/ Consider using 'repInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsRepInterval :: Lens.Lens' DvbTdtSettings (Lude.Maybe Lude.Natural)
-dtsRepInterval = Lens.lens (repInterval :: DvbTdtSettings -> Lude.Maybe Lude.Natural) (\s a -> s {repInterval = a} :: DvbTdtSettings)
+dtsRepInterval :: Lens.Lens' DvbTdtSettings (Core.Maybe Core.Natural)
+dtsRepInterval = Lens.field @"repInterval"
 {-# DEPRECATED dtsRepInterval "Use generic-lens or generic-optics with 'repInterval' instead." #-}
 
-instance Lude.FromJSON DvbTdtSettings where
-  parseJSON =
-    Lude.withObject
-      "DvbTdtSettings"
-      (\x -> DvbTdtSettings' Lude.<$> (x Lude..:? "repInterval"))
+instance Core.FromJSON DvbTdtSettings where
+  toJSON DvbTdtSettings {..} =
+    Core.object
+      (Core.catMaybes [("repInterval" Core..=) Core.<$> repInterval])
 
-instance Lude.ToJSON DvbTdtSettings where
-  toJSON DvbTdtSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("repInterval" Lude..=) Lude.<$> repInterval])
+instance Core.FromJSON DvbTdtSettings where
+  parseJSON =
+    Core.withObject "DvbTdtSettings" Core.$
+      \x -> DvbTdtSettings' Core.<$> (x Core..:? "repInterval")

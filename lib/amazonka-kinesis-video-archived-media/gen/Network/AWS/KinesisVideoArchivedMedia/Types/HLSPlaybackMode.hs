@@ -13,51 +13,56 @@
 module Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
   ( HLSPlaybackMode
       ( HLSPlaybackMode',
-        Live,
-        LiveReplay,
-        OnDemand
+        HLSPlaybackModeLive,
+        HLSPlaybackModeLiveReplay,
+        HLSPlaybackModeOnDemand,
+        fromHLSPlaybackMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HLSPlaybackMode = HLSPlaybackMode' Lude.Text
+newtype HLSPlaybackMode = HLSPlaybackMode'
+  { fromHLSPlaybackMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Live :: HLSPlaybackMode
-pattern Live = HLSPlaybackMode' "LIVE"
+pattern HLSPlaybackModeLive :: HLSPlaybackMode
+pattern HLSPlaybackModeLive = HLSPlaybackMode' "LIVE"
 
-pattern LiveReplay :: HLSPlaybackMode
-pattern LiveReplay = HLSPlaybackMode' "LIVE_REPLAY"
+pattern HLSPlaybackModeLiveReplay :: HLSPlaybackMode
+pattern HLSPlaybackModeLiveReplay = HLSPlaybackMode' "LIVE_REPLAY"
 
-pattern OnDemand :: HLSPlaybackMode
-pattern OnDemand = HLSPlaybackMode' "ON_DEMAND"
+pattern HLSPlaybackModeOnDemand :: HLSPlaybackMode
+pattern HLSPlaybackModeOnDemand = HLSPlaybackMode' "ON_DEMAND"
 
 {-# COMPLETE
-  Live,
-  LiveReplay,
-  OnDemand,
+  HLSPlaybackModeLive,
+  HLSPlaybackModeLiveReplay,
+  HLSPlaybackModeOnDemand,
   HLSPlaybackMode'
   #-}

@@ -21,45 +21,39 @@ module Network.AWS.Greengrass.Types.LoggerDefinitionVersion
   )
 where
 
-import Network.AWS.Greengrass.Types.GreengrassLogger
+import qualified Network.AWS.Greengrass.Types.GreengrassLogger as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a logger definition version.
 --
 -- /See:/ 'mkLoggerDefinitionVersion' smart constructor.
 newtype LoggerDefinitionVersion = LoggerDefinitionVersion'
   { -- | A list of loggers.
-    loggers :: Lude.Maybe [GreengrassLogger]
+    loggers :: Core.Maybe [Types.GreengrassLogger]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoggerDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'loggers' - A list of loggers.
+-- | Creates a 'LoggerDefinitionVersion' value with any optional fields omitted.
 mkLoggerDefinitionVersion ::
   LoggerDefinitionVersion
 mkLoggerDefinitionVersion =
-  LoggerDefinitionVersion' {loggers = Lude.Nothing}
+  LoggerDefinitionVersion' {loggers = Core.Nothing}
 
 -- | A list of loggers.
 --
 -- /Note:/ Consider using 'loggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldvLoggers :: Lens.Lens' LoggerDefinitionVersion (Lude.Maybe [GreengrassLogger])
-ldvLoggers = Lens.lens (loggers :: LoggerDefinitionVersion -> Lude.Maybe [GreengrassLogger]) (\s a -> s {loggers = a} :: LoggerDefinitionVersion)
+ldvLoggers :: Lens.Lens' LoggerDefinitionVersion (Core.Maybe [Types.GreengrassLogger])
+ldvLoggers = Lens.field @"loggers"
 {-# DEPRECATED ldvLoggers "Use generic-lens or generic-optics with 'loggers' instead." #-}
 
-instance Lude.FromJSON LoggerDefinitionVersion where
-  parseJSON =
-    Lude.withObject
-      "LoggerDefinitionVersion"
-      ( \x ->
-          LoggerDefinitionVersion'
-            Lude.<$> (x Lude..:? "Loggers" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON LoggerDefinitionVersion where
+  toJSON LoggerDefinitionVersion {..} =
+    Core.object
+      (Core.catMaybes [("Loggers" Core..=) Core.<$> loggers])
 
-instance Lude.ToJSON LoggerDefinitionVersion where
-  toJSON LoggerDefinitionVersion' {..} =
-    Lude.object
-      (Lude.catMaybes [("Loggers" Lude..=) Lude.<$> loggers])
+instance Core.FromJSON LoggerDefinitionVersion where
+  parseJSON =
+    Core.withObject "LoggerDefinitionVersion" Core.$
+      \x -> LoggerDefinitionVersion' Core.<$> (x Core..:? "Loggers")

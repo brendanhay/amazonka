@@ -13,51 +13,56 @@
 module Network.AWS.IoT.Types.DynamicGroupStatus
   ( DynamicGroupStatus
       ( DynamicGroupStatus',
-        DGSActive,
-        DGSBuilding,
-        DGSRebuilding
+        DynamicGroupStatusActive,
+        DynamicGroupStatusBuilding,
+        DynamicGroupStatusRebuilding,
+        fromDynamicGroupStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DynamicGroupStatus = DynamicGroupStatus' Lude.Text
+newtype DynamicGroupStatus = DynamicGroupStatus'
+  { fromDynamicGroupStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DGSActive :: DynamicGroupStatus
-pattern DGSActive = DynamicGroupStatus' "ACTIVE"
+pattern DynamicGroupStatusActive :: DynamicGroupStatus
+pattern DynamicGroupStatusActive = DynamicGroupStatus' "ACTIVE"
 
-pattern DGSBuilding :: DynamicGroupStatus
-pattern DGSBuilding = DynamicGroupStatus' "BUILDING"
+pattern DynamicGroupStatusBuilding :: DynamicGroupStatus
+pattern DynamicGroupStatusBuilding = DynamicGroupStatus' "BUILDING"
 
-pattern DGSRebuilding :: DynamicGroupStatus
-pattern DGSRebuilding = DynamicGroupStatus' "REBUILDING"
+pattern DynamicGroupStatusRebuilding :: DynamicGroupStatus
+pattern DynamicGroupStatusRebuilding = DynamicGroupStatus' "REBUILDING"
 
 {-# COMPLETE
-  DGSActive,
-  DGSBuilding,
-  DGSRebuilding,
+  DynamicGroupStatusActive,
+  DynamicGroupStatusBuilding,
+  DynamicGroupStatusRebuilding,
   DynamicGroupStatus'
   #-}

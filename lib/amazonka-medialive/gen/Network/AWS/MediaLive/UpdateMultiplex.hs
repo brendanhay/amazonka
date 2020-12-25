@@ -21,147 +21,135 @@ module Network.AWS.MediaLive.UpdateMultiplex
 
     -- ** Request lenses
     umMultiplexId,
-    umName,
     umMultiplexSettings,
+    umName,
 
     -- * Destructuring the response
     UpdateMultiplexResponse (..),
     mkUpdateMultiplexResponse,
 
     -- ** Response lenses
-    umrsMultiplex,
-    umrsResponseStatus,
+    umrrsMultiplex,
+    umrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request to update a multiplex.
 --
 -- /See:/ 'mkUpdateMultiplex' smart constructor.
 data UpdateMultiplex = UpdateMultiplex'
   { -- | ID of the multiplex to update.
-    multiplexId :: Lude.Text,
-    -- | Name of the multiplex.
-    name :: Lude.Maybe Lude.Text,
+    multiplexId :: Core.Text,
     -- | The new settings for a multiplex.
-    multiplexSettings :: Lude.Maybe MultiplexSettings
+    multiplexSettings :: Core.Maybe Types.MultiplexSettings,
+    -- | Name of the multiplex.
+    name :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMultiplex' with the minimum fields required to make a request.
---
--- * 'multiplexId' - ID of the multiplex to update.
--- * 'name' - Name of the multiplex.
--- * 'multiplexSettings' - The new settings for a multiplex.
+-- | Creates a 'UpdateMultiplex' value with any optional fields omitted.
 mkUpdateMultiplex ::
   -- | 'multiplexId'
-  Lude.Text ->
+  Core.Text ->
   UpdateMultiplex
-mkUpdateMultiplex pMultiplexId_ =
+mkUpdateMultiplex multiplexId =
   UpdateMultiplex'
-    { multiplexId = pMultiplexId_,
-      name = Lude.Nothing,
-      multiplexSettings = Lude.Nothing
+    { multiplexId,
+      multiplexSettings = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | ID of the multiplex to update.
 --
 -- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umMultiplexId :: Lens.Lens' UpdateMultiplex Lude.Text
-umMultiplexId = Lens.lens (multiplexId :: UpdateMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: UpdateMultiplex)
+umMultiplexId :: Lens.Lens' UpdateMultiplex Core.Text
+umMultiplexId = Lens.field @"multiplexId"
 {-# DEPRECATED umMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
-
--- | Name of the multiplex.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umName :: Lens.Lens' UpdateMultiplex (Lude.Maybe Lude.Text)
-umName = Lens.lens (name :: UpdateMultiplex -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateMultiplex)
-{-# DEPRECATED umName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new settings for a multiplex.
 --
 -- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umMultiplexSettings :: Lens.Lens' UpdateMultiplex (Lude.Maybe MultiplexSettings)
-umMultiplexSettings = Lens.lens (multiplexSettings :: UpdateMultiplex -> Lude.Maybe MultiplexSettings) (\s a -> s {multiplexSettings = a} :: UpdateMultiplex)
+umMultiplexSettings :: Lens.Lens' UpdateMultiplex (Core.Maybe Types.MultiplexSettings)
+umMultiplexSettings = Lens.field @"multiplexSettings"
 {-# DEPRECATED umMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
 
-instance Lude.AWSRequest UpdateMultiplex where
+-- | Name of the multiplex.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umName :: Lens.Lens' UpdateMultiplex (Core.Maybe Core.Text)
+umName = Lens.field @"name"
+{-# DEPRECATED umName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON UpdateMultiplex where
+  toJSON UpdateMultiplex {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("multiplexSettings" Core..=) Core.<$> multiplexSettings,
+            ("name" Core..=) Core.<$> name
+          ]
+      )
+
+instance Core.AWSRequest UpdateMultiplex where
   type Rs UpdateMultiplex = UpdateMultiplexResponse
-  request = Req.putJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/prod/multiplexes/" Core.<> (Core.toText multiplexId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateMultiplexResponse'
-            Lude.<$> (x Lude..?> "multiplex") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "multiplex") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateMultiplex where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMultiplex where
-  toJSON UpdateMultiplex' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("name" Lude..=) Lude.<$> name,
-            ("multiplexSettings" Lude..=) Lude.<$> multiplexSettings
-          ]
-      )
-
-instance Lude.ToPath UpdateMultiplex where
-  toPath UpdateMultiplex' {..} =
-    Lude.mconcat ["/prod/multiplexes/", Lude.toBS multiplexId]
-
-instance Lude.ToQuery UpdateMultiplex where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for UpdateMultiplexResponse
 --
 -- /See:/ 'mkUpdateMultiplexResponse' smart constructor.
 data UpdateMultiplexResponse = UpdateMultiplexResponse'
   { -- | The updated multiplex.
-    multiplex :: Lude.Maybe Multiplex,
+    multiplex :: Core.Maybe Types.Multiplex,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMultiplexResponse' with the minimum fields required to make a request.
---
--- * 'multiplex' - The updated multiplex.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateMultiplexResponse' value with any optional fields omitted.
 mkUpdateMultiplexResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateMultiplexResponse
-mkUpdateMultiplexResponse pResponseStatus_ =
+mkUpdateMultiplexResponse responseStatus =
   UpdateMultiplexResponse'
-    { multiplex = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { multiplex = Core.Nothing,
+      responseStatus
     }
 
 -- | The updated multiplex.
 --
 -- /Note:/ Consider using 'multiplex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umrsMultiplex :: Lens.Lens' UpdateMultiplexResponse (Lude.Maybe Multiplex)
-umrsMultiplex = Lens.lens (multiplex :: UpdateMultiplexResponse -> Lude.Maybe Multiplex) (\s a -> s {multiplex = a} :: UpdateMultiplexResponse)
-{-# DEPRECATED umrsMultiplex "Use generic-lens or generic-optics with 'multiplex' instead." #-}
+umrrsMultiplex :: Lens.Lens' UpdateMultiplexResponse (Core.Maybe Types.Multiplex)
+umrrsMultiplex = Lens.field @"multiplex"
+{-# DEPRECATED umrrsMultiplex "Use generic-lens or generic-optics with 'multiplex' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umrsResponseStatus :: Lens.Lens' UpdateMultiplexResponse Lude.Int
-umrsResponseStatus = Lens.lens (responseStatus :: UpdateMultiplexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMultiplexResponse)
-{-# DEPRECATED umrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umrrsResponseStatus :: Lens.Lens' UpdateMultiplexResponse Core.Int
+umrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

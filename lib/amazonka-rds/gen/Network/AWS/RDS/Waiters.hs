@@ -35,465 +35,478 @@ module Network.AWS.RDS.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import Network.AWS.RDS.DescribeDBClusterSnapshots
 import Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.RDS.DescribeDBSnapshots
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDBInstanceAvailable :: Wait.Wait DescribeDBInstances
+mkDBInstanceAvailable :: Waiter.Wait DescribeDBInstances
 mkDBInstanceAvailable =
-  Wait.Wait
-    { Wait._waitName = "DBInstanceAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DBInstanceAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "available"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "deleted"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "deleting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "incompatible-restore"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "incompatible-parameters"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkDBSnapshotCompleted :: Wait.Wait DescribeDBSnapshots
+mkDBSnapshotCompleted :: Waiter.Wait DescribeDBSnapshots
 mkDBSnapshotCompleted =
-  Wait.Wait
-    { Wait._waitName = "DBSnapshotCompleted",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchError "DBSnapshotNotFound" Wait.AcceptSuccess,
-          Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DBSnapshotCompleted",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchError "DBSnapshotNotFound" Waiter.AcceptSuccess,
+          Waiter.matchAll
             "available"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDBSnapshotDeleted :: Wait.Wait DescribeDBSnapshots
+mkDBSnapshotDeleted :: Waiter.Wait DescribeDBSnapshots
 mkDBSnapshotDeleted =
-  Wait.Wait
-    { Wait._waitName = "DBSnapshotDeleted",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchEmpty
-            Lude.True
-            Wait.AcceptSuccess
-            (ddbsrsDBSnapshots Lude.. Lens._Just),
-          Wait.matchError "DBSnapshotNotFound" Wait.AcceptSuccess,
-          Wait.matchAny
+  Waiter.Wait
+    { Waiter._waitName = "DBSnapshotDeleted",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchEmpty
+            Core.True
+            Waiter.AcceptSuccess
+            (Lens.field @"dBSnapshots" Core.. Lens._Just Core.. Core._isEmpty),
+          Waiter.matchError "DBSnapshotNotFound" Waiter.AcceptSuccess,
+          Waiter.matchAny
             "creating"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "modifying"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "rebooting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "resetting-master-credentials"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDBInstanceDeleted :: Wait.Wait DescribeDBInstances
+mkDBInstanceDeleted :: Waiter.Wait DescribeDBInstances
 mkDBInstanceDeleted =
-  Wait.Wait
-    { Wait._waitName = "DBInstanceDeleted",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchEmpty
-            Lude.True
-            Wait.AcceptSuccess
-            (ddbirsDBInstances Lude.. Lens._Just),
-          Wait.matchError "DBInstanceNotFound" Wait.AcceptSuccess,
-          Wait.matchAny
+  Waiter.Wait
+    { Waiter._waitName = "DBInstanceDeleted",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchEmpty
+            Core.True
+            Waiter.AcceptSuccess
+            (Lens.field @"dBInstances" Core.. Lens._Just Core.. Core._isEmpty),
+          Waiter.matchError "DBInstanceNotFound" Waiter.AcceptSuccess,
+          Waiter.matchAny
             "creating"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "modifying"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "rebooting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "resetting-master-credentials"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbirsDBInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBInstances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. diDBInstanceStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"dBInstanceStatus"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDBClusterSnapshotDeleted :: Wait.Wait DescribeDBClusterSnapshots
+mkDBClusterSnapshotDeleted :: Waiter.Wait DescribeDBClusterSnapshots
 mkDBClusterSnapshotDeleted =
-  Wait.Wait
-    { Wait._waitName = "DBClusterSnapshotDeleted",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchEmpty
-            Lude.True
-            Wait.AcceptSuccess
-            (ddbcsrsDBClusterSnapshots Lude.. Lens._Just),
-          Wait.matchError
+  Waiter.Wait
+    { Waiter._waitName = "DBClusterSnapshotDeleted",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchEmpty
+            Core.True
+            Waiter.AcceptSuccess
+            ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                Core.. Core._isEmpty
+            ),
+          Waiter.matchError
             "DBClusterSnapshotNotFoundFault"
-            Wait.AcceptSuccess,
-          Wait.matchAny
+            Waiter.AcceptSuccess,
+          Waiter.matchAny
             "creating"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "modifying"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "rebooting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "resetting-master-credentials"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDBSnapshotAvailable :: Wait.Wait DescribeDBSnapshots
+mkDBSnapshotAvailable :: Waiter.Wait DescribeDBSnapshots
 mkDBSnapshotAvailable =
-  Wait.Wait
-    { Wait._waitName = "DBSnapshotAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DBSnapshotAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "available"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "deleted"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "deleting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "incompatible-restore"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "incompatible-parameters"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"dBSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDBClusterSnapshotAvailable :: Wait.Wait DescribeDBClusterSnapshots
+mkDBClusterSnapshotAvailable :: Waiter.Wait DescribeDBClusterSnapshots
 mkDBClusterSnapshotAvailable =
-  Wait.Wait
-    { Wait._waitName = "DBClusterSnapshotAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DBClusterSnapshotAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "available"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "deleted"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "deleting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "incompatible-restore"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "incompatible-parameters"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( ddbcsrsDBClusterSnapshots Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"dBClusterSnapshots" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. dcsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }

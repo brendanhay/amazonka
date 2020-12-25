@@ -20,7 +20,7 @@ module Network.AWS.DMS.StopReplicationTask
     mkStopReplicationTask,
 
     -- ** Request lenses
-    sReplicationTaskARN,
+    sReplicationTaskArn,
 
     -- * Destructuring the response
     StopReplicationTaskResponse (..),
@@ -32,110 +32,99 @@ module Network.AWS.DMS.StopReplicationTask
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkStopReplicationTask' smart constructor.
 newtype StopReplicationTask = StopReplicationTask'
   { -- | The Amazon Resource Name(ARN) of the replication task to be stopped.
-    replicationTaskARN :: Lude.Text
+    replicationTaskArn :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopReplicationTask' with the minimum fields required to make a request.
---
--- * 'replicationTaskARN' - The Amazon Resource Name(ARN) of the replication task to be stopped.
+-- | Creates a 'StopReplicationTask' value with any optional fields omitted.
 mkStopReplicationTask ::
-  -- | 'replicationTaskARN'
-  Lude.Text ->
+  -- | 'replicationTaskArn'
+  Types.String ->
   StopReplicationTask
-mkStopReplicationTask pReplicationTaskARN_ =
-  StopReplicationTask' {replicationTaskARN = pReplicationTaskARN_}
+mkStopReplicationTask replicationTaskArn =
+  StopReplicationTask' {replicationTaskArn}
 
 -- | The Amazon Resource Name(ARN) of the replication task to be stopped.
 --
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sReplicationTaskARN :: Lens.Lens' StopReplicationTask Lude.Text
-sReplicationTaskARN = Lens.lens (replicationTaskARN :: StopReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: StopReplicationTask)
-{-# DEPRECATED sReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sReplicationTaskArn :: Lens.Lens' StopReplicationTask Types.String
+sReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED sReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
 
-instance Lude.AWSRequest StopReplicationTask where
+instance Core.FromJSON StopReplicationTask where
+  toJSON StopReplicationTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ReplicationTaskArn" Core..= replicationTaskArn)]
+      )
+
+instance Core.AWSRequest StopReplicationTask where
   type Rs StopReplicationTask = StopReplicationTaskResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.StopReplicationTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopReplicationTaskResponse'
-            Lude.<$> (x Lude..?> "ReplicationTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopReplicationTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.StopReplicationTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopReplicationTask where
-  toJSON StopReplicationTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)]
-      )
-
-instance Lude.ToPath StopReplicationTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopReplicationTask where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkStopReplicationTaskResponse' smart constructor.
 data StopReplicationTaskResponse = StopReplicationTaskResponse'
   { -- | The replication task stopped.
-    replicationTask :: Lude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe Types.ReplicationTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopReplicationTaskResponse' with the minimum fields required to make a request.
---
--- * 'replicationTask' - The replication task stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopReplicationTaskResponse' value with any optional fields omitted.
 mkStopReplicationTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopReplicationTaskResponse
-mkStopReplicationTaskResponse pResponseStatus_ =
+mkStopReplicationTaskResponse responseStatus =
   StopReplicationTaskResponse'
-    { replicationTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { replicationTask = Core.Nothing,
+      responseStatus
     }
 
 -- | The replication task stopped.
 --
 -- /Note:/ Consider using 'replicationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsReplicationTask :: Lens.Lens' StopReplicationTaskResponse (Lude.Maybe ReplicationTask)
-srsReplicationTask = Lens.lens (replicationTask :: StopReplicationTaskResponse -> Lude.Maybe ReplicationTask) (\s a -> s {replicationTask = a} :: StopReplicationTaskResponse)
+srsReplicationTask :: Lens.Lens' StopReplicationTaskResponse (Core.Maybe Types.ReplicationTask)
+srsReplicationTask = Lens.field @"replicationTask"
 {-# DEPRECATED srsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopReplicationTaskResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopReplicationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopReplicationTaskResponse)
+srsResponseStatus :: Lens.Lens' StopReplicationTaskResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

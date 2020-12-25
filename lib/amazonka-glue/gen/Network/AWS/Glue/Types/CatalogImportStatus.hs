@@ -17,71 +17,66 @@ module Network.AWS.Glue.Types.CatalogImportStatus
     mkCatalogImportStatus,
 
     -- * Lenses
-    cisImportedBy,
-    cisImportTime,
     cisImportCompleted,
+    cisImportTime,
+    cisImportedBy,
   )
 where
 
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure containing migration status information.
 --
 -- /See:/ 'mkCatalogImportStatus' smart constructor.
 data CatalogImportStatus = CatalogImportStatus'
-  { -- | The name of the person who initiated the migration.
-    importedBy :: Lude.Maybe Lude.Text,
+  { -- | @True@ if the migration has completed, or @False@ otherwise.
+    importCompleted :: Core.Maybe Core.Bool,
     -- | The time that the migration was started.
-    importTime :: Lude.Maybe Lude.Timestamp,
-    -- | @True@ if the migration has completed, or @False@ otherwise.
-    importCompleted :: Lude.Maybe Lude.Bool
+    importTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the person who initiated the migration.
+    importedBy :: Core.Maybe Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CatalogImportStatus' with the minimum fields required to make a request.
---
--- * 'importedBy' - The name of the person who initiated the migration.
--- * 'importTime' - The time that the migration was started.
--- * 'importCompleted' - @True@ if the migration has completed, or @False@ otherwise.
+-- | Creates a 'CatalogImportStatus' value with any optional fields omitted.
 mkCatalogImportStatus ::
   CatalogImportStatus
 mkCatalogImportStatus =
   CatalogImportStatus'
-    { importedBy = Lude.Nothing,
-      importTime = Lude.Nothing,
-      importCompleted = Lude.Nothing
+    { importCompleted = Core.Nothing,
+      importTime = Core.Nothing,
+      importedBy = Core.Nothing
     }
-
--- | The name of the person who initiated the migration.
---
--- /Note:/ Consider using 'importedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisImportedBy :: Lens.Lens' CatalogImportStatus (Lude.Maybe Lude.Text)
-cisImportedBy = Lens.lens (importedBy :: CatalogImportStatus -> Lude.Maybe Lude.Text) (\s a -> s {importedBy = a} :: CatalogImportStatus)
-{-# DEPRECATED cisImportedBy "Use generic-lens or generic-optics with 'importedBy' instead." #-}
-
--- | The time that the migration was started.
---
--- /Note:/ Consider using 'importTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisImportTime :: Lens.Lens' CatalogImportStatus (Lude.Maybe Lude.Timestamp)
-cisImportTime = Lens.lens (importTime :: CatalogImportStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {importTime = a} :: CatalogImportStatus)
-{-# DEPRECATED cisImportTime "Use generic-lens or generic-optics with 'importTime' instead." #-}
 
 -- | @True@ if the migration has completed, or @False@ otherwise.
 --
 -- /Note:/ Consider using 'importCompleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisImportCompleted :: Lens.Lens' CatalogImportStatus (Lude.Maybe Lude.Bool)
-cisImportCompleted = Lens.lens (importCompleted :: CatalogImportStatus -> Lude.Maybe Lude.Bool) (\s a -> s {importCompleted = a} :: CatalogImportStatus)
+cisImportCompleted :: Lens.Lens' CatalogImportStatus (Core.Maybe Core.Bool)
+cisImportCompleted = Lens.field @"importCompleted"
 {-# DEPRECATED cisImportCompleted "Use generic-lens or generic-optics with 'importCompleted' instead." #-}
 
-instance Lude.FromJSON CatalogImportStatus where
+-- | The time that the migration was started.
+--
+-- /Note:/ Consider using 'importTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisImportTime :: Lens.Lens' CatalogImportStatus (Core.Maybe Core.NominalDiffTime)
+cisImportTime = Lens.field @"importTime"
+{-# DEPRECATED cisImportTime "Use generic-lens or generic-optics with 'importTime' instead." #-}
+
+-- | The name of the person who initiated the migration.
+--
+-- /Note:/ Consider using 'importedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisImportedBy :: Lens.Lens' CatalogImportStatus (Core.Maybe Types.NameString)
+cisImportedBy = Lens.field @"importedBy"
+{-# DEPRECATED cisImportedBy "Use generic-lens or generic-optics with 'importedBy' instead." #-}
+
+instance Core.FromJSON CatalogImportStatus where
   parseJSON =
-    Lude.withObject
-      "CatalogImportStatus"
-      ( \x ->
-          CatalogImportStatus'
-            Lude.<$> (x Lude..:? "ImportedBy")
-            Lude.<*> (x Lude..:? "ImportTime")
-            Lude.<*> (x Lude..:? "ImportCompleted")
-      )
+    Core.withObject "CatalogImportStatus" Core.$
+      \x ->
+        CatalogImportStatus'
+          Core.<$> (x Core..:? "ImportCompleted")
+          Core.<*> (x Core..:? "ImportTime")
+          Core.<*> (x Core..:? "ImportedBy")

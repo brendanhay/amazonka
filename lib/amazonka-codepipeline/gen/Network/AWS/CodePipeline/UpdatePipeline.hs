@@ -27,112 +27,96 @@ module Network.AWS.CodePipeline.UpdatePipeline
     mkUpdatePipelineResponse,
 
     -- ** Response lenses
-    uprsPipeline,
-    uprsResponseStatus,
+    uprrsPipeline,
+    uprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an @UpdatePipeline@ action.
 --
 -- /See:/ 'mkUpdatePipeline' smart constructor.
 newtype UpdatePipeline = UpdatePipeline'
   { -- | The name of the pipeline to be updated.
-    pipeline :: PipelineDeclaration
+    pipeline :: Types.PipelineDeclaration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
---
--- * 'pipeline' - The name of the pipeline to be updated.
+-- | Creates a 'UpdatePipeline' value with any optional fields omitted.
 mkUpdatePipeline ::
   -- | 'pipeline'
-  PipelineDeclaration ->
+  Types.PipelineDeclaration ->
   UpdatePipeline
-mkUpdatePipeline pPipeline_ =
-  UpdatePipeline' {pipeline = pPipeline_}
+mkUpdatePipeline pipeline = UpdatePipeline' {pipeline}
 
 -- | The name of the pipeline to be updated.
 --
 -- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPipeline :: Lens.Lens' UpdatePipeline PipelineDeclaration
-upPipeline = Lens.lens (pipeline :: UpdatePipeline -> PipelineDeclaration) (\s a -> s {pipeline = a} :: UpdatePipeline)
+upPipeline :: Lens.Lens' UpdatePipeline Types.PipelineDeclaration
+upPipeline = Lens.field @"pipeline"
 {-# DEPRECATED upPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
-instance Lude.AWSRequest UpdatePipeline where
+instance Core.FromJSON UpdatePipeline where
+  toJSON UpdatePipeline {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("pipeline" Core..= pipeline)])
+
+instance Core.AWSRequest UpdatePipeline where
   type Rs UpdatePipeline = UpdatePipelineResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodePipeline_20150709.UpdatePipeline")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdatePipelineResponse'
-            Lude.<$> (x Lude..?> "pipeline") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "pipeline") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdatePipeline where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.UpdatePipeline" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdatePipeline where
-  toJSON UpdatePipeline' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("pipeline" Lude..= pipeline)])
-
-instance Lude.ToPath UpdatePipeline where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdatePipeline where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @UpdatePipeline@ action.
 --
 -- /See:/ 'mkUpdatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
   { -- | The structure of the updated pipeline.
-    pipeline :: Lude.Maybe PipelineDeclaration,
+    pipeline :: Core.Maybe Types.PipelineDeclaration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
---
--- * 'pipeline' - The structure of the updated pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdatePipelineResponse' value with any optional fields omitted.
 mkUpdatePipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdatePipelineResponse
-mkUpdatePipelineResponse pResponseStatus_ =
-  UpdatePipelineResponse'
-    { pipeline = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdatePipelineResponse responseStatus =
+  UpdatePipelineResponse' {pipeline = Core.Nothing, responseStatus}
 
 -- | The structure of the updated pipeline.
 --
 -- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsPipeline :: Lens.Lens' UpdatePipelineResponse (Lude.Maybe PipelineDeclaration)
-uprsPipeline = Lens.lens (pipeline :: UpdatePipelineResponse -> Lude.Maybe PipelineDeclaration) (\s a -> s {pipeline = a} :: UpdatePipelineResponse)
-{-# DEPRECATED uprsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
+uprrsPipeline :: Lens.Lens' UpdatePipelineResponse (Core.Maybe Types.PipelineDeclaration)
+uprrsPipeline = Lens.field @"pipeline"
+{-# DEPRECATED uprrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UpdatePipelineResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UpdatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePipelineResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UpdatePipelineResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

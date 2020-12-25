@@ -17,41 +17,38 @@ module Network.AWS.Lambda.Types.TracingConfigResponse
     mkTracingConfigResponse,
 
     -- * Lenses
-    tMode,
+    tcrMode,
   )
 where
 
-import Network.AWS.Lambda.Types.TracingMode
+import qualified Network.AWS.Lambda.Types.TracingMode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The function's AWS X-Ray tracing configuration.
 --
 -- /See:/ 'mkTracingConfigResponse' smart constructor.
 newtype TracingConfigResponse = TracingConfigResponse'
   { -- | The tracing mode.
-    mode :: Lude.Maybe TracingMode
+    mode :: Core.Maybe Types.TracingMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TracingConfigResponse' with the minimum fields required to make a request.
---
--- * 'mode' - The tracing mode.
+-- | Creates a 'TracingConfigResponse' value with any optional fields omitted.
 mkTracingConfigResponse ::
   TracingConfigResponse
 mkTracingConfigResponse =
-  TracingConfigResponse' {mode = Lude.Nothing}
+  TracingConfigResponse' {mode = Core.Nothing}
 
 -- | The tracing mode.
 --
 -- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tMode :: Lens.Lens' TracingConfigResponse (Lude.Maybe TracingMode)
-tMode = Lens.lens (mode :: TracingConfigResponse -> Lude.Maybe TracingMode) (\s a -> s {mode = a} :: TracingConfigResponse)
-{-# DEPRECATED tMode "Use generic-lens or generic-optics with 'mode' instead." #-}
+tcrMode :: Lens.Lens' TracingConfigResponse (Core.Maybe Types.TracingMode)
+tcrMode = Lens.field @"mode"
+{-# DEPRECATED tcrMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
-instance Lude.FromJSON TracingConfigResponse where
+instance Core.FromJSON TracingConfigResponse where
   parseJSON =
-    Lude.withObject
-      "TracingConfigResponse"
-      (\x -> TracingConfigResponse' Lude.<$> (x Lude..:? "Mode"))
+    Core.withObject "TracingConfigResponse" Core.$
+      \x -> TracingConfigResponse' Core.<$> (x Core..:? "Mode")

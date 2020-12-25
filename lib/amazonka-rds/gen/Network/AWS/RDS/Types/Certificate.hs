@@ -17,132 +17,124 @@ module Network.AWS.RDS.Types.Certificate
     mkCertificate,
 
     -- * Lenses
+    cCertificateArn,
+    cCertificateIdentifier,
     cCertificateType,
     cCustomerOverride,
-    cCertificateARN,
     cCustomerOverrideValidTill,
-    cValidTill,
-    cCertificateIdentifier,
     cThumbprint,
     cValidFrom,
+    cValidTill,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | A CA certificate for an AWS account.
 --
 -- /See:/ 'mkCertificate' smart constructor.
 data Certificate = Certificate'
-  { -- | The type of the certificate.
-    certificateType :: Lude.Maybe Lude.Text,
-    -- | Whether there is an override for the default certificate identifier.
-    customerOverride :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Resource Name (ARN) for the certificate.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | If there is an override for the default certificate identifier, when the override expires.
-    customerOverrideValidTill :: Lude.Maybe Lude.DateTime,
-    -- | The final date that the certificate continues to be valid.
-    validTill :: Lude.Maybe Lude.DateTime,
+  { -- | The Amazon Resource Name (ARN) for the certificate.
+    certificateArn :: Core.Maybe Types.String,
     -- | The unique key that identifies a certificate.
-    certificateIdentifier :: Lude.Maybe Lude.Text,
+    certificateIdentifier :: Core.Maybe Types.String,
+    -- | The type of the certificate.
+    certificateType :: Core.Maybe Types.String,
+    -- | Whether there is an override for the default certificate identifier.
+    customerOverride :: Core.Maybe Core.Bool,
+    -- | If there is an override for the default certificate identifier, when the override expires.
+    customerOverrideValidTill :: Core.Maybe Core.UTCTime,
     -- | The thumbprint of the certificate.
-    thumbprint :: Lude.Maybe Lude.Text,
+    thumbprint :: Core.Maybe Types.String,
     -- | The starting date from which the certificate is valid.
-    validFrom :: Lude.Maybe Lude.DateTime
+    validFrom :: Core.Maybe Core.UTCTime,
+    -- | The final date that the certificate continues to be valid.
+    validTill :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Certificate' with the minimum fields required to make a request.
---
--- * 'certificateType' - The type of the certificate.
--- * 'customerOverride' - Whether there is an override for the default certificate identifier.
--- * 'certificateARN' - The Amazon Resource Name (ARN) for the certificate.
--- * 'customerOverrideValidTill' - If there is an override for the default certificate identifier, when the override expires.
--- * 'validTill' - The final date that the certificate continues to be valid.
--- * 'certificateIdentifier' - The unique key that identifies a certificate.
--- * 'thumbprint' - The thumbprint of the certificate.
--- * 'validFrom' - The starting date from which the certificate is valid.
+-- | Creates a 'Certificate' value with any optional fields omitted.
 mkCertificate ::
   Certificate
 mkCertificate =
   Certificate'
-    { certificateType = Lude.Nothing,
-      customerOverride = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      customerOverrideValidTill = Lude.Nothing,
-      validTill = Lude.Nothing,
-      certificateIdentifier = Lude.Nothing,
-      thumbprint = Lude.Nothing,
-      validFrom = Lude.Nothing
+    { certificateArn = Core.Nothing,
+      certificateIdentifier = Core.Nothing,
+      certificateType = Core.Nothing,
+      customerOverride = Core.Nothing,
+      customerOverrideValidTill = Core.Nothing,
+      thumbprint = Core.Nothing,
+      validFrom = Core.Nothing,
+      validTill = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the certificate.
+--
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateArn :: Lens.Lens' Certificate (Core.Maybe Types.String)
+cCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED cCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
+
+-- | The unique key that identifies a certificate.
+--
+-- /Note:/ Consider using 'certificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateIdentifier :: Lens.Lens' Certificate (Core.Maybe Types.String)
+cCertificateIdentifier = Lens.field @"certificateIdentifier"
+{-# DEPRECATED cCertificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead." #-}
 
 -- | The type of the certificate.
 --
 -- /Note:/ Consider using 'certificateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCertificateType :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
-cCertificateType = Lens.lens (certificateType :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateType = a} :: Certificate)
+cCertificateType :: Lens.Lens' Certificate (Core.Maybe Types.String)
+cCertificateType = Lens.field @"certificateType"
 {-# DEPRECATED cCertificateType "Use generic-lens or generic-optics with 'certificateType' instead." #-}
 
 -- | Whether there is an override for the default certificate identifier.
 --
 -- /Note:/ Consider using 'customerOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCustomerOverride :: Lens.Lens' Certificate (Lude.Maybe Lude.Bool)
-cCustomerOverride = Lens.lens (customerOverride :: Certificate -> Lude.Maybe Lude.Bool) (\s a -> s {customerOverride = a} :: Certificate)
+cCustomerOverride :: Lens.Lens' Certificate (Core.Maybe Core.Bool)
+cCustomerOverride = Lens.field @"customerOverride"
 {-# DEPRECATED cCustomerOverride "Use generic-lens or generic-optics with 'customerOverride' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the certificate.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCertificateARN :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
-cCertificateARN = Lens.lens (certificateARN :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: Certificate)
-{-# DEPRECATED cCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | If there is an override for the default certificate identifier, when the override expires.
 --
 -- /Note:/ Consider using 'customerOverrideValidTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCustomerOverrideValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.DateTime)
-cCustomerOverrideValidTill = Lens.lens (customerOverrideValidTill :: Certificate -> Lude.Maybe Lude.DateTime) (\s a -> s {customerOverrideValidTill = a} :: Certificate)
+cCustomerOverrideValidTill :: Lens.Lens' Certificate (Core.Maybe Core.UTCTime)
+cCustomerOverrideValidTill = Lens.field @"customerOverrideValidTill"
 {-# DEPRECATED cCustomerOverrideValidTill "Use generic-lens or generic-optics with 'customerOverrideValidTill' instead." #-}
-
--- | The final date that the certificate continues to be valid.
---
--- /Note:/ Consider using 'validTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.DateTime)
-cValidTill = Lens.lens (validTill :: Certificate -> Lude.Maybe Lude.DateTime) (\s a -> s {validTill = a} :: Certificate)
-{-# DEPRECATED cValidTill "Use generic-lens or generic-optics with 'validTill' instead." #-}
-
--- | The unique key that identifies a certificate.
---
--- /Note:/ Consider using 'certificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCertificateIdentifier :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
-cCertificateIdentifier = Lens.lens (certificateIdentifier :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateIdentifier = a} :: Certificate)
-{-# DEPRECATED cCertificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead." #-}
 
 -- | The thumbprint of the certificate.
 --
 -- /Note:/ Consider using 'thumbprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cThumbprint :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
-cThumbprint = Lens.lens (thumbprint :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {thumbprint = a} :: Certificate)
+cThumbprint :: Lens.Lens' Certificate (Core.Maybe Types.String)
+cThumbprint = Lens.field @"thumbprint"
 {-# DEPRECATED cThumbprint "Use generic-lens or generic-optics with 'thumbprint' instead." #-}
 
 -- | The starting date from which the certificate is valid.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cValidFrom :: Lens.Lens' Certificate (Lude.Maybe Lude.DateTime)
-cValidFrom = Lens.lens (validFrom :: Certificate -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: Certificate)
+cValidFrom :: Lens.Lens' Certificate (Core.Maybe Core.UTCTime)
+cValidFrom = Lens.field @"validFrom"
 {-# DEPRECATED cValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
-instance Lude.FromXML Certificate where
+-- | The final date that the certificate continues to be valid.
+--
+-- /Note:/ Consider using 'validTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cValidTill :: Lens.Lens' Certificate (Core.Maybe Core.UTCTime)
+cValidTill = Lens.field @"validTill"
+{-# DEPRECATED cValidTill "Use generic-lens or generic-optics with 'validTill' instead." #-}
+
+instance Core.FromXML Certificate where
   parseXML x =
     Certificate'
-      Lude.<$> (x Lude..@? "CertificateType")
-      Lude.<*> (x Lude..@? "CustomerOverride")
-      Lude.<*> (x Lude..@? "CertificateArn")
-      Lude.<*> (x Lude..@? "CustomerOverrideValidTill")
-      Lude.<*> (x Lude..@? "ValidTill")
-      Lude.<*> (x Lude..@? "CertificateIdentifier")
-      Lude.<*> (x Lude..@? "Thumbprint")
-      Lude.<*> (x Lude..@? "ValidFrom")
+      Core.<$> (x Core..@? "CertificateArn")
+      Core.<*> (x Core..@? "CertificateIdentifier")
+      Core.<*> (x Core..@? "CertificateType")
+      Core.<*> (x Core..@? "CustomerOverride")
+      Core.<*> (x Core..@? "CustomerOverrideValidTill")
+      Core.<*> (x Core..@? "Thumbprint")
+      Core.<*> (x Core..@? "ValidFrom")
+      Core.<*> (x Core..@? "ValidTill")

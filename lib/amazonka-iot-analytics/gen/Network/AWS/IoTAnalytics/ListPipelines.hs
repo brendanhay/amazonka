@@ -22,146 +22,139 @@ module Network.AWS.IoTAnalytics.ListPipelines
     mkListPipelines,
 
     -- ** Request lenses
-    lpNextToken,
     lpMaxResults,
+    lpNextToken,
 
     -- * Destructuring the response
     ListPipelinesResponse (..),
     mkListPipelinesResponse,
 
     -- ** Response lenses
-    lprsPipelineSummaries,
-    lprsNextToken,
-    lprsResponseStatus,
+    lprrsNextToken,
+    lprrsPipelineSummaries,
+    lprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListPipelines' smart constructor.
 data ListPipelines = ListPipelines'
-  { -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return in this request.
+  { -- | The maximum number of results to return in this request.
     --
     -- The default value is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results.
--- * 'maxResults' - The maximum number of results to return in this request.
---
--- The default value is 100.
+-- | Creates a 'ListPipelines' value with any optional fields omitted.
 mkListPipelines ::
   ListPipelines
 mkListPipelines =
   ListPipelines'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpNextToken :: Lens.Lens' ListPipelines (Lude.Maybe Lude.Text)
-lpNextToken = Lens.lens (nextToken :: ListPipelines -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPipelines)
-{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in this request.
 --
 -- The default value is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpMaxResults :: Lens.Lens' ListPipelines (Lude.Maybe Lude.Natural)
-lpMaxResults = Lens.lens (maxResults :: ListPipelines -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPipelines)
+lpMaxResults :: Lens.Lens' ListPipelines (Core.Maybe Core.Natural)
+lpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListPipelines where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsPipelineSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListPipelines (Core.Maybe Types.NextToken)
+lpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListPipelines where
+instance Core.AWSRequest ListPipelines where
   type Rs ListPipelines = ListPipelinesResponse
-  request = Req.get ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/pipelines",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Lude.<$> (x Lude..?> "pipelineSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "pipelineSummaries")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListPipelines where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPipelines where
-  toPath = Lude.const "/pipelines"
-
-instance Lude.ToQuery ListPipelines where
-  toQuery ListPipelines' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListPipelines where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"pipelineSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { -- | A list of @PipelineSummary@ objects.
-    pipelineSummaries :: Lude.Maybe [PipelineSummary],
-    -- | The token to retrieve the next set of results, or @null@ if there are no more results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to retrieve the next set of results, or @null@ if there are no more results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of @PipelineSummary@ objects.
+    pipelineSummaries :: Core.Maybe [Types.PipelineSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
---
--- * 'pipelineSummaries' - A list of @PipelineSummary@ objects.
--- * 'nextToken' - The token to retrieve the next set of results, or @null@ if there are no more results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPipelinesResponse' value with any optional fields omitted.
 mkListPipelinesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPipelinesResponse
-mkListPipelinesResponse pResponseStatus_ =
+mkListPipelinesResponse responseStatus =
   ListPipelinesResponse'
-    { pipelineSummaries = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      pipelineSummaries = Core.Nothing,
+      responseStatus
     }
-
--- | A list of @PipelineSummary@ objects.
---
--- /Note:/ Consider using 'pipelineSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsPipelineSummaries :: Lens.Lens' ListPipelinesResponse (Lude.Maybe [PipelineSummary])
-lprsPipelineSummaries = Lens.lens (pipelineSummaries :: ListPipelinesResponse -> Lude.Maybe [PipelineSummary]) (\s a -> s {pipelineSummaries = a} :: ListPipelinesResponse)
-{-# DEPRECATED lprsPipelineSummaries "Use generic-lens or generic-optics with 'pipelineSummaries' instead." #-}
 
 -- | The token to retrieve the next set of results, or @null@ if there are no more results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsNextToken :: Lens.Lens' ListPipelinesResponse (Lude.Maybe Lude.Text)
-lprsNextToken = Lens.lens (nextToken :: ListPipelinesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPipelinesResponse)
-{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lprrsNextToken :: Lens.Lens' ListPipelinesResponse (Core.Maybe Types.NextToken)
+lprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of @PipelineSummary@ objects.
+--
+-- /Note:/ Consider using 'pipelineSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsPipelineSummaries :: Lens.Lens' ListPipelinesResponse (Core.Maybe [Types.PipelineSummary])
+lprrsPipelineSummaries = Lens.field @"pipelineSummaries"
+{-# DEPRECATED lprrsPipelineSummaries "Use generic-lens or generic-optics with 'pipelineSummaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' ListPipelinesResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: ListPipelinesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPipelinesResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' ListPipelinesResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

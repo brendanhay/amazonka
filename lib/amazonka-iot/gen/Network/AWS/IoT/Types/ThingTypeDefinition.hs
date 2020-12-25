@@ -17,86 +17,81 @@ module Network.AWS.IoT.Types.ThingTypeDefinition
     mkThingTypeDefinition,
 
     -- * Lenses
-    ttdThingTypeProperties,
-    ttdThingTypeName,
+    ttdThingTypeArn,
     ttdThingTypeMetadata,
-    ttdThingTypeARN,
+    ttdThingTypeName,
+    ttdThingTypeProperties,
   )
 where
 
-import Network.AWS.IoT.Types.ThingTypeMetadata
-import Network.AWS.IoT.Types.ThingTypeProperties
+import qualified Network.AWS.IoT.Types.ThingTypeArn as Types
+import qualified Network.AWS.IoT.Types.ThingTypeMetadata as Types
+import qualified Network.AWS.IoT.Types.ThingTypeName as Types
+import qualified Network.AWS.IoT.Types.ThingTypeProperties as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The definition of the thing type, including thing type name and description.
 --
 -- /See:/ 'mkThingTypeDefinition' smart constructor.
 data ThingTypeDefinition = ThingTypeDefinition'
-  { -- | The ThingTypeProperties for the thing type.
-    thingTypeProperties :: Lude.Maybe ThingTypeProperties,
-    -- | The name of the thing type.
-    thingTypeName :: Lude.Maybe Lude.Text,
+  { -- | The thing type ARN.
+    thingTypeArn :: Core.Maybe Types.ThingTypeArn,
     -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
-    thingTypeMetadata :: Lude.Maybe ThingTypeMetadata,
-    -- | The thing type ARN.
-    thingTypeARN :: Lude.Maybe Lude.Text
+    thingTypeMetadata :: Core.Maybe Types.ThingTypeMetadata,
+    -- | The name of the thing type.
+    thingTypeName :: Core.Maybe Types.ThingTypeName,
+    -- | The ThingTypeProperties for the thing type.
+    thingTypeProperties :: Core.Maybe Types.ThingTypeProperties
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ThingTypeDefinition' with the minimum fields required to make a request.
---
--- * 'thingTypeProperties' - The ThingTypeProperties for the thing type.
--- * 'thingTypeName' - The name of the thing type.
--- * 'thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
--- * 'thingTypeARN' - The thing type ARN.
+-- | Creates a 'ThingTypeDefinition' value with any optional fields omitted.
 mkThingTypeDefinition ::
   ThingTypeDefinition
 mkThingTypeDefinition =
   ThingTypeDefinition'
-    { thingTypeProperties = Lude.Nothing,
-      thingTypeName = Lude.Nothing,
-      thingTypeMetadata = Lude.Nothing,
-      thingTypeARN = Lude.Nothing
+    { thingTypeArn = Core.Nothing,
+      thingTypeMetadata = Core.Nothing,
+      thingTypeName = Core.Nothing,
+      thingTypeProperties = Core.Nothing
     }
 
--- | The ThingTypeProperties for the thing type.
+-- | The thing type ARN.
 --
--- /Note:/ Consider using 'thingTypeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttdThingTypeProperties :: Lens.Lens' ThingTypeDefinition (Lude.Maybe ThingTypeProperties)
-ttdThingTypeProperties = Lens.lens (thingTypeProperties :: ThingTypeDefinition -> Lude.Maybe ThingTypeProperties) (\s a -> s {thingTypeProperties = a} :: ThingTypeDefinition)
-{-# DEPRECATED ttdThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
-
--- | The name of the thing type.
---
--- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttdThingTypeName :: Lens.Lens' ThingTypeDefinition (Lude.Maybe Lude.Text)
-ttdThingTypeName = Lens.lens (thingTypeName :: ThingTypeDefinition -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: ThingTypeDefinition)
-{-# DEPRECATED ttdThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+-- /Note:/ Consider using 'thingTypeArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttdThingTypeArn :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeArn)
+ttdThingTypeArn = Lens.field @"thingTypeArn"
+{-# DEPRECATED ttdThingTypeArn "Use generic-lens or generic-optics with 'thingTypeArn' instead." #-}
 
 -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 --
 -- /Note:/ Consider using 'thingTypeMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttdThingTypeMetadata :: Lens.Lens' ThingTypeDefinition (Lude.Maybe ThingTypeMetadata)
-ttdThingTypeMetadata = Lens.lens (thingTypeMetadata :: ThingTypeDefinition -> Lude.Maybe ThingTypeMetadata) (\s a -> s {thingTypeMetadata = a} :: ThingTypeDefinition)
+ttdThingTypeMetadata :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeMetadata)
+ttdThingTypeMetadata = Lens.field @"thingTypeMetadata"
 {-# DEPRECATED ttdThingTypeMetadata "Use generic-lens or generic-optics with 'thingTypeMetadata' instead." #-}
 
--- | The thing type ARN.
+-- | The name of the thing type.
 --
--- /Note:/ Consider using 'thingTypeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttdThingTypeARN :: Lens.Lens' ThingTypeDefinition (Lude.Maybe Lude.Text)
-ttdThingTypeARN = Lens.lens (thingTypeARN :: ThingTypeDefinition -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeARN = a} :: ThingTypeDefinition)
-{-# DEPRECATED ttdThingTypeARN "Use generic-lens or generic-optics with 'thingTypeARN' instead." #-}
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttdThingTypeName :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeName)
+ttdThingTypeName = Lens.field @"thingTypeName"
+{-# DEPRECATED ttdThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
-instance Lude.FromJSON ThingTypeDefinition where
+-- | The ThingTypeProperties for the thing type.
+--
+-- /Note:/ Consider using 'thingTypeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttdThingTypeProperties :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeProperties)
+ttdThingTypeProperties = Lens.field @"thingTypeProperties"
+{-# DEPRECATED ttdThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
+
+instance Core.FromJSON ThingTypeDefinition where
   parseJSON =
-    Lude.withObject
-      "ThingTypeDefinition"
-      ( \x ->
-          ThingTypeDefinition'
-            Lude.<$> (x Lude..:? "thingTypeProperties")
-            Lude.<*> (x Lude..:? "thingTypeName")
-            Lude.<*> (x Lude..:? "thingTypeMetadata")
-            Lude.<*> (x Lude..:? "thingTypeArn")
-      )
+    Core.withObject "ThingTypeDefinition" Core.$
+      \x ->
+        ThingTypeDefinition'
+          Core.<$> (x Core..:? "thingTypeArn")
+          Core.<*> (x Core..:? "thingTypeMetadata")
+          Core.<*> (x Core..:? "thingTypeName")
+          Core.<*> (x Core..:? "thingTypeProperties")

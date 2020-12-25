@@ -17,70 +17,64 @@ module Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
     mkElasticsearchDataSourceConfig,
 
     -- * Lenses
-    edscAwsRegion,
     edscEndpoint,
+    edscAwsRegion,
   )
 where
 
+import qualified Network.AWS.AppSync.Types.AwsRegion as Types
+import qualified Network.AWS.AppSync.Types.Endpoint as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Elasticsearch data source configuration.
 --
 -- /See:/ 'mkElasticsearchDataSourceConfig' smart constructor.
 data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
-  { -- | The AWS Region.
-    awsRegion :: Lude.Text,
-    -- | The endpoint.
-    endpoint :: Lude.Text
+  { -- | The endpoint.
+    endpoint :: Types.Endpoint,
+    -- | The AWS Region.
+    awsRegion :: Types.AwsRegion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticsearchDataSourceConfig' with the minimum fields required to make a request.
---
--- * 'awsRegion' - The AWS Region.
--- * 'endpoint' - The endpoint.
+-- | Creates a 'ElasticsearchDataSourceConfig' value with any optional fields omitted.
 mkElasticsearchDataSourceConfig ::
-  -- | 'awsRegion'
-  Lude.Text ->
   -- | 'endpoint'
-  Lude.Text ->
+  Types.Endpoint ->
+  -- | 'awsRegion'
+  Types.AwsRegion ->
   ElasticsearchDataSourceConfig
-mkElasticsearchDataSourceConfig pAwsRegion_ pEndpoint_ =
-  ElasticsearchDataSourceConfig'
-    { awsRegion = pAwsRegion_,
-      endpoint = pEndpoint_
-    }
-
--- | The AWS Region.
---
--- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edscAwsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
-edscAwsRegion = Lens.lens (awsRegion :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: ElasticsearchDataSourceConfig)
-{-# DEPRECATED edscAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+mkElasticsearchDataSourceConfig endpoint awsRegion =
+  ElasticsearchDataSourceConfig' {endpoint, awsRegion}
 
 -- | The endpoint.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edscEndpoint :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
-edscEndpoint = Lens.lens (endpoint :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
+edscEndpoint :: Lens.Lens' ElasticsearchDataSourceConfig Types.Endpoint
+edscEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED edscEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.FromJSON ElasticsearchDataSourceConfig where
-  parseJSON =
-    Lude.withObject
-      "ElasticsearchDataSourceConfig"
-      ( \x ->
-          ElasticsearchDataSourceConfig'
-            Lude.<$> (x Lude..: "awsRegion") Lude.<*> (x Lude..: "endpoint")
-      )
+-- | The AWS Region.
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edscAwsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Types.AwsRegion
+edscAwsRegion = Lens.field @"awsRegion"
+{-# DEPRECATED edscAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
-instance Lude.ToJSON ElasticsearchDataSourceConfig where
-  toJSON ElasticsearchDataSourceConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("awsRegion" Lude..= awsRegion),
-            Lude.Just ("endpoint" Lude..= endpoint)
+instance Core.FromJSON ElasticsearchDataSourceConfig where
+  toJSON ElasticsearchDataSourceConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("endpoint" Core..= endpoint),
+            Core.Just ("awsRegion" Core..= awsRegion)
           ]
       )
+
+instance Core.FromJSON ElasticsearchDataSourceConfig where
+  parseJSON =
+    Core.withObject "ElasticsearchDataSourceConfig" Core.$
+      \x ->
+        ElasticsearchDataSourceConfig'
+          Core.<$> (x Core..: "endpoint") Core.<*> (x Core..: "awsRegion")

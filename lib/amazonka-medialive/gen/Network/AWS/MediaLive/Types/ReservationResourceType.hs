@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.ReservationResourceType
   ( ReservationResourceType
       ( ReservationResourceType',
-        RRTInput,
-        RRTOutput,
-        RRTMultiplex,
-        RRTChannel
+        ReservationResourceTypeInput,
+        ReservationResourceTypeOutput,
+        ReservationResourceTypeMultiplex,
+        ReservationResourceTypeChannel,
+        fromReservationResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
-newtype ReservationResourceType = ReservationResourceType' Lude.Text
+newtype ReservationResourceType = ReservationResourceType'
+  { fromReservationResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RRTInput :: ReservationResourceType
-pattern RRTInput = ReservationResourceType' "INPUT"
+pattern ReservationResourceTypeInput :: ReservationResourceType
+pattern ReservationResourceTypeInput = ReservationResourceType' "INPUT"
 
-pattern RRTOutput :: ReservationResourceType
-pattern RRTOutput = ReservationResourceType' "OUTPUT"
+pattern ReservationResourceTypeOutput :: ReservationResourceType
+pattern ReservationResourceTypeOutput = ReservationResourceType' "OUTPUT"
 
-pattern RRTMultiplex :: ReservationResourceType
-pattern RRTMultiplex = ReservationResourceType' "MULTIPLEX"
+pattern ReservationResourceTypeMultiplex :: ReservationResourceType
+pattern ReservationResourceTypeMultiplex = ReservationResourceType' "MULTIPLEX"
 
-pattern RRTChannel :: ReservationResourceType
-pattern RRTChannel = ReservationResourceType' "CHANNEL"
+pattern ReservationResourceTypeChannel :: ReservationResourceType
+pattern ReservationResourceTypeChannel = ReservationResourceType' "CHANNEL"
 
 {-# COMPLETE
-  RRTInput,
-  RRTOutput,
-  RRTMultiplex,
-  RRTChannel,
+  ReservationResourceTypeInput,
+  ReservationResourceTypeOutput,
+  ReservationResourceTypeMultiplex,
+  ReservationResourceTypeChannel,
   ReservationResourceType'
   #-}

@@ -17,111 +17,103 @@ module Network.AWS.Batch.Types.AttemptContainerDetail
     mkAttemptContainerDetail,
 
     -- * Lenses
-    acdNetworkInterfaces,
-    acdTaskARN,
-    acdContainerInstanceARN,
-    acdReason,
-    acdLogStreamName,
+    acdContainerInstanceArn,
     acdExitCode,
+    acdLogStreamName,
+    acdNetworkInterfaces,
+    acdReason,
+    acdTaskArn,
   )
 where
 
-import Network.AWS.Batch.Types.NetworkInterface
+import qualified Network.AWS.Batch.Types.NetworkInterface as Types
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing the details of a container that is part of a job attempt.
 --
 -- /See:/ 'mkAttemptContainerDetail' smart constructor.
 data AttemptContainerDetail = AttemptContainerDetail'
-  { -- | The network interfaces associated with the job attempt.
-    networkInterfaces :: Lude.Maybe [NetworkInterface],
-    -- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
-    taskARN :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
-    containerInstanceARN :: Lude.Maybe Lude.Text,
-    -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
-    logStreamName :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
+    containerInstanceArn :: Core.Maybe Types.String,
     -- | The exit code for the job attempt. A non-zero exit code is considered a failure.
-    exitCode :: Lude.Maybe Lude.Int
+    exitCode :: Core.Maybe Core.Int,
+    -- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
+    logStreamName :: Core.Maybe Types.String,
+    -- | The network interfaces associated with the job attempt.
+    networkInterfaces :: Core.Maybe [Types.NetworkInterface],
+    -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+    reason :: Core.Maybe Types.String,
+    -- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
+    taskArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttemptContainerDetail' with the minimum fields required to make a request.
---
--- * 'networkInterfaces' - The network interfaces associated with the job attempt.
--- * 'taskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
--- * 'containerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
--- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
--- * 'logStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
--- * 'exitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
+-- | Creates a 'AttemptContainerDetail' value with any optional fields omitted.
 mkAttemptContainerDetail ::
   AttemptContainerDetail
 mkAttemptContainerDetail =
   AttemptContainerDetail'
-    { networkInterfaces = Lude.Nothing,
-      taskARN = Lude.Nothing,
-      containerInstanceARN = Lude.Nothing,
-      reason = Lude.Nothing,
-      logStreamName = Lude.Nothing,
-      exitCode = Lude.Nothing
+    { containerInstanceArn = Core.Nothing,
+      exitCode = Core.Nothing,
+      logStreamName = Core.Nothing,
+      networkInterfaces = Core.Nothing,
+      reason = Core.Nothing,
+      taskArn = Core.Nothing
     }
-
--- | The network interfaces associated with the job attempt.
---
--- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acdNetworkInterfaces :: Lens.Lens' AttemptContainerDetail (Lude.Maybe [NetworkInterface])
-acdNetworkInterfaces = Lens.lens (networkInterfaces :: AttemptContainerDetail -> Lude.Maybe [NetworkInterface]) (\s a -> s {networkInterfaces = a} :: AttemptContainerDetail)
-{-# DEPRECATED acdNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
---
--- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acdTaskARN :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
-acdTaskARN = Lens.lens (taskARN :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: AttemptContainerDetail)
-{-# DEPRECATED acdTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
 --
--- /Note:/ Consider using 'containerInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acdContainerInstanceARN :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
-acdContainerInstanceARN = Lens.lens (containerInstanceARN :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {containerInstanceARN = a} :: AttemptContainerDetail)
-{-# DEPRECATED acdContainerInstanceARN "Use generic-lens or generic-optics with 'containerInstanceARN' instead." #-}
-
--- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acdReason :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
-acdReason = Lens.lens (reason :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: AttemptContainerDetail)
-{-# DEPRECATED acdReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
---
--- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acdLogStreamName :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
-acdLogStreamName = Lens.lens (logStreamName :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {logStreamName = a} :: AttemptContainerDetail)
-{-# DEPRECATED acdLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
+-- /Note:/ Consider using 'containerInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdContainerInstanceArn :: Lens.Lens' AttemptContainerDetail (Core.Maybe Types.String)
+acdContainerInstanceArn = Lens.field @"containerInstanceArn"
+{-# DEPRECATED acdContainerInstanceArn "Use generic-lens or generic-optics with 'containerInstanceArn' instead." #-}
 
 -- | The exit code for the job attempt. A non-zero exit code is considered a failure.
 --
 -- /Note:/ Consider using 'exitCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acdExitCode :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Int)
-acdExitCode = Lens.lens (exitCode :: AttemptContainerDetail -> Lude.Maybe Lude.Int) (\s a -> s {exitCode = a} :: AttemptContainerDetail)
+acdExitCode :: Lens.Lens' AttemptContainerDetail (Core.Maybe Core.Int)
+acdExitCode = Lens.field @"exitCode"
 {-# DEPRECATED acdExitCode "Use generic-lens or generic-optics with 'exitCode' instead." #-}
 
-instance Lude.FromJSON AttemptContainerDetail where
+-- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdLogStreamName :: Lens.Lens' AttemptContainerDetail (Core.Maybe Types.String)
+acdLogStreamName = Lens.field @"logStreamName"
+{-# DEPRECATED acdLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
+
+-- | The network interfaces associated with the job attempt.
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdNetworkInterfaces :: Lens.Lens' AttemptContainerDetail (Core.Maybe [Types.NetworkInterface])
+acdNetworkInterfaces = Lens.field @"networkInterfaces"
+{-# DEPRECATED acdNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
+
+-- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdReason :: Lens.Lens' AttemptContainerDetail (Core.Maybe Types.String)
+acdReason = Lens.field @"reason"
+{-# DEPRECATED acdReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
+--
+-- /Note:/ Consider using 'taskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdTaskArn :: Lens.Lens' AttemptContainerDetail (Core.Maybe Types.String)
+acdTaskArn = Lens.field @"taskArn"
+{-# DEPRECATED acdTaskArn "Use generic-lens or generic-optics with 'taskArn' instead." #-}
+
+instance Core.FromJSON AttemptContainerDetail where
   parseJSON =
-    Lude.withObject
-      "AttemptContainerDetail"
-      ( \x ->
-          AttemptContainerDetail'
-            Lude.<$> (x Lude..:? "networkInterfaces" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "taskArn")
-            Lude.<*> (x Lude..:? "containerInstanceArn")
-            Lude.<*> (x Lude..:? "reason")
-            Lude.<*> (x Lude..:? "logStreamName")
-            Lude.<*> (x Lude..:? "exitCode")
-      )
+    Core.withObject "AttemptContainerDetail" Core.$
+      \x ->
+        AttemptContainerDetail'
+          Core.<$> (x Core..:? "containerInstanceArn")
+          Core.<*> (x Core..:? "exitCode")
+          Core.<*> (x Core..:? "logStreamName")
+          Core.<*> (x Core..:? "networkInterfaces")
+          Core.<*> (x Core..:? "reason")
+          Core.<*> (x Core..:? "taskArn")

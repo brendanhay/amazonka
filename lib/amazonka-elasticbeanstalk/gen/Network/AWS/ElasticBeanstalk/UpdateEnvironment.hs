@@ -23,198 +23,125 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     mkUpdateEnvironment,
 
     -- ** Request lenses
-    ueTemplateName,
-    ueOptionsToRemove,
-    ueOptionSettings,
-    ueVersionLabel,
-    uePlatformARN,
-    ueTier,
-    ueEnvironmentName,
     ueApplicationName,
-    ueSolutionStackName,
-    ueEnvironmentId,
-    ueGroupName,
     ueDescription,
+    ueEnvironmentId,
+    ueEnvironmentName,
+    ueGroupName,
+    ueOptionSettings,
+    ueOptionsToRemove,
+    uePlatformArn,
+    ueSolutionStackName,
+    ueTemplateName,
+    ueTier,
+    ueVersionLabel,
 
     -- * Destructuring the response
-    EnvironmentDescription (..),
-    mkEnvironmentDescription,
+    Types.EnvironmentDescription (..),
+    Types.mkEnvironmentDescription,
 
     -- ** Response lenses
-    eStatus,
-    eCNAME,
-    eTemplateName,
-    eAbortableOperationInProgress,
-    eEndpointURL,
-    eResources,
-    eDateUpdated,
-    eDateCreated,
-    eHealth,
-    eVersionLabel,
-    eOperationsRole,
-    ePlatformARN,
-    eTier,
-    eEnvironmentName,
-    eApplicationName,
-    eEnvironmentARN,
-    eSolutionStackName,
-    eEnvironmentId,
-    eHealthStatus,
-    eEnvironmentLinks,
-    eDescription,
+    Types.eAbortableOperationInProgress,
+    Types.eApplicationName,
+    Types.eCNAME,
+    Types.eDateCreated,
+    Types.eDateUpdated,
+    Types.eDescription,
+    Types.eEndpointURL,
+    Types.eEnvironmentArn,
+    Types.eEnvironmentId,
+    Types.eEnvironmentLinks,
+    Types.eEnvironmentName,
+    Types.eHealth,
+    Types.eHealthStatus,
+    Types.eOperationsRole,
+    Types.ePlatformArn,
+    Types.eResources,
+    Types.eSolutionStackName,
+    Types.eStatus,
+    Types.eTemplateName,
+    Types.eTier,
+    Types.eVersionLabel,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to update an environment.
 --
 -- /See:/ 'mkUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
-    templateName :: Lude.Maybe Lude.Text,
-    -- | A list of custom user-defined configuration options to remove from the configuration set for this environment.
-    optionsToRemove :: Lude.Maybe [OptionSpecification],
-    -- | If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
-    optionSettings :: Lude.Maybe [ConfigurationOptionSetting],
-    -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
-    versionLabel :: Lude.Maybe Lude.Text,
-    -- | The ARN of the platform, if used.
-    platformARN :: Lude.Maybe Lude.Text,
-    -- | This specifies the tier to use to update the environment.
-    --
-    -- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
-    tier :: Lude.Maybe EnvironmentTier,
-    -- | The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
-    --
-    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The name of the application with which the environment is associated.
-    applicationName :: Lude.Maybe Lude.Text,
-    -- | This specifies the platform version that the environment will run after the environment is updated.
-    solutionStackName :: Lude.Maybe Lude.Text,
+  { -- | The name of the application with which the environment is associated.
+    applicationName :: Core.Maybe Types.ApplicationName,
+    -- | If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
+    description :: Core.Maybe Types.Description,
     -- | The ID of the environment to update.
     --
     -- If no environment with this ID exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
     -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentId :: Lude.Maybe Lude.Text,
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Core.Maybe Types.EnvironmentName,
     -- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
-    groupName :: Lude.Maybe Lude.Text,
-    -- | If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
-    description :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName,
+    -- | If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
+    optionSettings :: Core.Maybe [Types.ConfigurationOptionSetting],
+    -- | A list of custom user-defined configuration options to remove from the configuration set for this environment.
+    optionsToRemove :: Core.Maybe [Types.OptionSpecification],
+    -- | The ARN of the platform, if used.
+    platformArn :: Core.Maybe Types.PlatformArn,
+    -- | This specifies the platform version that the environment will run after the environment is updated.
+    solutionStackName :: Core.Maybe Types.SolutionStackName,
+    -- | If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+    templateName :: Core.Maybe Types.ConfigurationTemplateName,
+    -- | This specifies the tier to use to update the environment.
+    --
+    -- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
+    tier :: Core.Maybe Types.EnvironmentTier,
+    -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
+    versionLabel :: Core.Maybe Types.VersionLabel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
---
--- * 'templateName' - If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
--- * 'optionsToRemove' - A list of custom user-defined configuration options to remove from the configuration set for this environment.
--- * 'optionSettings' - If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
--- * 'versionLabel' - If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
--- * 'platformARN' - The ARN of the platform, if used.
--- * 'tier' - This specifies the tier to use to update the environment.
---
--- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
--- * 'environmentName' - The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'applicationName' - The name of the application with which the environment is associated.
--- * 'solutionStackName' - This specifies the platform version that the environment will run after the environment is updated.
--- * 'environmentId' - The ID of the environment to update.
---
--- If no environment with this ID exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'groupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
--- * 'description' - If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
+-- | Creates a 'UpdateEnvironment' value with any optional fields omitted.
 mkUpdateEnvironment ::
   UpdateEnvironment
 mkUpdateEnvironment =
   UpdateEnvironment'
-    { templateName = Lude.Nothing,
-      optionsToRemove = Lude.Nothing,
-      optionSettings = Lude.Nothing,
-      versionLabel = Lude.Nothing,
-      platformARN = Lude.Nothing,
-      tier = Lude.Nothing,
-      environmentName = Lude.Nothing,
-      applicationName = Lude.Nothing,
-      solutionStackName = Lude.Nothing,
-      environmentId = Lude.Nothing,
-      groupName = Lude.Nothing,
-      description = Lude.Nothing
+    { applicationName = Core.Nothing,
+      description = Core.Nothing,
+      environmentId = Core.Nothing,
+      environmentName = Core.Nothing,
+      groupName = Core.Nothing,
+      optionSettings = Core.Nothing,
+      optionsToRemove = Core.Nothing,
+      platformArn = Core.Nothing,
+      solutionStackName = Core.Nothing,
+      templateName = Core.Nothing,
+      tier = Core.Nothing,
+      versionLabel = Core.Nothing
     }
-
--- | If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueTemplateName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueTemplateName = Lens.lens (templateName :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: UpdateEnvironment)
-{-# DEPRECATED ueTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | A list of custom user-defined configuration options to remove from the configuration set for this environment.
---
--- /Note:/ Consider using 'optionsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueOptionsToRemove :: Lens.Lens' UpdateEnvironment (Lude.Maybe [OptionSpecification])
-ueOptionsToRemove = Lens.lens (optionsToRemove :: UpdateEnvironment -> Lude.Maybe [OptionSpecification]) (\s a -> s {optionsToRemove = a} :: UpdateEnvironment)
-{-# DEPRECATED ueOptionsToRemove "Use generic-lens or generic-optics with 'optionsToRemove' instead." #-}
-
--- | If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
---
--- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueOptionSettings :: Lens.Lens' UpdateEnvironment (Lude.Maybe [ConfigurationOptionSetting])
-ueOptionSettings = Lens.lens (optionSettings :: UpdateEnvironment -> Lude.Maybe [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: UpdateEnvironment)
-{-# DEPRECATED ueOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
-
--- | If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueVersionLabel :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueVersionLabel = Lens.lens (versionLabel :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: UpdateEnvironment)
-{-# DEPRECATED ueVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
-
--- | The ARN of the platform, if used.
---
--- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uePlatformARN :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-uePlatformARN = Lens.lens (platformARN :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: UpdateEnvironment)
-{-# DEPRECATED uePlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
-
--- | This specifies the tier to use to update the environment.
---
--- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueTier :: Lens.Lens' UpdateEnvironment (Lude.Maybe EnvironmentTier)
-ueTier = Lens.lens (tier :: UpdateEnvironment -> Lude.Maybe EnvironmentTier) (\s a -> s {tier = a} :: UpdateEnvironment)
-{-# DEPRECATED ueTier "Use generic-lens or generic-optics with 'tier' instead." #-}
-
--- | The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEnvironmentName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueEnvironmentName = Lens.lens (environmentName :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: UpdateEnvironment)
-{-# DEPRECATED ueEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The name of the application with which the environment is associated.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueApplicationName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueApplicationName = Lens.lens (applicationName :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: UpdateEnvironment)
+ueApplicationName :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.ApplicationName)
+ueApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED ueApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
--- | This specifies the platform version that the environment will run after the environment is updated.
+-- | If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
 --
--- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueSolutionStackName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueSolutionStackName = Lens.lens (solutionStackName :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: UpdateEnvironment)
-{-# DEPRECATED ueSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueDescription :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.Description)
+ueDescription = Lens.field @"description"
+{-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the environment to update.
 --
@@ -222,55 +149,115 @@ ueSolutionStackName = Lens.lens (solutionStackName :: UpdateEnvironment -> Lude.
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEnvironmentId :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueEnvironmentId = Lens.lens (environmentId :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: UpdateEnvironment)
+ueEnvironmentId :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.EnvironmentId)
+ueEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED ueEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+
+-- | The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEnvironmentName :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.EnvironmentName)
+ueEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED ueEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueGroupName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueGroupName = Lens.lens (groupName :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: UpdateEnvironment)
+ueGroupName :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.GroupName)
+ueGroupName = Lens.field @"groupName"
 {-# DEPRECATED ueGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
+-- | If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueDescription :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
-ueDescription = Lens.lens (description :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateEnvironment)
-{-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueOptionSettings :: Lens.Lens' UpdateEnvironment (Core.Maybe [Types.ConfigurationOptionSetting])
+ueOptionSettings = Lens.field @"optionSettings"
+{-# DEPRECATED ueOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
-instance Lude.AWSRequest UpdateEnvironment where
-  type Rs UpdateEnvironment = EnvironmentDescription
-  request = Req.postQuery elasticBeanstalkService
+-- | A list of custom user-defined configuration options to remove from the configuration set for this environment.
+--
+-- /Note:/ Consider using 'optionsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueOptionsToRemove :: Lens.Lens' UpdateEnvironment (Core.Maybe [Types.OptionSpecification])
+ueOptionsToRemove = Lens.field @"optionsToRemove"
+{-# DEPRECATED ueOptionsToRemove "Use generic-lens or generic-optics with 'optionsToRemove' instead." #-}
+
+-- | The ARN of the platform, if used.
+--
+-- /Note:/ Consider using 'platformArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uePlatformArn :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.PlatformArn)
+uePlatformArn = Lens.field @"platformArn"
+{-# DEPRECATED uePlatformArn "Use generic-lens or generic-optics with 'platformArn' instead." #-}
+
+-- | This specifies the platform version that the environment will run after the environment is updated.
+--
+-- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueSolutionStackName :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.SolutionStackName)
+ueSolutionStackName = Lens.field @"solutionStackName"
+{-# DEPRECATED ueSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
+
+-- | If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueTemplateName :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.ConfigurationTemplateName)
+ueTemplateName = Lens.field @"templateName"
+{-# DEPRECATED ueTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | This specifies the tier to use to update the environment.
+--
+-- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueTier :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.EnvironmentTier)
+ueTier = Lens.field @"tier"
+{-# DEPRECATED ueTier "Use generic-lens or generic-optics with 'tier' instead." #-}
+
+-- | If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueVersionLabel :: Lens.Lens' UpdateEnvironment (Core.Maybe Types.VersionLabel)
+ueVersionLabel = Lens.field @"versionLabel"
+{-# DEPRECATED ueVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
+
+instance Core.AWSRequest UpdateEnvironment where
+  type Rs UpdateEnvironment = Types.EnvironmentDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateEnvironment")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" Core.<$> applicationName)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+                Core.<> (Core.toQueryValue "GroupName" Core.<$> groupName)
+                Core.<> ( Core.toQueryValue
+                            "OptionSettings"
+                            (Core.toQueryList "member" Core.<$> optionSettings)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "OptionsToRemove"
+                            (Core.toQueryList "member" Core.<$> optionsToRemove)
+                        )
+                Core.<> (Core.toQueryValue "PlatformArn" Core.<$> platformArn)
+                Core.<> (Core.toQueryValue "SolutionStackName" Core.<$> solutionStackName)
+                Core.<> (Core.toQueryValue "TemplateName" Core.<$> templateName)
+                Core.<> (Core.toQueryValue "Tier" Core.<$> tier)
+                Core.<> (Core.toQueryValue "VersionLabel" Core.<$> versionLabel)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateEnvironmentResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders UpdateEnvironment where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateEnvironment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateEnvironment where
-  toQuery UpdateEnvironment' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateEnvironment" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName,
-        "OptionsToRemove"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionsToRemove),
-        "OptionSettings"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionSettings),
-        "VersionLabel" Lude.=: versionLabel,
-        "PlatformArn" Lude.=: platformARN,
-        "Tier" Lude.=: tier,
-        "EnvironmentName" Lude.=: environmentName,
-        "ApplicationName" Lude.=: applicationName,
-        "SolutionStackName" Lude.=: solutionStackName,
-        "EnvironmentId" Lude.=: environmentId,
-        "GroupName" Lude.=: groupName,
-        "Description" Lude.=: description
-      ]
+      (\s h x -> Core.parseXML x)

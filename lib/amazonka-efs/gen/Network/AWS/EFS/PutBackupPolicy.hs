@@ -24,80 +24,72 @@ module Network.AWS.EFS.PutBackupPolicy
     pbpBackupPolicy,
 
     -- * Destructuring the response
-    BackupPolicyDescription (..),
-    mkBackupPolicyDescription,
+    Types.BackupPolicyDescription (..),
+    Types.mkBackupPolicyDescription,
 
     -- ** Response lenses
-    bpdBackupPolicy,
+    Types.bpdBackupPolicy,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutBackupPolicy' smart constructor.
 data PutBackupPolicy = PutBackupPolicy'
   { -- | Specifies which EFS file system to update the backup policy for.
-    fileSystemId :: Lude.Text,
+    fileSystemId :: Types.FileSystemId,
     -- | The backup policy included in the @PutBackupPolicy@ request.
-    backupPolicy :: BackupPolicy
+    backupPolicy :: Types.BackupPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBackupPolicy' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - Specifies which EFS file system to update the backup policy for.
--- * 'backupPolicy' - The backup policy included in the @PutBackupPolicy@ request.
+-- | Creates a 'PutBackupPolicy' value with any optional fields omitted.
 mkPutBackupPolicy ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   -- | 'backupPolicy'
-  BackupPolicy ->
+  Types.BackupPolicy ->
   PutBackupPolicy
-mkPutBackupPolicy pFileSystemId_ pBackupPolicy_ =
-  PutBackupPolicy'
-    { fileSystemId = pFileSystemId_,
-      backupPolicy = pBackupPolicy_
-    }
+mkPutBackupPolicy fileSystemId backupPolicy =
+  PutBackupPolicy' {fileSystemId, backupPolicy}
 
 -- | Specifies which EFS file system to update the backup policy for.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpFileSystemId :: Lens.Lens' PutBackupPolicy Lude.Text
-pbpFileSystemId = Lens.lens (fileSystemId :: PutBackupPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: PutBackupPolicy)
+pbpFileSystemId :: Lens.Lens' PutBackupPolicy Types.FileSystemId
+pbpFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED pbpFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | The backup policy included in the @PutBackupPolicy@ request.
 --
 -- /Note:/ Consider using 'backupPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpBackupPolicy :: Lens.Lens' PutBackupPolicy BackupPolicy
-pbpBackupPolicy = Lens.lens (backupPolicy :: PutBackupPolicy -> BackupPolicy) (\s a -> s {backupPolicy = a} :: PutBackupPolicy)
+pbpBackupPolicy :: Lens.Lens' PutBackupPolicy Types.BackupPolicy
+pbpBackupPolicy = Lens.field @"backupPolicy"
 {-# DEPRECATED pbpBackupPolicy "Use generic-lens or generic-optics with 'backupPolicy' instead." #-}
 
-instance Lude.AWSRequest PutBackupPolicy where
-  type Rs PutBackupPolicy = BackupPolicyDescription
-  request = Req.putJSON efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+instance Core.FromJSON PutBackupPolicy where
+  toJSON PutBackupPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("BackupPolicy" Core..= backupPolicy)])
 
-instance Lude.ToHeaders PutBackupPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PutBackupPolicy where
-  toJSON PutBackupPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("BackupPolicy" Lude..= backupPolicy)])
-
-instance Lude.ToPath PutBackupPolicy where
-  toPath PutBackupPolicy' {..} =
-    Lude.mconcat
-      [ "/2015-02-01/file-systems/",
-        Lude.toBS fileSystemId,
-        "/backup-policy"
-      ]
-
-instance Lude.ToQuery PutBackupPolicy where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest PutBackupPolicy where
+  type Rs PutBackupPolicy = Types.BackupPolicyDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)
+                Core.<> ("/backup-policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

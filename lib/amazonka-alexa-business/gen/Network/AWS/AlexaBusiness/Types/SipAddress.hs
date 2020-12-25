@@ -17,65 +17,60 @@ module Network.AWS.AlexaBusiness.Types.SipAddress
     mkSipAddress,
 
     -- * Lenses
-    saURI,
+    saUri,
     saType,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.SipType
+import qualified Network.AWS.AlexaBusiness.Types.SipType as Types
+import qualified Network.AWS.AlexaBusiness.Types.Uri as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The SIP address for the contact containing the URI and SIP address type.
 --
 -- /See:/ 'mkSipAddress' smart constructor.
 data SipAddress = SipAddress'
   { -- | The URI for the SIP address.
-    uri :: Lude.Sensitive Lude.Text,
+    uri :: Types.Uri,
     -- | The type of the SIP address.
-    type' :: SipType
+    type' :: Types.SipType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SipAddress' with the minimum fields required to make a request.
---
--- * 'uri' - The URI for the SIP address.
--- * 'type'' - The type of the SIP address.
+-- | Creates a 'SipAddress' value with any optional fields omitted.
 mkSipAddress ::
   -- | 'uri'
-  Lude.Sensitive Lude.Text ->
-  -- | 'type''
-  SipType ->
+  Types.Uri ->
+  -- | 'type\''
+  Types.SipType ->
   SipAddress
-mkSipAddress pURI_ pType_ =
-  SipAddress' {uri = pURI_, type' = pType_}
+mkSipAddress uri type' = SipAddress' {uri, type'}
 
 -- | The URI for the SIP address.
 --
 -- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saURI :: Lens.Lens' SipAddress (Lude.Sensitive Lude.Text)
-saURI = Lens.lens (uri :: SipAddress -> Lude.Sensitive Lude.Text) (\s a -> s {uri = a} :: SipAddress)
-{-# DEPRECATED saURI "Use generic-lens or generic-optics with 'uri' instead." #-}
+saUri :: Lens.Lens' SipAddress Types.Uri
+saUri = Lens.field @"uri"
+{-# DEPRECATED saUri "Use generic-lens or generic-optics with 'uri' instead." #-}
 
 -- | The type of the SIP address.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saType :: Lens.Lens' SipAddress SipType
-saType = Lens.lens (type' :: SipAddress -> SipType) (\s a -> s {type' = a} :: SipAddress)
+saType :: Lens.Lens' SipAddress Types.SipType
+saType = Lens.field @"type'"
 {-# DEPRECATED saType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON SipAddress where
-  parseJSON =
-    Lude.withObject
-      "SipAddress"
-      ( \x ->
-          SipAddress' Lude.<$> (x Lude..: "Uri") Lude.<*> (x Lude..: "Type")
+instance Core.FromJSON SipAddress where
+  toJSON SipAddress {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Uri" Core..= uri), Core.Just ("Type" Core..= type')]
       )
 
-instance Lude.ToJSON SipAddress where
-  toJSON SipAddress' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Uri" Lude..= uri), Lude.Just ("Type" Lude..= type')]
-      )
+instance Core.FromJSON SipAddress where
+  parseJSON =
+    Core.withObject "SipAddress" Core.$
+      \x ->
+        SipAddress' Core.<$> (x Core..: "Uri") Core.<*> (x Core..: "Type")

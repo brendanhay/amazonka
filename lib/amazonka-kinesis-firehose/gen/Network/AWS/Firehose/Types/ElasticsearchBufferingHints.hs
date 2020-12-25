@@ -17,72 +17,65 @@ module Network.AWS.Firehose.Types.ElasticsearchBufferingHints
     mkElasticsearchBufferingHints,
 
     -- * Lenses
-    ebhSizeInMBs,
     ebhIntervalInSeconds,
+    ebhSizeInMBs,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the buffering to perform before delivering data to the Amazon ES destination.
 --
 -- /See:/ 'mkElasticsearchBufferingHints' smart constructor.
 data ElasticsearchBufferingHints = ElasticsearchBufferingHints'
-  { -- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+  { -- | Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    intervalInSeconds :: Core.Maybe Core.Natural,
+    -- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     --
     -- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
-    sizeInMBs :: Lude.Maybe Lude.Natural,
-    -- | Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
-    intervalInSeconds :: Lude.Maybe Lude.Natural
+    sizeInMBs :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticsearchBufferingHints' with the minimum fields required to make a request.
---
--- * 'sizeInMBs' - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
---
--- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
--- * 'intervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+-- | Creates a 'ElasticsearchBufferingHints' value with any optional fields omitted.
 mkElasticsearchBufferingHints ::
   ElasticsearchBufferingHints
 mkElasticsearchBufferingHints =
   ElasticsearchBufferingHints'
-    { sizeInMBs = Lude.Nothing,
-      intervalInSeconds = Lude.Nothing
+    { intervalInSeconds = Core.Nothing,
+      sizeInMBs = Core.Nothing
     }
+
+-- | Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+--
+-- /Note:/ Consider using 'intervalInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebhIntervalInSeconds :: Lens.Lens' ElasticsearchBufferingHints (Core.Maybe Core.Natural)
+ebhIntervalInSeconds = Lens.field @"intervalInSeconds"
+{-# DEPRECATED ebhIntervalInSeconds "Use generic-lens or generic-optics with 'intervalInSeconds' instead." #-}
 
 -- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 --
 -- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 --
 -- /Note:/ Consider using 'sizeInMBs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebhSizeInMBs :: Lens.Lens' ElasticsearchBufferingHints (Lude.Maybe Lude.Natural)
-ebhSizeInMBs = Lens.lens (sizeInMBs :: ElasticsearchBufferingHints -> Lude.Maybe Lude.Natural) (\s a -> s {sizeInMBs = a} :: ElasticsearchBufferingHints)
+ebhSizeInMBs :: Lens.Lens' ElasticsearchBufferingHints (Core.Maybe Core.Natural)
+ebhSizeInMBs = Lens.field @"sizeInMBs"
 {-# DEPRECATED ebhSizeInMBs "Use generic-lens or generic-optics with 'sizeInMBs' instead." #-}
 
--- | Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
---
--- /Note:/ Consider using 'intervalInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebhIntervalInSeconds :: Lens.Lens' ElasticsearchBufferingHints (Lude.Maybe Lude.Natural)
-ebhIntervalInSeconds = Lens.lens (intervalInSeconds :: ElasticsearchBufferingHints -> Lude.Maybe Lude.Natural) (\s a -> s {intervalInSeconds = a} :: ElasticsearchBufferingHints)
-{-# DEPRECATED ebhIntervalInSeconds "Use generic-lens or generic-optics with 'intervalInSeconds' instead." #-}
-
-instance Lude.FromJSON ElasticsearchBufferingHints where
-  parseJSON =
-    Lude.withObject
-      "ElasticsearchBufferingHints"
-      ( \x ->
-          ElasticsearchBufferingHints'
-            Lude.<$> (x Lude..:? "SizeInMBs") Lude.<*> (x Lude..:? "IntervalInSeconds")
-      )
-
-instance Lude.ToJSON ElasticsearchBufferingHints where
-  toJSON ElasticsearchBufferingHints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SizeInMBs" Lude..=) Lude.<$> sizeInMBs,
-            ("IntervalInSeconds" Lude..=) Lude.<$> intervalInSeconds
+instance Core.FromJSON ElasticsearchBufferingHints where
+  toJSON ElasticsearchBufferingHints {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("IntervalInSeconds" Core..=) Core.<$> intervalInSeconds,
+            ("SizeInMBs" Core..=) Core.<$> sizeInMBs
           ]
       )
+
+instance Core.FromJSON ElasticsearchBufferingHints where
+  parseJSON =
+    Core.withObject "ElasticsearchBufferingHints" Core.$
+      \x ->
+        ElasticsearchBufferingHints'
+          Core.<$> (x Core..:? "IntervalInSeconds") Core.<*> (x Core..:? "SizeInMBs")

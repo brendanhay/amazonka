@@ -17,124 +17,121 @@ module Network.AWS.IoT.Types.ThingDocument
     mkThingDocument,
 
     -- * Lenses
-    tdThingGroupNames,
-    tdThingTypeName,
-    tdShadow,
     tdAttributes,
     tdConnectivity,
-    tdThingName,
+    tdShadow,
+    tdThingGroupNames,
     tdThingId,
+    tdThingName,
+    tdThingTypeName,
   )
 where
 
-import Network.AWS.IoT.Types.ThingConnectivity
+import qualified Network.AWS.IoT.Types.AttributeName as Types
+import qualified Network.AWS.IoT.Types.AttributeValue as Types
+import qualified Network.AWS.IoT.Types.JsonDocument as Types
+import qualified Network.AWS.IoT.Types.ThingConnectivity as Types
+import qualified Network.AWS.IoT.Types.ThingGroupName as Types
+import qualified Network.AWS.IoT.Types.ThingId as Types
+import qualified Network.AWS.IoT.Types.ThingName as Types
+import qualified Network.AWS.IoT.Types.ThingTypeName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The thing search index document.
 --
 -- /See:/ 'mkThingDocument' smart constructor.
 data ThingDocument = ThingDocument'
-  { -- | Thing group names.
-    thingGroupNames :: Lude.Maybe [Lude.Text],
-    -- | The thing type name.
-    thingTypeName :: Lude.Maybe Lude.Text,
-    -- | The shadow.
-    shadow :: Lude.Maybe Lude.Text,
-    -- | The attributes.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The attributes.
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | Indicates whether the thing is connected to the AWS IoT service.
-    connectivity :: Lude.Maybe ThingConnectivity,
-    -- | The thing name.
-    thingName :: Lude.Maybe Lude.Text,
+    connectivity :: Core.Maybe Types.ThingConnectivity,
+    -- | The shadow.
+    shadow :: Core.Maybe Types.JsonDocument,
+    -- | Thing group names.
+    thingGroupNames :: Core.Maybe [Types.ThingGroupName],
     -- | The thing ID.
-    thingId :: Lude.Maybe Lude.Text
+    thingId :: Core.Maybe Types.ThingId,
+    -- | The thing name.
+    thingName :: Core.Maybe Types.ThingName,
+    -- | The thing type name.
+    thingTypeName :: Core.Maybe Types.ThingTypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ThingDocument' with the minimum fields required to make a request.
---
--- * 'thingGroupNames' - Thing group names.
--- * 'thingTypeName' - The thing type name.
--- * 'shadow' - The shadow.
--- * 'attributes' - The attributes.
--- * 'connectivity' - Indicates whether the thing is connected to the AWS IoT service.
--- * 'thingName' - The thing name.
--- * 'thingId' - The thing ID.
+-- | Creates a 'ThingDocument' value with any optional fields omitted.
 mkThingDocument ::
   ThingDocument
 mkThingDocument =
   ThingDocument'
-    { thingGroupNames = Lude.Nothing,
-      thingTypeName = Lude.Nothing,
-      shadow = Lude.Nothing,
-      attributes = Lude.Nothing,
-      connectivity = Lude.Nothing,
-      thingName = Lude.Nothing,
-      thingId = Lude.Nothing
+    { attributes = Core.Nothing,
+      connectivity = Core.Nothing,
+      shadow = Core.Nothing,
+      thingGroupNames = Core.Nothing,
+      thingId = Core.Nothing,
+      thingName = Core.Nothing,
+      thingTypeName = Core.Nothing
     }
-
--- | Thing group names.
---
--- /Note:/ Consider using 'thingGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdThingGroupNames :: Lens.Lens' ThingDocument (Lude.Maybe [Lude.Text])
-tdThingGroupNames = Lens.lens (thingGroupNames :: ThingDocument -> Lude.Maybe [Lude.Text]) (\s a -> s {thingGroupNames = a} :: ThingDocument)
-{-# DEPRECATED tdThingGroupNames "Use generic-lens or generic-optics with 'thingGroupNames' instead." #-}
-
--- | The thing type name.
---
--- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdThingTypeName :: Lens.Lens' ThingDocument (Lude.Maybe Lude.Text)
-tdThingTypeName = Lens.lens (thingTypeName :: ThingDocument -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: ThingDocument)
-{-# DEPRECATED tdThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
-
--- | The shadow.
---
--- /Note:/ Consider using 'shadow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdShadow :: Lens.Lens' ThingDocument (Lude.Maybe Lude.Text)
-tdShadow = Lens.lens (shadow :: ThingDocument -> Lude.Maybe Lude.Text) (\s a -> s {shadow = a} :: ThingDocument)
-{-# DEPRECATED tdShadow "Use generic-lens or generic-optics with 'shadow' instead." #-}
 
 -- | The attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAttributes :: Lens.Lens' ThingDocument (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-tdAttributes = Lens.lens (attributes :: ThingDocument -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: ThingDocument)
+tdAttributes :: Lens.Lens' ThingDocument (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+tdAttributes = Lens.field @"attributes"
 {-# DEPRECATED tdAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | Indicates whether the thing is connected to the AWS IoT service.
 --
 -- /Note:/ Consider using 'connectivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdConnectivity :: Lens.Lens' ThingDocument (Lude.Maybe ThingConnectivity)
-tdConnectivity = Lens.lens (connectivity :: ThingDocument -> Lude.Maybe ThingConnectivity) (\s a -> s {connectivity = a} :: ThingDocument)
+tdConnectivity :: Lens.Lens' ThingDocument (Core.Maybe Types.ThingConnectivity)
+tdConnectivity = Lens.field @"connectivity"
 {-# DEPRECATED tdConnectivity "Use generic-lens or generic-optics with 'connectivity' instead." #-}
 
--- | The thing name.
+-- | The shadow.
 --
--- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdThingName :: Lens.Lens' ThingDocument (Lude.Maybe Lude.Text)
-tdThingName = Lens.lens (thingName :: ThingDocument -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: ThingDocument)
-{-# DEPRECATED tdThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+-- /Note:/ Consider using 'shadow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdShadow :: Lens.Lens' ThingDocument (Core.Maybe Types.JsonDocument)
+tdShadow = Lens.field @"shadow"
+{-# DEPRECATED tdShadow "Use generic-lens or generic-optics with 'shadow' instead." #-}
+
+-- | Thing group names.
+--
+-- /Note:/ Consider using 'thingGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdThingGroupNames :: Lens.Lens' ThingDocument (Core.Maybe [Types.ThingGroupName])
+tdThingGroupNames = Lens.field @"thingGroupNames"
+{-# DEPRECATED tdThingGroupNames "Use generic-lens or generic-optics with 'thingGroupNames' instead." #-}
 
 -- | The thing ID.
 --
 -- /Note:/ Consider using 'thingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdThingId :: Lens.Lens' ThingDocument (Lude.Maybe Lude.Text)
-tdThingId = Lens.lens (thingId :: ThingDocument -> Lude.Maybe Lude.Text) (\s a -> s {thingId = a} :: ThingDocument)
+tdThingId :: Lens.Lens' ThingDocument (Core.Maybe Types.ThingId)
+tdThingId = Lens.field @"thingId"
 {-# DEPRECATED tdThingId "Use generic-lens or generic-optics with 'thingId' instead." #-}
 
-instance Lude.FromJSON ThingDocument where
+-- | The thing name.
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdThingName :: Lens.Lens' ThingDocument (Core.Maybe Types.ThingName)
+tdThingName = Lens.field @"thingName"
+{-# DEPRECATED tdThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+
+-- | The thing type name.
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdThingTypeName :: Lens.Lens' ThingDocument (Core.Maybe Types.ThingTypeName)
+tdThingTypeName = Lens.field @"thingTypeName"
+{-# DEPRECATED tdThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+
+instance Core.FromJSON ThingDocument where
   parseJSON =
-    Lude.withObject
-      "ThingDocument"
-      ( \x ->
-          ThingDocument'
-            Lude.<$> (x Lude..:? "thingGroupNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "thingTypeName")
-            Lude.<*> (x Lude..:? "shadow")
-            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "connectivity")
-            Lude.<*> (x Lude..:? "thingName")
-            Lude.<*> (x Lude..:? "thingId")
-      )
+    Core.withObject "ThingDocument" Core.$
+      \x ->
+        ThingDocument'
+          Core.<$> (x Core..:? "attributes")
+          Core.<*> (x Core..:? "connectivity")
+          Core.<*> (x Core..:? "shadow")
+          Core.<*> (x Core..:? "thingGroupNames")
+          Core.<*> (x Core..:? "thingId")
+          Core.<*> (x Core..:? "thingName")
+          Core.<*> (x Core..:? "thingTypeName")

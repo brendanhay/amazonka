@@ -27,87 +27,76 @@ module Network.AWS.GuardDuty.DeleteDetector
     mkDeleteDetectorResponse,
 
     -- ** Response lenses
-    ddrsResponseStatus,
+    ddrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDetector' smart constructor.
 newtype DeleteDetector = DeleteDetector'
   { -- | The unique ID of the detector that you want to delete.
-    detectorId :: Lude.Text
+    detectorId :: Types.DetectorId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDetector' with the minimum fields required to make a request.
---
--- * 'detectorId' - The unique ID of the detector that you want to delete.
+-- | Creates a 'DeleteDetector' value with any optional fields omitted.
 mkDeleteDetector ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   DeleteDetector
-mkDeleteDetector pDetectorId_ =
-  DeleteDetector' {detectorId = pDetectorId_}
+mkDeleteDetector detectorId = DeleteDetector' {detectorId}
 
 -- | The unique ID of the detector that you want to delete.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDetectorId :: Lens.Lens' DeleteDetector Lude.Text
-ddDetectorId = Lens.lens (detectorId :: DeleteDetector -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteDetector)
+ddDetectorId :: Lens.Lens' DeleteDetector Types.DetectorId
+ddDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED ddDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest DeleteDetector where
+instance Core.AWSRequest DeleteDetector where
   type Rs DeleteDetector = DeleteDetectorResponse
-  request = Req.delete guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/detector/" Core.<> (Core.toText detectorId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteDetectorResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteDetectorResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDetector where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteDetector where
-  toPath DeleteDetector' {..} =
-    Lude.mconcat ["/detector/", Lude.toBS detectorId]
-
-instance Lude.ToQuery DeleteDetector where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDetectorResponse' smart constructor.
 newtype DeleteDetectorResponse = DeleteDetectorResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDetectorResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDetectorResponse' value with any optional fields omitted.
 mkDeleteDetectorResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDetectorResponse
-mkDeleteDetectorResponse pResponseStatus_ =
-  DeleteDetectorResponse' {responseStatus = pResponseStatus_}
+mkDeleteDetectorResponse responseStatus =
+  DeleteDetectorResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DeleteDetectorResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDetectorResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DeleteDetectorResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

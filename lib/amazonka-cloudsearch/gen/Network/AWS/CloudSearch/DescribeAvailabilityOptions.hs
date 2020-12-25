@@ -20,132 +20,125 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     mkDescribeAvailabilityOptions,
 
     -- ** Request lenses
-    daoDeployed,
     daoDomainName,
+    daoDeployed,
 
     -- * Destructuring the response
     DescribeAvailabilityOptionsResponse (..),
     mkDescribeAvailabilityOptionsResponse,
 
     -- ** Response lenses
-    daorsAvailabilityOptions,
-    daorsResponseStatus,
+    daorrsAvailabilityOptions,
+    daorrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeAvailabilityOptions' @ operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to @true@ .
 --
 -- /See:/ 'mkDescribeAvailabilityOptions' smart constructor.
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
-  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-    deployed :: Lude.Maybe Lude.Bool,
-    -- | The name of the domain you want to describe.
-    domainName :: Lude.Text
+  { -- | The name of the domain you want to describe.
+    domainName :: Types.DomainName,
+    -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAvailabilityOptions' with the minimum fields required to make a request.
---
--- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
--- * 'domainName' - The name of the domain you want to describe.
+-- | Creates a 'DescribeAvailabilityOptions' value with any optional fields omitted.
 mkDescribeAvailabilityOptions ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeAvailabilityOptions
-mkDescribeAvailabilityOptions pDomainName_ =
-  DescribeAvailabilityOptions'
-    { deployed = Lude.Nothing,
-      domainName = pDomainName_
-    }
-
--- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
---
--- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoDeployed :: Lens.Lens' DescribeAvailabilityOptions (Lude.Maybe Lude.Bool)
-daoDeployed = Lens.lens (deployed :: DescribeAvailabilityOptions -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeAvailabilityOptions)
-{-# DEPRECATED daoDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
+mkDescribeAvailabilityOptions domainName =
+  DescribeAvailabilityOptions' {domainName, deployed = Core.Nothing}
 
 -- | The name of the domain you want to describe.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoDomainName :: Lens.Lens' DescribeAvailabilityOptions Lude.Text
-daoDomainName = Lens.lens (domainName :: DescribeAvailabilityOptions -> Lude.Text) (\s a -> s {domainName = a} :: DescribeAvailabilityOptions)
+daoDomainName :: Lens.Lens' DescribeAvailabilityOptions Types.DomainName
+daoDomainName = Lens.field @"domainName"
 {-# DEPRECATED daoDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DescribeAvailabilityOptions where
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoDeployed :: Lens.Lens' DescribeAvailabilityOptions (Core.Maybe Core.Bool)
+daoDeployed = Lens.field @"deployed"
+{-# DEPRECATED daoDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
+
+instance Core.AWSRequest DescribeAvailabilityOptions where
   type
     Rs DescribeAvailabilityOptions =
       DescribeAvailabilityOptionsResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAvailabilityOptions")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "Deployed" Core.<$> deployed)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAvailabilityOptionsResult"
       ( \s h x ->
           DescribeAvailabilityOptionsResponse'
-            Lude.<$> (x Lude..@? "AvailabilityOptions")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "AvailabilityOptions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAvailabilityOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAvailabilityOptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAvailabilityOptions where
-  toQuery DescribeAvailabilityOptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeAvailabilityOptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "Deployed" Lude.=: deployed,
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DescribeAvailabilityOptions@ request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request.
 --
 -- /See:/ 'mkDescribeAvailabilityOptionsResponse' smart constructor.
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
   { -- | The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain.
-    availabilityOptions :: Lude.Maybe AvailabilityOptionsStatus,
+    availabilityOptions :: Core.Maybe Types.AvailabilityOptionsStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAvailabilityOptionsResponse' with the minimum fields required to make a request.
---
--- * 'availabilityOptions' - The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAvailabilityOptionsResponse' value with any optional fields omitted.
 mkDescribeAvailabilityOptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAvailabilityOptionsResponse
-mkDescribeAvailabilityOptionsResponse pResponseStatus_ =
+mkDescribeAvailabilityOptionsResponse responseStatus =
   DescribeAvailabilityOptionsResponse'
     { availabilityOptions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain.
 --
 -- /Note:/ Consider using 'availabilityOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daorsAvailabilityOptions :: Lens.Lens' DescribeAvailabilityOptionsResponse (Lude.Maybe AvailabilityOptionsStatus)
-daorsAvailabilityOptions = Lens.lens (availabilityOptions :: DescribeAvailabilityOptionsResponse -> Lude.Maybe AvailabilityOptionsStatus) (\s a -> s {availabilityOptions = a} :: DescribeAvailabilityOptionsResponse)
-{-# DEPRECATED daorsAvailabilityOptions "Use generic-lens or generic-optics with 'availabilityOptions' instead." #-}
+daorrsAvailabilityOptions :: Lens.Lens' DescribeAvailabilityOptionsResponse (Core.Maybe Types.AvailabilityOptionsStatus)
+daorrsAvailabilityOptions = Lens.field @"availabilityOptions"
+{-# DEPRECATED daorrsAvailabilityOptions "Use generic-lens or generic-optics with 'availabilityOptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daorsResponseStatus :: Lens.Lens' DescribeAvailabilityOptionsResponse Lude.Int
-daorsResponseStatus = Lens.lens (responseStatus :: DescribeAvailabilityOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAvailabilityOptionsResponse)
-{-# DEPRECATED daorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daorrsResponseStatus :: Lens.Lens' DescribeAvailabilityOptionsResponse Core.Int
+daorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

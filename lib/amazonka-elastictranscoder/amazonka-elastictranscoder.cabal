@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ElasticTranscoder
     Network.AWS.ElasticTranscoder.CancelJob
@@ -87,37 +93,126 @@ library
     Network.AWS.ElasticTranscoder.Waiters
 
   other-modules:
+    Network.AWS.ElasticTranscoder.Types.AccessControl
+    Network.AWS.ElasticTranscoder.Types.AlbumArtFormat
     Network.AWS.ElasticTranscoder.Types.Artwork
+    Network.AWS.ElasticTranscoder.Types.Ascending
+    Network.AWS.ElasticTranscoder.Types.AspectRatio
+    Network.AWS.ElasticTranscoder.Types.AudioBitDepth
     Network.AWS.ElasticTranscoder.Types.AudioCodecOptions
+    Network.AWS.ElasticTranscoder.Types.AudioPackingMode
     Network.AWS.ElasticTranscoder.Types.AudioParameters
+    Network.AWS.ElasticTranscoder.Types.AudioSigned
+    Network.AWS.ElasticTranscoder.Types.AwsKmsKeyArn
+    Network.AWS.ElasticTranscoder.Types.Base64EncodedString
+    Network.AWS.ElasticTranscoder.Types.BitOrder
+    Network.AWS.ElasticTranscoder.Types.BitRate
+    Network.AWS.ElasticTranscoder.Types.Bucket
+    Network.AWS.ElasticTranscoder.Types.BucketName
     Network.AWS.ElasticTranscoder.Types.CaptionFormat
+    Network.AWS.ElasticTranscoder.Types.CaptionFormatFormat
+    Network.AWS.ElasticTranscoder.Types.CaptionFormatPattern
+    Network.AWS.ElasticTranscoder.Types.CaptionMergePolicy
     Network.AWS.ElasticTranscoder.Types.Captions
     Network.AWS.ElasticTranscoder.Types.CaptionSource
+    Network.AWS.ElasticTranscoder.Types.Channels
     Network.AWS.ElasticTranscoder.Types.Clip
+    Network.AWS.ElasticTranscoder.Types.Codec
+    Network.AWS.ElasticTranscoder.Types.CodecOption
+    Network.AWS.ElasticTranscoder.Types.Container
     Network.AWS.ElasticTranscoder.Types.CreateJobOutput
     Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist
+    Network.AWS.ElasticTranscoder.Types.Description
     Network.AWS.ElasticTranscoder.Types.DetectedProperties
+    Network.AWS.ElasticTranscoder.Types.Digits
+    Network.AWS.ElasticTranscoder.Types.DigitsOrAuto
     Network.AWS.ElasticTranscoder.Types.Encryption
+    Network.AWS.ElasticTranscoder.Types.EncryptionMode
+    Network.AWS.ElasticTranscoder.Types.Filename
+    Network.AWS.ElasticTranscoder.Types.FixedGOP
+    Network.AWS.ElasticTranscoder.Types.Format
+    Network.AWS.ElasticTranscoder.Types.FrameRate
+    Network.AWS.ElasticTranscoder.Types.Grantee
+    Network.AWS.ElasticTranscoder.Types.GranteeType
     Network.AWS.ElasticTranscoder.Types.HlsContentProtection
+    Network.AWS.ElasticTranscoder.Types.HlsContentProtectionMethod
+    Network.AWS.ElasticTranscoder.Types.HorizontalAlign
+    Network.AWS.ElasticTranscoder.Types.Id
+    Network.AWS.ElasticTranscoder.Types.InitializationVector
+    Network.AWS.ElasticTranscoder.Types.InputBucket
     Network.AWS.ElasticTranscoder.Types.InputCaptions
+    Network.AWS.ElasticTranscoder.Types.Interlaced
     Network.AWS.ElasticTranscoder.Types.Job'
     Network.AWS.ElasticTranscoder.Types.JobAlbumArt
+    Network.AWS.ElasticTranscoder.Types.JobContainer
     Network.AWS.ElasticTranscoder.Types.JobInput
     Network.AWS.ElasticTranscoder.Types.JobOutput
+    Network.AWS.ElasticTranscoder.Types.JobStatus
     Network.AWS.ElasticTranscoder.Types.JobWatermark
+    Network.AWS.ElasticTranscoder.Types.JpgOrPng
+    Network.AWS.ElasticTranscoder.Types.Key
+    Network.AWS.ElasticTranscoder.Types.KeyArn
+    Network.AWS.ElasticTranscoder.Types.KeyframesMaxDist
+    Network.AWS.ElasticTranscoder.Types.KeyId
+    Network.AWS.ElasticTranscoder.Types.KeyMd5
+    Network.AWS.ElasticTranscoder.Types.KeyStoragePolicy
+    Network.AWS.ElasticTranscoder.Types.Label
+    Network.AWS.ElasticTranscoder.Types.Language
+    Network.AWS.ElasticTranscoder.Types.LicenseAcquisitionUrl
+    Network.AWS.ElasticTranscoder.Types.LongKey
+    Network.AWS.ElasticTranscoder.Types.MaxFrameRate
+    Network.AWS.ElasticTranscoder.Types.MaxHeight
+    Network.AWS.ElasticTranscoder.Types.MaxWidth
+    Network.AWS.ElasticTranscoder.Types.MergePolicy
+    Network.AWS.ElasticTranscoder.Types.Name
+    Network.AWS.ElasticTranscoder.Types.NextPageToken
+    Network.AWS.ElasticTranscoder.Types.NonEmptyBase64EncodedString
     Network.AWS.ElasticTranscoder.Types.Notifications
+    Network.AWS.ElasticTranscoder.Types.Opacity
+    Network.AWS.ElasticTranscoder.Types.OutputKeyPrefix
+    Network.AWS.ElasticTranscoder.Types.PaddingPolicy
+    Network.AWS.ElasticTranscoder.Types.PageToken
     Network.AWS.ElasticTranscoder.Types.Permission
     Network.AWS.ElasticTranscoder.Types.Pipeline
+    Network.AWS.ElasticTranscoder.Types.PipelineId
     Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig
+    Network.AWS.ElasticTranscoder.Types.PipelineStatus
+    Network.AWS.ElasticTranscoder.Types.PixelsOrPercent
     Network.AWS.ElasticTranscoder.Types.Playlist
+    Network.AWS.ElasticTranscoder.Types.PlaylistFormat
     Network.AWS.ElasticTranscoder.Types.PlayReadyDrm
     Network.AWS.ElasticTranscoder.Types.Preset
+    Network.AWS.ElasticTranscoder.Types.PresetContainer
+    Network.AWS.ElasticTranscoder.Types.PresetId
+    Network.AWS.ElasticTranscoder.Types.PresetType
     Network.AWS.ElasticTranscoder.Types.PresetWatermark
+    Network.AWS.ElasticTranscoder.Types.PresetWatermarkId
+    Network.AWS.ElasticTranscoder.Types.Profile
+    Network.AWS.ElasticTranscoder.Types.Resolution
+    Network.AWS.ElasticTranscoder.Types.Role
+    Network.AWS.ElasticTranscoder.Types.Rotate
+    Network.AWS.ElasticTranscoder.Types.SampleRate
+    Network.AWS.ElasticTranscoder.Types.SegmentDuration
+    Network.AWS.ElasticTranscoder.Types.SizingPolicy
+    Network.AWS.ElasticTranscoder.Types.SnsTopic
+    Network.AWS.ElasticTranscoder.Types.Status
+    Network.AWS.ElasticTranscoder.Types.StatusDetail
+    Network.AWS.ElasticTranscoder.Types.StorageClass
+    Network.AWS.ElasticTranscoder.Types.String
+    Network.AWS.ElasticTranscoder.Types.Target
+    Network.AWS.ElasticTranscoder.Types.ThumbnailPattern
     Network.AWS.ElasticTranscoder.Types.Thumbnails
+    Network.AWS.ElasticTranscoder.Types.Time
+    Network.AWS.ElasticTranscoder.Types.TimeOffset
     Network.AWS.ElasticTranscoder.Types.TimeSpan
     Network.AWS.ElasticTranscoder.Types.Timing
+    Network.AWS.ElasticTranscoder.Types.VerticalAlign
+    Network.AWS.ElasticTranscoder.Types.VideoBitRate
+    Network.AWS.ElasticTranscoder.Types.VideoCodec
     Network.AWS.ElasticTranscoder.Types.VideoParameters
     Network.AWS.ElasticTranscoder.Types.Warning
+    Network.AWS.ElasticTranscoder.Types.WatermarkKey
+    Network.AWS.ElasticTranscoder.Types.ZeroTo512String
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

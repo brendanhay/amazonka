@@ -17,85 +17,79 @@ module Network.AWS.AppSync.Types.AdditionalAuthenticationProvider
     mkAdditionalAuthenticationProvider,
 
     -- * Lenses
-    aapOpenIdConnectConfig,
-    aapUserPoolConfig,
     aapAuthenticationType,
+    aapOpenIDConnectConfig,
+    aapUserPoolConfig,
   )
 where
 
-import Network.AWS.AppSync.Types.AuthenticationType
-import Network.AWS.AppSync.Types.CognitoUserPoolConfig
-import Network.AWS.AppSync.Types.OpenIdConnectConfig
+import qualified Network.AWS.AppSync.Types.AuthenticationType as Types
+import qualified Network.AWS.AppSync.Types.CognitoUserPoolConfig as Types
+import qualified Network.AWS.AppSync.Types.OpenIDConnectConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an additional authentication provider.
 --
 -- /See:/ 'mkAdditionalAuthenticationProvider' smart constructor.
 data AdditionalAuthenticationProvider = AdditionalAuthenticationProvider'
-  { -- | The OpenID Connect configuration.
-    openIdConnectConfig :: Lude.Maybe OpenIdConnectConfig,
+  { -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
+    authenticationType :: Core.Maybe Types.AuthenticationType,
+    -- | The OpenID Connect configuration.
+    openIDConnectConfig :: Core.Maybe Types.OpenIDConnectConfig,
     -- | The Amazon Cognito user pool configuration.
-    userPoolConfig :: Lude.Maybe CognitoUserPoolConfig,
-    -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
-    authenticationType :: Lude.Maybe AuthenticationType
+    userPoolConfig :: Core.Maybe Types.CognitoUserPoolConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdditionalAuthenticationProvider' with the minimum fields required to make a request.
---
--- * 'openIdConnectConfig' - The OpenID Connect configuration.
--- * 'userPoolConfig' - The Amazon Cognito user pool configuration.
--- * 'authenticationType' - The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
+-- | Creates a 'AdditionalAuthenticationProvider' value with any optional fields omitted.
 mkAdditionalAuthenticationProvider ::
   AdditionalAuthenticationProvider
 mkAdditionalAuthenticationProvider =
   AdditionalAuthenticationProvider'
-    { openIdConnectConfig =
-        Lude.Nothing,
-      userPoolConfig = Lude.Nothing,
-      authenticationType = Lude.Nothing
+    { authenticationType =
+        Core.Nothing,
+      openIDConnectConfig = Core.Nothing,
+      userPoolConfig = Core.Nothing
     }
-
--- | The OpenID Connect configuration.
---
--- /Note:/ Consider using 'openIdConnectConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aapOpenIdConnectConfig :: Lens.Lens' AdditionalAuthenticationProvider (Lude.Maybe OpenIdConnectConfig)
-aapOpenIdConnectConfig = Lens.lens (openIdConnectConfig :: AdditionalAuthenticationProvider -> Lude.Maybe OpenIdConnectConfig) (\s a -> s {openIdConnectConfig = a} :: AdditionalAuthenticationProvider)
-{-# DEPRECATED aapOpenIdConnectConfig "Use generic-lens or generic-optics with 'openIdConnectConfig' instead." #-}
-
--- | The Amazon Cognito user pool configuration.
---
--- /Note:/ Consider using 'userPoolConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aapUserPoolConfig :: Lens.Lens' AdditionalAuthenticationProvider (Lude.Maybe CognitoUserPoolConfig)
-aapUserPoolConfig = Lens.lens (userPoolConfig :: AdditionalAuthenticationProvider -> Lude.Maybe CognitoUserPoolConfig) (\s a -> s {userPoolConfig = a} :: AdditionalAuthenticationProvider)
-{-# DEPRECATED aapUserPoolConfig "Use generic-lens or generic-optics with 'userPoolConfig' instead." #-}
 
 -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
 --
 -- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aapAuthenticationType :: Lens.Lens' AdditionalAuthenticationProvider (Lude.Maybe AuthenticationType)
-aapAuthenticationType = Lens.lens (authenticationType :: AdditionalAuthenticationProvider -> Lude.Maybe AuthenticationType) (\s a -> s {authenticationType = a} :: AdditionalAuthenticationProvider)
+aapAuthenticationType :: Lens.Lens' AdditionalAuthenticationProvider (Core.Maybe Types.AuthenticationType)
+aapAuthenticationType = Lens.field @"authenticationType"
 {-# DEPRECATED aapAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
-instance Lude.FromJSON AdditionalAuthenticationProvider where
-  parseJSON =
-    Lude.withObject
-      "AdditionalAuthenticationProvider"
-      ( \x ->
-          AdditionalAuthenticationProvider'
-            Lude.<$> (x Lude..:? "openIDConnectConfig")
-            Lude.<*> (x Lude..:? "userPoolConfig")
-            Lude.<*> (x Lude..:? "authenticationType")
-      )
+-- | The OpenID Connect configuration.
+--
+-- /Note:/ Consider using 'openIDConnectConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aapOpenIDConnectConfig :: Lens.Lens' AdditionalAuthenticationProvider (Core.Maybe Types.OpenIDConnectConfig)
+aapOpenIDConnectConfig = Lens.field @"openIDConnectConfig"
+{-# DEPRECATED aapOpenIDConnectConfig "Use generic-lens or generic-optics with 'openIDConnectConfig' instead." #-}
 
-instance Lude.ToJSON AdditionalAuthenticationProvider where
-  toJSON AdditionalAuthenticationProvider' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("openIDConnectConfig" Lude..=) Lude.<$> openIdConnectConfig,
-            ("userPoolConfig" Lude..=) Lude.<$> userPoolConfig,
-            ("authenticationType" Lude..=) Lude.<$> authenticationType
+-- | The Amazon Cognito user pool configuration.
+--
+-- /Note:/ Consider using 'userPoolConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aapUserPoolConfig :: Lens.Lens' AdditionalAuthenticationProvider (Core.Maybe Types.CognitoUserPoolConfig)
+aapUserPoolConfig = Lens.field @"userPoolConfig"
+{-# DEPRECATED aapUserPoolConfig "Use generic-lens or generic-optics with 'userPoolConfig' instead." #-}
+
+instance Core.FromJSON AdditionalAuthenticationProvider where
+  toJSON AdditionalAuthenticationProvider {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("authenticationType" Core..=) Core.<$> authenticationType,
+            ("openIDConnectConfig" Core..=) Core.<$> openIDConnectConfig,
+            ("userPoolConfig" Core..=) Core.<$> userPoolConfig
           ]
       )
+
+instance Core.FromJSON AdditionalAuthenticationProvider where
+  parseJSON =
+    Core.withObject "AdditionalAuthenticationProvider" Core.$
+      \x ->
+        AdditionalAuthenticationProvider'
+          Core.<$> (x Core..:? "authenticationType")
+          Core.<*> (x Core..:? "openIDConnectConfig")
+          Core.<*> (x Core..:? "userPoolConfig")

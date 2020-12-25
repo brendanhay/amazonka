@@ -13,71 +13,73 @@
 module Network.AWS.OpsWorks.Types.AppType
   ( AppType
       ( AppType',
-        ATAWSFlowRuby,
-        ATJava,
-        ATRails,
-        ATPHP,
-        ATNodejs,
-        ATStatic,
-        ATOther
+        AppTypeAwsFlowRuby,
+        AppTypeJava,
+        AppTypeRails,
+        AppTypePhp,
+        AppTypeNodejs,
+        AppTypeStatic,
+        AppTypeOther,
+        fromAppType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AppType = AppType' Lude.Text
+newtype AppType = AppType' {fromAppType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATAWSFlowRuby :: AppType
-pattern ATAWSFlowRuby = AppType' "aws-flow-ruby"
+pattern AppTypeAwsFlowRuby :: AppType
+pattern AppTypeAwsFlowRuby = AppType' "aws-flow-ruby"
 
-pattern ATJava :: AppType
-pattern ATJava = AppType' "java"
+pattern AppTypeJava :: AppType
+pattern AppTypeJava = AppType' "java"
 
-pattern ATRails :: AppType
-pattern ATRails = AppType' "rails"
+pattern AppTypeRails :: AppType
+pattern AppTypeRails = AppType' "rails"
 
-pattern ATPHP :: AppType
-pattern ATPHP = AppType' "php"
+pattern AppTypePhp :: AppType
+pattern AppTypePhp = AppType' "php"
 
-pattern ATNodejs :: AppType
-pattern ATNodejs = AppType' "nodejs"
+pattern AppTypeNodejs :: AppType
+pattern AppTypeNodejs = AppType' "nodejs"
 
-pattern ATStatic :: AppType
-pattern ATStatic = AppType' "static"
+pattern AppTypeStatic :: AppType
+pattern AppTypeStatic = AppType' "static"
 
-pattern ATOther :: AppType
-pattern ATOther = AppType' "other"
+pattern AppTypeOther :: AppType
+pattern AppTypeOther = AppType' "other"
 
 {-# COMPLETE
-  ATAWSFlowRuby,
-  ATJava,
-  ATRails,
-  ATPHP,
-  ATNodejs,
-  ATStatic,
-  ATOther,
+  AppTypeAwsFlowRuby,
+  AppTypeJava,
+  AppTypeRails,
+  AppTypePhp,
+  AppTypeNodejs,
+  AppTypeStatic,
+  AppTypeOther,
   AppType'
   #-}

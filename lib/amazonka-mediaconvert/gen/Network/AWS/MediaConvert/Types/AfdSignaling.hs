@@ -13,52 +13,54 @@
 module Network.AWS.MediaConvert.Types.AfdSignaling
   ( AfdSignaling
       ( AfdSignaling',
-        ASNone,
-        ASAuto,
-        ASFixed
+        AfdSignalingNone,
+        AfdSignalingAuto,
+        AfdSignalingFixed,
+        fromAfdSignaling
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
-newtype AfdSignaling = AfdSignaling' Lude.Text
+newtype AfdSignaling = AfdSignaling' {fromAfdSignaling :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASNone :: AfdSignaling
-pattern ASNone = AfdSignaling' "NONE"
+pattern AfdSignalingNone :: AfdSignaling
+pattern AfdSignalingNone = AfdSignaling' "NONE"
 
-pattern ASAuto :: AfdSignaling
-pattern ASAuto = AfdSignaling' "AUTO"
+pattern AfdSignalingAuto :: AfdSignaling
+pattern AfdSignalingAuto = AfdSignaling' "AUTO"
 
-pattern ASFixed :: AfdSignaling
-pattern ASFixed = AfdSignaling' "FIXED"
+pattern AfdSignalingFixed :: AfdSignaling
+pattern AfdSignalingFixed = AfdSignaling' "FIXED"
 
 {-# COMPLETE
-  ASNone,
-  ASAuto,
-  ASFixed,
+  AfdSignalingNone,
+  AfdSignalingAuto,
+  AfdSignalingFixed,
   AfdSignaling'
   #-}

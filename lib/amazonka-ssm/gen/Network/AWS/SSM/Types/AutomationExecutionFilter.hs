@@ -17,59 +17,57 @@ module Network.AWS.SSM.Types.AutomationExecutionFilter
     mkAutomationExecutionFilter,
 
     -- * Lenses
-    aeffValues,
-    aeffKey,
+    aKey,
+    aValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.AutomationExecutionFilterKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AutomationExecutionFilterKey as Types
+import qualified Network.AWS.SSM.Types.AutomationExecutionFilterValue as Types
 
 -- | A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.
 --
 -- /See:/ 'mkAutomationExecutionFilter' smart constructor.
 data AutomationExecutionFilter = AutomationExecutionFilter'
-  { -- | The values used to limit the execution information associated with the filter's key.
-    values :: Lude.NonEmpty Lude.Text,
-    -- | One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
-    key :: AutomationExecutionFilterKey
+  { -- | One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
+    key :: Types.AutomationExecutionFilterKey,
+    -- | The values used to limit the execution information associated with the filter's key.
+    values :: Core.NonEmpty Types.AutomationExecutionFilterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutomationExecutionFilter' with the minimum fields required to make a request.
---
--- * 'values' - The values used to limit the execution information associated with the filter's key.
--- * 'key' - One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
+-- | Creates a 'AutomationExecutionFilter' value with any optional fields omitted.
 mkAutomationExecutionFilter ::
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
   -- | 'key'
-  AutomationExecutionFilterKey ->
+  Types.AutomationExecutionFilterKey ->
+  -- | 'values'
+  Core.NonEmpty Types.AutomationExecutionFilterValue ->
   AutomationExecutionFilter
-mkAutomationExecutionFilter pValues_ pKey_ =
-  AutomationExecutionFilter' {values = pValues_, key = pKey_}
-
--- | The values used to limit the execution information associated with the filter's key.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeffValues :: Lens.Lens' AutomationExecutionFilter (Lude.NonEmpty Lude.Text)
-aeffValues = Lens.lens (values :: AutomationExecutionFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: AutomationExecutionFilter)
-{-# DEPRECATED aeffValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkAutomationExecutionFilter key values =
+  AutomationExecutionFilter' {key, values}
 
 -- | One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeffKey :: Lens.Lens' AutomationExecutionFilter AutomationExecutionFilterKey
-aeffKey = Lens.lens (key :: AutomationExecutionFilter -> AutomationExecutionFilterKey) (\s a -> s {key = a} :: AutomationExecutionFilter)
-{-# DEPRECATED aeffKey "Use generic-lens or generic-optics with 'key' instead." #-}
+aKey :: Lens.Lens' AutomationExecutionFilter Types.AutomationExecutionFilterKey
+aKey = Lens.field @"key"
+{-# DEPRECATED aKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON AutomationExecutionFilter where
-  toJSON AutomationExecutionFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Key" Lude..= key)
+-- | The values used to limit the execution information associated with the filter's key.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aValues :: Lens.Lens' AutomationExecutionFilter (Core.NonEmpty Types.AutomationExecutionFilterValue)
+aValues = Lens.field @"values"
+{-# DEPRECATED aValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON AutomationExecutionFilter where
+  toJSON AutomationExecutionFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

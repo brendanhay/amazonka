@@ -13,56 +13,58 @@
 module Network.AWS.CloudDirectory.Types.ObjectType
   ( ObjectType
       ( ObjectType',
-        Node,
-        LeafNode,
-        Policy,
-        Index
+        ObjectTypeNode,
+        ObjectTypeLeafNode,
+        ObjectTypePolicy,
+        ObjectTypeIndex,
+        fromObjectType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ObjectType = ObjectType' Lude.Text
+newtype ObjectType = ObjectType' {fromObjectType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Node :: ObjectType
-pattern Node = ObjectType' "NODE"
+pattern ObjectTypeNode :: ObjectType
+pattern ObjectTypeNode = ObjectType' "NODE"
 
-pattern LeafNode :: ObjectType
-pattern LeafNode = ObjectType' "LEAF_NODE"
+pattern ObjectTypeLeafNode :: ObjectType
+pattern ObjectTypeLeafNode = ObjectType' "LEAF_NODE"
 
-pattern Policy :: ObjectType
-pattern Policy = ObjectType' "POLICY"
+pattern ObjectTypePolicy :: ObjectType
+pattern ObjectTypePolicy = ObjectType' "POLICY"
 
-pattern Index :: ObjectType
-pattern Index = ObjectType' "INDEX"
+pattern ObjectTypeIndex :: ObjectType
+pattern ObjectTypeIndex = ObjectType' "INDEX"
 
 {-# COMPLETE
-  Node,
-  LeafNode,
-  Policy,
-  Index,
+  ObjectTypeNode,
+  ObjectTypeLeafNode,
+  ObjectTypePolicy,
+  ObjectTypeIndex,
   ObjectType'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,10 +49,37 @@
 -- For information about costs that are associated with the AWS Budgets API, see <https://aws.amazon.com/aws-cost-management/pricing/ AWS Cost Management Pricing> .
 module Network.AWS.Budgets
   ( -- * Service configuration
-    budgetsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ExpiredNextTokenException
+    _ExpiredNextTokenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceLockedException
+    _ResourceLockedException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** DuplicateRecordException
+    _DuplicateRecordException,
+
+    -- ** CreationLimitExceededException
+    _CreationLimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -129,166 +155,17 @@ module Network.AWS.Budgets
 
     -- * Types
 
-    -- ** ActionStatus
-    ActionStatus (..),
+    -- ** InstanceId
+    InstanceId (..),
 
-    -- ** ActionSubType
-    ActionSubType (..),
-
-    -- ** ActionType
-    ActionType (..),
-
-    -- ** ApprovalModel
-    ApprovalModel (..),
-
-    -- ** BudgetType
-    BudgetType (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** ExecutionType
-    ExecutionType (..),
-
-    -- ** NotificationState
-    NotificationState (..),
-
-    -- ** NotificationType
-    NotificationType (..),
-
-    -- ** SubscriptionType
-    SubscriptionType (..),
-
-    -- ** ThresholdType
-    ThresholdType (..),
-
-    -- ** TimeUnit
-    TimeUnit (..),
-
-    -- ** Action
-    Action (..),
-    mkAction,
-    aStatus,
-    aDefinition,
-    aExecutionRoleARN,
-    aActionId,
-    aActionThreshold,
-    aBudgetName,
-    aNotificationType,
-    aApprovalModel,
-    aActionType,
-    aSubscribers,
-
-    -- ** ActionHistory
-    ActionHistory (..),
-    mkActionHistory,
-    ahStatus,
-    ahEventType,
-    ahActionHistoryDetails,
-    ahTimestamp,
-
-    -- ** ActionHistoryDetails
-    ActionHistoryDetails (..),
-    mkActionHistoryDetails,
-    ahdAction,
-    ahdMessage,
-
-    -- ** ActionThreshold
-    ActionThreshold (..),
-    mkActionThreshold,
-    atActionThresholdValue,
-    atActionThresholdType,
-
-    -- ** Budget
-    Budget (..),
-    mkBudget,
-    bCalculatedSpend,
-    bPlannedBudgetLimits,
-    bLastUpdatedTime,
-    bBudgetLimit,
-    bTimePeriod,
-    bTimeUnit,
-    bBudgetName,
-    bBudgetType,
-    bCostTypes,
-    bCostFilters,
-
-    -- ** BudgetPerformanceHistory
-    BudgetPerformanceHistory (..),
-    mkBudgetPerformanceHistory,
-    bphBudgetedAndActualAmountsList,
-    bphTimeUnit,
-    bphBudgetName,
-    bphBudgetType,
-    bphCostTypes,
-    bphCostFilters,
-
-    -- ** BudgetedAndActualAmounts
-    BudgetedAndActualAmounts (..),
-    mkBudgetedAndActualAmounts,
-    baaaTimePeriod,
-    baaaActualAmount,
-    baaaBudgetedAmount,
+    -- ** TargetId
+    TargetId (..),
 
     -- ** CalculatedSpend
     CalculatedSpend (..),
     mkCalculatedSpend,
-    csForecastedSpend,
     csActualSpend,
-
-    -- ** CostTypes
-    CostTypes (..),
-    mkCostTypes,
-    ctUseAmortized,
-    ctIncludeRecurring,
-    ctUseBlended,
-    ctIncludeSupport,
-    ctIncludeDiscount,
-    ctIncludeSubscription,
-    ctIncludeRefund,
-    ctIncludeUpfront,
-    ctIncludeOtherSubscription,
-    ctIncludeTax,
-    ctIncludeCredit,
-
-    -- ** Definition
-    Definition (..),
-    mkDefinition,
-    dScpActionDefinition,
-    dIAMActionDefinition,
-    dSsmActionDefinition,
-
-    -- ** IAMActionDefinition
-    IAMActionDefinition (..),
-    mkIAMActionDefinition,
-    iadGroups,
-    iadRoles,
-    iadUsers,
-    iadPolicyARN,
-
-    -- ** Notification
-    Notification (..),
-    mkNotification,
-    nThresholdType,
-    nComparisonOperator,
-    nThreshold,
-    nNotificationState,
-    nNotificationType,
-
-    -- ** NotificationWithSubscribers
-    NotificationWithSubscribers (..),
-    mkNotificationWithSubscribers,
-    nwsNotification,
-    nwsSubscribers,
-
-    -- ** ScpActionDefinition
-    ScpActionDefinition (..),
-    mkScpActionDefinition,
-    sadPolicyId,
-    sadTargetIds,
+    csForecastedSpend,
 
     -- ** Spend
     Spend (..),
@@ -296,12 +173,27 @@ module Network.AWS.Budgets
     sAmount,
     sUnit,
 
-    -- ** SsmActionDefinition
-    SsmActionDefinition (..),
-    mkSsmActionDefinition,
-    sadActionSubType,
-    sadInstanceIds,
-    sadRegion,
+    -- ** Group
+    Group (..),
+
+    -- ** BudgetPerformanceHistory
+    BudgetPerformanceHistory (..),
+    mkBudgetPerformanceHistory,
+    bphBudgetName,
+    bphBudgetType,
+    bphBudgetedAndActualAmountsList,
+    bphCostFilters,
+    bphCostTypes,
+    bphTimeUnit,
+
+    -- ** ThresholdType
+    ThresholdType (..),
+
+    -- ** ExecutionType
+    ExecutionType (..),
+
+    -- ** ActionSubType
+    ActionSubType (..),
 
     -- ** Subscriber
     Subscriber (..),
@@ -309,21 +201,204 @@ module Network.AWS.Budgets
     sSubscriptionType,
     sAddress,
 
+    -- ** Definition
+    Definition (..),
+    mkDefinition,
+    dIamActionDefinition,
+    dScpActionDefinition,
+    dSsmActionDefinition,
+
+    -- ** Notification
+    Notification (..),
+    mkNotification,
+    nNotificationType,
+    nComparisonOperator,
+    nThreshold,
+    nNotificationState,
+    nThresholdType,
+
+    -- ** PolicyId
+    PolicyId (..),
+
+    -- ** Budget
+    Budget (..),
+    mkBudget,
+    bBudgetName,
+    bTimeUnit,
+    bBudgetType,
+    bBudgetLimit,
+    bCalculatedSpend,
+    bCostFilters,
+    bCostTypes,
+    bLastUpdatedTime,
+    bPlannedBudgetLimits,
+    bTimePeriod,
+
     -- ** TimePeriod
     TimePeriod (..),
     mkTimePeriod,
-    tpStart,
     tpEnd,
+    tpStart,
+
+    -- ** ScpActionDefinition
+    ScpActionDefinition (..),
+    mkScpActionDefinition,
+    sadPolicyId,
+    sadTargetIds,
+
+    -- ** SubscriptionType
+    SubscriptionType (..),
+
+    -- ** ActionId
+    ActionId (..),
+
+    -- ** TimeUnit
+    TimeUnit (..),
+
+    -- ** Action
+    Action (..),
+    mkAction,
+    aActionId,
+    aBudgetName,
+    aNotificationType,
+    aActionType,
+    aActionThreshold,
+    aDefinition,
+    aExecutionRoleArn,
+    aApprovalModel,
+    aStatus,
+    aSubscribers,
+
+    -- ** IamActionDefinition
+    IamActionDefinition (..),
+    mkIamActionDefinition,
+    iadPolicyArn,
+    iadGroups,
+    iadRoles,
+    iadUsers,
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** User
+    User (..),
+
+    -- ** ActionThreshold
+    ActionThreshold (..),
+    mkActionThreshold,
+    atActionThresholdValue,
+    atActionThresholdType,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** GenericString
+    GenericString (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** ActionHistory
+    ActionHistory (..),
+    mkActionHistory,
+    ahTimestamp,
+    ahStatus,
+    ahEventType,
+    ahActionHistoryDetails,
+
+    -- ** Role
+    Role (..),
+
+    -- ** NotificationState
+    NotificationState (..),
+
+    -- ** BudgetName
+    BudgetName (..),
+
+    -- ** ActionStatus
+    ActionStatus (..),
+
+    -- ** BudgetType
+    BudgetType (..),
+
+    -- ** PolicyArn
+    PolicyArn (..),
+
+    -- ** NotificationType
+    NotificationType (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** CostTypes
+    CostTypes (..),
+    mkCostTypes,
+    ctIncludeCredit,
+    ctIncludeDiscount,
+    ctIncludeOtherSubscription,
+    ctIncludeRecurring,
+    ctIncludeRefund,
+    ctIncludeSubscription,
+    ctIncludeSupport,
+    ctIncludeTax,
+    ctIncludeUpfront,
+    ctUseAmortized,
+    ctUseBlended,
+
+    -- ** ApprovalModel
+    ApprovalModel (..),
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** ActionHistoryDetails
+    ActionHistoryDetails (..),
+    mkActionHistoryDetails,
+    ahdMessage,
+    ahdAction,
+
+    -- ** SsmActionDefinition
+    SsmActionDefinition (..),
+    mkSsmActionDefinition,
+    sadActionSubType,
+    sadRegion,
+    sadInstanceIds,
+
+    -- ** BudgetedAndActualAmounts
+    BudgetedAndActualAmounts (..),
+    mkBudgetedAndActualAmounts,
+    baaaActualAmount,
+    baaaBudgetedAmount,
+    baaaTimePeriod,
+
+    -- ** NotificationWithSubscribers
+    NotificationWithSubscribers (..),
+    mkNotificationWithSubscribers,
+    nwsNotification,
+    nwsSubscribers,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Amount
+    Amount (..),
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** Address
+    Address (..),
+
+    -- ** ExecutionRoleArn
+    ExecutionRoleArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

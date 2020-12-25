@@ -20,139 +20,119 @@ module Network.AWS.SSM.UpdateResourceDataSync
     mkUpdateResourceDataSync,
 
     -- ** Request lenses
+    urdsSyncName,
     urdsSyncType,
     urdsSyncSource,
-    urdsSyncName,
 
     -- * Destructuring the response
     UpdateResourceDataSyncResponse (..),
     mkUpdateResourceDataSyncResponse,
 
     -- ** Response lenses
-    urdsrsResponseStatus,
+    urdsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkUpdateResourceDataSync' smart constructor.
 data UpdateResourceDataSync = UpdateResourceDataSync'
-  { -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
-    syncType :: Lude.Text,
+  { -- | The name of the resource data sync you want to update.
+    syncName :: Types.SyncName,
+    -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
+    syncType :: Types.SyncType,
     -- | Specify information about the data sources to synchronize.
-    syncSource :: ResourceDataSyncSource,
-    -- | The name of the resource data sync you want to update.
-    syncName :: Lude.Text
+    syncSource :: Types.ResourceDataSyncSource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateResourceDataSync' with the minimum fields required to make a request.
---
--- * 'syncType' - The type of resource data sync. The supported @SyncType@ is SyncFromSource.
--- * 'syncSource' - Specify information about the data sources to synchronize.
--- * 'syncName' - The name of the resource data sync you want to update.
+-- | Creates a 'UpdateResourceDataSync' value with any optional fields omitted.
 mkUpdateResourceDataSync ::
-  -- | 'syncType'
-  Lude.Text ->
-  -- | 'syncSource'
-  ResourceDataSyncSource ->
   -- | 'syncName'
-  Lude.Text ->
+  Types.SyncName ->
+  -- | 'syncType'
+  Types.SyncType ->
+  -- | 'syncSource'
+  Types.ResourceDataSyncSource ->
   UpdateResourceDataSync
-mkUpdateResourceDataSync pSyncType_ pSyncSource_ pSyncName_ =
-  UpdateResourceDataSync'
-    { syncType = pSyncType_,
-      syncSource = pSyncSource_,
-      syncName = pSyncName_
-    }
+mkUpdateResourceDataSync syncName syncType syncSource =
+  UpdateResourceDataSync' {syncName, syncType, syncSource}
+
+-- | The name of the resource data sync you want to update.
+--
+-- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdsSyncName :: Lens.Lens' UpdateResourceDataSync Types.SyncName
+urdsSyncName = Lens.field @"syncName"
+{-# DEPRECATED urdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
 -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
 --
 -- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdsSyncType :: Lens.Lens' UpdateResourceDataSync Lude.Text
-urdsSyncType = Lens.lens (syncType :: UpdateResourceDataSync -> Lude.Text) (\s a -> s {syncType = a} :: UpdateResourceDataSync)
+urdsSyncType :: Lens.Lens' UpdateResourceDataSync Types.SyncType
+urdsSyncType = Lens.field @"syncType"
 {-# DEPRECATED urdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
 
 -- | Specify information about the data sources to synchronize.
 --
 -- /Note:/ Consider using 'syncSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdsSyncSource :: Lens.Lens' UpdateResourceDataSync ResourceDataSyncSource
-urdsSyncSource = Lens.lens (syncSource :: UpdateResourceDataSync -> ResourceDataSyncSource) (\s a -> s {syncSource = a} :: UpdateResourceDataSync)
+urdsSyncSource :: Lens.Lens' UpdateResourceDataSync Types.ResourceDataSyncSource
+urdsSyncSource = Lens.field @"syncSource"
 {-# DEPRECATED urdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
 
--- | The name of the resource data sync you want to update.
---
--- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdsSyncName :: Lens.Lens' UpdateResourceDataSync Lude.Text
-urdsSyncName = Lens.lens (syncName :: UpdateResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: UpdateResourceDataSync)
-{-# DEPRECATED urdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
+instance Core.FromJSON UpdateResourceDataSync where
+  toJSON UpdateResourceDataSync {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SyncName" Core..= syncName),
+            Core.Just ("SyncType" Core..= syncType),
+            Core.Just ("SyncSource" Core..= syncSource)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateResourceDataSync where
+instance Core.AWSRequest UpdateResourceDataSync where
   type Rs UpdateResourceDataSync = UpdateResourceDataSyncResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.UpdateResourceDataSync")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDataSyncResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateResourceDataSync where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.UpdateResourceDataSync" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateResourceDataSync where
-  toJSON UpdateResourceDataSync' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SyncType" Lude..= syncType),
-            Lude.Just ("SyncSource" Lude..= syncSource),
-            Lude.Just ("SyncName" Lude..= syncName)
-          ]
-      )
-
-instance Lude.ToPath UpdateResourceDataSync where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateResourceDataSync where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateResourceDataSyncResponse' smart constructor.
 newtype UpdateResourceDataSyncResponse = UpdateResourceDataSyncResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateResourceDataSyncResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateResourceDataSyncResponse' value with any optional fields omitted.
 mkUpdateResourceDataSyncResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateResourceDataSyncResponse
-mkUpdateResourceDataSyncResponse pResponseStatus_ =
-  UpdateResourceDataSyncResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateResourceDataSyncResponse responseStatus =
+  UpdateResourceDataSyncResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdsrsResponseStatus :: Lens.Lens' UpdateResourceDataSyncResponse Lude.Int
-urdsrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceDataSyncResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResourceDataSyncResponse)
-{-# DEPRECATED urdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urdsrrsResponseStatus :: Lens.Lens' UpdateResourceDataSyncResponse Core.Int
+urdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

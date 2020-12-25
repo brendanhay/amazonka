@@ -20,8 +20,8 @@ module Network.AWS.CloudFront.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urTagKeys,
     urResource,
+    urTagKeys,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
@@ -29,78 +29,69 @@ module Network.AWS.CloudFront.UntagResource
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to remove tags from a CloudFront resource.
 --
 -- /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | A complex type that contains zero or more @Tag@ key elements.
-    tagKeys :: TagKeys,
-    -- | An ARN of a CloudFront resource.
-    resource :: Lude.Text
+  { -- | An ARN of a CloudFront resource.
+    resource :: Types.ResourceARN,
+    -- | A complex type that contains zero or more @Tag@ key elements.
+    tagKeys :: Types.TagKeys
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'tagKeys' - A complex type that contains zero or more @Tag@ key elements.
--- * 'resource' - An ARN of a CloudFront resource.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
-  -- | 'tagKeys'
-  TagKeys ->
   -- | 'resource'
-  Lude.Text ->
+  Types.ResourceARN ->
+  -- | 'tagKeys'
+  Types.TagKeys ->
   UntagResource
-mkUntagResource pTagKeys_ pResource_ =
-  UntagResource' {tagKeys = pTagKeys_, resource = pResource_}
-
--- | A complex type that contains zero or more @Tag@ key elements.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource TagKeys
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> TagKeys) (\s a -> s {tagKeys = a} :: UntagResource)
-{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+mkUntagResource resource tagKeys =
+  UntagResource' {resource, tagKeys}
 
 -- | An ARN of a CloudFront resource.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResource :: Lens.Lens' UntagResource Lude.Text
-urResource = Lens.lens (resource :: UntagResource -> Lude.Text) (\s a -> s {resource = a} :: UntagResource)
+urResource :: Lens.Lens' UntagResource Types.ResourceARN
+urResource = Lens.field @"resource"
 {-# DEPRECATED urResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.AWSRequest UntagResource where
+-- | A complex type that contains zero or more @Tag@ key elements.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeys :: Lens.Lens' UntagResource Types.TagKeys
+urTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postXML cloudFrontService
-  response = Res.receiveNull UntagResourceResponse'
-
-instance Lude.ToElement UntagResource where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}TagKeys"
-      Lude.. tagKeys
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/2020-05-31/tagging"
-
-instance Lude.ToQuery UntagResource where
-  toQuery UntagResource' {..} =
-    Lude.mconcat ["Resource" Lude.=: resource, "Operation=Untag"]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2020-05-31/tagging",
+        Core._rqQuery =
+          Core.toQueryValue "Resource" resource
+            Core.<> (Core.pure ("Operation=Untag", "")),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response = Response.receiveNull UntagResourceResponse'
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   UntagResourceResponse
 mkUntagResourceResponse = UntagResourceResponse'

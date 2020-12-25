@@ -20,7 +20,7 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     mkDeleteDBSecurityGroup,
 
     -- ** Request lenses
-    ddsgDBSecurityGroupName,
+    ddbsgDBSecurityGroupName,
 
     -- * Destructuring the response
     DeleteDBSecurityGroupResponse (..),
@@ -29,10 +29,10 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -52,36 +52,18 @@ newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
     --
     --
     --     * Must not be "Default"
-    dbSecurityGroupName :: Lude.Text
+    dBSecurityGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDBSecurityGroup' with the minimum fields required to make a request.
---
--- * 'dbSecurityGroupName' - The name of the DB security group to delete.
---
--- Constraints:
---
---     * Must be 1 to 255 letters, numbers, or hyphens.
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
---
---
---     * Must not be "Default"
+-- | Creates a 'DeleteDBSecurityGroup' value with any optional fields omitted.
 mkDeleteDBSecurityGroup ::
-  -- | 'dbSecurityGroupName'
-  Lude.Text ->
+  -- | 'dBSecurityGroupName'
+  Types.String ->
   DeleteDBSecurityGroup
-mkDeleteDBSecurityGroup pDBSecurityGroupName_ =
-  DeleteDBSecurityGroup'
-    { dbSecurityGroupName =
-        pDBSecurityGroupName_
-    }
+mkDeleteDBSecurityGroup dBSecurityGroupName =
+  DeleteDBSecurityGroup' {dBSecurityGroupName}
 
 -- | The name of the DB security group to delete.
 --
@@ -100,36 +82,39 @@ mkDeleteDBSecurityGroup pDBSecurityGroupName_ =
 --
 --
 --
--- /Note:/ Consider using 'dbSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsgDBSecurityGroupName :: Lens.Lens' DeleteDBSecurityGroup Lude.Text
-ddsgDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: DeleteDBSecurityGroup -> Lude.Text) (\s a -> s {dbSecurityGroupName = a} :: DeleteDBSecurityGroup)
-{-# DEPRECATED ddsgDBSecurityGroupName "Use generic-lens or generic-optics with 'dbSecurityGroupName' instead." #-}
+-- /Note:/ Consider using 'dBSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsgDBSecurityGroupName :: Lens.Lens' DeleteDBSecurityGroup Types.String
+ddbsgDBSecurityGroupName = Lens.field @"dBSecurityGroupName"
+{-# DEPRECATED ddbsgDBSecurityGroupName "Use generic-lens or generic-optics with 'dBSecurityGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteDBSecurityGroup where
+instance Core.AWSRequest DeleteDBSecurityGroup where
   type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse
-  request = Req.postQuery rdsService
-  response = Res.receiveNull DeleteDBSecurityGroupResponse'
-
-instance Lude.ToHeaders DeleteDBSecurityGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDBSecurityGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDBSecurityGroup where
-  toQuery DeleteDBSecurityGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteDBSecurityGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBSecurityGroupName" Lude.=: dbSecurityGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteDBSecurityGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSecurityGroupName" dBSecurityGroupName)
+            )
+      }
+  response = Response.receiveNull DeleteDBSecurityGroupResponse'
 
 -- | /See:/ 'mkDeleteDBSecurityGroupResponse' smart constructor.
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDBSecurityGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteDBSecurityGroupResponse' value with any optional fields omitted.
 mkDeleteDBSecurityGroupResponse ::
   DeleteDBSecurityGroupResponse
 mkDeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'

@@ -20,187 +20,175 @@ module Network.AWS.IoT.UpdateDimension
     mkUpdateDimension,
 
     -- ** Request lenses
-    udStringValues,
     udName,
+    udStringValues,
 
     -- * Destructuring the response
     UpdateDimensionResponse (..),
     mkUpdateDimensionResponse,
 
     -- ** Response lenses
-    udrsLastModifiedDate,
-    udrsArn,
-    udrsStringValues,
-    udrsName,
-    udrsCreationDate,
-    udrsType,
-    udrsResponseStatus,
+    udrrsArn,
+    udrrsCreationDate,
+    udrrsLastModifiedDate,
+    udrrsName,
+    udrrsStringValues,
+    udrrsType,
+    udrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDimension' smart constructor.
 data UpdateDimension = UpdateDimension'
-  { -- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
-    stringValues :: Lude.NonEmpty Lude.Text,
-    -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
-    name :: Lude.Text
+  { -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+    name :: Types.Name,
+    -- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
+    stringValues :: Core.NonEmpty Types.DimensionStringValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDimension' with the minimum fields required to make a request.
---
--- * 'stringValues' - Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
--- * 'name' - A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+-- | Creates a 'UpdateDimension' value with any optional fields omitted.
 mkUpdateDimension ::
-  -- | 'stringValues'
-  Lude.NonEmpty Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'stringValues'
+  Core.NonEmpty Types.DimensionStringValue ->
   UpdateDimension
-mkUpdateDimension pStringValues_ pName_ =
-  UpdateDimension' {stringValues = pStringValues_, name = pName_}
-
--- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
---
--- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udStringValues :: Lens.Lens' UpdateDimension (Lude.NonEmpty Lude.Text)
-udStringValues = Lens.lens (stringValues :: UpdateDimension -> Lude.NonEmpty Lude.Text) (\s a -> s {stringValues = a} :: UpdateDimension)
-{-# DEPRECATED udStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
+mkUpdateDimension name stringValues =
+  UpdateDimension' {name, stringValues}
 
 -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udName :: Lens.Lens' UpdateDimension Lude.Text
-udName = Lens.lens (name :: UpdateDimension -> Lude.Text) (\s a -> s {name = a} :: UpdateDimension)
+udName :: Lens.Lens' UpdateDimension Types.Name
+udName = Lens.field @"name"
 {-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateDimension where
+-- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
+--
+-- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udStringValues :: Lens.Lens' UpdateDimension (Core.NonEmpty Types.DimensionStringValue)
+udStringValues = Lens.field @"stringValues"
+{-# DEPRECATED udStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
+
+instance Core.FromJSON UpdateDimension where
+  toJSON UpdateDimension {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("stringValues" Core..= stringValues)])
+
+instance Core.AWSRequest UpdateDimension where
   type Rs UpdateDimension = UpdateDimensionResponse
-  request = Req.patchJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath ("/dimensions/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateDimensionResponse'
-            Lude.<$> (x Lude..?> "lastModifiedDate")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "stringValues")
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "creationDate")
-            Lude.<*> (x Lude..?> "type")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "creationDate")
+            Core.<*> (x Core..:? "lastModifiedDate")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "stringValues")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDimension where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateDimension where
-  toJSON UpdateDimension' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("stringValues" Lude..= stringValues)])
-
-instance Lude.ToPath UpdateDimension where
-  toPath UpdateDimension' {..} =
-    Lude.mconcat ["/dimensions/", Lude.toBS name]
-
-instance Lude.ToQuery UpdateDimension where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateDimensionResponse' smart constructor.
 data UpdateDimensionResponse = UpdateDimensionResponse'
-  { -- | The date and time, in milliseconds since epoch, when the dimension was most recently updated.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The ARN (Amazon resource name) of the created dimension.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
-    stringValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | A unique identifier for the dimension.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The ARN (Amazon resource name) of the created dimension.
+    arn :: Core.Maybe Types.Arn,
     -- | The date and time, in milliseconds since epoch, when the dimension was initially created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+    creationDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The date and time, in milliseconds since epoch, when the dimension was most recently updated.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | A unique identifier for the dimension.
+    name :: Core.Maybe Types.Name,
+    -- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+    stringValues :: Core.Maybe (Core.NonEmpty Types.DimensionStringValue),
     -- | The type of the dimension.
-    type' :: Lude.Maybe DimensionType,
+    type' :: Core.Maybe Types.DimensionType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateDimensionResponse' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - The date and time, in milliseconds since epoch, when the dimension was most recently updated.
--- * 'arn' - The ARN (Amazon resource name) of the created dimension.
--- * 'stringValues' - The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
--- * 'name' - A unique identifier for the dimension.
--- * 'creationDate' - The date and time, in milliseconds since epoch, when the dimension was initially created.
--- * 'type'' - The type of the dimension.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDimensionResponse' value with any optional fields omitted.
 mkUpdateDimensionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDimensionResponse
-mkUpdateDimensionResponse pResponseStatus_ =
+mkUpdateDimensionResponse responseStatus =
   UpdateDimensionResponse'
-    { lastModifiedDate = Lude.Nothing,
-      arn = Lude.Nothing,
-      stringValues = Lude.Nothing,
-      name = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      type' = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationDate = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      name = Core.Nothing,
+      stringValues = Core.Nothing,
+      type' = Core.Nothing,
+      responseStatus
     }
-
--- | The date and time, in milliseconds since epoch, when the dimension was most recently updated.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsLastModifiedDate :: Lens.Lens' UpdateDimensionResponse (Lude.Maybe Lude.Timestamp)
-udrsLastModifiedDate = Lens.lens (lastModifiedDate :: UpdateDimensionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The ARN (Amazon resource name) of the created dimension.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsArn :: Lens.Lens' UpdateDimensionResponse (Lude.Maybe Lude.Text)
-udrsArn = Lens.lens (arn :: UpdateDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
---
--- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsStringValues :: Lens.Lens' UpdateDimensionResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-udrsStringValues = Lens.lens (stringValues :: UpdateDimensionResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {stringValues = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
-
--- | A unique identifier for the dimension.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsName :: Lens.Lens' UpdateDimensionResponse (Lude.Maybe Lude.Text)
-udrsName = Lens.lens (name :: UpdateDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+udrrsArn :: Lens.Lens' UpdateDimensionResponse (Core.Maybe Types.Arn)
+udrrsArn = Lens.field @"arn"
+{-# DEPRECATED udrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time, in milliseconds since epoch, when the dimension was initially created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsCreationDate :: Lens.Lens' UpdateDimensionResponse (Lude.Maybe Lude.Timestamp)
-udrsCreationDate = Lens.lens (creationDate :: UpdateDimensionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+udrrsCreationDate :: Lens.Lens' UpdateDimensionResponse (Core.Maybe Core.NominalDiffTime)
+udrrsCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED udrrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The date and time, in milliseconds since epoch, when the dimension was most recently updated.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrrsLastModifiedDate :: Lens.Lens' UpdateDimensionResponse (Core.Maybe Core.NominalDiffTime)
+udrrsLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED udrrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | A unique identifier for the dimension.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrrsName :: Lens.Lens' UpdateDimensionResponse (Core.Maybe Types.Name)
+udrrsName = Lens.field @"name"
+{-# DEPRECATED udrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+--
+-- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrrsStringValues :: Lens.Lens' UpdateDimensionResponse (Core.Maybe (Core.NonEmpty Types.DimensionStringValue))
+udrrsStringValues = Lens.field @"stringValues"
+{-# DEPRECATED udrrsStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
 
 -- | The type of the dimension.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsType :: Lens.Lens' UpdateDimensionResponse (Lude.Maybe DimensionType)
-udrsType = Lens.lens (type' :: UpdateDimensionResponse -> Lude.Maybe DimensionType) (\s a -> s {type' = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+udrrsType :: Lens.Lens' UpdateDimensionResponse (Core.Maybe Types.DimensionType)
+udrrsType = Lens.field @"type'"
+{-# DEPRECATED udrrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsResponseStatus :: Lens.Lens' UpdateDimensionResponse Lude.Int
-udrsResponseStatus = Lens.lens (responseStatus :: UpdateDimensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDimensionResponse)
-{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udrrsResponseStatus :: Lens.Lens' UpdateDimensionResponse Core.Int
+udrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

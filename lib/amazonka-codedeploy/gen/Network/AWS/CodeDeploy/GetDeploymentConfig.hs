@@ -27,118 +27,104 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     mkGetDeploymentConfigResponse,
 
     -- ** Response lenses
-    gdcrsDeploymentConfigInfo,
-    gdcrsResponseStatus,
+    gdcrrsDeploymentConfigInfo,
+    gdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetDeploymentConfig@ operation.
 --
 -- /See:/ 'mkGetDeploymentConfig' smart constructor.
 newtype GetDeploymentConfig = GetDeploymentConfig'
   { -- | The name of a deployment configuration associated with the IAM user or AWS account.
-    deploymentConfigName :: Lude.Text
+    deploymentConfigName :: Types.DeploymentConfigName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDeploymentConfig' with the minimum fields required to make a request.
---
--- * 'deploymentConfigName' - The name of a deployment configuration associated with the IAM user or AWS account.
+-- | Creates a 'GetDeploymentConfig' value with any optional fields omitted.
 mkGetDeploymentConfig ::
   -- | 'deploymentConfigName'
-  Lude.Text ->
+  Types.DeploymentConfigName ->
   GetDeploymentConfig
-mkGetDeploymentConfig pDeploymentConfigName_ =
-  GetDeploymentConfig'
-    { deploymentConfigName =
-        pDeploymentConfigName_
-    }
+mkGetDeploymentConfig deploymentConfigName =
+  GetDeploymentConfig' {deploymentConfigName}
 
 -- | The name of a deployment configuration associated with the IAM user or AWS account.
 --
 -- /Note:/ Consider using 'deploymentConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcDeploymentConfigName :: Lens.Lens' GetDeploymentConfig Lude.Text
-gdcDeploymentConfigName = Lens.lens (deploymentConfigName :: GetDeploymentConfig -> Lude.Text) (\s a -> s {deploymentConfigName = a} :: GetDeploymentConfig)
+gdcDeploymentConfigName :: Lens.Lens' GetDeploymentConfig Types.DeploymentConfigName
+gdcDeploymentConfigName = Lens.field @"deploymentConfigName"
 {-# DEPRECATED gdcDeploymentConfigName "Use generic-lens or generic-optics with 'deploymentConfigName' instead." #-}
 
-instance Lude.AWSRequest GetDeploymentConfig where
+instance Core.FromJSON GetDeploymentConfig where
+  toJSON GetDeploymentConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("deploymentConfigName" Core..= deploymentConfigName)]
+      )
+
+instance Core.AWSRequest GetDeploymentConfig where
   type Rs GetDeploymentConfig = GetDeploymentConfigResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.GetDeploymentConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDeploymentConfigResponse'
-            Lude.<$> (x Lude..?> "deploymentConfigInfo")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deploymentConfigInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDeploymentConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.GetDeploymentConfig" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDeploymentConfig where
-  toJSON GetDeploymentConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("deploymentConfigName" Lude..= deploymentConfigName)]
-      )
-
-instance Lude.ToPath GetDeploymentConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDeploymentConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetDeploymentConfig@ operation.
 --
 -- /See:/ 'mkGetDeploymentConfigResponse' smart constructor.
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
   { -- | Information about the deployment configuration.
-    deploymentConfigInfo :: Lude.Maybe DeploymentConfigInfo,
+    deploymentConfigInfo :: Core.Maybe Types.DeploymentConfigInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDeploymentConfigResponse' with the minimum fields required to make a request.
---
--- * 'deploymentConfigInfo' - Information about the deployment configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDeploymentConfigResponse' value with any optional fields omitted.
 mkGetDeploymentConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDeploymentConfigResponse
-mkGetDeploymentConfigResponse pResponseStatus_ =
+mkGetDeploymentConfigResponse responseStatus =
   GetDeploymentConfigResponse'
-    { deploymentConfigInfo = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deploymentConfigInfo = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the deployment configuration.
 --
 -- /Note:/ Consider using 'deploymentConfigInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsDeploymentConfigInfo :: Lens.Lens' GetDeploymentConfigResponse (Lude.Maybe DeploymentConfigInfo)
-gdcrsDeploymentConfigInfo = Lens.lens (deploymentConfigInfo :: GetDeploymentConfigResponse -> Lude.Maybe DeploymentConfigInfo) (\s a -> s {deploymentConfigInfo = a} :: GetDeploymentConfigResponse)
-{-# DEPRECATED gdcrsDeploymentConfigInfo "Use generic-lens or generic-optics with 'deploymentConfigInfo' instead." #-}
+gdcrrsDeploymentConfigInfo :: Lens.Lens' GetDeploymentConfigResponse (Core.Maybe Types.DeploymentConfigInfo)
+gdcrrsDeploymentConfigInfo = Lens.field @"deploymentConfigInfo"
+{-# DEPRECATED gdcrrsDeploymentConfigInfo "Use generic-lens or generic-optics with 'deploymentConfigInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsResponseStatus :: Lens.Lens' GetDeploymentConfigResponse Lude.Int
-gdcrsResponseStatus = Lens.lens (responseStatus :: GetDeploymentConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeploymentConfigResponse)
-{-# DEPRECATED gdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdcrrsResponseStatus :: Lens.Lens' GetDeploymentConfigResponse Core.Int
+gdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

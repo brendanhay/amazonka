@@ -17,63 +17,55 @@ module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
     mkNodeToNodeEncryptionOptionsStatus,
 
     -- * Lenses
-    ntneosStatus,
     ntneosOptions,
+    ntneosStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions as Types
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Status of the node-to-node encryption options for the specified Elasticsearch domain.
 --
 -- /See:/ 'mkNodeToNodeEncryptionOptionsStatus' smart constructor.
 data NodeToNodeEncryptionOptionsStatus = NodeToNodeEncryptionOptionsStatus'
-  { -- | Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
-    status :: OptionStatus,
-    -- | Specifies the node-to-node encryption options for the specified Elasticsearch domain.
-    options :: NodeToNodeEncryptionOptions
+  { -- | Specifies the node-to-node encryption options for the specified Elasticsearch domain.
+    options :: Types.NodeToNodeEncryptionOptions,
+    -- | Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NodeToNodeEncryptionOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
--- * 'options' - Specifies the node-to-node encryption options for the specified Elasticsearch domain.
+-- | Creates a 'NodeToNodeEncryptionOptionsStatus' value with any optional fields omitted.
 mkNodeToNodeEncryptionOptionsStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  NodeToNodeEncryptionOptions ->
+  Types.NodeToNodeEncryptionOptions ->
+  -- | 'status'
+  Types.OptionStatus ->
   NodeToNodeEncryptionOptionsStatus
-mkNodeToNodeEncryptionOptionsStatus pStatus_ pOptions_ =
-  NodeToNodeEncryptionOptionsStatus'
-    { status = pStatus_,
-      options = pOptions_
-    }
-
--- | Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ntneosStatus :: Lens.Lens' NodeToNodeEncryptionOptionsStatus OptionStatus
-ntneosStatus = Lens.lens (status :: NodeToNodeEncryptionOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: NodeToNodeEncryptionOptionsStatus)
-{-# DEPRECATED ntneosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkNodeToNodeEncryptionOptionsStatus options status =
+  NodeToNodeEncryptionOptionsStatus' {options, status}
 
 -- | Specifies the node-to-node encryption options for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ntneosOptions :: Lens.Lens' NodeToNodeEncryptionOptionsStatus NodeToNodeEncryptionOptions
-ntneosOptions = Lens.lens (options :: NodeToNodeEncryptionOptionsStatus -> NodeToNodeEncryptionOptions) (\s a -> s {options = a} :: NodeToNodeEncryptionOptionsStatus)
+ntneosOptions :: Lens.Lens' NodeToNodeEncryptionOptionsStatus Types.NodeToNodeEncryptionOptions
+ntneosOptions = Lens.field @"options"
 {-# DEPRECATED ntneosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON NodeToNodeEncryptionOptionsStatus where
+-- | Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntneosStatus :: Lens.Lens' NodeToNodeEncryptionOptionsStatus Types.OptionStatus
+ntneosStatus = Lens.field @"status"
+{-# DEPRECATED ntneosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON NodeToNodeEncryptionOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "NodeToNodeEncryptionOptionsStatus"
-      ( \x ->
-          NodeToNodeEncryptionOptionsStatus'
-            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
-      )
+    Core.withObject "NodeToNodeEncryptionOptionsStatus" Core.$
+      \x ->
+        NodeToNodeEncryptionOptionsStatus'
+          Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")

@@ -27,112 +27,100 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     mkDeleteSnapshotResponse,
 
     -- ** Response lenses
-    dsrsSnapshotId,
-    dsrsResponseStatus,
+    dsrfrsSnapshotId,
+    dsrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'DeleteSnapshot' operation.
 --
 -- /See:/ 'mkDeleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
   { -- | The identifier of the directory snapshot to be deleted.
-    snapshotId :: Lude.Text
+    snapshotId :: Types.SnapshotId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
---
--- * 'snapshotId' - The identifier of the directory snapshot to be deleted.
+-- | Creates a 'DeleteSnapshot' value with any optional fields omitted.
 mkDeleteSnapshot ::
   -- | 'snapshotId'
-  Lude.Text ->
+  Types.SnapshotId ->
   DeleteSnapshot
-mkDeleteSnapshot pSnapshotId_ =
-  DeleteSnapshot' {snapshotId = pSnapshotId_}
+mkDeleteSnapshot snapshotId = DeleteSnapshot' {snapshotId}
 
 -- | The identifier of the directory snapshot to be deleted.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSnapshotId :: Lens.Lens' DeleteSnapshot Lude.Text
-dsSnapshotId = Lens.lens (snapshotId :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotId = a} :: DeleteSnapshot)
+dsSnapshotId :: Lens.Lens' DeleteSnapshot Types.SnapshotId
+dsSnapshotId = Lens.field @"snapshotId"
 {-# DEPRECATED dsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance Lude.AWSRequest DeleteSnapshot where
+instance Core.FromJSON DeleteSnapshot where
+  toJSON DeleteSnapshot {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SnapshotId" Core..= snapshotId)])
+
+instance Core.AWSRequest DeleteSnapshot where
   type Rs DeleteSnapshot = DeleteSnapshotResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.DeleteSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSnapshotResponse'
-            Lude.<$> (x Lude..?> "SnapshotId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SnapshotId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.DeleteSnapshot" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSnapshot where
-  toJSON DeleteSnapshot' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SnapshotId" Lude..= snapshotId)])
-
-instance Lude.ToPath DeleteSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'DeleteSnapshot' operation.
 --
 -- /See:/ 'mkDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
   { -- | The identifier of the directory snapshot that was deleted.
-    snapshotId :: Lude.Maybe Lude.Text,
+    snapshotId :: Core.Maybe Types.SnapshotId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'snapshotId' - The identifier of the directory snapshot that was deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSnapshotResponse' value with any optional fields omitted.
 mkDeleteSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSnapshotResponse
-mkDeleteSnapshotResponse pResponseStatus_ =
+mkDeleteSnapshotResponse responseStatus =
   DeleteSnapshotResponse'
-    { snapshotId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { snapshotId = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the directory snapshot that was deleted.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSnapshotId :: Lens.Lens' DeleteSnapshotResponse (Lude.Maybe Lude.Text)
-dsrsSnapshotId = Lens.lens (snapshotId :: DeleteSnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: DeleteSnapshotResponse)
-{-# DEPRECATED dsrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+dsrfrsSnapshotId :: Lens.Lens' DeleteSnapshotResponse (Core.Maybe Types.SnapshotId)
+dsrfrsSnapshotId = Lens.field @"snapshotId"
+{-# DEPRECATED dsrfrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteSnapshotResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSnapshotResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrfrsResponseStatus :: Lens.Lens' DeleteSnapshotResponse Core.Int
+dsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

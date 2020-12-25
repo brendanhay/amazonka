@@ -20,83 +20,66 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     mkDescribeEnvironmentHealth,
 
     -- ** Request lenses
-    dehEnvironmentName,
     dehAttributeNames,
     dehEnvironmentId,
+    dehEnvironmentName,
 
     -- * Destructuring the response
     DescribeEnvironmentHealthResponse (..),
     mkDescribeEnvironmentHealthResponse,
 
     -- ** Response lenses
-    dehrsStatus,
-    dehrsCauses,
-    dehrsApplicationMetrics,
-    dehrsColor,
-    dehrsEnvironmentName,
-    dehrsHealthStatus,
-    dehrsInstancesHealth,
-    dehrsRefreshedAt,
-    dehrsResponseStatus,
+    dehrrsApplicationMetrics,
+    dehrrsCauses,
+    dehrrsColor,
+    dehrrsEnvironmentName,
+    dehrrsHealthStatus,
+    dehrrsInstancesHealth,
+    dehrrsRefreshedAt,
+    dehrrsStatus,
+    dehrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | See the example below to learn how to create a request body.
 --
 -- /See:/ 'mkDescribeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
-  { -- | Specify the environment by name.
-    --
-    -- You must specify either this or an EnvironmentName, or both.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
-    attributeNames :: Lude.Maybe [EnvironmentHealthAttribute],
+  { -- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
+    attributeNames :: Core.Maybe [Types.EnvironmentHealthAttribute],
     -- | Specify the environment by ID.
     --
     -- You must specify either this or an EnvironmentName, or both.
-    environmentId :: Lude.Maybe Lude.Text
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | Specify the environment by name.
+    --
+    -- You must specify either this or an EnvironmentName, or both.
+    environmentName :: Core.Maybe Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentHealth' with the minimum fields required to make a request.
---
--- * 'environmentName' - Specify the environment by name.
---
--- You must specify either this or an EnvironmentName, or both.
--- * 'attributeNames' - Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
--- * 'environmentId' - Specify the environment by ID.
---
--- You must specify either this or an EnvironmentName, or both.
+-- | Creates a 'DescribeEnvironmentHealth' value with any optional fields omitted.
 mkDescribeEnvironmentHealth ::
   DescribeEnvironmentHealth
 mkDescribeEnvironmentHealth =
   DescribeEnvironmentHealth'
-    { environmentName = Lude.Nothing,
-      attributeNames = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { attributeNames = Core.Nothing,
+      environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
-
--- | Specify the environment by name.
---
--- You must specify either this or an EnvironmentName, or both.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehEnvironmentName :: Lens.Lens' DescribeEnvironmentHealth (Lude.Maybe Lude.Text)
-dehEnvironmentName = Lens.lens (environmentName :: DescribeEnvironmentHealth -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEnvironmentHealth)
-{-# DEPRECATED dehEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
 --
 -- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehAttributeNames :: Lens.Lens' DescribeEnvironmentHealth (Lude.Maybe [EnvironmentHealthAttribute])
-dehAttributeNames = Lens.lens (attributeNames :: DescribeEnvironmentHealth -> Lude.Maybe [EnvironmentHealthAttribute]) (\s a -> s {attributeNames = a} :: DescribeEnvironmentHealth)
+dehAttributeNames :: Lens.Lens' DescribeEnvironmentHealth (Core.Maybe [Types.EnvironmentHealthAttribute])
+dehAttributeNames = Lens.field @"attributeNames"
 {-# DEPRECATED dehAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | Specify the environment by ID.
@@ -104,163 +87,166 @@ dehAttributeNames = Lens.lens (attributeNames :: DescribeEnvironmentHealth -> Lu
 -- You must specify either this or an EnvironmentName, or both.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehEnvironmentId :: Lens.Lens' DescribeEnvironmentHealth (Lude.Maybe Lude.Text)
-dehEnvironmentId = Lens.lens (environmentId :: DescribeEnvironmentHealth -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeEnvironmentHealth)
+dehEnvironmentId :: Lens.Lens' DescribeEnvironmentHealth (Core.Maybe Types.EnvironmentId)
+dehEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED dehEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest DescribeEnvironmentHealth where
+-- | Specify the environment by name.
+--
+-- You must specify either this or an EnvironmentName, or both.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dehEnvironmentName :: Lens.Lens' DescribeEnvironmentHealth (Core.Maybe Types.EnvironmentName)
+dehEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED dehEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+
+instance Core.AWSRequest DescribeEnvironmentHealth where
   type
     Rs DescribeEnvironmentHealth =
       DescribeEnvironmentHealthResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEnvironmentHealth")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "AttributeNames"
+                            (Core.toQueryList "member" Core.<$> attributeNames)
+                        )
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEnvironmentHealthResult"
       ( \s h x ->
           DescribeEnvironmentHealthResponse'
-            Lude.<$> (x Lude..@? "Status")
-            Lude.<*> ( x Lude..@? "Causes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "ApplicationMetrics")
-            Lude.<*> (x Lude..@? "Color")
-            Lude.<*> (x Lude..@? "EnvironmentName")
-            Lude.<*> (x Lude..@? "HealthStatus")
-            Lude.<*> (x Lude..@? "InstancesHealth")
-            Lude.<*> (x Lude..@? "RefreshedAt")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ApplicationMetrics")
+            Core.<*> (x Core..@? "Causes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "Color")
+            Core.<*> (x Core..@? "EnvironmentName")
+            Core.<*> (x Core..@? "HealthStatus")
+            Core.<*> (x Core..@? "InstancesHealth")
+            Core.<*> (x Core..@? "RefreshedAt")
+            Core.<*> (x Core..@? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEnvironmentHealth where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEnvironmentHealth where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEnvironmentHealth where
-  toQuery DescribeEnvironmentHealth' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeEnvironmentHealth" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EnvironmentName" Lude.=: environmentName,
-        "AttributeNames"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> attributeNames),
-        "EnvironmentId" Lude.=: environmentId
-      ]
 
 -- | Health details for an AWS Elastic Beanstalk environment.
 --
 -- /See:/ 'mkDescribeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-  { -- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
-    status :: Lude.Maybe EnvironmentHealth,
+  { -- | Application request metrics for the environment.
+    applicationMetrics :: Core.Maybe Types.ApplicationMetrics,
     -- | Descriptions of the data that contributed to the environment's current health status.
-    causes :: Lude.Maybe [Lude.Text],
-    -- | Application request metrics for the environment.
-    applicationMetrics :: Lude.Maybe ApplicationMetrics,
+    causes :: Core.Maybe [Types.Cause],
     -- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
-    color :: Lude.Maybe Lude.Text,
+    color :: Core.Maybe Types.String,
     -- | The environment's name.
-    environmentName :: Lude.Maybe Lude.Text,
+    environmentName :: Core.Maybe Types.EnvironmentName,
     -- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
-    healthStatus :: Lude.Maybe Lude.Text,
+    healthStatus :: Core.Maybe Types.String,
     -- | Summary health information for the instances in the environment.
-    instancesHealth :: Lude.Maybe InstanceHealthSummary,
+    instancesHealth :: Core.Maybe Types.InstanceHealthSummary,
     -- | The date and time that the health information was retrieved.
-    refreshedAt :: Lude.Maybe Lude.DateTime,
+    refreshedAt :: Core.Maybe Core.UTCTime,
+    -- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
+    status :: Core.Maybe Types.EnvironmentHealth,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentHealthResponse' with the minimum fields required to make a request.
---
--- * 'status' - The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
--- * 'causes' - Descriptions of the data that contributed to the environment's current health status.
--- * 'applicationMetrics' - Application request metrics for the environment.
--- * 'color' - The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
--- * 'environmentName' - The environment's name.
--- * 'healthStatus' - The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
--- * 'instancesHealth' - Summary health information for the instances in the environment.
--- * 'refreshedAt' - The date and time that the health information was retrieved.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEnvironmentHealthResponse' value with any optional fields omitted.
 mkDescribeEnvironmentHealthResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEnvironmentHealthResponse
-mkDescribeEnvironmentHealthResponse pResponseStatus_ =
+mkDescribeEnvironmentHealthResponse responseStatus =
   DescribeEnvironmentHealthResponse'
-    { status = Lude.Nothing,
-      causes = Lude.Nothing,
-      applicationMetrics = Lude.Nothing,
-      color = Lude.Nothing,
-      environmentName = Lude.Nothing,
-      healthStatus = Lude.Nothing,
-      instancesHealth = Lude.Nothing,
-      refreshedAt = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { applicationMetrics =
+        Core.Nothing,
+      causes = Core.Nothing,
+      color = Core.Nothing,
+      environmentName = Core.Nothing,
+      healthStatus = Core.Nothing,
+      instancesHealth = Core.Nothing,
+      refreshedAt = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsStatus :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe EnvironmentHealth)
-dehrsStatus = Lens.lens (status :: DescribeEnvironmentHealthResponse -> Lude.Maybe EnvironmentHealth) (\s a -> s {status = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Descriptions of the data that contributed to the environment's current health status.
---
--- /Note:/ Consider using 'causes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsCauses :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe [Lude.Text])
-dehrsCauses = Lens.lens (causes :: DescribeEnvironmentHealthResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {causes = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsCauses "Use generic-lens or generic-optics with 'causes' instead." #-}
 
 -- | Application request metrics for the environment.
 --
 -- /Note:/ Consider using 'applicationMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsApplicationMetrics :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe ApplicationMetrics)
-dehrsApplicationMetrics = Lens.lens (applicationMetrics :: DescribeEnvironmentHealthResponse -> Lude.Maybe ApplicationMetrics) (\s a -> s {applicationMetrics = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsApplicationMetrics "Use generic-lens or generic-optics with 'applicationMetrics' instead." #-}
+dehrrsApplicationMetrics :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Types.ApplicationMetrics)
+dehrrsApplicationMetrics = Lens.field @"applicationMetrics"
+{-# DEPRECATED dehrrsApplicationMetrics "Use generic-lens or generic-optics with 'applicationMetrics' instead." #-}
+
+-- | Descriptions of the data that contributed to the environment's current health status.
+--
+-- /Note:/ Consider using 'causes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dehrrsCauses :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe [Types.Cause])
+dehrrsCauses = Lens.field @"causes"
+{-# DEPRECATED dehrrsCauses "Use generic-lens or generic-optics with 'causes' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 --
 -- /Note:/ Consider using 'color' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsColor :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe Lude.Text)
-dehrsColor = Lens.lens (color :: DescribeEnvironmentHealthResponse -> Lude.Maybe Lude.Text) (\s a -> s {color = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsColor "Use generic-lens or generic-optics with 'color' instead." #-}
+dehrrsColor :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Types.String)
+dehrrsColor = Lens.field @"color"
+{-# DEPRECATED dehrrsColor "Use generic-lens or generic-optics with 'color' instead." #-}
 
 -- | The environment's name.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsEnvironmentName :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe Lude.Text)
-dehrsEnvironmentName = Lens.lens (environmentName :: DescribeEnvironmentHealthResponse -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+dehrrsEnvironmentName :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Types.EnvironmentName)
+dehrrsEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED dehrrsEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 --
 -- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsHealthStatus :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe Lude.Text)
-dehrsHealthStatus = Lens.lens (healthStatus :: DescribeEnvironmentHealthResponse -> Lude.Maybe Lude.Text) (\s a -> s {healthStatus = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
+dehrrsHealthStatus :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Types.String)
+dehrrsHealthStatus = Lens.field @"healthStatus"
+{-# DEPRECATED dehrrsHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
 
 -- | Summary health information for the instances in the environment.
 --
 -- /Note:/ Consider using 'instancesHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsInstancesHealth :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe InstanceHealthSummary)
-dehrsInstancesHealth = Lens.lens (instancesHealth :: DescribeEnvironmentHealthResponse -> Lude.Maybe InstanceHealthSummary) (\s a -> s {instancesHealth = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsInstancesHealth "Use generic-lens or generic-optics with 'instancesHealth' instead." #-}
+dehrrsInstancesHealth :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Types.InstanceHealthSummary)
+dehrrsInstancesHealth = Lens.field @"instancesHealth"
+{-# DEPRECATED dehrrsInstancesHealth "Use generic-lens or generic-optics with 'instancesHealth' instead." #-}
 
 -- | The date and time that the health information was retrieved.
 --
 -- /Note:/ Consider using 'refreshedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsRefreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe Lude.DateTime)
-dehrsRefreshedAt = Lens.lens (refreshedAt :: DescribeEnvironmentHealthResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {refreshedAt = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsRefreshedAt "Use generic-lens or generic-optics with 'refreshedAt' instead." #-}
+dehrrsRefreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Core.UTCTime)
+dehrrsRefreshedAt = Lens.field @"refreshedAt"
+{-# DEPRECATED dehrrsRefreshedAt "Use generic-lens or generic-optics with 'refreshedAt' instead." #-}
+
+-- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dehrrsStatus :: Lens.Lens' DescribeEnvironmentHealthResponse (Core.Maybe Types.EnvironmentHealth)
+dehrrsStatus = Lens.field @"status"
+{-# DEPRECATED dehrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsResponseStatus :: Lens.Lens' DescribeEnvironmentHealthResponse Lude.Int
-dehrsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentHealthResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentHealthResponse)
-{-# DEPRECATED dehrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dehrrsResponseStatus :: Lens.Lens' DescribeEnvironmentHealthResponse Core.Int
+dehrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dehrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

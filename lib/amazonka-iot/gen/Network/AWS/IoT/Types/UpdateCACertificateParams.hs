@@ -21,44 +21,41 @@ module Network.AWS.IoT.Types.UpdateCACertificateParams
   )
 where
 
-import Network.AWS.IoT.Types.CACertificateUpdateAction
+import qualified Network.AWS.IoT.Types.CACertificateUpdateAction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 --
 -- /See:/ 'mkUpdateCACertificateParams' smart constructor.
 newtype UpdateCACertificateParams = UpdateCACertificateParams'
   { -- | The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
-    action :: CACertificateUpdateAction
+    action :: Types.CACertificateUpdateAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCACertificateParams' with the minimum fields required to make a request.
---
--- * 'action' - The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
+-- | Creates a 'UpdateCACertificateParams' value with any optional fields omitted.
 mkUpdateCACertificateParams ::
   -- | 'action'
-  CACertificateUpdateAction ->
+  Types.CACertificateUpdateAction ->
   UpdateCACertificateParams
-mkUpdateCACertificateParams pAction_ =
-  UpdateCACertificateParams' {action = pAction_}
+mkUpdateCACertificateParams action =
+  UpdateCACertificateParams' {action}
 
 -- | The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucacpAction :: Lens.Lens' UpdateCACertificateParams CACertificateUpdateAction
-ucacpAction = Lens.lens (action :: UpdateCACertificateParams -> CACertificateUpdateAction) (\s a -> s {action = a} :: UpdateCACertificateParams)
+ucacpAction :: Lens.Lens' UpdateCACertificateParams Types.CACertificateUpdateAction
+ucacpAction = Lens.field @"action"
 {-# DEPRECATED ucacpAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Lude.FromJSON UpdateCACertificateParams where
-  parseJSON =
-    Lude.withObject
-      "UpdateCACertificateParams"
-      (\x -> UpdateCACertificateParams' Lude.<$> (x Lude..: "action"))
+instance Core.FromJSON UpdateCACertificateParams where
+  toJSON UpdateCACertificateParams {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("action" Core..= action)])
 
-instance Lude.ToJSON UpdateCACertificateParams where
-  toJSON UpdateCACertificateParams' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("action" Lude..= action)])
+instance Core.FromJSON UpdateCACertificateParams where
+  parseJSON =
+    Core.withObject "UpdateCACertificateParams" Core.$
+      \x -> UpdateCACertificateParams' Core.<$> (x Core..: "action")

@@ -20,128 +20,111 @@ module Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
     mkDisassociateTagOptionFromResource,
 
     -- ** Request lenses
-    dtofrTagOptionId,
     dtofrResourceId,
+    dtofrTagOptionId,
 
     -- * Destructuring the response
     DisassociateTagOptionFromResourceResponse (..),
     mkDisassociateTagOptionFromResourceResponse,
 
     -- ** Response lenses
-    dtofrrsResponseStatus,
+    dtofrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDisassociateTagOptionFromResource' smart constructor.
 data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
-  { -- | The TagOption identifier.
-    tagOptionId :: Lude.Text,
-    -- | The resource identifier.
-    resourceId :: Lude.Text
+  { -- | The resource identifier.
+    resourceId :: Types.ResourceId,
+    -- | The TagOption identifier.
+    tagOptionId :: Types.TagOptionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateTagOptionFromResource' with the minimum fields required to make a request.
---
--- * 'tagOptionId' - The TagOption identifier.
--- * 'resourceId' - The resource identifier.
+-- | Creates a 'DisassociateTagOptionFromResource' value with any optional fields omitted.
 mkDisassociateTagOptionFromResource ::
-  -- | 'tagOptionId'
-  Lude.Text ->
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
+  -- | 'tagOptionId'
+  Types.TagOptionId ->
   DisassociateTagOptionFromResource
-mkDisassociateTagOptionFromResource pTagOptionId_ pResourceId_ =
-  DisassociateTagOptionFromResource'
-    { tagOptionId = pTagOptionId_,
-      resourceId = pResourceId_
-    }
-
--- | The TagOption identifier.
---
--- /Note:/ Consider using 'tagOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtofrTagOptionId :: Lens.Lens' DisassociateTagOptionFromResource Lude.Text
-dtofrTagOptionId = Lens.lens (tagOptionId :: DisassociateTagOptionFromResource -> Lude.Text) (\s a -> s {tagOptionId = a} :: DisassociateTagOptionFromResource)
-{-# DEPRECATED dtofrTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
+mkDisassociateTagOptionFromResource resourceId tagOptionId =
+  DisassociateTagOptionFromResource' {resourceId, tagOptionId}
 
 -- | The resource identifier.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtofrResourceId :: Lens.Lens' DisassociateTagOptionFromResource Lude.Text
-dtofrResourceId = Lens.lens (resourceId :: DisassociateTagOptionFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: DisassociateTagOptionFromResource)
+dtofrResourceId :: Lens.Lens' DisassociateTagOptionFromResource Types.ResourceId
+dtofrResourceId = Lens.field @"resourceId"
 {-# DEPRECATED dtofrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance Lude.AWSRequest DisassociateTagOptionFromResource where
+-- | The TagOption identifier.
+--
+-- /Note:/ Consider using 'tagOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtofrTagOptionId :: Lens.Lens' DisassociateTagOptionFromResource Types.TagOptionId
+dtofrTagOptionId = Lens.field @"tagOptionId"
+{-# DEPRECATED dtofrTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
+
+instance Core.FromJSON DisassociateTagOptionFromResource where
+  toJSON DisassociateTagOptionFromResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("TagOptionId" Core..= tagOptionId)
+          ]
+      )
+
+instance Core.AWSRequest DisassociateTagOptionFromResource where
   type
     Rs DisassociateTagOptionFromResource =
       DisassociateTagOptionFromResourceResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.DisassociateTagOptionFromResource"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateTagOptionFromResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateTagOptionFromResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateTagOptionFromResource where
-  toJSON DisassociateTagOptionFromResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagOptionId" Lude..= tagOptionId),
-            Lude.Just ("ResourceId" Lude..= resourceId)
-          ]
-      )
-
-instance Lude.ToPath DisassociateTagOptionFromResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateTagOptionFromResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateTagOptionFromResourceResponse' smart constructor.
 newtype DisassociateTagOptionFromResourceResponse = DisassociateTagOptionFromResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateTagOptionFromResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateTagOptionFromResourceResponse' value with any optional fields omitted.
 mkDisassociateTagOptionFromResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateTagOptionFromResourceResponse
-mkDisassociateTagOptionFromResourceResponse pResponseStatus_ =
-  DisassociateTagOptionFromResourceResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateTagOptionFromResourceResponse responseStatus =
+  DisassociateTagOptionFromResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtofrrsResponseStatus :: Lens.Lens' DisassociateTagOptionFromResourceResponse Lude.Int
-dtofrrsResponseStatus = Lens.lens (responseStatus :: DisassociateTagOptionFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateTagOptionFromResourceResponse)
-{-# DEPRECATED dtofrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtofrrrsResponseStatus :: Lens.Lens' DisassociateTagOptionFromResourceResponse Core.Int
+dtofrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtofrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

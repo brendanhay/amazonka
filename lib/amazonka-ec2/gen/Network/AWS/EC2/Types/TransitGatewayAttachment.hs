@@ -17,164 +17,152 @@ module Network.AWS.EC2.Types.TransitGatewayAttachment
     mkTransitGatewayAttachment,
 
     -- * Lenses
-    tgaCreationTime,
-    tgaState,
-    tgaResourceId,
-    tgaResourceType,
-    tgaTransitGatewayOwnerId,
-    tgaTransitGatewayId,
-    tgaTransitGatewayAttachmentId,
-    tgaResourceOwnerId,
-    tgaTags,
     tgaAssociation,
+    tgaCreationTime,
+    tgaResourceId,
+    tgaResourceOwnerId,
+    tgaResourceType,
+    tgaState,
+    tgaTags,
+    tgaTransitGatewayAttachmentId,
+    tgaTransitGatewayId,
+    tgaTransitGatewayOwnerId,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
-import Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation
-import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
-import Network.AWS.EC2.Types.TransitGatewayAttachmentState
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an attachment between a resource and a transit gateway.
 --
 -- /See:/ 'mkTransitGatewayAttachment' smart constructor.
 data TransitGatewayAttachment = TransitGatewayAttachment'
-  { -- | The creation time.
-    creationTime :: Lude.Maybe Lude.DateTime,
-    -- | The attachment state. Note that the @initiating@ state has been deprecated.
-    state :: Lude.Maybe TransitGatewayAttachmentState,
+  { -- | The association.
+    association :: Core.Maybe Types.TransitGatewayAttachmentAssociation,
+    -- | The creation time.
+    creationTime :: Core.Maybe Core.UTCTime,
     -- | The ID of the resource.
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
-    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
-    -- | The ID of the AWS account that owns the transit gateway.
-    transitGatewayOwnerId :: Lude.Maybe Lude.Text,
-    -- | The ID of the transit gateway.
-    transitGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.String,
     -- | The ID of the AWS account that owns the resource.
-    resourceOwnerId :: Lude.Maybe Lude.Text,
+    resourceOwnerId :: Core.Maybe Types.String,
+    -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
+    resourceType :: Core.Maybe Types.TransitGatewayAttachmentResourceType,
+    -- | The attachment state. Note that the @initiating@ state has been deprecated.
+    state :: Core.Maybe Types.TransitGatewayAttachmentState,
     -- | The tags for the attachment.
-    tags :: Lude.Maybe [Tag],
-    -- | The association.
-    association :: Lude.Maybe TransitGatewayAttachmentAssociation
+    tags :: Core.Maybe [Types.Tag],
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Core.Maybe Types.String,
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Core.Maybe Types.String,
+    -- | The ID of the AWS account that owns the transit gateway.
+    transitGatewayOwnerId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TransitGatewayAttachment' with the minimum fields required to make a request.
---
--- * 'creationTime' - The creation time.
--- * 'state' - The attachment state. Note that the @initiating@ state has been deprecated.
--- * 'resourceId' - The ID of the resource.
--- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
--- * 'transitGatewayOwnerId' - The ID of the AWS account that owns the transit gateway.
--- * 'transitGatewayId' - The ID of the transit gateway.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
--- * 'resourceOwnerId' - The ID of the AWS account that owns the resource.
--- * 'tags' - The tags for the attachment.
--- * 'association' - The association.
+-- | Creates a 'TransitGatewayAttachment' value with any optional fields omitted.
 mkTransitGatewayAttachment ::
   TransitGatewayAttachment
 mkTransitGatewayAttachment =
   TransitGatewayAttachment'
-    { creationTime = Lude.Nothing,
-      state = Lude.Nothing,
-      resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      transitGatewayOwnerId = Lude.Nothing,
-      transitGatewayId = Lude.Nothing,
-      transitGatewayAttachmentId = Lude.Nothing,
-      resourceOwnerId = Lude.Nothing,
-      tags = Lude.Nothing,
-      association = Lude.Nothing
+    { association = Core.Nothing,
+      creationTime = Core.Nothing,
+      resourceId = Core.Nothing,
+      resourceOwnerId = Core.Nothing,
+      resourceType = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing,
+      transitGatewayId = Core.Nothing,
+      transitGatewayOwnerId = Core.Nothing
     }
-
--- | The creation time.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaCreationTime :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.DateTime)
-tgaCreationTime = Lens.lens (creationTime :: TransitGatewayAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The attachment state. Note that the @initiating@ state has been deprecated.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaState :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe TransitGatewayAttachmentState)
-tgaState = Lens.lens (state :: TransitGatewayAttachment -> Lude.Maybe TransitGatewayAttachmentState) (\s a -> s {state = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The ID of the resource.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaResourceId :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.Text)
-tgaResourceId = Lens.lens (resourceId :: TransitGatewayAttachment -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaResourceType :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe TransitGatewayAttachmentResourceType)
-tgaResourceType = Lens.lens (resourceType :: TransitGatewayAttachment -> Lude.Maybe TransitGatewayAttachmentResourceType) (\s a -> s {resourceType = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The ID of the AWS account that owns the transit gateway.
---
--- /Note:/ Consider using 'transitGatewayOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaTransitGatewayOwnerId :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.Text)
-tgaTransitGatewayOwnerId = Lens.lens (transitGatewayOwnerId :: TransitGatewayAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayOwnerId = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaTransitGatewayOwnerId "Use generic-lens or generic-optics with 'transitGatewayOwnerId' instead." #-}
-
--- | The ID of the transit gateway.
---
--- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaTransitGatewayId :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.Text)
-tgaTransitGatewayId = Lens.lens (transitGatewayId :: TransitGatewayAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
-
--- | The ID of the attachment.
---
--- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.Text)
-tgaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
-
--- | The ID of the AWS account that owns the resource.
---
--- /Note:/ Consider using 'resourceOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaResourceOwnerId :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.Text)
-tgaResourceOwnerId = Lens.lens (resourceOwnerId :: TransitGatewayAttachment -> Lude.Maybe Lude.Text) (\s a -> s {resourceOwnerId = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaResourceOwnerId "Use generic-lens or generic-optics with 'resourceOwnerId' instead." #-}
-
--- | The tags for the attachment.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaTags :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe [Tag])
-tgaTags = Lens.lens (tags :: TransitGatewayAttachment -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TransitGatewayAttachment)
-{-# DEPRECATED tgaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The association.
 --
 -- /Note:/ Consider using 'association' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaAssociation :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe TransitGatewayAttachmentAssociation)
-tgaAssociation = Lens.lens (association :: TransitGatewayAttachment -> Lude.Maybe TransitGatewayAttachmentAssociation) (\s a -> s {association = a} :: TransitGatewayAttachment)
+tgaAssociation :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.TransitGatewayAttachmentAssociation)
+tgaAssociation = Lens.field @"association"
 {-# DEPRECATED tgaAssociation "Use generic-lens or generic-optics with 'association' instead." #-}
 
-instance Lude.FromXML TransitGatewayAttachment where
+-- | The creation time.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaCreationTime :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.UTCTime)
+tgaCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED tgaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The ID of the resource.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaResourceId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.String)
+tgaResourceId = Lens.field @"resourceId"
+{-# DEPRECATED tgaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The ID of the AWS account that owns the resource.
+--
+-- /Note:/ Consider using 'resourceOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaResourceOwnerId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.String)
+tgaResourceOwnerId = Lens.field @"resourceOwnerId"
+{-# DEPRECATED tgaResourceOwnerId "Use generic-lens or generic-optics with 'resourceOwnerId' instead." #-}
+
+-- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaResourceType :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.TransitGatewayAttachmentResourceType)
+tgaResourceType = Lens.field @"resourceType"
+{-# DEPRECATED tgaResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The attachment state. Note that the @initiating@ state has been deprecated.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaState :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.TransitGatewayAttachmentState)
+tgaState = Lens.field @"state"
+{-# DEPRECATED tgaState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The tags for the attachment.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaTags :: Lens.Lens' TransitGatewayAttachment (Core.Maybe [Types.Tag])
+tgaTags = Lens.field @"tags"
+{-# DEPRECATED tgaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The ID of the attachment.
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.String)
+tgaTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
+{-# DEPRECATED tgaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+
+-- | The ID of the transit gateway.
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaTransitGatewayId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.String)
+tgaTransitGatewayId = Lens.field @"transitGatewayId"
+{-# DEPRECATED tgaTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
+
+-- | The ID of the AWS account that owns the transit gateway.
+--
+-- /Note:/ Consider using 'transitGatewayOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgaTransitGatewayOwnerId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Types.String)
+tgaTransitGatewayOwnerId = Lens.field @"transitGatewayOwnerId"
+{-# DEPRECATED tgaTransitGatewayOwnerId "Use generic-lens or generic-optics with 'transitGatewayOwnerId' instead." #-}
+
+instance Core.FromXML TransitGatewayAttachment where
   parseXML x =
     TransitGatewayAttachment'
-      Lude.<$> (x Lude..@? "creationTime")
-      Lude.<*> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "resourceId")
-      Lude.<*> (x Lude..@? "resourceType")
-      Lude.<*> (x Lude..@? "transitGatewayOwnerId")
-      Lude.<*> (x Lude..@? "transitGatewayId")
-      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")
-      Lude.<*> (x Lude..@? "resourceOwnerId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "association")
+      Core.<$> (x Core..@? "association")
+      Core.<*> (x Core..@? "creationTime")
+      Core.<*> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "resourceOwnerId")
+      Core.<*> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")
+      Core.<*> (x Core..@? "transitGatewayId")
+      Core.<*> (x Core..@? "transitGatewayOwnerId")

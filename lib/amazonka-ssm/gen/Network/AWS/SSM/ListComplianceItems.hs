@@ -22,10 +22,10 @@ module Network.AWS.SSM.ListComplianceItems
     mkListComplianceItems,
 
     -- ** Request lenses
-    lResourceIds,
     lFilters,
-    lNextToken,
     lMaxResults,
+    lNextToken,
+    lResourceIds,
     lResourceTypes,
 
     -- * Destructuring the response
@@ -33,183 +33,169 @@ module Network.AWS.SSM.ListComplianceItems
     mkListComplianceItemsResponse,
 
     -- ** Response lenses
-    lcirsComplianceItems,
-    lcirsNextToken,
-    lcirsResponseStatus,
+    lrsComplianceItems,
+    lrsNextToken,
+    lrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkListComplianceItems' smart constructor.
 data ListComplianceItems = ListComplianceItems'
-  { -- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
-    resourceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | One or more compliance filters. Use a filter to return a more specific list of results.
-    filters :: Lude.Maybe [ComplianceStringFilter],
-    -- | A token to start the list. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | One or more compliance filters. Use a filter to return a more specific list of results.
+    filters :: Core.Maybe [Types.ComplianceStringFilter],
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
+    resourceIds :: Core.Maybe (Core.NonEmpty Types.ComplianceResourceId),
     -- | The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
-    resourceTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    resourceTypes :: Core.Maybe (Core.NonEmpty Types.ComplianceResourceType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListComplianceItems' with the minimum fields required to make a request.
---
--- * 'resourceIds' - The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
--- * 'filters' - One or more compliance filters. Use a filter to return a more specific list of results.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'resourceTypes' - The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
+-- | Creates a 'ListComplianceItems' value with any optional fields omitted.
 mkListComplianceItems ::
   ListComplianceItems
 mkListComplianceItems =
   ListComplianceItems'
-    { resourceIds = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      resourceTypes = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      resourceIds = Core.Nothing,
+      resourceTypes = Core.Nothing
     }
-
--- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
---
--- /Note:/ Consider using 'resourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lResourceIds :: Lens.Lens' ListComplianceItems (Lude.Maybe (Lude.NonEmpty Lude.Text))
-lResourceIds = Lens.lens (resourceIds :: ListComplianceItems -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {resourceIds = a} :: ListComplianceItems)
-{-# DEPRECATED lResourceIds "Use generic-lens or generic-optics with 'resourceIds' instead." #-}
 
 -- | One or more compliance filters. Use a filter to return a more specific list of results.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lFilters :: Lens.Lens' ListComplianceItems (Lude.Maybe [ComplianceStringFilter])
-lFilters = Lens.lens (filters :: ListComplianceItems -> Lude.Maybe [ComplianceStringFilter]) (\s a -> s {filters = a} :: ListComplianceItems)
+lFilters :: Lens.Lens' ListComplianceItems (Core.Maybe [Types.ComplianceStringFilter])
+lFilters = Lens.field @"filters"
 {-# DEPRECATED lFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | A token to start the list. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListComplianceItems (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListComplianceItems -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListComplianceItems)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaxResults :: Lens.Lens' ListComplianceItems (Lude.Maybe Lude.Natural)
-lMaxResults = Lens.lens (maxResults :: ListComplianceItems -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListComplianceItems)
+lMaxResults :: Lens.Lens' ListComplianceItems (Core.Maybe Core.Natural)
+lMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A token to start the list. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListComplianceItems (Core.Maybe Types.NextToken)
+lNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
+--
+-- /Note:/ Consider using 'resourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lResourceIds :: Lens.Lens' ListComplianceItems (Core.Maybe (Core.NonEmpty Types.ComplianceResourceId))
+lResourceIds = Lens.field @"resourceIds"
+{-# DEPRECATED lResourceIds "Use generic-lens or generic-optics with 'resourceIds' instead." #-}
 
 -- | The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
 --
 -- /Note:/ Consider using 'resourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lResourceTypes :: Lens.Lens' ListComplianceItems (Lude.Maybe (Lude.NonEmpty Lude.Text))
-lResourceTypes = Lens.lens (resourceTypes :: ListComplianceItems -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {resourceTypes = a} :: ListComplianceItems)
+lResourceTypes :: Lens.Lens' ListComplianceItems (Core.Maybe (Core.NonEmpty Types.ComplianceResourceType))
+lResourceTypes = Lens.field @"resourceTypes"
 {-# DEPRECATED lResourceTypes "Use generic-lens or generic-optics with 'resourceTypes' instead." #-}
 
-instance Page.AWSPager ListComplianceItems where
-  page rq rs
-    | Page.stop (rs Lens.^. lcirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcirsComplianceItems) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lNextToken Lens..~ rs Lens.^. lcirsNextToken
+instance Core.FromJSON ListComplianceItems where
+  toJSON ListComplianceItems {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ResourceIds" Core..=) Core.<$> resourceIds,
+            ("ResourceTypes" Core..=) Core.<$> resourceTypes
+          ]
+      )
 
-instance Lude.AWSRequest ListComplianceItems where
+instance Core.AWSRequest ListComplianceItems where
   type Rs ListComplianceItems = ListComplianceItemsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.ListComplianceItems")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListComplianceItemsResponse'
-            Lude.<$> (x Lude..?> "ComplianceItems" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ComplianceItems")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListComplianceItems where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.ListComplianceItems" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListComplianceItems where
-  toJSON ListComplianceItems' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceIds" Lude..=) Lude.<$> resourceIds,
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("ResourceTypes" Lude..=) Lude.<$> resourceTypes
-          ]
-      )
-
-instance Lude.ToPath ListComplianceItems where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListComplianceItems where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListComplianceItems where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"complianceItems" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListComplianceItemsResponse' smart constructor.
 data ListComplianceItemsResponse = ListComplianceItemsResponse'
   { -- | A list of compliance information for the specified resource ID.
-    complianceItems :: Lude.Maybe [ComplianceItem],
+    complianceItems :: Core.Maybe [Types.ComplianceItem],
     -- | The token for the next set of items to return. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListComplianceItemsResponse' with the minimum fields required to make a request.
---
--- * 'complianceItems' - A list of compliance information for the specified resource ID.
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListComplianceItemsResponse' value with any optional fields omitted.
 mkListComplianceItemsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListComplianceItemsResponse
-mkListComplianceItemsResponse pResponseStatus_ =
+mkListComplianceItemsResponse responseStatus =
   ListComplianceItemsResponse'
-    { complianceItems = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { complianceItems = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of compliance information for the specified resource ID.
 --
 -- /Note:/ Consider using 'complianceItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcirsComplianceItems :: Lens.Lens' ListComplianceItemsResponse (Lude.Maybe [ComplianceItem])
-lcirsComplianceItems = Lens.lens (complianceItems :: ListComplianceItemsResponse -> Lude.Maybe [ComplianceItem]) (\s a -> s {complianceItems = a} :: ListComplianceItemsResponse)
-{-# DEPRECATED lcirsComplianceItems "Use generic-lens or generic-optics with 'complianceItems' instead." #-}
+lrsComplianceItems :: Lens.Lens' ListComplianceItemsResponse (Core.Maybe [Types.ComplianceItem])
+lrsComplianceItems = Lens.field @"complianceItems"
+{-# DEPRECATED lrsComplianceItems "Use generic-lens or generic-optics with 'complianceItems' instead." #-}
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcirsNextToken :: Lens.Lens' ListComplianceItemsResponse (Lude.Maybe Lude.Text)
-lcirsNextToken = Lens.lens (nextToken :: ListComplianceItemsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListComplianceItemsResponse)
-{-# DEPRECATED lcirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrsNextToken :: Lens.Lens' ListComplianceItemsResponse (Core.Maybe Types.NextToken)
+lrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcirsResponseStatus :: Lens.Lens' ListComplianceItemsResponse Lude.Int
-lcirsResponseStatus = Lens.lens (responseStatus :: ListComplianceItemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListComplianceItemsResponse)
-{-# DEPRECATED lcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrsResponseStatus :: Lens.Lens' ListComplianceItemsResponse Core.Int
+lrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

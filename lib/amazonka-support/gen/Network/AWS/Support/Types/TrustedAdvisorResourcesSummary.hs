@@ -17,97 +17,89 @@ module Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
     mkTrustedAdvisorResourcesSummary,
 
     -- * Lenses
-    tarsResourcesIgnored,
     tarsResourcesProcessed,
     tarsResourcesFlagged,
+    tarsResourcesIgnored,
     tarsResourcesSuppressed,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about AWS resources that were analyzed in a call to Trusted Advisor 'DescribeTrustedAdvisorCheckSummaries' .
 --
 -- /See:/ 'mkTrustedAdvisorResourcesSummary' smart constructor.
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
-  { -- | The number of AWS resources ignored by Trusted Advisor because information was unavailable.
-    resourcesIgnored :: Lude.Integer,
-    -- | The number of AWS resources that were analyzed by the Trusted Advisor check.
-    resourcesProcessed :: Lude.Integer,
+  { -- | The number of AWS resources that were analyzed by the Trusted Advisor check.
+    resourcesProcessed :: Core.Integer,
     -- | The number of AWS resources that were flagged (listed) by the Trusted Advisor check.
-    resourcesFlagged :: Lude.Integer,
+    resourcesFlagged :: Core.Integer,
+    -- | The number of AWS resources ignored by Trusted Advisor because information was unavailable.
+    resourcesIgnored :: Core.Integer,
     -- | The number of AWS resources ignored by Trusted Advisor because they were marked as suppressed by the user.
-    resourcesSuppressed :: Lude.Integer
+    resourcesSuppressed :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrustedAdvisorResourcesSummary' with the minimum fields required to make a request.
---
--- * 'resourcesIgnored' - The number of AWS resources ignored by Trusted Advisor because information was unavailable.
--- * 'resourcesProcessed' - The number of AWS resources that were analyzed by the Trusted Advisor check.
--- * 'resourcesFlagged' - The number of AWS resources that were flagged (listed) by the Trusted Advisor check.
--- * 'resourcesSuppressed' - The number of AWS resources ignored by Trusted Advisor because they were marked as suppressed by the user.
+-- | Creates a 'TrustedAdvisorResourcesSummary' value with any optional fields omitted.
 mkTrustedAdvisorResourcesSummary ::
-  -- | 'resourcesIgnored'
-  Lude.Integer ->
   -- | 'resourcesProcessed'
-  Lude.Integer ->
+  Core.Integer ->
   -- | 'resourcesFlagged'
-  Lude.Integer ->
+  Core.Integer ->
+  -- | 'resourcesIgnored'
+  Core.Integer ->
   -- | 'resourcesSuppressed'
-  Lude.Integer ->
+  Core.Integer ->
   TrustedAdvisorResourcesSummary
 mkTrustedAdvisorResourcesSummary
-  pResourcesIgnored_
-  pResourcesProcessed_
-  pResourcesFlagged_
-  pResourcesSuppressed_ =
+  resourcesProcessed
+  resourcesFlagged
+  resourcesIgnored
+  resourcesSuppressed =
     TrustedAdvisorResourcesSummary'
-      { resourcesIgnored =
-          pResourcesIgnored_,
-        resourcesProcessed = pResourcesProcessed_,
-        resourcesFlagged = pResourcesFlagged_,
-        resourcesSuppressed = pResourcesSuppressed_
+      { resourcesProcessed,
+        resourcesFlagged,
+        resourcesIgnored,
+        resourcesSuppressed
       }
-
--- | The number of AWS resources ignored by Trusted Advisor because information was unavailable.
---
--- /Note:/ Consider using 'resourcesIgnored' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsResourcesIgnored :: Lens.Lens' TrustedAdvisorResourcesSummary Lude.Integer
-tarsResourcesIgnored = Lens.lens (resourcesIgnored :: TrustedAdvisorResourcesSummary -> Lude.Integer) (\s a -> s {resourcesIgnored = a} :: TrustedAdvisorResourcesSummary)
-{-# DEPRECATED tarsResourcesIgnored "Use generic-lens or generic-optics with 'resourcesIgnored' instead." #-}
 
 -- | The number of AWS resources that were analyzed by the Trusted Advisor check.
 --
 -- /Note:/ Consider using 'resourcesProcessed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsResourcesProcessed :: Lens.Lens' TrustedAdvisorResourcesSummary Lude.Integer
-tarsResourcesProcessed = Lens.lens (resourcesProcessed :: TrustedAdvisorResourcesSummary -> Lude.Integer) (\s a -> s {resourcesProcessed = a} :: TrustedAdvisorResourcesSummary)
+tarsResourcesProcessed :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
+tarsResourcesProcessed = Lens.field @"resourcesProcessed"
 {-# DEPRECATED tarsResourcesProcessed "Use generic-lens or generic-optics with 'resourcesProcessed' instead." #-}
 
 -- | The number of AWS resources that were flagged (listed) by the Trusted Advisor check.
 --
 -- /Note:/ Consider using 'resourcesFlagged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsResourcesFlagged :: Lens.Lens' TrustedAdvisorResourcesSummary Lude.Integer
-tarsResourcesFlagged = Lens.lens (resourcesFlagged :: TrustedAdvisorResourcesSummary -> Lude.Integer) (\s a -> s {resourcesFlagged = a} :: TrustedAdvisorResourcesSummary)
+tarsResourcesFlagged :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
+tarsResourcesFlagged = Lens.field @"resourcesFlagged"
 {-# DEPRECATED tarsResourcesFlagged "Use generic-lens or generic-optics with 'resourcesFlagged' instead." #-}
+
+-- | The number of AWS resources ignored by Trusted Advisor because information was unavailable.
+--
+-- /Note:/ Consider using 'resourcesIgnored' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tarsResourcesIgnored :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
+tarsResourcesIgnored = Lens.field @"resourcesIgnored"
+{-# DEPRECATED tarsResourcesIgnored "Use generic-lens or generic-optics with 'resourcesIgnored' instead." #-}
 
 -- | The number of AWS resources ignored by Trusted Advisor because they were marked as suppressed by the user.
 --
 -- /Note:/ Consider using 'resourcesSuppressed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsResourcesSuppressed :: Lens.Lens' TrustedAdvisorResourcesSummary Lude.Integer
-tarsResourcesSuppressed = Lens.lens (resourcesSuppressed :: TrustedAdvisorResourcesSummary -> Lude.Integer) (\s a -> s {resourcesSuppressed = a} :: TrustedAdvisorResourcesSummary)
+tarsResourcesSuppressed :: Lens.Lens' TrustedAdvisorResourcesSummary Core.Integer
+tarsResourcesSuppressed = Lens.field @"resourcesSuppressed"
 {-# DEPRECATED tarsResourcesSuppressed "Use generic-lens or generic-optics with 'resourcesSuppressed' instead." #-}
 
-instance Lude.FromJSON TrustedAdvisorResourcesSummary where
+instance Core.FromJSON TrustedAdvisorResourcesSummary where
   parseJSON =
-    Lude.withObject
-      "TrustedAdvisorResourcesSummary"
-      ( \x ->
-          TrustedAdvisorResourcesSummary'
-            Lude.<$> (x Lude..: "resourcesIgnored")
-            Lude.<*> (x Lude..: "resourcesProcessed")
-            Lude.<*> (x Lude..: "resourcesFlagged")
-            Lude.<*> (x Lude..: "resourcesSuppressed")
-      )
+    Core.withObject "TrustedAdvisorResourcesSummary" Core.$
+      \x ->
+        TrustedAdvisorResourcesSummary'
+          Core.<$> (x Core..: "resourcesProcessed")
+          Core.<*> (x Core..: "resourcesFlagged")
+          Core.<*> (x Core..: "resourcesIgnored")
+          Core.<*> (x Core..: "resourcesSuppressed")

@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
   ( FastSnapshotRestoreStateCode
       ( FastSnapshotRestoreStateCode',
-        FSRSCEnabling,
-        FSRSCOptimizing,
-        FSRSCEnabled,
-        FSRSCDisabling,
-        FSRSCDisabled
+        FastSnapshotRestoreStateCodeEnabling,
+        FastSnapshotRestoreStateCodeOptimizing,
+        FastSnapshotRestoreStateCodeEnabled,
+        FastSnapshotRestoreStateCodeDisabling,
+        FastSnapshotRestoreStateCodeDisabled,
+        fromFastSnapshotRestoreStateCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FastSnapshotRestoreStateCode = FastSnapshotRestoreStateCode' Lude.Text
+newtype FastSnapshotRestoreStateCode = FastSnapshotRestoreStateCode'
+  { fromFastSnapshotRestoreStateCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FSRSCEnabling :: FastSnapshotRestoreStateCode
-pattern FSRSCEnabling = FastSnapshotRestoreStateCode' "enabling"
+pattern FastSnapshotRestoreStateCodeEnabling :: FastSnapshotRestoreStateCode
+pattern FastSnapshotRestoreStateCodeEnabling = FastSnapshotRestoreStateCode' "enabling"
 
-pattern FSRSCOptimizing :: FastSnapshotRestoreStateCode
-pattern FSRSCOptimizing = FastSnapshotRestoreStateCode' "optimizing"
+pattern FastSnapshotRestoreStateCodeOptimizing :: FastSnapshotRestoreStateCode
+pattern FastSnapshotRestoreStateCodeOptimizing = FastSnapshotRestoreStateCode' "optimizing"
 
-pattern FSRSCEnabled :: FastSnapshotRestoreStateCode
-pattern FSRSCEnabled = FastSnapshotRestoreStateCode' "enabled"
+pattern FastSnapshotRestoreStateCodeEnabled :: FastSnapshotRestoreStateCode
+pattern FastSnapshotRestoreStateCodeEnabled = FastSnapshotRestoreStateCode' "enabled"
 
-pattern FSRSCDisabling :: FastSnapshotRestoreStateCode
-pattern FSRSCDisabling = FastSnapshotRestoreStateCode' "disabling"
+pattern FastSnapshotRestoreStateCodeDisabling :: FastSnapshotRestoreStateCode
+pattern FastSnapshotRestoreStateCodeDisabling = FastSnapshotRestoreStateCode' "disabling"
 
-pattern FSRSCDisabled :: FastSnapshotRestoreStateCode
-pattern FSRSCDisabled = FastSnapshotRestoreStateCode' "disabled"
+pattern FastSnapshotRestoreStateCodeDisabled :: FastSnapshotRestoreStateCode
+pattern FastSnapshotRestoreStateCodeDisabled = FastSnapshotRestoreStateCode' "disabled"
 
 {-# COMPLETE
-  FSRSCEnabling,
-  FSRSCOptimizing,
-  FSRSCEnabled,
-  FSRSCDisabling,
-  FSRSCDisabled,
+  FastSnapshotRestoreStateCodeEnabling,
+  FastSnapshotRestoreStateCodeOptimizing,
+  FastSnapshotRestoreStateCodeEnabled,
+  FastSnapshotRestoreStateCodeDisabling,
+  FastSnapshotRestoreStateCodeDisabled,
   FastSnapshotRestoreStateCode'
   #-}

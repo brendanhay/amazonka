@@ -13,101 +13,103 @@
 module Network.AWS.OpsWorksCM.Types.ServerStatus
   ( ServerStatus
       ( ServerStatus',
-        BackingUp,
-        ConnectionLost,
-        Creating,
-        Deleting,
-        Modifying,
-        Failed,
-        Healthy,
-        Running,
-        Restoring,
-        Setup,
-        UnderMaintenance,
-        Unhealthy,
-        Terminated
+        ServerStatusBackingUp,
+        ServerStatusConnectionLost,
+        ServerStatusCreating,
+        ServerStatusDeleting,
+        ServerStatusModifying,
+        ServerStatusFailed,
+        ServerStatusHealthy,
+        ServerStatusRunning,
+        ServerStatusRestoring,
+        ServerStatusSetup,
+        ServerStatusUnderMaintenance,
+        ServerStatusUnhealthy,
+        ServerStatusTerminated,
+        fromServerStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServerStatus = ServerStatus' Lude.Text
+newtype ServerStatus = ServerStatus' {fromServerStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BackingUp :: ServerStatus
-pattern BackingUp = ServerStatus' "BACKING_UP"
+pattern ServerStatusBackingUp :: ServerStatus
+pattern ServerStatusBackingUp = ServerStatus' "BACKING_UP"
 
-pattern ConnectionLost :: ServerStatus
-pattern ConnectionLost = ServerStatus' "CONNECTION_LOST"
+pattern ServerStatusConnectionLost :: ServerStatus
+pattern ServerStatusConnectionLost = ServerStatus' "CONNECTION_LOST"
 
-pattern Creating :: ServerStatus
-pattern Creating = ServerStatus' "CREATING"
+pattern ServerStatusCreating :: ServerStatus
+pattern ServerStatusCreating = ServerStatus' "CREATING"
 
-pattern Deleting :: ServerStatus
-pattern Deleting = ServerStatus' "DELETING"
+pattern ServerStatusDeleting :: ServerStatus
+pattern ServerStatusDeleting = ServerStatus' "DELETING"
 
-pattern Modifying :: ServerStatus
-pattern Modifying = ServerStatus' "MODIFYING"
+pattern ServerStatusModifying :: ServerStatus
+pattern ServerStatusModifying = ServerStatus' "MODIFYING"
 
-pattern Failed :: ServerStatus
-pattern Failed = ServerStatus' "FAILED"
+pattern ServerStatusFailed :: ServerStatus
+pattern ServerStatusFailed = ServerStatus' "FAILED"
 
-pattern Healthy :: ServerStatus
-pattern Healthy = ServerStatus' "HEALTHY"
+pattern ServerStatusHealthy :: ServerStatus
+pattern ServerStatusHealthy = ServerStatus' "HEALTHY"
 
-pattern Running :: ServerStatus
-pattern Running = ServerStatus' "RUNNING"
+pattern ServerStatusRunning :: ServerStatus
+pattern ServerStatusRunning = ServerStatus' "RUNNING"
 
-pattern Restoring :: ServerStatus
-pattern Restoring = ServerStatus' "RESTORING"
+pattern ServerStatusRestoring :: ServerStatus
+pattern ServerStatusRestoring = ServerStatus' "RESTORING"
 
-pattern Setup :: ServerStatus
-pattern Setup = ServerStatus' "SETUP"
+pattern ServerStatusSetup :: ServerStatus
+pattern ServerStatusSetup = ServerStatus' "SETUP"
 
-pattern UnderMaintenance :: ServerStatus
-pattern UnderMaintenance = ServerStatus' "UNDER_MAINTENANCE"
+pattern ServerStatusUnderMaintenance :: ServerStatus
+pattern ServerStatusUnderMaintenance = ServerStatus' "UNDER_MAINTENANCE"
 
-pattern Unhealthy :: ServerStatus
-pattern Unhealthy = ServerStatus' "UNHEALTHY"
+pattern ServerStatusUnhealthy :: ServerStatus
+pattern ServerStatusUnhealthy = ServerStatus' "UNHEALTHY"
 
-pattern Terminated :: ServerStatus
-pattern Terminated = ServerStatus' "TERMINATED"
+pattern ServerStatusTerminated :: ServerStatus
+pattern ServerStatusTerminated = ServerStatus' "TERMINATED"
 
 {-# COMPLETE
-  BackingUp,
-  ConnectionLost,
-  Creating,
-  Deleting,
-  Modifying,
-  Failed,
-  Healthy,
-  Running,
-  Restoring,
-  Setup,
-  UnderMaintenance,
-  Unhealthy,
-  Terminated,
+  ServerStatusBackingUp,
+  ServerStatusConnectionLost,
+  ServerStatusCreating,
+  ServerStatusDeleting,
+  ServerStatusModifying,
+  ServerStatusFailed,
+  ServerStatusHealthy,
+  ServerStatusRunning,
+  ServerStatusRestoring,
+  ServerStatusSetup,
+  ServerStatusUnderMaintenance,
+  ServerStatusUnhealthy,
+  ServerStatusTerminated,
   ServerStatus'
   #-}

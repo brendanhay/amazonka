@@ -23,66 +23,61 @@ module Network.AWS.IoT.Types.AuditMitigationActionsTaskMetadata
   )
 where
 
-import Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
+import qualified Network.AWS.IoT.Types.AuditMitigationActionsTaskId as Types
+import qualified Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an audit mitigation actions task that is returned by @ListAuditMitigationActionsTasks@ .
 --
 -- /See:/ 'mkAuditMitigationActionsTaskMetadata' smart constructor.
 data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
   { -- | The time at which the audit mitigation actions task was started.
-    startTime :: Lude.Maybe Lude.Timestamp,
+    startTime :: Core.Maybe Core.NominalDiffTime,
     -- | The unique identifier for the task.
-    taskId :: Lude.Maybe Lude.Text,
+    taskId :: Core.Maybe Types.AuditMitigationActionsTaskId,
     -- | The current state of the audit mitigation actions task.
-    taskStatus :: Lude.Maybe AuditMitigationActionsTaskStatus
+    taskStatus :: Core.Maybe Types.AuditMitigationActionsTaskStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AuditMitigationActionsTaskMetadata' with the minimum fields required to make a request.
---
--- * 'startTime' - The time at which the audit mitigation actions task was started.
--- * 'taskId' - The unique identifier for the task.
--- * 'taskStatus' - The current state of the audit mitigation actions task.
+-- | Creates a 'AuditMitigationActionsTaskMetadata' value with any optional fields omitted.
 mkAuditMitigationActionsTaskMetadata ::
   AuditMitigationActionsTaskMetadata
 mkAuditMitigationActionsTaskMetadata =
   AuditMitigationActionsTaskMetadata'
-    { startTime = Lude.Nothing,
-      taskId = Lude.Nothing,
-      taskStatus = Lude.Nothing
+    { startTime = Core.Nothing,
+      taskId = Core.Nothing,
+      taskStatus = Core.Nothing
     }
 
 -- | The time at which the audit mitigation actions task was started.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amatmStartTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Lude.Maybe Lude.Timestamp)
-amatmStartTime = Lens.lens (startTime :: AuditMitigationActionsTaskMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata)
+amatmStartTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Core.Maybe Core.NominalDiffTime)
+amatmStartTime = Lens.field @"startTime"
 {-# DEPRECATED amatmStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The unique identifier for the task.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amatmTaskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Lude.Maybe Lude.Text)
-amatmTaskId = Lens.lens (taskId :: AuditMitigationActionsTaskMetadata -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: AuditMitigationActionsTaskMetadata)
+amatmTaskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Core.Maybe Types.AuditMitigationActionsTaskId)
+amatmTaskId = Lens.field @"taskId"
 {-# DEPRECATED amatmTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The current state of the audit mitigation actions task.
 --
 -- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amatmTaskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Lude.Maybe AuditMitigationActionsTaskStatus)
-amatmTaskStatus = Lens.lens (taskStatus :: AuditMitigationActionsTaskMetadata -> Lude.Maybe AuditMitigationActionsTaskStatus) (\s a -> s {taskStatus = a} :: AuditMitigationActionsTaskMetadata)
+amatmTaskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Core.Maybe Types.AuditMitigationActionsTaskStatus)
+amatmTaskStatus = Lens.field @"taskStatus"
 {-# DEPRECATED amatmTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
 
-instance Lude.FromJSON AuditMitigationActionsTaskMetadata where
+instance Core.FromJSON AuditMitigationActionsTaskMetadata where
   parseJSON =
-    Lude.withObject
-      "AuditMitigationActionsTaskMetadata"
-      ( \x ->
-          AuditMitigationActionsTaskMetadata'
-            Lude.<$> (x Lude..:? "startTime")
-            Lude.<*> (x Lude..:? "taskId")
-            Lude.<*> (x Lude..:? "taskStatus")
-      )
+    Core.withObject "AuditMitigationActionsTaskMetadata" Core.$
+      \x ->
+        AuditMitigationActionsTaskMetadata'
+          Core.<$> (x Core..:? "startTime")
+          Core.<*> (x Core..:? "taskId")
+          Core.<*> (x Core..:? "taskStatus")

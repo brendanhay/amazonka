@@ -18,98 +18,92 @@ module Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroup
 
     -- * Lenses
     lgvigLocalGatewayId,
-    lgvigOwnerId,
-    lgvigLocalGatewayVirtualInterfaceIds,
     lgvigLocalGatewayVirtualInterfaceGroupId,
+    lgvigLocalGatewayVirtualInterfaceIds,
+    lgvigOwnerId,
     lgvigTags,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroupId as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a local gateway virtual interface group.
 --
 -- /See:/ 'mkLocalGatewayVirtualInterfaceGroup' smart constructor.
 data LocalGatewayVirtualInterfaceGroup = LocalGatewayVirtualInterfaceGroup'
   { -- | The ID of the local gateway.
-    localGatewayId :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID that owns the local gateway virtual interface group.
-    ownerId :: Lude.Maybe Lude.Text,
-    -- | The IDs of the virtual interfaces.
-    localGatewayVirtualInterfaceIds :: Lude.Maybe [Lude.Text],
+    localGatewayId :: Core.Maybe Types.String,
     -- | The ID of the virtual interface group.
-    localGatewayVirtualInterfaceGroupId :: Lude.Maybe Lude.Text,
+    localGatewayVirtualInterfaceGroupId :: Core.Maybe Types.LocalGatewayVirtualInterfaceGroupId,
+    -- | The IDs of the virtual interfaces.
+    localGatewayVirtualInterfaceIds :: Core.Maybe [Types.LocalGatewayVirtualInterfaceId],
+    -- | The AWS account ID that owns the local gateway virtual interface group.
+    ownerId :: Core.Maybe Types.String,
     -- | The tags assigned to the virtual interface group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalGatewayVirtualInterfaceGroup' with the minimum fields required to make a request.
---
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'ownerId' - The AWS account ID that owns the local gateway virtual interface group.
--- * 'localGatewayVirtualInterfaceIds' - The IDs of the virtual interfaces.
--- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
--- * 'tags' - The tags assigned to the virtual interface group.
+-- | Creates a 'LocalGatewayVirtualInterfaceGroup' value with any optional fields omitted.
 mkLocalGatewayVirtualInterfaceGroup ::
   LocalGatewayVirtualInterfaceGroup
 mkLocalGatewayVirtualInterfaceGroup =
   LocalGatewayVirtualInterfaceGroup'
-    { localGatewayId = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      localGatewayVirtualInterfaceIds = Lude.Nothing,
-      localGatewayVirtualInterfaceGroupId = Lude.Nothing,
-      tags = Lude.Nothing
+    { localGatewayId = Core.Nothing,
+      localGatewayVirtualInterfaceGroupId = Core.Nothing,
+      localGatewayVirtualInterfaceIds = Core.Nothing,
+      ownerId = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The ID of the local gateway.
 --
 -- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgvigLocalGatewayId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Lude.Maybe Lude.Text)
-lgvigLocalGatewayId = Lens.lens (localGatewayId :: LocalGatewayVirtualInterfaceGroup -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayId = a} :: LocalGatewayVirtualInterfaceGroup)
+lgvigLocalGatewayId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Core.Maybe Types.String)
+lgvigLocalGatewayId = Lens.field @"localGatewayId"
 {-# DEPRECATED lgvigLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
-
--- | The AWS account ID that owns the local gateway virtual interface group.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgvigOwnerId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Lude.Maybe Lude.Text)
-lgvigOwnerId = Lens.lens (ownerId :: LocalGatewayVirtualInterfaceGroup -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: LocalGatewayVirtualInterfaceGroup)
-{-# DEPRECATED lgvigOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | The IDs of the virtual interfaces.
---
--- /Note:/ Consider using 'localGatewayVirtualInterfaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgvigLocalGatewayVirtualInterfaceIds :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Lude.Maybe [Lude.Text])
-lgvigLocalGatewayVirtualInterfaceIds = Lens.lens (localGatewayVirtualInterfaceIds :: LocalGatewayVirtualInterfaceGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {localGatewayVirtualInterfaceIds = a} :: LocalGatewayVirtualInterfaceGroup)
-{-# DEPRECATED lgvigLocalGatewayVirtualInterfaceIds "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceIds' instead." #-}
 
 -- | The ID of the virtual interface group.
 --
 -- /Note:/ Consider using 'localGatewayVirtualInterfaceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgvigLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Lude.Maybe Lude.Text)
-lgvigLocalGatewayVirtualInterfaceGroupId = Lens.lens (localGatewayVirtualInterfaceGroupId :: LocalGatewayVirtualInterfaceGroup -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayVirtualInterfaceGroup)
+lgvigLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Core.Maybe Types.LocalGatewayVirtualInterfaceGroupId)
+lgvigLocalGatewayVirtualInterfaceGroupId = Lens.field @"localGatewayVirtualInterfaceGroupId"
 {-# DEPRECATED lgvigLocalGatewayVirtualInterfaceGroupId "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceGroupId' instead." #-}
+
+-- | The IDs of the virtual interfaces.
+--
+-- /Note:/ Consider using 'localGatewayVirtualInterfaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvigLocalGatewayVirtualInterfaceIds :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Core.Maybe [Types.LocalGatewayVirtualInterfaceId])
+lgvigLocalGatewayVirtualInterfaceIds = Lens.field @"localGatewayVirtualInterfaceIds"
+{-# DEPRECATED lgvigLocalGatewayVirtualInterfaceIds "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceIds' instead." #-}
+
+-- | The AWS account ID that owns the local gateway virtual interface group.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgvigOwnerId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Core.Maybe Types.String)
+lgvigOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED lgvigOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The tags assigned to the virtual interface group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgvigTags :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Lude.Maybe [Tag])
-lgvigTags = Lens.lens (tags :: LocalGatewayVirtualInterfaceGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LocalGatewayVirtualInterfaceGroup)
+lgvigTags :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Core.Maybe [Types.Tag])
+lgvigTags = Lens.field @"tags"
 {-# DEPRECATED lgvigTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML LocalGatewayVirtualInterfaceGroup where
+instance Core.FromXML LocalGatewayVirtualInterfaceGroup where
   parseXML x =
     LocalGatewayVirtualInterfaceGroup'
-      Lude.<$> (x Lude..@? "localGatewayId")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> ( x Lude..@? "localGatewayVirtualInterfaceIdSet"
-                   Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "localGatewayId")
+      Core.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
+      Core.<*> ( x Core..@? "localGatewayVirtualInterfaceIdSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "localGatewayVirtualInterfaceGroupId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

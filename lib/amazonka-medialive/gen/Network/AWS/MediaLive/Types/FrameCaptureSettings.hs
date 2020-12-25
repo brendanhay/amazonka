@@ -17,70 +17,65 @@ module Network.AWS.MediaLive.Types.FrameCaptureSettings
     mkFrameCaptureSettings,
 
     -- * Lenses
-    fcsCaptureIntervalUnits,
     fcsCaptureInterval,
+    fcsCaptureIntervalUnits,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Frame Capture Settings
 --
 -- /See:/ 'mkFrameCaptureSettings' smart constructor.
 data FrameCaptureSettings = FrameCaptureSettings'
-  { -- | Unit for the frame capture interval.
-    captureIntervalUnits :: Lude.Maybe FrameCaptureIntervalUnit,
-    -- | The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
-    captureInterval :: Lude.Natural
+  { -- | The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
+    captureInterval :: Core.Natural,
+    -- | Unit for the frame capture interval.
+    captureIntervalUnits :: Core.Maybe Types.FrameCaptureIntervalUnit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FrameCaptureSettings' with the minimum fields required to make a request.
---
--- * 'captureIntervalUnits' - Unit for the frame capture interval.
--- * 'captureInterval' - The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
+-- | Creates a 'FrameCaptureSettings' value with any optional fields omitted.
 mkFrameCaptureSettings ::
   -- | 'captureInterval'
-  Lude.Natural ->
+  Core.Natural ->
   FrameCaptureSettings
-mkFrameCaptureSettings pCaptureInterval_ =
+mkFrameCaptureSettings captureInterval =
   FrameCaptureSettings'
-    { captureIntervalUnits = Lude.Nothing,
-      captureInterval = pCaptureInterval_
+    { captureInterval,
+      captureIntervalUnits = Core.Nothing
     }
-
--- | Unit for the frame capture interval.
---
--- /Note:/ Consider using 'captureIntervalUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcsCaptureIntervalUnits :: Lens.Lens' FrameCaptureSettings (Lude.Maybe FrameCaptureIntervalUnit)
-fcsCaptureIntervalUnits = Lens.lens (captureIntervalUnits :: FrameCaptureSettings -> Lude.Maybe FrameCaptureIntervalUnit) (\s a -> s {captureIntervalUnits = a} :: FrameCaptureSettings)
-{-# DEPRECATED fcsCaptureIntervalUnits "Use generic-lens or generic-optics with 'captureIntervalUnits' instead." #-}
 
 -- | The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
 --
 -- /Note:/ Consider using 'captureInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcsCaptureInterval :: Lens.Lens' FrameCaptureSettings Lude.Natural
-fcsCaptureInterval = Lens.lens (captureInterval :: FrameCaptureSettings -> Lude.Natural) (\s a -> s {captureInterval = a} :: FrameCaptureSettings)
+fcsCaptureInterval :: Lens.Lens' FrameCaptureSettings Core.Natural
+fcsCaptureInterval = Lens.field @"captureInterval"
 {-# DEPRECATED fcsCaptureInterval "Use generic-lens or generic-optics with 'captureInterval' instead." #-}
 
-instance Lude.FromJSON FrameCaptureSettings where
-  parseJSON =
-    Lude.withObject
-      "FrameCaptureSettings"
-      ( \x ->
-          FrameCaptureSettings'
-            Lude.<$> (x Lude..:? "captureIntervalUnits")
-            Lude.<*> (x Lude..: "captureInterval")
-      )
+-- | Unit for the frame capture interval.
+--
+-- /Note:/ Consider using 'captureIntervalUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcsCaptureIntervalUnits :: Lens.Lens' FrameCaptureSettings (Core.Maybe Types.FrameCaptureIntervalUnit)
+fcsCaptureIntervalUnits = Lens.field @"captureIntervalUnits"
+{-# DEPRECATED fcsCaptureIntervalUnits "Use generic-lens or generic-optics with 'captureIntervalUnits' instead." #-}
 
-instance Lude.ToJSON FrameCaptureSettings where
-  toJSON FrameCaptureSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("captureIntervalUnits" Lude..=) Lude.<$> captureIntervalUnits,
-            Lude.Just ("captureInterval" Lude..= captureInterval)
+instance Core.FromJSON FrameCaptureSettings where
+  toJSON FrameCaptureSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("captureInterval" Core..= captureInterval),
+            ("captureIntervalUnits" Core..=) Core.<$> captureIntervalUnits
           ]
       )
+
+instance Core.FromJSON FrameCaptureSettings where
+  parseJSON =
+    Core.withObject "FrameCaptureSettings" Core.$
+      \x ->
+        FrameCaptureSettings'
+          Core.<$> (x Core..: "captureInterval")
+          Core.<*> (x Core..:? "captureIntervalUnits")

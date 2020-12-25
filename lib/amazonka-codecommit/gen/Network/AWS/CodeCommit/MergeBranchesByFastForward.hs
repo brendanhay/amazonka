@@ -20,185 +20,168 @@ module Network.AWS.CodeCommit.MergeBranchesByFastForward
     mkMergeBranchesByFastForward,
 
     -- ** Request lenses
-    mbbffTargetBranch,
     mbbffRepositoryName,
     mbbffSourceCommitSpecifier,
     mbbffDestinationCommitSpecifier,
+    mbbffTargetBranch,
 
     -- * Destructuring the response
     MergeBranchesByFastForwardResponse (..),
     mkMergeBranchesByFastForwardResponse,
 
     -- ** Response lenses
-    mbbffrsCommitId,
-    mbbffrsTreeId,
-    mbbffrsResponseStatus,
+    mbbffrrsCommitId,
+    mbbffrrsTreeId,
+    mbbffrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkMergeBranchesByFastForward' smart constructor.
 data MergeBranchesByFastForward = MergeBranchesByFastForward'
-  { -- | The branch where the merge is applied.
-    targetBranch :: Lude.Maybe Lude.Text,
-    -- | The name of the repository where you want to merge two branches.
-    repositoryName :: Lude.Text,
+  { -- | The name of the repository where you want to merge two branches.
+    repositoryName :: Types.RepositoryName,
     -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-    sourceCommitSpecifier :: Lude.Text,
+    sourceCommitSpecifier :: Types.SourceCommitSpecifier,
     -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-    destinationCommitSpecifier :: Lude.Text
+    destinationCommitSpecifier :: Types.DestinationCommitSpecifier,
+    -- | The branch where the merge is applied.
+    targetBranch :: Core.Maybe Types.TargetBranch
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeBranchesByFastForward' with the minimum fields required to make a request.
---
--- * 'targetBranch' - The branch where the merge is applied.
--- * 'repositoryName' - The name of the repository where you want to merge two branches.
--- * 'sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
--- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+-- | Creates a 'MergeBranchesByFastForward' value with any optional fields omitted.
 mkMergeBranchesByFastForward ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   -- | 'sourceCommitSpecifier'
-  Lude.Text ->
+  Types.SourceCommitSpecifier ->
   -- | 'destinationCommitSpecifier'
-  Lude.Text ->
+  Types.DestinationCommitSpecifier ->
   MergeBranchesByFastForward
 mkMergeBranchesByFastForward
-  pRepositoryName_
-  pSourceCommitSpecifier_
-  pDestinationCommitSpecifier_ =
+  repositoryName
+  sourceCommitSpecifier
+  destinationCommitSpecifier =
     MergeBranchesByFastForward'
-      { targetBranch = Lude.Nothing,
-        repositoryName = pRepositoryName_,
-        sourceCommitSpecifier = pSourceCommitSpecifier_,
-        destinationCommitSpecifier = pDestinationCommitSpecifier_
+      { repositoryName,
+        sourceCommitSpecifier,
+        destinationCommitSpecifier,
+        targetBranch = Core.Nothing
       }
-
--- | The branch where the merge is applied.
---
--- /Note:/ Consider using 'targetBranch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffTargetBranch :: Lens.Lens' MergeBranchesByFastForward (Lude.Maybe Lude.Text)
-mbbffTargetBranch = Lens.lens (targetBranch :: MergeBranchesByFastForward -> Lude.Maybe Lude.Text) (\s a -> s {targetBranch = a} :: MergeBranchesByFastForward)
-{-# DEPRECATED mbbffTargetBranch "Use generic-lens or generic-optics with 'targetBranch' instead." #-}
 
 -- | The name of the repository where you want to merge two branches.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffRepositoryName :: Lens.Lens' MergeBranchesByFastForward Lude.Text
-mbbffRepositoryName = Lens.lens (repositoryName :: MergeBranchesByFastForward -> Lude.Text) (\s a -> s {repositoryName = a} :: MergeBranchesByFastForward)
+mbbffRepositoryName :: Lens.Lens' MergeBranchesByFastForward Types.RepositoryName
+mbbffRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED mbbffRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 --
 -- /Note:/ Consider using 'sourceCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffSourceCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Lude.Text
-mbbffSourceCommitSpecifier = Lens.lens (sourceCommitSpecifier :: MergeBranchesByFastForward -> Lude.Text) (\s a -> s {sourceCommitSpecifier = a} :: MergeBranchesByFastForward)
+mbbffSourceCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Types.SourceCommitSpecifier
+mbbffSourceCommitSpecifier = Lens.field @"sourceCommitSpecifier"
 {-# DEPRECATED mbbffSourceCommitSpecifier "Use generic-lens or generic-optics with 'sourceCommitSpecifier' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 --
 -- /Note:/ Consider using 'destinationCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffDestinationCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Lude.Text
-mbbffDestinationCommitSpecifier = Lens.lens (destinationCommitSpecifier :: MergeBranchesByFastForward -> Lude.Text) (\s a -> s {destinationCommitSpecifier = a} :: MergeBranchesByFastForward)
+mbbffDestinationCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Types.DestinationCommitSpecifier
+mbbffDestinationCommitSpecifier = Lens.field @"destinationCommitSpecifier"
 {-# DEPRECATED mbbffDestinationCommitSpecifier "Use generic-lens or generic-optics with 'destinationCommitSpecifier' instead." #-}
 
-instance Lude.AWSRequest MergeBranchesByFastForward where
+-- | The branch where the merge is applied.
+--
+-- /Note:/ Consider using 'targetBranch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbffTargetBranch :: Lens.Lens' MergeBranchesByFastForward (Core.Maybe Types.TargetBranch)
+mbbffTargetBranch = Lens.field @"targetBranch"
+{-# DEPRECATED mbbffTargetBranch "Use generic-lens or generic-optics with 'targetBranch' instead." #-}
+
+instance Core.FromJSON MergeBranchesByFastForward where
+  toJSON MergeBranchesByFastForward {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("sourceCommitSpecifier" Core..= sourceCommitSpecifier),
+            Core.Just
+              ("destinationCommitSpecifier" Core..= destinationCommitSpecifier),
+            ("targetBranch" Core..=) Core.<$> targetBranch
+          ]
+      )
+
+instance Core.AWSRequest MergeBranchesByFastForward where
   type
     Rs MergeBranchesByFastForward =
       MergeBranchesByFastForwardResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.MergeBranchesByFastForward")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           MergeBranchesByFastForwardResponse'
-            Lude.<$> (x Lude..?> "commitId")
-            Lude.<*> (x Lude..?> "treeId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "commitId")
+            Core.<*> (x Core..:? "treeId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders MergeBranchesByFastForward where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.MergeBranchesByFastForward" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON MergeBranchesByFastForward where
-  toJSON MergeBranchesByFastForward' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("targetBranch" Lude..=) Lude.<$> targetBranch,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
-            Lude.Just
-              ("destinationCommitSpecifier" Lude..= destinationCommitSpecifier)
-          ]
-      )
-
-instance Lude.ToPath MergeBranchesByFastForward where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery MergeBranchesByFastForward where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkMergeBranchesByFastForwardResponse' smart constructor.
 data MergeBranchesByFastForwardResponse = MergeBranchesByFastForwardResponse'
   { -- | The commit ID of the merge in the destination or target branch.
-    commitId :: Lude.Maybe Lude.Text,
+    commitId :: Core.Maybe Types.CommitId,
     -- | The tree ID of the merge in the destination or target branch.
-    treeId :: Lude.Maybe Lude.Text,
+    treeId :: Core.Maybe Types.TreeId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeBranchesByFastForwardResponse' with the minimum fields required to make a request.
---
--- * 'commitId' - The commit ID of the merge in the destination or target branch.
--- * 'treeId' - The tree ID of the merge in the destination or target branch.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'MergeBranchesByFastForwardResponse' value with any optional fields omitted.
 mkMergeBranchesByFastForwardResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   MergeBranchesByFastForwardResponse
-mkMergeBranchesByFastForwardResponse pResponseStatus_ =
+mkMergeBranchesByFastForwardResponse responseStatus =
   MergeBranchesByFastForwardResponse'
-    { commitId = Lude.Nothing,
-      treeId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { commitId = Core.Nothing,
+      treeId = Core.Nothing,
+      responseStatus
     }
 
 -- | The commit ID of the merge in the destination or target branch.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffrsCommitId :: Lens.Lens' MergeBranchesByFastForwardResponse (Lude.Maybe Lude.Text)
-mbbffrsCommitId = Lens.lens (commitId :: MergeBranchesByFastForwardResponse -> Lude.Maybe Lude.Text) (\s a -> s {commitId = a} :: MergeBranchesByFastForwardResponse)
-{-# DEPRECATED mbbffrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+mbbffrrsCommitId :: Lens.Lens' MergeBranchesByFastForwardResponse (Core.Maybe Types.CommitId)
+mbbffrrsCommitId = Lens.field @"commitId"
+{-# DEPRECATED mbbffrrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | The tree ID of the merge in the destination or target branch.
 --
 -- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffrsTreeId :: Lens.Lens' MergeBranchesByFastForwardResponse (Lude.Maybe Lude.Text)
-mbbffrsTreeId = Lens.lens (treeId :: MergeBranchesByFastForwardResponse -> Lude.Maybe Lude.Text) (\s a -> s {treeId = a} :: MergeBranchesByFastForwardResponse)
-{-# DEPRECATED mbbffrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
+mbbffrrsTreeId :: Lens.Lens' MergeBranchesByFastForwardResponse (Core.Maybe Types.TreeId)
+mbbffrrsTreeId = Lens.field @"treeId"
+{-# DEPRECATED mbbffrrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbffrsResponseStatus :: Lens.Lens' MergeBranchesByFastForwardResponse Lude.Int
-mbbffrsResponseStatus = Lens.lens (responseStatus :: MergeBranchesByFastForwardResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MergeBranchesByFastForwardResponse)
-{-# DEPRECATED mbbffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mbbffrrsResponseStatus :: Lens.Lens' MergeBranchesByFastForwardResponse Core.Int
+mbbffrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mbbffrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

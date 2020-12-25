@@ -17,54 +17,51 @@ module Network.AWS.WAF.Types.HTTPHeader
     mkHTTPHeader,
 
     -- * Lenses
-    httphValue,
     httphName,
+    httphValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.HeaderValue as Types
+import qualified Network.AWS.WAF.Types.Name as Types
 
 -- | The response from a 'GetSampledRequests' request includes an @HTTPHeader@ complex type that appears as @Headers@ in the response syntax. @HTTPHeader@ contains the names and values of all of the headers that appear in one of the web requests that were returned by @GetSampledRequests@ .
 --
 -- /See:/ 'mkHTTPHeader' smart constructor.
 data HTTPHeader = HTTPHeader'
-  { -- | The value of one of the headers in the sampled web request.
-    value :: Lude.Maybe Lude.Text,
-    -- | The name of one of the headers in the sampled web request.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of one of the headers in the sampled web request.
+    name :: Core.Maybe Types.Name,
+    -- | The value of one of the headers in the sampled web request.
+    value :: Core.Maybe Types.HeaderValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HTTPHeader' with the minimum fields required to make a request.
---
--- * 'value' - The value of one of the headers in the sampled web request.
--- * 'name' - The name of one of the headers in the sampled web request.
+-- | Creates a 'HTTPHeader' value with any optional fields omitted.
 mkHTTPHeader ::
   HTTPHeader
 mkHTTPHeader =
-  HTTPHeader' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The value of one of the headers in the sampled web request.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-httphValue :: Lens.Lens' HTTPHeader (Lude.Maybe Lude.Text)
-httphValue = Lens.lens (value :: HTTPHeader -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: HTTPHeader)
-{-# DEPRECATED httphValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  HTTPHeader' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The name of one of the headers in the sampled web request.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-httphName :: Lens.Lens' HTTPHeader (Lude.Maybe Lude.Text)
-httphName = Lens.lens (name :: HTTPHeader -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: HTTPHeader)
+httphName :: Lens.Lens' HTTPHeader (Core.Maybe Types.Name)
+httphName = Lens.field @"name"
 {-# DEPRECATED httphName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON HTTPHeader where
+-- | The value of one of the headers in the sampled web request.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httphValue :: Lens.Lens' HTTPHeader (Core.Maybe Types.HeaderValue)
+httphValue = Lens.field @"value"
+{-# DEPRECATED httphValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON HTTPHeader where
   parseJSON =
-    Lude.withObject
-      "HTTPHeader"
-      ( \x ->
-          HTTPHeader'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "HTTPHeader" Core.$
+      \x ->
+        HTTPHeader'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Value")

@@ -17,57 +17,54 @@ module Network.AWS.Pinpoint.Types.DefaultMessage
     mkDefaultMessage,
 
     -- * Lenses
-    dmSubstitutions,
     dmBody,
+    dmSubstitutions,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the default message for all channels.
 --
 -- /See:/ 'mkDefaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
-  { -- | The default message variables to use in the message. You can override these default variables with individual address variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The default body of the message.
-    body :: Lude.Maybe Lude.Text
+  { -- | The default body of the message.
+    body :: Core.Maybe Core.Text,
+    -- | The default message variables to use in the message. You can override these default variables with individual address variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefaultMessage' with the minimum fields required to make a request.
---
--- * 'substitutions' - The default message variables to use in the message. You can override these default variables with individual address variables.
--- * 'body' - The default body of the message.
+-- | Creates a 'DefaultMessage' value with any optional fields omitted.
 mkDefaultMessage ::
   DefaultMessage
 mkDefaultMessage =
   DefaultMessage'
-    { substitutions = Lude.Nothing,
-      body = Lude.Nothing
+    { body = Core.Nothing,
+      substitutions = Core.Nothing
     }
-
--- | The default message variables to use in the message. You can override these default variables with individual address variables.
---
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmSubstitutions :: Lens.Lens' DefaultMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-dmSubstitutions = Lens.lens (substitutions :: DefaultMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: DefaultMessage)
-{-# DEPRECATED dmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
 -- | The default body of the message.
 --
 -- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmBody :: Lens.Lens' DefaultMessage (Lude.Maybe Lude.Text)
-dmBody = Lens.lens (body :: DefaultMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: DefaultMessage)
+dmBody :: Lens.Lens' DefaultMessage (Core.Maybe Core.Text)
+dmBody = Lens.field @"body"
 {-# DEPRECATED dmBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
-instance Lude.ToJSON DefaultMessage where
-  toJSON DefaultMessage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("Body" Lude..=) Lude.<$> body
+-- | The default message variables to use in the message. You can override these default variables with individual address variables.
+--
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmSubstitutions :: Lens.Lens' DefaultMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+dmSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED dmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
+
+instance Core.FromJSON DefaultMessage where
+  toJSON DefaultMessage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Body" Core..=) Core.<$> body,
+            ("Substitutions" Core..=) Core.<$> substitutions
           ]
       )

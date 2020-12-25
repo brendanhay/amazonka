@@ -13,56 +13,61 @@
 module Network.AWS.AppSync.Types.ConflictHandlerType
   ( ConflictHandlerType
       ( ConflictHandlerType',
-        CHTOptimisticConcurrency,
-        CHTLambda,
-        CHTAutomerge,
-        CHTNone
+        ConflictHandlerTypeOptimisticConcurrency,
+        ConflictHandlerTypeLambda,
+        ConflictHandlerTypeAutomerge,
+        ConflictHandlerTypeNone,
+        fromConflictHandlerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConflictHandlerType = ConflictHandlerType' Lude.Text
+newtype ConflictHandlerType = ConflictHandlerType'
+  { fromConflictHandlerType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CHTOptimisticConcurrency :: ConflictHandlerType
-pattern CHTOptimisticConcurrency = ConflictHandlerType' "OPTIMISTIC_CONCURRENCY"
+pattern ConflictHandlerTypeOptimisticConcurrency :: ConflictHandlerType
+pattern ConflictHandlerTypeOptimisticConcurrency = ConflictHandlerType' "OPTIMISTIC_CONCURRENCY"
 
-pattern CHTLambda :: ConflictHandlerType
-pattern CHTLambda = ConflictHandlerType' "LAMBDA"
+pattern ConflictHandlerTypeLambda :: ConflictHandlerType
+pattern ConflictHandlerTypeLambda = ConflictHandlerType' "LAMBDA"
 
-pattern CHTAutomerge :: ConflictHandlerType
-pattern CHTAutomerge = ConflictHandlerType' "AUTOMERGE"
+pattern ConflictHandlerTypeAutomerge :: ConflictHandlerType
+pattern ConflictHandlerTypeAutomerge = ConflictHandlerType' "AUTOMERGE"
 
-pattern CHTNone :: ConflictHandlerType
-pattern CHTNone = ConflictHandlerType' "NONE"
+pattern ConflictHandlerTypeNone :: ConflictHandlerType
+pattern ConflictHandlerTypeNone = ConflictHandlerType' "NONE"
 
 {-# COMPLETE
-  CHTOptimisticConcurrency,
-  CHTLambda,
-  CHTAutomerge,
-  CHTNone,
+  ConflictHandlerTypeOptimisticConcurrency,
+  ConflictHandlerTypeLambda,
+  ConflictHandlerTypeAutomerge,
+  ConflictHandlerTypeNone,
   ConflictHandlerType'
   #-}

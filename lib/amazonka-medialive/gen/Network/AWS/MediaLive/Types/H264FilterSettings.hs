@@ -17,51 +17,47 @@ module Network.AWS.MediaLive.Types.H264FilterSettings
     mkH264FilterSettings,
 
     -- * Lenses
-    hTemporalFilterSettings,
+    hfsTemporalFilterSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.TemporalFilterSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.TemporalFilterSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Filter Settings
 --
 -- /See:/ 'mkH264FilterSettings' smart constructor.
 newtype H264FilterSettings = H264FilterSettings'
-  { temporalFilterSettings :: Lude.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Core.Maybe Types.TemporalFilterSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'H264FilterSettings' with the minimum fields required to make a request.
---
--- * 'temporalFilterSettings' -
+-- | Creates a 'H264FilterSettings' value with any optional fields omitted.
 mkH264FilterSettings ::
   H264FilterSettings
 mkH264FilterSettings =
-  H264FilterSettings' {temporalFilterSettings = Lude.Nothing}
+  H264FilterSettings' {temporalFilterSettings = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'temporalFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hTemporalFilterSettings :: Lens.Lens' H264FilterSettings (Lude.Maybe TemporalFilterSettings)
-hTemporalFilterSettings = Lens.lens (temporalFilterSettings :: H264FilterSettings -> Lude.Maybe TemporalFilterSettings) (\s a -> s {temporalFilterSettings = a} :: H264FilterSettings)
-{-# DEPRECATED hTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
+hfsTemporalFilterSettings :: Lens.Lens' H264FilterSettings (Core.Maybe Types.TemporalFilterSettings)
+hfsTemporalFilterSettings = Lens.field @"temporalFilterSettings"
+{-# DEPRECATED hfsTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
 
-instance Lude.FromJSON H264FilterSettings where
-  parseJSON =
-    Lude.withObject
-      "H264FilterSettings"
-      ( \x ->
-          H264FilterSettings' Lude.<$> (x Lude..:? "temporalFilterSettings")
-      )
-
-instance Lude.ToJSON H264FilterSettings where
-  toJSON H264FilterSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("temporalFilterSettings" Lude..=)
-              Lude.<$> temporalFilterSettings
+instance Core.FromJSON H264FilterSettings where
+  toJSON H264FilterSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("temporalFilterSettings" Core..=)
+              Core.<$> temporalFilterSettings
           ]
       )
+
+instance Core.FromJSON H264FilterSettings where
+  parseJSON =
+    Core.withObject "H264FilterSettings" Core.$
+      \x ->
+        H264FilterSettings' Core.<$> (x Core..:? "temporalFilterSettings")

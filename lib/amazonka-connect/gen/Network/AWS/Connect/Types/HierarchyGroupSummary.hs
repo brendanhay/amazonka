@@ -17,71 +17,68 @@ module Network.AWS.Connect.Types.HierarchyGroupSummary
     mkHierarchyGroupSummary,
 
     -- * Lenses
-    hgsARN,
-    hgsName,
+    hgsArn,
     hgsId,
+    hgsName,
   )
 where
 
+import qualified Network.AWS.Connect.Types.Arn as Types
+import qualified Network.AWS.Connect.Types.Id as Types
+import qualified Network.AWS.Connect.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary information about a hierarchy group.
 --
 -- /See:/ 'mkHierarchyGroupSummary' smart constructor.
 data HierarchyGroupSummary = HierarchyGroupSummary'
   { -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the hierarchy group.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The identifier of the hierarchy group.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.Id,
+    -- | The name of the hierarchy group.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HierarchyGroupSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the hierarchy group.
--- * 'name' - The name of the hierarchy group.
--- * 'id' - The identifier of the hierarchy group.
+-- | Creates a 'HierarchyGroupSummary' value with any optional fields omitted.
 mkHierarchyGroupSummary ::
   HierarchyGroupSummary
 mkHierarchyGroupSummary =
   HierarchyGroupSummary'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgsARN :: Lens.Lens' HierarchyGroupSummary (Lude.Maybe Lude.Text)
-hgsARN = Lens.lens (arn :: HierarchyGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: HierarchyGroupSummary)
-{-# DEPRECATED hgsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the hierarchy group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgsName :: Lens.Lens' HierarchyGroupSummary (Lude.Maybe Lude.Text)
-hgsName = Lens.lens (name :: HierarchyGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: HierarchyGroupSummary)
-{-# DEPRECATED hgsName "Use generic-lens or generic-optics with 'name' instead." #-}
+hgsArn :: Lens.Lens' HierarchyGroupSummary (Core.Maybe Types.Arn)
+hgsArn = Lens.field @"arn"
+{-# DEPRECATED hgsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The identifier of the hierarchy group.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgsId :: Lens.Lens' HierarchyGroupSummary (Lude.Maybe Lude.Text)
-hgsId = Lens.lens (id :: HierarchyGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: HierarchyGroupSummary)
+hgsId :: Lens.Lens' HierarchyGroupSummary (Core.Maybe Types.Id)
+hgsId = Lens.field @"id"
 {-# DEPRECATED hgsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON HierarchyGroupSummary where
+-- | The name of the hierarchy group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsName :: Lens.Lens' HierarchyGroupSummary (Core.Maybe Types.Name)
+hgsName = Lens.field @"name"
+{-# DEPRECATED hgsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON HierarchyGroupSummary where
   parseJSON =
-    Lude.withObject
-      "HierarchyGroupSummary"
-      ( \x ->
-          HierarchyGroupSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "HierarchyGroupSummary" Core.$
+      \x ->
+        HierarchyGroupSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")

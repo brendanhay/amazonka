@@ -22,34 +22,32 @@ module Network.AWS.S3.Types.CreateBucketConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | The configuration information for the bucket.
 --
 -- /See:/ 'mkCreateBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
   { -- | Specifies the Region where the bucket will be created. If you don't specify a Region, the bucket is created in the US East (N. Virginia) Region (us-east-1).
-    locationConstraint :: Lude.Maybe LocationConstraint
+    locationConstraint :: Core.Maybe Types.LocationConstraint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBucketConfiguration' with the minimum fields required to make a request.
---
--- * 'locationConstraint' - Specifies the Region where the bucket will be created. If you don't specify a Region, the bucket is created in the US East (N. Virginia) Region (us-east-1).
+-- | Creates a 'CreateBucketConfiguration' value with any optional fields omitted.
 mkCreateBucketConfiguration ::
   CreateBucketConfiguration
 mkCreateBucketConfiguration =
-  CreateBucketConfiguration' {locationConstraint = Lude.Nothing}
+  CreateBucketConfiguration' {locationConstraint = Core.Nothing}
 
 -- | Specifies the Region where the bucket will be created. If you don't specify a Region, the bucket is created in the US East (N. Virginia) Region (us-east-1).
 --
 -- /Note:/ Consider using 'locationConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbcLocationConstraint :: Lens.Lens' CreateBucketConfiguration (Lude.Maybe LocationConstraint)
-cbcLocationConstraint = Lens.lens (locationConstraint :: CreateBucketConfiguration -> Lude.Maybe LocationConstraint) (\s a -> s {locationConstraint = a} :: CreateBucketConfiguration)
+cbcLocationConstraint :: Lens.Lens' CreateBucketConfiguration (Core.Maybe Types.LocationConstraint)
+cbcLocationConstraint = Lens.field @"locationConstraint"
 {-# DEPRECATED cbcLocationConstraint "Use generic-lens or generic-optics with 'locationConstraint' instead." #-}
 
-instance Lude.ToXML CreateBucketConfiguration where
-  toXML CreateBucketConfiguration' {..} =
-    Lude.mconcat ["LocationConstraint" Lude.@= locationConstraint]
+instance Core.ToXML CreateBucketConfiguration where
+  toXML CreateBucketConfiguration {..} =
+    Core.toXMLNode "LocationConstraint" Core.<$> locationConstraint

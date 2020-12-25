@@ -19,68 +19,60 @@ module Network.AWS.ElasticBeanstalk.Types.PlatformBranchSummary
     -- * Lenses
     pbsBranchName,
     pbsBranchOrder,
+    pbsLifecycleState,
     pbsPlatformName,
     pbsSupportedTierList,
-    pbsLifecycleState,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.BranchName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.LifecycleState as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.PlatformName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SupportedTier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary information about a platform branch.
 --
 -- /See:/ 'mkPlatformBranchSummary' smart constructor.
 data PlatformBranchSummary = PlatformBranchSummary'
   { -- | The name of the platform branch.
-    branchName :: Lude.Maybe Lude.Text,
+    branchName :: Core.Maybe Types.BranchName,
     -- | An ordinal number that designates the order in which platform branches have been added to a platform. This can be helpful, for example, if your code calls the @ListPlatformBranches@ action and then displays a list of platform branches.
     --
     -- A larger @BranchOrder@ value designates a newer platform branch within the platform.
-    branchOrder :: Lude.Maybe Lude.Int,
-    -- | The name of the platform to which this platform branch belongs.
-    platformName :: Lude.Maybe Lude.Text,
-    -- | The environment tiers that platform versions in this branch support.
-    --
-    -- Possible values: @WebServer/Standard@ | @Worker/SQS/HTTP@
-    supportedTierList :: Lude.Maybe [Lude.Text],
+    branchOrder :: Core.Maybe Core.Int,
     -- | The support life cycle state of the platform branch.
     --
     -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
-    lifecycleState :: Lude.Maybe Lude.Text
+    lifecycleState :: Core.Maybe Types.LifecycleState,
+    -- | The name of the platform to which this platform branch belongs.
+    platformName :: Core.Maybe Types.PlatformName,
+    -- | The environment tiers that platform versions in this branch support.
+    --
+    -- Possible values: @WebServer/Standard@ | @Worker/SQS/HTTP@
+    supportedTierList :: Core.Maybe [Types.SupportedTier]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlatformBranchSummary' with the minimum fields required to make a request.
---
--- * 'branchName' - The name of the platform branch.
--- * 'branchOrder' - An ordinal number that designates the order in which platform branches have been added to a platform. This can be helpful, for example, if your code calls the @ListPlatformBranches@ action and then displays a list of platform branches.
---
--- A larger @BranchOrder@ value designates a newer platform branch within the platform.
--- * 'platformName' - The name of the platform to which this platform branch belongs.
--- * 'supportedTierList' - The environment tiers that platform versions in this branch support.
---
--- Possible values: @WebServer/Standard@ | @Worker/SQS/HTTP@
--- * 'lifecycleState' - The support life cycle state of the platform branch.
---
--- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
+-- | Creates a 'PlatformBranchSummary' value with any optional fields omitted.
 mkPlatformBranchSummary ::
   PlatformBranchSummary
 mkPlatformBranchSummary =
   PlatformBranchSummary'
-    { branchName = Lude.Nothing,
-      branchOrder = Lude.Nothing,
-      platformName = Lude.Nothing,
-      supportedTierList = Lude.Nothing,
-      lifecycleState = Lude.Nothing
+    { branchName = Core.Nothing,
+      branchOrder = Core.Nothing,
+      lifecycleState = Core.Nothing,
+      platformName = Core.Nothing,
+      supportedTierList = Core.Nothing
     }
 
 -- | The name of the platform branch.
 --
 -- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbsBranchName :: Lens.Lens' PlatformBranchSummary (Lude.Maybe Lude.Text)
-pbsBranchName = Lens.lens (branchName :: PlatformBranchSummary -> Lude.Maybe Lude.Text) (\s a -> s {branchName = a} :: PlatformBranchSummary)
+pbsBranchName :: Lens.Lens' PlatformBranchSummary (Core.Maybe Types.BranchName)
+pbsBranchName = Lens.field @"branchName"
 {-# DEPRECATED pbsBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
 -- | An ordinal number that designates the order in which platform branches have been added to a platform. This can be helpful, for example, if your code calls the @ListPlatformBranches@ action and then displays a list of platform branches.
@@ -88,15 +80,24 @@ pbsBranchName = Lens.lens (branchName :: PlatformBranchSummary -> Lude.Maybe Lud
 -- A larger @BranchOrder@ value designates a newer platform branch within the platform.
 --
 -- /Note:/ Consider using 'branchOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbsBranchOrder :: Lens.Lens' PlatformBranchSummary (Lude.Maybe Lude.Int)
-pbsBranchOrder = Lens.lens (branchOrder :: PlatformBranchSummary -> Lude.Maybe Lude.Int) (\s a -> s {branchOrder = a} :: PlatformBranchSummary)
+pbsBranchOrder :: Lens.Lens' PlatformBranchSummary (Core.Maybe Core.Int)
+pbsBranchOrder = Lens.field @"branchOrder"
 {-# DEPRECATED pbsBranchOrder "Use generic-lens or generic-optics with 'branchOrder' instead." #-}
+
+-- | The support life cycle state of the platform branch.
+--
+-- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
+--
+-- /Note:/ Consider using 'lifecycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbsLifecycleState :: Lens.Lens' PlatformBranchSummary (Core.Maybe Types.LifecycleState)
+pbsLifecycleState = Lens.field @"lifecycleState"
+{-# DEPRECATED pbsLifecycleState "Use generic-lens or generic-optics with 'lifecycleState' instead." #-}
 
 -- | The name of the platform to which this platform branch belongs.
 --
 -- /Note:/ Consider using 'platformName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbsPlatformName :: Lens.Lens' PlatformBranchSummary (Lude.Maybe Lude.Text)
-pbsPlatformName = Lens.lens (platformName :: PlatformBranchSummary -> Lude.Maybe Lude.Text) (\s a -> s {platformName = a} :: PlatformBranchSummary)
+pbsPlatformName :: Lens.Lens' PlatformBranchSummary (Core.Maybe Types.PlatformName)
+pbsPlatformName = Lens.field @"platformName"
 {-# DEPRECATED pbsPlatformName "Use generic-lens or generic-optics with 'platformName' instead." #-}
 
 -- | The environment tiers that platform versions in this branch support.
@@ -104,26 +105,17 @@ pbsPlatformName = Lens.lens (platformName :: PlatformBranchSummary -> Lude.Maybe
 -- Possible values: @WebServer/Standard@ | @Worker/SQS/HTTP@
 --
 -- /Note:/ Consider using 'supportedTierList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbsSupportedTierList :: Lens.Lens' PlatformBranchSummary (Lude.Maybe [Lude.Text])
-pbsSupportedTierList = Lens.lens (supportedTierList :: PlatformBranchSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedTierList = a} :: PlatformBranchSummary)
+pbsSupportedTierList :: Lens.Lens' PlatformBranchSummary (Core.Maybe [Types.SupportedTier])
+pbsSupportedTierList = Lens.field @"supportedTierList"
 {-# DEPRECATED pbsSupportedTierList "Use generic-lens or generic-optics with 'supportedTierList' instead." #-}
 
--- | The support life cycle state of the platform branch.
---
--- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
---
--- /Note:/ Consider using 'lifecycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbsLifecycleState :: Lens.Lens' PlatformBranchSummary (Lude.Maybe Lude.Text)
-pbsLifecycleState = Lens.lens (lifecycleState :: PlatformBranchSummary -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleState = a} :: PlatformBranchSummary)
-{-# DEPRECATED pbsLifecycleState "Use generic-lens or generic-optics with 'lifecycleState' instead." #-}
-
-instance Lude.FromXML PlatformBranchSummary where
+instance Core.FromXML PlatformBranchSummary where
   parseXML x =
     PlatformBranchSummary'
-      Lude.<$> (x Lude..@? "BranchName")
-      Lude.<*> (x Lude..@? "BranchOrder")
-      Lude.<*> (x Lude..@? "PlatformName")
-      Lude.<*> ( x Lude..@? "SupportedTierList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "BranchName")
+      Core.<*> (x Core..@? "BranchOrder")
+      Core.<*> (x Core..@? "LifecycleState")
+      Core.<*> (x Core..@? "PlatformName")
+      Core.<*> ( x Core..@? "SupportedTierList"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "LifecycleState")

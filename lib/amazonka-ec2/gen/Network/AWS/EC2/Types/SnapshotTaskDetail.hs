@@ -17,172 +17,161 @@ module Network.AWS.EC2.Types.SnapshotTaskDetail
     mkSnapshotTaskDetail,
 
     -- * Lenses
-    stdStatus,
-    stdProgress,
-    stdFormat,
-    stdURL,
-    stdEncrypted,
-    stdKMSKeyId,
-    stdStatusMessage,
-    stdUserBucket,
-    stdDiskImageSize,
     stdDescription,
+    stdDiskImageSize,
+    stdEncrypted,
+    stdFormat,
+    stdKmsKeyId,
+    stdProgress,
     stdSnapshotId,
+    stdStatus,
+    stdStatusMessage,
+    stdUrl,
+    stdUserBucket,
   )
 where
 
-import Network.AWS.EC2.Types.UserBucketDetails
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.UserBucketDetails as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the import snapshot task.
 --
 -- /See:/ 'mkSnapshotTaskDetail' smart constructor.
 data SnapshotTaskDetail = SnapshotTaskDetail'
-  { -- | A brief status for the import snapshot task.
-    status :: Lude.Maybe Lude.Text,
-    -- | The percentage of completion for the import snapshot task.
-    progress :: Lude.Maybe Lude.Text,
-    -- | The format of the disk image from which the snapshot is created.
-    format :: Lude.Maybe Lude.Text,
-    -- | The URL of the disk image from which the snapshot is created.
-    url :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the snapshot is encrypted.
-    encrypted :: Lude.Maybe Lude.Bool,
-    -- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    -- | A detailed status message for the import snapshot task.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | The Amazon S3 bucket for the disk image.
-    userBucket :: Lude.Maybe UserBucketDetails,
+  { -- | The description of the snapshot.
+    description :: Core.Maybe Types.String,
     -- | The size of the disk in the snapshot, in GiB.
-    diskImageSize :: Lude.Maybe Lude.Double,
-    -- | The description of the snapshot.
-    description :: Lude.Maybe Lude.Text,
+    diskImageSize :: Core.Maybe Core.Double,
+    -- | Indicates whether the snapshot is encrypted.
+    encrypted :: Core.Maybe Core.Bool,
+    -- | The format of the disk image from which the snapshot is created.
+    format :: Core.Maybe Types.String,
+    -- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
+    kmsKeyId :: Core.Maybe Types.String,
+    -- | The percentage of completion for the import snapshot task.
+    progress :: Core.Maybe Types.String,
     -- | The snapshot ID of the disk being imported.
-    snapshotId :: Lude.Maybe Lude.Text
+    snapshotId :: Core.Maybe Types.String,
+    -- | A brief status for the import snapshot task.
+    status :: Core.Maybe Types.String,
+    -- | A detailed status message for the import snapshot task.
+    statusMessage :: Core.Maybe Types.String,
+    -- | The URL of the disk image from which the snapshot is created.
+    url :: Core.Maybe Types.String,
+    -- | The Amazon S3 bucket for the disk image.
+    userBucket :: Core.Maybe Types.UserBucketDetails
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SnapshotTaskDetail' with the minimum fields required to make a request.
---
--- * 'status' - A brief status for the import snapshot task.
--- * 'progress' - The percentage of completion for the import snapshot task.
--- * 'format' - The format of the disk image from which the snapshot is created.
--- * 'url' - The URL of the disk image from which the snapshot is created.
--- * 'encrypted' - Indicates whether the snapshot is encrypted.
--- * 'kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
--- * 'statusMessage' - A detailed status message for the import snapshot task.
--- * 'userBucket' - The Amazon S3 bucket for the disk image.
--- * 'diskImageSize' - The size of the disk in the snapshot, in GiB.
--- * 'description' - The description of the snapshot.
--- * 'snapshotId' - The snapshot ID of the disk being imported.
+-- | Creates a 'SnapshotTaskDetail' value with any optional fields omitted.
 mkSnapshotTaskDetail ::
   SnapshotTaskDetail
 mkSnapshotTaskDetail =
   SnapshotTaskDetail'
-    { status = Lude.Nothing,
-      progress = Lude.Nothing,
-      format = Lude.Nothing,
-      url = Lude.Nothing,
-      encrypted = Lude.Nothing,
-      kmsKeyId = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      userBucket = Lude.Nothing,
-      diskImageSize = Lude.Nothing,
-      description = Lude.Nothing,
-      snapshotId = Lude.Nothing
+    { description = Core.Nothing,
+      diskImageSize = Core.Nothing,
+      encrypted = Core.Nothing,
+      format = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      progress = Core.Nothing,
+      snapshotId = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      url = Core.Nothing,
+      userBucket = Core.Nothing
     }
-
--- | A brief status for the import snapshot task.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdStatus :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdStatus = Lens.lens (status :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The percentage of completion for the import snapshot task.
---
--- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdProgress :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdProgress = Lens.lens (progress :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {progress = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
-
--- | The format of the disk image from which the snapshot is created.
---
--- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdFormat :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdFormat = Lens.lens (format :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {format = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
-
--- | The URL of the disk image from which the snapshot is created.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdURL :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdURL = Lens.lens (url :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdURL "Use generic-lens or generic-optics with 'url' instead." #-}
-
--- | Indicates whether the snapshot is encrypted.
---
--- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdEncrypted :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Bool)
-stdEncrypted = Lens.lens (encrypted :: SnapshotTaskDetail -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
-
--- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
---
--- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdKMSKeyId :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdKMSKeyId = Lens.lens (kmsKeyId :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
-
--- | A detailed status message for the import snapshot task.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdStatusMessage :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdStatusMessage = Lens.lens (statusMessage :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | The Amazon S3 bucket for the disk image.
---
--- /Note:/ Consider using 'userBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdUserBucket :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe UserBucketDetails)
-stdUserBucket = Lens.lens (userBucket :: SnapshotTaskDetail -> Lude.Maybe UserBucketDetails) (\s a -> s {userBucket = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdUserBucket "Use generic-lens or generic-optics with 'userBucket' instead." #-}
-
--- | The size of the disk in the snapshot, in GiB.
---
--- /Note:/ Consider using 'diskImageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdDiskImageSize :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Double)
-stdDiskImageSize = Lens.lens (diskImageSize :: SnapshotTaskDetail -> Lude.Maybe Lude.Double) (\s a -> s {diskImageSize = a} :: SnapshotTaskDetail)
-{-# DEPRECATED stdDiskImageSize "Use generic-lens or generic-optics with 'diskImageSize' instead." #-}
 
 -- | The description of the snapshot.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdDescription :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdDescription = Lens.lens (description :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SnapshotTaskDetail)
+stdDescription :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdDescription = Lens.field @"description"
 {-# DEPRECATED stdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The size of the disk in the snapshot, in GiB.
+--
+-- /Note:/ Consider using 'diskImageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdDiskImageSize :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Core.Double)
+stdDiskImageSize = Lens.field @"diskImageSize"
+{-# DEPRECATED stdDiskImageSize "Use generic-lens or generic-optics with 'diskImageSize' instead." #-}
+
+-- | Indicates whether the snapshot is encrypted.
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdEncrypted :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Core.Bool)
+stdEncrypted = Lens.field @"encrypted"
+{-# DEPRECATED stdEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
+
+-- | The format of the disk image from which the snapshot is created.
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdFormat :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdFormat = Lens.field @"format"
+{-# DEPRECATED stdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdKmsKeyId :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED stdKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
+-- | The percentage of completion for the import snapshot task.
+--
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdProgress :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdProgress = Lens.field @"progress"
+{-# DEPRECATED stdProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | The snapshot ID of the disk being imported.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdSnapshotId :: Lens.Lens' SnapshotTaskDetail (Lude.Maybe Lude.Text)
-stdSnapshotId = Lens.lens (snapshotId :: SnapshotTaskDetail -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: SnapshotTaskDetail)
+stdSnapshotId :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdSnapshotId = Lens.field @"snapshotId"
 {-# DEPRECATED stdSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance Lude.FromXML SnapshotTaskDetail where
+-- | A brief status for the import snapshot task.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdStatus :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdStatus = Lens.field @"status"
+{-# DEPRECATED stdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A detailed status message for the import snapshot task.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdStatusMessage :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED stdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | The URL of the disk image from which the snapshot is created.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdUrl :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.String)
+stdUrl = Lens.field @"url"
+{-# DEPRECATED stdUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+-- | The Amazon S3 bucket for the disk image.
+--
+-- /Note:/ Consider using 'userBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdUserBucket :: Lens.Lens' SnapshotTaskDetail (Core.Maybe Types.UserBucketDetails)
+stdUserBucket = Lens.field @"userBucket"
+{-# DEPRECATED stdUserBucket "Use generic-lens or generic-optics with 'userBucket' instead." #-}
+
+instance Core.FromXML SnapshotTaskDetail where
   parseXML x =
     SnapshotTaskDetail'
-      Lude.<$> (x Lude..@? "status")
-      Lude.<*> (x Lude..@? "progress")
-      Lude.<*> (x Lude..@? "format")
-      Lude.<*> (x Lude..@? "url")
-      Lude.<*> (x Lude..@? "encrypted")
-      Lude.<*> (x Lude..@? "kmsKeyId")
-      Lude.<*> (x Lude..@? "statusMessage")
-      Lude.<*> (x Lude..@? "userBucket")
-      Lude.<*> (x Lude..@? "diskImageSize")
-      Lude.<*> (x Lude..@? "description")
-      Lude.<*> (x Lude..@? "snapshotId")
+      Core.<$> (x Core..@? "description")
+      Core.<*> (x Core..@? "diskImageSize")
+      Core.<*> (x Core..@? "encrypted")
+      Core.<*> (x Core..@? "format")
+      Core.<*> (x Core..@? "kmsKeyId")
+      Core.<*> (x Core..@? "progress")
+      Core.<*> (x Core..@? "snapshotId")
+      Core.<*> (x Core..@? "status")
+      Core.<*> (x Core..@? "statusMessage")
+      Core.<*> (x Core..@? "url")
+      Core.<*> (x Core..@? "userBucket")

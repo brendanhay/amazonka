@@ -25,55 +25,49 @@ module Network.AWS.FMS.DeleteNotificationChannel
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteNotificationChannel' smart constructor.
 data DeleteNotificationChannel = DeleteNotificationChannel'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNotificationChannel' with the minimum fields required to make a request.
+-- | Creates a 'DeleteNotificationChannel' value with any optional fields omitted.
 mkDeleteNotificationChannel ::
   DeleteNotificationChannel
 mkDeleteNotificationChannel = DeleteNotificationChannel'
 
-instance Lude.AWSRequest DeleteNotificationChannel where
+instance Core.FromJSON DeleteNotificationChannel where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DeleteNotificationChannel where
   type
     Rs DeleteNotificationChannel =
       DeleteNotificationChannelResponse
-  request = Req.postJSON fmsService
-  response = Res.receiveNull DeleteNotificationChannelResponse'
-
-instance Lude.ToHeaders DeleteNotificationChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.DeleteNotificationChannel" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteNotificationChannel where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DeleteNotificationChannel where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteNotificationChannel where
-  toQuery = Lude.const Lude.mempty
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSFMS_20180101.DeleteNotificationChannel")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteNotificationChannelResponse'
 
 -- | /See:/ 'mkDeleteNotificationChannelResponse' smart constructor.
 data DeleteNotificationChannelResponse = DeleteNotificationChannelResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNotificationChannelResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteNotificationChannelResponse' value with any optional fields omitted.
 mkDeleteNotificationChannelResponse ::
   DeleteNotificationChannelResponse
 mkDeleteNotificationChannelResponse =

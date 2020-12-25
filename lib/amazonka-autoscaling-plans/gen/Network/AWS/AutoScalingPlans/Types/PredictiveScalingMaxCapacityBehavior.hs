@@ -13,51 +13,56 @@
 module Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
   ( PredictiveScalingMaxCapacityBehavior
       ( PredictiveScalingMaxCapacityBehavior',
-        SetForecastCapacityToMaxCapacity,
-        SetMaxCapacityToForecastCapacity,
-        SetMaxCapacityAboveForecastCapacity
+        PredictiveScalingMaxCapacityBehaviorSetForecastCapacityToMaxCapacity,
+        PredictiveScalingMaxCapacityBehaviorSetMaxCapacityToForecastCapacity,
+        PredictiveScalingMaxCapacityBehaviorSetMaxCapacityAboveForecastCapacity,
+        fromPredictiveScalingMaxCapacityBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PredictiveScalingMaxCapacityBehavior = PredictiveScalingMaxCapacityBehavior' Lude.Text
+newtype PredictiveScalingMaxCapacityBehavior = PredictiveScalingMaxCapacityBehavior'
+  { fromPredictiveScalingMaxCapacityBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SetForecastCapacityToMaxCapacity :: PredictiveScalingMaxCapacityBehavior
-pattern SetForecastCapacityToMaxCapacity = PredictiveScalingMaxCapacityBehavior' "SetForecastCapacityToMaxCapacity"
+pattern PredictiveScalingMaxCapacityBehaviorSetForecastCapacityToMaxCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern PredictiveScalingMaxCapacityBehaviorSetForecastCapacityToMaxCapacity = PredictiveScalingMaxCapacityBehavior' "SetForecastCapacityToMaxCapacity"
 
-pattern SetMaxCapacityToForecastCapacity :: PredictiveScalingMaxCapacityBehavior
-pattern SetMaxCapacityToForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityToForecastCapacity"
+pattern PredictiveScalingMaxCapacityBehaviorSetMaxCapacityToForecastCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern PredictiveScalingMaxCapacityBehaviorSetMaxCapacityToForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityToForecastCapacity"
 
-pattern SetMaxCapacityAboveForecastCapacity :: PredictiveScalingMaxCapacityBehavior
-pattern SetMaxCapacityAboveForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityAboveForecastCapacity"
+pattern PredictiveScalingMaxCapacityBehaviorSetMaxCapacityAboveForecastCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern PredictiveScalingMaxCapacityBehaviorSetMaxCapacityAboveForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityAboveForecastCapacity"
 
 {-# COMPLETE
-  SetForecastCapacityToMaxCapacity,
-  SetMaxCapacityToForecastCapacity,
-  SetMaxCapacityAboveForecastCapacity,
+  PredictiveScalingMaxCapacityBehaviorSetForecastCapacityToMaxCapacity,
+  PredictiveScalingMaxCapacityBehaviorSetMaxCapacityToForecastCapacity,
+  PredictiveScalingMaxCapacityBehaviorSetMaxCapacityAboveForecastCapacity,
   PredictiveScalingMaxCapacityBehavior'
   #-}

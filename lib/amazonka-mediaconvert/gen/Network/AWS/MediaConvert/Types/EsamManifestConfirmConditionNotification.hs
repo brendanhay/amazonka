@@ -17,47 +17,43 @@ module Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
     mkEsamManifestConfirmConditionNotification,
 
     -- * Lenses
-    emccnMccXML,
+    emccnMccXml,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | ESAM ManifestConfirmConditionNotification defined by OC-SP-ESAM-API-I03-131025.
 --
 -- /See:/ 'mkEsamManifestConfirmConditionNotification' smart constructor.
 newtype EsamManifestConfirmConditionNotification = EsamManifestConfirmConditionNotification'
   { -- | Provide your ESAM ManifestConfirmConditionNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest Conditioning instructions in the message that you supply.
-    mccXML :: Lude.Maybe Lude.Text
+    mccXml :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EsamManifestConfirmConditionNotification' with the minimum fields required to make a request.
---
--- * 'mccXML' - Provide your ESAM ManifestConfirmConditionNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest Conditioning instructions in the message that you supply.
+-- | Creates a 'EsamManifestConfirmConditionNotification' value with any optional fields omitted.
 mkEsamManifestConfirmConditionNotification ::
   EsamManifestConfirmConditionNotification
 mkEsamManifestConfirmConditionNotification =
-  EsamManifestConfirmConditionNotification' {mccXML = Lude.Nothing}
+  EsamManifestConfirmConditionNotification' {mccXml = Core.Nothing}
 
 -- | Provide your ESAM ManifestConfirmConditionNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest Conditioning instructions in the message that you supply.
 --
--- /Note:/ Consider using 'mccXML' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emccnMccXML :: Lens.Lens' EsamManifestConfirmConditionNotification (Lude.Maybe Lude.Text)
-emccnMccXML = Lens.lens (mccXML :: EsamManifestConfirmConditionNotification -> Lude.Maybe Lude.Text) (\s a -> s {mccXML = a} :: EsamManifestConfirmConditionNotification)
-{-# DEPRECATED emccnMccXML "Use generic-lens or generic-optics with 'mccXML' instead." #-}
+-- /Note:/ Consider using 'mccXml' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emccnMccXml :: Lens.Lens' EsamManifestConfirmConditionNotification (Core.Maybe Core.Text)
+emccnMccXml = Lens.field @"mccXml"
+{-# DEPRECATED emccnMccXml "Use generic-lens or generic-optics with 'mccXml' instead." #-}
 
-instance Lude.FromJSON EsamManifestConfirmConditionNotification where
+instance Core.FromJSON EsamManifestConfirmConditionNotification where
+  toJSON EsamManifestConfirmConditionNotification {..} =
+    Core.object (Core.catMaybes [("mccXml" Core..=) Core.<$> mccXml])
+
+instance Core.FromJSON EsamManifestConfirmConditionNotification where
   parseJSON =
-    Lude.withObject
-      "EsamManifestConfirmConditionNotification"
-      ( \x ->
-          EsamManifestConfirmConditionNotification'
-            Lude.<$> (x Lude..:? "mccXml")
-      )
-
-instance Lude.ToJSON EsamManifestConfirmConditionNotification where
-  toJSON EsamManifestConfirmConditionNotification' {..} =
-    Lude.object (Lude.catMaybes [("mccXml" Lude..=) Lude.<$> mccXML])
+    Core.withObject "EsamManifestConfirmConditionNotification" Core.$
+      \x ->
+        EsamManifestConfirmConditionNotification'
+          Core.<$> (x Core..:? "mccXml")

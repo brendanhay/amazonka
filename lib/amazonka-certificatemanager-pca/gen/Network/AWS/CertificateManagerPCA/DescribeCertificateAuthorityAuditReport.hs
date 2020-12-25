@@ -20,190 +20,172 @@ module Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
     mkDescribeCertificateAuthorityAuditReport,
 
     -- ** Request lenses
+    dcaarCertificateAuthorityArn,
     dcaarAuditReportId,
-    dcaarCertificateAuthorityARN,
 
     -- * Destructuring the response
     DescribeCertificateAuthorityAuditReportResponse (..),
     mkDescribeCertificateAuthorityAuditReportResponse,
 
     -- ** Response lenses
-    dcaarrsS3Key,
-    dcaarrsCreatedAt,
-    dcaarrsAuditReportStatus,
-    dcaarrsS3BucketName,
-    dcaarrsResponseStatus,
+    dcaarrrsAuditReportStatus,
+    dcaarrrsCreatedAt,
+    dcaarrrsS3BucketName,
+    dcaarrrsS3Key,
+    dcaarrrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeCertificateAuthorityAuditReport' smart constructor.
 data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAuditReport'
-  { -- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
-    auditReportId :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the private CA. This must be of the form:
+  { -- | The Amazon Resource Name (ARN) of the private CA. This must be of the form:
     --
     -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-    certificateAuthorityARN :: Lude.Text
+    certificateAuthorityArn :: Types.Arn,
+    -- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
+    auditReportId :: Types.AuditReportId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCertificateAuthorityAuditReport' with the minimum fields required to make a request.
---
--- * 'auditReportId' - The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
--- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) of the private CA. This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- | Creates a 'DescribeCertificateAuthorityAuditReport' value with any optional fields omitted.
 mkDescribeCertificateAuthorityAuditReport ::
+  -- | 'certificateAuthorityArn'
+  Types.Arn ->
   -- | 'auditReportId'
-  Lude.Text ->
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  Types.AuditReportId ->
   DescribeCertificateAuthorityAuditReport
 mkDescribeCertificateAuthorityAuditReport
-  pAuditReportId_
-  pCertificateAuthorityARN_ =
+  certificateAuthorityArn
+  auditReportId =
     DescribeCertificateAuthorityAuditReport'
-      { auditReportId =
-          pAuditReportId_,
-        certificateAuthorityARN = pCertificateAuthorityARN_
+      { certificateAuthorityArn,
+        auditReportId
       }
-
--- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
---
--- /Note:/ Consider using 'auditReportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarAuditReportId :: Lens.Lens' DescribeCertificateAuthorityAuditReport Lude.Text
-dcaarAuditReportId = Lens.lens (auditReportId :: DescribeCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {auditReportId = a} :: DescribeCertificateAuthorityAuditReport)
-{-# DEPRECATED dcaarAuditReportId "Use generic-lens or generic-optics with 'auditReportId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the private CA. This must be of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarCertificateAuthorityARN :: Lens.Lens' DescribeCertificateAuthorityAuditReport Lude.Text
-dcaarCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: DescribeCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: DescribeCertificateAuthorityAuditReport)
-{-# DEPRECATED dcaarCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarCertificateAuthorityArn :: Lens.Lens' DescribeCertificateAuthorityAuditReport Types.Arn
+dcaarCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED dcaarCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
-instance Lude.AWSRequest DescribeCertificateAuthorityAuditReport where
+-- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
+--
+-- /Note:/ Consider using 'auditReportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarAuditReportId :: Lens.Lens' DescribeCertificateAuthorityAuditReport Types.AuditReportId
+dcaarAuditReportId = Lens.field @"auditReportId"
+{-# DEPRECATED dcaarAuditReportId "Use generic-lens or generic-optics with 'auditReportId' instead." #-}
+
+instance Core.FromJSON DescribeCertificateAuthorityAuditReport where
+  toJSON DescribeCertificateAuthorityAuditReport {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            Core.Just ("AuditReportId" Core..= auditReportId)
+          ]
+      )
+
+instance Core.AWSRequest DescribeCertificateAuthorityAuditReport where
   type
     Rs DescribeCertificateAuthorityAuditReport =
       DescribeCertificateAuthorityAuditReportResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "ACMPrivateCA.DescribeCertificateAuthorityAuditReport"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeCertificateAuthorityAuditReportResponse'
-            Lude.<$> (x Lude..?> "S3Key")
-            Lude.<*> (x Lude..?> "CreatedAt")
-            Lude.<*> (x Lude..?> "AuditReportStatus")
-            Lude.<*> (x Lude..?> "S3BucketName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AuditReportStatus")
+            Core.<*> (x Core..:? "CreatedAt")
+            Core.<*> (x Core..:? "S3BucketName")
+            Core.<*> (x Core..:? "S3Key")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeCertificateAuthorityAuditReport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "ACMPrivateCA.DescribeCertificateAuthorityAuditReport" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeCertificateAuthorityAuditReport where
-  toJSON DescribeCertificateAuthorityAuditReport' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AuditReportId" Lude..= auditReportId),
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath DescribeCertificateAuthorityAuditReport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeCertificateAuthorityAuditReport where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeCertificateAuthorityAuditReportResponse' smart constructor.
 data DescribeCertificateAuthorityAuditReportResponse = DescribeCertificateAuthorityAuditReportResponse'
-  { -- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
-    s3Key :: Lude.Maybe Lude.Text,
+  { -- | Specifies whether report creation is in progress, has succeeded, or has failed.
+    auditReportStatus :: Core.Maybe Types.AuditReportStatus,
     -- | The date and time at which the report was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | Specifies whether report creation is in progress, has succeeded, or has failed.
-    auditReportStatus :: Lude.Maybe AuditReportStatus,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | Name of the S3 bucket that contains the report.
-    s3BucketName :: Lude.Maybe Lude.Text,
+    s3BucketName :: Core.Maybe Types.S3BucketName,
+    -- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
+    s3Key :: Core.Maybe Types.S3Key,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeCertificateAuthorityAuditReportResponse' with the minimum fields required to make a request.
---
--- * 's3Key' - S3 __key__ that uniquely identifies the report file in your S3 bucket.
--- * 'createdAt' - The date and time at which the report was created.
--- * 'auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has failed.
--- * 's3BucketName' - Name of the S3 bucket that contains the report.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeCertificateAuthorityAuditReportResponse' value with any optional fields omitted.
 mkDescribeCertificateAuthorityAuditReportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeCertificateAuthorityAuditReportResponse
-mkDescribeCertificateAuthorityAuditReportResponse pResponseStatus_ =
+mkDescribeCertificateAuthorityAuditReportResponse responseStatus =
   DescribeCertificateAuthorityAuditReportResponse'
-    { s3Key =
-        Lude.Nothing,
-      createdAt = Lude.Nothing,
-      auditReportStatus = Lude.Nothing,
-      s3BucketName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { auditReportStatus =
+        Core.Nothing,
+      createdAt = Core.Nothing,
+      s3BucketName = Core.Nothing,
+      s3Key = Core.Nothing,
+      responseStatus
     }
-
--- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
---
--- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsS3Key :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Lude.Maybe Lude.Text)
-dcaarrsS3Key = Lens.lens (s3Key :: DescribeCertificateAuthorityAuditReportResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: DescribeCertificateAuthorityAuditReportResponse)
-{-# DEPRECATED dcaarrsS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
-
--- | The date and time at which the report was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsCreatedAt :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Lude.Maybe Lude.Timestamp)
-dcaarrsCreatedAt = Lens.lens (createdAt :: DescribeCertificateAuthorityAuditReportResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: DescribeCertificateAuthorityAuditReportResponse)
-{-# DEPRECATED dcaarrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | Specifies whether report creation is in progress, has succeeded, or has failed.
 --
 -- /Note:/ Consider using 'auditReportStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsAuditReportStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Lude.Maybe AuditReportStatus)
-dcaarrsAuditReportStatus = Lens.lens (auditReportStatus :: DescribeCertificateAuthorityAuditReportResponse -> Lude.Maybe AuditReportStatus) (\s a -> s {auditReportStatus = a} :: DescribeCertificateAuthorityAuditReportResponse)
-{-# DEPRECATED dcaarrsAuditReportStatus "Use generic-lens or generic-optics with 'auditReportStatus' instead." #-}
+dcaarrrsAuditReportStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Core.Maybe Types.AuditReportStatus)
+dcaarrrsAuditReportStatus = Lens.field @"auditReportStatus"
+{-# DEPRECATED dcaarrrsAuditReportStatus "Use generic-lens or generic-optics with 'auditReportStatus' instead." #-}
+
+-- | The date and time at which the report was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarrrsCreatedAt :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Core.Maybe Core.NominalDiffTime)
+dcaarrrsCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED dcaarrrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | Name of the S3 bucket that contains the report.
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsS3BucketName :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Lude.Maybe Lude.Text)
-dcaarrsS3BucketName = Lens.lens (s3BucketName :: DescribeCertificateAuthorityAuditReportResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: DescribeCertificateAuthorityAuditReportResponse)
-{-# DEPRECATED dcaarrsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+dcaarrrsS3BucketName :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Core.Maybe Types.S3BucketName)
+dcaarrrsS3BucketName = Lens.field @"s3BucketName"
+{-# DEPRECATED dcaarrrsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+
+-- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarrrsS3Key :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Core.Maybe Types.S3Key)
+dcaarrrsS3Key = Lens.field @"s3Key"
+{-# DEPRECATED dcaarrrsS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsResponseStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse Lude.Int
-dcaarrsResponseStatus = Lens.lens (responseStatus :: DescribeCertificateAuthorityAuditReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCertificateAuthorityAuditReportResponse)
-{-# DEPRECATED dcaarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcaarrrsResponseStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse Core.Int
+dcaarrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcaarrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

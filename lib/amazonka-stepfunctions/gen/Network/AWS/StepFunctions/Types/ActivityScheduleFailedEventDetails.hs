@@ -17,57 +17,54 @@ module Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails
     mkActivityScheduleFailedEventDetails,
 
     -- * Lenses
-    asfedError,
     asfedCause,
+    asfedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about an activity schedule failure that occurred during an execution.
 --
 -- /See:/ 'mkActivityScheduleFailedEventDetails' smart constructor.
 data ActivityScheduleFailedEventDetails = ActivityScheduleFailedEventDetails'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the failure.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
+  { -- | A more detailed explanation of the cause of the failure.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityScheduleFailedEventDetails' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the failure.
+-- | Creates a 'ActivityScheduleFailedEventDetails' value with any optional fields omitted.
 mkActivityScheduleFailedEventDetails ::
   ActivityScheduleFailedEventDetails
 mkActivityScheduleFailedEventDetails =
   ActivityScheduleFailedEventDetails'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asfedError :: Lens.Lens' ActivityScheduleFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-asfedError = Lens.lens (error :: ActivityScheduleFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: ActivityScheduleFailedEventDetails)
-{-# DEPRECATED asfedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asfedCause :: Lens.Lens' ActivityScheduleFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-asfedCause = Lens.lens (cause :: ActivityScheduleFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: ActivityScheduleFailedEventDetails)
+asfedCause :: Lens.Lens' ActivityScheduleFailedEventDetails (Core.Maybe Types.SensitiveCause)
+asfedCause = Lens.field @"cause"
 {-# DEPRECATED asfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance Lude.FromJSON ActivityScheduleFailedEventDetails where
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asfedError :: Lens.Lens' ActivityScheduleFailedEventDetails (Core.Maybe Types.SensitiveError)
+asfedError = Lens.field @"error"
+{-# DEPRECATED asfedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON ActivityScheduleFailedEventDetails where
   parseJSON =
-    Lude.withObject
-      "ActivityScheduleFailedEventDetails"
-      ( \x ->
-          ActivityScheduleFailedEventDetails'
-            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
-      )
+    Core.withObject "ActivityScheduleFailedEventDetails" Core.$
+      \x ->
+        ActivityScheduleFailedEventDetails'
+          Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")

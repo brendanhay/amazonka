@@ -20,29 +20,31 @@ module Network.AWS.ECS.DescribeClusters
     mkDescribeClusters,
 
     -- ** Request lenses
-    dcInclude,
     dcClusters,
+    dcInclude,
 
     -- * Destructuring the response
     DescribeClustersResponse (..),
     mkDescribeClustersResponse,
 
     -- ** Response lenses
-    dcrsFailures,
-    dcrsClusters,
-    dcrsResponseStatus,
+    dcrrsClusters,
+    dcrrsFailures,
+    dcrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | Whether to include additional information about your clusters in the response. If this field is omitted, the attachments, statistics, and tags are not included.
+  { -- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
+    clusters :: Core.Maybe [Types.String],
+    -- | Whether to include additional information about your clusters in the response. If this field is omitted, the attachments, statistics, and tags are not included.
     --
     -- If @ATTACHMENTS@ is specified, the attachments for the container instances or tasks within the cluster are included.
     -- If @SETTINGS@ is specified, the settings for the cluster are included.
@@ -73,54 +75,26 @@ data DescribeClusters = DescribeClusters'
     --
     --
     -- If @TAGS@ is specified, the metadata tags associated with the cluster are included.
-    include :: Lude.Maybe [ClusterField],
-    -- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
-    clusters :: Lude.Maybe [Lude.Text]
+    include :: Core.Maybe [Types.ClusterField]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
---
--- * 'include' - Whether to include additional information about your clusters in the response. If this field is omitted, the attachments, statistics, and tags are not included.
---
--- If @ATTACHMENTS@ is specified, the attachments for the container instances or tasks within the cluster are included.
--- If @SETTINGS@ is specified, the settings for the cluster are included.
--- If @STATISTICS@ is specified, the following additional information, separated by launch type, is included:
---
---     * runningEC2TasksCount
---
---
---     * runningFargateTasksCount
---
---
---     * pendingEC2TasksCount
---
---
---     * pendingFargateTasksCount
---
---
---     * activeEC2ServiceCount
---
---
---     * activeFargateServiceCount
---
---
---     * drainingEC2ServiceCount
---
---
---     * drainingFargateServiceCount
---
---
--- If @TAGS@ is specified, the metadata tags associated with the cluster are included.
--- * 'clusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
+-- | Creates a 'DescribeClusters' value with any optional fields omitted.
 mkDescribeClusters ::
   DescribeClusters
 mkDescribeClusters =
   DescribeClusters'
-    { include = Lude.Nothing,
-      clusters = Lude.Nothing
+    { clusters = Core.Nothing,
+      include = Core.Nothing
     }
+
+-- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
+--
+-- /Note:/ Consider using 'clusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcClusters :: Lens.Lens' DescribeClusters (Core.Maybe [Types.String])
+dcClusters = Lens.field @"clusters"
+{-# DEPRECATED dcClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
 
 -- | Whether to include additional information about your clusters in the response. If this field is omitted, the attachments, statistics, and tags are not included.
 --
@@ -155,102 +129,85 @@ mkDescribeClusters =
 -- If @TAGS@ is specified, the metadata tags associated with the cluster are included.
 --
 -- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcInclude :: Lens.Lens' DescribeClusters (Lude.Maybe [ClusterField])
-dcInclude = Lens.lens (include :: DescribeClusters -> Lude.Maybe [ClusterField]) (\s a -> s {include = a} :: DescribeClusters)
+dcInclude :: Lens.Lens' DescribeClusters (Core.Maybe [Types.ClusterField])
+dcInclude = Lens.field @"include"
 {-# DEPRECATED dcInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
--- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
---
--- /Note:/ Consider using 'clusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcClusters :: Lens.Lens' DescribeClusters (Lude.Maybe [Lude.Text])
-dcClusters = Lens.lens (clusters :: DescribeClusters -> Lude.Maybe [Lude.Text]) (\s a -> s {clusters = a} :: DescribeClusters)
-{-# DEPRECATED dcClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+instance Core.FromJSON DescribeClusters where
+  toJSON DescribeClusters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("clusters" Core..=) Core.<$> clusters,
+            ("include" Core..=) Core.<$> include
+          ]
+      )
 
-instance Lude.AWSRequest DescribeClusters where
+instance Core.AWSRequest DescribeClusters where
   type Rs DescribeClusters = DescribeClustersResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DescribeClusters"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeClustersResponse'
-            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "clusters" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "clusters")
+            Core.<*> (x Core..:? "failures")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeClusters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeClusters" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeClusters where
-  toJSON DescribeClusters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("include" Lude..=) Lude.<$> include,
-            ("clusters" Lude..=) Lude.<$> clusters
-          ]
-      )
-
-instance Lude.ToPath DescribeClusters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeClusters where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { -- | Any failures associated with the call.
-    failures :: Lude.Maybe [Failure],
-    -- | The list of clusters.
-    clusters :: Lude.Maybe [Cluster],
+  { -- | The list of clusters.
+    clusters :: Core.Maybe [Types.Cluster],
+    -- | Any failures associated with the call.
+    failures :: Core.Maybe [Types.Failure],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
---
--- * 'failures' - Any failures associated with the call.
--- * 'clusters' - The list of clusters.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeClustersResponse' value with any optional fields omitted.
 mkDescribeClustersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeClustersResponse
-mkDescribeClustersResponse pResponseStatus_ =
+mkDescribeClustersResponse responseStatus =
   DescribeClustersResponse'
-    { failures = Lude.Nothing,
-      clusters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusters = Core.Nothing,
+      failures = Core.Nothing,
+      responseStatus
     }
-
--- | Any failures associated with the call.
---
--- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsFailures :: Lens.Lens' DescribeClustersResponse (Lude.Maybe [Failure])
-dcrsFailures = Lens.lens (failures :: DescribeClustersResponse -> Lude.Maybe [Failure]) (\s a -> s {failures = a} :: DescribeClustersResponse)
-{-# DEPRECATED dcrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The list of clusters.
 --
 -- /Note:/ Consider using 'clusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsClusters :: Lens.Lens' DescribeClustersResponse (Lude.Maybe [Cluster])
-dcrsClusters = Lens.lens (clusters :: DescribeClustersResponse -> Lude.Maybe [Cluster]) (\s a -> s {clusters = a} :: DescribeClustersResponse)
-{-# DEPRECATED dcrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+dcrrsClusters :: Lens.Lens' DescribeClustersResponse (Core.Maybe [Types.Cluster])
+dcrrsClusters = Lens.field @"clusters"
+{-# DEPRECATED dcrrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+
+-- | Any failures associated with the call.
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsFailures :: Lens.Lens' DescribeClustersResponse (Core.Maybe [Types.Failure])
+dcrrsFailures = Lens.field @"failures"
+{-# DEPRECATED dcrrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeClustersResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClustersResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DescribeClustersResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

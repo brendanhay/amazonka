@@ -13,51 +13,56 @@
 module Network.AWS.Glue.Types.TaskRunSortColumnType
   ( TaskRunSortColumnType
       ( TaskRunSortColumnType',
-        TaskRunType,
-        Status,
-        Started
+        TaskRunSortColumnTypeTaskRunType,
+        TaskRunSortColumnTypeStatus,
+        TaskRunSortColumnTypeStarted,
+        fromTaskRunSortColumnType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TaskRunSortColumnType = TaskRunSortColumnType' Lude.Text
+newtype TaskRunSortColumnType = TaskRunSortColumnType'
+  { fromTaskRunSortColumnType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TaskRunType :: TaskRunSortColumnType
-pattern TaskRunType = TaskRunSortColumnType' "TASK_RUN_TYPE"
+pattern TaskRunSortColumnTypeTaskRunType :: TaskRunSortColumnType
+pattern TaskRunSortColumnTypeTaskRunType = TaskRunSortColumnType' "TASK_RUN_TYPE"
 
-pattern Status :: TaskRunSortColumnType
-pattern Status = TaskRunSortColumnType' "STATUS"
+pattern TaskRunSortColumnTypeStatus :: TaskRunSortColumnType
+pattern TaskRunSortColumnTypeStatus = TaskRunSortColumnType' "STATUS"
 
-pattern Started :: TaskRunSortColumnType
-pattern Started = TaskRunSortColumnType' "STARTED"
+pattern TaskRunSortColumnTypeStarted :: TaskRunSortColumnType
+pattern TaskRunSortColumnTypeStarted = TaskRunSortColumnType' "STARTED"
 
 {-# COMPLETE
-  TaskRunType,
-  Status,
-  Started,
+  TaskRunSortColumnTypeTaskRunType,
+  TaskRunSortColumnTypeStatus,
+  TaskRunSortColumnTypeStarted,
   TaskRunSortColumnType'
   #-}

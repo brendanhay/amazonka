@@ -24,44 +24,35 @@ module Network.AWS.RDS.DescribeDBClusterBacktracks
     mkDescribeDBClusterBacktracks,
 
     -- ** Request lenses
-    ddcbBacktrackIdentifier,
-    ddcbDBClusterIdentifier,
-    ddcbFilters,
-    ddcbMarker,
-    ddcbMaxRecords,
+    ddbcbDBClusterIdentifier,
+    ddbcbBacktrackIdentifier,
+    ddbcbFilters,
+    ddbcbMarker,
+    ddbcbMaxRecords,
 
     -- * Destructuring the response
     DescribeDBClusterBacktracksResponse (..),
     mkDescribeDBClusterBacktracksResponse,
 
     -- ** Response lenses
-    ddcbrsMarker,
-    ddcbrsDBClusterBacktracks,
-    ddcbrsResponseStatus,
+    ddbcbrrsDBClusterBacktracks,
+    ddbcbrrsMarker,
+    ddbcbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBClusterBacktracks' smart constructor.
 data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
-  { -- | If specified, this value is the backtrack identifier of the backtrack to be described.
-    --
-    -- Constraints:
-    --
-    --     * Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace> .
-    --
-    --
-    -- Example: @123e4567-e89b-12d3-a456-426655440000@
-    backtrackIdentifier :: Lude.Maybe Lude.Text,
-    -- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
+  { -- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
     --
     -- Constraints:
     --
@@ -75,7 +66,16 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --
     --
     -- Example: @my-cluster1@
-    dbClusterIdentifier :: Lude.Text,
+    dBClusterIdentifier :: Types.String,
+    -- | If specified, this value is the backtrack identifier of the backtrack to be described.
+    --
+    -- Constraints:
+    --
+    --     * Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace> .
+    --
+    --
+    -- Example: @123e4567-e89b-12d3-a456-426655440000@
+    backtrackIdentifier :: Core.Maybe Types.String,
     -- | A filter that specifies one or more DB clusters to describe. Supported filters include the following:
     --
     --
@@ -97,96 +97,31 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --
     --
     -- The results list includes information about only the backtracks identified by these values.
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous @DescribeDBClusterBacktracks@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBClusterBacktracks' with the minimum fields required to make a request.
---
--- * 'backtrackIdentifier' - If specified, this value is the backtrack identifier of the backtrack to be described.
---
--- Constraints:
---
---     * Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace> .
---
---
--- Example: @123e4567-e89b-12d3-a456-426655440000@
--- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
---
--- Constraints:
---
---     * Must contain from 1 to 63 alphanumeric characters or hyphens.
---
---
---     * First character must be a letter.
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens.
---
---
--- Example: @my-cluster1@
--- * 'filters' - A filter that specifies one or more DB clusters to describe. Supported filters include the following:
---
---
---     * @db-cluster-backtrack-id@ - Accepts backtrack identifiers. The results list includes information about only the backtracks identified by these identifiers.
---
---
---     * @db-cluster-backtrack-status@ - Accepts any of the following backtrack status values:
---
---     * @applying@
---
---
---     * @completed@
---
---
---     * @failed@
---
---
---     * @pending@
---
---
--- The results list includes information about only the backtracks identified by these values.
---
---
--- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterBacktracks@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeDBClusterBacktracks' value with any optional fields omitted.
 mkDescribeDBClusterBacktracks ::
-  -- | 'dbClusterIdentifier'
-  Lude.Text ->
+  -- | 'dBClusterIdentifier'
+  Types.String ->
   DescribeDBClusterBacktracks
-mkDescribeDBClusterBacktracks pDBClusterIdentifier_ =
+mkDescribeDBClusterBacktracks dBClusterIdentifier =
   DescribeDBClusterBacktracks'
-    { backtrackIdentifier = Lude.Nothing,
-      dbClusterIdentifier = pDBClusterIdentifier_,
-      filters = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { dBClusterIdentifier,
+      backtrackIdentifier = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
-
--- | If specified, this value is the backtrack identifier of the backtrack to be described.
---
--- Constraints:
---
---     * Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace> .
---
---
--- Example: @123e4567-e89b-12d3-a456-426655440000@
---
--- /Note:/ Consider using 'backtrackIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbBacktrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Lude.Maybe Lude.Text)
-ddcbBacktrackIdentifier = Lens.lens (backtrackIdentifier :: DescribeDBClusterBacktracks -> Lude.Maybe Lude.Text) (\s a -> s {backtrackIdentifier = a} :: DescribeDBClusterBacktracks)
-{-# DEPRECATED ddcbBacktrackIdentifier "Use generic-lens or generic-optics with 'backtrackIdentifier' instead." #-}
 
 -- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
 --
@@ -203,10 +138,24 @@ ddcbBacktrackIdentifier = Lens.lens (backtrackIdentifier :: DescribeDBClusterBac
 --
 -- Example: @my-cluster1@
 --
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbDBClusterIdentifier :: Lens.Lens' DescribeDBClusterBacktracks Lude.Text
-ddcbDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterBacktracks -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusterBacktracks)
-{-# DEPRECATED ddcbDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcbDBClusterIdentifier :: Lens.Lens' DescribeDBClusterBacktracks Types.String
+ddbcbDBClusterIdentifier = Lens.field @"dBClusterIdentifier"
+{-# DEPRECATED ddbcbDBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead." #-}
+
+-- | If specified, this value is the backtrack identifier of the backtrack to be described.
+--
+-- Constraints:
+--
+--     * Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace> .
+--
+--
+-- Example: @123e4567-e89b-12d3-a456-426655440000@
+--
+-- /Note:/ Consider using 'backtrackIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcbBacktrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe Types.String)
+ddbcbBacktrackIdentifier = Lens.field @"backtrackIdentifier"
+{-# DEPRECATED ddbcbBacktrackIdentifier "Use generic-lens or generic-optics with 'backtrackIdentifier' instead." #-}
 
 -- | A filter that specifies one or more DB clusters to describe. Supported filters include the following:
 --
@@ -233,16 +182,16 @@ ddcbDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterBac
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbFilters :: Lens.Lens' DescribeDBClusterBacktracks (Lude.Maybe [Filter])
-ddcbFilters = Lens.lens (filters :: DescribeDBClusterBacktracks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBClusterBacktracks)
-{-# DEPRECATED ddcbFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddbcbFilters :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe [Types.Filter])
+ddbcbFilters = Lens.field @"filters"
+{-# DEPRECATED ddbcbFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterBacktracks@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbMarker :: Lens.Lens' DescribeDBClusterBacktracks (Lude.Maybe Lude.Text)
-ddcbMarker = Lens.lens (marker :: DescribeDBClusterBacktracks -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterBacktracks)
-{-# DEPRECATED ddcbMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddbcbMarker :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe Types.String)
+ddbcbMarker = Lens.field @"marker"
+{-# DEPRECATED ddbcbMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -250,103 +199,109 @@ ddcbMarker = Lens.lens (marker :: DescribeDBClusterBacktracks -> Lude.Maybe Lude
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbMaxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Lude.Maybe Lude.Int)
-ddcbMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterBacktracks -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusterBacktracks)
-{-# DEPRECATED ddcbMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddbcbMaxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe Core.Int)
+ddbcbMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddbcbMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeDBClusterBacktracks where
-  page rq rs
-    | Page.stop (rs Lens.^. ddcbrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddcbrsDBClusterBacktracks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddcbMarker Lens..~ rs Lens.^. ddcbrsMarker
-
-instance Lude.AWSRequest DescribeDBClusterBacktracks where
+instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
     Rs DescribeDBClusterBacktracks =
       DescribeDBClusterBacktracksResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBClusterBacktracks")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBClusterIdentifier" dBClusterIdentifier)
+                Core.<> ( Core.toQueryValue "BacktrackIdentifier"
+                            Core.<$> backtrackIdentifier
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBClusterBacktracksResult"
       ( \s h x ->
           DescribeDBClusterBacktracksResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "DBClusterBacktracks" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "DBClusterBacktrack")
+            Core.<$> ( x Core..@? "DBClusterBacktracks"
+                         Core..<@> Core.parseXMLList "DBClusterBacktrack"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBClusterBacktracks where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBClusterBacktracks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBClusterBacktracks where
-  toQuery DescribeDBClusterBacktracks' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeDBClusterBacktracks" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "BacktrackIdentifier" Lude.=: backtrackIdentifier,
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeDBClusterBacktracks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"dBClusterBacktracks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the result of a successful invocation of the @DescribeDBClusterBacktracks@ action.
 --
 -- /See:/ 'mkDescribeDBClusterBacktracksResponse' smart constructor.
 data DescribeDBClusterBacktracksResponse = DescribeDBClusterBacktracksResponse'
-  { -- | A pagination token that can be used in a later @DescribeDBClusterBacktracks@ request.
-    marker :: Lude.Maybe Lude.Text,
-    -- | Contains a list of backtracks for the user.
-    dbClusterBacktracks :: Lude.Maybe [DBClusterBacktrack],
+  { -- | Contains a list of backtracks for the user.
+    dBClusterBacktracks :: Core.Maybe [Types.DBClusterBacktrack],
+    -- | A pagination token that can be used in a later @DescribeDBClusterBacktracks@ request.
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDBClusterBacktracksResponse' with the minimum fields required to make a request.
---
--- * 'marker' - A pagination token that can be used in a later @DescribeDBClusterBacktracks@ request.
--- * 'dbClusterBacktracks' - Contains a list of backtracks for the user.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBClusterBacktracksResponse' value with any optional fields omitted.
 mkDescribeDBClusterBacktracksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBClusterBacktracksResponse
-mkDescribeDBClusterBacktracksResponse pResponseStatus_ =
+mkDescribeDBClusterBacktracksResponse responseStatus =
   DescribeDBClusterBacktracksResponse'
-    { marker = Lude.Nothing,
-      dbClusterBacktracks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBClusterBacktracks =
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
+
+-- | Contains a list of backtracks for the user.
+--
+-- /Note:/ Consider using 'dBClusterBacktracks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcbrrsDBClusterBacktracks :: Lens.Lens' DescribeDBClusterBacktracksResponse (Core.Maybe [Types.DBClusterBacktrack])
+ddbcbrrsDBClusterBacktracks = Lens.field @"dBClusterBacktracks"
+{-# DEPRECATED ddbcbrrsDBClusterBacktracks "Use generic-lens or generic-optics with 'dBClusterBacktracks' instead." #-}
 
 -- | A pagination token that can be used in a later @DescribeDBClusterBacktracks@ request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbrsMarker :: Lens.Lens' DescribeDBClusterBacktracksResponse (Lude.Maybe Lude.Text)
-ddcbrsMarker = Lens.lens (marker :: DescribeDBClusterBacktracksResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterBacktracksResponse)
-{-# DEPRECATED ddcbrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | Contains a list of backtracks for the user.
---
--- /Note:/ Consider using 'dbClusterBacktracks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbrsDBClusterBacktracks :: Lens.Lens' DescribeDBClusterBacktracksResponse (Lude.Maybe [DBClusterBacktrack])
-ddcbrsDBClusterBacktracks = Lens.lens (dbClusterBacktracks :: DescribeDBClusterBacktracksResponse -> Lude.Maybe [DBClusterBacktrack]) (\s a -> s {dbClusterBacktracks = a} :: DescribeDBClusterBacktracksResponse)
-{-# DEPRECATED ddcbrsDBClusterBacktracks "Use generic-lens or generic-optics with 'dbClusterBacktracks' instead." #-}
+ddbcbrrsMarker :: Lens.Lens' DescribeDBClusterBacktracksResponse (Core.Maybe Types.String)
+ddbcbrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbcbrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbrsResponseStatus :: Lens.Lens' DescribeDBClusterBacktracksResponse Lude.Int
-ddcbrsResponseStatus = Lens.lens (responseStatus :: DescribeDBClusterBacktracksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBClusterBacktracksResponse)
-{-# DEPRECATED ddcbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbcbrrsResponseStatus :: Lens.Lens' DescribeDBClusterBacktracksResponse Core.Int
+ddbcbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbcbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

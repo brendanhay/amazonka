@@ -17,62 +17,54 @@ module Network.AWS.Inspector.Types.AssessmentRunStateChange
     mkAssessmentRunStateChange,
 
     -- * Lenses
-    arscState,
     arscStateChangedAt,
+    arscState,
   )
 where
 
-import Network.AWS.Inspector.Types.AssessmentRunState
+import qualified Network.AWS.Inspector.Types.AssessmentRunState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used as one of the elements of the 'AssessmentRun' data type.
 --
 -- /See:/ 'mkAssessmentRunStateChange' smart constructor.
 data AssessmentRunStateChange = AssessmentRunStateChange'
-  { -- | The assessment run state.
-    state :: AssessmentRunState,
-    -- | The last time the assessment run state changed.
-    stateChangedAt :: Lude.Timestamp
+  { -- | The last time the assessment run state changed.
+    stateChangedAt :: Core.NominalDiffTime,
+    -- | The assessment run state.
+    state :: Types.AssessmentRunState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AssessmentRunStateChange' with the minimum fields required to make a request.
---
--- * 'state' - The assessment run state.
--- * 'stateChangedAt' - The last time the assessment run state changed.
+-- | Creates a 'AssessmentRunStateChange' value with any optional fields omitted.
 mkAssessmentRunStateChange ::
-  -- | 'state'
-  AssessmentRunState ->
   -- | 'stateChangedAt'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
+  -- | 'state'
+  Types.AssessmentRunState ->
   AssessmentRunStateChange
-mkAssessmentRunStateChange pState_ pStateChangedAt_ =
-  AssessmentRunStateChange'
-    { state = pState_,
-      stateChangedAt = pStateChangedAt_
-    }
-
--- | The assessment run state.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arscState :: Lens.Lens' AssessmentRunStateChange AssessmentRunState
-arscState = Lens.lens (state :: AssessmentRunStateChange -> AssessmentRunState) (\s a -> s {state = a} :: AssessmentRunStateChange)
-{-# DEPRECATED arscState "Use generic-lens or generic-optics with 'state' instead." #-}
+mkAssessmentRunStateChange stateChangedAt state =
+  AssessmentRunStateChange' {stateChangedAt, state}
 
 -- | The last time the assessment run state changed.
 --
 -- /Note:/ Consider using 'stateChangedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arscStateChangedAt :: Lens.Lens' AssessmentRunStateChange Lude.Timestamp
-arscStateChangedAt = Lens.lens (stateChangedAt :: AssessmentRunStateChange -> Lude.Timestamp) (\s a -> s {stateChangedAt = a} :: AssessmentRunStateChange)
+arscStateChangedAt :: Lens.Lens' AssessmentRunStateChange Core.NominalDiffTime
+arscStateChangedAt = Lens.field @"stateChangedAt"
 {-# DEPRECATED arscStateChangedAt "Use generic-lens or generic-optics with 'stateChangedAt' instead." #-}
 
-instance Lude.FromJSON AssessmentRunStateChange where
+-- | The assessment run state.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arscState :: Lens.Lens' AssessmentRunStateChange Types.AssessmentRunState
+arscState = Lens.field @"state"
+{-# DEPRECATED arscState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON AssessmentRunStateChange where
   parseJSON =
-    Lude.withObject
-      "AssessmentRunStateChange"
-      ( \x ->
-          AssessmentRunStateChange'
-            Lude.<$> (x Lude..: "state") Lude.<*> (x Lude..: "stateChangedAt")
-      )
+    Core.withObject "AssessmentRunStateChange" Core.$
+      \x ->
+        AssessmentRunStateChange'
+          Core.<$> (x Core..: "stateChangedAt") Core.<*> (x Core..: "state")

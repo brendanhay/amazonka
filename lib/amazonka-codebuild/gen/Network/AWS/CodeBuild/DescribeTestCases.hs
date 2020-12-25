@@ -22,183 +22,169 @@ module Network.AWS.CodeBuild.DescribeTestCases
     mkDescribeTestCases,
 
     -- ** Request lenses
-    dtcNextToken,
+    dtcReportArn,
     dtcFilter,
-    dtcReportARN,
     dtcMaxResults,
+    dtcNextToken,
 
     -- * Destructuring the response
     DescribeTestCasesResponse (..),
     mkDescribeTestCasesResponse,
 
     -- ** Response lenses
-    dtcrsNextToken,
-    dtcrsTestCases,
-    dtcrsResponseStatus,
+    dtcrrsNextToken,
+    dtcrrsTestCases,
+    dtcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTestCases' smart constructor.
 data DescribeTestCases = DescribeTestCases'
-  { -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the report for which test cases are returned.
+    reportArn :: Types.ReportArn,
     -- | A @TestCaseFilter@ object used to filter the returned reports.
-    filter :: Lude.Maybe TestCaseFilter,
-    -- | The ARN of the report for which test cases are returned.
-    reportARN :: Lude.Text,
+    filter :: Core.Maybe Types.TestCaseFilter,
     -- | The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTestCases' with the minimum fields required to make a request.
---
--- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
--- * 'filter' - A @TestCaseFilter@ object used to filter the returned reports.
--- * 'reportARN' - The ARN of the report for which test cases are returned.
--- * 'maxResults' - The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
+-- | Creates a 'DescribeTestCases' value with any optional fields omitted.
 mkDescribeTestCases ::
-  -- | 'reportARN'
-  Lude.Text ->
+  -- | 'reportArn'
+  Types.ReportArn ->
   DescribeTestCases
-mkDescribeTestCases pReportARN_ =
+mkDescribeTestCases reportArn =
   DescribeTestCases'
-    { nextToken = Lude.Nothing,
-      filter = Lude.Nothing,
-      reportARN = pReportARN_,
-      maxResults = Lude.Nothing
+    { reportArn,
+      filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
--- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- | The ARN of the report for which test cases are returned.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcNextToken :: Lens.Lens' DescribeTestCases (Lude.Maybe Lude.Text)
-dtcNextToken = Lens.lens (nextToken :: DescribeTestCases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTestCases)
-{-# DEPRECATED dtcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'reportArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtcReportArn :: Lens.Lens' DescribeTestCases Types.ReportArn
+dtcReportArn = Lens.field @"reportArn"
+{-# DEPRECATED dtcReportArn "Use generic-lens or generic-optics with 'reportArn' instead." #-}
 
 -- | A @TestCaseFilter@ object used to filter the returned reports.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcFilter :: Lens.Lens' DescribeTestCases (Lude.Maybe TestCaseFilter)
-dtcFilter = Lens.lens (filter :: DescribeTestCases -> Lude.Maybe TestCaseFilter) (\s a -> s {filter = a} :: DescribeTestCases)
+dtcFilter :: Lens.Lens' DescribeTestCases (Core.Maybe Types.TestCaseFilter)
+dtcFilter = Lens.field @"filter"
 {-# DEPRECATED dtcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
-
--- | The ARN of the report for which test cases are returned.
---
--- /Note:/ Consider using 'reportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcReportARN :: Lens.Lens' DescribeTestCases Lude.Text
-dtcReportARN = Lens.lens (reportARN :: DescribeTestCases -> Lude.Text) (\s a -> s {reportARN = a} :: DescribeTestCases)
-{-# DEPRECATED dtcReportARN "Use generic-lens or generic-optics with 'reportARN' instead." #-}
 
 -- | The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcMaxResults :: Lens.Lens' DescribeTestCases (Lude.Maybe Lude.Natural)
-dtcMaxResults = Lens.lens (maxResults :: DescribeTestCases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTestCases)
+dtcMaxResults :: Lens.Lens' DescribeTestCases (Core.Maybe Core.Natural)
+dtcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dtcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeTestCases where
-  page rq rs
-    | Page.stop (rs Lens.^. dtcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtcrsTestCases) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dtcNextToken Lens..~ rs Lens.^. dtcrsNextToken
+-- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtcNextToken :: Lens.Lens' DescribeTestCases (Core.Maybe Types.NextToken)
+dtcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeTestCases where
+instance Core.FromJSON DescribeTestCases where
+  toJSON DescribeTestCases {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("reportArn" Core..= reportArn),
+            ("filter" Core..=) Core.<$> filter,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeTestCases where
   type Rs DescribeTestCases = DescribeTestCasesResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.DescribeTestCases")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTestCasesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "testCases" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "testCases")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTestCases where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.DescribeTestCases" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTestCases where
-  toJSON DescribeTestCases' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("filter" Lude..=) Lude.<$> filter,
-            Lude.Just ("reportArn" Lude..= reportARN),
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeTestCases where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTestCases where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeTestCases where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"testCases" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeTestCasesResponse' smart constructor.
 data DescribeTestCasesResponse = DescribeTestCasesResponse'
   { -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The returned list of test cases.
-    testCases :: Lude.Maybe [TestCase],
+    testCases :: Core.Maybe [Types.TestCase],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTestCasesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
--- * 'testCases' - The returned list of test cases.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTestCasesResponse' value with any optional fields omitted.
 mkDescribeTestCasesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTestCasesResponse
-mkDescribeTestCasesResponse pResponseStatus_ =
+mkDescribeTestCasesResponse responseStatus =
   DescribeTestCasesResponse'
-    { nextToken = Lude.Nothing,
-      testCases = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      testCases = Core.Nothing,
+      responseStatus
     }
 
 -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcrsNextToken :: Lens.Lens' DescribeTestCasesResponse (Lude.Maybe Lude.Text)
-dtcrsNextToken = Lens.lens (nextToken :: DescribeTestCasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTestCasesResponse)
-{-# DEPRECATED dtcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtcrrsNextToken :: Lens.Lens' DescribeTestCasesResponse (Core.Maybe Types.String)
+dtcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The returned list of test cases.
 --
 -- /Note:/ Consider using 'testCases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcrsTestCases :: Lens.Lens' DescribeTestCasesResponse (Lude.Maybe [TestCase])
-dtcrsTestCases = Lens.lens (testCases :: DescribeTestCasesResponse -> Lude.Maybe [TestCase]) (\s a -> s {testCases = a} :: DescribeTestCasesResponse)
-{-# DEPRECATED dtcrsTestCases "Use generic-lens or generic-optics with 'testCases' instead." #-}
+dtcrrsTestCases :: Lens.Lens' DescribeTestCasesResponse (Core.Maybe [Types.TestCase])
+dtcrrsTestCases = Lens.field @"testCases"
+{-# DEPRECATED dtcrrsTestCases "Use generic-lens or generic-optics with 'testCases' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcrsResponseStatus :: Lens.Lens' DescribeTestCasesResponse Lude.Int
-dtcrsResponseStatus = Lens.lens (responseStatus :: DescribeTestCasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTestCasesResponse)
-{-# DEPRECATED dtcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtcrrsResponseStatus :: Lens.Lens' DescribeTestCasesResponse Core.Int
+dtcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

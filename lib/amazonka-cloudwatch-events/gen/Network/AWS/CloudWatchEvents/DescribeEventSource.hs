@@ -27,172 +27,155 @@ module Network.AWS.CloudWatchEvents.DescribeEventSource
     mkDescribeEventSourceResponse,
 
     -- ** Response lenses
-    desrsCreationTime,
-    desrsState,
-    desrsARN,
-    desrsCreatedBy,
-    desrsName,
-    desrsExpirationTime,
-    desrsResponseStatus,
+    desrrsArn,
+    desrrsCreatedBy,
+    desrrsCreationTime,
+    desrrsExpirationTime,
+    desrrsName,
+    desrrsState,
+    desrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeEventSource' smart constructor.
 newtype DescribeEventSource = DescribeEventSource'
   { -- | The name of the partner event source to display the details of.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEventSource' with the minimum fields required to make a request.
---
--- * 'name' - The name of the partner event source to display the details of.
+-- | Creates a 'DescribeEventSource' value with any optional fields omitted.
 mkDescribeEventSource ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   DescribeEventSource
-mkDescribeEventSource pName_ = DescribeEventSource' {name = pName_}
+mkDescribeEventSource name = DescribeEventSource' {name}
 
 -- | The name of the partner event source to display the details of.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desName :: Lens.Lens' DescribeEventSource Lude.Text
-desName = Lens.lens (name :: DescribeEventSource -> Lude.Text) (\s a -> s {name = a} :: DescribeEventSource)
+desName :: Lens.Lens' DescribeEventSource Types.Name
+desName = Lens.field @"name"
 {-# DEPRECATED desName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DescribeEventSource where
+instance Core.FromJSON DescribeEventSource where
+  toJSON DescribeEventSource {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DescribeEventSource where
   type Rs DescribeEventSource = DescribeEventSourceResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.DescribeEventSource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEventSourceResponse'
-            Lude.<$> (x Lude..?> "CreationTime")
-            Lude.<*> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "CreatedBy")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "ExpirationTime")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ExpirationTime")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEventSource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.DescribeEventSource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEventSource where
-  toJSON DescribeEventSource' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DescribeEventSource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEventSource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeEventSourceResponse' smart constructor.
 data DescribeEventSourceResponse = DescribeEventSourceResponse'
-  { -- | The date and time that the event source was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
-    state :: Lude.Maybe EventSourceState,
-    -- | The ARN of the partner event source.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the partner event source.
+    arn :: Core.Maybe Types.String,
     -- | The name of the SaaS partner that created the event source.
-    createdBy :: Lude.Maybe Lude.Text,
-    -- | The name of the partner event source.
-    name :: Lude.Maybe Lude.Text,
+    createdBy :: Core.Maybe Types.String,
+    -- | The date and time that the event source was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The date and time that the event source will expire if you do not create a matching event bus.
-    expirationTime :: Lude.Maybe Lude.Timestamp,
+    expirationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the partner event source.
+    name :: Core.Maybe Types.String,
+    -- | The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
+    state :: Core.Maybe Types.EventSourceState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEventSourceResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - The date and time that the event source was created.
--- * 'state' - The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
--- * 'arn' - The ARN of the partner event source.
--- * 'createdBy' - The name of the SaaS partner that created the event source.
--- * 'name' - The name of the partner event source.
--- * 'expirationTime' - The date and time that the event source will expire if you do not create a matching event bus.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEventSourceResponse' value with any optional fields omitted.
 mkDescribeEventSourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEventSourceResponse
-mkDescribeEventSourceResponse pResponseStatus_ =
+mkDescribeEventSourceResponse responseStatus =
   DescribeEventSourceResponse'
-    { creationTime = Lude.Nothing,
-      state = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdBy = Lude.Nothing,
-      name = Lude.Nothing,
-      expirationTime = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      createdBy = Core.Nothing,
+      creationTime = Core.Nothing,
+      expirationTime = Core.Nothing,
+      name = Core.Nothing,
+      state = Core.Nothing,
+      responseStatus
     }
-
--- | The date and time that the event source was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsCreationTime :: Lens.Lens' DescribeEventSourceResponse (Lude.Maybe Lude.Timestamp)
-desrsCreationTime = Lens.lens (creationTime :: DescribeEventSourceResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsState :: Lens.Lens' DescribeEventSourceResponse (Lude.Maybe EventSourceState)
-desrsState = Lens.lens (state :: DescribeEventSourceResponse -> Lude.Maybe EventSourceState) (\s a -> s {state = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ARN of the partner event source.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsARN :: Lens.Lens' DescribeEventSourceResponse (Lude.Maybe Lude.Text)
-desrsARN = Lens.lens (arn :: DescribeEventSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+desrrsArn :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Types.String)
+desrrsArn = Lens.field @"arn"
+{-# DEPRECATED desrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the SaaS partner that created the event source.
 --
 -- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsCreatedBy :: Lens.Lens' DescribeEventSourceResponse (Lude.Maybe Lude.Text)
-desrsCreatedBy = Lens.lens (createdBy :: DescribeEventSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
+desrrsCreatedBy :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Types.String)
+desrrsCreatedBy = Lens.field @"createdBy"
+{-# DEPRECATED desrrsCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
--- | The name of the partner event source.
+-- | The date and time that the event source was created.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsName :: Lens.Lens' DescribeEventSourceResponse (Lude.Maybe Lude.Text)
-desrsName = Lens.lens (name :: DescribeEventSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrrsCreationTime :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.NominalDiffTime)
+desrrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED desrrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The date and time that the event source will expire if you do not create a matching event bus.
 --
 -- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsExpirationTime :: Lens.Lens' DescribeEventSourceResponse (Lude.Maybe Lude.Timestamp)
-desrsExpirationTime = Lens.lens (expirationTime :: DescribeEventSourceResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationTime = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+desrrsExpirationTime :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Core.NominalDiffTime)
+desrrsExpirationTime = Lens.field @"expirationTime"
+{-# DEPRECATED desrrsExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+
+-- | The name of the partner event source.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrrsName :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Types.String)
+desrrsName = Lens.field @"name"
+{-# DEPRECATED desrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrrsState :: Lens.Lens' DescribeEventSourceResponse (Core.Maybe Types.EventSourceState)
+desrrsState = Lens.field @"state"
+{-# DEPRECATED desrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeEventSourceResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeEventSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventSourceResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+desrrsResponseStatus :: Lens.Lens' DescribeEventSourceResponse Core.Int
+desrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED desrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

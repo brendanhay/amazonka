@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions
   ( EmbeddedTerminateCaptions
       ( EmbeddedTerminateCaptions',
-        ETCEndOfInput,
-        ETCDisabled
+        EmbeddedTerminateCaptionsEndOfInput,
+        EmbeddedTerminateCaptionsDisabled,
+        fromEmbeddedTerminateCaptions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
-newtype EmbeddedTerminateCaptions = EmbeddedTerminateCaptions' Lude.Text
+newtype EmbeddedTerminateCaptions = EmbeddedTerminateCaptions'
+  { fromEmbeddedTerminateCaptions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ETCEndOfInput :: EmbeddedTerminateCaptions
-pattern ETCEndOfInput = EmbeddedTerminateCaptions' "END_OF_INPUT"
+pattern EmbeddedTerminateCaptionsEndOfInput :: EmbeddedTerminateCaptions
+pattern EmbeddedTerminateCaptionsEndOfInput = EmbeddedTerminateCaptions' "END_OF_INPUT"
 
-pattern ETCDisabled :: EmbeddedTerminateCaptions
-pattern ETCDisabled = EmbeddedTerminateCaptions' "DISABLED"
+pattern EmbeddedTerminateCaptionsDisabled :: EmbeddedTerminateCaptions
+pattern EmbeddedTerminateCaptionsDisabled = EmbeddedTerminateCaptions' "DISABLED"
 
 {-# COMPLETE
-  ETCEndOfInput,
-  ETCDisabled,
+  EmbeddedTerminateCaptionsEndOfInput,
+  EmbeddedTerminateCaptionsDisabled,
   EmbeddedTerminateCaptions'
   #-}

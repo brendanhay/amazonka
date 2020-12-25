@@ -29,71 +29,62 @@ module Network.AWS.SageMaker.DeleteCodeRepository
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteCodeRepository' smart constructor.
 newtype DeleteCodeRepository = DeleteCodeRepository'
   { -- | The name of the Git repository to delete.
-    codeRepositoryName :: Lude.Text
+    codeRepositoryName :: Types.EntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCodeRepository' with the minimum fields required to make a request.
---
--- * 'codeRepositoryName' - The name of the Git repository to delete.
+-- | Creates a 'DeleteCodeRepository' value with any optional fields omitted.
 mkDeleteCodeRepository ::
   -- | 'codeRepositoryName'
-  Lude.Text ->
+  Types.EntityName ->
   DeleteCodeRepository
-mkDeleteCodeRepository pCodeRepositoryName_ =
-  DeleteCodeRepository' {codeRepositoryName = pCodeRepositoryName_}
+mkDeleteCodeRepository codeRepositoryName =
+  DeleteCodeRepository' {codeRepositoryName}
 
 -- | The name of the Git repository to delete.
 --
 -- /Note:/ Consider using 'codeRepositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCodeRepositoryName :: Lens.Lens' DeleteCodeRepository Lude.Text
-dCodeRepositoryName = Lens.lens (codeRepositoryName :: DeleteCodeRepository -> Lude.Text) (\s a -> s {codeRepositoryName = a} :: DeleteCodeRepository)
+dCodeRepositoryName :: Lens.Lens' DeleteCodeRepository Types.EntityName
+dCodeRepositoryName = Lens.field @"codeRepositoryName"
 {-# DEPRECATED dCodeRepositoryName "Use generic-lens or generic-optics with 'codeRepositoryName' instead." #-}
 
-instance Lude.AWSRequest DeleteCodeRepository where
+instance Core.FromJSON DeleteCodeRepository where
+  toJSON DeleteCodeRepository {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CodeRepositoryName" Core..= codeRepositoryName)]
+      )
+
+instance Core.AWSRequest DeleteCodeRepository where
   type Rs DeleteCodeRepository = DeleteCodeRepositoryResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull DeleteCodeRepositoryResponse'
-
-instance Lude.ToHeaders DeleteCodeRepository where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteCodeRepository" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteCodeRepository where
-  toJSON DeleteCodeRepository' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CodeRepositoryName" Lude..= codeRepositoryName)]
-      )
-
-instance Lude.ToPath DeleteCodeRepository where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCodeRepository where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteCodeRepository")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteCodeRepositoryResponse'
 
 -- | /See:/ 'mkDeleteCodeRepositoryResponse' smart constructor.
 data DeleteCodeRepositoryResponse = DeleteCodeRepositoryResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCodeRepositoryResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteCodeRepositoryResponse' value with any optional fields omitted.
 mkDeleteCodeRepositoryResponse ::
   DeleteCodeRepositoryResponse
 mkDeleteCodeRepositoryResponse = DeleteCodeRepositoryResponse'

@@ -30,127 +30,112 @@ module Network.AWS.Lightsail.OpenInstancePublicPorts
     mkOpenInstancePublicPortsResponse,
 
     -- ** Response lenses
-    oipprsOperation,
-    oipprsResponseStatus,
+    oipprrsOperation,
+    oipprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkOpenInstancePublicPorts' smart constructor.
 data OpenInstancePublicPorts = OpenInstancePublicPorts'
   { -- | An object to describe the ports to open for the specified instance.
-    portInfo :: PortInfo,
+    portInfo :: Types.PortInfo,
     -- | The name of the instance for which to open ports.
-    instanceName :: Lude.Text
+    instanceName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpenInstancePublicPorts' with the minimum fields required to make a request.
---
--- * 'portInfo' - An object to describe the ports to open for the specified instance.
--- * 'instanceName' - The name of the instance for which to open ports.
+-- | Creates a 'OpenInstancePublicPorts' value with any optional fields omitted.
 mkOpenInstancePublicPorts ::
   -- | 'portInfo'
-  PortInfo ->
+  Types.PortInfo ->
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   OpenInstancePublicPorts
-mkOpenInstancePublicPorts pPortInfo_ pInstanceName_ =
-  OpenInstancePublicPorts'
-    { portInfo = pPortInfo_,
-      instanceName = pInstanceName_
-    }
+mkOpenInstancePublicPorts portInfo instanceName =
+  OpenInstancePublicPorts' {portInfo, instanceName}
 
 -- | An object to describe the ports to open for the specified instance.
 --
 -- /Note:/ Consider using 'portInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oippPortInfo :: Lens.Lens' OpenInstancePublicPorts PortInfo
-oippPortInfo = Lens.lens (portInfo :: OpenInstancePublicPorts -> PortInfo) (\s a -> s {portInfo = a} :: OpenInstancePublicPorts)
+oippPortInfo :: Lens.Lens' OpenInstancePublicPorts Types.PortInfo
+oippPortInfo = Lens.field @"portInfo"
 {-# DEPRECATED oippPortInfo "Use generic-lens or generic-optics with 'portInfo' instead." #-}
 
 -- | The name of the instance for which to open ports.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oippInstanceName :: Lens.Lens' OpenInstancePublicPorts Lude.Text
-oippInstanceName = Lens.lens (instanceName :: OpenInstancePublicPorts -> Lude.Text) (\s a -> s {instanceName = a} :: OpenInstancePublicPorts)
+oippInstanceName :: Lens.Lens' OpenInstancePublicPorts Types.ResourceName
+oippInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED oippInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest OpenInstancePublicPorts where
+instance Core.FromJSON OpenInstancePublicPorts where
+  toJSON OpenInstancePublicPorts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("portInfo" Core..= portInfo),
+            Core.Just ("instanceName" Core..= instanceName)
+          ]
+      )
+
+instance Core.AWSRequest OpenInstancePublicPorts where
   type Rs OpenInstancePublicPorts = OpenInstancePublicPortsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.OpenInstancePublicPorts")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           OpenInstancePublicPortsResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders OpenInstancePublicPorts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.OpenInstancePublicPorts" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON OpenInstancePublicPorts where
-  toJSON OpenInstancePublicPorts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("portInfo" Lude..= portInfo),
-            Lude.Just ("instanceName" Lude..= instanceName)
-          ]
-      )
-
-instance Lude.ToPath OpenInstancePublicPorts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery OpenInstancePublicPorts where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkOpenInstancePublicPortsResponse' smart constructor.
 data OpenInstancePublicPortsResponse = OpenInstancePublicPortsResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OpenInstancePublicPortsResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'OpenInstancePublicPortsResponse' value with any optional fields omitted.
 mkOpenInstancePublicPortsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   OpenInstancePublicPortsResponse
-mkOpenInstancePublicPortsResponse pResponseStatus_ =
+mkOpenInstancePublicPortsResponse responseStatus =
   OpenInstancePublicPortsResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operation = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oipprsOperation :: Lens.Lens' OpenInstancePublicPortsResponse (Lude.Maybe Operation)
-oipprsOperation = Lens.lens (operation :: OpenInstancePublicPortsResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: OpenInstancePublicPortsResponse)
-{-# DEPRECATED oipprsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+oipprrsOperation :: Lens.Lens' OpenInstancePublicPortsResponse (Core.Maybe Types.Operation)
+oipprrsOperation = Lens.field @"operation"
+{-# DEPRECATED oipprrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oipprsResponseStatus :: Lens.Lens' OpenInstancePublicPortsResponse Lude.Int
-oipprsResponseStatus = Lens.lens (responseStatus :: OpenInstancePublicPortsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: OpenInstancePublicPortsResponse)
-{-# DEPRECATED oipprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+oipprrsResponseStatus :: Lens.Lens' OpenInstancePublicPortsResponse Core.Int
+oipprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED oipprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

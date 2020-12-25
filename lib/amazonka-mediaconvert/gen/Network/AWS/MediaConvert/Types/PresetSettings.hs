@@ -17,99 +17,92 @@ module Network.AWS.MediaConvert.Types.PresetSettings
     mkPresetSettings,
 
     -- * Lenses
-    psCaptionDescriptions,
-    psVideoDescription,
-    psContainerSettings,
     psAudioDescriptions,
+    psCaptionDescriptions,
+    psContainerSettings,
+    psVideoDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioDescription
-import Network.AWS.MediaConvert.Types.CaptionDescriptionPreset
-import Network.AWS.MediaConvert.Types.ContainerSettings
-import Network.AWS.MediaConvert.Types.VideoDescription
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AudioDescription as Types
+import qualified Network.AWS.MediaConvert.Types.CaptionDescriptionPreset as Types
+import qualified Network.AWS.MediaConvert.Types.ContainerSettings as Types
+import qualified Network.AWS.MediaConvert.Types.VideoDescription as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for preset
 --
 -- /See:/ 'mkPresetSettings' smart constructor.
 data PresetSettings = PresetSettings'
-  { -- | Caption settings for this preset. There can be multiple caption settings in a single output.
-    captionDescriptions :: Lude.Maybe [CaptionDescriptionPreset],
-    -- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
-    videoDescription :: Lude.Maybe VideoDescription,
+  { -- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
+    audioDescriptions :: Core.Maybe [Types.AudioDescription],
+    -- | Caption settings for this preset. There can be multiple caption settings in a single output.
+    captionDescriptions :: Core.Maybe [Types.CaptionDescriptionPreset],
     -- | Container specific settings.
-    containerSettings :: Lude.Maybe ContainerSettings,
-    -- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
-    audioDescriptions :: Lude.Maybe [AudioDescription]
+    containerSettings :: Core.Maybe Types.ContainerSettings,
+    -- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
+    videoDescription :: Core.Maybe Types.VideoDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PresetSettings' with the minimum fields required to make a request.
---
--- * 'captionDescriptions' - Caption settings for this preset. There can be multiple caption settings in a single output.
--- * 'videoDescription' - (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
--- * 'containerSettings' - Container specific settings.
--- * 'audioDescriptions' - (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
+-- | Creates a 'PresetSettings' value with any optional fields omitted.
 mkPresetSettings ::
   PresetSettings
 mkPresetSettings =
   PresetSettings'
-    { captionDescriptions = Lude.Nothing,
-      videoDescription = Lude.Nothing,
-      containerSettings = Lude.Nothing,
-      audioDescriptions = Lude.Nothing
+    { audioDescriptions = Core.Nothing,
+      captionDescriptions = Core.Nothing,
+      containerSettings = Core.Nothing,
+      videoDescription = Core.Nothing
     }
-
--- | Caption settings for this preset. There can be multiple caption settings in a single output.
---
--- /Note:/ Consider using 'captionDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psCaptionDescriptions :: Lens.Lens' PresetSettings (Lude.Maybe [CaptionDescriptionPreset])
-psCaptionDescriptions = Lens.lens (captionDescriptions :: PresetSettings -> Lude.Maybe [CaptionDescriptionPreset]) (\s a -> s {captionDescriptions = a} :: PresetSettings)
-{-# DEPRECATED psCaptionDescriptions "Use generic-lens or generic-optics with 'captionDescriptions' instead." #-}
-
--- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
---
--- /Note:/ Consider using 'videoDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psVideoDescription :: Lens.Lens' PresetSettings (Lude.Maybe VideoDescription)
-psVideoDescription = Lens.lens (videoDescription :: PresetSettings -> Lude.Maybe VideoDescription) (\s a -> s {videoDescription = a} :: PresetSettings)
-{-# DEPRECATED psVideoDescription "Use generic-lens or generic-optics with 'videoDescription' instead." #-}
-
--- | Container specific settings.
---
--- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psContainerSettings :: Lens.Lens' PresetSettings (Lude.Maybe ContainerSettings)
-psContainerSettings = Lens.lens (containerSettings :: PresetSettings -> Lude.Maybe ContainerSettings) (\s a -> s {containerSettings = a} :: PresetSettings)
-{-# DEPRECATED psContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
 
 -- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
 --
 -- /Note:/ Consider using 'audioDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psAudioDescriptions :: Lens.Lens' PresetSettings (Lude.Maybe [AudioDescription])
-psAudioDescriptions = Lens.lens (audioDescriptions :: PresetSettings -> Lude.Maybe [AudioDescription]) (\s a -> s {audioDescriptions = a} :: PresetSettings)
+psAudioDescriptions :: Lens.Lens' PresetSettings (Core.Maybe [Types.AudioDescription])
+psAudioDescriptions = Lens.field @"audioDescriptions"
 {-# DEPRECATED psAudioDescriptions "Use generic-lens or generic-optics with 'audioDescriptions' instead." #-}
 
-instance Lude.FromJSON PresetSettings where
-  parseJSON =
-    Lude.withObject
-      "PresetSettings"
-      ( \x ->
-          PresetSettings'
-            Lude.<$> (x Lude..:? "captionDescriptions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "videoDescription")
-            Lude.<*> (x Lude..:? "containerSettings")
-            Lude.<*> (x Lude..:? "audioDescriptions" Lude..!= Lude.mempty)
-      )
+-- | Caption settings for this preset. There can be multiple caption settings in a single output.
+--
+-- /Note:/ Consider using 'captionDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psCaptionDescriptions :: Lens.Lens' PresetSettings (Core.Maybe [Types.CaptionDescriptionPreset])
+psCaptionDescriptions = Lens.field @"captionDescriptions"
+{-# DEPRECATED psCaptionDescriptions "Use generic-lens or generic-optics with 'captionDescriptions' instead." #-}
 
-instance Lude.ToJSON PresetSettings where
-  toJSON PresetSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("captionDescriptions" Lude..=) Lude.<$> captionDescriptions,
-            ("videoDescription" Lude..=) Lude.<$> videoDescription,
-            ("containerSettings" Lude..=) Lude.<$> containerSettings,
-            ("audioDescriptions" Lude..=) Lude.<$> audioDescriptions
+-- | Container specific settings.
+--
+-- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psContainerSettings :: Lens.Lens' PresetSettings (Core.Maybe Types.ContainerSettings)
+psContainerSettings = Lens.field @"containerSettings"
+{-# DEPRECATED psContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
+
+-- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
+--
+-- /Note:/ Consider using 'videoDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psVideoDescription :: Lens.Lens' PresetSettings (Core.Maybe Types.VideoDescription)
+psVideoDescription = Lens.field @"videoDescription"
+{-# DEPRECATED psVideoDescription "Use generic-lens or generic-optics with 'videoDescription' instead." #-}
+
+instance Core.FromJSON PresetSettings where
+  toJSON PresetSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioDescriptions" Core..=) Core.<$> audioDescriptions,
+            ("captionDescriptions" Core..=) Core.<$> captionDescriptions,
+            ("containerSettings" Core..=) Core.<$> containerSettings,
+            ("videoDescription" Core..=) Core.<$> videoDescription
           ]
       )
+
+instance Core.FromJSON PresetSettings where
+  parseJSON =
+    Core.withObject "PresetSettings" Core.$
+      \x ->
+        PresetSettings'
+          Core.<$> (x Core..:? "audioDescriptions")
+          Core.<*> (x Core..:? "captionDescriptions")
+          Core.<*> (x Core..:? "containerSettings")
+          Core.<*> (x Core..:? "videoDescription")

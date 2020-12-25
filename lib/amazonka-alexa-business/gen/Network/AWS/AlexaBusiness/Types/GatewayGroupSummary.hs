@@ -17,71 +17,68 @@ module Network.AWS.AlexaBusiness.Types.GatewayGroupSummary
     mkGatewayGroupSummary,
 
     -- * Lenses
-    ggsARN,
-    ggsName,
+    ggsArn,
     ggsDescription,
+    ggsName,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.Description as Types
+import qualified Network.AWS.AlexaBusiness.Types.GatewayGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary of a gateway group.
 --
 -- /See:/ 'mkGatewayGroupSummary' smart constructor.
 data GatewayGroupSummary = GatewayGroupSummary'
   { -- | The ARN of the gateway group.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the gateway group.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The description of the gateway group.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The name of the gateway group.
+    name :: Core.Maybe Types.GatewayGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GatewayGroupSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the gateway group.
--- * 'name' - The name of the gateway group.
--- * 'description' - The description of the gateway group.
+-- | Creates a 'GatewayGroupSummary' value with any optional fields omitted.
 mkGatewayGroupSummary ::
   GatewayGroupSummary
 mkGatewayGroupSummary =
   GatewayGroupSummary'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ARN of the gateway group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggsARN :: Lens.Lens' GatewayGroupSummary (Lude.Maybe Lude.Text)
-ggsARN = Lens.lens (arn :: GatewayGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GatewayGroupSummary)
-{-# DEPRECATED ggsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the gateway group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggsName :: Lens.Lens' GatewayGroupSummary (Lude.Maybe Lude.Text)
-ggsName = Lens.lens (name :: GatewayGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GatewayGroupSummary)
-{-# DEPRECATED ggsName "Use generic-lens or generic-optics with 'name' instead." #-}
+ggsArn :: Lens.Lens' GatewayGroupSummary (Core.Maybe Types.Arn)
+ggsArn = Lens.field @"arn"
+{-# DEPRECATED ggsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The description of the gateway group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggsDescription :: Lens.Lens' GatewayGroupSummary (Lude.Maybe Lude.Text)
-ggsDescription = Lens.lens (description :: GatewayGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GatewayGroupSummary)
+ggsDescription :: Lens.Lens' GatewayGroupSummary (Core.Maybe Types.Description)
+ggsDescription = Lens.field @"description"
 {-# DEPRECATED ggsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON GatewayGroupSummary where
+-- | The name of the gateway group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggsName :: Lens.Lens' GatewayGroupSummary (Core.Maybe Types.GatewayGroupName)
+ggsName = Lens.field @"name"
+{-# DEPRECATED ggsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON GatewayGroupSummary where
   parseJSON =
-    Lude.withObject
-      "GatewayGroupSummary"
-      ( \x ->
-          GatewayGroupSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "GatewayGroupSummary" Core.$
+      \x ->
+        GatewayGroupSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Name")

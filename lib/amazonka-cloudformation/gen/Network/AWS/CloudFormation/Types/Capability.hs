@@ -13,51 +13,53 @@
 module Network.AWS.CloudFormation.Types.Capability
   ( Capability
       ( Capability',
-        CapabilityIAM,
-        CapabilityNamedIAM,
-        CapabilityAutoExpand
+        CapabilityCapabilityIam,
+        CapabilityCapabilityNamedIam,
+        CapabilityCapabilityAutoExpand,
+        fromCapability
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Capability = Capability' Lude.Text
+newtype Capability = Capability' {fromCapability :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CapabilityIAM :: Capability
-pattern CapabilityIAM = Capability' "CAPABILITY_IAM"
+pattern CapabilityCapabilityIam :: Capability
+pattern CapabilityCapabilityIam = Capability' "CAPABILITY_IAM"
 
-pattern CapabilityNamedIAM :: Capability
-pattern CapabilityNamedIAM = Capability' "CAPABILITY_NAMED_IAM"
+pattern CapabilityCapabilityNamedIam :: Capability
+pattern CapabilityCapabilityNamedIam = Capability' "CAPABILITY_NAMED_IAM"
 
-pattern CapabilityAutoExpand :: Capability
-pattern CapabilityAutoExpand = Capability' "CAPABILITY_AUTO_EXPAND"
+pattern CapabilityCapabilityAutoExpand :: Capability
+pattern CapabilityCapabilityAutoExpand = Capability' "CAPABILITY_AUTO_EXPAND"
 
 {-# COMPLETE
-  CapabilityIAM,
-  CapabilityNamedIAM,
-  CapabilityAutoExpand,
+  CapabilityCapabilityIam,
+  CapabilityCapabilityNamedIam,
+  CapabilityCapabilityAutoExpand,
   Capability'
   #-}

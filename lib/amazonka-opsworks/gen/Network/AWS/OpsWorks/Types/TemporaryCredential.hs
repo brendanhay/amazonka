@@ -18,83 +18,77 @@ module Network.AWS.OpsWorks.Types.TemporaryCredential
 
     -- * Lenses
     tcInstanceId,
-    tcUsername,
     tcPassword,
+    tcUsername,
     tcValidForInMinutes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.
 --
 -- /See:/ 'mkTemporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
   { -- | The instance's AWS OpsWorks Stacks ID.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The user name.
-    username :: Lude.Maybe Lude.Text,
+    instanceId :: Core.Maybe Types.String,
     -- | The password.
-    password :: Lude.Maybe Lude.Text,
+    password :: Core.Maybe Types.String,
+    -- | The user name.
+    username :: Core.Maybe Types.String,
     -- | The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
-    validForInMinutes :: Lude.Maybe Lude.Int
+    validForInMinutes :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TemporaryCredential' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance's AWS OpsWorks Stacks ID.
--- * 'username' - The user name.
--- * 'password' - The password.
--- * 'validForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
+-- | Creates a 'TemporaryCredential' value with any optional fields omitted.
 mkTemporaryCredential ::
   TemporaryCredential
 mkTemporaryCredential =
   TemporaryCredential'
-    { instanceId = Lude.Nothing,
-      username = Lude.Nothing,
-      password = Lude.Nothing,
-      validForInMinutes = Lude.Nothing
+    { instanceId = Core.Nothing,
+      password = Core.Nothing,
+      username = Core.Nothing,
+      validForInMinutes = Core.Nothing
     }
 
 -- | The instance's AWS OpsWorks Stacks ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcInstanceId :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Text)
-tcInstanceId = Lens.lens (instanceId :: TemporaryCredential -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: TemporaryCredential)
+tcInstanceId :: Lens.Lens' TemporaryCredential (Core.Maybe Types.String)
+tcInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED tcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The user name.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcUsername :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Text)
-tcUsername = Lens.lens (username :: TemporaryCredential -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: TemporaryCredential)
-{-# DEPRECATED tcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The password.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcPassword :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Text)
-tcPassword = Lens.lens (password :: TemporaryCredential -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: TemporaryCredential)
+tcPassword :: Lens.Lens' TemporaryCredential (Core.Maybe Types.String)
+tcPassword = Lens.field @"password"
 {-# DEPRECATED tcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
+-- | The user name.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcUsername :: Lens.Lens' TemporaryCredential (Core.Maybe Types.String)
+tcUsername = Lens.field @"username"
+{-# DEPRECATED tcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
 --
 -- /Note:/ Consider using 'validForInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcValidForInMinutes :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Int)
-tcValidForInMinutes = Lens.lens (validForInMinutes :: TemporaryCredential -> Lude.Maybe Lude.Int) (\s a -> s {validForInMinutes = a} :: TemporaryCredential)
+tcValidForInMinutes :: Lens.Lens' TemporaryCredential (Core.Maybe Core.Int)
+tcValidForInMinutes = Lens.field @"validForInMinutes"
 {-# DEPRECATED tcValidForInMinutes "Use generic-lens or generic-optics with 'validForInMinutes' instead." #-}
 
-instance Lude.FromJSON TemporaryCredential where
+instance Core.FromJSON TemporaryCredential where
   parseJSON =
-    Lude.withObject
-      "TemporaryCredential"
-      ( \x ->
-          TemporaryCredential'
-            Lude.<$> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "Username")
-            Lude.<*> (x Lude..:? "Password")
-            Lude.<*> (x Lude..:? "ValidForInMinutes")
-      )
+    Core.withObject "TemporaryCredential" Core.$
+      \x ->
+        TemporaryCredential'
+          Core.<$> (x Core..:? "InstanceId")
+          Core.<*> (x Core..:? "Password")
+          Core.<*> (x Core..:? "Username")
+          Core.<*> (x Core..:? "ValidForInMinutes")

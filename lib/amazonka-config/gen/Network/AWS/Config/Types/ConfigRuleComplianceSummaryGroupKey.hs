@@ -13,46 +13,51 @@
 module Network.AWS.Config.Types.ConfigRuleComplianceSummaryGroupKey
   ( ConfigRuleComplianceSummaryGroupKey
       ( ConfigRuleComplianceSummaryGroupKey',
-        AccountId,
-        AWSRegion
+        ConfigRuleComplianceSummaryGroupKeyAccountId,
+        ConfigRuleComplianceSummaryGroupKeyAwsRegion,
+        fromConfigRuleComplianceSummaryGroupKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConfigRuleComplianceSummaryGroupKey = ConfigRuleComplianceSummaryGroupKey' Lude.Text
+newtype ConfigRuleComplianceSummaryGroupKey = ConfigRuleComplianceSummaryGroupKey'
+  { fromConfigRuleComplianceSummaryGroupKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AccountId :: ConfigRuleComplianceSummaryGroupKey
-pattern AccountId = ConfigRuleComplianceSummaryGroupKey' "ACCOUNT_ID"
+pattern ConfigRuleComplianceSummaryGroupKeyAccountId :: ConfigRuleComplianceSummaryGroupKey
+pattern ConfigRuleComplianceSummaryGroupKeyAccountId = ConfigRuleComplianceSummaryGroupKey' "ACCOUNT_ID"
 
-pattern AWSRegion :: ConfigRuleComplianceSummaryGroupKey
-pattern AWSRegion = ConfigRuleComplianceSummaryGroupKey' "AWS_REGION"
+pattern ConfigRuleComplianceSummaryGroupKeyAwsRegion :: ConfigRuleComplianceSummaryGroupKey
+pattern ConfigRuleComplianceSummaryGroupKeyAwsRegion = ConfigRuleComplianceSummaryGroupKey' "AWS_REGION"
 
 {-# COMPLETE
-  AccountId,
-  AWSRegion,
+  ConfigRuleComplianceSummaryGroupKeyAccountId,
+  ConfigRuleComplianceSummaryGroupKeyAwsRegion,
   ConfigRuleComplianceSummaryGroupKey'
   #-}

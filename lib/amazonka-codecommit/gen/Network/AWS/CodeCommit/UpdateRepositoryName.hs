@@ -20,8 +20,8 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
     mkUpdateRepositoryName,
 
     -- ** Request lenses
-    urnNewName,
     urnOldName,
+    urnNewName,
 
     -- * Destructuring the response
     UpdateRepositoryNameResponse (..),
@@ -29,88 +29,79 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an update repository description operation.
 --
 -- /See:/ 'mkUpdateRepositoryName' smart constructor.
 data UpdateRepositoryName = UpdateRepositoryName'
-  { -- | The new name for the repository.
-    newName :: Lude.Text,
-    -- | The current name of the repository.
-    oldName :: Lude.Text
+  { -- | The current name of the repository.
+    oldName :: Types.OldName,
+    -- | The new name for the repository.
+    newName :: Types.NewName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRepositoryName' with the minimum fields required to make a request.
---
--- * 'newName' - The new name for the repository.
--- * 'oldName' - The current name of the repository.
+-- | Creates a 'UpdateRepositoryName' value with any optional fields omitted.
 mkUpdateRepositoryName ::
-  -- | 'newName'
-  Lude.Text ->
   -- | 'oldName'
-  Lude.Text ->
+  Types.OldName ->
+  -- | 'newName'
+  Types.NewName ->
   UpdateRepositoryName
-mkUpdateRepositoryName pNewName_ pOldName_ =
-  UpdateRepositoryName' {newName = pNewName_, oldName = pOldName_}
-
--- | The new name for the repository.
---
--- /Note:/ Consider using 'newName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urnNewName :: Lens.Lens' UpdateRepositoryName Lude.Text
-urnNewName = Lens.lens (newName :: UpdateRepositoryName -> Lude.Text) (\s a -> s {newName = a} :: UpdateRepositoryName)
-{-# DEPRECATED urnNewName "Use generic-lens or generic-optics with 'newName' instead." #-}
+mkUpdateRepositoryName oldName newName =
+  UpdateRepositoryName' {oldName, newName}
 
 -- | The current name of the repository.
 --
 -- /Note:/ Consider using 'oldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urnOldName :: Lens.Lens' UpdateRepositoryName Lude.Text
-urnOldName = Lens.lens (oldName :: UpdateRepositoryName -> Lude.Text) (\s a -> s {oldName = a} :: UpdateRepositoryName)
+urnOldName :: Lens.Lens' UpdateRepositoryName Types.OldName
+urnOldName = Lens.field @"oldName"
 {-# DEPRECATED urnOldName "Use generic-lens or generic-optics with 'oldName' instead." #-}
 
-instance Lude.AWSRequest UpdateRepositoryName where
+-- | The new name for the repository.
+--
+-- /Note:/ Consider using 'newName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urnNewName :: Lens.Lens' UpdateRepositoryName Types.NewName
+urnNewName = Lens.field @"newName"
+{-# DEPRECATED urnNewName "Use generic-lens or generic-optics with 'newName' instead." #-}
+
+instance Core.FromJSON UpdateRepositoryName where
+  toJSON UpdateRepositoryName {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("oldName" Core..= oldName),
+            Core.Just ("newName" Core..= newName)
+          ]
+      )
+
+instance Core.AWSRequest UpdateRepositoryName where
   type Rs UpdateRepositoryName = UpdateRepositoryNameResponse
-  request = Req.postJSON codeCommitService
-  response = Res.receiveNull UpdateRepositoryNameResponse'
-
-instance Lude.ToHeaders UpdateRepositoryName where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.UpdateRepositoryName" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRepositoryName where
-  toJSON UpdateRepositoryName' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("newName" Lude..= newName),
-            Lude.Just ("oldName" Lude..= oldName)
-          ]
-      )
-
-instance Lude.ToPath UpdateRepositoryName where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRepositoryName where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.UpdateRepositoryName")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateRepositoryNameResponse'
 
 -- | /See:/ 'mkUpdateRepositoryNameResponse' smart constructor.
 data UpdateRepositoryNameResponse = UpdateRepositoryNameResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRepositoryNameResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateRepositoryNameResponse' value with any optional fields omitted.
 mkUpdateRepositoryNameResponse ::
   UpdateRepositoryNameResponse
 mkUpdateRepositoryNameResponse = UpdateRepositoryNameResponse'

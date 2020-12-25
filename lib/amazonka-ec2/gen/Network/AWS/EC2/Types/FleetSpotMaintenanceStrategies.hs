@@ -21,36 +21,34 @@ module Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies
   )
 where
 
-import Network.AWS.EC2.Types.FleetSpotCapacityRebalance
+import qualified Network.AWS.EC2.Types.FleetSpotCapacityRebalance as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 --
 -- /See:/ 'mkFleetSpotMaintenanceStrategies' smart constructor.
 newtype FleetSpotMaintenanceStrategies = FleetSpotMaintenanceStrategies'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Lude.Maybe FleetSpotCapacityRebalance
+    capacityRebalance :: Core.Maybe Types.FleetSpotCapacityRebalance
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FleetSpotMaintenanceStrategies' with the minimum fields required to make a request.
---
--- * 'capacityRebalance' - The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
+-- | Creates a 'FleetSpotMaintenanceStrategies' value with any optional fields omitted.
 mkFleetSpotMaintenanceStrategies ::
   FleetSpotMaintenanceStrategies
 mkFleetSpotMaintenanceStrategies =
-  FleetSpotMaintenanceStrategies' {capacityRebalance = Lude.Nothing}
+  FleetSpotMaintenanceStrategies' {capacityRebalance = Core.Nothing}
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
 --
 -- /Note:/ Consider using 'capacityRebalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsmsCapacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategies (Lude.Maybe FleetSpotCapacityRebalance)
-fsmsCapacityRebalance = Lens.lens (capacityRebalance :: FleetSpotMaintenanceStrategies -> Lude.Maybe FleetSpotCapacityRebalance) (\s a -> s {capacityRebalance = a} :: FleetSpotMaintenanceStrategies)
+fsmsCapacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategies (Core.Maybe Types.FleetSpotCapacityRebalance)
+fsmsCapacityRebalance = Lens.field @"capacityRebalance"
 {-# DEPRECATED fsmsCapacityRebalance "Use generic-lens or generic-optics with 'capacityRebalance' instead." #-}
 
-instance Lude.FromXML FleetSpotMaintenanceStrategies where
+instance Core.FromXML FleetSpotMaintenanceStrategies where
   parseXML x =
     FleetSpotMaintenanceStrategies'
-      Lude.<$> (x Lude..@? "capacityRebalance")
+      Core.<$> (x Core..@? "capacityRebalance")

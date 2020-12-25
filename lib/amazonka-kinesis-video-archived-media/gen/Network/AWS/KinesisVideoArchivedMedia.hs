@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -12,10 +11,37 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia
   ( -- * Service configuration
-    kinesisVideoArchivedMediaService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidMediaFrameException
+    _InvalidMediaFrameException,
+
+    -- ** NoDataRetentionException
+    _NoDataRetentionException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** ClientLimitExceededException
+    _ClientLimitExceededException,
+
+    -- ** UnsupportedStreamMediaTypeException
+    _UnsupportedStreamMediaTypeException,
+
+    -- ** InvalidCodecPrivateDataException
+    _InvalidCodecPrivateDataException,
+
+    -- ** MissingCodecPrivateDataException
+    _MissingCodecPrivateDataException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -40,77 +66,14 @@ module Network.AWS.KinesisVideoArchivedMedia
 
     -- * Types
 
-    -- ** ClipFragmentSelectorType
-    ClipFragmentSelectorType (..),
-
-    -- ** ContainerFormat
-    ContainerFormat (..),
-
-    -- ** DASHDisplayFragmentNumber
-    DASHDisplayFragmentNumber (..),
-
-    -- ** DASHDisplayFragmentTimestamp
-    DASHDisplayFragmentTimestamp (..),
-
-    -- ** DASHFragmentSelectorType
-    DASHFragmentSelectorType (..),
-
-    -- ** DASHPlaybackMode
-    DASHPlaybackMode (..),
-
-    -- ** FragmentSelectorType
-    FragmentSelectorType (..),
+    -- ** DASHStreamingSessionURL
+    DASHStreamingSessionURL (..),
 
     -- ** HLSDiscontinuityMode
     HLSDiscontinuityMode (..),
 
-    -- ** HLSDisplayFragmentTimestamp
-    HLSDisplayFragmentTimestamp (..),
-
-    -- ** HLSFragmentSelectorType
-    HLSFragmentSelectorType (..),
-
-    -- ** HLSPlaybackMode
-    HLSPlaybackMode (..),
-
-    -- ** ClipFragmentSelector
-    ClipFragmentSelector (..),
-    mkClipFragmentSelector,
-    cfsFragmentSelectorType,
-    cfsTimestampRange,
-
-    -- ** ClipTimestampRange
-    ClipTimestampRange (..),
-    mkClipTimestampRange,
-    ctrEndTimestamp,
-    ctrStartTimestamp,
-
-    -- ** DASHFragmentSelector
-    DASHFragmentSelector (..),
-    mkDASHFragmentSelector,
-    dashfsFragmentSelectorType,
-    dashfsTimestampRange,
-
-    -- ** DASHTimestampRange
-    DASHTimestampRange (..),
-    mkDASHTimestampRange,
-    dashtrEndTimestamp,
-    dashtrStartTimestamp,
-
-    -- ** Fragment
-    Fragment (..),
-    mkFragment,
-    fFragmentLengthInMilliseconds,
-    fServerTimestamp,
-    fFragmentSizeInBytes,
-    fFragmentNumber,
-    fProducerTimestamp,
-
-    -- ** FragmentSelector
-    FragmentSelector (..),
-    mkFragmentSelector,
-    fsFragmentSelectorType,
-    fsTimestampRange,
+    -- ** DASHDisplayFragmentTimestamp
+    DASHDisplayFragmentTimestamp (..),
 
     -- ** HLSFragmentSelector
     HLSFragmentSelector (..),
@@ -118,27 +81,115 @@ module Network.AWS.KinesisVideoArchivedMedia
     hlsfsFragmentSelectorType,
     hlsfsTimestampRange,
 
+    -- ** FragmentSelector
+    FragmentSelector (..),
+    mkFragmentSelector,
+    fsFragmentSelectorType,
+    fsTimestampRange,
+
+    -- ** Fragment
+    Fragment (..),
+    mkFragment,
+    fFragmentLengthInMilliseconds,
+    fFragmentNumber,
+    fFragmentSizeInBytes,
+    fProducerTimestamp,
+    fServerTimestamp,
+
+    -- ** HLSDisplayFragmentTimestamp
+    HLSDisplayFragmentTimestamp (..),
+
+    -- ** DASHFragmentSelector
+    DASHFragmentSelector (..),
+    mkDASHFragmentSelector,
+    dashfsFragmentSelectorType,
+    dashfsTimestampRange,
+
+    -- ** ClipFragmentSelector
+    ClipFragmentSelector (..),
+    mkClipFragmentSelector,
+    cfsFragmentSelectorType,
+    cfsTimestampRange,
+
     -- ** HLSTimestampRange
     HLSTimestampRange (..),
     mkHLSTimestampRange,
     hlstrEndTimestamp,
     hlstrStartTimestamp,
 
+    -- ** FragmentNumberString
+    FragmentNumberString (..),
+
+    -- ** HLSStreamingSessionURL
+    HLSStreamingSessionURL (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ContainerFormat
+    ContainerFormat (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** DASHTimestampRange
+    DASHTimestampRange (..),
+    mkDASHTimestampRange,
+    dashtrEndTimestamp,
+    dashtrStartTimestamp,
+
+    -- ** ClipTimestampRange
+    ClipTimestampRange (..),
+    mkClipTimestampRange,
+    ctrStartTimestamp,
+    ctrEndTimestamp,
+
+    -- ** DASHDisplayFragmentNumber
+    DASHDisplayFragmentNumber (..),
+
+    -- ** HLSFragmentSelectorType
+    HLSFragmentSelectorType (..),
+
+    -- ** DASHPlaybackMode
+    DASHPlaybackMode (..),
+
+    -- ** FragmentSelectorType
+    FragmentSelectorType (..),
+
+    -- ** DASHFragmentSelectorType
+    DASHFragmentSelectorType (..),
+
+    -- ** HLSPlaybackMode
+    HLSPlaybackMode (..),
+
+    -- ** StreamName
+    StreamName (..),
+
+    -- ** ClipFragmentSelectorType
+    ClipFragmentSelectorType (..),
+
+    -- ** ContentType
+    ContentType (..),
+
     -- ** TimestampRange
     TimestampRange (..),
     mkTimestampRange,
-    trEndTimestamp,
     trStartTimestamp,
+    trEndTimestamp,
+
+    -- ** FragmentNumber
+    FragmentNumber (..),
+
+    -- ** StreamARN
+    StreamARN (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -17,35 +17,36 @@ module Network.AWS.S3.Types.CSVInput
     mkCSVInput,
 
     -- * Lenses
-    ciQuoteCharacter,
-    ciRecordDelimiter,
-    ciAllowQuotedRecordDelimiter,
-    ciFileHeaderInfo,
-    ciQuoteEscapeCharacter,
-    ciComments,
-    ciFieldDelimiter,
+    csviAllowQuotedRecordDelimiter,
+    csviComments,
+    csviFieldDelimiter,
+    csviFileHeaderInfo,
+    csviQuoteCharacter,
+    csviQuoteEscapeCharacter,
+    csviRecordDelimiter,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.FileHeaderInfo
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Comments as Types
+import qualified Network.AWS.S3.Types.FieldDelimiter as Types
+import qualified Network.AWS.S3.Types.FileHeaderInfo as Types
+import qualified Network.AWS.S3.Types.QuoteCharacter as Types
+import qualified Network.AWS.S3.Types.QuoteEscapeCharacter as Types
+import qualified Network.AWS.S3.Types.RecordDelimiter as Types
 
 -- | Describes how an uncompressed comma-separated values (CSV)-formatted input object is formatted.
 --
 -- /See:/ 'mkCSVInput' smart constructor.
 data CSVInput = CSVInput'
-  { -- | A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
-    --
-    -- Type: String
-    -- Default: @"@
-    -- Ancestors: @CSV@
-    quoteCharacter :: Lude.Maybe Lude.Text,
-    -- | A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.
-    recordDelimiter :: Lude.Maybe Lude.Text,
-    -- | Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.
-    allowQuotedRecordDelimiter :: Lude.Maybe Lude.Bool,
+  { -- | Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.
+    allowQuotedRecordDelimiter :: Core.Maybe Core.Bool,
+    -- | A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.
+    comments :: Core.Maybe Types.Comments,
+    -- | A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.
+    fieldDelimiter :: Core.Maybe Types.FieldDelimiter,
     -- | Describes the first line of input. Valid values are:
     --
     --
@@ -56,78 +57,55 @@ data CSVInput = CSVInput'
     --
     --
     --     * @Use@ : First line is a header, and you can use the header value to identify a column in an expression (@SELECT "name" FROM OBJECT@ ).
-    fileHeaderInfo :: Lude.Maybe FileHeaderInfo,
+    fileHeaderInfo :: Core.Maybe Types.FileHeaderInfo,
+    -- | A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
+    --
+    -- Type: String
+    -- Default: @"@
+    -- Ancestors: @CSV@
+    quoteCharacter :: Core.Maybe Types.QuoteCharacter,
     -- | A single character used for escaping the quotation mark character inside an already escaped value. For example, the value """ a , b """ is parsed as " a , b ".
-    quoteEscapeCharacter :: Lude.Maybe Lude.Text,
-    -- | A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.
-    comments :: Lude.Maybe Lude.Text,
-    -- | A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.
-    fieldDelimiter :: Lude.Maybe Lude.Text
+    quoteEscapeCharacter :: Core.Maybe Types.QuoteEscapeCharacter,
+    -- | A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.
+    recordDelimiter :: Core.Maybe Types.RecordDelimiter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CSVInput' with the minimum fields required to make a request.
---
--- * 'quoteCharacter' - A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
---
--- Type: String
--- Default: @"@
--- Ancestors: @CSV@
--- * 'recordDelimiter' - A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.
--- * 'allowQuotedRecordDelimiter' - Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.
--- * 'fileHeaderInfo' - Describes the first line of input. Valid values are:
---
---
---     * @NONE@ : First line is not a header.
---
---
---     * @IGNORE@ : First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (@SELECT s._1 FROM OBJECT s@ ).
---
---
---     * @Use@ : First line is a header, and you can use the header value to identify a column in an expression (@SELECT "name" FROM OBJECT@ ).
---
---
--- * 'quoteEscapeCharacter' - A single character used for escaping the quotation mark character inside an already escaped value. For example, the value """ a , b """ is parsed as " a , b ".
--- * 'comments' - A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.
--- * 'fieldDelimiter' - A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.
+-- | Creates a 'CSVInput' value with any optional fields omitted.
 mkCSVInput ::
   CSVInput
 mkCSVInput =
   CSVInput'
-    { quoteCharacter = Lude.Nothing,
-      recordDelimiter = Lude.Nothing,
-      allowQuotedRecordDelimiter = Lude.Nothing,
-      fileHeaderInfo = Lude.Nothing,
-      quoteEscapeCharacter = Lude.Nothing,
-      comments = Lude.Nothing,
-      fieldDelimiter = Lude.Nothing
+    { allowQuotedRecordDelimiter = Core.Nothing,
+      comments = Core.Nothing,
+      fieldDelimiter = Core.Nothing,
+      fileHeaderInfo = Core.Nothing,
+      quoteCharacter = Core.Nothing,
+      quoteEscapeCharacter = Core.Nothing,
+      recordDelimiter = Core.Nothing
     }
-
--- | A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
---
--- Type: String
--- Default: @"@
--- Ancestors: @CSV@
---
--- /Note:/ Consider using 'quoteCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciQuoteCharacter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciQuoteCharacter = Lens.lens (quoteCharacter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {quoteCharacter = a} :: CSVInput)
-{-# DEPRECATED ciQuoteCharacter "Use generic-lens or generic-optics with 'quoteCharacter' instead." #-}
-
--- | A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.
---
--- /Note:/ Consider using 'recordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciRecordDelimiter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciRecordDelimiter = Lens.lens (recordDelimiter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {recordDelimiter = a} :: CSVInput)
-{-# DEPRECATED ciRecordDelimiter "Use generic-lens or generic-optics with 'recordDelimiter' instead." #-}
 
 -- | Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.
 --
 -- /Note:/ Consider using 'allowQuotedRecordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciAllowQuotedRecordDelimiter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Bool)
-ciAllowQuotedRecordDelimiter = Lens.lens (allowQuotedRecordDelimiter :: CSVInput -> Lude.Maybe Lude.Bool) (\s a -> s {allowQuotedRecordDelimiter = a} :: CSVInput)
-{-# DEPRECATED ciAllowQuotedRecordDelimiter "Use generic-lens or generic-optics with 'allowQuotedRecordDelimiter' instead." #-}
+csviAllowQuotedRecordDelimiter :: Lens.Lens' CSVInput (Core.Maybe Core.Bool)
+csviAllowQuotedRecordDelimiter = Lens.field @"allowQuotedRecordDelimiter"
+{-# DEPRECATED csviAllowQuotedRecordDelimiter "Use generic-lens or generic-optics with 'allowQuotedRecordDelimiter' instead." #-}
+
+-- | A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.
+--
+-- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviComments :: Lens.Lens' CSVInput (Core.Maybe Types.Comments)
+csviComments = Lens.field @"comments"
+{-# DEPRECATED csviComments "Use generic-lens or generic-optics with 'comments' instead." #-}
+
+-- | A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.
+--
+-- /Note:/ Consider using 'fieldDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviFieldDelimiter :: Lens.Lens' CSVInput (Core.Maybe Types.FieldDelimiter)
+csviFieldDelimiter = Lens.field @"fieldDelimiter"
+{-# DEPRECATED csviFieldDelimiter "Use generic-lens or generic-optics with 'fieldDelimiter' instead." #-}
 
 -- | Describes the first line of input. Valid values are:
 --
@@ -143,39 +121,42 @@ ciAllowQuotedRecordDelimiter = Lens.lens (allowQuotedRecordDelimiter :: CSVInput
 --
 --
 -- /Note:/ Consider using 'fileHeaderInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciFileHeaderInfo :: Lens.Lens' CSVInput (Lude.Maybe FileHeaderInfo)
-ciFileHeaderInfo = Lens.lens (fileHeaderInfo :: CSVInput -> Lude.Maybe FileHeaderInfo) (\s a -> s {fileHeaderInfo = a} :: CSVInput)
-{-# DEPRECATED ciFileHeaderInfo "Use generic-lens or generic-optics with 'fileHeaderInfo' instead." #-}
+csviFileHeaderInfo :: Lens.Lens' CSVInput (Core.Maybe Types.FileHeaderInfo)
+csviFileHeaderInfo = Lens.field @"fileHeaderInfo"
+{-# DEPRECATED csviFileHeaderInfo "Use generic-lens or generic-optics with 'fileHeaderInfo' instead." #-}
+
+-- | A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
+--
+-- Type: String
+-- Default: @"@
+-- Ancestors: @CSV@
+--
+-- /Note:/ Consider using 'quoteCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviQuoteCharacter :: Lens.Lens' CSVInput (Core.Maybe Types.QuoteCharacter)
+csviQuoteCharacter = Lens.field @"quoteCharacter"
+{-# DEPRECATED csviQuoteCharacter "Use generic-lens or generic-optics with 'quoteCharacter' instead." #-}
 
 -- | A single character used for escaping the quotation mark character inside an already escaped value. For example, the value """ a , b """ is parsed as " a , b ".
 --
 -- /Note:/ Consider using 'quoteEscapeCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciQuoteEscapeCharacter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciQuoteEscapeCharacter = Lens.lens (quoteEscapeCharacter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {quoteEscapeCharacter = a} :: CSVInput)
-{-# DEPRECATED ciQuoteEscapeCharacter "Use generic-lens or generic-optics with 'quoteEscapeCharacter' instead." #-}
+csviQuoteEscapeCharacter :: Lens.Lens' CSVInput (Core.Maybe Types.QuoteEscapeCharacter)
+csviQuoteEscapeCharacter = Lens.field @"quoteEscapeCharacter"
+{-# DEPRECATED csviQuoteEscapeCharacter "Use generic-lens or generic-optics with 'quoteEscapeCharacter' instead." #-}
 
--- | A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.
+-- | A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.
 --
--- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciComments :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciComments = Lens.lens (comments :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {comments = a} :: CSVInput)
-{-# DEPRECATED ciComments "Use generic-lens or generic-optics with 'comments' instead." #-}
+-- /Note:/ Consider using 'recordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviRecordDelimiter :: Lens.Lens' CSVInput (Core.Maybe Types.RecordDelimiter)
+csviRecordDelimiter = Lens.field @"recordDelimiter"
+{-# DEPRECATED csviRecordDelimiter "Use generic-lens or generic-optics with 'recordDelimiter' instead." #-}
 
--- | A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.
---
--- /Note:/ Consider using 'fieldDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciFieldDelimiter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciFieldDelimiter = Lens.lens (fieldDelimiter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {fieldDelimiter = a} :: CSVInput)
-{-# DEPRECATED ciFieldDelimiter "Use generic-lens or generic-optics with 'fieldDelimiter' instead." #-}
-
-instance Lude.ToXML CSVInput where
-  toXML CSVInput' {..} =
-    Lude.mconcat
-      [ "QuoteCharacter" Lude.@= quoteCharacter,
-        "RecordDelimiter" Lude.@= recordDelimiter,
-        "AllowQuotedRecordDelimiter" Lude.@= allowQuotedRecordDelimiter,
-        "FileHeaderInfo" Lude.@= fileHeaderInfo,
-        "QuoteEscapeCharacter" Lude.@= quoteEscapeCharacter,
-        "Comments" Lude.@= comments,
-        "FieldDelimiter" Lude.@= fieldDelimiter
-      ]
+instance Core.ToXML CSVInput where
+  toXML CSVInput {..} =
+    Core.toXMLNode "AllowQuotedRecordDelimiter"
+      Core.<$> allowQuotedRecordDelimiter
+      Core.<> Core.toXMLNode "Comments" Core.<$> comments
+      Core.<> Core.toXMLNode "FieldDelimiter" Core.<$> fieldDelimiter
+      Core.<> Core.toXMLNode "FileHeaderInfo" Core.<$> fileHeaderInfo
+      Core.<> Core.toXMLNode "QuoteCharacter" Core.<$> quoteCharacter
+      Core.<> Core.toXMLNode "QuoteEscapeCharacter" Core.<$> quoteEscapeCharacter
+      Core.<> Core.toXMLNode "RecordDelimiter" Core.<$> recordDelimiter

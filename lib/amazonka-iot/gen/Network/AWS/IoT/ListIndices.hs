@@ -22,137 +22,132 @@ module Network.AWS.IoT.ListIndices
     mkListIndices,
 
     -- ** Request lenses
-    liNextToken,
     liMaxResults,
+    liNextToken,
 
     -- * Destructuring the response
     ListIndicesResponse (..),
     mkListIndicesResponse,
 
     -- ** Response lenses
-    lirsNextToken,
-    lirsIndexNames,
-    lirsResponseStatus,
+    lirrsIndexNames,
+    lirrsNextToken,
+    lirrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListIndices' smart constructor.
 data ListIndices = ListIndices'
-  { -- | The token used to get the next set of results, or @null@ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token used to get the next set of results, or @null@ if there are no additional results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListIndices' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- | Creates a 'ListIndices' value with any optional fields omitted.
 mkListIndices ::
   ListIndices
 mkListIndices =
-  ListIndices' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
-
--- | The token used to get the next set of results, or @null@ if there are no additional results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liNextToken :: Lens.Lens' ListIndices (Lude.Maybe Lude.Text)
-liNextToken = Lens.lens (nextToken :: ListIndices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIndices)
-{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListIndices' {maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liMaxResults :: Lens.Lens' ListIndices (Lude.Maybe Lude.Natural)
-liMaxResults = Lens.lens (maxResults :: ListIndices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIndices)
+liMaxResults :: Lens.Lens' ListIndices (Core.Maybe Core.Natural)
+liMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListIndices where
-  page rq rs
-    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lirsIndexNames) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
-
-instance Lude.AWSRequest ListIndices where
-  type Rs ListIndices = ListIndicesResponse
-  request = Req.get ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListIndicesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "indexNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListIndices where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListIndices where
-  toPath = Lude.const "/indices"
-
-instance Lude.ToQuery ListIndices where
-  toQuery ListIndices' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
-
--- | /See:/ 'mkListIndicesResponse' smart constructor.
-data ListIndicesResponse = ListIndicesResponse'
-  { -- | The token used to get the next set of results, or @null@ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The index names.
-    indexNames :: Lude.Maybe [Lude.Text],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListIndicesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
--- * 'indexNames' - The index names.
--- * 'responseStatus' - The response status code.
-mkListIndicesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListIndicesResponse
-mkListIndicesResponse pResponseStatus_ =
-  ListIndicesResponse'
-    { nextToken = Lude.Nothing,
-      indexNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The token used to get the next set of results, or @null@ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsNextToken :: Lens.Lens' ListIndicesResponse (Lude.Maybe Lude.Text)
-lirsNextToken = Lens.lens (nextToken :: ListIndicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIndicesResponse)
-{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+liNextToken :: Lens.Lens' ListIndices (Core.Maybe Types.NextToken)
+liNextToken = Lens.field @"nextToken"
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListIndices where
+  type Rs ListIndices = ListIndicesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/indices",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListIndicesResponse'
+            Core.<$> (x Core..:? "indexNames")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListIndices where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"indexNames" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListIndicesResponse' smart constructor.
+data ListIndicesResponse = ListIndicesResponse'
+  { -- | The index names.
+    indexNames :: Core.Maybe [Types.IndexName],
+    -- | The token used to get the next set of results, or @null@ if there are no additional results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'ListIndicesResponse' value with any optional fields omitted.
+mkListIndicesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListIndicesResponse
+mkListIndicesResponse responseStatus =
+  ListIndicesResponse'
+    { indexNames = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | The index names.
 --
 -- /Note:/ Consider using 'indexNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsIndexNames :: Lens.Lens' ListIndicesResponse (Lude.Maybe [Lude.Text])
-lirsIndexNames = Lens.lens (indexNames :: ListIndicesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {indexNames = a} :: ListIndicesResponse)
-{-# DEPRECATED lirsIndexNames "Use generic-lens or generic-optics with 'indexNames' instead." #-}
+lirrsIndexNames :: Lens.Lens' ListIndicesResponse (Core.Maybe [Types.IndexName])
+lirrsIndexNames = Lens.field @"indexNames"
+{-# DEPRECATED lirrsIndexNames "Use generic-lens or generic-optics with 'indexNames' instead." #-}
+
+-- | The token used to get the next set of results, or @null@ if there are no additional results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirrsNextToken :: Lens.Lens' ListIndicesResponse (Core.Maybe Types.NextToken)
+lirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListIndicesResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListIndicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIndicesResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lirrsResponseStatus :: Lens.Lens' ListIndicesResponse Core.Int
+lirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

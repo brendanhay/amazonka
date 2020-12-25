@@ -21,44 +21,39 @@ module Network.AWS.GuardDuty.Types.FindingCriteria
   )
 where
 
-import Network.AWS.GuardDuty.Types.Condition
+import qualified Network.AWS.GuardDuty.Types.Condition as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the criteria used for querying findings.
 --
 -- /See:/ 'mkFindingCriteria' smart constructor.
 newtype FindingCriteria = FindingCriteria'
   { -- | Represents a map of finding properties that match specified conditions and values when querying findings.
-    criterion :: Lude.Maybe (Lude.HashMap Lude.Text (Condition))
+    criterion :: Core.Maybe (Core.HashMap Types.String Types.Condition)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FindingCriteria' with the minimum fields required to make a request.
---
--- * 'criterion' - Represents a map of finding properties that match specified conditions and values when querying findings.
+-- | Creates a 'FindingCriteria' value with any optional fields omitted.
 mkFindingCriteria ::
   FindingCriteria
-mkFindingCriteria = FindingCriteria' {criterion = Lude.Nothing}
+mkFindingCriteria = FindingCriteria' {criterion = Core.Nothing}
 
 -- | Represents a map of finding properties that match specified conditions and values when querying findings.
 --
 -- /Note:/ Consider using 'criterion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcCriterion :: Lens.Lens' FindingCriteria (Lude.Maybe (Lude.HashMap Lude.Text (Condition)))
-fcCriterion = Lens.lens (criterion :: FindingCriteria -> Lude.Maybe (Lude.HashMap Lude.Text (Condition))) (\s a -> s {criterion = a} :: FindingCriteria)
+fcCriterion :: Lens.Lens' FindingCriteria (Core.Maybe (Core.HashMap Types.String Types.Condition))
+fcCriterion = Lens.field @"criterion"
 {-# DEPRECATED fcCriterion "Use generic-lens or generic-optics with 'criterion' instead." #-}
 
-instance Lude.FromJSON FindingCriteria where
-  parseJSON =
-    Lude.withObject
-      "FindingCriteria"
-      ( \x ->
-          FindingCriteria'
-            Lude.<$> (x Lude..:? "criterion" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON FindingCriteria where
+  toJSON FindingCriteria {..} =
+    Core.object
+      (Core.catMaybes [("criterion" Core..=) Core.<$> criterion])
 
-instance Lude.ToJSON FindingCriteria where
-  toJSON FindingCriteria' {..} =
-    Lude.object
-      (Lude.catMaybes [("criterion" Lude..=) Lude.<$> criterion])
+instance Core.FromJSON FindingCriteria where
+  parseJSON =
+    Core.withObject "FindingCriteria" Core.$
+      \x -> FindingCriteria' Core.<$> (x Core..:? "criterion")

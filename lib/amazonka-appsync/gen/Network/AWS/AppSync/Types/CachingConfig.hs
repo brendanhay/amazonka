@@ -17,76 +17,67 @@ module Network.AWS.AppSync.Types.CachingConfig
     mkCachingConfig,
 
     -- * Lenses
-    ccTtl,
     ccCachingKeys,
+    ccTtl,
   )
 where
 
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The caching configuration for a resolver that has caching enabled.
 --
 -- /See:/ 'mkCachingConfig' smart constructor.
 data CachingConfig = CachingConfig'
-  { -- | The TTL in seconds for a resolver that has caching enabled.
-    --
-    -- Valid values are between 1 and 3600 seconds.
-    ttl :: Lude.Maybe Lude.Integer,
-    -- | The caching keys for a resolver that has caching enabled.
+  { -- | The caching keys for a resolver that has caching enabled.
     --
     -- Valid values are entries from the @> context.arguments@ , @> context.source@ , and @> context.identity@ maps.
-    cachingKeys :: Lude.Maybe [Lude.Text]
+    cachingKeys :: Core.Maybe [Types.String],
+    -- | The TTL in seconds for a resolver that has caching enabled.
+    --
+    -- Valid values are between 1 and 3600 seconds.
+    ttl :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CachingConfig' with the minimum fields required to make a request.
---
--- * 'ttl' - The TTL in seconds for a resolver that has caching enabled.
---
--- Valid values are between 1 and 3600 seconds.
--- * 'cachingKeys' - The caching keys for a resolver that has caching enabled.
---
--- Valid values are entries from the @> context.arguments@ , @> context.source@ , and @> context.identity@ maps.
+-- | Creates a 'CachingConfig' value with any optional fields omitted.
 mkCachingConfig ::
   CachingConfig
 mkCachingConfig =
-  CachingConfig' {ttl = Lude.Nothing, cachingKeys = Lude.Nothing}
-
--- | The TTL in seconds for a resolver that has caching enabled.
---
--- Valid values are between 1 and 3600 seconds.
---
--- /Note:/ Consider using 'ttl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTtl :: Lens.Lens' CachingConfig (Lude.Maybe Lude.Integer)
-ccTtl = Lens.lens (ttl :: CachingConfig -> Lude.Maybe Lude.Integer) (\s a -> s {ttl = a} :: CachingConfig)
-{-# DEPRECATED ccTtl "Use generic-lens or generic-optics with 'ttl' instead." #-}
+  CachingConfig' {cachingKeys = Core.Nothing, ttl = Core.Nothing}
 
 -- | The caching keys for a resolver that has caching enabled.
 --
 -- Valid values are entries from the @> context.arguments@ , @> context.source@ , and @> context.identity@ maps.
 --
 -- /Note:/ Consider using 'cachingKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCachingKeys :: Lens.Lens' CachingConfig (Lude.Maybe [Lude.Text])
-ccCachingKeys = Lens.lens (cachingKeys :: CachingConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {cachingKeys = a} :: CachingConfig)
+ccCachingKeys :: Lens.Lens' CachingConfig (Core.Maybe [Types.String])
+ccCachingKeys = Lens.field @"cachingKeys"
 {-# DEPRECATED ccCachingKeys "Use generic-lens or generic-optics with 'cachingKeys' instead." #-}
 
-instance Lude.FromJSON CachingConfig where
-  parseJSON =
-    Lude.withObject
-      "CachingConfig"
-      ( \x ->
-          CachingConfig'
-            Lude.<$> (x Lude..:? "ttl")
-            Lude.<*> (x Lude..:? "cachingKeys" Lude..!= Lude.mempty)
-      )
+-- | The TTL in seconds for a resolver that has caching enabled.
+--
+-- Valid values are between 1 and 3600 seconds.
+--
+-- /Note:/ Consider using 'ttl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTtl :: Lens.Lens' CachingConfig (Core.Maybe Core.Integer)
+ccTtl = Lens.field @"ttl"
+{-# DEPRECATED ccTtl "Use generic-lens or generic-optics with 'ttl' instead." #-}
 
-instance Lude.ToJSON CachingConfig where
-  toJSON CachingConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ttl" Lude..=) Lude.<$> ttl,
-            ("cachingKeys" Lude..=) Lude.<$> cachingKeys
+instance Core.FromJSON CachingConfig where
+  toJSON CachingConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cachingKeys" Core..=) Core.<$> cachingKeys,
+            ("ttl" Core..=) Core.<$> ttl
           ]
       )
+
+instance Core.FromJSON CachingConfig where
+  parseJSON =
+    Core.withObject "CachingConfig" Core.$
+      \x ->
+        CachingConfig'
+          Core.<$> (x Core..:? "cachingKeys") Core.<*> (x Core..:? "ttl")

@@ -22,64 +22,59 @@ module Network.AWS.CodeDeploy.Types.DeploymentStyle
   )
 where
 
-import Network.AWS.CodeDeploy.Types.DeploymentOption
-import Network.AWS.CodeDeploy.Types.DeploymentType
+import qualified Network.AWS.CodeDeploy.Types.DeploymentOption as Types
+import qualified Network.AWS.CodeDeploy.Types.DeploymentType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 --
 -- /See:/ 'mkDeploymentStyle' smart constructor.
 data DeploymentStyle = DeploymentStyle'
   { -- | Indicates whether to route deployment traffic behind a load balancer.
-    deploymentOption :: Lude.Maybe DeploymentOption,
+    deploymentOption :: Core.Maybe Types.DeploymentOption,
     -- | Indicates whether to run an in-place deployment or a blue/green deployment.
-    deploymentType :: Lude.Maybe DeploymentType
+    deploymentType :: Core.Maybe Types.DeploymentType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeploymentStyle' with the minimum fields required to make a request.
---
--- * 'deploymentOption' - Indicates whether to route deployment traffic behind a load balancer.
--- * 'deploymentType' - Indicates whether to run an in-place deployment or a blue/green deployment.
+-- | Creates a 'DeploymentStyle' value with any optional fields omitted.
 mkDeploymentStyle ::
   DeploymentStyle
 mkDeploymentStyle =
   DeploymentStyle'
-    { deploymentOption = Lude.Nothing,
-      deploymentType = Lude.Nothing
+    { deploymentOption = Core.Nothing,
+      deploymentType = Core.Nothing
     }
 
 -- | Indicates whether to route deployment traffic behind a load balancer.
 --
 -- /Note:/ Consider using 'deploymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDeploymentOption :: Lens.Lens' DeploymentStyle (Lude.Maybe DeploymentOption)
-dsDeploymentOption = Lens.lens (deploymentOption :: DeploymentStyle -> Lude.Maybe DeploymentOption) (\s a -> s {deploymentOption = a} :: DeploymentStyle)
+dsDeploymentOption :: Lens.Lens' DeploymentStyle (Core.Maybe Types.DeploymentOption)
+dsDeploymentOption = Lens.field @"deploymentOption"
 {-# DEPRECATED dsDeploymentOption "Use generic-lens or generic-optics with 'deploymentOption' instead." #-}
 
 -- | Indicates whether to run an in-place deployment or a blue/green deployment.
 --
 -- /Note:/ Consider using 'deploymentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDeploymentType :: Lens.Lens' DeploymentStyle (Lude.Maybe DeploymentType)
-dsDeploymentType = Lens.lens (deploymentType :: DeploymentStyle -> Lude.Maybe DeploymentType) (\s a -> s {deploymentType = a} :: DeploymentStyle)
+dsDeploymentType :: Lens.Lens' DeploymentStyle (Core.Maybe Types.DeploymentType)
+dsDeploymentType = Lens.field @"deploymentType"
 {-# DEPRECATED dsDeploymentType "Use generic-lens or generic-optics with 'deploymentType' instead." #-}
 
-instance Lude.FromJSON DeploymentStyle where
-  parseJSON =
-    Lude.withObject
-      "DeploymentStyle"
-      ( \x ->
-          DeploymentStyle'
-            Lude.<$> (x Lude..:? "deploymentOption")
-            Lude.<*> (x Lude..:? "deploymentType")
-      )
-
-instance Lude.ToJSON DeploymentStyle where
-  toJSON DeploymentStyle' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deploymentOption" Lude..=) Lude.<$> deploymentOption,
-            ("deploymentType" Lude..=) Lude.<$> deploymentType
+instance Core.FromJSON DeploymentStyle where
+  toJSON DeploymentStyle {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentOption" Core..=) Core.<$> deploymentOption,
+            ("deploymentType" Core..=) Core.<$> deploymentType
           ]
       )
+
+instance Core.FromJSON DeploymentStyle where
+  parseJSON =
+    Core.withObject "DeploymentStyle" Core.$
+      \x ->
+        DeploymentStyle'
+          Core.<$> (x Core..:? "deploymentOption")
+          Core.<*> (x Core..:? "deploymentType")

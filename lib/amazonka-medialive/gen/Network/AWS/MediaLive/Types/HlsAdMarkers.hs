@@ -13,52 +13,54 @@
 module Network.AWS.MediaLive.Types.HlsAdMarkers
   ( HlsAdMarkers
       ( HlsAdMarkers',
-        Adobe,
-        Elemental,
-        ElementalSCTE35
+        HlsAdMarkersAdobe,
+        HlsAdMarkersElemental,
+        HlsAdMarkersElementalSCTE35,
+        fromHlsAdMarkers
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Ad Markers
-newtype HlsAdMarkers = HlsAdMarkers' Lude.Text
+newtype HlsAdMarkers = HlsAdMarkers' {fromHlsAdMarkers :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Adobe :: HlsAdMarkers
-pattern Adobe = HlsAdMarkers' "ADOBE"
+pattern HlsAdMarkersAdobe :: HlsAdMarkers
+pattern HlsAdMarkersAdobe = HlsAdMarkers' "ADOBE"
 
-pattern Elemental :: HlsAdMarkers
-pattern Elemental = HlsAdMarkers' "ELEMENTAL"
+pattern HlsAdMarkersElemental :: HlsAdMarkers
+pattern HlsAdMarkersElemental = HlsAdMarkers' "ELEMENTAL"
 
-pattern ElementalSCTE35 :: HlsAdMarkers
-pattern ElementalSCTE35 = HlsAdMarkers' "ELEMENTAL_SCTE35"
+pattern HlsAdMarkersElementalSCTE35 :: HlsAdMarkers
+pattern HlsAdMarkersElementalSCTE35 = HlsAdMarkers' "ELEMENTAL_SCTE35"
 
 {-# COMPLETE
-  Adobe,
-  Elemental,
-  ElementalSCTE35,
+  HlsAdMarkersAdobe,
+  HlsAdMarkersElemental,
+  HlsAdMarkersElementalSCTE35,
   HlsAdMarkers'
   #-}

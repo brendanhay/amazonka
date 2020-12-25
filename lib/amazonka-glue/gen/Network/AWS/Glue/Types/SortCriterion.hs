@@ -17,55 +17,53 @@ module Network.AWS.Glue.Types.SortCriterion
     mkSortCriterion,
 
     -- * Lenses
-    scSort,
     scFieldName,
+    scSort,
   )
 where
 
-import Network.AWS.Glue.Types.Sort
+import qualified Network.AWS.Glue.Types.Sort as Types
+import qualified Network.AWS.Glue.Types.ValueString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a field to sort by and a sort order.
 --
 -- /See:/ 'mkSortCriterion' smart constructor.
 data SortCriterion = SortCriterion'
-  { -- | An ascending or descending sort.
-    sort :: Lude.Maybe Sort,
-    -- | The name of the field on which to sort.
-    fieldName :: Lude.Maybe Lude.Text
+  { -- | The name of the field on which to sort.
+    fieldName :: Core.Maybe Types.ValueString,
+    -- | An ascending or descending sort.
+    sort :: Core.Maybe Types.Sort
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SortCriterion' with the minimum fields required to make a request.
---
--- * 'sort' - An ascending or descending sort.
--- * 'fieldName' - The name of the field on which to sort.
+-- | Creates a 'SortCriterion' value with any optional fields omitted.
 mkSortCriterion ::
   SortCriterion
 mkSortCriterion =
-  SortCriterion' {sort = Lude.Nothing, fieldName = Lude.Nothing}
-
--- | An ascending or descending sort.
---
--- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSort :: Lens.Lens' SortCriterion (Lude.Maybe Sort)
-scSort = Lens.lens (sort :: SortCriterion -> Lude.Maybe Sort) (\s a -> s {sort = a} :: SortCriterion)
-{-# DEPRECATED scSort "Use generic-lens or generic-optics with 'sort' instead." #-}
+  SortCriterion' {fieldName = Core.Nothing, sort = Core.Nothing}
 
 -- | The name of the field on which to sort.
 --
 -- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scFieldName :: Lens.Lens' SortCriterion (Lude.Maybe Lude.Text)
-scFieldName = Lens.lens (fieldName :: SortCriterion -> Lude.Maybe Lude.Text) (\s a -> s {fieldName = a} :: SortCriterion)
+scFieldName :: Lens.Lens' SortCriterion (Core.Maybe Types.ValueString)
+scFieldName = Lens.field @"fieldName"
 {-# DEPRECATED scFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
-instance Lude.ToJSON SortCriterion where
-  toJSON SortCriterion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Sort" Lude..=) Lude.<$> sort,
-            ("FieldName" Lude..=) Lude.<$> fieldName
+-- | An ascending or descending sort.
+--
+-- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scSort :: Lens.Lens' SortCriterion (Core.Maybe Types.Sort)
+scSort = Lens.field @"sort"
+{-# DEPRECATED scSort "Use generic-lens or generic-optics with 'sort' instead." #-}
+
+instance Core.FromJSON SortCriterion where
+  toJSON SortCriterion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("FieldName" Core..=) Core.<$> fieldName,
+            ("Sort" Core..=) Core.<$> sort
           ]
       )

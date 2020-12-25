@@ -13,51 +13,53 @@
 module Network.AWS.Glacier.Types.ActionCode
   ( ActionCode
       ( ActionCode',
-        ArchiveRetrieval,
-        InventoryRetrieval,
-        Select
+        ActionCodeArchiveRetrieval,
+        ActionCodeInventoryRetrieval,
+        ActionCodeSelect,
+        fromActionCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionCode = ActionCode' Lude.Text
+newtype ActionCode = ActionCode' {fromActionCode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ArchiveRetrieval :: ActionCode
-pattern ArchiveRetrieval = ActionCode' "ArchiveRetrieval"
+pattern ActionCodeArchiveRetrieval :: ActionCode
+pattern ActionCodeArchiveRetrieval = ActionCode' "ArchiveRetrieval"
 
-pattern InventoryRetrieval :: ActionCode
-pattern InventoryRetrieval = ActionCode' "InventoryRetrieval"
+pattern ActionCodeInventoryRetrieval :: ActionCode
+pattern ActionCodeInventoryRetrieval = ActionCode' "InventoryRetrieval"
 
-pattern Select :: ActionCode
-pattern Select = ActionCode' "Select"
+pattern ActionCodeSelect :: ActionCode
+pattern ActionCodeSelect = ActionCode' "Select"
 
 {-# COMPLETE
-  ArchiveRetrieval,
-  InventoryRetrieval,
-  Select,
+  ActionCodeArchiveRetrieval,
+  ActionCodeInventoryRetrieval,
+  ActionCodeSelect,
   ActionCode'
   #-}

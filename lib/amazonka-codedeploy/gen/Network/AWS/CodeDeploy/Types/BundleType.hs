@@ -13,61 +13,63 @@
 module Network.AWS.CodeDeploy.Types.BundleType
   ( BundleType
       ( BundleType',
-        TAR,
-        TGZ,
-        Zip,
-        Yaml,
-        JSON
+        BundleTypeTar,
+        BundleTypeTgz,
+        BundleTypeZip,
+        BundleTypeYaml,
+        BundleTypeJson,
+        fromBundleType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BundleType = BundleType' Lude.Text
+newtype BundleType = BundleType' {fromBundleType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TAR :: BundleType
-pattern TAR = BundleType' "tar"
+pattern BundleTypeTar :: BundleType
+pattern BundleTypeTar = BundleType' "tar"
 
-pattern TGZ :: BundleType
-pattern TGZ = BundleType' "tgz"
+pattern BundleTypeTgz :: BundleType
+pattern BundleTypeTgz = BundleType' "tgz"
 
-pattern Zip :: BundleType
-pattern Zip = BundleType' "zip"
+pattern BundleTypeZip :: BundleType
+pattern BundleTypeZip = BundleType' "zip"
 
-pattern Yaml :: BundleType
-pattern Yaml = BundleType' "YAML"
+pattern BundleTypeYaml :: BundleType
+pattern BundleTypeYaml = BundleType' "YAML"
 
-pattern JSON :: BundleType
-pattern JSON = BundleType' "JSON"
+pattern BundleTypeJson :: BundleType
+pattern BundleTypeJson = BundleType' "JSON"
 
 {-# COMPLETE
-  TAR,
-  TGZ,
-  Zip,
-  Yaml,
-  JSON,
+  BundleTypeTar,
+  BundleTypeTgz,
+  BundleTypeZip,
+  BundleTypeYaml,
+  BundleTypeJson,
   BundleType'
   #-}

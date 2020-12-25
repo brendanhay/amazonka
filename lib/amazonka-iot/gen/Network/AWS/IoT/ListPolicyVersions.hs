@@ -27,101 +27,97 @@ module Network.AWS.IoT.ListPolicyVersions
     mkListPolicyVersionsResponse,
 
     -- ** Response lenses
-    lpvrsPolicyVersions,
-    lpvrsResponseStatus,
+    lpvrrsPolicyVersions,
+    lpvrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the ListPolicyVersions operation.
 --
 -- /See:/ 'mkListPolicyVersions' smart constructor.
 newtype ListPolicyVersions = ListPolicyVersions'
   { -- | The policy name.
-    policyName :: Lude.Text
+    policyName :: Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPolicyVersions' with the minimum fields required to make a request.
---
--- * 'policyName' - The policy name.
+-- | Creates a 'ListPolicyVersions' value with any optional fields omitted.
 mkListPolicyVersions ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   ListPolicyVersions
-mkListPolicyVersions pPolicyName_ =
-  ListPolicyVersions' {policyName = pPolicyName_}
+mkListPolicyVersions policyName = ListPolicyVersions' {policyName}
 
 -- | The policy name.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpvPolicyName :: Lens.Lens' ListPolicyVersions Lude.Text
-lpvPolicyName = Lens.lens (policyName :: ListPolicyVersions -> Lude.Text) (\s a -> s {policyName = a} :: ListPolicyVersions)
+lpvPolicyName :: Lens.Lens' ListPolicyVersions Types.PolicyName
+lpvPolicyName = Lens.field @"policyName"
 {-# DEPRECATED lpvPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance Lude.AWSRequest ListPolicyVersions where
+instance Core.AWSRequest ListPolicyVersions where
   type Rs ListPolicyVersions = ListPolicyVersionsResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/policies/" Core.<> (Core.toText policyName)
+                Core.<> ("/version")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Lude.<$> (x Lude..?> "policyVersions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "policyVersions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListPolicyVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPolicyVersions where
-  toPath ListPolicyVersions' {..} =
-    Lude.mconcat ["/policies/", Lude.toBS policyName, "/version"]
-
-instance Lude.ToQuery ListPolicyVersions where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output from the ListPolicyVersions operation.
 --
 -- /See:/ 'mkListPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
   { -- | The policy versions.
-    policyVersions :: Lude.Maybe [PolicyVersion],
+    policyVersions :: Core.Maybe [Types.PolicyVersion],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListPolicyVersionsResponse' with the minimum fields required to make a request.
---
--- * 'policyVersions' - The policy versions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPolicyVersionsResponse' value with any optional fields omitted.
 mkListPolicyVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPolicyVersionsResponse
-mkListPolicyVersionsResponse pResponseStatus_ =
+mkListPolicyVersionsResponse responseStatus =
   ListPolicyVersionsResponse'
-    { policyVersions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { policyVersions = Core.Nothing,
+      responseStatus
     }
 
 -- | The policy versions.
 --
 -- /Note:/ Consider using 'policyVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpvrsPolicyVersions :: Lens.Lens' ListPolicyVersionsResponse (Lude.Maybe [PolicyVersion])
-lpvrsPolicyVersions = Lens.lens (policyVersions :: ListPolicyVersionsResponse -> Lude.Maybe [PolicyVersion]) (\s a -> s {policyVersions = a} :: ListPolicyVersionsResponse)
-{-# DEPRECATED lpvrsPolicyVersions "Use generic-lens or generic-optics with 'policyVersions' instead." #-}
+lpvrrsPolicyVersions :: Lens.Lens' ListPolicyVersionsResponse (Core.Maybe [Types.PolicyVersion])
+lpvrrsPolicyVersions = Lens.field @"policyVersions"
+{-# DEPRECATED lpvrrsPolicyVersions "Use generic-lens or generic-optics with 'policyVersions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpvrsResponseStatus :: Lens.Lens' ListPolicyVersionsResponse Lude.Int
-lpvrsResponseStatus = Lens.lens (responseStatus :: ListPolicyVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPolicyVersionsResponse)
-{-# DEPRECATED lpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpvrrsResponseStatus :: Lens.Lens' ListPolicyVersionsResponse Core.Int
+lpvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

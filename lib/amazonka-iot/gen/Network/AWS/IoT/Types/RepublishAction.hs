@@ -17,85 +17,77 @@ module Network.AWS.IoT.Types.RepublishAction
     mkRepublishAction,
 
     -- * Lenses
+    raRoleArn,
     raTopic,
     raQos,
-    raRoleARN,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.Topic as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action to republish to another topic.
 --
 -- /See:/ 'mkRepublishAction' smart constructor.
 data RepublishAction = RepublishAction'
-  { -- | The name of the MQTT topic.
-    topic :: Lude.Text,
+  { -- | The ARN of the IAM role that grants access.
+    roleArn :: Types.AwsArn,
+    -- | The name of the MQTT topic.
+    topic :: Types.Topic,
     -- | The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
-    qos :: Lude.Maybe Lude.Natural,
-    -- | The ARN of the IAM role that grants access.
-    roleARN :: Lude.Text
+    qos :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RepublishAction' with the minimum fields required to make a request.
---
--- * 'topic' - The name of the MQTT topic.
--- * 'qos' - The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
--- * 'roleARN' - The ARN of the IAM role that grants access.
+-- | Creates a 'RepublishAction' value with any optional fields omitted.
 mkRepublishAction ::
+  -- | 'roleArn'
+  Types.AwsArn ->
   -- | 'topic'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.Topic ->
   RepublishAction
-mkRepublishAction pTopic_ pRoleARN_ =
-  RepublishAction'
-    { topic = pTopic_,
-      qos = Lude.Nothing,
-      roleARN = pRoleARN_
-    }
+mkRepublishAction roleArn topic =
+  RepublishAction' {roleArn, topic, qos = Core.Nothing}
+
+-- | The ARN of the IAM role that grants access.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raRoleArn :: Lens.Lens' RepublishAction Types.AwsArn
+raRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED raRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The name of the MQTT topic.
 --
 -- /Note:/ Consider using 'topic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raTopic :: Lens.Lens' RepublishAction Lude.Text
-raTopic = Lens.lens (topic :: RepublishAction -> Lude.Text) (\s a -> s {topic = a} :: RepublishAction)
+raTopic :: Lens.Lens' RepublishAction Types.Topic
+raTopic = Lens.field @"topic"
 {-# DEPRECATED raTopic "Use generic-lens or generic-optics with 'topic' instead." #-}
 
 -- | The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
 --
 -- /Note:/ Consider using 'qos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raQos :: Lens.Lens' RepublishAction (Lude.Maybe Lude.Natural)
-raQos = Lens.lens (qos :: RepublishAction -> Lude.Maybe Lude.Natural) (\s a -> s {qos = a} :: RepublishAction)
+raQos :: Lens.Lens' RepublishAction (Core.Maybe Core.Natural)
+raQos = Lens.field @"qos"
 {-# DEPRECATED raQos "Use generic-lens or generic-optics with 'qos' instead." #-}
 
--- | The ARN of the IAM role that grants access.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raRoleARN :: Lens.Lens' RepublishAction Lude.Text
-raRoleARN = Lens.lens (roleARN :: RepublishAction -> Lude.Text) (\s a -> s {roleARN = a} :: RepublishAction)
-{-# DEPRECATED raRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON RepublishAction where
-  parseJSON =
-    Lude.withObject
-      "RepublishAction"
-      ( \x ->
-          RepublishAction'
-            Lude.<$> (x Lude..: "topic")
-            Lude.<*> (x Lude..:? "qos")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON RepublishAction where
-  toJSON RepublishAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("topic" Lude..= topic),
-            ("qos" Lude..=) Lude.<$> qos,
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON RepublishAction where
+  toJSON RepublishAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("topic" Core..= topic),
+            ("qos" Core..=) Core.<$> qos
           ]
       )
+
+instance Core.FromJSON RepublishAction where
+  parseJSON =
+    Core.withObject "RepublishAction" Core.$
+      \x ->
+        RepublishAction'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "topic")
+          Core.<*> (x Core..:? "qos")

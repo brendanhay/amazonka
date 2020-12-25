@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DAX
     Network.AWS.DAX.CreateCluster
@@ -94,25 +100,47 @@ library
   other-modules:
     Network.AWS.DAX.Types.ChangeType
     Network.AWS.DAX.Types.Cluster
+    Network.AWS.DAX.Types.ClusterArn
+    Network.AWS.DAX.Types.ClusterName
+    Network.AWS.DAX.Types.Description
     Network.AWS.DAX.Types.Endpoint
     Network.AWS.DAX.Types.Event
+    Network.AWS.DAX.Types.IamRoleArn
     Network.AWS.DAX.Types.IsModifiable
+    Network.AWS.DAX.Types.Key
+    Network.AWS.DAX.Types.Message
+    Network.AWS.DAX.Types.NextToken
     Network.AWS.DAX.Types.Node
+    Network.AWS.DAX.Types.NodeType
     Network.AWS.DAX.Types.NodeTypeSpecificValue
     Network.AWS.DAX.Types.NotificationConfiguration
+    Network.AWS.DAX.Types.NotificationTopicArn
+    Network.AWS.DAX.Types.NotificationTopicStatus
     Network.AWS.DAX.Types.Parameter
+    Network.AWS.DAX.Types.ParameterApplyStatus
     Network.AWS.DAX.Types.ParameterGroup
+    Network.AWS.DAX.Types.ParameterGroupName
     Network.AWS.DAX.Types.ParameterGroupStatus
+    Network.AWS.DAX.Types.ParameterName
     Network.AWS.DAX.Types.ParameterNameValue
     Network.AWS.DAX.Types.ParameterType
+    Network.AWS.DAX.Types.ParameterValue
+    Network.AWS.DAX.Types.PreferredMaintenanceWindow
     Network.AWS.DAX.Types.SecurityGroupMembership
+    Network.AWS.DAX.Types.SourceName
     Network.AWS.DAX.Types.SourceType
     Network.AWS.DAX.Types.SSEDescription
     Network.AWS.DAX.Types.SSESpecification
     Network.AWS.DAX.Types.SSEStatus
+    Network.AWS.DAX.Types.Status
+    Network.AWS.DAX.Types.String
     Network.AWS.DAX.Types.Subnet
     Network.AWS.DAX.Types.SubnetGroup
+    Network.AWS.DAX.Types.SubnetGroupName
     Network.AWS.DAX.Types.Tag
+    Network.AWS.DAX.Types.TopicArn
+    Network.AWS.DAX.Types.TopicStatus
+    Network.AWS.DAX.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

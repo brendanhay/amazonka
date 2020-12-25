@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Vp8ParControl
   ( Vp8ParControl
       ( Vp8ParControl',
-        VInitializeFromSource,
-        VSpecified
+        Vp8ParControlInitializeFromSource,
+        Vp8ParControlSpecified,
+        fromVp8ParControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. To specify a different PAR by editing the JSON job specification, choose SPECIFIED. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
-newtype Vp8ParControl = Vp8ParControl' Lude.Text
+newtype Vp8ParControl = Vp8ParControl'
+  { fromVp8ParControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VInitializeFromSource :: Vp8ParControl
-pattern VInitializeFromSource = Vp8ParControl' "INITIALIZE_FROM_SOURCE"
+pattern Vp8ParControlInitializeFromSource :: Vp8ParControl
+pattern Vp8ParControlInitializeFromSource = Vp8ParControl' "INITIALIZE_FROM_SOURCE"
 
-pattern VSpecified :: Vp8ParControl
-pattern VSpecified = Vp8ParControl' "SPECIFIED"
+pattern Vp8ParControlSpecified :: Vp8ParControl
+pattern Vp8ParControlSpecified = Vp8ParControl' "SPECIFIED"
 
 {-# COMPLETE
-  VInitializeFromSource,
-  VSpecified,
+  Vp8ParControlInitializeFromSource,
+  Vp8ParControlSpecified,
   Vp8ParControl'
   #-}

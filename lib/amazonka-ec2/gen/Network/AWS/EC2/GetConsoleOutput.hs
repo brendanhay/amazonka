@@ -25,167 +25,159 @@ module Network.AWS.EC2.GetConsoleOutput
 
     -- ** Request lenses
     gcoInstanceId,
-    gcoLatest,
     gcoDryRun,
+    gcoLatest,
 
     -- * Destructuring the response
     GetConsoleOutputResponse (..),
     mkGetConsoleOutputResponse,
 
     -- ** Response lenses
-    gcorsInstanceId,
-    gcorsOutput,
-    gcorsTimestamp,
-    gcorsResponseStatus,
+    gcorrsInstanceId,
+    gcorrsOutput,
+    gcorrsTimestamp,
+    gcorrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetConsoleOutput' smart constructor.
 data GetConsoleOutput = GetConsoleOutput'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | When enabled, retrieves the latest console output for the instance.
     --
     -- Default: disabled (@false@ )
-    latest :: Lude.Maybe Lude.Bool,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    latest :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConsoleOutput' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'latest' - When enabled, retrieves the latest console output for the instance.
---
--- Default: disabled (@false@ )
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'GetConsoleOutput' value with any optional fields omitted.
 mkGetConsoleOutput ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   GetConsoleOutput
-mkGetConsoleOutput pInstanceId_ =
+mkGetConsoleOutput instanceId =
   GetConsoleOutput'
-    { instanceId = pInstanceId_,
-      latest = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { instanceId,
+      dryRun = Core.Nothing,
+      latest = Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcoInstanceId :: Lens.Lens' GetConsoleOutput Lude.Text
-gcoInstanceId = Lens.lens (instanceId :: GetConsoleOutput -> Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleOutput)
+gcoInstanceId :: Lens.Lens' GetConsoleOutput Types.InstanceId
+gcoInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gcoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcoDryRun :: Lens.Lens' GetConsoleOutput (Core.Maybe Core.Bool)
+gcoDryRun = Lens.field @"dryRun"
+{-# DEPRECATED gcoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | When enabled, retrieves the latest console output for the instance.
 --
 -- Default: disabled (@false@ )
 --
 -- /Note:/ Consider using 'latest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcoLatest :: Lens.Lens' GetConsoleOutput (Lude.Maybe Lude.Bool)
-gcoLatest = Lens.lens (latest :: GetConsoleOutput -> Lude.Maybe Lude.Bool) (\s a -> s {latest = a} :: GetConsoleOutput)
+gcoLatest :: Lens.Lens' GetConsoleOutput (Core.Maybe Core.Bool)
+gcoLatest = Lens.field @"latest"
 {-# DEPRECATED gcoLatest "Use generic-lens or generic-optics with 'latest' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcoDryRun :: Lens.Lens' GetConsoleOutput (Lude.Maybe Lude.Bool)
-gcoDryRun = Lens.lens (dryRun :: GetConsoleOutput -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetConsoleOutput)
-{-# DEPRECATED gcoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest GetConsoleOutput where
+instance Core.AWSRequest GetConsoleOutput where
   type Rs GetConsoleOutput = GetConsoleOutputResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetConsoleOutput")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Latest" Core.<$> latest)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetConsoleOutputResponse'
-            Lude.<$> (x Lude..@? "instanceId")
-            Lude.<*> (x Lude..@? "output")
-            Lude.<*> (x Lude..@? "timestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instanceId")
+            Core.<*> (x Core..@? "output")
+            Core.<*> (x Core..@? "timestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetConsoleOutput where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetConsoleOutput where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetConsoleOutput where
-  toQuery GetConsoleOutput' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetConsoleOutput" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "Latest" Lude.=: latest,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkGetConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
   { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
+    instanceId :: Core.Maybe Types.InstanceId,
     -- | The console output, base64-encoded. If you are using a command line tool, the tool decodes the output for you.
-    output :: Lude.Maybe Lude.Text,
+    output :: Core.Maybe Types.Output,
     -- | The time at which the output was last updated.
-    timestamp :: Lude.Maybe Lude.DateTime,
+    timestamp :: Core.Maybe Core.UTCTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetConsoleOutputResponse' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'output' - The console output, base64-encoded. If you are using a command line tool, the tool decodes the output for you.
--- * 'timestamp' - The time at which the output was last updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetConsoleOutputResponse' value with any optional fields omitted.
 mkGetConsoleOutputResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetConsoleOutputResponse
-mkGetConsoleOutputResponse pResponseStatus_ =
+mkGetConsoleOutputResponse responseStatus =
   GetConsoleOutputResponse'
-    { instanceId = Lude.Nothing,
-      output = Lude.Nothing,
-      timestamp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceId = Core.Nothing,
+      output = Core.Nothing,
+      timestamp = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsInstanceId :: Lens.Lens' GetConsoleOutputResponse (Lude.Maybe Lude.Text)
-gcorsInstanceId = Lens.lens (instanceId :: GetConsoleOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleOutputResponse)
-{-# DEPRECATED gcorsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+gcorrsInstanceId :: Lens.Lens' GetConsoleOutputResponse (Core.Maybe Types.InstanceId)
+gcorrsInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED gcorrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The console output, base64-encoded. If you are using a command line tool, the tool decodes the output for you.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsOutput :: Lens.Lens' GetConsoleOutputResponse (Lude.Maybe Lude.Text)
-gcorsOutput = Lens.lens (output :: GetConsoleOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {output = a} :: GetConsoleOutputResponse)
-{-# DEPRECATED gcorsOutput "Use generic-lens or generic-optics with 'output' instead." #-}
+gcorrsOutput :: Lens.Lens' GetConsoleOutputResponse (Core.Maybe Types.Output)
+gcorrsOutput = Lens.field @"output"
+{-# DEPRECATED gcorrsOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | The time at which the output was last updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsTimestamp :: Lens.Lens' GetConsoleOutputResponse (Lude.Maybe Lude.DateTime)
-gcorsTimestamp = Lens.lens (timestamp :: GetConsoleOutputResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: GetConsoleOutputResponse)
-{-# DEPRECATED gcorsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+gcorrsTimestamp :: Lens.Lens' GetConsoleOutputResponse (Core.Maybe Core.UTCTime)
+gcorrsTimestamp = Lens.field @"timestamp"
+{-# DEPRECATED gcorrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsResponseStatus :: Lens.Lens' GetConsoleOutputResponse Lude.Int
-gcorsResponseStatus = Lens.lens (responseStatus :: GetConsoleOutputResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConsoleOutputResponse)
-{-# DEPRECATED gcorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcorrsResponseStatus :: Lens.Lens' GetConsoleOutputResponse Core.Int
+gcorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

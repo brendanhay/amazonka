@@ -17,71 +17,67 @@ module Network.AWS.CodeDeploy.Types.RollbackInfo
     mkRollbackInfo,
 
     -- * Lenses
-    riRollbackTriggeringDeploymentId,
-    riRollbackMessage,
     riRollbackDeploymentId,
+    riRollbackMessage,
+    riRollbackTriggeringDeploymentId,
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.DeploymentId as Types
+import qualified Network.AWS.CodeDeploy.Types.RollbackMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a deployment rollback.
 --
 -- /See:/ 'mkRollbackInfo' smart constructor.
 data RollbackInfo = RollbackInfo'
-  { -- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
-    rollbackTriggeringDeploymentId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the deployment rollback.
+    rollbackDeploymentId :: Core.Maybe Types.DeploymentId,
     -- | Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
-    rollbackMessage :: Lude.Maybe Lude.Text,
-    -- | The ID of the deployment rollback.
-    rollbackDeploymentId :: Lude.Maybe Lude.Text
+    rollbackMessage :: Core.Maybe Types.RollbackMessage,
+    -- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
+    rollbackTriggeringDeploymentId :: Core.Maybe Types.DeploymentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RollbackInfo' with the minimum fields required to make a request.
---
--- * 'rollbackTriggeringDeploymentId' - The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
--- * 'rollbackMessage' - Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
--- * 'rollbackDeploymentId' - The ID of the deployment rollback.
+-- | Creates a 'RollbackInfo' value with any optional fields omitted.
 mkRollbackInfo ::
   RollbackInfo
 mkRollbackInfo =
   RollbackInfo'
-    { rollbackTriggeringDeploymentId = Lude.Nothing,
-      rollbackMessage = Lude.Nothing,
-      rollbackDeploymentId = Lude.Nothing
+    { rollbackDeploymentId = Core.Nothing,
+      rollbackMessage = Core.Nothing,
+      rollbackTriggeringDeploymentId = Core.Nothing
     }
-
--- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
---
--- /Note:/ Consider using 'rollbackTriggeringDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRollbackTriggeringDeploymentId :: Lens.Lens' RollbackInfo (Lude.Maybe Lude.Text)
-riRollbackTriggeringDeploymentId = Lens.lens (rollbackTriggeringDeploymentId :: RollbackInfo -> Lude.Maybe Lude.Text) (\s a -> s {rollbackTriggeringDeploymentId = a} :: RollbackInfo)
-{-# DEPRECATED riRollbackTriggeringDeploymentId "Use generic-lens or generic-optics with 'rollbackTriggeringDeploymentId' instead." #-}
-
--- | Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
---
--- /Note:/ Consider using 'rollbackMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRollbackMessage :: Lens.Lens' RollbackInfo (Lude.Maybe Lude.Text)
-riRollbackMessage = Lens.lens (rollbackMessage :: RollbackInfo -> Lude.Maybe Lude.Text) (\s a -> s {rollbackMessage = a} :: RollbackInfo)
-{-# DEPRECATED riRollbackMessage "Use generic-lens or generic-optics with 'rollbackMessage' instead." #-}
 
 -- | The ID of the deployment rollback.
 --
 -- /Note:/ Consider using 'rollbackDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRollbackDeploymentId :: Lens.Lens' RollbackInfo (Lude.Maybe Lude.Text)
-riRollbackDeploymentId = Lens.lens (rollbackDeploymentId :: RollbackInfo -> Lude.Maybe Lude.Text) (\s a -> s {rollbackDeploymentId = a} :: RollbackInfo)
+riRollbackDeploymentId :: Lens.Lens' RollbackInfo (Core.Maybe Types.DeploymentId)
+riRollbackDeploymentId = Lens.field @"rollbackDeploymentId"
 {-# DEPRECATED riRollbackDeploymentId "Use generic-lens or generic-optics with 'rollbackDeploymentId' instead." #-}
 
-instance Lude.FromJSON RollbackInfo where
+-- | Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
+--
+-- /Note:/ Consider using 'rollbackMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRollbackMessage :: Lens.Lens' RollbackInfo (Core.Maybe Types.RollbackMessage)
+riRollbackMessage = Lens.field @"rollbackMessage"
+{-# DEPRECATED riRollbackMessage "Use generic-lens or generic-optics with 'rollbackMessage' instead." #-}
+
+-- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
+--
+-- /Note:/ Consider using 'rollbackTriggeringDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRollbackTriggeringDeploymentId :: Lens.Lens' RollbackInfo (Core.Maybe Types.DeploymentId)
+riRollbackTriggeringDeploymentId = Lens.field @"rollbackTriggeringDeploymentId"
+{-# DEPRECATED riRollbackTriggeringDeploymentId "Use generic-lens or generic-optics with 'rollbackTriggeringDeploymentId' instead." #-}
+
+instance Core.FromJSON RollbackInfo where
   parseJSON =
-    Lude.withObject
-      "RollbackInfo"
-      ( \x ->
-          RollbackInfo'
-            Lude.<$> (x Lude..:? "rollbackTriggeringDeploymentId")
-            Lude.<*> (x Lude..:? "rollbackMessage")
-            Lude.<*> (x Lude..:? "rollbackDeploymentId")
-      )
+    Core.withObject "RollbackInfo" Core.$
+      \x ->
+        RollbackInfo'
+          Core.<$> (x Core..:? "rollbackDeploymentId")
+          Core.<*> (x Core..:? "rollbackMessage")
+          Core.<*> (x Core..:? "rollbackTriggeringDeploymentId")

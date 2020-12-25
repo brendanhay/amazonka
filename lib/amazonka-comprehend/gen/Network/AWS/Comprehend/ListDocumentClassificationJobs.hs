@@ -22,176 +22,165 @@ module Network.AWS.Comprehend.ListDocumentClassificationJobs
     mkListDocumentClassificationJobs,
 
     -- ** Request lenses
-    ldcjNextToken,
     ldcjFilter,
     ldcjMaxResults,
+    ldcjNextToken,
 
     -- * Destructuring the response
     ListDocumentClassificationJobsResponse (..),
     mkListDocumentClassificationJobsResponse,
 
     -- ** Response lenses
-    ldcjrsNextToken,
-    ldcjrsDocumentClassificationJobPropertiesList,
-    ldcjrsResponseStatus,
+    ldcjrrsDocumentClassificationJobPropertiesList,
+    ldcjrrsNextToken,
+    ldcjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDocumentClassificationJobs' smart constructor.
 data ListDocumentClassificationJobs = ListDocumentClassificationJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.
-    filter :: Lude.Maybe DocumentClassificationJobFilter,
+  { -- | Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.
+    filter :: Core.Maybe Types.DocumentClassificationJobFilter,
     -- | The maximum number of results to return in each page. The default is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDocumentClassificationJobs' with the minimum fields required to make a request.
---
--- * 'nextToken' - Identifies the next page of results to return.
--- * 'filter' - Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.
--- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- | Creates a 'ListDocumentClassificationJobs' value with any optional fields omitted.
 mkListDocumentClassificationJobs ::
   ListDocumentClassificationJobs
 mkListDocumentClassificationJobs =
   ListDocumentClassificationJobs'
-    { nextToken = Lude.Nothing,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Identifies the next page of results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcjNextToken :: Lens.Lens' ListDocumentClassificationJobs (Lude.Maybe Lude.Text)
-ldcjNextToken = Lens.lens (nextToken :: ListDocumentClassificationJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentClassificationJobs)
-{-# DEPRECATED ldcjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcjFilter :: Lens.Lens' ListDocumentClassificationJobs (Lude.Maybe DocumentClassificationJobFilter)
-ldcjFilter = Lens.lens (filter :: ListDocumentClassificationJobs -> Lude.Maybe DocumentClassificationJobFilter) (\s a -> s {filter = a} :: ListDocumentClassificationJobs)
+ldcjFilter :: Lens.Lens' ListDocumentClassificationJobs (Core.Maybe Types.DocumentClassificationJobFilter)
+ldcjFilter = Lens.field @"filter"
 {-# DEPRECATED ldcjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcjMaxResults :: Lens.Lens' ListDocumentClassificationJobs (Lude.Maybe Lude.Natural)
-ldcjMaxResults = Lens.lens (maxResults :: ListDocumentClassificationJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDocumentClassificationJobs)
+ldcjMaxResults :: Lens.Lens' ListDocumentClassificationJobs (Core.Maybe Core.Natural)
+ldcjMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldcjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListDocumentClassificationJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. ldcjrsNextToken) = Lude.Nothing
-    | Page.stop
-        (rs Lens.^. ldcjrsDocumentClassificationJobPropertiesList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldcjNextToken Lens..~ rs Lens.^. ldcjrsNextToken
-
-instance Lude.AWSRequest ListDocumentClassificationJobs where
-  type
-    Rs ListDocumentClassificationJobs =
-      ListDocumentClassificationJobsResponse
-  request = Req.postJSON comprehendService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListDocumentClassificationJobsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> ( x Lude..?> "DocumentClassificationJobPropertiesList"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListDocumentClassificationJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.ListDocumentClassificationJobs" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListDocumentClassificationJobs where
-  toJSON ListDocumentClassificationJobs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Filter" Lude..=) Lude.<$> filter,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListDocumentClassificationJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDocumentClassificationJobs where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListDocumentClassificationJobsResponse' smart constructor.
-data ListDocumentClassificationJobsResponse = ListDocumentClassificationJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list containing the properties of each job returned.
-    documentClassificationJobPropertiesList :: Lude.Maybe [DocumentClassificationJobProperties],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListDocumentClassificationJobsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Identifies the next page of results to return.
--- * 'documentClassificationJobPropertiesList' - A list containing the properties of each job returned.
--- * 'responseStatus' - The response status code.
-mkListDocumentClassificationJobsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListDocumentClassificationJobsResponse
-mkListDocumentClassificationJobsResponse pResponseStatus_ =
-  ListDocumentClassificationJobsResponse'
-    { nextToken = Lude.Nothing,
-      documentClassificationJobPropertiesList = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | Identifies the next page of results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcjrsNextToken :: Lens.Lens' ListDocumentClassificationJobsResponse (Lude.Maybe Lude.Text)
-ldcjrsNextToken = Lens.lens (nextToken :: ListDocumentClassificationJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentClassificationJobsResponse)
-{-# DEPRECATED ldcjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldcjNextToken :: Lens.Lens' ListDocumentClassificationJobs (Core.Maybe Types.String)
+ldcjNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldcjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListDocumentClassificationJobs where
+  toJSON ListDocumentClassificationJobs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filter" Core..=) Core.<$> filter,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListDocumentClassificationJobs where
+  type
+    Rs ListDocumentClassificationJobs =
+      ListDocumentClassificationJobsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.ListDocumentClassificationJobs"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDocumentClassificationJobsResponse'
+            Core.<$> (x Core..:? "DocumentClassificationJobPropertiesList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListDocumentClassificationJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"documentClassificationJobPropertiesList"
+              Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListDocumentClassificationJobsResponse' smart constructor.
+data ListDocumentClassificationJobsResponse = ListDocumentClassificationJobsResponse'
+  { -- | A list containing the properties of each job returned.
+    documentClassificationJobPropertiesList :: Core.Maybe [Types.DocumentClassificationJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListDocumentClassificationJobsResponse' value with any optional fields omitted.
+mkListDocumentClassificationJobsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListDocumentClassificationJobsResponse
+mkListDocumentClassificationJobsResponse responseStatus =
+  ListDocumentClassificationJobsResponse'
+    { documentClassificationJobPropertiesList =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | A list containing the properties of each job returned.
 --
 -- /Note:/ Consider using 'documentClassificationJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcjrsDocumentClassificationJobPropertiesList :: Lens.Lens' ListDocumentClassificationJobsResponse (Lude.Maybe [DocumentClassificationJobProperties])
-ldcjrsDocumentClassificationJobPropertiesList = Lens.lens (documentClassificationJobPropertiesList :: ListDocumentClassificationJobsResponse -> Lude.Maybe [DocumentClassificationJobProperties]) (\s a -> s {documentClassificationJobPropertiesList = a} :: ListDocumentClassificationJobsResponse)
-{-# DEPRECATED ldcjrsDocumentClassificationJobPropertiesList "Use generic-lens or generic-optics with 'documentClassificationJobPropertiesList' instead." #-}
+ldcjrrsDocumentClassificationJobPropertiesList :: Lens.Lens' ListDocumentClassificationJobsResponse (Core.Maybe [Types.DocumentClassificationJobProperties])
+ldcjrrsDocumentClassificationJobPropertiesList = Lens.field @"documentClassificationJobPropertiesList"
+{-# DEPRECATED ldcjrrsDocumentClassificationJobPropertiesList "Use generic-lens or generic-optics with 'documentClassificationJobPropertiesList' instead." #-}
+
+-- | Identifies the next page of results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcjrrsNextToken :: Lens.Lens' ListDocumentClassificationJobsResponse (Core.Maybe Types.String)
+ldcjrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldcjrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcjrsResponseStatus :: Lens.Lens' ListDocumentClassificationJobsResponse Lude.Int
-ldcjrsResponseStatus = Lens.lens (responseStatus :: ListDocumentClassificationJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDocumentClassificationJobsResponse)
-{-# DEPRECATED ldcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldcjrrsResponseStatus :: Lens.Lens' ListDocumentClassificationJobsResponse Core.Int
+ldcjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldcjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

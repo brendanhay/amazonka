@@ -17,81 +17,77 @@ module Network.AWS.KinesisAnalytics.Types.ApplicationSummary
     mkApplicationSummary,
 
     -- * Lenses
-    asApplicationARN,
     asApplicationName,
+    asApplicationARN,
     asApplicationStatus,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.ApplicationStatus
+import qualified Network.AWS.KinesisAnalytics.Types.ApplicationName as Types
+import qualified Network.AWS.KinesisAnalytics.Types.ApplicationStatus as Types
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides application summary information, including the application Amazon Resource Name (ARN), name, and status.
 --
 -- /See:/ 'mkApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { -- | ARN of the application.
-    applicationARN :: Lude.Text,
-    -- | Name of the application.
-    applicationName :: Lude.Text,
+  { -- | Name of the application.
+    applicationName :: Types.ApplicationName,
+    -- | ARN of the application.
+    applicationARN :: Types.ResourceARN,
     -- | Status of the application.
-    applicationStatus :: ApplicationStatus
+    applicationStatus :: Types.ApplicationStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationSummary' with the minimum fields required to make a request.
---
--- * 'applicationARN' - ARN of the application.
--- * 'applicationName' - Name of the application.
--- * 'applicationStatus' - Status of the application.
+-- | Creates a 'ApplicationSummary' value with any optional fields omitted.
 mkApplicationSummary ::
-  -- | 'applicationARN'
-  Lude.Text ->
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
+  -- | 'applicationARN'
+  Types.ResourceARN ->
   -- | 'applicationStatus'
-  ApplicationStatus ->
+  Types.ApplicationStatus ->
   ApplicationSummary
 mkApplicationSummary
-  pApplicationARN_
-  pApplicationName_
-  pApplicationStatus_ =
+  applicationName
+  applicationARN
+  applicationStatus =
     ApplicationSummary'
-      { applicationARN = pApplicationARN_,
-        applicationName = pApplicationName_,
-        applicationStatus = pApplicationStatus_
+      { applicationName,
+        applicationARN,
+        applicationStatus
       }
-
--- | ARN of the application.
---
--- /Note:/ Consider using 'applicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asApplicationARN :: Lens.Lens' ApplicationSummary Lude.Text
-asApplicationARN = Lens.lens (applicationARN :: ApplicationSummary -> Lude.Text) (\s a -> s {applicationARN = a} :: ApplicationSummary)
-{-# DEPRECATED asApplicationARN "Use generic-lens or generic-optics with 'applicationARN' instead." #-}
 
 -- | Name of the application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asApplicationName :: Lens.Lens' ApplicationSummary Lude.Text
-asApplicationName = Lens.lens (applicationName :: ApplicationSummary -> Lude.Text) (\s a -> s {applicationName = a} :: ApplicationSummary)
+asApplicationName :: Lens.Lens' ApplicationSummary Types.ApplicationName
+asApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED asApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | ARN of the application.
+--
+-- /Note:/ Consider using 'applicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asApplicationARN :: Lens.Lens' ApplicationSummary Types.ResourceARN
+asApplicationARN = Lens.field @"applicationARN"
+{-# DEPRECATED asApplicationARN "Use generic-lens or generic-optics with 'applicationARN' instead." #-}
 
 -- | Status of the application.
 --
 -- /Note:/ Consider using 'applicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asApplicationStatus :: Lens.Lens' ApplicationSummary ApplicationStatus
-asApplicationStatus = Lens.lens (applicationStatus :: ApplicationSummary -> ApplicationStatus) (\s a -> s {applicationStatus = a} :: ApplicationSummary)
+asApplicationStatus :: Lens.Lens' ApplicationSummary Types.ApplicationStatus
+asApplicationStatus = Lens.field @"applicationStatus"
 {-# DEPRECATED asApplicationStatus "Use generic-lens or generic-optics with 'applicationStatus' instead." #-}
 
-instance Lude.FromJSON ApplicationSummary where
+instance Core.FromJSON ApplicationSummary where
   parseJSON =
-    Lude.withObject
-      "ApplicationSummary"
-      ( \x ->
-          ApplicationSummary'
-            Lude.<$> (x Lude..: "ApplicationARN")
-            Lude.<*> (x Lude..: "ApplicationName")
-            Lude.<*> (x Lude..: "ApplicationStatus")
-      )
+    Core.withObject "ApplicationSummary" Core.$
+      \x ->
+        ApplicationSummary'
+          Core.<$> (x Core..: "ApplicationName")
+          Core.<*> (x Core..: "ApplicationARN")
+          Core.<*> (x Core..: "ApplicationStatus")

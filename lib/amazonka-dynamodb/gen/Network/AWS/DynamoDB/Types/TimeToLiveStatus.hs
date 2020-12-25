@@ -13,56 +13,61 @@
 module Network.AWS.DynamoDB.Types.TimeToLiveStatus
   ( TimeToLiveStatus
       ( TimeToLiveStatus',
-        Enabling,
-        Disabling,
-        Enabled,
-        Disabled
+        TimeToLiveStatusEnabling,
+        TimeToLiveStatusDisabling,
+        TimeToLiveStatusEnabled,
+        TimeToLiveStatusDisabled,
+        fromTimeToLiveStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TimeToLiveStatus = TimeToLiveStatus' Lude.Text
+newtype TimeToLiveStatus = TimeToLiveStatus'
+  { fromTimeToLiveStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabling :: TimeToLiveStatus
-pattern Enabling = TimeToLiveStatus' "ENABLING"
+pattern TimeToLiveStatusEnabling :: TimeToLiveStatus
+pattern TimeToLiveStatusEnabling = TimeToLiveStatus' "ENABLING"
 
-pattern Disabling :: TimeToLiveStatus
-pattern Disabling = TimeToLiveStatus' "DISABLING"
+pattern TimeToLiveStatusDisabling :: TimeToLiveStatus
+pattern TimeToLiveStatusDisabling = TimeToLiveStatus' "DISABLING"
 
-pattern Enabled :: TimeToLiveStatus
-pattern Enabled = TimeToLiveStatus' "ENABLED"
+pattern TimeToLiveStatusEnabled :: TimeToLiveStatus
+pattern TimeToLiveStatusEnabled = TimeToLiveStatus' "ENABLED"
 
-pattern Disabled :: TimeToLiveStatus
-pattern Disabled = TimeToLiveStatus' "DISABLED"
+pattern TimeToLiveStatusDisabled :: TimeToLiveStatus
+pattern TimeToLiveStatusDisabled = TimeToLiveStatus' "DISABLED"
 
 {-# COMPLETE
-  Enabling,
-  Disabling,
-  Enabled,
-  Disabled,
+  TimeToLiveStatusEnabling,
+  TimeToLiveStatusDisabling,
+  TimeToLiveStatusEnabled,
+  TimeToLiveStatusDisabled,
   TimeToLiveStatus'
   #-}

@@ -22,190 +22,175 @@ module Network.AWS.Inspector.ListAssessmentRunAgents
     mkListAssessmentRunAgents,
 
     -- ** Request lenses
-    laraNextToken,
-    laraAssessmentRunARN,
+    laraAssessmentRunArn,
     laraFilter,
     laraMaxResults,
+    laraNextToken,
 
     -- * Destructuring the response
     ListAssessmentRunAgentsResponse (..),
     mkListAssessmentRunAgentsResponse,
 
     -- ** Response lenses
-    lararsAssessmentRunAgents,
-    lararsNextToken,
-    lararsResponseStatus,
+    lararrsAssessmentRunAgents,
+    lararrsNextToken,
+    lararrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAssessmentRunAgents' smart constructor.
 data ListAssessmentRunAgents = ListAssessmentRunAgents'
-  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ARN that specifies the assessment run whose agents you want to list.
-    assessmentRunARN :: Lude.Text,
+  { -- | The ARN that specifies the assessment run whose agents you want to list.
+    assessmentRunArn :: Types.Arn,
     -- | You can use this parameter to specify a subset of data to be included in the action's response.
     --
     -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
-    filter :: Lude.Maybe AgentFilter,
+    filter :: Core.Maybe Types.AgentFilter,
     -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssessmentRunAgents' with the minimum fields required to make a request.
---
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
--- * 'assessmentRunARN' - The ARN that specifies the assessment run whose agents you want to list.
--- * 'filter' - You can use this parameter to specify a subset of data to be included in the action's response.
---
--- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
+-- | Creates a 'ListAssessmentRunAgents' value with any optional fields omitted.
 mkListAssessmentRunAgents ::
-  -- | 'assessmentRunARN'
-  Lude.Text ->
+  -- | 'assessmentRunArn'
+  Types.Arn ->
   ListAssessmentRunAgents
-mkListAssessmentRunAgents pAssessmentRunARN_ =
+mkListAssessmentRunAgents assessmentRunArn =
   ListAssessmentRunAgents'
-    { nextToken = Lude.Nothing,
-      assessmentRunARN = pAssessmentRunARN_,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { assessmentRunArn,
+      filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laraNextToken :: Lens.Lens' ListAssessmentRunAgents (Lude.Maybe Lude.Text)
-laraNextToken = Lens.lens (nextToken :: ListAssessmentRunAgents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentRunAgents)
-{-# DEPRECATED laraNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ARN that specifies the assessment run whose agents you want to list.
 --
--- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laraAssessmentRunARN :: Lens.Lens' ListAssessmentRunAgents Lude.Text
-laraAssessmentRunARN = Lens.lens (assessmentRunARN :: ListAssessmentRunAgents -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: ListAssessmentRunAgents)
-{-# DEPRECATED laraAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
+-- /Note:/ Consider using 'assessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laraAssessmentRunArn :: Lens.Lens' ListAssessmentRunAgents Types.Arn
+laraAssessmentRunArn = Lens.field @"assessmentRunArn"
+{-# DEPRECATED laraAssessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead." #-}
 
 -- | You can use this parameter to specify a subset of data to be included in the action's response.
 --
 -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laraFilter :: Lens.Lens' ListAssessmentRunAgents (Lude.Maybe AgentFilter)
-laraFilter = Lens.lens (filter :: ListAssessmentRunAgents -> Lude.Maybe AgentFilter) (\s a -> s {filter = a} :: ListAssessmentRunAgents)
+laraFilter :: Lens.Lens' ListAssessmentRunAgents (Core.Maybe Types.AgentFilter)
+laraFilter = Lens.field @"filter"
 {-# DEPRECATED laraFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laraMaxResults :: Lens.Lens' ListAssessmentRunAgents (Lude.Maybe Lude.Int)
-laraMaxResults = Lens.lens (maxResults :: ListAssessmentRunAgents -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAssessmentRunAgents)
+laraMaxResults :: Lens.Lens' ListAssessmentRunAgents (Core.Maybe Core.Int)
+laraMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED laraMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListAssessmentRunAgents where
-  page rq rs
-    | Page.stop (rs Lens.^. lararsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lararsAssessmentRunAgents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& laraNextToken Lens..~ rs Lens.^. lararsNextToken
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laraNextToken :: Lens.Lens' ListAssessmentRunAgents (Core.Maybe Types.PaginationToken)
+laraNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laraNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListAssessmentRunAgents where
+instance Core.FromJSON ListAssessmentRunAgents where
+  toJSON ListAssessmentRunAgents {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("assessmentRunArn" Core..= assessmentRunArn),
+            ("filter" Core..=) Core.<$> filter,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListAssessmentRunAgents where
   type Rs ListAssessmentRunAgents = ListAssessmentRunAgentsResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.ListAssessmentRunAgents")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAssessmentRunAgentsResponse'
-            Lude.<$> (x Lude..?> "assessmentRunAgents" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "assessmentRunAgents" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAssessmentRunAgents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.ListAssessmentRunAgents" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAssessmentRunAgents where
-  toJSON ListAssessmentRunAgents' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN),
-            ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListAssessmentRunAgents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAssessmentRunAgents where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAssessmentRunAgents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"assessmentRunAgents") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAssessmentRunAgentsResponse' smart constructor.
 data ListAssessmentRunAgentsResponse = ListAssessmentRunAgentsResponse'
   { -- | A list of ARNs that specifies the agents returned by the action.
-    assessmentRunAgents :: [AssessmentRunAgent],
+    assessmentRunAgents :: [Types.AssessmentRunAgent],
     -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssessmentRunAgentsResponse' with the minimum fields required to make a request.
---
--- * 'assessmentRunAgents' - A list of ARNs that specifies the agents returned by the action.
--- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAssessmentRunAgentsResponse' value with any optional fields omitted.
 mkListAssessmentRunAgentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAssessmentRunAgentsResponse
-mkListAssessmentRunAgentsResponse pResponseStatus_ =
+mkListAssessmentRunAgentsResponse responseStatus =
   ListAssessmentRunAgentsResponse'
     { assessmentRunAgents =
-        Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of ARNs that specifies the agents returned by the action.
 --
 -- /Note:/ Consider using 'assessmentRunAgents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lararsAssessmentRunAgents :: Lens.Lens' ListAssessmentRunAgentsResponse [AssessmentRunAgent]
-lararsAssessmentRunAgents = Lens.lens (assessmentRunAgents :: ListAssessmentRunAgentsResponse -> [AssessmentRunAgent]) (\s a -> s {assessmentRunAgents = a} :: ListAssessmentRunAgentsResponse)
-{-# DEPRECATED lararsAssessmentRunAgents "Use generic-lens or generic-optics with 'assessmentRunAgents' instead." #-}
+lararrsAssessmentRunAgents :: Lens.Lens' ListAssessmentRunAgentsResponse [Types.AssessmentRunAgent]
+lararrsAssessmentRunAgents = Lens.field @"assessmentRunAgents"
+{-# DEPRECATED lararrsAssessmentRunAgents "Use generic-lens or generic-optics with 'assessmentRunAgents' instead." #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lararsNextToken :: Lens.Lens' ListAssessmentRunAgentsResponse (Lude.Maybe Lude.Text)
-lararsNextToken = Lens.lens (nextToken :: ListAssessmentRunAgentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentRunAgentsResponse)
-{-# DEPRECATED lararsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lararrsNextToken :: Lens.Lens' ListAssessmentRunAgentsResponse (Core.Maybe Types.NextToken)
+lararrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lararrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lararsResponseStatus :: Lens.Lens' ListAssessmentRunAgentsResponse Lude.Int
-lararsResponseStatus = Lens.lens (responseStatus :: ListAssessmentRunAgentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssessmentRunAgentsResponse)
-{-# DEPRECATED lararsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lararrsResponseStatus :: Lens.Lens' ListAssessmentRunAgentsResponse Core.Int
+lararrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lararrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

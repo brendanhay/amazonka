@@ -24,118 +24,96 @@ module Network.AWS.ElastiCache.DescribeEvents
     mkDescribeEvents,
 
     -- ** Request lenses
-    deStartTime,
-    deSourceType,
-    deSourceIdentifier,
+    deDuration,
+    deEndTime,
     deMarker,
     deMaxRecords,
-    deEndTime,
-    deDuration,
+    deSourceIdentifier,
+    deSourceType,
+    deStartTime,
 
     -- * Destructuring the response
     DescribeEventsResponse (..),
     mkDescribeEventsResponse,
 
     -- ** Response lenses
-    dersEvents,
-    dersMarker,
-    dersResponseStatus,
+    derrsEvents,
+    derrsMarker,
+    derrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeEvents@ operation.
 --
 -- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+  { -- | The number of minutes worth of events to retrieve.
+    duration :: Core.Maybe Core.Int,
+    -- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
     --
     -- __Example:__ 2017-03-30T07:03:49.555Z
-    startTime :: Lude.Maybe Lude.DateTime,
-    -- | The event source to retrieve events for. If no value is specified, all events are returned.
-    sourceType :: Lude.Maybe SourceType,
-    -- | The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
-    sourceIdentifier :: Lude.Maybe Lude.Text,
+    endTime :: Core.Maybe Core.UTCTime,
     -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
+    sourceIdentifier :: Core.Maybe Types.String,
+    -- | The event source to retrieve events for. If no value is specified, all events are returned.
+    sourceType :: Core.Maybe Types.SourceType,
+    -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
     --
     -- __Example:__ 2017-03-30T07:03:49.555Z
-    endTime :: Lude.Maybe Lude.DateTime,
-    -- | The number of minutes worth of events to retrieve.
-    duration :: Lude.Maybe Lude.Int
+    startTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
---
--- * 'startTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
---
--- __Example:__ 2017-03-30T07:03:49.555Z
--- * 'sourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
--- * 'sourceIdentifier' - The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: minimum 20; maximum 100.
--- * 'endTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format.
---
--- __Example:__ 2017-03-30T07:03:49.555Z
--- * 'duration' - The number of minutes worth of events to retrieve.
+-- | Creates a 'DescribeEvents' value with any optional fields omitted.
 mkDescribeEvents ::
   DescribeEvents
 mkDescribeEvents =
   DescribeEvents'
-    { startTime = Lude.Nothing,
-      sourceType = Lude.Nothing,
-      sourceIdentifier = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      endTime = Lude.Nothing,
-      duration = Lude.Nothing
+    { duration = Core.Nothing,
+      endTime = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      sourceIdentifier = Core.Nothing,
+      sourceType = Core.Nothing,
+      startTime = Core.Nothing
     }
 
--- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+-- | The number of minutes worth of events to retrieve.
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDuration :: Lens.Lens' DescribeEvents (Core.Maybe Core.Int)
+deDuration = Lens.field @"duration"
+{-# DEPRECATED deDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
+
+-- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
 --
 -- __Example:__ 2017-03-30T07:03:49.555Z
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
-deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeEvents)
-{-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The event source to retrieve events for. If no value is specified, all events are returned.
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSourceType :: Lens.Lens' DescribeEvents (Lude.Maybe SourceType)
-deSourceType = Lens.lens (sourceType :: DescribeEvents -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: DescribeEvents)
-{-# DEPRECATED deSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
---
--- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSourceIdentifier :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deSourceIdentifier = Lens.lens (sourceIdentifier :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: DescribeEvents)
-{-# DEPRECATED deSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndTime :: Lens.Lens' DescribeEvents (Core.Maybe Core.UTCTime)
+deEndTime = Lens.field @"endTime"
+{-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMarker :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEvents)
+deMarker :: Lens.Lens' DescribeEvents (Core.Maybe Types.String)
+deMarker = Lens.field @"marker"
 {-# DEPRECATED deMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
@@ -144,115 +122,123 @@ deMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a ->
 -- Constraints: minimum 20; maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
-deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEvents)
+deMaxRecords :: Lens.Lens' DescribeEvents (Core.Maybe Core.Int)
+deMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+-- | The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSourceIdentifier :: Lens.Lens' DescribeEvents (Core.Maybe Types.String)
+deSourceIdentifier = Lens.field @"sourceIdentifier"
+{-# DEPRECATED deSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
+
+-- | The event source to retrieve events for. If no value is specified, all events are returned.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSourceType :: Lens.Lens' DescribeEvents (Core.Maybe Types.SourceType)
+deSourceType = Lens.field @"sourceType"
+{-# DEPRECATED deSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+
+-- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
 --
 -- __Example:__ 2017-03-30T07:03:49.555Z
 --
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
-deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeEvents)
-{-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deStartTime :: Lens.Lens' DescribeEvents (Core.Maybe Core.UTCTime)
+deStartTime = Lens.field @"startTime"
+{-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | The number of minutes worth of events to retrieve.
---
--- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deDuration :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
-deDuration = Lens.lens (duration :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DescribeEvents)
-{-# DEPRECATED deDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
-
-instance Page.AWSPager DescribeEvents where
-  page rq rs
-    | Page.stop (rs Lens.^. dersMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dersEvents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& deMarker Lens..~ rs Lens.^. dersMarker
-
-instance Lude.AWSRequest DescribeEvents where
+instance Core.AWSRequest DescribeEvents where
   type Rs DescribeEvents = DescribeEventsResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEvents")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "Duration" Core.<$> duration)
+                Core.<> (Core.toQueryValue "EndTime" Core.<$> endTime)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "SourceIdentifier" Core.<$> sourceIdentifier)
+                Core.<> (Core.toQueryValue "SourceType" Core.<$> sourceType)
+                Core.<> (Core.toQueryValue "StartTime" Core.<$> startTime)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            Lude.<$> ( x Lude..@? "Events" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "Event")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Events" Core..<@> Core.parseXMLList "Event")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeEvents where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEvents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEvents where
-  toQuery DescribeEvents' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeEvents" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "StartTime" Lude.=: startTime,
-        "SourceType" Lude.=: sourceType,
-        "SourceIdentifier" Lude.=: sourceIdentifier,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "EndTime" Lude.=: endTime,
-        "Duration" Lude.=: duration
-      ]
+instance Pager.AWSPager DescribeEvents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"events" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Represents the output of a @DescribeEvents@ operation.
 --
 -- /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
   { -- | A list of events. Each element in the list contains detailed information about one event.
-    events :: Lude.Maybe [Event],
+    events :: Core.Maybe [Types.Event],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
---
--- * 'events' - A list of events. Each element in the list contains detailed information about one event.
--- * 'marker' - Provides an identifier to allow retrieval of paginated results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEventsResponse' value with any optional fields omitted.
 mkDescribeEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEventsResponse
-mkDescribeEventsResponse pResponseStatus_ =
+mkDescribeEventsResponse responseStatus =
   DescribeEventsResponse'
-    { events = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { events = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of events. Each element in the list contains detailed information about one event.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersEvents :: Lens.Lens' DescribeEventsResponse (Lude.Maybe [Event])
-dersEvents = Lens.lens (events :: DescribeEventsResponse -> Lude.Maybe [Event]) (\s a -> s {events = a} :: DescribeEventsResponse)
-{-# DEPRECATED dersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+derrsEvents :: Lens.Lens' DescribeEventsResponse (Core.Maybe [Types.Event])
+derrsEvents = Lens.field @"events"
+{-# DEPRECATED derrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersMarker :: Lens.Lens' DescribeEventsResponse (Lude.Maybe Lude.Text)
-dersMarker = Lens.lens (marker :: DescribeEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventsResponse)
-{-# DEPRECATED dersMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+derrsMarker :: Lens.Lens' DescribeEventsResponse (Core.Maybe Types.String)
+derrsMarker = Lens.field @"marker"
+{-# DEPRECATED derrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DescribeEventsResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DescribeEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventsResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrsResponseStatus :: Lens.Lens' DescribeEventsResponse Core.Int
+derrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

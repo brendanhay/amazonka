@@ -30,105 +30,99 @@ module Network.AWS.IAM.DeleteServiceLinkedRole
     mkDeleteServiceLinkedRoleResponse,
 
     -- ** Response lenses
-    dslrrsDeletionTaskId,
-    dslrrsResponseStatus,
+    dslrrrsDeletionTaskId,
+    dslrrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteServiceLinkedRole' smart constructor.
 newtype DeleteServiceLinkedRole = DeleteServiceLinkedRole'
   { -- | The name of the service-linked role to be deleted.
-    roleName :: Lude.Text
+    roleName :: Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServiceLinkedRole' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the service-linked role to be deleted.
+-- | Creates a 'DeleteServiceLinkedRole' value with any optional fields omitted.
 mkDeleteServiceLinkedRole ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   DeleteServiceLinkedRole
-mkDeleteServiceLinkedRole pRoleName_ =
-  DeleteServiceLinkedRole' {roleName = pRoleName_}
+mkDeleteServiceLinkedRole roleName =
+  DeleteServiceLinkedRole' {roleName}
 
 -- | The name of the service-linked role to be deleted.
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslrRoleName :: Lens.Lens' DeleteServiceLinkedRole Lude.Text
-dslrRoleName = Lens.lens (roleName :: DeleteServiceLinkedRole -> Lude.Text) (\s a -> s {roleName = a} :: DeleteServiceLinkedRole)
+dslrRoleName :: Lens.Lens' DeleteServiceLinkedRole Types.RoleName
+dslrRoleName = Lens.field @"roleName"
 {-# DEPRECATED dslrRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance Lude.AWSRequest DeleteServiceLinkedRole where
+instance Core.AWSRequest DeleteServiceLinkedRole where
   type Rs DeleteServiceLinkedRole = DeleteServiceLinkedRoleResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteServiceLinkedRole")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteServiceLinkedRoleResult"
       ( \s h x ->
           DeleteServiceLinkedRoleResponse'
-            Lude.<$> (x Lude..@ "DeletionTaskId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "DeletionTaskId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteServiceLinkedRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteServiceLinkedRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteServiceLinkedRole where
-  toQuery DeleteServiceLinkedRole' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteServiceLinkedRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName
-      ]
 
 -- | /See:/ 'mkDeleteServiceLinkedRoleResponse' smart constructor.
 data DeleteServiceLinkedRoleResponse = DeleteServiceLinkedRoleResponse'
   { -- | The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
-    deletionTaskId :: Lude.Text,
+    deletionTaskId :: Types.DeletionTaskId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServiceLinkedRoleResponse' with the minimum fields required to make a request.
---
--- * 'deletionTaskId' - The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteServiceLinkedRoleResponse' value with any optional fields omitted.
 mkDeleteServiceLinkedRoleResponse ::
   -- | 'deletionTaskId'
-  Lude.Text ->
+  Types.DeletionTaskId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteServiceLinkedRoleResponse
-mkDeleteServiceLinkedRoleResponse pDeletionTaskId_ pResponseStatus_ =
-  DeleteServiceLinkedRoleResponse'
-    { deletionTaskId =
-        pDeletionTaskId_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteServiceLinkedRoleResponse deletionTaskId responseStatus =
+  DeleteServiceLinkedRoleResponse' {deletionTaskId, responseStatus}
 
 -- | The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
 --
 -- /Note:/ Consider using 'deletionTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslrrsDeletionTaskId :: Lens.Lens' DeleteServiceLinkedRoleResponse Lude.Text
-dslrrsDeletionTaskId = Lens.lens (deletionTaskId :: DeleteServiceLinkedRoleResponse -> Lude.Text) (\s a -> s {deletionTaskId = a} :: DeleteServiceLinkedRoleResponse)
-{-# DEPRECATED dslrrsDeletionTaskId "Use generic-lens or generic-optics with 'deletionTaskId' instead." #-}
+dslrrrsDeletionTaskId :: Lens.Lens' DeleteServiceLinkedRoleResponse Types.DeletionTaskId
+dslrrrsDeletionTaskId = Lens.field @"deletionTaskId"
+{-# DEPRECATED dslrrrsDeletionTaskId "Use generic-lens or generic-optics with 'deletionTaskId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslrrsResponseStatus :: Lens.Lens' DeleteServiceLinkedRoleResponse Lude.Int
-dslrrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceLinkedRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceLinkedRoleResponse)
-{-# DEPRECATED dslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dslrrrsResponseStatus :: Lens.Lens' DeleteServiceLinkedRoleResponse Core.Int
+dslrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dslrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

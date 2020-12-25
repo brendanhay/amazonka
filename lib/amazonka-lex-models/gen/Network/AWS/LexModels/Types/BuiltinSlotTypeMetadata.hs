@@ -23,53 +23,48 @@ module Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.Locale
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.Locale as Types
+import qualified Network.AWS.LexModels.Types.Signature as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a built in slot type.
 --
 -- /See:/ 'mkBuiltinSlotTypeMetadata' smart constructor.
 data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
   { -- | A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
-    signature :: Lude.Maybe Lude.Text,
+    signature :: Core.Maybe Types.Signature,
     -- | A list of target locales for the slot.
-    supportedLocales :: Lude.Maybe [Locale]
+    supportedLocales :: Core.Maybe [Types.Locale]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuiltinSlotTypeMetadata' with the minimum fields required to make a request.
---
--- * 'signature' - A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
--- * 'supportedLocales' - A list of target locales for the slot.
+-- | Creates a 'BuiltinSlotTypeMetadata' value with any optional fields omitted.
 mkBuiltinSlotTypeMetadata ::
   BuiltinSlotTypeMetadata
 mkBuiltinSlotTypeMetadata =
   BuiltinSlotTypeMetadata'
-    { signature = Lude.Nothing,
-      supportedLocales = Lude.Nothing
+    { signature = Core.Nothing,
+      supportedLocales = Core.Nothing
     }
 
 -- | A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
 --
 -- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bstmSignature :: Lens.Lens' BuiltinSlotTypeMetadata (Lude.Maybe Lude.Text)
-bstmSignature = Lens.lens (signature :: BuiltinSlotTypeMetadata -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: BuiltinSlotTypeMetadata)
+bstmSignature :: Lens.Lens' BuiltinSlotTypeMetadata (Core.Maybe Types.Signature)
+bstmSignature = Lens.field @"signature"
 {-# DEPRECATED bstmSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | A list of target locales for the slot.
 --
 -- /Note:/ Consider using 'supportedLocales' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bstmSupportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Lude.Maybe [Locale])
-bstmSupportedLocales = Lens.lens (supportedLocales :: BuiltinSlotTypeMetadata -> Lude.Maybe [Locale]) (\s a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata)
+bstmSupportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Core.Maybe [Types.Locale])
+bstmSupportedLocales = Lens.field @"supportedLocales"
 {-# DEPRECATED bstmSupportedLocales "Use generic-lens or generic-optics with 'supportedLocales' instead." #-}
 
-instance Lude.FromJSON BuiltinSlotTypeMetadata where
+instance Core.FromJSON BuiltinSlotTypeMetadata where
   parseJSON =
-    Lude.withObject
-      "BuiltinSlotTypeMetadata"
-      ( \x ->
-          BuiltinSlotTypeMetadata'
-            Lude.<$> (x Lude..:? "signature")
-            Lude.<*> (x Lude..:? "supportedLocales" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BuiltinSlotTypeMetadata" Core.$
+      \x ->
+        BuiltinSlotTypeMetadata'
+          Core.<$> (x Core..:? "signature") Core.<*> (x Core..:? "supportedLocales")

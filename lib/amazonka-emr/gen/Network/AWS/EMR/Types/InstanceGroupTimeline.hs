@@ -17,71 +17,65 @@ module Network.AWS.EMR.Types.InstanceGroupTimeline
     mkInstanceGroupTimeline,
 
     -- * Lenses
-    igtReadyDateTime,
     igtCreationDateTime,
     igtEndDateTime,
+    igtReadyDateTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The timeline of the instance group lifecycle.
 --
 -- /See:/ 'mkInstanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
-  { -- | The date and time when the instance group became ready to perform tasks.
-    readyDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The creation date and time of the instance group.
-    creationDateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The creation date and time of the instance group.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The date and time when the instance group terminated.
-    endDateTime :: Lude.Maybe Lude.Timestamp
+    endDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The date and time when the instance group became ready to perform tasks.
+    readyDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceGroupTimeline' with the minimum fields required to make a request.
---
--- * 'readyDateTime' - The date and time when the instance group became ready to perform tasks.
--- * 'creationDateTime' - The creation date and time of the instance group.
--- * 'endDateTime' - The date and time when the instance group terminated.
+-- | Creates a 'InstanceGroupTimeline' value with any optional fields omitted.
 mkInstanceGroupTimeline ::
   InstanceGroupTimeline
 mkInstanceGroupTimeline =
   InstanceGroupTimeline'
-    { readyDateTime = Lude.Nothing,
-      creationDateTime = Lude.Nothing,
-      endDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      endDateTime = Core.Nothing,
+      readyDateTime = Core.Nothing
     }
-
--- | The date and time when the instance group became ready to perform tasks.
---
--- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igtReadyDateTime :: Lens.Lens' InstanceGroupTimeline (Lude.Maybe Lude.Timestamp)
-igtReadyDateTime = Lens.lens (readyDateTime :: InstanceGroupTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {readyDateTime = a} :: InstanceGroupTimeline)
-{-# DEPRECATED igtReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
 
 -- | The creation date and time of the instance group.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igtCreationDateTime :: Lens.Lens' InstanceGroupTimeline (Lude.Maybe Lude.Timestamp)
-igtCreationDateTime = Lens.lens (creationDateTime :: InstanceGroupTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: InstanceGroupTimeline)
+igtCreationDateTime :: Lens.Lens' InstanceGroupTimeline (Core.Maybe Core.NominalDiffTime)
+igtCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED igtCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the instance group terminated.
 --
 -- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igtEndDateTime :: Lens.Lens' InstanceGroupTimeline (Lude.Maybe Lude.Timestamp)
-igtEndDateTime = Lens.lens (endDateTime :: InstanceGroupTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: InstanceGroupTimeline)
+igtEndDateTime :: Lens.Lens' InstanceGroupTimeline (Core.Maybe Core.NominalDiffTime)
+igtEndDateTime = Lens.field @"endDateTime"
 {-# DEPRECATED igtEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
-instance Lude.FromJSON InstanceGroupTimeline where
+-- | The date and time when the instance group became ready to perform tasks.
+--
+-- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igtReadyDateTime :: Lens.Lens' InstanceGroupTimeline (Core.Maybe Core.NominalDiffTime)
+igtReadyDateTime = Lens.field @"readyDateTime"
+{-# DEPRECATED igtReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
+
+instance Core.FromJSON InstanceGroupTimeline where
   parseJSON =
-    Lude.withObject
-      "InstanceGroupTimeline"
-      ( \x ->
-          InstanceGroupTimeline'
-            Lude.<$> (x Lude..:? "ReadyDateTime")
-            Lude.<*> (x Lude..:? "CreationDateTime")
-            Lude.<*> (x Lude..:? "EndDateTime")
-      )
+    Core.withObject "InstanceGroupTimeline" Core.$
+      \x ->
+        InstanceGroupTimeline'
+          Core.<$> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "EndDateTime")
+          Core.<*> (x Core..:? "ReadyDateTime")

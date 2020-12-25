@@ -17,47 +17,42 @@ module Network.AWS.CodeDeploy.Types.TrafficRoute
     mkTrafficRoute,
 
     -- * Lenses
-    trListenerARNs,
+    trListenerArns,
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.ListenerArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
 --
 -- /See:/ 'mkTrafficRoute' smart constructor.
 newtype TrafficRoute = TrafficRoute'
   { -- | The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
-    listenerARNs :: Lude.Maybe [Lude.Text]
+    listenerArns :: Core.Maybe [Types.ListenerArn]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrafficRoute' with the minimum fields required to make a request.
---
--- * 'listenerARNs' - The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+-- | Creates a 'TrafficRoute' value with any optional fields omitted.
 mkTrafficRoute ::
   TrafficRoute
-mkTrafficRoute = TrafficRoute' {listenerARNs = Lude.Nothing}
+mkTrafficRoute = TrafficRoute' {listenerArns = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
 --
--- /Note:/ Consider using 'listenerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trListenerARNs :: Lens.Lens' TrafficRoute (Lude.Maybe [Lude.Text])
-trListenerARNs = Lens.lens (listenerARNs :: TrafficRoute -> Lude.Maybe [Lude.Text]) (\s a -> s {listenerARNs = a} :: TrafficRoute)
-{-# DEPRECATED trListenerARNs "Use generic-lens or generic-optics with 'listenerARNs' instead." #-}
+-- /Note:/ Consider using 'listenerArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trListenerArns :: Lens.Lens' TrafficRoute (Core.Maybe [Types.ListenerArn])
+trListenerArns = Lens.field @"listenerArns"
+{-# DEPRECATED trListenerArns "Use generic-lens or generic-optics with 'listenerArns' instead." #-}
 
-instance Lude.FromJSON TrafficRoute where
+instance Core.FromJSON TrafficRoute where
+  toJSON TrafficRoute {..} =
+    Core.object
+      (Core.catMaybes [("listenerArns" Core..=) Core.<$> listenerArns])
+
+instance Core.FromJSON TrafficRoute where
   parseJSON =
-    Lude.withObject
-      "TrafficRoute"
-      ( \x ->
-          TrafficRoute'
-            Lude.<$> (x Lude..:? "listenerArns" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON TrafficRoute where
-  toJSON TrafficRoute' {..} =
-    Lude.object
-      (Lude.catMaybes [("listenerArns" Lude..=) Lude.<$> listenerARNs])
+    Core.withObject "TrafficRoute" Core.$
+      \x -> TrafficRoute' Core.<$> (x Core..:? "listenerArns")

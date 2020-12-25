@@ -23,8 +23,8 @@ module Network.AWS.IAM.DeletePolicyVersion
     mkDeletePolicyVersion,
 
     -- ** Request lenses
+    dpvPolicyArn,
     dpvVersionId,
-    dpvPolicyARN,
 
     -- * Destructuring the response
     DeletePolicyVersionResponse (..),
@@ -32,47 +32,45 @@ module Network.AWS.IAM.DeletePolicyVersion
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
-  { -- | The policy version to delete.
+  { -- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    policyArn :: Types.PolicyArn,
+    -- | The policy version to delete.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
     -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
-    versionId :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
-    --
-    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    versionId :: Types.PolicyVersionIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
---
--- * 'versionId' - The policy version to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
--- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
+-- | Creates a 'DeletePolicyVersion' value with any optional fields omitted.
+mkDeletePolicyVersion ::
+  -- | 'policyArn'
+  Types.PolicyArn ->
+  -- | 'versionId'
+  Types.PolicyVersionIdType ->
+  DeletePolicyVersion
+mkDeletePolicyVersion policyArn versionId =
+  DeletePolicyVersion' {policyArn, versionId}
+
+-- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-mkDeletePolicyVersion ::
-  -- | 'versionId'
-  Lude.Text ->
-  -- | 'policyARN'
-  Lude.Text ->
-  DeletePolicyVersion
-mkDeletePolicyVersion pVersionId_ pPolicyARN_ =
-  DeletePolicyVersion'
-    { versionId = pVersionId_,
-      policyARN = pPolicyARN_
-    }
+--
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvPolicyArn :: Lens.Lens' DeletePolicyVersion Types.PolicyArn
+dpvPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED dpvPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
 -- | The policy version to delete.
 --
@@ -80,45 +78,39 @@ mkDeletePolicyVersion pVersionId_ pPolicyARN_ =
 -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvVersionId :: Lens.Lens' DeletePolicyVersion Lude.Text
-dpvVersionId = Lens.lens (versionId :: DeletePolicyVersion -> Lude.Text) (\s a -> s {versionId = a} :: DeletePolicyVersion)
+dpvVersionId :: Lens.Lens' DeletePolicyVersion Types.PolicyVersionIdType
+dpvVersionId = Lens.field @"versionId"
 {-# DEPRECATED dpvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvPolicyARN :: Lens.Lens' DeletePolicyVersion Lude.Text
-dpvPolicyARN = Lens.lens (policyARN :: DeletePolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: DeletePolicyVersion)
-{-# DEPRECATED dpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
-
-instance Lude.AWSRequest DeletePolicyVersion where
+instance Core.AWSRequest DeletePolicyVersion where
   type Rs DeletePolicyVersion = DeletePolicyVersionResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeletePolicyVersionResponse'
-
-instance Lude.ToHeaders DeletePolicyVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePolicyVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePolicyVersion where
-  toQuery DeletePolicyVersion' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeletePolicyVersion" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "VersionId" Lude.=: versionId,
-        "PolicyArn" Lude.=: policyARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeletePolicyVersion")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+                Core.<> (Core.toQueryValue "VersionId" versionId)
+            )
+      }
+  response = Response.receiveNull DeletePolicyVersionResponse'
 
 -- | /See:/ 'mkDeletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePolicyVersionResponse' value with any optional fields omitted.
 mkDeletePolicyVersionResponse ::
   DeletePolicyVersionResponse
 mkDeletePolicyVersionResponse = DeletePolicyVersionResponse'

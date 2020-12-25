@@ -17,94 +17,90 @@ module Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionInitiatedEven
     mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
 
     -- * Lenses
-    rceweieaControl,
-    rceweieaRunId,
     rceweieaWorkflowId,
     rceweieaDecisionTaskCompletedEventId,
+    rceweieaControl,
+    rceweieaRunId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Control as Types
+import qualified Network.AWS.SWF.Types.RunId as Types
+import qualified Network.AWS.SWF.Types.WorkflowId as Types
 
 -- | Provides the details of the @RequestCancelExternalWorkflowExecutionInitiated@ event.
 --
 -- /See:/ 'mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
-  { -- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
-    control :: Lude.Maybe Lude.Text,
-    -- | The @runId@ of the external workflow execution to be canceled.
-    runId :: Lude.Maybe Lude.Text,
-    -- | The @workflowId@ of the external workflow execution to be canceled.
-    workflowId :: Lude.Text,
+  { -- | The @workflowId@ of the external workflow execution to be canceled.
+    workflowId :: Types.WorkflowId,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Lude.Integer
+    decisionTaskCompletedEventId :: Core.Integer,
+    -- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Core.Maybe Types.Control,
+    -- | The @runId@ of the external workflow execution to be canceled.
+    runId :: Core.Maybe Types.RunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestCancelExternalWorkflowExecutionInitiatedEventAttributes' with the minimum fields required to make a request.
---
--- * 'control' - Data attached to the event that can be used by the decider in subsequent workflow tasks.
--- * 'runId' - The @runId@ of the external workflow execution to be canceled.
--- * 'workflowId' - The @workflowId@ of the external workflow execution to be canceled.
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Creates a 'RequestCancelExternalWorkflowExecutionInitiatedEventAttributes' value with any optional fields omitted.
 mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes ::
   -- | 'workflowId'
-  Lude.Text ->
+  Types.WorkflowId ->
   -- | 'decisionTaskCompletedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
 mkRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-  pWorkflowId_
-  pDecisionTaskCompletedEventId_ =
+  workflowId
+  decisionTaskCompletedEventId =
     RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
-      { control =
-          Lude.Nothing,
-        runId = Lude.Nothing,
-        workflowId = pWorkflowId_,
-        decisionTaskCompletedEventId =
-          pDecisionTaskCompletedEventId_
+      { workflowId,
+        decisionTaskCompletedEventId,
+        control = Core.Nothing,
+        runId = Core.Nothing
       }
-
--- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
---
--- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceweieaControl :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
-rceweieaControl = Lens.lens (control :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
-{-# DEPRECATED rceweieaControl "Use generic-lens or generic-optics with 'control' instead." #-}
-
--- | The @runId@ of the external workflow execution to be canceled.
---
--- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceweieaRunId :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
-rceweieaRunId = Lens.lens (runId :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
-{-# DEPRECATED rceweieaRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 -- | The @workflowId@ of the external workflow execution to be canceled.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceweieaWorkflowId :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Lude.Text
-rceweieaWorkflowId = Lens.lens (workflowId :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Text) (\s a -> s {workflowId = a} :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
+rceweieaWorkflowId :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Types.WorkflowId
+rceweieaWorkflowId = Lens.field @"workflowId"
 {-# DEPRECATED rceweieaWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceweieaDecisionTaskCompletedEventId :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Lude.Integer
-rceweieaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
+rceweieaDecisionTaskCompletedEventId :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Core.Integer
+rceweieaDecisionTaskCompletedEventId = Lens.field @"decisionTaskCompletedEventId"
 {-# DEPRECATED rceweieaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
+-- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
+--
+-- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rceweieaControl :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Core.Maybe Types.Control)
+rceweieaControl = Lens.field @"control"
+{-# DEPRECATED rceweieaControl "Use generic-lens or generic-optics with 'control' instead." #-}
+
+-- | The @runId@ of the external workflow execution to be canceled.
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rceweieaRunId :: Lens.Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Core.Maybe Types.RunId)
+rceweieaRunId = Lens.field @"runId"
+{-# DEPRECATED rceweieaRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
 instance
-  Lude.FromJSON
+  Core.FromJSON
     RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
   where
   parseJSON =
-    Lude.withObject
+    Core.withObject
       "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes"
-      ( \x ->
-          RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
-            Lude.<$> (x Lude..:? "control") Lude.<*> (x Lude..:? "runId")
-              Lude.<*> (x Lude..: "workflowId")
-              Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
-      )
+      Core.$ \x ->
+        RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
+          Core.<$> (x Core..: "workflowId")
+            Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Core.<*> (x Core..:? "control")
+            Core.<*> (x Core..:? "runId")

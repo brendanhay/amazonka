@@ -20,115 +20,104 @@ module Network.AWS.Connect.StopContact
     mkStopContact,
 
     -- ** Request lenses
-    scInstanceId,
     scContactId,
+    scInstanceId,
 
     -- * Destructuring the response
     StopContactResponse (..),
     mkStopContactResponse,
 
     -- ** Response lenses
-    scrsResponseStatus,
+    scrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopContact' smart constructor.
 data StopContact = StopContact'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The ID of the contact.
-    contactId :: Lude.Text
+  { -- | The ID of the contact.
+    contactId :: Types.ContactId,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopContact' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'contactId' - The ID of the contact.
+-- | Creates a 'StopContact' value with any optional fields omitted.
 mkStopContact ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'contactId'
-  Lude.Text ->
+  Types.ContactId ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   StopContact
-mkStopContact pInstanceId_ pContactId_ =
-  StopContact' {instanceId = pInstanceId_, contactId = pContactId_}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scInstanceId :: Lens.Lens' StopContact Lude.Text
-scInstanceId = Lens.lens (instanceId :: StopContact -> Lude.Text) (\s a -> s {instanceId = a} :: StopContact)
-{-# DEPRECATED scInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+mkStopContact contactId instanceId =
+  StopContact' {contactId, instanceId}
 
 -- | The ID of the contact.
 --
 -- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scContactId :: Lens.Lens' StopContact Lude.Text
-scContactId = Lens.lens (contactId :: StopContact -> Lude.Text) (\s a -> s {contactId = a} :: StopContact)
+scContactId :: Lens.Lens' StopContact Types.ContactId
+scContactId = Lens.field @"contactId"
 {-# DEPRECATED scContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
 
-instance Lude.AWSRequest StopContact where
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scInstanceId :: Lens.Lens' StopContact Types.InstanceId
+scInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED scInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON StopContact where
+  toJSON StopContact {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContactId" Core..= contactId),
+            Core.Just ("InstanceId" Core..= instanceId)
+          ]
+      )
+
+instance Core.AWSRequest StopContact where
   type Rs StopContact = StopContactResponse
-  request = Req.postJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/contact/stop",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StopContactResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StopContactResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopContact where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopContact where
-  toJSON StopContact' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("ContactId" Lude..= contactId)
-          ]
-      )
-
-instance Lude.ToPath StopContact where
-  toPath = Lude.const "/contact/stop"
-
-instance Lude.ToQuery StopContact where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopContactResponse' smart constructor.
 newtype StopContactResponse = StopContactResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopContactResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopContactResponse' value with any optional fields omitted.
 mkStopContactResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopContactResponse
-mkStopContactResponse pResponseStatus_ =
-  StopContactResponse' {responseStatus = pResponseStatus_}
+mkStopContactResponse responseStatus =
+  StopContactResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrsResponseStatus :: Lens.Lens' StopContactResponse Lude.Int
-scrsResponseStatus = Lens.lens (responseStatus :: StopContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopContactResponse)
-{-# DEPRECATED scrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scrrsResponseStatus :: Lens.Lens' StopContactResponse Core.Int
+scrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,71 +17,68 @@ module Network.AWS.AlexaBusiness.Types.AddressBook
     mkAddressBook,
 
     -- * Lenses
-    abAddressBookARN,
-    abName,
+    abAddressBookArn,
     abDescription,
+    abName,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.AddressBookDescription as Types
+import qualified Network.AWS.AlexaBusiness.Types.AddressBookName as Types
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An address book with attributes.
 --
 -- /See:/ 'mkAddressBook' smart constructor.
 data AddressBook = AddressBook'
   { -- | The ARN of the address book.
-    addressBookARN :: Lude.Maybe Lude.Text,
-    -- | The name of the address book.
-    name :: Lude.Maybe Lude.Text,
+    addressBookArn :: Core.Maybe Types.Arn,
     -- | The description of the address book.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.AddressBookDescription,
+    -- | The name of the address book.
+    name :: Core.Maybe Types.AddressBookName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddressBook' with the minimum fields required to make a request.
---
--- * 'addressBookARN' - The ARN of the address book.
--- * 'name' - The name of the address book.
--- * 'description' - The description of the address book.
+-- | Creates a 'AddressBook' value with any optional fields omitted.
 mkAddressBook ::
   AddressBook
 mkAddressBook =
   AddressBook'
-    { addressBookARN = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing
+    { addressBookArn = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ARN of the address book.
 --
--- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abAddressBookARN :: Lens.Lens' AddressBook (Lude.Maybe Lude.Text)
-abAddressBookARN = Lens.lens (addressBookARN :: AddressBook -> Lude.Maybe Lude.Text) (\s a -> s {addressBookARN = a} :: AddressBook)
-{-# DEPRECATED abAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
-
--- | The name of the address book.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abName :: Lens.Lens' AddressBook (Lude.Maybe Lude.Text)
-abName = Lens.lens (name :: AddressBook -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AddressBook)
-{-# DEPRECATED abName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'addressBookArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abAddressBookArn :: Lens.Lens' AddressBook (Core.Maybe Types.Arn)
+abAddressBookArn = Lens.field @"addressBookArn"
+{-# DEPRECATED abAddressBookArn "Use generic-lens or generic-optics with 'addressBookArn' instead." #-}
 
 -- | The description of the address book.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abDescription :: Lens.Lens' AddressBook (Lude.Maybe Lude.Text)
-abDescription = Lens.lens (description :: AddressBook -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AddressBook)
+abDescription :: Lens.Lens' AddressBook (Core.Maybe Types.AddressBookDescription)
+abDescription = Lens.field @"description"
 {-# DEPRECATED abDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON AddressBook where
+-- | The name of the address book.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abName :: Lens.Lens' AddressBook (Core.Maybe Types.AddressBookName)
+abName = Lens.field @"name"
+{-# DEPRECATED abName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON AddressBook where
   parseJSON =
-    Lude.withObject
-      "AddressBook"
-      ( \x ->
-          AddressBook'
-            Lude.<$> (x Lude..:? "AddressBookArn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "AddressBook" Core.$
+      \x ->
+        AddressBook'
+          Core.<$> (x Core..:? "AddressBookArn")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Name")

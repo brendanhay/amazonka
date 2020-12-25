@@ -28,125 +28,113 @@ module Network.AWS.SMS.GenerateTemplate
     mkGenerateTemplateResponse,
 
     -- ** Response lenses
-    gtrsS3Location,
-    gtrsResponseStatus,
+    gtrrsS3Location,
+    gtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkGenerateTemplate' smart constructor.
 data GenerateTemplate = GenerateTemplate'
   { -- | The ID of the application associated with the AWS CloudFormation template.
-    appId :: Lude.Maybe Lude.Text,
+    appId :: Core.Maybe Types.AppId,
     -- | The format for generating the AWS CloudFormation template.
-    templateFormat :: Lude.Maybe OutputFormat
+    templateFormat :: Core.Maybe Types.OutputFormat
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateTemplate' with the minimum fields required to make a request.
---
--- * 'appId' - The ID of the application associated with the AWS CloudFormation template.
--- * 'templateFormat' - The format for generating the AWS CloudFormation template.
+-- | Creates a 'GenerateTemplate' value with any optional fields omitted.
 mkGenerateTemplate ::
   GenerateTemplate
 mkGenerateTemplate =
   GenerateTemplate'
-    { appId = Lude.Nothing,
-      templateFormat = Lude.Nothing
+    { appId = Core.Nothing,
+      templateFormat = Core.Nothing
     }
 
 -- | The ID of the application associated with the AWS CloudFormation template.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtAppId :: Lens.Lens' GenerateTemplate (Lude.Maybe Lude.Text)
-gtAppId = Lens.lens (appId :: GenerateTemplate -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: GenerateTemplate)
+gtAppId :: Lens.Lens' GenerateTemplate (Core.Maybe Types.AppId)
+gtAppId = Lens.field @"appId"
 {-# DEPRECATED gtAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | The format for generating the AWS CloudFormation template.
 --
 -- /Note:/ Consider using 'templateFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtTemplateFormat :: Lens.Lens' GenerateTemplate (Lude.Maybe OutputFormat)
-gtTemplateFormat = Lens.lens (templateFormat :: GenerateTemplate -> Lude.Maybe OutputFormat) (\s a -> s {templateFormat = a} :: GenerateTemplate)
+gtTemplateFormat :: Lens.Lens' GenerateTemplate (Core.Maybe Types.OutputFormat)
+gtTemplateFormat = Lens.field @"templateFormat"
 {-# DEPRECATED gtTemplateFormat "Use generic-lens or generic-optics with 'templateFormat' instead." #-}
 
-instance Lude.AWSRequest GenerateTemplate where
+instance Core.FromJSON GenerateTemplate where
+  toJSON GenerateTemplate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("appId" Core..=) Core.<$> appId,
+            ("templateFormat" Core..=) Core.<$> templateFormat
+          ]
+      )
+
+instance Core.AWSRequest GenerateTemplate where
   type Rs GenerateTemplate = GenerateTemplateResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.GenerateTemplate"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GenerateTemplateResponse'
-            Lude.<$> (x Lude..?> "s3Location") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "s3Location") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GenerateTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GenerateTemplate" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GenerateTemplate where
-  toJSON GenerateTemplate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("appId" Lude..=) Lude.<$> appId,
-            ("templateFormat" Lude..=) Lude.<$> templateFormat
-          ]
-      )
-
-instance Lude.ToPath GenerateTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGenerateTemplateResponse' smart constructor.
 data GenerateTemplateResponse = GenerateTemplateResponse'
   { -- | The location of the Amazon S3 object.
-    s3Location :: Lude.Maybe S3Location,
+    s3Location :: Core.Maybe Types.S3Location,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateTemplateResponse' with the minimum fields required to make a request.
---
--- * 's3Location' - The location of the Amazon S3 object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateTemplateResponse' value with any optional fields omitted.
 mkGenerateTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateTemplateResponse
-mkGenerateTemplateResponse pResponseStatus_ =
+mkGenerateTemplateResponse responseStatus =
   GenerateTemplateResponse'
-    { s3Location = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { s3Location = Core.Nothing,
+      responseStatus
     }
 
 -- | The location of the Amazon S3 object.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsS3Location :: Lens.Lens' GenerateTemplateResponse (Lude.Maybe S3Location)
-gtrsS3Location = Lens.lens (s3Location :: GenerateTemplateResponse -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: GenerateTemplateResponse)
-{-# DEPRECATED gtrsS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
+gtrrsS3Location :: Lens.Lens' GenerateTemplateResponse (Core.Maybe Types.S3Location)
+gtrrsS3Location = Lens.field @"s3Location"
+{-# DEPRECATED gtrrsS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsResponseStatus :: Lens.Lens' GenerateTemplateResponse Lude.Int
-gtrsResponseStatus = Lens.lens (responseStatus :: GenerateTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateTemplateResponse)
-{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrrsResponseStatus :: Lens.Lens' GenerateTemplateResponse Core.Int
+gtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,106 +21,110 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
 
     -- ** Request lenses
     rcpgCacheParameterGroupName,
-    rcpgResetAllParameters,
     rcpgParameterNameValues,
+    rcpgResetAllParameters,
 
     -- * Destructuring the response
-    CacheParameterGroupNameMessage (..),
-    mkCacheParameterGroupNameMessage,
+    Types.CacheParameterGroupNameMessage (..),
+    Types.mkCacheParameterGroupNameMessage,
 
     -- ** Response lenses
-    cpgnmCacheParameterGroupName,
+    Types.cpgnmCacheParameterGroupName,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ResetCacheParameterGroup@ operation.
 --
 -- /See:/ 'mkResetCacheParameterGroup' smart constructor.
 data ResetCacheParameterGroup = ResetCacheParameterGroup'
   { -- | The name of the cache parameter group to reset.
-    cacheParameterGroupName :: Lude.Text,
+    cacheParameterGroupName :: Types.String,
+    -- | An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
+    parameterNameValues :: Core.Maybe [Types.ParameterNameValue],
     -- | If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values.
     --
     -- Valid values: @true@ | @false@
-    resetAllParameters :: Lude.Maybe Lude.Bool,
-    -- | An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
-    parameterNameValues :: Lude.Maybe [ParameterNameValue]
+    resetAllParameters :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetCacheParameterGroup' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroupName' - The name of the cache parameter group to reset.
--- * 'resetAllParameters' - If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values.
---
--- Valid values: @true@ | @false@
--- * 'parameterNameValues' - An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
+-- | Creates a 'ResetCacheParameterGroup' value with any optional fields omitted.
 mkResetCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Lude.Text ->
+  Types.String ->
   ResetCacheParameterGroup
-mkResetCacheParameterGroup pCacheParameterGroupName_ =
+mkResetCacheParameterGroup cacheParameterGroupName =
   ResetCacheParameterGroup'
-    { cacheParameterGroupName =
-        pCacheParameterGroupName_,
-      resetAllParameters = Lude.Nothing,
-      parameterNameValues = Lude.Nothing
+    { cacheParameterGroupName,
+      parameterNameValues = Core.Nothing,
+      resetAllParameters = Core.Nothing
     }
 
 -- | The name of the cache parameter group to reset.
 --
 -- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcpgCacheParameterGroupName :: Lens.Lens' ResetCacheParameterGroup Lude.Text
-rcpgCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: ResetCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: ResetCacheParameterGroup)
+rcpgCacheParameterGroupName :: Lens.Lens' ResetCacheParameterGroup Types.String
+rcpgCacheParameterGroupName = Lens.field @"cacheParameterGroupName"
 {-# DEPRECATED rcpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
+
+-- | An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
+--
+-- /Note:/ Consider using 'parameterNameValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcpgParameterNameValues :: Lens.Lens' ResetCacheParameterGroup (Core.Maybe [Types.ParameterNameValue])
+rcpgParameterNameValues = Lens.field @"parameterNameValues"
+{-# DEPRECATED rcpgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
 
 -- | If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values.
 --
 -- Valid values: @true@ | @false@
 --
 -- /Note:/ Consider using 'resetAllParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcpgResetAllParameters :: Lens.Lens' ResetCacheParameterGroup (Lude.Maybe Lude.Bool)
-rcpgResetAllParameters = Lens.lens (resetAllParameters :: ResetCacheParameterGroup -> Lude.Maybe Lude.Bool) (\s a -> s {resetAllParameters = a} :: ResetCacheParameterGroup)
+rcpgResetAllParameters :: Lens.Lens' ResetCacheParameterGroup (Core.Maybe Core.Bool)
+rcpgResetAllParameters = Lens.field @"resetAllParameters"
 {-# DEPRECATED rcpgResetAllParameters "Use generic-lens or generic-optics with 'resetAllParameters' instead." #-}
 
--- | An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
---
--- /Note:/ Consider using 'parameterNameValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcpgParameterNameValues :: Lens.Lens' ResetCacheParameterGroup (Lude.Maybe [ParameterNameValue])
-rcpgParameterNameValues = Lens.lens (parameterNameValues :: ResetCacheParameterGroup -> Lude.Maybe [ParameterNameValue]) (\s a -> s {parameterNameValues = a} :: ResetCacheParameterGroup)
-{-# DEPRECATED rcpgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
-
-instance Lude.AWSRequest ResetCacheParameterGroup where
-  type Rs ResetCacheParameterGroup = CacheParameterGroupNameMessage
-  request = Req.postQuery elastiCacheService
-  response =
-    Res.receiveXMLWrapper
-      "ResetCacheParameterGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ResetCacheParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ResetCacheParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetCacheParameterGroup where
-  toQuery ResetCacheParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ResetCacheParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheParameterGroupName" Lude.=: cacheParameterGroupName,
-        "ResetAllParameters" Lude.=: resetAllParameters,
-        "ParameterNameValues"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "ParameterNameValue"
-                Lude.<$> parameterNameValues
+instance Core.AWSRequest ResetCacheParameterGroup where
+  type
+    Rs ResetCacheParameterGroup =
+      Types.CacheParameterGroupNameMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ResetCacheParameterGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "CacheParameterGroupName"
+                            cacheParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "ParameterNameValues"
+                            ( Core.toQueryList "ParameterNameValue"
+                                Core.<$> parameterNameValues
+                            )
+                        )
+                Core.<> ( Core.toQueryValue "ResetAllParameters"
+                            Core.<$> resetAllParameters
+                        )
             )
-      ]
+      }
+  response =
+    Response.receiveXMLWrapper
+      "ResetCacheParameterGroupResult"
+      (\s h x -> Core.parseXML x)

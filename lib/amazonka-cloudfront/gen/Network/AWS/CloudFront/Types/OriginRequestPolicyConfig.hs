@@ -17,19 +17,21 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyConfig
     mkOriginRequestPolicyConfig,
 
     -- * Lenses
-    orpcQueryStringsConfig,
-    orpcHeadersConfig,
     orpcName,
+    orpcHeadersConfig,
     orpcCookiesConfig,
+    orpcQueryStringsConfig,
     orpcComment,
   )
 where
 
-import Network.AWS.CloudFront.Types.OriginRequestPolicyCookiesConfig
-import Network.AWS.CloudFront.Types.OriginRequestPolicyHeadersConfig
-import Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
+import qualified Network.AWS.CloudFront.Types.Comment as Types
+import qualified Network.AWS.CloudFront.Types.Name as Types
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyCookiesConfig as Types
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyHeadersConfig as Types
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An origin request policy configuration.
 --
@@ -48,101 +50,92 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginRequestPolicyConfig' smart constructor.
 data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
-  { -- | The URL query strings from viewer requests to include in origin requests.
-    queryStringsConfig :: OriginRequestPolicyQueryStringsConfig,
+  { -- | A unique name to identify the origin request policy.
+    name :: Types.Name,
     -- | The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
-    headersConfig :: OriginRequestPolicyHeadersConfig,
-    -- | A unique name to identify the origin request policy.
-    name :: Lude.Text,
+    headersConfig :: Types.OriginRequestPolicyHeadersConfig,
     -- | The cookies from viewer requests to include in origin requests.
-    cookiesConfig :: OriginRequestPolicyCookiesConfig,
+    cookiesConfig :: Types.OriginRequestPolicyCookiesConfig,
+    -- | The URL query strings from viewer requests to include in origin requests.
+    queryStringsConfig :: Types.OriginRequestPolicyQueryStringsConfig,
     -- | A comment to describe the origin request policy.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.Comment
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OriginRequestPolicyConfig' with the minimum fields required to make a request.
---
--- * 'queryStringsConfig' - The URL query strings from viewer requests to include in origin requests.
--- * 'headersConfig' - The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
--- * 'name' - A unique name to identify the origin request policy.
--- * 'cookiesConfig' - The cookies from viewer requests to include in origin requests.
--- * 'comment' - A comment to describe the origin request policy.
+-- | Creates a 'OriginRequestPolicyConfig' value with any optional fields omitted.
 mkOriginRequestPolicyConfig ::
-  -- | 'queryStringsConfig'
-  OriginRequestPolicyQueryStringsConfig ->
-  -- | 'headersConfig'
-  OriginRequestPolicyHeadersConfig ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'headersConfig'
+  Types.OriginRequestPolicyHeadersConfig ->
   -- | 'cookiesConfig'
-  OriginRequestPolicyCookiesConfig ->
+  Types.OriginRequestPolicyCookiesConfig ->
+  -- | 'queryStringsConfig'
+  Types.OriginRequestPolicyQueryStringsConfig ->
   OriginRequestPolicyConfig
 mkOriginRequestPolicyConfig
-  pQueryStringsConfig_
-  pHeadersConfig_
-  pName_
-  pCookiesConfig_ =
+  name
+  headersConfig
+  cookiesConfig
+  queryStringsConfig =
     OriginRequestPolicyConfig'
-      { queryStringsConfig =
-          pQueryStringsConfig_,
-        headersConfig = pHeadersConfig_,
-        name = pName_,
-        cookiesConfig = pCookiesConfig_,
-        comment = Lude.Nothing
+      { name,
+        headersConfig,
+        cookiesConfig,
+        queryStringsConfig,
+        comment = Core.Nothing
       }
-
--- | The URL query strings from viewer requests to include in origin requests.
---
--- /Note:/ Consider using 'queryStringsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpcQueryStringsConfig :: Lens.Lens' OriginRequestPolicyConfig OriginRequestPolicyQueryStringsConfig
-orpcQueryStringsConfig = Lens.lens (queryStringsConfig :: OriginRequestPolicyConfig -> OriginRequestPolicyQueryStringsConfig) (\s a -> s {queryStringsConfig = a} :: OriginRequestPolicyConfig)
-{-# DEPRECATED orpcQueryStringsConfig "Use generic-lens or generic-optics with 'queryStringsConfig' instead." #-}
-
--- | The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
---
--- /Note:/ Consider using 'headersConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpcHeadersConfig :: Lens.Lens' OriginRequestPolicyConfig OriginRequestPolicyHeadersConfig
-orpcHeadersConfig = Lens.lens (headersConfig :: OriginRequestPolicyConfig -> OriginRequestPolicyHeadersConfig) (\s a -> s {headersConfig = a} :: OriginRequestPolicyConfig)
-{-# DEPRECATED orpcHeadersConfig "Use generic-lens or generic-optics with 'headersConfig' instead." #-}
 
 -- | A unique name to identify the origin request policy.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpcName :: Lens.Lens' OriginRequestPolicyConfig Lude.Text
-orpcName = Lens.lens (name :: OriginRequestPolicyConfig -> Lude.Text) (\s a -> s {name = a} :: OriginRequestPolicyConfig)
+orpcName :: Lens.Lens' OriginRequestPolicyConfig Types.Name
+orpcName = Lens.field @"name"
 {-# DEPRECATED orpcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
+--
+-- /Note:/ Consider using 'headersConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpcHeadersConfig :: Lens.Lens' OriginRequestPolicyConfig Types.OriginRequestPolicyHeadersConfig
+orpcHeadersConfig = Lens.field @"headersConfig"
+{-# DEPRECATED orpcHeadersConfig "Use generic-lens or generic-optics with 'headersConfig' instead." #-}
 
 -- | The cookies from viewer requests to include in origin requests.
 --
 -- /Note:/ Consider using 'cookiesConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpcCookiesConfig :: Lens.Lens' OriginRequestPolicyConfig OriginRequestPolicyCookiesConfig
-orpcCookiesConfig = Lens.lens (cookiesConfig :: OriginRequestPolicyConfig -> OriginRequestPolicyCookiesConfig) (\s a -> s {cookiesConfig = a} :: OriginRequestPolicyConfig)
+orpcCookiesConfig :: Lens.Lens' OriginRequestPolicyConfig Types.OriginRequestPolicyCookiesConfig
+orpcCookiesConfig = Lens.field @"cookiesConfig"
 {-# DEPRECATED orpcCookiesConfig "Use generic-lens or generic-optics with 'cookiesConfig' instead." #-}
+
+-- | The URL query strings from viewer requests to include in origin requests.
+--
+-- /Note:/ Consider using 'queryStringsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpcQueryStringsConfig :: Lens.Lens' OriginRequestPolicyConfig Types.OriginRequestPolicyQueryStringsConfig
+orpcQueryStringsConfig = Lens.field @"queryStringsConfig"
+{-# DEPRECATED orpcQueryStringsConfig "Use generic-lens or generic-optics with 'queryStringsConfig' instead." #-}
 
 -- | A comment to describe the origin request policy.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpcComment :: Lens.Lens' OriginRequestPolicyConfig (Lude.Maybe Lude.Text)
-orpcComment = Lens.lens (comment :: OriginRequestPolicyConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: OriginRequestPolicyConfig)
+orpcComment :: Lens.Lens' OriginRequestPolicyConfig (Core.Maybe Types.Comment)
+orpcComment = Lens.field @"comment"
 {-# DEPRECATED orpcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.FromXML OriginRequestPolicyConfig where
+instance Core.ToXML OriginRequestPolicyConfig where
+  toXML OriginRequestPolicyConfig {..} =
+    Core.toXMLNode "Name" name
+      Core.<> Core.toXMLNode "HeadersConfig" headersConfig
+      Core.<> Core.toXMLNode "CookiesConfig" cookiesConfig
+      Core.<> Core.toXMLNode "QueryStringsConfig" queryStringsConfig
+      Core.<> Core.toXMLNode "Comment" Core.<$> comment
+
+instance Core.FromXML OriginRequestPolicyConfig where
   parseXML x =
     OriginRequestPolicyConfig'
-      Lude.<$> (x Lude..@ "QueryStringsConfig")
-      Lude.<*> (x Lude..@ "HeadersConfig")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@ "CookiesConfig")
-      Lude.<*> (x Lude..@? "Comment")
-
-instance Lude.ToXML OriginRequestPolicyConfig where
-  toXML OriginRequestPolicyConfig' {..} =
-    Lude.mconcat
-      [ "QueryStringsConfig" Lude.@= queryStringsConfig,
-        "HeadersConfig" Lude.@= headersConfig,
-        "Name" Lude.@= name,
-        "CookiesConfig" Lude.@= cookiesConfig,
-        "Comment" Lude.@= comment
-      ]
+      Core.<$> (x Core..@ "Name")
+      Core.<*> (x Core..@ "HeadersConfig")
+      Core.<*> (x Core..@ "CookiesConfig")
+      Core.<*> (x Core..@ "QueryStringsConfig")
+      Core.<*> (x Core..@? "Comment")

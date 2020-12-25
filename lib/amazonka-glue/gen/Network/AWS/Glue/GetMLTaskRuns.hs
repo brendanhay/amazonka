@@ -22,186 +22,169 @@ module Network.AWS.Glue.GetMLTaskRuns
     mkGetMLTaskRuns,
 
     -- ** Request lenses
-    gmltrNextToken,
-    gmltrSort,
+    gmltrTransformId,
     gmltrFilter,
     gmltrMaxResults,
-    gmltrTransformId,
+    gmltrNextToken,
+    gmltrSort,
 
     -- * Destructuring the response
     GetMLTaskRunsResponse (..),
     mkGetMLTaskRunsResponse,
 
     -- ** Response lenses
-    gmltrsrsNextToken,
-    gmltrsrsTaskRuns,
-    gmltrsrsResponseStatus,
+    gmltrrfrsNextToken,
+    gmltrrfrsTaskRuns,
+    gmltrrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetMLTaskRuns' smart constructor.
 data GetMLTaskRuns = GetMLTaskRuns'
-  { -- | A token for pagination of the results. The default is empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
-    sort :: Lude.Maybe TaskRunSortCriteria,
+  { -- | The unique identifier of the machine learning transform.
+    transformId :: Types.HashString,
     -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the task run.
-    filter :: Lude.Maybe TaskRunFilterCriteria,
+    filter :: Core.Maybe Types.TaskRunFilterCriteria,
     -- | The maximum number of results to return.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The unique identifier of the machine learning transform.
-    transformId :: Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token for pagination of the results. The default is empty.
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
+    sort :: Core.Maybe Types.TaskRunSortCriteria
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetMLTaskRuns' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token for pagination of the results. The default is empty.
--- * 'sort' - The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
--- * 'filter' - The filter criteria, in the @TaskRunFilterCriteria@ structure, for the task run.
--- * 'maxResults' - The maximum number of results to return.
--- * 'transformId' - The unique identifier of the machine learning transform.
+-- | Creates a 'GetMLTaskRuns' value with any optional fields omitted.
 mkGetMLTaskRuns ::
   -- | 'transformId'
-  Lude.Text ->
+  Types.HashString ->
   GetMLTaskRuns
-mkGetMLTaskRuns pTransformId_ =
+mkGetMLTaskRuns transformId =
   GetMLTaskRuns'
-    { nextToken = Lude.Nothing,
-      sort = Lude.Nothing,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      transformId = pTransformId_
+    { transformId,
+      filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sort = Core.Nothing
     }
 
--- | A token for pagination of the results. The default is empty.
+-- | The unique identifier of the machine learning transform.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrNextToken :: Lens.Lens' GetMLTaskRuns (Lude.Maybe Lude.Text)
-gmltrNextToken = Lens.lens (nextToken :: GetMLTaskRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetMLTaskRuns)
-{-# DEPRECATED gmltrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
---
--- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrSort :: Lens.Lens' GetMLTaskRuns (Lude.Maybe TaskRunSortCriteria)
-gmltrSort = Lens.lens (sort :: GetMLTaskRuns -> Lude.Maybe TaskRunSortCriteria) (\s a -> s {sort = a} :: GetMLTaskRuns)
-{-# DEPRECATED gmltrSort "Use generic-lens or generic-optics with 'sort' instead." #-}
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrTransformId :: Lens.Lens' GetMLTaskRuns Types.HashString
+gmltrTransformId = Lens.field @"transformId"
+{-# DEPRECATED gmltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the task run.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrFilter :: Lens.Lens' GetMLTaskRuns (Lude.Maybe TaskRunFilterCriteria)
-gmltrFilter = Lens.lens (filter :: GetMLTaskRuns -> Lude.Maybe TaskRunFilterCriteria) (\s a -> s {filter = a} :: GetMLTaskRuns)
+gmltrFilter :: Lens.Lens' GetMLTaskRuns (Core.Maybe Types.TaskRunFilterCriteria)
+gmltrFilter = Lens.field @"filter"
 {-# DEPRECATED gmltrFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrMaxResults :: Lens.Lens' GetMLTaskRuns (Lude.Maybe Lude.Natural)
-gmltrMaxResults = Lens.lens (maxResults :: GetMLTaskRuns -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetMLTaskRuns)
+gmltrMaxResults :: Lens.Lens' GetMLTaskRuns (Core.Maybe Core.Natural)
+gmltrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gmltrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The unique identifier of the machine learning transform.
+-- | A token for pagination of the results. The default is empty.
 --
--- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrTransformId :: Lens.Lens' GetMLTaskRuns Lude.Text
-gmltrTransformId = Lens.lens (transformId :: GetMLTaskRuns -> Lude.Text) (\s a -> s {transformId = a} :: GetMLTaskRuns)
-{-# DEPRECATED gmltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrNextToken :: Lens.Lens' GetMLTaskRuns (Core.Maybe Types.PaginationToken)
+gmltrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gmltrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetMLTaskRuns where
+-- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
+--
+-- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrSort :: Lens.Lens' GetMLTaskRuns (Core.Maybe Types.TaskRunSortCriteria)
+gmltrSort = Lens.field @"sort"
+{-# DEPRECATED gmltrSort "Use generic-lens or generic-optics with 'sort' instead." #-}
+
+instance Core.FromJSON GetMLTaskRuns where
+  toJSON GetMLTaskRuns {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformId" Core..= transformId),
+            ("Filter" Core..=) Core.<$> filter,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Sort" Core..=) Core.<$> sort
+          ]
+      )
+
+instance Core.AWSRequest GetMLTaskRuns where
   type Rs GetMLTaskRuns = GetMLTaskRunsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetMLTaskRuns")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetMLTaskRunsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "TaskRuns" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "TaskRuns")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMLTaskRuns where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetMLTaskRuns" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetMLTaskRuns where
-  toJSON GetMLTaskRuns' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Sort" Lude..=) Lude.<$> sort,
-            ("Filter" Lude..=) Lude.<$> filter,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("TransformId" Lude..= transformId)
-          ]
-      )
-
-instance Lude.ToPath GetMLTaskRuns where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetMLTaskRuns where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetMLTaskRunsResponse' smart constructor.
 data GetMLTaskRunsResponse = GetMLTaskRunsResponse'
   { -- | A pagination token, if more results are available.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | A list of task runs that are associated with the transform.
-    taskRuns :: Lude.Maybe [TaskRun],
+    taskRuns :: Core.Maybe [Types.TaskRun],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetMLTaskRunsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A pagination token, if more results are available.
--- * 'taskRuns' - A list of task runs that are associated with the transform.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMLTaskRunsResponse' value with any optional fields omitted.
 mkGetMLTaskRunsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMLTaskRunsResponse
-mkGetMLTaskRunsResponse pResponseStatus_ =
+mkGetMLTaskRunsResponse responseStatus =
   GetMLTaskRunsResponse'
-    { nextToken = Lude.Nothing,
-      taskRuns = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      taskRuns = Core.Nothing,
+      responseStatus
     }
 
 -- | A pagination token, if more results are available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrsrsNextToken :: Lens.Lens' GetMLTaskRunsResponse (Lude.Maybe Lude.Text)
-gmltrsrsNextToken = Lens.lens (nextToken :: GetMLTaskRunsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetMLTaskRunsResponse)
-{-# DEPRECATED gmltrsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gmltrrfrsNextToken :: Lens.Lens' GetMLTaskRunsResponse (Core.Maybe Types.PaginationToken)
+gmltrrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gmltrrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of task runs that are associated with the transform.
 --
 -- /Note:/ Consider using 'taskRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrsrsTaskRuns :: Lens.Lens' GetMLTaskRunsResponse (Lude.Maybe [TaskRun])
-gmltrsrsTaskRuns = Lens.lens (taskRuns :: GetMLTaskRunsResponse -> Lude.Maybe [TaskRun]) (\s a -> s {taskRuns = a} :: GetMLTaskRunsResponse)
-{-# DEPRECATED gmltrsrsTaskRuns "Use generic-lens or generic-optics with 'taskRuns' instead." #-}
+gmltrrfrsTaskRuns :: Lens.Lens' GetMLTaskRunsResponse (Core.Maybe [Types.TaskRun])
+gmltrrfrsTaskRuns = Lens.field @"taskRuns"
+{-# DEPRECATED gmltrrfrsTaskRuns "Use generic-lens or generic-optics with 'taskRuns' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrsrsResponseStatus :: Lens.Lens' GetMLTaskRunsResponse Lude.Int
-gmltrsrsResponseStatus = Lens.lens (responseStatus :: GetMLTaskRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMLTaskRunsResponse)
-{-# DEPRECATED gmltrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmltrrfrsResponseStatus :: Lens.Lens' GetMLTaskRunsResponse Core.Int
+gmltrrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmltrrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

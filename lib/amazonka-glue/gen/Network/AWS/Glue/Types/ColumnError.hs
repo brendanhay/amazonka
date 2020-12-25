@@ -17,55 +17,51 @@ module Network.AWS.Glue.Types.ColumnError
     mkColumnError,
 
     -- * Lenses
-    ceError,
     ceColumnName,
+    ceError,
   )
 where
 
-import Network.AWS.Glue.Types.ErrorDetail
+import qualified Network.AWS.Glue.Types.ErrorDetail as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Encapsulates a column name that failed and the reason for failure.
 --
 -- /See:/ 'mkColumnError' smart constructor.
 data ColumnError = ColumnError'
-  { -- | An error message with the reason for the failure of an operation.
-    error :: Lude.Maybe ErrorDetail,
-    -- | The name of the column that failed.
-    columnName :: Lude.Maybe Lude.Text
+  { -- | The name of the column that failed.
+    columnName :: Core.Maybe Types.NameString,
+    -- | An error message with the reason for the failure of an operation.
+    error :: Core.Maybe Types.ErrorDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ColumnError' with the minimum fields required to make a request.
---
--- * 'error' - An error message with the reason for the failure of an operation.
--- * 'columnName' - The name of the column that failed.
+-- | Creates a 'ColumnError' value with any optional fields omitted.
 mkColumnError ::
   ColumnError
 mkColumnError =
-  ColumnError' {error = Lude.Nothing, columnName = Lude.Nothing}
-
--- | An error message with the reason for the failure of an operation.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceError :: Lens.Lens' ColumnError (Lude.Maybe ErrorDetail)
-ceError = Lens.lens (error :: ColumnError -> Lude.Maybe ErrorDetail) (\s a -> s {error = a} :: ColumnError)
-{-# DEPRECATED ceError "Use generic-lens or generic-optics with 'error' instead." #-}
+  ColumnError' {columnName = Core.Nothing, error = Core.Nothing}
 
 -- | The name of the column that failed.
 --
 -- /Note:/ Consider using 'columnName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceColumnName :: Lens.Lens' ColumnError (Lude.Maybe Lude.Text)
-ceColumnName = Lens.lens (columnName :: ColumnError -> Lude.Maybe Lude.Text) (\s a -> s {columnName = a} :: ColumnError)
+ceColumnName :: Lens.Lens' ColumnError (Core.Maybe Types.NameString)
+ceColumnName = Lens.field @"columnName"
 {-# DEPRECATED ceColumnName "Use generic-lens or generic-optics with 'columnName' instead." #-}
 
-instance Lude.FromJSON ColumnError where
+-- | An error message with the reason for the failure of an operation.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceError :: Lens.Lens' ColumnError (Core.Maybe Types.ErrorDetail)
+ceError = Lens.field @"error"
+{-# DEPRECATED ceError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON ColumnError where
   parseJSON =
-    Lude.withObject
-      "ColumnError"
-      ( \x ->
-          ColumnError'
-            Lude.<$> (x Lude..:? "Error") Lude.<*> (x Lude..:? "ColumnName")
-      )
+    Core.withObject "ColumnError" Core.$
+      \x ->
+        ColumnError'
+          Core.<$> (x Core..:? "ColumnName") Core.<*> (x Core..:? "Error")

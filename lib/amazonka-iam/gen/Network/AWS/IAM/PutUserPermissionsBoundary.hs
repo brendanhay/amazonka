@@ -31,81 +31,77 @@ module Network.AWS.IAM.PutUserPermissionsBoundary
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutUserPermissionsBoundary' smart constructor.
 data PutUserPermissionsBoundary = PutUserPermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.
-    userName :: Lude.Text,
+    userName :: Types.UserNameType,
     -- | The ARN of the policy that is used to set the permissions boundary for the user.
-    permissionsBoundary :: Lude.Text
+    permissionsBoundary :: Types.ArnType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutUserPermissionsBoundary' with the minimum fields required to make a request.
---
--- * 'userName' - The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.
--- * 'permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for the user.
+-- | Creates a 'PutUserPermissionsBoundary' value with any optional fields omitted.
 mkPutUserPermissionsBoundary ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserNameType ->
   -- | 'permissionsBoundary'
-  Lude.Text ->
+  Types.ArnType ->
   PutUserPermissionsBoundary
-mkPutUserPermissionsBoundary pUserName_ pPermissionsBoundary_ =
-  PutUserPermissionsBoundary'
-    { userName = pUserName_,
-      permissionsBoundary = pPermissionsBoundary_
-    }
+mkPutUserPermissionsBoundary userName permissionsBoundary =
+  PutUserPermissionsBoundary' {userName, permissionsBoundary}
 
 -- | The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pupbUserName :: Lens.Lens' PutUserPermissionsBoundary Lude.Text
-pupbUserName = Lens.lens (userName :: PutUserPermissionsBoundary -> Lude.Text) (\s a -> s {userName = a} :: PutUserPermissionsBoundary)
+pupbUserName :: Lens.Lens' PutUserPermissionsBoundary Types.UserNameType
+pupbUserName = Lens.field @"userName"
 {-# DEPRECATED pupbUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The ARN of the policy that is used to set the permissions boundary for the user.
 --
 -- /Note:/ Consider using 'permissionsBoundary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pupbPermissionsBoundary :: Lens.Lens' PutUserPermissionsBoundary Lude.Text
-pupbPermissionsBoundary = Lens.lens (permissionsBoundary :: PutUserPermissionsBoundary -> Lude.Text) (\s a -> s {permissionsBoundary = a} :: PutUserPermissionsBoundary)
+pupbPermissionsBoundary :: Lens.Lens' PutUserPermissionsBoundary Types.ArnType
+pupbPermissionsBoundary = Lens.field @"permissionsBoundary"
 {-# DEPRECATED pupbPermissionsBoundary "Use generic-lens or generic-optics with 'permissionsBoundary' instead." #-}
 
-instance Lude.AWSRequest PutUserPermissionsBoundary where
+instance Core.AWSRequest PutUserPermissionsBoundary where
   type
     Rs PutUserPermissionsBoundary =
       PutUserPermissionsBoundaryResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull PutUserPermissionsBoundaryResponse'
-
-instance Lude.ToHeaders PutUserPermissionsBoundary where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutUserPermissionsBoundary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutUserPermissionsBoundary where
-  toQuery PutUserPermissionsBoundary' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PutUserPermissionsBoundary" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "PermissionsBoundary" Lude.=: permissionsBoundary
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutUserPermissionsBoundary")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "PermissionsBoundary" permissionsBoundary)
+            )
+      }
+  response = Response.receiveNull PutUserPermissionsBoundaryResponse'
 
 -- | /See:/ 'mkPutUserPermissionsBoundaryResponse' smart constructor.
 data PutUserPermissionsBoundaryResponse = PutUserPermissionsBoundaryResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutUserPermissionsBoundaryResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutUserPermissionsBoundaryResponse' value with any optional fields omitted.
 mkPutUserPermissionsBoundaryResponse ::
   PutUserPermissionsBoundaryResponse
 mkPutUserPermissionsBoundaryResponse =

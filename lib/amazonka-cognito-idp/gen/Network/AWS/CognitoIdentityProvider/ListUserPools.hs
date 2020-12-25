@@ -22,163 +22,147 @@ module Network.AWS.CognitoIdentityProvider.ListUserPools
     mkListUserPools,
 
     -- ** Request lenses
-    lupNextToken,
     lupMaxResults,
+    lupNextToken,
 
     -- * Destructuring the response
     ListUserPoolsResponse (..),
     mkListUserPoolsResponse,
 
     -- ** Response lenses
-    luprsUserPools,
-    luprsNextToken,
-    luprsResponseStatus,
+    luprrsNextToken,
+    luprrsUserPools,
+    luprrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to list user pools.
 --
 -- /See:/ 'mkListUserPools' smart constructor.
 data ListUserPools = ListUserPools'
-  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results you want the request to return when listing the user pools.
-    maxResults :: Lude.Natural
+  { -- | The maximum number of results you want the request to return when listing the user pools.
+    maxResults :: Core.Natural,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUserPools' with the minimum fields required to make a request.
---
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'maxResults' - The maximum number of results you want the request to return when listing the user pools.
+-- | Creates a 'ListUserPools' value with any optional fields omitted.
 mkListUserPools ::
   -- | 'maxResults'
-  Lude.Natural ->
+  Core.Natural ->
   ListUserPools
-mkListUserPools pMaxResults_ =
-  ListUserPools'
-    { nextToken = Lude.Nothing,
-      maxResults = pMaxResults_
-    }
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupNextToken :: Lens.Lens' ListUserPools (Lude.Maybe Lude.Text)
-lupNextToken = Lens.lens (nextToken :: ListUserPools -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserPools)
-{-# DEPRECATED lupNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+mkListUserPools maxResults =
+  ListUserPools' {maxResults, nextToken = Core.Nothing}
 
 -- | The maximum number of results you want the request to return when listing the user pools.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupMaxResults :: Lens.Lens' ListUserPools Lude.Natural
-lupMaxResults = Lens.lens (maxResults :: ListUserPools -> Lude.Natural) (\s a -> s {maxResults = a} :: ListUserPools)
+lupMaxResults :: Lens.Lens' ListUserPools Core.Natural
+lupMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lupMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListUserPools where
-  page rq rs
-    | Page.stop (rs Lens.^. luprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. luprsUserPools) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lupNextToken Lens..~ rs Lens.^. luprsNextToken
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupNextToken :: Lens.Lens' ListUserPools (Core.Maybe Types.NextToken)
+lupNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lupNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListUserPools where
+instance Core.FromJSON ListUserPools where
+  toJSON ListUserPools {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MaxResults" Core..= maxResults),
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListUserPools where
   type Rs ListUserPools = ListUserPoolsResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityProviderService.ListUserPools")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListUserPoolsResponse'
-            Lude.<$> (x Lude..?> "UserPools" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "UserPools")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListUserPools where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.ListUserPools" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListUserPools where
-  toJSON ListUserPools' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("MaxResults" Lude..= maxResults)
-          ]
-      )
-
-instance Lude.ToPath ListUserPools where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListUserPools where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListUserPools where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"userPools" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the response to list user pools.
 --
 -- /See:/ 'mkListUserPoolsResponse' smart constructor.
 data ListUserPoolsResponse = ListUserPoolsResponse'
-  { -- | The user pools from the response to list users.
-    userPools :: Lude.Maybe [UserPoolDescriptionType],
-    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.PaginationKeyType,
+    -- | The user pools from the response to list users.
+    userPools :: Core.Maybe [Types.UserPoolDescriptionType],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListUserPoolsResponse' with the minimum fields required to make a request.
---
--- * 'userPools' - The user pools from the response to list users.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListUserPoolsResponse' value with any optional fields omitted.
 mkListUserPoolsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListUserPoolsResponse
-mkListUserPoolsResponse pResponseStatus_ =
+mkListUserPoolsResponse responseStatus =
   ListUserPoolsResponse'
-    { userPools = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      userPools = Core.Nothing,
+      responseStatus
     }
-
--- | The user pools from the response to list users.
---
--- /Note:/ Consider using 'userPools' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsUserPools :: Lens.Lens' ListUserPoolsResponse (Lude.Maybe [UserPoolDescriptionType])
-luprsUserPools = Lens.lens (userPools :: ListUserPoolsResponse -> Lude.Maybe [UserPoolDescriptionType]) (\s a -> s {userPools = a} :: ListUserPoolsResponse)
-{-# DEPRECATED luprsUserPools "Use generic-lens or generic-optics with 'userPools' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsNextToken :: Lens.Lens' ListUserPoolsResponse (Lude.Maybe Lude.Text)
-luprsNextToken = Lens.lens (nextToken :: ListUserPoolsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserPoolsResponse)
-{-# DEPRECATED luprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+luprrsNextToken :: Lens.Lens' ListUserPoolsResponse (Core.Maybe Types.PaginationKeyType)
+luprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED luprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The user pools from the response to list users.
+--
+-- /Note:/ Consider using 'userPools' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprrsUserPools :: Lens.Lens' ListUserPoolsResponse (Core.Maybe [Types.UserPoolDescriptionType])
+luprrsUserPools = Lens.field @"userPools"
+{-# DEPRECATED luprrsUserPools "Use generic-lens or generic-optics with 'userPools' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsResponseStatus :: Lens.Lens' ListUserPoolsResponse Lude.Int
-luprsResponseStatus = Lens.lens (responseStatus :: ListUserPoolsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUserPoolsResponse)
-{-# DEPRECATED luprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+luprrsResponseStatus :: Lens.Lens' ListUserPoolsResponse Core.Int
+luprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED luprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

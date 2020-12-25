@@ -630,7 +630,7 @@ responseUpdatePrimaryEmailAddress =
   res
     "UpdatePrimaryEmailAddressResponse"
     "fixture/UpdatePrimaryEmailAddressResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePrimaryEmailAddress)
 
 responseDescribeResource :: DescribeResourceResponse -> TestTree
@@ -638,7 +638,7 @@ responseDescribeResource =
   res
     "DescribeResourceResponse"
     "fixture/DescribeResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DescribeResource)
 
 responseCreateOrganization :: CreateOrganizationResponse -> TestTree
@@ -646,7 +646,7 @@ responseCreateOrganization =
   res
     "CreateOrganizationResponse"
     "fixture/CreateOrganizationResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy CreateOrganization)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
@@ -654,7 +654,7 @@ responseCreateAlias =
   res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy CreateAlias)
 
 responseDeleteOrganization :: DeleteOrganizationResponse -> TestTree
@@ -662,7 +662,7 @@ responseDeleteOrganization =
   res
     "DeleteOrganizationResponse"
     "fixture/DeleteOrganizationResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteOrganization)
 
 responseResetPassword :: ResetPasswordResponse -> TestTree
@@ -670,7 +670,7 @@ responseResetPassword =
   res
     "ResetPasswordResponse"
     "fixture/ResetPasswordResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ResetPassword)
 
 responseDescribeGroup :: DescribeGroupResponse -> TestTree
@@ -678,7 +678,7 @@ responseDescribeGroup =
   res
     "DescribeGroupResponse"
     "fixture/DescribeGroupResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DescribeGroup)
 
 responseDescribeMailboxExportJob :: DescribeMailboxExportJobResponse -> TestTree
@@ -686,7 +686,7 @@ responseDescribeMailboxExportJob =
   res
     "DescribeMailboxExportJobResponse"
     "fixture/DescribeMailboxExportJobResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMailboxExportJob)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -694,7 +694,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterToWorkMail :: RegisterToWorkMailResponse -> TestTree
@@ -702,7 +702,7 @@ responseRegisterToWorkMail =
   res
     "RegisterToWorkMailResponse"
     "fixture/RegisterToWorkMailResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy RegisterToWorkMail)
 
 responseListAliases :: ListAliasesResponse -> TestTree
@@ -710,7 +710,7 @@ responseListAliases =
   res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListAliases)
 
 responsePutMailboxPermissions :: PutMailboxPermissionsResponse -> TestTree
@@ -718,7 +718,7 @@ responsePutMailboxPermissions =
   res
     "PutMailboxPermissionsResponse"
     "fixture/PutMailboxPermissionsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy PutMailboxPermissions)
 
 responseDeleteMailboxPermissions :: DeleteMailboxPermissionsResponse -> TestTree
@@ -726,7 +726,7 @@ responseDeleteMailboxPermissions =
   res
     "DeleteMailboxPermissionsResponse"
     "fixture/DeleteMailboxPermissionsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMailboxPermissions)
 
 responseListUsers :: ListUsersResponse -> TestTree
@@ -734,7 +734,7 @@ responseListUsers =
   res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListUsers)
 
 responseGetMailboxDetails :: GetMailboxDetailsResponse -> TestTree
@@ -742,7 +742,7 @@ responseGetMailboxDetails =
   res
     "GetMailboxDetailsResponse"
     "fixture/GetMailboxDetailsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy GetMailboxDetails)
 
 responseAssociateMemberToGroup :: AssociateMemberToGroupResponse -> TestTree
@@ -750,7 +750,7 @@ responseAssociateMemberToGroup =
   res
     "AssociateMemberToGroupResponse"
     "fixture/AssociateMemberToGroupResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy AssociateMemberToGroup)
 
 responseDeleteResource :: DeleteResourceResponse -> TestTree
@@ -758,7 +758,7 @@ responseDeleteResource =
   res
     "DeleteResourceResponse"
     "fixture/DeleteResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResource)
 
 responseUpdateResource :: UpdateResourceResponse -> TestTree
@@ -766,7 +766,7 @@ responseUpdateResource =
   res
     "UpdateResourceResponse"
     "fixture/UpdateResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy UpdateResource)
 
 responseDisassociateMemberFromGroup :: DisassociateMemberFromGroupResponse -> TestTree
@@ -774,7 +774,7 @@ responseDisassociateMemberFromGroup =
   res
     "DisassociateMemberFromGroupResponse"
     "fixture/DisassociateMemberFromGroupResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateMemberFromGroup)
 
 responseListResources :: ListResourcesResponse -> TestTree
@@ -782,7 +782,7 @@ responseListResources =
   res
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListResources)
 
 responseDeregisterFromWorkMail :: DeregisterFromWorkMailResponse -> TestTree
@@ -790,7 +790,7 @@ responseDeregisterFromWorkMail =
   res
     "DeregisterFromWorkMailResponse"
     "fixture/DeregisterFromWorkMailResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterFromWorkMail)
 
 responseListMailboxExportJobs :: ListMailboxExportJobsResponse -> TestTree
@@ -798,7 +798,7 @@ responseListMailboxExportJobs =
   res
     "ListMailboxExportJobsResponse"
     "fixture/ListMailboxExportJobsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListMailboxExportJobs)
 
 responseListMailboxPermissions :: ListMailboxPermissionsResponse -> TestTree
@@ -806,7 +806,7 @@ responseListMailboxPermissions =
   res
     "ListMailboxPermissionsResponse"
     "fixture/ListMailboxPermissionsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListMailboxPermissions)
 
 responseListGroupMembers :: ListGroupMembersResponse -> TestTree
@@ -814,7 +814,7 @@ responseListGroupMembers =
   res
     "ListGroupMembersResponse"
     "fixture/ListGroupMembersResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListGroupMembers)
 
 responseDisassociateDelegateFromResource :: DisassociateDelegateFromResourceResponse -> TestTree
@@ -822,7 +822,7 @@ responseDisassociateDelegateFromResource =
   res
     "DisassociateDelegateFromResourceResponse"
     "fixture/DisassociateDelegateFromResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateDelegateFromResource)
 
 responseDeleteAccessControlRule :: DeleteAccessControlRuleResponse -> TestTree
@@ -830,7 +830,7 @@ responseDeleteAccessControlRule =
   res
     "DeleteAccessControlRuleResponse"
     "fixture/DeleteAccessControlRuleResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAccessControlRule)
 
 responseListResourceDelegates :: ListResourceDelegatesResponse -> TestTree
@@ -838,7 +838,7 @@ responseListResourceDelegates =
   res
     "ListResourceDelegatesResponse"
     "fixture/ListResourceDelegatesResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListResourceDelegates)
 
 responseListAccessControlRules :: ListAccessControlRulesResponse -> TestTree
@@ -846,7 +846,7 @@ responseListAccessControlRules =
   res
     "ListAccessControlRulesResponse"
     "fixture/ListAccessControlRulesResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListAccessControlRules)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
@@ -854,7 +854,7 @@ responseDescribeUser =
   res
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUser)
 
 responsePutAccessControlRule :: PutAccessControlRuleResponse -> TestTree
@@ -862,7 +862,7 @@ responsePutAccessControlRule =
   res
     "PutAccessControlRuleResponse"
     "fixture/PutAccessControlRuleResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy PutAccessControlRule)
 
 responseStartMailboxExportJob :: StartMailboxExportJobResponse -> TestTree
@@ -870,7 +870,7 @@ responseStartMailboxExportJob =
   res
     "StartMailboxExportJobResponse"
     "fixture/StartMailboxExportJobResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy StartMailboxExportJob)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
@@ -878,7 +878,7 @@ responseDeleteAlias =
   res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAlias)
 
 responseListOrganizations :: ListOrganizationsResponse -> TestTree
@@ -886,7 +886,7 @@ responseListOrganizations =
   res
     "ListOrganizationsResponse"
     "fixture/ListOrganizationsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListOrganizations)
 
 responseAssociateDelegateToResource :: AssociateDelegateToResourceResponse -> TestTree
@@ -894,7 +894,7 @@ responseAssociateDelegateToResource =
   res
     "AssociateDelegateToResourceResponse"
     "fixture/AssociateDelegateToResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy AssociateDelegateToResource)
 
 responseGetAccessControlEffect :: GetAccessControlEffectResponse -> TestTree
@@ -902,7 +902,7 @@ responseGetAccessControlEffect =
   res
     "GetAccessControlEffectResponse"
     "fixture/GetAccessControlEffectResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy GetAccessControlEffect)
 
 responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
@@ -910,7 +910,7 @@ responseDeleteRetentionPolicy =
   res
     "DeleteRetentionPolicyResponse"
     "fixture/DeleteRetentionPolicyResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRetentionPolicy)
 
 responseCreateUser :: CreateUserResponse -> TestTree
@@ -918,7 +918,7 @@ responseCreateUser =
   res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
@@ -926,7 +926,7 @@ responsePutRetentionPolicy =
   res
     "PutRetentionPolicyResponse"
     "fixture/PutRetentionPolicyResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy PutRetentionPolicy)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
@@ -934,7 +934,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -942,7 +942,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
@@ -950,7 +950,7 @@ responseCreateGroup =
   res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseUpdateMailboxQuota :: UpdateMailboxQuotaResponse -> TestTree
@@ -958,7 +958,7 @@ responseUpdateMailboxQuota =
   res
     "UpdateMailboxQuotaResponse"
     "fixture/UpdateMailboxQuotaResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMailboxQuota)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -966,7 +966,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
@@ -974,7 +974,7 @@ responseDeleteGroup =
   res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
@@ -982,7 +982,7 @@ responseListGroups =
   res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseDescribeOrganization :: DescribeOrganizationResponse -> TestTree
@@ -990,7 +990,7 @@ responseDescribeOrganization =
   res
     "DescribeOrganizationResponse"
     "fixture/DescribeOrganizationResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrganization)
 
 responseCreateResource :: CreateResourceResponse -> TestTree
@@ -998,7 +998,7 @@ responseCreateResource =
   res
     "CreateResourceResponse"
     "fixture/CreateResourceResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy CreateResource)
 
 responseGetDefaultRetentionPolicy :: GetDefaultRetentionPolicyResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseGetDefaultRetentionPolicy =
   res
     "GetDefaultRetentionPolicyResponse"
     "fixture/GetDefaultRetentionPolicyResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy GetDefaultRetentionPolicy)
 
 responseCancelMailboxExportJob :: CancelMailboxExportJobResponse -> TestTree
@@ -1014,5 +1014,5 @@ responseCancelMailboxExportJob =
   res
     "CancelMailboxExportJobResponse"
     "fixture/CancelMailboxExportJobResponse.proto"
-    workMailService
+    mkServiceConfig
     (Proxy :: Proxy CancelMailboxExportJob)

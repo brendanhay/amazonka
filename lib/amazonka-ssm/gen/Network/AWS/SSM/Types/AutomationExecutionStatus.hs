@@ -13,76 +13,81 @@
 module Network.AWS.SSM.Types.AutomationExecutionStatus
   ( AutomationExecutionStatus
       ( AutomationExecutionStatus',
-        AESPending,
-        AESInProgress,
-        AESWaiting,
-        AESSuccess,
-        AESTimedOut,
-        AESCancelling,
-        AESCancelled,
-        AESFailed
+        AutomationExecutionStatusPending,
+        AutomationExecutionStatusInProgress,
+        AutomationExecutionStatusWaiting,
+        AutomationExecutionStatusSuccess,
+        AutomationExecutionStatusTimedOut,
+        AutomationExecutionStatusCancelling,
+        AutomationExecutionStatusCancelled,
+        AutomationExecutionStatusFailed,
+        fromAutomationExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutomationExecutionStatus = AutomationExecutionStatus' Lude.Text
+newtype AutomationExecutionStatus = AutomationExecutionStatus'
+  { fromAutomationExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AESPending :: AutomationExecutionStatus
-pattern AESPending = AutomationExecutionStatus' "Pending"
+pattern AutomationExecutionStatusPending :: AutomationExecutionStatus
+pattern AutomationExecutionStatusPending = AutomationExecutionStatus' "Pending"
 
-pattern AESInProgress :: AutomationExecutionStatus
-pattern AESInProgress = AutomationExecutionStatus' "InProgress"
+pattern AutomationExecutionStatusInProgress :: AutomationExecutionStatus
+pattern AutomationExecutionStatusInProgress = AutomationExecutionStatus' "InProgress"
 
-pattern AESWaiting :: AutomationExecutionStatus
-pattern AESWaiting = AutomationExecutionStatus' "Waiting"
+pattern AutomationExecutionStatusWaiting :: AutomationExecutionStatus
+pattern AutomationExecutionStatusWaiting = AutomationExecutionStatus' "Waiting"
 
-pattern AESSuccess :: AutomationExecutionStatus
-pattern AESSuccess = AutomationExecutionStatus' "Success"
+pattern AutomationExecutionStatusSuccess :: AutomationExecutionStatus
+pattern AutomationExecutionStatusSuccess = AutomationExecutionStatus' "Success"
 
-pattern AESTimedOut :: AutomationExecutionStatus
-pattern AESTimedOut = AutomationExecutionStatus' "TimedOut"
+pattern AutomationExecutionStatusTimedOut :: AutomationExecutionStatus
+pattern AutomationExecutionStatusTimedOut = AutomationExecutionStatus' "TimedOut"
 
-pattern AESCancelling :: AutomationExecutionStatus
-pattern AESCancelling = AutomationExecutionStatus' "Cancelling"
+pattern AutomationExecutionStatusCancelling :: AutomationExecutionStatus
+pattern AutomationExecutionStatusCancelling = AutomationExecutionStatus' "Cancelling"
 
-pattern AESCancelled :: AutomationExecutionStatus
-pattern AESCancelled = AutomationExecutionStatus' "Cancelled"
+pattern AutomationExecutionStatusCancelled :: AutomationExecutionStatus
+pattern AutomationExecutionStatusCancelled = AutomationExecutionStatus' "Cancelled"
 
-pattern AESFailed :: AutomationExecutionStatus
-pattern AESFailed = AutomationExecutionStatus' "Failed"
+pattern AutomationExecutionStatusFailed :: AutomationExecutionStatus
+pattern AutomationExecutionStatusFailed = AutomationExecutionStatus' "Failed"
 
 {-# COMPLETE
-  AESPending,
-  AESInProgress,
-  AESWaiting,
-  AESSuccess,
-  AESTimedOut,
-  AESCancelling,
-  AESCancelled,
-  AESFailed,
+  AutomationExecutionStatusPending,
+  AutomationExecutionStatusInProgress,
+  AutomationExecutionStatusWaiting,
+  AutomationExecutionStatusSuccess,
+  AutomationExecutionStatusTimedOut,
+  AutomationExecutionStatusCancelling,
+  AutomationExecutionStatusCancelled,
+  AutomationExecutionStatusFailed,
   AutomationExecutionStatus'
   #-}

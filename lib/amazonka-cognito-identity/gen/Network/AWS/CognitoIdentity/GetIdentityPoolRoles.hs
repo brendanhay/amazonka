@@ -29,143 +29,128 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     mkGetIdentityPoolRolesResponse,
 
     -- ** Response lenses
-    giprrsRoles,
-    giprrsIdentityPoolId,
-    giprrsRoleMappings,
-    giprrsResponseStatus,
+    giprrrsIdentityPoolId,
+    giprrrsRoleMappings,
+    giprrrsRoles,
+    giprrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the @GetIdentityPoolRoles@ action.
 --
 -- /See:/ 'mkGetIdentityPoolRoles' smart constructor.
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Text
+    identityPoolId :: Types.IdentityPoolId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetIdentityPoolRoles' with the minimum fields required to make a request.
---
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- | Creates a 'GetIdentityPoolRoles' value with any optional fields omitted.
 mkGetIdentityPoolRoles ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   GetIdentityPoolRoles
-mkGetIdentityPoolRoles pIdentityPoolId_ =
-  GetIdentityPoolRoles' {identityPoolId = pIdentityPoolId_}
+mkGetIdentityPoolRoles identityPoolId =
+  GetIdentityPoolRoles' {identityPoolId}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprIdentityPoolId :: Lens.Lens' GetIdentityPoolRoles Lude.Text
-giprIdentityPoolId = Lens.lens (identityPoolId :: GetIdentityPoolRoles -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetIdentityPoolRoles)
+giprIdentityPoolId :: Lens.Lens' GetIdentityPoolRoles Types.IdentityPoolId
+giprIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED giprIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance Lude.AWSRequest GetIdentityPoolRoles where
+instance Core.FromJSON GetIdentityPoolRoles where
+  toJSON GetIdentityPoolRoles {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("IdentityPoolId" Core..= identityPoolId)]
+      )
+
+instance Core.AWSRequest GetIdentityPoolRoles where
   type Rs GetIdentityPoolRoles = GetIdentityPoolRolesResponse
-  request = Req.postJSON cognitoIdentityService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityService.GetIdentityPoolRoles")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetIdentityPoolRolesResponse'
-            Lude.<$> (x Lude..?> "Roles" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "IdentityPoolId")
-            Lude.<*> (x Lude..?> "RoleMappings" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "IdentityPoolId")
+            Core.<*> (x Core..:? "RoleMappings")
+            Core.<*> (x Core..:? "Roles")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetIdentityPoolRoles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityService.GetIdentityPoolRoles" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetIdentityPoolRoles where
-  toJSON GetIdentityPoolRoles' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("IdentityPoolId" Lude..= identityPoolId)]
-      )
-
-instance Lude.ToPath GetIdentityPoolRoles where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetIdentityPoolRoles where
-  toQuery = Lude.const Lude.mempty
 
 -- | Returned in response to a successful @GetIdentityPoolRoles@ operation.
 --
 -- /See:/ 'mkGetIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-  { -- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
-    roles :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Maybe Lude.Text,
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Core.Maybe Types.IdentityPoolId,
     -- | How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-    roleMappings :: Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping)),
+    roleMappings :: Core.Maybe (Core.HashMap Types.IdentityProviderName Types.RoleMapping),
+    -- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
+    roles :: Core.Maybe (Core.HashMap Types.RoleType Types.ARNString),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetIdentityPoolRolesResponse' with the minimum fields required to make a request.
---
--- * 'roles' - The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'roleMappings' - How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetIdentityPoolRolesResponse' value with any optional fields omitted.
 mkGetIdentityPoolRolesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetIdentityPoolRolesResponse
-mkGetIdentityPoolRolesResponse pResponseStatus_ =
+mkGetIdentityPoolRolesResponse responseStatus =
   GetIdentityPoolRolesResponse'
-    { roles = Lude.Nothing,
-      identityPoolId = Lude.Nothing,
-      roleMappings = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { identityPoolId = Core.Nothing,
+      roleMappings = Core.Nothing,
+      roles = Core.Nothing,
+      responseStatus
     }
-
--- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
---
--- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprrsRoles :: Lens.Lens' GetIdentityPoolRolesResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-giprrsRoles = Lens.lens (roles :: GetIdentityPoolRolesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {roles = a} :: GetIdentityPoolRolesResponse)
-{-# DEPRECATED giprrsRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprrsIdentityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Lude.Maybe Lude.Text)
-giprrsIdentityPoolId = Lens.lens (identityPoolId :: GetIdentityPoolRolesResponse -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolId = a} :: GetIdentityPoolRolesResponse)
-{-# DEPRECATED giprrsIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+giprrrsIdentityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Core.Maybe Types.IdentityPoolId)
+giprrrsIdentityPoolId = Lens.field @"identityPoolId"
+{-# DEPRECATED giprrrsIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
 --
 -- /Note:/ Consider using 'roleMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprrsRoleMappings :: Lens.Lens' GetIdentityPoolRolesResponse (Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping)))
-giprrsRoleMappings = Lens.lens (roleMappings :: GetIdentityPoolRolesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping))) (\s a -> s {roleMappings = a} :: GetIdentityPoolRolesResponse)
-{-# DEPRECATED giprrsRoleMappings "Use generic-lens or generic-optics with 'roleMappings' instead." #-}
+giprrrsRoleMappings :: Lens.Lens' GetIdentityPoolRolesResponse (Core.Maybe (Core.HashMap Types.IdentityProviderName Types.RoleMapping))
+giprrrsRoleMappings = Lens.field @"roleMappings"
+{-# DEPRECATED giprrrsRoleMappings "Use generic-lens or generic-optics with 'roleMappings' instead." #-}
+
+-- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
+--
+-- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprrrsRoles :: Lens.Lens' GetIdentityPoolRolesResponse (Core.Maybe (Core.HashMap Types.RoleType Types.ARNString))
+giprrrsRoles = Lens.field @"roles"
+{-# DEPRECATED giprrrsRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprrsResponseStatus :: Lens.Lens' GetIdentityPoolRolesResponse Lude.Int
-giprrsResponseStatus = Lens.lens (responseStatus :: GetIdentityPoolRolesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityPoolRolesResponse)
-{-# DEPRECATED giprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+giprrrsResponseStatus :: Lens.Lens' GetIdentityPoolRolesResponse Core.Int
+giprrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED giprrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -83,78 +83,38 @@ module Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
     mkGetHLSStreamingSessionURL,
 
     -- ** Request lenses
-    ghlsssuDisplayFragmentTimestamp,
-    ghlsssuHLSFragmentSelector,
-    ghlsssuExpires,
-    ghlsssuStreamARN,
-    ghlsssuPlaybackMode,
-    ghlsssuContainerFormat,
-    ghlsssuMaxMediaPlaylistFragmentResults,
-    ghlsssuDiscontinuityMode,
-    ghlsssuStreamName,
+    ghlsssurlContainerFormat,
+    ghlsssurlDiscontinuityMode,
+    ghlsssurlDisplayFragmentTimestamp,
+    ghlsssurlExpires,
+    ghlsssurlHLSFragmentSelector,
+    ghlsssurlMaxMediaPlaylistFragmentResults,
+    ghlsssurlPlaybackMode,
+    ghlsssurlStreamARN,
+    ghlsssurlStreamName,
 
     -- * Destructuring the response
     GetHLSStreamingSessionURLResponse (..),
     mkGetHLSStreamingSessionURLResponse,
 
     -- ** Response lenses
-    ghlsssursHLSStreamingSessionURL,
-    ghlsssursResponseStatus,
+    ghlsssurlrrsHLSStreamingSessionURL,
+    ghlsssurlrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideoArchivedMedia.Types
+import qualified Network.AWS.KinesisVideoArchivedMedia.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetHLSStreamingSessionURL' smart constructor.
 data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
-  { -- | Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
-    --
-    -- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
-    displayFragmentTimestamp :: Lude.Maybe HLSDisplayFragmentTimestamp,
-    -- | The time range of the requested fragment and the source of the timestamps.
-    --
-    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
-    hLSFragmentSelector :: Lude.Maybe HLSFragmentSelector,
-    -- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
-    --
-    -- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
-    -- The default is 300 (5 minutes).
-    expires :: Lude.Maybe Lude.Natural,
-    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
-    --
-    -- You must specify either the @StreamName@ or the @StreamARN@ .
-    streamARN :: Lude.Maybe Lude.Text,
-    -- | Whether to retrieve live, live replay, or archived, on-demand data.
-    --
-    -- Features of the three types of sessions include the following:
-    --
-    --     * __@LIVE@ __ : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
-    --
-    --
-    --     * __@LIVE_REPLAY@ __ : For sessions of this type, the HLS media playlist is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the media playlist every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
-    --
-    --
-    --     * __@ON_DEMAND@ __ : For sessions of this type, the HLS media playlist contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The playlist must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
-    --
-    --
-    -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
-    -- The default is @LIVE@ .
-    playbackMode :: Lude.Maybe HLSPlaybackMode,
-    -- | Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
+  { -- | Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
     --
     -- The default is @FRAGMENTED_MP4@ .
-    containerFormat :: Lude.Maybe ContainerFormat,
-    -- | The maximum number of fragments that are returned in the HLS media playlists.
-    --
-    -- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
-    -- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
-    -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
-    -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
-    maxMediaPlaylistFragmentResults :: Lude.Maybe Lude.Natural,
+    containerFormat :: Core.Maybe Types.ContainerFormat,
     -- | Specifies when flags marking discontinuities between fragments are added to the media playlists.
     --
     -- Media players typically build a timeline of media content to play, based on the timestamps of each fragment. This means that if there is any overlap or gap between fragments (as is typical if 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ ), the media player timeline will also have small gaps between fragments in some places, and will overwrite frames in other places. Gaps in the media player timeline can cause playback to stall and overlaps can cause playback to be jittery. When there are discontinuity flags between fragments, the media player is expected to reset the timeline, resulting in the next fragment being played immediately after the previous fragment.
@@ -170,166 +130,79 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     --
     --
     -- The default is @ALWAYS@ when 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ , and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@ .
-    discontinuityMode :: Lude.Maybe HLSDiscontinuityMode,
+    discontinuityMode :: Core.Maybe Types.HLSDiscontinuityMode,
+    -- | Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
+    --
+    -- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
+    displayFragmentTimestamp :: Core.Maybe Types.HLSDisplayFragmentTimestamp,
+    -- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
+    --
+    -- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
+    -- The default is 300 (5 minutes).
+    expires :: Core.Maybe Core.Natural,
+    -- | The time range of the requested fragment and the source of the timestamps.
+    --
+    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
+    hLSFragmentSelector :: Core.Maybe Types.HLSFragmentSelector,
+    -- | The maximum number of fragments that are returned in the HLS media playlists.
+    --
+    -- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
+    -- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
+    -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
+    -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+    maxMediaPlaylistFragmentResults :: Core.Maybe Core.Natural,
+    -- | Whether to retrieve live, live replay, or archived, on-demand data.
+    --
+    -- Features of the three types of sessions include the following:
+    --
+    --     * __@LIVE@ __ : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
+    --
+    --
+    --     * __@LIVE_REPLAY@ __ : For sessions of this type, the HLS media playlist is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the media playlist every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
+    --
+    --
+    --     * __@ON_DEMAND@ __ : For sessions of this type, the HLS media playlist contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The playlist must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
+    --
+    --
+    -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
+    -- The default is @LIVE@ .
+    playbackMode :: Core.Maybe Types.HLSPlaybackMode,
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@ .
+    streamARN :: Core.Maybe Types.StreamARN,
     -- | The name of the stream for which to retrieve the HLS master playlist URL.
     --
     -- You must specify either the @StreamName@ or the @StreamARN@ .
-    streamName :: Lude.Maybe Lude.Text
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetHLSStreamingSessionURL' with the minimum fields required to make a request.
---
--- * 'displayFragmentTimestamp' - Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
---
--- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
--- * 'hLSFragmentSelector' - The time range of the requested fragment and the source of the timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
--- * 'expires' - The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
---
--- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
--- The default is 300 (5 minutes).
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
--- * 'playbackMode' - Whether to retrieve live, live replay, or archived, on-demand data.
---
--- Features of the three types of sessions include the following:
---
---     * __@LIVE@ __ : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
---
---
---     * __@LIVE_REPLAY@ __ : For sessions of this type, the HLS media playlist is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the media playlist every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
---
---
---     * __@ON_DEMAND@ __ : For sessions of this type, the HLS media playlist contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The playlist must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
---
---
--- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
--- The default is @LIVE@ .
--- * 'containerFormat' - Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
---
--- The default is @FRAGMENTED_MP4@ .
--- * 'maxMediaPlaylistFragmentResults' - The maximum number of fragments that are returned in the HLS media playlists.
---
--- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
--- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
--- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
--- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
--- * 'discontinuityMode' - Specifies when flags marking discontinuities between fragments are added to the media playlists.
---
--- Media players typically build a timeline of media content to play, based on the timestamps of each fragment. This means that if there is any overlap or gap between fragments (as is typical if 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ ), the media player timeline will also have small gaps between fragments in some places, and will overwrite frames in other places. Gaps in the media player timeline can cause playback to stall and overlaps can cause playback to be jittery. When there are discontinuity flags between fragments, the media player is expected to reset the timeline, resulting in the next fragment being played immediately after the previous fragment.
--- The following modes are supported:
---
---     * @ALWAYS@ : a discontinuity marker is placed between every fragment in the HLS media playlist. It is recommended to use a value of @ALWAYS@ if the fragment timestamps are not accurate.
---
---
---     * @NEVER@ : no discontinuity markers are placed anywhere. It is recommended to use a value of @NEVER@ to ensure the media player timeline most accurately maps to the producer timestamps.
---
---
---     * @ON_DISCONTIUNITY@ : a discontinuity marker is placed between fragments that have a gap or overlap of more than 50 milliseconds. For most playback scenarios, it is recommended to use a value of @ON_DISCONTINUITY@ so that the media player timeline is only reset when there is a significant issue with the media timeline (e.g. a missing fragment).
---
---
--- The default is @ALWAYS@ when 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ , and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@ .
--- * 'streamName' - The name of the stream for which to retrieve the HLS master playlist URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
+-- | Creates a 'GetHLSStreamingSessionURL' value with any optional fields omitted.
 mkGetHLSStreamingSessionURL ::
   GetHLSStreamingSessionURL
 mkGetHLSStreamingSessionURL =
   GetHLSStreamingSessionURL'
-    { displayFragmentTimestamp =
-        Lude.Nothing,
-      hLSFragmentSelector = Lude.Nothing,
-      expires = Lude.Nothing,
-      streamARN = Lude.Nothing,
-      playbackMode = Lude.Nothing,
-      containerFormat = Lude.Nothing,
-      maxMediaPlaylistFragmentResults = Lude.Nothing,
-      discontinuityMode = Lude.Nothing,
-      streamName = Lude.Nothing
+    { containerFormat = Core.Nothing,
+      discontinuityMode = Core.Nothing,
+      displayFragmentTimestamp = Core.Nothing,
+      expires = Core.Nothing,
+      hLSFragmentSelector = Core.Nothing,
+      maxMediaPlaylistFragmentResults = Core.Nothing,
+      playbackMode = Core.Nothing,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing
     }
-
--- | Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
---
--- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
---
--- /Note:/ Consider using 'displayFragmentTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuDisplayFragmentTimestamp :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe HLSDisplayFragmentTimestamp)
-ghlsssuDisplayFragmentTimestamp = Lens.lens (displayFragmentTimestamp :: GetHLSStreamingSessionURL -> Lude.Maybe HLSDisplayFragmentTimestamp) (\s a -> s {displayFragmentTimestamp = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuDisplayFragmentTimestamp "Use generic-lens or generic-optics with 'displayFragmentTimestamp' instead." #-}
-
--- | The time range of the requested fragment and the source of the timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
---
--- /Note:/ Consider using 'hLSFragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuHLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe HLSFragmentSelector)
-ghlsssuHLSFragmentSelector = Lens.lens (hLSFragmentSelector :: GetHLSStreamingSessionURL -> Lude.Maybe HLSFragmentSelector) (\s a -> s {hLSFragmentSelector = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuHLSFragmentSelector "Use generic-lens or generic-optics with 'hLSFragmentSelector' instead." #-}
-
--- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
---
--- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
--- The default is 300 (5 minutes).
---
--- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuExpires :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe Lude.Natural)
-ghlsssuExpires = Lens.lens (expires :: GetHLSStreamingSessionURL -> Lude.Maybe Lude.Natural) (\s a -> s {expires = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuStreamARN :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe Lude.Text)
-ghlsssuStreamARN = Lens.lens (streamARN :: GetHLSStreamingSessionURL -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
-
--- | Whether to retrieve live, live replay, or archived, on-demand data.
---
--- Features of the three types of sessions include the following:
---
---     * __@LIVE@ __ : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
---
---
---     * __@LIVE_REPLAY@ __ : For sessions of this type, the HLS media playlist is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the media playlist every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
---
---
---     * __@ON_DEMAND@ __ : For sessions of this type, the HLS media playlist contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The playlist must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
---
---
--- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
--- The default is @LIVE@ .
---
--- /Note:/ Consider using 'playbackMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuPlaybackMode :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe HLSPlaybackMode)
-ghlsssuPlaybackMode = Lens.lens (playbackMode :: GetHLSStreamingSessionURL -> Lude.Maybe HLSPlaybackMode) (\s a -> s {playbackMode = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuPlaybackMode "Use generic-lens or generic-optics with 'playbackMode' instead." #-}
 
 -- | Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
 --
 -- The default is @FRAGMENTED_MP4@ .
 --
 -- /Note:/ Consider using 'containerFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuContainerFormat :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe ContainerFormat)
-ghlsssuContainerFormat = Lens.lens (containerFormat :: GetHLSStreamingSessionURL -> Lude.Maybe ContainerFormat) (\s a -> s {containerFormat = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuContainerFormat "Use generic-lens or generic-optics with 'containerFormat' instead." #-}
-
--- | The maximum number of fragments that are returned in the HLS media playlists.
---
--- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
--- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
--- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
--- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
---
--- /Note:/ Consider using 'maxMediaPlaylistFragmentResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuMaxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe Lude.Natural)
-ghlsssuMaxMediaPlaylistFragmentResults = Lens.lens (maxMediaPlaylistFragmentResults :: GetHLSStreamingSessionURL -> Lude.Maybe Lude.Natural) (\s a -> s {maxMediaPlaylistFragmentResults = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuMaxMediaPlaylistFragmentResults "Use generic-lens or generic-optics with 'maxMediaPlaylistFragmentResults' instead." #-}
+ghlsssurlContainerFormat :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.ContainerFormat)
+ghlsssurlContainerFormat = Lens.field @"containerFormat"
+{-# DEPRECATED ghlsssurlContainerFormat "Use generic-lens or generic-optics with 'containerFormat' instead." #-}
 
 -- | Specifies when flags marking discontinuities between fragments are added to the media playlists.
 --
@@ -348,94 +221,160 @@ ghlsssuMaxMediaPlaylistFragmentResults = Lens.lens (maxMediaPlaylistFragmentResu
 -- The default is @ALWAYS@ when 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ , and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@ .
 --
 -- /Note:/ Consider using 'discontinuityMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuDiscontinuityMode :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe HLSDiscontinuityMode)
-ghlsssuDiscontinuityMode = Lens.lens (discontinuityMode :: GetHLSStreamingSessionURL -> Lude.Maybe HLSDiscontinuityMode) (\s a -> s {discontinuityMode = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuDiscontinuityMode "Use generic-lens or generic-optics with 'discontinuityMode' instead." #-}
+ghlsssurlDiscontinuityMode :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.HLSDiscontinuityMode)
+ghlsssurlDiscontinuityMode = Lens.field @"discontinuityMode"
+{-# DEPRECATED ghlsssurlDiscontinuityMode "Use generic-lens or generic-optics with 'discontinuityMode' instead." #-}
+
+-- | Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
+--
+-- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
+--
+-- /Note:/ Consider using 'displayFragmentTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghlsssurlDisplayFragmentTimestamp :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.HLSDisplayFragmentTimestamp)
+ghlsssurlDisplayFragmentTimestamp = Lens.field @"displayFragmentTimestamp"
+{-# DEPRECATED ghlsssurlDisplayFragmentTimestamp "Use generic-lens or generic-optics with 'displayFragmentTimestamp' instead." #-}
+
+-- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
+--
+-- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
+-- The default is 300 (5 minutes).
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghlsssurlExpires :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Core.Natural)
+ghlsssurlExpires = Lens.field @"expires"
+{-# DEPRECATED ghlsssurlExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
+-- | The time range of the requested fragment and the source of the timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
+--
+-- /Note:/ Consider using 'hLSFragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghlsssurlHLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.HLSFragmentSelector)
+ghlsssurlHLSFragmentSelector = Lens.field @"hLSFragmentSelector"
+{-# DEPRECATED ghlsssurlHLSFragmentSelector "Use generic-lens or generic-optics with 'hLSFragmentSelector' instead." #-}
+
+-- | The maximum number of fragments that are returned in the HLS media playlists.
+--
+-- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
+-- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
+-- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
+-- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+--
+-- /Note:/ Consider using 'maxMediaPlaylistFragmentResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghlsssurlMaxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Core.Natural)
+ghlsssurlMaxMediaPlaylistFragmentResults = Lens.field @"maxMediaPlaylistFragmentResults"
+{-# DEPRECATED ghlsssurlMaxMediaPlaylistFragmentResults "Use generic-lens or generic-optics with 'maxMediaPlaylistFragmentResults' instead." #-}
+
+-- | Whether to retrieve live, live replay, or archived, on-demand data.
+--
+-- Features of the three types of sessions include the following:
+--
+--     * __@LIVE@ __ : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
+--
+--
+--     * __@LIVE_REPLAY@ __ : For sessions of this type, the HLS media playlist is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the media playlist every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
+--
+--
+--     * __@ON_DEMAND@ __ : For sessions of this type, the HLS media playlist contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The playlist must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
+--
+--
+-- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
+-- The default is @LIVE@ .
+--
+-- /Note:/ Consider using 'playbackMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghlsssurlPlaybackMode :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.HLSPlaybackMode)
+ghlsssurlPlaybackMode = Lens.field @"playbackMode"
+{-# DEPRECATED ghlsssurlPlaybackMode "Use generic-lens or generic-optics with 'playbackMode' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@ .
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghlsssurlStreamARN :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.StreamARN)
+ghlsssurlStreamARN = Lens.field @"streamARN"
+{-# DEPRECATED ghlsssurlStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream for which to retrieve the HLS master playlist URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@ .
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssuStreamName :: Lens.Lens' GetHLSStreamingSessionURL (Lude.Maybe Lude.Text)
-ghlsssuStreamName = Lens.lens (streamName :: GetHLSStreamingSessionURL -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: GetHLSStreamingSessionURL)
-{-# DEPRECATED ghlsssuStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+ghlsssurlStreamName :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Types.StreamName)
+ghlsssurlStreamName = Lens.field @"streamName"
+{-# DEPRECATED ghlsssurlStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest GetHLSStreamingSessionURL where
-  type
-    Rs GetHLSStreamingSessionURL =
-      GetHLSStreamingSessionURLResponse
-  request = Req.postJSON kinesisVideoArchivedMediaService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetHLSStreamingSessionURLResponse'
-            Lude.<$> (x Lude..?> "HLSStreamingSessionURL")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetHLSStreamingSessionURL where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetHLSStreamingSessionURL where
-  toJSON GetHLSStreamingSessionURL' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DisplayFragmentTimestamp" Lude..=)
-              Lude.<$> displayFragmentTimestamp,
-            ("HLSFragmentSelector" Lude..=) Lude.<$> hLSFragmentSelector,
-            ("Expires" Lude..=) Lude.<$> expires,
-            ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("PlaybackMode" Lude..=) Lude.<$> playbackMode,
-            ("ContainerFormat" Lude..=) Lude.<$> containerFormat,
-            ("MaxMediaPlaylistFragmentResults" Lude..=)
-              Lude.<$> maxMediaPlaylistFragmentResults,
-            ("DiscontinuityMode" Lude..=) Lude.<$> discontinuityMode,
-            ("StreamName" Lude..=) Lude.<$> streamName
+instance Core.FromJSON GetHLSStreamingSessionURL where
+  toJSON GetHLSStreamingSessionURL {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ContainerFormat" Core..=) Core.<$> containerFormat,
+            ("DiscontinuityMode" Core..=) Core.<$> discontinuityMode,
+            ("DisplayFragmentTimestamp" Core..=)
+              Core.<$> displayFragmentTimestamp,
+            ("Expires" Core..=) Core.<$> expires,
+            ("HLSFragmentSelector" Core..=) Core.<$> hLSFragmentSelector,
+            ("MaxMediaPlaylistFragmentResults" Core..=)
+              Core.<$> maxMediaPlaylistFragmentResults,
+            ("PlaybackMode" Core..=) Core.<$> playbackMode,
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName
           ]
       )
 
-instance Lude.ToPath GetHLSStreamingSessionURL where
-  toPath = Lude.const "/getHLSStreamingSessionURL"
-
-instance Lude.ToQuery GetHLSStreamingSessionURL where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetHLSStreamingSessionURL where
+  type
+    Rs GetHLSStreamingSessionURL =
+      GetHLSStreamingSessionURLResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/getHLSStreamingSessionURL",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetHLSStreamingSessionURLResponse'
+            Core.<$> (x Core..:? "HLSStreamingSessionURL")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetHLSStreamingSessionURLResponse' smart constructor.
 data GetHLSStreamingSessionURLResponse = GetHLSStreamingSessionURLResponse'
   { -- | The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.
-    hLSStreamingSessionURL :: Lude.Maybe Lude.Text,
+    hLSStreamingSessionURL :: Core.Maybe Types.HLSStreamingSessionURL,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHLSStreamingSessionURLResponse' with the minimum fields required to make a request.
---
--- * 'hLSStreamingSessionURL' - The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetHLSStreamingSessionURLResponse' value with any optional fields omitted.
 mkGetHLSStreamingSessionURLResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetHLSStreamingSessionURLResponse
-mkGetHLSStreamingSessionURLResponse pResponseStatus_ =
+mkGetHLSStreamingSessionURLResponse responseStatus =
   GetHLSStreamingSessionURLResponse'
     { hLSStreamingSessionURL =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.
 --
 -- /Note:/ Consider using 'hLSStreamingSessionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssursHLSStreamingSessionURL :: Lens.Lens' GetHLSStreamingSessionURLResponse (Lude.Maybe Lude.Text)
-ghlsssursHLSStreamingSessionURL = Lens.lens (hLSStreamingSessionURL :: GetHLSStreamingSessionURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {hLSStreamingSessionURL = a} :: GetHLSStreamingSessionURLResponse)
-{-# DEPRECATED ghlsssursHLSStreamingSessionURL "Use generic-lens or generic-optics with 'hLSStreamingSessionURL' instead." #-}
+ghlsssurlrrsHLSStreamingSessionURL :: Lens.Lens' GetHLSStreamingSessionURLResponse (Core.Maybe Types.HLSStreamingSessionURL)
+ghlsssurlrrsHLSStreamingSessionURL = Lens.field @"hLSStreamingSessionURL"
+{-# DEPRECATED ghlsssurlrrsHLSStreamingSessionURL "Use generic-lens or generic-optics with 'hLSStreamingSessionURL' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghlsssursResponseStatus :: Lens.Lens' GetHLSStreamingSessionURLResponse Lude.Int
-ghlsssursResponseStatus = Lens.lens (responseStatus :: GetHLSStreamingSessionURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHLSStreamingSessionURLResponse)
-{-# DEPRECATED ghlsssursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ghlsssurlrrsResponseStatus :: Lens.Lens' GetHLSStreamingSessionURLResponse Core.Int
+ghlsssurlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ghlsssurlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

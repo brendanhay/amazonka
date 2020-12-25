@@ -22,186 +22,173 @@ module Network.AWS.MechanicalTurk.ListHITsForQualificationType
     mkListHITsForQualificationType,
 
     -- ** Request lenses
-    lhitfqtNextToken,
     lhitfqtQualificationTypeId,
     lhitfqtMaxResults,
+    lhitfqtNextToken,
 
     -- * Destructuring the response
     ListHITsForQualificationTypeResponse (..),
     mkListHITsForQualificationTypeResponse,
 
     -- ** Response lenses
-    lhitfqtrsNextToken,
-    lhitfqtrsNumResults,
-    lhitfqtrsHITs,
-    lhitfqtrsResponseStatus,
+    lhitfqtrrsHITs,
+    lhitfqtrrsNextToken,
+    lhitfqtrrsNumResults,
+    lhitfqtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListHITsForQualificationType' smart constructor.
 data ListHITsForQualificationType = ListHITsForQualificationType'
-  { -- | Pagination Token
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the Qualification type to use when querying HITs.
-    qualificationTypeId :: Lude.Text,
+  { -- | The ID of the Qualification type to use when querying HITs.
+    qualificationTypeId :: Types.QualificationTypeId,
     -- | Limit the number of results returned.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Pagination Token
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHITsForQualificationType' with the minimum fields required to make a request.
---
--- * 'nextToken' - Pagination Token
--- * 'qualificationTypeId' - The ID of the Qualification type to use when querying HITs.
--- * 'maxResults' - Limit the number of results returned.
+-- | Creates a 'ListHITsForQualificationType' value with any optional fields omitted.
 mkListHITsForQualificationType ::
   -- | 'qualificationTypeId'
-  Lude.Text ->
+  Types.QualificationTypeId ->
   ListHITsForQualificationType
-mkListHITsForQualificationType pQualificationTypeId_ =
+mkListHITsForQualificationType qualificationTypeId =
   ListHITsForQualificationType'
-    { nextToken = Lude.Nothing,
-      qualificationTypeId = pQualificationTypeId_,
-      maxResults = Lude.Nothing
+    { qualificationTypeId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Pagination Token
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtNextToken :: Lens.Lens' ListHITsForQualificationType (Lude.Maybe Lude.Text)
-lhitfqtNextToken = Lens.lens (nextToken :: ListHITsForQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHITsForQualificationType)
-{-# DEPRECATED lhitfqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the Qualification type to use when querying HITs.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtQualificationTypeId :: Lens.Lens' ListHITsForQualificationType Lude.Text
-lhitfqtQualificationTypeId = Lens.lens (qualificationTypeId :: ListHITsForQualificationType -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: ListHITsForQualificationType)
+lhitfqtQualificationTypeId :: Lens.Lens' ListHITsForQualificationType Types.QualificationTypeId
+lhitfqtQualificationTypeId = Lens.field @"qualificationTypeId"
 {-# DEPRECATED lhitfqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
 -- | Limit the number of results returned.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtMaxResults :: Lens.Lens' ListHITsForQualificationType (Lude.Maybe Lude.Natural)
-lhitfqtMaxResults = Lens.lens (maxResults :: ListHITsForQualificationType -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListHITsForQualificationType)
+lhitfqtMaxResults :: Lens.Lens' ListHITsForQualificationType (Core.Maybe Core.Natural)
+lhitfqtMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lhitfqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListHITsForQualificationType where
-  page rq rs
-    | Page.stop (rs Lens.^. lhitfqtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lhitfqtrsHITs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lhitfqtNextToken Lens..~ rs Lens.^. lhitfqtrsNextToken
+-- | Pagination Token
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhitfqtNextToken :: Lens.Lens' ListHITsForQualificationType (Core.Maybe Types.PaginationToken)
+lhitfqtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhitfqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListHITsForQualificationType where
+instance Core.FromJSON ListHITsForQualificationType where
+  toJSON ListHITsForQualificationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("QualificationTypeId" Core..= qualificationTypeId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListHITsForQualificationType where
   type
     Rs ListHITsForQualificationType =
       ListHITsForQualificationTypeResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.ListHITsForQualificationType"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListHITsForQualificationTypeResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "NumResults")
-            Lude.<*> (x Lude..?> "HITs" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "HITs")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "NumResults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListHITsForQualificationType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.ListHITsForQualificationType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListHITsForQualificationType where
-  toJSON ListHITsForQualificationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListHITsForQualificationType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListHITsForQualificationType where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListHITsForQualificationType where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"hITs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListHITsForQualificationTypeResponse' smart constructor.
 data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The list of HIT elements returned by the query.
+    hITs :: Core.Maybe [Types.HIT],
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
-    numResults :: Lude.Maybe Lude.Int,
-    -- | The list of HIT elements returned by the query.
-    hITs :: Lude.Maybe [HIT],
+    numResults :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListHITsForQualificationTypeResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'numResults' - The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
--- * 'hITs' - The list of HIT elements returned by the query.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListHITsForQualificationTypeResponse' value with any optional fields omitted.
 mkListHITsForQualificationTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListHITsForQualificationTypeResponse
-mkListHITsForQualificationTypeResponse pResponseStatus_ =
+mkListHITsForQualificationTypeResponse responseStatus =
   ListHITsForQualificationTypeResponse'
-    { nextToken = Lude.Nothing,
-      numResults = Lude.Nothing,
-      hITs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { hITs = Core.Nothing,
+      nextToken = Core.Nothing,
+      numResults = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtrsNextToken :: Lens.Lens' ListHITsForQualificationTypeResponse (Lude.Maybe Lude.Text)
-lhitfqtrsNextToken = Lens.lens (nextToken :: ListHITsForQualificationTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHITsForQualificationTypeResponse)
-{-# DEPRECATED lhitfqtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
---
--- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtrsNumResults :: Lens.Lens' ListHITsForQualificationTypeResponse (Lude.Maybe Lude.Int)
-lhitfqtrsNumResults = Lens.lens (numResults :: ListHITsForQualificationTypeResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListHITsForQualificationTypeResponse)
-{-# DEPRECATED lhitfqtrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
 -- | The list of HIT elements returned by the query.
 --
 -- /Note:/ Consider using 'hITs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtrsHITs :: Lens.Lens' ListHITsForQualificationTypeResponse (Lude.Maybe [HIT])
-lhitfqtrsHITs = Lens.lens (hITs :: ListHITsForQualificationTypeResponse -> Lude.Maybe [HIT]) (\s a -> s {hITs = a} :: ListHITsForQualificationTypeResponse)
-{-# DEPRECATED lhitfqtrsHITs "Use generic-lens or generic-optics with 'hITs' instead." #-}
+lhitfqtrrsHITs :: Lens.Lens' ListHITsForQualificationTypeResponse (Core.Maybe [Types.HIT])
+lhitfqtrrsHITs = Lens.field @"hITs"
+{-# DEPRECATED lhitfqtrrsHITs "Use generic-lens or generic-optics with 'hITs' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhitfqtrrsNextToken :: Lens.Lens' ListHITsForQualificationTypeResponse (Core.Maybe Types.PaginationToken)
+lhitfqtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhitfqtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
+--
+-- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhitfqtrrsNumResults :: Lens.Lens' ListHITsForQualificationTypeResponse (Core.Maybe Core.Int)
+lhitfqtrrsNumResults = Lens.field @"numResults"
+{-# DEPRECATED lhitfqtrrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtrsResponseStatus :: Lens.Lens' ListHITsForQualificationTypeResponse Lude.Int
-lhitfqtrsResponseStatus = Lens.lens (responseStatus :: ListHITsForQualificationTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHITsForQualificationTypeResponse)
-{-# DEPRECATED lhitfqtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhitfqtrrsResponseStatus :: Lens.Lens' ListHITsForQualificationTypeResponse Core.Int
+lhitfqtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lhitfqtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

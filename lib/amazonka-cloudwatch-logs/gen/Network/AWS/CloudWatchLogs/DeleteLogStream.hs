@@ -29,89 +29,76 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLogStream' smart constructor.
 data DeleteLogStream = DeleteLogStream'
   { -- | The name of the log group.
-    logGroupName :: Lude.Text,
+    logGroupName :: Types.LogGroupName,
     -- | The name of the log stream.
-    logStreamName :: Lude.Text
+    logStreamName :: Types.LogStreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLogStream' with the minimum fields required to make a request.
---
--- * 'logGroupName' - The name of the log group.
--- * 'logStreamName' - The name of the log stream.
+-- | Creates a 'DeleteLogStream' value with any optional fields omitted.
 mkDeleteLogStream ::
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
   -- | 'logStreamName'
-  Lude.Text ->
+  Types.LogStreamName ->
   DeleteLogStream
-mkDeleteLogStream pLogGroupName_ pLogStreamName_ =
-  DeleteLogStream'
-    { logGroupName = pLogGroupName_,
-      logStreamName = pLogStreamName_
-    }
+mkDeleteLogStream logGroupName logStreamName =
+  DeleteLogStream' {logGroupName, logStreamName}
 
 -- | The name of the log group.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsLogGroupName :: Lens.Lens' DeleteLogStream Lude.Text
-dlsLogGroupName = Lens.lens (logGroupName :: DeleteLogStream -> Lude.Text) (\s a -> s {logGroupName = a} :: DeleteLogStream)
+dlsLogGroupName :: Lens.Lens' DeleteLogStream Types.LogGroupName
+dlsLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED dlsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The name of the log stream.
 --
 -- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsLogStreamName :: Lens.Lens' DeleteLogStream Lude.Text
-dlsLogStreamName = Lens.lens (logStreamName :: DeleteLogStream -> Lude.Text) (\s a -> s {logStreamName = a} :: DeleteLogStream)
+dlsLogStreamName :: Lens.Lens' DeleteLogStream Types.LogStreamName
+dlsLogStreamName = Lens.field @"logStreamName"
 {-# DEPRECATED dlsLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
-instance Lude.AWSRequest DeleteLogStream where
+instance Core.FromJSON DeleteLogStream where
+  toJSON DeleteLogStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("logStreamName" Core..= logStreamName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteLogStream where
   type Rs DeleteLogStream = DeleteLogStreamResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull DeleteLogStreamResponse'
-
-instance Lude.ToHeaders DeleteLogStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DeleteLogStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLogStream where
-  toJSON DeleteLogStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("logGroupName" Lude..= logGroupName),
-            Lude.Just ("logStreamName" Lude..= logStreamName)
-          ]
-      )
-
-instance Lude.ToPath DeleteLogStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLogStream where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.DeleteLogStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteLogStreamResponse'
 
 -- | /See:/ 'mkDeleteLogStreamResponse' smart constructor.
 data DeleteLogStreamResponse = DeleteLogStreamResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLogStreamResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteLogStreamResponse' value with any optional fields omitted.
 mkDeleteLogStreamResponse ::
   DeleteLogStreamResponse
 mkDeleteLogStreamResponse = DeleteLogStreamResponse'

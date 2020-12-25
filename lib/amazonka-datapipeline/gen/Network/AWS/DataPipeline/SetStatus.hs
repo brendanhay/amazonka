@@ -20,9 +20,9 @@ module Network.AWS.DataPipeline.SetStatus
     mkSetStatus,
 
     -- ** Request lenses
-    ssStatus,
     ssPipelineId,
     ssObjectIds,
+    ssStatus,
 
     -- * Destructuring the response
     SetStatusResponse (..),
@@ -30,103 +30,88 @@ module Network.AWS.DataPipeline.SetStatus
   )
 where
 
-import Network.AWS.DataPipeline.Types
+import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for SetStatus.
 --
 -- /See:/ 'mkSetStatus' smart constructor.
 data SetStatus = SetStatus'
-  { -- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
-    status :: Lude.Text,
-    -- | The ID of the pipeline that contains the objects.
-    pipelineId :: Lude.Text,
+  { -- | The ID of the pipeline that contains the objects.
+    pipelineId :: Types.Id,
     -- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
-    objectIds :: [Lude.Text]
+    objectIds :: [Types.Id],
+    -- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
+    status :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetStatus' with the minimum fields required to make a request.
---
--- * 'status' - The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
--- * 'pipelineId' - The ID of the pipeline that contains the objects.
--- * 'objectIds' - The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
+-- | Creates a 'SetStatus' value with any optional fields omitted.
 mkSetStatus ::
-  -- | 'status'
-  Lude.Text ->
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'status'
+  Types.String ->
   SetStatus
-mkSetStatus pStatus_ pPipelineId_ =
-  SetStatus'
-    { status = pStatus_,
-      pipelineId = pPipelineId_,
-      objectIds = Lude.mempty
-    }
-
--- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStatus :: Lens.Lens' SetStatus Lude.Text
-ssStatus = Lens.lens (status :: SetStatus -> Lude.Text) (\s a -> s {status = a} :: SetStatus)
-{-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkSetStatus pipelineId status =
+  SetStatus' {pipelineId, objectIds = Core.mempty, status}
 
 -- | The ID of the pipeline that contains the objects.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssPipelineId :: Lens.Lens' SetStatus Lude.Text
-ssPipelineId = Lens.lens (pipelineId :: SetStatus -> Lude.Text) (\s a -> s {pipelineId = a} :: SetStatus)
+ssPipelineId :: Lens.Lens' SetStatus Types.Id
+ssPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED ssPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
 --
 -- /Note:/ Consider using 'objectIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssObjectIds :: Lens.Lens' SetStatus [Lude.Text]
-ssObjectIds = Lens.lens (objectIds :: SetStatus -> [Lude.Text]) (\s a -> s {objectIds = a} :: SetStatus)
+ssObjectIds :: Lens.Lens' SetStatus [Types.Id]
+ssObjectIds = Lens.field @"objectIds"
 {-# DEPRECATED ssObjectIds "Use generic-lens or generic-optics with 'objectIds' instead." #-}
 
-instance Lude.AWSRequest SetStatus where
+-- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStatus :: Lens.Lens' SetStatus Types.String
+ssStatus = Lens.field @"status"
+{-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON SetStatus where
+  toJSON SetStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineId" Core..= pipelineId),
+            Core.Just ("objectIds" Core..= objectIds),
+            Core.Just ("status" Core..= status)
+          ]
+      )
+
+instance Core.AWSRequest SetStatus where
   type Rs SetStatus = SetStatusResponse
-  request = Req.postJSON dataPipelineService
-  response = Res.receiveNull SetStatusResponse'
-
-instance Lude.ToHeaders SetStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DataPipeline.SetStatus" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetStatus where
-  toJSON SetStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("status" Lude..= status),
-            Lude.Just ("pipelineId" Lude..= pipelineId),
-            Lude.Just ("objectIds" Lude..= objectIds)
-          ]
-      )
-
-instance Lude.ToPath SetStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetStatus where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DataPipeline.SetStatus")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetStatusResponse'
 
 -- | /See:/ 'mkSetStatusResponse' smart constructor.
 data SetStatusResponse = SetStatusResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetStatusResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetStatusResponse' value with any optional fields omitted.
 mkSetStatusResponse ::
   SetStatusResponse
 mkSetStatusResponse = SetStatusResponse'

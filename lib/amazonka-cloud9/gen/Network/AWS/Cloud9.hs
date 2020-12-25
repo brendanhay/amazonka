@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,10 +55,34 @@
 --     * @UpdateEnvironmentMembership@ : Changes the settings of an existing environment member for an environment.
 module Network.AWS.Cloud9
   ( -- * Service configuration
-    cloud9Service,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ConcurrentAccessException
+    _ConcurrentAccessException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -108,67 +131,119 @@ module Network.AWS.Cloud9
 
     -- * Types
 
-    -- ** ConnectionType
-    ConnectionType (..),
-
     -- ** EnvironmentLifecycleStatus
     EnvironmentLifecycleStatus (..),
 
-    -- ** EnvironmentStatus
-    EnvironmentStatus (..),
-
-    -- ** EnvironmentType
-    EnvironmentType (..),
-
-    -- ** MemberPermissions
-    MemberPermissions (..),
-
-    -- ** Permissions
-    Permissions (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Environment
     Environment (..),
     mkEnvironment,
     eArn,
-    eLifecycle,
-    eOwnerARN,
-    eName,
-    eId,
-    eType,
     eConnectionType,
     eDescription,
+    eId,
+    eLifecycle,
+    eName,
+    eOwnerArn,
+    eType,
+
+    -- ** String
+    String (..),
+
+    -- ** MemberPermissions
+    MemberPermissions (..),
 
     -- ** EnvironmentLifecycle
     EnvironmentLifecycle (..),
     mkEnvironmentLifecycle,
-    elStatus,
     elFailureResource,
     elReason,
+    elStatus,
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** EnvironmentStatus
+    EnvironmentStatus (..),
+
+    -- ** UserArn
+    UserArn (..),
+
+    -- ** EnvironmentName
+    EnvironmentName (..),
+
+    -- ** EnvironmentType
+    EnvironmentType (..),
 
     -- ** EnvironmentMember
     EnvironmentMember (..),
     mkEnvironmentMember,
-    emLastAccess,
-    emUserId,
-    emUserARN,
-    emPermissions,
     emEnvironmentId,
+    emLastAccess,
+    emPermissions,
+    emUserArn,
+    emUserId,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** EnvironmentArn
+    EnvironmentArn (..),
+
+    -- ** EnvironmentId
+    EnvironmentId (..),
+
+    -- ** Permissions
+    Permissions (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** ConnectionType
+    ConnectionType (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** OwnerArn
+    OwnerArn (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

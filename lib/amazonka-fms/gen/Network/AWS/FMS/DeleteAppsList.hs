@@ -28,69 +28,60 @@ module Network.AWS.FMS.DeleteAppsList
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAppsList' smart constructor.
 newtype DeleteAppsList = DeleteAppsList'
   { -- | The ID of the applications list that you want to delete. You can retrieve this ID from @PutAppsList@ , @ListAppsLists@ , and @GetAppsList@ .
-    listId :: Lude.Text
+    listId :: Types.ListId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAppsList' with the minimum fields required to make a request.
---
--- * 'listId' - The ID of the applications list that you want to delete. You can retrieve this ID from @PutAppsList@ , @ListAppsLists@ , and @GetAppsList@ .
+-- | Creates a 'DeleteAppsList' value with any optional fields omitted.
 mkDeleteAppsList ::
   -- | 'listId'
-  Lude.Text ->
+  Types.ListId ->
   DeleteAppsList
-mkDeleteAppsList pListId_ = DeleteAppsList' {listId = pListId_}
+mkDeleteAppsList listId = DeleteAppsList' {listId}
 
 -- | The ID of the applications list that you want to delete. You can retrieve this ID from @PutAppsList@ , @ListAppsLists@ , and @GetAppsList@ .
 --
 -- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dalListId :: Lens.Lens' DeleteAppsList Lude.Text
-dalListId = Lens.lens (listId :: DeleteAppsList -> Lude.Text) (\s a -> s {listId = a} :: DeleteAppsList)
+dalListId :: Lens.Lens' DeleteAppsList Types.ListId
+dalListId = Lens.field @"listId"
 {-# DEPRECATED dalListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
-instance Lude.AWSRequest DeleteAppsList where
+instance Core.FromJSON DeleteAppsList where
+  toJSON DeleteAppsList {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ListId" Core..= listId)])
+
+instance Core.AWSRequest DeleteAppsList where
   type Rs DeleteAppsList = DeleteAppsListResponse
-  request = Req.postJSON fmsService
-  response = Res.receiveNull DeleteAppsListResponse'
-
-instance Lude.ToHeaders DeleteAppsList where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.DeleteAppsList" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAppsList where
-  toJSON DeleteAppsList' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ListId" Lude..= listId)])
-
-instance Lude.ToPath DeleteAppsList where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAppsList where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSFMS_20180101.DeleteAppsList")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAppsListResponse'
 
 -- | /See:/ 'mkDeleteAppsListResponse' smart constructor.
 data DeleteAppsListResponse = DeleteAppsListResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAppsListResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAppsListResponse' value with any optional fields omitted.
 mkDeleteAppsListResponse ::
   DeleteAppsListResponse
 mkDeleteAppsListResponse = DeleteAppsListResponse'

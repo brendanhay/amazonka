@@ -17,57 +17,54 @@ module Network.AWS.CodeBuild.Types.ExportedEnvironmentVariable
     mkExportedEnvironmentVariable,
 
     -- * Lenses
-    eevValue,
     eevName,
+    eevValue,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.Name as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an exported environment variable.
 --
 -- /See:/ 'mkExportedEnvironmentVariable' smart constructor.
 data ExportedEnvironmentVariable = ExportedEnvironmentVariable'
-  { -- | The value assigned to this exported environment variable.
-    value :: Lude.Maybe Lude.Text,
-    -- | The name of this exported environment variable.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of this exported environment variable.
+    name :: Core.Maybe Types.Name,
+    -- | The value assigned to this exported environment variable.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportedEnvironmentVariable' with the minimum fields required to make a request.
---
--- * 'value' - The value assigned to this exported environment variable.
--- * 'name' - The name of this exported environment variable.
+-- | Creates a 'ExportedEnvironmentVariable' value with any optional fields omitted.
 mkExportedEnvironmentVariable ::
   ExportedEnvironmentVariable
 mkExportedEnvironmentVariable =
   ExportedEnvironmentVariable'
-    { value = Lude.Nothing,
-      name = Lude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value assigned to this exported environment variable.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eevValue :: Lens.Lens' ExportedEnvironmentVariable (Lude.Maybe Lude.Text)
-eevValue = Lens.lens (value :: ExportedEnvironmentVariable -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ExportedEnvironmentVariable)
-{-# DEPRECATED eevValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of this exported environment variable.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eevName :: Lens.Lens' ExportedEnvironmentVariable (Lude.Maybe Lude.Text)
-eevName = Lens.lens (name :: ExportedEnvironmentVariable -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ExportedEnvironmentVariable)
+eevName :: Lens.Lens' ExportedEnvironmentVariable (Core.Maybe Types.Name)
+eevName = Lens.field @"name"
 {-# DEPRECATED eevName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ExportedEnvironmentVariable where
+-- | The value assigned to this exported environment variable.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eevValue :: Lens.Lens' ExportedEnvironmentVariable (Core.Maybe Types.String)
+eevValue = Lens.field @"value"
+{-# DEPRECATED eevValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ExportedEnvironmentVariable where
   parseJSON =
-    Lude.withObject
-      "ExportedEnvironmentVariable"
-      ( \x ->
-          ExportedEnvironmentVariable'
-            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "ExportedEnvironmentVariable" Core.$
+      \x ->
+        ExportedEnvironmentVariable'
+          Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "value")

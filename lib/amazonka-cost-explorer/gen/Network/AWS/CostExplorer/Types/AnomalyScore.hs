@@ -23,55 +23,47 @@ module Network.AWS.CostExplorer.Types.AnomalyScore
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Quantifies the anomaly. The higher score means that it is more anomalous.
 --
 -- /See:/ 'mkAnomalyScore' smart constructor.
 data AnomalyScore = AnomalyScore'
   { -- | The maximum score observed during the @AnomalyDateInterval@ .
-    maxScore :: Lude.Double,
+    maxScore :: Core.Double,
     -- | The last observed score.
-    currentScore :: Lude.Double
+    currentScore :: Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnomalyScore' with the minimum fields required to make a request.
---
--- * 'maxScore' - The maximum score observed during the @AnomalyDateInterval@ .
--- * 'currentScore' - The last observed score.
+-- | Creates a 'AnomalyScore' value with any optional fields omitted.
 mkAnomalyScore ::
   -- | 'maxScore'
-  Lude.Double ->
+  Core.Double ->
   -- | 'currentScore'
-  Lude.Double ->
+  Core.Double ->
   AnomalyScore
-mkAnomalyScore pMaxScore_ pCurrentScore_ =
-  AnomalyScore'
-    { maxScore = pMaxScore_,
-      currentScore = pCurrentScore_
-    }
+mkAnomalyScore maxScore currentScore =
+  AnomalyScore' {maxScore, currentScore}
 
 -- | The maximum score observed during the @AnomalyDateInterval@ .
 --
 -- /Note:/ Consider using 'maxScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asMaxScore :: Lens.Lens' AnomalyScore Lude.Double
-asMaxScore = Lens.lens (maxScore :: AnomalyScore -> Lude.Double) (\s a -> s {maxScore = a} :: AnomalyScore)
+asMaxScore :: Lens.Lens' AnomalyScore Core.Double
+asMaxScore = Lens.field @"maxScore"
 {-# DEPRECATED asMaxScore "Use generic-lens or generic-optics with 'maxScore' instead." #-}
 
 -- | The last observed score.
 --
 -- /Note:/ Consider using 'currentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCurrentScore :: Lens.Lens' AnomalyScore Lude.Double
-asCurrentScore = Lens.lens (currentScore :: AnomalyScore -> Lude.Double) (\s a -> s {currentScore = a} :: AnomalyScore)
+asCurrentScore :: Lens.Lens' AnomalyScore Core.Double
+asCurrentScore = Lens.field @"currentScore"
 {-# DEPRECATED asCurrentScore "Use generic-lens or generic-optics with 'currentScore' instead." #-}
 
-instance Lude.FromJSON AnomalyScore where
+instance Core.FromJSON AnomalyScore where
   parseJSON =
-    Lude.withObject
-      "AnomalyScore"
-      ( \x ->
-          AnomalyScore'
-            Lude.<$> (x Lude..: "MaxScore") Lude.<*> (x Lude..: "CurrentScore")
-      )
+    Core.withObject "AnomalyScore" Core.$
+      \x ->
+        AnomalyScore'
+          Core.<$> (x Core..: "MaxScore") Core.<*> (x Core..: "CurrentScore")

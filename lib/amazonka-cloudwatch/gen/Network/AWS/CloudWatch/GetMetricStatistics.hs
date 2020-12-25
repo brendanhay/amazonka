@@ -49,14 +49,14 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     mkGetMetricStatistics,
 
     -- ** Request lenses
-    gmsStartTime,
-    gmsPeriod,
-    gmsMetricName,
     gmsNamespace,
-    gmsExtendedStatistics,
+    gmsMetricName,
+    gmsStartTime,
     gmsEndTime,
-    gmsStatistics,
+    gmsPeriod,
     gmsDimensions,
+    gmsExtendedStatistics,
+    gmsStatistics,
     gmsUnit,
 
     -- * Destructuring the response
@@ -64,21 +64,25 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     mkGetMetricStatisticsResponse,
 
     -- ** Response lenses
-    gmsrsDatapoints,
-    gmsrsLabel,
-    gmsrsResponseStatus,
+    gmsrrsDatapoints,
+    gmsrrsLabel,
+    gmsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetMetricStatistics' smart constructor.
 data GetMetricStatistics = GetMetricStatistics'
-  { -- | The time stamp that determines the first data point to return. Start times are evaluated relative to the time that CloudWatch receives the request.
+  { -- | The namespace of the metric, with or without spaces.
+    namespace :: Types.Namespace,
+    -- | The name of the metric, with or without spaces.
+    metricName :: Types.MetricName,
+    -- | The time stamp that determines the first data point to return. Start times are evaluated relative to the time that CloudWatch receives the request.
     --
     -- The value specified is inclusive; results include data points with the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).
     -- CloudWatch rounds the specified time stamp as follows:
@@ -93,7 +97,11 @@ data GetMetricStatistics = GetMetricStatistics'
     --
     --
     -- If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
-    startTime :: Lude.DateTime,
+    startTime :: Core.UTCTime,
+    -- | The time stamp that determines the last data point to return.
+    --
+    -- The value specified is exclusive; results include data points up to the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
+    endTime :: Core.UTCTime,
     -- | The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a @PutMetricData@ call that includes a @StorageResolution@ of 1 second.
     --
     -- If the @StartTime@ parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
@@ -105,95 +113,58 @@ data GetMetricStatistics = GetMetricStatistics'
     --
     --
     --     * Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
-    period :: Lude.Natural,
-    -- | The name of the metric, with or without spaces.
-    metricName :: Lude.Text,
-    -- | The namespace of the metric, with or without spaces.
-    namespace :: Lude.Text,
-    -- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
-    extendedStatistics :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The time stamp that determines the last data point to return.
-    --
-    -- The value specified is exclusive; results include data points up to the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
-    endTime :: Lude.DateTime,
-    -- | The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
-    statistics :: Lude.Maybe (Lude.NonEmpty Statistic),
+    period :: Core.Natural,
     -- | The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
-    dimensions :: Lude.Maybe [Dimension],
+    dimensions :: Core.Maybe [Types.Dimension],
+    -- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
+    extendedStatistics :: Core.Maybe (Core.NonEmpty Types.ExtendedStatistic),
+    -- | The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
+    statistics :: Core.Maybe (Core.NonEmpty Types.Statistic),
     -- | The unit for a given metric. If you omit @Unit@ , all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
-    unit :: Lude.Maybe StandardUnit
+    unit :: Core.Maybe Types.StandardUnit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetMetricStatistics' with the minimum fields required to make a request.
---
--- * 'startTime' - The time stamp that determines the first data point to return. Start times are evaluated relative to the time that CloudWatch receives the request.
---
--- The value specified is inclusive; results include data points with the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).
--- CloudWatch rounds the specified time stamp as follows:
---
---     * Start time less than 15 days ago - Round down to the nearest whole minute. For example, 12:32:34 is rounded down to 12:32:00.
---
---
---     * Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval. For example, 12:32:34 is rounded down to 12:30:00.
---
---
---     * Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval. For example, 12:32:34 is rounded down to 12:00:00.
---
---
--- If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
--- * 'period' - The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a @PutMetricData@ call that includes a @StorageResolution@ of 1 second.
---
--- If the @StartTime@ parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
---
---     * Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
---
---
---     * Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
---
---
---     * Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
---
---
--- * 'metricName' - The name of the metric, with or without spaces.
--- * 'namespace' - The namespace of the metric, with or without spaces.
--- * 'extendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
--- * 'endTime' - The time stamp that determines the last data point to return.
---
--- The value specified is exclusive; results include data points up to the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
--- * 'statistics' - The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
--- * 'dimensions' - The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
--- * 'unit' - The unit for a given metric. If you omit @Unit@ , all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
+-- | Creates a 'GetMetricStatistics' value with any optional fields omitted.
 mkGetMetricStatistics ::
-  -- | 'startTime'
-  Lude.DateTime ->
-  -- | 'period'
-  Lude.Natural ->
-  -- | 'metricName'
-  Lude.Text ->
   -- | 'namespace'
-  Lude.Text ->
+  Types.Namespace ->
+  -- | 'metricName'
+  Types.MetricName ->
+  -- | 'startTime'
+  Core.UTCTime ->
   -- | 'endTime'
-  Lude.DateTime ->
+  Core.UTCTime ->
+  -- | 'period'
+  Core.Natural ->
   GetMetricStatistics
-mkGetMetricStatistics
-  pStartTime_
-  pPeriod_
-  pMetricName_
-  pNamespace_
-  pEndTime_ =
-    GetMetricStatistics'
-      { startTime = pStartTime_,
-        period = pPeriod_,
-        metricName = pMetricName_,
-        namespace = pNamespace_,
-        extendedStatistics = Lude.Nothing,
-        endTime = pEndTime_,
-        statistics = Lude.Nothing,
-        dimensions = Lude.Nothing,
-        unit = Lude.Nothing
-      }
+mkGetMetricStatistics namespace metricName startTime endTime period =
+  GetMetricStatistics'
+    { namespace,
+      metricName,
+      startTime,
+      endTime,
+      period,
+      dimensions = Core.Nothing,
+      extendedStatistics = Core.Nothing,
+      statistics = Core.Nothing,
+      unit = Core.Nothing
+    }
+
+-- | The namespace of the metric, with or without spaces.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsNamespace :: Lens.Lens' GetMetricStatistics Types.Namespace
+gmsNamespace = Lens.field @"namespace"
+{-# DEPRECATED gmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+
+-- | The name of the metric, with or without spaces.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsMetricName :: Lens.Lens' GetMetricStatistics Types.MetricName
+gmsMetricName = Lens.field @"metricName"
+{-# DEPRECATED gmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The time stamp that determines the first data point to return. Start times are evaluated relative to the time that CloudWatch receives the request.
 --
@@ -212,9 +183,18 @@ mkGetMetricStatistics
 -- If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsStartTime :: Lens.Lens' GetMetricStatistics Lude.DateTime
-gmsStartTime = Lens.lens (startTime :: GetMetricStatistics -> Lude.DateTime) (\s a -> s {startTime = a} :: GetMetricStatistics)
+gmsStartTime :: Lens.Lens' GetMetricStatistics Core.UTCTime
+gmsStartTime = Lens.field @"startTime"
 {-# DEPRECATED gmsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The time stamp that determines the last data point to return.
+--
+-- The value specified is exclusive; results include data points up to the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsEndTime :: Lens.Lens' GetMetricStatistics Core.UTCTime
+gmsEndTime = Lens.field @"endTime"
+{-# DEPRECATED gmsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a @PutMetricData@ call that includes a @StorageResolution@ of 1 second.
 --
@@ -231,147 +211,126 @@ gmsStartTime = Lens.lens (startTime :: GetMetricStatistics -> Lude.DateTime) (\s
 --
 --
 -- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsPeriod :: Lens.Lens' GetMetricStatistics Lude.Natural
-gmsPeriod = Lens.lens (period :: GetMetricStatistics -> Lude.Natural) (\s a -> s {period = a} :: GetMetricStatistics)
+gmsPeriod :: Lens.Lens' GetMetricStatistics Core.Natural
+gmsPeriod = Lens.field @"period"
 {-# DEPRECATED gmsPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
-
--- | The name of the metric, with or without spaces.
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsMetricName :: Lens.Lens' GetMetricStatistics Lude.Text
-gmsMetricName = Lens.lens (metricName :: GetMetricStatistics -> Lude.Text) (\s a -> s {metricName = a} :: GetMetricStatistics)
-{-# DEPRECATED gmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | The namespace of the metric, with or without spaces.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsNamespace :: Lens.Lens' GetMetricStatistics Lude.Text
-gmsNamespace = Lens.lens (namespace :: GetMetricStatistics -> Lude.Text) (\s a -> s {namespace = a} :: GetMetricStatistics)
-{-# DEPRECATED gmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
--- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
---
--- /Note:/ Consider using 'extendedStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsExtendedStatistics :: Lens.Lens' GetMetricStatistics (Lude.Maybe (Lude.NonEmpty Lude.Text))
-gmsExtendedStatistics = Lens.lens (extendedStatistics :: GetMetricStatistics -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {extendedStatistics = a} :: GetMetricStatistics)
-{-# DEPRECATED gmsExtendedStatistics "Use generic-lens or generic-optics with 'extendedStatistics' instead." #-}
-
--- | The time stamp that determines the last data point to return.
---
--- The value specified is exclusive; results include data points up to the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsEndTime :: Lens.Lens' GetMetricStatistics Lude.DateTime
-gmsEndTime = Lens.lens (endTime :: GetMetricStatistics -> Lude.DateTime) (\s a -> s {endTime = a} :: GetMetricStatistics)
-{-# DEPRECATED gmsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
---
--- /Note:/ Consider using 'statistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsStatistics :: Lens.Lens' GetMetricStatistics (Lude.Maybe (Lude.NonEmpty Statistic))
-gmsStatistics = Lens.lens (statistics :: GetMetricStatistics -> Lude.Maybe (Lude.NonEmpty Statistic)) (\s a -> s {statistics = a} :: GetMetricStatistics)
-{-# DEPRECATED gmsStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
 
 -- | The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
 --
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsDimensions :: Lens.Lens' GetMetricStatistics (Lude.Maybe [Dimension])
-gmsDimensions = Lens.lens (dimensions :: GetMetricStatistics -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: GetMetricStatistics)
+gmsDimensions :: Lens.Lens' GetMetricStatistics (Core.Maybe [Types.Dimension])
+gmsDimensions = Lens.field @"dimensions"
 {-# DEPRECATED gmsDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
+
+-- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
+--
+-- /Note:/ Consider using 'extendedStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsExtendedStatistics :: Lens.Lens' GetMetricStatistics (Core.Maybe (Core.NonEmpty Types.ExtendedStatistic))
+gmsExtendedStatistics = Lens.field @"extendedStatistics"
+{-# DEPRECATED gmsExtendedStatistics "Use generic-lens or generic-optics with 'extendedStatistics' instead." #-}
+
+-- | The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
+--
+-- /Note:/ Consider using 'statistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsStatistics :: Lens.Lens' GetMetricStatistics (Core.Maybe (Core.NonEmpty Types.Statistic))
+gmsStatistics = Lens.field @"statistics"
+{-# DEPRECATED gmsStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
 
 -- | The unit for a given metric. If you omit @Unit@ , all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsUnit :: Lens.Lens' GetMetricStatistics (Lude.Maybe StandardUnit)
-gmsUnit = Lens.lens (unit :: GetMetricStatistics -> Lude.Maybe StandardUnit) (\s a -> s {unit = a} :: GetMetricStatistics)
+gmsUnit :: Lens.Lens' GetMetricStatistics (Core.Maybe Types.StandardUnit)
+gmsUnit = Lens.field @"unit"
 {-# DEPRECATED gmsUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.AWSRequest GetMetricStatistics where
+instance Core.AWSRequest GetMetricStatistics where
   type Rs GetMetricStatistics = GetMetricStatisticsResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetMetricStatistics")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> (Core.toQueryValue "Namespace" namespace)
+                Core.<> (Core.toQueryValue "MetricName" metricName)
+                Core.<> (Core.toQueryValue "StartTime" startTime)
+                Core.<> (Core.toQueryValue "EndTime" endTime)
+                Core.<> (Core.toQueryValue "Period" period)
+                Core.<> ( Core.toQueryValue
+                            "Dimensions"
+                            (Core.toQueryList "member" Core.<$> dimensions)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "ExtendedStatistics"
+                            (Core.toQueryList "member" Core.<$> extendedStatistics)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Statistics"
+                            (Core.toQueryList "member" Core.<$> statistics)
+                        )
+                Core.<> (Core.toQueryValue "Unit" Core.<$> unit)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetMetricStatisticsResult"
       ( \s h x ->
           GetMetricStatisticsResponse'
-            Lude.<$> ( x Lude..@? "Datapoints" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Label")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Datapoints" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "Label")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMetricStatistics where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetMetricStatistics where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetMetricStatistics where
-  toQuery GetMetricStatistics' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetMetricStatistics" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "StartTime" Lude.=: startTime,
-        "Period" Lude.=: period,
-        "MetricName" Lude.=: metricName,
-        "Namespace" Lude.=: namespace,
-        "ExtendedStatistics"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> extendedStatistics),
-        "EndTime" Lude.=: endTime,
-        "Statistics"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> statistics),
-        "Dimensions"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
-        "Unit" Lude.=: unit
-      ]
 
 -- | /See:/ 'mkGetMetricStatisticsResponse' smart constructor.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
   { -- | The data points for the specified metric.
-    datapoints :: Lude.Maybe [Datapoint],
+    datapoints :: Core.Maybe [Types.Datapoint],
     -- | A label for the specified metric.
-    label :: Lude.Maybe Lude.Text,
+    label :: Core.Maybe Types.Label,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetMetricStatisticsResponse' with the minimum fields required to make a request.
---
--- * 'datapoints' - The data points for the specified metric.
--- * 'label' - A label for the specified metric.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMetricStatisticsResponse' value with any optional fields omitted.
 mkGetMetricStatisticsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMetricStatisticsResponse
-mkGetMetricStatisticsResponse pResponseStatus_ =
+mkGetMetricStatisticsResponse responseStatus =
   GetMetricStatisticsResponse'
-    { datapoints = Lude.Nothing,
-      label = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { datapoints = Core.Nothing,
+      label = Core.Nothing,
+      responseStatus
     }
 
 -- | The data points for the specified metric.
 --
 -- /Note:/ Consider using 'datapoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsrsDatapoints :: Lens.Lens' GetMetricStatisticsResponse (Lude.Maybe [Datapoint])
-gmsrsDatapoints = Lens.lens (datapoints :: GetMetricStatisticsResponse -> Lude.Maybe [Datapoint]) (\s a -> s {datapoints = a} :: GetMetricStatisticsResponse)
-{-# DEPRECATED gmsrsDatapoints "Use generic-lens or generic-optics with 'datapoints' instead." #-}
+gmsrrsDatapoints :: Lens.Lens' GetMetricStatisticsResponse (Core.Maybe [Types.Datapoint])
+gmsrrsDatapoints = Lens.field @"datapoints"
+{-# DEPRECATED gmsrrsDatapoints "Use generic-lens or generic-optics with 'datapoints' instead." #-}
 
 -- | A label for the specified metric.
 --
 -- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsrsLabel :: Lens.Lens' GetMetricStatisticsResponse (Lude.Maybe Lude.Text)
-gmsrsLabel = Lens.lens (label :: GetMetricStatisticsResponse -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: GetMetricStatisticsResponse)
-{-# DEPRECATED gmsrsLabel "Use generic-lens or generic-optics with 'label' instead." #-}
+gmsrrsLabel :: Lens.Lens' GetMetricStatisticsResponse (Core.Maybe Types.Label)
+gmsrrsLabel = Lens.field @"label"
+{-# DEPRECATED gmsrrsLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsrsResponseStatus :: Lens.Lens' GetMetricStatisticsResponse Lude.Int
-gmsrsResponseStatus = Lens.lens (responseStatus :: GetMetricStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMetricStatisticsResponse)
-{-# DEPRECATED gmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmsrrsResponseStatus :: Lens.Lens' GetMetricStatisticsResponse Core.Int
+gmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

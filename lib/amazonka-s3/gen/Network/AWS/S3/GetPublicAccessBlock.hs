@@ -43,112 +43,100 @@ module Network.AWS.S3.GetPublicAccessBlock
     mkGetPublicAccessBlockResponse,
 
     -- ** Response lenses
-    gpabrsPublicAccessBlockConfiguration,
-    gpabrsResponseStatus,
+    gpabrrsPublicAccessBlockConfiguration,
+    gpabrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetPublicAccessBlock' smart constructor.
 data GetPublicAccessBlock = GetPublicAccessBlock'
   { -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to retrieve.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPublicAccessBlock' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to retrieve.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetPublicAccessBlock' value with any optional fields omitted.
 mkGetPublicAccessBlock ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetPublicAccessBlock
-mkGetPublicAccessBlock pBucket_ =
-  GetPublicAccessBlock'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkGetPublicAccessBlock bucket =
+  GetPublicAccessBlock' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpabBucket :: Lens.Lens' GetPublicAccessBlock BucketName
-gpabBucket = Lens.lens (bucket :: GetPublicAccessBlock -> BucketName) (\s a -> s {bucket = a} :: GetPublicAccessBlock)
+gpabBucket :: Lens.Lens' GetPublicAccessBlock Types.BucketName
+gpabBucket = Lens.field @"bucket"
 {-# DEPRECATED gpabBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpabExpectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Lude.Maybe Lude.Text)
-gpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetPublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetPublicAccessBlock)
+gpabExpectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Core.Maybe Types.ExpectedBucketOwner)
+gpabExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gpabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetPublicAccessBlock where
+instance Core.AWSRequest GetPublicAccessBlock where
   type Rs GetPublicAccessBlock = GetPublicAccessBlockResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("publicAccessBlock", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetPublicAccessBlockResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPublicAccessBlock where
-  toHeaders GetPublicAccessBlock' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetPublicAccessBlock where
-  toPath GetPublicAccessBlock' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetPublicAccessBlock where
-  toQuery = Lude.const (Lude.mconcat ["publicAccessBlock"])
 
 -- | /See:/ 'mkGetPublicAccessBlockResponse' smart constructor.
 data GetPublicAccessBlockResponse = GetPublicAccessBlockResponse'
   { -- | The @PublicAccessBlock@ configuration currently in effect for this Amazon S3 bucket.
-    publicAccessBlockConfiguration :: Lude.Maybe PublicAccessBlockConfiguration,
+    publicAccessBlockConfiguration :: Core.Maybe Types.PublicAccessBlockConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPublicAccessBlockResponse' with the minimum fields required to make a request.
---
--- * 'publicAccessBlockConfiguration' - The @PublicAccessBlock@ configuration currently in effect for this Amazon S3 bucket.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPublicAccessBlockResponse' value with any optional fields omitted.
 mkGetPublicAccessBlockResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPublicAccessBlockResponse
-mkGetPublicAccessBlockResponse pResponseStatus_ =
+mkGetPublicAccessBlockResponse responseStatus =
   GetPublicAccessBlockResponse'
     { publicAccessBlockConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The @PublicAccessBlock@ configuration currently in effect for this Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'publicAccessBlockConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpabrsPublicAccessBlockConfiguration :: Lens.Lens' GetPublicAccessBlockResponse (Lude.Maybe PublicAccessBlockConfiguration)
-gpabrsPublicAccessBlockConfiguration = Lens.lens (publicAccessBlockConfiguration :: GetPublicAccessBlockResponse -> Lude.Maybe PublicAccessBlockConfiguration) (\s a -> s {publicAccessBlockConfiguration = a} :: GetPublicAccessBlockResponse)
-{-# DEPRECATED gpabrsPublicAccessBlockConfiguration "Use generic-lens or generic-optics with 'publicAccessBlockConfiguration' instead." #-}
+gpabrrsPublicAccessBlockConfiguration :: Lens.Lens' GetPublicAccessBlockResponse (Core.Maybe Types.PublicAccessBlockConfiguration)
+gpabrrsPublicAccessBlockConfiguration = Lens.field @"publicAccessBlockConfiguration"
+{-# DEPRECATED gpabrrsPublicAccessBlockConfiguration "Use generic-lens or generic-optics with 'publicAccessBlockConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpabrsResponseStatus :: Lens.Lens' GetPublicAccessBlockResponse Lude.Int
-gpabrsResponseStatus = Lens.lens (responseStatus :: GetPublicAccessBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPublicAccessBlockResponse)
-{-# DEPRECATED gpabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpabrrsResponseStatus :: Lens.Lens' GetPublicAccessBlockResponse Core.Int
+gpabrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpabrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

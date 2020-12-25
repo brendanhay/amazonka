@@ -20,225 +20,206 @@ module Network.AWS.ECS.SubmitTaskStateChange
     mkSubmitTaskStateChange,
 
     -- ** Request lenses
-    stscStatus,
-    stscCluster,
     stscAttachments,
-    stscExecutionStoppedAt,
-    stscPullStoppedAt,
+    stscCluster,
     stscContainers,
-    stscReason,
-    stscTask,
+    stscExecutionStoppedAt,
     stscPullStartedAt,
+    stscPullStoppedAt,
+    stscReason,
+    stscStatus,
+    stscTask,
 
     -- * Destructuring the response
     SubmitTaskStateChangeResponse (..),
     mkSubmitTaskStateChangeResponse,
 
     -- ** Response lenses
-    stscrsAcknowledgment,
-    stscrsResponseStatus,
+    stscrrsAcknowledgment,
+    stscrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSubmitTaskStateChange' smart constructor.
 data SubmitTaskStateChange = SubmitTaskStateChange'
-  { -- | The status of the state change request.
-    status :: Lude.Maybe Lude.Text,
+  { -- | Any attachments associated with the state change request.
+    attachments :: Core.Maybe [Types.AttachmentStateChange],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
-    cluster :: Lude.Maybe Lude.Text,
-    -- | Any attachments associated with the state change request.
-    attachments :: Lude.Maybe [AttachmentStateChange],
-    -- | The Unix timestamp for when the task execution stopped.
-    executionStoppedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The Unix timestamp for when the container image pull completed.
-    pullStoppedAt :: Lude.Maybe Lude.Timestamp,
+    cluster :: Core.Maybe Types.String,
     -- | Any containers associated with the state change request.
-    containers :: Lude.Maybe [ContainerStateChange],
-    -- | The reason for the state change request.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The task ID or full ARN of the task in the state change request.
-    task :: Lude.Maybe Lude.Text,
+    containers :: Core.Maybe [Types.ContainerStateChange],
+    -- | The Unix timestamp for when the task execution stopped.
+    executionStoppedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The Unix timestamp for when the container image pull began.
-    pullStartedAt :: Lude.Maybe Lude.Timestamp
+    pullStartedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The Unix timestamp for when the container image pull completed.
+    pullStoppedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The reason for the state change request.
+    reason :: Core.Maybe Types.String,
+    -- | The status of the state change request.
+    status :: Core.Maybe Types.String,
+    -- | The task ID or full ARN of the task in the state change request.
+    task :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SubmitTaskStateChange' with the minimum fields required to make a request.
---
--- * 'status' - The status of the state change request.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
--- * 'attachments' - Any attachments associated with the state change request.
--- * 'executionStoppedAt' - The Unix timestamp for when the task execution stopped.
--- * 'pullStoppedAt' - The Unix timestamp for when the container image pull completed.
--- * 'containers' - Any containers associated with the state change request.
--- * 'reason' - The reason for the state change request.
--- * 'task' - The task ID or full ARN of the task in the state change request.
--- * 'pullStartedAt' - The Unix timestamp for when the container image pull began.
+-- | Creates a 'SubmitTaskStateChange' value with any optional fields omitted.
 mkSubmitTaskStateChange ::
   SubmitTaskStateChange
 mkSubmitTaskStateChange =
   SubmitTaskStateChange'
-    { status = Lude.Nothing,
-      cluster = Lude.Nothing,
-      attachments = Lude.Nothing,
-      executionStoppedAt = Lude.Nothing,
-      pullStoppedAt = Lude.Nothing,
-      containers = Lude.Nothing,
-      reason = Lude.Nothing,
-      task = Lude.Nothing,
-      pullStartedAt = Lude.Nothing
+    { attachments = Core.Nothing,
+      cluster = Core.Nothing,
+      containers = Core.Nothing,
+      executionStoppedAt = Core.Nothing,
+      pullStartedAt = Core.Nothing,
+      pullStoppedAt = Core.Nothing,
+      reason = Core.Nothing,
+      status = Core.Nothing,
+      task = Core.Nothing
     }
-
--- | The status of the state change request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscStatus :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Text)
-stscStatus = Lens.lens (status :: SubmitTaskStateChange -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SubmitTaskStateChange)
-{-# DEPRECATED stscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
---
--- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscCluster :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Text)
-stscCluster = Lens.lens (cluster :: SubmitTaskStateChange -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: SubmitTaskStateChange)
-{-# DEPRECATED stscCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Any attachments associated with the state change request.
 --
 -- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscAttachments :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe [AttachmentStateChange])
-stscAttachments = Lens.lens (attachments :: SubmitTaskStateChange -> Lude.Maybe [AttachmentStateChange]) (\s a -> s {attachments = a} :: SubmitTaskStateChange)
+stscAttachments :: Lens.Lens' SubmitTaskStateChange (Core.Maybe [Types.AttachmentStateChange])
+stscAttachments = Lens.field @"attachments"
 {-# DEPRECATED stscAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
 
--- | The Unix timestamp for when the task execution stopped.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
 --
--- /Note:/ Consider using 'executionStoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscExecutionStoppedAt :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Timestamp)
-stscExecutionStoppedAt = Lens.lens (executionStoppedAt :: SubmitTaskStateChange -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionStoppedAt = a} :: SubmitTaskStateChange)
-{-# DEPRECATED stscExecutionStoppedAt "Use generic-lens or generic-optics with 'executionStoppedAt' instead." #-}
-
--- | The Unix timestamp for when the container image pull completed.
---
--- /Note:/ Consider using 'pullStoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscPullStoppedAt :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Timestamp)
-stscPullStoppedAt = Lens.lens (pullStoppedAt :: SubmitTaskStateChange -> Lude.Maybe Lude.Timestamp) (\s a -> s {pullStoppedAt = a} :: SubmitTaskStateChange)
-{-# DEPRECATED stscPullStoppedAt "Use generic-lens or generic-optics with 'pullStoppedAt' instead." #-}
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stscCluster :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Types.String)
+stscCluster = Lens.field @"cluster"
+{-# DEPRECATED stscCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Any containers associated with the state change request.
 --
 -- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscContainers :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe [ContainerStateChange])
-stscContainers = Lens.lens (containers :: SubmitTaskStateChange -> Lude.Maybe [ContainerStateChange]) (\s a -> s {containers = a} :: SubmitTaskStateChange)
+stscContainers :: Lens.Lens' SubmitTaskStateChange (Core.Maybe [Types.ContainerStateChange])
+stscContainers = Lens.field @"containers"
 {-# DEPRECATED stscContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
--- | The reason for the state change request.
+-- | The Unix timestamp for when the task execution stopped.
 --
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscReason :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Text)
-stscReason = Lens.lens (reason :: SubmitTaskStateChange -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: SubmitTaskStateChange)
-{-# DEPRECATED stscReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The task ID or full ARN of the task in the state change request.
---
--- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscTask :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Text)
-stscTask = Lens.lens (task :: SubmitTaskStateChange -> Lude.Maybe Lude.Text) (\s a -> s {task = a} :: SubmitTaskStateChange)
-{-# DEPRECATED stscTask "Use generic-lens or generic-optics with 'task' instead." #-}
+-- /Note:/ Consider using 'executionStoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stscExecutionStoppedAt :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Core.NominalDiffTime)
+stscExecutionStoppedAt = Lens.field @"executionStoppedAt"
+{-# DEPRECATED stscExecutionStoppedAt "Use generic-lens or generic-optics with 'executionStoppedAt' instead." #-}
 
 -- | The Unix timestamp for when the container image pull began.
 --
 -- /Note:/ Consider using 'pullStartedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscPullStartedAt :: Lens.Lens' SubmitTaskStateChange (Lude.Maybe Lude.Timestamp)
-stscPullStartedAt = Lens.lens (pullStartedAt :: SubmitTaskStateChange -> Lude.Maybe Lude.Timestamp) (\s a -> s {pullStartedAt = a} :: SubmitTaskStateChange)
+stscPullStartedAt :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Core.NominalDiffTime)
+stscPullStartedAt = Lens.field @"pullStartedAt"
 {-# DEPRECATED stscPullStartedAt "Use generic-lens or generic-optics with 'pullStartedAt' instead." #-}
 
-instance Lude.AWSRequest SubmitTaskStateChange where
+-- | The Unix timestamp for when the container image pull completed.
+--
+-- /Note:/ Consider using 'pullStoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stscPullStoppedAt :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Core.NominalDiffTime)
+stscPullStoppedAt = Lens.field @"pullStoppedAt"
+{-# DEPRECATED stscPullStoppedAt "Use generic-lens or generic-optics with 'pullStoppedAt' instead." #-}
+
+-- | The reason for the state change request.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stscReason :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Types.String)
+stscReason = Lens.field @"reason"
+{-# DEPRECATED stscReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+-- | The status of the state change request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stscStatus :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Types.String)
+stscStatus = Lens.field @"status"
+{-# DEPRECATED stscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The task ID or full ARN of the task in the state change request.
+--
+-- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stscTask :: Lens.Lens' SubmitTaskStateChange (Core.Maybe Types.String)
+stscTask = Lens.field @"task"
+{-# DEPRECATED stscTask "Use generic-lens or generic-optics with 'task' instead." #-}
+
+instance Core.FromJSON SubmitTaskStateChange where
+  toJSON SubmitTaskStateChange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("attachments" Core..=) Core.<$> attachments,
+            ("cluster" Core..=) Core.<$> cluster,
+            ("containers" Core..=) Core.<$> containers,
+            ("executionStoppedAt" Core..=) Core.<$> executionStoppedAt,
+            ("pullStartedAt" Core..=) Core.<$> pullStartedAt,
+            ("pullStoppedAt" Core..=) Core.<$> pullStoppedAt,
+            ("reason" Core..=) Core.<$> reason,
+            ("status" Core..=) Core.<$> status,
+            ("task" Core..=) Core.<$> task
+          ]
+      )
+
+instance Core.AWSRequest SubmitTaskStateChange where
   type Rs SubmitTaskStateChange = SubmitTaskStateChangeResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SubmitTaskStateChangeResponse'
-            Lude.<$> (x Lude..?> "acknowledgment")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "acknowledgment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SubmitTaskStateChange where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SubmitTaskStateChange where
-  toJSON SubmitTaskStateChange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("cluster" Lude..=) Lude.<$> cluster,
-            ("attachments" Lude..=) Lude.<$> attachments,
-            ("executionStoppedAt" Lude..=) Lude.<$> executionStoppedAt,
-            ("pullStoppedAt" Lude..=) Lude.<$> pullStoppedAt,
-            ("containers" Lude..=) Lude.<$> containers,
-            ("reason" Lude..=) Lude.<$> reason,
-            ("task" Lude..=) Lude.<$> task,
-            ("pullStartedAt" Lude..=) Lude.<$> pullStartedAt
-          ]
-      )
-
-instance Lude.ToPath SubmitTaskStateChange where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SubmitTaskStateChange where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSubmitTaskStateChangeResponse' smart constructor.
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
   { -- | Acknowledgement of the state change.
-    acknowledgment :: Lude.Maybe Lude.Text,
+    acknowledgment :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubmitTaskStateChangeResponse' with the minimum fields required to make a request.
---
--- * 'acknowledgment' - Acknowledgement of the state change.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SubmitTaskStateChangeResponse' value with any optional fields omitted.
 mkSubmitTaskStateChangeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SubmitTaskStateChangeResponse
-mkSubmitTaskStateChangeResponse pResponseStatus_ =
+mkSubmitTaskStateChangeResponse responseStatus =
   SubmitTaskStateChangeResponse'
-    { acknowledgment = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { acknowledgment = Core.Nothing,
+      responseStatus
     }
 
 -- | Acknowledgement of the state change.
 --
 -- /Note:/ Consider using 'acknowledgment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscrsAcknowledgment :: Lens.Lens' SubmitTaskStateChangeResponse (Lude.Maybe Lude.Text)
-stscrsAcknowledgment = Lens.lens (acknowledgment :: SubmitTaskStateChangeResponse -> Lude.Maybe Lude.Text) (\s a -> s {acknowledgment = a} :: SubmitTaskStateChangeResponse)
-{-# DEPRECATED stscrsAcknowledgment "Use generic-lens or generic-optics with 'acknowledgment' instead." #-}
+stscrrsAcknowledgment :: Lens.Lens' SubmitTaskStateChangeResponse (Core.Maybe Types.String)
+stscrrsAcknowledgment = Lens.field @"acknowledgment"
+{-# DEPRECATED stscrrsAcknowledgment "Use generic-lens or generic-optics with 'acknowledgment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stscrsResponseStatus :: Lens.Lens' SubmitTaskStateChangeResponse Lude.Int
-stscrsResponseStatus = Lens.lens (responseStatus :: SubmitTaskStateChangeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SubmitTaskStateChangeResponse)
-{-# DEPRECATED stscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+stscrrsResponseStatus :: Lens.Lens' SubmitTaskStateChangeResponse Core.Int
+stscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED stscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

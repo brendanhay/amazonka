@@ -13,62 +13,67 @@
 module Network.AWS.MediaLive.Types.AacCodingMode
   ( AacCodingMode
       ( AacCodingMode',
-        ACMAdReceiverMix,
-        ACMCodingMode10,
-        ACMCodingMode11,
-        ACMCodingMode20,
-        ACMCodingMode51
+        AacCodingModeAdReceiverMix,
+        AacCodingModeCodingMode10,
+        AacCodingModeCodingMode11,
+        AacCodingModeCodingMode20,
+        AacCodingModeCodingMode51,
+        fromAacCodingMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Aac Coding Mode
-newtype AacCodingMode = AacCodingMode' Lude.Text
+newtype AacCodingMode = AacCodingMode'
+  { fromAacCodingMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ACMAdReceiverMix :: AacCodingMode
-pattern ACMAdReceiverMix = AacCodingMode' "AD_RECEIVER_MIX"
+pattern AacCodingModeAdReceiverMix :: AacCodingMode
+pattern AacCodingModeAdReceiverMix = AacCodingMode' "AD_RECEIVER_MIX"
 
-pattern ACMCodingMode10 :: AacCodingMode
-pattern ACMCodingMode10 = AacCodingMode' "CODING_MODE_1_0"
+pattern AacCodingModeCodingMode10 :: AacCodingMode
+pattern AacCodingModeCodingMode10 = AacCodingMode' "CODING_MODE_1_0"
 
-pattern ACMCodingMode11 :: AacCodingMode
-pattern ACMCodingMode11 = AacCodingMode' "CODING_MODE_1_1"
+pattern AacCodingModeCodingMode11 :: AacCodingMode
+pattern AacCodingModeCodingMode11 = AacCodingMode' "CODING_MODE_1_1"
 
-pattern ACMCodingMode20 :: AacCodingMode
-pattern ACMCodingMode20 = AacCodingMode' "CODING_MODE_2_0"
+pattern AacCodingModeCodingMode20 :: AacCodingMode
+pattern AacCodingModeCodingMode20 = AacCodingMode' "CODING_MODE_2_0"
 
-pattern ACMCodingMode51 :: AacCodingMode
-pattern ACMCodingMode51 = AacCodingMode' "CODING_MODE_5_1"
+pattern AacCodingModeCodingMode51 :: AacCodingMode
+pattern AacCodingModeCodingMode51 = AacCodingMode' "CODING_MODE_5_1"
 
 {-# COMPLETE
-  ACMAdReceiverMix,
-  ACMCodingMode10,
-  ACMCodingMode11,
-  ACMCodingMode20,
-  ACMCodingMode51,
+  AacCodingModeAdReceiverMix,
+  AacCodingModeCodingMode10,
+  AacCodingModeCodingMode11,
+  AacCodingModeCodingMode20,
+  AacCodingModeCodingMode51,
   AacCodingMode'
   #-}

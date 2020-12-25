@@ -23,65 +23,60 @@ module Network.AWS.ECS.Types.ServiceEvent
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on an event associated with a service.
 --
 -- /See:/ 'mkServiceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
   { -- | The Unix timestamp for when the event was triggered.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The ID string of the event.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.String,
     -- | The event message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServiceEvent' with the minimum fields required to make a request.
---
--- * 'createdAt' - The Unix timestamp for when the event was triggered.
--- * 'id' - The ID string of the event.
--- * 'message' - The event message.
+-- | Creates a 'ServiceEvent' value with any optional fields omitted.
 mkServiceEvent ::
   ServiceEvent
 mkServiceEvent =
   ServiceEvent'
-    { createdAt = Lude.Nothing,
-      id = Lude.Nothing,
-      message = Lude.Nothing
+    { createdAt = Core.Nothing,
+      id = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The Unix timestamp for when the event was triggered.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seCreatedAt :: Lens.Lens' ServiceEvent (Lude.Maybe Lude.Timestamp)
-seCreatedAt = Lens.lens (createdAt :: ServiceEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ServiceEvent)
+seCreatedAt :: Lens.Lens' ServiceEvent (Core.Maybe Core.NominalDiffTime)
+seCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED seCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The ID string of the event.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seId :: Lens.Lens' ServiceEvent (Lude.Maybe Lude.Text)
-seId = Lens.lens (id :: ServiceEvent -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ServiceEvent)
+seId :: Lens.Lens' ServiceEvent (Core.Maybe Types.String)
+seId = Lens.field @"id"
 {-# DEPRECATED seId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The event message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seMessage :: Lens.Lens' ServiceEvent (Lude.Maybe Lude.Text)
-seMessage = Lens.lens (message :: ServiceEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ServiceEvent)
+seMessage :: Lens.Lens' ServiceEvent (Core.Maybe Types.String)
+seMessage = Lens.field @"message"
 {-# DEPRECATED seMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON ServiceEvent where
+instance Core.FromJSON ServiceEvent where
   parseJSON =
-    Lude.withObject
-      "ServiceEvent"
-      ( \x ->
-          ServiceEvent'
-            Lude.<$> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "ServiceEvent" Core.$
+      \x ->
+        ServiceEvent'
+          Core.<$> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "message")

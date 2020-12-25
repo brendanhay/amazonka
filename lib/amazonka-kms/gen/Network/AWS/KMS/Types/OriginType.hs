@@ -13,51 +13,53 @@
 module Network.AWS.KMS.Types.OriginType
   ( OriginType
       ( OriginType',
-        AWSKMS,
-        External,
-        AWSCloudhsm
+        OriginTypeAwsKms,
+        OriginTypeExternal,
+        OriginTypeAwsCloudhsm,
+        fromOriginType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OriginType = OriginType' Lude.Text
+newtype OriginType = OriginType' {fromOriginType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AWSKMS :: OriginType
-pattern AWSKMS = OriginType' "AWS_KMS"
+pattern OriginTypeAwsKms :: OriginType
+pattern OriginTypeAwsKms = OriginType' "AWS_KMS"
 
-pattern External :: OriginType
-pattern External = OriginType' "EXTERNAL"
+pattern OriginTypeExternal :: OriginType
+pattern OriginTypeExternal = OriginType' "EXTERNAL"
 
-pattern AWSCloudhsm :: OriginType
-pattern AWSCloudhsm = OriginType' "AWS_CLOUDHSM"
+pattern OriginTypeAwsCloudhsm :: OriginType
+pattern OriginTypeAwsCloudhsm = OriginType' "AWS_CLOUDHSM"
 
 {-# COMPLETE
-  AWSKMS,
-  External,
-  AWSCloudhsm,
+  OriginTypeAwsKms,
+  OriginTypeExternal,
+  OriginTypeAwsCloudhsm,
   OriginType'
   #-}

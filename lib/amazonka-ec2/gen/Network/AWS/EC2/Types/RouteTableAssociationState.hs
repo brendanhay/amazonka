@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.RouteTableAssociationState
   )
 where
 
-import Network.AWS.EC2.Types.RouteTableAssociationStateCode
+import qualified Network.AWS.EC2.Types.RouteTableAssociationStateCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the state of an association between a route table and a subnet or gateway.
 --
 -- /See:/ 'mkRouteTableAssociationState' smart constructor.
 data RouteTableAssociationState = RouteTableAssociationState'
   { -- | The state of the association.
-    state :: Lude.Maybe RouteTableAssociationStateCode,
+    state :: Core.Maybe Types.RouteTableAssociationStateCode,
     -- | The status message, if applicable.
-    statusMessage :: Lude.Maybe Lude.Text
+    statusMessage :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RouteTableAssociationState' with the minimum fields required to make a request.
---
--- * 'state' - The state of the association.
--- * 'statusMessage' - The status message, if applicable.
+-- | Creates a 'RouteTableAssociationState' value with any optional fields omitted.
 mkRouteTableAssociationState ::
   RouteTableAssociationState
 mkRouteTableAssociationState =
   RouteTableAssociationState'
-    { state = Lude.Nothing,
-      statusMessage = Lude.Nothing
+    { state = Core.Nothing,
+      statusMessage = Core.Nothing
     }
 
 -- | The state of the association.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtasState :: Lens.Lens' RouteTableAssociationState (Lude.Maybe RouteTableAssociationStateCode)
-rtasState = Lens.lens (state :: RouteTableAssociationState -> Lude.Maybe RouteTableAssociationStateCode) (\s a -> s {state = a} :: RouteTableAssociationState)
+rtasState :: Lens.Lens' RouteTableAssociationState (Core.Maybe Types.RouteTableAssociationStateCode)
+rtasState = Lens.field @"state"
 {-# DEPRECATED rtasState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The status message, if applicable.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtasStatusMessage :: Lens.Lens' RouteTableAssociationState (Lude.Maybe Lude.Text)
-rtasStatusMessage = Lens.lens (statusMessage :: RouteTableAssociationState -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: RouteTableAssociationState)
+rtasStatusMessage :: Lens.Lens' RouteTableAssociationState (Core.Maybe Types.String)
+rtasStatusMessage = Lens.field @"statusMessage"
 {-# DEPRECATED rtasStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
-instance Lude.FromXML RouteTableAssociationState where
+instance Core.FromXML RouteTableAssociationState where
   parseXML x =
     RouteTableAssociationState'
-      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "statusMessage")
+      Core.<$> (x Core..@? "state") Core.<*> (x Core..@? "statusMessage")

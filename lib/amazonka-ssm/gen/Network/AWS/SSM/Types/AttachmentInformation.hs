@@ -22,35 +22,33 @@ module Network.AWS.SSM.Types.AttachmentInformation
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.Name as Types
 
 -- | An attribute of an attachment, such as the attachment name.
 --
 -- /See:/ 'mkAttachmentInformation' smart constructor.
 newtype AttachmentInformation = AttachmentInformation'
   { -- | The name of the attachment.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachmentInformation' with the minimum fields required to make a request.
---
--- * 'name' - The name of the attachment.
+-- | Creates a 'AttachmentInformation' value with any optional fields omitted.
 mkAttachmentInformation ::
   AttachmentInformation
 mkAttachmentInformation =
-  AttachmentInformation' {name = Lude.Nothing}
+  AttachmentInformation' {name = Core.Nothing}
 
 -- | The name of the attachment.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiName :: Lens.Lens' AttachmentInformation (Lude.Maybe Lude.Text)
-aiName = Lens.lens (name :: AttachmentInformation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AttachmentInformation)
+aiName :: Lens.Lens' AttachmentInformation (Core.Maybe Types.Name)
+aiName = Lens.field @"name"
 {-# DEPRECATED aiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON AttachmentInformation where
+instance Core.FromJSON AttachmentInformation where
   parseJSON =
-    Lude.withObject
-      "AttachmentInformation"
-      (\x -> AttachmentInformation' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "AttachmentInformation" Core.$
+      \x -> AttachmentInformation' Core.<$> (x Core..:? "Name")

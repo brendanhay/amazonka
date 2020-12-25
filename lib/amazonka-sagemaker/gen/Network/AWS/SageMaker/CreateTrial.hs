@@ -24,9 +24,9 @@ module Network.AWS.SageMaker.CreateTrial
     mkCreateTrial,
 
     -- ** Request lenses
+    ctTrialName,
     ctExperimentName,
     ctDisplayName,
-    ctTrialName,
     ctTags,
 
     -- * Destructuring the response
@@ -34,151 +34,133 @@ module Network.AWS.SageMaker.CreateTrial
     mkCreateTrialResponse,
 
     -- ** Response lenses
-    ctrsTrialARN,
-    ctrsResponseStatus,
+    ctrrsTrialArn,
+    ctrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateTrial' smart constructor.
 data CreateTrial = CreateTrial'
-  { -- | The name of the experiment to associate the trial with.
-    experimentName :: Lude.Text,
+  { -- | The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
+    trialName :: Types.TrialName,
+    -- | The name of the experiment to associate the trial with.
+    experimentName :: Types.ExperimentName,
     -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
-    trialName :: Lude.Text,
+    displayName :: Core.Maybe Types.DisplayName,
     -- | A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrial' with the minimum fields required to make a request.
---
--- * 'experimentName' - The name of the experiment to associate the trial with.
--- * 'displayName' - The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'trialName' - The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
--- * 'tags' - A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
+-- | Creates a 'CreateTrial' value with any optional fields omitted.
 mkCreateTrial ::
-  -- | 'experimentName'
-  Lude.Text ->
   -- | 'trialName'
-  Lude.Text ->
+  Types.TrialName ->
+  -- | 'experimentName'
+  Types.ExperimentName ->
   CreateTrial
-mkCreateTrial pExperimentName_ pTrialName_ =
+mkCreateTrial trialName experimentName =
   CreateTrial'
-    { experimentName = pExperimentName_,
-      displayName = Lude.Nothing,
-      trialName = pTrialName_,
-      tags = Lude.Nothing
+    { trialName,
+      experimentName,
+      displayName = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
+--
+-- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTrialName :: Lens.Lens' CreateTrial Types.TrialName
+ctTrialName = Lens.field @"trialName"
+{-# DEPRECATED ctTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
 -- | The name of the experiment to associate the trial with.
 --
 -- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctExperimentName :: Lens.Lens' CreateTrial Lude.Text
-ctExperimentName = Lens.lens (experimentName :: CreateTrial -> Lude.Text) (\s a -> s {experimentName = a} :: CreateTrial)
+ctExperimentName :: Lens.Lens' CreateTrial Types.ExperimentName
+ctExperimentName = Lens.field @"experimentName"
 {-# DEPRECATED ctExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctDisplayName :: Lens.Lens' CreateTrial (Lude.Maybe Lude.Text)
-ctDisplayName = Lens.lens (displayName :: CreateTrial -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateTrial)
+ctDisplayName :: Lens.Lens' CreateTrial (Core.Maybe Types.DisplayName)
+ctDisplayName = Lens.field @"displayName"
 {-# DEPRECATED ctDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
-
--- | The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
---
--- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTrialName :: Lens.Lens' CreateTrial Lude.Text
-ctTrialName = Lens.lens (trialName :: CreateTrial -> Lude.Text) (\s a -> s {trialName = a} :: CreateTrial)
-{-# DEPRECATED ctTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
 -- | A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTrial (Lude.Maybe [Tag])
-ctTags = Lens.lens (tags :: CreateTrial -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTrial)
+ctTags :: Lens.Lens' CreateTrial (Core.Maybe [Types.Tag])
+ctTags = Lens.field @"tags"
 {-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateTrial where
+instance Core.FromJSON CreateTrial where
+  toJSON CreateTrial {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TrialName" Core..= trialName),
+            Core.Just ("ExperimentName" Core..= experimentName),
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateTrial where
   type Rs CreateTrial = CreateTrialResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateTrial")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateTrialResponse'
-            Lude.<$> (x Lude..?> "TrialArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TrialArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTrial where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateTrial" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateTrial where
-  toJSON CreateTrial' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ExperimentName" Lude..= experimentName),
-            ("DisplayName" Lude..=) Lude.<$> displayName,
-            Lude.Just ("TrialName" Lude..= trialName),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateTrial where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTrial where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateTrialResponse' smart constructor.
 data CreateTrialResponse = CreateTrialResponse'
   { -- | The Amazon Resource Name (ARN) of the trial.
-    trialARN :: Lude.Maybe Lude.Text,
+    trialArn :: Core.Maybe Types.TrialArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrialResponse' with the minimum fields required to make a request.
---
--- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTrialResponse' value with any optional fields omitted.
 mkCreateTrialResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTrialResponse
-mkCreateTrialResponse pResponseStatus_ =
-  CreateTrialResponse'
-    { trialARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateTrialResponse responseStatus =
+  CreateTrialResponse' {trialArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the trial.
 --
--- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsTrialARN :: Lens.Lens' CreateTrialResponse (Lude.Maybe Lude.Text)
-ctrsTrialARN = Lens.lens (trialARN :: CreateTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: CreateTrialResponse)
-{-# DEPRECATED ctrsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
+-- /Note:/ Consider using 'trialArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrrsTrialArn :: Lens.Lens' CreateTrialResponse (Core.Maybe Types.TrialArn)
+ctrrsTrialArn = Lens.field @"trialArn"
+{-# DEPRECATED ctrrsTrialArn "Use generic-lens or generic-optics with 'trialArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsResponseStatus :: Lens.Lens' CreateTrialResponse Lude.Int
-ctrsResponseStatus = Lens.lens (responseStatus :: CreateTrialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrialResponse)
-{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctrrsResponseStatus :: Lens.Lens' CreateTrialResponse Core.Int
+ctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -32,8 +32,8 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     mkPutPipelineDefinition,
 
     -- ** Request lenses
-    ppdPipelineObjects,
     ppdPipelineId,
+    ppdPipelineObjects,
     ppdParameterObjects,
     ppdParameterValues,
 
@@ -42,182 +42,165 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     mkPutPipelineDefinitionResponse,
 
     -- ** Response lenses
-    ppdrsValidationErrors,
-    ppdrsValidationWarnings,
-    ppdrsErrored,
-    ppdrsResponseStatus,
+    ppdrrsErrored,
+    ppdrrsValidationErrors,
+    ppdrrsValidationWarnings,
+    ppdrrsResponseStatus,
   )
 where
 
-import Network.AWS.DataPipeline.Types
+import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for PutPipelineDefinition.
 --
 -- /See:/ 'mkPutPipelineDefinition' smart constructor.
 data PutPipelineDefinition = PutPipelineDefinition'
-  { -- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
-    pipelineObjects :: [PipelineObject],
-    -- | The ID of the pipeline.
-    pipelineId :: Lude.Text,
+  { -- | The ID of the pipeline.
+    pipelineId :: Types.Id,
+    -- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
+    pipelineObjects :: [Types.PipelineObject],
     -- | The parameter objects used with the pipeline.
-    parameterObjects :: Lude.Maybe [ParameterObject],
+    parameterObjects :: Core.Maybe [Types.ParameterObject],
     -- | The parameter values used with the pipeline.
-    parameterValues :: Lude.Maybe [ParameterValue]
+    parameterValues :: Core.Maybe [Types.ParameterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPipelineDefinition' with the minimum fields required to make a request.
---
--- * 'pipelineObjects' - The objects that define the pipeline. These objects overwrite the existing pipeline definition.
--- * 'pipelineId' - The ID of the pipeline.
--- * 'parameterObjects' - The parameter objects used with the pipeline.
--- * 'parameterValues' - The parameter values used with the pipeline.
+-- | Creates a 'PutPipelineDefinition' value with any optional fields omitted.
 mkPutPipelineDefinition ::
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.Id ->
   PutPipelineDefinition
-mkPutPipelineDefinition pPipelineId_ =
+mkPutPipelineDefinition pipelineId =
   PutPipelineDefinition'
-    { pipelineObjects = Lude.mempty,
-      pipelineId = pPipelineId_,
-      parameterObjects = Lude.Nothing,
-      parameterValues = Lude.Nothing
+    { pipelineId,
+      pipelineObjects = Core.mempty,
+      parameterObjects = Core.Nothing,
+      parameterValues = Core.Nothing
     }
-
--- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
---
--- /Note:/ Consider using 'pipelineObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdPipelineObjects :: Lens.Lens' PutPipelineDefinition [PipelineObject]
-ppdPipelineObjects = Lens.lens (pipelineObjects :: PutPipelineDefinition -> [PipelineObject]) (\s a -> s {pipelineObjects = a} :: PutPipelineDefinition)
-{-# DEPRECATED ppdPipelineObjects "Use generic-lens or generic-optics with 'pipelineObjects' instead." #-}
 
 -- | The ID of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdPipelineId :: Lens.Lens' PutPipelineDefinition Lude.Text
-ppdPipelineId = Lens.lens (pipelineId :: PutPipelineDefinition -> Lude.Text) (\s a -> s {pipelineId = a} :: PutPipelineDefinition)
+ppdPipelineId :: Lens.Lens' PutPipelineDefinition Types.Id
+ppdPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED ppdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+-- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
+--
+-- /Note:/ Consider using 'pipelineObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdPipelineObjects :: Lens.Lens' PutPipelineDefinition [Types.PipelineObject]
+ppdPipelineObjects = Lens.field @"pipelineObjects"
+{-# DEPRECATED ppdPipelineObjects "Use generic-lens or generic-optics with 'pipelineObjects' instead." #-}
 
 -- | The parameter objects used with the pipeline.
 --
 -- /Note:/ Consider using 'parameterObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdParameterObjects :: Lens.Lens' PutPipelineDefinition (Lude.Maybe [ParameterObject])
-ppdParameterObjects = Lens.lens (parameterObjects :: PutPipelineDefinition -> Lude.Maybe [ParameterObject]) (\s a -> s {parameterObjects = a} :: PutPipelineDefinition)
+ppdParameterObjects :: Lens.Lens' PutPipelineDefinition (Core.Maybe [Types.ParameterObject])
+ppdParameterObjects = Lens.field @"parameterObjects"
 {-# DEPRECATED ppdParameterObjects "Use generic-lens or generic-optics with 'parameterObjects' instead." #-}
 
 -- | The parameter values used with the pipeline.
 --
 -- /Note:/ Consider using 'parameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdParameterValues :: Lens.Lens' PutPipelineDefinition (Lude.Maybe [ParameterValue])
-ppdParameterValues = Lens.lens (parameterValues :: PutPipelineDefinition -> Lude.Maybe [ParameterValue]) (\s a -> s {parameterValues = a} :: PutPipelineDefinition)
+ppdParameterValues :: Lens.Lens' PutPipelineDefinition (Core.Maybe [Types.ParameterValue])
+ppdParameterValues = Lens.field @"parameterValues"
 {-# DEPRECATED ppdParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
 
-instance Lude.AWSRequest PutPipelineDefinition where
+instance Core.FromJSON PutPipelineDefinition where
+  toJSON PutPipelineDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineId" Core..= pipelineId),
+            Core.Just ("pipelineObjects" Core..= pipelineObjects),
+            ("parameterObjects" Core..=) Core.<$> parameterObjects,
+            ("parameterValues" Core..=) Core.<$> parameterValues
+          ]
+      )
+
+instance Core.AWSRequest PutPipelineDefinition where
   type Rs PutPipelineDefinition = PutPipelineDefinitionResponse
-  request = Req.postJSON dataPipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DataPipeline.PutPipelineDefinition")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutPipelineDefinitionResponse'
-            Lude.<$> (x Lude..?> "validationErrors" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "validationWarnings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "errored")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "errored")
+            Core.<*> (x Core..:? "validationErrors")
+            Core.<*> (x Core..:? "validationWarnings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutPipelineDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DataPipeline.PutPipelineDefinition" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutPipelineDefinition where
-  toJSON PutPipelineDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineObjects" Lude..= pipelineObjects),
-            Lude.Just ("pipelineId" Lude..= pipelineId),
-            ("parameterObjects" Lude..=) Lude.<$> parameterObjects,
-            ("parameterValues" Lude..=) Lude.<$> parameterValues
-          ]
-      )
-
-instance Lude.ToPath PutPipelineDefinition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutPipelineDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of PutPipelineDefinition.
 --
 -- /See:/ 'mkPutPipelineDefinitionResponse' smart constructor.
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-  { -- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
-    validationErrors :: Lude.Maybe [ValidationError],
+  { -- | Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
+    errored :: Core.Bool,
+    -- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
+    validationErrors :: Core.Maybe [Types.ValidationError],
     -- | The validation warnings that are associated with the objects defined in @pipelineObjects@ .
-    validationWarnings :: Lude.Maybe [ValidationWarning],
-    -- | Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
-    errored :: Lude.Bool,
+    validationWarnings :: Core.Maybe [Types.ValidationWarning],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPipelineDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'validationErrors' - The validation errors that are associated with the objects defined in @pipelineObjects@ .
--- * 'validationWarnings' - The validation warnings that are associated with the objects defined in @pipelineObjects@ .
--- * 'errored' - Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutPipelineDefinitionResponse' value with any optional fields omitted.
 mkPutPipelineDefinitionResponse ::
   -- | 'errored'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutPipelineDefinitionResponse
-mkPutPipelineDefinitionResponse pErrored_ pResponseStatus_ =
+mkPutPipelineDefinitionResponse errored responseStatus =
   PutPipelineDefinitionResponse'
-    { validationErrors = Lude.Nothing,
-      validationWarnings = Lude.Nothing,
-      errored = pErrored_,
-      responseStatus = pResponseStatus_
+    { errored,
+      validationErrors = Core.Nothing,
+      validationWarnings = Core.Nothing,
+      responseStatus
     }
-
--- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
---
--- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdrsValidationErrors :: Lens.Lens' PutPipelineDefinitionResponse (Lude.Maybe [ValidationError])
-ppdrsValidationErrors = Lens.lens (validationErrors :: PutPipelineDefinitionResponse -> Lude.Maybe [ValidationError]) (\s a -> s {validationErrors = a} :: PutPipelineDefinitionResponse)
-{-# DEPRECATED ppdrsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
-
--- | The validation warnings that are associated with the objects defined in @pipelineObjects@ .
---
--- /Note:/ Consider using 'validationWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdrsValidationWarnings :: Lens.Lens' PutPipelineDefinitionResponse (Lude.Maybe [ValidationWarning])
-ppdrsValidationWarnings = Lens.lens (validationWarnings :: PutPipelineDefinitionResponse -> Lude.Maybe [ValidationWarning]) (\s a -> s {validationWarnings = a} :: PutPipelineDefinitionResponse)
-{-# DEPRECATED ppdrsValidationWarnings "Use generic-lens or generic-optics with 'validationWarnings' instead." #-}
 
 -- | Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
 --
 -- /Note:/ Consider using 'errored' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdrsErrored :: Lens.Lens' PutPipelineDefinitionResponse Lude.Bool
-ppdrsErrored = Lens.lens (errored :: PutPipelineDefinitionResponse -> Lude.Bool) (\s a -> s {errored = a} :: PutPipelineDefinitionResponse)
-{-# DEPRECATED ppdrsErrored "Use generic-lens or generic-optics with 'errored' instead." #-}
+ppdrrsErrored :: Lens.Lens' PutPipelineDefinitionResponse Core.Bool
+ppdrrsErrored = Lens.field @"errored"
+{-# DEPRECATED ppdrrsErrored "Use generic-lens or generic-optics with 'errored' instead." #-}
+
+-- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
+--
+-- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdrrsValidationErrors :: Lens.Lens' PutPipelineDefinitionResponse (Core.Maybe [Types.ValidationError])
+ppdrrsValidationErrors = Lens.field @"validationErrors"
+{-# DEPRECATED ppdrrsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
+
+-- | The validation warnings that are associated with the objects defined in @pipelineObjects@ .
+--
+-- /Note:/ Consider using 'validationWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdrrsValidationWarnings :: Lens.Lens' PutPipelineDefinitionResponse (Core.Maybe [Types.ValidationWarning])
+ppdrrsValidationWarnings = Lens.field @"validationWarnings"
+{-# DEPRECATED ppdrrsValidationWarnings "Use generic-lens or generic-optics with 'validationWarnings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppdrsResponseStatus :: Lens.Lens' PutPipelineDefinitionResponse Lude.Int
-ppdrsResponseStatus = Lens.lens (responseStatus :: PutPipelineDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutPipelineDefinitionResponse)
-{-# DEPRECATED ppdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ppdrrsResponseStatus :: Lens.Lens' PutPipelineDefinitionResponse Core.Int
+ppdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ppdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

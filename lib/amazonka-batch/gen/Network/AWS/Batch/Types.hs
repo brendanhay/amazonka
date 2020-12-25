@@ -9,242 +9,55 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types
   ( -- * Service configuration
-    batchService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * ArrayJobDependency
-    ArrayJobDependency (..),
-
-    -- * CEState
-    CEState (..),
-
-    -- * CEStatus
-    CEStatus (..),
-
-    -- * CEType
-    CEType (..),
-
-    -- * CRAllocationStrategy
-    CRAllocationStrategy (..),
-
-    -- * CRType
-    CRType (..),
-
-    -- * DeviceCgroupPermission
-    DeviceCgroupPermission (..),
-
-    -- * JQState
-    JQState (..),
-
-    -- * JQStatus
-    JQStatus (..),
-
-    -- * JobDefinitionType
-    JobDefinitionType (..),
-
-    -- * JobStatus
-    JobStatus (..),
-
-    -- * LogDriver
-    LogDriver (..),
-
-    -- * ResourceType
-    ResourceType (..),
-
-    -- * RetryAction
-    RetryAction (..),
-
-    -- * ArrayProperties
-    ArrayProperties (..),
-    mkArrayProperties,
-    apSize,
-
-    -- * ArrayPropertiesDetail
-    ArrayPropertiesDetail (..),
-    mkArrayPropertiesDetail,
-    apdSize,
-    apdStatusSummary,
-    apdIndex,
-
-    -- * ArrayPropertiesSummary
-    ArrayPropertiesSummary (..),
-    mkArrayPropertiesSummary,
-    apsSize,
-    apsIndex,
-
-    -- * AttemptContainerDetail
-    AttemptContainerDetail (..),
-    mkAttemptContainerDetail,
-    acdNetworkInterfaces,
-    acdTaskARN,
-    acdContainerInstanceARN,
-    acdReason,
-    acdLogStreamName,
-    acdExitCode,
+    _ServerException,
+    _ClientException,
 
     -- * AttemptDetail
     AttemptDetail (..),
     mkAttemptDetail,
-    adStoppedAt,
-    adStartedAt,
     adContainer,
+    adStartedAt,
     adStatusReason,
+    adStoppedAt,
 
-    -- * ComputeEnvironmentDetail
-    ComputeEnvironmentDetail (..),
-    mkComputeEnvironmentDetail,
-    cedStatus,
-    cedComputeEnvironmentName,
-    cedState,
-    cedEcsClusterARN,
-    cedComputeResources,
-    cedComputeEnvironmentARN,
-    cedStatusReason,
-    cedType,
-    cedServiceRole,
-    cedTags,
+    -- * NodeOverrides
+    NodeOverrides (..),
+    mkNodeOverrides,
+    noNodePropertyOverrides,
+    noNumNodes,
 
-    -- * ComputeEnvironmentOrder
-    ComputeEnvironmentOrder (..),
-    mkComputeEnvironmentOrder,
-    ceoComputeEnvironment,
-    ceoOrder,
+    -- * JQStatus
+    JQStatus (..),
 
-    -- * ComputeResource
-    ComputeResource (..),
-    mkComputeResource,
-    crSecurityGroupIds,
-    crInstanceTypes,
-    crInstanceRole,
-    crSubnets,
-    crEc2KeyPair,
-    crMinvCPUs,
-    crEc2Configuration,
-    crMaxvCPUs,
-    crBidPercentage,
-    crSpotIAMFleetRole,
-    crImageId,
-    crLaunchTemplate,
-    crType,
-    crDesiredvCPUs,
-    crAllocationStrategy,
-    crPlacementGroup,
-    crTags,
+    -- * CRAllocationStrategy
+    CRAllocationStrategy (..),
 
-    -- * ComputeResourceUpdate
-    ComputeResourceUpdate (..),
-    mkComputeResourceUpdate,
-    cruMinvCPUs,
-    cruMaxvCPUs,
-    cruDesiredvCPUs,
+    -- * JobDefinitionType
+    JobDefinitionType (..),
 
-    -- * ContainerDetail
-    ContainerDetail (..),
-    mkContainerDetail,
-    cdImage,
-    cdCommand,
-    cdSecrets,
-    cdEnvironment,
-    cdNetworkInterfaces,
-    cdTaskARN,
-    cdUlimits,
-    cdContainerInstanceARN,
-    cdExecutionRoleARN,
-    cdPrivileged,
-    cdJobRoleARN,
-    cdResourceRequirements,
-    cdInstanceType,
-    cdMemory,
-    cdUser,
-    cdLogConfiguration,
-    cdLinuxParameters,
-    cdReason,
-    cdLogStreamName,
-    cdMountPoints,
-    cdExitCode,
-    cdVcpus,
-    cdReadonlyRootFilesystem,
-    cdVolumes,
-
-    -- * ContainerOverrides
-    ContainerOverrides (..),
-    mkContainerOverrides,
-    coCommand,
-    coEnvironment,
-    coResourceRequirements,
-    coInstanceType,
-    coMemory,
-    coVcpus,
-
-    -- * ContainerProperties
-    ContainerProperties (..),
-    mkContainerProperties,
-    cpImage,
-    cpCommand,
-    cpSecrets,
-    cpEnvironment,
-    cpUlimits,
-    cpExecutionRoleARN,
-    cpPrivileged,
-    cpJobRoleARN,
-    cpResourceRequirements,
-    cpInstanceType,
-    cpMemory,
-    cpUser,
-    cpLogConfiguration,
-    cpLinuxParameters,
-    cpMountPoints,
-    cpVcpus,
-    cpReadonlyRootFilesystem,
-    cpVolumes,
-
-    -- * ContainerSummary
-    ContainerSummary (..),
-    mkContainerSummary,
-    csReason,
-    csExitCode,
-
-    -- * Device
-    Device (..),
-    mkDevice,
-    dContainerPath,
-    dHostPath,
-    dPermissions,
-
-    -- * EC2Configuration
-    EC2Configuration (..),
-    mkEC2Configuration,
-    ecImageType,
-    ecImageIdOverride,
+    -- * ResourceType
+    ResourceType (..),
 
     -- * EvaluateOnExit
     EvaluateOnExit (..),
     mkEvaluateOnExit,
+    eoeAction,
     eoeOnExitCode,
     eoeOnReason,
-    eoeAction,
     eoeOnStatusReason,
 
-    -- * Host
-    Host (..),
-    mkHost,
-    hSourcePath,
+    -- * NodePropertiesSummary
+    NodePropertiesSummary (..),
+    mkNodePropertiesSummary,
+    npsIsMainNode,
+    npsNodeIndex,
+    npsNumNodes,
 
-    -- * JobDefinition
-    JobDefinition (..),
-    mkJobDefinition,
-    jdfStatus,
-    jdfJobDefinitionName,
-    jdfRetryStrategy,
-    jdfJobDefinitionARN,
-    jdfParameters,
-    jdfType,
-    jdfTimeout,
-    jdfRevision,
-    jdfContainerProperties,
-    jdfNodeProperties,
-    jdfTags,
+    -- * String
+    String (..),
 
     -- * JobDependency
     JobDependency (..),
@@ -252,84 +65,137 @@ module Network.AWS.Batch.Types
     jJobId,
     jType,
 
-    -- * JobDetail
-    JobDetail (..),
-    mkJobDetail,
-    jdStoppedAt,
-    jdStatus,
-    jdJobId,
-    jdJobARN,
-    jdCreatedAt,
-    jdJobName,
-    jdRetryStrategy,
-    jdAttempts,
-    jdStartedAt,
-    jdDependsOn,
-    jdContainer,
-    jdJobDefinition,
-    jdNodeDetails,
-    jdParameters,
-    jdStatusReason,
-    jdArrayProperties,
-    jdTimeout,
-    jdJobQueue,
-    jdNodeProperties,
-    jdTags,
+    -- * ContainerOverrides
+    ContainerOverrides (..),
+    mkContainerOverrides,
+    coCommand,
+    coEnvironment,
+    coInstanceType,
+    coMemory,
+    coResourceRequirements,
+    coVcpus,
 
-    -- * JobQueueDetail
-    JobQueueDetail (..),
-    mkJobQueueDetail,
-    jqdStatus,
-    jqdState,
-    jqdPriority,
-    jqdJobQueueARN,
-    jqdComputeEnvironmentOrder,
-    jqdStatusReason,
-    jqdJobQueueName,
-    jqdTags,
+    -- * Device
+    Device (..),
+    mkDevice,
+    dHostPath,
+    dContainerPath,
+    dPermissions,
+
+    -- * Volume
+    Volume (..),
+    mkVolume,
+    vHost,
+    vName,
+
+    -- * ContainerSummary
+    ContainerSummary (..),
+    mkContainerSummary,
+    csExitCode,
+    csReason,
+
+    -- * NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niAttachmentId,
+    niIpv6Address,
+    niPrivateIpv4Address,
+
+    -- * RetryStrategy
+    RetryStrategy (..),
+    mkRetryStrategy,
+    rsAttempts,
+    rsEvaluateOnExit,
+
+    -- * AttemptContainerDetail
+    AttemptContainerDetail (..),
+    mkAttemptContainerDetail,
+    acdContainerInstanceArn,
+    acdExitCode,
+    acdLogStreamName,
+    acdNetworkInterfaces,
+    acdReason,
+    acdTaskArn,
 
     -- * JobSummary
     JobSummary (..),
     mkJobSummary,
-    jsStoppedAt,
-    jsStatus,
     jsJobId,
-    jsJobARN,
-    jsCreatedAt,
     jsJobName,
-    jsStartedAt,
-    jsContainer,
-    jsStatusReason,
     jsArrayProperties,
+    jsContainer,
+    jsCreatedAt,
+    jsJobArn,
     jsNodeProperties,
-
-    -- * JobTimeout
-    JobTimeout (..),
-    mkJobTimeout,
-    jtAttemptDurationSeconds,
+    jsStartedAt,
+    jsStatus,
+    jsStatusReason,
+    jsStoppedAt,
 
     -- * KeyValuePair
     KeyValuePair (..),
     mkKeyValuePair,
-    kvpValue,
     kvpName,
+    kvpValue,
 
-    -- * LaunchTemplateSpecification
-    LaunchTemplateSpecification (..),
-    mkLaunchTemplateSpecification,
-    ltsLaunchTemplateName,
-    ltsLaunchTemplateId,
-    ltsVersion,
+    -- * ComputeEnvironmentOrder
+    ComputeEnvironmentOrder (..),
+    mkComputeEnvironmentOrder,
+    ceoOrder,
+    ceoComputeEnvironment,
+
+    -- * Secret
+    Secret (..),
+    mkSecret,
+    sName,
+    sValueFrom,
+
+    -- * RetryAction
+    RetryAction (..),
+
+    -- * TagValue
+    TagValue (..),
+
+    -- * ComputeEnvironmentDetail
+    ComputeEnvironmentDetail (..),
+    mkComputeEnvironmentDetail,
+    cedComputeEnvironmentName,
+    cedComputeEnvironmentArn,
+    cedEcsClusterArn,
+    cedComputeResources,
+    cedServiceRole,
+    cedState,
+    cedStatus,
+    cedStatusReason,
+    cedTags,
+    cedType,
+
+    -- * CRType
+    CRType (..),
+
+    -- * ArrayPropertiesDetail
+    ArrayPropertiesDetail (..),
+    mkArrayPropertiesDetail,
+    apdIndex,
+    apdSize,
+    apdStatusSummary,
 
     -- * LinuxParameters
     LinuxParameters (..),
     mkLinuxParameters,
-    lpSharedMemorySize,
-    lpInitProcessEnabled,
-    lpTmpfs,
-    lpSwappiness,
     lpDevices,
+    lpInitProcessEnabled,
     lpMaxSwap,
+    lpSharedMemorySize,
+    lpSwappiness,
+    lpTmpfs,
+
+    -- * Tmpfs
+    Tmpfs (..),
+    mkTmpfs,
+    tContainerPath,
+    tSize,
+    tMountOptions,
 
     -- * LogConfiguration
     LogConfiguration (..),
@@ -338,31 +204,226 @@ module Network.AWS.Batch.Types
     lcOptions,
     lcSecretOptions,
 
-    -- * MountPoint
-    MountPoint (..),
-    mkMountPoint,
-    mpContainerPath,
-    mpSourceVolume,
-    mpReadOnly,
+    -- * JobTimeout
+    JobTimeout (..),
+    mkJobTimeout,
+    jtAttemptDurationSeconds,
 
-    -- * NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niIpv6Address,
-    niPrivateIPv4Address,
-    niAttachmentId,
+    -- * JQState
+    JQState (..),
+
+    -- * Ec2Configuration
+    Ec2Configuration (..),
+    mkEc2Configuration,
+    ecImageType,
+    ecImageIdOverride,
+
+    -- * ArrayPropertiesSummary
+    ArrayPropertiesSummary (..),
+    mkArrayPropertiesSummary,
+    apsIndex,
+    apsSize,
+
+    -- * JobQueueDetail
+    JobQueueDetail (..),
+    mkJobQueueDetail,
+    jqdJobQueueName,
+    jqdJobQueueArn,
+    jqdState,
+    jqdPriority,
+    jqdComputeEnvironmentOrder,
+    jqdStatus,
+    jqdStatusReason,
+    jqdTags,
+
+    -- * ComputeResource
+    ComputeResource (..),
+    mkComputeResource,
+    crType,
+    crMinvCpus,
+    crMaxvCpus,
+    crInstanceTypes,
+    crSubnets,
+    crInstanceRole,
+    crAllocationStrategy,
+    crBidPercentage,
+    crDesiredvCpus,
+    crEc2Configuration,
+    crEc2KeyPair,
+    crImageId,
+    crLaunchTemplate,
+    crPlacementGroup,
+    crSecurityGroupIds,
+    crSpotIamFleetRole,
+    crTags,
+
+    -- * ImageType
+    ImageType (..),
+
+    -- * DeviceCgroupPermission
+    DeviceCgroupPermission (..),
+
+    -- * CEStatus
+    CEStatus (..),
 
     -- * NodeDetails
     NodeDetails (..),
     mkNodeDetails,
-    ndNodeIndex,
     ndIsMainNode,
+    ndNodeIndex,
 
-    -- * NodeOverrides
-    NodeOverrides (..),
-    mkNodeOverrides,
-    noNumNodes,
-    noNodePropertyOverrides,
+    -- * LogDriver
+    LogDriver (..),
+
+    -- * JobDefinition
+    JobDefinition (..),
+    mkJobDefinition,
+    jdfJobDefinitionName,
+    jdfJobDefinitionArn,
+    jdfRevision,
+    jdfType,
+    jdfContainerProperties,
+    jdfNodeProperties,
+    jdfParameters,
+    jdfRetryStrategy,
+    jdfStatus,
+    jdfTags,
+    jdfTimeout,
+
+    -- * ResourceRequirement
+    ResourceRequirement (..),
+    mkResourceRequirement,
+    rrValue,
+    rrType,
+
+    -- * TagKey
+    TagKey (..),
+
+    -- * Ulimit
+    Ulimit (..),
+    mkUlimit,
+    uHardLimit,
+    uName,
+    uSoftLimit,
+
+    -- * LaunchTemplateSpecification
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
+    ltsLaunchTemplateId,
+    ltsLaunchTemplateName,
+    ltsVersion,
+
+    -- * Host
+    Host (..),
+    mkHost,
+    hSourcePath,
+
+    -- * NodeRangeProperty
+    NodeRangeProperty (..),
+    mkNodeRangeProperty,
+    nrpTargetNodes,
+    nrpContainer,
+
+    -- * ArrayProperties
+    ArrayProperties (..),
+    mkArrayProperties,
+    apSize,
+
+    -- * JobStatus
+    JobStatus (..),
+
+    -- * NodePropertyOverride
+    NodePropertyOverride (..),
+    mkNodePropertyOverride,
+    npoTargetNodes,
+    npoContainerOverrides,
+
+    -- * ContainerProperties
+    ContainerProperties (..),
+    mkContainerProperties,
+    cpCommand,
+    cpEnvironment,
+    cpExecutionRoleArn,
+    cpImage,
+    cpInstanceType,
+    cpJobRoleArn,
+    cpLinuxParameters,
+    cpLogConfiguration,
+    cpMemory,
+    cpMountPoints,
+    cpPrivileged,
+    cpReadonlyRootFilesystem,
+    cpResourceRequirements,
+    cpSecrets,
+    cpUlimits,
+    cpUser,
+    cpVcpus,
+    cpVolumes,
+
+    -- * ContainerDetail
+    ContainerDetail (..),
+    mkContainerDetail,
+    cdCommand,
+    cdContainerInstanceArn,
+    cdEnvironment,
+    cdExecutionRoleArn,
+    cdExitCode,
+    cdImage,
+    cdInstanceType,
+    cdJobRoleArn,
+    cdLinuxParameters,
+    cdLogConfiguration,
+    cdLogStreamName,
+    cdMemory,
+    cdMountPoints,
+    cdNetworkInterfaces,
+    cdPrivileged,
+    cdReadonlyRootFilesystem,
+    cdReason,
+    cdResourceRequirements,
+    cdSecrets,
+    cdTaskArn,
+    cdUlimits,
+    cdUser,
+    cdVcpus,
+    cdVolumes,
+
+    -- * CEType
+    CEType (..),
+
+    -- * JobDetail
+    JobDetail (..),
+    mkJobDetail,
+    jdJobName,
+    jdJobId,
+    jdJobQueue,
+    jdStatus,
+    jdStartedAt,
+    jdJobDefinition,
+    jdArrayProperties,
+    jdAttempts,
+    jdContainer,
+    jdCreatedAt,
+    jdDependsOn,
+    jdJobArn,
+    jdNodeDetails,
+    jdNodeProperties,
+    jdParameters,
+    jdRetryStrategy,
+    jdStatusReason,
+    jdStoppedAt,
+    jdTags,
+    jdTimeout,
+
+    -- * ComputeResourceUpdate
+    ComputeResourceUpdate (..),
+    mkComputeResourceUpdate,
+    cruDesiredvCpus,
+    cruMaxvCpus,
+    cruMinvCpus,
+
+    -- * ImageIdOverride
+    ImageIdOverride (..),
 
     -- * NodeProperties
     NodeProperties (..),
@@ -371,66 +432,65 @@ module Network.AWS.Batch.Types
     npMainNode,
     npNodeRangeProperties,
 
-    -- * NodePropertiesSummary
-    NodePropertiesSummary (..),
-    mkNodePropertiesSummary,
-    npsNumNodes,
-    npsNodeIndex,
-    npsIsMainNode,
+    -- * ArrayJobDependency
+    ArrayJobDependency (..),
 
-    -- * NodePropertyOverride
-    NodePropertyOverride (..),
-    mkNodePropertyOverride,
-    npoContainerOverrides,
-    npoTargetNodes,
+    -- * CEState
+    CEState (..),
 
-    -- * NodeRangeProperty
-    NodeRangeProperty (..),
-    mkNodeRangeProperty,
-    nrpContainer,
-    nrpTargetNodes,
+    -- * MountPoint
+    MountPoint (..),
+    mkMountPoint,
+    mpContainerPath,
+    mpReadOnly,
+    mpSourceVolume,
 
-    -- * ResourceRequirement
-    ResourceRequirement (..),
-    mkResourceRequirement,
-    rrValue,
-    rrType,
+    -- * StatusReason
+    StatusReason (..),
 
-    -- * RetryStrategy
-    RetryStrategy (..),
-    mkRetryStrategy,
-    rsEvaluateOnExit,
-    rsAttempts,
+    -- * ComputeEnvironmentArn
+    ComputeEnvironmentArn (..),
 
-    -- * Secret
-    Secret (..),
-    mkSecret,
-    sName,
-    sValueFrom,
+    -- * ComputeEnvironmentName
+    ComputeEnvironmentName (..),
 
-    -- * Tmpfs
-    Tmpfs (..),
-    mkTmpfs,
-    tSize,
-    tContainerPath,
-    tMountOptions,
+    -- * JobId
+    JobId (..),
 
-    -- * Ulimit
-    Ulimit (..),
-    mkUlimit,
-    uName,
-    uHardLimit,
-    uSoftLimit,
+    -- * Reason
+    Reason (..),
 
-    -- * Volume
-    Volume (..),
-    mkVolume,
-    vName,
-    vHost,
+    -- * ArrayJobId
+    ArrayJobId (..),
+
+    -- * JobQueue
+    JobQueue (..),
+
+    -- * MultiNodeJobId
+    MultiNodeJobId (..),
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * JobName
+    JobName (..),
+
+    -- * JobDefinitionName
+    JobDefinitionName (..),
+
+    -- * OnExitCode
+    OnExitCode (..),
+
+    -- * OnReason
+    OnReason (..),
+
+    -- * OnStatusReason
+    OnStatusReason (..),
   )
 where
 
 import Network.AWS.Batch.Types.ArrayJobDependency
+import Network.AWS.Batch.Types.ArrayJobId
 import Network.AWS.Batch.Types.ArrayProperties
 import Network.AWS.Batch.Types.ArrayPropertiesDetail
 import Network.AWS.Batch.Types.ArrayPropertiesSummary
@@ -441,7 +501,9 @@ import Network.AWS.Batch.Types.CEStatus
 import Network.AWS.Batch.Types.CEType
 import Network.AWS.Batch.Types.CRAllocationStrategy
 import Network.AWS.Batch.Types.CRType
+import Network.AWS.Batch.Types.ComputeEnvironmentArn
 import Network.AWS.Batch.Types.ComputeEnvironmentDetail
+import Network.AWS.Batch.Types.ComputeEnvironmentName
 import Network.AWS.Batch.Types.ComputeEnvironmentOrder
 import Network.AWS.Batch.Types.ComputeResource
 import Network.AWS.Batch.Types.ComputeResourceUpdate
@@ -451,15 +513,21 @@ import Network.AWS.Batch.Types.ContainerProperties
 import Network.AWS.Batch.Types.ContainerSummary
 import Network.AWS.Batch.Types.Device
 import Network.AWS.Batch.Types.DeviceCgroupPermission
-import Network.AWS.Batch.Types.EC2Configuration
+import Network.AWS.Batch.Types.Ec2Configuration
 import Network.AWS.Batch.Types.EvaluateOnExit
 import Network.AWS.Batch.Types.Host
+import Network.AWS.Batch.Types.ImageIdOverride
+import Network.AWS.Batch.Types.ImageType
 import Network.AWS.Batch.Types.JQState
 import Network.AWS.Batch.Types.JQStatus
 import Network.AWS.Batch.Types.JobDefinition
+import Network.AWS.Batch.Types.JobDefinitionName
 import Network.AWS.Batch.Types.JobDefinitionType
 import Network.AWS.Batch.Types.JobDependency
 import Network.AWS.Batch.Types.JobDetail
+import Network.AWS.Batch.Types.JobId
+import Network.AWS.Batch.Types.JobName
+import Network.AWS.Batch.Types.JobQueue
 import Network.AWS.Batch.Types.JobQueueDetail
 import Network.AWS.Batch.Types.JobStatus
 import Network.AWS.Batch.Types.JobSummary
@@ -470,75 +538,99 @@ import Network.AWS.Batch.Types.LinuxParameters
 import Network.AWS.Batch.Types.LogConfiguration
 import Network.AWS.Batch.Types.LogDriver
 import Network.AWS.Batch.Types.MountPoint
+import Network.AWS.Batch.Types.MultiNodeJobId
 import Network.AWS.Batch.Types.NetworkInterface
+import Network.AWS.Batch.Types.NextToken
 import Network.AWS.Batch.Types.NodeDetails
 import Network.AWS.Batch.Types.NodeOverrides
 import Network.AWS.Batch.Types.NodeProperties
 import Network.AWS.Batch.Types.NodePropertiesSummary
 import Network.AWS.Batch.Types.NodePropertyOverride
 import Network.AWS.Batch.Types.NodeRangeProperty
+import Network.AWS.Batch.Types.OnExitCode
+import Network.AWS.Batch.Types.OnReason
+import Network.AWS.Batch.Types.OnStatusReason
+import Network.AWS.Batch.Types.Reason
 import Network.AWS.Batch.Types.ResourceRequirement
 import Network.AWS.Batch.Types.ResourceType
 import Network.AWS.Batch.Types.RetryAction
 import Network.AWS.Batch.Types.RetryStrategy
 import Network.AWS.Batch.Types.Secret
+import Network.AWS.Batch.Types.StatusReason
+import Network.AWS.Batch.Types.String
+import Network.AWS.Batch.Types.TagKey
+import Network.AWS.Batch.Types.TagValue
 import Network.AWS.Batch.Types.Tmpfs
 import Network.AWS.Batch.Types.Ulimit
 import Network.AWS.Batch.Types.Volume
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-08-10@ of the Amazon Batch SDK configuration.
-batchService :: Lude.Service
-batchService =
-  Lude.Service
-    { Lude._svcAbbrev = "Batch",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "batch",
-      Lude._svcVersion = "2016-08-10",
-      Lude._svcEndpoint = Lude.defaultEndpoint batchService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "Batch",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "Batch",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "batch",
+      Core._svcVersion = "2016-08-10",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "Batch",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | These errors are usually caused by a server issue.
+_ServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServerException =
+  Core._MatchServiceError mkServiceConfig "ServerException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _ServerException "Use generic-lens or generic-optics instead." #-}
+
+-- | These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.
+_ClientException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClientException =
+  Core._MatchServiceError mkServiceConfig "ClientException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ClientException "Use generic-lens or generic-optics instead." #-}

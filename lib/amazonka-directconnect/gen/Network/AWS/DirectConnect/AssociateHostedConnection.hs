@@ -20,108 +20,95 @@ module Network.AWS.DirectConnect.AssociateHostedConnection
     mkAssociateHostedConnection,
 
     -- ** Request lenses
-    ahcfParentConnectionId,
     ahcfConnectionId,
+    ahcfParentConnectionId,
 
     -- * Destructuring the response
-    Connection (..),
-    mkConnection,
+    Types.Connection (..),
+    Types.mkConnection,
 
     -- ** Response lenses
-    cLagId,
-    cVlan,
-    cLocation,
-    cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
-    cAwsDeviceV2,
-    cConnectionState,
-    cTags,
+    Types.cAwsDevice,
+    Types.cAwsDeviceV2,
+    Types.cBandwidth,
+    Types.cConnectionId,
+    Types.cConnectionName,
+    Types.cConnectionState,
+    Types.cHasLogicalRedundancy,
+    Types.cJumboFrameCapable,
+    Types.cLagId,
+    Types.cLoaIssueTime,
+    Types.cLocation,
+    Types.cOwnerAccount,
+    Types.cPartnerName,
+    Types.cProviderName,
+    Types.cRegion,
+    Types.cTags,
+    Types.cVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
-  { -- | The ID of the interconnect or the LAG.
-    parentConnectionId :: Lude.Text,
-    -- | The ID of the hosted connection.
-    connectionId :: Lude.Text
+  { -- | The ID of the hosted connection.
+    connectionId :: Types.ConnectionId,
+    -- | The ID of the interconnect or the LAG.
+    parentConnectionId :: Types.ConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateHostedConnection' with the minimum fields required to make a request.
---
--- * 'parentConnectionId' - The ID of the interconnect or the LAG.
--- * 'connectionId' - The ID of the hosted connection.
+-- | Creates a 'AssociateHostedConnection' value with any optional fields omitted.
 mkAssociateHostedConnection ::
-  -- | 'parentConnectionId'
-  Lude.Text ->
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
+  -- | 'parentConnectionId'
+  Types.ConnectionId ->
   AssociateHostedConnection
-mkAssociateHostedConnection pParentConnectionId_ pConnectionId_ =
-  AssociateHostedConnection'
-    { parentConnectionId =
-        pParentConnectionId_,
-      connectionId = pConnectionId_
-    }
-
--- | The ID of the interconnect or the LAG.
---
--- /Note:/ Consider using 'parentConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahcfParentConnectionId :: Lens.Lens' AssociateHostedConnection Lude.Text
-ahcfParentConnectionId = Lens.lens (parentConnectionId :: AssociateHostedConnection -> Lude.Text) (\s a -> s {parentConnectionId = a} :: AssociateHostedConnection)
-{-# DEPRECATED ahcfParentConnectionId "Use generic-lens or generic-optics with 'parentConnectionId' instead." #-}
+mkAssociateHostedConnection connectionId parentConnectionId =
+  AssociateHostedConnection' {connectionId, parentConnectionId}
 
 -- | The ID of the hosted connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahcfConnectionId :: Lens.Lens' AssociateHostedConnection Lude.Text
-ahcfConnectionId = Lens.lens (connectionId :: AssociateHostedConnection -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateHostedConnection)
+ahcfConnectionId :: Lens.Lens' AssociateHostedConnection Types.ConnectionId
+ahcfConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED ahcfConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest AssociateHostedConnection where
-  type Rs AssociateHostedConnection = Connection
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The ID of the interconnect or the LAG.
+--
+-- /Note:/ Consider using 'parentConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcfParentConnectionId :: Lens.Lens' AssociateHostedConnection Types.ConnectionId
+ahcfParentConnectionId = Lens.field @"parentConnectionId"
+{-# DEPRECATED ahcfParentConnectionId "Use generic-lens or generic-optics with 'parentConnectionId' instead." #-}
 
-instance Lude.ToHeaders AssociateHostedConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.AssociateHostedConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON AssociateHostedConnection where
+  toJSON AssociateHostedConnection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("parentConnectionId" Core..= parentConnectionId)
           ]
       )
 
-instance Lude.ToJSON AssociateHostedConnection where
-  toJSON AssociateHostedConnection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("parentConnectionId" Lude..= parentConnectionId),
-            Lude.Just ("connectionId" Lude..= connectionId)
-          ]
-      )
-
-instance Lude.ToPath AssociateHostedConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateHostedConnection where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AssociateHostedConnection where
+  type Rs AssociateHostedConnection = Types.Connection
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.AssociateHostedConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

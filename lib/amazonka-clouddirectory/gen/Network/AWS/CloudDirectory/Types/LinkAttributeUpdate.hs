@@ -22,54 +22,51 @@ module Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKey
-import Network.AWS.CloudDirectory.Types.LinkAttributeAction
+import qualified Network.AWS.CloudDirectory.Types.AttributeKey as Types
+import qualified Network.AWS.CloudDirectory.Types.LinkAttributeAction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Structure that contains attribute update information.
 --
 -- /See:/ 'mkLinkAttributeUpdate' smart constructor.
 data LinkAttributeUpdate = LinkAttributeUpdate'
   { -- | The action to perform as part of the attribute update.
-    attributeAction :: Lude.Maybe LinkAttributeAction,
+    attributeAction :: Core.Maybe Types.LinkAttributeAction,
     -- | The key of the attribute being updated.
-    attributeKey :: Lude.Maybe AttributeKey
+    attributeKey :: Core.Maybe Types.AttributeKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LinkAttributeUpdate' with the minimum fields required to make a request.
---
--- * 'attributeAction' - The action to perform as part of the attribute update.
--- * 'attributeKey' - The key of the attribute being updated.
+-- | Creates a 'LinkAttributeUpdate' value with any optional fields omitted.
 mkLinkAttributeUpdate ::
   LinkAttributeUpdate
 mkLinkAttributeUpdate =
   LinkAttributeUpdate'
-    { attributeAction = Lude.Nothing,
-      attributeKey = Lude.Nothing
+    { attributeAction = Core.Nothing,
+      attributeKey = Core.Nothing
     }
 
 -- | The action to perform as part of the attribute update.
 --
 -- /Note:/ Consider using 'attributeAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lauAttributeAction :: Lens.Lens' LinkAttributeUpdate (Lude.Maybe LinkAttributeAction)
-lauAttributeAction = Lens.lens (attributeAction :: LinkAttributeUpdate -> Lude.Maybe LinkAttributeAction) (\s a -> s {attributeAction = a} :: LinkAttributeUpdate)
+lauAttributeAction :: Lens.Lens' LinkAttributeUpdate (Core.Maybe Types.LinkAttributeAction)
+lauAttributeAction = Lens.field @"attributeAction"
 {-# DEPRECATED lauAttributeAction "Use generic-lens or generic-optics with 'attributeAction' instead." #-}
 
 -- | The key of the attribute being updated.
 --
 -- /Note:/ Consider using 'attributeKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lauAttributeKey :: Lens.Lens' LinkAttributeUpdate (Lude.Maybe AttributeKey)
-lauAttributeKey = Lens.lens (attributeKey :: LinkAttributeUpdate -> Lude.Maybe AttributeKey) (\s a -> s {attributeKey = a} :: LinkAttributeUpdate)
+lauAttributeKey :: Lens.Lens' LinkAttributeUpdate (Core.Maybe Types.AttributeKey)
+lauAttributeKey = Lens.field @"attributeKey"
 {-# DEPRECATED lauAttributeKey "Use generic-lens or generic-optics with 'attributeKey' instead." #-}
 
-instance Lude.ToJSON LinkAttributeUpdate where
-  toJSON LinkAttributeUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AttributeAction" Lude..=) Lude.<$> attributeAction,
-            ("AttributeKey" Lude..=) Lude.<$> attributeKey
+instance Core.FromJSON LinkAttributeUpdate where
+  toJSON LinkAttributeUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeAction" Core..=) Core.<$> attributeAction,
+            ("AttributeKey" Core..=) Core.<$> attributeKey
           ]
       )

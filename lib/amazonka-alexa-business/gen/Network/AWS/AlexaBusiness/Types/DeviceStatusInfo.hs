@@ -17,73 +17,67 @@ module Network.AWS.AlexaBusiness.Types.DeviceStatusInfo
     mkDeviceStatusInfo,
 
     -- * Lenses
+    dsiConnectionStatus,
     dsiConnectionStatusUpdatedTime,
     dsiDeviceStatusDetails,
-    dsiConnectionStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.ConnectionStatus
-import Network.AWS.AlexaBusiness.Types.DeviceStatusDetail
+import qualified Network.AWS.AlexaBusiness.Types.ConnectionStatus as Types
+import qualified Network.AWS.AlexaBusiness.Types.DeviceStatusDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Detailed information about a device's status.
 --
 -- /See:/ 'mkDeviceStatusInfo' smart constructor.
 data DeviceStatusInfo = DeviceStatusInfo'
-  { -- | The time (in epoch) when the device connection status changed.
-    connectionStatusUpdatedTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The latest available information about the connection status of a device.
+    connectionStatus :: Core.Maybe Types.ConnectionStatus,
+    -- | The time (in epoch) when the device connection status changed.
+    connectionStatusUpdatedTime :: Core.Maybe Core.NominalDiffTime,
     -- | One or more device status detail descriptions.
-    deviceStatusDetails :: Lude.Maybe [DeviceStatusDetail],
-    -- | The latest available information about the connection status of a device.
-    connectionStatus :: Lude.Maybe ConnectionStatus
+    deviceStatusDetails :: Core.Maybe [Types.DeviceStatusDetail]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeviceStatusInfo' with the minimum fields required to make a request.
---
--- * 'connectionStatusUpdatedTime' - The time (in epoch) when the device connection status changed.
--- * 'deviceStatusDetails' - One or more device status detail descriptions.
--- * 'connectionStatus' - The latest available information about the connection status of a device.
+-- | Creates a 'DeviceStatusInfo' value with any optional fields omitted.
 mkDeviceStatusInfo ::
   DeviceStatusInfo
 mkDeviceStatusInfo =
   DeviceStatusInfo'
-    { connectionStatusUpdatedTime = Lude.Nothing,
-      deviceStatusDetails = Lude.Nothing,
-      connectionStatus = Lude.Nothing
+    { connectionStatus = Core.Nothing,
+      connectionStatusUpdatedTime = Core.Nothing,
+      deviceStatusDetails = Core.Nothing
     }
+
+-- | The latest available information about the connection status of a device.
+--
+-- /Note:/ Consider using 'connectionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiConnectionStatus :: Lens.Lens' DeviceStatusInfo (Core.Maybe Types.ConnectionStatus)
+dsiConnectionStatus = Lens.field @"connectionStatus"
+{-# DEPRECATED dsiConnectionStatus "Use generic-lens or generic-optics with 'connectionStatus' instead." #-}
 
 -- | The time (in epoch) when the device connection status changed.
 --
 -- /Note:/ Consider using 'connectionStatusUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiConnectionStatusUpdatedTime :: Lens.Lens' DeviceStatusInfo (Lude.Maybe Lude.Timestamp)
-dsiConnectionStatusUpdatedTime = Lens.lens (connectionStatusUpdatedTime :: DeviceStatusInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {connectionStatusUpdatedTime = a} :: DeviceStatusInfo)
+dsiConnectionStatusUpdatedTime :: Lens.Lens' DeviceStatusInfo (Core.Maybe Core.NominalDiffTime)
+dsiConnectionStatusUpdatedTime = Lens.field @"connectionStatusUpdatedTime"
 {-# DEPRECATED dsiConnectionStatusUpdatedTime "Use generic-lens or generic-optics with 'connectionStatusUpdatedTime' instead." #-}
 
 -- | One or more device status detail descriptions.
 --
 -- /Note:/ Consider using 'deviceStatusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiDeviceStatusDetails :: Lens.Lens' DeviceStatusInfo (Lude.Maybe [DeviceStatusDetail])
-dsiDeviceStatusDetails = Lens.lens (deviceStatusDetails :: DeviceStatusInfo -> Lude.Maybe [DeviceStatusDetail]) (\s a -> s {deviceStatusDetails = a} :: DeviceStatusInfo)
+dsiDeviceStatusDetails :: Lens.Lens' DeviceStatusInfo (Core.Maybe [Types.DeviceStatusDetail])
+dsiDeviceStatusDetails = Lens.field @"deviceStatusDetails"
 {-# DEPRECATED dsiDeviceStatusDetails "Use generic-lens or generic-optics with 'deviceStatusDetails' instead." #-}
 
--- | The latest available information about the connection status of a device.
---
--- /Note:/ Consider using 'connectionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiConnectionStatus :: Lens.Lens' DeviceStatusInfo (Lude.Maybe ConnectionStatus)
-dsiConnectionStatus = Lens.lens (connectionStatus :: DeviceStatusInfo -> Lude.Maybe ConnectionStatus) (\s a -> s {connectionStatus = a} :: DeviceStatusInfo)
-{-# DEPRECATED dsiConnectionStatus "Use generic-lens or generic-optics with 'connectionStatus' instead." #-}
-
-instance Lude.FromJSON DeviceStatusInfo where
+instance Core.FromJSON DeviceStatusInfo where
   parseJSON =
-    Lude.withObject
-      "DeviceStatusInfo"
-      ( \x ->
-          DeviceStatusInfo'
-            Lude.<$> (x Lude..:? "ConnectionStatusUpdatedTime")
-            Lude.<*> (x Lude..:? "DeviceStatusDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ConnectionStatus")
-      )
+    Core.withObject "DeviceStatusInfo" Core.$
+      \x ->
+        DeviceStatusInfo'
+          Core.<$> (x Core..:? "ConnectionStatus")
+          Core.<*> (x Core..:? "ConnectionStatusUpdatedTime")
+          Core.<*> (x Core..:? "DeviceStatusDetails")

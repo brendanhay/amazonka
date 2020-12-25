@@ -17,14 +17,14 @@ module Network.AWS.GameLift.Types.GameServerGroupAutoScalingPolicy
     mkGameServerGroupAutoScalingPolicy,
 
     -- * Lenses
-    gsgaspEstimatedInstanceWarmup,
     gsgaspTargetTrackingConfiguration,
+    gsgaspEstimatedInstanceWarmup,
   )
 where
 
-import Network.AWS.GameLift.Types.TargetTrackingConfiguration
+import qualified Network.AWS.GameLift.Types.TargetTrackingConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game server groups.__
 --
@@ -32,52 +32,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameServerGroupAutoScalingPolicy' smart constructor.
 data GameServerGroupAutoScalingPolicy = GameServerGroupAutoScalingPolicy'
-  { -- | Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
-    estimatedInstanceWarmup :: Lude.Maybe Lude.Natural,
-    -- | Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric @"PercentUtilizedGameServers"@ and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
-    targetTrackingConfiguration :: TargetTrackingConfiguration
+  { -- | Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric @"PercentUtilizedGameServers"@ and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+    targetTrackingConfiguration :: Types.TargetTrackingConfiguration,
+    -- | Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+    estimatedInstanceWarmup :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GameServerGroupAutoScalingPolicy' with the minimum fields required to make a request.
---
--- * 'estimatedInstanceWarmup' - Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
--- * 'targetTrackingConfiguration' - Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric @"PercentUtilizedGameServers"@ and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+-- | Creates a 'GameServerGroupAutoScalingPolicy' value with any optional fields omitted.
 mkGameServerGroupAutoScalingPolicy ::
   -- | 'targetTrackingConfiguration'
-  TargetTrackingConfiguration ->
+  Types.TargetTrackingConfiguration ->
   GameServerGroupAutoScalingPolicy
-mkGameServerGroupAutoScalingPolicy pTargetTrackingConfiguration_ =
+mkGameServerGroupAutoScalingPolicy targetTrackingConfiguration =
   GameServerGroupAutoScalingPolicy'
-    { estimatedInstanceWarmup =
-        Lude.Nothing,
-      targetTrackingConfiguration = pTargetTrackingConfiguration_
+    { targetTrackingConfiguration,
+      estimatedInstanceWarmup = Core.Nothing
     }
-
--- | Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
---
--- /Note:/ Consider using 'estimatedInstanceWarmup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsgaspEstimatedInstanceWarmup :: Lens.Lens' GameServerGroupAutoScalingPolicy (Lude.Maybe Lude.Natural)
-gsgaspEstimatedInstanceWarmup = Lens.lens (estimatedInstanceWarmup :: GameServerGroupAutoScalingPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {estimatedInstanceWarmup = a} :: GameServerGroupAutoScalingPolicy)
-{-# DEPRECATED gsgaspEstimatedInstanceWarmup "Use generic-lens or generic-optics with 'estimatedInstanceWarmup' instead." #-}
 
 -- | Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric @"PercentUtilizedGameServers"@ and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 --
 -- /Note:/ Consider using 'targetTrackingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsgaspTargetTrackingConfiguration :: Lens.Lens' GameServerGroupAutoScalingPolicy TargetTrackingConfiguration
-gsgaspTargetTrackingConfiguration = Lens.lens (targetTrackingConfiguration :: GameServerGroupAutoScalingPolicy -> TargetTrackingConfiguration) (\s a -> s {targetTrackingConfiguration = a} :: GameServerGroupAutoScalingPolicy)
+gsgaspTargetTrackingConfiguration :: Lens.Lens' GameServerGroupAutoScalingPolicy Types.TargetTrackingConfiguration
+gsgaspTargetTrackingConfiguration = Lens.field @"targetTrackingConfiguration"
 {-# DEPRECATED gsgaspTargetTrackingConfiguration "Use generic-lens or generic-optics with 'targetTrackingConfiguration' instead." #-}
 
-instance Lude.ToJSON GameServerGroupAutoScalingPolicy where
-  toJSON GameServerGroupAutoScalingPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EstimatedInstanceWarmup" Lude..=)
-              Lude.<$> estimatedInstanceWarmup,
-            Lude.Just
+-- | Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+--
+-- /Note:/ Consider using 'estimatedInstanceWarmup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgaspEstimatedInstanceWarmup :: Lens.Lens' GameServerGroupAutoScalingPolicy (Core.Maybe Core.Natural)
+gsgaspEstimatedInstanceWarmup = Lens.field @"estimatedInstanceWarmup"
+{-# DEPRECATED gsgaspEstimatedInstanceWarmup "Use generic-lens or generic-optics with 'estimatedInstanceWarmup' instead." #-}
+
+instance Core.FromJSON GameServerGroupAutoScalingPolicy where
+  toJSON GameServerGroupAutoScalingPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TargetTrackingConfiguration"
-                  Lude..= targetTrackingConfiguration
-              )
+                  Core..= targetTrackingConfiguration
+              ),
+            ("EstimatedInstanceWarmup" Core..=)
+              Core.<$> estimatedInstanceWarmup
           ]
       )

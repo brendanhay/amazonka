@@ -17,98 +17,90 @@ module Network.AWS.IoT.Types.JobExecutionSummary
     mkJobExecutionSummary,
 
     -- * Lenses
-    jesStatus,
+    jesExecutionNumber,
     jesLastUpdatedAt,
     jesQueuedAt,
-    jesExecutionNumber,
     jesStartedAt,
+    jesStatus,
   )
 where
 
-import Network.AWS.IoT.Types.JobExecutionStatus
+import qualified Network.AWS.IoT.Types.JobExecutionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The job execution summary.
 --
 -- /See:/ 'mkJobExecutionSummary' smart constructor.
 data JobExecutionSummary = JobExecutionSummary'
-  { -- | The status of the job execution.
-    status :: Lude.Maybe JobExecutionStatus,
+  { -- | A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
+    executionNumber :: Core.Maybe Core.Integer,
     -- | The time, in seconds since the epoch, when the job execution was last updated.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The time, in seconds since the epoch, when the job execution was queued.
-    queuedAt :: Lude.Maybe Lude.Timestamp,
-    -- | A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
-    executionNumber :: Lude.Maybe Lude.Integer,
+    queuedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The time, in seconds since the epoch, when the job execution started.
-    startedAt :: Lude.Maybe Lude.Timestamp
+    startedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the job execution.
+    status :: Core.Maybe Types.JobExecutionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'JobExecutionSummary' with the minimum fields required to make a request.
---
--- * 'status' - The status of the job execution.
--- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last updated.
--- * 'queuedAt' - The time, in seconds since the epoch, when the job execution was queued.
--- * 'executionNumber' - A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
--- * 'startedAt' - The time, in seconds since the epoch, when the job execution started.
+-- | Creates a 'JobExecutionSummary' value with any optional fields omitted.
 mkJobExecutionSummary ::
   JobExecutionSummary
 mkJobExecutionSummary =
   JobExecutionSummary'
-    { status = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      queuedAt = Lude.Nothing,
-      executionNumber = Lude.Nothing,
-      startedAt = Lude.Nothing
+    { executionNumber = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      queuedAt = Core.Nothing,
+      startedAt = Core.Nothing,
+      status = Core.Nothing
     }
 
--- | The status of the job execution.
+-- | A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesStatus :: Lens.Lens' JobExecutionSummary (Lude.Maybe JobExecutionStatus)
-jesStatus = Lens.lens (status :: JobExecutionSummary -> Lude.Maybe JobExecutionStatus) (\s a -> s {status = a} :: JobExecutionSummary)
-{-# DEPRECATED jesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesExecutionNumber :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.Integer)
+jesExecutionNumber = Lens.field @"executionNumber"
+{-# DEPRECATED jesExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job execution was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesLastUpdatedAt :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Timestamp)
-jesLastUpdatedAt = Lens.lens (lastUpdatedAt :: JobExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: JobExecutionSummary)
+jesLastUpdatedAt :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.NominalDiffTime)
+jesLastUpdatedAt = Lens.field @"lastUpdatedAt"
 {-# DEPRECATED jesLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job execution was queued.
 --
 -- /Note:/ Consider using 'queuedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesQueuedAt :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Timestamp)
-jesQueuedAt = Lens.lens (queuedAt :: JobExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {queuedAt = a} :: JobExecutionSummary)
+jesQueuedAt :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.NominalDiffTime)
+jesQueuedAt = Lens.field @"queuedAt"
 {-# DEPRECATED jesQueuedAt "Use generic-lens or generic-optics with 'queuedAt' instead." #-}
-
--- | A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
---
--- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesExecutionNumber :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Integer)
-jesExecutionNumber = Lens.lens (executionNumber :: JobExecutionSummary -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: JobExecutionSummary)
-{-# DEPRECATED jesExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job execution started.
 --
 -- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesStartedAt :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Timestamp)
-jesStartedAt = Lens.lens (startedAt :: JobExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: JobExecutionSummary)
+jesStartedAt :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.NominalDiffTime)
+jesStartedAt = Lens.field @"startedAt"
 {-# DEPRECATED jesStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
-instance Lude.FromJSON JobExecutionSummary where
+-- | The status of the job execution.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesStatus :: Lens.Lens' JobExecutionSummary (Core.Maybe Types.JobExecutionStatus)
+jesStatus = Lens.field @"status"
+{-# DEPRECATED jesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON JobExecutionSummary where
   parseJSON =
-    Lude.withObject
-      "JobExecutionSummary"
-      ( \x ->
-          JobExecutionSummary'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "lastUpdatedAt")
-            Lude.<*> (x Lude..:? "queuedAt")
-            Lude.<*> (x Lude..:? "executionNumber")
-            Lude.<*> (x Lude..:? "startedAt")
-      )
+    Core.withObject "JobExecutionSummary" Core.$
+      \x ->
+        JobExecutionSummary'
+          Core.<$> (x Core..:? "executionNumber")
+          Core.<*> (x Core..:? "lastUpdatedAt")
+          Core.<*> (x Core..:? "queuedAt")
+          Core.<*> (x Core..:? "startedAt")
+          Core.<*> (x Core..:? "status")

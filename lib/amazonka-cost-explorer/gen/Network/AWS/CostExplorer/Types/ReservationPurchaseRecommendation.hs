@@ -17,130 +17,120 @@ module Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation
     mkReservationPurchaseRecommendation,
 
     -- * Lenses
-    rprTermInYears,
-    rprRecommendationSummary,
-    rprServiceSpecification,
     rprAccountScope,
-    rprRecommendationDetails,
     rprLookbackPeriodInDays,
     rprPaymentOption,
+    rprRecommendationDetails,
+    rprRecommendationSummary,
+    rprServiceSpecification,
+    rprTermInYears,
   )
 where
 
-import Network.AWS.CostExplorer.Types.AccountScope
-import Network.AWS.CostExplorer.Types.LookbackPeriodInDays
-import Network.AWS.CostExplorer.Types.PaymentOption
-import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail
-import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary
-import Network.AWS.CostExplorer.Types.ServiceSpecification
-import Network.AWS.CostExplorer.Types.TermInYears
+import qualified Network.AWS.CostExplorer.Types.AccountScope as Types
+import qualified Network.AWS.CostExplorer.Types.LookbackPeriodInDays as Types
+import qualified Network.AWS.CostExplorer.Types.PaymentOption as Types
+import qualified Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail as Types
+import qualified Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary as Types
+import qualified Network.AWS.CostExplorer.Types.ServiceSpecification as Types
+import qualified Network.AWS.CostExplorer.Types.TermInYears as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A specific reservation that AWS recommends for purchase.
 --
 -- /See:/ 'mkReservationPurchaseRecommendation' smart constructor.
 data ReservationPurchaseRecommendation = ReservationPurchaseRecommendation'
-  { -- | The term of the reservation that you want recommendations for, in years.
-    termInYears :: Lude.Maybe TermInYears,
-    -- | A summary about the recommended purchase.
-    recommendationSummary :: Lude.Maybe ReservationPurchaseRecommendationSummary,
-    -- | Hardware specifications for the service that you want recommendations for.
-    serviceSpecification :: Lude.Maybe ServiceSpecification,
-    -- | The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
-    accountScope :: Lude.Maybe AccountScope,
-    -- | Details about the recommended purchases.
-    recommendationDetails :: Lude.Maybe [ReservationPurchaseRecommendationDetail],
+  { -- | The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
+    accountScope :: Core.Maybe Types.AccountScope,
     -- | How many days of previous usage that AWS considers when making this recommendation.
-    lookbackPeriodInDays :: Lude.Maybe LookbackPeriodInDays,
+    lookbackPeriodInDays :: Core.Maybe Types.LookbackPeriodInDays,
     -- | The payment option for the reservation. For example, @AllUpfront@ or @NoUpfront@ .
-    paymentOption :: Lude.Maybe PaymentOption
+    paymentOption :: Core.Maybe Types.PaymentOption,
+    -- | Details about the recommended purchases.
+    recommendationDetails :: Core.Maybe [Types.ReservationPurchaseRecommendationDetail],
+    -- | A summary about the recommended purchase.
+    recommendationSummary :: Core.Maybe Types.ReservationPurchaseRecommendationSummary,
+    -- | Hardware specifications for the service that you want recommendations for.
+    serviceSpecification :: Core.Maybe Types.ServiceSpecification,
+    -- | The term of the reservation that you want recommendations for, in years.
+    termInYears :: Core.Maybe Types.TermInYears
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservationPurchaseRecommendation' with the minimum fields required to make a request.
---
--- * 'termInYears' - The term of the reservation that you want recommendations for, in years.
--- * 'recommendationSummary' - A summary about the recommended purchase.
--- * 'serviceSpecification' - Hardware specifications for the service that you want recommendations for.
--- * 'accountScope' - The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
--- * 'recommendationDetails' - Details about the recommended purchases.
--- * 'lookbackPeriodInDays' - How many days of previous usage that AWS considers when making this recommendation.
--- * 'paymentOption' - The payment option for the reservation. For example, @AllUpfront@ or @NoUpfront@ .
+-- | Creates a 'ReservationPurchaseRecommendation' value with any optional fields omitted.
 mkReservationPurchaseRecommendation ::
   ReservationPurchaseRecommendation
 mkReservationPurchaseRecommendation =
   ReservationPurchaseRecommendation'
-    { termInYears = Lude.Nothing,
-      recommendationSummary = Lude.Nothing,
-      serviceSpecification = Lude.Nothing,
-      accountScope = Lude.Nothing,
-      recommendationDetails = Lude.Nothing,
-      lookbackPeriodInDays = Lude.Nothing,
-      paymentOption = Lude.Nothing
+    { accountScope = Core.Nothing,
+      lookbackPeriodInDays = Core.Nothing,
+      paymentOption = Core.Nothing,
+      recommendationDetails = Core.Nothing,
+      recommendationSummary = Core.Nothing,
+      serviceSpecification = Core.Nothing,
+      termInYears = Core.Nothing
     }
-
--- | The term of the reservation that you want recommendations for, in years.
---
--- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprTermInYears :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe TermInYears)
-rprTermInYears = Lens.lens (termInYears :: ReservationPurchaseRecommendation -> Lude.Maybe TermInYears) (\s a -> s {termInYears = a} :: ReservationPurchaseRecommendation)
-{-# DEPRECATED rprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
-
--- | A summary about the recommended purchase.
---
--- /Note:/ Consider using 'recommendationSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprRecommendationSummary :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe ReservationPurchaseRecommendationSummary)
-rprRecommendationSummary = Lens.lens (recommendationSummary :: ReservationPurchaseRecommendation -> Lude.Maybe ReservationPurchaseRecommendationSummary) (\s a -> s {recommendationSummary = a} :: ReservationPurchaseRecommendation)
-{-# DEPRECATED rprRecommendationSummary "Use generic-lens or generic-optics with 'recommendationSummary' instead." #-}
-
--- | Hardware specifications for the service that you want recommendations for.
---
--- /Note:/ Consider using 'serviceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprServiceSpecification :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe ServiceSpecification)
-rprServiceSpecification = Lens.lens (serviceSpecification :: ReservationPurchaseRecommendation -> Lude.Maybe ServiceSpecification) (\s a -> s {serviceSpecification = a} :: ReservationPurchaseRecommendation)
-{-# DEPRECATED rprServiceSpecification "Use generic-lens or generic-optics with 'serviceSpecification' instead." #-}
 
 -- | The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
 --
 -- /Note:/ Consider using 'accountScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprAccountScope :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe AccountScope)
-rprAccountScope = Lens.lens (accountScope :: ReservationPurchaseRecommendation -> Lude.Maybe AccountScope) (\s a -> s {accountScope = a} :: ReservationPurchaseRecommendation)
+rprAccountScope :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe Types.AccountScope)
+rprAccountScope = Lens.field @"accountScope"
 {-# DEPRECATED rprAccountScope "Use generic-lens or generic-optics with 'accountScope' instead." #-}
-
--- | Details about the recommended purchases.
---
--- /Note:/ Consider using 'recommendationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprRecommendationDetails :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe [ReservationPurchaseRecommendationDetail])
-rprRecommendationDetails = Lens.lens (recommendationDetails :: ReservationPurchaseRecommendation -> Lude.Maybe [ReservationPurchaseRecommendationDetail]) (\s a -> s {recommendationDetails = a} :: ReservationPurchaseRecommendation)
-{-# DEPRECATED rprRecommendationDetails "Use generic-lens or generic-optics with 'recommendationDetails' instead." #-}
 
 -- | How many days of previous usage that AWS considers when making this recommendation.
 --
 -- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprLookbackPeriodInDays :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe LookbackPeriodInDays)
-rprLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: ReservationPurchaseRecommendation -> Lude.Maybe LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: ReservationPurchaseRecommendation)
+rprLookbackPeriodInDays :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe Types.LookbackPeriodInDays)
+rprLookbackPeriodInDays = Lens.field @"lookbackPeriodInDays"
 {-# DEPRECATED rprLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
 
 -- | The payment option for the reservation. For example, @AllUpfront@ or @NoUpfront@ .
 --
 -- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprPaymentOption :: Lens.Lens' ReservationPurchaseRecommendation (Lude.Maybe PaymentOption)
-rprPaymentOption = Lens.lens (paymentOption :: ReservationPurchaseRecommendation -> Lude.Maybe PaymentOption) (\s a -> s {paymentOption = a} :: ReservationPurchaseRecommendation)
+rprPaymentOption :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe Types.PaymentOption)
+rprPaymentOption = Lens.field @"paymentOption"
 {-# DEPRECATED rprPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
 
-instance Lude.FromJSON ReservationPurchaseRecommendation where
+-- | Details about the recommended purchases.
+--
+-- /Note:/ Consider using 'recommendationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprRecommendationDetails :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe [Types.ReservationPurchaseRecommendationDetail])
+rprRecommendationDetails = Lens.field @"recommendationDetails"
+{-# DEPRECATED rprRecommendationDetails "Use generic-lens or generic-optics with 'recommendationDetails' instead." #-}
+
+-- | A summary about the recommended purchase.
+--
+-- /Note:/ Consider using 'recommendationSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprRecommendationSummary :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe Types.ReservationPurchaseRecommendationSummary)
+rprRecommendationSummary = Lens.field @"recommendationSummary"
+{-# DEPRECATED rprRecommendationSummary "Use generic-lens or generic-optics with 'recommendationSummary' instead." #-}
+
+-- | Hardware specifications for the service that you want recommendations for.
+--
+-- /Note:/ Consider using 'serviceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprServiceSpecification :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe Types.ServiceSpecification)
+rprServiceSpecification = Lens.field @"serviceSpecification"
+{-# DEPRECATED rprServiceSpecification "Use generic-lens or generic-optics with 'serviceSpecification' instead." #-}
+
+-- | The term of the reservation that you want recommendations for, in years.
+--
+-- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprTermInYears :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe Types.TermInYears)
+rprTermInYears = Lens.field @"termInYears"
+{-# DEPRECATED rprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
+
+instance Core.FromJSON ReservationPurchaseRecommendation where
   parseJSON =
-    Lude.withObject
-      "ReservationPurchaseRecommendation"
-      ( \x ->
-          ReservationPurchaseRecommendation'
-            Lude.<$> (x Lude..:? "TermInYears")
-            Lude.<*> (x Lude..:? "RecommendationSummary")
-            Lude.<*> (x Lude..:? "ServiceSpecification")
-            Lude.<*> (x Lude..:? "AccountScope")
-            Lude.<*> (x Lude..:? "RecommendationDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LookbackPeriodInDays")
-            Lude.<*> (x Lude..:? "PaymentOption")
-      )
+    Core.withObject "ReservationPurchaseRecommendation" Core.$
+      \x ->
+        ReservationPurchaseRecommendation'
+          Core.<$> (x Core..:? "AccountScope")
+          Core.<*> (x Core..:? "LookbackPeriodInDays")
+          Core.<*> (x Core..:? "PaymentOption")
+          Core.<*> (x Core..:? "RecommendationDetails")
+          Core.<*> (x Core..:? "RecommendationSummary")
+          Core.<*> (x Core..:? "ServiceSpecification")
+          Core.<*> (x Core..:? "TermInYears")

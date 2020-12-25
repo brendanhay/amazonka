@@ -27,120 +27,108 @@ module Network.AWS.CloudWatchEvents.PutEvents
     mkPutEventsResponse,
 
     -- ** Response lenses
-    persFailedEntryCount,
-    persEntries,
-    persResponseStatus,
+    perrsEntries,
+    perrsFailedEntryCount,
+    perrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutEvents' smart constructor.
 newtype PutEvents = PutEvents'
   { -- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
-    entries :: Lude.NonEmpty PutEventsRequestEntry
+    entries :: Core.NonEmpty Types.PutEventsRequestEntry
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'PutEvents' with the minimum fields required to make a request.
---
--- * 'entries' - The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
+-- | Creates a 'PutEvents' value with any optional fields omitted.
 mkPutEvents ::
   -- | 'entries'
-  Lude.NonEmpty PutEventsRequestEntry ->
+  Core.NonEmpty Types.PutEventsRequestEntry ->
   PutEvents
-mkPutEvents pEntries_ = PutEvents' {entries = pEntries_}
+mkPutEvents entries = PutEvents' {entries}
 
 -- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 --
 -- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peEntries :: Lens.Lens' PutEvents (Lude.NonEmpty PutEventsRequestEntry)
-peEntries = Lens.lens (entries :: PutEvents -> Lude.NonEmpty PutEventsRequestEntry) (\s a -> s {entries = a} :: PutEvents)
+peEntries :: Lens.Lens' PutEvents (Core.NonEmpty Types.PutEventsRequestEntry)
+peEntries = Lens.field @"entries"
 {-# DEPRECATED peEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
-instance Lude.AWSRequest PutEvents where
+instance Core.FromJSON PutEvents where
+  toJSON PutEvents {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Entries" Core..= entries)])
+
+instance Core.AWSRequest PutEvents where
   type Rs PutEvents = PutEventsResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.PutEvents")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutEventsResponse'
-            Lude.<$> (x Lude..?> "FailedEntryCount")
-            Lude.<*> (x Lude..?> "Entries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Entries")
+            Core.<*> (x Core..:? "FailedEntryCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutEvents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSEvents.PutEvents" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutEvents where
-  toJSON PutEvents' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Entries" Lude..= entries)])
-
-instance Lude.ToPath PutEvents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutEvents where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-  { -- | The number of failed entries.
-    failedEntryCount :: Lude.Maybe Lude.Int,
-    -- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
-    entries :: Lude.Maybe [PutEventsResultEntry],
+  { -- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
+    entries :: Core.Maybe [Types.PutEventsResultEntry],
+    -- | The number of failed entries.
+    failedEntryCount :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEventsResponse' with the minimum fields required to make a request.
---
--- * 'failedEntryCount' - The number of failed entries.
--- * 'entries' - The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutEventsResponse' value with any optional fields omitted.
 mkPutEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutEventsResponse
-mkPutEventsResponse pResponseStatus_ =
+mkPutEventsResponse responseStatus =
   PutEventsResponse'
-    { failedEntryCount = Lude.Nothing,
-      entries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { entries = Core.Nothing,
+      failedEntryCount = Core.Nothing,
+      responseStatus
     }
-
--- | The number of failed entries.
---
--- /Note:/ Consider using 'failedEntryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-persFailedEntryCount :: Lens.Lens' PutEventsResponse (Lude.Maybe Lude.Int)
-persFailedEntryCount = Lens.lens (failedEntryCount :: PutEventsResponse -> Lude.Maybe Lude.Int) (\s a -> s {failedEntryCount = a} :: PutEventsResponse)
-{-# DEPRECATED persFailedEntryCount "Use generic-lens or generic-optics with 'failedEntryCount' instead." #-}
 
 -- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 --
 -- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-persEntries :: Lens.Lens' PutEventsResponse (Lude.Maybe [PutEventsResultEntry])
-persEntries = Lens.lens (entries :: PutEventsResponse -> Lude.Maybe [PutEventsResultEntry]) (\s a -> s {entries = a} :: PutEventsResponse)
-{-# DEPRECATED persEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
+perrsEntries :: Lens.Lens' PutEventsResponse (Core.Maybe [Types.PutEventsResultEntry])
+perrsEntries = Lens.field @"entries"
+{-# DEPRECATED perrsEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
+
+-- | The number of failed entries.
+--
+-- /Note:/ Consider using 'failedEntryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+perrsFailedEntryCount :: Lens.Lens' PutEventsResponse (Core.Maybe Core.Int)
+perrsFailedEntryCount = Lens.field @"failedEntryCount"
+{-# DEPRECATED perrsFailedEntryCount "Use generic-lens or generic-optics with 'failedEntryCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-persResponseStatus :: Lens.Lens' PutEventsResponse Lude.Int
-persResponseStatus = Lens.lens (responseStatus :: PutEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventsResponse)
-{-# DEPRECATED persResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+perrsResponseStatus :: Lens.Lens' PutEventsResponse Core.Int
+perrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED perrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

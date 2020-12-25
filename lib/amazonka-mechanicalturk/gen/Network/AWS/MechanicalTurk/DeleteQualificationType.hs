@@ -29,104 +29,88 @@ module Network.AWS.MechanicalTurk.DeleteQualificationType
     mkDeleteQualificationTypeResponse,
 
     -- ** Response lenses
-    dqtrsResponseStatus,
+    dqtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteQualificationType' smart constructor.
 newtype DeleteQualificationType = DeleteQualificationType'
   { -- | The ID of the QualificationType to dispose.
-    qualificationTypeId :: Lude.Text
+    qualificationTypeId :: Types.EntityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQualificationType' with the minimum fields required to make a request.
---
--- * 'qualificationTypeId' - The ID of the QualificationType to dispose.
+-- | Creates a 'DeleteQualificationType' value with any optional fields omitted.
 mkDeleteQualificationType ::
   -- | 'qualificationTypeId'
-  Lude.Text ->
+  Types.EntityId ->
   DeleteQualificationType
-mkDeleteQualificationType pQualificationTypeId_ =
-  DeleteQualificationType'
-    { qualificationTypeId =
-        pQualificationTypeId_
-    }
+mkDeleteQualificationType qualificationTypeId =
+  DeleteQualificationType' {qualificationTypeId}
 
 -- | The ID of the QualificationType to dispose.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqtQualificationTypeId :: Lens.Lens' DeleteQualificationType Lude.Text
-dqtQualificationTypeId = Lens.lens (qualificationTypeId :: DeleteQualificationType -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: DeleteQualificationType)
+dqtQualificationTypeId :: Lens.Lens' DeleteQualificationType Types.EntityId
+dqtQualificationTypeId = Lens.field @"qualificationTypeId"
 {-# DEPRECATED dqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
-instance Lude.AWSRequest DeleteQualificationType where
+instance Core.FromJSON DeleteQualificationType where
+  toJSON DeleteQualificationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("QualificationTypeId" Core..= qualificationTypeId)]
+      )
+
+instance Core.AWSRequest DeleteQualificationType where
   type Rs DeleteQualificationType = DeleteQualificationTypeResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.DeleteQualificationType"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteQualificationTypeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteQualificationType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.DeleteQualificationType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteQualificationType where
-  toJSON DeleteQualificationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId)]
-      )
-
-instance Lude.ToPath DeleteQualificationType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteQualificationType where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteQualificationTypeResponse' smart constructor.
 newtype DeleteQualificationTypeResponse = DeleteQualificationTypeResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQualificationTypeResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteQualificationTypeResponse' value with any optional fields omitted.
 mkDeleteQualificationTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteQualificationTypeResponse
-mkDeleteQualificationTypeResponse pResponseStatus_ =
-  DeleteQualificationTypeResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteQualificationTypeResponse responseStatus =
+  DeleteQualificationTypeResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqtrsResponseStatus :: Lens.Lens' DeleteQualificationTypeResponse Lude.Int
-dqtrsResponseStatus = Lens.lens (responseStatus :: DeleteQualificationTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteQualificationTypeResponse)
-{-# DEPRECATED dqtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dqtrrsResponseStatus :: Lens.Lens' DeleteQualificationTypeResponse Core.Int
+dqtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dqtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,14 +17,15 @@ module Network.AWS.SNS.Types.MessageAttributeValue
     mkMessageAttributeValue,
 
     -- * Lenses
+    mavDataType,
     mavBinaryValue,
     mavStringValue,
-    mavDataType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SNS.Types.String as Types
 
 -- | The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish> .
 --
@@ -32,31 +33,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-  { -- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
-    binaryValue :: Lude.Maybe Lude.Base64,
+  { -- | Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
+    dataType :: Types.String,
+    -- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
+    binaryValue :: Core.Maybe Core.Base64,
     -- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
-    stringValue :: Lude.Maybe Lude.Text,
-    -- | Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
-    dataType :: Lude.Text
+    stringValue :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
---
--- * 'binaryValue' - Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
--- * 'stringValue' - Strings are Unicode with UTF8 binary encoding. For a list of code values, see <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
--- * 'dataType' - Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
+-- | Creates a 'MessageAttributeValue' value with any optional fields omitted.
 mkMessageAttributeValue ::
   -- | 'dataType'
-  Lude.Text ->
+  Types.String ->
   MessageAttributeValue
-mkMessageAttributeValue pDataType_ =
+mkMessageAttributeValue dataType =
   MessageAttributeValue'
-    { binaryValue = Lude.Nothing,
-      stringValue = Lude.Nothing,
-      dataType = pDataType_
+    { dataType,
+      binaryValue = Core.Nothing,
+      stringValue = Core.Nothing
     }
+
+-- | Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mavDataType :: Lens.Lens' MessageAttributeValue Types.String
+mavDataType = Lens.field @"dataType"
+{-# DEPRECATED mavDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -65,28 +69,13 @@ mkMessageAttributeValue pDataType_ =
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'binaryValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mavBinaryValue :: Lens.Lens' MessageAttributeValue (Lude.Maybe Lude.Base64)
-mavBinaryValue = Lens.lens (binaryValue :: MessageAttributeValue -> Lude.Maybe Lude.Base64) (\s a -> s {binaryValue = a} :: MessageAttributeValue)
+mavBinaryValue :: Lens.Lens' MessageAttributeValue (Core.Maybe Core.Base64)
+mavBinaryValue = Lens.field @"binaryValue"
 {-# DEPRECATED mavBinaryValue "Use generic-lens or generic-optics with 'binaryValue' instead." #-}
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
 --
 -- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mavStringValue :: Lens.Lens' MessageAttributeValue (Lude.Maybe Lude.Text)
-mavStringValue = Lens.lens (stringValue :: MessageAttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: MessageAttributeValue)
+mavStringValue :: Lens.Lens' MessageAttributeValue (Core.Maybe Types.String)
+mavStringValue = Lens.field @"stringValue"
 {-# DEPRECATED mavStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
-
--- | Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
---
--- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mavDataType :: Lens.Lens' MessageAttributeValue Lude.Text
-mavDataType = Lens.lens (dataType :: MessageAttributeValue -> Lude.Text) (\s a -> s {dataType = a} :: MessageAttributeValue)
-{-# DEPRECATED mavDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
-
-instance Lude.ToQuery MessageAttributeValue where
-  toQuery MessageAttributeValue' {..} =
-    Lude.mconcat
-      [ "BinaryValue" Lude.=: binaryValue,
-        "StringValue" Lude.=: stringValue,
-        "DataType" Lude.=: dataType
-      ]

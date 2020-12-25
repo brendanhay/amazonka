@@ -22,43 +22,39 @@ module Network.AWS.SageMaker.Types.CaptureOption
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.CaptureMode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.CaptureMode as Types
 
 -- |
 --
 -- /See:/ 'mkCaptureOption' smart constructor.
 newtype CaptureOption = CaptureOption'
   { -- |
-    captureMode :: CaptureMode
+    captureMode :: Types.CaptureMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaptureOption' with the minimum fields required to make a request.
---
--- * 'captureMode' -
+-- | Creates a 'CaptureOption' value with any optional fields omitted.
 mkCaptureOption ::
   -- | 'captureMode'
-  CaptureMode ->
+  Types.CaptureMode ->
   CaptureOption
-mkCaptureOption pCaptureMode_ =
-  CaptureOption' {captureMode = pCaptureMode_}
+mkCaptureOption captureMode = CaptureOption' {captureMode}
 
 -- |
 --
 -- /Note:/ Consider using 'captureMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coCaptureMode :: Lens.Lens' CaptureOption CaptureMode
-coCaptureMode = Lens.lens (captureMode :: CaptureOption -> CaptureMode) (\s a -> s {captureMode = a} :: CaptureOption)
+coCaptureMode :: Lens.Lens' CaptureOption Types.CaptureMode
+coCaptureMode = Lens.field @"captureMode"
 {-# DEPRECATED coCaptureMode "Use generic-lens or generic-optics with 'captureMode' instead." #-}
 
-instance Lude.FromJSON CaptureOption where
-  parseJSON =
-    Lude.withObject
-      "CaptureOption"
-      (\x -> CaptureOption' Lude.<$> (x Lude..: "CaptureMode"))
+instance Core.FromJSON CaptureOption where
+  toJSON CaptureOption {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("CaptureMode" Core..= captureMode)])
 
-instance Lude.ToJSON CaptureOption where
-  toJSON CaptureOption' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("CaptureMode" Lude..= captureMode)])
+instance Core.FromJSON CaptureOption where
+  parseJSON =
+    Core.withObject "CaptureOption" Core.$
+      \x -> CaptureOption' Core.<$> (x Core..: "CaptureMode")

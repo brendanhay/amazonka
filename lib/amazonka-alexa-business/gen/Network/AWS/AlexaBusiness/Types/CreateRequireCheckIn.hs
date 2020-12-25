@@ -17,61 +17,55 @@ module Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn
     mkCreateRequireCheckIn,
 
     -- * Lenses
-    crciEnabled,
     crciReleaseAfterMinutes,
+    crciEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Creates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.
 --
 -- /See:/ 'mkCreateRequireCheckIn' smart constructor.
 data CreateRequireCheckIn = CreateRequireCheckIn'
-  { -- | Whether require check in is enabled or not.
-    enabled :: Lude.Bool,
-    -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
-    releaseAfterMinutes :: Lude.Int
+  { -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
+    releaseAfterMinutes :: Core.Int,
+    -- | Whether require check in is enabled or not.
+    enabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRequireCheckIn' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether require check in is enabled or not.
--- * 'releaseAfterMinutes' - Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
+-- | Creates a 'CreateRequireCheckIn' value with any optional fields omitted.
 mkCreateRequireCheckIn ::
-  -- | 'enabled'
-  Lude.Bool ->
   -- | 'releaseAfterMinutes'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'enabled'
+  Core.Bool ->
   CreateRequireCheckIn
-mkCreateRequireCheckIn pEnabled_ pReleaseAfterMinutes_ =
-  CreateRequireCheckIn'
-    { enabled = pEnabled_,
-      releaseAfterMinutes = pReleaseAfterMinutes_
-    }
-
--- | Whether require check in is enabled or not.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crciEnabled :: Lens.Lens' CreateRequireCheckIn Lude.Bool
-crciEnabled = Lens.lens (enabled :: CreateRequireCheckIn -> Lude.Bool) (\s a -> s {enabled = a} :: CreateRequireCheckIn)
-{-# DEPRECATED crciEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+mkCreateRequireCheckIn releaseAfterMinutes enabled =
+  CreateRequireCheckIn' {releaseAfterMinutes, enabled}
 
 -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
 --
 -- /Note:/ Consider using 'releaseAfterMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crciReleaseAfterMinutes :: Lens.Lens' CreateRequireCheckIn Lude.Int
-crciReleaseAfterMinutes = Lens.lens (releaseAfterMinutes :: CreateRequireCheckIn -> Lude.Int) (\s a -> s {releaseAfterMinutes = a} :: CreateRequireCheckIn)
+crciReleaseAfterMinutes :: Lens.Lens' CreateRequireCheckIn Core.Int
+crciReleaseAfterMinutes = Lens.field @"releaseAfterMinutes"
 {-# DEPRECATED crciReleaseAfterMinutes "Use generic-lens or generic-optics with 'releaseAfterMinutes' instead." #-}
 
-instance Lude.ToJSON CreateRequireCheckIn where
-  toJSON CreateRequireCheckIn' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Enabled" Lude..= enabled),
-            Lude.Just ("ReleaseAfterMinutes" Lude..= releaseAfterMinutes)
+-- | Whether require check in is enabled or not.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crciEnabled :: Lens.Lens' CreateRequireCheckIn Core.Bool
+crciEnabled = Lens.field @"enabled"
+{-# DEPRECATED crciEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+instance Core.FromJSON CreateRequireCheckIn where
+  toJSON CreateRequireCheckIn {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReleaseAfterMinutes" Core..= releaseAfterMinutes),
+            Core.Just ("Enabled" Core..= enabled)
           ]
       )

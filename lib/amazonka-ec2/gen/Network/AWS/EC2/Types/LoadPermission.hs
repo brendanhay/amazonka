@@ -22,46 +22,44 @@ module Network.AWS.EC2.Types.LoadPermission
   )
 where
 
-import Network.AWS.EC2.Types.PermissionGroup
+import qualified Network.AWS.EC2.Types.PermissionGroup as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a load permission.
 --
 -- /See:/ 'mkLoadPermission' smart constructor.
 data LoadPermission = LoadPermission'
   { -- | The name of the group.
-    group :: Lude.Maybe PermissionGroup,
+    group :: Core.Maybe Types.PermissionGroup,
     -- | The AWS account ID.
-    userId :: Lude.Maybe Lude.Text
+    userId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadPermission' with the minimum fields required to make a request.
---
--- * 'group' - The name of the group.
--- * 'userId' - The AWS account ID.
+-- | Creates a 'LoadPermission' value with any optional fields omitted.
 mkLoadPermission ::
   LoadPermission
 mkLoadPermission =
-  LoadPermission' {group = Lude.Nothing, userId = Lude.Nothing}
+  LoadPermission' {group = Core.Nothing, userId = Core.Nothing}
 
 -- | The name of the group.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpGroup :: Lens.Lens' LoadPermission (Lude.Maybe PermissionGroup)
-lpGroup = Lens.lens (group :: LoadPermission -> Lude.Maybe PermissionGroup) (\s a -> s {group = a} :: LoadPermission)
+lpGroup :: Lens.Lens' LoadPermission (Core.Maybe Types.PermissionGroup)
+lpGroup = Lens.field @"group"
 {-# DEPRECATED lpGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The AWS account ID.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpUserId :: Lens.Lens' LoadPermission (Lude.Maybe Lude.Text)
-lpUserId = Lens.lens (userId :: LoadPermission -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: LoadPermission)
+lpUserId :: Lens.Lens' LoadPermission (Core.Maybe Types.String)
+lpUserId = Lens.field @"userId"
 {-# DEPRECATED lpUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.FromXML LoadPermission where
+instance Core.FromXML LoadPermission where
   parseXML x =
     LoadPermission'
-      Lude.<$> (x Lude..@? "group") Lude.<*> (x Lude..@? "userId")
+      Core.<$> (x Core..@? "group") Core.<*> (x Core..@? "userId")

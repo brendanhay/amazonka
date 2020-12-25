@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.NotificationEvent
   ( NotificationEvent
       ( NotificationEvent',
-        NEAll,
-        NEInProgress,
-        NESuccess,
-        NETimedOut,
-        NECancelled,
-        NEFailed
+        NotificationEventAll,
+        NotificationEventInProgress,
+        NotificationEventSuccess,
+        NotificationEventTimedOut,
+        NotificationEventCancelled,
+        NotificationEventFailed,
+        fromNotificationEvent
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NotificationEvent = NotificationEvent' Lude.Text
+newtype NotificationEvent = NotificationEvent'
+  { fromNotificationEvent ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NEAll :: NotificationEvent
-pattern NEAll = NotificationEvent' "All"
+pattern NotificationEventAll :: NotificationEvent
+pattern NotificationEventAll = NotificationEvent' "All"
 
-pattern NEInProgress :: NotificationEvent
-pattern NEInProgress = NotificationEvent' "InProgress"
+pattern NotificationEventInProgress :: NotificationEvent
+pattern NotificationEventInProgress = NotificationEvent' "InProgress"
 
-pattern NESuccess :: NotificationEvent
-pattern NESuccess = NotificationEvent' "Success"
+pattern NotificationEventSuccess :: NotificationEvent
+pattern NotificationEventSuccess = NotificationEvent' "Success"
 
-pattern NETimedOut :: NotificationEvent
-pattern NETimedOut = NotificationEvent' "TimedOut"
+pattern NotificationEventTimedOut :: NotificationEvent
+pattern NotificationEventTimedOut = NotificationEvent' "TimedOut"
 
-pattern NECancelled :: NotificationEvent
-pattern NECancelled = NotificationEvent' "Cancelled"
+pattern NotificationEventCancelled :: NotificationEvent
+pattern NotificationEventCancelled = NotificationEvent' "Cancelled"
 
-pattern NEFailed :: NotificationEvent
-pattern NEFailed = NotificationEvent' "Failed"
+pattern NotificationEventFailed :: NotificationEvent
+pattern NotificationEventFailed = NotificationEvent' "Failed"
 
 {-# COMPLETE
-  NEAll,
-  NEInProgress,
-  NESuccess,
-  NETimedOut,
-  NECancelled,
-  NEFailed,
+  NotificationEventAll,
+  NotificationEventInProgress,
+  NotificationEventSuccess,
+  NotificationEventTimedOut,
+  NotificationEventCancelled,
+  NotificationEventFailed,
   NotificationEvent'
   #-}

@@ -17,52 +17,39 @@ module Network.AWS.MediaLive.Types.TemporalFilterSettings
     mkTemporalFilterSettings,
 
     -- * Lenses
-    tfsStrength,
     tfsPostFilterSharpening,
+    tfsStrength,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
-import Network.AWS.MediaLive.Types.TemporalFilterStrength
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening as Types
+import qualified Network.AWS.MediaLive.Types.TemporalFilterStrength as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Temporal Filter Settings
 --
 -- /See:/ 'mkTemporalFilterSettings' smart constructor.
 data TemporalFilterSettings = TemporalFilterSettings'
-  { -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
-    strength :: Lude.Maybe TemporalFilterStrength,
-    -- | If you enable this filter, the results are the following:
+  { -- | If you enable this filter, the results are the following:
     --
     -- - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
     -- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
-    postFilterSharpening :: Lude.Maybe TemporalFilterPostFilterSharpening
+    postFilterSharpening :: Core.Maybe Types.TemporalFilterPostFilterSharpening,
+    -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+    strength :: Core.Maybe Types.TemporalFilterStrength
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TemporalFilterSettings' with the minimum fields required to make a request.
---
--- * 'strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
--- * 'postFilterSharpening' - If you enable this filter, the results are the following:
---
--- - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
--- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+-- | Creates a 'TemporalFilterSettings' value with any optional fields omitted.
 mkTemporalFilterSettings ::
   TemporalFilterSettings
 mkTemporalFilterSettings =
   TemporalFilterSettings'
-    { strength = Lude.Nothing,
-      postFilterSharpening = Lude.Nothing
+    { postFilterSharpening = Core.Nothing,
+      strength = Core.Nothing
     }
-
--- | Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
---
--- /Note:/ Consider using 'strength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfsStrength :: Lens.Lens' TemporalFilterSettings (Lude.Maybe TemporalFilterStrength)
-tfsStrength = Lens.lens (strength :: TemporalFilterSettings -> Lude.Maybe TemporalFilterStrength) (\s a -> s {strength = a} :: TemporalFilterSettings)
-{-# DEPRECATED tfsStrength "Use generic-lens or generic-optics with 'strength' instead." #-}
 
 -- | If you enable this filter, the results are the following:
 --
@@ -70,25 +57,30 @@ tfsStrength = Lens.lens (strength :: TemporalFilterSettings -> Lude.Maybe Tempor
 -- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
 --
 -- /Note:/ Consider using 'postFilterSharpening' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfsPostFilterSharpening :: Lens.Lens' TemporalFilterSettings (Lude.Maybe TemporalFilterPostFilterSharpening)
-tfsPostFilterSharpening = Lens.lens (postFilterSharpening :: TemporalFilterSettings -> Lude.Maybe TemporalFilterPostFilterSharpening) (\s a -> s {postFilterSharpening = a} :: TemporalFilterSettings)
+tfsPostFilterSharpening :: Lens.Lens' TemporalFilterSettings (Core.Maybe Types.TemporalFilterPostFilterSharpening)
+tfsPostFilterSharpening = Lens.field @"postFilterSharpening"
 {-# DEPRECATED tfsPostFilterSharpening "Use generic-lens or generic-optics with 'postFilterSharpening' instead." #-}
 
-instance Lude.FromJSON TemporalFilterSettings where
-  parseJSON =
-    Lude.withObject
-      "TemporalFilterSettings"
-      ( \x ->
-          TemporalFilterSettings'
-            Lude.<$> (x Lude..:? "strength")
-            Lude.<*> (x Lude..:? "postFilterSharpening")
-      )
+-- | Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+--
+-- /Note:/ Consider using 'strength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfsStrength :: Lens.Lens' TemporalFilterSettings (Core.Maybe Types.TemporalFilterStrength)
+tfsStrength = Lens.field @"strength"
+{-# DEPRECATED tfsStrength "Use generic-lens or generic-optics with 'strength' instead." #-}
 
-instance Lude.ToJSON TemporalFilterSettings where
-  toJSON TemporalFilterSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("strength" Lude..=) Lude.<$> strength,
-            ("postFilterSharpening" Lude..=) Lude.<$> postFilterSharpening
+instance Core.FromJSON TemporalFilterSettings where
+  toJSON TemporalFilterSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("postFilterSharpening" Core..=) Core.<$> postFilterSharpening,
+            ("strength" Core..=) Core.<$> strength
           ]
       )
+
+instance Core.FromJSON TemporalFilterSettings where
+  parseJSON =
+    Core.withObject "TemporalFilterSettings" Core.$
+      \x ->
+        TemporalFilterSettings'
+          Core.<$> (x Core..:? "postFilterSharpening")
+          Core.<*> (x Core..:? "strength")

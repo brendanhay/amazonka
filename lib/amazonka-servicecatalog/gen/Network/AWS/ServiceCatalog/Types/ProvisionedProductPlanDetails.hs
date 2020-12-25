@@ -17,231 +17,222 @@ module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanDetails
     mkProvisionedProductPlanDetails,
 
     -- * Lenses
-    pppdStatus,
-    pppdProvisionProductId,
-    pppdProvisioningArtifactId,
-    pppdProvisionProductName,
     pppdCreatedTime,
-    pppdNotificationARNs,
+    pppdNotificationArns,
+    pppdPathId,
     pppdPlanId,
     pppdPlanName,
-    pppdStatusMessage,
-    pppdUpdatedTime,
-    pppdPathId,
-    pppdProvisioningParameters,
     pppdPlanType,
     pppdProductId,
+    pppdProvisionProductId,
+    pppdProvisionProductName,
+    pppdProvisioningArtifactId,
+    pppdProvisioningParameters,
+    pppdStatus,
+    pppdStatusMessage,
     pppdTags,
+    pppdUpdatedTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
-import Network.AWS.ServiceCatalog.Types.Tag
-import Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.NotificationArn as Types
+import qualified Network.AWS.ServiceCatalog.Types.PathId as Types
+import qualified Network.AWS.ServiceCatalog.Types.PlanId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProductId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionProductId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductName as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanName as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactId as Types
+import qualified Network.AWS.ServiceCatalog.Types.StatusMessage as Types
+import qualified Network.AWS.ServiceCatalog.Types.Tag as Types
+import qualified Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter as Types
 
 -- | Information about a plan.
 --
 -- /See:/ 'mkProvisionedProductPlanDetails' smart constructor.
 data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
-  { -- | The status.
-    status :: Lude.Maybe ProvisionedProductPlanStatus,
-    -- | The product identifier.
-    provisionProductId :: Lude.Maybe Lude.Text,
-    -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Lude.Maybe Lude.Text,
-    -- | The user-friendly name of the provisioned product.
-    provisionProductName :: Lude.Maybe Lude.Text,
-    -- | The UTC time stamp of the creation time.
-    createdTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The UTC time stamp of the creation time.
+    createdTime :: Core.Maybe Core.NominalDiffTime,
     -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-    notificationARNs :: Lude.Maybe [Lude.Text],
-    -- | The plan identifier.
-    planId :: Lude.Maybe Lude.Text,
-    -- | The name of the plan.
-    planName :: Lude.Maybe Lude.Text,
-    -- | The status message.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | The time when the plan was last updated.
-    updatedTime :: Lude.Maybe Lude.Timestamp,
+    notificationArns :: Core.Maybe [Types.NotificationArn],
     -- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
-    pathId :: Lude.Maybe Lude.Text,
-    -- | Parameters specified by the administrator that are required for provisioning the product.
-    provisioningParameters :: Lude.Maybe [UpdateProvisioningParameter],
+    pathId :: Core.Maybe Types.PathId,
+    -- | The plan identifier.
+    planId :: Core.Maybe Types.PlanId,
+    -- | The name of the plan.
+    planName :: Core.Maybe Types.ProvisionedProductPlanName,
     -- | The plan type.
-    planType :: Lude.Maybe ProvisionedProductPlanType,
+    planType :: Core.Maybe Types.ProvisionedProductPlanType,
     -- | The product identifier.
-    productId :: Lude.Maybe Lude.Text,
+    productId :: Core.Maybe Types.ProductId,
+    -- | The product identifier.
+    provisionProductId :: Core.Maybe Types.ProvisionProductId,
+    -- | The user-friendly name of the provisioned product.
+    provisionProductName :: Core.Maybe Types.ProvisionedProductName,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Core.Maybe Types.ProvisioningArtifactId,
+    -- | Parameters specified by the administrator that are required for provisioning the product.
+    provisioningParameters :: Core.Maybe [Types.UpdateProvisioningParameter],
+    -- | The status.
+    status :: Core.Maybe Types.ProvisionedProductPlanStatus,
+    -- | The status message.
+    statusMessage :: Core.Maybe Types.StatusMessage,
     -- | One or more tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The time when the plan was last updated.
+    updatedTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProvisionedProductPlanDetails' with the minimum fields required to make a request.
---
--- * 'status' - The status.
--- * 'provisionProductId' - The product identifier.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'provisionProductName' - The user-friendly name of the provisioned product.
--- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'notificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
--- * 'planId' - The plan identifier.
--- * 'planName' - The name of the plan.
--- * 'statusMessage' - The status message.
--- * 'updatedTime' - The time when the plan was last updated.
--- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
--- * 'provisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
--- * 'planType' - The plan type.
--- * 'productId' - The product identifier.
--- * 'tags' - One or more tags.
+-- | Creates a 'ProvisionedProductPlanDetails' value with any optional fields omitted.
 mkProvisionedProductPlanDetails ::
   ProvisionedProductPlanDetails
 mkProvisionedProductPlanDetails =
   ProvisionedProductPlanDetails'
-    { status = Lude.Nothing,
-      provisionProductId = Lude.Nothing,
-      provisioningArtifactId = Lude.Nothing,
-      provisionProductName = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      notificationARNs = Lude.Nothing,
-      planId = Lude.Nothing,
-      planName = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      updatedTime = Lude.Nothing,
-      pathId = Lude.Nothing,
-      provisioningParameters = Lude.Nothing,
-      planType = Lude.Nothing,
-      productId = Lude.Nothing,
-      tags = Lude.Nothing
+    { createdTime = Core.Nothing,
+      notificationArns = Core.Nothing,
+      pathId = Core.Nothing,
+      planId = Core.Nothing,
+      planName = Core.Nothing,
+      planType = Core.Nothing,
+      productId = Core.Nothing,
+      provisionProductId = Core.Nothing,
+      provisionProductName = Core.Nothing,
+      provisioningArtifactId = Core.Nothing,
+      provisioningParameters = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      tags = Core.Nothing,
+      updatedTime = Core.Nothing
     }
-
--- | The status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdStatus :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe ProvisionedProductPlanStatus)
-pppdStatus = Lens.lens (status :: ProvisionedProductPlanDetails -> Lude.Maybe ProvisionedProductPlanStatus) (\s a -> s {status = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The product identifier.
---
--- /Note:/ Consider using 'provisionProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdProvisionProductId :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdProvisionProductId = Lens.lens (provisionProductId :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {provisionProductId = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdProvisionProductId "Use generic-lens or generic-optics with 'provisionProductId' instead." #-}
-
--- | The identifier of the provisioning artifact.
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdProvisioningArtifactId :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
--- | The user-friendly name of the provisioned product.
---
--- /Note:/ Consider using 'provisionProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdProvisionProductName :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdProvisionProductName = Lens.lens (provisionProductName :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {provisionProductName = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdProvisionProductName "Use generic-lens or generic-optics with 'provisionProductName' instead." #-}
 
 -- | The UTC time stamp of the creation time.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdCreatedTime :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Timestamp)
-pppdCreatedTime = Lens.lens (createdTime :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProvisionedProductPlanDetails)
+pppdCreatedTime :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Core.NominalDiffTime)
+pppdCreatedTime = Lens.field @"createdTime"
 {-# DEPRECATED pppdCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 --
--- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdNotificationARNs :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe [Lude.Text])
-pppdNotificationARNs = Lens.lens (notificationARNs :: ProvisionedProductPlanDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
+-- /Note:/ Consider using 'notificationArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdNotificationArns :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe [Types.NotificationArn])
+pppdNotificationArns = Lens.field @"notificationArns"
+{-# DEPRECATED pppdNotificationArns "Use generic-lens or generic-optics with 'notificationArns' instead." #-}
+
+-- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
+--
+-- /Note:/ Consider using 'pathId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdPathId :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.PathId)
+pppdPathId = Lens.field @"pathId"
+{-# DEPRECATED pppdPathId "Use generic-lens or generic-optics with 'pathId' instead." #-}
 
 -- | The plan identifier.
 --
 -- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdPlanId :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdPlanId = Lens.lens (planId :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {planId = a} :: ProvisionedProductPlanDetails)
+pppdPlanId :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.PlanId)
+pppdPlanId = Lens.field @"planId"
 {-# DEPRECATED pppdPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | The name of the plan.
 --
 -- /Note:/ Consider using 'planName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdPlanName :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdPlanName = Lens.lens (planName :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {planName = a} :: ProvisionedProductPlanDetails)
+pppdPlanName :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProvisionedProductPlanName)
+pppdPlanName = Lens.field @"planName"
 {-# DEPRECATED pppdPlanName "Use generic-lens or generic-optics with 'planName' instead." #-}
-
--- | The status message.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdStatusMessage :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdStatusMessage = Lens.lens (statusMessage :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | The time when the plan was last updated.
---
--- /Note:/ Consider using 'updatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdUpdatedTime :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Timestamp)
-pppdUpdatedTime = Lens.lens (updatedTime :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {updatedTime = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdUpdatedTime "Use generic-lens or generic-optics with 'updatedTime' instead." #-}
-
--- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
---
--- /Note:/ Consider using 'pathId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdPathId :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdPathId = Lens.lens (pathId :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {pathId = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdPathId "Use generic-lens or generic-optics with 'pathId' instead." #-}
-
--- | Parameters specified by the administrator that are required for provisioning the product.
---
--- /Note:/ Consider using 'provisioningParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdProvisioningParameters :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe [UpdateProvisioningParameter])
-pppdProvisioningParameters = Lens.lens (provisioningParameters :: ProvisionedProductPlanDetails -> Lude.Maybe [UpdateProvisioningParameter]) (\s a -> s {provisioningParameters = a} :: ProvisionedProductPlanDetails)
-{-# DEPRECATED pppdProvisioningParameters "Use generic-lens or generic-optics with 'provisioningParameters' instead." #-}
 
 -- | The plan type.
 --
 -- /Note:/ Consider using 'planType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdPlanType :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe ProvisionedProductPlanType)
-pppdPlanType = Lens.lens (planType :: ProvisionedProductPlanDetails -> Lude.Maybe ProvisionedProductPlanType) (\s a -> s {planType = a} :: ProvisionedProductPlanDetails)
+pppdPlanType :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProvisionedProductPlanType)
+pppdPlanType = Lens.field @"planType"
 {-# DEPRECATED pppdPlanType "Use generic-lens or generic-optics with 'planType' instead." #-}
 
 -- | The product identifier.
 --
 -- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdProductId :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe Lude.Text)
-pppdProductId = Lens.lens (productId :: ProvisionedProductPlanDetails -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ProvisionedProductPlanDetails)
+pppdProductId :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProductId)
+pppdProductId = Lens.field @"productId"
 {-# DEPRECATED pppdProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'provisionProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdProvisionProductId :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProvisionProductId)
+pppdProvisionProductId = Lens.field @"provisionProductId"
+{-# DEPRECATED pppdProvisionProductId "Use generic-lens or generic-optics with 'provisionProductId' instead." #-}
+
+-- | The user-friendly name of the provisioned product.
+--
+-- /Note:/ Consider using 'provisionProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdProvisionProductName :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProvisionedProductName)
+pppdProvisionProductName = Lens.field @"provisionProductName"
+{-# DEPRECATED pppdProvisionProductName "Use generic-lens or generic-optics with 'provisionProductName' instead." #-}
+
+-- | The identifier of the provisioning artifact.
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdProvisioningArtifactId :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProvisioningArtifactId)
+pppdProvisioningArtifactId = Lens.field @"provisioningArtifactId"
+{-# DEPRECATED pppdProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
+
+-- | Parameters specified by the administrator that are required for provisioning the product.
+--
+-- /Note:/ Consider using 'provisioningParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdProvisioningParameters :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe [Types.UpdateProvisioningParameter])
+pppdProvisioningParameters = Lens.field @"provisioningParameters"
+{-# DEPRECATED pppdProvisioningParameters "Use generic-lens or generic-optics with 'provisioningParameters' instead." #-}
+
+-- | The status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdStatus :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.ProvisionedProductPlanStatus)
+pppdStatus = Lens.field @"status"
+{-# DEPRECATED pppdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The status message.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdStatusMessage :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Types.StatusMessage)
+pppdStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED pppdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppdTags :: Lens.Lens' ProvisionedProductPlanDetails (Lude.Maybe [Tag])
-pppdTags = Lens.lens (tags :: ProvisionedProductPlanDetails -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ProvisionedProductPlanDetails)
+pppdTags :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe [Types.Tag])
+pppdTags = Lens.field @"tags"
 {-# DEPRECATED pppdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ProvisionedProductPlanDetails where
+-- | The time when the plan was last updated.
+--
+-- /Note:/ Consider using 'updatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppdUpdatedTime :: Lens.Lens' ProvisionedProductPlanDetails (Core.Maybe Core.NominalDiffTime)
+pppdUpdatedTime = Lens.field @"updatedTime"
+{-# DEPRECATED pppdUpdatedTime "Use generic-lens or generic-optics with 'updatedTime' instead." #-}
+
+instance Core.FromJSON ProvisionedProductPlanDetails where
   parseJSON =
-    Lude.withObject
-      "ProvisionedProductPlanDetails"
-      ( \x ->
-          ProvisionedProductPlanDetails'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "ProvisionProductId")
-            Lude.<*> (x Lude..:? "ProvisioningArtifactId")
-            Lude.<*> (x Lude..:? "ProvisionProductName")
-            Lude.<*> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "NotificationArns" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PlanId")
-            Lude.<*> (x Lude..:? "PlanName")
-            Lude.<*> (x Lude..:? "StatusMessage")
-            Lude.<*> (x Lude..:? "UpdatedTime")
-            Lude.<*> (x Lude..:? "PathId")
-            Lude.<*> (x Lude..:? "ProvisioningParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PlanType")
-            Lude.<*> (x Lude..:? "ProductId")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ProvisionedProductPlanDetails" Core.$
+      \x ->
+        ProvisionedProductPlanDetails'
+          Core.<$> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "NotificationArns")
+          Core.<*> (x Core..:? "PathId")
+          Core.<*> (x Core..:? "PlanId")
+          Core.<*> (x Core..:? "PlanName")
+          Core.<*> (x Core..:? "PlanType")
+          Core.<*> (x Core..:? "ProductId")
+          Core.<*> (x Core..:? "ProvisionProductId")
+          Core.<*> (x Core..:? "ProvisionProductName")
+          Core.<*> (x Core..:? "ProvisioningArtifactId")
+          Core.<*> (x Core..:? "ProvisioningParameters")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StatusMessage")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "UpdatedTime")

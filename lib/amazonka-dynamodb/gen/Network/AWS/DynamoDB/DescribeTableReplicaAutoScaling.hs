@@ -27,114 +27,103 @@ module Network.AWS.DynamoDB.DescribeTableReplicaAutoScaling
     mkDescribeTableReplicaAutoScalingResponse,
 
     -- ** Response lenses
-    dtrasrsTableAutoScalingDescription,
-    dtrasrsResponseStatus,
+    dtrasrrsTableAutoScalingDescription,
+    dtrasrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTableReplicaAutoScaling' smart constructor.
 newtype DescribeTableReplicaAutoScaling = DescribeTableReplicaAutoScaling'
   { -- | The name of the table.
-    tableName :: Lude.Text
+    tableName :: Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTableReplicaAutoScaling' with the minimum fields required to make a request.
---
--- * 'tableName' - The name of the table.
+-- | Creates a 'DescribeTableReplicaAutoScaling' value with any optional fields omitted.
 mkDescribeTableReplicaAutoScaling ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   DescribeTableReplicaAutoScaling
-mkDescribeTableReplicaAutoScaling pTableName_ =
-  DescribeTableReplicaAutoScaling' {tableName = pTableName_}
+mkDescribeTableReplicaAutoScaling tableName =
+  DescribeTableReplicaAutoScaling' {tableName}
 
 -- | The name of the table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrasTableName :: Lens.Lens' DescribeTableReplicaAutoScaling Lude.Text
-dtrasTableName = Lens.lens (tableName :: DescribeTableReplicaAutoScaling -> Lude.Text) (\s a -> s {tableName = a} :: DescribeTableReplicaAutoScaling)
+dtrasTableName :: Lens.Lens' DescribeTableReplicaAutoScaling Types.TableName
+dtrasTableName = Lens.field @"tableName"
 {-# DEPRECATED dtrasTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest DescribeTableReplicaAutoScaling where
+instance Core.FromJSON DescribeTableReplicaAutoScaling where
+  toJSON DescribeTableReplicaAutoScaling {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TableName" Core..= tableName)])
+
+instance Core.AWSRequest DescribeTableReplicaAutoScaling where
   type
     Rs DescribeTableReplicaAutoScaling =
       DescribeTableReplicaAutoScalingResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "DynamoDB_20120810.DescribeTableReplicaAutoScaling"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTableReplicaAutoScalingResponse'
-            Lude.<$> (x Lude..?> "TableAutoScalingDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TableAutoScalingDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTableReplicaAutoScaling where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTableReplicaAutoScaling where
-  toJSON DescribeTableReplicaAutoScaling' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
-
-instance Lude.ToPath DescribeTableReplicaAutoScaling where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTableReplicaAutoScaling where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTableReplicaAutoScalingResponse' smart constructor.
 data DescribeTableReplicaAutoScalingResponse = DescribeTableReplicaAutoScalingResponse'
   { -- | Represents the auto scaling properties of the table.
-    tableAutoScalingDescription :: Lude.Maybe TableAutoScalingDescription,
+    tableAutoScalingDescription :: Core.Maybe Types.TableAutoScalingDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTableReplicaAutoScalingResponse' with the minimum fields required to make a request.
---
--- * 'tableAutoScalingDescription' - Represents the auto scaling properties of the table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTableReplicaAutoScalingResponse' value with any optional fields omitted.
 mkDescribeTableReplicaAutoScalingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTableReplicaAutoScalingResponse
-mkDescribeTableReplicaAutoScalingResponse pResponseStatus_ =
+mkDescribeTableReplicaAutoScalingResponse responseStatus =
   DescribeTableReplicaAutoScalingResponse'
     { tableAutoScalingDescription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the auto scaling properties of the table.
 --
 -- /Note:/ Consider using 'tableAutoScalingDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrasrsTableAutoScalingDescription :: Lens.Lens' DescribeTableReplicaAutoScalingResponse (Lude.Maybe TableAutoScalingDescription)
-dtrasrsTableAutoScalingDescription = Lens.lens (tableAutoScalingDescription :: DescribeTableReplicaAutoScalingResponse -> Lude.Maybe TableAutoScalingDescription) (\s a -> s {tableAutoScalingDescription = a} :: DescribeTableReplicaAutoScalingResponse)
-{-# DEPRECATED dtrasrsTableAutoScalingDescription "Use generic-lens or generic-optics with 'tableAutoScalingDescription' instead." #-}
+dtrasrrsTableAutoScalingDescription :: Lens.Lens' DescribeTableReplicaAutoScalingResponse (Core.Maybe Types.TableAutoScalingDescription)
+dtrasrrsTableAutoScalingDescription = Lens.field @"tableAutoScalingDescription"
+{-# DEPRECATED dtrasrrsTableAutoScalingDescription "Use generic-lens or generic-optics with 'tableAutoScalingDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrasrsResponseStatus :: Lens.Lens' DescribeTableReplicaAutoScalingResponse Lude.Int
-dtrasrsResponseStatus = Lens.lens (responseStatus :: DescribeTableReplicaAutoScalingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTableReplicaAutoScalingResponse)
-{-# DEPRECATED dtrasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrasrrsResponseStatus :: Lens.Lens' DescribeTableReplicaAutoScalingResponse Core.Int
+dtrasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

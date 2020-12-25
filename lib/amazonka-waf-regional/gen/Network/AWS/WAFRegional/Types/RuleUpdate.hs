@@ -23,54 +23,50 @@ module Network.AWS.WAFRegional.Types.RuleUpdate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAFRegional.Types.ChangeAction
-import Network.AWS.WAFRegional.Types.Predicate
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ChangeAction as Types
+import qualified Network.AWS.WAFRegional.Types.Predicate as Types
 
 -- | Specifies a @Predicate@ (such as an @IPSet@ ) and indicates whether you want to add it to a @Rule@ or delete it from a @Rule@ .
 --
 -- /See:/ 'mkRuleUpdate' smart constructor.
 data RuleUpdate = RuleUpdate'
   { -- | Specify @INSERT@ to add a @Predicate@ to a @Rule@ . Use @DELETE@ to remove a @Predicate@ from a @Rule@ .
-    action :: ChangeAction,
+    action :: Types.ChangeAction,
     -- | The ID of the @Predicate@ (such as an @IPSet@ ) that you want to add to a @Rule@ .
-    predicate :: Predicate
+    predicate :: Types.Predicate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RuleUpdate' with the minimum fields required to make a request.
---
--- * 'action' - Specify @INSERT@ to add a @Predicate@ to a @Rule@ . Use @DELETE@ to remove a @Predicate@ from a @Rule@ .
--- * 'predicate' - The ID of the @Predicate@ (such as an @IPSet@ ) that you want to add to a @Rule@ .
+-- | Creates a 'RuleUpdate' value with any optional fields omitted.
 mkRuleUpdate ::
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
   -- | 'predicate'
-  Predicate ->
+  Types.Predicate ->
   RuleUpdate
-mkRuleUpdate pAction_ pPredicate_ =
-  RuleUpdate' {action = pAction_, predicate = pPredicate_}
+mkRuleUpdate action predicate = RuleUpdate' {action, predicate}
 
 -- | Specify @INSERT@ to add a @Predicate@ to a @Rule@ . Use @DELETE@ to remove a @Predicate@ from a @Rule@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruAction :: Lens.Lens' RuleUpdate ChangeAction
-ruAction = Lens.lens (action :: RuleUpdate -> ChangeAction) (\s a -> s {action = a} :: RuleUpdate)
+ruAction :: Lens.Lens' RuleUpdate Types.ChangeAction
+ruAction = Lens.field @"action"
 {-# DEPRECATED ruAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The ID of the @Predicate@ (such as an @IPSet@ ) that you want to add to a @Rule@ .
 --
 -- /Note:/ Consider using 'predicate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruPredicate :: Lens.Lens' RuleUpdate Predicate
-ruPredicate = Lens.lens (predicate :: RuleUpdate -> Predicate) (\s a -> s {predicate = a} :: RuleUpdate)
+ruPredicate :: Lens.Lens' RuleUpdate Types.Predicate
+ruPredicate = Lens.field @"predicate"
 {-# DEPRECATED ruPredicate "Use generic-lens or generic-optics with 'predicate' instead." #-}
 
-instance Lude.ToJSON RuleUpdate where
-  toJSON RuleUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("Predicate" Lude..= predicate)
+instance Core.FromJSON RuleUpdate where
+  toJSON RuleUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("Predicate" Core..= predicate)
           ]
       )

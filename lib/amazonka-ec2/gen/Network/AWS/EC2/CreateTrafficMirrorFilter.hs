@@ -24,162 +24,155 @@ module Network.AWS.EC2.CreateTrafficMirrorFilter
 
     -- ** Request lenses
     ctmfClientToken,
-    ctmfTagSpecifications,
     ctmfDescription,
     ctmfDryRun,
+    ctmfTagSpecifications,
 
     -- * Destructuring the response
     CreateTrafficMirrorFilterResponse (..),
     mkCreateTrafficMirrorFilterResponse,
 
     -- ** Response lenses
-    ctmfrsClientToken,
-    ctmfrsTrafficMirrorFilter,
-    ctmfrsResponseStatus,
+    ctmfrrsClientToken,
+    ctmfrrsTrafficMirrorFilter,
+    ctmfrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTrafficMirrorFilter' smart constructor.
 data CreateTrafficMirrorFilter = CreateTrafficMirrorFilter'
   { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The tags to assign to a Traffic Mirror filter.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    clientToken :: Core.Maybe Types.String,
     -- | The description of the Traffic Mirror filter.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to assign to a Traffic Mirror filter.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficMirrorFilter' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'tagSpecifications' - The tags to assign to a Traffic Mirror filter.
--- * 'description' - The description of the Traffic Mirror filter.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateTrafficMirrorFilter' value with any optional fields omitted.
 mkCreateTrafficMirrorFilter ::
   CreateTrafficMirrorFilter
 mkCreateTrafficMirrorFilter =
   CreateTrafficMirrorFilter'
-    { clientToken = Lude.Nothing,
-      tagSpecifications = Lude.Nothing,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { clientToken = Core.Nothing,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfClientToken :: Lens.Lens' CreateTrafficMirrorFilter (Lude.Maybe Lude.Text)
-ctmfClientToken = Lens.lens (clientToken :: CreateTrafficMirrorFilter -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateTrafficMirrorFilter)
+ctmfClientToken :: Lens.Lens' CreateTrafficMirrorFilter (Core.Maybe Types.String)
+ctmfClientToken = Lens.field @"clientToken"
 {-# DEPRECATED ctmfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The tags to assign to a Traffic Mirror filter.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfTagSpecifications :: Lens.Lens' CreateTrafficMirrorFilter (Lude.Maybe [TagSpecification])
-ctmfTagSpecifications = Lens.lens (tagSpecifications :: CreateTrafficMirrorFilter -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTrafficMirrorFilter)
-{-# DEPRECATED ctmfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The description of the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfDescription :: Lens.Lens' CreateTrafficMirrorFilter (Lude.Maybe Lude.Text)
-ctmfDescription = Lens.lens (description :: CreateTrafficMirrorFilter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTrafficMirrorFilter)
+ctmfDescription :: Lens.Lens' CreateTrafficMirrorFilter (Core.Maybe Types.String)
+ctmfDescription = Lens.field @"description"
 {-# DEPRECATED ctmfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfDryRun :: Lens.Lens' CreateTrafficMirrorFilter (Lude.Maybe Lude.Bool)
-ctmfDryRun = Lens.lens (dryRun :: CreateTrafficMirrorFilter -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTrafficMirrorFilter)
+ctmfDryRun :: Lens.Lens' CreateTrafficMirrorFilter (Core.Maybe Core.Bool)
+ctmfDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ctmfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateTrafficMirrorFilter where
+-- | The tags to assign to a Traffic Mirror filter.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmfTagSpecifications :: Lens.Lens' CreateTrafficMirrorFilter (Core.Maybe [Types.TagSpecification])
+ctmfTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ctmfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateTrafficMirrorFilter where
   type
     Rs CreateTrafficMirrorFilter =
       CreateTrafficMirrorFilterResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTrafficMirrorFilter")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorFilterResponse'
-            Lude.<$> (x Lude..@? "clientToken")
-            Lude.<*> (x Lude..@? "trafficMirrorFilter")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "clientToken")
+            Core.<*> (x Core..@? "trafficMirrorFilter")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTrafficMirrorFilter where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTrafficMirrorFilter where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTrafficMirrorFilter where
-  toQuery CreateTrafficMirrorFilter' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateTrafficMirrorFilter" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateTrafficMirrorFilterResponse' smart constructor.
 data CreateTrafficMirrorFilterResponse = CreateTrafficMirrorFilterResponse'
   { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+    clientToken :: Core.Maybe Types.String,
     -- | Information about the Traffic Mirror filter.
-    trafficMirrorFilter :: Lude.Maybe TrafficMirrorFilter,
+    trafficMirrorFilter :: Core.Maybe Types.TrafficMirrorFilter,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficMirrorFilterResponse' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'trafficMirrorFilter' - Information about the Traffic Mirror filter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTrafficMirrorFilterResponse' value with any optional fields omitted.
 mkCreateTrafficMirrorFilterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTrafficMirrorFilterResponse
-mkCreateTrafficMirrorFilterResponse pResponseStatus_ =
+mkCreateTrafficMirrorFilterResponse responseStatus =
   CreateTrafficMirrorFilterResponse'
-    { clientToken = Lude.Nothing,
-      trafficMirrorFilter = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clientToken = Core.Nothing,
+      trafficMirrorFilter = Core.Nothing,
+      responseStatus
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrsClientToken :: Lens.Lens' CreateTrafficMirrorFilterResponse (Lude.Maybe Lude.Text)
-ctmfrsClientToken = Lens.lens (clientToken :: CreateTrafficMirrorFilterResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateTrafficMirrorFilterResponse)
-{-# DEPRECATED ctmfrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+ctmfrrsClientToken :: Lens.Lens' CreateTrafficMirrorFilterResponse (Core.Maybe Types.String)
+ctmfrrsClientToken = Lens.field @"clientToken"
+{-# DEPRECATED ctmfrrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Information about the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'trafficMirrorFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrsTrafficMirrorFilter :: Lens.Lens' CreateTrafficMirrorFilterResponse (Lude.Maybe TrafficMirrorFilter)
-ctmfrsTrafficMirrorFilter = Lens.lens (trafficMirrorFilter :: CreateTrafficMirrorFilterResponse -> Lude.Maybe TrafficMirrorFilter) (\s a -> s {trafficMirrorFilter = a} :: CreateTrafficMirrorFilterResponse)
-{-# DEPRECATED ctmfrsTrafficMirrorFilter "Use generic-lens or generic-optics with 'trafficMirrorFilter' instead." #-}
+ctmfrrsTrafficMirrorFilter :: Lens.Lens' CreateTrafficMirrorFilterResponse (Core.Maybe Types.TrafficMirrorFilter)
+ctmfrrsTrafficMirrorFilter = Lens.field @"trafficMirrorFilter"
+{-# DEPRECATED ctmfrrsTrafficMirrorFilter "Use generic-lens or generic-optics with 'trafficMirrorFilter' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrsResponseStatus :: Lens.Lens' CreateTrafficMirrorFilterResponse Lude.Int
-ctmfrsResponseStatus = Lens.lens (responseStatus :: CreateTrafficMirrorFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrafficMirrorFilterResponse)
-{-# DEPRECATED ctmfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctmfrrsResponseStatus :: Lens.Lens' CreateTrafficMirrorFilterResponse Core.Int
+ctmfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctmfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

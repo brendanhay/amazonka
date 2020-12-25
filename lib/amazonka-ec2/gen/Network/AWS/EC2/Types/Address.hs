@@ -17,214 +17,198 @@ module Network.AWS.EC2.Types.Address
     mkAddress,
 
     -- * Lenses
-    aAssociationId,
-    aInstanceId,
-    aNetworkInterfaceOwnerId,
     aAllocationId,
-    aCarrierIP,
-    aNetworkBorderGroup,
+    aAssociationId,
+    aCarrierIp,
+    aCustomerOwnedIp,
+    aCustomerOwnedIpv4Pool,
     aDomain,
+    aInstanceId,
+    aNetworkBorderGroup,
     aNetworkInterfaceId,
-    aPublicIPv4Pool,
-    aCustomerOwnedIPv4Pool,
-    aCustomerOwnedIP,
-    aPrivateIPAddress,
-    aPublicIP,
+    aNetworkInterfaceOwnerId,
+    aPrivateIpAddress,
+    aPublicIp,
+    aPublicIpv4Pool,
     aTags,
   )
 where
 
-import Network.AWS.EC2.Types.DomainType
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.DomainType as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Elastic IP address, or a carrier IP address.
 --
 -- /See:/ 'mkAddress' smart constructor.
 data Address = Address'
-  { -- | The ID representing the association of the address with an instance in a VPC.
-    associationId :: Lude.Maybe Lude.Text,
-    -- | The ID of the instance that the address is associated with (if any).
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The ID of the AWS account that owns the network interface.
-    networkInterfaceOwnerId :: Lude.Maybe Lude.Text,
-    -- | The ID representing the allocation of the address for use with EC2-VPC.
-    allocationId :: Lude.Maybe Lude.Text,
+  { -- | The ID representing the allocation of the address for use with EC2-VPC.
+    allocationId :: Core.Maybe Types.String,
+    -- | The ID representing the association of the address with an instance in a VPC.
+    associationId :: Core.Maybe Types.String,
     -- | The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
-    carrierIP :: Lude.Maybe Lude.Text,
-    -- | The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
-    networkBorderGroup :: Lude.Maybe Lude.Text,
-    -- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
-    domain :: Lude.Maybe DomainType,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | The ID of an address pool.
-    publicIPv4Pool :: Lude.Maybe Lude.Text,
-    -- | The ID of the customer-owned address pool.
-    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    carrierIp :: Core.Maybe Types.String,
     -- | The customer-owned IP address.
-    customerOwnedIP :: Lude.Maybe Lude.Text,
+    customerOwnedIp :: Core.Maybe Types.String,
+    -- | The ID of the customer-owned address pool.
+    customerOwnedIpv4Pool :: Core.Maybe Types.String,
+    -- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
+    domain :: Core.Maybe Types.DomainType,
+    -- | The ID of the instance that the address is associated with (if any).
+    instanceId :: Core.Maybe Types.String,
+    -- | The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+    networkBorderGroup :: Core.Maybe Types.String,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Core.Maybe Types.String,
+    -- | The ID of the AWS account that owns the network interface.
+    networkInterfaceOwnerId :: Core.Maybe Types.String,
     -- | The private IP address associated with the Elastic IP address.
-    privateIPAddress :: Lude.Maybe Lude.Text,
+    privateIpAddress :: Core.Maybe Types.String,
     -- | The Elastic IP address.
-    publicIP :: Lude.Maybe Lude.Text,
+    publicIp :: Core.Maybe Types.String,
+    -- | The ID of an address pool.
+    publicIpv4Pool :: Core.Maybe Types.String,
     -- | Any tags assigned to the Elastic IP address.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Address' with the minimum fields required to make a request.
---
--- * 'associationId' - The ID representing the association of the address with an instance in a VPC.
--- * 'instanceId' - The ID of the instance that the address is associated with (if any).
--- * 'networkInterfaceOwnerId' - The ID of the AWS account that owns the network interface.
--- * 'allocationId' - The ID representing the allocation of the address for use with EC2-VPC.
--- * 'carrierIP' - The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
--- * 'networkBorderGroup' - The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
--- * 'domain' - Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'publicIPv4Pool' - The ID of an address pool.
--- * 'customerOwnedIPv4Pool' - The ID of the customer-owned address pool.
--- * 'customerOwnedIP' - The customer-owned IP address.
--- * 'privateIPAddress' - The private IP address associated with the Elastic IP address.
--- * 'publicIP' - The Elastic IP address.
--- * 'tags' - Any tags assigned to the Elastic IP address.
+-- | Creates a 'Address' value with any optional fields omitted.
 mkAddress ::
   Address
 mkAddress =
   Address'
-    { associationId = Lude.Nothing,
-      instanceId = Lude.Nothing,
-      networkInterfaceOwnerId = Lude.Nothing,
-      allocationId = Lude.Nothing,
-      carrierIP = Lude.Nothing,
-      networkBorderGroup = Lude.Nothing,
-      domain = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      publicIPv4Pool = Lude.Nothing,
-      customerOwnedIPv4Pool = Lude.Nothing,
-      customerOwnedIP = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      publicIP = Lude.Nothing,
-      tags = Lude.Nothing
+    { allocationId = Core.Nothing,
+      associationId = Core.Nothing,
+      carrierIp = Core.Nothing,
+      customerOwnedIp = Core.Nothing,
+      customerOwnedIpv4Pool = Core.Nothing,
+      domain = Core.Nothing,
+      instanceId = Core.Nothing,
+      networkBorderGroup = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      networkInterfaceOwnerId = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      publicIp = Core.Nothing,
+      publicIpv4Pool = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The ID representing the association of the address with an instance in a VPC.
---
--- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAssociationId :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aAssociationId = Lens.lens (associationId :: Address -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: Address)
-{-# DEPRECATED aAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | The ID of the instance that the address is associated with (if any).
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aInstanceId :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aInstanceId = Lens.lens (instanceId :: Address -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Address)
-{-# DEPRECATED aInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The ID of the AWS account that owns the network interface.
---
--- /Note:/ Consider using 'networkInterfaceOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aNetworkInterfaceOwnerId :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aNetworkInterfaceOwnerId = Lens.lens (networkInterfaceOwnerId :: Address -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceOwnerId = a} :: Address)
-{-# DEPRECATED aNetworkInterfaceOwnerId "Use generic-lens or generic-optics with 'networkInterfaceOwnerId' instead." #-}
 
 -- | The ID representing the allocation of the address for use with EC2-VPC.
 --
 -- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAllocationId :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aAllocationId = Lens.lens (allocationId :: Address -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: Address)
+aAllocationId :: Lens.Lens' Address (Core.Maybe Types.String)
+aAllocationId = Lens.field @"allocationId"
 {-# DEPRECATED aAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
+
+-- | The ID representing the association of the address with an instance in a VPC.
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAssociationId :: Lens.Lens' Address (Core.Maybe Types.String)
+aAssociationId = Lens.field @"associationId"
+{-# DEPRECATED aAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
 --
--- /Note:/ Consider using 'carrierIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCarrierIP :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aCarrierIP = Lens.lens (carrierIP :: Address -> Lude.Maybe Lude.Text) (\s a -> s {carrierIP = a} :: Address)
-{-# DEPRECATED aCarrierIP "Use generic-lens or generic-optics with 'carrierIP' instead." #-}
+-- /Note:/ Consider using 'carrierIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCarrierIp :: Lens.Lens' Address (Core.Maybe Types.String)
+aCarrierIp = Lens.field @"carrierIp"
+{-# DEPRECATED aCarrierIp "Use generic-lens or generic-optics with 'carrierIp' instead." #-}
 
--- | The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+-- | The customer-owned IP address.
 --
--- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aNetworkBorderGroup :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aNetworkBorderGroup = Lens.lens (networkBorderGroup :: Address -> Lude.Maybe Lude.Text) (\s a -> s {networkBorderGroup = a} :: Address)
-{-# DEPRECATED aNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
+-- /Note:/ Consider using 'customerOwnedIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCustomerOwnedIp :: Lens.Lens' Address (Core.Maybe Types.String)
+aCustomerOwnedIp = Lens.field @"customerOwnedIp"
+{-# DEPRECATED aCustomerOwnedIp "Use generic-lens or generic-optics with 'customerOwnedIp' instead." #-}
+
+-- | The ID of the customer-owned address pool.
+--
+-- /Note:/ Consider using 'customerOwnedIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCustomerOwnedIpv4Pool :: Lens.Lens' Address (Core.Maybe Types.String)
+aCustomerOwnedIpv4Pool = Lens.field @"customerOwnedIpv4Pool"
+{-# DEPRECATED aCustomerOwnedIpv4Pool "Use generic-lens or generic-optics with 'customerOwnedIpv4Pool' instead." #-}
 
 -- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aDomain :: Lens.Lens' Address (Lude.Maybe DomainType)
-aDomain = Lens.lens (domain :: Address -> Lude.Maybe DomainType) (\s a -> s {domain = a} :: Address)
+aDomain :: Lens.Lens' Address (Core.Maybe Types.DomainType)
+aDomain = Lens.field @"domain"
 {-# DEPRECATED aDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | The ID of the instance that the address is associated with (if any).
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aInstanceId :: Lens.Lens' Address (Core.Maybe Types.String)
+aInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED aInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+--
+-- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNetworkBorderGroup :: Lens.Lens' Address (Core.Maybe Types.String)
+aNetworkBorderGroup = Lens.field @"networkBorderGroup"
+{-# DEPRECATED aNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
 
 -- | The ID of the network interface.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aNetworkInterfaceId :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aNetworkInterfaceId = Lens.lens (networkInterfaceId :: Address -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: Address)
+aNetworkInterfaceId :: Lens.Lens' Address (Core.Maybe Types.String)
+aNetworkInterfaceId = Lens.field @"networkInterfaceId"
 {-# DEPRECATED aNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
--- | The ID of an address pool.
+-- | The ID of the AWS account that owns the network interface.
 --
--- /Note:/ Consider using 'publicIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPublicIPv4Pool :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aPublicIPv4Pool = Lens.lens (publicIPv4Pool :: Address -> Lude.Maybe Lude.Text) (\s a -> s {publicIPv4Pool = a} :: Address)
-{-# DEPRECATED aPublicIPv4Pool "Use generic-lens or generic-optics with 'publicIPv4Pool' instead." #-}
-
--- | The ID of the customer-owned address pool.
---
--- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCustomerOwnedIPv4Pool :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: Address -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: Address)
-{-# DEPRECATED aCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
-
--- | The customer-owned IP address.
---
--- /Note:/ Consider using 'customerOwnedIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCustomerOwnedIP :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aCustomerOwnedIP = Lens.lens (customerOwnedIP :: Address -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIP = a} :: Address)
-{-# DEPRECATED aCustomerOwnedIP "Use generic-lens or generic-optics with 'customerOwnedIP' instead." #-}
+-- /Note:/ Consider using 'networkInterfaceOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNetworkInterfaceOwnerId :: Lens.Lens' Address (Core.Maybe Types.String)
+aNetworkInterfaceOwnerId = Lens.field @"networkInterfaceOwnerId"
+{-# DEPRECATED aNetworkInterfaceOwnerId "Use generic-lens or generic-optics with 'networkInterfaceOwnerId' instead." #-}
 
 -- | The private IP address associated with the Elastic IP address.
 --
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPrivateIPAddress :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aPrivateIPAddress = Lens.lens (privateIPAddress :: Address -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: Address)
-{-# DEPRECATED aPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPrivateIpAddress :: Lens.Lens' Address (Core.Maybe Types.String)
+aPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED aPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
 
 -- | The Elastic IP address.
 --
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPublicIP :: Lens.Lens' Address (Lude.Maybe Lude.Text)
-aPublicIP = Lens.lens (publicIP :: Address -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: Address)
-{-# DEPRECATED aPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPublicIp :: Lens.Lens' Address (Core.Maybe Types.String)
+aPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED aPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
+
+-- | The ID of an address pool.
+--
+-- /Note:/ Consider using 'publicIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPublicIpv4Pool :: Lens.Lens' Address (Core.Maybe Types.String)
+aPublicIpv4Pool = Lens.field @"publicIpv4Pool"
+{-# DEPRECATED aPublicIpv4Pool "Use generic-lens or generic-optics with 'publicIpv4Pool' instead." #-}
 
 -- | Any tags assigned to the Elastic IP address.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTags :: Lens.Lens' Address (Lude.Maybe [Tag])
-aTags = Lens.lens (tags :: Address -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Address)
+aTags :: Lens.Lens' Address (Core.Maybe [Types.Tag])
+aTags = Lens.field @"tags"
 {-# DEPRECATED aTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML Address where
+instance Core.FromXML Address where
   parseXML x =
     Address'
-      Lude.<$> (x Lude..@? "associationId")
-      Lude.<*> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "networkInterfaceOwnerId")
-      Lude.<*> (x Lude..@? "allocationId")
-      Lude.<*> (x Lude..@? "carrierIp")
-      Lude.<*> (x Lude..@? "networkBorderGroup")
-      Lude.<*> (x Lude..@? "domain")
-      Lude.<*> (x Lude..@? "networkInterfaceId")
-      Lude.<*> (x Lude..@? "publicIpv4Pool")
-      Lude.<*> (x Lude..@? "customerOwnedIpv4Pool")
-      Lude.<*> (x Lude..@? "customerOwnedIp")
-      Lude.<*> (x Lude..@? "privateIpAddress")
-      Lude.<*> (x Lude..@? "publicIp")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "allocationId")
+      Core.<*> (x Core..@? "associationId")
+      Core.<*> (x Core..@? "carrierIp")
+      Core.<*> (x Core..@? "customerOwnedIp")
+      Core.<*> (x Core..@? "customerOwnedIpv4Pool")
+      Core.<*> (x Core..@? "domain")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "networkBorderGroup")
+      Core.<*> (x Core..@? "networkInterfaceId")
+      Core.<*> (x Core..@? "networkInterfaceOwnerId")
+      Core.<*> (x Core..@? "privateIpAddress")
+      Core.<*> (x Core..@? "publicIp")
+      Core.<*> (x Core..@? "publicIpv4Pool")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

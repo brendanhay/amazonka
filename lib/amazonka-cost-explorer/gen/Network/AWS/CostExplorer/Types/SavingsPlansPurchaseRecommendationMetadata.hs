@@ -17,72 +17,67 @@ module Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata
     mkSavingsPlansPurchaseRecommendationMetadata,
 
     -- * Lenses
-    spprmRecommendationId,
-    spprmGenerationTimestamp,
     spprmAdditionalMetadata,
+    spprmGenerationTimestamp,
+    spprmRecommendationId,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Metadata about your Savings Plans Purchase Recommendations.
 --
 -- /See:/ 'mkSavingsPlansPurchaseRecommendationMetadata' smart constructor.
 data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommendationMetadata'
-  { -- | The unique identifier for the recommendation set.
-    recommendationId :: Lude.Maybe Lude.Text,
+  { -- | Additional metadata that may be applicable to the recommendation.
+    additionalMetadata :: Core.Maybe Types.GenericString,
     -- | The timestamp showing when the recommendations were generated.
-    generationTimestamp :: Lude.Maybe Lude.Text,
-    -- | Additional metadata that may be applicable to the recommendation.
-    additionalMetadata :: Lude.Maybe Lude.Text
+    generationTimestamp :: Core.Maybe Types.GenericString,
+    -- | The unique identifier for the recommendation set.
+    recommendationId :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SavingsPlansPurchaseRecommendationMetadata' with the minimum fields required to make a request.
---
--- * 'recommendationId' - The unique identifier for the recommendation set.
--- * 'generationTimestamp' - The timestamp showing when the recommendations were generated.
--- * 'additionalMetadata' - Additional metadata that may be applicable to the recommendation.
+-- | Creates a 'SavingsPlansPurchaseRecommendationMetadata' value with any optional fields omitted.
 mkSavingsPlansPurchaseRecommendationMetadata ::
   SavingsPlansPurchaseRecommendationMetadata
 mkSavingsPlansPurchaseRecommendationMetadata =
   SavingsPlansPurchaseRecommendationMetadata'
-    { recommendationId =
-        Lude.Nothing,
-      generationTimestamp = Lude.Nothing,
-      additionalMetadata = Lude.Nothing
+    { additionalMetadata =
+        Core.Nothing,
+      generationTimestamp = Core.Nothing,
+      recommendationId = Core.Nothing
     }
-
--- | The unique identifier for the recommendation set.
---
--- /Note:/ Consider using 'recommendationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprmRecommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Lude.Maybe Lude.Text)
-spprmRecommendationId = Lens.lens (recommendationId :: SavingsPlansPurchaseRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {recommendationId = a} :: SavingsPlansPurchaseRecommendationMetadata)
-{-# DEPRECATED spprmRecommendationId "Use generic-lens or generic-optics with 'recommendationId' instead." #-}
-
--- | The timestamp showing when the recommendations were generated.
---
--- /Note:/ Consider using 'generationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprmGenerationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Lude.Maybe Lude.Text)
-spprmGenerationTimestamp = Lens.lens (generationTimestamp :: SavingsPlansPurchaseRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
-{-# DEPRECATED spprmGenerationTimestamp "Use generic-lens or generic-optics with 'generationTimestamp' instead." #-}
 
 -- | Additional metadata that may be applicable to the recommendation.
 --
 -- /Note:/ Consider using 'additionalMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spprmAdditionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Lude.Maybe Lude.Text)
-spprmAdditionalMetadata = Lens.lens (additionalMetadata :: SavingsPlansPurchaseRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {additionalMetadata = a} :: SavingsPlansPurchaseRecommendationMetadata)
+spprmAdditionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Core.Maybe Types.GenericString)
+spprmAdditionalMetadata = Lens.field @"additionalMetadata"
 {-# DEPRECATED spprmAdditionalMetadata "Use generic-lens or generic-optics with 'additionalMetadata' instead." #-}
 
-instance Lude.FromJSON SavingsPlansPurchaseRecommendationMetadata where
+-- | The timestamp showing when the recommendations were generated.
+--
+-- /Note:/ Consider using 'generationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprmGenerationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Core.Maybe Types.GenericString)
+spprmGenerationTimestamp = Lens.field @"generationTimestamp"
+{-# DEPRECATED spprmGenerationTimestamp "Use generic-lens or generic-optics with 'generationTimestamp' instead." #-}
+
+-- | The unique identifier for the recommendation set.
+--
+-- /Note:/ Consider using 'recommendationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprmRecommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Core.Maybe Types.GenericString)
+spprmRecommendationId = Lens.field @"recommendationId"
+{-# DEPRECATED spprmRecommendationId "Use generic-lens or generic-optics with 'recommendationId' instead." #-}
+
+instance Core.FromJSON SavingsPlansPurchaseRecommendationMetadata where
   parseJSON =
-    Lude.withObject
-      "SavingsPlansPurchaseRecommendationMetadata"
-      ( \x ->
-          SavingsPlansPurchaseRecommendationMetadata'
-            Lude.<$> (x Lude..:? "RecommendationId")
-            Lude.<*> (x Lude..:? "GenerationTimestamp")
-            Lude.<*> (x Lude..:? "AdditionalMetadata")
-      )
+    Core.withObject "SavingsPlansPurchaseRecommendationMetadata" Core.$
+      \x ->
+        SavingsPlansPurchaseRecommendationMetadata'
+          Core.<$> (x Core..:? "AdditionalMetadata")
+          Core.<*> (x Core..:? "GenerationTimestamp")
+          Core.<*> (x Core..:? "RecommendationId")

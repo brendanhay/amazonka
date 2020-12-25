@@ -24,71 +24,84 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     mkAdminUpdateUserAttributes,
 
     -- ** Request lenses
-    auuaClientMetadata,
     auuaUserPoolId,
-    auuaUserAttributes,
     auuaUsername,
+    auuaUserAttributes,
+    auuaClientMetadata,
 
     -- * Destructuring the response
     AdminUpdateUserAttributesResponse (..),
     mkAdminUpdateUserAttributesResponse,
 
     -- ** Response lenses
-    auuarsResponseStatus,
+    auuarrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to update the user's attributes as an administrator.
 --
 -- /See:/ 'mkAdminUpdateUserAttributes' smart constructor.
 data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
-  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
-    --
-    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminUpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
-    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The user pool ID for the user pool where you want to update user attributes.
-    userPoolId :: Lude.Text,
+  { -- | The user pool ID for the user pool where you want to update user attributes.
+    userPoolId :: Types.UserPoolIdType,
+    -- | The user name of the user for whom you want to update user attributes.
+    username :: Types.UsernameType,
     -- | An array of name-value pairs representing user attributes.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-    userAttributes :: [AttributeType],
-    -- | The user name of the user for whom you want to update user attributes.
-    username :: Lude.Sensitive Lude.Text
+    userAttributes :: [Types.AttributeType],
+    -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminUpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Core.Maybe (Core.HashMap Types.StringType Types.StringType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminUpdateUserAttributes' with the minimum fields required to make a request.
---
--- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
---
--- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminUpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
--- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
--- * 'userPoolId' - The user pool ID for the user pool where you want to update user attributes.
--- * 'userAttributes' - An array of name-value pairs representing user attributes.
---
--- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
--- * 'username' - The user name of the user for whom you want to update user attributes.
+-- | Creates a 'AdminUpdateUserAttributes' value with any optional fields omitted.
 mkAdminUpdateUserAttributes ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolIdType ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.UsernameType ->
   AdminUpdateUserAttributes
-mkAdminUpdateUserAttributes pUserPoolId_ pUsername_ =
+mkAdminUpdateUserAttributes userPoolId username =
   AdminUpdateUserAttributes'
-    { clientMetadata = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      userAttributes = Lude.mempty,
-      username = pUsername_
+    { userPoolId,
+      username,
+      userAttributes = Core.mempty,
+      clientMetadata = Core.Nothing
     }
+
+-- | The user pool ID for the user pool where you want to update user attributes.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auuaUserPoolId :: Lens.Lens' AdminUpdateUserAttributes Types.UserPoolIdType
+auuaUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED auuaUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The user name of the user for whom you want to update user attributes.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auuaUsername :: Lens.Lens' AdminUpdateUserAttributes Types.UsernameType
+auuaUsername = Lens.field @"username"
+{-# DEPRECATED auuaUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+-- | An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auuaUserAttributes :: Lens.Lens' AdminUpdateUserAttributes [Types.AttributeType]
+auuaUserAttributes = Lens.field @"userAttributes"
+{-# DEPRECATED auuaUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
 -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
@@ -96,101 +109,67 @@ mkAdminUpdateUserAttributes pUserPoolId_ pUsername_ =
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
 --
 -- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auuaClientMetadata :: Lens.Lens' AdminUpdateUserAttributes (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-auuaClientMetadata = Lens.lens (clientMetadata :: AdminUpdateUserAttributes -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: AdminUpdateUserAttributes)
+auuaClientMetadata :: Lens.Lens' AdminUpdateUserAttributes (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+auuaClientMetadata = Lens.field @"clientMetadata"
 {-# DEPRECATED auuaClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
--- | The user pool ID for the user pool where you want to update user attributes.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auuaUserPoolId :: Lens.Lens' AdminUpdateUserAttributes Lude.Text
-auuaUserPoolId = Lens.lens (userPoolId :: AdminUpdateUserAttributes -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminUpdateUserAttributes)
-{-# DEPRECATED auuaUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+instance Core.FromJSON AdminUpdateUserAttributes where
+  toJSON AdminUpdateUserAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("UserAttributes" Core..= userAttributes),
+            ("ClientMetadata" Core..=) Core.<$> clientMetadata
+          ]
+      )
 
--- | An array of name-value pairs representing user attributes.
---
--- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
---
--- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auuaUserAttributes :: Lens.Lens' AdminUpdateUserAttributes [AttributeType]
-auuaUserAttributes = Lens.lens (userAttributes :: AdminUpdateUserAttributes -> [AttributeType]) (\s a -> s {userAttributes = a} :: AdminUpdateUserAttributes)
-{-# DEPRECATED auuaUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
-
--- | The user name of the user for whom you want to update user attributes.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auuaUsername :: Lens.Lens' AdminUpdateUserAttributes (Lude.Sensitive Lude.Text)
-auuaUsername = Lens.lens (username :: AdminUpdateUserAttributes -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminUpdateUserAttributes)
-{-# DEPRECATED auuaUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
-instance Lude.AWSRequest AdminUpdateUserAttributes where
+instance Core.AWSRequest AdminUpdateUserAttributes where
   type
     Rs AdminUpdateUserAttributes =
       AdminUpdateUserAttributesResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AdminUpdateUserAttributesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminUpdateUserAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminUpdateUserAttributes where
-  toJSON AdminUpdateUserAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("UserAttributes" Lude..= userAttributes),
-            Lude.Just ("Username" Lude..= username)
-          ]
-      )
-
-instance Lude.ToPath AdminUpdateUserAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminUpdateUserAttributes where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to update user attributes as an administrator.
 --
 -- /See:/ 'mkAdminUpdateUserAttributesResponse' smart constructor.
 newtype AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminUpdateUserAttributesResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminUpdateUserAttributesResponse' value with any optional fields omitted.
 mkAdminUpdateUserAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminUpdateUserAttributesResponse
-mkAdminUpdateUserAttributesResponse pResponseStatus_ =
-  AdminUpdateUserAttributesResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAdminUpdateUserAttributesResponse responseStatus =
+  AdminUpdateUserAttributesResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auuarsResponseStatus :: Lens.Lens' AdminUpdateUserAttributesResponse Lude.Int
-auuarsResponseStatus = Lens.lens (responseStatus :: AdminUpdateUserAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminUpdateUserAttributesResponse)
-{-# DEPRECATED auuarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+auuarrsResponseStatus :: Lens.Lens' AdminUpdateUserAttributesResponse Core.Int
+auuarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED auuarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

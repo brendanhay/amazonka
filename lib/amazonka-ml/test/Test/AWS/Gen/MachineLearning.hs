@@ -378,7 +378,7 @@ responseUpdateDataSource =
   res
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDataSource)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
@@ -386,7 +386,7 @@ responseDeleteDataSource =
   res
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDataSource)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -394,7 +394,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
@@ -402,7 +402,7 @@ responseCreateDataSourceFromRedshift =
   res
     "CreateDataSourceFromRedshiftResponse"
     "fixture/CreateDataSourceFromRedshiftResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateDataSourceFromRedshift)
 
 responseCreateDataSourceFromS3 :: CreateDataSourceFromS3Response -> TestTree
@@ -410,7 +410,7 @@ responseCreateDataSourceFromS3 =
   res
     "CreateDataSourceFromS3Response"
     "fixture/CreateDataSourceFromS3Response.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateDataSourceFromS3)
 
 responseCreateMLModel :: CreateMLModelResponse -> TestTree
@@ -418,7 +418,7 @@ responseCreateMLModel =
   res
     "CreateMLModelResponse"
     "fixture/CreateMLModelResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateMLModel)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -426,7 +426,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
@@ -434,7 +434,7 @@ responseDeleteBatchPrediction =
   res
     "DeleteBatchPredictionResponse"
     "fixture/DeleteBatchPredictionResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBatchPrediction)
 
 responseUpdateBatchPrediction :: UpdateBatchPredictionResponse -> TestTree
@@ -442,7 +442,7 @@ responseUpdateBatchPrediction =
   res
     "UpdateBatchPredictionResponse"
     "fixture/UpdateBatchPredictionResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy UpdateBatchPrediction)
 
 responseGetMLModel :: GetMLModelResponse -> TestTree
@@ -450,7 +450,7 @@ responseGetMLModel =
   res
     "GetMLModelResponse"
     "fixture/GetMLModelResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy GetMLModel)
 
 responseGetDataSource :: GetDataSourceResponse -> TestTree
@@ -458,7 +458,7 @@ responseGetDataSource =
   res
     "GetDataSourceResponse"
     "fixture/GetDataSourceResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy GetDataSource)
 
 responseUpdateEvaluation :: UpdateEvaluationResponse -> TestTree
@@ -466,7 +466,7 @@ responseUpdateEvaluation =
   res
     "UpdateEvaluationResponse"
     "fixture/UpdateEvaluationResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEvaluation)
 
 responseDeleteEvaluation :: DeleteEvaluationResponse -> TestTree
@@ -474,7 +474,7 @@ responseDeleteEvaluation =
   res
     "DeleteEvaluationResponse"
     "fixture/DeleteEvaluationResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEvaluation)
 
 responseDeleteMLModel :: DeleteMLModelResponse -> TestTree
@@ -482,7 +482,7 @@ responseDeleteMLModel =
   res
     "DeleteMLModelResponse"
     "fixture/DeleteMLModelResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMLModel)
 
 responseUpdateMLModel :: UpdateMLModelResponse -> TestTree
@@ -490,7 +490,7 @@ responseUpdateMLModel =
   res
     "UpdateMLModelResponse"
     "fixture/UpdateMLModelResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMLModel)
 
 responseGetBatchPrediction :: GetBatchPredictionResponse -> TestTree
@@ -498,7 +498,7 @@ responseGetBatchPrediction =
   res
     "GetBatchPredictionResponse"
     "fixture/GetBatchPredictionResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy GetBatchPrediction)
 
 responseDescribeBatchPredictions :: DescribeBatchPredictionsResponse -> TestTree
@@ -506,7 +506,7 @@ responseDescribeBatchPredictions =
   res
     "DescribeBatchPredictionsResponse"
     "fixture/DescribeBatchPredictionsResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBatchPredictions)
 
 responseCreateDataSourceFromRDS :: CreateDataSourceFromRDSResponse -> TestTree
@@ -514,7 +514,7 @@ responseCreateDataSourceFromRDS =
   res
     "CreateDataSourceFromRDSResponse"
     "fixture/CreateDataSourceFromRDSResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateDataSourceFromRDS)
 
 responseCreateEvaluation :: CreateEvaluationResponse -> TestTree
@@ -522,7 +522,7 @@ responseCreateEvaluation =
   res
     "CreateEvaluationResponse"
     "fixture/CreateEvaluationResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateEvaluation)
 
 responsePredict :: PredictResponse -> TestTree
@@ -530,7 +530,7 @@ responsePredict =
   res
     "PredictResponse"
     "fixture/PredictResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy Predict)
 
 responseDeleteRealtimeEndpoint :: DeleteRealtimeEndpointResponse -> TestTree
@@ -538,7 +538,7 @@ responseDeleteRealtimeEndpoint =
   res
     "DeleteRealtimeEndpointResponse"
     "fixture/DeleteRealtimeEndpointResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRealtimeEndpoint)
 
 responseCreateBatchPrediction :: CreateBatchPredictionResponse -> TestTree
@@ -546,7 +546,7 @@ responseCreateBatchPrediction =
   res
     "CreateBatchPredictionResponse"
     "fixture/CreateBatchPredictionResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateBatchPrediction)
 
 responseGetEvaluation :: GetEvaluationResponse -> TestTree
@@ -554,7 +554,7 @@ responseGetEvaluation =
   res
     "GetEvaluationResponse"
     "fixture/GetEvaluationResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy GetEvaluation)
 
 responseDescribeEvaluations :: DescribeEvaluationsResponse -> TestTree
@@ -562,7 +562,7 @@ responseDescribeEvaluations =
   res
     "DescribeEvaluationsResponse"
     "fixture/DescribeEvaluationsResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvaluations)
 
 responseCreateRealtimeEndpoint :: CreateRealtimeEndpointResponse -> TestTree
@@ -570,7 +570,7 @@ responseCreateRealtimeEndpoint =
   res
     "CreateRealtimeEndpointResponse"
     "fixture/CreateRealtimeEndpointResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy CreateRealtimeEndpoint)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -578,7 +578,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDescribeMLModels :: DescribeMLModelsResponse -> TestTree
@@ -586,7 +586,7 @@ responseDescribeMLModels =
   res
     "DescribeMLModelsResponse"
     "fixture/DescribeMLModelsResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMLModels)
 
 responseDescribeDataSources :: DescribeDataSourcesResponse -> TestTree
@@ -594,5 +594,5 @@ responseDescribeDataSources =
   res
     "DescribeDataSourcesResponse"
     "fixture/DescribeDataSourcesResponse.proto"
-    machineLearningService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDataSources)

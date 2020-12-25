@@ -22,41 +22,38 @@ module Network.AWS.MediaLive.Types.AvailConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AvailSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AvailSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Avail Configuration
 --
 -- /See:/ 'mkAvailConfiguration' smart constructor.
 newtype AvailConfiguration = AvailConfiguration'
   { -- | Ad avail settings.
-    availSettings :: Lude.Maybe AvailSettings
+    availSettings :: Core.Maybe Types.AvailSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailConfiguration' with the minimum fields required to make a request.
---
--- * 'availSettings' - Ad avail settings.
+-- | Creates a 'AvailConfiguration' value with any optional fields omitted.
 mkAvailConfiguration ::
   AvailConfiguration
 mkAvailConfiguration =
-  AvailConfiguration' {availSettings = Lude.Nothing}
+  AvailConfiguration' {availSettings = Core.Nothing}
 
 -- | Ad avail settings.
 --
 -- /Note:/ Consider using 'availSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acAvailSettings :: Lens.Lens' AvailConfiguration (Lude.Maybe AvailSettings)
-acAvailSettings = Lens.lens (availSettings :: AvailConfiguration -> Lude.Maybe AvailSettings) (\s a -> s {availSettings = a} :: AvailConfiguration)
+acAvailSettings :: Lens.Lens' AvailConfiguration (Core.Maybe Types.AvailSettings)
+acAvailSettings = Lens.field @"availSettings"
 {-# DEPRECATED acAvailSettings "Use generic-lens or generic-optics with 'availSettings' instead." #-}
 
-instance Lude.FromJSON AvailConfiguration where
-  parseJSON =
-    Lude.withObject
-      "AvailConfiguration"
-      (\x -> AvailConfiguration' Lude.<$> (x Lude..:? "availSettings"))
+instance Core.FromJSON AvailConfiguration where
+  toJSON AvailConfiguration {..} =
+    Core.object
+      (Core.catMaybes [("availSettings" Core..=) Core.<$> availSettings])
 
-instance Lude.ToJSON AvailConfiguration where
-  toJSON AvailConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [("availSettings" Lude..=) Lude.<$> availSettings])
+instance Core.FromJSON AvailConfiguration where
+  parseJSON =
+    Core.withObject "AvailConfiguration" Core.$
+      \x -> AvailConfiguration' Core.<$> (x Core..:? "availSettings")

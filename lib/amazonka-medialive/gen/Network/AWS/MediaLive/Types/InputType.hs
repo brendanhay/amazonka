@@ -13,82 +13,84 @@
 module Network.AWS.MediaLive.Types.InputType
   ( InputType
       ( InputType',
-        UdpPush,
-        RtpPush,
-        RtmpPush,
-        RtmpPull,
-        URLPull,
-        MP4File,
-        Mediaconnect,
-        InputDevice,
-        AWSCdi
+        InputTypeUdpPush,
+        InputTypeRtpPush,
+        InputTypeRtmpPush,
+        InputTypeRtmpPull,
+        InputTypeUrlPull,
+        InputTypeMP4File,
+        InputTypeMediaconnect,
+        InputTypeInputDevice,
+        InputTypeAwsCdi,
+        fromInputType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for InputType
-newtype InputType = InputType' Lude.Text
+newtype InputType = InputType' {fromInputType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UdpPush :: InputType
-pattern UdpPush = InputType' "UDP_PUSH"
+pattern InputTypeUdpPush :: InputType
+pattern InputTypeUdpPush = InputType' "UDP_PUSH"
 
-pattern RtpPush :: InputType
-pattern RtpPush = InputType' "RTP_PUSH"
+pattern InputTypeRtpPush :: InputType
+pattern InputTypeRtpPush = InputType' "RTP_PUSH"
 
-pattern RtmpPush :: InputType
-pattern RtmpPush = InputType' "RTMP_PUSH"
+pattern InputTypeRtmpPush :: InputType
+pattern InputTypeRtmpPush = InputType' "RTMP_PUSH"
 
-pattern RtmpPull :: InputType
-pattern RtmpPull = InputType' "RTMP_PULL"
+pattern InputTypeRtmpPull :: InputType
+pattern InputTypeRtmpPull = InputType' "RTMP_PULL"
 
-pattern URLPull :: InputType
-pattern URLPull = InputType' "URL_PULL"
+pattern InputTypeUrlPull :: InputType
+pattern InputTypeUrlPull = InputType' "URL_PULL"
 
-pattern MP4File :: InputType
-pattern MP4File = InputType' "MP4_FILE"
+pattern InputTypeMP4File :: InputType
+pattern InputTypeMP4File = InputType' "MP4_FILE"
 
-pattern Mediaconnect :: InputType
-pattern Mediaconnect = InputType' "MEDIACONNECT"
+pattern InputTypeMediaconnect :: InputType
+pattern InputTypeMediaconnect = InputType' "MEDIACONNECT"
 
-pattern InputDevice :: InputType
-pattern InputDevice = InputType' "INPUT_DEVICE"
+pattern InputTypeInputDevice :: InputType
+pattern InputTypeInputDevice = InputType' "INPUT_DEVICE"
 
-pattern AWSCdi :: InputType
-pattern AWSCdi = InputType' "AWS_CDI"
+pattern InputTypeAwsCdi :: InputType
+pattern InputTypeAwsCdi = InputType' "AWS_CDI"
 
 {-# COMPLETE
-  UdpPush,
-  RtpPush,
-  RtmpPush,
-  RtmpPull,
-  URLPull,
-  MP4File,
-  Mediaconnect,
-  InputDevice,
-  AWSCdi,
+  InputTypeUdpPush,
+  InputTypeRtpPush,
+  InputTypeRtmpPush,
+  InputTypeRtmpPull,
+  InputTypeUrlPull,
+  InputTypeMP4File,
+  InputTypeMediaconnect,
+  InputTypeInputDevice,
+  InputTypeAwsCdi,
   InputType'
   #-}

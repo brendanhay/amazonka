@@ -27,106 +27,95 @@ module Network.AWS.AppStream.DeleteImageBuilder
     mkDeleteImageBuilderResponse,
 
     -- ** Response lenses
-    dibfrsImageBuilder,
-    dibfrsResponseStatus,
+    dibrrsImageBuilder,
+    dibrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteImageBuilder' smart constructor.
 newtype DeleteImageBuilder = DeleteImageBuilder'
   { -- | The name of the image builder.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImageBuilder' with the minimum fields required to make a request.
---
--- * 'name' - The name of the image builder.
+-- | Creates a 'DeleteImageBuilder' value with any optional fields omitted.
 mkDeleteImageBuilder ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   DeleteImageBuilder
-mkDeleteImageBuilder pName_ = DeleteImageBuilder' {name = pName_}
+mkDeleteImageBuilder name = DeleteImageBuilder' {name}
 
 -- | The name of the image builder.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibName :: Lens.Lens' DeleteImageBuilder Lude.Text
-dibName = Lens.lens (name :: DeleteImageBuilder -> Lude.Text) (\s a -> s {name = a} :: DeleteImageBuilder)
+dibName :: Lens.Lens' DeleteImageBuilder Types.Name
+dibName = Lens.field @"name"
 {-# DEPRECATED dibName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteImageBuilder where
+instance Core.FromJSON DeleteImageBuilder where
+  toJSON DeleteImageBuilder {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteImageBuilder where
   type Rs DeleteImageBuilder = DeleteImageBuilderResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.DeleteImageBuilder")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteImageBuilderResponse'
-            Lude.<$> (x Lude..?> "ImageBuilder") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ImageBuilder") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteImageBuilder where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.DeleteImageBuilder" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteImageBuilder where
-  toJSON DeleteImageBuilder' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteImageBuilder where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteImageBuilder where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteImageBuilderResponse' smart constructor.
 data DeleteImageBuilderResponse = DeleteImageBuilderResponse'
   { -- | Information about the image builder.
-    imageBuilder :: Lude.Maybe ImageBuilder,
+    imageBuilder :: Core.Maybe Types.ImageBuilder,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteImageBuilderResponse' with the minimum fields required to make a request.
---
--- * 'imageBuilder' - Information about the image builder.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteImageBuilderResponse' value with any optional fields omitted.
 mkDeleteImageBuilderResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteImageBuilderResponse
-mkDeleteImageBuilderResponse pResponseStatus_ =
+mkDeleteImageBuilderResponse responseStatus =
   DeleteImageBuilderResponse'
-    { imageBuilder = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { imageBuilder = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the image builder.
 --
 -- /Note:/ Consider using 'imageBuilder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibfrsImageBuilder :: Lens.Lens' DeleteImageBuilderResponse (Lude.Maybe ImageBuilder)
-dibfrsImageBuilder = Lens.lens (imageBuilder :: DeleteImageBuilderResponse -> Lude.Maybe ImageBuilder) (\s a -> s {imageBuilder = a} :: DeleteImageBuilderResponse)
-{-# DEPRECATED dibfrsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
+dibrrsImageBuilder :: Lens.Lens' DeleteImageBuilderResponse (Core.Maybe Types.ImageBuilder)
+dibrrsImageBuilder = Lens.field @"imageBuilder"
+{-# DEPRECATED dibrrsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibfrsResponseStatus :: Lens.Lens' DeleteImageBuilderResponse Lude.Int
-dibfrsResponseStatus = Lens.lens (responseStatus :: DeleteImageBuilderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImageBuilderResponse)
-{-# DEPRECATED dibfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dibrrsResponseStatus :: Lens.Lens' DeleteImageBuilderResponse Core.Int
+dibrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dibrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

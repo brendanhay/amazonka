@@ -17,120 +17,116 @@ module Network.AWS.CloudFormation.Types.TypeVersionSummary
     mkTypeVersionSummary,
 
     -- * Lenses
-    tvsVersionId,
-    tvsTypeName,
-    tvsARN,
+    tvsArn,
+    tvsDescription,
+    tvsIsDefaultVersion,
     tvsTimeCreated,
     tvsType,
-    tvsIsDefaultVersion,
-    tvsDescription,
+    tvsTypeName,
+    tvsVersionId,
   )
 where
 
-import Network.AWS.CloudFormation.Types.RegistryType
+import qualified Network.AWS.CloudFormation.Types.Description as Types
+import qualified Network.AWS.CloudFormation.Types.RegistryType as Types
+import qualified Network.AWS.CloudFormation.Types.TypeArn as Types
+import qualified Network.AWS.CloudFormation.Types.TypeName as Types
+import qualified Network.AWS.CloudFormation.Types.TypeVersionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary information about a specific version of a CloudFormation type.
 --
 -- /See:/ 'mkTypeVersionSummary' smart constructor.
 data TypeVersionSummary = TypeVersionSummary'
-  { -- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The name of the type.
-    typeName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the type version.
-    arn :: Lude.Maybe Lude.Text,
-    -- | When the version was registered.
-    timeCreated :: Lude.Maybe Lude.DateTime,
-    -- | The kind of type.
-    type' :: Lude.Maybe RegistryType,
-    -- | Whether the specified type version is set as the default version.
-    isDefaultVersion :: Lude.Maybe Lude.Bool,
+  { -- | The Amazon Resource Name (ARN) of the type version.
+    arn :: Core.Maybe Types.TypeArn,
     -- | The description of the type version.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | Whether the specified type version is set as the default version.
+    isDefaultVersion :: Core.Maybe Core.Bool,
+    -- | When the version was registered.
+    timeCreated :: Core.Maybe Core.UTCTime,
+    -- | The kind of type.
+    type' :: Core.Maybe Types.RegistryType,
+    -- | The name of the type.
+    typeName :: Core.Maybe Types.TypeName,
+    -- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+    versionId :: Core.Maybe Types.TypeVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TypeVersionSummary' with the minimum fields required to make a request.
---
--- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
--- * 'typeName' - The name of the type.
--- * 'arn' - The Amazon Resource Name (ARN) of the type version.
--- * 'timeCreated' - When the version was registered.
--- * 'type'' - The kind of type.
--- * 'isDefaultVersion' - Whether the specified type version is set as the default version.
--- * 'description' - The description of the type version.
+-- | Creates a 'TypeVersionSummary' value with any optional fields omitted.
 mkTypeVersionSummary ::
   TypeVersionSummary
 mkTypeVersionSummary =
   TypeVersionSummary'
-    { versionId = Lude.Nothing,
-      typeName = Lude.Nothing,
-      arn = Lude.Nothing,
-      timeCreated = Lude.Nothing,
-      type' = Lude.Nothing,
-      isDefaultVersion = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      description = Core.Nothing,
+      isDefaultVersion = Core.Nothing,
+      timeCreated = Core.Nothing,
+      type' = Core.Nothing,
+      typeName = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsVersionId :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.Text)
-tvsVersionId = Lens.lens (versionId :: TypeVersionSummary -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: TypeVersionSummary)
-{-# DEPRECATED tvsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The name of the type.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsTypeName :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.Text)
-tvsTypeName = Lens.lens (typeName :: TypeVersionSummary -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: TypeVersionSummary)
-{-# DEPRECATED tvsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the type version.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsARN :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.Text)
-tvsARN = Lens.lens (arn :: TypeVersionSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TypeVersionSummary)
-{-# DEPRECATED tvsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+tvsArn :: Lens.Lens' TypeVersionSummary (Core.Maybe Types.TypeArn)
+tvsArn = Lens.field @"arn"
+{-# DEPRECATED tvsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The description of the type version.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvsDescription :: Lens.Lens' TypeVersionSummary (Core.Maybe Types.Description)
+tvsDescription = Lens.field @"description"
+{-# DEPRECATED tvsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Whether the specified type version is set as the default version.
+--
+-- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvsIsDefaultVersion :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.Bool)
+tvsIsDefaultVersion = Lens.field @"isDefaultVersion"
+{-# DEPRECATED tvsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
 -- | When the version was registered.
 --
 -- /Note:/ Consider using 'timeCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsTimeCreated :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.DateTime)
-tvsTimeCreated = Lens.lens (timeCreated :: TypeVersionSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {timeCreated = a} :: TypeVersionSummary)
+tvsTimeCreated :: Lens.Lens' TypeVersionSummary (Core.Maybe Core.UTCTime)
+tvsTimeCreated = Lens.field @"timeCreated"
 {-# DEPRECATED tvsTimeCreated "Use generic-lens or generic-optics with 'timeCreated' instead." #-}
 
 -- | The kind of type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsType :: Lens.Lens' TypeVersionSummary (Lude.Maybe RegistryType)
-tvsType = Lens.lens (type' :: TypeVersionSummary -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: TypeVersionSummary)
+tvsType :: Lens.Lens' TypeVersionSummary (Core.Maybe Types.RegistryType)
+tvsType = Lens.field @"type'"
 {-# DEPRECATED tvsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | Whether the specified type version is set as the default version.
+-- | The name of the type.
 --
--- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsIsDefaultVersion :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.Bool)
-tvsIsDefaultVersion = Lens.lens (isDefaultVersion :: TypeVersionSummary -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: TypeVersionSummary)
-{-# DEPRECATED tvsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvsTypeName :: Lens.Lens' TypeVersionSummary (Core.Maybe Types.TypeName)
+tvsTypeName = Lens.field @"typeName"
+{-# DEPRECATED tvsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
--- | The description of the type version.
+-- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsDescription :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.Text)
-tvsDescription = Lens.lens (description :: TypeVersionSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TypeVersionSummary)
-{-# DEPRECATED tvsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvsVersionId :: Lens.Lens' TypeVersionSummary (Core.Maybe Types.TypeVersionId)
+tvsVersionId = Lens.field @"versionId"
+{-# DEPRECATED tvsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
-instance Lude.FromXML TypeVersionSummary where
+instance Core.FromXML TypeVersionSummary where
   parseXML x =
     TypeVersionSummary'
-      Lude.<$> (x Lude..@? "VersionId")
-      Lude.<*> (x Lude..@? "TypeName")
-      Lude.<*> (x Lude..@? "Arn")
-      Lude.<*> (x Lude..@? "TimeCreated")
-      Lude.<*> (x Lude..@? "Type")
-      Lude.<*> (x Lude..@? "IsDefaultVersion")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "Arn")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsDefaultVersion")
+      Core.<*> (x Core..@? "TimeCreated")
+      Core.<*> (x Core..@? "Type")
+      Core.<*> (x Core..@? "TypeName")
+      Core.<*> (x Core..@? "VersionId")

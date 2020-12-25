@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.ExportTaskState
   ( ExportTaskState
       ( ExportTaskState',
-        ETSActive,
-        ETSCancelling,
-        ETSCancelled,
-        ETSCompleted
+        ExportTaskStateActive,
+        ExportTaskStateCancelling,
+        ExportTaskStateCancelled,
+        ExportTaskStateCompleted,
+        fromExportTaskState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExportTaskState = ExportTaskState' Lude.Text
+newtype ExportTaskState = ExportTaskState'
+  { fromExportTaskState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ETSActive :: ExportTaskState
-pattern ETSActive = ExportTaskState' "active"
+pattern ExportTaskStateActive :: ExportTaskState
+pattern ExportTaskStateActive = ExportTaskState' "active"
 
-pattern ETSCancelling :: ExportTaskState
-pattern ETSCancelling = ExportTaskState' "cancelling"
+pattern ExportTaskStateCancelling :: ExportTaskState
+pattern ExportTaskStateCancelling = ExportTaskState' "cancelling"
 
-pattern ETSCancelled :: ExportTaskState
-pattern ETSCancelled = ExportTaskState' "cancelled"
+pattern ExportTaskStateCancelled :: ExportTaskState
+pattern ExportTaskStateCancelled = ExportTaskState' "cancelled"
 
-pattern ETSCompleted :: ExportTaskState
-pattern ETSCompleted = ExportTaskState' "completed"
+pattern ExportTaskStateCompleted :: ExportTaskState
+pattern ExportTaskStateCompleted = ExportTaskState' "completed"
 
 {-# COMPLETE
-  ETSActive,
-  ETSCancelling,
-  ETSCancelled,
-  ETSCompleted,
+  ExportTaskStateActive,
+  ExportTaskStateCancelling,
+  ExportTaskStateCancelled,
+  ExportTaskStateCompleted,
   ExportTaskState'
   #-}

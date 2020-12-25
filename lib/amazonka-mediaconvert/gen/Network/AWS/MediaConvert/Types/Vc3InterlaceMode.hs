@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Vc3InterlaceMode
   ( Vc3InterlaceMode
       ( Vc3InterlaceMode',
-        VIMInterlaced,
-        VIMProgressive
+        Vc3InterlaceModeInterlaced,
+        Vc3InterlaceModeProgressive,
+        fromVc3InterlaceMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Choose the scan line type for this output. If you don't specify a value, MediaConvert will create a progressive output.
-newtype Vc3InterlaceMode = Vc3InterlaceMode' Lude.Text
+newtype Vc3InterlaceMode = Vc3InterlaceMode'
+  { fromVc3InterlaceMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VIMInterlaced :: Vc3InterlaceMode
-pattern VIMInterlaced = Vc3InterlaceMode' "INTERLACED"
+pattern Vc3InterlaceModeInterlaced :: Vc3InterlaceMode
+pattern Vc3InterlaceModeInterlaced = Vc3InterlaceMode' "INTERLACED"
 
-pattern VIMProgressive :: Vc3InterlaceMode
-pattern VIMProgressive = Vc3InterlaceMode' "PROGRESSIVE"
+pattern Vc3InterlaceModeProgressive :: Vc3InterlaceMode
+pattern Vc3InterlaceModeProgressive = Vc3InterlaceMode' "PROGRESSIVE"
 
 {-# COMPLETE
-  VIMInterlaced,
-  VIMProgressive,
+  Vc3InterlaceModeInterlaced,
+  Vc3InterlaceModeProgressive,
   Vc3InterlaceMode'
   #-}

@@ -17,93 +17,83 @@ module Network.AWS.SDB.Types.Attribute
     mkAttribute,
 
     -- * Lenses
-    aAlternateValueEncoding,
+    aName,
     aValue,
     aAlternateNameEncoding,
-    aName,
+    aAlternateValueEncoding,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SDB.Types.AlternateNameEncoding as Types
+import qualified Network.AWS.SDB.Types.AlternateValueEncoding as Types
+import qualified Network.AWS.SDB.Types.Name as Types
+import qualified Network.AWS.SDB.Types.Value as Types
 
 -- |
 --
 -- /See:/ 'mkAttribute' smart constructor.
 data Attribute = Attribute'
-  { -- |
-    alternateValueEncoding :: Lude.Maybe Lude.Text,
+  { -- | The name of the attribute.
+    name :: Types.Name,
     -- | The value of the attribute.
-    value :: Lude.Text,
+    value :: Types.Value,
     -- |
-    alternateNameEncoding :: Lude.Maybe Lude.Text,
-    -- | The name of the attribute.
-    name :: Lude.Text
+    alternateNameEncoding :: Core.Maybe Types.AlternateNameEncoding,
+    -- |
+    alternateValueEncoding :: Core.Maybe Types.AlternateValueEncoding
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Attribute' with the minimum fields required to make a request.
---
--- * 'alternateValueEncoding' -
--- * 'value' - The value of the attribute.
--- * 'alternateNameEncoding' -
--- * 'name' - The name of the attribute.
+-- | Creates a 'Attribute' value with any optional fields omitted.
 mkAttribute ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'value'
+  Types.Value ->
   Attribute
-mkAttribute pValue_ pName_ =
+mkAttribute name value =
   Attribute'
-    { alternateValueEncoding = Lude.Nothing,
-      value = pValue_,
-      alternateNameEncoding = Lude.Nothing,
-      name = pName_
+    { name,
+      value,
+      alternateNameEncoding = Core.Nothing,
+      alternateValueEncoding = Core.Nothing
     }
 
--- |
+-- | The name of the attribute.
 --
--- /Note:/ Consider using 'alternateValueEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlternateValueEncoding :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
-aAlternateValueEncoding = Lens.lens (alternateValueEncoding :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {alternateValueEncoding = a} :: Attribute)
-{-# DEPRECATED aAlternateValueEncoding "Use generic-lens or generic-optics with 'alternateValueEncoding' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Attribute Types.Name
+aName = Lens.field @"name"
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value of the attribute.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aValue :: Lens.Lens' Attribute Lude.Text
-aValue = Lens.lens (value :: Attribute -> Lude.Text) (\s a -> s {value = a} :: Attribute)
+aValue :: Lens.Lens' Attribute Types.Value
+aValue = Lens.field @"value"
 {-# DEPRECATED aValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'alternateNameEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlternateNameEncoding :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
-aAlternateNameEncoding = Lens.lens (alternateNameEncoding :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {alternateNameEncoding = a} :: Attribute)
+aAlternateNameEncoding :: Lens.Lens' Attribute (Core.Maybe Types.AlternateNameEncoding)
+aAlternateNameEncoding = Lens.field @"alternateNameEncoding"
 {-# DEPRECATED aAlternateNameEncoding "Use generic-lens or generic-optics with 'alternateNameEncoding' instead." #-}
 
--- | The name of the attribute.
+-- |
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' Attribute Lude.Text
-aName = Lens.lens (name :: Attribute -> Lude.Text) (\s a -> s {name = a} :: Attribute)
-{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'alternateValueEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAlternateValueEncoding :: Lens.Lens' Attribute (Core.Maybe Types.AlternateValueEncoding)
+aAlternateValueEncoding = Lens.field @"alternateValueEncoding"
+{-# DEPRECATED aAlternateValueEncoding "Use generic-lens or generic-optics with 'alternateValueEncoding' instead." #-}
 
-instance Lude.FromXML Attribute where
+instance Core.FromXML Attribute where
   parseXML x =
     Attribute'
-      Lude.<$> (x Lude..@? "AlternateValueEncoding")
-      Lude.<*> (x Lude..@ "Value")
-      Lude.<*> (x Lude..@? "AlternateNameEncoding")
-      Lude.<*> (x Lude..@ "Name")
-
-instance Lude.ToQuery Attribute where
-  toQuery Attribute' {..} =
-    Lude.mconcat
-      [ "AlternateValueEncoding" Lude.=: alternateValueEncoding,
-        "Value" Lude.=: value,
-        "AlternateNameEncoding" Lude.=: alternateNameEncoding,
-        "Name" Lude.=: name
-      ]
+      Core.<$> (x Core..@ "Name")
+      Core.<*> (x Core..@ "Value")
+      Core.<*> (x Core..@? "AlternateNameEncoding")
+      Core.<*> (x Core..@? "AlternateValueEncoding")

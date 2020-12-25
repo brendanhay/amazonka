@@ -17,85 +17,80 @@ module Network.AWS.Config.Types.ResourceIdentifier
     mkResourceIdentifier,
 
     -- * Lenses
-    riResourceId,
-    riResourceType,
-    riResourceName,
     riResourceDeletionTime,
+    riResourceId,
+    riResourceName,
+    riResourceType,
   )
 where
 
-import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Config.Types.ResourceId as Types
+import qualified Network.AWS.Config.Types.ResourceName as Types
+import qualified Network.AWS.Config.Types.ResourceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
 --
 -- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { -- | The ID of the resource (for example, @sg-xxxxxx@ ).
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | The type of resource.
-    resourceType :: Lude.Maybe ResourceType,
+  { -- | The time that the resource was deleted.
+    resourceDeletionTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the resource (for example, @sg-xxxxxx@ ).
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The custom name of the resource (if available).
-    resourceName :: Lude.Maybe Lude.Text,
-    -- | The time that the resource was deleted.
-    resourceDeletionTime :: Lude.Maybe Lude.Timestamp
+    resourceName :: Core.Maybe Types.ResourceName,
+    -- | The type of resource.
+    resourceType :: Core.Maybe Types.ResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource (for example, @sg-xxxxxx@ ).
--- * 'resourceType' - The type of resource.
--- * 'resourceName' - The custom name of the resource (if available).
--- * 'resourceDeletionTime' - The time that the resource was deleted.
+-- | Creates a 'ResourceIdentifier' value with any optional fields omitted.
 mkResourceIdentifier ::
   ResourceIdentifier
 mkResourceIdentifier =
   ResourceIdentifier'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      resourceName = Lude.Nothing,
-      resourceDeletionTime = Lude.Nothing
+    { resourceDeletionTime = Core.Nothing,
+      resourceId = Core.Nothing,
+      resourceName = Core.Nothing,
+      resourceType = Core.Nothing
     }
-
--- | The ID of the resource (for example, @sg-xxxxxx@ ).
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riResourceId :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riResourceId = Lens.lens (resourceId :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceIdentifier)
-{-# DEPRECATED riResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The type of resource.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riResourceType :: Lens.Lens' ResourceIdentifier (Lude.Maybe ResourceType)
-riResourceType = Lens.lens (resourceType :: ResourceIdentifier -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ResourceIdentifier)
-{-# DEPRECATED riResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The custom name of the resource (if available).
---
--- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riResourceName :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riResourceName = Lens.lens (resourceName :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: ResourceIdentifier)
-{-# DEPRECATED riResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The time that the resource was deleted.
 --
 -- /Note:/ Consider using 'resourceDeletionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riResourceDeletionTime :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Timestamp)
-riResourceDeletionTime = Lens.lens (resourceDeletionTime :: ResourceIdentifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {resourceDeletionTime = a} :: ResourceIdentifier)
+riResourceDeletionTime :: Lens.Lens' ResourceIdentifier (Core.Maybe Core.NominalDiffTime)
+riResourceDeletionTime = Lens.field @"resourceDeletionTime"
 {-# DEPRECATED riResourceDeletionTime "Use generic-lens or generic-optics with 'resourceDeletionTime' instead." #-}
 
-instance Lude.FromJSON ResourceIdentifier where
+-- | The ID of the resource (for example, @sg-xxxxxx@ ).
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riResourceId :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.ResourceId)
+riResourceId = Lens.field @"resourceId"
+{-# DEPRECATED riResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The custom name of the resource (if available).
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riResourceName :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.ResourceName)
+riResourceName = Lens.field @"resourceName"
+{-# DEPRECATED riResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+
+-- | The type of resource.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riResourceType :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.ResourceType)
+riResourceType = Lens.field @"resourceType"
+{-# DEPRECATED riResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+instance Core.FromJSON ResourceIdentifier where
   parseJSON =
-    Lude.withObject
-      "ResourceIdentifier"
-      ( \x ->
-          ResourceIdentifier'
-            Lude.<$> (x Lude..:? "resourceId")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "resourceName")
-            Lude.<*> (x Lude..:? "resourceDeletionTime")
-      )
+    Core.withObject "ResourceIdentifier" Core.$
+      \x ->
+        ResourceIdentifier'
+          Core.<$> (x Core..:? "resourceDeletionTime")
+          Core.<*> (x Core..:? "resourceId")
+          Core.<*> (x Core..:? "resourceName")
+          Core.<*> (x Core..:? "resourceType")

@@ -25,187 +25,176 @@ module Network.AWS.IAM.ListSSHPublicKeys
     mkListSSHPublicKeys,
 
     -- ** Request lenses
-    lspkUserName,
-    lspkMarker,
-    lspkMaxItems,
+    lsshpkMarker,
+    lsshpkMaxItems,
+    lsshpkUserName,
 
     -- * Destructuring the response
     ListSSHPublicKeysResponse (..),
     mkListSSHPublicKeysResponse,
 
     -- ** Response lenses
-    lspkrsSSHPublicKeys,
-    lspkrsMarker,
-    lspkrsIsTruncated,
-    lspkrsResponseStatus,
+    lsshpkrrsIsTruncated,
+    lsshpkrrsMarker,
+    lsshpkrrsSSHPublicKeys,
+    lsshpkrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSSHPublicKeys' smart constructor.
 data ListSSHPublicKeys = ListSSHPublicKeys'
-  { -- | The name of the IAM user to list SSH public keys for. If none is specified, the @UserName@ field is determined implicitly based on the AWS access key used to sign the request.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Maybe Lude.Text,
-    -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+    marker :: Core.Maybe Types.MarkerType,
     -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
     --
     -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-    maxItems :: Lude.Maybe Lude.Natural
+    maxItems :: Core.Maybe Core.Natural,
+    -- | The name of the IAM user to list SSH public keys for. If none is specified, the @UserName@ field is determined implicitly based on the AWS access key used to sign the request.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Core.Maybe Types.UserNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSSHPublicKeys' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the IAM user to list SSH public keys for. If none is specified, the @UserName@ field is determined implicitly based on the AWS access key used to sign the request.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
--- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
---
--- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Creates a 'ListSSHPublicKeys' value with any optional fields omitted.
 mkListSSHPublicKeys ::
   ListSSHPublicKeys
 mkListSSHPublicKeys =
   ListSSHPublicKeys'
-    { userName = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { marker = Core.Nothing,
+      maxItems = Core.Nothing,
+      userName = Core.Nothing
     }
-
--- | The name of the IAM user to list SSH public keys for. If none is specified, the @UserName@ field is determined implicitly based on the AWS access key used to sign the request.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkUserName :: Lens.Lens' ListSSHPublicKeys (Lude.Maybe Lude.Text)
-lspkUserName = Lens.lens (userName :: ListSSHPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: ListSSHPublicKeys)
-{-# DEPRECATED lspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkMarker :: Lens.Lens' ListSSHPublicKeys (Lude.Maybe Lude.Text)
-lspkMarker = Lens.lens (marker :: ListSSHPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSSHPublicKeys)
-{-# DEPRECATED lspkMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lsshpkMarker :: Lens.Lens' ListSSHPublicKeys (Core.Maybe Types.MarkerType)
+lsshpkMarker = Lens.field @"marker"
+{-# DEPRECATED lsshpkMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkMaxItems :: Lens.Lens' ListSSHPublicKeys (Lude.Maybe Lude.Natural)
-lspkMaxItems = Lens.lens (maxItems :: ListSSHPublicKeys -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListSSHPublicKeys)
-{-# DEPRECATED lspkMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+lsshpkMaxItems :: Lens.Lens' ListSSHPublicKeys (Core.Maybe Core.Natural)
+lsshpkMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lsshpkMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Page.AWSPager ListSSHPublicKeys where
-  page rq rs
-    | Page.stop (rs Lens.^. lspkrsIsTruncated) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^. lspkrsMarker) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lspkMarker Lens..~ rs Lens.^. lspkrsMarker
+-- | The name of the IAM user to list SSH public keys for. If none is specified, the @UserName@ field is determined implicitly based on the AWS access key used to sign the request.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsshpkUserName :: Lens.Lens' ListSSHPublicKeys (Core.Maybe Types.UserNameType)
+lsshpkUserName = Lens.field @"userName"
+{-# DEPRECATED lsshpkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.AWSRequest ListSSHPublicKeys where
+instance Core.AWSRequest ListSSHPublicKeys where
   type Rs ListSSHPublicKeys = ListSSHPublicKeysResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListSSHPublicKeys")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems)
+                Core.<> (Core.toQueryValue "UserName" Core.<$> userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListSSHPublicKeysResult"
       ( \s h x ->
           ListSSHPublicKeysResponse'
-            Lude.<$> ( x Lude..@? "SSHPublicKeys" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (x Core..@? "SSHPublicKeys" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSSHPublicKeys where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListSSHPublicKeys where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSSHPublicKeys where
-  toQuery ListSSHPublicKeys' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListSSHPublicKeys" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems
-      ]
+instance Pager.AWSPager ListSSHPublicKeys where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"isTruncated") = Core.Nothing
+    | Core.isNothing (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the response to a successful 'ListSSHPublicKeys' request.
 --
 -- /See:/ 'mkListSSHPublicKeysResponse' smart constructor.
 data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
-  { -- | A list of the SSH public keys assigned to IAM user.
-    sshPublicKeys :: Lude.Maybe [SSHPublicKeyMetadata],
+  { -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-    marker :: Lude.Maybe Lude.Text,
-    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-    isTruncated :: Lude.Maybe Lude.Bool,
+    marker :: Core.Maybe Types.Marker,
+    -- | A list of the SSH public keys assigned to IAM user.
+    sSHPublicKeys :: Core.Maybe [Types.SSHPublicKeyMetadata],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListSSHPublicKeysResponse' with the minimum fields required to make a request.
---
--- * 'sshPublicKeys' - A list of the SSH public keys assigned to IAM user.
--- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSSHPublicKeysResponse' value with any optional fields omitted.
 mkListSSHPublicKeysResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSSHPublicKeysResponse
-mkListSSHPublicKeysResponse pResponseStatus_ =
+mkListSSHPublicKeysResponse responseStatus =
   ListSSHPublicKeysResponse'
-    { sshPublicKeys = Lude.Nothing,
-      marker = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { isTruncated = Core.Nothing,
+      marker = Core.Nothing,
+      sSHPublicKeys = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the SSH public keys assigned to IAM user.
---
--- /Note:/ Consider using 'sshPublicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkrsSSHPublicKeys :: Lens.Lens' ListSSHPublicKeysResponse (Lude.Maybe [SSHPublicKeyMetadata])
-lspkrsSSHPublicKeys = Lens.lens (sshPublicKeys :: ListSSHPublicKeysResponse -> Lude.Maybe [SSHPublicKeyMetadata]) (\s a -> s {sshPublicKeys = a} :: ListSSHPublicKeysResponse)
-{-# DEPRECATED lspkrsSSHPublicKeys "Use generic-lens or generic-optics with 'sshPublicKeys' instead." #-}
-
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkrsMarker :: Lens.Lens' ListSSHPublicKeysResponse (Lude.Maybe Lude.Text)
-lspkrsMarker = Lens.lens (marker :: ListSSHPublicKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSSHPublicKeysResponse)
-{-# DEPRECATED lspkrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkrsIsTruncated :: Lens.Lens' ListSSHPublicKeysResponse (Lude.Maybe Lude.Bool)
-lspkrsIsTruncated = Lens.lens (isTruncated :: ListSSHPublicKeysResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListSSHPublicKeysResponse)
-{-# DEPRECATED lspkrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+lsshpkrrsIsTruncated :: Lens.Lens' ListSSHPublicKeysResponse (Core.Maybe Core.Bool)
+lsshpkrrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lsshpkrrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsshpkrrsMarker :: Lens.Lens' ListSSHPublicKeysResponse (Core.Maybe Types.Marker)
+lsshpkrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lsshpkrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of the SSH public keys assigned to IAM user.
+--
+-- /Note:/ Consider using 'sSHPublicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsshpkrrsSSHPublicKeys :: Lens.Lens' ListSSHPublicKeysResponse (Core.Maybe [Types.SSHPublicKeyMetadata])
+lsshpkrrsSSHPublicKeys = Lens.field @"sSHPublicKeys"
+{-# DEPRECATED lsshpkrrsSSHPublicKeys "Use generic-lens or generic-optics with 'sSHPublicKeys' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspkrsResponseStatus :: Lens.Lens' ListSSHPublicKeysResponse Lude.Int
-lspkrsResponseStatus = Lens.lens (responseStatus :: ListSSHPublicKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSSHPublicKeysResponse)
-{-# DEPRECATED lspkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsshpkrrsResponseStatus :: Lens.Lens' ListSSHPublicKeysResponse Core.Int
+lsshpkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsshpkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

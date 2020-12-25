@@ -36,7 +36,7 @@ module Network.AWS.CertificateManagerPCA.DeletePolicy
     mkDeletePolicy,
 
     -- ** Request lenses
-    dpResourceARN,
+    dpResourceArn,
 
     -- * Destructuring the response
     DeletePolicyResponse (..),
@@ -44,70 +44,60 @@ module Network.AWS.CertificateManagerPCA.DeletePolicy
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
   { -- | The Amazon Resource Number (ARN) of the private CA that will have its policy deleted. You can find the CA's ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. The ARN value must have the form @arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab@ .
-    resourceARN :: Lude.Text
+    resourceArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Number (ARN) of the private CA that will have its policy deleted. You can find the CA's ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. The ARN value must have the form @arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab@ .
+-- | Creates a 'DeletePolicy' value with any optional fields omitted.
 mkDeletePolicy ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.Arn ->
   DeletePolicy
-mkDeletePolicy pResourceARN_ =
-  DeletePolicy' {resourceARN = pResourceARN_}
+mkDeletePolicy resourceArn = DeletePolicy' {resourceArn}
 
 -- | The Amazon Resource Number (ARN) of the private CA that will have its policy deleted. You can find the CA's ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. The ARN value must have the form @arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab@ .
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpResourceARN :: Lens.Lens' DeletePolicy Lude.Text
-dpResourceARN = Lens.lens (resourceARN :: DeletePolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: DeletePolicy)
-{-# DEPRECATED dpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpResourceArn :: Lens.Lens' DeletePolicy Types.Arn
+dpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED dpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest DeletePolicy where
+instance Core.FromJSON DeletePolicy where
+  toJSON DeletePolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ResourceArn" Core..= resourceArn)])
+
+instance Core.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
-  request = Req.postJSON certificateManagerPCAService
-  response = Res.receiveNull DeletePolicyResponse'
-
-instance Lude.ToHeaders DeletePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.DeletePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeletePolicy where
-  toJSON DeletePolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
-
-instance Lude.ToPath DeletePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.DeletePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeletePolicyResponse'
 
 -- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePolicyResponse' value with any optional fields omitted.
 mkDeletePolicyResponse ::
   DeletePolicyResponse
 mkDeletePolicyResponse = DeletePolicyResponse'

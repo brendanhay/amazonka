@@ -13,101 +13,106 @@
 module Network.AWS.Inspector.Types.AssessmentRunState
   ( AssessmentRunState
       ( AssessmentRunState',
-        Created,
-        StartDataCollectionPending,
-        StartDataCollectionInProgress,
-        CollectingData,
-        StopDataCollectionPending,
-        DataCollected,
-        StartEvaluatingRulesPending,
-        EvaluatingRules,
-        Failed,
-        Error,
-        Completed,
-        CompletedWithErrors,
-        Canceled
+        AssessmentRunStateCreated,
+        AssessmentRunStateStartDataCollectionPending,
+        AssessmentRunStateStartDataCollectionInProgress,
+        AssessmentRunStateCollectingData,
+        AssessmentRunStateStopDataCollectionPending,
+        AssessmentRunStateDataCollected,
+        AssessmentRunStateStartEvaluatingRulesPending,
+        AssessmentRunStateEvaluatingRules,
+        AssessmentRunStateFailed,
+        AssessmentRunStateError,
+        AssessmentRunStateCompleted,
+        AssessmentRunStateCompletedWithErrors,
+        AssessmentRunStateCanceled,
+        fromAssessmentRunState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssessmentRunState = AssessmentRunState' Lude.Text
+newtype AssessmentRunState = AssessmentRunState'
+  { fromAssessmentRunState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Created :: AssessmentRunState
-pattern Created = AssessmentRunState' "CREATED"
+pattern AssessmentRunStateCreated :: AssessmentRunState
+pattern AssessmentRunStateCreated = AssessmentRunState' "CREATED"
 
-pattern StartDataCollectionPending :: AssessmentRunState
-pattern StartDataCollectionPending = AssessmentRunState' "START_DATA_COLLECTION_PENDING"
+pattern AssessmentRunStateStartDataCollectionPending :: AssessmentRunState
+pattern AssessmentRunStateStartDataCollectionPending = AssessmentRunState' "START_DATA_COLLECTION_PENDING"
 
-pattern StartDataCollectionInProgress :: AssessmentRunState
-pattern StartDataCollectionInProgress = AssessmentRunState' "START_DATA_COLLECTION_IN_PROGRESS"
+pattern AssessmentRunStateStartDataCollectionInProgress :: AssessmentRunState
+pattern AssessmentRunStateStartDataCollectionInProgress = AssessmentRunState' "START_DATA_COLLECTION_IN_PROGRESS"
 
-pattern CollectingData :: AssessmentRunState
-pattern CollectingData = AssessmentRunState' "COLLECTING_DATA"
+pattern AssessmentRunStateCollectingData :: AssessmentRunState
+pattern AssessmentRunStateCollectingData = AssessmentRunState' "COLLECTING_DATA"
 
-pattern StopDataCollectionPending :: AssessmentRunState
-pattern StopDataCollectionPending = AssessmentRunState' "STOP_DATA_COLLECTION_PENDING"
+pattern AssessmentRunStateStopDataCollectionPending :: AssessmentRunState
+pattern AssessmentRunStateStopDataCollectionPending = AssessmentRunState' "STOP_DATA_COLLECTION_PENDING"
 
-pattern DataCollected :: AssessmentRunState
-pattern DataCollected = AssessmentRunState' "DATA_COLLECTED"
+pattern AssessmentRunStateDataCollected :: AssessmentRunState
+pattern AssessmentRunStateDataCollected = AssessmentRunState' "DATA_COLLECTED"
 
-pattern StartEvaluatingRulesPending :: AssessmentRunState
-pattern StartEvaluatingRulesPending = AssessmentRunState' "START_EVALUATING_RULES_PENDING"
+pattern AssessmentRunStateStartEvaluatingRulesPending :: AssessmentRunState
+pattern AssessmentRunStateStartEvaluatingRulesPending = AssessmentRunState' "START_EVALUATING_RULES_PENDING"
 
-pattern EvaluatingRules :: AssessmentRunState
-pattern EvaluatingRules = AssessmentRunState' "EVALUATING_RULES"
+pattern AssessmentRunStateEvaluatingRules :: AssessmentRunState
+pattern AssessmentRunStateEvaluatingRules = AssessmentRunState' "EVALUATING_RULES"
 
-pattern Failed :: AssessmentRunState
-pattern Failed = AssessmentRunState' "FAILED"
+pattern AssessmentRunStateFailed :: AssessmentRunState
+pattern AssessmentRunStateFailed = AssessmentRunState' "FAILED"
 
-pattern Error :: AssessmentRunState
-pattern Error = AssessmentRunState' "ERROR"
+pattern AssessmentRunStateError :: AssessmentRunState
+pattern AssessmentRunStateError = AssessmentRunState' "ERROR"
 
-pattern Completed :: AssessmentRunState
-pattern Completed = AssessmentRunState' "COMPLETED"
+pattern AssessmentRunStateCompleted :: AssessmentRunState
+pattern AssessmentRunStateCompleted = AssessmentRunState' "COMPLETED"
 
-pattern CompletedWithErrors :: AssessmentRunState
-pattern CompletedWithErrors = AssessmentRunState' "COMPLETED_WITH_ERRORS"
+pattern AssessmentRunStateCompletedWithErrors :: AssessmentRunState
+pattern AssessmentRunStateCompletedWithErrors = AssessmentRunState' "COMPLETED_WITH_ERRORS"
 
-pattern Canceled :: AssessmentRunState
-pattern Canceled = AssessmentRunState' "CANCELED"
+pattern AssessmentRunStateCanceled :: AssessmentRunState
+pattern AssessmentRunStateCanceled = AssessmentRunState' "CANCELED"
 
 {-# COMPLETE
-  Created,
-  StartDataCollectionPending,
-  StartDataCollectionInProgress,
-  CollectingData,
-  StopDataCollectionPending,
-  DataCollected,
-  StartEvaluatingRulesPending,
-  EvaluatingRules,
-  Failed,
-  Error,
-  Completed,
-  CompletedWithErrors,
-  Canceled,
+  AssessmentRunStateCreated,
+  AssessmentRunStateStartDataCollectionPending,
+  AssessmentRunStateStartDataCollectionInProgress,
+  AssessmentRunStateCollectingData,
+  AssessmentRunStateStopDataCollectionPending,
+  AssessmentRunStateDataCollected,
+  AssessmentRunStateStartEvaluatingRulesPending,
+  AssessmentRunStateEvaluatingRules,
+  AssessmentRunStateFailed,
+  AssessmentRunStateError,
+  AssessmentRunStateCompleted,
+  AssessmentRunStateCompletedWithErrors,
+  AssessmentRunStateCanceled,
   AssessmentRunState'
   #-}

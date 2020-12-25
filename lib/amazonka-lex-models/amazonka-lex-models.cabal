@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.LexModels
     Network.AWS.LexModels.CreateBotVersion
@@ -110,18 +116,30 @@ library
     Network.AWS.LexModels.Waiters
 
   other-modules:
+    Network.AWS.LexModels.Types.AliasName
+    Network.AWS.LexModels.Types.AmazonResourceName
+    Network.AWS.LexModels.Types.BotAlias
     Network.AWS.LexModels.Types.BotAliasMetadata
     Network.AWS.LexModels.Types.BotChannelAssociation
+    Network.AWS.LexModels.Types.BotChannelName
     Network.AWS.LexModels.Types.BotMetadata
+    Network.AWS.LexModels.Types.BotName
+    Network.AWS.LexModels.Types.BotVersion
     Network.AWS.LexModels.Types.BuiltinIntentMetadata
+    Network.AWS.LexModels.Types.BuiltinIntentSignature
     Network.AWS.LexModels.Types.BuiltinIntentSlot
     Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
     Network.AWS.LexModels.Types.ChannelStatus
     Network.AWS.LexModels.Types.ChannelType
+    Network.AWS.LexModels.Types.Checksum
     Network.AWS.LexModels.Types.CodeHook
+    Network.AWS.LexModels.Types.ContentString
     Network.AWS.LexModels.Types.ContentType
     Network.AWS.LexModels.Types.ConversationLogsRequest
     Network.AWS.LexModels.Types.ConversationLogsResponse
+    Network.AWS.LexModels.Types.CustomOrBuiltinSlotTypeName
+    Network.AWS.LexModels.Types.DefaultValue
+    Network.AWS.LexModels.Types.Description
     Network.AWS.LexModels.Types.Destination
     Network.AWS.LexModels.Types.EnumerationValue
     Network.AWS.LexModels.Types.ExportStatus
@@ -129,11 +147,20 @@ library
     Network.AWS.LexModels.Types.FollowUpPrompt
     Network.AWS.LexModels.Types.FulfillmentActivity
     Network.AWS.LexModels.Types.FulfillmentActivityType
+    Network.AWS.LexModels.Types.IamRoleArn
+    Network.AWS.LexModels.Types.ImportId
     Network.AWS.LexModels.Types.ImportStatus
     Network.AWS.LexModels.Types.InputContext
+    Network.AWS.LexModels.Types.InputContextName
     Network.AWS.LexModels.Types.Intent
     Network.AWS.LexModels.Types.IntentMetadata
+    Network.AWS.LexModels.Types.IntentName
+    Network.AWS.LexModels.Types.IntentVersion
     Network.AWS.LexModels.Types.KendraConfiguration
+    Network.AWS.LexModels.Types.KendraIndexArn
+    Network.AWS.LexModels.Types.Key
+    Network.AWS.LexModels.Types.KmsKeyArn
+    Network.AWS.LexModels.Types.LambdaARN
     Network.AWS.LexModels.Types.LexStatus
     Network.AWS.LexModels.Types.Locale
     Network.AWS.LexModels.Types.LogSettingsRequest
@@ -141,24 +168,49 @@ library
     Network.AWS.LexModels.Types.LogType
     Network.AWS.LexModels.Types.MergeStrategy
     Network.AWS.LexModels.Types.Message
+    Network.AWS.LexModels.Types.MessageVersion
+    Network.AWS.LexModels.Types.Name
+    Network.AWS.LexModels.Types.NameContains
+    Network.AWS.LexModels.Types.NextToken
+    Network.AWS.LexModels.Types.NumericalVersion
     Network.AWS.LexModels.Types.ObfuscationSetting
     Network.AWS.LexModels.Types.OutputContext
+    Network.AWS.LexModels.Types.OutputContextName
+    Network.AWS.LexModels.Types.ParentIntentSignature
+    Network.AWS.LexModels.Types.Pattern
     Network.AWS.LexModels.Types.ProcessBehavior
     Network.AWS.LexModels.Types.Prompt
+    Network.AWS.LexModels.Types.QueryFilterString
+    Network.AWS.LexModels.Types.ResourceArn
+    Network.AWS.LexModels.Types.ResourcePrefix
     Network.AWS.LexModels.Types.ResourceType
+    Network.AWS.LexModels.Types.ResponseCard
+    Network.AWS.LexModels.Types.Role
+    Network.AWS.LexModels.Types.Signature
     Network.AWS.LexModels.Types.Slot
     Network.AWS.LexModels.Types.SlotConstraint
     Network.AWS.LexModels.Types.SlotDefaultValue
     Network.AWS.LexModels.Types.SlotDefaultValueSpec
+    Network.AWS.LexModels.Types.SlotName
     Network.AWS.LexModels.Types.SlotTypeConfiguration
     Network.AWS.LexModels.Types.SlotTypeMetadata
+    Network.AWS.LexModels.Types.SlotTypeName
     Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
+    Network.AWS.LexModels.Types.SlotTypeVersion
     Network.AWS.LexModels.Types.SlotValueSelectionStrategy
     Network.AWS.LexModels.Types.Statement
     Network.AWS.LexModels.Types.StatusType
+    Network.AWS.LexModels.Types.String
     Network.AWS.LexModels.Types.Tag
+    Network.AWS.LexModels.Types.TagKey
+    Network.AWS.LexModels.Types.TagValue
+    Network.AWS.LexModels.Types.UserId
+    Network.AWS.LexModels.Types.Utterance
     Network.AWS.LexModels.Types.UtteranceData
     Network.AWS.LexModels.Types.UtteranceList
+    Network.AWS.LexModels.Types.UtteranceString
+    Network.AWS.LexModels.Types.Value
+    Network.AWS.LexModels.Types.Version
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

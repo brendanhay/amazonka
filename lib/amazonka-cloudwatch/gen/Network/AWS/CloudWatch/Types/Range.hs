@@ -23,53 +23,44 @@ module Network.AWS.CloudWatch.Types.Range
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies one range of days or times to exclude from use for training an anomaly detection model.
 --
 -- /See:/ 'mkRange' smart constructor.
 data Range = Range'
   { -- | The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
-    startTime :: Lude.DateTime,
+    startTime :: Core.UTCTime,
     -- | The end time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
-    endTime :: Lude.DateTime
+    endTime :: Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Range' with the minimum fields required to make a request.
---
--- * 'startTime' - The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
--- * 'endTime' - The end time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
+-- | Creates a 'Range' value with any optional fields omitted.
 mkRange ::
   -- | 'startTime'
-  Lude.DateTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Lude.DateTime ->
+  Core.UTCTime ->
   Range
-mkRange pStartTime_ pEndTime_ =
-  Range' {startTime = pStartTime_, endTime = pEndTime_}
+mkRange startTime endTime = Range' {startTime, endTime}
 
 -- | The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rStartTime :: Lens.Lens' Range Lude.DateTime
-rStartTime = Lens.lens (startTime :: Range -> Lude.DateTime) (\s a -> s {startTime = a} :: Range)
+rStartTime :: Lens.Lens' Range Core.UTCTime
+rStartTime = Lens.field @"startTime"
 {-# DEPRECATED rStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEndTime :: Lens.Lens' Range Lude.DateTime
-rEndTime = Lens.lens (endTime :: Range -> Lude.DateTime) (\s a -> s {endTime = a} :: Range)
+rEndTime :: Lens.Lens' Range Core.UTCTime
+rEndTime = Lens.field @"endTime"
 {-# DEPRECATED rEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.FromXML Range where
+instance Core.FromXML Range where
   parseXML x =
     Range'
-      Lude.<$> (x Lude..@ "StartTime") Lude.<*> (x Lude..@ "EndTime")
-
-instance Lude.ToQuery Range where
-  toQuery Range' {..} =
-    Lude.mconcat
-      ["StartTime" Lude.=: startTime, "EndTime" Lude.=: endTime]
+      Core.<$> (x Core..@ "StartTime") Core.<*> (x Core..@ "EndTime")

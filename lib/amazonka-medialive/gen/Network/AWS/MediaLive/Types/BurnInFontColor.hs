@@ -13,67 +13,72 @@
 module Network.AWS.MediaLive.Types.BurnInFontColor
   ( BurnInFontColor
       ( BurnInFontColor',
-        BIFCBlack,
-        BIFCBlue,
-        BIFCGreen,
-        BIFCRed,
-        BIFCWhite,
-        BIFCYellow
+        BurnInFontColorBlack,
+        BurnInFontColorBlue,
+        BurnInFontColorGreen,
+        BurnInFontColorRed,
+        BurnInFontColorWhite,
+        BurnInFontColorYellow,
+        fromBurnInFontColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Burn In Font Color
-newtype BurnInFontColor = BurnInFontColor' Lude.Text
+newtype BurnInFontColor = BurnInFontColor'
+  { fromBurnInFontColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BIFCBlack :: BurnInFontColor
-pattern BIFCBlack = BurnInFontColor' "BLACK"
+pattern BurnInFontColorBlack :: BurnInFontColor
+pattern BurnInFontColorBlack = BurnInFontColor' "BLACK"
 
-pattern BIFCBlue :: BurnInFontColor
-pattern BIFCBlue = BurnInFontColor' "BLUE"
+pattern BurnInFontColorBlue :: BurnInFontColor
+pattern BurnInFontColorBlue = BurnInFontColor' "BLUE"
 
-pattern BIFCGreen :: BurnInFontColor
-pattern BIFCGreen = BurnInFontColor' "GREEN"
+pattern BurnInFontColorGreen :: BurnInFontColor
+pattern BurnInFontColorGreen = BurnInFontColor' "GREEN"
 
-pattern BIFCRed :: BurnInFontColor
-pattern BIFCRed = BurnInFontColor' "RED"
+pattern BurnInFontColorRed :: BurnInFontColor
+pattern BurnInFontColorRed = BurnInFontColor' "RED"
 
-pattern BIFCWhite :: BurnInFontColor
-pattern BIFCWhite = BurnInFontColor' "WHITE"
+pattern BurnInFontColorWhite :: BurnInFontColor
+pattern BurnInFontColorWhite = BurnInFontColor' "WHITE"
 
-pattern BIFCYellow :: BurnInFontColor
-pattern BIFCYellow = BurnInFontColor' "YELLOW"
+pattern BurnInFontColorYellow :: BurnInFontColor
+pattern BurnInFontColorYellow = BurnInFontColor' "YELLOW"
 
 {-# COMPLETE
-  BIFCBlack,
-  BIFCBlue,
-  BIFCGreen,
-  BIFCRed,
-  BIFCWhite,
-  BIFCYellow,
+  BurnInFontColorBlack,
+  BurnInFontColorBlue,
+  BurnInFontColorGreen,
+  BurnInFontColorRed,
+  BurnInFontColorWhite,
+  BurnInFontColorYellow,
   BurnInFontColor'
   #-}

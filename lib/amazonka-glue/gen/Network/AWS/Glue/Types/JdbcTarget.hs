@@ -17,81 +17,77 @@ module Network.AWS.Glue.Types.JdbcTarget
     mkJdbcTarget,
 
     -- * Lenses
-    jtPath,
     jtConnectionName,
     jtExclusions,
+    jtPath,
   )
 where
 
+import qualified Network.AWS.Glue.Types.ConnectionName as Types
+import qualified Network.AWS.Glue.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a JDBC data store to crawl.
 --
 -- /See:/ 'mkJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { -- | The path of the JDBC target.
-    path :: Lude.Maybe Lude.Text,
-    -- | The name of the connection to use to connect to the JDBC target.
-    connectionName :: Lude.Maybe Lude.Text,
+  { -- | The name of the connection to use to connect to the JDBC target.
+    connectionName :: Core.Maybe Types.ConnectionName,
     -- | A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
-    exclusions :: Lude.Maybe [Lude.Text]
+    exclusions :: Core.Maybe [Types.Path],
+    -- | The path of the JDBC target.
+    path :: Core.Maybe Types.Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JdbcTarget' with the minimum fields required to make a request.
---
--- * 'path' - The path of the JDBC target.
--- * 'connectionName' - The name of the connection to use to connect to the JDBC target.
--- * 'exclusions' - A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
+-- | Creates a 'JdbcTarget' value with any optional fields omitted.
 mkJdbcTarget ::
   JdbcTarget
 mkJdbcTarget =
   JdbcTarget'
-    { path = Lude.Nothing,
-      connectionName = Lude.Nothing,
-      exclusions = Lude.Nothing
+    { connectionName = Core.Nothing,
+      exclusions = Core.Nothing,
+      path = Core.Nothing
     }
-
--- | The path of the JDBC target.
---
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jtPath :: Lens.Lens' JdbcTarget (Lude.Maybe Lude.Text)
-jtPath = Lens.lens (path :: JdbcTarget -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: JdbcTarget)
-{-# DEPRECATED jtPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The name of the connection to use to connect to the JDBC target.
 --
 -- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jtConnectionName :: Lens.Lens' JdbcTarget (Lude.Maybe Lude.Text)
-jtConnectionName = Lens.lens (connectionName :: JdbcTarget -> Lude.Maybe Lude.Text) (\s a -> s {connectionName = a} :: JdbcTarget)
+jtConnectionName :: Lens.Lens' JdbcTarget (Core.Maybe Types.ConnectionName)
+jtConnectionName = Lens.field @"connectionName"
 {-# DEPRECATED jtConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 -- | A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
 --
 -- /Note:/ Consider using 'exclusions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jtExclusions :: Lens.Lens' JdbcTarget (Lude.Maybe [Lude.Text])
-jtExclusions = Lens.lens (exclusions :: JdbcTarget -> Lude.Maybe [Lude.Text]) (\s a -> s {exclusions = a} :: JdbcTarget)
+jtExclusions :: Lens.Lens' JdbcTarget (Core.Maybe [Types.Path])
+jtExclusions = Lens.field @"exclusions"
 {-# DEPRECATED jtExclusions "Use generic-lens or generic-optics with 'exclusions' instead." #-}
 
-instance Lude.FromJSON JdbcTarget where
-  parseJSON =
-    Lude.withObject
-      "JdbcTarget"
-      ( \x ->
-          JdbcTarget'
-            Lude.<$> (x Lude..:? "Path")
-            Lude.<*> (x Lude..:? "ConnectionName")
-            Lude.<*> (x Lude..:? "Exclusions" Lude..!= Lude.mempty)
-      )
+-- | The path of the JDBC target.
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jtPath :: Lens.Lens' JdbcTarget (Core.Maybe Types.Path)
+jtPath = Lens.field @"path"
+{-# DEPRECATED jtPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance Lude.ToJSON JdbcTarget where
-  toJSON JdbcTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Path" Lude..=) Lude.<$> path,
-            ("ConnectionName" Lude..=) Lude.<$> connectionName,
-            ("Exclusions" Lude..=) Lude.<$> exclusions
+instance Core.FromJSON JdbcTarget where
+  toJSON JdbcTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionName" Core..=) Core.<$> connectionName,
+            ("Exclusions" Core..=) Core.<$> exclusions,
+            ("Path" Core..=) Core.<$> path
           ]
       )
+
+instance Core.FromJSON JdbcTarget where
+  parseJSON =
+    Core.withObject "JdbcTarget" Core.$
+      \x ->
+        JdbcTarget'
+          Core.<$> (x Core..:? "ConnectionName")
+          Core.<*> (x Core..:? "Exclusions")
+          Core.<*> (x Core..:? "Path")

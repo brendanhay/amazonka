@@ -27,220 +27,201 @@ module Network.AWS.MQ.DescribeConfiguration
     mkDescribeConfigurationResponse,
 
     -- ** Response lenses
-    dcrsEngineVersion,
-    dcrsARN,
-    dcrsLatestRevision,
-    dcrsCreated,
-    dcrsAuthenticationStrategy,
-    dcrsName,
-    dcrsId,
-    dcrsDescription,
-    dcrsEngineType,
-    dcrsTags,
-    dcrsResponseStatus,
+    dcrrsArn,
+    dcrrsAuthenticationStrategy,
+    dcrrsCreated,
+    dcrrsDescription,
+    dcrrsEngineType,
+    dcrrsEngineVersion,
+    dcrrsId,
+    dcrrsLatestRevision,
+    dcrrsName,
+    dcrrsTags,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeConfiguration' smart constructor.
 newtype DescribeConfiguration = DescribeConfiguration'
   { -- | The unique ID that Amazon MQ generates for the configuration.
-    configurationId :: Lude.Text
+    configurationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConfiguration' with the minimum fields required to make a request.
---
--- * 'configurationId' - The unique ID that Amazon MQ generates for the configuration.
+-- | Creates a 'DescribeConfiguration' value with any optional fields omitted.
 mkDescribeConfiguration ::
   -- | 'configurationId'
-  Lude.Text ->
+  Core.Text ->
   DescribeConfiguration
-mkDescribeConfiguration pConfigurationId_ =
-  DescribeConfiguration' {configurationId = pConfigurationId_}
+mkDescribeConfiguration configurationId =
+  DescribeConfiguration' {configurationId}
 
 -- | The unique ID that Amazon MQ generates for the configuration.
 --
 -- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcConfigurationId :: Lens.Lens' DescribeConfiguration Lude.Text
-dcConfigurationId = Lens.lens (configurationId :: DescribeConfiguration -> Lude.Text) (\s a -> s {configurationId = a} :: DescribeConfiguration)
+dcConfigurationId :: Lens.Lens' DescribeConfiguration Core.Text
+dcConfigurationId = Lens.field @"configurationId"
 {-# DEPRECATED dcConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
-instance Lude.AWSRequest DescribeConfiguration where
+instance Core.AWSRequest DescribeConfiguration where
   type Rs DescribeConfiguration = DescribeConfigurationResponse
-  request = Req.get mqService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/v1/configurations/" Core.<> (Core.toText configurationId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationResponse'
-            Lude.<$> (x Lude..?> "engineVersion")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "latestRevision")
-            Lude.<*> (x Lude..?> "created")
-            Lude.<*> (x Lude..?> "authenticationStrategy")
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (x Lude..?> "description")
-            Lude.<*> (x Lude..?> "engineType")
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "authenticationStrategy")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "engineType")
+            Core.<*> (x Core..:? "engineVersion")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "latestRevision")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeConfiguration where
-  toPath DescribeConfiguration' {..} =
-    Lude.mconcat ["/v1/configurations/", Lude.toBS configurationId]
-
-instance Lude.ToQuery DescribeConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeConfigurationResponse' smart constructor.
 data DescribeConfigurationResponse = DescribeConfigurationResponse'
-  { -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-    engineVersion :: Lude.Maybe Lude.Text,
-    -- | Required. The ARN of the configuration.
-    arn :: Lude.Maybe Lude.Text,
-    -- | Required. The latest revision of the configuration.
-    latestRevision :: Lude.Maybe ConfigurationRevision,
-    -- | Required. The date and time of the configuration revision.
-    created :: Lude.Maybe Lude.Timestamp,
+  { -- | Required. The ARN of the configuration.
+    arn :: Core.Maybe Core.Text,
     -- | The authentication strategy associated with the configuration.
-    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
-    -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-    name :: Lude.Maybe Lude.Text,
-    -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Lude.Maybe Lude.Text,
+    authenticationStrategy :: Core.Maybe Types.AuthenticationStrategy,
+    -- | Required. The date and time of the configuration revision.
+    created :: Core.Maybe Core.UTCTime,
     -- | Required. The description of the configuration.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-    engineType :: Lude.Maybe EngineType,
+    engineType :: Core.Maybe Types.EngineType,
+    -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+    engineVersion :: Core.Maybe Core.Text,
+    -- | Required. The unique ID that Amazon MQ generates for the configuration.
+    id :: Core.Maybe Core.Text,
+    -- | Required. The latest revision of the configuration.
+    latestRevision :: Core.Maybe Types.ConfigurationRevision,
+    -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+    name :: Core.Maybe Core.Text,
     -- | The list of all tags associated with this configuration.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'arn' - Required. The ARN of the configuration.
--- * 'latestRevision' - Required. The latest revision of the configuration.
--- * 'created' - Required. The date and time of the configuration revision.
--- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
--- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
--- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
--- * 'description' - Required. The description of the configuration.
--- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
--- * 'tags' - The list of all tags associated with this configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConfigurationResponse' value with any optional fields omitted.
 mkDescribeConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConfigurationResponse
-mkDescribeConfigurationResponse pResponseStatus_ =
+mkDescribeConfigurationResponse responseStatus =
   DescribeConfigurationResponse'
-    { engineVersion = Lude.Nothing,
-      arn = Lude.Nothing,
-      latestRevision = Lude.Nothing,
-      created = Lude.Nothing,
-      authenticationStrategy = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      description = Lude.Nothing,
-      engineType = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      authenticationStrategy = Core.Nothing,
+      created = Core.Nothing,
+      description = Core.Nothing,
+      engineType = Core.Nothing,
+      engineVersion = Core.Nothing,
+      id = Core.Nothing,
+      latestRevision = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsEngineVersion :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
-dcrsEngineVersion = Lens.lens (engineVersion :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Required. The ARN of the configuration.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsARN :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
-dcrsARN = Lens.lens (arn :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | Required. The latest revision of the configuration.
---
--- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsLatestRevision :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe ConfigurationRevision)
-dcrsLatestRevision = Lens.lens (latestRevision :: DescribeConfigurationResponse -> Lude.Maybe ConfigurationRevision) (\s a -> s {latestRevision = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
-
--- | Required. The date and time of the configuration revision.
---
--- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsCreated :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Timestamp)
-dcrsCreated = Lens.lens (created :: DescribeConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
+dcrrsArn :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Core.Text)
+dcrrsArn = Lens.field @"arn"
+{-# DEPRECATED dcrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The authentication strategy associated with the configuration.
 --
 -- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsAuthenticationStrategy :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe AuthenticationStrategy)
-dcrsAuthenticationStrategy = Lens.lens (authenticationStrategy :: DescribeConfigurationResponse -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
+dcrrsAuthenticationStrategy :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Types.AuthenticationStrategy)
+dcrrsAuthenticationStrategy = Lens.field @"authenticationStrategy"
+{-# DEPRECATED dcrrsAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
--- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- | Required. The date and time of the configuration revision.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsName :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
-dcrsName = Lens.lens (name :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Required. The unique ID that Amazon MQ generates for the configuration.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsId :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
-dcrsId = Lens.lens (id :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsCreated :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Core.UTCTime)
+dcrrsCreated = Lens.field @"created"
+{-# DEPRECATED dcrrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | Required. The description of the configuration.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsDescription :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
-dcrsDescription = Lens.lens (description :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+dcrrsDescription :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Core.Text)
+dcrrsDescription = Lens.field @"description"
+{-# DEPRECATED dcrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
 --
 -- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsEngineType :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe EngineType)
-dcrsEngineType = Lens.lens (engineType :: DescribeConfigurationResponse -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
+dcrrsEngineType :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Types.EngineType)
+dcrrsEngineType = Lens.field @"engineType"
+{-# DEPRECATED dcrrsEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
+
+-- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsEngineVersion :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Core.Text)
+dcrrsEngineVersion = Lens.field @"engineVersion"
+{-# DEPRECATED dcrrsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
+
+-- | Required. The unique ID that Amazon MQ generates for the configuration.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsId :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Core.Text)
+dcrrsId = Lens.field @"id"
+{-# DEPRECATED dcrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Required. The latest revision of the configuration.
+--
+-- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsLatestRevision :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Types.ConfigurationRevision)
+dcrrsLatestRevision = Lens.field @"latestRevision"
+{-# DEPRECATED dcrrsLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
+
+-- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsName :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe Core.Text)
+dcrrsName = Lens.field @"name"
+{-# DEPRECATED dcrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The list of all tags associated with this configuration.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsTags :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dcrsTags = Lens.lens (tags :: DescribeConfigurationResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dcrrsTags :: Lens.Lens' DescribeConfigurationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+dcrrsTags = Lens.field @"tags"
+{-# DEPRECATED dcrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeConfigurationResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DescribeConfigurationResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

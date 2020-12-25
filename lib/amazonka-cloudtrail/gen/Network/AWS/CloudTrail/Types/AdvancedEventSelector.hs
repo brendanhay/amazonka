@@ -17,67 +17,60 @@ module Network.AWS.CloudTrail.Types.AdvancedEventSelector
     mkAdvancedEventSelector,
 
     -- * Lenses
-    aesFieldSelectors,
     aesName,
+    aesFieldSelectors,
   )
 where
 
-import Network.AWS.CloudTrail.Types.AdvancedFieldSelector
+import qualified Network.AWS.CloudTrail.Types.AdvancedFieldSelector as Types
+import qualified Network.AWS.CloudTrail.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkAdvancedEventSelector' smart constructor.
 data AdvancedEventSelector = AdvancedEventSelector'
-  { fieldSelectors :: Lude.NonEmpty AdvancedFieldSelector,
-    name :: Lude.Text
+  { name :: Types.Name,
+    fieldSelectors :: Core.NonEmpty Types.AdvancedFieldSelector
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdvancedEventSelector' with the minimum fields required to make a request.
---
--- * 'fieldSelectors' -
--- * 'name' -
+-- | Creates a 'AdvancedEventSelector' value with any optional fields omitted.
 mkAdvancedEventSelector ::
-  -- | 'fieldSelectors'
-  Lude.NonEmpty AdvancedFieldSelector ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'fieldSelectors'
+  Core.NonEmpty Types.AdvancedFieldSelector ->
   AdvancedEventSelector
-mkAdvancedEventSelector pFieldSelectors_ pName_ =
-  AdvancedEventSelector'
-    { fieldSelectors = pFieldSelectors_,
-      name = pName_
-    }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'fieldSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aesFieldSelectors :: Lens.Lens' AdvancedEventSelector (Lude.NonEmpty AdvancedFieldSelector)
-aesFieldSelectors = Lens.lens (fieldSelectors :: AdvancedEventSelector -> Lude.NonEmpty AdvancedFieldSelector) (\s a -> s {fieldSelectors = a} :: AdvancedEventSelector)
-{-# DEPRECATED aesFieldSelectors "Use generic-lens or generic-optics with 'fieldSelectors' instead." #-}
+mkAdvancedEventSelector name fieldSelectors =
+  AdvancedEventSelector' {name, fieldSelectors}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aesName :: Lens.Lens' AdvancedEventSelector Lude.Text
-aesName = Lens.lens (name :: AdvancedEventSelector -> Lude.Text) (\s a -> s {name = a} :: AdvancedEventSelector)
+aesName :: Lens.Lens' AdvancedEventSelector Types.Name
+aesName = Lens.field @"name"
 {-# DEPRECATED aesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON AdvancedEventSelector where
-  parseJSON =
-    Lude.withObject
-      "AdvancedEventSelector"
-      ( \x ->
-          AdvancedEventSelector'
-            Lude.<$> (x Lude..: "FieldSelectors") Lude.<*> (x Lude..: "Name")
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fieldSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aesFieldSelectors :: Lens.Lens' AdvancedEventSelector (Core.NonEmpty Types.AdvancedFieldSelector)
+aesFieldSelectors = Lens.field @"fieldSelectors"
+{-# DEPRECATED aesFieldSelectors "Use generic-lens or generic-optics with 'fieldSelectors' instead." #-}
 
-instance Lude.ToJSON AdvancedEventSelector where
-  toJSON AdvancedEventSelector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("FieldSelectors" Lude..= fieldSelectors),
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON AdvancedEventSelector where
+  toJSON AdvancedEventSelector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("FieldSelectors" Core..= fieldSelectors)
           ]
       )
+
+instance Core.FromJSON AdvancedEventSelector where
+  parseJSON =
+    Core.withObject "AdvancedEventSelector" Core.$
+      \x ->
+        AdvancedEventSelector'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..: "FieldSelectors")

@@ -30,115 +30,108 @@ module Network.AWS.SES.UpdateConfigurationSetTrackingOptions
     mkUpdateConfigurationSetTrackingOptionsResponse,
 
     -- ** Response lenses
-    ucstorsResponseStatus,
+    ucstorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to update the tracking options for a configuration set.
 --
 -- /See:/ 'mkUpdateConfigurationSetTrackingOptions' smart constructor.
 data UpdateConfigurationSetTrackingOptions = UpdateConfigurationSetTrackingOptions'
   { -- | The name of the configuration set for which you want to update the custom tracking domain.
-    configurationSetName :: Lude.Text,
-    trackingOptions :: TrackingOptions
+    configurationSetName :: Types.ConfigurationSetName,
+    trackingOptions :: Types.TrackingOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConfigurationSetTrackingOptions' with the minimum fields required to make a request.
---
--- * 'configurationSetName' - The name of the configuration set for which you want to update the custom tracking domain.
--- * 'trackingOptions' -
+-- | Creates a 'UpdateConfigurationSetTrackingOptions' value with any optional fields omitted.
 mkUpdateConfigurationSetTrackingOptions ::
   -- | 'configurationSetName'
-  Lude.Text ->
+  Types.ConfigurationSetName ->
   -- | 'trackingOptions'
-  TrackingOptions ->
+  Types.TrackingOptions ->
   UpdateConfigurationSetTrackingOptions
 mkUpdateConfigurationSetTrackingOptions
-  pConfigurationSetName_
-  pTrackingOptions_ =
+  configurationSetName
+  trackingOptions =
     UpdateConfigurationSetTrackingOptions'
-      { configurationSetName =
-          pConfigurationSetName_,
-        trackingOptions = pTrackingOptions_
+      { configurationSetName,
+        trackingOptions
       }
 
 -- | The name of the configuration set for which you want to update the custom tracking domain.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucstoConfigurationSetName :: Lens.Lens' UpdateConfigurationSetTrackingOptions Lude.Text
-ucstoConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurationSetTrackingOptions -> Lude.Text) (\s a -> s {configurationSetName = a} :: UpdateConfigurationSetTrackingOptions)
+ucstoConfigurationSetName :: Lens.Lens' UpdateConfigurationSetTrackingOptions Types.ConfigurationSetName
+ucstoConfigurationSetName = Lens.field @"configurationSetName"
 {-# DEPRECATED ucstoConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'trackingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucstoTrackingOptions :: Lens.Lens' UpdateConfigurationSetTrackingOptions TrackingOptions
-ucstoTrackingOptions = Lens.lens (trackingOptions :: UpdateConfigurationSetTrackingOptions -> TrackingOptions) (\s a -> s {trackingOptions = a} :: UpdateConfigurationSetTrackingOptions)
+ucstoTrackingOptions :: Lens.Lens' UpdateConfigurationSetTrackingOptions Types.TrackingOptions
+ucstoTrackingOptions = Lens.field @"trackingOptions"
 {-# DEPRECATED ucstoTrackingOptions "Use generic-lens or generic-optics with 'trackingOptions' instead." #-}
 
-instance Lude.AWSRequest UpdateConfigurationSetTrackingOptions where
+instance Core.AWSRequest UpdateConfigurationSetTrackingOptions where
   type
     Rs UpdateConfigurationSetTrackingOptions =
       UpdateConfigurationSetTrackingOptionsResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateConfigurationSetTrackingOptions")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
+                Core.<> (Core.toQueryValue "TrackingOptions" trackingOptions)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateConfigurationSetTrackingOptionsResult"
       ( \s h x ->
           UpdateConfigurationSetTrackingOptionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConfigurationSetTrackingOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateConfigurationSetTrackingOptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateConfigurationSetTrackingOptions where
-  toQuery UpdateConfigurationSetTrackingOptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateConfigurationSetTrackingOptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "TrackingOptions" Lude.=: trackingOptions
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkUpdateConfigurationSetTrackingOptionsResponse' smart constructor.
 newtype UpdateConfigurationSetTrackingOptionsResponse = UpdateConfigurationSetTrackingOptionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConfigurationSetTrackingOptionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConfigurationSetTrackingOptionsResponse' value with any optional fields omitted.
 mkUpdateConfigurationSetTrackingOptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConfigurationSetTrackingOptionsResponse
-mkUpdateConfigurationSetTrackingOptionsResponse pResponseStatus_ =
-  UpdateConfigurationSetTrackingOptionsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateConfigurationSetTrackingOptionsResponse responseStatus =
+  UpdateConfigurationSetTrackingOptionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucstorsResponseStatus :: Lens.Lens' UpdateConfigurationSetTrackingOptionsResponse Lude.Int
-ucstorsResponseStatus = Lens.lens (responseStatus :: UpdateConfigurationSetTrackingOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConfigurationSetTrackingOptionsResponse)
-{-# DEPRECATED ucstorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucstorrsResponseStatus :: Lens.Lens' UpdateConfigurationSetTrackingOptionsResponse Core.Int
+ucstorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucstorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

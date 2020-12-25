@@ -17,55 +17,50 @@ module Network.AWS.Rekognition.Types.EvaluationResult
     mkEvaluationResult,
 
     -- * Lenses
-    erSummary,
     erF1Score,
+    erSummary,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.Summary
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Summary as Types
 
 -- | The evaluation results for the training of a model.
 --
 -- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | The S3 bucket that contains the training summary.
-    summary :: Lude.Maybe Summary,
-    -- | The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
-    f1Score :: Lude.Maybe Lude.Double
+  { -- | The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
+    f1Score :: Core.Maybe Core.Double,
+    -- | The S3 bucket that contains the training summary.
+    summary :: Core.Maybe Types.Summary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
---
--- * 'summary' - The S3 bucket that contains the training summary.
--- * 'f1Score' - The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
+-- | Creates a 'EvaluationResult' value with any optional fields omitted.
 mkEvaluationResult ::
   EvaluationResult
 mkEvaluationResult =
-  EvaluationResult' {summary = Lude.Nothing, f1Score = Lude.Nothing}
-
--- | The S3 bucket that contains the training summary.
---
--- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erSummary :: Lens.Lens' EvaluationResult (Lude.Maybe Summary)
-erSummary = Lens.lens (summary :: EvaluationResult -> Lude.Maybe Summary) (\s a -> s {summary = a} :: EvaluationResult)
-{-# DEPRECATED erSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
+  EvaluationResult' {f1Score = Core.Nothing, summary = Core.Nothing}
 
 -- | The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
 --
 -- /Note:/ Consider using 'f1Score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erF1Score :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Double)
-erF1Score = Lens.lens (f1Score :: EvaluationResult -> Lude.Maybe Lude.Double) (\s a -> s {f1Score = a} :: EvaluationResult)
+erF1Score :: Lens.Lens' EvaluationResult (Core.Maybe Core.Double)
+erF1Score = Lens.field @"f1Score"
 {-# DEPRECATED erF1Score "Use generic-lens or generic-optics with 'f1Score' instead." #-}
 
-instance Lude.FromJSON EvaluationResult where
+-- | The S3 bucket that contains the training summary.
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erSummary :: Lens.Lens' EvaluationResult (Core.Maybe Types.Summary)
+erSummary = Lens.field @"summary"
+{-# DEPRECATED erSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
+
+instance Core.FromJSON EvaluationResult where
   parseJSON =
-    Lude.withObject
-      "EvaluationResult"
-      ( \x ->
-          EvaluationResult'
-            Lude.<$> (x Lude..:? "Summary") Lude.<*> (x Lude..:? "F1Score")
-      )
+    Core.withObject "EvaluationResult" Core.$
+      \x ->
+        EvaluationResult'
+          Core.<$> (x Core..:? "F1Score") Core.<*> (x Core..:? "Summary")

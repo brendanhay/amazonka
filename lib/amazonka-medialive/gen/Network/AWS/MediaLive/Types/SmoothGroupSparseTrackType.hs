@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.SmoothGroupSparseTrackType
   ( SmoothGroupSparseTrackType
       ( SmoothGroupSparseTrackType',
-        SGSTTNone,
-        SGSTTScte35,
-        SGSTTScte35WithoutSegmentation
+        SmoothGroupSparseTrackTypeNone,
+        SmoothGroupSparseTrackTypeScte35,
+        SmoothGroupSparseTrackTypeScte35WithoutSegmentation,
+        fromSmoothGroupSparseTrackType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Smooth Group Sparse Track Type
-newtype SmoothGroupSparseTrackType = SmoothGroupSparseTrackType' Lude.Text
+newtype SmoothGroupSparseTrackType = SmoothGroupSparseTrackType'
+  { fromSmoothGroupSparseTrackType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SGSTTNone :: SmoothGroupSparseTrackType
-pattern SGSTTNone = SmoothGroupSparseTrackType' "NONE"
+pattern SmoothGroupSparseTrackTypeNone :: SmoothGroupSparseTrackType
+pattern SmoothGroupSparseTrackTypeNone = SmoothGroupSparseTrackType' "NONE"
 
-pattern SGSTTScte35 :: SmoothGroupSparseTrackType
-pattern SGSTTScte35 = SmoothGroupSparseTrackType' "SCTE_35"
+pattern SmoothGroupSparseTrackTypeScte35 :: SmoothGroupSparseTrackType
+pattern SmoothGroupSparseTrackTypeScte35 = SmoothGroupSparseTrackType' "SCTE_35"
 
-pattern SGSTTScte35WithoutSegmentation :: SmoothGroupSparseTrackType
-pattern SGSTTScte35WithoutSegmentation = SmoothGroupSparseTrackType' "SCTE_35_WITHOUT_SEGMENTATION"
+pattern SmoothGroupSparseTrackTypeScte35WithoutSegmentation :: SmoothGroupSparseTrackType
+pattern SmoothGroupSparseTrackTypeScte35WithoutSegmentation = SmoothGroupSparseTrackType' "SCTE_35_WITHOUT_SEGMENTATION"
 
 {-# COMPLETE
-  SGSTTNone,
-  SGSTTScte35,
-  SGSTTScte35WithoutSegmentation,
+  SmoothGroupSparseTrackTypeNone,
+  SmoothGroupSparseTrackTypeScte35,
+  SmoothGroupSparseTrackTypeScte35WithoutSegmentation,
   SmoothGroupSparseTrackType'
   #-}

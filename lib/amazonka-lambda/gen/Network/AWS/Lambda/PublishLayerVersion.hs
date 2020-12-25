@@ -24,39 +24,43 @@ module Network.AWS.Lambda.PublishLayerVersion
     -- ** Request lenses
     plvLayerName,
     plvContent,
-    plvLicenseInfo,
-    plvDescription,
     plvCompatibleRuntimes,
+    plvDescription,
+    plvLicenseInfo,
 
     -- * Destructuring the response
     PublishLayerVersionResponse (..),
     mkPublishLayerVersionResponse,
 
     -- ** Response lenses
-    plvrsLayerVersionARN,
-    plvrsContent,
-    plvrsCreatedDate,
-    plvrsVersion,
-    plvrsLicenseInfo,
-    plvrsLayerARN,
-    plvrsDescription,
-    plvrsCompatibleRuntimes,
-    plvrsResponseStatus,
+    plvrrsCompatibleRuntimes,
+    plvrrsContent,
+    plvrrsCreatedDate,
+    plvrrsDescription,
+    plvrrsLayerArn,
+    plvrrsLayerVersionArn,
+    plvrrsLicenseInfo,
+    plvrrsVersion,
+    plvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPublishLayerVersion' smart constructor.
 data PublishLayerVersion = PublishLayerVersion'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Lude.Text,
+    layerName :: Types.LayerName,
     -- | The function layer archive.
-    content :: LayerVersionContentInput,
+    content :: Types.LayerVersionContentInput,
+    -- | A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
+    compatibleRuntimes :: Core.Maybe [Types.Runtime],
+    -- | The description of the version.
+    description :: Core.Maybe Types.Description,
     -- | The layer's software license. It can be any of the following:
     --
     --
@@ -67,61 +71,54 @@ data PublishLayerVersion = PublishLayerVersion'
     --
     --
     --     * The full text of the license.
-    licenseInfo :: Lude.Maybe Lude.Text,
-    -- | The description of the version.
-    description :: Lude.Maybe Lude.Text,
-    -- | A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
-    compatibleRuntimes :: Lude.Maybe [Runtime]
+    licenseInfo :: Core.Maybe Types.LicenseInfo
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PublishLayerVersion' with the minimum fields required to make a request.
---
--- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
--- * 'content' - The function layer archive.
--- * 'licenseInfo' - The layer's software license. It can be any of the following:
---
---
---     * An <https://spdx.org/licenses/ SPDX license identifier> . For example, @MIT@ .
---
---
---     * The URL of a license hosted on the internet. For example, @https://opensource.org/licenses/MIT@ .
---
---
---     * The full text of the license.
---
---
--- * 'description' - The description of the version.
--- * 'compatibleRuntimes' - A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
+-- | Creates a 'PublishLayerVersion' value with any optional fields omitted.
 mkPublishLayerVersion ::
   -- | 'layerName'
-  Lude.Text ->
+  Types.LayerName ->
   -- | 'content'
-  LayerVersionContentInput ->
+  Types.LayerVersionContentInput ->
   PublishLayerVersion
-mkPublishLayerVersion pLayerName_ pContent_ =
+mkPublishLayerVersion layerName content =
   PublishLayerVersion'
-    { layerName = pLayerName_,
-      content = pContent_,
-      licenseInfo = Lude.Nothing,
-      description = Lude.Nothing,
-      compatibleRuntimes = Lude.Nothing
+    { layerName,
+      content,
+      compatibleRuntimes = Core.Nothing,
+      description = Core.Nothing,
+      licenseInfo = Core.Nothing
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
 -- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvLayerName :: Lens.Lens' PublishLayerVersion Lude.Text
-plvLayerName = Lens.lens (layerName :: PublishLayerVersion -> Lude.Text) (\s a -> s {layerName = a} :: PublishLayerVersion)
+plvLayerName :: Lens.Lens' PublishLayerVersion Types.LayerName
+plvLayerName = Lens.field @"layerName"
 {-# DEPRECATED plvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | The function layer archive.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvContent :: Lens.Lens' PublishLayerVersion LayerVersionContentInput
-plvContent = Lens.lens (content :: PublishLayerVersion -> LayerVersionContentInput) (\s a -> s {content = a} :: PublishLayerVersion)
+plvContent :: Lens.Lens' PublishLayerVersion Types.LayerVersionContentInput
+plvContent = Lens.field @"content"
 {-# DEPRECATED plvContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
+--
+-- /Note:/ Consider using 'compatibleRuntimes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvCompatibleRuntimes :: Lens.Lens' PublishLayerVersion (Core.Maybe [Types.Runtime])
+plvCompatibleRuntimes = Lens.field @"compatibleRuntimes"
+{-# DEPRECATED plvCompatibleRuntimes "Use generic-lens or generic-optics with 'compatibleRuntimes' instead." #-}
+
+-- | The description of the version.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvDescription :: Lens.Lens' PublishLayerVersion (Core.Maybe Types.Description)
+plvDescription = Lens.field @"description"
+{-# DEPRECATED plvDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The layer's software license. It can be any of the following:
 --
@@ -137,175 +134,152 @@ plvContent = Lens.lens (content :: PublishLayerVersion -> LayerVersionContentInp
 --
 --
 -- /Note:/ Consider using 'licenseInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvLicenseInfo :: Lens.Lens' PublishLayerVersion (Lude.Maybe Lude.Text)
-plvLicenseInfo = Lens.lens (licenseInfo :: PublishLayerVersion -> Lude.Maybe Lude.Text) (\s a -> s {licenseInfo = a} :: PublishLayerVersion)
+plvLicenseInfo :: Lens.Lens' PublishLayerVersion (Core.Maybe Types.LicenseInfo)
+plvLicenseInfo = Lens.field @"licenseInfo"
 {-# DEPRECATED plvLicenseInfo "Use generic-lens or generic-optics with 'licenseInfo' instead." #-}
 
--- | The description of the version.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvDescription :: Lens.Lens' PublishLayerVersion (Lude.Maybe Lude.Text)
-plvDescription = Lens.lens (description :: PublishLayerVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PublishLayerVersion)
-{-# DEPRECATED plvDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
---
--- /Note:/ Consider using 'compatibleRuntimes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvCompatibleRuntimes :: Lens.Lens' PublishLayerVersion (Lude.Maybe [Runtime])
-plvCompatibleRuntimes = Lens.lens (compatibleRuntimes :: PublishLayerVersion -> Lude.Maybe [Runtime]) (\s a -> s {compatibleRuntimes = a} :: PublishLayerVersion)
-{-# DEPRECATED plvCompatibleRuntimes "Use generic-lens or generic-optics with 'compatibleRuntimes' instead." #-}
-
-instance Lude.AWSRequest PublishLayerVersion where
-  type Rs PublishLayerVersion = PublishLayerVersionResponse
-  request = Req.postJSON lambdaService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          PublishLayerVersionResponse'
-            Lude.<$> (x Lude..?> "LayerVersionArn")
-            Lude.<*> (x Lude..?> "Content")
-            Lude.<*> (x Lude..?> "CreatedDate")
-            Lude.<*> (x Lude..?> "Version")
-            Lude.<*> (x Lude..?> "LicenseInfo")
-            Lude.<*> (x Lude..?> "LayerArn")
-            Lude.<*> (x Lude..?> "Description")
-            Lude.<*> (x Lude..?> "CompatibleRuntimes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders PublishLayerVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PublishLayerVersion where
-  toJSON PublishLayerVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Content" Lude..= content),
-            ("LicenseInfo" Lude..=) Lude.<$> licenseInfo,
-            ("Description" Lude..=) Lude.<$> description,
-            ("CompatibleRuntimes" Lude..=) Lude.<$> compatibleRuntimes
+instance Core.FromJSON PublishLayerVersion where
+  toJSON PublishLayerVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Content" Core..= content),
+            ("CompatibleRuntimes" Core..=) Core.<$> compatibleRuntimes,
+            ("Description" Core..=) Core.<$> description,
+            ("LicenseInfo" Core..=) Core.<$> licenseInfo
           ]
       )
 
-instance Lude.ToPath PublishLayerVersion where
-  toPath PublishLayerVersion' {..} =
-    Lude.mconcat
-      ["/2018-10-31/layers/", Lude.toBS layerName, "/versions"]
-
-instance Lude.ToQuery PublishLayerVersion where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest PublishLayerVersion where
+  type Rs PublishLayerVersion = PublishLayerVersionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2018-10-31/layers/" Core.<> (Core.toText layerName)
+                Core.<> ("/versions")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PublishLayerVersionResponse'
+            Core.<$> (x Core..:? "CompatibleRuntimes")
+            Core.<*> (x Core..:? "Content")
+            Core.<*> (x Core..:? "CreatedDate")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "LayerArn")
+            Core.<*> (x Core..:? "LayerVersionArn")
+            Core.<*> (x Core..:? "LicenseInfo")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkPublishLayerVersionResponse' smart constructor.
 data PublishLayerVersionResponse = PublishLayerVersionResponse'
-  { -- | The ARN of the layer version.
-    layerVersionARN :: Lude.Maybe Lude.Text,
+  { -- | The layer's compatible runtimes.
+    compatibleRuntimes :: Core.Maybe [Types.Runtime],
     -- | Details about the layer version.
-    content :: Lude.Maybe LayerVersionContentOutput,
+    content :: Core.Maybe Types.LayerVersionContentOutput,
     -- | The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
-    createdDate :: Lude.Maybe Lude.Text,
-    -- | The version number.
-    version :: Lude.Maybe Lude.Integer,
-    -- | The layer's software license.
-    licenseInfo :: Lude.Maybe Lude.Text,
-    -- | The ARN of the layer.
-    layerARN :: Lude.Maybe Lude.Text,
+    createdDate :: Core.Maybe Types.CreatedDate,
     -- | The description of the version.
-    description :: Lude.Maybe Lude.Text,
-    -- | The layer's compatible runtimes.
-    compatibleRuntimes :: Lude.Maybe [Runtime],
+    description :: Core.Maybe Types.Description,
+    -- | The ARN of the layer.
+    layerArn :: Core.Maybe Types.LayerArn,
+    -- | The ARN of the layer version.
+    layerVersionArn :: Core.Maybe Types.LayerVersionArn,
+    -- | The layer's software license.
+    licenseInfo :: Core.Maybe Types.LicenseInfo,
+    -- | The version number.
+    version :: Core.Maybe Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PublishLayerVersionResponse' with the minimum fields required to make a request.
---
--- * 'layerVersionARN' - The ARN of the layer version.
--- * 'content' - Details about the layer version.
--- * 'createdDate' - The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
--- * 'version' - The version number.
--- * 'licenseInfo' - The layer's software license.
--- * 'layerARN' - The ARN of the layer.
--- * 'description' - The description of the version.
--- * 'compatibleRuntimes' - The layer's compatible runtimes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PublishLayerVersionResponse' value with any optional fields omitted.
 mkPublishLayerVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PublishLayerVersionResponse
-mkPublishLayerVersionResponse pResponseStatus_ =
+mkPublishLayerVersionResponse responseStatus =
   PublishLayerVersionResponse'
-    { layerVersionARN = Lude.Nothing,
-      content = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      version = Lude.Nothing,
-      licenseInfo = Lude.Nothing,
-      layerARN = Lude.Nothing,
-      description = Lude.Nothing,
-      compatibleRuntimes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { compatibleRuntimes = Core.Nothing,
+      content = Core.Nothing,
+      createdDate = Core.Nothing,
+      description = Core.Nothing,
+      layerArn = Core.Nothing,
+      layerVersionArn = Core.Nothing,
+      licenseInfo = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the layer version.
---
--- /Note:/ Consider using 'layerVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsLayerVersionARN :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe Lude.Text)
-plvrsLayerVersionARN = Lens.lens (layerVersionARN :: PublishLayerVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {layerVersionARN = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsLayerVersionARN "Use generic-lens or generic-optics with 'layerVersionARN' instead." #-}
-
--- | Details about the layer version.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsContent :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe LayerVersionContentOutput)
-plvrsContent = Lens.lens (content :: PublishLayerVersionResponse -> Lude.Maybe LayerVersionContentOutput) (\s a -> s {content = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsContent "Use generic-lens or generic-optics with 'content' instead." #-}
-
--- | The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
---
--- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsCreatedDate :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe Lude.Text)
-plvrsCreatedDate = Lens.lens (createdDate :: PublishLayerVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdDate = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The version number.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsVersion :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe Lude.Integer)
-plvrsVersion = Lens.lens (version :: PublishLayerVersionResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The layer's software license.
---
--- /Note:/ Consider using 'licenseInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsLicenseInfo :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe Lude.Text)
-plvrsLicenseInfo = Lens.lens (licenseInfo :: PublishLayerVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {licenseInfo = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsLicenseInfo "Use generic-lens or generic-optics with 'licenseInfo' instead." #-}
-
--- | The ARN of the layer.
---
--- /Note:/ Consider using 'layerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsLayerARN :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe Lude.Text)
-plvrsLayerARN = Lens.lens (layerARN :: PublishLayerVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {layerARN = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsLayerARN "Use generic-lens or generic-optics with 'layerARN' instead." #-}
-
--- | The description of the version.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsDescription :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe Lude.Text)
-plvrsDescription = Lens.lens (description :: PublishLayerVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The layer's compatible runtimes.
 --
 -- /Note:/ Consider using 'compatibleRuntimes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsCompatibleRuntimes :: Lens.Lens' PublishLayerVersionResponse (Lude.Maybe [Runtime])
-plvrsCompatibleRuntimes = Lens.lens (compatibleRuntimes :: PublishLayerVersionResponse -> Lude.Maybe [Runtime]) (\s a -> s {compatibleRuntimes = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsCompatibleRuntimes "Use generic-lens or generic-optics with 'compatibleRuntimes' instead." #-}
+plvrrsCompatibleRuntimes :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe [Types.Runtime])
+plvrrsCompatibleRuntimes = Lens.field @"compatibleRuntimes"
+{-# DEPRECATED plvrrsCompatibleRuntimes "Use generic-lens or generic-optics with 'compatibleRuntimes' instead." #-}
+
+-- | Details about the layer version.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsContent :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Types.LayerVersionContentOutput)
+plvrrsContent = Lens.field @"content"
+{-# DEPRECATED plvrrsContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsCreatedDate :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Types.CreatedDate)
+plvrrsCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED plvrrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+
+-- | The description of the version.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsDescription :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Types.Description)
+plvrrsDescription = Lens.field @"description"
+{-# DEPRECATED plvrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The ARN of the layer.
+--
+-- /Note:/ Consider using 'layerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsLayerArn :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Types.LayerArn)
+plvrrsLayerArn = Lens.field @"layerArn"
+{-# DEPRECATED plvrrsLayerArn "Use generic-lens or generic-optics with 'layerArn' instead." #-}
+
+-- | The ARN of the layer version.
+--
+-- /Note:/ Consider using 'layerVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsLayerVersionArn :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Types.LayerVersionArn)
+plvrrsLayerVersionArn = Lens.field @"layerVersionArn"
+{-# DEPRECATED plvrrsLayerVersionArn "Use generic-lens or generic-optics with 'layerVersionArn' instead." #-}
+
+-- | The layer's software license.
+--
+-- /Note:/ Consider using 'licenseInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsLicenseInfo :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Types.LicenseInfo)
+plvrrsLicenseInfo = Lens.field @"licenseInfo"
+{-# DEPRECATED plvrrsLicenseInfo "Use generic-lens or generic-optics with 'licenseInfo' instead." #-}
+
+-- | The version number.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvrrsVersion :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Integer)
+plvrrsVersion = Lens.field @"version"
+{-# DEPRECATED plvrrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvrsResponseStatus :: Lens.Lens' PublishLayerVersionResponse Lude.Int
-plvrsResponseStatus = Lens.lens (responseStatus :: PublishLayerVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PublishLayerVersionResponse)
-{-# DEPRECATED plvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+plvrrsResponseStatus :: Lens.Lens' PublishLayerVersionResponse Core.Int
+plvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED plvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,53 @@
 module Network.AWS.Inspector.Types.ReportStatus
   ( ReportStatus
       ( ReportStatus',
-        RSWorkInProgress,
-        RSFailed,
-        RSCompleted
+        ReportStatusWorkInProgress,
+        ReportStatusFailed,
+        ReportStatusCompleted,
+        fromReportStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReportStatus = ReportStatus' Lude.Text
+newtype ReportStatus = ReportStatus' {fromReportStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSWorkInProgress :: ReportStatus
-pattern RSWorkInProgress = ReportStatus' "WORK_IN_PROGRESS"
+pattern ReportStatusWorkInProgress :: ReportStatus
+pattern ReportStatusWorkInProgress = ReportStatus' "WORK_IN_PROGRESS"
 
-pattern RSFailed :: ReportStatus
-pattern RSFailed = ReportStatus' "FAILED"
+pattern ReportStatusFailed :: ReportStatus
+pattern ReportStatusFailed = ReportStatus' "FAILED"
 
-pattern RSCompleted :: ReportStatus
-pattern RSCompleted = ReportStatus' "COMPLETED"
+pattern ReportStatusCompleted :: ReportStatus
+pattern ReportStatusCompleted = ReportStatus' "COMPLETED"
 
 {-# COMPLETE
-  RSWorkInProgress,
-  RSFailed,
-  RSCompleted,
+  ReportStatusWorkInProgress,
+  ReportStatusFailed,
+  ReportStatusCompleted,
   ReportStatus'
   #-}

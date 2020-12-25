@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,97 @@
 -- DynamoDB automatically spreads the data and traffic for your tables over a sufficient number of servers to handle your throughput and storage requirements, while maintaining consistent and fast performance. All of your data is stored on solid state disks (SSDs) and automatically replicated across multiple Availability Zones in an AWS region, providing built-in high availability and data durability.
 module Network.AWS.DynamoDB
   ( -- * Service configuration
-    dynamoDBService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidExportTimeException
+    _InvalidExportTimeException,
+
+    -- ** BackupNotFoundException
+    _BackupNotFoundException,
+
+    -- ** TableInUseException
+    _TableInUseException,
+
+    -- ** ExportConflictException
+    _ExportConflictException,
+
+    -- ** ContinuousBackupsUnavailableException
+    _ContinuousBackupsUnavailableException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** GlobalTableNotFoundException
+    _GlobalTableNotFoundException,
+
+    -- ** TransactionInProgressException
+    _TransactionInProgressException,
+
+    -- ** TransactionCanceledException
+    _TransactionCanceledException,
+
+    -- ** ConditionalCheckFailedException
+    _ConditionalCheckFailedException,
+
+    -- ** GlobalTableAlreadyExistsException
+    _GlobalTableAlreadyExistsException,
+
+    -- ** ReplicaNotFoundException
+    _ReplicaNotFoundException,
+
+    -- ** TableAlreadyExistsException
+    _TableAlreadyExistsException,
+
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
+
+    -- ** ItemCollectionSizeLimitExceededException
+    _ItemCollectionSizeLimitExceededException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** TableNotFoundException
+    _TableNotFoundException,
+
+    -- ** IndexNotFoundException
+    _IndexNotFoundException,
+
+    -- ** TransactionConflictException
+    _TransactionConflictException,
+
+    -- ** BackupInUseException
+    _BackupInUseException,
+
+    -- ** DuplicateItemException
+    _DuplicateItemException,
+
+    -- ** ExportNotFoundException
+    _ExportNotFoundException,
+
+    -- ** PointInTimeRecoveryUnavailableException
+    _PointInTimeRecoveryUnavailableException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** InvalidRestoreTimeException
+    _InvalidRestoreTimeException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ReplicaAlreadyExistsException
+    _ReplicaAlreadyExistsException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -187,551 +273,184 @@ module Network.AWS.DynamoDB
 
     -- * Types
 
-    -- ** AttributeAction
-    AttributeAction (..),
-
-    -- ** BackupStatus
-    BackupStatus (..),
-
-    -- ** BackupType
-    BackupType (..),
-
-    -- ** BackupTypeFilter
-    BackupTypeFilter (..),
-
-    -- ** BatchStatementErrorCodeEnum
-    BatchStatementErrorCodeEnum (..),
-
-    -- ** BillingMode
-    BillingMode (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** ConditionalOperator
-    ConditionalOperator (..),
-
-    -- ** ContinuousBackupsStatus
-    ContinuousBackupsStatus (..),
-
-    -- ** ContributorInsightsAction
-    ContributorInsightsAction (..),
-
-    -- ** ContributorInsightsStatus
-    ContributorInsightsStatus (..),
-
-    -- ** DestinationStatus
-    DestinationStatus (..),
-
-    -- ** ExportFormat
-    ExportFormat (..),
-
-    -- ** ExportStatus
-    ExportStatus (..),
-
-    -- ** GlobalTableStatus
-    GlobalTableStatus (..),
-
-    -- ** IndexStatus
-    IndexStatus (..),
-
-    -- ** KeyType
-    KeyType (..),
-
-    -- ** PointInTimeRecoveryStatus
-    PointInTimeRecoveryStatus (..),
-
-    -- ** ProjectionType
-    ProjectionType (..),
-
-    -- ** ReplicaStatus
-    ReplicaStatus (..),
-
-    -- ** ReturnConsumedCapacity
-    ReturnConsumedCapacity (..),
-
-    -- ** ReturnItemCollectionMetrics
-    ReturnItemCollectionMetrics (..),
-
-    -- ** ReturnValue
-    ReturnValue (..),
-
-    -- ** ReturnValuesOnConditionCheckFailure
-    ReturnValuesOnConditionCheckFailure (..),
-
-    -- ** S3SseAlgorithm
-    S3SseAlgorithm (..),
-
-    -- ** SSEStatus
-    SSEStatus (..),
-
-    -- ** SSEType
-    SSEType (..),
-
-    -- ** ScalarAttributeType
-    ScalarAttributeType (..),
-
-    -- ** Select
-    Select (..),
-
-    -- ** StreamViewType
-    StreamViewType (..),
-
-    -- ** TableStatus
-    TableStatus (..),
-
     -- ** TimeToLiveStatus
     TimeToLiveStatus (..),
-
-    -- ** ArchivalSummary
-    ArchivalSummary (..),
-    mkArchivalSummary,
-    asArchivalReason,
-    asArchivalDateTime,
-    asArchivalBackupARN,
-
-    -- ** AttributeDefinition
-    AttributeDefinition (..),
-    mkAttributeDefinition,
-    adAttributeType,
-    adAttributeName,
-
-    -- ** AttributeValue
-    AttributeValue (..),
-    mkAttributeValue,
-    avL,
-    avNS,
-    avM,
-    avNULL,
-    avN,
-    avBS,
-    avB,
-    avSS,
-    avS,
-    avBOOL,
-
-    -- ** AttributeValueUpdate
-    AttributeValueUpdate (..),
-    mkAttributeValueUpdate,
-    avuValue,
-    avuAction,
-
-    -- ** AutoScalingPolicyDescription
-    AutoScalingPolicyDescription (..),
-    mkAutoScalingPolicyDescription,
-    aspdPolicyName,
-    aspdTargetTrackingScalingPolicyConfiguration,
-
-    -- ** AutoScalingPolicyUpdate
-    AutoScalingPolicyUpdate (..),
-    mkAutoScalingPolicyUpdate,
-    aspuPolicyName,
-    aspuTargetTrackingScalingPolicyConfiguration,
-
-    -- ** AutoScalingSettingsDescription
-    AutoScalingSettingsDescription (..),
-    mkAutoScalingSettingsDescription,
-    assdAutoScalingDisabled,
-    assdMinimumUnits,
-    assdMaximumUnits,
-    assdScalingPolicies,
-    assdAutoScalingRoleARN,
-
-    -- ** AutoScalingSettingsUpdate
-    AutoScalingSettingsUpdate (..),
-    mkAutoScalingSettingsUpdate,
-    assuAutoScalingDisabled,
-    assuMinimumUnits,
-    assuScalingPolicyUpdate,
-    assuMaximumUnits,
-    assuAutoScalingRoleARN,
-
-    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-    AutoScalingTargetTrackingScalingPolicyConfigurationDescription (..),
-    mkAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
-    asttspcdTargetValue,
-    asttspcdScaleInCooldown,
-    asttspcdDisableScaleIn,
-    asttspcdScaleOutCooldown,
-
-    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
-    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (..),
-    mkAutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
-    asttspcuTargetValue,
-    asttspcuScaleInCooldown,
-    asttspcuDisableScaleIn,
-    asttspcuScaleOutCooldown,
-
-    -- ** BackupDescription
-    BackupDescription (..),
-    mkBackupDescription,
-    bdBackupDetails,
-    bdSourceTableDetails,
-    bdSourceTableFeatureDetails,
 
     -- ** BackupDetails
     BackupDetails (..),
     mkBackupDetails,
-    bdBackupExpiryDateTime,
+    bdBackupArn,
     bdBackupName,
     bdBackupStatus,
-    bdBackupSizeBytes,
-    bdBackupARN,
-    bdBackupCreationDateTime,
     bdBackupType,
+    bdBackupCreationDateTime,
+    bdBackupExpiryDateTime,
+    bdBackupSizeBytes,
 
-    -- ** BackupSummary
-    BackupSummary (..),
-    mkBackupSummary,
-    bsBackupExpiryDateTime,
-    bsTableARN,
-    bsBackupName,
-    bsBackupStatus,
-    bsBackupSizeBytes,
-    bsBackupARN,
-    bsTableId,
-    bsBackupCreationDateTime,
-    bsBackupType,
-    bsTableName,
+    -- ** ReplicaAutoScalingDescription
+    ReplicaAutoScalingDescription (..),
+    mkReplicaAutoScalingDescription,
+    rasdGlobalSecondaryIndexes,
+    rasdRegionName,
+    rasdReplicaProvisionedReadCapacityAutoScalingSettings,
+    rasdReplicaProvisionedWriteCapacityAutoScalingSettings,
+    rasdReplicaStatus,
 
-    -- ** BatchStatementError
-    BatchStatementError (..),
-    mkBatchStatementError,
-    bseCode,
-    bseMessage,
+    -- ** TransactWriteItem
+    TransactWriteItem (..),
+    mkTransactWriteItem,
+    twiConditionCheck,
+    twiDelete,
+    twiPut,
+    twiUpdate,
 
-    -- ** BatchStatementRequest
-    BatchStatementRequest (..),
-    mkBatchStatementRequest,
-    bsrConsistentRead,
-    bsrStatement,
-    bsrParameters,
+    -- ** WriteRequest
+    WriteRequest (..),
+    mkWriteRequest,
+    wrDeleteRequest,
+    wrPutRequest,
 
-    -- ** BatchStatementResponse
-    BatchStatementResponse (..),
-    mkBatchStatementResponse,
-    bError,
-    bItem,
-    bTableName,
+    -- ** ProvisionedThroughputDescription
+    ProvisionedThroughputDescription (..),
+    mkProvisionedThroughputDescription,
+    ptdLastDecreaseDateTime,
+    ptdLastIncreaseDateTime,
+    ptdNumberOfDecreasesToday,
+    ptdReadCapacityUnits,
+    ptdWriteCapacityUnits,
 
-    -- ** BillingModeSummary
-    BillingModeSummary (..),
-    mkBillingModeSummary,
-    bmsLastUpdateToPayPerRequestDateTime,
-    bmsBillingMode,
+    -- ** RestoreSummary
+    RestoreSummary (..),
+    mkRestoreSummary,
+    rsRestoreDateTime,
+    rsRestoreInProgress,
+    rsSourceBackupArn,
+    rsSourceTableArn,
 
-    -- ** Capacity
-    Capacity (..),
-    mkCapacity,
-    cfReadCapacityUnits,
-    cfCapacityUnits,
-    cfWriteCapacityUnits,
-
-    -- ** Condition
-    Condition (..),
-    mkCondition,
-    cAttributeValueList,
-    cComparisonOperator,
-
-    -- ** ConditionCheck
-    ConditionCheck (..),
-    mkConditionCheck,
-    ccExpressionAttributeNames,
-    ccExpressionAttributeValues,
-    ccReturnValuesOnConditionCheckFailure,
-    ccConditionExpression,
-    ccKey,
-    ccTableName,
-
-    -- ** ConsumedCapacity
-    ConsumedCapacity (..),
-    mkConsumedCapacity,
-    cReadCapacityUnits,
-    cGlobalSecondaryIndexes,
-    cCapacityUnits,
-    cWriteCapacityUnits,
-    cLocalSecondaryIndexes,
-    cTable,
-    cTableName,
-
-    -- ** ContinuousBackupsDescription
-    ContinuousBackupsDescription (..),
-    mkContinuousBackupsDescription,
-    cbdContinuousBackupsStatus,
-    cbdPointInTimeRecoveryDescription,
-
-    -- ** ContributorInsightsSummary
-    ContributorInsightsSummary (..),
-    mkContributorInsightsSummary,
-    cisContributorInsightsStatus,
-    cisTableName,
-    cisIndexName,
-
-    -- ** CreateGlobalSecondaryIndexAction
-    CreateGlobalSecondaryIndexAction (..),
-    mkCreateGlobalSecondaryIndexAction,
-    cgsiaProvisionedThroughput,
-    cgsiaKeySchema,
-    cgsiaProjection,
-    cgsiaIndexName,
-
-    -- ** CreateReplicaAction
-    CreateReplicaAction (..),
-    mkCreateReplicaAction,
-    craRegionName,
-
-    -- ** CreateReplicationGroupMemberAction
-    CreateReplicationGroupMemberAction (..),
-    mkCreateReplicationGroupMemberAction,
-    crgmaRegionName,
-    crgmaKMSMasterKeyId,
-    crgmaProvisionedThroughputOverride,
-    crgmaGlobalSecondaryIndexes,
-
-    -- ** Delete
-    Delete (..),
-    mkDelete,
-    dExpressionAttributeNames,
-    dExpressionAttributeValues,
-    dReturnValuesOnConditionCheckFailure,
-    dConditionExpression,
-    dKey,
-    dTableName,
-
-    -- ** DeleteGlobalSecondaryIndexAction
-    DeleteGlobalSecondaryIndexAction (..),
-    mkDeleteGlobalSecondaryIndexAction,
-    dgsiaIndexName,
-
-    -- ** DeleteReplicaAction
-    DeleteReplicaAction (..),
-    mkDeleteReplicaAction,
-    draRegionName,
+    -- ** TagValueString
+    TagValueString (..),
 
     -- ** DeleteReplicationGroupMemberAction
     DeleteReplicationGroupMemberAction (..),
     mkDeleteReplicationGroupMemberAction,
     drgmaRegionName,
 
-    -- ** DeleteRequest
-    DeleteRequest (..),
-    mkDeleteRequest,
-    drKey,
+    -- ** UpdateReplicationGroupMemberAction
+    UpdateReplicationGroupMemberAction (..),
+    mkUpdateReplicationGroupMemberAction,
+    urgmaRegionName,
+    urgmaGlobalSecondaryIndexes,
+    urgmaKMSMasterKeyId,
+    urgmaProvisionedThroughputOverride,
 
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eAddress,
-    eCachePeriodInMinutes,
-
-    -- ** ExpectedAttributeValue
-    ExpectedAttributeValue (..),
-    mkExpectedAttributeValue,
-    eavAttributeValueList,
-    eavExists,
-    eavValue,
-    eavComparisonOperator,
-
-    -- ** ExportDescription
-    ExportDescription (..),
-    mkExportDescription,
-    edS3BucketOwner,
-    edExportFormat,
-    edS3SseKMSKeyId,
-    edClientToken,
-    edStartTime,
-    edFailureCode,
-    edExportStatus,
-    edFailureMessage,
-    edTableARN,
-    edBilledSizeBytes,
-    edExportARN,
-    edExportTime,
-    edS3SseAlgorithm,
-    edEndTime,
-    edS3Prefix,
-    edExportManifest,
-    edTableId,
-    edItemCount,
-    edS3Bucket,
-
-    -- ** ExportSummary
-    ExportSummary (..),
-    mkExportSummary,
-    esExportStatus,
-    esExportARN,
-
-    -- ** FailureException
-    FailureException (..),
-    mkFailureException,
-    feExceptionName,
-    feExceptionDescription,
-
-    -- ** Get
-    Get (..),
-    mkGet,
-    gProjectionExpression,
-    gExpressionAttributeNames,
-    gKey,
-    gTableName,
-
-    -- ** GlobalSecondaryIndex
-    GlobalSecondaryIndex (..),
-    mkGlobalSecondaryIndex,
-    gsiProvisionedThroughput,
-    gsiKeySchema,
-    gsiProjection,
-    gsiIndexName,
-
-    -- ** GlobalSecondaryIndexAutoScalingUpdate
-    GlobalSecondaryIndexAutoScalingUpdate (..),
-    mkGlobalSecondaryIndexAutoScalingUpdate,
-    gsiasuProvisionedWriteCapacityAutoScalingUpdate,
-    gsiasuIndexName,
-
-    -- ** GlobalSecondaryIndexDescription
-    GlobalSecondaryIndexDescription (..),
-    mkGlobalSecondaryIndexDescription,
-    gsidBackfilling,
-    gsidIndexSizeBytes,
-    gsidIndexStatus,
-    gsidProvisionedThroughput,
-    gsidIndexARN,
-    gsidKeySchema,
-    gsidProjection,
-    gsidItemCount,
-    gsidIndexName,
-
-    -- ** GlobalSecondaryIndexInfo
-    GlobalSecondaryIndexInfo (..),
-    mkGlobalSecondaryIndexInfo,
-    gsiiProvisionedThroughput,
-    gsiiKeySchema,
-    gsiiProjection,
-    gsiiIndexName,
-
-    -- ** GlobalSecondaryIndexUpdate
-    GlobalSecondaryIndexUpdate (..),
-    mkGlobalSecondaryIndexUpdate,
-    gsiuCreate,
-    gsiuDelete,
-    gsiuUpdate,
-
-    -- ** GlobalTable
-    GlobalTable (..),
-    mkGlobalTable,
-    gtGlobalTableName,
-    gtReplicationGroup,
-
-    -- ** GlobalTableDescription
-    GlobalTableDescription (..),
-    mkGlobalTableDescription,
-    gtdGlobalTableStatus,
-    gtdGlobalTableName,
-    gtdGlobalTableARN,
-    gtdCreationDateTime,
-    gtdReplicationGroup,
-
-    -- ** GlobalTableGlobalSecondaryIndexSettingsUpdate
-    GlobalTableGlobalSecondaryIndexSettingsUpdate (..),
-    mkGlobalTableGlobalSecondaryIndexSettingsUpdate,
-    gtgsisuProvisionedWriteCapacityUnits,
-    gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
-    gtgsisuIndexName,
-
-    -- ** ItemCollectionMetrics
-    ItemCollectionMetrics (..),
-    mkItemCollectionMetrics,
-    icmItemCollectionKey,
-    icmSizeEstimateRangeGB,
-
-    -- ** ItemResponse
-    ItemResponse (..),
-    mkItemResponse,
-    iItem,
-
-    -- ** KeySchemaElement
-    KeySchemaElement (..),
-    mkKeySchemaElement,
-    kseKeyType,
-    kseAttributeName,
-
-    -- ** KeysAndAttributes
-    KeysAndAttributes (..),
-    mkKeysAndAttributes,
-    kaaProjectionExpression,
-    kaaAttributesToGet,
-    kaaExpressionAttributeNames,
-    kaaConsistentRead,
-    kaaKeys,
-
-    -- ** KinesisDataStreamDestination
-    KinesisDataStreamDestination (..),
-    mkKinesisDataStreamDestination,
-    kdsdDestinationStatus,
-    kdsdStreamARN,
-    kdsdDestinationStatusDescription,
-
-    -- ** KinesisStreamingDestinationInput
-    KinesisStreamingDestinationInput (..),
-    mkKinesisStreamingDestinationInput,
-    ksdiStreamARN,
-    ksdiTableName,
+    -- ** ReplicaStatus
+    ReplicaStatus (..),
 
     -- ** KinesisStreamingDestinationOutput
     KinesisStreamingDestinationOutput (..),
     mkKinesisStreamingDestinationOutput,
     ksdoDestinationStatus,
-    ksdoStreamARN,
+    ksdoStreamArn,
     ksdoTableName,
-
-    -- ** LocalSecondaryIndex
-    LocalSecondaryIndex (..),
-    mkLocalSecondaryIndex,
-    lsiKeySchema,
-    lsiProjection,
-    lsiIndexName,
-
-    -- ** LocalSecondaryIndexDescription
-    LocalSecondaryIndexDescription (..),
-    mkLocalSecondaryIndexDescription,
-    lsidIndexSizeBytes,
-    lsidIndexARN,
-    lsidKeySchema,
-    lsidProjection,
-    lsidItemCount,
-    lsidIndexName,
 
     -- ** LocalSecondaryIndexInfo
     LocalSecondaryIndexInfo (..),
     mkLocalSecondaryIndexInfo,
+    lsiiIndexName,
     lsiiKeySchema,
     lsiiProjection,
-    lsiiIndexName,
 
-    -- ** ParameterizedStatement
-    ParameterizedStatement (..),
-    mkParameterizedStatement,
-    psStatement,
-    psParameters,
+    -- ** S3BucketOwner
+    S3BucketOwner (..),
 
-    -- ** PointInTimeRecoveryDescription
-    PointInTimeRecoveryDescription (..),
-    mkPointInTimeRecoveryDescription,
-    pitrdPointInTimeRecoveryStatus,
-    pitrdEarliestRestorableDateTime,
-    pitrdLatestRestorableDateTime,
+    -- ** ProjectionExpression
+    ProjectionExpression (..),
 
-    -- ** PointInTimeRecoverySpecification
-    PointInTimeRecoverySpecification (..),
-    mkPointInTimeRecoverySpecification,
-    pitrsPointInTimeRecoveryEnabled,
+    -- ** KeyType
+    KeyType (..),
 
-    -- ** Projection
-    Projection (..),
-    mkProjection,
-    pProjectionType,
-    pNonKeyAttributes,
+    -- ** ExportFormat
+    ExportFormat (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+    mkAttributeValue,
+    avB,
+    avBOOL,
+    avBS,
+    avL,
+    avM,
+    avN,
+    avNS,
+    avNULL,
+    avS,
+    avSS,
+
+    -- ** RegionName
+    RegionName (..),
+
+    -- ** TableAutoScalingDescription
+    TableAutoScalingDescription (..),
+    mkTableAutoScalingDescription,
+    tasdReplicas,
+    tasdTableName,
+    tasdTableStatus,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** ReplicaStatusPercentProgress
+    ReplicaStatusPercentProgress (..),
+
+    -- ** StringAttributeValue
+    StringAttributeValue (..),
+
+    -- ** BatchStatementResponse
+    BatchStatementResponse (..),
+    mkBatchStatementResponse,
+    bsrError,
+    bsrItem,
+    bsrTableName,
+
+    -- ** ReplicaStatusDescription
+    ReplicaStatusDescription (..),
+
+    -- ** ExportDescription
+    ExportDescription (..),
+    mkExportDescription,
+    edBilledSizeBytes,
+    edClientToken,
+    edEndTime,
+    edExportArn,
+    edExportFormat,
+    edExportManifest,
+    edExportStatus,
+    edExportTime,
+    edFailureCode,
+    edFailureMessage,
+    edItemCount,
+    edS3Bucket,
+    edS3BucketOwner,
+    edS3Prefix,
+    edS3SseAlgorithm,
+    edS3SseKmsKeyId,
+    edStartTime,
+    edTableArn,
+    edTableId,
+
+    -- ** CreateReplicaAction
+    CreateReplicaAction (..),
+    mkCreateReplicaAction,
+    craRegionName,
+
+    -- ** IndexStatus
+    IndexStatus (..),
+
+    -- ** S3SseKmsKeyId
+    S3SseKmsKeyId (..),
 
     -- ** ProvisionedThroughput
     ProvisionedThroughput (..),
@@ -739,136 +458,8 @@ module Network.AWS.DynamoDB
     ptReadCapacityUnits,
     ptWriteCapacityUnits,
 
-    -- ** ProvisionedThroughputDescription
-    ProvisionedThroughputDescription (..),
-    mkProvisionedThroughputDescription,
-    ptdReadCapacityUnits,
-    ptdLastDecreaseDateTime,
-    ptdWriteCapacityUnits,
-    ptdNumberOfDecreasesToday,
-    ptdLastIncreaseDateTime,
-
-    -- ** ProvisionedThroughputOverride
-    ProvisionedThroughputOverride (..),
-    mkProvisionedThroughputOverride,
-    ptoReadCapacityUnits,
-
-    -- ** Put
-    Put (..),
-    mkPut,
-    pExpressionAttributeNames,
-    pExpressionAttributeValues,
-    pReturnValuesOnConditionCheckFailure,
-    pConditionExpression,
-    pItem,
-    pTableName,
-
-    -- ** PutRequest
-    PutRequest (..),
-    mkPutRequest,
-    prItem,
-
-    -- ** Replica
-    Replica (..),
-    mkReplica,
-    rRegionName,
-
-    -- ** ReplicaAutoScalingDescription
-    ReplicaAutoScalingDescription (..),
-    mkReplicaAutoScalingDescription,
-    rasdReplicaStatus,
-    rasdRegionName,
-    rasdGlobalSecondaryIndexes,
-    rasdReplicaProvisionedWriteCapacityAutoScalingSettings,
-    rasdReplicaProvisionedReadCapacityAutoScalingSettings,
-
-    -- ** ReplicaAutoScalingUpdate
-    ReplicaAutoScalingUpdate (..),
-    mkReplicaAutoScalingUpdate,
-    rasuRegionName,
-    rasuReplicaProvisionedReadCapacityAutoScalingUpdate,
-    rasuReplicaGlobalSecondaryIndexUpdates,
-
-    -- ** ReplicaDescription
-    ReplicaDescription (..),
-    mkReplicaDescription,
-    rdReplicaStatus,
-    rdRegionName,
-    rdReplicaStatusPercentProgress,
-    rdReplicaStatusDescription,
-    rdReplicaInaccessibleDateTime,
-    rdKMSMasterKeyId,
-    rdProvisionedThroughputOverride,
-    rdGlobalSecondaryIndexes,
-
-    -- ** ReplicaGlobalSecondaryIndex
-    ReplicaGlobalSecondaryIndex (..),
-    mkReplicaGlobalSecondaryIndex,
-    rgsiProvisionedThroughputOverride,
-    rgsiIndexName,
-
-    -- ** ReplicaGlobalSecondaryIndexAutoScalingDescription
-    ReplicaGlobalSecondaryIndexAutoScalingDescription (..),
-    mkReplicaGlobalSecondaryIndexAutoScalingDescription,
-    rgsiasdIndexStatus,
-    rgsiasdProvisionedWriteCapacityAutoScalingSettings,
-    rgsiasdProvisionedReadCapacityAutoScalingSettings,
-    rgsiasdIndexName,
-
-    -- ** ReplicaGlobalSecondaryIndexAutoScalingUpdate
-    ReplicaGlobalSecondaryIndexAutoScalingUpdate (..),
-    mkReplicaGlobalSecondaryIndexAutoScalingUpdate,
-    rgsiasuProvisionedReadCapacityAutoScalingUpdate,
-    rgsiasuIndexName,
-
-    -- ** ReplicaGlobalSecondaryIndexDescription
-    ReplicaGlobalSecondaryIndexDescription (..),
-    mkReplicaGlobalSecondaryIndexDescription,
-    rgsidProvisionedThroughputOverride,
-    rgsidIndexName,
-
-    -- ** ReplicaGlobalSecondaryIndexSettingsDescription
-    ReplicaGlobalSecondaryIndexSettingsDescription (..),
-    mkReplicaGlobalSecondaryIndexSettingsDescription,
-    rgsisdIndexStatus,
-    rgsisdProvisionedReadCapacityUnits,
-    rgsisdProvisionedWriteCapacityUnits,
-    rgsisdProvisionedWriteCapacityAutoScalingSettings,
-    rgsisdProvisionedReadCapacityAutoScalingSettings,
-    rgsisdIndexName,
-
-    -- ** ReplicaGlobalSecondaryIndexSettingsUpdate
-    ReplicaGlobalSecondaryIndexSettingsUpdate (..),
-    mkReplicaGlobalSecondaryIndexSettingsUpdate,
-    rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate,
-    rgsisuProvisionedReadCapacityUnits,
-    rgsisuIndexName,
-
-    -- ** ReplicaSettingsDescription
-    ReplicaSettingsDescription (..),
-    mkReplicaSettingsDescription,
-    rsdReplicaStatus,
-    rsdRegionName,
-    rsdReplicaProvisionedReadCapacityUnits,
-    rsdReplicaProvisionedWriteCapacityUnits,
-    rsdReplicaBillingModeSummary,
-    rsdReplicaGlobalSecondaryIndexSettings,
-    rsdReplicaProvisionedWriteCapacityAutoScalingSettings,
-    rsdReplicaProvisionedReadCapacityAutoScalingSettings,
-
-    -- ** ReplicaSettingsUpdate
-    ReplicaSettingsUpdate (..),
-    mkReplicaSettingsUpdate,
-    rsuRegionName,
-    rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
-    rsuReplicaProvisionedReadCapacityUnits,
-    rsuReplicaGlobalSecondaryIndexSettingsUpdate,
-
-    -- ** ReplicaUpdate
-    ReplicaUpdate (..),
-    mkReplicaUpdate,
-    ruCreate,
-    ruDelete,
+    -- ** ClientToken
+    ClientToken (..),
 
     -- ** ReplicationGroupUpdate
     ReplicationGroupUpdate (..),
@@ -877,21 +468,84 @@ module Network.AWS.DynamoDB
     rguDelete,
     rguUpdate,
 
-    -- ** RestoreSummary
-    RestoreSummary (..),
-    mkRestoreSummary,
-    rsSourceTableARN,
-    rsSourceBackupARN,
-    rsRestoreInProgress,
-    rsRestoreDateTime,
+    -- ** TableStatus
+    TableStatus (..),
 
-    -- ** SSEDescription
-    SSEDescription (..),
-    mkSSEDescription,
-    ssedStatus,
-    ssedInaccessibleEncryptionDateTime,
-    ssedSSEType,
-    ssedKMSMasterKeyARN,
+    -- ** ProjectionType
+    ProjectionType (..),
+
+    -- ** String
+    String (..),
+
+    -- ** GlobalTable
+    GlobalTable (..),
+    mkGlobalTable,
+    gtGlobalTableName,
+    gtReplicationGroup,
+
+    -- ** FailureCode
+    FailureCode (..),
+
+    -- ** AutoScalingPolicyName
+    AutoScalingPolicyName (..),
+
+    -- ** KeySchemaAttributeName
+    KeySchemaAttributeName (..),
+
+    -- ** ContributorInsightsAction
+    ContributorInsightsAction (..),
+
+    -- ** ExportStatus
+    ExportStatus (..),
+
+    -- ** ExportSummary
+    ExportSummary (..),
+    mkExportSummary,
+    esExportArn,
+    esExportStatus,
+
+    -- ** Replica
+    Replica (..),
+    mkReplica,
+    rRegionName,
+
+    -- ** ContributorInsightsRule
+    ContributorInsightsRule (..),
+
+    -- ** BatchStatementRequest
+    BatchStatementRequest (..),
+    mkBatchStatementRequest,
+    bsrStatement,
+    bsrConsistentRead,
+    bsrParameters,
+
+    -- ** DestinationStatus
+    DestinationStatus (..),
+
+    -- ** TableDescription
+    TableDescription (..),
+    mkTableDescription,
+    tdArchivalSummary,
+    tdAttributeDefinitions,
+    tdBillingModeSummary,
+    tdCreationDateTime,
+    tdGlobalSecondaryIndexes,
+    tdGlobalTableVersion,
+    tdItemCount,
+    tdKeySchema,
+    tdLatestStreamArn,
+    tdLatestStreamLabel,
+    tdLocalSecondaryIndexes,
+    tdProvisionedThroughput,
+    tdReplicas,
+    tdRestoreSummary,
+    tdSSEDescription,
+    tdStreamSpecification,
+    tdTableArn,
+    tdTableId,
+    tdTableName,
+    tdTableSizeBytes,
+    tdTableStatus,
 
     -- ** SSESpecification
     SSESpecification (..),
@@ -900,77 +554,381 @@ module Network.AWS.DynamoDB
     ssesKMSMasterKeyId,
     ssesSSEType,
 
+    -- ** KeysAndAttributes
+    KeysAndAttributes (..),
+    mkKeysAndAttributes,
+    kaaKeys,
+    kaaAttributesToGet,
+    kaaConsistentRead,
+    kaaExpressionAttributeNames,
+    kaaProjectionExpression,
+
+    -- ** PointInTimeRecoverySpecification
+    PointInTimeRecoverySpecification (..),
+    mkPointInTimeRecoverySpecification,
+    pitrsPointInTimeRecoveryEnabled,
+
+    -- ** UpdateExpression
+    UpdateExpression (..),
+
+    -- ** FailureMessage
+    FailureMessage (..),
+
+    -- ** TableArn
+    TableArn (..),
+
+    -- ** KMSMasterKeyId
+    KMSMasterKeyId (..),
+
+    -- ** ReplicaGlobalSecondaryIndexSettingsUpdate
+    ReplicaGlobalSecondaryIndexSettingsUpdate (..),
+    mkReplicaGlobalSecondaryIndexSettingsUpdate,
+    rgsisuIndexName,
+    rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate,
+    rgsisuProvisionedReadCapacityUnits,
+
+    -- ** AutoScalingPolicyUpdate
+    AutoScalingPolicyUpdate (..),
+    mkAutoScalingPolicyUpdate,
+    aspuTargetTrackingScalingPolicyConfiguration,
+    aspuPolicyName,
+
+    -- ** ExpressionAttributeValueVariable
+    ExpressionAttributeValueVariable (..),
+
+    -- ** ArchivalReason
+    ArchivalReason (..),
+
+    -- ** ItemResponse
+    ItemResponse (..),
+    mkItemResponse,
+    irItem,
+
+    -- ** ReturnConsumedCapacity
+    ReturnConsumedCapacity (..),
+
+    -- ** AutoScalingSettingsUpdate
+    AutoScalingSettingsUpdate (..),
+    mkAutoScalingSettingsUpdate,
+    assuAutoScalingDisabled,
+    assuAutoScalingRoleArn,
+    assuMaximumUnits,
+    assuMinimumUnits,
+    assuScalingPolicyUpdate,
+
+    -- ** ReturnValuesOnConditionCheckFailure
+    ReturnValuesOnConditionCheckFailure (..),
+
+    -- ** ProvisionedThroughputOverride
+    ProvisionedThroughputOverride (..),
+    mkProvisionedThroughputOverride,
+    ptoReadCapacityUnits,
+
+    -- ** BackupTypeFilter
+    BackupTypeFilter (..),
+
+    -- ** Get
+    Get (..),
+    mkGet,
+    gKey,
+    gTableName,
+    gExpressionAttributeNames,
+    gProjectionExpression,
+
+    -- ** ParameterizedStatement
+    ParameterizedStatement (..),
+    mkParameterizedStatement,
+    psStatement,
+    psParameters,
+
+    -- ** ReturnItemCollectionMetrics
+    ReturnItemCollectionMetrics (..),
+
+    -- ** AttributeValueUpdate
+    AttributeValueUpdate (..),
+    mkAttributeValueUpdate,
+    avuAction,
+    avuValue,
+
+    -- ** ContinuousBackupsDescription
+    ContinuousBackupsDescription (..),
+    mkContinuousBackupsDescription,
+    cbdContinuousBackupsStatus,
+    cbdPointInTimeRecoveryDescription,
+
     -- ** SourceTableDetails
     SourceTableDetails (..),
     mkSourceTableDetails,
-    stdTableSizeBytes,
-    stdProvisionedThroughput,
-    stdTableARN,
+    stdTableName,
+    stdTableId,
     stdKeySchema,
     stdTableCreationDateTime,
+    stdProvisionedThroughput,
     stdBillingMode,
-    stdTableId,
     stdItemCount,
-    stdTableName,
+    stdTableArn,
+    stdTableSizeBytes,
+
+    -- ** ExpectedAttributeValue
+    ExpectedAttributeValue (..),
+    mkExpectedAttributeValue,
+    eavAttributeValueList,
+    eavComparisonOperator,
+    eavExists,
+    eavValue,
+
+    -- ** SSEStatus
+    SSEStatus (..),
+
+    -- ** BackupName
+    BackupName (..),
+
+    -- ** StreamViewType
+    StreamViewType (..),
+
+    -- ** ConditionExpression
+    ConditionExpression (..),
+
+    -- ** GlobalTableStatus
+    GlobalTableStatus (..),
+
+    -- ** StreamArn
+    StreamArn (..),
+
+    -- ** AttributeDefinition
+    AttributeDefinition (..),
+    mkAttributeDefinition,
+    adAttributeName,
+    adAttributeType,
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** ExportArn
+    ExportArn (..),
+
+    -- ** CreateReplicationGroupMemberAction
+    CreateReplicationGroupMemberAction (..),
+    mkCreateReplicationGroupMemberAction,
+    crgmaRegionName,
+    crgmaGlobalSecondaryIndexes,
+    crgmaKMSMasterKeyId,
+    crgmaProvisionedThroughputOverride,
+
+    -- ** ReturnValue
+    ReturnValue (..),
+
+    -- ** ReplicaGlobalSecondaryIndexDescription
+    ReplicaGlobalSecondaryIndexDescription (..),
+    mkReplicaGlobalSecondaryIndexDescription,
+    rgsidIndexName,
+    rgsidProvisionedThroughputOverride,
+
+    -- ** LocalSecondaryIndex
+    LocalSecondaryIndex (..),
+    mkLocalSecondaryIndex,
+    lsiIndexName,
+    lsiKeySchema,
+    lsiProjection,
+
+    -- ** PointInTimeRecoveryStatus
+    PointInTimeRecoveryStatus (..),
+
+    -- ** GlobalSecondaryIndexDescription
+    GlobalSecondaryIndexDescription (..),
+    mkGlobalSecondaryIndexDescription,
+    gsidBackfilling,
+    gsidIndexArn,
+    gsidIndexName,
+    gsidIndexSizeBytes,
+    gsidIndexStatus,
+    gsidItemCount,
+    gsidKeySchema,
+    gsidProjection,
+    gsidProvisionedThroughput,
+
+    -- ** ItemCollectionMetrics
+    ItemCollectionMetrics (..),
+    mkItemCollectionMetrics,
+    icmItemCollectionKey,
+    icmSizeEstimateRangeGB,
+
+    -- ** Capacity
+    Capacity (..),
+    mkCapacity,
+    cCapacityUnits,
+    cReadCapacityUnits,
+    cWriteCapacityUnits,
+
+    -- ** ReplicaSettingsUpdate
+    ReplicaSettingsUpdate (..),
+    mkReplicaSettingsUpdate,
+    rsuRegionName,
+    rsuReplicaGlobalSecondaryIndexSettingsUpdate,
+    rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+    rsuReplicaProvisionedReadCapacityUnits,
+
+    -- ** NumberAttributeValue
+    NumberAttributeValue (..),
+
+    -- ** ConsumedCapacity
+    ConsumedCapacity (..),
+    mkConsumedCapacity,
+    ccfCapacityUnits,
+    ccfGlobalSecondaryIndexes,
+    ccfLocalSecondaryIndexes,
+    ccfReadCapacityUnits,
+    ccfTable,
+    ccfTableName,
+    ccfWriteCapacityUnits,
+
+    -- ** ReplicaGlobalSecondaryIndexAutoScalingUpdate
+    ReplicaGlobalSecondaryIndexAutoScalingUpdate (..),
+    mkReplicaGlobalSecondaryIndexAutoScalingUpdate,
+    rgsiasuIndexName,
+    rgsiasuProvisionedReadCapacityAutoScalingUpdate,
+
+    -- ** GlobalSecondaryIndexAutoScalingUpdate
+    GlobalSecondaryIndexAutoScalingUpdate (..),
+    mkGlobalSecondaryIndexAutoScalingUpdate,
+    gsiasuIndexName,
+    gsiasuProvisionedWriteCapacityAutoScalingUpdate,
+
+    -- ** ContinuousBackupsStatus
+    ContinuousBackupsStatus (..),
+
+    -- ** BillingModeSummary
+    BillingModeSummary (..),
+    mkBillingModeSummary,
+    bmsBillingMode,
+    bmsLastUpdateToPayPerRequestDateTime,
+
+    -- ** AutoScalingPolicyDescription
+    AutoScalingPolicyDescription (..),
+    mkAutoScalingPolicyDescription,
+    aspdPolicyName,
+    aspdTargetTrackingScalingPolicyConfiguration,
+
+    -- ** ReplicaGlobalSecondaryIndexSettingsDescription
+    ReplicaGlobalSecondaryIndexSettingsDescription (..),
+    mkReplicaGlobalSecondaryIndexSettingsDescription,
+    rgsisdIndexName,
+    rgsisdIndexStatus,
+    rgsisdProvisionedReadCapacityAutoScalingSettings,
+    rgsisdProvisionedReadCapacityUnits,
+    rgsisdProvisionedWriteCapacityAutoScalingSettings,
+    rgsisdProvisionedWriteCapacityUnits,
+
+    -- ** ReplicaGlobalSecondaryIndex
+    ReplicaGlobalSecondaryIndex (..),
+    mkReplicaGlobalSecondaryIndex,
+    rgsiIndexName,
+    rgsiProvisionedThroughputOverride,
+
+    -- ** ExpressionAttributeNameVariable
+    ExpressionAttributeNameVariable (..),
+
+    -- ** DeleteReplicaAction
+    DeleteReplicaAction (..),
+    mkDeleteReplicaAction,
+    draRegionName,
+
+    -- ** BatchStatementErrorCodeEnum
+    BatchStatementErrorCodeEnum (..),
+
+    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    AutoScalingTargetTrackingScalingPolicyConfigurationDescription (..),
+    mkAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+    asttspcdTargetValue,
+    asttspcdDisableScaleIn,
+    asttspcdScaleInCooldown,
+    asttspcdScaleOutCooldown,
+
+    -- ** TransactGetItem
+    TransactGetItem (..),
+    mkTransactGetItem,
+    tgiGet,
+
+    -- ** GlobalSecondaryIndex
+    GlobalSecondaryIndex (..),
+    mkGlobalSecondaryIndex,
+    gsiIndexName,
+    gsiKeySchema,
+    gsiProjection,
+    gsiProvisionedThroughput,
+
+    -- ** LocalSecondaryIndexDescription
+    LocalSecondaryIndexDescription (..),
+    mkLocalSecondaryIndexDescription,
+    lsidIndexArn,
+    lsidIndexName,
+    lsidIndexSizeBytes,
+    lsidItemCount,
+    lsidKeySchema,
+    lsidProjection,
+
+    -- ** FailureException
+    FailureException (..),
+    mkFailureException,
+    feExceptionDescription,
+    feExceptionName,
+
+    -- ** AttributeAction
+    AttributeAction (..),
+
+    -- ** BackupStatus
+    BackupStatus (..),
+
+    -- ** S3SseAlgorithm
+    S3SseAlgorithm (..),
+
+    -- ** ContributorInsightsSummary
+    ContributorInsightsSummary (..),
+    mkContributorInsightsSummary,
+    cisContributorInsightsStatus,
+    cisIndexName,
+    cisTableName,
+
+    -- ** ScalarAttributeType
+    ScalarAttributeType (..),
+
+    -- ** ContributorInsightsStatus
+    ContributorInsightsStatus (..),
+
+    -- ** ResourceArnString
+    ResourceArnString (..),
+
+    -- ** BackupSummary
+    BackupSummary (..),
+    mkBackupSummary,
+    bsBackupArn,
+    bsBackupCreationDateTime,
+    bsBackupExpiryDateTime,
+    bsBackupName,
+    bsBackupSizeBytes,
+    bsBackupStatus,
+    bsBackupType,
+    bsTableArn,
+    bsTableId,
+    bsTableName,
 
     -- ** SourceTableFeatureDetails
     SourceTableFeatureDetails (..),
     mkSourceTableFeatureDetails,
-    stfdStreamDescription,
     stfdGlobalSecondaryIndexes,
     stfdLocalSecondaryIndexes,
     stfdSSEDescription,
+    stfdStreamDescription,
     stfdTimeToLiveDescription,
 
-    -- ** StreamSpecification
-    StreamSpecification (..),
-    mkStreamSpecification,
-    ssStreamViewType,
-    ssStreamEnabled,
+    -- ** SSEType
+    SSEType (..),
 
-    -- ** TableAutoScalingDescription
-    TableAutoScalingDescription (..),
-    mkTableAutoScalingDescription,
-    tasdTableStatus,
-    tasdReplicas,
-    tasdTableName,
-
-    -- ** TableDescription
-    TableDescription (..),
-    mkTableDescription,
-    tdRestoreSummary,
-    tdGlobalTableVersion,
-    tdTableSizeBytes,
-    tdAttributeDefinitions,
-    tdLatestStreamARN,
-    tdProvisionedThroughput,
-    tdTableStatus,
-    tdTableARN,
-    tdKeySchema,
-    tdGlobalSecondaryIndexes,
-    tdLatestStreamLabel,
-    tdBillingModeSummary,
-    tdLocalSecondaryIndexes,
-    tdCreationDateTime,
-    tdSSEDescription,
-    tdTableId,
-    tdReplicas,
-    tdItemCount,
-    tdArchivalSummary,
-    tdTableName,
-    tdStreamSpecification,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TimeToLiveDescription
-    TimeToLiveDescription (..),
-    mkTimeToLiveDescription,
-    ttldTimeToLiveStatus,
-    ttldAttributeName,
+    -- ** Projection
+    Projection (..),
+    mkProjection,
+    pNonKeyAttributes,
+    pProjectionType,
 
     -- ** TimeToLiveSpecification
     TimeToLiveSpecification (..),
@@ -978,59 +936,374 @@ module Network.AWS.DynamoDB
     ttlsEnabled,
     ttlsAttributeName,
 
-    -- ** TransactGetItem
-    TransactGetItem (..),
-    mkTransactGetItem,
-    tgiGet,
+    -- ** CreateGlobalSecondaryIndexAction
+    CreateGlobalSecondaryIndexAction (..),
+    mkCreateGlobalSecondaryIndexAction,
+    cgsiaIndexName,
+    cgsiaKeySchema,
+    cgsiaProjection,
+    cgsiaProvisionedThroughput,
 
-    -- ** TransactWriteItem
-    TransactWriteItem (..),
-    mkTransactWriteItem,
-    twiConditionCheck,
-    twiPut,
-    twiDelete,
-    twiUpdate,
+    -- ** ConditionCheck
+    ConditionCheck (..),
+    mkConditionCheck,
+    ccKey,
+    ccTableName,
+    ccConditionExpression,
+    ccExpressionAttributeNames,
+    ccExpressionAttributeValues,
+    ccReturnValuesOnConditionCheckFailure,
 
-    -- ** Update
-    Update (..),
-    mkUpdate,
-    uExpressionAttributeNames,
-    uUpdateExpression,
-    uExpressionAttributeValues,
-    uReturnValuesOnConditionCheckFailure,
-    uConditionExpression,
-    uKey,
-    uTableName,
+    -- ** GlobalTableArnString
+    GlobalTableArnString (..),
+
+    -- ** KinesisDataStreamDestination
+    KinesisDataStreamDestination (..),
+    mkKinesisDataStreamDestination,
+    kdsdDestinationStatus,
+    kdsdDestinationStatusDescription,
+    kdsdStreamArn,
+
+    -- ** S3Prefix
+    S3Prefix (..),
+
+    -- ** ExportNextToken
+    ExportNextToken (..),
+
+    -- ** Select
+    Select (..),
+
+    -- ** KeySchemaElement
+    KeySchemaElement (..),
+    mkKeySchemaElement,
+    kseAttributeName,
+    kseKeyType,
+
+    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (..),
+    mkAutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+    asttspcuTargetValue,
+    asttspcuDisableScaleIn,
+    asttspcuScaleInCooldown,
+    asttspcuScaleOutCooldown,
+
+    -- ** BillingMode
+    BillingMode (..),
+
+    -- ** DeleteGlobalSecondaryIndexAction
+    DeleteGlobalSecondaryIndexAction (..),
+    mkDeleteGlobalSecondaryIndexAction,
+    dgsiaIndexName,
+
+    -- ** DeleteRequest
+    DeleteRequest (..),
+    mkDeleteRequest,
+    drKey,
 
     -- ** UpdateGlobalSecondaryIndexAction
     UpdateGlobalSecondaryIndexAction (..),
     mkUpdateGlobalSecondaryIndexAction,
-    ugsiaProvisionedThroughput,
     ugsiaIndexName,
+    ugsiaProvisionedThroughput,
 
-    -- ** UpdateReplicationGroupMemberAction
-    UpdateReplicationGroupMemberAction (..),
-    mkUpdateReplicationGroupMemberAction,
-    urgmaRegionName,
-    urgmaKMSMasterKeyId,
-    urgmaProvisionedThroughputOverride,
-    urgmaGlobalSecondaryIndexes,
+    -- ** PutRequest
+    PutRequest (..),
+    mkPutRequest,
+    prItem,
 
-    -- ** WriteRequest
-    WriteRequest (..),
-    mkWriteRequest,
-    wrDeleteRequest,
-    wrPutRequest,
+    -- ** ExceptionName
+    ExceptionName (..),
+
+    -- ** TagKeyString
+    TagKeyString (..),
+
+    -- ** BackupDescription
+    BackupDescription (..),
+    mkBackupDescription,
+    bdBackupDetails,
+    bdSourceTableDetails,
+    bdSourceTableFeatureDetails,
+
+    -- ** Condition
+    Condition (..),
+    mkCondition,
+    cComparisonOperator,
+    cAttributeValueList,
+
+    -- ** ReplicaAutoScalingUpdate
+    ReplicaAutoScalingUpdate (..),
+    mkReplicaAutoScalingUpdate,
+    rasuRegionName,
+    rasuReplicaGlobalSecondaryIndexUpdates,
+    rasuReplicaProvisionedReadCapacityAutoScalingUpdate,
+
+    -- ** TimeToLiveAttributeName
+    TimeToLiveAttributeName (..),
+
+    -- ** ReplicaSettingsDescription
+    ReplicaSettingsDescription (..),
+    mkReplicaSettingsDescription,
+    rsdRegionName,
+    rsdReplicaBillingModeSummary,
+    rsdReplicaGlobalSecondaryIndexSettings,
+    rsdReplicaProvisionedReadCapacityAutoScalingSettings,
+    rsdReplicaProvisionedReadCapacityUnits,
+    rsdReplicaProvisionedWriteCapacityAutoScalingSettings,
+    rsdReplicaProvisionedWriteCapacityUnits,
+    rsdReplicaStatus,
+
+    -- ** GlobalTableDescription
+    GlobalTableDescription (..),
+    mkGlobalTableDescription,
+    gtdCreationDateTime,
+    gtdGlobalTableArn,
+    gtdGlobalTableName,
+    gtdGlobalTableStatus,
+    gtdReplicationGroup,
+
+    -- ** BackupArn
+    BackupArn (..),
+
+    -- ** KMSMasterKeyArn
+    KMSMasterKeyArn (..),
+
+    -- ** AutoScalingRoleArn
+    AutoScalingRoleArn (..),
+
+    -- ** SSEDescription
+    SSEDescription (..),
+    mkSSEDescription,
+    ssedInaccessibleEncryptionDateTime,
+    ssedKMSMasterKeyArn,
+    ssedSSEType,
+    ssedStatus,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eAddress,
+    eCachePeriodInMinutes,
+
+    -- ** ReplicaGlobalSecondaryIndexAutoScalingDescription
+    ReplicaGlobalSecondaryIndexAutoScalingDescription (..),
+    mkReplicaGlobalSecondaryIndexAutoScalingDescription,
+    rgsiasdIndexName,
+    rgsiasdIndexStatus,
+    rgsiasdProvisionedReadCapacityAutoScalingSettings,
+    rgsiasdProvisionedWriteCapacityAutoScalingSettings,
+
+    -- ** PointInTimeRecoveryDescription
+    PointInTimeRecoveryDescription (..),
+    mkPointInTimeRecoveryDescription,
+    pitrdEarliestRestorableDateTime,
+    pitrdLatestRestorableDateTime,
+    pitrdPointInTimeRecoveryStatus,
+
+    -- ** ExportManifest
+    ExportManifest (..),
+
+    -- ** NonKeyAttributeName
+    NonKeyAttributeName (..),
+
+    -- ** TableId
+    TableId (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** ConditionalOperator
+    ConditionalOperator (..),
+
+    -- ** GlobalSecondaryIndexUpdate
+    GlobalSecondaryIndexUpdate (..),
+    mkGlobalSecondaryIndexUpdate,
+    gsiuCreate,
+    gsiuDelete,
+    gsiuUpdate,
+
+    -- ** GlobalTableGlobalSecondaryIndexSettingsUpdate
+    GlobalTableGlobalSecondaryIndexSettingsUpdate (..),
+    mkGlobalTableGlobalSecondaryIndexSettingsUpdate,
+    gtgsisuIndexName,
+    gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
+    gtgsisuProvisionedWriteCapacityUnits,
+
+    -- ** TimeToLiveDescription
+    TimeToLiveDescription (..),
+    mkTimeToLiveDescription,
+    ttldAttributeName,
+    ttldTimeToLiveStatus,
+
+    -- ** ArchivalSummary
+    ArchivalSummary (..),
+    mkArchivalSummary,
+    asArchivalBackupArn,
+    asArchivalDateTime,
+    asArchivalReason,
+
+    -- ** BackupType
+    BackupType (..),
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** KinesisStreamingDestinationInput
+    KinesisStreamingDestinationInput (..),
+    mkKinesisStreamingDestinationInput,
+    ksdiTableName,
+    ksdiStreamArn,
+
+    -- ** ReplicaDescription
+    ReplicaDescription (..),
+    mkReplicaDescription,
+    rdGlobalSecondaryIndexes,
+    rdKMSMasterKeyId,
+    rdProvisionedThroughputOverride,
+    rdRegionName,
+    rdReplicaInaccessibleDateTime,
+    rdReplicaStatus,
+    rdReplicaStatusDescription,
+    rdReplicaStatusPercentProgress,
+
+    -- ** ReplicaUpdate
+    ReplicaUpdate (..),
+    mkReplicaUpdate,
+    ruCreate,
+    ruDelete,
+
+    -- ** TableName
+    TableName (..),
+
+    -- ** Put
+    Put (..),
+    mkPut,
+    pItem,
+    pTableName,
+    pConditionExpression,
+    pExpressionAttributeNames,
+    pExpressionAttributeValues,
+    pReturnValuesOnConditionCheckFailure,
+
+    -- ** ExceptionDescription
+    ExceptionDescription (..),
+
+    -- ** BatchStatementError
+    BatchStatementError (..),
+    mkBatchStatementError,
+    bseCode,
+    bseMessage,
+
+    -- ** GlobalSecondaryIndexInfo
+    GlobalSecondaryIndexInfo (..),
+    mkGlobalSecondaryIndexInfo,
+    gsiiIndexName,
+    gsiiKeySchema,
+    gsiiProjection,
+    gsiiProvisionedThroughput,
+
+    -- ** Delete
+    Delete (..),
+    mkDelete,
+    dKey,
+    dTableName,
+    dConditionExpression,
+    dExpressionAttributeNames,
+    dExpressionAttributeValues,
+    dReturnValuesOnConditionCheckFailure,
+
+    -- ** Update
+    Update (..),
+    mkUpdate,
+    uKey,
+    uUpdateExpression,
+    uTableName,
+    uConditionExpression,
+    uExpressionAttributeNames,
+    uExpressionAttributeValues,
+    uReturnValuesOnConditionCheckFailure,
+
+    -- ** StreamSpecification
+    StreamSpecification (..),
+    mkStreamSpecification,
+    ssStreamEnabled,
+    ssStreamViewType,
+
+    -- ** AutoScalingSettingsDescription
+    AutoScalingSettingsDescription (..),
+    mkAutoScalingSettingsDescription,
+    assdAutoScalingDisabled,
+    assdAutoScalingRoleArn,
+    assdMaximumUnits,
+    assdMinimumUnits,
+    assdScalingPolicies,
+
+    -- ** IndexName
+    IndexName (..),
+
+    -- ** FilterExpression
+    FilterExpression (..),
+
+    -- ** KeyConditionExpression
+    KeyConditionExpression (..),
+
+    -- ** Statement
+    Statement (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** SourceBackupArn
+    SourceBackupArn (..),
+
+    -- ** SourceTableArn
+    SourceTableArn (..),
+
+    -- ** GlobalTableName
+    GlobalTableName (..),
+
+    -- ** N
+    N (..),
+
+    -- ** S
+    S (..),
+
+    -- ** LastEvaluatedTableName
+    LastEvaluatedTableName (..),
+
+    -- ** LatestStreamArn
+    LatestStreamArn (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** ExclusiveStartBackupArn
+    ExclusiveStartBackupArn (..),
+
+    -- ** ExclusiveStartGlobalTableName
+    ExclusiveStartGlobalTableName (..),
+
+    -- ** TargetTableName
+    TargetTableName (..),
+
+    -- ** SourceTableName
+    SourceTableName (..),
+
+    -- ** LastEvaluatedBackupArn
+    LastEvaluatedBackupArn (..),
+
+    -- ** LastEvaluatedGlobalTableName
+    LastEvaluatedGlobalTableName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

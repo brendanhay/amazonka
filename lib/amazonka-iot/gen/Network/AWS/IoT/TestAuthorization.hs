@@ -20,178 +20,165 @@ module Network.AWS.IoT.TestAuthorization
     mkTestAuthorization,
 
     -- ** Request lenses
-    taClientId,
-    taPolicyNamesToAdd,
-    taPrincipal,
     taAuthInfos,
+    taClientId,
     taCognitoIdentityPoolId,
+    taPolicyNamesToAdd,
     taPolicyNamesToSkip,
+    taPrincipal,
 
     -- * Destructuring the response
     TestAuthorizationResponse (..),
     mkTestAuthorizationResponse,
 
     -- ** Response lenses
-    tarsAuthResults,
-    tarsResponseStatus,
+    tarrsAuthResults,
+    tarrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTestAuthorization' smart constructor.
 data TestAuthorization = TestAuthorization'
-  { -- | The MQTT client ID.
-    clientId :: Lude.Maybe Lude.Text,
-    -- | When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.
-    policyNamesToAdd :: Lude.Maybe [Lude.Text],
-    -- | The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
-    principal :: Lude.Maybe Lude.Text,
-    -- | A list of authorization info objects. Simulating authorization will create a response for each @authInfo@ object in the list.
-    authInfos :: Lude.NonEmpty AuthInfo,
+  { -- | A list of authorization info objects. Simulating authorization will create a response for each @authInfo@ object in the list.
+    authInfos :: Core.NonEmpty Types.AuthInfo,
+    -- | The MQTT client ID.
+    clientId :: Core.Maybe Types.ClientId,
     -- | The Cognito identity pool ID.
-    cognitoIdentityPoolId :: Lude.Maybe Lude.Text,
+    cognitoIdentityPoolId :: Core.Maybe Types.CognitoIdentityPoolId,
+    -- | When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.
+    policyNamesToAdd :: Core.Maybe [Types.PolicyName],
     -- | When testing custom authorization, the policies specified here are treated as if they are not attached to the principal being authorized.
-    policyNamesToSkip :: Lude.Maybe [Lude.Text]
+    policyNamesToSkip :: Core.Maybe [Types.PolicyName],
+    -- | The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
+    principal :: Core.Maybe Types.Principal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestAuthorization' with the minimum fields required to make a request.
---
--- * 'clientId' - The MQTT client ID.
--- * 'policyNamesToAdd' - When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.
--- * 'principal' - The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
--- * 'authInfos' - A list of authorization info objects. Simulating authorization will create a response for each @authInfo@ object in the list.
--- * 'cognitoIdentityPoolId' - The Cognito identity pool ID.
--- * 'policyNamesToSkip' - When testing custom authorization, the policies specified here are treated as if they are not attached to the principal being authorized.
+-- | Creates a 'TestAuthorization' value with any optional fields omitted.
 mkTestAuthorization ::
   -- | 'authInfos'
-  Lude.NonEmpty AuthInfo ->
+  Core.NonEmpty Types.AuthInfo ->
   TestAuthorization
-mkTestAuthorization pAuthInfos_ =
+mkTestAuthorization authInfos =
   TestAuthorization'
-    { clientId = Lude.Nothing,
-      policyNamesToAdd = Lude.Nothing,
-      principal = Lude.Nothing,
-      authInfos = pAuthInfos_,
-      cognitoIdentityPoolId = Lude.Nothing,
-      policyNamesToSkip = Lude.Nothing
+    { authInfos,
+      clientId = Core.Nothing,
+      cognitoIdentityPoolId = Core.Nothing,
+      policyNamesToAdd = Core.Nothing,
+      policyNamesToSkip = Core.Nothing,
+      principal = Core.Nothing
     }
-
--- | The MQTT client ID.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taClientId :: Lens.Lens' TestAuthorization (Lude.Maybe Lude.Text)
-taClientId = Lens.lens (clientId :: TestAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: TestAuthorization)
-{-# DEPRECATED taClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
--- | When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.
---
--- /Note:/ Consider using 'policyNamesToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taPolicyNamesToAdd :: Lens.Lens' TestAuthorization (Lude.Maybe [Lude.Text])
-taPolicyNamesToAdd = Lens.lens (policyNamesToAdd :: TestAuthorization -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNamesToAdd = a} :: TestAuthorization)
-{-# DEPRECATED taPolicyNamesToAdd "Use generic-lens or generic-optics with 'policyNamesToAdd' instead." #-}
-
--- | The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taPrincipal :: Lens.Lens' TestAuthorization (Lude.Maybe Lude.Text)
-taPrincipal = Lens.lens (principal :: TestAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {principal = a} :: TestAuthorization)
-{-# DEPRECATED taPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 -- | A list of authorization info objects. Simulating authorization will create a response for each @authInfo@ object in the list.
 --
 -- /Note:/ Consider using 'authInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taAuthInfos :: Lens.Lens' TestAuthorization (Lude.NonEmpty AuthInfo)
-taAuthInfos = Lens.lens (authInfos :: TestAuthorization -> Lude.NonEmpty AuthInfo) (\s a -> s {authInfos = a} :: TestAuthorization)
+taAuthInfos :: Lens.Lens' TestAuthorization (Core.NonEmpty Types.AuthInfo)
+taAuthInfos = Lens.field @"authInfos"
 {-# DEPRECATED taAuthInfos "Use generic-lens or generic-optics with 'authInfos' instead." #-}
+
+-- | The MQTT client ID.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taClientId :: Lens.Lens' TestAuthorization (Core.Maybe Types.ClientId)
+taClientId = Lens.field @"clientId"
+{-# DEPRECATED taClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The Cognito identity pool ID.
 --
 -- /Note:/ Consider using 'cognitoIdentityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taCognitoIdentityPoolId :: Lens.Lens' TestAuthorization (Lude.Maybe Lude.Text)
-taCognitoIdentityPoolId = Lens.lens (cognitoIdentityPoolId :: TestAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {cognitoIdentityPoolId = a} :: TestAuthorization)
+taCognitoIdentityPoolId :: Lens.Lens' TestAuthorization (Core.Maybe Types.CognitoIdentityPoolId)
+taCognitoIdentityPoolId = Lens.field @"cognitoIdentityPoolId"
 {-# DEPRECATED taCognitoIdentityPoolId "Use generic-lens or generic-optics with 'cognitoIdentityPoolId' instead." #-}
+
+-- | When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.
+--
+-- /Note:/ Consider using 'policyNamesToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taPolicyNamesToAdd :: Lens.Lens' TestAuthorization (Core.Maybe [Types.PolicyName])
+taPolicyNamesToAdd = Lens.field @"policyNamesToAdd"
+{-# DEPRECATED taPolicyNamesToAdd "Use generic-lens or generic-optics with 'policyNamesToAdd' instead." #-}
 
 -- | When testing custom authorization, the policies specified here are treated as if they are not attached to the principal being authorized.
 --
 -- /Note:/ Consider using 'policyNamesToSkip' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taPolicyNamesToSkip :: Lens.Lens' TestAuthorization (Lude.Maybe [Lude.Text])
-taPolicyNamesToSkip = Lens.lens (policyNamesToSkip :: TestAuthorization -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNamesToSkip = a} :: TestAuthorization)
+taPolicyNamesToSkip :: Lens.Lens' TestAuthorization (Core.Maybe [Types.PolicyName])
+taPolicyNamesToSkip = Lens.field @"policyNamesToSkip"
 {-# DEPRECATED taPolicyNamesToSkip "Use generic-lens or generic-optics with 'policyNamesToSkip' instead." #-}
 
-instance Lude.AWSRequest TestAuthorization where
-  type Rs TestAuthorization = TestAuthorizationResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          TestAuthorizationResponse'
-            Lude.<$> (x Lude..?> "authResults" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taPrincipal :: Lens.Lens' TestAuthorization (Core.Maybe Types.Principal)
+taPrincipal = Lens.field @"principal"
+{-# DEPRECATED taPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
-instance Lude.ToHeaders TestAuthorization where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON TestAuthorization where
-  toJSON TestAuthorization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("policyNamesToAdd" Lude..=) Lude.<$> policyNamesToAdd,
-            ("principal" Lude..=) Lude.<$> principal,
-            Lude.Just ("authInfos" Lude..= authInfos),
-            ("cognitoIdentityPoolId" Lude..=) Lude.<$> cognitoIdentityPoolId,
-            ("policyNamesToSkip" Lude..=) Lude.<$> policyNamesToSkip
+instance Core.FromJSON TestAuthorization where
+  toJSON TestAuthorization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("authInfos" Core..= authInfos),
+            ("cognitoIdentityPoolId" Core..=) Core.<$> cognitoIdentityPoolId,
+            ("policyNamesToAdd" Core..=) Core.<$> policyNamesToAdd,
+            ("policyNamesToSkip" Core..=) Core.<$> policyNamesToSkip,
+            ("principal" Core..=) Core.<$> principal
           ]
       )
 
-instance Lude.ToPath TestAuthorization where
-  toPath = Lude.const "/test-authorization"
-
-instance Lude.ToQuery TestAuthorization where
-  toQuery TestAuthorization' {..} =
-    Lude.mconcat ["clientId" Lude.=: clientId]
+instance Core.AWSRequest TestAuthorization where
+  type Rs TestAuthorization = TestAuthorizationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/test-authorization",
+        Core._rqQuery = Core.toQueryValue "clientId" Core.<$> clientId,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          TestAuthorizationResponse'
+            Core.<$> (x Core..:? "authResults") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkTestAuthorizationResponse' smart constructor.
 data TestAuthorizationResponse = TestAuthorizationResponse'
   { -- | The authentication results.
-    authResults :: Lude.Maybe [AuthResult],
+    authResults :: Core.Maybe [Types.AuthResult],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestAuthorizationResponse' with the minimum fields required to make a request.
---
--- * 'authResults' - The authentication results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TestAuthorizationResponse' value with any optional fields omitted.
 mkTestAuthorizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TestAuthorizationResponse
-mkTestAuthorizationResponse pResponseStatus_ =
+mkTestAuthorizationResponse responseStatus =
   TestAuthorizationResponse'
-    { authResults = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { authResults = Core.Nothing,
+      responseStatus
     }
 
 -- | The authentication results.
 --
 -- /Note:/ Consider using 'authResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsAuthResults :: Lens.Lens' TestAuthorizationResponse (Lude.Maybe [AuthResult])
-tarsAuthResults = Lens.lens (authResults :: TestAuthorizationResponse -> Lude.Maybe [AuthResult]) (\s a -> s {authResults = a} :: TestAuthorizationResponse)
-{-# DEPRECATED tarsAuthResults "Use generic-lens or generic-optics with 'authResults' instead." #-}
+tarrsAuthResults :: Lens.Lens' TestAuthorizationResponse (Core.Maybe [Types.AuthResult])
+tarrsAuthResults = Lens.field @"authResults"
+{-# DEPRECATED tarrsAuthResults "Use generic-lens or generic-optics with 'authResults' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tarsResponseStatus :: Lens.Lens' TestAuthorizationResponse Lude.Int
-tarsResponseStatus = Lens.lens (responseStatus :: TestAuthorizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestAuthorizationResponse)
-{-# DEPRECATED tarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tarrsResponseStatus :: Lens.Lens' TestAuthorizationResponse Core.Int
+tarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

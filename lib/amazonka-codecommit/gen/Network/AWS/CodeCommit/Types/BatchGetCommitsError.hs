@@ -23,65 +23,62 @@ module Network.AWS.CodeCommit.Types.BatchGetCommitsError
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.CommitId as Types
+import qualified Network.AWS.CodeCommit.Types.ErrorCode as Types
+import qualified Network.AWS.CodeCommit.Types.ErrorMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about errors in a BatchGetCommits operation.
 --
 -- /See:/ 'mkBatchGetCommitsError' smart constructor.
 data BatchGetCommitsError = BatchGetCommitsError'
   { -- | A commit ID that either could not be found or was not in a valid format.
-    commitId :: Lude.Maybe Lude.Text,
+    commitId :: Core.Maybe Types.CommitId,
     -- | An error code that specifies whether the commit ID was not valid or not found.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | An error message that provides detail about why the commit ID either was not found or was not valid.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetCommitsError' with the minimum fields required to make a request.
---
--- * 'commitId' - A commit ID that either could not be found or was not in a valid format.
--- * 'errorCode' - An error code that specifies whether the commit ID was not valid or not found.
--- * 'errorMessage' - An error message that provides detail about why the commit ID either was not found or was not valid.
+-- | Creates a 'BatchGetCommitsError' value with any optional fields omitted.
 mkBatchGetCommitsError ::
   BatchGetCommitsError
 mkBatchGetCommitsError =
   BatchGetCommitsError'
-    { commitId = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { commitId = Core.Nothing,
+      errorCode = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | A commit ID that either could not be found or was not in a valid format.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgceCommitId :: Lens.Lens' BatchGetCommitsError (Lude.Maybe Lude.Text)
-bgceCommitId = Lens.lens (commitId :: BatchGetCommitsError -> Lude.Maybe Lude.Text) (\s a -> s {commitId = a} :: BatchGetCommitsError)
+bgceCommitId :: Lens.Lens' BatchGetCommitsError (Core.Maybe Types.CommitId)
+bgceCommitId = Lens.field @"commitId"
 {-# DEPRECATED bgceCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | An error code that specifies whether the commit ID was not valid or not found.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgceErrorCode :: Lens.Lens' BatchGetCommitsError (Lude.Maybe Lude.Text)
-bgceErrorCode = Lens.lens (errorCode :: BatchGetCommitsError -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: BatchGetCommitsError)
+bgceErrorCode :: Lens.Lens' BatchGetCommitsError (Core.Maybe Types.ErrorCode)
+bgceErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED bgceErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | An error message that provides detail about why the commit ID either was not found or was not valid.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgceErrorMessage :: Lens.Lens' BatchGetCommitsError (Lude.Maybe Lude.Text)
-bgceErrorMessage = Lens.lens (errorMessage :: BatchGetCommitsError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchGetCommitsError)
+bgceErrorMessage :: Lens.Lens' BatchGetCommitsError (Core.Maybe Types.ErrorMessage)
+bgceErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED bgceErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON BatchGetCommitsError where
+instance Core.FromJSON BatchGetCommitsError where
   parseJSON =
-    Lude.withObject
-      "BatchGetCommitsError"
-      ( \x ->
-          BatchGetCommitsError'
-            Lude.<$> (x Lude..:? "commitId")
-            Lude.<*> (x Lude..:? "errorCode")
-            Lude.<*> (x Lude..:? "errorMessage")
-      )
+    Core.withObject "BatchGetCommitsError" Core.$
+      \x ->
+        BatchGetCommitsError'
+          Core.<$> (x Core..:? "commitId")
+          Core.<*> (x Core..:? "errorCode")
+          Core.<*> (x Core..:? "errorMessage")

@@ -642,7 +642,7 @@ responseListServices =
   res
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListServices)
 
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
@@ -650,7 +650,7 @@ responseDescribeClusters =
   res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusters)
 
 responseDeleteService :: DeleteServiceResponse -> TestTree
@@ -658,7 +658,7 @@ responseDeleteService =
   res
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteService)
 
 responseUpdateService :: UpdateServiceResponse -> TestTree
@@ -666,7 +666,7 @@ responseUpdateService =
   res
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateService)
 
 responseDiscoverPollEndpoint :: DiscoverPollEndpointResponse -> TestTree
@@ -674,7 +674,7 @@ responseDiscoverPollEndpoint =
   res
     "DiscoverPollEndpointResponse"
     "fixture/DiscoverPollEndpointResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DiscoverPollEndpoint)
 
 responseSubmitAttachmentStateChanges :: SubmitAttachmentStateChangesResponse -> TestTree
@@ -682,7 +682,7 @@ responseSubmitAttachmentStateChanges =
   res
     "SubmitAttachmentStateChangesResponse"
     "fixture/SubmitAttachmentStateChangesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy SubmitAttachmentStateChanges)
 
 responseSubmitContainerStateChange :: SubmitContainerStateChangeResponse -> TestTree
@@ -690,7 +690,7 @@ responseSubmitContainerStateChange =
   res
     "SubmitContainerStateChangeResponse"
     "fixture/SubmitContainerStateChangeResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy SubmitContainerStateChange)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -698,7 +698,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseStopTask :: StopTaskResponse -> TestTree
@@ -706,7 +706,7 @@ responseStopTask =
   res
     "StopTaskResponse"
     "fixture/StopTaskResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy StopTask)
 
 responseDescribeTaskDefinition :: DescribeTaskDefinitionResponse -> TestTree
@@ -714,7 +714,7 @@ responseDescribeTaskDefinition =
   res
     "DescribeTaskDefinitionResponse"
     "fixture/DescribeTaskDefinitionResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTaskDefinition)
 
 responseSubmitTaskStateChange :: SubmitTaskStateChangeResponse -> TestTree
@@ -722,7 +722,7 @@ responseSubmitTaskStateChange =
   res
     "SubmitTaskStateChangeResponse"
     "fixture/SubmitTaskStateChangeResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy SubmitTaskStateChange)
 
 responseDescribeContainerInstances :: DescribeContainerInstancesResponse -> TestTree
@@ -730,7 +730,7 @@ responseDescribeContainerInstances =
   res
     "DescribeContainerInstancesResponse"
     "fixture/DescribeContainerInstancesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeContainerInstances)
 
 responseDescribeCapacityProviders :: DescribeCapacityProvidersResponse -> TestTree
@@ -738,7 +738,7 @@ responseDescribeCapacityProviders =
   res
     "DescribeCapacityProvidersResponse"
     "fixture/DescribeCapacityProvidersResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCapacityProviders)
 
 responseUpdateContainerInstancesState :: UpdateContainerInstancesStateResponse -> TestTree
@@ -746,7 +746,7 @@ responseUpdateContainerInstancesState =
   res
     "UpdateContainerInstancesStateResponse"
     "fixture/UpdateContainerInstancesStateResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateContainerInstancesState)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
@@ -754,7 +754,7 @@ responseDeleteCluster =
   res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
@@ -762,7 +762,7 @@ responseCreateCluster =
   res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy CreateCluster)
 
 responsePutAccountSetting :: PutAccountSettingResponse -> TestTree
@@ -770,7 +770,7 @@ responsePutAccountSetting =
   res
     "PutAccountSettingResponse"
     "fixture/PutAccountSettingResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy PutAccountSetting)
 
 responseDeleteAccountSetting :: DeleteAccountSettingResponse -> TestTree
@@ -778,7 +778,7 @@ responseDeleteAccountSetting =
   res
     "DeleteAccountSettingResponse"
     "fixture/DeleteAccountSettingResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAccountSetting)
 
 responseListTaskDefinitions :: ListTaskDefinitionsResponse -> TestTree
@@ -786,7 +786,7 @@ responseListTaskDefinitions =
   res
     "ListTaskDefinitionsResponse"
     "fixture/ListTaskDefinitionsResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListTaskDefinitions)
 
 responseRunTask :: RunTaskResponse -> TestTree
@@ -794,7 +794,7 @@ responseRunTask =
   res
     "RunTaskResponse"
     "fixture/RunTaskResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy RunTask)
 
 responseDeleteCapacityProvider :: DeleteCapacityProviderResponse -> TestTree
@@ -802,7 +802,7 @@ responseDeleteCapacityProvider =
   res
     "DeleteCapacityProviderResponse"
     "fixture/DeleteCapacityProviderResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCapacityProvider)
 
 responseListTasks :: ListTasksResponse -> TestTree
@@ -810,7 +810,7 @@ responseListTasks =
   res
     "ListTasksResponse"
     "fixture/ListTasksResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListTasks)
 
 responseUpdateCapacityProvider :: UpdateCapacityProviderResponse -> TestTree
@@ -818,7 +818,7 @@ responseUpdateCapacityProvider =
   res
     "UpdateCapacityProviderResponse"
     "fixture/UpdateCapacityProviderResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCapacityProvider)
 
 responseRegisterContainerInstance :: RegisterContainerInstanceResponse -> TestTree
@@ -826,7 +826,7 @@ responseRegisterContainerInstance =
   res
     "RegisterContainerInstanceResponse"
     "fixture/RegisterContainerInstanceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy RegisterContainerInstance)
 
 responseUpdateContainerAgent :: UpdateContainerAgentResponse -> TestTree
@@ -834,7 +834,7 @@ responseUpdateContainerAgent =
   res
     "UpdateContainerAgentResponse"
     "fixture/UpdateContainerAgentResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateContainerAgent)
 
 responseListContainerInstances :: ListContainerInstancesResponse -> TestTree
@@ -842,7 +842,7 @@ responseListContainerInstances =
   res
     "ListContainerInstancesResponse"
     "fixture/ListContainerInstancesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListContainerInstances)
 
 responseUpdateServicePrimaryTaskSet :: UpdateServicePrimaryTaskSetResponse -> TestTree
@@ -850,7 +850,7 @@ responseUpdateServicePrimaryTaskSet =
   res
     "UpdateServicePrimaryTaskSetResponse"
     "fixture/UpdateServicePrimaryTaskSetResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateServicePrimaryTaskSet)
 
 responseListTaskDefinitionFamilies :: ListTaskDefinitionFamiliesResponse -> TestTree
@@ -858,7 +858,7 @@ responseListTaskDefinitionFamilies =
   res
     "ListTaskDefinitionFamiliesResponse"
     "fixture/ListTaskDefinitionFamiliesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListTaskDefinitionFamilies)
 
 responseStartTask :: StartTaskResponse -> TestTree
@@ -866,7 +866,7 @@ responseStartTask =
   res
     "StartTaskResponse"
     "fixture/StartTaskResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy StartTask)
 
 responsePutClusterCapacityProviders :: PutClusterCapacityProvidersResponse -> TestTree
@@ -874,7 +874,7 @@ responsePutClusterCapacityProviders =
   res
     "PutClusterCapacityProvidersResponse"
     "fixture/PutClusterCapacityProvidersResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy PutClusterCapacityProviders)
 
 responsePutAccountSettingDefault :: PutAccountSettingDefaultResponse -> TestTree
@@ -882,7 +882,7 @@ responsePutAccountSettingDefault =
   res
     "PutAccountSettingDefaultResponse"
     "fixture/PutAccountSettingDefaultResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy PutAccountSettingDefault)
 
 responseListAttributes :: ListAttributesResponse -> TestTree
@@ -890,7 +890,7 @@ responseListAttributes =
   res
     "ListAttributesResponse"
     "fixture/ListAttributesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListAttributes)
 
 responseDeregisterTaskDefinition :: DeregisterTaskDefinitionResponse -> TestTree
@@ -898,7 +898,7 @@ responseDeregisterTaskDefinition =
   res
     "DeregisterTaskDefinitionResponse"
     "fixture/DeregisterTaskDefinitionResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterTaskDefinition)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -906,7 +906,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateTaskSet :: CreateTaskSetResponse -> TestTree
@@ -914,7 +914,7 @@ responseCreateTaskSet =
   res
     "CreateTaskSetResponse"
     "fixture/CreateTaskSetResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy CreateTaskSet)
 
 responseDescribeTasks :: DescribeTasksResponse -> TestTree
@@ -922,7 +922,7 @@ responseDescribeTasks =
   res
     "DescribeTasksResponse"
     "fixture/DescribeTasksResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTasks)
 
 responseListClusters :: ListClustersResponse -> TestTree
@@ -930,7 +930,7 @@ responseListClusters =
   res
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListClusters)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -938,7 +938,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
@@ -946,7 +946,7 @@ responseDescribeServices =
   res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeServices)
 
 responseDeregisterContainerInstance :: DeregisterContainerInstanceResponse -> TestTree
@@ -954,7 +954,7 @@ responseDeregisterContainerInstance =
   res
     "DeregisterContainerInstanceResponse"
     "fixture/DeregisterContainerInstanceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterContainerInstance)
 
 responseUpdateClusterSettings :: UpdateClusterSettingsResponse -> TestTree
@@ -962,7 +962,7 @@ responseUpdateClusterSettings =
   res
     "UpdateClusterSettingsResponse"
     "fixture/UpdateClusterSettingsResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateClusterSettings)
 
 responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
@@ -970,7 +970,7 @@ responseDeleteAttributes =
   res
     "DeleteAttributesResponse"
     "fixture/DeleteAttributesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAttributes)
 
 responsePutAttributes :: PutAttributesResponse -> TestTree
@@ -978,7 +978,7 @@ responsePutAttributes =
   res
     "PutAttributesResponse"
     "fixture/PutAttributesResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy PutAttributes)
 
 responseListAccountSettings :: ListAccountSettingsResponse -> TestTree
@@ -986,7 +986,7 @@ responseListAccountSettings =
   res
     "ListAccountSettingsResponse"
     "fixture/ListAccountSettingsResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy ListAccountSettings)
 
 responseDeleteTaskSet :: DeleteTaskSetResponse -> TestTree
@@ -994,7 +994,7 @@ responseDeleteTaskSet =
   res
     "DeleteTaskSetResponse"
     "fixture/DeleteTaskSetResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTaskSet)
 
 responseUpdateTaskSet :: UpdateTaskSetResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseUpdateTaskSet =
   res
     "UpdateTaskSetResponse"
     "fixture/UpdateTaskSetResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTaskSet)
 
 responseCreateCapacityProvider :: CreateCapacityProviderResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseCreateCapacityProvider =
   res
     "CreateCapacityProviderResponse"
     "fixture/CreateCapacityProviderResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy CreateCapacityProvider)
 
 responseDescribeTaskSets :: DescribeTaskSetsResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseDescribeTaskSets =
   res
     "DescribeTaskSetsResponse"
     "fixture/DescribeTaskSetsResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTaskSets)
 
 responseRegisterTaskDefinition :: RegisterTaskDefinitionResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseRegisterTaskDefinition =
   res
     "RegisterTaskDefinitionResponse"
     "fixture/RegisterTaskDefinitionResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy RegisterTaskDefinition)
 
 responseCreateService :: CreateServiceResponse -> TestTree
@@ -1034,5 +1034,5 @@ responseCreateService =
   res
     "CreateServiceResponse"
     "fixture/CreateServiceResponse.proto"
-    ecsService
+    mkServiceConfig
     (Proxy :: Proxy CreateService)

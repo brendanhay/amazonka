@@ -13,186 +13,188 @@
 module Network.AWS.Rekognition.Types.LandmarkType
   ( LandmarkType
       ( LandmarkType',
-        EyeLeft,
-        EyeRight,
-        Nose,
-        MouthLeft,
-        MouthRight,
-        LeftEyeBrowLeft,
-        LeftEyeBrowRight,
-        LeftEyeBrowUp,
-        RightEyeBrowLeft,
-        RightEyeBrowRight,
-        RightEyeBrowUp,
-        LeftEyeLeft,
-        LeftEyeRight,
-        LeftEyeUp,
-        LeftEyeDown,
-        RightEyeLeft,
-        RightEyeRight,
-        RightEyeUp,
-        RightEyeDown,
-        NoseLeft,
-        NoseRight,
-        MouthUp,
-        MouthDown,
-        LeftPupil,
-        RightPupil,
-        UpperJawlineLeft,
-        MidJawlineLeft,
-        ChinBottom,
-        MidJawlineRight,
-        UpperJawlineRight
+        LandmarkTypeEyeLeft,
+        LandmarkTypeEyeRight,
+        LandmarkTypeNose,
+        LandmarkTypeMouthLeft,
+        LandmarkTypeMouthRight,
+        LandmarkTypeLeftEyeBrowLeft,
+        LandmarkTypeLeftEyeBrowRight,
+        LandmarkTypeLeftEyeBrowUp,
+        LandmarkTypeRightEyeBrowLeft,
+        LandmarkTypeRightEyeBrowRight,
+        LandmarkTypeRightEyeBrowUp,
+        LandmarkTypeLeftEyeLeft,
+        LandmarkTypeLeftEyeRight,
+        LandmarkTypeLeftEyeUp,
+        LandmarkTypeLeftEyeDown,
+        LandmarkTypeRightEyeLeft,
+        LandmarkTypeRightEyeRight,
+        LandmarkTypeRightEyeUp,
+        LandmarkTypeRightEyeDown,
+        LandmarkTypeNoseLeft,
+        LandmarkTypeNoseRight,
+        LandmarkTypeMouthUp,
+        LandmarkTypeMouthDown,
+        LandmarkTypeLeftPupil,
+        LandmarkTypeRightPupil,
+        LandmarkTypeUpperJawlineLeft,
+        LandmarkTypeMidJawlineLeft,
+        LandmarkTypeChinBottom,
+        LandmarkTypeMidJawlineRight,
+        LandmarkTypeUpperJawlineRight,
+        fromLandmarkType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LandmarkType = LandmarkType' Lude.Text
+newtype LandmarkType = LandmarkType' {fromLandmarkType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EyeLeft :: LandmarkType
-pattern EyeLeft = LandmarkType' "eyeLeft"
+pattern LandmarkTypeEyeLeft :: LandmarkType
+pattern LandmarkTypeEyeLeft = LandmarkType' "eyeLeft"
 
-pattern EyeRight :: LandmarkType
-pattern EyeRight = LandmarkType' "eyeRight"
+pattern LandmarkTypeEyeRight :: LandmarkType
+pattern LandmarkTypeEyeRight = LandmarkType' "eyeRight"
 
-pattern Nose :: LandmarkType
-pattern Nose = LandmarkType' "nose"
+pattern LandmarkTypeNose :: LandmarkType
+pattern LandmarkTypeNose = LandmarkType' "nose"
 
-pattern MouthLeft :: LandmarkType
-pattern MouthLeft = LandmarkType' "mouthLeft"
+pattern LandmarkTypeMouthLeft :: LandmarkType
+pattern LandmarkTypeMouthLeft = LandmarkType' "mouthLeft"
 
-pattern MouthRight :: LandmarkType
-pattern MouthRight = LandmarkType' "mouthRight"
+pattern LandmarkTypeMouthRight :: LandmarkType
+pattern LandmarkTypeMouthRight = LandmarkType' "mouthRight"
 
-pattern LeftEyeBrowLeft :: LandmarkType
-pattern LeftEyeBrowLeft = LandmarkType' "leftEyeBrowLeft"
+pattern LandmarkTypeLeftEyeBrowLeft :: LandmarkType
+pattern LandmarkTypeLeftEyeBrowLeft = LandmarkType' "leftEyeBrowLeft"
 
-pattern LeftEyeBrowRight :: LandmarkType
-pattern LeftEyeBrowRight = LandmarkType' "leftEyeBrowRight"
+pattern LandmarkTypeLeftEyeBrowRight :: LandmarkType
+pattern LandmarkTypeLeftEyeBrowRight = LandmarkType' "leftEyeBrowRight"
 
-pattern LeftEyeBrowUp :: LandmarkType
-pattern LeftEyeBrowUp = LandmarkType' "leftEyeBrowUp"
+pattern LandmarkTypeLeftEyeBrowUp :: LandmarkType
+pattern LandmarkTypeLeftEyeBrowUp = LandmarkType' "leftEyeBrowUp"
 
-pattern RightEyeBrowLeft :: LandmarkType
-pattern RightEyeBrowLeft = LandmarkType' "rightEyeBrowLeft"
+pattern LandmarkTypeRightEyeBrowLeft :: LandmarkType
+pattern LandmarkTypeRightEyeBrowLeft = LandmarkType' "rightEyeBrowLeft"
 
-pattern RightEyeBrowRight :: LandmarkType
-pattern RightEyeBrowRight = LandmarkType' "rightEyeBrowRight"
+pattern LandmarkTypeRightEyeBrowRight :: LandmarkType
+pattern LandmarkTypeRightEyeBrowRight = LandmarkType' "rightEyeBrowRight"
 
-pattern RightEyeBrowUp :: LandmarkType
-pattern RightEyeBrowUp = LandmarkType' "rightEyeBrowUp"
+pattern LandmarkTypeRightEyeBrowUp :: LandmarkType
+pattern LandmarkTypeRightEyeBrowUp = LandmarkType' "rightEyeBrowUp"
 
-pattern LeftEyeLeft :: LandmarkType
-pattern LeftEyeLeft = LandmarkType' "leftEyeLeft"
+pattern LandmarkTypeLeftEyeLeft :: LandmarkType
+pattern LandmarkTypeLeftEyeLeft = LandmarkType' "leftEyeLeft"
 
-pattern LeftEyeRight :: LandmarkType
-pattern LeftEyeRight = LandmarkType' "leftEyeRight"
+pattern LandmarkTypeLeftEyeRight :: LandmarkType
+pattern LandmarkTypeLeftEyeRight = LandmarkType' "leftEyeRight"
 
-pattern LeftEyeUp :: LandmarkType
-pattern LeftEyeUp = LandmarkType' "leftEyeUp"
+pattern LandmarkTypeLeftEyeUp :: LandmarkType
+pattern LandmarkTypeLeftEyeUp = LandmarkType' "leftEyeUp"
 
-pattern LeftEyeDown :: LandmarkType
-pattern LeftEyeDown = LandmarkType' "leftEyeDown"
+pattern LandmarkTypeLeftEyeDown :: LandmarkType
+pattern LandmarkTypeLeftEyeDown = LandmarkType' "leftEyeDown"
 
-pattern RightEyeLeft :: LandmarkType
-pattern RightEyeLeft = LandmarkType' "rightEyeLeft"
+pattern LandmarkTypeRightEyeLeft :: LandmarkType
+pattern LandmarkTypeRightEyeLeft = LandmarkType' "rightEyeLeft"
 
-pattern RightEyeRight :: LandmarkType
-pattern RightEyeRight = LandmarkType' "rightEyeRight"
+pattern LandmarkTypeRightEyeRight :: LandmarkType
+pattern LandmarkTypeRightEyeRight = LandmarkType' "rightEyeRight"
 
-pattern RightEyeUp :: LandmarkType
-pattern RightEyeUp = LandmarkType' "rightEyeUp"
+pattern LandmarkTypeRightEyeUp :: LandmarkType
+pattern LandmarkTypeRightEyeUp = LandmarkType' "rightEyeUp"
 
-pattern RightEyeDown :: LandmarkType
-pattern RightEyeDown = LandmarkType' "rightEyeDown"
+pattern LandmarkTypeRightEyeDown :: LandmarkType
+pattern LandmarkTypeRightEyeDown = LandmarkType' "rightEyeDown"
 
-pattern NoseLeft :: LandmarkType
-pattern NoseLeft = LandmarkType' "noseLeft"
+pattern LandmarkTypeNoseLeft :: LandmarkType
+pattern LandmarkTypeNoseLeft = LandmarkType' "noseLeft"
 
-pattern NoseRight :: LandmarkType
-pattern NoseRight = LandmarkType' "noseRight"
+pattern LandmarkTypeNoseRight :: LandmarkType
+pattern LandmarkTypeNoseRight = LandmarkType' "noseRight"
 
-pattern MouthUp :: LandmarkType
-pattern MouthUp = LandmarkType' "mouthUp"
+pattern LandmarkTypeMouthUp :: LandmarkType
+pattern LandmarkTypeMouthUp = LandmarkType' "mouthUp"
 
-pattern MouthDown :: LandmarkType
-pattern MouthDown = LandmarkType' "mouthDown"
+pattern LandmarkTypeMouthDown :: LandmarkType
+pattern LandmarkTypeMouthDown = LandmarkType' "mouthDown"
 
-pattern LeftPupil :: LandmarkType
-pattern LeftPupil = LandmarkType' "leftPupil"
+pattern LandmarkTypeLeftPupil :: LandmarkType
+pattern LandmarkTypeLeftPupil = LandmarkType' "leftPupil"
 
-pattern RightPupil :: LandmarkType
-pattern RightPupil = LandmarkType' "rightPupil"
+pattern LandmarkTypeRightPupil :: LandmarkType
+pattern LandmarkTypeRightPupil = LandmarkType' "rightPupil"
 
-pattern UpperJawlineLeft :: LandmarkType
-pattern UpperJawlineLeft = LandmarkType' "upperJawlineLeft"
+pattern LandmarkTypeUpperJawlineLeft :: LandmarkType
+pattern LandmarkTypeUpperJawlineLeft = LandmarkType' "upperJawlineLeft"
 
-pattern MidJawlineLeft :: LandmarkType
-pattern MidJawlineLeft = LandmarkType' "midJawlineLeft"
+pattern LandmarkTypeMidJawlineLeft :: LandmarkType
+pattern LandmarkTypeMidJawlineLeft = LandmarkType' "midJawlineLeft"
 
-pattern ChinBottom :: LandmarkType
-pattern ChinBottom = LandmarkType' "chinBottom"
+pattern LandmarkTypeChinBottom :: LandmarkType
+pattern LandmarkTypeChinBottom = LandmarkType' "chinBottom"
 
-pattern MidJawlineRight :: LandmarkType
-pattern MidJawlineRight = LandmarkType' "midJawlineRight"
+pattern LandmarkTypeMidJawlineRight :: LandmarkType
+pattern LandmarkTypeMidJawlineRight = LandmarkType' "midJawlineRight"
 
-pattern UpperJawlineRight :: LandmarkType
-pattern UpperJawlineRight = LandmarkType' "upperJawlineRight"
+pattern LandmarkTypeUpperJawlineRight :: LandmarkType
+pattern LandmarkTypeUpperJawlineRight = LandmarkType' "upperJawlineRight"
 
 {-# COMPLETE
-  EyeLeft,
-  EyeRight,
-  Nose,
-  MouthLeft,
-  MouthRight,
-  LeftEyeBrowLeft,
-  LeftEyeBrowRight,
-  LeftEyeBrowUp,
-  RightEyeBrowLeft,
-  RightEyeBrowRight,
-  RightEyeBrowUp,
-  LeftEyeLeft,
-  LeftEyeRight,
-  LeftEyeUp,
-  LeftEyeDown,
-  RightEyeLeft,
-  RightEyeRight,
-  RightEyeUp,
-  RightEyeDown,
-  NoseLeft,
-  NoseRight,
-  MouthUp,
-  MouthDown,
-  LeftPupil,
-  RightPupil,
-  UpperJawlineLeft,
-  MidJawlineLeft,
-  ChinBottom,
-  MidJawlineRight,
-  UpperJawlineRight,
+  LandmarkTypeEyeLeft,
+  LandmarkTypeEyeRight,
+  LandmarkTypeNose,
+  LandmarkTypeMouthLeft,
+  LandmarkTypeMouthRight,
+  LandmarkTypeLeftEyeBrowLeft,
+  LandmarkTypeLeftEyeBrowRight,
+  LandmarkTypeLeftEyeBrowUp,
+  LandmarkTypeRightEyeBrowLeft,
+  LandmarkTypeRightEyeBrowRight,
+  LandmarkTypeRightEyeBrowUp,
+  LandmarkTypeLeftEyeLeft,
+  LandmarkTypeLeftEyeRight,
+  LandmarkTypeLeftEyeUp,
+  LandmarkTypeLeftEyeDown,
+  LandmarkTypeRightEyeLeft,
+  LandmarkTypeRightEyeRight,
+  LandmarkTypeRightEyeUp,
+  LandmarkTypeRightEyeDown,
+  LandmarkTypeNoseLeft,
+  LandmarkTypeNoseRight,
+  LandmarkTypeMouthUp,
+  LandmarkTypeMouthDown,
+  LandmarkTypeLeftPupil,
+  LandmarkTypeRightPupil,
+  LandmarkTypeUpperJawlineLeft,
+  LandmarkTypeMidJawlineLeft,
+  LandmarkTypeChinBottom,
+  LandmarkTypeMidJawlineRight,
+  LandmarkTypeUpperJawlineRight,
   LandmarkType'
   #-}

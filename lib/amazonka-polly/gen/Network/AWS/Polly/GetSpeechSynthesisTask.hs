@@ -27,97 +27,90 @@ module Network.AWS.Polly.GetSpeechSynthesisTask
     mkGetSpeechSynthesisTaskResponse,
 
     -- ** Response lenses
-    gsstrsSynthesisTask,
-    gsstrsResponseStatus,
+    gsstrrsSynthesisTask,
+    gsstrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Polly.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSpeechSynthesisTask' smart constructor.
 newtype GetSpeechSynthesisTask = GetSpeechSynthesisTask'
   { -- | The Amazon Polly generated identifier for a speech synthesis task.
-    taskId :: Lude.Text
+    taskId :: Types.TaskId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSpeechSynthesisTask' with the minimum fields required to make a request.
---
--- * 'taskId' - The Amazon Polly generated identifier for a speech synthesis task.
+-- | Creates a 'GetSpeechSynthesisTask' value with any optional fields omitted.
 mkGetSpeechSynthesisTask ::
   -- | 'taskId'
-  Lude.Text ->
+  Types.TaskId ->
   GetSpeechSynthesisTask
-mkGetSpeechSynthesisTask pTaskId_ =
-  GetSpeechSynthesisTask' {taskId = pTaskId_}
+mkGetSpeechSynthesisTask taskId = GetSpeechSynthesisTask' {taskId}
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsstTaskId :: Lens.Lens' GetSpeechSynthesisTask Lude.Text
-gsstTaskId = Lens.lens (taskId :: GetSpeechSynthesisTask -> Lude.Text) (\s a -> s {taskId = a} :: GetSpeechSynthesisTask)
+gsstTaskId :: Lens.Lens' GetSpeechSynthesisTask Types.TaskId
+gsstTaskId = Lens.field @"taskId"
 {-# DEPRECATED gsstTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance Lude.AWSRequest GetSpeechSynthesisTask where
+instance Core.AWSRequest GetSpeechSynthesisTask where
   type Rs GetSpeechSynthesisTask = GetSpeechSynthesisTaskResponse
-  request = Req.get pollyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/v1/synthesisTasks/" Core.<> (Core.toText taskId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSpeechSynthesisTaskResponse'
-            Lude.<$> (x Lude..?> "SynthesisTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SynthesisTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSpeechSynthesisTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetSpeechSynthesisTask where
-  toPath GetSpeechSynthesisTask' {..} =
-    Lude.mconcat ["/v1/synthesisTasks/", Lude.toBS taskId]
-
-instance Lude.ToQuery GetSpeechSynthesisTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSpeechSynthesisTaskResponse' smart constructor.
 data GetSpeechSynthesisTaskResponse = GetSpeechSynthesisTaskResponse'
   { -- | SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.
-    synthesisTask :: Lude.Maybe SynthesisTask,
+    synthesisTask :: Core.Maybe Types.SynthesisTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetSpeechSynthesisTaskResponse' with the minimum fields required to make a request.
---
--- * 'synthesisTask' - SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSpeechSynthesisTaskResponse' value with any optional fields omitted.
 mkGetSpeechSynthesisTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSpeechSynthesisTaskResponse
-mkGetSpeechSynthesisTaskResponse pResponseStatus_ =
+mkGetSpeechSynthesisTaskResponse responseStatus =
   GetSpeechSynthesisTaskResponse'
-    { synthesisTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { synthesisTask = Core.Nothing,
+      responseStatus
     }
 
 -- | SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.
 --
 -- /Note:/ Consider using 'synthesisTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsstrsSynthesisTask :: Lens.Lens' GetSpeechSynthesisTaskResponse (Lude.Maybe SynthesisTask)
-gsstrsSynthesisTask = Lens.lens (synthesisTask :: GetSpeechSynthesisTaskResponse -> Lude.Maybe SynthesisTask) (\s a -> s {synthesisTask = a} :: GetSpeechSynthesisTaskResponse)
-{-# DEPRECATED gsstrsSynthesisTask "Use generic-lens or generic-optics with 'synthesisTask' instead." #-}
+gsstrrsSynthesisTask :: Lens.Lens' GetSpeechSynthesisTaskResponse (Core.Maybe Types.SynthesisTask)
+gsstrrsSynthesisTask = Lens.field @"synthesisTask"
+{-# DEPRECATED gsstrrsSynthesisTask "Use generic-lens or generic-optics with 'synthesisTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsstrsResponseStatus :: Lens.Lens' GetSpeechSynthesisTaskResponse Lude.Int
-gsstrsResponseStatus = Lens.lens (responseStatus :: GetSpeechSynthesisTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSpeechSynthesisTaskResponse)
-{-# DEPRECATED gsstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsstrrsResponseStatus :: Lens.Lens' GetSpeechSynthesisTaskResponse Core.Int
+gsstrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsstrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

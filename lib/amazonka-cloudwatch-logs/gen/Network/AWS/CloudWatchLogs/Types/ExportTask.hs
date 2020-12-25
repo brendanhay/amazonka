@@ -17,151 +17,144 @@ module Network.AWS.CloudWatchLogs.Types.ExportTask
     mkExportTask,
 
     -- * Lenses
-    etDestinationPrefix,
     etDestination,
-    etStatus,
-    etTaskName,
-    etTaskId,
-    etTo,
+    etDestinationPrefix,
+    etExecutionInfo,
     etFrom,
     etLogGroupName,
-    etExecutionInfo,
+    etStatus,
+    etTaskId,
+    etTaskName,
+    etTo,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
-import Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
+import qualified Network.AWS.CloudWatchLogs.Types.ExportDestinationBucket as Types
+import qualified Network.AWS.CloudWatchLogs.Types.ExportDestinationPrefix as Types
+import qualified Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo as Types
+import qualified Network.AWS.CloudWatchLogs.Types.ExportTaskId as Types
+import qualified Network.AWS.CloudWatchLogs.Types.ExportTaskName as Types
+import qualified Network.AWS.CloudWatchLogs.Types.ExportTaskStatus as Types
+import qualified Network.AWS.CloudWatchLogs.Types.LogGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an export task.
 --
 -- /See:/ 'mkExportTask' smart constructor.
 data ExportTask = ExportTask'
-  { -- | The prefix that was used as the start of Amazon S3 key for every object exported.
-    destinationPrefix :: Lude.Maybe Lude.Text,
-    -- | The name of the S3 bucket to which the log data was exported.
-    destination :: Lude.Maybe Lude.Text,
-    -- | The status of the export task.
-    status :: Lude.Maybe ExportTaskStatus,
-    -- | The name of the export task.
-    taskName :: Lude.Maybe Lude.Text,
-    -- | The ID of the export task.
-    taskId :: Lude.Maybe Lude.Text,
-    -- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
-    to :: Lude.Maybe Lude.Natural,
-    -- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
-    from :: Lude.Maybe Lude.Natural,
-    -- | The name of the log group from which logs data was exported.
-    logGroupName :: Lude.Maybe Lude.Text,
+  { -- | The name of the S3 bucket to which the log data was exported.
+    destination :: Core.Maybe Types.ExportDestinationBucket,
+    -- | The prefix that was used as the start of Amazon S3 key for every object exported.
+    destinationPrefix :: Core.Maybe Types.ExportDestinationPrefix,
     -- | Execution information about the export task.
-    executionInfo :: Lude.Maybe ExportTaskExecutionInfo
+    executionInfo :: Core.Maybe Types.ExportTaskExecutionInfo,
+    -- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
+    from :: Core.Maybe Core.Natural,
+    -- | The name of the log group from which logs data was exported.
+    logGroupName :: Core.Maybe Types.LogGroupName,
+    -- | The status of the export task.
+    status :: Core.Maybe Types.ExportTaskStatus,
+    -- | The ID of the export task.
+    taskId :: Core.Maybe Types.ExportTaskId,
+    -- | The name of the export task.
+    taskName :: Core.Maybe Types.ExportTaskName,
+    -- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+    to :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
---
--- * 'destinationPrefix' - The prefix that was used as the start of Amazon S3 key for every object exported.
--- * 'destination' - The name of the S3 bucket to which the log data was exported.
--- * 'status' - The status of the export task.
--- * 'taskName' - The name of the export task.
--- * 'taskId' - The ID of the export task.
--- * 'to' - The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
--- * 'from' - The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
--- * 'logGroupName' - The name of the log group from which logs data was exported.
--- * 'executionInfo' - Execution information about the export task.
+-- | Creates a 'ExportTask' value with any optional fields omitted.
 mkExportTask ::
   ExportTask
 mkExportTask =
   ExportTask'
-    { destinationPrefix = Lude.Nothing,
-      destination = Lude.Nothing,
-      status = Lude.Nothing,
-      taskName = Lude.Nothing,
-      taskId = Lude.Nothing,
-      to = Lude.Nothing,
-      from = Lude.Nothing,
-      logGroupName = Lude.Nothing,
-      executionInfo = Lude.Nothing
+    { destination = Core.Nothing,
+      destinationPrefix = Core.Nothing,
+      executionInfo = Core.Nothing,
+      from = Core.Nothing,
+      logGroupName = Core.Nothing,
+      status = Core.Nothing,
+      taskId = Core.Nothing,
+      taskName = Core.Nothing,
+      to = Core.Nothing
     }
-
--- | The prefix that was used as the start of Amazon S3 key for every object exported.
---
--- /Note:/ Consider using 'destinationPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etDestinationPrefix :: Lens.Lens' ExportTask (Lude.Maybe Lude.Text)
-etDestinationPrefix = Lens.lens (destinationPrefix :: ExportTask -> Lude.Maybe Lude.Text) (\s a -> s {destinationPrefix = a} :: ExportTask)
-{-# DEPRECATED etDestinationPrefix "Use generic-lens or generic-optics with 'destinationPrefix' instead." #-}
 
 -- | The name of the S3 bucket to which the log data was exported.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etDestination :: Lens.Lens' ExportTask (Lude.Maybe Lude.Text)
-etDestination = Lens.lens (destination :: ExportTask -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: ExportTask)
+etDestination :: Lens.Lens' ExportTask (Core.Maybe Types.ExportDestinationBucket)
+etDestination = Lens.field @"destination"
 {-# DEPRECATED etDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
--- | The status of the export task.
+-- | The prefix that was used as the start of Amazon S3 key for every object exported.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etStatus :: Lens.Lens' ExportTask (Lude.Maybe ExportTaskStatus)
-etStatus = Lens.lens (status :: ExportTask -> Lude.Maybe ExportTaskStatus) (\s a -> s {status = a} :: ExportTask)
-{-# DEPRECATED etStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'destinationPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etDestinationPrefix :: Lens.Lens' ExportTask (Core.Maybe Types.ExportDestinationPrefix)
+etDestinationPrefix = Lens.field @"destinationPrefix"
+{-# DEPRECATED etDestinationPrefix "Use generic-lens or generic-optics with 'destinationPrefix' instead." #-}
 
--- | The name of the export task.
+-- | Execution information about the export task.
 --
--- /Note:/ Consider using 'taskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTaskName :: Lens.Lens' ExportTask (Lude.Maybe Lude.Text)
-etTaskName = Lens.lens (taskName :: ExportTask -> Lude.Maybe Lude.Text) (\s a -> s {taskName = a} :: ExportTask)
-{-# DEPRECATED etTaskName "Use generic-lens or generic-optics with 'taskName' instead." #-}
-
--- | The ID of the export task.
---
--- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTaskId :: Lens.Lens' ExportTask (Lude.Maybe Lude.Text)
-etTaskId = Lens.lens (taskId :: ExportTask -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: ExportTask)
-{-# DEPRECATED etTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
-
--- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
---
--- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTo :: Lens.Lens' ExportTask (Lude.Maybe Lude.Natural)
-etTo = Lens.lens (to :: ExportTask -> Lude.Maybe Lude.Natural) (\s a -> s {to = a} :: ExportTask)
-{-# DEPRECATED etTo "Use generic-lens or generic-optics with 'to' instead." #-}
+-- /Note:/ Consider using 'executionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etExecutionInfo :: Lens.Lens' ExportTask (Core.Maybe Types.ExportTaskExecutionInfo)
+etExecutionInfo = Lens.field @"executionInfo"
+{-# DEPRECATED etExecutionInfo "Use generic-lens or generic-optics with 'executionInfo' instead." #-}
 
 -- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
 --
 -- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etFrom :: Lens.Lens' ExportTask (Lude.Maybe Lude.Natural)
-etFrom = Lens.lens (from :: ExportTask -> Lude.Maybe Lude.Natural) (\s a -> s {from = a} :: ExportTask)
+etFrom :: Lens.Lens' ExportTask (Core.Maybe Core.Natural)
+etFrom = Lens.field @"from"
 {-# DEPRECATED etFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
 -- | The name of the log group from which logs data was exported.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etLogGroupName :: Lens.Lens' ExportTask (Lude.Maybe Lude.Text)
-etLogGroupName = Lens.lens (logGroupName :: ExportTask -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: ExportTask)
+etLogGroupName :: Lens.Lens' ExportTask (Core.Maybe Types.LogGroupName)
+etLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED etLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | Execution information about the export task.
+-- | The status of the export task.
 --
--- /Note:/ Consider using 'executionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etExecutionInfo :: Lens.Lens' ExportTask (Lude.Maybe ExportTaskExecutionInfo)
-etExecutionInfo = Lens.lens (executionInfo :: ExportTask -> Lude.Maybe ExportTaskExecutionInfo) (\s a -> s {executionInfo = a} :: ExportTask)
-{-# DEPRECATED etExecutionInfo "Use generic-lens or generic-optics with 'executionInfo' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etStatus :: Lens.Lens' ExportTask (Core.Maybe Types.ExportTaskStatus)
+etStatus = Lens.field @"status"
+{-# DEPRECATED etStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON ExportTask where
+-- | The ID of the export task.
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTaskId :: Lens.Lens' ExportTask (Core.Maybe Types.ExportTaskId)
+etTaskId = Lens.field @"taskId"
+{-# DEPRECATED etTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
+
+-- | The name of the export task.
+--
+-- /Note:/ Consider using 'taskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTaskName :: Lens.Lens' ExportTask (Core.Maybe Types.ExportTaskName)
+etTaskName = Lens.field @"taskName"
+{-# DEPRECATED etTaskName "Use generic-lens or generic-optics with 'taskName' instead." #-}
+
+-- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+--
+-- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTo :: Lens.Lens' ExportTask (Core.Maybe Core.Natural)
+etTo = Lens.field @"to"
+{-# DEPRECATED etTo "Use generic-lens or generic-optics with 'to' instead." #-}
+
+instance Core.FromJSON ExportTask where
   parseJSON =
-    Lude.withObject
-      "ExportTask"
-      ( \x ->
-          ExportTask'
-            Lude.<$> (x Lude..:? "destinationPrefix")
-            Lude.<*> (x Lude..:? "destination")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "taskName")
-            Lude.<*> (x Lude..:? "taskId")
-            Lude.<*> (x Lude..:? "to")
-            Lude.<*> (x Lude..:? "from")
-            Lude.<*> (x Lude..:? "logGroupName")
-            Lude.<*> (x Lude..:? "executionInfo")
-      )
+    Core.withObject "ExportTask" Core.$
+      \x ->
+        ExportTask'
+          Core.<$> (x Core..:? "destination")
+          Core.<*> (x Core..:? "destinationPrefix")
+          Core.<*> (x Core..:? "executionInfo")
+          Core.<*> (x Core..:? "from")
+          Core.<*> (x Core..:? "logGroupName")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "taskId")
+          Core.<*> (x Core..:? "taskName")
+          Core.<*> (x Core..:? "to")

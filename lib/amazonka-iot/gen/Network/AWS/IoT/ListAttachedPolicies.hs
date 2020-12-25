@@ -22,173 +22,163 @@ module Network.AWS.IoT.ListAttachedPolicies
     mkListAttachedPolicies,
 
     -- ** Request lenses
-    lapMarker,
-    lapRecursive,
-    lapPageSize,
     lapTarget,
+    lapMarker,
+    lapPageSize,
+    lapRecursive,
 
     -- * Destructuring the response
     ListAttachedPoliciesResponse (..),
     mkListAttachedPoliciesResponse,
 
     -- ** Response lenses
-    laprsNextMarker,
-    laprsPolicies,
-    laprsResponseStatus,
+    laprrsNextMarker,
+    laprrsPolicies,
+    laprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAttachedPolicies' smart constructor.
 data ListAttachedPolicies = ListAttachedPolicies'
-  { -- | The token to retrieve the next set of results.
-    marker :: Lude.Maybe Lude.Text,
-    -- | When true, recursively list attached policies.
-    recursive :: Lude.Maybe Lude.Bool,
+  { -- | The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
+    target :: Types.Target,
+    -- | The token to retrieve the next set of results.
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of results to be returned per request.
-    pageSize :: Lude.Maybe Lude.Natural,
-    -- | The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
-    target :: Lude.Text
+    pageSize :: Core.Maybe Core.Natural,
+    -- | When true, recursively list attached policies.
+    recursive :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAttachedPolicies' with the minimum fields required to make a request.
---
--- * 'marker' - The token to retrieve the next set of results.
--- * 'recursive' - When true, recursively list attached policies.
--- * 'pageSize' - The maximum number of results to be returned per request.
--- * 'target' - The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
+-- | Creates a 'ListAttachedPolicies' value with any optional fields omitted.
 mkListAttachedPolicies ::
   -- | 'target'
-  Lude.Text ->
+  Types.Target ->
   ListAttachedPolicies
-mkListAttachedPolicies pTarget_ =
+mkListAttachedPolicies target =
   ListAttachedPolicies'
-    { marker = Lude.Nothing,
-      recursive = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      target = pTarget_
+    { target,
+      marker = Core.Nothing,
+      pageSize = Core.Nothing,
+      recursive = Core.Nothing
     }
-
--- | The token to retrieve the next set of results.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapMarker :: Lens.Lens' ListAttachedPolicies (Lude.Maybe Lude.Text)
-lapMarker = Lens.lens (marker :: ListAttachedPolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListAttachedPolicies)
-{-# DEPRECATED lapMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | When true, recursively list attached policies.
---
--- /Note:/ Consider using 'recursive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapRecursive :: Lens.Lens' ListAttachedPolicies (Lude.Maybe Lude.Bool)
-lapRecursive = Lens.lens (recursive :: ListAttachedPolicies -> Lude.Maybe Lude.Bool) (\s a -> s {recursive = a} :: ListAttachedPolicies)
-{-# DEPRECATED lapRecursive "Use generic-lens or generic-optics with 'recursive' instead." #-}
-
--- | The maximum number of results to be returned per request.
---
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapPageSize :: Lens.Lens' ListAttachedPolicies (Lude.Maybe Lude.Natural)
-lapPageSize = Lens.lens (pageSize :: ListAttachedPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListAttachedPolicies)
-{-# DEPRECATED lapPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapTarget :: Lens.Lens' ListAttachedPolicies Lude.Text
-lapTarget = Lens.lens (target :: ListAttachedPolicies -> Lude.Text) (\s a -> s {target = a} :: ListAttachedPolicies)
+lapTarget :: Lens.Lens' ListAttachedPolicies Types.Target
+lapTarget = Lens.field @"target"
 {-# DEPRECATED lapTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Page.AWSPager ListAttachedPolicies where
-  page rq rs
-    | Page.stop (rs Lens.^. laprsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. laprsPolicies) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lapMarker Lens..~ rs Lens.^. laprsNextMarker
+-- | The token to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lapMarker :: Lens.Lens' ListAttachedPolicies (Core.Maybe Types.Marker)
+lapMarker = Lens.field @"marker"
+{-# DEPRECATED lapMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListAttachedPolicies where
+-- | The maximum number of results to be returned per request.
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lapPageSize :: Lens.Lens' ListAttachedPolicies (Core.Maybe Core.Natural)
+lapPageSize = Lens.field @"pageSize"
+{-# DEPRECATED lapPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+
+-- | When true, recursively list attached policies.
+--
+-- /Note:/ Consider using 'recursive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lapRecursive :: Lens.Lens' ListAttachedPolicies (Core.Maybe Core.Bool)
+lapRecursive = Lens.field @"recursive"
+{-# DEPRECATED lapRecursive "Use generic-lens or generic-optics with 'recursive' instead." #-}
+
+instance Core.FromJSON ListAttachedPolicies where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest ListAttachedPolicies where
   type Rs ListAttachedPolicies = ListAttachedPoliciesResponse
-  request = Req.postJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath ("/attached-policies/" Core.<> (Core.toText target)),
+        Core._rqQuery =
+          Core.toQueryValue "marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "pageSize" Core.<$> pageSize)
+            Core.<> (Core.toQueryValue "recursive" Core.<$> recursive),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAttachedPoliciesResponse'
-            Lude.<$> (x Lude..?> "nextMarker")
-            Lude.<*> (x Lude..?> "policies" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextMarker")
+            Core.<*> (x Core..:? "policies")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAttachedPolicies where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON ListAttachedPolicies where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath ListAttachedPolicies where
-  toPath ListAttachedPolicies' {..} =
-    Lude.mconcat ["/attached-policies/", Lude.toBS target]
-
-instance Lude.ToQuery ListAttachedPolicies where
-  toQuery ListAttachedPolicies' {..} =
-    Lude.mconcat
-      [ "marker" Lude.=: marker,
-        "recursive" Lude.=: recursive,
-        "pageSize" Lude.=: pageSize
-      ]
+instance Pager.AWSPager ListAttachedPolicies where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"policies" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListAttachedPoliciesResponse' smart constructor.
 data ListAttachedPoliciesResponse = ListAttachedPoliciesResponse'
   { -- | The token to retrieve the next set of results, or ``null`` if there are no more results.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.Marker,
     -- | The policies.
-    policies :: Lude.Maybe [Policy],
+    policies :: Core.Maybe [Types.Policy],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAttachedPoliciesResponse' with the minimum fields required to make a request.
---
--- * 'nextMarker' - The token to retrieve the next set of results, or ``null`` if there are no more results.
--- * 'policies' - The policies.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAttachedPoliciesResponse' value with any optional fields omitted.
 mkListAttachedPoliciesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAttachedPoliciesResponse
-mkListAttachedPoliciesResponse pResponseStatus_ =
+mkListAttachedPoliciesResponse responseStatus =
   ListAttachedPoliciesResponse'
-    { nextMarker = Lude.Nothing,
-      policies = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      policies = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to retrieve the next set of results, or ``null`` if there are no more results.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laprsNextMarker :: Lens.Lens' ListAttachedPoliciesResponse (Lude.Maybe Lude.Text)
-laprsNextMarker = Lens.lens (nextMarker :: ListAttachedPoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListAttachedPoliciesResponse)
-{-# DEPRECATED laprsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+laprrsNextMarker :: Lens.Lens' ListAttachedPoliciesResponse (Core.Maybe Types.Marker)
+laprrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED laprrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The policies.
 --
 -- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laprsPolicies :: Lens.Lens' ListAttachedPoliciesResponse (Lude.Maybe [Policy])
-laprsPolicies = Lens.lens (policies :: ListAttachedPoliciesResponse -> Lude.Maybe [Policy]) (\s a -> s {policies = a} :: ListAttachedPoliciesResponse)
-{-# DEPRECATED laprsPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
+laprrsPolicies :: Lens.Lens' ListAttachedPoliciesResponse (Core.Maybe [Types.Policy])
+laprrsPolicies = Lens.field @"policies"
+{-# DEPRECATED laprrsPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laprsResponseStatus :: Lens.Lens' ListAttachedPoliciesResponse Lude.Int
-laprsResponseStatus = Lens.lens (responseStatus :: ListAttachedPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAttachedPoliciesResponse)
-{-# DEPRECATED laprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+laprrsResponseStatus :: Lens.Lens' ListAttachedPoliciesResponse Core.Int
+laprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED laprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

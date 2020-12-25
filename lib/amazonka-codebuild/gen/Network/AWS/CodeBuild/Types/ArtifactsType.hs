@@ -13,51 +13,56 @@
 module Network.AWS.CodeBuild.Types.ArtifactsType
   ( ArtifactsType
       ( ArtifactsType',
-        ATCodepipeline,
-        ATS3,
-        ATNoArtifacts
+        ArtifactsTypeCodepipeline,
+        ArtifactsTypeS3,
+        ArtifactsTypeNoArtifacts,
+        fromArtifactsType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArtifactsType = ArtifactsType' Lude.Text
+newtype ArtifactsType = ArtifactsType'
+  { fromArtifactsType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATCodepipeline :: ArtifactsType
-pattern ATCodepipeline = ArtifactsType' "CODEPIPELINE"
+pattern ArtifactsTypeCodepipeline :: ArtifactsType
+pattern ArtifactsTypeCodepipeline = ArtifactsType' "CODEPIPELINE"
 
-pattern ATS3 :: ArtifactsType
-pattern ATS3 = ArtifactsType' "S3"
+pattern ArtifactsTypeS3 :: ArtifactsType
+pattern ArtifactsTypeS3 = ArtifactsType' "S3"
 
-pattern ATNoArtifacts :: ArtifactsType
-pattern ATNoArtifacts = ArtifactsType' "NO_ARTIFACTS"
+pattern ArtifactsTypeNoArtifacts :: ArtifactsType
+pattern ArtifactsTypeNoArtifacts = ArtifactsType' "NO_ARTIFACTS"
 
 {-# COMPLETE
-  ATCodepipeline,
-  ATS3,
-  ATNoArtifacts,
+  ArtifactsTypeCodepipeline,
+  ArtifactsTypeS3,
+  ArtifactsTypeNoArtifacts,
   ArtifactsType'
   #-}

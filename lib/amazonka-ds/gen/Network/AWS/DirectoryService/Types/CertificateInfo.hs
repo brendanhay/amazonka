@@ -17,85 +17,80 @@ module Network.AWS.DirectoryService.Types.CertificateInfo
     mkCertificateInfo,
 
     -- * Lenses
-    ciState,
-    ciCommonName,
     ciCertificateId,
+    ciCommonName,
     ciExpiryDateTime,
+    ciState,
   )
 where
 
-import Network.AWS.DirectoryService.Types.CertificateState
+import qualified Network.AWS.DirectoryService.Types.CertificateCN as Types
+import qualified Network.AWS.DirectoryService.Types.CertificateId as Types
+import qualified Network.AWS.DirectoryService.Types.CertificateState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains general information about a certificate.
 --
 -- /See:/ 'mkCertificateInfo' smart constructor.
 data CertificateInfo = CertificateInfo'
-  { -- | The state of the certificate.
-    state :: Lude.Maybe CertificateState,
+  { -- | The identifier of the certificate.
+    certificateId :: Core.Maybe Types.CertificateId,
     -- | The common name for the certificate.
-    commonName :: Lude.Maybe Lude.Text,
-    -- | The identifier of the certificate.
-    certificateId :: Lude.Maybe Lude.Text,
+    commonName :: Core.Maybe Types.CertificateCN,
     -- | The date and time when the certificate will expire.
-    expiryDateTime :: Lude.Maybe Lude.Timestamp
+    expiryDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The state of the certificate.
+    state :: Core.Maybe Types.CertificateState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CertificateInfo' with the minimum fields required to make a request.
---
--- * 'state' - The state of the certificate.
--- * 'commonName' - The common name for the certificate.
--- * 'certificateId' - The identifier of the certificate.
--- * 'expiryDateTime' - The date and time when the certificate will expire.
+-- | Creates a 'CertificateInfo' value with any optional fields omitted.
 mkCertificateInfo ::
   CertificateInfo
 mkCertificateInfo =
   CertificateInfo'
-    { state = Lude.Nothing,
-      commonName = Lude.Nothing,
-      certificateId = Lude.Nothing,
-      expiryDateTime = Lude.Nothing
+    { certificateId = Core.Nothing,
+      commonName = Core.Nothing,
+      expiryDateTime = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The state of the certificate.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciState :: Lens.Lens' CertificateInfo (Lude.Maybe CertificateState)
-ciState = Lens.lens (state :: CertificateInfo -> Lude.Maybe CertificateState) (\s a -> s {state = a} :: CertificateInfo)
-{-# DEPRECATED ciState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The common name for the certificate.
---
--- /Note:/ Consider using 'commonName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciCommonName :: Lens.Lens' CertificateInfo (Lude.Maybe Lude.Text)
-ciCommonName = Lens.lens (commonName :: CertificateInfo -> Lude.Maybe Lude.Text) (\s a -> s {commonName = a} :: CertificateInfo)
-{-# DEPRECATED ciCommonName "Use generic-lens or generic-optics with 'commonName' instead." #-}
 
 -- | The identifier of the certificate.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciCertificateId :: Lens.Lens' CertificateInfo (Lude.Maybe Lude.Text)
-ciCertificateId = Lens.lens (certificateId :: CertificateInfo -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: CertificateInfo)
+ciCertificateId :: Lens.Lens' CertificateInfo (Core.Maybe Types.CertificateId)
+ciCertificateId = Lens.field @"certificateId"
 {-# DEPRECATED ciCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | The common name for the certificate.
+--
+-- /Note:/ Consider using 'commonName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciCommonName :: Lens.Lens' CertificateInfo (Core.Maybe Types.CertificateCN)
+ciCommonName = Lens.field @"commonName"
+{-# DEPRECATED ciCommonName "Use generic-lens or generic-optics with 'commonName' instead." #-}
 
 -- | The date and time when the certificate will expire.
 --
 -- /Note:/ Consider using 'expiryDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciExpiryDateTime :: Lens.Lens' CertificateInfo (Lude.Maybe Lude.Timestamp)
-ciExpiryDateTime = Lens.lens (expiryDateTime :: CertificateInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {expiryDateTime = a} :: CertificateInfo)
+ciExpiryDateTime :: Lens.Lens' CertificateInfo (Core.Maybe Core.NominalDiffTime)
+ciExpiryDateTime = Lens.field @"expiryDateTime"
 {-# DEPRECATED ciExpiryDateTime "Use generic-lens or generic-optics with 'expiryDateTime' instead." #-}
 
-instance Lude.FromJSON CertificateInfo where
+-- | The state of the certificate.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciState :: Lens.Lens' CertificateInfo (Core.Maybe Types.CertificateState)
+ciState = Lens.field @"state"
+{-# DEPRECATED ciState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON CertificateInfo where
   parseJSON =
-    Lude.withObject
-      "CertificateInfo"
-      ( \x ->
-          CertificateInfo'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "CommonName")
-            Lude.<*> (x Lude..:? "CertificateId")
-            Lude.<*> (x Lude..:? "ExpiryDateTime")
-      )
+    Core.withObject "CertificateInfo" Core.$
+      \x ->
+        CertificateInfo'
+          Core.<$> (x Core..:? "CertificateId")
+          Core.<*> (x Core..:? "CommonName")
+          Core.<*> (x Core..:? "ExpiryDateTime")
+          Core.<*> (x Core..:? "State")

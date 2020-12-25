@@ -28,109 +28,98 @@ module Network.AWS.AppStream.AssociateFleet
     mkAssociateFleetResponse,
 
     -- ** Response lenses
-    afrsResponseStatus,
+    afrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateFleet' smart constructor.
 data AssociateFleet = AssociateFleet'
   { -- | The name of the fleet.
-    fleetName :: Lude.Text,
+    fleetName :: Types.String,
     -- | The name of the stack.
-    stackName :: Lude.Text
+    stackName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateFleet' with the minimum fields required to make a request.
---
--- * 'fleetName' - The name of the fleet.
--- * 'stackName' - The name of the stack.
+-- | Creates a 'AssociateFleet' value with any optional fields omitted.
 mkAssociateFleet ::
   -- | 'fleetName'
-  Lude.Text ->
+  Types.String ->
   -- | 'stackName'
-  Lude.Text ->
+  Types.String ->
   AssociateFleet
-mkAssociateFleet pFleetName_ pStackName_ =
-  AssociateFleet' {fleetName = pFleetName_, stackName = pStackName_}
+mkAssociateFleet fleetName stackName =
+  AssociateFleet' {fleetName, stackName}
 
 -- | The name of the fleet.
 --
 -- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afFleetName :: Lens.Lens' AssociateFleet Lude.Text
-afFleetName = Lens.lens (fleetName :: AssociateFleet -> Lude.Text) (\s a -> s {fleetName = a} :: AssociateFleet)
+afFleetName :: Lens.Lens' AssociateFleet Types.String
+afFleetName = Lens.field @"fleetName"
 {-# DEPRECATED afFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
 
 -- | The name of the stack.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afStackName :: Lens.Lens' AssociateFleet Lude.Text
-afStackName = Lens.lens (stackName :: AssociateFleet -> Lude.Text) (\s a -> s {stackName = a} :: AssociateFleet)
+afStackName :: Lens.Lens' AssociateFleet Types.String
+afStackName = Lens.field @"stackName"
 {-# DEPRECATED afStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.AWSRequest AssociateFleet where
+instance Core.FromJSON AssociateFleet where
+  toJSON AssociateFleet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetName" Core..= fleetName),
+            Core.Just ("StackName" Core..= stackName)
+          ]
+      )
+
+instance Core.AWSRequest AssociateFleet where
   type Rs AssociateFleet = AssociateFleetResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.AssociateFleet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AssociateFleetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AssociateFleetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateFleet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.AssociateFleet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateFleet where
-  toJSON AssociateFleet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("FleetName" Lude..= fleetName),
-            Lude.Just ("StackName" Lude..= stackName)
-          ]
-      )
-
-instance Lude.ToPath AssociateFleet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateFleet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateFleetResponse' smart constructor.
 newtype AssociateFleetResponse = AssociateFleetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateFleetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateFleetResponse' value with any optional fields omitted.
 mkAssociateFleetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateFleetResponse
-mkAssociateFleetResponse pResponseStatus_ =
-  AssociateFleetResponse' {responseStatus = pResponseStatus_}
+mkAssociateFleetResponse responseStatus =
+  AssociateFleetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afrsResponseStatus :: Lens.Lens' AssociateFleetResponse Lude.Int
-afrsResponseStatus = Lens.lens (responseStatus :: AssociateFleetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateFleetResponse)
-{-# DEPRECATED afrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+afrrsResponseStatus :: Lens.Lens' AssociateFleetResponse Core.Int
+afrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED afrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

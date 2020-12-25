@@ -18,18 +18,21 @@ module Network.AWS.SWF.Types.WorkflowExecutionConfiguration
 
     -- * Lenses
     wecTaskStartToCloseTimeout,
-    wecLambdaRole,
     wecExecutionStartToCloseTimeout,
     wecTaskList,
-    wecTaskPriority,
     wecChildPolicy,
+    wecLambdaRole,
+    wecTaskPriority,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.ChildPolicy
-import Network.AWS.SWF.Types.TaskList
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Arn as Types
+import qualified Network.AWS.SWF.Types.ChildPolicy as Types
+import qualified Network.AWS.SWF.Types.DurationInSeconds as Types
+import qualified Network.AWS.SWF.Types.TaskList as Types
+import qualified Network.AWS.SWF.Types.TaskPriority as Types
 
 -- | The configuration settings for a workflow execution including timeout values, tasklist etc. These configuration settings are determined from the defaults specified when registering the workflow type and those specified when starting the workflow execution.
 --
@@ -38,19 +41,13 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
   { -- | The maximum duration allowed for decision tasks for this workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    taskStartToCloseTimeout :: Lude.Text,
-    -- | The IAM role attached to the child workflow execution.
-    lambdaRole :: Lude.Maybe Lude.Text,
+    taskStartToCloseTimeout :: Types.DurationInSeconds,
     -- | The total duration for this workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    executionStartToCloseTimeout :: Lude.Text,
+    executionStartToCloseTimeout :: Types.DurationInSeconds,
     -- | The task list used for the decision tasks generated for this workflow execution.
-    taskList :: TaskList,
-    -- | The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
-    --
-    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
-    taskPriority :: Lude.Maybe Lude.Text,
+    taskList :: Types.TaskList,
     -- | The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout.
     --
     -- The supported child policies are:
@@ -62,58 +59,40 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
     --
     --
     --     * @ABANDON@ – No action is taken. The child executions continue to run.
-    childPolicy :: ChildPolicy
+    childPolicy :: Types.ChildPolicy,
+    -- | The IAM role attached to the child workflow execution.
+    lambdaRole :: Core.Maybe Types.Arn,
+    -- | The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+    --
+    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+    taskPriority :: Core.Maybe Types.TaskPriority
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkflowExecutionConfiguration' with the minimum fields required to make a request.
---
--- * 'taskStartToCloseTimeout' - The maximum duration allowed for decision tasks for this workflow execution.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'lambdaRole' - The IAM role attached to the child workflow execution.
--- * 'executionStartToCloseTimeout' - The total duration for this workflow execution.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'taskList' - The task list used for the decision tasks generated for this workflow execution.
--- * 'taskPriority' - The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
--- * 'childPolicy' - The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout.
---
--- The supported child policies are:
---
---     * @TERMINATE@ – The child executions are terminated.
---
---
---     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
---
---
---     * @ABANDON@ – No action is taken. The child executions continue to run.
+-- | Creates a 'WorkflowExecutionConfiguration' value with any optional fields omitted.
 mkWorkflowExecutionConfiguration ::
   -- | 'taskStartToCloseTimeout'
-  Lude.Text ->
+  Types.DurationInSeconds ->
   -- | 'executionStartToCloseTimeout'
-  Lude.Text ->
+  Types.DurationInSeconds ->
   -- | 'taskList'
-  TaskList ->
+  Types.TaskList ->
   -- | 'childPolicy'
-  ChildPolicy ->
+  Types.ChildPolicy ->
   WorkflowExecutionConfiguration
 mkWorkflowExecutionConfiguration
-  pTaskStartToCloseTimeout_
-  pExecutionStartToCloseTimeout_
-  pTaskList_
-  pChildPolicy_ =
+  taskStartToCloseTimeout
+  executionStartToCloseTimeout
+  taskList
+  childPolicy =
     WorkflowExecutionConfiguration'
-      { taskStartToCloseTimeout =
-          pTaskStartToCloseTimeout_,
-        lambdaRole = Lude.Nothing,
-        executionStartToCloseTimeout = pExecutionStartToCloseTimeout_,
-        taskList = pTaskList_,
-        taskPriority = Lude.Nothing,
-        childPolicy = pChildPolicy_
+      { taskStartToCloseTimeout,
+        executionStartToCloseTimeout,
+        taskList,
+        childPolicy,
+        lambdaRole = Core.Nothing,
+        taskPriority = Core.Nothing
       }
 
 -- | The maximum duration allowed for decision tasks for this workflow execution.
@@ -121,41 +100,25 @@ mkWorkflowExecutionConfiguration
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'taskStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecTaskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Lude.Text
-wecTaskStartToCloseTimeout = Lens.lens (taskStartToCloseTimeout :: WorkflowExecutionConfiguration -> Lude.Text) (\s a -> s {taskStartToCloseTimeout = a} :: WorkflowExecutionConfiguration)
+wecTaskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Types.DurationInSeconds
+wecTaskStartToCloseTimeout = Lens.field @"taskStartToCloseTimeout"
 {-# DEPRECATED wecTaskStartToCloseTimeout "Use generic-lens or generic-optics with 'taskStartToCloseTimeout' instead." #-}
-
--- | The IAM role attached to the child workflow execution.
---
--- /Note:/ Consider using 'lambdaRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecLambdaRole :: Lens.Lens' WorkflowExecutionConfiguration (Lude.Maybe Lude.Text)
-wecLambdaRole = Lens.lens (lambdaRole :: WorkflowExecutionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {lambdaRole = a} :: WorkflowExecutionConfiguration)
-{-# DEPRECATED wecLambdaRole "Use generic-lens or generic-optics with 'lambdaRole' instead." #-}
 
 -- | The total duration for this workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'executionStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecExecutionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Lude.Text
-wecExecutionStartToCloseTimeout = Lens.lens (executionStartToCloseTimeout :: WorkflowExecutionConfiguration -> Lude.Text) (\s a -> s {executionStartToCloseTimeout = a} :: WorkflowExecutionConfiguration)
+wecExecutionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Types.DurationInSeconds
+wecExecutionStartToCloseTimeout = Lens.field @"executionStartToCloseTimeout"
 {-# DEPRECATED wecExecutionStartToCloseTimeout "Use generic-lens or generic-optics with 'executionStartToCloseTimeout' instead." #-}
 
 -- | The task list used for the decision tasks generated for this workflow execution.
 --
 -- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecTaskList :: Lens.Lens' WorkflowExecutionConfiguration TaskList
-wecTaskList = Lens.lens (taskList :: WorkflowExecutionConfiguration -> TaskList) (\s a -> s {taskList = a} :: WorkflowExecutionConfiguration)
+wecTaskList :: Lens.Lens' WorkflowExecutionConfiguration Types.TaskList
+wecTaskList = Lens.field @"taskList"
 {-# DEPRECATED wecTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
-
--- | The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
---
--- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecTaskPriority :: Lens.Lens' WorkflowExecutionConfiguration (Lude.Maybe Lude.Text)
-wecTaskPriority = Lens.lens (taskPriority :: WorkflowExecutionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {taskPriority = a} :: WorkflowExecutionConfiguration)
-{-# DEPRECATED wecTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
 
 -- | The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout.
 --
@@ -172,20 +135,34 @@ wecTaskPriority = Lens.lens (taskPriority :: WorkflowExecutionConfiguration -> L
 --
 --
 -- /Note:/ Consider using 'childPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecChildPolicy :: Lens.Lens' WorkflowExecutionConfiguration ChildPolicy
-wecChildPolicy = Lens.lens (childPolicy :: WorkflowExecutionConfiguration -> ChildPolicy) (\s a -> s {childPolicy = a} :: WorkflowExecutionConfiguration)
+wecChildPolicy :: Lens.Lens' WorkflowExecutionConfiguration Types.ChildPolicy
+wecChildPolicy = Lens.field @"childPolicy"
 {-# DEPRECATED wecChildPolicy "Use generic-lens or generic-optics with 'childPolicy' instead." #-}
 
-instance Lude.FromJSON WorkflowExecutionConfiguration where
+-- | The IAM role attached to the child workflow execution.
+--
+-- /Note:/ Consider using 'lambdaRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecLambdaRole :: Lens.Lens' WorkflowExecutionConfiguration (Core.Maybe Types.Arn)
+wecLambdaRole = Lens.field @"lambdaRole"
+{-# DEPRECATED wecLambdaRole "Use generic-lens or generic-optics with 'lambdaRole' instead." #-}
+
+-- | The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+--
+-- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecTaskPriority :: Lens.Lens' WorkflowExecutionConfiguration (Core.Maybe Types.TaskPriority)
+wecTaskPriority = Lens.field @"taskPriority"
+{-# DEPRECATED wecTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
+
+instance Core.FromJSON WorkflowExecutionConfiguration where
   parseJSON =
-    Lude.withObject
-      "WorkflowExecutionConfiguration"
-      ( \x ->
-          WorkflowExecutionConfiguration'
-            Lude.<$> (x Lude..: "taskStartToCloseTimeout")
-            Lude.<*> (x Lude..:? "lambdaRole")
-            Lude.<*> (x Lude..: "executionStartToCloseTimeout")
-            Lude.<*> (x Lude..: "taskList")
-            Lude.<*> (x Lude..:? "taskPriority")
-            Lude.<*> (x Lude..: "childPolicy")
-      )
+    Core.withObject "WorkflowExecutionConfiguration" Core.$
+      \x ->
+        WorkflowExecutionConfiguration'
+          Core.<$> (x Core..: "taskStartToCloseTimeout")
+          Core.<*> (x Core..: "executionStartToCloseTimeout")
+          Core.<*> (x Core..: "taskList")
+          Core.<*> (x Core..: "childPolicy")
+          Core.<*> (x Core..:? "lambdaRole")
+          Core.<*> (x Core..:? "taskPriority")

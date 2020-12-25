@@ -20,8 +20,8 @@ module Network.AWS.EC2.DeleteInternetGateway
     mkDeleteInternetGateway,
 
     -- ** Request lenses
-    digfDryRun,
     digfInternetGatewayId,
+    digfDryRun,
 
     -- * Destructuring the response
     DeleteInternetGatewayResponse (..),
@@ -29,76 +29,73 @@ module Network.AWS.EC2.DeleteInternetGateway
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInternetGateway' smart constructor.
 data DeleteInternetGateway = DeleteInternetGateway'
-  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The ID of the internet gateway.
-    internetGatewayId :: Lude.Text
+  { -- | The ID of the internet gateway.
+    internetGatewayId :: Types.InternetGatewayId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInternetGateway' with the minimum fields required to make a request.
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'internetGatewayId' - The ID of the internet gateway.
+-- | Creates a 'DeleteInternetGateway' value with any optional fields omitted.
 mkDeleteInternetGateway ::
   -- | 'internetGatewayId'
-  Lude.Text ->
+  Types.InternetGatewayId ->
   DeleteInternetGateway
-mkDeleteInternetGateway pInternetGatewayId_ =
-  DeleteInternetGateway'
-    { dryRun = Lude.Nothing,
-      internetGatewayId = pInternetGatewayId_
-    }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-digfDryRun :: Lens.Lens' DeleteInternetGateway (Lude.Maybe Lude.Bool)
-digfDryRun = Lens.lens (dryRun :: DeleteInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteInternetGateway)
-{-# DEPRECATED digfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+mkDeleteInternetGateway internetGatewayId =
+  DeleteInternetGateway' {internetGatewayId, dryRun = Core.Nothing}
 
 -- | The ID of the internet gateway.
 --
 -- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-digfInternetGatewayId :: Lens.Lens' DeleteInternetGateway Lude.Text
-digfInternetGatewayId = Lens.lens (internetGatewayId :: DeleteInternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: DeleteInternetGateway)
+digfInternetGatewayId :: Lens.Lens' DeleteInternetGateway Types.InternetGatewayId
+digfInternetGatewayId = Lens.field @"internetGatewayId"
 {-# DEPRECATED digfInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
 
-instance Lude.AWSRequest DeleteInternetGateway where
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digfDryRun :: Lens.Lens' DeleteInternetGateway (Core.Maybe Core.Bool)
+digfDryRun = Lens.field @"dryRun"
+{-# DEPRECATED digfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+instance Core.AWSRequest DeleteInternetGateway where
   type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteInternetGatewayResponse'
-
-instance Lude.ToHeaders DeleteInternetGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteInternetGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteInternetGateway where
-  toQuery DeleteInternetGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteInternetGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "InternetGatewayId" Lude.=: internetGatewayId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteInternetGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InternetGatewayId" internetGatewayId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteInternetGatewayResponse'
 
 -- | /See:/ 'mkDeleteInternetGatewayResponse' smart constructor.
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInternetGatewayResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteInternetGatewayResponse' value with any optional fields omitted.
 mkDeleteInternetGatewayResponse ::
   DeleteInternetGatewayResponse
 mkDeleteInternetGatewayResponse = DeleteInternetGatewayResponse'

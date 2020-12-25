@@ -22,56 +22,51 @@ module Network.AWS.DMS.Types.TableToReload
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the name of the schema and table to be reloaded.
 --
 -- /See:/ 'mkTableToReload' smart constructor.
 data TableToReload = TableToReload'
   { -- | The schema name of the table to be reloaded.
-    schemaName :: Lude.Text,
+    schemaName :: Types.String,
     -- | The table name of the table to be reloaded.
-    tableName :: Lude.Text
+    tableName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TableToReload' with the minimum fields required to make a request.
---
--- * 'schemaName' - The schema name of the table to be reloaded.
--- * 'tableName' - The table name of the table to be reloaded.
+-- | Creates a 'TableToReload' value with any optional fields omitted.
 mkTableToReload ::
   -- | 'schemaName'
-  Lude.Text ->
+  Types.String ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.String ->
   TableToReload
-mkTableToReload pSchemaName_ pTableName_ =
-  TableToReload'
-    { schemaName = pSchemaName_,
-      tableName = pTableName_
-    }
+mkTableToReload schemaName tableName =
+  TableToReload' {schemaName, tableName}
 
 -- | The schema name of the table to be reloaded.
 --
 -- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrSchemaName :: Lens.Lens' TableToReload Lude.Text
-ttrSchemaName = Lens.lens (schemaName :: TableToReload -> Lude.Text) (\s a -> s {schemaName = a} :: TableToReload)
+ttrSchemaName :: Lens.Lens' TableToReload Types.String
+ttrSchemaName = Lens.field @"schemaName"
 {-# DEPRECATED ttrSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
 -- | The table name of the table to be reloaded.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrTableName :: Lens.Lens' TableToReload Lude.Text
-ttrTableName = Lens.lens (tableName :: TableToReload -> Lude.Text) (\s a -> s {tableName = a} :: TableToReload)
+ttrTableName :: Lens.Lens' TableToReload Types.String
+ttrTableName = Lens.field @"tableName"
 {-# DEPRECATED ttrTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.ToJSON TableToReload where
-  toJSON TableToReload' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaName" Lude..= schemaName),
-            Lude.Just ("TableName" Lude..= tableName)
+instance Core.FromJSON TableToReload where
+  toJSON TableToReload {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaName" Core..= schemaName),
+            Core.Just ("TableName" Core..= tableName)
           ]
       )

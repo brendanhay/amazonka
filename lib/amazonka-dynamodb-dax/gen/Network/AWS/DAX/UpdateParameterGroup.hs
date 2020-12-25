@@ -20,134 +20,121 @@ module Network.AWS.DAX.UpdateParameterGroup
     mkUpdateParameterGroup,
 
     -- ** Request lenses
-    upgParameterNameValues,
     upgParameterGroupName,
+    upgParameterNameValues,
 
     -- * Destructuring the response
     UpdateParameterGroupResponse (..),
     mkUpdateParameterGroupResponse,
 
     -- ** Response lenses
-    upgrsParameterGroup,
-    upgrsResponseStatus,
+    upgrrsParameterGroup,
+    upgrrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateParameterGroup' smart constructor.
 data UpdateParameterGroup = UpdateParameterGroup'
-  { -- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
-    parameterNameValues :: [ParameterNameValue],
-    -- | The name of the parameter group.
-    parameterGroupName :: Lude.Text
+  { -- | The name of the parameter group.
+    parameterGroupName :: Types.String,
+    -- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
+    parameterNameValues :: [Types.ParameterNameValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateParameterGroup' with the minimum fields required to make a request.
---
--- * 'parameterNameValues' - An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
--- * 'parameterGroupName' - The name of the parameter group.
+-- | Creates a 'UpdateParameterGroup' value with any optional fields omitted.
 mkUpdateParameterGroup ::
   -- | 'parameterGroupName'
-  Lude.Text ->
+  Types.String ->
   UpdateParameterGroup
-mkUpdateParameterGroup pParameterGroupName_ =
+mkUpdateParameterGroup parameterGroupName =
   UpdateParameterGroup'
-    { parameterNameValues = Lude.mempty,
-      parameterGroupName = pParameterGroupName_
+    { parameterGroupName,
+      parameterNameValues = Core.mempty
     }
-
--- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
---
--- /Note:/ Consider using 'parameterNameValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upgParameterNameValues :: Lens.Lens' UpdateParameterGroup [ParameterNameValue]
-upgParameterNameValues = Lens.lens (parameterNameValues :: UpdateParameterGroup -> [ParameterNameValue]) (\s a -> s {parameterNameValues = a} :: UpdateParameterGroup)
-{-# DEPRECATED upgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
 
 -- | The name of the parameter group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upgParameterGroupName :: Lens.Lens' UpdateParameterGroup Lude.Text
-upgParameterGroupName = Lens.lens (parameterGroupName :: UpdateParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: UpdateParameterGroup)
+upgParameterGroupName :: Lens.Lens' UpdateParameterGroup Types.String
+upgParameterGroupName = Lens.field @"parameterGroupName"
 {-# DEPRECATED upgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.AWSRequest UpdateParameterGroup where
+-- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
+--
+-- /Note:/ Consider using 'parameterNameValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upgParameterNameValues :: Lens.Lens' UpdateParameterGroup [Types.ParameterNameValue]
+upgParameterNameValues = Lens.field @"parameterNameValues"
+{-# DEPRECATED upgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
+
+instance Core.FromJSON UpdateParameterGroup where
+  toJSON UpdateParameterGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParameterGroupName" Core..= parameterGroupName),
+            Core.Just ("ParameterNameValues" Core..= parameterNameValues)
+          ]
+      )
+
+instance Core.AWSRequest UpdateParameterGroup where
   type Rs UpdateParameterGroup = UpdateParameterGroupResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.UpdateParameterGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateParameterGroupResponse'
-            Lude.<$> (x Lude..?> "ParameterGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ParameterGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateParameterGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.UpdateParameterGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateParameterGroup where
-  toJSON UpdateParameterGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ParameterNameValues" Lude..= parameterNameValues),
-            Lude.Just ("ParameterGroupName" Lude..= parameterGroupName)
-          ]
-      )
-
-instance Lude.ToPath UpdateParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateParameterGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateParameterGroupResponse' smart constructor.
 data UpdateParameterGroupResponse = UpdateParameterGroupResponse'
   { -- | The parameter group that has been modified.
-    parameterGroup :: Lude.Maybe ParameterGroup,
+    parameterGroup :: Core.Maybe Types.ParameterGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateParameterGroupResponse' with the minimum fields required to make a request.
---
--- * 'parameterGroup' - The parameter group that has been modified.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateParameterGroupResponse' value with any optional fields omitted.
 mkUpdateParameterGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateParameterGroupResponse
-mkUpdateParameterGroupResponse pResponseStatus_ =
+mkUpdateParameterGroupResponse responseStatus =
   UpdateParameterGroupResponse'
-    { parameterGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { parameterGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | The parameter group that has been modified.
 --
 -- /Note:/ Consider using 'parameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upgrsParameterGroup :: Lens.Lens' UpdateParameterGroupResponse (Lude.Maybe ParameterGroup)
-upgrsParameterGroup = Lens.lens (parameterGroup :: UpdateParameterGroupResponse -> Lude.Maybe ParameterGroup) (\s a -> s {parameterGroup = a} :: UpdateParameterGroupResponse)
-{-# DEPRECATED upgrsParameterGroup "Use generic-lens or generic-optics with 'parameterGroup' instead." #-}
+upgrrsParameterGroup :: Lens.Lens' UpdateParameterGroupResponse (Core.Maybe Types.ParameterGroup)
+upgrrsParameterGroup = Lens.field @"parameterGroup"
+{-# DEPRECATED upgrrsParameterGroup "Use generic-lens or generic-optics with 'parameterGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upgrsResponseStatus :: Lens.Lens' UpdateParameterGroupResponse Lude.Int
-upgrsResponseStatus = Lens.lens (responseStatus :: UpdateParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateParameterGroupResponse)
-{-# DEPRECATED upgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+upgrrsResponseStatus :: Lens.Lens' UpdateParameterGroupResponse Core.Int
+upgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED upgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

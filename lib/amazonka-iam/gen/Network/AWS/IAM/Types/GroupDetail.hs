@@ -17,20 +17,24 @@ module Network.AWS.IAM.Types.GroupDetail
     mkGroupDetail,
 
     -- * Lenses
-    gdARN,
-    gdPath,
+    gdArn,
+    gdAttachedManagedPolicies,
     gdCreateDate,
     gdGroupId,
-    gdGroupPolicyList,
     gdGroupName,
-    gdAttachedManagedPolicies,
+    gdGroupPolicyList,
+    gdPath,
   )
 where
 
-import Network.AWS.IAM.Types.AttachedPolicy
-import Network.AWS.IAM.Types.PolicyDetail
+import qualified Network.AWS.IAM.Types.Arn as Types
+import qualified Network.AWS.IAM.Types.AttachedPolicy as Types
+import qualified Network.AWS.IAM.Types.GroupNameType as Types
+import qualified Network.AWS.IAM.Types.IdType as Types
+import qualified Network.AWS.IAM.Types.Path as Types
+import qualified Network.AWS.IAM.Types.PolicyDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an IAM group, including all of the group's policies.
 --
@@ -38,105 +42,95 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupDetail' smart constructor.
 data GroupDetail = GroupDetail'
-  { arn :: Lude.Maybe Lude.Text,
-    -- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    path :: Lude.Maybe Lude.Text,
-    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
-    createDate :: Lude.Maybe Lude.DateTime,
-    -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    groupId :: Lude.Maybe Lude.Text,
-    -- | A list of the inline policies embedded in the group.
-    groupPolicyList :: Lude.Maybe [PolicyDetail],
-    -- | The friendly name that identifies the group.
-    groupName :: Lude.Maybe Lude.Text,
+  { arn :: Core.Maybe Types.Arn,
     -- | A list of the managed policies attached to the group.
-    attachedManagedPolicies :: Lude.Maybe [AttachedPolicy]
+    attachedManagedPolicies :: Core.Maybe [Types.AttachedPolicy],
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
+    createDate :: Core.Maybe Core.UTCTime,
+    -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    groupId :: Core.Maybe Types.IdType,
+    -- | The friendly name that identifies the group.
+    groupName :: Core.Maybe Types.GroupNameType,
+    -- | A list of the inline policies embedded in the group.
+    groupPolicyList :: Core.Maybe [Types.PolicyDetail],
+    -- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    path :: Core.Maybe Types.Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GroupDetail' with the minimum fields required to make a request.
---
--- * 'arn' -
--- * 'path' - The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
--- * 'groupId' - The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'groupPolicyList' - A list of the inline policies embedded in the group.
--- * 'groupName' - The friendly name that identifies the group.
--- * 'attachedManagedPolicies' - A list of the managed policies attached to the group.
+-- | Creates a 'GroupDetail' value with any optional fields omitted.
 mkGroupDetail ::
   GroupDetail
 mkGroupDetail =
   GroupDetail'
-    { arn = Lude.Nothing,
-      path = Lude.Nothing,
-      createDate = Lude.Nothing,
-      groupId = Lude.Nothing,
-      groupPolicyList = Lude.Nothing,
-      groupName = Lude.Nothing,
-      attachedManagedPolicies = Lude.Nothing
+    { arn = Core.Nothing,
+      attachedManagedPolicies = Core.Nothing,
+      createDate = Core.Nothing,
+      groupId = Core.Nothing,
+      groupName = Core.Nothing,
+      groupPolicyList = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdARN :: Lens.Lens' GroupDetail (Lude.Maybe Lude.Text)
-gdARN = Lens.lens (arn :: GroupDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GroupDetail)
-{-# DEPRECATED gdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+gdArn :: Lens.Lens' GroupDetail (Core.Maybe Types.Arn)
+gdArn = Lens.field @"arn"
+{-# DEPRECATED gdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | A list of the managed policies attached to the group.
 --
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdPath :: Lens.Lens' GroupDetail (Lude.Maybe Lude.Text)
-gdPath = Lens.lens (path :: GroupDetail -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: GroupDetail)
-{-# DEPRECATED gdPath "Use generic-lens or generic-optics with 'path' instead." #-}
+-- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdAttachedManagedPolicies :: Lens.Lens' GroupDetail (Core.Maybe [Types.AttachedPolicy])
+gdAttachedManagedPolicies = Lens.field @"attachedManagedPolicies"
+{-# DEPRECATED gdAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdCreateDate :: Lens.Lens' GroupDetail (Lude.Maybe Lude.DateTime)
-gdCreateDate = Lens.lens (createDate :: GroupDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: GroupDetail)
+gdCreateDate :: Lens.Lens' GroupDetail (Core.Maybe Core.UTCTime)
+gdCreateDate = Lens.field @"createDate"
 {-# DEPRECATED gdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdGroupId :: Lens.Lens' GroupDetail (Lude.Maybe Lude.Text)
-gdGroupId = Lens.lens (groupId :: GroupDetail -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: GroupDetail)
+gdGroupId :: Lens.Lens' GroupDetail (Core.Maybe Types.IdType)
+gdGroupId = Lens.field @"groupId"
 {-# DEPRECATED gdGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
-
--- | A list of the inline policies embedded in the group.
---
--- /Note:/ Consider using 'groupPolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdGroupPolicyList :: Lens.Lens' GroupDetail (Lude.Maybe [PolicyDetail])
-gdGroupPolicyList = Lens.lens (groupPolicyList :: GroupDetail -> Lude.Maybe [PolicyDetail]) (\s a -> s {groupPolicyList = a} :: GroupDetail)
-{-# DEPRECATED gdGroupPolicyList "Use generic-lens or generic-optics with 'groupPolicyList' instead." #-}
 
 -- | The friendly name that identifies the group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdGroupName :: Lens.Lens' GroupDetail (Lude.Maybe Lude.Text)
-gdGroupName = Lens.lens (groupName :: GroupDetail -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GroupDetail)
+gdGroupName :: Lens.Lens' GroupDetail (Core.Maybe Types.GroupNameType)
+gdGroupName = Lens.field @"groupName"
 {-# DEPRECATED gdGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | A list of the managed policies attached to the group.
+-- | A list of the inline policies embedded in the group.
 --
--- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdAttachedManagedPolicies :: Lens.Lens' GroupDetail (Lude.Maybe [AttachedPolicy])
-gdAttachedManagedPolicies = Lens.lens (attachedManagedPolicies :: GroupDetail -> Lude.Maybe [AttachedPolicy]) (\s a -> s {attachedManagedPolicies = a} :: GroupDetail)
-{-# DEPRECATED gdAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
+-- /Note:/ Consider using 'groupPolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdGroupPolicyList :: Lens.Lens' GroupDetail (Core.Maybe [Types.PolicyDetail])
+gdGroupPolicyList = Lens.field @"groupPolicyList"
+{-# DEPRECATED gdGroupPolicyList "Use generic-lens or generic-optics with 'groupPolicyList' instead." #-}
 
-instance Lude.FromXML GroupDetail where
+-- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdPath :: Lens.Lens' GroupDetail (Core.Maybe Types.Path)
+gdPath = Lens.field @"path"
+{-# DEPRECATED gdPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+instance Core.FromXML GroupDetail where
   parseXML x =
     GroupDetail'
-      Lude.<$> (x Lude..@? "Arn")
-      Lude.<*> (x Lude..@? "Path")
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "GroupId")
-      Lude.<*> ( x Lude..@? "GroupPolicyList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "Arn")
+      Core.<*> ( x Core..@? "AttachedManagedPolicies"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "GroupName")
-      Lude.<*> ( x Lude..@? "AttachedManagedPolicies" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<*> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "GroupId")
+      Core.<*> (x Core..@? "GroupName")
+      Core.<*> (x Core..@? "GroupPolicyList" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Path")

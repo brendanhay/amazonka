@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.ReservationState
   ( ReservationState
       ( ReservationState',
-        RSPaymentPending,
-        RSPaymentFailed,
-        RSActive,
-        RSRetired
+        ReservationStatePaymentPending,
+        ReservationStatePaymentFailed,
+        ReservationStateActive,
+        ReservationStateRetired,
+        fromReservationState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReservationState = ReservationState' Lude.Text
+newtype ReservationState = ReservationState'
+  { fromReservationState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSPaymentPending :: ReservationState
-pattern RSPaymentPending = ReservationState' "payment-pending"
+pattern ReservationStatePaymentPending :: ReservationState
+pattern ReservationStatePaymentPending = ReservationState' "payment-pending"
 
-pattern RSPaymentFailed :: ReservationState
-pattern RSPaymentFailed = ReservationState' "payment-failed"
+pattern ReservationStatePaymentFailed :: ReservationState
+pattern ReservationStatePaymentFailed = ReservationState' "payment-failed"
 
-pattern RSActive :: ReservationState
-pattern RSActive = ReservationState' "active"
+pattern ReservationStateActive :: ReservationState
+pattern ReservationStateActive = ReservationState' "active"
 
-pattern RSRetired :: ReservationState
-pattern RSRetired = ReservationState' "retired"
+pattern ReservationStateRetired :: ReservationState
+pattern ReservationStateRetired = ReservationState' "retired"
 
 {-# COMPLETE
-  RSPaymentPending,
-  RSPaymentFailed,
-  RSActive,
-  RSRetired,
+  ReservationStatePaymentPending,
+  ReservationStatePaymentFailed,
+  ReservationStateActive,
+  ReservationStateRetired,
   ReservationState'
   #-}

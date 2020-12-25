@@ -24,79 +24,74 @@ module Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsInput
   )
 where
 
-import Network.AWS.ElasticSearch.Types.MasterUserOptions
-import Network.AWS.ElasticSearch.Types.SAMLOptionsInput
+import qualified Network.AWS.ElasticSearch.Types.MasterUserOptions as Types
+import qualified Network.AWS.ElasticSearch.Types.SAMLOptionsInput as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled, master username and password (if internal database is enabled), and master user ARN (if IAM is enabled).
 --
 -- /See:/ 'mkAdvancedSecurityOptionsInput' smart constructor.
 data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
   { -- | True if advanced security is enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | True if the internal user database is enabled.
-    internalUserDatabaseEnabled :: Lude.Maybe Lude.Bool,
+    internalUserDatabaseEnabled :: Core.Maybe Core.Bool,
     -- | Credentials for the master user: username and password, ARN, or both.
-    masterUserOptions :: Lude.Maybe MasterUserOptions,
+    masterUserOptions :: Core.Maybe Types.MasterUserOptions,
     -- | Specifies the SAML application configuration for the domain.
-    sAMLOptions :: Lude.Maybe SAMLOptionsInput
+    sAMLOptions :: Core.Maybe Types.SAMLOptionsInput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdvancedSecurityOptionsInput' with the minimum fields required to make a request.
---
--- * 'enabled' - True if advanced security is enabled.
--- * 'internalUserDatabaseEnabled' - True if the internal user database is enabled.
--- * 'masterUserOptions' - Credentials for the master user: username and password, ARN, or both.
--- * 'sAMLOptions' - Specifies the SAML application configuration for the domain.
+-- | Creates a 'AdvancedSecurityOptionsInput' value with any optional fields omitted.
 mkAdvancedSecurityOptionsInput ::
   AdvancedSecurityOptionsInput
 mkAdvancedSecurityOptionsInput =
   AdvancedSecurityOptionsInput'
-    { enabled = Lude.Nothing,
-      internalUserDatabaseEnabled = Lude.Nothing,
-      masterUserOptions = Lude.Nothing,
-      sAMLOptions = Lude.Nothing
+    { enabled = Core.Nothing,
+      internalUserDatabaseEnabled = Core.Nothing,
+      masterUserOptions = Core.Nothing,
+      sAMLOptions = Core.Nothing
     }
 
 -- | True if advanced security is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asoiEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Lude.Maybe Lude.Bool)
-asoiEnabled = Lens.lens (enabled :: AdvancedSecurityOptionsInput -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AdvancedSecurityOptionsInput)
+asoiEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe Core.Bool)
+asoiEnabled = Lens.field @"enabled"
 {-# DEPRECATED asoiEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | True if the internal user database is enabled.
 --
 -- /Note:/ Consider using 'internalUserDatabaseEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asoiInternalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Lude.Maybe Lude.Bool)
-asoiInternalUserDatabaseEnabled = Lens.lens (internalUserDatabaseEnabled :: AdvancedSecurityOptionsInput -> Lude.Maybe Lude.Bool) (\s a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptionsInput)
+asoiInternalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe Core.Bool)
+asoiInternalUserDatabaseEnabled = Lens.field @"internalUserDatabaseEnabled"
 {-# DEPRECATED asoiInternalUserDatabaseEnabled "Use generic-lens or generic-optics with 'internalUserDatabaseEnabled' instead." #-}
 
 -- | Credentials for the master user: username and password, ARN, or both.
 --
 -- /Note:/ Consider using 'masterUserOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asoiMasterUserOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Lude.Maybe MasterUserOptions)
-asoiMasterUserOptions = Lens.lens (masterUserOptions :: AdvancedSecurityOptionsInput -> Lude.Maybe MasterUserOptions) (\s a -> s {masterUserOptions = a} :: AdvancedSecurityOptionsInput)
+asoiMasterUserOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe Types.MasterUserOptions)
+asoiMasterUserOptions = Lens.field @"masterUserOptions"
 {-# DEPRECATED asoiMasterUserOptions "Use generic-lens or generic-optics with 'masterUserOptions' instead." #-}
 
 -- | Specifies the SAML application configuration for the domain.
 --
 -- /Note:/ Consider using 'sAMLOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asoiSAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Lude.Maybe SAMLOptionsInput)
-asoiSAMLOptions = Lens.lens (sAMLOptions :: AdvancedSecurityOptionsInput -> Lude.Maybe SAMLOptionsInput) (\s a -> s {sAMLOptions = a} :: AdvancedSecurityOptionsInput)
+asoiSAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe Types.SAMLOptionsInput)
+asoiSAMLOptions = Lens.field @"sAMLOptions"
 {-# DEPRECATED asoiSAMLOptions "Use generic-lens or generic-optics with 'sAMLOptions' instead." #-}
 
-instance Lude.ToJSON AdvancedSecurityOptionsInput where
-  toJSON AdvancedSecurityOptionsInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("InternalUserDatabaseEnabled" Lude..=)
-              Lude.<$> internalUserDatabaseEnabled,
-            ("MasterUserOptions" Lude..=) Lude.<$> masterUserOptions,
-            ("SAMLOptions" Lude..=) Lude.<$> sAMLOptions
+instance Core.FromJSON AdvancedSecurityOptionsInput where
+  toJSON AdvancedSecurityOptionsInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("InternalUserDatabaseEnabled" Core..=)
+              Core.<$> internalUserDatabaseEnabled,
+            ("MasterUserOptions" Core..=) Core.<$> masterUserOptions,
+            ("SAMLOptions" Core..=) Core.<$> sAMLOptions
           ]
       )

@@ -23,117 +23,111 @@ module Network.AWS.RDS.DescribeDBSnapshotAttributes
     mkDescribeDBSnapshotAttributes,
 
     -- ** Request lenses
-    ddsaDBSnapshotIdentifier,
+    ddbsaDBSnapshotIdentifier,
 
     -- * Destructuring the response
     DescribeDBSnapshotAttributesResponse (..),
     mkDescribeDBSnapshotAttributesResponse,
 
     -- ** Response lenses
-    ddsarsDBSnapshotAttributesResult,
-    ddsarsResponseStatus,
+    ddbsarrsDBSnapshotAttributesResult,
+    ddbsarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBSnapshotAttributes' smart constructor.
 newtype DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
   { -- | The identifier for the DB snapshot to describe the attributes for.
-    dbSnapshotIdentifier :: Lude.Text
+    dBSnapshotIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBSnapshotAttributes' with the minimum fields required to make a request.
---
--- * 'dbSnapshotIdentifier' - The identifier for the DB snapshot to describe the attributes for.
+-- | Creates a 'DescribeDBSnapshotAttributes' value with any optional fields omitted.
 mkDescribeDBSnapshotAttributes ::
-  -- | 'dbSnapshotIdentifier'
-  Lude.Text ->
+  -- | 'dBSnapshotIdentifier'
+  Types.String ->
   DescribeDBSnapshotAttributes
-mkDescribeDBSnapshotAttributes pDBSnapshotIdentifier_ =
-  DescribeDBSnapshotAttributes'
-    { dbSnapshotIdentifier =
-        pDBSnapshotIdentifier_
-    }
+mkDescribeDBSnapshotAttributes dBSnapshotIdentifier =
+  DescribeDBSnapshotAttributes' {dBSnapshotIdentifier}
 
 -- | The identifier for the DB snapshot to describe the attributes for.
 --
--- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsaDBSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshotAttributes Lude.Text
-ddsaDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: DescribeDBSnapshotAttributes -> Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: DescribeDBSnapshotAttributes)
-{-# DEPRECATED ddsaDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsaDBSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshotAttributes Types.String
+ddbsaDBSnapshotIdentifier = Lens.field @"dBSnapshotIdentifier"
+{-# DEPRECATED ddbsaDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dBSnapshotIdentifier' instead." #-}
 
-instance Lude.AWSRequest DescribeDBSnapshotAttributes where
+instance Core.AWSRequest DescribeDBSnapshotAttributes where
   type
     Rs DescribeDBSnapshotAttributes =
       DescribeDBSnapshotAttributesResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBSnapshotAttributes")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSnapshotIdentifier" dBSnapshotIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBSnapshotAttributesResult"
       ( \s h x ->
           DescribeDBSnapshotAttributesResponse'
-            Lude.<$> (x Lude..@? "DBSnapshotAttributesResult")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBSnapshotAttributesResult")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDBSnapshotAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBSnapshotAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBSnapshotAttributes where
-  toQuery DescribeDBSnapshotAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeDBSnapshotAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBSnapshotIdentifier" Lude.=: dbSnapshotIdentifier
-      ]
 
 -- | /See:/ 'mkDescribeDBSnapshotAttributesResponse' smart constructor.
 data DescribeDBSnapshotAttributesResponse = DescribeDBSnapshotAttributesResponse'
-  { dbSnapshotAttributesResult :: Lude.Maybe DBSnapshotAttributesResult,
+  { dBSnapshotAttributesResult :: Core.Maybe Types.DBSnapshotAttributesResult,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBSnapshotAttributesResponse' with the minimum fields required to make a request.
---
--- * 'dbSnapshotAttributesResult' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBSnapshotAttributesResponse' value with any optional fields omitted.
 mkDescribeDBSnapshotAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBSnapshotAttributesResponse
-mkDescribeDBSnapshotAttributesResponse pResponseStatus_ =
+mkDescribeDBSnapshotAttributesResponse responseStatus =
   DescribeDBSnapshotAttributesResponse'
-    { dbSnapshotAttributesResult =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBSnapshotAttributesResult =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbSnapshotAttributesResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsarsDBSnapshotAttributesResult :: Lens.Lens' DescribeDBSnapshotAttributesResponse (Lude.Maybe DBSnapshotAttributesResult)
-ddsarsDBSnapshotAttributesResult = Lens.lens (dbSnapshotAttributesResult :: DescribeDBSnapshotAttributesResponse -> Lude.Maybe DBSnapshotAttributesResult) (\s a -> s {dbSnapshotAttributesResult = a} :: DescribeDBSnapshotAttributesResponse)
-{-# DEPRECATED ddsarsDBSnapshotAttributesResult "Use generic-lens or generic-optics with 'dbSnapshotAttributesResult' instead." #-}
+-- /Note:/ Consider using 'dBSnapshotAttributesResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsarrsDBSnapshotAttributesResult :: Lens.Lens' DescribeDBSnapshotAttributesResponse (Core.Maybe Types.DBSnapshotAttributesResult)
+ddbsarrsDBSnapshotAttributesResult = Lens.field @"dBSnapshotAttributesResult"
+{-# DEPRECATED ddbsarrsDBSnapshotAttributesResult "Use generic-lens or generic-optics with 'dBSnapshotAttributesResult' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsarsResponseStatus :: Lens.Lens' DescribeDBSnapshotAttributesResponse Lude.Int
-ddsarsResponseStatus = Lens.lens (responseStatus :: DescribeDBSnapshotAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBSnapshotAttributesResponse)
-{-# DEPRECATED ddsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbsarrsResponseStatus :: Lens.Lens' DescribeDBSnapshotAttributesResponse Core.Int
+ddbsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,40 +21,34 @@ module Network.AWS.EC2.Types.SpotMaintenanceStrategies
   )
 where
 
-import Network.AWS.EC2.Types.SpotCapacityRebalance
+import qualified Network.AWS.EC2.Types.SpotCapacityRebalance as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 --
 -- /See:/ 'mkSpotMaintenanceStrategies' smart constructor.
 newtype SpotMaintenanceStrategies = SpotMaintenanceStrategies'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Lude.Maybe SpotCapacityRebalance
+    capacityRebalance :: Core.Maybe Types.SpotCapacityRebalance
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpotMaintenanceStrategies' with the minimum fields required to make a request.
---
--- * 'capacityRebalance' - The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
+-- | Creates a 'SpotMaintenanceStrategies' value with any optional fields omitted.
 mkSpotMaintenanceStrategies ::
   SpotMaintenanceStrategies
 mkSpotMaintenanceStrategies =
-  SpotMaintenanceStrategies' {capacityRebalance = Lude.Nothing}
+  SpotMaintenanceStrategies' {capacityRebalance = Core.Nothing}
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
 --
 -- /Note:/ Consider using 'capacityRebalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsCapacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Lude.Maybe SpotCapacityRebalance)
-smsCapacityRebalance = Lens.lens (capacityRebalance :: SpotMaintenanceStrategies -> Lude.Maybe SpotCapacityRebalance) (\s a -> s {capacityRebalance = a} :: SpotMaintenanceStrategies)
+smsCapacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Core.Maybe Types.SpotCapacityRebalance)
+smsCapacityRebalance = Lens.field @"capacityRebalance"
 {-# DEPRECATED smsCapacityRebalance "Use generic-lens or generic-optics with 'capacityRebalance' instead." #-}
 
-instance Lude.FromXML SpotMaintenanceStrategies where
+instance Core.FromXML SpotMaintenanceStrategies where
   parseXML x =
     SpotMaintenanceStrategies'
-      Lude.<$> (x Lude..@? "capacityRebalance")
-
-instance Lude.ToQuery SpotMaintenanceStrategies where
-  toQuery SpotMaintenanceStrategies' {..} =
-    Lude.mconcat ["CapacityRebalance" Lude.=: capacityRebalance]
+      Core.<$> (x Core..@? "capacityRebalance")

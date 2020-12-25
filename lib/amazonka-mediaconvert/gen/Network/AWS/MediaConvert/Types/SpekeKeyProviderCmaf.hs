@@ -17,109 +17,101 @@ module Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf
     mkSpekeKeyProviderCmaf,
 
     -- * Lenses
-    skpcResourceId,
+    skpcCertificateArn,
     skpcDashSignaledSystemIds,
-    skpcCertificateARN,
-    skpcURL,
     skpcHlsSignaledSystemIds,
+    skpcResourceId,
+    skpcUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
 --
 -- /See:/ 'mkSpekeKeyProviderCmaf' smart constructor.
 data SpekeKeyProviderCmaf = SpekeKeyProviderCmaf'
-  { -- | Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
-    resourceId :: Lude.Maybe Lude.Text,
+  { -- | If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
+    certificateArn :: Core.Maybe Core.Text,
     -- | Specify the DRM system IDs that you want signaled in the DASH manifest that MediaConvert creates as part of this CMAF package. The DASH manifest can currently signal up to three system IDs. For more information, see https://dashif.org/identifiers/content_protection/.
-    dashSignaledSystemIds :: Lude.Maybe [Lude.Text],
-    -- | If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
-    url :: Lude.Maybe Lude.Text,
+    dashSignaledSystemIds :: Core.Maybe [Core.Text],
     -- | Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
-    hlsSignaledSystemIds :: Lude.Maybe [Lude.Text]
+    hlsSignaledSystemIds :: Core.Maybe [Core.Text],
+    -- | Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
+    resourceId :: Core.Maybe Core.Text,
+    -- | Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
+    url :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpekeKeyProviderCmaf' with the minimum fields required to make a request.
---
--- * 'resourceId' - Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
--- * 'dashSignaledSystemIds' - Specify the DRM system IDs that you want signaled in the DASH manifest that MediaConvert creates as part of this CMAF package. The DASH manifest can currently signal up to three system IDs. For more information, see https://dashif.org/identifiers/content_protection/.
--- * 'certificateARN' - If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
--- * 'url' - Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
--- * 'hlsSignaledSystemIds' - Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
+-- | Creates a 'SpekeKeyProviderCmaf' value with any optional fields omitted.
 mkSpekeKeyProviderCmaf ::
   SpekeKeyProviderCmaf
 mkSpekeKeyProviderCmaf =
   SpekeKeyProviderCmaf'
-    { resourceId = Lude.Nothing,
-      dashSignaledSystemIds = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      url = Lude.Nothing,
-      hlsSignaledSystemIds = Lude.Nothing
+    { certificateArn = Core.Nothing,
+      dashSignaledSystemIds = Core.Nothing,
+      hlsSignaledSystemIds = Core.Nothing,
+      resourceId = Core.Nothing,
+      url = Core.Nothing
     }
 
--- | Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
+-- | If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
 --
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpcResourceId :: Lens.Lens' SpekeKeyProviderCmaf (Lude.Maybe Lude.Text)
-skpcResourceId = Lens.lens (resourceId :: SpekeKeyProviderCmaf -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: SpekeKeyProviderCmaf)
-{-# DEPRECATED skpcResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpcCertificateArn :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe Core.Text)
+skpcCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED skpcCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | Specify the DRM system IDs that you want signaled in the DASH manifest that MediaConvert creates as part of this CMAF package. The DASH manifest can currently signal up to three system IDs. For more information, see https://dashif.org/identifiers/content_protection/.
 --
 -- /Note:/ Consider using 'dashSignaledSystemIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpcDashSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Lude.Maybe [Lude.Text])
-skpcDashSignaledSystemIds = Lens.lens (dashSignaledSystemIds :: SpekeKeyProviderCmaf -> Lude.Maybe [Lude.Text]) (\s a -> s {dashSignaledSystemIds = a} :: SpekeKeyProviderCmaf)
+skpcDashSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe [Core.Text])
+skpcDashSignaledSystemIds = Lens.field @"dashSignaledSystemIds"
 {-# DEPRECATED skpcDashSignaledSystemIds "Use generic-lens or generic-optics with 'dashSignaledSystemIds' instead." #-}
-
--- | If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpcCertificateARN :: Lens.Lens' SpekeKeyProviderCmaf (Lude.Maybe Lude.Text)
-skpcCertificateARN = Lens.lens (certificateARN :: SpekeKeyProviderCmaf -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: SpekeKeyProviderCmaf)
-{-# DEPRECATED skpcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
-
--- | Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpcURL :: Lens.Lens' SpekeKeyProviderCmaf (Lude.Maybe Lude.Text)
-skpcURL = Lens.lens (url :: SpekeKeyProviderCmaf -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: SpekeKeyProviderCmaf)
-{-# DEPRECATED skpcURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
 --
 -- /Note:/ Consider using 'hlsSignaledSystemIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpcHlsSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Lude.Maybe [Lude.Text])
-skpcHlsSignaledSystemIds = Lens.lens (hlsSignaledSystemIds :: SpekeKeyProviderCmaf -> Lude.Maybe [Lude.Text]) (\s a -> s {hlsSignaledSystemIds = a} :: SpekeKeyProviderCmaf)
+skpcHlsSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe [Core.Text])
+skpcHlsSignaledSystemIds = Lens.field @"hlsSignaledSystemIds"
 {-# DEPRECATED skpcHlsSignaledSystemIds "Use generic-lens or generic-optics with 'hlsSignaledSystemIds' instead." #-}
 
-instance Lude.FromJSON SpekeKeyProviderCmaf where
-  parseJSON =
-    Lude.withObject
-      "SpekeKeyProviderCmaf"
-      ( \x ->
-          SpekeKeyProviderCmaf'
-            Lude.<$> (x Lude..:? "resourceId")
-            Lude.<*> (x Lude..:? "dashSignaledSystemIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "certificateArn")
-            Lude.<*> (x Lude..:? "url")
-            Lude.<*> (x Lude..:? "hlsSignaledSystemIds" Lude..!= Lude.mempty)
-      )
+-- | Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpcResourceId :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe Core.Text)
+skpcResourceId = Lens.field @"resourceId"
+{-# DEPRECATED skpcResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance Lude.ToJSON SpekeKeyProviderCmaf where
-  toJSON SpekeKeyProviderCmaf' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("resourceId" Lude..=) Lude.<$> resourceId,
-            ("dashSignaledSystemIds" Lude..=) Lude.<$> dashSignaledSystemIds,
-            ("certificateArn" Lude..=) Lude.<$> certificateARN,
-            ("url" Lude..=) Lude.<$> url,
-            ("hlsSignaledSystemIds" Lude..=) Lude.<$> hlsSignaledSystemIds
+-- | Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpcUrl :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe Core.Text)
+skpcUrl = Lens.field @"url"
+{-# DEPRECATED skpcUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromJSON SpekeKeyProviderCmaf where
+  toJSON SpekeKeyProviderCmaf {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("certificateArn" Core..=) Core.<$> certificateArn,
+            ("dashSignaledSystemIds" Core..=) Core.<$> dashSignaledSystemIds,
+            ("hlsSignaledSystemIds" Core..=) Core.<$> hlsSignaledSystemIds,
+            ("resourceId" Core..=) Core.<$> resourceId,
+            ("url" Core..=) Core.<$> url
           ]
       )
+
+instance Core.FromJSON SpekeKeyProviderCmaf where
+  parseJSON =
+    Core.withObject "SpekeKeyProviderCmaf" Core.$
+      \x ->
+        SpekeKeyProviderCmaf'
+          Core.<$> (x Core..:? "certificateArn")
+          Core.<*> (x Core..:? "dashSignaledSystemIds")
+          Core.<*> (x Core..:? "hlsSignaledSystemIds")
+          Core.<*> (x Core..:? "resourceId")
+          Core.<*> (x Core..:? "url")

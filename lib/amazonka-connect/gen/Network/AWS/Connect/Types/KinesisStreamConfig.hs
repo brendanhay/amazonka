@@ -17,47 +17,44 @@ module Network.AWS.Connect.Types.KinesisStreamConfig
     mkKinesisStreamConfig,
 
     -- * Lenses
-    kscStreamARN,
+    kscStreamArn,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information of a Kinesis data stream.
 --
 -- /See:/ 'mkKinesisStreamConfig' smart constructor.
 newtype KinesisStreamConfig = KinesisStreamConfig'
   { -- | The Amazon Resource Name (ARN) of the data stream.
-    streamARN :: Lude.Text
+    streamArn :: Types.ARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisStreamConfig' with the minimum fields required to make a request.
---
--- * 'streamARN' - The Amazon Resource Name (ARN) of the data stream.
+-- | Creates a 'KinesisStreamConfig' value with any optional fields omitted.
 mkKinesisStreamConfig ::
-  -- | 'streamARN'
-  Lude.Text ->
+  -- | 'streamArn'
+  Types.ARN ->
   KinesisStreamConfig
-mkKinesisStreamConfig pStreamARN_ =
-  KinesisStreamConfig' {streamARN = pStreamARN_}
+mkKinesisStreamConfig streamArn = KinesisStreamConfig' {streamArn}
 
 -- | The Amazon Resource Name (ARN) of the data stream.
 --
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kscStreamARN :: Lens.Lens' KinesisStreamConfig Lude.Text
-kscStreamARN = Lens.lens (streamARN :: KinesisStreamConfig -> Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamConfig)
-{-# DEPRECATED kscStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kscStreamArn :: Lens.Lens' KinesisStreamConfig Types.ARN
+kscStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED kscStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
 
-instance Lude.FromJSON KinesisStreamConfig where
+instance Core.FromJSON KinesisStreamConfig where
+  toJSON KinesisStreamConfig {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("StreamArn" Core..= streamArn)])
+
+instance Core.FromJSON KinesisStreamConfig where
   parseJSON =
-    Lude.withObject
-      "KinesisStreamConfig"
-      (\x -> KinesisStreamConfig' Lude.<$> (x Lude..: "StreamArn"))
-
-instance Lude.ToJSON KinesisStreamConfig where
-  toJSON KinesisStreamConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("StreamArn" Lude..= streamARN)])
+    Core.withObject "KinesisStreamConfig" Core.$
+      \x -> KinesisStreamConfig' Core.<$> (x Core..: "StreamArn")

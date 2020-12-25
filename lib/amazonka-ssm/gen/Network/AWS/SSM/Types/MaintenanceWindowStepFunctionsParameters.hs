@@ -23,7 +23,9 @@ module Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsInput as Types
+import qualified Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsName as Types
 
 -- | The parameters for a STEP_FUNCTIONS task.
 --
@@ -32,51 +34,46 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkMaintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
   { -- | The inputs for the STEP_FUNCTIONS task.
-    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    input :: Core.Maybe Types.MaintenanceWindowStepFunctionsInput,
     -- | The name of the STEP_FUNCTIONS task.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.MaintenanceWindowStepFunctionsName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MaintenanceWindowStepFunctionsParameters' with the minimum fields required to make a request.
---
--- * 'input' - The inputs for the STEP_FUNCTIONS task.
--- * 'name' - The name of the STEP_FUNCTIONS task.
+-- | Creates a 'MaintenanceWindowStepFunctionsParameters' value with any optional fields omitted.
 mkMaintenanceWindowStepFunctionsParameters ::
   MaintenanceWindowStepFunctionsParameters
 mkMaintenanceWindowStepFunctionsParameters =
   MaintenanceWindowStepFunctionsParameters'
-    { input = Lude.Nothing,
-      name = Lude.Nothing
+    { input = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The inputs for the STEP_FUNCTIONS task.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwsfpInput :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Lude.Maybe (Lude.Sensitive Lude.Text))
-mwsfpInput = Lens.lens (input :: MaintenanceWindowStepFunctionsParameters -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters)
+mwsfpInput :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Core.Maybe Types.MaintenanceWindowStepFunctionsInput)
+mwsfpInput = Lens.field @"input"
 {-# DEPRECATED mwsfpInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The name of the STEP_FUNCTIONS task.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwsfpName :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Lude.Maybe Lude.Text)
-mwsfpName = Lens.lens (name :: MaintenanceWindowStepFunctionsParameters -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MaintenanceWindowStepFunctionsParameters)
+mwsfpName :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Core.Maybe Types.MaintenanceWindowStepFunctionsName)
+mwsfpName = Lens.field @"name"
 {-# DEPRECATED mwsfpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON MaintenanceWindowStepFunctionsParameters where
-  parseJSON =
-    Lude.withObject
-      "MaintenanceWindowStepFunctionsParameters"
-      ( \x ->
-          MaintenanceWindowStepFunctionsParameters'
-            Lude.<$> (x Lude..:? "Input") Lude.<*> (x Lude..:? "Name")
+instance Core.FromJSON MaintenanceWindowStepFunctionsParameters where
+  toJSON MaintenanceWindowStepFunctionsParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Input" Core..=) Core.<$> input, ("Name" Core..=) Core.<$> name]
       )
 
-instance Lude.ToJSON MaintenanceWindowStepFunctionsParameters where
-  toJSON MaintenanceWindowStepFunctionsParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Input" Lude..=) Lude.<$> input, ("Name" Lude..=) Lude.<$> name]
-      )
+instance Core.FromJSON MaintenanceWindowStepFunctionsParameters where
+  parseJSON =
+    Core.withObject "MaintenanceWindowStepFunctionsParameters" Core.$
+      \x ->
+        MaintenanceWindowStepFunctionsParameters'
+          Core.<$> (x Core..:? "Input") Core.<*> (x Core..:? "Name")

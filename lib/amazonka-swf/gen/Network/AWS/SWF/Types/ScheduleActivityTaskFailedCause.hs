@@ -13,91 +13,96 @@
 module Network.AWS.SWF.Types.ScheduleActivityTaskFailedCause
   ( ScheduleActivityTaskFailedCause
       ( ScheduleActivityTaskFailedCause',
-        SATFCActivityTypeDeprecated,
-        SATFCActivityTypeDoesNotExist,
-        SATFCActivityIdAlreadyInUse,
-        SATFCOpenActivitiesLimitExceeded,
-        SATFCActivityCreationRateExceeded,
-        SATFCDefaultScheduleToCloseTimeoutUndefined,
-        SATFCDefaultTaskListUndefined,
-        SATFCDefaultScheduleToStartTimeoutUndefined,
-        SATFCDefaultStartToCloseTimeoutUndefined,
-        SATFCDefaultHeartbeatTimeoutUndefined,
-        SATFCOperationNotPermitted
+        ScheduleActivityTaskFailedCauseActivityTypeDeprecated,
+        ScheduleActivityTaskFailedCauseActivityTypeDoesNotExist,
+        ScheduleActivityTaskFailedCauseActivityIdAlreadyInUse,
+        ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded,
+        ScheduleActivityTaskFailedCauseActivityCreationRateExceeded,
+        ScheduleActivityTaskFailedCauseDefaultScheduleToCloseTimeoutUndefined,
+        ScheduleActivityTaskFailedCauseDefaultTaskListUndefined,
+        ScheduleActivityTaskFailedCauseDefaultScheduleToStartTimeoutUndefined,
+        ScheduleActivityTaskFailedCauseDefaultStartToCloseTimeoutUndefined,
+        ScheduleActivityTaskFailedCauseDefaultHeartbeatTimeoutUndefined,
+        ScheduleActivityTaskFailedCauseOperationNotPermitted,
+        fromScheduleActivityTaskFailedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScheduleActivityTaskFailedCause = ScheduleActivityTaskFailedCause' Lude.Text
+newtype ScheduleActivityTaskFailedCause = ScheduleActivityTaskFailedCause'
+  { fromScheduleActivityTaskFailedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SATFCActivityTypeDeprecated :: ScheduleActivityTaskFailedCause
-pattern SATFCActivityTypeDeprecated = ScheduleActivityTaskFailedCause' "ACTIVITY_TYPE_DEPRECATED"
+pattern ScheduleActivityTaskFailedCauseActivityTypeDeprecated :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseActivityTypeDeprecated = ScheduleActivityTaskFailedCause' "ACTIVITY_TYPE_DEPRECATED"
 
-pattern SATFCActivityTypeDoesNotExist :: ScheduleActivityTaskFailedCause
-pattern SATFCActivityTypeDoesNotExist = ScheduleActivityTaskFailedCause' "ACTIVITY_TYPE_DOES_NOT_EXIST"
+pattern ScheduleActivityTaskFailedCauseActivityTypeDoesNotExist :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseActivityTypeDoesNotExist = ScheduleActivityTaskFailedCause' "ACTIVITY_TYPE_DOES_NOT_EXIST"
 
-pattern SATFCActivityIdAlreadyInUse :: ScheduleActivityTaskFailedCause
-pattern SATFCActivityIdAlreadyInUse = ScheduleActivityTaskFailedCause' "ACTIVITY_ID_ALREADY_IN_USE"
+pattern ScheduleActivityTaskFailedCauseActivityIdAlreadyInUse :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseActivityIdAlreadyInUse = ScheduleActivityTaskFailedCause' "ACTIVITY_ID_ALREADY_IN_USE"
 
-pattern SATFCOpenActivitiesLimitExceeded :: ScheduleActivityTaskFailedCause
-pattern SATFCOpenActivitiesLimitExceeded = ScheduleActivityTaskFailedCause' "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+pattern ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded = ScheduleActivityTaskFailedCause' "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
 
-pattern SATFCActivityCreationRateExceeded :: ScheduleActivityTaskFailedCause
-pattern SATFCActivityCreationRateExceeded = ScheduleActivityTaskFailedCause' "ACTIVITY_CREATION_RATE_EXCEEDED"
+pattern ScheduleActivityTaskFailedCauseActivityCreationRateExceeded :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseActivityCreationRateExceeded = ScheduleActivityTaskFailedCause' "ACTIVITY_CREATION_RATE_EXCEEDED"
 
-pattern SATFCDefaultScheduleToCloseTimeoutUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultScheduleToCloseTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
+pattern ScheduleActivityTaskFailedCauseDefaultScheduleToCloseTimeoutUndefined :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseDefaultScheduleToCloseTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
 
-pattern SATFCDefaultTaskListUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultTaskListUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
+pattern ScheduleActivityTaskFailedCauseDefaultTaskListUndefined :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseDefaultTaskListUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
 
-pattern SATFCDefaultScheduleToStartTimeoutUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultScheduleToStartTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
+pattern ScheduleActivityTaskFailedCauseDefaultScheduleToStartTimeoutUndefined :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseDefaultScheduleToStartTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
 
-pattern SATFCDefaultStartToCloseTimeoutUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultStartToCloseTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+pattern ScheduleActivityTaskFailedCauseDefaultStartToCloseTimeoutUndefined :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseDefaultStartToCloseTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
 
-pattern SATFCDefaultHeartbeatTimeoutUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultHeartbeatTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
+pattern ScheduleActivityTaskFailedCauseDefaultHeartbeatTimeoutUndefined :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseDefaultHeartbeatTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
 
-pattern SATFCOperationNotPermitted :: ScheduleActivityTaskFailedCause
-pattern SATFCOperationNotPermitted = ScheduleActivityTaskFailedCause' "OPERATION_NOT_PERMITTED"
+pattern ScheduleActivityTaskFailedCauseOperationNotPermitted :: ScheduleActivityTaskFailedCause
+pattern ScheduleActivityTaskFailedCauseOperationNotPermitted = ScheduleActivityTaskFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  SATFCActivityTypeDeprecated,
-  SATFCActivityTypeDoesNotExist,
-  SATFCActivityIdAlreadyInUse,
-  SATFCOpenActivitiesLimitExceeded,
-  SATFCActivityCreationRateExceeded,
-  SATFCDefaultScheduleToCloseTimeoutUndefined,
-  SATFCDefaultTaskListUndefined,
-  SATFCDefaultScheduleToStartTimeoutUndefined,
-  SATFCDefaultStartToCloseTimeoutUndefined,
-  SATFCDefaultHeartbeatTimeoutUndefined,
-  SATFCOperationNotPermitted,
+  ScheduleActivityTaskFailedCauseActivityTypeDeprecated,
+  ScheduleActivityTaskFailedCauseActivityTypeDoesNotExist,
+  ScheduleActivityTaskFailedCauseActivityIdAlreadyInUse,
+  ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded,
+  ScheduleActivityTaskFailedCauseActivityCreationRateExceeded,
+  ScheduleActivityTaskFailedCauseDefaultScheduleToCloseTimeoutUndefined,
+  ScheduleActivityTaskFailedCauseDefaultTaskListUndefined,
+  ScheduleActivityTaskFailedCauseDefaultScheduleToStartTimeoutUndefined,
+  ScheduleActivityTaskFailedCauseDefaultStartToCloseTimeoutUndefined,
+  ScheduleActivityTaskFailedCauseDefaultHeartbeatTimeoutUndefined,
+  ScheduleActivityTaskFailedCauseOperationNotPermitted,
   ScheduleActivityTaskFailedCause'
   #-}

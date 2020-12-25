@@ -21,33 +21,32 @@ module Network.AWS.Glacier.Types.VaultLockPolicy
   )
 where
 
+import qualified Network.AWS.Glacier.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the vault lock policy.
 --
 -- /See:/ 'mkVaultLockPolicy' smart constructor.
 newtype VaultLockPolicy = VaultLockPolicy'
   { -- | The vault lock policy.
-    policy :: Lude.Maybe Lude.Text
+    policy :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VaultLockPolicy' with the minimum fields required to make a request.
---
--- * 'policy' - The vault lock policy.
+-- | Creates a 'VaultLockPolicy' value with any optional fields omitted.
 mkVaultLockPolicy ::
   VaultLockPolicy
-mkVaultLockPolicy = VaultLockPolicy' {policy = Lude.Nothing}
+mkVaultLockPolicy = VaultLockPolicy' {policy = Core.Nothing}
 
 -- | The vault lock policy.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vlpPolicy :: Lens.Lens' VaultLockPolicy (Lude.Maybe Lude.Text)
-vlpPolicy = Lens.lens (policy :: VaultLockPolicy -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: VaultLockPolicy)
+vlpPolicy :: Lens.Lens' VaultLockPolicy (Core.Maybe Types.String)
+vlpPolicy = Lens.field @"policy"
 {-# DEPRECATED vlpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Lude.ToJSON VaultLockPolicy where
-  toJSON VaultLockPolicy' {..} =
-    Lude.object (Lude.catMaybes [("Policy" Lude..=) Lude.<$> policy])
+instance Core.FromJSON VaultLockPolicy where
+  toJSON VaultLockPolicy {..} =
+    Core.object (Core.catMaybes [("Policy" Core..=) Core.<$> policy])

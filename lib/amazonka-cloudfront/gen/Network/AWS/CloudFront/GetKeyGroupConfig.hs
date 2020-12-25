@@ -29,109 +29,105 @@ module Network.AWS.CloudFront.GetKeyGroupConfig
     mkGetKeyGroupConfigResponse,
 
     -- ** Response lenses
-    gkgcrsETag,
-    gkgcrsKeyGroupConfig,
-    gkgcrsResponseStatus,
+    gkgcrrsETag,
+    gkgcrrsKeyGroupConfig,
+    gkgcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetKeyGroupConfig' smart constructor.
 newtype GetKeyGroupConfig = GetKeyGroupConfig'
   { -- | The identifier of the key group whose configuration you are getting. To get the identifier, use @ListKeyGroups@ .
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyGroupConfig' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the key group whose configuration you are getting. To get the identifier, use @ListKeyGroups@ .
+-- | Creates a 'GetKeyGroupConfig' value with any optional fields omitted.
 mkGetKeyGroupConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   GetKeyGroupConfig
-mkGetKeyGroupConfig pId_ = GetKeyGroupConfig' {id = pId_}
+mkGetKeyGroupConfig id = GetKeyGroupConfig' {id}
 
 -- | The identifier of the key group whose configuration you are getting. To get the identifier, use @ListKeyGroups@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkgcId :: Lens.Lens' GetKeyGroupConfig Lude.Text
-gkgcId = Lens.lens (id :: GetKeyGroupConfig -> Lude.Text) (\s a -> s {id = a} :: GetKeyGroupConfig)
+gkgcId :: Lens.Lens' GetKeyGroupConfig Types.Id
+gkgcId = Lens.field @"id"
 {-# DEPRECATED gkgcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetKeyGroupConfig where
+instance Core.AWSRequest GetKeyGroupConfig where
   type Rs GetKeyGroupConfig = GetKeyGroupConfigResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/key-group/" Core.<> (Core.toText id)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetKeyGroupConfigResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetKeyGroupConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetKeyGroupConfig where
-  toPath GetKeyGroupConfig' {..} =
-    Lude.mconcat ["/2020-05-31/key-group/", Lude.toBS id, "/config"]
-
-instance Lude.ToQuery GetKeyGroupConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetKeyGroupConfigResponse' smart constructor.
 data GetKeyGroupConfigResponse = GetKeyGroupConfigResponse'
   { -- | The identifier for this version of the key group.
-    eTag :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | The key group configuration.
-    keyGroupConfig :: Lude.Maybe KeyGroupConfig,
+    keyGroupConfig :: Core.Maybe Types.KeyGroupConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyGroupConfigResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The identifier for this version of the key group.
--- * 'keyGroupConfig' - The key group configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetKeyGroupConfigResponse' value with any optional fields omitted.
 mkGetKeyGroupConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetKeyGroupConfigResponse
-mkGetKeyGroupConfigResponse pResponseStatus_ =
+mkGetKeyGroupConfigResponse responseStatus =
   GetKeyGroupConfigResponse'
-    { eTag = Lude.Nothing,
-      keyGroupConfig = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      keyGroupConfig = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier for this version of the key group.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkgcrsETag :: Lens.Lens' GetKeyGroupConfigResponse (Lude.Maybe Lude.Text)
-gkgcrsETag = Lens.lens (eTag :: GetKeyGroupConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetKeyGroupConfigResponse)
-{-# DEPRECATED gkgcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+gkgcrrsETag :: Lens.Lens' GetKeyGroupConfigResponse (Core.Maybe Types.String)
+gkgcrrsETag = Lens.field @"eTag"
+{-# DEPRECATED gkgcrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The key group configuration.
 --
 -- /Note:/ Consider using 'keyGroupConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkgcrsKeyGroupConfig :: Lens.Lens' GetKeyGroupConfigResponse (Lude.Maybe KeyGroupConfig)
-gkgcrsKeyGroupConfig = Lens.lens (keyGroupConfig :: GetKeyGroupConfigResponse -> Lude.Maybe KeyGroupConfig) (\s a -> s {keyGroupConfig = a} :: GetKeyGroupConfigResponse)
-{-# DEPRECATED gkgcrsKeyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead." #-}
+gkgcrrsKeyGroupConfig :: Lens.Lens' GetKeyGroupConfigResponse (Core.Maybe Types.KeyGroupConfig)
+gkgcrrsKeyGroupConfig = Lens.field @"keyGroupConfig"
+{-# DEPRECATED gkgcrrsKeyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkgcrsResponseStatus :: Lens.Lens' GetKeyGroupConfigResponse Lude.Int
-gkgcrsResponseStatus = Lens.lens (responseStatus :: GetKeyGroupConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyGroupConfigResponse)
-{-# DEPRECATED gkgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gkgcrrsResponseStatus :: Lens.Lens' GetKeyGroupConfigResponse Core.Int
+gkgcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gkgcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

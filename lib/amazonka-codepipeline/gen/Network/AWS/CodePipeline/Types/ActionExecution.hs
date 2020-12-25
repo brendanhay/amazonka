@@ -17,164 +17,157 @@ module Network.AWS.CodePipeline.Types.ActionExecution
     mkActionExecution,
 
     -- * Lenses
-    aeLastUpdatedBy,
-    aeSummary,
-    aeStatus,
-    aeLastStatusChange,
-    aeToken,
-    aeExternalExecutionURL,
-    aeExternalExecutionId,
-    aeErrorDetails,
-    aePercentComplete,
     aeActionExecutionId,
+    aeErrorDetails,
+    aeExternalExecutionId,
+    aeExternalExecutionUrl,
+    aeLastStatusChange,
+    aeLastUpdatedBy,
+    aePercentComplete,
+    aeStatus,
+    aeSummary,
+    aeToken,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionExecutionStatus
-import Network.AWS.CodePipeline.Types.ErrorDetails
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionStatus as Types
+import qualified Network.AWS.CodePipeline.Types.ErrorDetails as Types
+import qualified Network.AWS.CodePipeline.Types.ExternalExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.ExternalExecutionUrl as Types
+import qualified Network.AWS.CodePipeline.Types.LastUpdatedBy as Types
+import qualified Network.AWS.CodePipeline.Types.Summary as Types
+import qualified Network.AWS.CodePipeline.Types.Token as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about the run of an action.
 --
 -- /See:/ 'mkActionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-  { -- | The ARN of the user who last changed the pipeline.
-    lastUpdatedBy :: Lude.Maybe Lude.Text,
-    -- | A summary of the run of the action.
-    summary :: Lude.Maybe Lude.Text,
-    -- | The status of the action, or for a completed action, the last status of the action.
-    status :: Lude.Maybe ActionExecutionStatus,
-    -- | The last status change of the action.
-    lastStatusChange :: Lude.Maybe Lude.Timestamp,
-    -- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
-    token :: Lude.Maybe Lude.Text,
-    -- | The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
-    externalExecutionURL :: Lude.Maybe Lude.Text,
-    -- | The external ID of the run of the action.
-    externalExecutionId :: Lude.Maybe Lude.Text,
+  { -- | ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
+    actionExecutionId :: Core.Maybe Types.ActionExecutionId,
     -- | The details of an error returned by a URL external to AWS.
-    errorDetails :: Lude.Maybe ErrorDetails,
+    errorDetails :: Core.Maybe Types.ErrorDetails,
+    -- | The external ID of the run of the action.
+    externalExecutionId :: Core.Maybe Types.ExternalExecutionId,
+    -- | The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
+    externalExecutionUrl :: Core.Maybe Types.ExternalExecutionUrl,
+    -- | The last status change of the action.
+    lastStatusChange :: Core.Maybe Core.NominalDiffTime,
+    -- | The ARN of the user who last changed the pipeline.
+    lastUpdatedBy :: Core.Maybe Types.LastUpdatedBy,
     -- | A percentage of completeness of the action as it runs.
-    percentComplete :: Lude.Maybe Lude.Natural,
-    -- | ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
-    actionExecutionId :: Lude.Maybe Lude.Text
+    percentComplete :: Core.Maybe Core.Natural,
+    -- | The status of the action, or for a completed action, the last status of the action.
+    status :: Core.Maybe Types.ActionExecutionStatus,
+    -- | A summary of the run of the action.
+    summary :: Core.Maybe Types.Summary,
+    -- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
+    token :: Core.Maybe Types.Token
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ActionExecution' with the minimum fields required to make a request.
---
--- * 'lastUpdatedBy' - The ARN of the user who last changed the pipeline.
--- * 'summary' - A summary of the run of the action.
--- * 'status' - The status of the action, or for a completed action, the last status of the action.
--- * 'lastStatusChange' - The last status change of the action.
--- * 'token' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
--- * 'externalExecutionURL' - The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
--- * 'externalExecutionId' - The external ID of the run of the action.
--- * 'errorDetails' - The details of an error returned by a URL external to AWS.
--- * 'percentComplete' - A percentage of completeness of the action as it runs.
--- * 'actionExecutionId' - ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
+-- | Creates a 'ActionExecution' value with any optional fields omitted.
 mkActionExecution ::
   ActionExecution
 mkActionExecution =
   ActionExecution'
-    { lastUpdatedBy = Lude.Nothing,
-      summary = Lude.Nothing,
-      status = Lude.Nothing,
-      lastStatusChange = Lude.Nothing,
-      token = Lude.Nothing,
-      externalExecutionURL = Lude.Nothing,
-      externalExecutionId = Lude.Nothing,
-      errorDetails = Lude.Nothing,
-      percentComplete = Lude.Nothing,
-      actionExecutionId = Lude.Nothing
+    { actionExecutionId = Core.Nothing,
+      errorDetails = Core.Nothing,
+      externalExecutionId = Core.Nothing,
+      externalExecutionUrl = Core.Nothing,
+      lastStatusChange = Core.Nothing,
+      lastUpdatedBy = Core.Nothing,
+      percentComplete = Core.Nothing,
+      status = Core.Nothing,
+      summary = Core.Nothing,
+      token = Core.Nothing
     }
-
--- | The ARN of the user who last changed the pipeline.
---
--- /Note:/ Consider using 'lastUpdatedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeLastUpdatedBy :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Text)
-aeLastUpdatedBy = Lens.lens (lastUpdatedBy :: ActionExecution -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedBy = a} :: ActionExecution)
-{-# DEPRECATED aeLastUpdatedBy "Use generic-lens or generic-optics with 'lastUpdatedBy' instead." #-}
-
--- | A summary of the run of the action.
---
--- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeSummary :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Text)
-aeSummary = Lens.lens (summary :: ActionExecution -> Lude.Maybe Lude.Text) (\s a -> s {summary = a} :: ActionExecution)
-{-# DEPRECATED aeSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
-
--- | The status of the action, or for a completed action, the last status of the action.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeStatus :: Lens.Lens' ActionExecution (Lude.Maybe ActionExecutionStatus)
-aeStatus = Lens.lens (status :: ActionExecution -> Lude.Maybe ActionExecutionStatus) (\s a -> s {status = a} :: ActionExecution)
-{-# DEPRECATED aeStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The last status change of the action.
---
--- /Note:/ Consider using 'lastStatusChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeLastStatusChange :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Timestamp)
-aeLastStatusChange = Lens.lens (lastStatusChange :: ActionExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStatusChange = a} :: ActionExecution)
-{-# DEPRECATED aeLastStatusChange "Use generic-lens or generic-optics with 'lastStatusChange' instead." #-}
-
--- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
---
--- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeToken :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Text)
-aeToken = Lens.lens (token :: ActionExecution -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: ActionExecution)
-{-# DEPRECATED aeToken "Use generic-lens or generic-optics with 'token' instead." #-}
-
--- | The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
---
--- /Note:/ Consider using 'externalExecutionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeExternalExecutionURL :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Text)
-aeExternalExecutionURL = Lens.lens (externalExecutionURL :: ActionExecution -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionURL = a} :: ActionExecution)
-{-# DEPRECATED aeExternalExecutionURL "Use generic-lens or generic-optics with 'externalExecutionURL' instead." #-}
-
--- | The external ID of the run of the action.
---
--- /Note:/ Consider using 'externalExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeExternalExecutionId :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Text)
-aeExternalExecutionId = Lens.lens (externalExecutionId :: ActionExecution -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionId = a} :: ActionExecution)
-{-# DEPRECATED aeExternalExecutionId "Use generic-lens or generic-optics with 'externalExecutionId' instead." #-}
-
--- | The details of an error returned by a URL external to AWS.
---
--- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeErrorDetails :: Lens.Lens' ActionExecution (Lude.Maybe ErrorDetails)
-aeErrorDetails = Lens.lens (errorDetails :: ActionExecution -> Lude.Maybe ErrorDetails) (\s a -> s {errorDetails = a} :: ActionExecution)
-{-# DEPRECATED aeErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
-
--- | A percentage of completeness of the action as it runs.
---
--- /Note:/ Consider using 'percentComplete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aePercentComplete :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Natural)
-aePercentComplete = Lens.lens (percentComplete :: ActionExecution -> Lude.Maybe Lude.Natural) (\s a -> s {percentComplete = a} :: ActionExecution)
-{-# DEPRECATED aePercentComplete "Use generic-lens or generic-optics with 'percentComplete' instead." #-}
 
 -- | ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
 --
 -- /Note:/ Consider using 'actionExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeActionExecutionId :: Lens.Lens' ActionExecution (Lude.Maybe Lude.Text)
-aeActionExecutionId = Lens.lens (actionExecutionId :: ActionExecution -> Lude.Maybe Lude.Text) (\s a -> s {actionExecutionId = a} :: ActionExecution)
+aeActionExecutionId :: Lens.Lens' ActionExecution (Core.Maybe Types.ActionExecutionId)
+aeActionExecutionId = Lens.field @"actionExecutionId"
 {-# DEPRECATED aeActionExecutionId "Use generic-lens or generic-optics with 'actionExecutionId' instead." #-}
 
-instance Lude.FromJSON ActionExecution where
+-- | The details of an error returned by a URL external to AWS.
+--
+-- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeErrorDetails :: Lens.Lens' ActionExecution (Core.Maybe Types.ErrorDetails)
+aeErrorDetails = Lens.field @"errorDetails"
+{-# DEPRECATED aeErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
+
+-- | The external ID of the run of the action.
+--
+-- /Note:/ Consider using 'externalExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeExternalExecutionId :: Lens.Lens' ActionExecution (Core.Maybe Types.ExternalExecutionId)
+aeExternalExecutionId = Lens.field @"externalExecutionId"
+{-# DEPRECATED aeExternalExecutionId "Use generic-lens or generic-optics with 'externalExecutionId' instead." #-}
+
+-- | The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
+--
+-- /Note:/ Consider using 'externalExecutionUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeExternalExecutionUrl :: Lens.Lens' ActionExecution (Core.Maybe Types.ExternalExecutionUrl)
+aeExternalExecutionUrl = Lens.field @"externalExecutionUrl"
+{-# DEPRECATED aeExternalExecutionUrl "Use generic-lens or generic-optics with 'externalExecutionUrl' instead." #-}
+
+-- | The last status change of the action.
+--
+-- /Note:/ Consider using 'lastStatusChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeLastStatusChange :: Lens.Lens' ActionExecution (Core.Maybe Core.NominalDiffTime)
+aeLastStatusChange = Lens.field @"lastStatusChange"
+{-# DEPRECATED aeLastStatusChange "Use generic-lens or generic-optics with 'lastStatusChange' instead." #-}
+
+-- | The ARN of the user who last changed the pipeline.
+--
+-- /Note:/ Consider using 'lastUpdatedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeLastUpdatedBy :: Lens.Lens' ActionExecution (Core.Maybe Types.LastUpdatedBy)
+aeLastUpdatedBy = Lens.field @"lastUpdatedBy"
+{-# DEPRECATED aeLastUpdatedBy "Use generic-lens or generic-optics with 'lastUpdatedBy' instead." #-}
+
+-- | A percentage of completeness of the action as it runs.
+--
+-- /Note:/ Consider using 'percentComplete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aePercentComplete :: Lens.Lens' ActionExecution (Core.Maybe Core.Natural)
+aePercentComplete = Lens.field @"percentComplete"
+{-# DEPRECATED aePercentComplete "Use generic-lens or generic-optics with 'percentComplete' instead." #-}
+
+-- | The status of the action, or for a completed action, the last status of the action.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeStatus :: Lens.Lens' ActionExecution (Core.Maybe Types.ActionExecutionStatus)
+aeStatus = Lens.field @"status"
+{-# DEPRECATED aeStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A summary of the run of the action.
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeSummary :: Lens.Lens' ActionExecution (Core.Maybe Types.Summary)
+aeSummary = Lens.field @"summary"
+{-# DEPRECATED aeSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
+
+-- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeToken :: Lens.Lens' ActionExecution (Core.Maybe Types.Token)
+aeToken = Lens.field @"token"
+{-# DEPRECATED aeToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+instance Core.FromJSON ActionExecution where
   parseJSON =
-    Lude.withObject
-      "ActionExecution"
-      ( \x ->
-          ActionExecution'
-            Lude.<$> (x Lude..:? "lastUpdatedBy")
-            Lude.<*> (x Lude..:? "summary")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "lastStatusChange")
-            Lude.<*> (x Lude..:? "token")
-            Lude.<*> (x Lude..:? "externalExecutionUrl")
-            Lude.<*> (x Lude..:? "externalExecutionId")
-            Lude.<*> (x Lude..:? "errorDetails")
-            Lude.<*> (x Lude..:? "percentComplete")
-            Lude.<*> (x Lude..:? "actionExecutionId")
-      )
+    Core.withObject "ActionExecution" Core.$
+      \x ->
+        ActionExecution'
+          Core.<$> (x Core..:? "actionExecutionId")
+          Core.<*> (x Core..:? "errorDetails")
+          Core.<*> (x Core..:? "externalExecutionId")
+          Core.<*> (x Core..:? "externalExecutionUrl")
+          Core.<*> (x Core..:? "lastStatusChange")
+          Core.<*> (x Core..:? "lastUpdatedBy")
+          Core.<*> (x Core..:? "percentComplete")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "summary")
+          Core.<*> (x Core..:? "token")

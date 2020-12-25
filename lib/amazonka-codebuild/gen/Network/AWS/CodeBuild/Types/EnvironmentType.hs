@@ -13,61 +13,66 @@
 module Network.AWS.CodeBuild.Types.EnvironmentType
   ( EnvironmentType
       ( EnvironmentType',
-        WindowsContainer,
-        LinuxContainer,
-        LinuxGpuContainer,
-        ArmContainer,
-        WindowsServer2019Container
+        EnvironmentTypeWindowsContainer,
+        EnvironmentTypeLinuxContainer,
+        EnvironmentTypeLinuxGpuContainer,
+        EnvironmentTypeArmContainer,
+        EnvironmentTypeWindowsServer2019Container,
+        fromEnvironmentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentType = EnvironmentType' Lude.Text
+newtype EnvironmentType = EnvironmentType'
+  { fromEnvironmentType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WindowsContainer :: EnvironmentType
-pattern WindowsContainer = EnvironmentType' "WINDOWS_CONTAINER"
+pattern EnvironmentTypeWindowsContainer :: EnvironmentType
+pattern EnvironmentTypeWindowsContainer = EnvironmentType' "WINDOWS_CONTAINER"
 
-pattern LinuxContainer :: EnvironmentType
-pattern LinuxContainer = EnvironmentType' "LINUX_CONTAINER"
+pattern EnvironmentTypeLinuxContainer :: EnvironmentType
+pattern EnvironmentTypeLinuxContainer = EnvironmentType' "LINUX_CONTAINER"
 
-pattern LinuxGpuContainer :: EnvironmentType
-pattern LinuxGpuContainer = EnvironmentType' "LINUX_GPU_CONTAINER"
+pattern EnvironmentTypeLinuxGpuContainer :: EnvironmentType
+pattern EnvironmentTypeLinuxGpuContainer = EnvironmentType' "LINUX_GPU_CONTAINER"
 
-pattern ArmContainer :: EnvironmentType
-pattern ArmContainer = EnvironmentType' "ARM_CONTAINER"
+pattern EnvironmentTypeArmContainer :: EnvironmentType
+pattern EnvironmentTypeArmContainer = EnvironmentType' "ARM_CONTAINER"
 
-pattern WindowsServer2019Container :: EnvironmentType
-pattern WindowsServer2019Container = EnvironmentType' "WINDOWS_SERVER_2019_CONTAINER"
+pattern EnvironmentTypeWindowsServer2019Container :: EnvironmentType
+pattern EnvironmentTypeWindowsServer2019Container = EnvironmentType' "WINDOWS_SERVER_2019_CONTAINER"
 
 {-# COMPLETE
-  WindowsContainer,
-  LinuxContainer,
-  LinuxGpuContainer,
-  ArmContainer,
-  WindowsServer2019Container,
+  EnvironmentTypeWindowsContainer,
+  EnvironmentTypeLinuxContainer,
+  EnvironmentTypeLinuxGpuContainer,
+  EnvironmentTypeArmContainer,
+  EnvironmentTypeWindowsServer2019Container,
   EnvironmentType'
   #-}

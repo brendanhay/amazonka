@@ -17,65 +17,56 @@ module Network.AWS.Shield.Types.SubscriptionLimits
     mkSubscriptionLimits,
 
     -- * Lenses
-    slProtectionGroupLimits,
     slProtectionLimits,
+    slProtectionGroupLimits,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Shield.Types.ProtectionGroupLimits
-import Network.AWS.Shield.Types.ProtectionLimits
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.ProtectionGroupLimits as Types
+import qualified Network.AWS.Shield.Types.ProtectionLimits as Types
 
 -- | Limits settings for your subscription.
 --
 -- /See:/ 'mkSubscriptionLimits' smart constructor.
 data SubscriptionLimits = SubscriptionLimits'
-  { -- | Limits settings on protection groups for your subscription.
-    protectionGroupLimits :: ProtectionGroupLimits,
-    -- | Limits settings on protections for your subscription.
-    protectionLimits :: ProtectionLimits
+  { -- | Limits settings on protections for your subscription.
+    protectionLimits :: Types.ProtectionLimits,
+    -- | Limits settings on protection groups for your subscription.
+    protectionGroupLimits :: Types.ProtectionGroupLimits
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubscriptionLimits' with the minimum fields required to make a request.
---
--- * 'protectionGroupLimits' - Limits settings on protection groups for your subscription.
--- * 'protectionLimits' - Limits settings on protections for your subscription.
+-- | Creates a 'SubscriptionLimits' value with any optional fields omitted.
 mkSubscriptionLimits ::
-  -- | 'protectionGroupLimits'
-  ProtectionGroupLimits ->
   -- | 'protectionLimits'
-  ProtectionLimits ->
+  Types.ProtectionLimits ->
+  -- | 'protectionGroupLimits'
+  Types.ProtectionGroupLimits ->
   SubscriptionLimits
-mkSubscriptionLimits pProtectionGroupLimits_ pProtectionLimits_ =
-  SubscriptionLimits'
-    { protectionGroupLimits =
-        pProtectionGroupLimits_,
-      protectionLimits = pProtectionLimits_
-    }
-
--- | Limits settings on protection groups for your subscription.
---
--- /Note:/ Consider using 'protectionGroupLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slProtectionGroupLimits :: Lens.Lens' SubscriptionLimits ProtectionGroupLimits
-slProtectionGroupLimits = Lens.lens (protectionGroupLimits :: SubscriptionLimits -> ProtectionGroupLimits) (\s a -> s {protectionGroupLimits = a} :: SubscriptionLimits)
-{-# DEPRECATED slProtectionGroupLimits "Use generic-lens or generic-optics with 'protectionGroupLimits' instead." #-}
+mkSubscriptionLimits protectionLimits protectionGroupLimits =
+  SubscriptionLimits' {protectionLimits, protectionGroupLimits}
 
 -- | Limits settings on protections for your subscription.
 --
 -- /Note:/ Consider using 'protectionLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slProtectionLimits :: Lens.Lens' SubscriptionLimits ProtectionLimits
-slProtectionLimits = Lens.lens (protectionLimits :: SubscriptionLimits -> ProtectionLimits) (\s a -> s {protectionLimits = a} :: SubscriptionLimits)
+slProtectionLimits :: Lens.Lens' SubscriptionLimits Types.ProtectionLimits
+slProtectionLimits = Lens.field @"protectionLimits"
 {-# DEPRECATED slProtectionLimits "Use generic-lens or generic-optics with 'protectionLimits' instead." #-}
 
-instance Lude.FromJSON SubscriptionLimits where
+-- | Limits settings on protection groups for your subscription.
+--
+-- /Note:/ Consider using 'protectionGroupLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slProtectionGroupLimits :: Lens.Lens' SubscriptionLimits Types.ProtectionGroupLimits
+slProtectionGroupLimits = Lens.field @"protectionGroupLimits"
+{-# DEPRECATED slProtectionGroupLimits "Use generic-lens or generic-optics with 'protectionGroupLimits' instead." #-}
+
+instance Core.FromJSON SubscriptionLimits where
   parseJSON =
-    Lude.withObject
-      "SubscriptionLimits"
-      ( \x ->
-          SubscriptionLimits'
-            Lude.<$> (x Lude..: "ProtectionGroupLimits")
-            Lude.<*> (x Lude..: "ProtectionLimits")
-      )
+    Core.withObject "SubscriptionLimits" Core.$
+      \x ->
+        SubscriptionLimits'
+          Core.<$> (x Core..: "ProtectionLimits")
+          Core.<*> (x Core..: "ProtectionGroupLimits")

@@ -17,59 +17,55 @@ module Network.AWS.Firehose.Types.FailureDescription
     mkFailureDescription,
 
     -- * Lenses
-    fdDetails,
     fdType,
+    fdDetails,
   )
 where
 
-import Network.AWS.Firehose.Types.DeliveryStreamFailureType
+import qualified Network.AWS.Firehose.Types.DeliveryStreamFailureType as Types
+import qualified Network.AWS.Firehose.Types.Details as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
 --
 -- /See:/ 'mkFailureDescription' smart constructor.
 data FailureDescription = FailureDescription'
-  { -- | A message providing details about the error that caused the failure.
-    details :: Lude.Text,
-    -- | The type of error that caused the failure.
-    type' :: DeliveryStreamFailureType
+  { -- | The type of error that caused the failure.
+    type' :: Types.DeliveryStreamFailureType,
+    -- | A message providing details about the error that caused the failure.
+    details :: Types.Details
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailureDescription' with the minimum fields required to make a request.
---
--- * 'details' - A message providing details about the error that caused the failure.
--- * 'type'' - The type of error that caused the failure.
+-- | Creates a 'FailureDescription' value with any optional fields omitted.
 mkFailureDescription ::
+  -- | 'type\''
+  Types.DeliveryStreamFailureType ->
   -- | 'details'
-  Lude.Text ->
-  -- | 'type''
-  DeliveryStreamFailureType ->
+  Types.Details ->
   FailureDescription
-mkFailureDescription pDetails_ pType_ =
-  FailureDescription' {details = pDetails_, type' = pType_}
-
--- | A message providing details about the error that caused the failure.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdDetails :: Lens.Lens' FailureDescription Lude.Text
-fdDetails = Lens.lens (details :: FailureDescription -> Lude.Text) (\s a -> s {details = a} :: FailureDescription)
-{-# DEPRECATED fdDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+mkFailureDescription type' details =
+  FailureDescription' {type', details}
 
 -- | The type of error that caused the failure.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdType :: Lens.Lens' FailureDescription DeliveryStreamFailureType
-fdType = Lens.lens (type' :: FailureDescription -> DeliveryStreamFailureType) (\s a -> s {type' = a} :: FailureDescription)
+fdType :: Lens.Lens' FailureDescription Types.DeliveryStreamFailureType
+fdType = Lens.field @"type'"
 {-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON FailureDescription where
+-- | A message providing details about the error that caused the failure.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdDetails :: Lens.Lens' FailureDescription Types.Details
+fdDetails = Lens.field @"details"
+{-# DEPRECATED fdDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+
+instance Core.FromJSON FailureDescription where
   parseJSON =
-    Lude.withObject
-      "FailureDescription"
-      ( \x ->
-          FailureDescription'
-            Lude.<$> (x Lude..: "Details") Lude.<*> (x Lude..: "Type")
-      )
+    Core.withObject "FailureDescription" Core.$
+      \x ->
+        FailureDescription'
+          Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Details")

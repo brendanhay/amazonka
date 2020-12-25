@@ -13,14 +13,15 @@
 module Network.AWS.MediaLive.Types.PreferredChannelPipeline
   ( PreferredChannelPipeline
       ( PreferredChannelPipeline',
-        CurrentlyActive,
-        Pipeline0,
-        Pipeline1
+        PreferredChannelPipelineCurrentlyActive,
+        PreferredChannelPipelinePipeline0,
+        PreferredChannelPipelinePipeline1,
+        fromPreferredChannelPipeline
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates which pipeline is preferred by the multiplex for program ingest.
 --
@@ -28,42 +29,46 @@ import qualified Network.AWS.Prelude as Lude
 -- it will switch back once that ingest is healthy again. If set to \"CURRENTLY_ACTIVE\",
 -- it will not switch back to the other pipeline based on it recovering to a healthy state,
 -- it will only switch if the active pipeline becomes unhealthy.
-newtype PreferredChannelPipeline = PreferredChannelPipeline' Lude.Text
+newtype PreferredChannelPipeline = PreferredChannelPipeline'
+  { fromPreferredChannelPipeline ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CurrentlyActive :: PreferredChannelPipeline
-pattern CurrentlyActive = PreferredChannelPipeline' "CURRENTLY_ACTIVE"
+pattern PreferredChannelPipelineCurrentlyActive :: PreferredChannelPipeline
+pattern PreferredChannelPipelineCurrentlyActive = PreferredChannelPipeline' "CURRENTLY_ACTIVE"
 
-pattern Pipeline0 :: PreferredChannelPipeline
-pattern Pipeline0 = PreferredChannelPipeline' "PIPELINE_0"
+pattern PreferredChannelPipelinePipeline0 :: PreferredChannelPipeline
+pattern PreferredChannelPipelinePipeline0 = PreferredChannelPipeline' "PIPELINE_0"
 
-pattern Pipeline1 :: PreferredChannelPipeline
-pattern Pipeline1 = PreferredChannelPipeline' "PIPELINE_1"
+pattern PreferredChannelPipelinePipeline1 :: PreferredChannelPipeline
+pattern PreferredChannelPipelinePipeline1 = PreferredChannelPipeline' "PIPELINE_1"
 
 {-# COMPLETE
-  CurrentlyActive,
-  Pipeline0,
-  Pipeline1,
+  PreferredChannelPipelineCurrentlyActive,
+  PreferredChannelPipelinePipeline0,
+  PreferredChannelPipelinePipeline1,
   PreferredChannelPipeline'
   #-}

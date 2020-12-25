@@ -17,72 +17,68 @@ module Network.AWS.Discovery.Types.BatchDeleteImportDataError
     mkBatchDeleteImportDataError,
 
     -- * Lenses
-    bdideImportTaskId,
     bdideErrorCode,
     bdideErrorDescription,
+    bdideImportTaskId,
   )
 where
 
-import Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
+import qualified Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode as Types
+import qualified Network.AWS.Discovery.Types.ErrorDescription as Types
+import qualified Network.AWS.Discovery.Types.ImportTaskId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Error messages returned for each import task that you deleted as a response for this command.
 --
 -- /See:/ 'mkBatchDeleteImportDataError' smart constructor.
 data BatchDeleteImportDataError = BatchDeleteImportDataError'
-  { -- | The unique import ID associated with the error that occurred.
-    importTaskId :: Lude.Maybe Lude.Text,
-    -- | The type of error that occurred for a specific import task.
-    errorCode :: Lude.Maybe BatchDeleteImportDataErrorCode,
+  { -- | The type of error that occurred for a specific import task.
+    errorCode :: Core.Maybe Types.BatchDeleteImportDataErrorCode,
     -- | The description of the error that occurred for a specific import task.
-    errorDescription :: Lude.Maybe Lude.Text
+    errorDescription :: Core.Maybe Types.ErrorDescription,
+    -- | The unique import ID associated with the error that occurred.
+    importTaskId :: Core.Maybe Types.ImportTaskId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteImportDataError' with the minimum fields required to make a request.
---
--- * 'importTaskId' - The unique import ID associated with the error that occurred.
--- * 'errorCode' - The type of error that occurred for a specific import task.
--- * 'errorDescription' - The description of the error that occurred for a specific import task.
+-- | Creates a 'BatchDeleteImportDataError' value with any optional fields omitted.
 mkBatchDeleteImportDataError ::
   BatchDeleteImportDataError
 mkBatchDeleteImportDataError =
   BatchDeleteImportDataError'
-    { importTaskId = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorDescription = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorDescription = Core.Nothing,
+      importTaskId = Core.Nothing
     }
-
--- | The unique import ID associated with the error that occurred.
---
--- /Note:/ Consider using 'importTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdideImportTaskId :: Lens.Lens' BatchDeleteImportDataError (Lude.Maybe Lude.Text)
-bdideImportTaskId = Lens.lens (importTaskId :: BatchDeleteImportDataError -> Lude.Maybe Lude.Text) (\s a -> s {importTaskId = a} :: BatchDeleteImportDataError)
-{-# DEPRECATED bdideImportTaskId "Use generic-lens or generic-optics with 'importTaskId' instead." #-}
 
 -- | The type of error that occurred for a specific import task.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdideErrorCode :: Lens.Lens' BatchDeleteImportDataError (Lude.Maybe BatchDeleteImportDataErrorCode)
-bdideErrorCode = Lens.lens (errorCode :: BatchDeleteImportDataError -> Lude.Maybe BatchDeleteImportDataErrorCode) (\s a -> s {errorCode = a} :: BatchDeleteImportDataError)
+bdideErrorCode :: Lens.Lens' BatchDeleteImportDataError (Core.Maybe Types.BatchDeleteImportDataErrorCode)
+bdideErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED bdideErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The description of the error that occurred for a specific import task.
 --
 -- /Note:/ Consider using 'errorDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdideErrorDescription :: Lens.Lens' BatchDeleteImportDataError (Lude.Maybe Lude.Text)
-bdideErrorDescription = Lens.lens (errorDescription :: BatchDeleteImportDataError -> Lude.Maybe Lude.Text) (\s a -> s {errorDescription = a} :: BatchDeleteImportDataError)
+bdideErrorDescription :: Lens.Lens' BatchDeleteImportDataError (Core.Maybe Types.ErrorDescription)
+bdideErrorDescription = Lens.field @"errorDescription"
 {-# DEPRECATED bdideErrorDescription "Use generic-lens or generic-optics with 'errorDescription' instead." #-}
 
-instance Lude.FromJSON BatchDeleteImportDataError where
+-- | The unique import ID associated with the error that occurred.
+--
+-- /Note:/ Consider using 'importTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdideImportTaskId :: Lens.Lens' BatchDeleteImportDataError (Core.Maybe Types.ImportTaskId)
+bdideImportTaskId = Lens.field @"importTaskId"
+{-# DEPRECATED bdideImportTaskId "Use generic-lens or generic-optics with 'importTaskId' instead." #-}
+
+instance Core.FromJSON BatchDeleteImportDataError where
   parseJSON =
-    Lude.withObject
-      "BatchDeleteImportDataError"
-      ( \x ->
-          BatchDeleteImportDataError'
-            Lude.<$> (x Lude..:? "importTaskId")
-            Lude.<*> (x Lude..:? "errorCode")
-            Lude.<*> (x Lude..:? "errorDescription")
-      )
+    Core.withObject "BatchDeleteImportDataError" Core.$
+      \x ->
+        BatchDeleteImportDataError'
+          Core.<$> (x Core..:? "errorCode")
+          Core.<*> (x Core..:? "errorDescription")
+          Core.<*> (x Core..:? "importTaskId")

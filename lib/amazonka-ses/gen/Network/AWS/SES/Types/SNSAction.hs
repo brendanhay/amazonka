@@ -17,14 +17,15 @@ module Network.AWS.SES.Types.SNSAction
     mkSNSAction,
 
     -- * Lenses
-    saTopicARN,
-    saEncoding,
+    snsaTopicArn,
+    snsaEncoding,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.SNSActionEncoding
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.SNSActionEncoding as Types
+import qualified Network.AWS.SES.Types.TopicArn as Types
 
 -- | When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.
 --
@@ -35,44 +36,36 @@ import Network.AWS.SES.Types.SNSActionEncoding
 -- /See:/ 'mkSNSAction' smart constructor.
 data SNSAction = SNSAction'
   { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-    topicARN :: Lude.Text,
+    topicArn :: Types.TopicArn,
     -- | The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
-    encoding :: Lude.Maybe SNSActionEncoding
+    encoding :: Core.Maybe Types.SNSActionEncoding
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SNSAction' with the minimum fields required to make a request.
---
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
--- * 'encoding' - The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
+-- | Creates a 'SNSAction' value with any optional fields omitted.
 mkSNSAction ::
-  -- | 'topicARN'
-  Lude.Text ->
+  -- | 'topicArn'
+  Types.TopicArn ->
   SNSAction
-mkSNSAction pTopicARN_ =
-  SNSAction' {topicARN = pTopicARN_, encoding = Lude.Nothing}
+mkSNSAction topicArn =
+  SNSAction' {topicArn, encoding = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saTopicARN :: Lens.Lens' SNSAction Lude.Text
-saTopicARN = Lens.lens (topicARN :: SNSAction -> Lude.Text) (\s a -> s {topicARN = a} :: SNSAction)
-{-# DEPRECATED saTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snsaTopicArn :: Lens.Lens' SNSAction Types.TopicArn
+snsaTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED snsaTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
 -- | The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
 --
 -- /Note:/ Consider using 'encoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saEncoding :: Lens.Lens' SNSAction (Lude.Maybe SNSActionEncoding)
-saEncoding = Lens.lens (encoding :: SNSAction -> Lude.Maybe SNSActionEncoding) (\s a -> s {encoding = a} :: SNSAction)
-{-# DEPRECATED saEncoding "Use generic-lens or generic-optics with 'encoding' instead." #-}
+snsaEncoding :: Lens.Lens' SNSAction (Core.Maybe Types.SNSActionEncoding)
+snsaEncoding = Lens.field @"encoding"
+{-# DEPRECATED snsaEncoding "Use generic-lens or generic-optics with 'encoding' instead." #-}
 
-instance Lude.FromXML SNSAction where
+instance Core.FromXML SNSAction where
   parseXML x =
     SNSAction'
-      Lude.<$> (x Lude..@ "TopicArn") Lude.<*> (x Lude..@? "Encoding")
-
-instance Lude.ToQuery SNSAction where
-  toQuery SNSAction' {..} =
-    Lude.mconcat
-      ["TopicArn" Lude.=: topicARN, "Encoding" Lude.=: encoding]
+      Core.<$> (x Core..@ "TopicArn") Core.<*> (x Core..@? "Encoding")

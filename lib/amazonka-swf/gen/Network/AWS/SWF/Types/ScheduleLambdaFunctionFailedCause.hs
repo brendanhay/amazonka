@@ -13,56 +13,61 @@
 module Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
   ( ScheduleLambdaFunctionFailedCause
       ( ScheduleLambdaFunctionFailedCause',
-        IdAlreadyInUse,
-        OpenLambdaFunctionsLimitExceeded,
-        LambdaFunctionCreationRateExceeded,
-        LambdaServiceNotAvailableInRegion
+        ScheduleLambdaFunctionFailedCauseIdAlreadyInUse,
+        ScheduleLambdaFunctionFailedCauseOpenLambdaFunctionsLimitExceeded,
+        ScheduleLambdaFunctionFailedCauseLambdaFunctionCreationRateExceeded,
+        ScheduleLambdaFunctionFailedCauseLambdaServiceNotAvailableInRegion,
+        fromScheduleLambdaFunctionFailedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScheduleLambdaFunctionFailedCause = ScheduleLambdaFunctionFailedCause' Lude.Text
+newtype ScheduleLambdaFunctionFailedCause = ScheduleLambdaFunctionFailedCause'
+  { fromScheduleLambdaFunctionFailedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IdAlreadyInUse :: ScheduleLambdaFunctionFailedCause
-pattern IdAlreadyInUse = ScheduleLambdaFunctionFailedCause' "ID_ALREADY_IN_USE"
+pattern ScheduleLambdaFunctionFailedCauseIdAlreadyInUse :: ScheduleLambdaFunctionFailedCause
+pattern ScheduleLambdaFunctionFailedCauseIdAlreadyInUse = ScheduleLambdaFunctionFailedCause' "ID_ALREADY_IN_USE"
 
-pattern OpenLambdaFunctionsLimitExceeded :: ScheduleLambdaFunctionFailedCause
-pattern OpenLambdaFunctionsLimitExceeded = ScheduleLambdaFunctionFailedCause' "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
+pattern ScheduleLambdaFunctionFailedCauseOpenLambdaFunctionsLimitExceeded :: ScheduleLambdaFunctionFailedCause
+pattern ScheduleLambdaFunctionFailedCauseOpenLambdaFunctionsLimitExceeded = ScheduleLambdaFunctionFailedCause' "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
 
-pattern LambdaFunctionCreationRateExceeded :: ScheduleLambdaFunctionFailedCause
-pattern LambdaFunctionCreationRateExceeded = ScheduleLambdaFunctionFailedCause' "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
+pattern ScheduleLambdaFunctionFailedCauseLambdaFunctionCreationRateExceeded :: ScheduleLambdaFunctionFailedCause
+pattern ScheduleLambdaFunctionFailedCauseLambdaFunctionCreationRateExceeded = ScheduleLambdaFunctionFailedCause' "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
 
-pattern LambdaServiceNotAvailableInRegion :: ScheduleLambdaFunctionFailedCause
-pattern LambdaServiceNotAvailableInRegion = ScheduleLambdaFunctionFailedCause' "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
+pattern ScheduleLambdaFunctionFailedCauseLambdaServiceNotAvailableInRegion :: ScheduleLambdaFunctionFailedCause
+pattern ScheduleLambdaFunctionFailedCauseLambdaServiceNotAvailableInRegion = ScheduleLambdaFunctionFailedCause' "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
 
 {-# COMPLETE
-  IdAlreadyInUse,
-  OpenLambdaFunctionsLimitExceeded,
-  LambdaFunctionCreationRateExceeded,
-  LambdaServiceNotAvailableInRegion,
+  ScheduleLambdaFunctionFailedCauseIdAlreadyInUse,
+  ScheduleLambdaFunctionFailedCauseOpenLambdaFunctionsLimitExceeded,
+  ScheduleLambdaFunctionFailedCauseLambdaFunctionCreationRateExceeded,
+  ScheduleLambdaFunctionFailedCauseLambdaServiceNotAvailableInRegion,
   ScheduleLambdaFunctionFailedCause'
   #-}

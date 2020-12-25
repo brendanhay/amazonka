@@ -21,37 +21,34 @@ module Network.AWS.ECR.Types.LifecyclePolicyRuleAction
   )
 where
 
-import Network.AWS.ECR.Types.ImageActionType
+import qualified Network.AWS.ECR.Types.ImageActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of action to be taken.
 --
 -- /See:/ 'mkLifecyclePolicyRuleAction' smart constructor.
 newtype LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
   { -- | The type of action to be taken.
-    type' :: Lude.Maybe ImageActionType
+    type' :: Core.Maybe Types.ImageActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecyclePolicyRuleAction' with the minimum fields required to make a request.
---
--- * 'type'' - The type of action to be taken.
+-- | Creates a 'LifecyclePolicyRuleAction' value with any optional fields omitted.
 mkLifecyclePolicyRuleAction ::
   LifecyclePolicyRuleAction
 mkLifecyclePolicyRuleAction =
-  LifecyclePolicyRuleAction' {type' = Lude.Nothing}
+  LifecyclePolicyRuleAction' {type' = Core.Nothing}
 
 -- | The type of action to be taken.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpraType :: Lens.Lens' LifecyclePolicyRuleAction (Lude.Maybe ImageActionType)
-lpraType = Lens.lens (type' :: LifecyclePolicyRuleAction -> Lude.Maybe ImageActionType) (\s a -> s {type' = a} :: LifecyclePolicyRuleAction)
+lpraType :: Lens.Lens' LifecyclePolicyRuleAction (Core.Maybe Types.ImageActionType)
+lpraType = Lens.field @"type'"
 {-# DEPRECATED lpraType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON LifecyclePolicyRuleAction where
+instance Core.FromJSON LifecyclePolicyRuleAction where
   parseJSON =
-    Lude.withObject
-      "LifecyclePolicyRuleAction"
-      (\x -> LifecyclePolicyRuleAction' Lude.<$> (x Lude..:? "type"))
+    Core.withObject "LifecyclePolicyRuleAction" Core.$
+      \x -> LifecyclePolicyRuleAction' Core.<$> (x Core..:? "type")

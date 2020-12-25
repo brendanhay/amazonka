@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,16 @@
 -- For more information, see the <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide> .
 module Network.AWS.CloudSearchDomains
   ( -- * Service configuration
-    cloudSearchDomainsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** DocumentServiceException
+    _DocumentServiceException,
+
+    -- ** SearchException
+    _SearchException,
 
     -- * Waiters
     -- $waiters
@@ -39,17 +44,86 @@ module Network.AWS.CloudSearchDomains
 
     -- * Types
 
-    -- ** ContentType
-    ContentType (..),
+    -- ** Expr
+    Expr (..),
+
+    -- ** FilterQuery
+    FilterQuery (..),
+
+    -- ** SearchStatus
+    SearchStatus (..),
+    mkSearchStatus,
+    sRid,
+    sTimems,
+
+    -- ** Cursor
+    Cursor (..),
+
+    -- ** QueryOptions
+    QueryOptions (..),
+
+    -- ** Return
+    Return (..),
 
     -- ** QueryParser
     QueryParser (..),
 
+    -- ** String
+    String (..),
+
+    -- ** Hit
+    Hit (..),
+    mkHit,
+    hExprs,
+    hFields,
+    hHighlights,
+    hId,
+
+    -- ** Highlight
+    Highlight (..),
+
+    -- ** SuggestStatus
+    SuggestStatus (..),
+    mkSuggestStatus,
+    ssRid,
+    ssTimems,
+
+    -- ** FieldStats
+    FieldStats (..),
+    mkFieldStats,
+    fsCount,
+    fsMax,
+    fsMean,
+    fsMin,
+    fsMissing,
+    fsStddev,
+    fsSum,
+    fsSumOfSquares,
+
     -- ** Bucket
     Bucket (..),
     mkBucket,
-    bValue,
     bCount,
+    bValue,
+
+    -- ** SuggestionMatch
+    SuggestionMatch (..),
+    mkSuggestionMatch,
+    smId,
+    smScore,
+    smSuggestion,
+
+    -- ** Sort
+    Sort (..),
+
+    -- ** Query
+    Query (..),
+
+    -- ** Stat
+    Stat (..),
+
+    -- ** Facet
+    Facet (..),
 
     -- ** BucketInfo
     BucketInfo (..),
@@ -61,69 +135,37 @@ module Network.AWS.CloudSearchDomains
     mkDocumentServiceWarning,
     dswMessage,
 
-    -- ** FieldStats
-    FieldStats (..),
-    mkFieldStats,
-    fsMax,
-    fsMean,
-    fsCount,
-    fsMissing,
-    fsStddev,
-    fsMin,
-    fsSumOfSquares,
-    fsSum,
-
-    -- ** Hit
-    Hit (..),
-    mkHit,
-    hExprs,
-    hId,
-    hHighlights,
-    hFields,
-
-    -- ** Hits
-    Hits (..),
-    mkHits,
-    hCursor,
-    hHit,
-    hStart,
-    hFound,
-
-    -- ** SearchStatus
-    SearchStatus (..),
-    mkSearchStatus,
-    sRid,
-    sTimems,
+    -- ** Suggester
+    Suggester (..),
 
     -- ** SuggestModel
     SuggestModel (..),
     mkSuggestModel,
     smFound,
-    smSuggestions,
     smQuery,
+    smSuggestions,
 
-    -- ** SuggestStatus
-    SuggestStatus (..),
-    mkSuggestStatus,
-    ssRid,
-    ssTimems,
+    -- ** Hits
+    Hits (..),
+    mkHits,
+    hCursor,
+    hFound,
+    hHit,
+    hStart,
 
-    -- ** SuggestionMatch
-    SuggestionMatch (..),
-    mkSuggestionMatch,
-    smSuggestion,
-    smScore,
-    smId,
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** Rid
+    Rid (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

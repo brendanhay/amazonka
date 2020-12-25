@@ -24,121 +24,114 @@ module Network.AWS.KinesisVideo.TagStream
     mkTagStream,
 
     -- ** Request lenses
+    tsTags,
     tsStreamARN,
     tsStreamName,
-    tsTags,
 
     -- * Destructuring the response
     TagStreamResponse (..),
     mkTagStreamResponse,
 
     -- ** Response lenses
-    tsrsResponseStatus,
+    tsrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagStream' smart constructor.
 data TagStream = TagStream'
-  { -- | The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
-    streamARN :: Lude.Maybe Lude.Text,
+  { -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+    tags :: Core.HashMap Types.TagKey Types.TagValue,
+    -- | The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
+    streamARN :: Core.Maybe Types.ResourceARN,
     -- | The name of the stream that you want to add the tag or tags to.
-    streamName :: Lude.Maybe Lude.Text,
-    -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagStream' with the minimum fields required to make a request.
---
--- * 'streamARN' - The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
--- * 'streamName' - The name of the stream that you want to add the tag or tags to.
--- * 'tags' - A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+-- | Creates a 'TagStream' value with any optional fields omitted.
 mkTagStream ::
   TagStream
 mkTagStream =
   TagStream'
-    { streamARN = Lude.Nothing,
-      streamName = Lude.Nothing,
-      tags = Lude.mempty
+    { tags = Core.mempty,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing
     }
+
+-- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTags :: Lens.Lens' TagStream (Core.HashMap Types.TagKey Types.TagValue)
+tsTags = Lens.field @"tags"
+{-# DEPRECATED tsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsStreamARN :: Lens.Lens' TagStream (Lude.Maybe Lude.Text)
-tsStreamARN = Lens.lens (streamARN :: TagStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: TagStream)
+tsStreamARN :: Lens.Lens' TagStream (Core.Maybe Types.ResourceARN)
+tsStreamARN = Lens.field @"streamARN"
 {-# DEPRECATED tsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream that you want to add the tag or tags to.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsStreamName :: Lens.Lens' TagStream (Lude.Maybe Lude.Text)
-tsStreamName = Lens.lens (streamName :: TagStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: TagStream)
+tsStreamName :: Lens.Lens' TagStream (Core.Maybe Types.StreamName)
+tsStreamName = Lens.field @"streamName"
 {-# DEPRECATED tsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsTags :: Lens.Lens' TagStream (Lude.HashMap Lude.Text (Lude.Text))
-tsTags = Lens.lens (tags :: TagStream -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagStream)
-{-# DEPRECATED tsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
-instance Lude.AWSRequest TagStream where
-  type Rs TagStream = TagStreamResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          TagStreamResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders TagStream where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON TagStream where
-  toJSON TagStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("StreamName" Lude..=) Lude.<$> streamName,
-            Lude.Just ("Tags" Lude..= tags)
+instance Core.FromJSON TagStream where
+  toJSON TagStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Tags" Core..= tags),
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName
           ]
       )
 
-instance Lude.ToPath TagStream where
-  toPath = Lude.const "/tagStream"
-
-instance Lude.ToQuery TagStream where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest TagStream where
+  type Rs TagStream = TagStreamResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/tagStream",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          TagStreamResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkTagStreamResponse' smart constructor.
 newtype TagStreamResponse = TagStreamResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagStreamResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagStreamResponse' value with any optional fields omitted.
 mkTagStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagStreamResponse
-mkTagStreamResponse pResponseStatus_ =
-  TagStreamResponse' {responseStatus = pResponseStatus_}
+mkTagStreamResponse responseStatus =
+  TagStreamResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsrsResponseStatus :: Lens.Lens' TagStreamResponse Lude.Int
-tsrsResponseStatus = Lens.lens (responseStatus :: TagStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagStreamResponse)
-{-# DEPRECATED tsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tsrrsResponseStatus :: Lens.Lens' TagStreamResponse Core.Int
+tsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,79 +29,76 @@ module Network.AWS.IAM.UntagRole
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagRole' smart constructor.
 data UntagRole = UntagRole'
   { -- | The name of the IAM role from which you want to remove tags.
     --
     -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text,
+    roleName :: Types.RoleName,
     -- | A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.TagKeyType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagRole' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the IAM role from which you want to remove tags.
---
--- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'tagKeys' - A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.
+-- | Creates a 'UntagRole' value with any optional fields omitted.
 mkUntagRole ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   UntagRole
-mkUntagRole pRoleName_ =
-  UntagRole' {roleName = pRoleName_, tagKeys = Lude.mempty}
+mkUntagRole roleName = UntagRole' {roleName, tagKeys = Core.mempty}
 
 -- | The name of the IAM role from which you want to remove tags.
 --
 -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uRoleName :: Lens.Lens' UntagRole Lude.Text
-uRoleName = Lens.lens (roleName :: UntagRole -> Lude.Text) (\s a -> s {roleName = a} :: UntagRole)
+uRoleName :: Lens.Lens' UntagRole Types.RoleName
+uRoleName = Lens.field @"roleName"
 {-# DEPRECATED uRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uTagKeys :: Lens.Lens' UntagRole [Lude.Text]
-uTagKeys = Lens.lens (tagKeys :: UntagRole -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagRole)
+uTagKeys :: Lens.Lens' UntagRole [Types.TagKeyType]
+uTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED uTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest UntagRole where
+instance Core.AWSRequest UntagRole where
   type Rs UntagRole = UntagRoleResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull UntagRoleResponse'
-
-instance Lude.ToHeaders UntagRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UntagRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagRole where
-  toQuery UntagRole' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UntagRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UntagRole")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "TagKeys" (Core.toQueryList "member" tagKeys))
+            )
+      }
+  response = Response.receiveNull UntagRoleResponse'
 
 -- | /See:/ 'mkUntagRoleResponse' smart constructor.
 data UntagRoleResponse = UntagRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'UntagRoleResponse' value with any optional fields omitted.
 mkUntagRoleResponse ::
   UntagRoleResponse
 mkUntagRoleResponse = UntagRoleResponse'

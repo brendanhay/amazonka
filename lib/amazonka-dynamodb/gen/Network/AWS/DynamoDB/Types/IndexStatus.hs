@@ -13,56 +13,58 @@
 module Network.AWS.DynamoDB.Types.IndexStatus
   ( IndexStatus
       ( IndexStatus',
-        ISCreating,
-        ISUpdating,
-        ISDeleting,
-        ISActive
+        IndexStatusCreating,
+        IndexStatusUpdating,
+        IndexStatusDeleting,
+        IndexStatusActive,
+        fromIndexStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype IndexStatus = IndexStatus' Lude.Text
+newtype IndexStatus = IndexStatus' {fromIndexStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISCreating :: IndexStatus
-pattern ISCreating = IndexStatus' "CREATING"
+pattern IndexStatusCreating :: IndexStatus
+pattern IndexStatusCreating = IndexStatus' "CREATING"
 
-pattern ISUpdating :: IndexStatus
-pattern ISUpdating = IndexStatus' "UPDATING"
+pattern IndexStatusUpdating :: IndexStatus
+pattern IndexStatusUpdating = IndexStatus' "UPDATING"
 
-pattern ISDeleting :: IndexStatus
-pattern ISDeleting = IndexStatus' "DELETING"
+pattern IndexStatusDeleting :: IndexStatus
+pattern IndexStatusDeleting = IndexStatus' "DELETING"
 
-pattern ISActive :: IndexStatus
-pattern ISActive = IndexStatus' "ACTIVE"
+pattern IndexStatusActive :: IndexStatus
+pattern IndexStatusActive = IndexStatus' "ACTIVE"
 
 {-# COMPLETE
-  ISCreating,
-  ISUpdating,
-  ISDeleting,
-  ISActive,
+  IndexStatusCreating,
+  IndexStatusUpdating,
+  IndexStatusDeleting,
+  IndexStatusActive,
   IndexStatus'
   #-}

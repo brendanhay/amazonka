@@ -18,92 +18,87 @@ module Network.AWS.ElastiCache.Types.UnprocessedUpdateAction
 
     -- * Lenses
     uuaCacheClusterId,
-    uuaServiceUpdateName,
-    uuaErrorType,
     uuaErrorMessage,
+    uuaErrorType,
     uuaReplicationGroupId,
+    uuaServiceUpdateName,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Update action that has failed to be processed for the corresponding apply/stop request
 --
 -- /See:/ 'mkUnprocessedUpdateAction' smart constructor.
 data UnprocessedUpdateAction = UnprocessedUpdateAction'
   { -- | The ID of the cache cluster
-    cacheClusterId :: Lude.Maybe Lude.Text,
-    -- | The unique ID of the service update
-    serviceUpdateName :: Lude.Maybe Lude.Text,
-    -- | The error type for requests that are not processed
-    errorType :: Lude.Maybe Lude.Text,
+    cacheClusterId :: Core.Maybe Types.String,
     -- | The error message that describes the reason the request was not processed
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.String,
+    -- | The error type for requests that are not processed
+    errorType :: Core.Maybe Types.String,
     -- | The replication group ID
-    replicationGroupId :: Lude.Maybe Lude.Text
+    replicationGroupId :: Core.Maybe Types.String,
+    -- | The unique ID of the service update
+    serviceUpdateName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnprocessedUpdateAction' with the minimum fields required to make a request.
---
--- * 'cacheClusterId' - The ID of the cache cluster
--- * 'serviceUpdateName' - The unique ID of the service update
--- * 'errorType' - The error type for requests that are not processed
--- * 'errorMessage' - The error message that describes the reason the request was not processed
--- * 'replicationGroupId' - The replication group ID
+-- | Creates a 'UnprocessedUpdateAction' value with any optional fields omitted.
 mkUnprocessedUpdateAction ::
   UnprocessedUpdateAction
 mkUnprocessedUpdateAction =
   UnprocessedUpdateAction'
-    { cacheClusterId = Lude.Nothing,
-      serviceUpdateName = Lude.Nothing,
-      errorType = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      replicationGroupId = Lude.Nothing
+    { cacheClusterId = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorType = Core.Nothing,
+      replicationGroupId = Core.Nothing,
+      serviceUpdateName = Core.Nothing
     }
 
 -- | The ID of the cache cluster
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuaCacheClusterId :: Lens.Lens' UnprocessedUpdateAction (Lude.Maybe Lude.Text)
-uuaCacheClusterId = Lens.lens (cacheClusterId :: UnprocessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: UnprocessedUpdateAction)
+uuaCacheClusterId :: Lens.Lens' UnprocessedUpdateAction (Core.Maybe Types.String)
+uuaCacheClusterId = Lens.field @"cacheClusterId"
 {-# DEPRECATED uuaCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
-
--- | The unique ID of the service update
---
--- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuaServiceUpdateName :: Lens.Lens' UnprocessedUpdateAction (Lude.Maybe Lude.Text)
-uuaServiceUpdateName = Lens.lens (serviceUpdateName :: UnprocessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {serviceUpdateName = a} :: UnprocessedUpdateAction)
-{-# DEPRECATED uuaServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
-
--- | The error type for requests that are not processed
---
--- /Note:/ Consider using 'errorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuaErrorType :: Lens.Lens' UnprocessedUpdateAction (Lude.Maybe Lude.Text)
-uuaErrorType = Lens.lens (errorType :: UnprocessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {errorType = a} :: UnprocessedUpdateAction)
-{-# DEPRECATED uuaErrorType "Use generic-lens or generic-optics with 'errorType' instead." #-}
 
 -- | The error message that describes the reason the request was not processed
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuaErrorMessage :: Lens.Lens' UnprocessedUpdateAction (Lude.Maybe Lude.Text)
-uuaErrorMessage = Lens.lens (errorMessage :: UnprocessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: UnprocessedUpdateAction)
+uuaErrorMessage :: Lens.Lens' UnprocessedUpdateAction (Core.Maybe Types.String)
+uuaErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED uuaErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
+
+-- | The error type for requests that are not processed
+--
+-- /Note:/ Consider using 'errorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuaErrorType :: Lens.Lens' UnprocessedUpdateAction (Core.Maybe Types.String)
+uuaErrorType = Lens.field @"errorType"
+{-# DEPRECATED uuaErrorType "Use generic-lens or generic-optics with 'errorType' instead." #-}
 
 -- | The replication group ID
 --
 -- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuaReplicationGroupId :: Lens.Lens' UnprocessedUpdateAction (Lude.Maybe Lude.Text)
-uuaReplicationGroupId = Lens.lens (replicationGroupId :: UnprocessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: UnprocessedUpdateAction)
+uuaReplicationGroupId :: Lens.Lens' UnprocessedUpdateAction (Core.Maybe Types.String)
+uuaReplicationGroupId = Lens.field @"replicationGroupId"
 {-# DEPRECATED uuaReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance Lude.FromXML UnprocessedUpdateAction where
+-- | The unique ID of the service update
+--
+-- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuaServiceUpdateName :: Lens.Lens' UnprocessedUpdateAction (Core.Maybe Types.String)
+uuaServiceUpdateName = Lens.field @"serviceUpdateName"
+{-# DEPRECATED uuaServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
+
+instance Core.FromXML UnprocessedUpdateAction where
   parseXML x =
     UnprocessedUpdateAction'
-      Lude.<$> (x Lude..@? "CacheClusterId")
-      Lude.<*> (x Lude..@? "ServiceUpdateName")
-      Lude.<*> (x Lude..@? "ErrorType")
-      Lude.<*> (x Lude..@? "ErrorMessage")
-      Lude.<*> (x Lude..@? "ReplicationGroupId")
+      Core.<$> (x Core..@? "CacheClusterId")
+      Core.<*> (x Core..@? "ErrorMessage")
+      Core.<*> (x Core..@? "ErrorType")
+      Core.<*> (x Core..@? "ReplicationGroupId")
+      Core.<*> (x Core..@? "ServiceUpdateName")

@@ -17,55 +17,46 @@ module Network.AWS.EC2.Types.InstanceSpecification
     mkInstanceSpecification,
 
     -- * Lenses
-    isInstanceId,
     isExcludeBootVolume,
+    isInstanceId,
   )
 where
 
+import qualified Network.AWS.EC2.Types.InstanceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The instance details to specify which volumes should be snapshotted.
 --
 -- /See:/ 'mkInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
-  { -- | The instance to specify which volumes should be snapshotted.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | Excludes the root volume from being snapshotted.
-    excludeBootVolume :: Lude.Maybe Lude.Bool
+  { -- | Excludes the root volume from being snapshotted.
+    excludeBootVolume :: Core.Maybe Core.Bool,
+    -- | The instance to specify which volumes should be snapshotted.
+    instanceId :: Core.Maybe Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceSpecification' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance to specify which volumes should be snapshotted.
--- * 'excludeBootVolume' - Excludes the root volume from being snapshotted.
+-- | Creates a 'InstanceSpecification' value with any optional fields omitted.
 mkInstanceSpecification ::
   InstanceSpecification
 mkInstanceSpecification =
   InstanceSpecification'
-    { instanceId = Lude.Nothing,
-      excludeBootVolume = Lude.Nothing
+    { excludeBootVolume = Core.Nothing,
+      instanceId = Core.Nothing
     }
-
--- | The instance to specify which volumes should be snapshotted.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isInstanceId :: Lens.Lens' InstanceSpecification (Lude.Maybe Lude.Text)
-isInstanceId = Lens.lens (instanceId :: InstanceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceSpecification)
-{-# DEPRECATED isInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Excludes the root volume from being snapshotted.
 --
 -- /Note:/ Consider using 'excludeBootVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isExcludeBootVolume :: Lens.Lens' InstanceSpecification (Lude.Maybe Lude.Bool)
-isExcludeBootVolume = Lens.lens (excludeBootVolume :: InstanceSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {excludeBootVolume = a} :: InstanceSpecification)
+isExcludeBootVolume :: Lens.Lens' InstanceSpecification (Core.Maybe Core.Bool)
+isExcludeBootVolume = Lens.field @"excludeBootVolume"
 {-# DEPRECATED isExcludeBootVolume "Use generic-lens or generic-optics with 'excludeBootVolume' instead." #-}
 
-instance Lude.ToQuery InstanceSpecification where
-  toQuery InstanceSpecification' {..} =
-    Lude.mconcat
-      [ "InstanceId" Lude.=: instanceId,
-        "ExcludeBootVolume" Lude.=: excludeBootVolume
-      ]
+-- | The instance to specify which volumes should be snapshotted.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isInstanceId :: Lens.Lens' InstanceSpecification (Core.Maybe Types.InstanceId)
+isInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED isInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}

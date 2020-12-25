@@ -17,60 +17,56 @@ module Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
     mkBatchGetObjectInformationResponse,
 
     -- * Lenses
-    bgoiObjectIdentifier,
-    bgoiSchemaFacets,
+    bgoirObjectIdentifier,
+    bgoirSchemaFacets,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.SchemaFacet
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
+import qualified Network.AWS.CloudDirectory.Types.SchemaFacet as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'GetObjectInformation' response operation.
 --
 -- /See:/ 'mkBatchGetObjectInformationResponse' smart constructor.
 data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
   { -- | The @ObjectIdentifier@ of the specified object.
-    objectIdentifier :: Lude.Maybe Lude.Text,
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier,
     -- | The facets attached to the specified object.
-    schemaFacets :: Lude.Maybe [SchemaFacet]
+    schemaFacets :: Core.Maybe [Types.SchemaFacet]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetObjectInformationResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - The @ObjectIdentifier@ of the specified object.
--- * 'schemaFacets' - The facets attached to the specified object.
+-- | Creates a 'BatchGetObjectInformationResponse' value with any optional fields omitted.
 mkBatchGetObjectInformationResponse ::
   BatchGetObjectInformationResponse
 mkBatchGetObjectInformationResponse =
   BatchGetObjectInformationResponse'
     { objectIdentifier =
-        Lude.Nothing,
-      schemaFacets = Lude.Nothing
+        Core.Nothing,
+      schemaFacets = Core.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the specified object.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgoiObjectIdentifier :: Lens.Lens' BatchGetObjectInformationResponse (Lude.Maybe Lude.Text)
-bgoiObjectIdentifier = Lens.lens (objectIdentifier :: BatchGetObjectInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: BatchGetObjectInformationResponse)
-{-# DEPRECATED bgoiObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+bgoirObjectIdentifier :: Lens.Lens' BatchGetObjectInformationResponse (Core.Maybe Types.ObjectIdentifier)
+bgoirObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED bgoirObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
 -- | The facets attached to the specified object.
 --
 -- /Note:/ Consider using 'schemaFacets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgoiSchemaFacets :: Lens.Lens' BatchGetObjectInformationResponse (Lude.Maybe [SchemaFacet])
-bgoiSchemaFacets = Lens.lens (schemaFacets :: BatchGetObjectInformationResponse -> Lude.Maybe [SchemaFacet]) (\s a -> s {schemaFacets = a} :: BatchGetObjectInformationResponse)
-{-# DEPRECATED bgoiSchemaFacets "Use generic-lens or generic-optics with 'schemaFacets' instead." #-}
+bgoirSchemaFacets :: Lens.Lens' BatchGetObjectInformationResponse (Core.Maybe [Types.SchemaFacet])
+bgoirSchemaFacets = Lens.field @"schemaFacets"
+{-# DEPRECATED bgoirSchemaFacets "Use generic-lens or generic-optics with 'schemaFacets' instead." #-}
 
-instance Lude.FromJSON BatchGetObjectInformationResponse where
+instance Core.FromJSON BatchGetObjectInformationResponse where
   parseJSON =
-    Lude.withObject
-      "BatchGetObjectInformationResponse"
-      ( \x ->
-          BatchGetObjectInformationResponse'
-            Lude.<$> (x Lude..:? "ObjectIdentifier")
-            Lude.<*> (x Lude..:? "SchemaFacets" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchGetObjectInformationResponse" Core.$
+      \x ->
+        BatchGetObjectInformationResponse'
+          Core.<$> (x Core..:? "ObjectIdentifier")
+          Core.<*> (x Core..:? "SchemaFacets")

@@ -23,8 +23,8 @@ module Network.AWS.SES.CloneReceiptRuleSet
     mkCloneReceiptRuleSet,
 
     -- ** Request lenses
-    crrsOriginalRuleSetName,
-    crrsRuleSetName,
+    cRuleSetName,
+    cOriginalRuleSetName,
 
     -- * Destructuring the response
     CloneReceiptRuleSetResponse (..),
@@ -36,18 +36,16 @@ module Network.AWS.SES.CloneReceiptRuleSet
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkCloneReceiptRuleSet' smart constructor.
 data CloneReceiptRuleSet = CloneReceiptRuleSet'
-  { -- | The name of the rule set to clone.
-    originalRuleSetName :: Lude.Text,
-    -- | The name of the rule set to create. The name must:
+  { -- | The name of the rule set to create. The name must:
     --
     --
     --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
@@ -57,42 +55,22 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
     --
     --
     --     * Contain less than 64 characters.
-    ruleSetName :: Lude.Text
+    ruleSetName :: Types.ReceiptRuleSetName,
+    -- | The name of the rule set to clone.
+    originalRuleSetName :: Types.ReceiptRuleSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloneReceiptRuleSet' with the minimum fields required to make a request.
---
--- * 'originalRuleSetName' - The name of the rule set to clone.
--- * 'ruleSetName' - The name of the rule set to create. The name must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Start and end with a letter or number.
---
---
---     * Contain less than 64 characters.
+-- | Creates a 'CloneReceiptRuleSet' value with any optional fields omitted.
 mkCloneReceiptRuleSet ::
-  -- | 'originalRuleSetName'
-  Lude.Text ->
   -- | 'ruleSetName'
-  Lude.Text ->
+  Types.ReceiptRuleSetName ->
+  -- | 'originalRuleSetName'
+  Types.ReceiptRuleSetName ->
   CloneReceiptRuleSet
-mkCloneReceiptRuleSet pOriginalRuleSetName_ pRuleSetName_ =
-  CloneReceiptRuleSet'
-    { originalRuleSetName = pOriginalRuleSetName_,
-      ruleSetName = pRuleSetName_
-    }
-
--- | The name of the rule set to clone.
---
--- /Note:/ Consider using 'originalRuleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsOriginalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
-crrsOriginalRuleSetName = Lens.lens (originalRuleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {originalRuleSetName = a} :: CloneReceiptRuleSet)
-{-# DEPRECATED crrsOriginalRuleSetName "Use generic-lens or generic-optics with 'originalRuleSetName' instead." #-}
+mkCloneReceiptRuleSet ruleSetName originalRuleSetName =
+  CloneReceiptRuleSet' {ruleSetName, originalRuleSetName}
 
 -- | The name of the rule set to create. The name must:
 --
@@ -108,59 +86,67 @@ crrsOriginalRuleSetName = Lens.lens (originalRuleSetName :: CloneReceiptRuleSet 
 --
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
-crrsRuleSetName = Lens.lens (ruleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CloneReceiptRuleSet)
-{-# DEPRECATED crrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
+cRuleSetName :: Lens.Lens' CloneReceiptRuleSet Types.ReceiptRuleSetName
+cRuleSetName = Lens.field @"ruleSetName"
+{-# DEPRECATED cRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance Lude.AWSRequest CloneReceiptRuleSet where
+-- | The name of the rule set to clone.
+--
+-- /Note:/ Consider using 'originalRuleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOriginalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Types.ReceiptRuleSetName
+cOriginalRuleSetName = Lens.field @"originalRuleSetName"
+{-# DEPRECATED cOriginalRuleSetName "Use generic-lens or generic-optics with 'originalRuleSetName' instead." #-}
+
+instance Core.AWSRequest CloneReceiptRuleSet where
   type Rs CloneReceiptRuleSet = CloneReceiptRuleSetResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CloneReceiptRuleSet")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "RuleSetName" ruleSetName)
+                Core.<> (Core.toQueryValue "OriginalRuleSetName" originalRuleSetName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CloneReceiptRuleSetResult"
       ( \s h x ->
           CloneReceiptRuleSetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CloneReceiptRuleSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CloneReceiptRuleSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CloneReceiptRuleSet where
-  toQuery CloneReceiptRuleSet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CloneReceiptRuleSet" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "OriginalRuleSetName" Lude.=: originalRuleSetName,
-        "RuleSetName" Lude.=: ruleSetName
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkCloneReceiptRuleSetResponse' smart constructor.
 newtype CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloneReceiptRuleSetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CloneReceiptRuleSetResponse' value with any optional fields omitted.
 mkCloneReceiptRuleSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CloneReceiptRuleSetResponse
-mkCloneReceiptRuleSetResponse pResponseStatus_ =
-  CloneReceiptRuleSetResponse' {responseStatus = pResponseStatus_}
+mkCloneReceiptRuleSetResponse responseStatus =
+  CloneReceiptRuleSetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CloneReceiptRuleSetResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CloneReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CloneReceiptRuleSetResponse)
+crsResponseStatus :: Lens.Lens' CloneReceiptRuleSetResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

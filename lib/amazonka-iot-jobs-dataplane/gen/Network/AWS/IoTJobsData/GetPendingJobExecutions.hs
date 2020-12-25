@@ -27,110 +27,104 @@ module Network.AWS.IoTJobsData.GetPendingJobExecutions
     mkGetPendingJobExecutionsResponse,
 
     -- ** Response lenses
-    gpjersInProgressJobs,
-    gpjersQueuedJobs,
-    gpjersResponseStatus,
+    gpjerrsInProgressJobs,
+    gpjerrsQueuedJobs,
+    gpjerrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTJobsData.Types
+import qualified Network.AWS.IoTJobsData.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPendingJobExecutions' smart constructor.
 newtype GetPendingJobExecutions = GetPendingJobExecutions'
   { -- | The name of the thing that is executing the job.
-    thingName :: Lude.Text
+    thingName :: Types.ThingName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPendingJobExecutions' with the minimum fields required to make a request.
---
--- * 'thingName' - The name of the thing that is executing the job.
+-- | Creates a 'GetPendingJobExecutions' value with any optional fields omitted.
 mkGetPendingJobExecutions ::
   -- | 'thingName'
-  Lude.Text ->
+  Types.ThingName ->
   GetPendingJobExecutions
-mkGetPendingJobExecutions pThingName_ =
-  GetPendingJobExecutions' {thingName = pThingName_}
+mkGetPendingJobExecutions thingName =
+  GetPendingJobExecutions' {thingName}
 
 -- | The name of the thing that is executing the job.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpjeThingName :: Lens.Lens' GetPendingJobExecutions Lude.Text
-gpjeThingName = Lens.lens (thingName :: GetPendingJobExecutions -> Lude.Text) (\s a -> s {thingName = a} :: GetPendingJobExecutions)
+gpjeThingName :: Lens.Lens' GetPendingJobExecutions Types.ThingName
+gpjeThingName = Lens.field @"thingName"
 {-# DEPRECATED gpjeThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest GetPendingJobExecutions where
+instance Core.AWSRequest GetPendingJobExecutions where
   type Rs GetPendingJobExecutions = GetPendingJobExecutionsResponse
-  request = Req.get ioTJobsDataService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/things/" Core.<> (Core.toText thingName) Core.<> ("/jobs")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPendingJobExecutionsResponse'
-            Lude.<$> (x Lude..?> "inProgressJobs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "queuedJobs" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "inProgressJobs")
+            Core.<*> (x Core..:? "queuedJobs")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPendingJobExecutions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetPendingJobExecutions where
-  toPath GetPendingJobExecutions' {..} =
-    Lude.mconcat ["/things/", Lude.toBS thingName, "/jobs"]
-
-instance Lude.ToQuery GetPendingJobExecutions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPendingJobExecutionsResponse' smart constructor.
 data GetPendingJobExecutionsResponse = GetPendingJobExecutionsResponse'
   { -- | A list of JobExecutionSummary objects with status IN_PROGRESS.
-    inProgressJobs :: Lude.Maybe [JobExecutionSummary],
+    inProgressJobs :: Core.Maybe [Types.JobExecutionSummary],
     -- | A list of JobExecutionSummary objects with status QUEUED.
-    queuedJobs :: Lude.Maybe [JobExecutionSummary],
+    queuedJobs :: Core.Maybe [Types.JobExecutionSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPendingJobExecutionsResponse' with the minimum fields required to make a request.
---
--- * 'inProgressJobs' - A list of JobExecutionSummary objects with status IN_PROGRESS.
--- * 'queuedJobs' - A list of JobExecutionSummary objects with status QUEUED.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPendingJobExecutionsResponse' value with any optional fields omitted.
 mkGetPendingJobExecutionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPendingJobExecutionsResponse
-mkGetPendingJobExecutionsResponse pResponseStatus_ =
+mkGetPendingJobExecutionsResponse responseStatus =
   GetPendingJobExecutionsResponse'
-    { inProgressJobs = Lude.Nothing,
-      queuedJobs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { inProgressJobs = Core.Nothing,
+      queuedJobs = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of JobExecutionSummary objects with status IN_PROGRESS.
 --
 -- /Note:/ Consider using 'inProgressJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpjersInProgressJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Lude.Maybe [JobExecutionSummary])
-gpjersInProgressJobs = Lens.lens (inProgressJobs :: GetPendingJobExecutionsResponse -> Lude.Maybe [JobExecutionSummary]) (\s a -> s {inProgressJobs = a} :: GetPendingJobExecutionsResponse)
-{-# DEPRECATED gpjersInProgressJobs "Use generic-lens or generic-optics with 'inProgressJobs' instead." #-}
+gpjerrsInProgressJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Core.Maybe [Types.JobExecutionSummary])
+gpjerrsInProgressJobs = Lens.field @"inProgressJobs"
+{-# DEPRECATED gpjerrsInProgressJobs "Use generic-lens or generic-optics with 'inProgressJobs' instead." #-}
 
 -- | A list of JobExecutionSummary objects with status QUEUED.
 --
 -- /Note:/ Consider using 'queuedJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpjersQueuedJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Lude.Maybe [JobExecutionSummary])
-gpjersQueuedJobs = Lens.lens (queuedJobs :: GetPendingJobExecutionsResponse -> Lude.Maybe [JobExecutionSummary]) (\s a -> s {queuedJobs = a} :: GetPendingJobExecutionsResponse)
-{-# DEPRECATED gpjersQueuedJobs "Use generic-lens or generic-optics with 'queuedJobs' instead." #-}
+gpjerrsQueuedJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Core.Maybe [Types.JobExecutionSummary])
+gpjerrsQueuedJobs = Lens.field @"queuedJobs"
+{-# DEPRECATED gpjerrsQueuedJobs "Use generic-lens or generic-optics with 'queuedJobs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpjersResponseStatus :: Lens.Lens' GetPendingJobExecutionsResponse Lude.Int
-gpjersResponseStatus = Lens.lens (responseStatus :: GetPendingJobExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPendingJobExecutionsResponse)
-{-# DEPRECATED gpjersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpjerrsResponseStatus :: Lens.Lens' GetPendingJobExecutionsResponse Core.Int
+gpjerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpjerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

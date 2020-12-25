@@ -66,7 +66,7 @@ responseStartSupportDataExport =
   res
     "StartSupportDataExportResponse"
     "fixture/StartSupportDataExportResponse.proto"
-    marketplaceAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy StartSupportDataExport)
 
 responseGenerateDataSet :: GenerateDataSetResponse -> TestTree
@@ -74,5 +74,5 @@ responseGenerateDataSet =
   res
     "GenerateDataSetResponse"
     "fixture/GenerateDataSetResponse.proto"
-    marketplaceAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy GenerateDataSet)

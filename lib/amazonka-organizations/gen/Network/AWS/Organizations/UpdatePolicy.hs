@@ -24,63 +24,54 @@ module Network.AWS.Organizations.UpdatePolicy
     -- ** Request lenses
     upPolicyId,
     upContent,
-    upName,
     upDescription,
+    upName,
 
     -- * Destructuring the response
     UpdatePolicyResponse (..),
     mkUpdatePolicyResponse,
 
     -- ** Response lenses
-    uprsPolicy,
-    uprsResponseStatus,
+    uprrsPolicy,
+    uprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
   { -- | The unique identifier (ID) of the policy that you want to update.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-    policyId :: Lude.Text,
+    policyId :: Types.PolicyId,
     -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
-    content :: Lude.Maybe Lude.Text,
+    content :: Core.Maybe Types.Content,
+    -- | If provided, the new description for the policy.
+    description :: Core.Maybe Types.Description,
     -- | If provided, the new name for the policy.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-    name :: Lude.Maybe Lude.Text,
-    -- | If provided, the new description for the policy.
-    description :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePolicy' with the minimum fields required to make a request.
---
--- * 'policyId' - The unique identifier (ID) of the policy that you want to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
--- * 'content' - If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
--- * 'name' - If provided, the new name for the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
--- * 'description' - If provided, the new description for the policy.
+-- | Creates a 'UpdatePolicy' value with any optional fields omitted.
 mkUpdatePolicy ::
   -- | 'policyId'
-  Lude.Text ->
+  Types.PolicyId ->
   UpdatePolicy
-mkUpdatePolicy pPolicyId_ =
+mkUpdatePolicy policyId =
   UpdatePolicy'
-    { policyId = pPolicyId_,
-      content = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing
+    { policyId,
+      content = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The unique identifier (ID) of the policy that you want to update.
@@ -88,105 +79,93 @@ mkUpdatePolicy pPolicyId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
 --
 -- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPolicyId :: Lens.Lens' UpdatePolicy Lude.Text
-upPolicyId = Lens.lens (policyId :: UpdatePolicy -> Lude.Text) (\s a -> s {policyId = a} :: UpdatePolicy)
+upPolicyId :: Lens.Lens' UpdatePolicy Types.PolicyId
+upPolicyId = Lens.field @"policyId"
 {-# DEPRECATED upPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upContent :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
-upContent = Lens.lens (content :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: UpdatePolicy)
+upContent :: Lens.Lens' UpdatePolicy (Core.Maybe Types.Content)
+upContent = Lens.field @"content"
 {-# DEPRECATED upContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | If provided, the new description for the policy.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UpdatePolicy (Core.Maybe Types.Description)
+upDescription = Lens.field @"description"
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | If provided, the new name for the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upName :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
-upName = Lens.lens (name :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdatePolicy)
+upName :: Lens.Lens' UpdatePolicy (Core.Maybe Types.PolicyName)
+upName = Lens.field @"name"
 {-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | If provided, the new description for the policy.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upDescription :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
-upDescription = Lens.lens (description :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePolicy)
-{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+instance Core.FromJSON UpdatePolicy where
+  toJSON UpdatePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyId" Core..= policyId),
+            ("Content" Core..=) Core.<$> content,
+            ("Description" Core..=) Core.<$> description,
+            ("Name" Core..=) Core.<$> name
+          ]
+      )
 
-instance Lude.AWSRequest UpdatePolicy where
+instance Core.AWSRequest UpdatePolicy where
   type Rs UpdatePolicy = UpdatePolicyResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.UpdatePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdatePolicyResponse'
-            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Policy") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdatePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.UpdatePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdatePolicy where
-  toJSON UpdatePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyId" Lude..= policyId),
-            ("Content" Lude..=) Lude.<$> content,
-            ("Name" Lude..=) Lude.<$> name,
-            ("Description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath UpdatePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdatePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
   { -- | A structure that contains details about the updated policy, showing the requested changes.
-    policy :: Lude.Maybe Policy,
+    policy :: Core.Maybe Types.Policy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePolicyResponse' with the minimum fields required to make a request.
---
--- * 'policy' - A structure that contains details about the updated policy, showing the requested changes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdatePolicyResponse' value with any optional fields omitted.
 mkUpdatePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdatePolicyResponse
-mkUpdatePolicyResponse pResponseStatus_ =
-  UpdatePolicyResponse'
-    { policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdatePolicyResponse responseStatus =
+  UpdatePolicyResponse' {policy = Core.Nothing, responseStatus}
 
 -- | A structure that contains details about the updated policy, showing the requested changes.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsPolicy :: Lens.Lens' UpdatePolicyResponse (Lude.Maybe Policy)
-uprsPolicy = Lens.lens (policy :: UpdatePolicyResponse -> Lude.Maybe Policy) (\s a -> s {policy = a} :: UpdatePolicyResponse)
-{-# DEPRECATED uprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+uprrsPolicy :: Lens.Lens' UpdatePolicyResponse (Core.Maybe Types.Policy)
+uprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED uprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UpdatePolicyResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UpdatePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePolicyResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UpdatePolicyResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

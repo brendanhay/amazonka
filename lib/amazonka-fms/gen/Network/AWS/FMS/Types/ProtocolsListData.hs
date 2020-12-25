@@ -17,139 +17,134 @@ module Network.AWS.FMS.Types.ProtocolsListData
     mkProtocolsListData,
 
     -- * Lenses
-    pldProtocolsList,
-    pldListUpdateToken,
-    pldListId,
     pldListName,
-    pldLastUpdateTime,
-    pldPreviousProtocolsList,
+    pldProtocolsList,
     pldCreateTime,
+    pldLastUpdateTime,
+    pldListId,
+    pldListUpdateToken,
+    pldPreviousProtocolsList,
   )
 where
 
+import qualified Network.AWS.FMS.Types.ListId as Types
+import qualified Network.AWS.FMS.Types.ListName as Types
+import qualified Network.AWS.FMS.Types.ListUpdateToken as Types
+import qualified Network.AWS.FMS.Types.PreviousListVersion as Types
+import qualified Network.AWS.FMS.Types.Protocol as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An AWS Firewall Manager protocols list.
 --
 -- /See:/ 'mkProtocolsListData' smart constructor.
 data ProtocolsListData = ProtocolsListData'
-  { -- | An array of protocols in the AWS Firewall Manager protocols list.
-    protocolsList :: [Lude.Text],
-    -- | A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
-    listUpdateToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the AWS Firewall Manager protocols list.
-    listId :: Lude.Maybe Lude.Text,
-    -- | The name of the AWS Firewall Manager protocols list.
-    listName :: Lude.Text,
-    -- | The time that the AWS Firewall Manager protocols list was last updated.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp,
-    -- | A map of previous version numbers to their corresponding protocol arrays.
-    previousProtocolsList :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The name of the AWS Firewall Manager protocols list.
+    listName :: Types.ListName,
+    -- | An array of protocols in the AWS Firewall Manager protocols list.
+    protocolsList :: [Types.Protocol],
     -- | The time that the AWS Firewall Manager protocols list was created.
-    createTime :: Lude.Maybe Lude.Timestamp
+    createTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time that the AWS Firewall Manager protocols list was last updated.
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the AWS Firewall Manager protocols list.
+    listId :: Core.Maybe Types.ListId,
+    -- | A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
+    listUpdateToken :: Core.Maybe Types.ListUpdateToken,
+    -- | A map of previous version numbers to their corresponding protocol arrays.
+    previousProtocolsList :: Core.Maybe (Core.HashMap Types.PreviousListVersion [Types.Protocol])
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProtocolsListData' with the minimum fields required to make a request.
---
--- * 'protocolsList' - An array of protocols in the AWS Firewall Manager protocols list.
--- * 'listUpdateToken' - A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
--- * 'listId' - The ID of the AWS Firewall Manager protocols list.
--- * 'listName' - The name of the AWS Firewall Manager protocols list.
--- * 'lastUpdateTime' - The time that the AWS Firewall Manager protocols list was last updated.
--- * 'previousProtocolsList' - A map of previous version numbers to their corresponding protocol arrays.
--- * 'createTime' - The time that the AWS Firewall Manager protocols list was created.
+-- | Creates a 'ProtocolsListData' value with any optional fields omitted.
 mkProtocolsListData ::
   -- | 'listName'
-  Lude.Text ->
+  Types.ListName ->
   ProtocolsListData
-mkProtocolsListData pListName_ =
+mkProtocolsListData listName =
   ProtocolsListData'
-    { protocolsList = Lude.mempty,
-      listUpdateToken = Lude.Nothing,
-      listId = Lude.Nothing,
-      listName = pListName_,
-      lastUpdateTime = Lude.Nothing,
-      previousProtocolsList = Lude.Nothing,
-      createTime = Lude.Nothing
+    { listName,
+      protocolsList = Core.mempty,
+      createTime = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      listId = Core.Nothing,
+      listUpdateToken = Core.Nothing,
+      previousProtocolsList = Core.Nothing
     }
-
--- | An array of protocols in the AWS Firewall Manager protocols list.
---
--- /Note:/ Consider using 'protocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldProtocolsList :: Lens.Lens' ProtocolsListData [Lude.Text]
-pldProtocolsList = Lens.lens (protocolsList :: ProtocolsListData -> [Lude.Text]) (\s a -> s {protocolsList = a} :: ProtocolsListData)
-{-# DEPRECATED pldProtocolsList "Use generic-lens or generic-optics with 'protocolsList' instead." #-}
-
--- | A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
---
--- /Note:/ Consider using 'listUpdateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldListUpdateToken :: Lens.Lens' ProtocolsListData (Lude.Maybe Lude.Text)
-pldListUpdateToken = Lens.lens (listUpdateToken :: ProtocolsListData -> Lude.Maybe Lude.Text) (\s a -> s {listUpdateToken = a} :: ProtocolsListData)
-{-# DEPRECATED pldListUpdateToken "Use generic-lens or generic-optics with 'listUpdateToken' instead." #-}
-
--- | The ID of the AWS Firewall Manager protocols list.
---
--- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldListId :: Lens.Lens' ProtocolsListData (Lude.Maybe Lude.Text)
-pldListId = Lens.lens (listId :: ProtocolsListData -> Lude.Maybe Lude.Text) (\s a -> s {listId = a} :: ProtocolsListData)
-{-# DEPRECATED pldListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
 -- | The name of the AWS Firewall Manager protocols list.
 --
 -- /Note:/ Consider using 'listName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldListName :: Lens.Lens' ProtocolsListData Lude.Text
-pldListName = Lens.lens (listName :: ProtocolsListData -> Lude.Text) (\s a -> s {listName = a} :: ProtocolsListData)
+pldListName :: Lens.Lens' ProtocolsListData Types.ListName
+pldListName = Lens.field @"listName"
 {-# DEPRECATED pldListName "Use generic-lens or generic-optics with 'listName' instead." #-}
 
--- | The time that the AWS Firewall Manager protocols list was last updated.
+-- | An array of protocols in the AWS Firewall Manager protocols list.
 --
--- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldLastUpdateTime :: Lens.Lens' ProtocolsListData (Lude.Maybe Lude.Timestamp)
-pldLastUpdateTime = Lens.lens (lastUpdateTime :: ProtocolsListData -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: ProtocolsListData)
-{-# DEPRECATED pldLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
-
--- | A map of previous version numbers to their corresponding protocol arrays.
---
--- /Note:/ Consider using 'previousProtocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldPreviousProtocolsList :: Lens.Lens' ProtocolsListData (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-pldPreviousProtocolsList = Lens.lens (previousProtocolsList :: ProtocolsListData -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {previousProtocolsList = a} :: ProtocolsListData)
-{-# DEPRECATED pldPreviousProtocolsList "Use generic-lens or generic-optics with 'previousProtocolsList' instead." #-}
+-- /Note:/ Consider using 'protocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldProtocolsList :: Lens.Lens' ProtocolsListData [Types.Protocol]
+pldProtocolsList = Lens.field @"protocolsList"
+{-# DEPRECATED pldProtocolsList "Use generic-lens or generic-optics with 'protocolsList' instead." #-}
 
 -- | The time that the AWS Firewall Manager protocols list was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pldCreateTime :: Lens.Lens' ProtocolsListData (Lude.Maybe Lude.Timestamp)
-pldCreateTime = Lens.lens (createTime :: ProtocolsListData -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: ProtocolsListData)
+pldCreateTime :: Lens.Lens' ProtocolsListData (Core.Maybe Core.NominalDiffTime)
+pldCreateTime = Lens.field @"createTime"
 {-# DEPRECATED pldCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance Lude.FromJSON ProtocolsListData where
-  parseJSON =
-    Lude.withObject
-      "ProtocolsListData"
-      ( \x ->
-          ProtocolsListData'
-            Lude.<$> (x Lude..:? "ProtocolsList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ListUpdateToken")
-            Lude.<*> (x Lude..:? "ListId")
-            Lude.<*> (x Lude..: "ListName")
-            Lude.<*> (x Lude..:? "LastUpdateTime")
-            Lude.<*> (x Lude..:? "PreviousProtocolsList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CreateTime")
-      )
+-- | The time that the AWS Firewall Manager protocols list was last updated.
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldLastUpdateTime :: Lens.Lens' ProtocolsListData (Core.Maybe Core.NominalDiffTime)
+pldLastUpdateTime = Lens.field @"lastUpdateTime"
+{-# DEPRECATED pldLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
-instance Lude.ToJSON ProtocolsListData where
-  toJSON ProtocolsListData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ProtocolsList" Lude..= protocolsList),
-            ("ListUpdateToken" Lude..=) Lude.<$> listUpdateToken,
-            ("ListId" Lude..=) Lude.<$> listId,
-            Lude.Just ("ListName" Lude..= listName),
-            ("LastUpdateTime" Lude..=) Lude.<$> lastUpdateTime,
-            ("PreviousProtocolsList" Lude..=) Lude.<$> previousProtocolsList,
-            ("CreateTime" Lude..=) Lude.<$> createTime
+-- | The ID of the AWS Firewall Manager protocols list.
+--
+-- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldListId :: Lens.Lens' ProtocolsListData (Core.Maybe Types.ListId)
+pldListId = Lens.field @"listId"
+{-# DEPRECATED pldListId "Use generic-lens or generic-optics with 'listId' instead." #-}
+
+-- | A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
+--
+-- /Note:/ Consider using 'listUpdateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldListUpdateToken :: Lens.Lens' ProtocolsListData (Core.Maybe Types.ListUpdateToken)
+pldListUpdateToken = Lens.field @"listUpdateToken"
+{-# DEPRECATED pldListUpdateToken "Use generic-lens or generic-optics with 'listUpdateToken' instead." #-}
+
+-- | A map of previous version numbers to their corresponding protocol arrays.
+--
+-- /Note:/ Consider using 'previousProtocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldPreviousProtocolsList :: Lens.Lens' ProtocolsListData (Core.Maybe (Core.HashMap Types.PreviousListVersion [Types.Protocol]))
+pldPreviousProtocolsList = Lens.field @"previousProtocolsList"
+{-# DEPRECATED pldPreviousProtocolsList "Use generic-lens or generic-optics with 'previousProtocolsList' instead." #-}
+
+instance Core.FromJSON ProtocolsListData where
+  toJSON ProtocolsListData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ListName" Core..= listName),
+            Core.Just ("ProtocolsList" Core..= protocolsList),
+            ("CreateTime" Core..=) Core.<$> createTime,
+            ("LastUpdateTime" Core..=) Core.<$> lastUpdateTime,
+            ("ListId" Core..=) Core.<$> listId,
+            ("ListUpdateToken" Core..=) Core.<$> listUpdateToken,
+            ("PreviousProtocolsList" Core..=) Core.<$> previousProtocolsList
           ]
       )
+
+instance Core.FromJSON ProtocolsListData where
+  parseJSON =
+    Core.withObject "ProtocolsListData" Core.$
+      \x ->
+        ProtocolsListData'
+          Core.<$> (x Core..: "ListName")
+          Core.<*> (x Core..:? "ProtocolsList" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "CreateTime")
+          Core.<*> (x Core..:? "LastUpdateTime")
+          Core.<*> (x Core..:? "ListId")
+          Core.<*> (x Core..:? "ListUpdateToken")
+          Core.<*> (x Core..:? "PreviousProtocolsList")

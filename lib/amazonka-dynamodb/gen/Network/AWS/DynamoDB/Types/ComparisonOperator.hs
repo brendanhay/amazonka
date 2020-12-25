@@ -13,101 +13,106 @@
 module Network.AWS.DynamoDB.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        EQ,
-        NE,
-        IN,
-        LE,
-        LT,
-        GE,
-        GT,
-        Between,
-        NotNull,
-        Null,
-        Contains,
-        NotContains,
-        BeginsWith
+        ComparisonOperatorEQ,
+        ComparisonOperatorNE,
+        ComparisonOperatorIN,
+        ComparisonOperatorLE,
+        ComparisonOperatorLT,
+        ComparisonOperatorGE,
+        ComparisonOperatorGT,
+        ComparisonOperatorBetween,
+        ComparisonOperatorNotNull,
+        ComparisonOperatorNull,
+        ComparisonOperatorContains,
+        ComparisonOperatorNotContains,
+        ComparisonOperatorBeginsWith,
+        fromComparisonOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComparisonOperator = ComparisonOperator' Lude.Text
+newtype ComparisonOperator = ComparisonOperator'
+  { fromComparisonOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EQ :: ComparisonOperator
-pattern EQ = ComparisonOperator' "EQ"
+pattern ComparisonOperatorEQ :: ComparisonOperator
+pattern ComparisonOperatorEQ = ComparisonOperator' "EQ"
 
-pattern NE :: ComparisonOperator
-pattern NE = ComparisonOperator' "NE"
+pattern ComparisonOperatorNE :: ComparisonOperator
+pattern ComparisonOperatorNE = ComparisonOperator' "NE"
 
-pattern IN :: ComparisonOperator
-pattern IN = ComparisonOperator' "IN"
+pattern ComparisonOperatorIN :: ComparisonOperator
+pattern ComparisonOperatorIN = ComparisonOperator' "IN"
 
-pattern LE :: ComparisonOperator
-pattern LE = ComparisonOperator' "LE"
+pattern ComparisonOperatorLE :: ComparisonOperator
+pattern ComparisonOperatorLE = ComparisonOperator' "LE"
 
-pattern LT :: ComparisonOperator
-pattern LT = ComparisonOperator' "LT"
+pattern ComparisonOperatorLT :: ComparisonOperator
+pattern ComparisonOperatorLT = ComparisonOperator' "LT"
 
-pattern GE :: ComparisonOperator
-pattern GE = ComparisonOperator' "GE"
+pattern ComparisonOperatorGE :: ComparisonOperator
+pattern ComparisonOperatorGE = ComparisonOperator' "GE"
 
-pattern GT :: ComparisonOperator
-pattern GT = ComparisonOperator' "GT"
+pattern ComparisonOperatorGT :: ComparisonOperator
+pattern ComparisonOperatorGT = ComparisonOperator' "GT"
 
-pattern Between :: ComparisonOperator
-pattern Between = ComparisonOperator' "BETWEEN"
+pattern ComparisonOperatorBetween :: ComparisonOperator
+pattern ComparisonOperatorBetween = ComparisonOperator' "BETWEEN"
 
-pattern NotNull :: ComparisonOperator
-pattern NotNull = ComparisonOperator' "NOT_NULL"
+pattern ComparisonOperatorNotNull :: ComparisonOperator
+pattern ComparisonOperatorNotNull = ComparisonOperator' "NOT_NULL"
 
-pattern Null :: ComparisonOperator
-pattern Null = ComparisonOperator' "NULL"
+pattern ComparisonOperatorNull :: ComparisonOperator
+pattern ComparisonOperatorNull = ComparisonOperator' "NULL"
 
-pattern Contains :: ComparisonOperator
-pattern Contains = ComparisonOperator' "CONTAINS"
+pattern ComparisonOperatorContains :: ComparisonOperator
+pattern ComparisonOperatorContains = ComparisonOperator' "CONTAINS"
 
-pattern NotContains :: ComparisonOperator
-pattern NotContains = ComparisonOperator' "NOT_CONTAINS"
+pattern ComparisonOperatorNotContains :: ComparisonOperator
+pattern ComparisonOperatorNotContains = ComparisonOperator' "NOT_CONTAINS"
 
-pattern BeginsWith :: ComparisonOperator
-pattern BeginsWith = ComparisonOperator' "BEGINS_WITH"
+pattern ComparisonOperatorBeginsWith :: ComparisonOperator
+pattern ComparisonOperatorBeginsWith = ComparisonOperator' "BEGINS_WITH"
 
 {-# COMPLETE
-  EQ,
-  NE,
-  IN,
-  LE,
-  LT,
-  GE,
-  GT,
-  Between,
-  NotNull,
-  Null,
-  Contains,
-  NotContains,
-  BeginsWith,
+  ComparisonOperatorEQ,
+  ComparisonOperatorNE,
+  ComparisonOperatorIN,
+  ComparisonOperatorLE,
+  ComparisonOperatorLT,
+  ComparisonOperatorGE,
+  ComparisonOperatorGT,
+  ComparisonOperatorBetween,
+  ComparisonOperatorNotNull,
+  ComparisonOperatorNull,
+  ComparisonOperatorContains,
+  ComparisonOperatorNotContains,
+  ComparisonOperatorBeginsWith,
   ComparisonOperator'
   #-}

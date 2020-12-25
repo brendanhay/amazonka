@@ -21,35 +21,34 @@ module Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The encryption algorithm for phase 1 IKE negotiations.
 --
 -- /See:/ 'mkPhase1EncryptionAlgorithmsListValue' smart constructor.
 newtype Phase1EncryptionAlgorithmsListValue = Phase1EncryptionAlgorithmsListValue'
   { -- | The value for the encryption algorithm.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase1EncryptionAlgorithmsListValue' with the minimum fields required to make a request.
---
--- * 'value' - The value for the encryption algorithm.
+-- | Creates a 'Phase1EncryptionAlgorithmsListValue' value with any optional fields omitted.
 mkPhase1EncryptionAlgorithmsListValue ::
   Phase1EncryptionAlgorithmsListValue
 mkPhase1EncryptionAlgorithmsListValue =
-  Phase1EncryptionAlgorithmsListValue' {value = Lude.Nothing}
+  Phase1EncryptionAlgorithmsListValue' {value = Core.Nothing}
 
 -- | The value for the encryption algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pealvfValue :: Lens.Lens' Phase1EncryptionAlgorithmsListValue (Lude.Maybe Lude.Text)
-pealvfValue = Lens.lens (value :: Phase1EncryptionAlgorithmsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1EncryptionAlgorithmsListValue)
+pealvfValue :: Lens.Lens' Phase1EncryptionAlgorithmsListValue (Core.Maybe Types.Value)
+pealvfValue = Lens.field @"value"
 {-# DEPRECATED pealvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML Phase1EncryptionAlgorithmsListValue where
+instance Core.FromXML Phase1EncryptionAlgorithmsListValue where
   parseXML x =
     Phase1EncryptionAlgorithmsListValue'
-      Lude.<$> (x Lude..@? "value")
+      Core.<$> (x Core..@? "value")

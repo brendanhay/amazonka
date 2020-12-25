@@ -20,161 +20,140 @@ module Network.AWS.Pinpoint.GetSegmentExportJobs
     mkGetSegmentExportJobs,
 
     -- ** Request lenses
-    gsejToken,
+    gsejSegmentId,
     gsejApplicationId,
     gsejPageSize,
-    gsejSegmentId,
+    gsejToken,
 
     -- * Destructuring the response
     GetSegmentExportJobsResponse (..),
     mkGetSegmentExportJobsResponse,
 
     -- ** Response lenses
-    gsejrsExportJobsResponse,
-    gsejrsResponseStatus,
+    gsejrrsExportJobsResponse,
+    gsejrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSegmentExportJobs' smart constructor.
 data GetSegmentExportJobs = GetSegmentExportJobs'
-  { -- | The NextToken string that specifies which page of results to return in a paginated response.
-    token :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the segment.
+    segmentId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
+    applicationId :: Core.Text,
     -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-    pageSize :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the segment.
-    segmentId :: Lude.Text
+    pageSize :: Core.Maybe Core.Text,
+    -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSegmentExportJobs' with the minimum fields required to make a request.
---
--- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
--- * 'segmentId' - The unique identifier for the segment.
+-- | Creates a 'GetSegmentExportJobs' value with any optional fields omitted.
 mkGetSegmentExportJobs ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'segmentId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
   GetSegmentExportJobs
-mkGetSegmentExportJobs pApplicationId_ pSegmentId_ =
+mkGetSegmentExportJobs segmentId applicationId =
   GetSegmentExportJobs'
-    { token = Lude.Nothing,
-      applicationId = pApplicationId_,
-      pageSize = Lude.Nothing,
-      segmentId = pSegmentId_
+    { segmentId,
+      applicationId,
+      pageSize = Core.Nothing,
+      token = Core.Nothing
     }
 
--- | The NextToken string that specifies which page of results to return in a paginated response.
+-- | The unique identifier for the segment.
 --
--- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsejToken :: Lens.Lens' GetSegmentExportJobs (Lude.Maybe Lude.Text)
-gsejToken = Lens.lens (token :: GetSegmentExportJobs -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetSegmentExportJobs)
-{-# DEPRECATED gsejToken "Use generic-lens or generic-optics with 'token' instead." #-}
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsejSegmentId :: Lens.Lens' GetSegmentExportJobs Core.Text
+gsejSegmentId = Lens.field @"segmentId"
+{-# DEPRECATED gsejSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsejApplicationId :: Lens.Lens' GetSegmentExportJobs Lude.Text
-gsejApplicationId = Lens.lens (applicationId :: GetSegmentExportJobs -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegmentExportJobs)
+gsejApplicationId :: Lens.Lens' GetSegmentExportJobs Core.Text
+gsejApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED gsejApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsejPageSize :: Lens.Lens' GetSegmentExportJobs (Lude.Maybe Lude.Text)
-gsejPageSize = Lens.lens (pageSize :: GetSegmentExportJobs -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetSegmentExportJobs)
+gsejPageSize :: Lens.Lens' GetSegmentExportJobs (Core.Maybe Core.Text)
+gsejPageSize = Lens.field @"pageSize"
 {-# DEPRECATED gsejPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
--- | The unique identifier for the segment.
+-- | The NextToken string that specifies which page of results to return in a paginated response.
 --
--- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsejSegmentId :: Lens.Lens' GetSegmentExportJobs Lude.Text
-gsejSegmentId = Lens.lens (segmentId :: GetSegmentExportJobs -> Lude.Text) (\s a -> s {segmentId = a} :: GetSegmentExportJobs)
-{-# DEPRECATED gsejSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsejToken :: Lens.Lens' GetSegmentExportJobs (Core.Maybe Core.Text)
+gsejToken = Lens.field @"token"
+{-# DEPRECATED gsejToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
-instance Lude.AWSRequest GetSegmentExportJobs where
+instance Core.AWSRequest GetSegmentExportJobs where
   type Rs GetSegmentExportJobs = GetSegmentExportJobsResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/segments/")
+                Core.<> (Core.toText segmentId)
+                Core.<> ("/jobs/export")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "page-size" Core.<$> pageSize
+            Core.<> (Core.toQueryValue "token" Core.<$> token),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSegmentExportJobsResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSegmentExportJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetSegmentExportJobs where
-  toPath GetSegmentExportJobs' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/segments/",
-        Lude.toBS segmentId,
-        "/jobs/export"
-      ]
-
-instance Lude.ToQuery GetSegmentExportJobs where
-  toQuery GetSegmentExportJobs' {..} =
-    Lude.mconcat
-      ["token" Lude.=: token, "page-size" Lude.=: pageSize]
 
 -- | /See:/ 'mkGetSegmentExportJobsResponse' smart constructor.
 data GetSegmentExportJobsResponse = GetSegmentExportJobsResponse'
-  { exportJobsResponse :: ExportJobsResponse,
+  { exportJobsResponse :: Types.ExportJobsResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSegmentExportJobsResponse' with the minimum fields required to make a request.
---
--- * 'exportJobsResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSegmentExportJobsResponse' value with any optional fields omitted.
 mkGetSegmentExportJobsResponse ::
   -- | 'exportJobsResponse'
-  ExportJobsResponse ->
+  Types.ExportJobsResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSegmentExportJobsResponse
-mkGetSegmentExportJobsResponse
-  pExportJobsResponse_
-  pResponseStatus_ =
-    GetSegmentExportJobsResponse'
-      { exportJobsResponse =
-          pExportJobsResponse_,
-        responseStatus = pResponseStatus_
-      }
+mkGetSegmentExportJobsResponse exportJobsResponse responseStatus =
+  GetSegmentExportJobsResponse' {exportJobsResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'exportJobsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsejrsExportJobsResponse :: Lens.Lens' GetSegmentExportJobsResponse ExportJobsResponse
-gsejrsExportJobsResponse = Lens.lens (exportJobsResponse :: GetSegmentExportJobsResponse -> ExportJobsResponse) (\s a -> s {exportJobsResponse = a} :: GetSegmentExportJobsResponse)
-{-# DEPRECATED gsejrsExportJobsResponse "Use generic-lens or generic-optics with 'exportJobsResponse' instead." #-}
+gsejrrsExportJobsResponse :: Lens.Lens' GetSegmentExportJobsResponse Types.ExportJobsResponse
+gsejrrsExportJobsResponse = Lens.field @"exportJobsResponse"
+{-# DEPRECATED gsejrrsExportJobsResponse "Use generic-lens or generic-optics with 'exportJobsResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsejrsResponseStatus :: Lens.Lens' GetSegmentExportJobsResponse Lude.Int
-gsejrsResponseStatus = Lens.lens (responseStatus :: GetSegmentExportJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentExportJobsResponse)
-{-# DEPRECATED gsejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsejrrsResponseStatus :: Lens.Lens' GetSegmentExportJobsResponse Core.Int
+gsejrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsejrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

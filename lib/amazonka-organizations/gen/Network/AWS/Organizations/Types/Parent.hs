@@ -23,8 +23,9 @@ module Network.AWS.Organizations.Types.Parent
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.ParentType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.Id as Types
+import qualified Network.AWS.Organizations.Types.ParentType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about either a root or an organizational unit (OU) that can contain OUs or accounts in an organization.
 --
@@ -38,29 +39,17 @@ data Parent = Parent'
     --
     --
     --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
     -- | The type of the parent entity.
-    type' :: Lude.Maybe ParentType
+    type' :: Core.Maybe Types.ParentType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parent' with the minimum fields required to make a request.
---
--- * 'id' - The unique identifier (ID) of the parent entity.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
---
---     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
---
---
---     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
---
---
--- * 'type'' - The type of the parent entity.
+-- | Creates a 'Parent' value with any optional fields omitted.
 mkParent ::
   Parent
-mkParent = Parent' {id = Lude.Nothing, type' = Lude.Nothing}
+mkParent = Parent' {id = Core.Nothing, type' = Core.Nothing}
 
 -- | The unique identifier (ID) of the parent entity.
 --
@@ -74,21 +63,19 @@ mkParent = Parent' {id = Lude.Nothing, type' = Lude.Nothing}
 --
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pId :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
-pId = Lens.lens (id :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Parent)
+pId :: Lens.Lens' Parent (Core.Maybe Types.Id)
+pId = Lens.field @"id"
 {-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of the parent entity.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' Parent (Lude.Maybe ParentType)
-pType = Lens.lens (type' :: Parent -> Lude.Maybe ParentType) (\s a -> s {type' = a} :: Parent)
+pType :: Lens.Lens' Parent (Core.Maybe Types.ParentType)
+pType = Lens.field @"type'"
 {-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Parent where
+instance Core.FromJSON Parent where
   parseJSON =
-    Lude.withObject
-      "Parent"
-      ( \x ->
-          Parent' Lude.<$> (x Lude..:? "Id") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "Parent" Core.$
+      \x ->
+        Parent' Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Type")

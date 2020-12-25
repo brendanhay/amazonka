@@ -27,108 +27,96 @@ module Network.AWS.SSM.DeleteMaintenanceWindow
     mkDeleteMaintenanceWindowResponse,
 
     -- ** Response lenses
-    dmwfrsWindowId,
-    dmwfrsResponseStatus,
+    dmwrrsWindowId,
+    dmwrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDeleteMaintenanceWindow' smart constructor.
 newtype DeleteMaintenanceWindow = DeleteMaintenanceWindow'
   { -- | The ID of the maintenance window to delete.
-    windowId :: Lude.Text
+    windowId :: Types.MaintenanceWindowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMaintenanceWindow' with the minimum fields required to make a request.
---
--- * 'windowId' - The ID of the maintenance window to delete.
+-- | Creates a 'DeleteMaintenanceWindow' value with any optional fields omitted.
 mkDeleteMaintenanceWindow ::
   -- | 'windowId'
-  Lude.Text ->
+  Types.MaintenanceWindowId ->
   DeleteMaintenanceWindow
-mkDeleteMaintenanceWindow pWindowId_ =
-  DeleteMaintenanceWindow' {windowId = pWindowId_}
+mkDeleteMaintenanceWindow windowId =
+  DeleteMaintenanceWindow' {windowId}
 
 -- | The ID of the maintenance window to delete.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwWindowId :: Lens.Lens' DeleteMaintenanceWindow Lude.Text
-dmwWindowId = Lens.lens (windowId :: DeleteMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: DeleteMaintenanceWindow)
+dmwWindowId :: Lens.Lens' DeleteMaintenanceWindow Types.MaintenanceWindowId
+dmwWindowId = Lens.field @"windowId"
 {-# DEPRECATED dmwWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance Lude.AWSRequest DeleteMaintenanceWindow where
+instance Core.FromJSON DeleteMaintenanceWindow where
+  toJSON DeleteMaintenanceWindow {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("WindowId" Core..= windowId)])
+
+instance Core.AWSRequest DeleteMaintenanceWindow where
   type Rs DeleteMaintenanceWindow = DeleteMaintenanceWindowResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DeleteMaintenanceWindow")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteMaintenanceWindowResponse'
-            Lude.<$> (x Lude..?> "WindowId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "WindowId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteMaintenanceWindow where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DeleteMaintenanceWindow" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMaintenanceWindow where
-  toJSON DeleteMaintenanceWindow' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("WindowId" Lude..= windowId)])
-
-instance Lude.ToPath DeleteMaintenanceWindow where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMaintenanceWindow where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteMaintenanceWindowResponse' smart constructor.
 data DeleteMaintenanceWindowResponse = DeleteMaintenanceWindowResponse'
   { -- | The ID of the deleted maintenance window.
-    windowId :: Lude.Maybe Lude.Text,
+    windowId :: Core.Maybe Types.WindowId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMaintenanceWindowResponse' with the minimum fields required to make a request.
---
--- * 'windowId' - The ID of the deleted maintenance window.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteMaintenanceWindowResponse' value with any optional fields omitted.
 mkDeleteMaintenanceWindowResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteMaintenanceWindowResponse
-mkDeleteMaintenanceWindowResponse pResponseStatus_ =
+mkDeleteMaintenanceWindowResponse responseStatus =
   DeleteMaintenanceWindowResponse'
-    { windowId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { windowId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the deleted maintenance window.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwfrsWindowId :: Lens.Lens' DeleteMaintenanceWindowResponse (Lude.Maybe Lude.Text)
-dmwfrsWindowId = Lens.lens (windowId :: DeleteMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DeleteMaintenanceWindowResponse)
-{-# DEPRECATED dmwfrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
+dmwrrsWindowId :: Lens.Lens' DeleteMaintenanceWindowResponse (Core.Maybe Types.WindowId)
+dmwrrsWindowId = Lens.field @"windowId"
+{-# DEPRECATED dmwrrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwfrsResponseStatus :: Lens.Lens' DeleteMaintenanceWindowResponse Lude.Int
-dmwfrsResponseStatus = Lens.lens (responseStatus :: DeleteMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMaintenanceWindowResponse)
-{-# DEPRECATED dmwfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmwrrsResponseStatus :: Lens.Lens' DeleteMaintenanceWindowResponse Core.Int
+dmwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

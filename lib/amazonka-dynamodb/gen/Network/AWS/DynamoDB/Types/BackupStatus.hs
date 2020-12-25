@@ -13,51 +13,53 @@
 module Network.AWS.DynamoDB.Types.BackupStatus
   ( BackupStatus
       ( BackupStatus',
-        Creating,
-        Deleted,
-        Available
+        BackupStatusCreating,
+        BackupStatusDeleted,
+        BackupStatusAvailable,
+        fromBackupStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BackupStatus = BackupStatus' Lude.Text
+newtype BackupStatus = BackupStatus' {fromBackupStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: BackupStatus
-pattern Creating = BackupStatus' "CREATING"
+pattern BackupStatusCreating :: BackupStatus
+pattern BackupStatusCreating = BackupStatus' "CREATING"
 
-pattern Deleted :: BackupStatus
-pattern Deleted = BackupStatus' "DELETED"
+pattern BackupStatusDeleted :: BackupStatus
+pattern BackupStatusDeleted = BackupStatus' "DELETED"
 
-pattern Available :: BackupStatus
-pattern Available = BackupStatus' "AVAILABLE"
+pattern BackupStatusAvailable :: BackupStatus
+pattern BackupStatusAvailable = BackupStatus' "AVAILABLE"
 
 {-# COMPLETE
-  Creating,
-  Deleted,
-  Available,
+  BackupStatusCreating,
+  BackupStatusDeleted,
+  BackupStatusAvailable,
   BackupStatus'
   #-}

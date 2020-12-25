@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Budgets
     Network.AWS.Budgets.CreateBudget
@@ -93,16 +99,21 @@ library
     Network.AWS.Budgets.Waiters
 
   other-modules:
+    Network.AWS.Budgets.Types.AccountId
     Network.AWS.Budgets.Types.Action
     Network.AWS.Budgets.Types.ActionHistory
     Network.AWS.Budgets.Types.ActionHistoryDetails
+    Network.AWS.Budgets.Types.ActionId
     Network.AWS.Budgets.Types.ActionStatus
     Network.AWS.Budgets.Types.ActionSubType
     Network.AWS.Budgets.Types.ActionThreshold
     Network.AWS.Budgets.Types.ActionType
+    Network.AWS.Budgets.Types.Address
+    Network.AWS.Budgets.Types.Amount
     Network.AWS.Budgets.Types.ApprovalModel
     Network.AWS.Budgets.Types.Budget
     Network.AWS.Budgets.Types.BudgetedAndActualAmounts
+    Network.AWS.Budgets.Types.BudgetName
     Network.AWS.Budgets.Types.BudgetPerformanceHistory
     Network.AWS.Budgets.Types.BudgetType
     Network.AWS.Budgets.Types.CalculatedSpend
@@ -110,20 +121,32 @@ library
     Network.AWS.Budgets.Types.CostTypes
     Network.AWS.Budgets.Types.Definition
     Network.AWS.Budgets.Types.EventType
+    Network.AWS.Budgets.Types.ExecutionRoleArn
     Network.AWS.Budgets.Types.ExecutionType
-    Network.AWS.Budgets.Types.IAMActionDefinition
+    Network.AWS.Budgets.Types.GenericString
+    Network.AWS.Budgets.Types.Group
+    Network.AWS.Budgets.Types.IamActionDefinition
+    Network.AWS.Budgets.Types.InstanceId
+    Network.AWS.Budgets.Types.NextToken
     Network.AWS.Budgets.Types.Notification
     Network.AWS.Budgets.Types.NotificationState
     Network.AWS.Budgets.Types.NotificationType
     Network.AWS.Budgets.Types.NotificationWithSubscribers
+    Network.AWS.Budgets.Types.PolicyArn
+    Network.AWS.Budgets.Types.PolicyId
+    Network.AWS.Budgets.Types.Region
+    Network.AWS.Budgets.Types.Role
     Network.AWS.Budgets.Types.ScpActionDefinition
     Network.AWS.Budgets.Types.Spend
     Network.AWS.Budgets.Types.SsmActionDefinition
     Network.AWS.Budgets.Types.Subscriber
     Network.AWS.Budgets.Types.SubscriptionType
+    Network.AWS.Budgets.Types.TargetId
     Network.AWS.Budgets.Types.ThresholdType
     Network.AWS.Budgets.Types.TimePeriod
     Network.AWS.Budgets.Types.TimeUnit
+    Network.AWS.Budgets.Types.Unit
+    Network.AWS.Budgets.Types.User
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

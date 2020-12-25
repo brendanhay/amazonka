@@ -23,67 +23,61 @@ module Network.AWS.CodeCommit.Types.Difference
   )
 where
 
-import Network.AWS.CodeCommit.Types.BlobMetadata
-import Network.AWS.CodeCommit.Types.ChangeTypeEnum
+import qualified Network.AWS.CodeCommit.Types.BlobMetadata as Types
+import qualified Network.AWS.CodeCommit.Types.ChangeTypeEnum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a set of differences for a commit specifier.
 --
 -- /See:/ 'mkDifference' smart constructor.
 data Difference = Difference'
   { -- | Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
-    afterBlob :: Lude.Maybe BlobMetadata,
+    afterBlob :: Core.Maybe Types.BlobMetadata,
     -- | Information about a @beforeBlob@ data type object, including the ID, the file mode permission code, and the path.
-    beforeBlob :: Lude.Maybe BlobMetadata,
+    beforeBlob :: Core.Maybe Types.BlobMetadata,
     -- | Whether the change type of the difference is an addition (A), deletion (D), or modification (M).
-    changeType :: Lude.Maybe ChangeTypeEnum
+    changeType :: Core.Maybe Types.ChangeTypeEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Difference' with the minimum fields required to make a request.
---
--- * 'afterBlob' - Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
--- * 'beforeBlob' - Information about a @beforeBlob@ data type object, including the ID, the file mode permission code, and the path.
--- * 'changeType' - Whether the change type of the difference is an addition (A), deletion (D), or modification (M).
+-- | Creates a 'Difference' value with any optional fields omitted.
 mkDifference ::
   Difference
 mkDifference =
   Difference'
-    { afterBlob = Lude.Nothing,
-      beforeBlob = Lude.Nothing,
-      changeType = Lude.Nothing
+    { afterBlob = Core.Nothing,
+      beforeBlob = Core.Nothing,
+      changeType = Core.Nothing
     }
 
 -- | Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
 --
 -- /Note:/ Consider using 'afterBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAfterBlob :: Lens.Lens' Difference (Lude.Maybe BlobMetadata)
-dAfterBlob = Lens.lens (afterBlob :: Difference -> Lude.Maybe BlobMetadata) (\s a -> s {afterBlob = a} :: Difference)
+dAfterBlob :: Lens.Lens' Difference (Core.Maybe Types.BlobMetadata)
+dAfterBlob = Lens.field @"afterBlob"
 {-# DEPRECATED dAfterBlob "Use generic-lens or generic-optics with 'afterBlob' instead." #-}
 
 -- | Information about a @beforeBlob@ data type object, including the ID, the file mode permission code, and the path.
 --
 -- /Note:/ Consider using 'beforeBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dBeforeBlob :: Lens.Lens' Difference (Lude.Maybe BlobMetadata)
-dBeforeBlob = Lens.lens (beforeBlob :: Difference -> Lude.Maybe BlobMetadata) (\s a -> s {beforeBlob = a} :: Difference)
+dBeforeBlob :: Lens.Lens' Difference (Core.Maybe Types.BlobMetadata)
+dBeforeBlob = Lens.field @"beforeBlob"
 {-# DEPRECATED dBeforeBlob "Use generic-lens or generic-optics with 'beforeBlob' instead." #-}
 
 -- | Whether the change type of the difference is an addition (A), deletion (D), or modification (M).
 --
 -- /Note:/ Consider using 'changeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dChangeType :: Lens.Lens' Difference (Lude.Maybe ChangeTypeEnum)
-dChangeType = Lens.lens (changeType :: Difference -> Lude.Maybe ChangeTypeEnum) (\s a -> s {changeType = a} :: Difference)
+dChangeType :: Lens.Lens' Difference (Core.Maybe Types.ChangeTypeEnum)
+dChangeType = Lens.field @"changeType"
 {-# DEPRECATED dChangeType "Use generic-lens or generic-optics with 'changeType' instead." #-}
 
-instance Lude.FromJSON Difference where
+instance Core.FromJSON Difference where
   parseJSON =
-    Lude.withObject
-      "Difference"
-      ( \x ->
-          Difference'
-            Lude.<$> (x Lude..:? "afterBlob")
-            Lude.<*> (x Lude..:? "beforeBlob")
-            Lude.<*> (x Lude..:? "changeType")
-      )
+    Core.withObject "Difference" Core.$
+      \x ->
+        Difference'
+          Core.<$> (x Core..:? "afterBlob")
+          Core.<*> (x Core..:? "beforeBlob")
+          Core.<*> (x Core..:? "changeType")

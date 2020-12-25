@@ -17,39 +17,36 @@ module Network.AWS.MediaConvert.Types.Endpoint
     mkEndpoint,
 
     -- * Lenses
-    eURL,
+    eUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an account-specific API endpoint.
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 newtype Endpoint = Endpoint'
   { -- | URL of endpoint
-    url :: Lude.Maybe Lude.Text
+    url :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
---
--- * 'url' - URL of endpoint
+-- | Creates a 'Endpoint' value with any optional fields omitted.
 mkEndpoint ::
   Endpoint
-mkEndpoint = Endpoint' {url = Lude.Nothing}
+mkEndpoint = Endpoint' {url = Core.Nothing}
 
 -- | URL of endpoint
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eURL :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eURL = Lens.lens (url :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Endpoint)
-{-# DEPRECATED eURL "Use generic-lens or generic-optics with 'url' instead." #-}
+eUrl :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
+eUrl = Lens.field @"url"
+{-# DEPRECATED eUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
-instance Lude.FromJSON Endpoint where
+instance Core.FromJSON Endpoint where
   parseJSON =
-    Lude.withObject
-      "Endpoint"
-      (\x -> Endpoint' Lude.<$> (x Lude..:? "url"))
+    Core.withObject "Endpoint" Core.$
+      \x -> Endpoint' Core.<$> (x Core..:? "url")

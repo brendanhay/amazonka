@@ -22,37 +22,35 @@ module Network.AWS.MediaLive.Types.BatchScheduleActionCreateRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ScheduleAction
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.ScheduleAction as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of schedule actions to create (in a request) or that have been created (in a response).
 --
 -- /See:/ 'mkBatchScheduleActionCreateRequest' smart constructor.
 newtype BatchScheduleActionCreateRequest = BatchScheduleActionCreateRequest'
   { -- | A list of schedule actions to create.
-    scheduleActions :: [ScheduleAction]
+    scheduleActions :: [Types.ScheduleAction]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchScheduleActionCreateRequest' with the minimum fields required to make a request.
---
--- * 'scheduleActions' - A list of schedule actions to create.
+-- | Creates a 'BatchScheduleActionCreateRequest' value with any optional fields omitted.
 mkBatchScheduleActionCreateRequest ::
   BatchScheduleActionCreateRequest
 mkBatchScheduleActionCreateRequest =
-  BatchScheduleActionCreateRequest' {scheduleActions = Lude.mempty}
+  BatchScheduleActionCreateRequest' {scheduleActions = Core.mempty}
 
 -- | A list of schedule actions to create.
 --
 -- /Note:/ Consider using 'scheduleActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsacrScheduleActions :: Lens.Lens' BatchScheduleActionCreateRequest [ScheduleAction]
-bsacrScheduleActions = Lens.lens (scheduleActions :: BatchScheduleActionCreateRequest -> [ScheduleAction]) (\s a -> s {scheduleActions = a} :: BatchScheduleActionCreateRequest)
+bsacrScheduleActions :: Lens.Lens' BatchScheduleActionCreateRequest [Types.ScheduleAction]
+bsacrScheduleActions = Lens.field @"scheduleActions"
 {-# DEPRECATED bsacrScheduleActions "Use generic-lens or generic-optics with 'scheduleActions' instead." #-}
 
-instance Lude.ToJSON BatchScheduleActionCreateRequest where
-  toJSON BatchScheduleActionCreateRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("scheduleActions" Lude..= scheduleActions)]
+instance Core.FromJSON BatchScheduleActionCreateRequest where
+  toJSON BatchScheduleActionCreateRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("scheduleActions" Core..= scheduleActions)]
       )

@@ -22,162 +22,90 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     mkDescribeDBEngineVersions,
 
     -- ** Request lenses
-    ddevEngineVersion,
-    ddevListSupportedTimezones,
-    ddevDefaultOnly,
-    ddevIncludeAll,
-    ddevFilters,
-    ddevEngine,
-    ddevDBParameterGroupFamily,
-    ddevListSupportedCharacterSets,
-    ddevMarker,
-    ddevMaxRecords,
+    ddbevDBParameterGroupFamily,
+    ddbevDefaultOnly,
+    ddbevEngine,
+    ddbevEngineVersion,
+    ddbevFilters,
+    ddbevIncludeAll,
+    ddbevListSupportedCharacterSets,
+    ddbevListSupportedTimezones,
+    ddbevMarker,
+    ddbevMaxRecords,
 
     -- * Destructuring the response
     DescribeDBEngineVersionsResponse (..),
     mkDescribeDBEngineVersionsResponse,
 
     -- ** Response lenses
-    ddevrsMarker,
-    ddevrsDBEngineVersions,
-    ddevrsResponseStatus,
+    ddbevrrsDBEngineVersions,
+    ddbevrrsMarker,
+    ddbevrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDBEngineVersions' smart constructor.
 data DescribeDBEngineVersions = DescribeDBEngineVersions'
-  { -- | The database engine version to return.
-    --
-    -- Example: @5.1.49@
-    engineVersion :: Lude.Maybe Lude.Text,
-    -- | A value that indicates whether to list the supported time zones for each engine version.
-    --
-    -- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
-    listSupportedTimezones :: Lude.Maybe Lude.Bool,
-    -- | A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
-    defaultOnly :: Lude.Maybe Lude.Bool,
-    -- | A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
-    includeAll :: Lude.Maybe Lude.Bool,
-    -- | This parameter isn't currently supported.
-    filters :: Lude.Maybe [Filter],
-    -- | The database engine to return.
-    engine :: Lude.Maybe Lude.Text,
-    -- | The name of a specific DB parameter group family to return details for.
+  { -- | The name of a specific DB parameter group family to return details for.
     --
     -- Constraints:
     --
     --     * If supplied, must match an existing DBParameterGroupFamily.
-    dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    dBParameterGroupFamily :: Core.Maybe Types.String,
+    -- | A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
+    defaultOnly :: Core.Maybe Core.Bool,
+    -- | The database engine to return.
+    engine :: Core.Maybe Types.String,
+    -- | The database engine version to return.
+    --
+    -- Example: @5.1.49@
+    engineVersion :: Core.Maybe Types.String,
+    -- | This parameter isn't currently supported.
+    filters :: Core.Maybe [Types.Filter],
+    -- | A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
+    includeAll :: Core.Maybe Core.Bool,
     -- | A value that indicates whether to list the supported character sets for each engine version.
     --
     -- If this parameter is enabled and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
-    listSupportedCharacterSets :: Lude.Maybe Lude.Bool,
+    listSupportedCharacterSets :: Core.Maybe Core.Bool,
+    -- | A value that indicates whether to list the supported time zones for each engine version.
+    --
+    -- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
+    listSupportedTimezones :: Core.Maybe Core.Bool,
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBEngineVersions' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The database engine version to return.
---
--- Example: @5.1.49@
--- * 'listSupportedTimezones' - A value that indicates whether to list the supported time zones for each engine version.
---
--- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
--- * 'defaultOnly' - A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
--- * 'includeAll' - A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
--- * 'filters' - This parameter isn't currently supported.
--- * 'engine' - The database engine to return.
--- * 'dbParameterGroupFamily' - The name of a specific DB parameter group family to return details for.
---
--- Constraints:
---
---     * If supplied, must match an existing DBParameterGroupFamily.
---
---
--- * 'listSupportedCharacterSets' - A value that indicates whether to list the supported character sets for each engine version.
---
--- If this parameter is enabled and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeDBEngineVersions' value with any optional fields omitted.
 mkDescribeDBEngineVersions ::
   DescribeDBEngineVersions
 mkDescribeDBEngineVersions =
   DescribeDBEngineVersions'
-    { engineVersion = Lude.Nothing,
-      listSupportedTimezones = Lude.Nothing,
-      defaultOnly = Lude.Nothing,
-      includeAll = Lude.Nothing,
-      filters = Lude.Nothing,
-      engine = Lude.Nothing,
-      dbParameterGroupFamily = Lude.Nothing,
-      listSupportedCharacterSets = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { dBParameterGroupFamily = Core.Nothing,
+      defaultOnly = Core.Nothing,
+      engine = Core.Nothing,
+      engineVersion = Core.Nothing,
+      filters = Core.Nothing,
+      includeAll = Core.Nothing,
+      listSupportedCharacterSets = Core.Nothing,
+      listSupportedTimezones = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
-
--- | The database engine version to return.
---
--- Example: @5.1.49@
---
--- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevEngineVersion :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Text)
-ddevEngineVersion = Lens.lens (engineVersion :: DescribeDBEngineVersions -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
-
--- | A value that indicates whether to list the supported time zones for each engine version.
---
--- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
---
--- /Note:/ Consider using 'listSupportedTimezones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevListSupportedTimezones :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Bool)
-ddevListSupportedTimezones = Lens.lens (listSupportedTimezones :: DescribeDBEngineVersions -> Lude.Maybe Lude.Bool) (\s a -> s {listSupportedTimezones = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevListSupportedTimezones "Use generic-lens or generic-optics with 'listSupportedTimezones' instead." #-}
-
--- | A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
---
--- /Note:/ Consider using 'defaultOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevDefaultOnly :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Bool)
-ddevDefaultOnly = Lens.lens (defaultOnly :: DescribeDBEngineVersions -> Lude.Maybe Lude.Bool) (\s a -> s {defaultOnly = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevDefaultOnly "Use generic-lens or generic-optics with 'defaultOnly' instead." #-}
-
--- | A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
---
--- /Note:/ Consider using 'includeAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevIncludeAll :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Bool)
-ddevIncludeAll = Lens.lens (includeAll :: DescribeDBEngineVersions -> Lude.Maybe Lude.Bool) (\s a -> s {includeAll = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevIncludeAll "Use generic-lens or generic-optics with 'includeAll' instead." #-}
-
--- | This parameter isn't currently supported.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevFilters :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe [Filter])
-ddevFilters = Lens.lens (filters :: DescribeDBEngineVersions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The database engine to return.
---
--- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevEngine :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Text)
-ddevEngine = Lens.lens (engine :: DescribeDBEngineVersions -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The name of a specific DB parameter group family to return details for.
 --
@@ -187,26 +115,72 @@ ddevEngine = Lens.lens (engine :: DescribeDBEngineVersions -> Lude.Maybe Lude.Te
 --
 --
 --
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevDBParameterGroupFamily :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Text)
-ddevDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DescribeDBEngineVersions -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevDBParameterGroupFamily :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Types.String)
+ddbevDBParameterGroupFamily = Lens.field @"dBParameterGroupFamily"
+{-# DEPRECATED ddbevDBParameterGroupFamily "Use generic-lens or generic-optics with 'dBParameterGroupFamily' instead." #-}
+
+-- | A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
+--
+-- /Note:/ Consider using 'defaultOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevDefaultOnly :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Core.Bool)
+ddbevDefaultOnly = Lens.field @"defaultOnly"
+{-# DEPRECATED ddbevDefaultOnly "Use generic-lens or generic-optics with 'defaultOnly' instead." #-}
+
+-- | The database engine to return.
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevEngine :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Types.String)
+ddbevEngine = Lens.field @"engine"
+{-# DEPRECATED ddbevEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
+
+-- | The database engine version to return.
+--
+-- Example: @5.1.49@
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevEngineVersion :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Types.String)
+ddbevEngineVersion = Lens.field @"engineVersion"
+{-# DEPRECATED ddbevEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
+
+-- | This parameter isn't currently supported.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevFilters :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe [Types.Filter])
+ddbevFilters = Lens.field @"filters"
+{-# DEPRECATED ddbevFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
+--
+-- /Note:/ Consider using 'includeAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevIncludeAll :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Core.Bool)
+ddbevIncludeAll = Lens.field @"includeAll"
+{-# DEPRECATED ddbevIncludeAll "Use generic-lens or generic-optics with 'includeAll' instead." #-}
 
 -- | A value that indicates whether to list the supported character sets for each engine version.
 --
 -- If this parameter is enabled and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
 --
 -- /Note:/ Consider using 'listSupportedCharacterSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevListSupportedCharacterSets :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Bool)
-ddevListSupportedCharacterSets = Lens.lens (listSupportedCharacterSets :: DescribeDBEngineVersions -> Lude.Maybe Lude.Bool) (\s a -> s {listSupportedCharacterSets = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevListSupportedCharacterSets "Use generic-lens or generic-optics with 'listSupportedCharacterSets' instead." #-}
+ddbevListSupportedCharacterSets :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Core.Bool)
+ddbevListSupportedCharacterSets = Lens.field @"listSupportedCharacterSets"
+{-# DEPRECATED ddbevListSupportedCharacterSets "Use generic-lens or generic-optics with 'listSupportedCharacterSets' instead." #-}
+
+-- | A value that indicates whether to list the supported time zones for each engine version.
+--
+-- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
+--
+-- /Note:/ Consider using 'listSupportedTimezones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevListSupportedTimezones :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Core.Bool)
+ddbevListSupportedTimezones = Lens.field @"listSupportedTimezones"
+{-# DEPRECATED ddbevListSupportedTimezones "Use generic-lens or generic-optics with 'listSupportedTimezones' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevMarker :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Text)
-ddevMarker = Lens.lens (marker :: DescribeDBEngineVersions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddbevMarker :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Types.String)
+ddbevMarker = Lens.field @"marker"
+{-# DEPRECATED ddbevMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -214,105 +188,116 @@ ddevMarker = Lens.lens (marker :: DescribeDBEngineVersions -> Lude.Maybe Lude.Te
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevMaxRecords :: Lens.Lens' DescribeDBEngineVersions (Lude.Maybe Lude.Int)
-ddevMaxRecords = Lens.lens (maxRecords :: DescribeDBEngineVersions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBEngineVersions)
-{-# DEPRECATED ddevMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddbevMaxRecords :: Lens.Lens' DescribeDBEngineVersions (Core.Maybe Core.Int)
+ddbevMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddbevMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeDBEngineVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. ddevrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddevrsDBEngineVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddevMarker Lens..~ rs Lens.^. ddevrsMarker
-
-instance Lude.AWSRequest DescribeDBEngineVersions where
+instance Core.AWSRequest DescribeDBEngineVersions where
   type Rs DescribeDBEngineVersions = DescribeDBEngineVersionsResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBEngineVersions")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue "DBParameterGroupFamily"
+                            Core.<$> dBParameterGroupFamily
+                        )
+                Core.<> (Core.toQueryValue "DefaultOnly" Core.<$> defaultOnly)
+                Core.<> (Core.toQueryValue "Engine" Core.<$> engine)
+                Core.<> (Core.toQueryValue "EngineVersion" Core.<$> engineVersion)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "IncludeAll" Core.<$> includeAll)
+                Core.<> ( Core.toQueryValue "ListSupportedCharacterSets"
+                            Core.<$> listSupportedCharacterSets
+                        )
+                Core.<> ( Core.toQueryValue "ListSupportedTimezones"
+                            Core.<$> listSupportedTimezones
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBEngineVersionsResult"
       ( \s h x ->
           DescribeDBEngineVersionsResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "DBEngineVersions" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "DBEngineVersion")
+            Core.<$> ( x Core..@? "DBEngineVersions"
+                         Core..<@> Core.parseXMLList "DBEngineVersion"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBEngineVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBEngineVersions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBEngineVersions where
-  toQuery DescribeDBEngineVersions' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeDBEngineVersions" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "EngineVersion" Lude.=: engineVersion,
-        "ListSupportedTimezones" Lude.=: listSupportedTimezones,
-        "DefaultOnly" Lude.=: defaultOnly,
-        "IncludeAll" Lude.=: includeAll,
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "Engine" Lude.=: engine,
-        "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily,
-        "ListSupportedCharacterSets" Lude.=: listSupportedCharacterSets,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeDBEngineVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"dBEngineVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the result of a successful invocation of the @DescribeDBEngineVersions@ action.
 --
 -- /See:/ 'mkDescribeDBEngineVersionsResponse' smart constructor.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
-  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | A list of @DBEngineVersion@ elements.
-    dbEngineVersions :: Lude.Maybe [DBEngineVersion],
+  { -- | A list of @DBEngineVersion@ elements.
+    dBEngineVersions :: Core.Maybe [Types.DBEngineVersion],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBEngineVersionsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'dbEngineVersions' - A list of @DBEngineVersion@ elements.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBEngineVersionsResponse' value with any optional fields omitted.
 mkDescribeDBEngineVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBEngineVersionsResponse
-mkDescribeDBEngineVersionsResponse pResponseStatus_ =
+mkDescribeDBEngineVersionsResponse responseStatus =
   DescribeDBEngineVersionsResponse'
-    { marker = Lude.Nothing,
-      dbEngineVersions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBEngineVersions =
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
+
+-- | A list of @DBEngineVersion@ elements.
+--
+-- /Note:/ Consider using 'dBEngineVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbevrrsDBEngineVersions :: Lens.Lens' DescribeDBEngineVersionsResponse (Core.Maybe [Types.DBEngineVersion])
+ddbevrrsDBEngineVersions = Lens.field @"dBEngineVersions"
+{-# DEPRECATED ddbevrrsDBEngineVersions "Use generic-lens or generic-optics with 'dBEngineVersions' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevrsMarker :: Lens.Lens' DescribeDBEngineVersionsResponse (Lude.Maybe Lude.Text)
-ddevrsMarker = Lens.lens (marker :: DescribeDBEngineVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBEngineVersionsResponse)
-{-# DEPRECATED ddevrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A list of @DBEngineVersion@ elements.
---
--- /Note:/ Consider using 'dbEngineVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevrsDBEngineVersions :: Lens.Lens' DescribeDBEngineVersionsResponse (Lude.Maybe [DBEngineVersion])
-ddevrsDBEngineVersions = Lens.lens (dbEngineVersions :: DescribeDBEngineVersionsResponse -> Lude.Maybe [DBEngineVersion]) (\s a -> s {dbEngineVersions = a} :: DescribeDBEngineVersionsResponse)
-{-# DEPRECATED ddevrsDBEngineVersions "Use generic-lens or generic-optics with 'dbEngineVersions' instead." #-}
+ddbevrrsMarker :: Lens.Lens' DescribeDBEngineVersionsResponse (Core.Maybe Types.String)
+ddbevrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbevrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddevrsResponseStatus :: Lens.Lens' DescribeDBEngineVersionsResponse Lude.Int
-ddevrsResponseStatus = Lens.lens (responseStatus :: DescribeDBEngineVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBEngineVersionsResponse)
-{-# DEPRECATED ddevrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbevrrsResponseStatus :: Lens.Lens' DescribeDBEngineVersionsResponse Core.Int
+ddbevrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbevrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

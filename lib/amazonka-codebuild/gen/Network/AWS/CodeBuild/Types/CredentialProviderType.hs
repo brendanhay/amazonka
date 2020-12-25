@@ -13,41 +13,46 @@
 module Network.AWS.CodeBuild.Types.CredentialProviderType
   ( CredentialProviderType
       ( CredentialProviderType',
-        CPTSecretsManager
+        CredentialProviderTypeSecretsManager,
+        fromCredentialProviderType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CredentialProviderType = CredentialProviderType' Lude.Text
+newtype CredentialProviderType = CredentialProviderType'
+  { fromCredentialProviderType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPTSecretsManager :: CredentialProviderType
-pattern CPTSecretsManager = CredentialProviderType' "SECRETS_MANAGER"
+pattern CredentialProviderTypeSecretsManager :: CredentialProviderType
+pattern CredentialProviderTypeSecretsManager = CredentialProviderType' "SECRETS_MANAGER"
 
 {-# COMPLETE
-  CPTSecretsManager,
+  CredentialProviderTypeSecretsManager,
   CredentialProviderType'
   #-}

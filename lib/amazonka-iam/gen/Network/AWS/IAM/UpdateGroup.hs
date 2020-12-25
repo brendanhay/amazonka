@@ -22,8 +22,8 @@ module Network.AWS.IAM.UpdateGroup
     mkUpdateGroup,
 
     -- ** Request lenses
-    ugNewGroupName,
     ugGroupName,
+    ugNewGroupName,
     ugNewPath,
 
     -- * Destructuring the response
@@ -32,106 +32,99 @@ module Network.AWS.IAM.UpdateGroup
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | New name for the IAM group. Only include this if changing the group's name.
-    --
-    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
-    newGroupName :: Lude.Maybe Lude.Text,
-    -- | Name of the IAM group to update. If you're changing the name of the group, this is the original name.
+  { -- | Name of the IAM group to update. If you're changing the name of the group, this is the original name.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    groupName :: Lude.Text,
+    groupName :: Types.GroupNameType,
+    -- | New name for the IAM group. Only include this if changing the group's name.
+    --
+    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+    newGroupName :: Core.Maybe Types.GroupNameType,
     -- | New path for the IAM group. Only include this if changing the group's path.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
-    newPath :: Lude.Maybe Lude.Text
+    newPath :: Core.Maybe Types.NewPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
---
--- * 'newGroupName' - New name for the IAM group. Only include this if changing the group's name.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
--- * 'groupName' - Name of the IAM group to update. If you're changing the name of the group, this is the original name.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'newPath' - New path for the IAM group. Only include this if changing the group's path.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- | Creates a 'UpdateGroup' value with any optional fields omitted.
 mkUpdateGroup ::
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupNameType ->
   UpdateGroup
-mkUpdateGroup pGroupName_ =
+mkUpdateGroup groupName =
   UpdateGroup'
-    { newGroupName = Lude.Nothing,
-      groupName = pGroupName_,
-      newPath = Lude.Nothing
+    { groupName,
+      newGroupName = Core.Nothing,
+      newPath = Core.Nothing
     }
-
--- | New name for the IAM group. Only include this if changing the group's name.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
---
--- /Note:/ Consider using 'newGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugNewGroupName :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
-ugNewGroupName = Lens.lens (newGroupName :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {newGroupName = a} :: UpdateGroup)
-{-# DEPRECATED ugNewGroupName "Use generic-lens or generic-optics with 'newGroupName' instead." #-}
 
 -- | Name of the IAM group to update. If you're changing the name of the group, this is the original name.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugGroupName :: Lens.Lens' UpdateGroup Lude.Text
-ugGroupName = Lens.lens (groupName :: UpdateGroup -> Lude.Text) (\s a -> s {groupName = a} :: UpdateGroup)
+ugGroupName :: Lens.Lens' UpdateGroup Types.GroupNameType
+ugGroupName = Lens.field @"groupName"
 {-# DEPRECATED ugGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | New name for the IAM group. Only include this if changing the group's name.
+--
+-- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+--
+-- /Note:/ Consider using 'newGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugNewGroupName :: Lens.Lens' UpdateGroup (Core.Maybe Types.GroupNameType)
+ugNewGroupName = Lens.field @"newGroupName"
+{-# DEPRECATED ugNewGroupName "Use generic-lens or generic-optics with 'newGroupName' instead." #-}
 
 -- | New path for the IAM group. Only include this if changing the group's path.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- /Note:/ Consider using 'newPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugNewPath :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
-ugNewPath = Lens.lens (newPath :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {newPath = a} :: UpdateGroup)
+ugNewPath :: Lens.Lens' UpdateGroup (Core.Maybe Types.NewPath)
+ugNewPath = Lens.field @"newPath"
 {-# DEPRECATED ugNewPath "Use generic-lens or generic-optics with 'newPath' instead." #-}
 
-instance Lude.AWSRequest UpdateGroup where
+instance Core.AWSRequest UpdateGroup where
   type Rs UpdateGroup = UpdateGroupResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull UpdateGroupResponse'
-
-instance Lude.ToHeaders UpdateGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateGroup where
-  toQuery UpdateGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "NewGroupName" Lude.=: newGroupName,
-        "GroupName" Lude.=: groupName,
-        "NewPath" Lude.=: newPath
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateGroup")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "NewGroupName" Core.<$> newGroupName)
+                Core.<> (Core.toQueryValue "NewPath" Core.<$> newPath)
+            )
+      }
+  response = Response.receiveNull UpdateGroupResponse'
 
 -- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateGroupResponse' value with any optional fields omitted.
 mkUpdateGroupResponse ::
   UpdateGroupResponse
 mkUpdateGroupResponse = UpdateGroupResponse'

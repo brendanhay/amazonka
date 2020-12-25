@@ -21,36 +21,31 @@ module Network.AWS.EC2.Types.ClassicLoadBalancer
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Classic Load Balancer.
 --
 -- /See:/ 'mkClassicLoadBalancer' smart constructor.
 newtype ClassicLoadBalancer = ClassicLoadBalancer'
   { -- | The name of the load balancer.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClassicLoadBalancer' with the minimum fields required to make a request.
---
--- * 'name' - The name of the load balancer.
+-- | Creates a 'ClassicLoadBalancer' value with any optional fields omitted.
 mkClassicLoadBalancer ::
   ClassicLoadBalancer
-mkClassicLoadBalancer = ClassicLoadBalancer' {name = Lude.Nothing}
+mkClassicLoadBalancer = ClassicLoadBalancer' {name = Core.Nothing}
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbName :: Lens.Lens' ClassicLoadBalancer (Lude.Maybe Lude.Text)
-clbName = Lens.lens (name :: ClassicLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ClassicLoadBalancer)
+clbName :: Lens.Lens' ClassicLoadBalancer (Core.Maybe Types.String)
+clbName = Lens.field @"name"
 {-# DEPRECATED clbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML ClassicLoadBalancer where
-  parseXML x = ClassicLoadBalancer' Lude.<$> (x Lude..@? "name")
-
-instance Lude.ToQuery ClassicLoadBalancer where
-  toQuery ClassicLoadBalancer' {..} =
-    Lude.mconcat ["Name" Lude.=: name]
+instance Core.FromXML ClassicLoadBalancer where
+  parseXML x = ClassicLoadBalancer' Core.<$> (x Core..@? "name")

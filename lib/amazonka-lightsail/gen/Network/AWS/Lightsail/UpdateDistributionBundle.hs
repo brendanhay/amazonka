@@ -32,45 +32,38 @@ module Network.AWS.Lightsail.UpdateDistributionBundle
     mkUpdateDistributionBundleResponse,
 
     -- ** Response lenses
-    udbrsOperation,
-    udbrsResponseStatus,
+    udbrrsOperation,
+    udbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDistributionBundle' smart constructor.
 data UpdateDistributionBundle = UpdateDistributionBundle'
   { -- | The bundle ID of the new bundle to apply to your distribution.
     --
     -- Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
-    bundleId :: Lude.Maybe Lude.Text,
+    bundleId :: Core.Maybe Types.String,
     -- | The name of the distribution for which to update the bundle.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-    distributionName :: Lude.Maybe Lude.Text
+    distributionName :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDistributionBundle' with the minimum fields required to make a request.
---
--- * 'bundleId' - The bundle ID of the new bundle to apply to your distribution.
---
--- Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
--- * 'distributionName' - The name of the distribution for which to update the bundle.
---
--- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- | Creates a 'UpdateDistributionBundle' value with any optional fields omitted.
 mkUpdateDistributionBundle ::
   UpdateDistributionBundle
 mkUpdateDistributionBundle =
   UpdateDistributionBundle'
-    { bundleId = Lude.Nothing,
-      distributionName = Lude.Nothing
+    { bundleId = Core.Nothing,
+      distributionName = Core.Nothing
     }
 
 -- | The bundle ID of the new bundle to apply to your distribution.
@@ -78,8 +71,8 @@ mkUpdateDistributionBundle =
 -- Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udbBundleId :: Lens.Lens' UpdateDistributionBundle (Lude.Maybe Lude.Text)
-udbBundleId = Lens.lens (bundleId :: UpdateDistributionBundle -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: UpdateDistributionBundle)
+udbBundleId :: Lens.Lens' UpdateDistributionBundle (Core.Maybe Types.String)
+udbBundleId = Lens.field @"bundleId"
 {-# DEPRECATED udbBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The name of the distribution for which to update the bundle.
@@ -87,79 +80,70 @@ udbBundleId = Lens.lens (bundleId :: UpdateDistributionBundle -> Lude.Maybe Lude
 -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
 --
 -- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udbDistributionName :: Lens.Lens' UpdateDistributionBundle (Lude.Maybe Lude.Text)
-udbDistributionName = Lens.lens (distributionName :: UpdateDistributionBundle -> Lude.Maybe Lude.Text) (\s a -> s {distributionName = a} :: UpdateDistributionBundle)
+udbDistributionName :: Lens.Lens' UpdateDistributionBundle (Core.Maybe Types.ResourceName)
+udbDistributionName = Lens.field @"distributionName"
 {-# DEPRECATED udbDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
-instance Lude.AWSRequest UpdateDistributionBundle where
+instance Core.FromJSON UpdateDistributionBundle where
+  toJSON UpdateDistributionBundle {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bundleId" Core..=) Core.<$> bundleId,
+            ("distributionName" Core..=) Core.<$> distributionName
+          ]
+      )
+
+instance Core.AWSRequest UpdateDistributionBundle where
   type Rs UpdateDistributionBundle = UpdateDistributionBundleResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.UpdateDistributionBundle")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateDistributionBundleResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDistributionBundle where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.UpdateDistributionBundle" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateDistributionBundle where
-  toJSON UpdateDistributionBundle' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("bundleId" Lude..=) Lude.<$> bundleId,
-            ("distributionName" Lude..=) Lude.<$> distributionName
-          ]
-      )
-
-instance Lude.ToPath UpdateDistributionBundle where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDistributionBundle where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateDistributionBundleResponse' smart constructor.
 data UpdateDistributionBundleResponse = UpdateDistributionBundleResponse'
-  { operation :: Lude.Maybe Operation,
+  { operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateDistributionBundleResponse' with the minimum fields required to make a request.
---
--- * 'operation' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDistributionBundleResponse' value with any optional fields omitted.
 mkUpdateDistributionBundleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDistributionBundleResponse
-mkUpdateDistributionBundleResponse pResponseStatus_ =
+mkUpdateDistributionBundleResponse responseStatus =
   UpdateDistributionBundleResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operation = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udbrsOperation :: Lens.Lens' UpdateDistributionBundleResponse (Lude.Maybe Operation)
-udbrsOperation = Lens.lens (operation :: UpdateDistributionBundleResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: UpdateDistributionBundleResponse)
-{-# DEPRECATED udbrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+udbrrsOperation :: Lens.Lens' UpdateDistributionBundleResponse (Core.Maybe Types.Operation)
+udbrrsOperation = Lens.field @"operation"
+{-# DEPRECATED udbrrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udbrsResponseStatus :: Lens.Lens' UpdateDistributionBundleResponse Lude.Int
-udbrsResponseStatus = Lens.lens (responseStatus :: UpdateDistributionBundleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDistributionBundleResponse)
-{-# DEPRECATED udbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udbrrsResponseStatus :: Lens.Lens' UpdateDistributionBundleResponse Core.Int
+udbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

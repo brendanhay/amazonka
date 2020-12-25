@@ -13,46 +13,48 @@
 module Network.AWS.DirectoryService.Types.SnapshotType
   ( SnapshotType
       ( SnapshotType',
-        Auto,
-        Manual
+        SnapshotTypeAuto,
+        SnapshotTypeManual,
+        fromSnapshotType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SnapshotType = SnapshotType' Lude.Text
+newtype SnapshotType = SnapshotType' {fromSnapshotType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Auto :: SnapshotType
-pattern Auto = SnapshotType' "Auto"
+pattern SnapshotTypeAuto :: SnapshotType
+pattern SnapshotTypeAuto = SnapshotType' "Auto"
 
-pattern Manual :: SnapshotType
-pattern Manual = SnapshotType' "Manual"
+pattern SnapshotTypeManual :: SnapshotType
+pattern SnapshotTypeManual = SnapshotType' "Manual"
 
 {-# COMPLETE
-  Auto,
-  Manual,
+  SnapshotTypeAuto,
+  SnapshotTypeManual,
   SnapshotType'
   #-}

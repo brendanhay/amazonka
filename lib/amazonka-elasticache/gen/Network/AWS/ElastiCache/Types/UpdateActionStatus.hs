@@ -13,81 +13,86 @@
 module Network.AWS.ElastiCache.Types.UpdateActionStatus
   ( UpdateActionStatus
       ( UpdateActionStatus',
-        NotApplied,
-        WaitingToStart,
-        InProgress,
-        Stopping,
-        Stopped,
-        Complete,
-        Scheduling,
-        Scheduled,
-        NotApplicable
+        UpdateActionStatusNotApplied,
+        UpdateActionStatusWaitingToStart,
+        UpdateActionStatusInProgress,
+        UpdateActionStatusStopping,
+        UpdateActionStatusStopped,
+        UpdateActionStatusComplete,
+        UpdateActionStatusScheduling,
+        UpdateActionStatusScheduled,
+        UpdateActionStatusNotApplicable,
+        fromUpdateActionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UpdateActionStatus = UpdateActionStatus' Lude.Text
+newtype UpdateActionStatus = UpdateActionStatus'
+  { fromUpdateActionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotApplied :: UpdateActionStatus
-pattern NotApplied = UpdateActionStatus' "not-applied"
+pattern UpdateActionStatusNotApplied :: UpdateActionStatus
+pattern UpdateActionStatusNotApplied = UpdateActionStatus' "not-applied"
 
-pattern WaitingToStart :: UpdateActionStatus
-pattern WaitingToStart = UpdateActionStatus' "waiting-to-start"
+pattern UpdateActionStatusWaitingToStart :: UpdateActionStatus
+pattern UpdateActionStatusWaitingToStart = UpdateActionStatus' "waiting-to-start"
 
-pattern InProgress :: UpdateActionStatus
-pattern InProgress = UpdateActionStatus' "in-progress"
+pattern UpdateActionStatusInProgress :: UpdateActionStatus
+pattern UpdateActionStatusInProgress = UpdateActionStatus' "in-progress"
 
-pattern Stopping :: UpdateActionStatus
-pattern Stopping = UpdateActionStatus' "stopping"
+pattern UpdateActionStatusStopping :: UpdateActionStatus
+pattern UpdateActionStatusStopping = UpdateActionStatus' "stopping"
 
-pattern Stopped :: UpdateActionStatus
-pattern Stopped = UpdateActionStatus' "stopped"
+pattern UpdateActionStatusStopped :: UpdateActionStatus
+pattern UpdateActionStatusStopped = UpdateActionStatus' "stopped"
 
-pattern Complete :: UpdateActionStatus
-pattern Complete = UpdateActionStatus' "complete"
+pattern UpdateActionStatusComplete :: UpdateActionStatus
+pattern UpdateActionStatusComplete = UpdateActionStatus' "complete"
 
-pattern Scheduling :: UpdateActionStatus
-pattern Scheduling = UpdateActionStatus' "scheduling"
+pattern UpdateActionStatusScheduling :: UpdateActionStatus
+pattern UpdateActionStatusScheduling = UpdateActionStatus' "scheduling"
 
-pattern Scheduled :: UpdateActionStatus
-pattern Scheduled = UpdateActionStatus' "scheduled"
+pattern UpdateActionStatusScheduled :: UpdateActionStatus
+pattern UpdateActionStatusScheduled = UpdateActionStatus' "scheduled"
 
-pattern NotApplicable :: UpdateActionStatus
-pattern NotApplicable = UpdateActionStatus' "not-applicable"
+pattern UpdateActionStatusNotApplicable :: UpdateActionStatus
+pattern UpdateActionStatusNotApplicable = UpdateActionStatus' "not-applicable"
 
 {-# COMPLETE
-  NotApplied,
-  WaitingToStart,
-  InProgress,
-  Stopping,
-  Stopped,
-  Complete,
-  Scheduling,
-  Scheduled,
-  NotApplicable,
+  UpdateActionStatusNotApplied,
+  UpdateActionStatusWaitingToStart,
+  UpdateActionStatusInProgress,
+  UpdateActionStatusStopping,
+  UpdateActionStatusStopped,
+  UpdateActionStatusComplete,
+  UpdateActionStatusScheduling,
+  UpdateActionStatusScheduled,
+  UpdateActionStatusNotApplicable,
   UpdateActionStatus'
   #-}

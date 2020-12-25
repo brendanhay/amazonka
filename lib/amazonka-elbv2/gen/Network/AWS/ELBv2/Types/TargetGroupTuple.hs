@@ -17,58 +17,51 @@ module Network.AWS.ELBv2.Types.TargetGroupTuple
     mkTargetGroupTuple,
 
     -- * Lenses
+    tgtTargetGroupArn,
     tgtWeight,
-    tgtTargetGroupARN,
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.TargetGroupArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about how traffic will be distributed between multiple target groups in a forward rule.
 --
 -- /See:/ 'mkTargetGroupTuple' smart constructor.
 data TargetGroupTuple = TargetGroupTuple'
-  { -- | The weight. The range is 0 to 999.
-    weight :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Core.Maybe Types.TargetGroupArn,
+    -- | The weight. The range is 0 to 999.
+    weight :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGroupTuple' with the minimum fields required to make a request.
---
--- * 'weight' - The weight. The range is 0 to 999.
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- | Creates a 'TargetGroupTuple' value with any optional fields omitted.
 mkTargetGroupTuple ::
   TargetGroupTuple
 mkTargetGroupTuple =
   TargetGroupTuple'
-    { weight = Lude.Nothing,
-      targetGroupARN = Lude.Nothing
+    { targetGroupArn = Core.Nothing,
+      weight = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the target group.
+--
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgtTargetGroupArn :: Lens.Lens' TargetGroupTuple (Core.Maybe Types.TargetGroupArn)
+tgtTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED tgtTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
 -- | The weight. The range is 0 to 999.
 --
 -- /Note:/ Consider using 'weight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgtWeight :: Lens.Lens' TargetGroupTuple (Lude.Maybe Lude.Int)
-tgtWeight = Lens.lens (weight :: TargetGroupTuple -> Lude.Maybe Lude.Int) (\s a -> s {weight = a} :: TargetGroupTuple)
+tgtWeight :: Lens.Lens' TargetGroupTuple (Core.Maybe Core.Int)
+tgtWeight = Lens.field @"weight"
 {-# DEPRECATED tgtWeight "Use generic-lens or generic-optics with 'weight' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the target group.
---
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgtTargetGroupARN :: Lens.Lens' TargetGroupTuple (Lude.Maybe Lude.Text)
-tgtTargetGroupARN = Lens.lens (targetGroupARN :: TargetGroupTuple -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupARN = a} :: TargetGroupTuple)
-{-# DEPRECATED tgtTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
-
-instance Lude.FromXML TargetGroupTuple where
+instance Core.FromXML TargetGroupTuple where
   parseXML x =
     TargetGroupTuple'
-      Lude.<$> (x Lude..@? "Weight") Lude.<*> (x Lude..@? "TargetGroupArn")
-
-instance Lude.ToQuery TargetGroupTuple where
-  toQuery TargetGroupTuple' {..} =
-    Lude.mconcat
-      ["Weight" Lude.=: weight, "TargetGroupArn" Lude.=: targetGroupARN]
+      Core.<$> (x Core..@? "TargetGroupArn") Core.<*> (x Core..@? "Weight")

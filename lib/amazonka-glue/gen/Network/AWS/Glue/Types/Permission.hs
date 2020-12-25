@@ -13,81 +13,83 @@
 module Network.AWS.Glue.Types.Permission
   ( Permission
       ( Permission',
-        PAll,
-        PSelect,
-        PAlter,
-        PDrop,
-        PDelete,
-        PInsert,
-        PCreateDatabase,
-        PCreateTable,
-        PDataLocationAccess
+        PermissionAll,
+        PermissionSelect,
+        PermissionAlter,
+        PermissionDrop,
+        PermissionDelete,
+        PermissionInsert,
+        PermissionCreateDatabase,
+        PermissionCreateTable,
+        PermissionDataLocationAccess,
+        fromPermission
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Permission = Permission' Lude.Text
+newtype Permission = Permission' {fromPermission :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PAll :: Permission
-pattern PAll = Permission' "ALL"
+pattern PermissionAll :: Permission
+pattern PermissionAll = Permission' "ALL"
 
-pattern PSelect :: Permission
-pattern PSelect = Permission' "SELECT"
+pattern PermissionSelect :: Permission
+pattern PermissionSelect = Permission' "SELECT"
 
-pattern PAlter :: Permission
-pattern PAlter = Permission' "ALTER"
+pattern PermissionAlter :: Permission
+pattern PermissionAlter = Permission' "ALTER"
 
-pattern PDrop :: Permission
-pattern PDrop = Permission' "DROP"
+pattern PermissionDrop :: Permission
+pattern PermissionDrop = Permission' "DROP"
 
-pattern PDelete :: Permission
-pattern PDelete = Permission' "DELETE"
+pattern PermissionDelete :: Permission
+pattern PermissionDelete = Permission' "DELETE"
 
-pattern PInsert :: Permission
-pattern PInsert = Permission' "INSERT"
+pattern PermissionInsert :: Permission
+pattern PermissionInsert = Permission' "INSERT"
 
-pattern PCreateDatabase :: Permission
-pattern PCreateDatabase = Permission' "CREATE_DATABASE"
+pattern PermissionCreateDatabase :: Permission
+pattern PermissionCreateDatabase = Permission' "CREATE_DATABASE"
 
-pattern PCreateTable :: Permission
-pattern PCreateTable = Permission' "CREATE_TABLE"
+pattern PermissionCreateTable :: Permission
+pattern PermissionCreateTable = Permission' "CREATE_TABLE"
 
-pattern PDataLocationAccess :: Permission
-pattern PDataLocationAccess = Permission' "DATA_LOCATION_ACCESS"
+pattern PermissionDataLocationAccess :: Permission
+pattern PermissionDataLocationAccess = Permission' "DATA_LOCATION_ACCESS"
 
 {-# COMPLETE
-  PAll,
-  PSelect,
-  PAlter,
-  PDrop,
-  PDelete,
-  PInsert,
-  PCreateDatabase,
-  PCreateTable,
-  PDataLocationAccess,
+  PermissionAll,
+  PermissionSelect,
+  PermissionAlter,
+  PermissionDrop,
+  PermissionDelete,
+  PermissionInsert,
+  PermissionCreateDatabase,
+  PermissionCreateTable,
+  PermissionDataLocationAccess,
   Permission'
   #-}

@@ -20,8 +20,8 @@ module Network.AWS.IoT.SetV2LoggingLevel
     mkSetV2LoggingLevel,
 
     -- ** Request lenses
-    svllLogLevel,
     svllLogTarget,
+    svllLogLevel,
 
     -- * Destructuring the response
     SetV2LoggingLevelResponse (..),
@@ -29,81 +29,74 @@ module Network.AWS.IoT.SetV2LoggingLevel
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetV2LoggingLevel' smart constructor.
 data SetV2LoggingLevel = SetV2LoggingLevel'
-  { -- | The log level.
-    logLevel :: LogLevel,
-    -- | The log target.
-    logTarget :: LogTarget
+  { -- | The log target.
+    logTarget :: Types.LogTarget,
+    -- | The log level.
+    logLevel :: Types.LogLevel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetV2LoggingLevel' with the minimum fields required to make a request.
---
--- * 'logLevel' - The log level.
--- * 'logTarget' - The log target.
+-- | Creates a 'SetV2LoggingLevel' value with any optional fields omitted.
 mkSetV2LoggingLevel ::
-  -- | 'logLevel'
-  LogLevel ->
   -- | 'logTarget'
-  LogTarget ->
+  Types.LogTarget ->
+  -- | 'logLevel'
+  Types.LogLevel ->
   SetV2LoggingLevel
-mkSetV2LoggingLevel pLogLevel_ pLogTarget_ =
-  SetV2LoggingLevel'
-    { logLevel = pLogLevel_,
-      logTarget = pLogTarget_
-    }
-
--- | The log level.
---
--- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svllLogLevel :: Lens.Lens' SetV2LoggingLevel LogLevel
-svllLogLevel = Lens.lens (logLevel :: SetV2LoggingLevel -> LogLevel) (\s a -> s {logLevel = a} :: SetV2LoggingLevel)
-{-# DEPRECATED svllLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
+mkSetV2LoggingLevel logTarget logLevel =
+  SetV2LoggingLevel' {logTarget, logLevel}
 
 -- | The log target.
 --
 -- /Note:/ Consider using 'logTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svllLogTarget :: Lens.Lens' SetV2LoggingLevel LogTarget
-svllLogTarget = Lens.lens (logTarget :: SetV2LoggingLevel -> LogTarget) (\s a -> s {logTarget = a} :: SetV2LoggingLevel)
+svllLogTarget :: Lens.Lens' SetV2LoggingLevel Types.LogTarget
+svllLogTarget = Lens.field @"logTarget"
 {-# DEPRECATED svllLogTarget "Use generic-lens or generic-optics with 'logTarget' instead." #-}
 
-instance Lude.AWSRequest SetV2LoggingLevel where
-  type Rs SetV2LoggingLevel = SetV2LoggingLevelResponse
-  request = Req.postJSON ioTService
-  response = Res.receiveNull SetV2LoggingLevelResponse'
+-- | The log level.
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svllLogLevel :: Lens.Lens' SetV2LoggingLevel Types.LogLevel
+svllLogLevel = Lens.field @"logLevel"
+{-# DEPRECATED svllLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
-instance Lude.ToHeaders SetV2LoggingLevel where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON SetV2LoggingLevel where
-  toJSON SetV2LoggingLevel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("logLevel" Lude..= logLevel),
-            Lude.Just ("logTarget" Lude..= logTarget)
+instance Core.FromJSON SetV2LoggingLevel where
+  toJSON SetV2LoggingLevel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logTarget" Core..= logTarget),
+            Core.Just ("logLevel" Core..= logLevel)
           ]
       )
 
-instance Lude.ToPath SetV2LoggingLevel where
-  toPath = Lude.const "/v2LoggingLevel"
-
-instance Lude.ToQuery SetV2LoggingLevel where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest SetV2LoggingLevel where
+  type Rs SetV2LoggingLevel = SetV2LoggingLevelResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v2LoggingLevel",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetV2LoggingLevelResponse'
 
 -- | /See:/ 'mkSetV2LoggingLevelResponse' smart constructor.
 data SetV2LoggingLevelResponse = SetV2LoggingLevelResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetV2LoggingLevelResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetV2LoggingLevelResponse' value with any optional fields omitted.
 mkSetV2LoggingLevelResponse ::
   SetV2LoggingLevelResponse
 mkSetV2LoggingLevelResponse = SetV2LoggingLevelResponse'

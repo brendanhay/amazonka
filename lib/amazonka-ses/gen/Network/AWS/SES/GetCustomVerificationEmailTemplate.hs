@@ -30,178 +30,167 @@ module Network.AWS.SES.GetCustomVerificationEmailTemplate
     mkGetCustomVerificationEmailTemplateResponse,
 
     -- ** Response lenses
-    gcvetrsFromEmailAddress,
-    gcvetrsTemplateName,
-    gcvetrsFailureRedirectionURL,
-    gcvetrsTemplateSubject,
-    gcvetrsSuccessRedirectionURL,
-    gcvetrsTemplateContent,
-    gcvetrsResponseStatus,
+    gcvetrrsFailureRedirectionURL,
+    gcvetrrsFromEmailAddress,
+    gcvetrrsSuccessRedirectionURL,
+    gcvetrrsTemplateContent,
+    gcvetrrsTemplateName,
+    gcvetrrsTemplateSubject,
+    gcvetrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to retrieve an existing custom verification email template.
 --
 -- /See:/ 'mkGetCustomVerificationEmailTemplate' smart constructor.
 newtype GetCustomVerificationEmailTemplate = GetCustomVerificationEmailTemplate'
   { -- | The name of the custom verification email template that you want to retrieve.
-    templateName :: Lude.Text
+    templateName :: Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCustomVerificationEmailTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the custom verification email template that you want to retrieve.
+-- | Creates a 'GetCustomVerificationEmailTemplate' value with any optional fields omitted.
 mkGetCustomVerificationEmailTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Types.TemplateName ->
   GetCustomVerificationEmailTemplate
-mkGetCustomVerificationEmailTemplate pTemplateName_ =
-  GetCustomVerificationEmailTemplate'
-    { templateName =
-        pTemplateName_
-    }
+mkGetCustomVerificationEmailTemplate templateName =
+  GetCustomVerificationEmailTemplate' {templateName}
 
 -- | The name of the custom verification email template that you want to retrieve.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetTemplateName :: Lens.Lens' GetCustomVerificationEmailTemplate Lude.Text
-gcvetTemplateName = Lens.lens (templateName :: GetCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetCustomVerificationEmailTemplate)
+gcvetTemplateName :: Lens.Lens' GetCustomVerificationEmailTemplate Types.TemplateName
+gcvetTemplateName = Lens.field @"templateName"
 {-# DEPRECATED gcvetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.AWSRequest GetCustomVerificationEmailTemplate where
+instance Core.AWSRequest GetCustomVerificationEmailTemplate where
   type
     Rs GetCustomVerificationEmailTemplate =
       GetCustomVerificationEmailTemplateResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetCustomVerificationEmailTemplate")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "TemplateName" templateName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetCustomVerificationEmailTemplateResult"
       ( \s h x ->
           GetCustomVerificationEmailTemplateResponse'
-            Lude.<$> (x Lude..@? "FromEmailAddress")
-            Lude.<*> (x Lude..@? "TemplateName")
-            Lude.<*> (x Lude..@? "FailureRedirectionURL")
-            Lude.<*> (x Lude..@? "TemplateSubject")
-            Lude.<*> (x Lude..@? "SuccessRedirectionURL")
-            Lude.<*> (x Lude..@? "TemplateContent")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "FailureRedirectionURL")
+            Core.<*> (x Core..@? "FromEmailAddress")
+            Core.<*> (x Core..@? "SuccessRedirectionURL")
+            Core.<*> (x Core..@? "TemplateContent")
+            Core.<*> (x Core..@? "TemplateName")
+            Core.<*> (x Core..@? "TemplateSubject")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCustomVerificationEmailTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetCustomVerificationEmailTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCustomVerificationEmailTemplate where
-  toQuery GetCustomVerificationEmailTemplate' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GetCustomVerificationEmailTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName
-      ]
 
 -- | The content of the custom verification email template.
 --
 -- /See:/ 'mkGetCustomVerificationEmailTemplateResponse' smart constructor.
 data GetCustomVerificationEmailTemplateResponse = GetCustomVerificationEmailTemplateResponse'
-  { -- | The email address that the custom verification email is sent from.
-    fromEmailAddress :: Lude.Maybe Lude.Text,
-    -- | The name of the custom verification email template.
-    templateName :: Lude.Maybe Lude.Text,
-    -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
-    failureRedirectionURL :: Lude.Maybe Lude.Text,
-    -- | The subject line of the custom verification email.
-    templateSubject :: Lude.Maybe Lude.Text,
+  { -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+    failureRedirectionURL :: Core.Maybe Types.FailureRedirectionURL,
+    -- | The email address that the custom verification email is sent from.
+    fromEmailAddress :: Core.Maybe Types.FromAddress,
     -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
-    successRedirectionURL :: Lude.Maybe Lude.Text,
+    successRedirectionURL :: Core.Maybe Types.SuccessRedirectionURL,
     -- | The content of the custom verification email.
-    templateContent :: Lude.Maybe Lude.Text,
+    templateContent :: Core.Maybe Types.TemplateContent,
+    -- | The name of the custom verification email template.
+    templateName :: Core.Maybe Types.TemplateName,
+    -- | The subject line of the custom verification email.
+    templateSubject :: Core.Maybe Types.Subject,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCustomVerificationEmailTemplateResponse' with the minimum fields required to make a request.
---
--- * 'fromEmailAddress' - The email address that the custom verification email is sent from.
--- * 'templateName' - The name of the custom verification email template.
--- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
--- * 'templateSubject' - The subject line of the custom verification email.
--- * 'successRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
--- * 'templateContent' - The content of the custom verification email.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCustomVerificationEmailTemplateResponse' value with any optional fields omitted.
 mkGetCustomVerificationEmailTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCustomVerificationEmailTemplateResponse
-mkGetCustomVerificationEmailTemplateResponse pResponseStatus_ =
+mkGetCustomVerificationEmailTemplateResponse responseStatus =
   GetCustomVerificationEmailTemplateResponse'
-    { fromEmailAddress =
-        Lude.Nothing,
-      templateName = Lude.Nothing,
-      failureRedirectionURL = Lude.Nothing,
-      templateSubject = Lude.Nothing,
-      successRedirectionURL = Lude.Nothing,
-      templateContent = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failureRedirectionURL =
+        Core.Nothing,
+      fromEmailAddress = Core.Nothing,
+      successRedirectionURL = Core.Nothing,
+      templateContent = Core.Nothing,
+      templateName = Core.Nothing,
+      templateSubject = Core.Nothing,
+      responseStatus
     }
-
--- | The email address that the custom verification email is sent from.
---
--- /Note:/ Consider using 'fromEmailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsFromEmailAddress :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Lude.Maybe Lude.Text)
-gcvetrsFromEmailAddress = Lens.lens (fromEmailAddress :: GetCustomVerificationEmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {fromEmailAddress = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsFromEmailAddress "Use generic-lens or generic-optics with 'fromEmailAddress' instead." #-}
-
--- | The name of the custom verification email template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsTemplateName :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Lude.Maybe Lude.Text)
-gcvetrsTemplateName = Lens.lens (templateName :: GetCustomVerificationEmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 --
 -- /Note:/ Consider using 'failureRedirectionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsFailureRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Lude.Maybe Lude.Text)
-gcvetrsFailureRedirectionURL = Lens.lens (failureRedirectionURL :: GetCustomVerificationEmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureRedirectionURL = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsFailureRedirectionURL "Use generic-lens or generic-optics with 'failureRedirectionURL' instead." #-}
+gcvetrrsFailureRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Types.FailureRedirectionURL)
+gcvetrrsFailureRedirectionURL = Lens.field @"failureRedirectionURL"
+{-# DEPRECATED gcvetrrsFailureRedirectionURL "Use generic-lens or generic-optics with 'failureRedirectionURL' instead." #-}
 
--- | The subject line of the custom verification email.
+-- | The email address that the custom verification email is sent from.
 --
--- /Note:/ Consider using 'templateSubject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsTemplateSubject :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Lude.Maybe Lude.Text)
-gcvetrsTemplateSubject = Lens.lens (templateSubject :: GetCustomVerificationEmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateSubject = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsTemplateSubject "Use generic-lens or generic-optics with 'templateSubject' instead." #-}
+-- /Note:/ Consider using 'fromEmailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvetrrsFromEmailAddress :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Types.FromAddress)
+gcvetrrsFromEmailAddress = Lens.field @"fromEmailAddress"
+{-# DEPRECATED gcvetrrsFromEmailAddress "Use generic-lens or generic-optics with 'fromEmailAddress' instead." #-}
 
 -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 --
 -- /Note:/ Consider using 'successRedirectionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsSuccessRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Lude.Maybe Lude.Text)
-gcvetrsSuccessRedirectionURL = Lens.lens (successRedirectionURL :: GetCustomVerificationEmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {successRedirectionURL = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsSuccessRedirectionURL "Use generic-lens or generic-optics with 'successRedirectionURL' instead." #-}
+gcvetrrsSuccessRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Types.SuccessRedirectionURL)
+gcvetrrsSuccessRedirectionURL = Lens.field @"successRedirectionURL"
+{-# DEPRECATED gcvetrrsSuccessRedirectionURL "Use generic-lens or generic-optics with 'successRedirectionURL' instead." #-}
 
 -- | The content of the custom verification email.
 --
 -- /Note:/ Consider using 'templateContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsTemplateContent :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Lude.Maybe Lude.Text)
-gcvetrsTemplateContent = Lens.lens (templateContent :: GetCustomVerificationEmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateContent = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsTemplateContent "Use generic-lens or generic-optics with 'templateContent' instead." #-}
+gcvetrrsTemplateContent :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Types.TemplateContent)
+gcvetrrsTemplateContent = Lens.field @"templateContent"
+{-# DEPRECATED gcvetrrsTemplateContent "Use generic-lens or generic-optics with 'templateContent' instead." #-}
+
+-- | The name of the custom verification email template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvetrrsTemplateName :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Types.TemplateName)
+gcvetrrsTemplateName = Lens.field @"templateName"
+{-# DEPRECATED gcvetrrsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | The subject line of the custom verification email.
+--
+-- /Note:/ Consider using 'templateSubject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvetrrsTemplateSubject :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Types.Subject)
+gcvetrrsTemplateSubject = Lens.field @"templateSubject"
+{-# DEPRECATED gcvetrrsTemplateSubject "Use generic-lens or generic-optics with 'templateSubject' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvetrsResponseStatus :: Lens.Lens' GetCustomVerificationEmailTemplateResponse Lude.Int
-gcvetrsResponseStatus = Lens.lens (responseStatus :: GetCustomVerificationEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCustomVerificationEmailTemplateResponse)
-{-# DEPRECATED gcvetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcvetrrsResponseStatus :: Lens.Lens' GetCustomVerificationEmailTemplateResponse Core.Int
+gcvetrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcvetrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

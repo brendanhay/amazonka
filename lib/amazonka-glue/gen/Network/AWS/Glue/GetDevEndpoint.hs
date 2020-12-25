@@ -27,108 +27,95 @@ module Network.AWS.Glue.GetDevEndpoint
     mkGetDevEndpointResponse,
 
     -- ** Response lenses
-    gdefrsDevEndpoint,
-    gdefrsResponseStatus,
+    gderfrsDevEndpoint,
+    gderfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDevEndpoint' smart constructor.
 newtype GetDevEndpoint = GetDevEndpoint'
   { -- | Name of the @DevEndpoint@ to retrieve information for.
-    endpointName :: Lude.Text
+    endpointName :: Types.EndpointName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDevEndpoint' with the minimum fields required to make a request.
---
--- * 'endpointName' - Name of the @DevEndpoint@ to retrieve information for.
+-- | Creates a 'GetDevEndpoint' value with any optional fields omitted.
 mkGetDevEndpoint ::
   -- | 'endpointName'
-  Lude.Text ->
+  Types.EndpointName ->
   GetDevEndpoint
-mkGetDevEndpoint pEndpointName_ =
-  GetDevEndpoint' {endpointName = pEndpointName_}
+mkGetDevEndpoint endpointName = GetDevEndpoint' {endpointName}
 
 -- | Name of the @DevEndpoint@ to retrieve information for.
 --
 -- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdeEndpointName :: Lens.Lens' GetDevEndpoint Lude.Text
-gdeEndpointName = Lens.lens (endpointName :: GetDevEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: GetDevEndpoint)
+gdeEndpointName :: Lens.Lens' GetDevEndpoint Types.EndpointName
+gdeEndpointName = Lens.field @"endpointName"
 {-# DEPRECATED gdeEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
-instance Lude.AWSRequest GetDevEndpoint where
+instance Core.FromJSON GetDevEndpoint where
+  toJSON GetDevEndpoint {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EndpointName" Core..= endpointName)])
+
+instance Core.AWSRequest GetDevEndpoint where
   type Rs GetDevEndpoint = GetDevEndpointResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetDevEndpoint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDevEndpointResponse'
-            Lude.<$> (x Lude..?> "DevEndpoint") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DevEndpoint") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDevEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetDevEndpoint" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDevEndpoint where
-  toJSON GetDevEndpoint' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EndpointName" Lude..= endpointName)])
-
-instance Lude.ToPath GetDevEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDevEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDevEndpointResponse' smart constructor.
 data GetDevEndpointResponse = GetDevEndpointResponse'
   { -- | A @DevEndpoint@ definition.
-    devEndpoint :: Lude.Maybe DevEndpoint,
+    devEndpoint :: Core.Maybe Types.DevEndpoint,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDevEndpointResponse' with the minimum fields required to make a request.
---
--- * 'devEndpoint' - A @DevEndpoint@ definition.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDevEndpointResponse' value with any optional fields omitted.
 mkGetDevEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDevEndpointResponse
-mkGetDevEndpointResponse pResponseStatus_ =
+mkGetDevEndpointResponse responseStatus =
   GetDevEndpointResponse'
-    { devEndpoint = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { devEndpoint = Core.Nothing,
+      responseStatus
     }
 
 -- | A @DevEndpoint@ definition.
 --
 -- /Note:/ Consider using 'devEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdefrsDevEndpoint :: Lens.Lens' GetDevEndpointResponse (Lude.Maybe DevEndpoint)
-gdefrsDevEndpoint = Lens.lens (devEndpoint :: GetDevEndpointResponse -> Lude.Maybe DevEndpoint) (\s a -> s {devEndpoint = a} :: GetDevEndpointResponse)
-{-# DEPRECATED gdefrsDevEndpoint "Use generic-lens or generic-optics with 'devEndpoint' instead." #-}
+gderfrsDevEndpoint :: Lens.Lens' GetDevEndpointResponse (Core.Maybe Types.DevEndpoint)
+gderfrsDevEndpoint = Lens.field @"devEndpoint"
+{-# DEPRECATED gderfrsDevEndpoint "Use generic-lens or generic-optics with 'devEndpoint' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdefrsResponseStatus :: Lens.Lens' GetDevEndpointResponse Lude.Int
-gdefrsResponseStatus = Lens.lens (responseStatus :: GetDevEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDevEndpointResponse)
-{-# DEPRECATED gdefrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gderfrsResponseStatus :: Lens.Lens' GetDevEndpointResponse Core.Int
+gderfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gderfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

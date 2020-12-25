@@ -21,34 +21,32 @@ module Network.AWS.CodeBuild.Types.ReportFilter
   )
 where
 
-import Network.AWS.CodeBuild.Types.ReportStatusType
+import qualified Network.AWS.CodeBuild.Types.ReportStatusType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A filter used to return reports with the status specified by the input @status@ parameter.
 --
 -- /See:/ 'mkReportFilter' smart constructor.
 newtype ReportFilter = ReportFilter'
   { -- | The status used to filter reports. You can filter using one status only.
-    status :: Lude.Maybe ReportStatusType
+    status :: Core.Maybe Types.ReportStatusType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportFilter' with the minimum fields required to make a request.
---
--- * 'status' - The status used to filter reports. You can filter using one status only.
+-- | Creates a 'ReportFilter' value with any optional fields omitted.
 mkReportFilter ::
   ReportFilter
-mkReportFilter = ReportFilter' {status = Lude.Nothing}
+mkReportFilter = ReportFilter' {status = Core.Nothing}
 
 -- | The status used to filter reports. You can filter using one status only.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfStatus :: Lens.Lens' ReportFilter (Lude.Maybe ReportStatusType)
-rfStatus = Lens.lens (status :: ReportFilter -> Lude.Maybe ReportStatusType) (\s a -> s {status = a} :: ReportFilter)
+rfStatus :: Lens.Lens' ReportFilter (Core.Maybe Types.ReportStatusType)
+rfStatus = Lens.field @"status"
 {-# DEPRECATED rfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.ToJSON ReportFilter where
-  toJSON ReportFilter' {..} =
-    Lude.object (Lude.catMaybes [("status" Lude..=) Lude.<$> status])
+instance Core.FromJSON ReportFilter where
+  toJSON ReportFilter {..} =
+    Core.object (Core.catMaybes [("status" Core..=) Core.<$> status])

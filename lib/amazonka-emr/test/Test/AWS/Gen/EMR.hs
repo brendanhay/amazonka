@@ -582,7 +582,7 @@ responseRunJobFlow =
   res
     "RunJobFlowResponse"
     "fixture/RunJobFlowResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy RunJobFlow)
 
 responseRemoveAutoScalingPolicy :: RemoveAutoScalingPolicyResponse -> TestTree
@@ -590,7 +590,7 @@ responseRemoveAutoScalingPolicy =
   res
     "RemoveAutoScalingPolicyResponse"
     "fixture/RemoveAutoScalingPolicyResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy RemoveAutoScalingPolicy)
 
 responseCreateStudio :: CreateStudioResponse -> TestTree
@@ -598,7 +598,7 @@ responseCreateStudio =
   res
     "CreateStudioResponse"
     "fixture/CreateStudioResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy CreateStudio)
 
 responseSetVisibleToAllUsers :: SetVisibleToAllUsersResponse -> TestTree
@@ -606,7 +606,7 @@ responseSetVisibleToAllUsers =
   res
     "SetVisibleToAllUsersResponse"
     "fixture/SetVisibleToAllUsersResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy SetVisibleToAllUsers)
 
 responseTerminateJobFlows :: TerminateJobFlowsResponse -> TestTree
@@ -614,7 +614,7 @@ responseTerminateJobFlows =
   res
     "TerminateJobFlowsResponse"
     "fixture/TerminateJobFlowsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy TerminateJobFlows)
 
 responseDescribeStep :: DescribeStepResponse -> TestTree
@@ -622,7 +622,7 @@ responseDescribeStep =
   res
     "DescribeStepResponse"
     "fixture/DescribeStepResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStep)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -630,7 +630,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
@@ -638,7 +638,7 @@ responseDescribeCluster =
   res
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCluster)
 
 responseListSecurityConfigurations :: ListSecurityConfigurationsResponse -> TestTree
@@ -646,7 +646,7 @@ responseListSecurityConfigurations =
   res
     "ListSecurityConfigurationsResponse"
     "fixture/ListSecurityConfigurationsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListSecurityConfigurations)
 
 responseCancelSteps :: CancelStepsResponse -> TestTree
@@ -654,7 +654,7 @@ responseCancelSteps =
   res
     "CancelStepsResponse"
     "fixture/CancelStepsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy CancelSteps)
 
 responseListNotebookExecutions :: ListNotebookExecutionsResponse -> TestTree
@@ -662,7 +662,7 @@ responseListNotebookExecutions =
   res
     "ListNotebookExecutionsResponse"
     "fixture/ListNotebookExecutionsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListNotebookExecutions)
 
 responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
@@ -670,7 +670,7 @@ responseCreateSecurityConfiguration =
   res
     "CreateSecurityConfigurationResponse"
     "fixture/CreateSecurityConfigurationResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy CreateSecurityConfiguration)
 
 responseSetTerminationProtection :: SetTerminationProtectionResponse -> TestTree
@@ -678,7 +678,7 @@ responseSetTerminationProtection =
   res
     "SetTerminationProtectionResponse"
     "fixture/SetTerminationProtectionResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy SetTerminationProtection)
 
 responseAddJobFlowSteps :: AddJobFlowStepsResponse -> TestTree
@@ -686,7 +686,7 @@ responseAddJobFlowSteps =
   res
     "AddJobFlowStepsResponse"
     "fixture/AddJobFlowStepsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy AddJobFlowSteps)
 
 responseDescribeStudio :: DescribeStudioResponse -> TestTree
@@ -694,7 +694,7 @@ responseDescribeStudio =
   res
     "DescribeStudioResponse"
     "fixture/DescribeStudioResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStudio)
 
 responseModifyInstanceGroups :: ModifyInstanceGroupsResponse -> TestTree
@@ -702,7 +702,7 @@ responseModifyInstanceGroups =
   res
     "ModifyInstanceGroupsResponse"
     "fixture/ModifyInstanceGroupsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ModifyInstanceGroups)
 
 responseStartNotebookExecution :: StartNotebookExecutionResponse -> TestTree
@@ -710,7 +710,7 @@ responseStartNotebookExecution =
   res
     "StartNotebookExecutionResponse"
     "fixture/StartNotebookExecutionResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy StartNotebookExecution)
 
 responseListSteps :: ListStepsResponse -> TestTree
@@ -718,7 +718,7 @@ responseListSteps =
   res
     "ListStepsResponse"
     "fixture/ListStepsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListSteps)
 
 responseCreateStudioSessionMapping :: CreateStudioSessionMappingResponse -> TestTree
@@ -726,7 +726,7 @@ responseCreateStudioSessionMapping =
   res
     "CreateStudioSessionMappingResponse"
     "fixture/CreateStudioSessionMappingResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy CreateStudioSessionMapping)
 
 responseAddInstanceFleet :: AddInstanceFleetResponse -> TestTree
@@ -734,7 +734,7 @@ responseAddInstanceFleet =
   res
     "AddInstanceFleetResponse"
     "fixture/AddInstanceFleetResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy AddInstanceFleet)
 
 responseDeleteStudio :: DeleteStudioResponse -> TestTree
@@ -742,7 +742,7 @@ responseDeleteStudio =
   res
     "DeleteStudioResponse"
     "fixture/DeleteStudioResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStudio)
 
 responseListStudios :: ListStudiosResponse -> TestTree
@@ -750,7 +750,7 @@ responseListStudios =
   res
     "ListStudiosResponse"
     "fixture/ListStudiosResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListStudios)
 
 responsePutManagedScalingPolicy :: PutManagedScalingPolicyResponse -> TestTree
@@ -758,7 +758,7 @@ responsePutManagedScalingPolicy =
   res
     "PutManagedScalingPolicyResponse"
     "fixture/PutManagedScalingPolicyResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy PutManagedScalingPolicy)
 
 responseAddInstanceGroups :: AddInstanceGroupsResponse -> TestTree
@@ -766,7 +766,7 @@ responseAddInstanceGroups =
   res
     "AddInstanceGroupsResponse"
     "fixture/AddInstanceGroupsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy AddInstanceGroups)
 
 responseGetStudioSessionMapping :: GetStudioSessionMappingResponse -> TestTree
@@ -774,7 +774,7 @@ responseGetStudioSessionMapping =
   res
     "GetStudioSessionMappingResponse"
     "fixture/GetStudioSessionMappingResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy GetStudioSessionMapping)
 
 responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
@@ -782,7 +782,7 @@ responseDeleteSecurityConfiguration =
   res
     "DeleteSecurityConfigurationResponse"
     "fixture/DeleteSecurityConfigurationResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSecurityConfiguration)
 
 responseModifyInstanceFleet :: ModifyInstanceFleetResponse -> TestTree
@@ -790,7 +790,7 @@ responseModifyInstanceFleet =
   res
     "ModifyInstanceFleetResponse"
     "fixture/ModifyInstanceFleetResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ModifyInstanceFleet)
 
 responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
@@ -798,7 +798,7 @@ responseListInstanceGroups =
   res
     "ListInstanceGroupsResponse"
     "fixture/ListInstanceGroupsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListInstanceGroups)
 
 responseGetBlockPublicAccessConfiguration :: GetBlockPublicAccessConfigurationResponse -> TestTree
@@ -806,7 +806,7 @@ responseGetBlockPublicAccessConfiguration =
   res
     "GetBlockPublicAccessConfigurationResponse"
     "fixture/GetBlockPublicAccessConfigurationResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy GetBlockPublicAccessConfiguration)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
@@ -814,7 +814,7 @@ responseModifyCluster =
   res
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCluster)
 
 responsePutBlockPublicAccessConfiguration :: PutBlockPublicAccessConfigurationResponse -> TestTree
@@ -822,7 +822,7 @@ responsePutBlockPublicAccessConfiguration =
   res
     "PutBlockPublicAccessConfigurationResponse"
     "fixture/PutBlockPublicAccessConfigurationResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy PutBlockPublicAccessConfiguration)
 
 responseListBootstrapActions :: ListBootstrapActionsResponse -> TestTree
@@ -830,7 +830,7 @@ responseListBootstrapActions =
   res
     "ListBootstrapActionsResponse"
     "fixture/ListBootstrapActionsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListBootstrapActions)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -838,7 +838,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseListInstances :: ListInstancesResponse -> TestTree
@@ -846,7 +846,7 @@ responseListInstances =
   res
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListInstances)
 
 responsePutAutoScalingPolicy :: PutAutoScalingPolicyResponse -> TestTree
@@ -854,7 +854,7 @@ responsePutAutoScalingPolicy =
   res
     "PutAutoScalingPolicyResponse"
     "fixture/PutAutoScalingPolicyResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy PutAutoScalingPolicy)
 
 responseDeleteStudioSessionMapping :: DeleteStudioSessionMappingResponse -> TestTree
@@ -862,7 +862,7 @@ responseDeleteStudioSessionMapping =
   res
     "DeleteStudioSessionMappingResponse"
     "fixture/DeleteStudioSessionMappingResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStudioSessionMapping)
 
 responseUpdateStudioSessionMapping :: UpdateStudioSessionMappingResponse -> TestTree
@@ -870,7 +870,7 @@ responseUpdateStudioSessionMapping =
   res
     "UpdateStudioSessionMappingResponse"
     "fixture/UpdateStudioSessionMappingResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStudioSessionMapping)
 
 responseListClusters :: ListClustersResponse -> TestTree
@@ -878,7 +878,7 @@ responseListClusters =
   res
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListClusters)
 
 responseDescribeSecurityConfiguration :: DescribeSecurityConfigurationResponse -> TestTree
@@ -886,7 +886,7 @@ responseDescribeSecurityConfiguration =
   res
     "DescribeSecurityConfigurationResponse"
     "fixture/DescribeSecurityConfigurationResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSecurityConfiguration)
 
 responseStopNotebookExecution :: StopNotebookExecutionResponse -> TestTree
@@ -894,7 +894,7 @@ responseStopNotebookExecution =
   res
     "StopNotebookExecutionResponse"
     "fixture/StopNotebookExecutionResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy StopNotebookExecution)
 
 responseListStudioSessionMappings :: ListStudioSessionMappingsResponse -> TestTree
@@ -902,7 +902,7 @@ responseListStudioSessionMappings =
   res
     "ListStudioSessionMappingsResponse"
     "fixture/ListStudioSessionMappingsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListStudioSessionMappings)
 
 responseGetManagedScalingPolicy :: GetManagedScalingPolicyResponse -> TestTree
@@ -910,7 +910,7 @@ responseGetManagedScalingPolicy =
   res
     "GetManagedScalingPolicyResponse"
     "fixture/GetManagedScalingPolicyResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy GetManagedScalingPolicy)
 
 responseListInstanceFleets :: ListInstanceFleetsResponse -> TestTree
@@ -918,7 +918,7 @@ responseListInstanceFleets =
   res
     "ListInstanceFleetsResponse"
     "fixture/ListInstanceFleetsResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy ListInstanceFleets)
 
 responseRemoveManagedScalingPolicy :: RemoveManagedScalingPolicyResponse -> TestTree
@@ -926,7 +926,7 @@ responseRemoveManagedScalingPolicy =
   res
     "RemoveManagedScalingPolicyResponse"
     "fixture/RemoveManagedScalingPolicyResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy RemoveManagedScalingPolicy)
 
 responseDescribeNotebookExecution :: DescribeNotebookExecutionResponse -> TestTree
@@ -934,5 +934,5 @@ responseDescribeNotebookExecution =
   res
     "DescribeNotebookExecutionResponse"
     "fixture/DescribeNotebookExecutionResponse.proto"
-    emrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNotebookExecution)

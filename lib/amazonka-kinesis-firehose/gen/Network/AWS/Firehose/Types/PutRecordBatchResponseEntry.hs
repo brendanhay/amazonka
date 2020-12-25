@@ -17,71 +17,68 @@ module Network.AWS.Firehose.Types.PutRecordBatchResponseEntry
     mkPutRecordBatchResponseEntry,
 
     -- * Lenses
-    prbreRecordId,
     prbreErrorCode,
     prbreErrorMessage,
+    prbreRecordId,
   )
 where
 
+import qualified Network.AWS.Firehose.Types.ErrorCode as Types
+import qualified Network.AWS.Firehose.Types.ErrorMessage as Types
+import qualified Network.AWS.Firehose.Types.RecordId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the result for an individual record from a 'PutRecordBatch' request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message.
 --
 -- /See:/ 'mkPutRecordBatchResponseEntry' smart constructor.
 data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
-  { -- | The ID of the record.
-    recordId :: Lude.Maybe Lude.Text,
-    -- | The error code for an individual record result.
-    errorCode :: Lude.Maybe Lude.Text,
+  { -- | The error code for an individual record result.
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The error message for an individual record result.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The ID of the record.
+    recordId :: Core.Maybe Types.RecordId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordBatchResponseEntry' with the minimum fields required to make a request.
---
--- * 'recordId' - The ID of the record.
--- * 'errorCode' - The error code for an individual record result.
--- * 'errorMessage' - The error message for an individual record result.
+-- | Creates a 'PutRecordBatchResponseEntry' value with any optional fields omitted.
 mkPutRecordBatchResponseEntry ::
   PutRecordBatchResponseEntry
 mkPutRecordBatchResponseEntry =
   PutRecordBatchResponseEntry'
-    { recordId = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      recordId = Core.Nothing
     }
-
--- | The ID of the record.
---
--- /Note:/ Consider using 'recordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbreRecordId :: Lens.Lens' PutRecordBatchResponseEntry (Lude.Maybe Lude.Text)
-prbreRecordId = Lens.lens (recordId :: PutRecordBatchResponseEntry -> Lude.Maybe Lude.Text) (\s a -> s {recordId = a} :: PutRecordBatchResponseEntry)
-{-# DEPRECATED prbreRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}
 
 -- | The error code for an individual record result.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbreErrorCode :: Lens.Lens' PutRecordBatchResponseEntry (Lude.Maybe Lude.Text)
-prbreErrorCode = Lens.lens (errorCode :: PutRecordBatchResponseEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: PutRecordBatchResponseEntry)
+prbreErrorCode :: Lens.Lens' PutRecordBatchResponseEntry (Core.Maybe Types.ErrorCode)
+prbreErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED prbreErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message for an individual record result.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbreErrorMessage :: Lens.Lens' PutRecordBatchResponseEntry (Lude.Maybe Lude.Text)
-prbreErrorMessage = Lens.lens (errorMessage :: PutRecordBatchResponseEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: PutRecordBatchResponseEntry)
+prbreErrorMessage :: Lens.Lens' PutRecordBatchResponseEntry (Core.Maybe Types.ErrorMessage)
+prbreErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED prbreErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON PutRecordBatchResponseEntry where
+-- | The ID of the record.
+--
+-- /Note:/ Consider using 'recordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prbreRecordId :: Lens.Lens' PutRecordBatchResponseEntry (Core.Maybe Types.RecordId)
+prbreRecordId = Lens.field @"recordId"
+{-# DEPRECATED prbreRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}
+
+instance Core.FromJSON PutRecordBatchResponseEntry where
   parseJSON =
-    Lude.withObject
-      "PutRecordBatchResponseEntry"
-      ( \x ->
-          PutRecordBatchResponseEntry'
-            Lude.<$> (x Lude..:? "RecordId")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "PutRecordBatchResponseEntry" Core.$
+      \x ->
+        PutRecordBatchResponseEntry'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "RecordId")

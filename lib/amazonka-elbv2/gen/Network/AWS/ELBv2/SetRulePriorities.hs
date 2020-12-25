@@ -29,102 +29,98 @@ module Network.AWS.ELBv2.SetRulePriorities
     mkSetRulePrioritiesResponse,
 
     -- ** Response lenses
-    srprsRules,
-    srprsResponseStatus,
+    srprrsRules,
+    srprrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetRulePriorities' smart constructor.
 newtype SetRulePriorities = SetRulePriorities'
   { -- | The rule priorities.
-    rulePriorities :: [RulePriorityPair]
+    rulePriorities :: [Types.RulePriorityPair]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetRulePriorities' with the minimum fields required to make a request.
---
--- * 'rulePriorities' - The rule priorities.
+-- | Creates a 'SetRulePriorities' value with any optional fields omitted.
 mkSetRulePriorities ::
   SetRulePriorities
 mkSetRulePriorities =
-  SetRulePriorities' {rulePriorities = Lude.mempty}
+  SetRulePriorities' {rulePriorities = Core.mempty}
 
 -- | The rule priorities.
 --
 -- /Note:/ Consider using 'rulePriorities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srpRulePriorities :: Lens.Lens' SetRulePriorities [RulePriorityPair]
-srpRulePriorities = Lens.lens (rulePriorities :: SetRulePriorities -> [RulePriorityPair]) (\s a -> s {rulePriorities = a} :: SetRulePriorities)
+srpRulePriorities :: Lens.Lens' SetRulePriorities [Types.RulePriorityPair]
+srpRulePriorities = Lens.field @"rulePriorities"
 {-# DEPRECATED srpRulePriorities "Use generic-lens or generic-optics with 'rulePriorities' instead." #-}
 
-instance Lude.AWSRequest SetRulePriorities where
+instance Core.AWSRequest SetRulePriorities where
   type Rs SetRulePriorities = SetRulePrioritiesResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetRulePriorities")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "RulePriorities"
+                            (Core.toQueryList "member" rulePriorities)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetRulePrioritiesResult"
       ( \s h x ->
           SetRulePrioritiesResponse'
-            Lude.<$> ( x Lude..@? "Rules" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Rules" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetRulePriorities where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetRulePriorities where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetRulePriorities where
-  toQuery SetRulePriorities' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetRulePriorities" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "RulePriorities" Lude.=: Lude.toQueryList "member" rulePriorities
-      ]
 
 -- | /See:/ 'mkSetRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
   { -- | Information about the rules.
-    rules :: Lude.Maybe [Rule],
+    rules :: Core.Maybe [Types.Rule],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetRulePrioritiesResponse' with the minimum fields required to make a request.
---
--- * 'rules' - Information about the rules.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetRulePrioritiesResponse' value with any optional fields omitted.
 mkSetRulePrioritiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetRulePrioritiesResponse
-mkSetRulePrioritiesResponse pResponseStatus_ =
-  SetRulePrioritiesResponse'
-    { rules = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkSetRulePrioritiesResponse responseStatus =
+  SetRulePrioritiesResponse' {rules = Core.Nothing, responseStatus}
 
 -- | Information about the rules.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srprsRules :: Lens.Lens' SetRulePrioritiesResponse (Lude.Maybe [Rule])
-srprsRules = Lens.lens (rules :: SetRulePrioritiesResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: SetRulePrioritiesResponse)
-{-# DEPRECATED srprsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+srprrsRules :: Lens.Lens' SetRulePrioritiesResponse (Core.Maybe [Types.Rule])
+srprrsRules = Lens.field @"rules"
+{-# DEPRECATED srprrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srprsResponseStatus :: Lens.Lens' SetRulePrioritiesResponse Lude.Int
-srprsResponseStatus = Lens.lens (responseStatus :: SetRulePrioritiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetRulePrioritiesResponse)
-{-# DEPRECATED srprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srprrsResponseStatus :: Lens.Lens' SetRulePrioritiesResponse Core.Int
+srprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

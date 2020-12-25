@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.Scte35DeviceRestrictions
   ( Scte35DeviceRestrictions
       ( Scte35DeviceRestrictions',
-        SDRNone,
-        SDRRestrictGROUP0,
-        SDRRestrictGROUP1,
-        SDRRestrictGROUP2
+        Scte35DeviceRestrictionsNone,
+        Scte35DeviceRestrictionsRestrictGROUP0,
+        Scte35DeviceRestrictionsRestrictGROUP1,
+        Scte35DeviceRestrictionsRestrictGROUP2,
+        fromScte35DeviceRestrictions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Corresponds to the device_restrictions parameter in a segmentation_descriptor. If you include one of the "restriction" flags then you must include all four of them.
-newtype Scte35DeviceRestrictions = Scte35DeviceRestrictions' Lude.Text
+newtype Scte35DeviceRestrictions = Scte35DeviceRestrictions'
+  { fromScte35DeviceRestrictions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SDRNone :: Scte35DeviceRestrictions
-pattern SDRNone = Scte35DeviceRestrictions' "NONE"
+pattern Scte35DeviceRestrictionsNone :: Scte35DeviceRestrictions
+pattern Scte35DeviceRestrictionsNone = Scte35DeviceRestrictions' "NONE"
 
-pattern SDRRestrictGROUP0 :: Scte35DeviceRestrictions
-pattern SDRRestrictGROUP0 = Scte35DeviceRestrictions' "RESTRICT_GROUP0"
+pattern Scte35DeviceRestrictionsRestrictGROUP0 :: Scte35DeviceRestrictions
+pattern Scte35DeviceRestrictionsRestrictGROUP0 = Scte35DeviceRestrictions' "RESTRICT_GROUP0"
 
-pattern SDRRestrictGROUP1 :: Scte35DeviceRestrictions
-pattern SDRRestrictGROUP1 = Scte35DeviceRestrictions' "RESTRICT_GROUP1"
+pattern Scte35DeviceRestrictionsRestrictGROUP1 :: Scte35DeviceRestrictions
+pattern Scte35DeviceRestrictionsRestrictGROUP1 = Scte35DeviceRestrictions' "RESTRICT_GROUP1"
 
-pattern SDRRestrictGROUP2 :: Scte35DeviceRestrictions
-pattern SDRRestrictGROUP2 = Scte35DeviceRestrictions' "RESTRICT_GROUP2"
+pattern Scte35DeviceRestrictionsRestrictGROUP2 :: Scte35DeviceRestrictions
+pattern Scte35DeviceRestrictionsRestrictGROUP2 = Scte35DeviceRestrictions' "RESTRICT_GROUP2"
 
 {-# COMPLETE
-  SDRNone,
-  SDRRestrictGROUP0,
-  SDRRestrictGROUP1,
-  SDRRestrictGROUP2,
+  Scte35DeviceRestrictionsNone,
+  Scte35DeviceRestrictionsRestrictGROUP0,
+  Scte35DeviceRestrictionsRestrictGROUP1,
+  Scte35DeviceRestrictionsRestrictGROUP2,
   Scte35DeviceRestrictions'
   #-}

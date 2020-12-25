@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.UserProfileSortKey
   ( UserProfileSortKey
       ( UserProfileSortKey',
-        UPSKCreationTime,
-        UPSKLastModifiedTime
+        UserProfileSortKeyCreationTime,
+        UserProfileSortKeyLastModifiedTime,
+        fromUserProfileSortKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserProfileSortKey = UserProfileSortKey' Lude.Text
+newtype UserProfileSortKey = UserProfileSortKey'
+  { fromUserProfileSortKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UPSKCreationTime :: UserProfileSortKey
-pattern UPSKCreationTime = UserProfileSortKey' "CreationTime"
+pattern UserProfileSortKeyCreationTime :: UserProfileSortKey
+pattern UserProfileSortKeyCreationTime = UserProfileSortKey' "CreationTime"
 
-pattern UPSKLastModifiedTime :: UserProfileSortKey
-pattern UPSKLastModifiedTime = UserProfileSortKey' "LastModifiedTime"
+pattern UserProfileSortKeyLastModifiedTime :: UserProfileSortKey
+pattern UserProfileSortKeyLastModifiedTime = UserProfileSortKey' "LastModifiedTime"
 
 {-# COMPLETE
-  UPSKCreationTime,
-  UPSKLastModifiedTime,
+  UserProfileSortKeyCreationTime,
+  UserProfileSortKeyLastModifiedTime,
   UserProfileSortKey'
   #-}

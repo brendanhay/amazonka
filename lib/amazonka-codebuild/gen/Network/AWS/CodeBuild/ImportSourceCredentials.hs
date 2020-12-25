@@ -20,176 +20,161 @@ module Network.AWS.CodeBuild.ImportSourceCredentials
     mkImportSourceCredentials,
 
     -- ** Request lenses
-    iscServerType,
     iscToken,
-    iscUsername,
-    iscShouldOverwrite,
+    iscServerType,
     iscAuthType,
+    iscShouldOverwrite,
+    iscUsername,
 
     -- * Destructuring the response
     ImportSourceCredentialsResponse (..),
     mkImportSourceCredentialsResponse,
 
     -- ** Response lenses
-    iscrsArn,
-    iscrsResponseStatus,
+    iscrrsArn,
+    iscrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkImportSourceCredentials' smart constructor.
 data ImportSourceCredentials = ImportSourceCredentials'
-  { -- | The source provider used for this project.
-    serverType :: ServerType,
-    -- | For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is the app password.
-    token :: Lude.Sensitive Lude.Text,
-    -- | The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter is not valid for other types of source providers or connections.
-    username :: Lude.Maybe Lude.Text,
-    -- | Set to @false@ to prevent overwriting the repository source credentials. Set to @true@ to overwrite the repository source credentials. The default value is @true@ .
-    shouldOverwrite :: Lude.Maybe Lude.Bool,
+  { -- | For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is the app password.
+    token :: Types.Token,
+    -- | The source provider used for this project.
+    serverType :: Types.ServerType,
     -- | The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API and must be created using the AWS CodeBuild console.
-    authType :: AuthType
+    authType :: Types.AuthType,
+    -- | Set to @false@ to prevent overwriting the repository source credentials. Set to @true@ to overwrite the repository source credentials. The default value is @true@ .
+    shouldOverwrite :: Core.Maybe Core.Bool,
+    -- | The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter is not valid for other types of source providers or connections.
+    username :: Core.Maybe Types.Username
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportSourceCredentials' with the minimum fields required to make a request.
---
--- * 'serverType' - The source provider used for this project.
--- * 'token' - For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is the app password.
--- * 'username' - The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter is not valid for other types of source providers or connections.
--- * 'shouldOverwrite' - Set to @false@ to prevent overwriting the repository source credentials. Set to @true@ to overwrite the repository source credentials. The default value is @true@ .
--- * 'authType' - The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API and must be created using the AWS CodeBuild console.
+-- | Creates a 'ImportSourceCredentials' value with any optional fields omitted.
 mkImportSourceCredentials ::
-  -- | 'serverType'
-  ServerType ->
   -- | 'token'
-  Lude.Sensitive Lude.Text ->
+  Types.Token ->
+  -- | 'serverType'
+  Types.ServerType ->
   -- | 'authType'
-  AuthType ->
+  Types.AuthType ->
   ImportSourceCredentials
-mkImportSourceCredentials pServerType_ pToken_ pAuthType_ =
+mkImportSourceCredentials token serverType authType =
   ImportSourceCredentials'
-    { serverType = pServerType_,
-      token = pToken_,
-      username = Lude.Nothing,
-      shouldOverwrite = Lude.Nothing,
-      authType = pAuthType_
+    { token,
+      serverType,
+      authType,
+      shouldOverwrite = Core.Nothing,
+      username = Core.Nothing
     }
-
--- | The source provider used for this project.
---
--- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscServerType :: Lens.Lens' ImportSourceCredentials ServerType
-iscServerType = Lens.lens (serverType :: ImportSourceCredentials -> ServerType) (\s a -> s {serverType = a} :: ImportSourceCredentials)
-{-# DEPRECATED iscServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
 
 -- | For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is the app password.
 --
 -- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscToken :: Lens.Lens' ImportSourceCredentials (Lude.Sensitive Lude.Text)
-iscToken = Lens.lens (token :: ImportSourceCredentials -> Lude.Sensitive Lude.Text) (\s a -> s {token = a} :: ImportSourceCredentials)
+iscToken :: Lens.Lens' ImportSourceCredentials Types.Token
+iscToken = Lens.field @"token"
 {-# DEPRECATED iscToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
--- | The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter is not valid for other types of source providers or connections.
+-- | The source provider used for this project.
 --
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscUsername :: Lens.Lens' ImportSourceCredentials (Lude.Maybe Lude.Text)
-iscUsername = Lens.lens (username :: ImportSourceCredentials -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: ImportSourceCredentials)
-{-# DEPRECATED iscUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
--- | Set to @false@ to prevent overwriting the repository source credentials. Set to @true@ to overwrite the repository source credentials. The default value is @true@ .
---
--- /Note:/ Consider using 'shouldOverwrite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscShouldOverwrite :: Lens.Lens' ImportSourceCredentials (Lude.Maybe Lude.Bool)
-iscShouldOverwrite = Lens.lens (shouldOverwrite :: ImportSourceCredentials -> Lude.Maybe Lude.Bool) (\s a -> s {shouldOverwrite = a} :: ImportSourceCredentials)
-{-# DEPRECATED iscShouldOverwrite "Use generic-lens or generic-optics with 'shouldOverwrite' instead." #-}
+-- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscServerType :: Lens.Lens' ImportSourceCredentials Types.ServerType
+iscServerType = Lens.field @"serverType"
+{-# DEPRECATED iscServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
 
 -- | The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API and must be created using the AWS CodeBuild console.
 --
 -- /Note:/ Consider using 'authType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscAuthType :: Lens.Lens' ImportSourceCredentials AuthType
-iscAuthType = Lens.lens (authType :: ImportSourceCredentials -> AuthType) (\s a -> s {authType = a} :: ImportSourceCredentials)
+iscAuthType :: Lens.Lens' ImportSourceCredentials Types.AuthType
+iscAuthType = Lens.field @"authType"
 {-# DEPRECATED iscAuthType "Use generic-lens or generic-optics with 'authType' instead." #-}
 
-instance Lude.AWSRequest ImportSourceCredentials where
+-- | Set to @false@ to prevent overwriting the repository source credentials. Set to @true@ to overwrite the repository source credentials. The default value is @true@ .
+--
+-- /Note:/ Consider using 'shouldOverwrite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscShouldOverwrite :: Lens.Lens' ImportSourceCredentials (Core.Maybe Core.Bool)
+iscShouldOverwrite = Lens.field @"shouldOverwrite"
+{-# DEPRECATED iscShouldOverwrite "Use generic-lens or generic-optics with 'shouldOverwrite' instead." #-}
+
+-- | The Bitbucket username when the @authType@ is BASIC_AUTH. This parameter is not valid for other types of source providers or connections.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscUsername :: Lens.Lens' ImportSourceCredentials (Core.Maybe Types.Username)
+iscUsername = Lens.field @"username"
+{-# DEPRECATED iscUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON ImportSourceCredentials where
+  toJSON ImportSourceCredentials {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("token" Core..= token),
+            Core.Just ("serverType" Core..= serverType),
+            Core.Just ("authType" Core..= authType),
+            ("shouldOverwrite" Core..=) Core.<$> shouldOverwrite,
+            ("username" Core..=) Core.<$> username
+          ]
+      )
+
+instance Core.AWSRequest ImportSourceCredentials where
   type Rs ImportSourceCredentials = ImportSourceCredentialsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.ImportSourceCredentials")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ImportSourceCredentialsResponse'
-            Lude.<$> (x Lude..?> "arn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ImportSourceCredentials where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.ImportSourceCredentials" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ImportSourceCredentials where
-  toJSON ImportSourceCredentials' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("serverType" Lude..= serverType),
-            Lude.Just ("token" Lude..= token),
-            ("username" Lude..=) Lude.<$> username,
-            ("shouldOverwrite" Lude..=) Lude.<$> shouldOverwrite,
-            Lude.Just ("authType" Lude..= authType)
-          ]
-      )
-
-instance Lude.ToPath ImportSourceCredentials where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportSourceCredentials where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkImportSourceCredentialsResponse' smart constructor.
 data ImportSourceCredentialsResponse = ImportSourceCredentialsResponse'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.NonEmptyString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportSourceCredentialsResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ImportSourceCredentialsResponse' value with any optional fields omitted.
 mkImportSourceCredentialsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ImportSourceCredentialsResponse
-mkImportSourceCredentialsResponse pResponseStatus_ =
+mkImportSourceCredentialsResponse responseStatus =
   ImportSourceCredentialsResponse'
-    { arn = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscrsArn :: Lens.Lens' ImportSourceCredentialsResponse (Lude.Maybe Lude.Text)
-iscrsArn = Lens.lens (arn :: ImportSourceCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ImportSourceCredentialsResponse)
-{-# DEPRECATED iscrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+iscrrsArn :: Lens.Lens' ImportSourceCredentialsResponse (Core.Maybe Types.NonEmptyString)
+iscrrsArn = Lens.field @"arn"
+{-# DEPRECATED iscrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscrsResponseStatus :: Lens.Lens' ImportSourceCredentialsResponse Lude.Int
-iscrsResponseStatus = Lens.lens (responseStatus :: ImportSourceCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportSourceCredentialsResponse)
-{-# DEPRECATED iscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+iscrrsResponseStatus :: Lens.Lens' ImportSourceCredentialsResponse Core.Int
+iscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED iscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.KinesisVideoMedia
     Network.AWS.KinesisVideoMedia.GetMedia
@@ -72,8 +78,13 @@ library
     Network.AWS.KinesisVideoMedia.Waiters
 
   other-modules:
+    Network.AWS.KinesisVideoMedia.Types.AfterFragmentNumber
+    Network.AWS.KinesisVideoMedia.Types.ContentType
+    Network.AWS.KinesisVideoMedia.Types.ContinuationToken
     Network.AWS.KinesisVideoMedia.Types.StartSelector
     Network.AWS.KinesisVideoMedia.Types.StartSelectorType
+    Network.AWS.KinesisVideoMedia.Types.StreamARN
+    Network.AWS.KinesisVideoMedia.Types.StreamName
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

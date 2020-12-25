@@ -28,126 +28,106 @@ module Network.AWS.DAX.UntagResource
     mkUntagResourceResponse,
 
     -- ** Response lenses
-    urrsTags,
-    urrsResponseStatus,
+    urrrsTags,
+    urrrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The name of the DAX resource from which the tags should be removed.
-    resourceName :: Lude.Text,
+    resourceName :: Types.String,
     -- | A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'resourceName' - The name of the DAX resource from which the tags should be removed.
--- * 'tagKeys' - A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.String ->
   UntagResource
-mkUntagResource pResourceName_ =
-  UntagResource'
-    { resourceName = pResourceName_,
-      tagKeys = Lude.mempty
-    }
+mkUntagResource resourceName =
+  UntagResource' {resourceName, tagKeys = Core.mempty}
 
 -- | The name of the DAX resource from which the tags should be removed.
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceName :: Lens.Lens' UntagResource Lude.Text
-urResourceName = Lens.lens (resourceName :: UntagResource -> Lude.Text) (\s a -> s {resourceName = a} :: UntagResource)
+urResourceName :: Lens.Lens' UntagResource Types.String
+urResourceName = Lens.field @"resourceName"
 {-# DEPRECATED urResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
+urTagKeys :: Lens.Lens' UntagResource [Types.String]
+urTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest UntagResource where
+instance Core.FromJSON UntagResource where
+  toJSON UntagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceName" Core..= resourceName),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.UntagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UntagResourceResponse'
-            Lude.<$> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Tags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.UntagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UntagResource where
-  toJSON UntagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceName" Lude..= resourceName),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
-          ]
-      )
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   { -- | The tag keys that have been removed from the cluster.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
---
--- * 'tags' - The tag keys that have been removed from the cluster.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagResourceResponse
-mkUntagResourceResponse pResponseStatus_ =
-  UntagResourceResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUntagResourceResponse responseStatus =
+  UntagResourceResponse' {tags = Core.Nothing, responseStatus}
 
 -- | The tag keys that have been removed from the cluster.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsTags :: Lens.Lens' UntagResourceResponse (Lude.Maybe [Tag])
-urrsTags = Lens.lens (tags :: UntagResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UntagResourceResponse)
-{-# DEPRECATED urrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+urrrsTags :: Lens.Lens' UntagResourceResponse (Core.Maybe [Types.Tag])
+urrrsTags = Lens.field @"tags"
+{-# DEPRECATED urrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UntagResourceResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UntagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourceResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UntagResourceResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

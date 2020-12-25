@@ -17,57 +17,51 @@ module Network.AWS.Athena.Types.ResultSet
     mkResultSet,
 
     -- * Lenses
-    rsRows,
     rsResultSetMetadata,
+    rsRows,
   )
 where
 
-import Network.AWS.Athena.Types.ResultSetMetadata
-import Network.AWS.Athena.Types.Row
+import qualified Network.AWS.Athena.Types.ResultSetMetadata as Types
+import qualified Network.AWS.Athena.Types.Row as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The metadata and rows that comprise a query result set. The metadata describes the column structure and data types. To return a @ResultSet@ object, use 'GetQueryResults' .
 --
 -- /See:/ 'mkResultSet' smart constructor.
 data ResultSet = ResultSet'
-  { -- | The rows in the table.
-    rows :: Lude.Maybe [Row],
-    -- | The metadata that describes the column structure and data types of a table of query results.
-    resultSetMetadata :: Lude.Maybe ResultSetMetadata
+  { -- | The metadata that describes the column structure and data types of a table of query results.
+    resultSetMetadata :: Core.Maybe Types.ResultSetMetadata,
+    -- | The rows in the table.
+    rows :: Core.Maybe [Types.Row]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResultSet' with the minimum fields required to make a request.
---
--- * 'rows' - The rows in the table.
--- * 'resultSetMetadata' - The metadata that describes the column structure and data types of a table of query results.
+-- | Creates a 'ResultSet' value with any optional fields omitted.
 mkResultSet ::
   ResultSet
 mkResultSet =
-  ResultSet' {rows = Lude.Nothing, resultSetMetadata = Lude.Nothing}
-
--- | The rows in the table.
---
--- /Note:/ Consider using 'rows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsRows :: Lens.Lens' ResultSet (Lude.Maybe [Row])
-rsRows = Lens.lens (rows :: ResultSet -> Lude.Maybe [Row]) (\s a -> s {rows = a} :: ResultSet)
-{-# DEPRECATED rsRows "Use generic-lens or generic-optics with 'rows' instead." #-}
+  ResultSet' {resultSetMetadata = Core.Nothing, rows = Core.Nothing}
 
 -- | The metadata that describes the column structure and data types of a table of query results.
 --
 -- /Note:/ Consider using 'resultSetMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsResultSetMetadata :: Lens.Lens' ResultSet (Lude.Maybe ResultSetMetadata)
-rsResultSetMetadata = Lens.lens (resultSetMetadata :: ResultSet -> Lude.Maybe ResultSetMetadata) (\s a -> s {resultSetMetadata = a} :: ResultSet)
+rsResultSetMetadata :: Lens.Lens' ResultSet (Core.Maybe Types.ResultSetMetadata)
+rsResultSetMetadata = Lens.field @"resultSetMetadata"
 {-# DEPRECATED rsResultSetMetadata "Use generic-lens or generic-optics with 'resultSetMetadata' instead." #-}
 
-instance Lude.FromJSON ResultSet where
+-- | The rows in the table.
+--
+-- /Note:/ Consider using 'rows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsRows :: Lens.Lens' ResultSet (Core.Maybe [Types.Row])
+rsRows = Lens.field @"rows"
+{-# DEPRECATED rsRows "Use generic-lens or generic-optics with 'rows' instead." #-}
+
+instance Core.FromJSON ResultSet where
   parseJSON =
-    Lude.withObject
-      "ResultSet"
-      ( \x ->
-          ResultSet'
-            Lude.<$> (x Lude..:? "Rows" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ResultSetMetadata")
-      )
+    Core.withObject "ResultSet" Core.$
+      \x ->
+        ResultSet'
+          Core.<$> (x Core..:? "ResultSetMetadata") Core.<*> (x Core..:? "Rows")

@@ -22,65 +22,59 @@ module Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeDescriptionType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeNameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A resource server scope.
 --
 -- /See:/ 'mkResourceServerScopeType' smart constructor.
 data ResourceServerScopeType = ResourceServerScopeType'
   { -- | The name of the scope.
-    scopeName :: Lude.Text,
+    scopeName :: Types.ResourceServerScopeNameType,
     -- | A description of the scope.
-    scopeDescription :: Lude.Text
+    scopeDescription :: Types.ResourceServerScopeDescriptionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceServerScopeType' with the minimum fields required to make a request.
---
--- * 'scopeName' - The name of the scope.
--- * 'scopeDescription' - A description of the scope.
+-- | Creates a 'ResourceServerScopeType' value with any optional fields omitted.
 mkResourceServerScopeType ::
   -- | 'scopeName'
-  Lude.Text ->
+  Types.ResourceServerScopeNameType ->
   -- | 'scopeDescription'
-  Lude.Text ->
+  Types.ResourceServerScopeDescriptionType ->
   ResourceServerScopeType
-mkResourceServerScopeType pScopeName_ pScopeDescription_ =
-  ResourceServerScopeType'
-    { scopeName = pScopeName_,
-      scopeDescription = pScopeDescription_
-    }
+mkResourceServerScopeType scopeName scopeDescription =
+  ResourceServerScopeType' {scopeName, scopeDescription}
 
 -- | The name of the scope.
 --
 -- /Note:/ Consider using 'scopeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsstScopeName :: Lens.Lens' ResourceServerScopeType Lude.Text
-rsstScopeName = Lens.lens (scopeName :: ResourceServerScopeType -> Lude.Text) (\s a -> s {scopeName = a} :: ResourceServerScopeType)
+rsstScopeName :: Lens.Lens' ResourceServerScopeType Types.ResourceServerScopeNameType
+rsstScopeName = Lens.field @"scopeName"
 {-# DEPRECATED rsstScopeName "Use generic-lens or generic-optics with 'scopeName' instead." #-}
 
 -- | A description of the scope.
 --
 -- /Note:/ Consider using 'scopeDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsstScopeDescription :: Lens.Lens' ResourceServerScopeType Lude.Text
-rsstScopeDescription = Lens.lens (scopeDescription :: ResourceServerScopeType -> Lude.Text) (\s a -> s {scopeDescription = a} :: ResourceServerScopeType)
+rsstScopeDescription :: Lens.Lens' ResourceServerScopeType Types.ResourceServerScopeDescriptionType
+rsstScopeDescription = Lens.field @"scopeDescription"
 {-# DEPRECATED rsstScopeDescription "Use generic-lens or generic-optics with 'scopeDescription' instead." #-}
 
-instance Lude.FromJSON ResourceServerScopeType where
-  parseJSON =
-    Lude.withObject
-      "ResourceServerScopeType"
-      ( \x ->
-          ResourceServerScopeType'
-            Lude.<$> (x Lude..: "ScopeName") Lude.<*> (x Lude..: "ScopeDescription")
-      )
-
-instance Lude.ToJSON ResourceServerScopeType where
-  toJSON ResourceServerScopeType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ScopeName" Lude..= scopeName),
-            Lude.Just ("ScopeDescription" Lude..= scopeDescription)
+instance Core.FromJSON ResourceServerScopeType where
+  toJSON ResourceServerScopeType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ScopeName" Core..= scopeName),
+            Core.Just ("ScopeDescription" Core..= scopeDescription)
           ]
       )
+
+instance Core.FromJSON ResourceServerScopeType where
+  parseJSON =
+    Core.withObject "ResourceServerScopeType" Core.$
+      \x ->
+        ResourceServerScopeType'
+          Core.<$> (x Core..: "ScopeName") Core.<*> (x Core..: "ScopeDescription")

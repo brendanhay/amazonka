@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
   ( DashIsoWriteSegmentTimelineInRepresentation
       ( DashIsoWriteSegmentTimelineInRepresentation',
-        DIWSTIREnabled,
-        DIWSTIRDisabled
+        DashIsoWriteSegmentTimelineInRepresentationEnabled,
+        DashIsoWriteSegmentTimelineInRepresentationDisabled,
+        fromDashIsoWriteSegmentTimelineInRepresentation
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When you enable Precise segment duration in manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
-newtype DashIsoWriteSegmentTimelineInRepresentation = DashIsoWriteSegmentTimelineInRepresentation' Lude.Text
+newtype DashIsoWriteSegmentTimelineInRepresentation = DashIsoWriteSegmentTimelineInRepresentation'
+  { fromDashIsoWriteSegmentTimelineInRepresentation ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DIWSTIREnabled :: DashIsoWriteSegmentTimelineInRepresentation
-pattern DIWSTIREnabled = DashIsoWriteSegmentTimelineInRepresentation' "ENABLED"
+pattern DashIsoWriteSegmentTimelineInRepresentationEnabled :: DashIsoWriteSegmentTimelineInRepresentation
+pattern DashIsoWriteSegmentTimelineInRepresentationEnabled = DashIsoWriteSegmentTimelineInRepresentation' "ENABLED"
 
-pattern DIWSTIRDisabled :: DashIsoWriteSegmentTimelineInRepresentation
-pattern DIWSTIRDisabled = DashIsoWriteSegmentTimelineInRepresentation' "DISABLED"
+pattern DashIsoWriteSegmentTimelineInRepresentationDisabled :: DashIsoWriteSegmentTimelineInRepresentation
+pattern DashIsoWriteSegmentTimelineInRepresentationDisabled = DashIsoWriteSegmentTimelineInRepresentation' "DISABLED"
 
 {-# COMPLETE
-  DIWSTIREnabled,
-  DIWSTIRDisabled,
+  DashIsoWriteSegmentTimelineInRepresentationEnabled,
+  DashIsoWriteSegmentTimelineInRepresentationDisabled,
   DashIsoWriteSegmentTimelineInRepresentation'
   #-}

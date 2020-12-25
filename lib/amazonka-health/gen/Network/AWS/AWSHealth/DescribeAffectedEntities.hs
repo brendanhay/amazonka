@@ -24,183 +24,170 @@ module Network.AWS.AWSHealth.DescribeAffectedEntities
     mkDescribeAffectedEntities,
 
     -- ** Request lenses
-    daeLocale,
-    daeNextToken,
     daeFilter,
+    daeLocale,
     daeMaxResults,
+    daeNextToken,
 
     -- * Destructuring the response
     DescribeAffectedEntitiesResponse (..),
     mkDescribeAffectedEntitiesResponse,
 
     -- ** Response lenses
-    daersEntities,
-    daersNextToken,
-    daersResponseStatus,
+    daerrsEntities,
+    daerrsNextToken,
+    daerrsResponseStatus,
   )
 where
 
-import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAffectedEntities' smart constructor.
 data DescribeAffectedEntities = DescribeAffectedEntities'
-  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
-    locale :: Lude.Maybe Lude.Text,
-    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Values to narrow the results returned. At least one event ARN is required.
-    filter :: EntityFilter,
+  { -- | Values to narrow the results returned. At least one event ARN is required.
+    filter :: Types.EntityFilter,
+    -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Core.Maybe Types.Locale,
     -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAffectedEntities' with the minimum fields required to make a request.
---
--- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
--- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
--- * 'filter' - Values to narrow the results returned. At least one event ARN is required.
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
+-- | Creates a 'DescribeAffectedEntities' value with any optional fields omitted.
 mkDescribeAffectedEntities ::
   -- | 'filter'
-  EntityFilter ->
+  Types.EntityFilter ->
   DescribeAffectedEntities
-mkDescribeAffectedEntities pFilter_ =
+mkDescribeAffectedEntities filter =
   DescribeAffectedEntities'
-    { locale = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      filter = pFilter_,
-      maxResults = Lude.Nothing
+    { filter,
+      locale = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daeLocale :: Lens.Lens' DescribeAffectedEntities (Lude.Maybe Lude.Text)
-daeLocale = Lens.lens (locale :: DescribeAffectedEntities -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeAffectedEntities)
-{-# DEPRECATED daeLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
-
--- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daeNextToken :: Lens.Lens' DescribeAffectedEntities (Lude.Maybe Lude.Text)
-daeNextToken = Lens.lens (nextToken :: DescribeAffectedEntities -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAffectedEntities)
-{-# DEPRECATED daeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Values to narrow the results returned. At least one event ARN is required.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daeFilter :: Lens.Lens' DescribeAffectedEntities EntityFilter
-daeFilter = Lens.lens (filter :: DescribeAffectedEntities -> EntityFilter) (\s a -> s {filter = a} :: DescribeAffectedEntities)
+daeFilter :: Lens.Lens' DescribeAffectedEntities Types.EntityFilter
+daeFilter = Lens.field @"filter"
 {-# DEPRECATED daeFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daeLocale :: Lens.Lens' DescribeAffectedEntities (Core.Maybe Types.Locale)
+daeLocale = Lens.field @"locale"
+{-# DEPRECATED daeLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daeMaxResults :: Lens.Lens' DescribeAffectedEntities (Lude.Maybe Lude.Natural)
-daeMaxResults = Lens.lens (maxResults :: DescribeAffectedEntities -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAffectedEntities)
+daeMaxResults :: Lens.Lens' DescribeAffectedEntities (Core.Maybe Core.Natural)
+daeMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED daeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeAffectedEntities where
-  page rq rs
-    | Page.stop (rs Lens.^. daersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. daersEntities) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& daeNextToken Lens..~ rs Lens.^. daersNextToken
+-- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daeNextToken :: Lens.Lens' DescribeAffectedEntities (Core.Maybe Types.NextToken)
+daeNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeAffectedEntities where
+instance Core.FromJSON DescribeAffectedEntities where
+  toJSON DescribeAffectedEntities {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("filter" Core..= filter),
+            ("locale" Core..=) Core.<$> locale,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeAffectedEntities where
   type Rs DescribeAffectedEntities = DescribeAffectedEntitiesResponse
-  request = Req.postJSON awsHealthService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSHealth_20160804.DescribeAffectedEntities")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAffectedEntitiesResponse'
-            Lude.<$> (x Lude..?> "entities" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "entities")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAffectedEntities where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSHealth_20160804.DescribeAffectedEntities" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAffectedEntities where
-  toJSON DescribeAffectedEntities' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("locale" Lude..=) Lude.<$> locale,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("filter" Lude..= filter),
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeAffectedEntities where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAffectedEntities where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeAffectedEntities where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"entities" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAffectedEntitiesResponse' smart constructor.
 data DescribeAffectedEntitiesResponse = DescribeAffectedEntitiesResponse'
   { -- | The entities that match the filter criteria.
-    entities :: Lude.Maybe [AffectedEntity],
+    entities :: Core.Maybe [Types.AffectedEntity],
     -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAffectedEntitiesResponse' with the minimum fields required to make a request.
---
--- * 'entities' - The entities that match the filter criteria.
--- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAffectedEntitiesResponse' value with any optional fields omitted.
 mkDescribeAffectedEntitiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAffectedEntitiesResponse
-mkDescribeAffectedEntitiesResponse pResponseStatus_ =
+mkDescribeAffectedEntitiesResponse responseStatus =
   DescribeAffectedEntitiesResponse'
-    { entities = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { entities = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The entities that match the filter criteria.
 --
 -- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daersEntities :: Lens.Lens' DescribeAffectedEntitiesResponse (Lude.Maybe [AffectedEntity])
-daersEntities = Lens.lens (entities :: DescribeAffectedEntitiesResponse -> Lude.Maybe [AffectedEntity]) (\s a -> s {entities = a} :: DescribeAffectedEntitiesResponse)
-{-# DEPRECATED daersEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
+daerrsEntities :: Lens.Lens' DescribeAffectedEntitiesResponse (Core.Maybe [Types.AffectedEntity])
+daerrsEntities = Lens.field @"entities"
+{-# DEPRECATED daerrsEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daersNextToken :: Lens.Lens' DescribeAffectedEntitiesResponse (Lude.Maybe Lude.Text)
-daersNextToken = Lens.lens (nextToken :: DescribeAffectedEntitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAffectedEntitiesResponse)
-{-# DEPRECATED daersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+daerrsNextToken :: Lens.Lens' DescribeAffectedEntitiesResponse (Core.Maybe Types.NextToken)
+daerrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daersResponseStatus :: Lens.Lens' DescribeAffectedEntitiesResponse Lude.Int
-daersResponseStatus = Lens.lens (responseStatus :: DescribeAffectedEntitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAffectedEntitiesResponse)
-{-# DEPRECATED daersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daerrsResponseStatus :: Lens.Lens' DescribeAffectedEntitiesResponse Core.Int
+daerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

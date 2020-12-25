@@ -21,36 +21,34 @@ module Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
   )
 where
 
+import qualified Network.AWS.CloudSearchDomains.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A warning returned by the document service when an issue is discovered while processing an upload request.
 --
 -- /See:/ 'mkDocumentServiceWarning' smart constructor.
 newtype DocumentServiceWarning = DocumentServiceWarning'
   { -- | The description for a warning returned by the document service.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DocumentServiceWarning' with the minimum fields required to make a request.
---
--- * 'message' - The description for a warning returned by the document service.
+-- | Creates a 'DocumentServiceWarning' value with any optional fields omitted.
 mkDocumentServiceWarning ::
   DocumentServiceWarning
 mkDocumentServiceWarning =
-  DocumentServiceWarning' {message = Lude.Nothing}
+  DocumentServiceWarning' {message = Core.Nothing}
 
 -- | The description for a warning returned by the document service.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dswMessage :: Lens.Lens' DocumentServiceWarning (Lude.Maybe Lude.Text)
-dswMessage = Lens.lens (message :: DocumentServiceWarning -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DocumentServiceWarning)
+dswMessage :: Lens.Lens' DocumentServiceWarning (Core.Maybe Types.String)
+dswMessage = Lens.field @"message"
 {-# DEPRECATED dswMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON DocumentServiceWarning where
+instance Core.FromJSON DocumentServiceWarning where
   parseJSON =
-    Lude.withObject
-      "DocumentServiceWarning"
-      (\x -> DocumentServiceWarning' Lude.<$> (x Lude..:? "message"))
+    Core.withObject "DocumentServiceWarning" Core.$
+      \x -> DocumentServiceWarning' Core.<$> (x Core..:? "message")

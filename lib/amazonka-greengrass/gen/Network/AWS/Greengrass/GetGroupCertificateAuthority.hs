@@ -28,153 +28,134 @@ module Network.AWS.Greengrass.GetGroupCertificateAuthority
     mkGetGroupCertificateAuthorityResponse,
 
     -- ** Response lenses
-    ggcarsPemEncodedCertificate,
-    ggcarsGroupCertificateAuthorityARN,
-    ggcarsGroupCertificateAuthorityId,
-    ggcarsResponseStatus,
+    ggcarrsGroupCertificateAuthorityArn,
+    ggcarrsGroupCertificateAuthorityId,
+    ggcarrsPemEncodedCertificate,
+    ggcarrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetGroupCertificateAuthority' smart constructor.
 data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
   { -- | The ID of the certificate authority.
-    certificateAuthorityId :: Lude.Text,
+    certificateAuthorityId :: Core.Text,
     -- | The ID of the Greengrass group.
-    groupId :: Lude.Text
+    groupId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupCertificateAuthority' with the minimum fields required to make a request.
---
--- * 'certificateAuthorityId' - The ID of the certificate authority.
--- * 'groupId' - The ID of the Greengrass group.
+-- | Creates a 'GetGroupCertificateAuthority' value with any optional fields omitted.
 mkGetGroupCertificateAuthority ::
   -- | 'certificateAuthorityId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'groupId'
-  Lude.Text ->
+  Core.Text ->
   GetGroupCertificateAuthority
-mkGetGroupCertificateAuthority pCertificateAuthorityId_ pGroupId_ =
-  GetGroupCertificateAuthority'
-    { certificateAuthorityId =
-        pCertificateAuthorityId_,
-      groupId = pGroupId_
-    }
+mkGetGroupCertificateAuthority certificateAuthorityId groupId =
+  GetGroupCertificateAuthority' {certificateAuthorityId, groupId}
 
 -- | The ID of the certificate authority.
 --
 -- /Note:/ Consider using 'certificateAuthorityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggcaCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthority Lude.Text
-ggcaCertificateAuthorityId = Lens.lens (certificateAuthorityId :: GetGroupCertificateAuthority -> Lude.Text) (\s a -> s {certificateAuthorityId = a} :: GetGroupCertificateAuthority)
+ggcaCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthority Core.Text
+ggcaCertificateAuthorityId = Lens.field @"certificateAuthorityId"
 {-# DEPRECATED ggcaCertificateAuthorityId "Use generic-lens or generic-optics with 'certificateAuthorityId' instead." #-}
 
 -- | The ID of the Greengrass group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggcaGroupId :: Lens.Lens' GetGroupCertificateAuthority Lude.Text
-ggcaGroupId = Lens.lens (groupId :: GetGroupCertificateAuthority -> Lude.Text) (\s a -> s {groupId = a} :: GetGroupCertificateAuthority)
+ggcaGroupId :: Lens.Lens' GetGroupCertificateAuthority Core.Text
+ggcaGroupId = Lens.field @"groupId"
 {-# DEPRECATED ggcaGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance Lude.AWSRequest GetGroupCertificateAuthority where
+instance Core.AWSRequest GetGroupCertificateAuthority where
   type
     Rs GetGroupCertificateAuthority =
       GetGroupCertificateAuthorityResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/groups/" Core.<> (Core.toText groupId)
+                Core.<> ("/certificateauthorities/")
+                Core.<> (Core.toText certificateAuthorityId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetGroupCertificateAuthorityResponse'
-            Lude.<$> (x Lude..?> "PemEncodedCertificate")
-            Lude.<*> (x Lude..?> "GroupCertificateAuthorityArn")
-            Lude.<*> (x Lude..?> "GroupCertificateAuthorityId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GroupCertificateAuthorityArn")
+            Core.<*> (x Core..:? "GroupCertificateAuthorityId")
+            Core.<*> (x Core..:? "PemEncodedCertificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetGroupCertificateAuthority where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetGroupCertificateAuthority where
-  toPath GetGroupCertificateAuthority' {..} =
-    Lude.mconcat
-      [ "/greengrass/groups/",
-        Lude.toBS groupId,
-        "/certificateauthorities/",
-        Lude.toBS certificateAuthorityId
-      ]
-
-instance Lude.ToQuery GetGroupCertificateAuthority where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetGroupCertificateAuthorityResponse' smart constructor.
 data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse'
-  { -- | The PEM encoded certificate for the group.
-    pemEncodedCertificate :: Lude.Maybe Lude.Text,
-    -- | The ARN of the certificate authority for the group.
-    groupCertificateAuthorityARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the certificate authority for the group.
+    groupCertificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The ID of the certificate authority for the group.
-    groupCertificateAuthorityId :: Lude.Maybe Lude.Text,
+    groupCertificateAuthorityId :: Core.Maybe Core.Text,
+    -- | The PEM encoded certificate for the group.
+    pemEncodedCertificate :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupCertificateAuthorityResponse' with the minimum fields required to make a request.
---
--- * 'pemEncodedCertificate' - The PEM encoded certificate for the group.
--- * 'groupCertificateAuthorityARN' - The ARN of the certificate authority for the group.
--- * 'groupCertificateAuthorityId' - The ID of the certificate authority for the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGroupCertificateAuthorityResponse' value with any optional fields omitted.
 mkGetGroupCertificateAuthorityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGroupCertificateAuthorityResponse
-mkGetGroupCertificateAuthorityResponse pResponseStatus_ =
+mkGetGroupCertificateAuthorityResponse responseStatus =
   GetGroupCertificateAuthorityResponse'
-    { pemEncodedCertificate =
-        Lude.Nothing,
-      groupCertificateAuthorityARN = Lude.Nothing,
-      groupCertificateAuthorityId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { groupCertificateAuthorityArn =
+        Core.Nothing,
+      groupCertificateAuthorityId = Core.Nothing,
+      pemEncodedCertificate = Core.Nothing,
+      responseStatus
     }
-
--- | The PEM encoded certificate for the group.
---
--- /Note:/ Consider using 'pemEncodedCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggcarsPemEncodedCertificate :: Lens.Lens' GetGroupCertificateAuthorityResponse (Lude.Maybe Lude.Text)
-ggcarsPemEncodedCertificate = Lens.lens (pemEncodedCertificate :: GetGroupCertificateAuthorityResponse -> Lude.Maybe Lude.Text) (\s a -> s {pemEncodedCertificate = a} :: GetGroupCertificateAuthorityResponse)
-{-# DEPRECATED ggcarsPemEncodedCertificate "Use generic-lens or generic-optics with 'pemEncodedCertificate' instead." #-}
 
 -- | The ARN of the certificate authority for the group.
 --
--- /Note:/ Consider using 'groupCertificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggcarsGroupCertificateAuthorityARN :: Lens.Lens' GetGroupCertificateAuthorityResponse (Lude.Maybe Lude.Text)
-ggcarsGroupCertificateAuthorityARN = Lens.lens (groupCertificateAuthorityARN :: GetGroupCertificateAuthorityResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupCertificateAuthorityARN = a} :: GetGroupCertificateAuthorityResponse)
-{-# DEPRECATED ggcarsGroupCertificateAuthorityARN "Use generic-lens or generic-optics with 'groupCertificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'groupCertificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggcarrsGroupCertificateAuthorityArn :: Lens.Lens' GetGroupCertificateAuthorityResponse (Core.Maybe Core.Text)
+ggcarrsGroupCertificateAuthorityArn = Lens.field @"groupCertificateAuthorityArn"
+{-# DEPRECATED ggcarrsGroupCertificateAuthorityArn "Use generic-lens or generic-optics with 'groupCertificateAuthorityArn' instead." #-}
 
 -- | The ID of the certificate authority for the group.
 --
 -- /Note:/ Consider using 'groupCertificateAuthorityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggcarsGroupCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthorityResponse (Lude.Maybe Lude.Text)
-ggcarsGroupCertificateAuthorityId = Lens.lens (groupCertificateAuthorityId :: GetGroupCertificateAuthorityResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupCertificateAuthorityId = a} :: GetGroupCertificateAuthorityResponse)
-{-# DEPRECATED ggcarsGroupCertificateAuthorityId "Use generic-lens or generic-optics with 'groupCertificateAuthorityId' instead." #-}
+ggcarrsGroupCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthorityResponse (Core.Maybe Core.Text)
+ggcarrsGroupCertificateAuthorityId = Lens.field @"groupCertificateAuthorityId"
+{-# DEPRECATED ggcarrsGroupCertificateAuthorityId "Use generic-lens or generic-optics with 'groupCertificateAuthorityId' instead." #-}
+
+-- | The PEM encoded certificate for the group.
+--
+-- /Note:/ Consider using 'pemEncodedCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggcarrsPemEncodedCertificate :: Lens.Lens' GetGroupCertificateAuthorityResponse (Core.Maybe Core.Text)
+ggcarrsPemEncodedCertificate = Lens.field @"pemEncodedCertificate"
+{-# DEPRECATED ggcarrsPemEncodedCertificate "Use generic-lens or generic-optics with 'pemEncodedCertificate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggcarsResponseStatus :: Lens.Lens' GetGroupCertificateAuthorityResponse Lude.Int
-ggcarsResponseStatus = Lens.lens (responseStatus :: GetGroupCertificateAuthorityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupCertificateAuthorityResponse)
-{-# DEPRECATED ggcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ggcarrsResponseStatus :: Lens.Lens' GetGroupCertificateAuthorityResponse Core.Int
+ggcarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ggcarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

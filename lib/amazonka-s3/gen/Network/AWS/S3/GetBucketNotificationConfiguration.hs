@@ -31,75 +31,69 @@ module Network.AWS.S3.GetBucketNotificationConfiguration
     gbncExpectedBucketOwner,
 
     -- * Destructuring the response
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
+    Types.NotificationConfiguration (..),
+    Types.mkNotificationConfiguration,
 
     -- ** Response lenses
-    ncQueueConfigurations,
-    ncTopicConfigurations,
-    ncLambdaFunctionConfigurations,
+    Types.ncLambdaFunctionConfigurations,
+    Types.ncQueueConfigurations,
+    Types.ncTopicConfigurations,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketNotificationConfiguration' smart constructor.
 data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
   { -- | The name of the bucket for which to get the notification configuration.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketNotificationConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket for which to get the notification configuration.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketNotificationConfiguration' value with any optional fields omitted.
 mkGetBucketNotificationConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketNotificationConfiguration
-mkGetBucketNotificationConfiguration pBucket_ =
+mkGetBucketNotificationConfiguration bucket =
   GetBucketNotificationConfiguration'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket for which to get the notification configuration.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbncBucket :: Lens.Lens' GetBucketNotificationConfiguration BucketName
-gbncBucket = Lens.lens (bucket :: GetBucketNotificationConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketNotificationConfiguration)
+gbncBucket :: Lens.Lens' GetBucketNotificationConfiguration Types.BucketName
+gbncBucket = Lens.field @"bucket"
 {-# DEPRECATED gbncBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbncExpectedBucketOwner :: Lens.Lens' GetBucketNotificationConfiguration (Lude.Maybe Lude.Text)
-gbncExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketNotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketNotificationConfiguration)
+gbncExpectedBucketOwner :: Lens.Lens' GetBucketNotificationConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+gbncExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbncExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketNotificationConfiguration where
+instance Core.AWSRequest GetBucketNotificationConfiguration where
   type
     Rs GetBucketNotificationConfiguration =
-      NotificationConfiguration
-  request = Req.get s3Service
-  response = Res.receiveXML (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders GetBucketNotificationConfiguration where
-  toHeaders GetBucketNotificationConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketNotificationConfiguration where
-  toPath GetBucketNotificationConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketNotificationConfiguration where
-  toQuery = Lude.const (Lude.mconcat ["notification"])
+      Types.NotificationConfiguration
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("notification", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveXML (\s h x -> Core.parseXML x)

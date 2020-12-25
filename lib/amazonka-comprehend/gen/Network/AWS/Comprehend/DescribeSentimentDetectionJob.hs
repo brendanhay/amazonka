@@ -27,113 +27,102 @@ module Network.AWS.Comprehend.DescribeSentimentDetectionJob
     mkDescribeSentimentDetectionJobResponse,
 
     -- ** Response lenses
-    dsdjrsSentimentDetectionJobProperties,
-    dsdjrsResponseStatus,
+    dsdjrrsSentimentDetectionJobProperties,
+    dsdjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeSentimentDetectionJob' smart constructor.
 newtype DescribeSentimentDetectionJob = DescribeSentimentDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSentimentDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+-- | Creates a 'DescribeSentimentDetectionJob' value with any optional fields omitted.
 mkDescribeSentimentDetectionJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   DescribeSentimentDetectionJob
-mkDescribeSentimentDetectionJob pJobId_ =
-  DescribeSentimentDetectionJob' {jobId = pJobId_}
+mkDescribeSentimentDetectionJob jobId =
+  DescribeSentimentDetectionJob' {jobId}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdjJobId :: Lens.Lens' DescribeSentimentDetectionJob Lude.Text
-dsdjJobId = Lens.lens (jobId :: DescribeSentimentDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeSentimentDetectionJob)
+dsdjJobId :: Lens.Lens' DescribeSentimentDetectionJob Types.JobId
+dsdjJobId = Lens.field @"jobId"
 {-# DEPRECATED dsdjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest DescribeSentimentDetectionJob where
+instance Core.FromJSON DescribeSentimentDetectionJob where
+  toJSON DescribeSentimentDetectionJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest DescribeSentimentDetectionJob where
   type
     Rs DescribeSentimentDetectionJob =
       DescribeSentimentDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.DescribeSentimentDetectionJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSentimentDetectionJobResponse'
-            Lude.<$> (x Lude..?> "SentimentDetectionJobProperties")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SentimentDetectionJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeSentimentDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSentimentDetectionJob where
-  toJSON DescribeSentimentDetectionJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath DescribeSentimentDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSentimentDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeSentimentDetectionJobResponse' smart constructor.
 data DescribeSentimentDetectionJobResponse = DescribeSentimentDetectionJobResponse'
   { -- | An object that contains the properties associated with a sentiment detection job.
-    sentimentDetectionJobProperties :: Lude.Maybe SentimentDetectionJobProperties,
+    sentimentDetectionJobProperties :: Core.Maybe Types.SentimentDetectionJobProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSentimentDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'sentimentDetectionJobProperties' - An object that contains the properties associated with a sentiment detection job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSentimentDetectionJobResponse' value with any optional fields omitted.
 mkDescribeSentimentDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSentimentDetectionJobResponse
-mkDescribeSentimentDetectionJobResponse pResponseStatus_ =
+mkDescribeSentimentDetectionJobResponse responseStatus =
   DescribeSentimentDetectionJobResponse'
     { sentimentDetectionJobProperties =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains the properties associated with a sentiment detection job.
 --
 -- /Note:/ Consider using 'sentimentDetectionJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdjrsSentimentDetectionJobProperties :: Lens.Lens' DescribeSentimentDetectionJobResponse (Lude.Maybe SentimentDetectionJobProperties)
-dsdjrsSentimentDetectionJobProperties = Lens.lens (sentimentDetectionJobProperties :: DescribeSentimentDetectionJobResponse -> Lude.Maybe SentimentDetectionJobProperties) (\s a -> s {sentimentDetectionJobProperties = a} :: DescribeSentimentDetectionJobResponse)
-{-# DEPRECATED dsdjrsSentimentDetectionJobProperties "Use generic-lens or generic-optics with 'sentimentDetectionJobProperties' instead." #-}
+dsdjrrsSentimentDetectionJobProperties :: Lens.Lens' DescribeSentimentDetectionJobResponse (Core.Maybe Types.SentimentDetectionJobProperties)
+dsdjrrsSentimentDetectionJobProperties = Lens.field @"sentimentDetectionJobProperties"
+{-# DEPRECATED dsdjrrsSentimentDetectionJobProperties "Use generic-lens or generic-optics with 'sentimentDetectionJobProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdjrsResponseStatus :: Lens.Lens' DescribeSentimentDetectionJobResponse Lude.Int
-dsdjrsResponseStatus = Lens.lens (responseStatus :: DescribeSentimentDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSentimentDetectionJobResponse)
-{-# DEPRECATED dsdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsdjrrsResponseStatus :: Lens.Lens' DescribeSentimentDetectionJobResponse Core.Int
+dsdjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsdjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.NatGatewayState
   ( NatGatewayState
       ( NatGatewayState',
-        NGSPending,
-        NGSFailed,
-        NGSAvailable,
-        NGSDeleting,
-        NGSDeleted
+        NatGatewayStatePending,
+        NatGatewayStateFailed,
+        NatGatewayStateAvailable,
+        NatGatewayStateDeleting,
+        NatGatewayStateDeleted,
+        fromNatGatewayState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NatGatewayState = NatGatewayState' Lude.Text
+newtype NatGatewayState = NatGatewayState'
+  { fromNatGatewayState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NGSPending :: NatGatewayState
-pattern NGSPending = NatGatewayState' "pending"
+pattern NatGatewayStatePending :: NatGatewayState
+pattern NatGatewayStatePending = NatGatewayState' "pending"
 
-pattern NGSFailed :: NatGatewayState
-pattern NGSFailed = NatGatewayState' "failed"
+pattern NatGatewayStateFailed :: NatGatewayState
+pattern NatGatewayStateFailed = NatGatewayState' "failed"
 
-pattern NGSAvailable :: NatGatewayState
-pattern NGSAvailable = NatGatewayState' "available"
+pattern NatGatewayStateAvailable :: NatGatewayState
+pattern NatGatewayStateAvailable = NatGatewayState' "available"
 
-pattern NGSDeleting :: NatGatewayState
-pattern NGSDeleting = NatGatewayState' "deleting"
+pattern NatGatewayStateDeleting :: NatGatewayState
+pattern NatGatewayStateDeleting = NatGatewayState' "deleting"
 
-pattern NGSDeleted :: NatGatewayState
-pattern NGSDeleted = NatGatewayState' "deleted"
+pattern NatGatewayStateDeleted :: NatGatewayState
+pattern NatGatewayStateDeleted = NatGatewayState' "deleted"
 
 {-# COMPLETE
-  NGSPending,
-  NGSFailed,
-  NGSAvailable,
-  NGSDeleting,
-  NGSDeleted,
+  NatGatewayStatePending,
+  NatGatewayStateFailed,
+  NatGatewayStateAvailable,
+  NatGatewayStateDeleting,
+  NatGatewayStateDeleted,
   NatGatewayState'
   #-}

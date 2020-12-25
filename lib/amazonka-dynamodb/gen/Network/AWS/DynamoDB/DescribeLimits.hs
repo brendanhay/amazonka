@@ -58,136 +58,123 @@ module Network.AWS.DynamoDB.DescribeLimits
     mkDescribeLimitsResponse,
 
     -- ** Response lenses
-    dlrsTableMaxWriteCapacityUnits,
-    dlrsTableMaxReadCapacityUnits,
-    dlrsAccountMaxWriteCapacityUnits,
-    dlrsAccountMaxReadCapacityUnits,
-    dlrsResponseStatus,
+    dlrrsAccountMaxReadCapacityUnits,
+    dlrrsAccountMaxWriteCapacityUnits,
+    dlrrsTableMaxReadCapacityUnits,
+    dlrrsTableMaxWriteCapacityUnits,
+    dlrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeLimits@ operation. Has no content.
 --
 -- /See:/ 'mkDescribeLimits' smart constructor.
 data DescribeLimits = DescribeLimits'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLimits' with the minimum fields required to make a request.
+-- | Creates a 'DescribeLimits' value with any optional fields omitted.
 mkDescribeLimits ::
   DescribeLimits
 mkDescribeLimits = DescribeLimits'
 
-instance Lude.AWSRequest DescribeLimits where
+instance Core.FromJSON DescribeLimits where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeLimits where
   type Rs DescribeLimits = DescribeLimitsResponse
-  request = Req.postJSON dynamoDBService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.DescribeLimits")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLimitsResponse'
-            Lude.<$> (x Lude..?> "TableMaxWriteCapacityUnits")
-            Lude.<*> (x Lude..?> "TableMaxReadCapacityUnits")
-            Lude.<*> (x Lude..?> "AccountMaxWriteCapacityUnits")
-            Lude.<*> (x Lude..?> "AccountMaxReadCapacityUnits")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AccountMaxReadCapacityUnits")
+            Core.<*> (x Core..:? "AccountMaxWriteCapacityUnits")
+            Core.<*> (x Core..:? "TableMaxReadCapacityUnits")
+            Core.<*> (x Core..:? "TableMaxWriteCapacityUnits")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLimits where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.DescribeLimits" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLimits where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeLimits where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLimits where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DescribeLimits@ operation.
 --
 -- /See:/ 'mkDescribeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-  { -- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
-    tableMaxWriteCapacityUnits :: Lude.Maybe Lude.Natural,
-    -- | The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
-    tableMaxReadCapacityUnits :: Lude.Maybe Lude.Natural,
+  { -- | The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
+    accountMaxReadCapacityUnits :: Core.Maybe Core.Natural,
     -- | The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
-    accountMaxWriteCapacityUnits :: Lude.Maybe Lude.Natural,
-    -- | The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
-    accountMaxReadCapacityUnits :: Lude.Maybe Lude.Natural,
+    accountMaxWriteCapacityUnits :: Core.Maybe Core.Natural,
+    -- | The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
+    tableMaxReadCapacityUnits :: Core.Maybe Core.Natural,
+    -- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
+    tableMaxWriteCapacityUnits :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLimitsResponse' with the minimum fields required to make a request.
---
--- * 'tableMaxWriteCapacityUnits' - The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
--- * 'tableMaxReadCapacityUnits' - The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
--- * 'accountMaxWriteCapacityUnits' - The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
--- * 'accountMaxReadCapacityUnits' - The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLimitsResponse' value with any optional fields omitted.
 mkDescribeLimitsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLimitsResponse
-mkDescribeLimitsResponse pResponseStatus_ =
+mkDescribeLimitsResponse responseStatus =
   DescribeLimitsResponse'
-    { tableMaxWriteCapacityUnits =
-        Lude.Nothing,
-      tableMaxReadCapacityUnits = Lude.Nothing,
-      accountMaxWriteCapacityUnits = Lude.Nothing,
-      accountMaxReadCapacityUnits = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accountMaxReadCapacityUnits =
+        Core.Nothing,
+      accountMaxWriteCapacityUnits = Core.Nothing,
+      tableMaxReadCapacityUnits = Core.Nothing,
+      tableMaxWriteCapacityUnits = Core.Nothing,
+      responseStatus
     }
-
--- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
---
--- /Note:/ Consider using 'tableMaxWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsTableMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Lude.Maybe Lude.Natural)
-dlrsTableMaxWriteCapacityUnits = Lens.lens (tableMaxWriteCapacityUnits :: DescribeLimitsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {tableMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsTableMaxWriteCapacityUnits "Use generic-lens or generic-optics with 'tableMaxWriteCapacityUnits' instead." #-}
-
--- | The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
---
--- /Note:/ Consider using 'tableMaxReadCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsTableMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Lude.Maybe Lude.Natural)
-dlrsTableMaxReadCapacityUnits = Lens.lens (tableMaxReadCapacityUnits :: DescribeLimitsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {tableMaxReadCapacityUnits = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsTableMaxReadCapacityUnits "Use generic-lens or generic-optics with 'tableMaxReadCapacityUnits' instead." #-}
-
--- | The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
---
--- /Note:/ Consider using 'accountMaxWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsAccountMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Lude.Maybe Lude.Natural)
-dlrsAccountMaxWriteCapacityUnits = Lens.lens (accountMaxWriteCapacityUnits :: DescribeLimitsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {accountMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsAccountMaxWriteCapacityUnits "Use generic-lens or generic-optics with 'accountMaxWriteCapacityUnits' instead." #-}
 
 -- | The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
 --
 -- /Note:/ Consider using 'accountMaxReadCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsAccountMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Lude.Maybe Lude.Natural)
-dlrsAccountMaxReadCapacityUnits = Lens.lens (accountMaxReadCapacityUnits :: DescribeLimitsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {accountMaxReadCapacityUnits = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsAccountMaxReadCapacityUnits "Use generic-lens or generic-optics with 'accountMaxReadCapacityUnits' instead." #-}
+dlrrsAccountMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+dlrrsAccountMaxReadCapacityUnits = Lens.field @"accountMaxReadCapacityUnits"
+{-# DEPRECATED dlrrsAccountMaxReadCapacityUnits "Use generic-lens or generic-optics with 'accountMaxReadCapacityUnits' instead." #-}
+
+-- | The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
+--
+-- /Note:/ Consider using 'accountMaxWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlrrsAccountMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+dlrrsAccountMaxWriteCapacityUnits = Lens.field @"accountMaxWriteCapacityUnits"
+{-# DEPRECATED dlrrsAccountMaxWriteCapacityUnits "Use generic-lens or generic-optics with 'accountMaxWriteCapacityUnits' instead." #-}
+
+-- | The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
+--
+-- /Note:/ Consider using 'tableMaxReadCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlrrsTableMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+dlrrsTableMaxReadCapacityUnits = Lens.field @"tableMaxReadCapacityUnits"
+{-# DEPRECATED dlrrsTableMaxReadCapacityUnits "Use generic-lens or generic-optics with 'tableMaxReadCapacityUnits' instead." #-}
+
+-- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
+--
+-- /Note:/ Consider using 'tableMaxWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlrrsTableMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+dlrrsTableMaxWriteCapacityUnits = Lens.field @"tableMaxWriteCapacityUnits"
+{-# DEPRECATED dlrrsTableMaxWriteCapacityUnits "Use generic-lens or generic-optics with 'tableMaxWriteCapacityUnits' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsResponseStatus :: Lens.Lens' DescribeLimitsResponse Lude.Int
-dlrsResponseStatus = Lens.lens (responseStatus :: DescribeLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrrsResponseStatus :: Lens.Lens' DescribeLimitsResponse Core.Int
+dlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

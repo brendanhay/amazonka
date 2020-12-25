@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Passthrough applies no color space conversion to the output
 --
 -- /See:/ 'mkColorSpacePassthroughSettings' smart constructor.
 data ColorSpacePassthroughSettings = ColorSpacePassthroughSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ColorSpacePassthroughSettings' with the minimum fields required to make a request.
+-- | Creates a 'ColorSpacePassthroughSettings' value with any optional fields omitted.
 mkColorSpacePassthroughSettings ::
   ColorSpacePassthroughSettings
 mkColorSpacePassthroughSettings = ColorSpacePassthroughSettings'
 
-instance Lude.FromJSON ColorSpacePassthroughSettings where
-  parseJSON =
-    Lude.withObject
-      "ColorSpacePassthroughSettings"
-      (\x -> Lude.pure ColorSpacePassthroughSettings')
+instance Core.FromJSON ColorSpacePassthroughSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON ColorSpacePassthroughSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON ColorSpacePassthroughSettings where
+  parseJSON =
+    Core.withObject "ColorSpacePassthroughSettings" Core.$
+      \x -> Core.pure ColorSpacePassthroughSettings'

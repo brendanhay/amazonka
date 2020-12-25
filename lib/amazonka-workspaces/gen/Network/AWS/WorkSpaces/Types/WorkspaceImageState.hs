@@ -13,51 +13,56 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceImageState
   ( WorkspaceImageState
       ( WorkspaceImageState',
-        WISAvailable,
-        WISPending,
-        WISError
+        WorkspaceImageStateAvailable,
+        WorkspaceImageStatePending,
+        WorkspaceImageStateError,
+        fromWorkspaceImageState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkspaceImageState = WorkspaceImageState' Lude.Text
+newtype WorkspaceImageState = WorkspaceImageState'
+  { fromWorkspaceImageState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WISAvailable :: WorkspaceImageState
-pattern WISAvailable = WorkspaceImageState' "AVAILABLE"
+pattern WorkspaceImageStateAvailable :: WorkspaceImageState
+pattern WorkspaceImageStateAvailable = WorkspaceImageState' "AVAILABLE"
 
-pattern WISPending :: WorkspaceImageState
-pattern WISPending = WorkspaceImageState' "PENDING"
+pattern WorkspaceImageStatePending :: WorkspaceImageState
+pattern WorkspaceImageStatePending = WorkspaceImageState' "PENDING"
 
-pattern WISError :: WorkspaceImageState
-pattern WISError = WorkspaceImageState' "ERROR"
+pattern WorkspaceImageStateError :: WorkspaceImageState
+pattern WorkspaceImageStateError = WorkspaceImageState' "ERROR"
 
 {-# COMPLETE
-  WISAvailable,
-  WISPending,
-  WISError,
+  WorkspaceImageStateAvailable,
+  WorkspaceImageStatePending,
+  WorkspaceImageStateError,
   WorkspaceImageState'
   #-}

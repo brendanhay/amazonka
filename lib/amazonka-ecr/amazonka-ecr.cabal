@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ECR
     Network.AWS.ECR.BatchCheckLayerAvailability
@@ -79,7 +85,7 @@ library
     Network.AWS.ECR.DescribeImageScanFindings
     Network.AWS.ECR.DescribeRepositories
     Network.AWS.ECR.GetAuthorizationToken
-    Network.AWS.ECR.GetDownloadURLForLayer
+    Network.AWS.ECR.GetDownloadUrlForLayer
     Network.AWS.ECR.GetLifecyclePolicy
     Network.AWS.ECR.GetLifecyclePolicyPreview
     Network.AWS.ECR.GetRepositoryPolicy
@@ -100,38 +106,66 @@ library
     Network.AWS.ECR.Waiters
 
   other-modules:
+    Network.AWS.ECR.Types.Arn
     Network.AWS.ECR.Types.Attribute
     Network.AWS.ECR.Types.AuthorizationData
+    Network.AWS.ECR.Types.AuthorizationToken
+    Network.AWS.ECR.Types.BatchedOperationLayerDigest
     Network.AWS.ECR.Types.DescribeImagesFilter
+    Network.AWS.ECR.Types.Description
     Network.AWS.ECR.Types.EncryptionConfiguration
     Network.AWS.ECR.Types.EncryptionType
+    Network.AWS.ECR.Types.FailureReason
+    Network.AWS.ECR.Types.FindingName
     Network.AWS.ECR.Types.FindingSeverity
     Network.AWS.ECR.Types.Image
     Network.AWS.ECR.Types.ImageActionType
     Network.AWS.ECR.Types.ImageDetail
+    Network.AWS.ECR.Types.ImageDigest
     Network.AWS.ECR.Types.ImageFailure
     Network.AWS.ECR.Types.ImageFailureCode
     Network.AWS.ECR.Types.ImageIdentifier
+    Network.AWS.ECR.Types.ImageManifest
     Network.AWS.ECR.Types.ImageScanFinding
     Network.AWS.ECR.Types.ImageScanFindings
     Network.AWS.ECR.Types.ImageScanFindingsSummary
     Network.AWS.ECR.Types.ImageScanningConfiguration
     Network.AWS.ECR.Types.ImageScanStatus
+    Network.AWS.ECR.Types.ImageTag
     Network.AWS.ECR.Types.ImageTagMutability
+    Network.AWS.ECR.Types.Key
+    Network.AWS.ECR.Types.KmsKey
     Network.AWS.ECR.Types.Layer
     Network.AWS.ECR.Types.LayerAvailability
+    Network.AWS.ECR.Types.LayerDigest
     Network.AWS.ECR.Types.LayerFailure
     Network.AWS.ECR.Types.LayerFailureCode
+    Network.AWS.ECR.Types.LayerFailureReason
     Network.AWS.ECR.Types.LifecyclePolicyPreviewFilter
     Network.AWS.ECR.Types.LifecyclePolicyPreviewResult
     Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus
     Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary
     Network.AWS.ECR.Types.LifecyclePolicyRuleAction
+    Network.AWS.ECR.Types.LifecyclePolicyText
     Network.AWS.ECR.Types.ListImagesFilter
+    Network.AWS.ECR.Types.MediaType
+    Network.AWS.ECR.Types.NextToken
+    Network.AWS.ECR.Types.PolicyText
+    Network.AWS.ECR.Types.ProxyEndpoint
+    Network.AWS.ECR.Types.RegistryId
     Network.AWS.ECR.Types.Repository
+    Network.AWS.ECR.Types.RepositoryArn
+    Network.AWS.ECR.Types.RepositoryName
+    Network.AWS.ECR.Types.RepositoryPolicyText
+    Network.AWS.ECR.Types.RepositoryUri
     Network.AWS.ECR.Types.ScanStatus
+    Network.AWS.ECR.Types.ScanStatusDescription
     Network.AWS.ECR.Types.Tag
+    Network.AWS.ECR.Types.TagKey
     Network.AWS.ECR.Types.TagStatus
+    Network.AWS.ECR.Types.UploadId
+    Network.AWS.ECR.Types.Url
+    Network.AWS.ECR.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

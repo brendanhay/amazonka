@@ -23,48 +23,42 @@ module Network.AWS.CloudSearch.Types.Limits
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkLimits' smart constructor.
 data Limits = Limits'
-  { maximumReplicationCount :: Lude.Natural,
-    maximumPartitionCount :: Lude.Natural
+  { maximumReplicationCount :: Core.Natural,
+    maximumPartitionCount :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Limits' with the minimum fields required to make a request.
---
--- * 'maximumReplicationCount' -
--- * 'maximumPartitionCount' -
+-- | Creates a 'Limits' value with any optional fields omitted.
 mkLimits ::
   -- | 'maximumReplicationCount'
-  Lude.Natural ->
+  Core.Natural ->
   -- | 'maximumPartitionCount'
-  Lude.Natural ->
+  Core.Natural ->
   Limits
-mkLimits pMaximumReplicationCount_ pMaximumPartitionCount_ =
-  Limits'
-    { maximumReplicationCount = pMaximumReplicationCount_,
-      maximumPartitionCount = pMaximumPartitionCount_
-    }
+mkLimits maximumReplicationCount maximumPartitionCount =
+  Limits' {maximumReplicationCount, maximumPartitionCount}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maximumReplicationCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaximumReplicationCount :: Lens.Lens' Limits Lude.Natural
-lMaximumReplicationCount = Lens.lens (maximumReplicationCount :: Limits -> Lude.Natural) (\s a -> s {maximumReplicationCount = a} :: Limits)
+lMaximumReplicationCount :: Lens.Lens' Limits Core.Natural
+lMaximumReplicationCount = Lens.field @"maximumReplicationCount"
 {-# DEPRECATED lMaximumReplicationCount "Use generic-lens or generic-optics with 'maximumReplicationCount' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maximumPartitionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaximumPartitionCount :: Lens.Lens' Limits Lude.Natural
-lMaximumPartitionCount = Lens.lens (maximumPartitionCount :: Limits -> Lude.Natural) (\s a -> s {maximumPartitionCount = a} :: Limits)
+lMaximumPartitionCount :: Lens.Lens' Limits Core.Natural
+lMaximumPartitionCount = Lens.field @"maximumPartitionCount"
 {-# DEPRECATED lMaximumPartitionCount "Use generic-lens or generic-optics with 'maximumPartitionCount' instead." #-}
 
-instance Lude.FromXML Limits where
+instance Core.FromXML Limits where
   parseXML x =
     Limits'
-      Lude.<$> (x Lude..@ "MaximumReplicationCount")
-      Lude.<*> (x Lude..@ "MaximumPartitionCount")
+      Core.<$> (x Core..@ "MaximumReplicationCount")
+      Core.<*> (x Core..@ "MaximumPartitionCount")

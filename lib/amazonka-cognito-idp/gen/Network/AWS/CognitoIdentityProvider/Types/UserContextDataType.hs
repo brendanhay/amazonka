@@ -21,35 +21,34 @@ module Network.AWS.CognitoIdentityProvider.Types.UserContextDataType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
 -- /See:/ 'mkUserContextDataType' smart constructor.
 newtype UserContextDataType = UserContextDataType'
   { -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-    encodedData :: Lude.Maybe Lude.Text
+    encodedData :: Core.Maybe Types.StringType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserContextDataType' with the minimum fields required to make a request.
---
--- * 'encodedData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+-- | Creates a 'UserContextDataType' value with any optional fields omitted.
 mkUserContextDataType ::
   UserContextDataType
 mkUserContextDataType =
-  UserContextDataType' {encodedData = Lude.Nothing}
+  UserContextDataType' {encodedData = Core.Nothing}
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
 -- /Note:/ Consider using 'encodedData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucdtEncodedData :: Lens.Lens' UserContextDataType (Lude.Maybe Lude.Text)
-ucdtEncodedData = Lens.lens (encodedData :: UserContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {encodedData = a} :: UserContextDataType)
+ucdtEncodedData :: Lens.Lens' UserContextDataType (Core.Maybe Types.StringType)
+ucdtEncodedData = Lens.field @"encodedData"
 {-# DEPRECATED ucdtEncodedData "Use generic-lens or generic-optics with 'encodedData' instead." #-}
 
-instance Lude.ToJSON UserContextDataType where
-  toJSON UserContextDataType' {..} =
-    Lude.object
-      (Lude.catMaybes [("EncodedData" Lude..=) Lude.<$> encodedData])
+instance Core.FromJSON UserContextDataType where
+  toJSON UserContextDataType {..} =
+    Core.object
+      (Core.catMaybes [("EncodedData" Core..=) Core.<$> encodedData])

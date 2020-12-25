@@ -21,36 +21,34 @@ module Network.AWS.CodeStar.Types.ToolchainSource
   )
 where
 
-import Network.AWS.CodeStar.Types.S3Location
+import qualified Network.AWS.CodeStar.Types.S3Location as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
 --
 -- /See:/ 'mkToolchainSource' smart constructor.
 newtype ToolchainSource = ToolchainSource'
   { -- | The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
-    s3 :: S3Location
+    s3 :: Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ToolchainSource' with the minimum fields required to make a request.
---
--- * 's3' - The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
+-- | Creates a 'ToolchainSource' value with any optional fields omitted.
 mkToolchainSource ::
   -- | 's3'
-  S3Location ->
+  Types.S3Location ->
   ToolchainSource
-mkToolchainSource pS3_ = ToolchainSource' {s3 = pS3_}
+mkToolchainSource s3 = ToolchainSource' {s3}
 
 -- | The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
 --
 -- /Note:/ Consider using 's3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsS3 :: Lens.Lens' ToolchainSource S3Location
-tsS3 = Lens.lens (s3 :: ToolchainSource -> S3Location) (\s a -> s {s3 = a} :: ToolchainSource)
+tsS3 :: Lens.Lens' ToolchainSource Types.S3Location
+tsS3 = Lens.field @"s3"
 {-# DEPRECATED tsS3 "Use generic-lens or generic-optics with 's3' instead." #-}
 
-instance Lude.ToJSON ToolchainSource where
-  toJSON ToolchainSource' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("s3" Lude..= s3)])
+instance Core.FromJSON ToolchainSource where
+  toJSON ToolchainSource {..} =
+    Core.object (Core.catMaybes [Core.Just ("s3" Core..= s3)])

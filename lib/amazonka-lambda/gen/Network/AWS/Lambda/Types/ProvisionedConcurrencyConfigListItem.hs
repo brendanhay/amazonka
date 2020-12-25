@@ -17,124 +17,118 @@ module Network.AWS.Lambda.Types.ProvisionedConcurrencyConfigListItem
     mkProvisionedConcurrencyConfigListItem,
 
     -- * Lenses
-    pccliStatus,
-    pccliFunctionARN,
-    pccliRequestedProvisionedConcurrentExecutions,
-    pccliAvailableProvisionedConcurrentExecutions,
-    pccliStatusReason,
     pccliAllocatedProvisionedConcurrentExecutions,
+    pccliAvailableProvisionedConcurrentExecutions,
+    pccliFunctionArn,
     pccliLastModified,
+    pccliRequestedProvisionedConcurrentExecutions,
+    pccliStatus,
+    pccliStatusReason,
   )
 where
 
-import Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
+import qualified Network.AWS.Lambda.Types.FunctionArn as Types
+import qualified Network.AWS.Lambda.Types.LastModified as Types
+import qualified Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum as Types
+import qualified Network.AWS.Lambda.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the provisioned concurrency configuration for a function alias or version.
 --
 -- /See:/ 'mkProvisionedConcurrencyConfigListItem' smart constructor.
 data ProvisionedConcurrencyConfigListItem = ProvisionedConcurrencyConfigListItem'
-  { -- | The status of the allocation process.
-    status :: Lude.Maybe ProvisionedConcurrencyStatusEnum,
-    -- | The Amazon Resource Name (ARN) of the alias or version.
-    functionARN :: Lude.Maybe Lude.Text,
-    -- | The amount of provisioned concurrency requested.
-    requestedProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+  { -- | The amount of provisioned concurrency allocated.
+    allocatedProvisionedConcurrentExecutions :: Core.Maybe Core.Natural,
     -- | The amount of provisioned concurrency available.
-    availableProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
-    -- | For failed allocations, the reason that provisioned concurrency could not be allocated.
-    statusReason :: Lude.Maybe Lude.Text,
-    -- | The amount of provisioned concurrency allocated.
-    allocatedProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    availableProvisionedConcurrentExecutions :: Core.Maybe Core.Natural,
+    -- | The Amazon Resource Name (ARN) of the alias or version.
+    functionArn :: Core.Maybe Types.FunctionArn,
     -- | The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
-    lastModified :: Lude.Maybe Lude.Text
+    lastModified :: Core.Maybe Types.LastModified,
+    -- | The amount of provisioned concurrency requested.
+    requestedProvisionedConcurrentExecutions :: Core.Maybe Core.Natural,
+    -- | The status of the allocation process.
+    status :: Core.Maybe Types.ProvisionedConcurrencyStatusEnum,
+    -- | For failed allocations, the reason that provisioned concurrency could not be allocated.
+    statusReason :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProvisionedConcurrencyConfigListItem' with the minimum fields required to make a request.
---
--- * 'status' - The status of the allocation process.
--- * 'functionARN' - The Amazon Resource Name (ARN) of the alias or version.
--- * 'requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
--- * 'availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
--- * 'statusReason' - For failed allocations, the reason that provisioned concurrency could not be allocated.
--- * 'allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
--- * 'lastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
+-- | Creates a 'ProvisionedConcurrencyConfigListItem' value with any optional fields omitted.
 mkProvisionedConcurrencyConfigListItem ::
   ProvisionedConcurrencyConfigListItem
 mkProvisionedConcurrencyConfigListItem =
   ProvisionedConcurrencyConfigListItem'
-    { status = Lude.Nothing,
-      functionARN = Lude.Nothing,
-      requestedProvisionedConcurrentExecutions = Lude.Nothing,
-      availableProvisionedConcurrentExecutions = Lude.Nothing,
-      statusReason = Lude.Nothing,
-      allocatedProvisionedConcurrentExecutions = Lude.Nothing,
-      lastModified = Lude.Nothing
+    { allocatedProvisionedConcurrentExecutions =
+        Core.Nothing,
+      availableProvisionedConcurrentExecutions = Core.Nothing,
+      functionArn = Core.Nothing,
+      lastModified = Core.Nothing,
+      requestedProvisionedConcurrentExecutions = Core.Nothing,
+      status = Core.Nothing,
+      statusReason = Core.Nothing
     }
-
--- | The status of the allocation process.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliStatus :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe ProvisionedConcurrencyStatusEnum)
-pccliStatus = Lens.lens (status :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe ProvisionedConcurrencyStatusEnum) (\s a -> s {status = a} :: ProvisionedConcurrencyConfigListItem)
-{-# DEPRECATED pccliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the alias or version.
---
--- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliFunctionARN :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe Lude.Text)
-pccliFunctionARN = Lens.lens (functionARN :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe Lude.Text) (\s a -> s {functionARN = a} :: ProvisionedConcurrencyConfigListItem)
-{-# DEPRECATED pccliFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
-
--- | The amount of provisioned concurrency requested.
---
--- /Note:/ Consider using 'requestedProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliRequestedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe Lude.Natural)
-pccliRequestedProvisionedConcurrentExecutions = Lens.lens (requestedProvisionedConcurrentExecutions :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe Lude.Natural) (\s a -> s {requestedProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
-{-# DEPRECATED pccliRequestedProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'requestedProvisionedConcurrentExecutions' instead." #-}
-
--- | The amount of provisioned concurrency available.
---
--- /Note:/ Consider using 'availableProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliAvailableProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe Lude.Natural)
-pccliAvailableProvisionedConcurrentExecutions = Lens.lens (availableProvisionedConcurrentExecutions :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe Lude.Natural) (\s a -> s {availableProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
-{-# DEPRECATED pccliAvailableProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'availableProvisionedConcurrentExecutions' instead." #-}
-
--- | For failed allocations, the reason that provisioned concurrency could not be allocated.
---
--- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliStatusReason :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe Lude.Text)
-pccliStatusReason = Lens.lens (statusReason :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: ProvisionedConcurrencyConfigListItem)
-{-# DEPRECATED pccliStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The amount of provisioned concurrency allocated.
 --
 -- /Note:/ Consider using 'allocatedProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliAllocatedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe Lude.Natural)
-pccliAllocatedProvisionedConcurrentExecutions = Lens.lens (allocatedProvisionedConcurrentExecutions :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe Lude.Natural) (\s a -> s {allocatedProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
+pccliAllocatedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Core.Natural)
+pccliAllocatedProvisionedConcurrentExecutions = Lens.field @"allocatedProvisionedConcurrentExecutions"
 {-# DEPRECATED pccliAllocatedProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'allocatedProvisionedConcurrentExecutions' instead." #-}
+
+-- | The amount of provisioned concurrency available.
+--
+-- /Note:/ Consider using 'availableProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pccliAvailableProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Core.Natural)
+pccliAvailableProvisionedConcurrentExecutions = Lens.field @"availableProvisionedConcurrentExecutions"
+{-# DEPRECATED pccliAvailableProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'availableProvisionedConcurrentExecutions' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the alias or version.
+--
+-- /Note:/ Consider using 'functionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pccliFunctionArn :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Types.FunctionArn)
+pccliFunctionArn = Lens.field @"functionArn"
+{-# DEPRECATED pccliFunctionArn "Use generic-lens or generic-optics with 'functionArn' instead." #-}
 
 -- | The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccliLastModified :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Lude.Maybe Lude.Text)
-pccliLastModified = Lens.lens (lastModified :: ProvisionedConcurrencyConfigListItem -> Lude.Maybe Lude.Text) (\s a -> s {lastModified = a} :: ProvisionedConcurrencyConfigListItem)
+pccliLastModified :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Types.LastModified)
+pccliLastModified = Lens.field @"lastModified"
 {-# DEPRECATED pccliLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance Lude.FromJSON ProvisionedConcurrencyConfigListItem where
+-- | The amount of provisioned concurrency requested.
+--
+-- /Note:/ Consider using 'requestedProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pccliRequestedProvisionedConcurrentExecutions :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Core.Natural)
+pccliRequestedProvisionedConcurrentExecutions = Lens.field @"requestedProvisionedConcurrentExecutions"
+{-# DEPRECATED pccliRequestedProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'requestedProvisionedConcurrentExecutions' instead." #-}
+
+-- | The status of the allocation process.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pccliStatus :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Types.ProvisionedConcurrencyStatusEnum)
+pccliStatus = Lens.field @"status"
+{-# DEPRECATED pccliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | For failed allocations, the reason that provisioned concurrency could not be allocated.
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pccliStatusReason :: Lens.Lens' ProvisionedConcurrencyConfigListItem (Core.Maybe Types.String)
+pccliStatusReason = Lens.field @"statusReason"
+{-# DEPRECATED pccliStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
+
+instance Core.FromJSON ProvisionedConcurrencyConfigListItem where
   parseJSON =
-    Lude.withObject
-      "ProvisionedConcurrencyConfigListItem"
-      ( \x ->
-          ProvisionedConcurrencyConfigListItem'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "FunctionArn")
-            Lude.<*> (x Lude..:? "RequestedProvisionedConcurrentExecutions")
-            Lude.<*> (x Lude..:? "AvailableProvisionedConcurrentExecutions")
-            Lude.<*> (x Lude..:? "StatusReason")
-            Lude.<*> (x Lude..:? "AllocatedProvisionedConcurrentExecutions")
-            Lude.<*> (x Lude..:? "LastModified")
-      )
+    Core.withObject "ProvisionedConcurrencyConfigListItem" Core.$
+      \x ->
+        ProvisionedConcurrencyConfigListItem'
+          Core.<$> (x Core..:? "AllocatedProvisionedConcurrentExecutions")
+          Core.<*> (x Core..:? "AvailableProvisionedConcurrentExecutions")
+          Core.<*> (x Core..:? "FunctionArn")
+          Core.<*> (x Core..:? "LastModified")
+          Core.<*> (x Core..:? "RequestedProvisionedConcurrentExecutions")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StatusReason")

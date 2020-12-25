@@ -17,14 +17,15 @@ module Network.AWS.Snowball.Types.JobLogs
     mkJobLogs,
 
     -- * Lenses
-    jlJobFailureLogURI,
     jlJobCompletionReportURI,
+    jlJobFailureLogURI,
     jlJobSuccessLogURI,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.String as Types
 
 -- | Contains job logs. Whenever a Snow device is used to import data into or export data out of Amazon S3, you'll have the option of downloading a PDF job report. Job logs are returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type. The job logs can be accessed for up to 60 minutes after this request has been made. To access any of the job logs after 60 minutes have passed, you'll have to make another call to the @DescribeJob@ action.
 --
@@ -34,58 +35,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobLogs' smart constructor.
 data JobLogs = JobLogs'
-  { -- | A link to an Amazon S3 presigned URL where the job failure log is located.
-    jobFailureLogURI :: Lude.Maybe Lude.Text,
-    -- | A link to an Amazon S3 presigned URL where the job completion report is located.
-    jobCompletionReportURI :: Lude.Maybe Lude.Text,
+  { -- | A link to an Amazon S3 presigned URL where the job completion report is located.
+    jobCompletionReportURI :: Core.Maybe Types.String,
+    -- | A link to an Amazon S3 presigned URL where the job failure log is located.
+    jobFailureLogURI :: Core.Maybe Types.String,
     -- | A link to an Amazon S3 presigned URL where the job success log is located.
-    jobSuccessLogURI :: Lude.Maybe Lude.Text
+    jobSuccessLogURI :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobLogs' with the minimum fields required to make a request.
---
--- * 'jobFailureLogURI' - A link to an Amazon S3 presigned URL where the job failure log is located.
--- * 'jobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is located.
--- * 'jobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is located.
+-- | Creates a 'JobLogs' value with any optional fields omitted.
 mkJobLogs ::
   JobLogs
 mkJobLogs =
   JobLogs'
-    { jobFailureLogURI = Lude.Nothing,
-      jobCompletionReportURI = Lude.Nothing,
-      jobSuccessLogURI = Lude.Nothing
+    { jobCompletionReportURI = Core.Nothing,
+      jobFailureLogURI = Core.Nothing,
+      jobSuccessLogURI = Core.Nothing
     }
-
--- | A link to an Amazon S3 presigned URL where the job failure log is located.
---
--- /Note:/ Consider using 'jobFailureLogURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jlJobFailureLogURI :: Lens.Lens' JobLogs (Lude.Maybe Lude.Text)
-jlJobFailureLogURI = Lens.lens (jobFailureLogURI :: JobLogs -> Lude.Maybe Lude.Text) (\s a -> s {jobFailureLogURI = a} :: JobLogs)
-{-# DEPRECATED jlJobFailureLogURI "Use generic-lens or generic-optics with 'jobFailureLogURI' instead." #-}
 
 -- | A link to an Amazon S3 presigned URL where the job completion report is located.
 --
 -- /Note:/ Consider using 'jobCompletionReportURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jlJobCompletionReportURI :: Lens.Lens' JobLogs (Lude.Maybe Lude.Text)
-jlJobCompletionReportURI = Lens.lens (jobCompletionReportURI :: JobLogs -> Lude.Maybe Lude.Text) (\s a -> s {jobCompletionReportURI = a} :: JobLogs)
+jlJobCompletionReportURI :: Lens.Lens' JobLogs (Core.Maybe Types.String)
+jlJobCompletionReportURI = Lens.field @"jobCompletionReportURI"
 {-# DEPRECATED jlJobCompletionReportURI "Use generic-lens or generic-optics with 'jobCompletionReportURI' instead." #-}
+
+-- | A link to an Amazon S3 presigned URL where the job failure log is located.
+--
+-- /Note:/ Consider using 'jobFailureLogURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jlJobFailureLogURI :: Lens.Lens' JobLogs (Core.Maybe Types.String)
+jlJobFailureLogURI = Lens.field @"jobFailureLogURI"
+{-# DEPRECATED jlJobFailureLogURI "Use generic-lens or generic-optics with 'jobFailureLogURI' instead." #-}
 
 -- | A link to an Amazon S3 presigned URL where the job success log is located.
 --
 -- /Note:/ Consider using 'jobSuccessLogURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jlJobSuccessLogURI :: Lens.Lens' JobLogs (Lude.Maybe Lude.Text)
-jlJobSuccessLogURI = Lens.lens (jobSuccessLogURI :: JobLogs -> Lude.Maybe Lude.Text) (\s a -> s {jobSuccessLogURI = a} :: JobLogs)
+jlJobSuccessLogURI :: Lens.Lens' JobLogs (Core.Maybe Types.String)
+jlJobSuccessLogURI = Lens.field @"jobSuccessLogURI"
 {-# DEPRECATED jlJobSuccessLogURI "Use generic-lens or generic-optics with 'jobSuccessLogURI' instead." #-}
 
-instance Lude.FromJSON JobLogs where
+instance Core.FromJSON JobLogs where
   parseJSON =
-    Lude.withObject
-      "JobLogs"
-      ( \x ->
-          JobLogs'
-            Lude.<$> (x Lude..:? "JobFailureLogURI")
-            Lude.<*> (x Lude..:? "JobCompletionReportURI")
-            Lude.<*> (x Lude..:? "JobSuccessLogURI")
-      )
+    Core.withObject "JobLogs" Core.$
+      \x ->
+        JobLogs'
+          Core.<$> (x Core..:? "JobCompletionReportURI")
+          Core.<*> (x Core..:? "JobFailureLogURI")
+          Core.<*> (x Core..:? "JobSuccessLogURI")

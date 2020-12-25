@@ -17,68 +17,62 @@ module Network.AWS.SageMaker.Types.SourceAlgorithm
     mkSourceAlgorithm,
 
     -- * Lenses
-    saModelDataURL,
     saAlgorithmName,
+    saModelDataUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ArnOrName as Types
+import qualified Network.AWS.SageMaker.Types.Url as Types
 
 -- | Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
 --
 -- /See:/ 'mkSourceAlgorithm' smart constructor.
 data SourceAlgorithm = SourceAlgorithm'
-  { -- | The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
-    modelDataURL :: Lude.Maybe Lude.Text,
-    -- | The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
-    algorithmName :: Lude.Text
+  { -- | The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+    algorithmName :: Types.ArnOrName,
+    -- | The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
+    modelDataUrl :: Core.Maybe Types.Url
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceAlgorithm' with the minimum fields required to make a request.
---
--- * 'modelDataURL' - The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
--- * 'algorithmName' - The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+-- | Creates a 'SourceAlgorithm' value with any optional fields omitted.
 mkSourceAlgorithm ::
   -- | 'algorithmName'
-  Lude.Text ->
+  Types.ArnOrName ->
   SourceAlgorithm
-mkSourceAlgorithm pAlgorithmName_ =
-  SourceAlgorithm'
-    { modelDataURL = Lude.Nothing,
-      algorithmName = pAlgorithmName_
-    }
-
--- | The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
---
--- /Note:/ Consider using 'modelDataURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saModelDataURL :: Lens.Lens' SourceAlgorithm (Lude.Maybe Lude.Text)
-saModelDataURL = Lens.lens (modelDataURL :: SourceAlgorithm -> Lude.Maybe Lude.Text) (\s a -> s {modelDataURL = a} :: SourceAlgorithm)
-{-# DEPRECATED saModelDataURL "Use generic-lens or generic-optics with 'modelDataURL' instead." #-}
+mkSourceAlgorithm algorithmName =
+  SourceAlgorithm' {algorithmName, modelDataUrl = Core.Nothing}
 
 -- | The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
 --
 -- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saAlgorithmName :: Lens.Lens' SourceAlgorithm Lude.Text
-saAlgorithmName = Lens.lens (algorithmName :: SourceAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: SourceAlgorithm)
+saAlgorithmName :: Lens.Lens' SourceAlgorithm Types.ArnOrName
+saAlgorithmName = Lens.field @"algorithmName"
 {-# DEPRECATED saAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
 
-instance Lude.FromJSON SourceAlgorithm where
-  parseJSON =
-    Lude.withObject
-      "SourceAlgorithm"
-      ( \x ->
-          SourceAlgorithm'
-            Lude.<$> (x Lude..:? "ModelDataUrl") Lude.<*> (x Lude..: "AlgorithmName")
-      )
+-- | The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
+--
+-- /Note:/ Consider using 'modelDataUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saModelDataUrl :: Lens.Lens' SourceAlgorithm (Core.Maybe Types.Url)
+saModelDataUrl = Lens.field @"modelDataUrl"
+{-# DEPRECATED saModelDataUrl "Use generic-lens or generic-optics with 'modelDataUrl' instead." #-}
 
-instance Lude.ToJSON SourceAlgorithm where
-  toJSON SourceAlgorithm' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ModelDataUrl" Lude..=) Lude.<$> modelDataURL,
-            Lude.Just ("AlgorithmName" Lude..= algorithmName)
+instance Core.FromJSON SourceAlgorithm where
+  toJSON SourceAlgorithm {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AlgorithmName" Core..= algorithmName),
+            ("ModelDataUrl" Core..=) Core.<$> modelDataUrl
           ]
       )
+
+instance Core.FromJSON SourceAlgorithm where
+  parseJSON =
+    Core.withObject "SourceAlgorithm" Core.$
+      \x ->
+        SourceAlgorithm'
+          Core.<$> (x Core..: "AlgorithmName") Core.<*> (x Core..:? "ModelDataUrl")

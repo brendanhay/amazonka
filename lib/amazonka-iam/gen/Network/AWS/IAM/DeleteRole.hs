@@ -30,67 +30,66 @@ module Network.AWS.IAM.DeleteRole
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRole' smart constructor.
 newtype DeleteRole = DeleteRole'
   { -- | The name of the role to delete.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text
+    roleName :: Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRole' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the role to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'DeleteRole' value with any optional fields omitted.
 mkDeleteRole ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   DeleteRole
-mkDeleteRole pRoleName_ = DeleteRole' {roleName = pRoleName_}
+mkDeleteRole roleName = DeleteRole' {roleName}
 
 -- | The name of the role to delete.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drRoleName :: Lens.Lens' DeleteRole Lude.Text
-drRoleName = Lens.lens (roleName :: DeleteRole -> Lude.Text) (\s a -> s {roleName = a} :: DeleteRole)
+drRoleName :: Lens.Lens' DeleteRole Types.RoleName
+drRoleName = Lens.field @"roleName"
 {-# DEPRECATED drRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance Lude.AWSRequest DeleteRole where
+instance Core.AWSRequest DeleteRole where
   type Rs DeleteRole = DeleteRoleResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteRoleResponse'
-
-instance Lude.ToHeaders DeleteRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRole where
-  toQuery DeleteRole' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteRole")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+            )
+      }
+  response = Response.receiveNull DeleteRoleResponse'
 
 -- | /See:/ 'mkDeleteRoleResponse' smart constructor.
 data DeleteRoleResponse = DeleteRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRoleResponse' value with any optional fields omitted.
 mkDeleteRoleResponse ::
   DeleteRoleResponse
 mkDeleteRoleResponse = DeleteRoleResponse'

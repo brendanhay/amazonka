@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Discovery
     Network.AWS.Discovery.AssociateConfigurationItemsToApplication
@@ -95,32 +101,69 @@ library
 
   other-modules:
     Network.AWS.Discovery.Types.AgentConfigurationStatus
+    Network.AWS.Discovery.Types.AgentId
     Network.AWS.Discovery.Types.AgentInfo
     Network.AWS.Discovery.Types.AgentNetworkInfo
     Network.AWS.Discovery.Types.AgentStatus
+    Network.AWS.Discovery.Types.AgentType
+    Network.AWS.Discovery.Types.ApplicationConfigurationId
+    Network.AWS.Discovery.Types.ApplicationId
     Network.AWS.Discovery.Types.BatchDeleteImportDataError
     Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
+    Network.AWS.Discovery.Types.ClientRequestToken
+    Network.AWS.Discovery.Types.CollectionStatus
+    Network.AWS.Discovery.Types.Condition
+    Network.AWS.Discovery.Types.ConfigurationId
     Network.AWS.Discovery.Types.ConfigurationItemType
+    Network.AWS.Discovery.Types.ConfigurationsDownloadUrl
+    Network.AWS.Discovery.Types.ConfigurationsExportId
     Network.AWS.Discovery.Types.ConfigurationTag
+    Network.AWS.Discovery.Types.ConnectorId
     Network.AWS.Discovery.Types.ContinuousExportDescription
     Network.AWS.Discovery.Types.ContinuousExportStatus
     Network.AWS.Discovery.Types.CustomerAgentInfo
     Network.AWS.Discovery.Types.CustomerConnectorInfo
+    Network.AWS.Discovery.Types.DatabaseName
     Network.AWS.Discovery.Types.DataSource
+    Network.AWS.Discovery.Types.Description
+    Network.AWS.Discovery.Types.ErrorDescription
+    Network.AWS.Discovery.Types.ErrorsAndFailedEntriesZip
     Network.AWS.Discovery.Types.ExportDataFormat
     Network.AWS.Discovery.Types.ExportFilter
+    Network.AWS.Discovery.Types.ExportId
     Network.AWS.Discovery.Types.ExportInfo
     Network.AWS.Discovery.Types.ExportStatus
     Network.AWS.Discovery.Types.Filter
+    Network.AWS.Discovery.Types.FilterName
+    Network.AWS.Discovery.Types.FilterValue
+    Network.AWS.Discovery.Types.HostName
     Network.AWS.Discovery.Types.ImportStatus
     Network.AWS.Discovery.Types.ImportTask
     Network.AWS.Discovery.Types.ImportTaskFilter
     Network.AWS.Discovery.Types.ImportTaskFilterName
+    Network.AWS.Discovery.Types.ImportTaskFilterValue
+    Network.AWS.Discovery.Types.ImportTaskId
+    Network.AWS.Discovery.Types.ImportTaskIdentifier
+    Network.AWS.Discovery.Types.ImportTaskName
+    Network.AWS.Discovery.Types.ImportURL
+    Network.AWS.Discovery.Types.ImportUrl
+    Network.AWS.Discovery.Types.Key
+    Network.AWS.Discovery.Types.LastHealthPingTime
+    Network.AWS.Discovery.Types.Name
     Network.AWS.Discovery.Types.NeighborConnectionDetail
+    Network.AWS.Discovery.Types.NextToken
     Network.AWS.Discovery.Types.OrderByElement
     Network.AWS.Discovery.Types.OrderString
+    Network.AWS.Discovery.Types.RegisteredTime
+    Network.AWS.Discovery.Types.S3Bucket
+    Network.AWS.Discovery.Types.StatusMessage
+    Network.AWS.Discovery.Types.String
+    Network.AWS.Discovery.Types.StringMax255
     Network.AWS.Discovery.Types.Tag
     Network.AWS.Discovery.Types.TagFilter
+    Network.AWS.Discovery.Types.TagValue
+    Network.AWS.Discovery.Types.Value
+    Network.AWS.Discovery.Types.Version
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

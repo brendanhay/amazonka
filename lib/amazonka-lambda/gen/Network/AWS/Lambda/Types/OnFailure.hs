@@ -21,40 +21,38 @@ module Network.AWS.Lambda.Types.OnFailure
   )
 where
 
+import qualified Network.AWS.Lambda.Types.DestinationArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A destination for events that failed processing.
 --
 -- /See:/ 'mkOnFailure' smart constructor.
 newtype OnFailure = OnFailure'
   { -- | The Amazon Resource Name (ARN) of the destination resource.
-    destination :: Lude.Maybe Lude.Text
+    destination :: Core.Maybe Types.DestinationArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OnFailure' with the minimum fields required to make a request.
---
--- * 'destination' - The Amazon Resource Name (ARN) of the destination resource.
+-- | Creates a 'OnFailure' value with any optional fields omitted.
 mkOnFailure ::
   OnFailure
-mkOnFailure = OnFailure' {destination = Lude.Nothing}
+mkOnFailure = OnFailure' {destination = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the destination resource.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofDestination :: Lens.Lens' OnFailure (Lude.Maybe Lude.Text)
-ofDestination = Lens.lens (destination :: OnFailure -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: OnFailure)
+ofDestination :: Lens.Lens' OnFailure (Core.Maybe Types.DestinationArn)
+ofDestination = Lens.field @"destination"
 {-# DEPRECATED ofDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Lude.FromJSON OnFailure where
-  parseJSON =
-    Lude.withObject
-      "OnFailure"
-      (\x -> OnFailure' Lude.<$> (x Lude..:? "Destination"))
+instance Core.FromJSON OnFailure where
+  toJSON OnFailure {..} =
+    Core.object
+      (Core.catMaybes [("Destination" Core..=) Core.<$> destination])
 
-instance Lude.ToJSON OnFailure where
-  toJSON OnFailure' {..} =
-    Lude.object
-      (Lude.catMaybes [("Destination" Lude..=) Lude.<$> destination])
+instance Core.FromJSON OnFailure where
+  parseJSON =
+    Core.withObject "OnFailure" Core.$
+      \x -> OnFailure' Core.<$> (x Core..:? "Destination")

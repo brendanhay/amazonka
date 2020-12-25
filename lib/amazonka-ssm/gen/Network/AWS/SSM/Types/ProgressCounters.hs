@@ -17,97 +17,89 @@ module Network.AWS.SSM.Types.ProgressCounters
     mkProgressCounters,
 
     -- * Lenses
-    pcFailedSteps,
     pcCancelledSteps,
+    pcFailedSteps,
     pcSuccessSteps,
-    pcTotalSteps,
     pcTimedOutSteps,
+    pcTotalSteps,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
 --
 -- /See:/ 'mkProgressCounters' smart constructor.
 data ProgressCounters = ProgressCounters'
-  { -- | The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
-    failedSteps :: Lude.Maybe Lude.Int,
-    -- | The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
-    cancelledSteps :: Lude.Maybe Lude.Int,
+  { -- | The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
+    cancelledSteps :: Core.Maybe Core.Int,
+    -- | The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
+    failedSteps :: Core.Maybe Core.Int,
     -- | The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
-    successSteps :: Lude.Maybe Lude.Int,
-    -- | The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
-    totalSteps :: Lude.Maybe Lude.Int,
+    successSteps :: Core.Maybe Core.Int,
     -- | The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
-    timedOutSteps :: Lude.Maybe Lude.Int
+    timedOutSteps :: Core.Maybe Core.Int,
+    -- | The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
+    totalSteps :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProgressCounters' with the minimum fields required to make a request.
---
--- * 'failedSteps' - The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
--- * 'cancelledSteps' - The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
--- * 'successSteps' - The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
--- * 'totalSteps' - The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
--- * 'timedOutSteps' - The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
+-- | Creates a 'ProgressCounters' value with any optional fields omitted.
 mkProgressCounters ::
   ProgressCounters
 mkProgressCounters =
   ProgressCounters'
-    { failedSteps = Lude.Nothing,
-      cancelledSteps = Lude.Nothing,
-      successSteps = Lude.Nothing,
-      totalSteps = Lude.Nothing,
-      timedOutSteps = Lude.Nothing
+    { cancelledSteps = Core.Nothing,
+      failedSteps = Core.Nothing,
+      successSteps = Core.Nothing,
+      timedOutSteps = Core.Nothing,
+      totalSteps = Core.Nothing
     }
-
--- | The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
---
--- /Note:/ Consider using 'failedSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcFailedSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
-pcFailedSteps = Lens.lens (failedSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {failedSteps = a} :: ProgressCounters)
-{-# DEPRECATED pcFailedSteps "Use generic-lens or generic-optics with 'failedSteps' instead." #-}
 
 -- | The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
 --
 -- /Note:/ Consider using 'cancelledSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcCancelledSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
-pcCancelledSteps = Lens.lens (cancelledSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {cancelledSteps = a} :: ProgressCounters)
+pcCancelledSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+pcCancelledSteps = Lens.field @"cancelledSteps"
 {-# DEPRECATED pcCancelledSteps "Use generic-lens or generic-optics with 'cancelledSteps' instead." #-}
+
+-- | The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
+--
+-- /Note:/ Consider using 'failedSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcFailedSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+pcFailedSteps = Lens.field @"failedSteps"
+{-# DEPRECATED pcFailedSteps "Use generic-lens or generic-optics with 'failedSteps' instead." #-}
 
 -- | The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
 --
 -- /Note:/ Consider using 'successSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcSuccessSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
-pcSuccessSteps = Lens.lens (successSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {successSteps = a} :: ProgressCounters)
+pcSuccessSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+pcSuccessSteps = Lens.field @"successSteps"
 {-# DEPRECATED pcSuccessSteps "Use generic-lens or generic-optics with 'successSteps' instead." #-}
-
--- | The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
---
--- /Note:/ Consider using 'totalSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcTotalSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
-pcTotalSteps = Lens.lens (totalSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {totalSteps = a} :: ProgressCounters)
-{-# DEPRECATED pcTotalSteps "Use generic-lens or generic-optics with 'totalSteps' instead." #-}
 
 -- | The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
 --
 -- /Note:/ Consider using 'timedOutSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcTimedOutSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
-pcTimedOutSteps = Lens.lens (timedOutSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {timedOutSteps = a} :: ProgressCounters)
+pcTimedOutSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+pcTimedOutSteps = Lens.field @"timedOutSteps"
 {-# DEPRECATED pcTimedOutSteps "Use generic-lens or generic-optics with 'timedOutSteps' instead." #-}
 
-instance Lude.FromJSON ProgressCounters where
+-- | The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
+--
+-- /Note:/ Consider using 'totalSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcTotalSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+pcTotalSteps = Lens.field @"totalSteps"
+{-# DEPRECATED pcTotalSteps "Use generic-lens or generic-optics with 'totalSteps' instead." #-}
+
+instance Core.FromJSON ProgressCounters where
   parseJSON =
-    Lude.withObject
-      "ProgressCounters"
-      ( \x ->
-          ProgressCounters'
-            Lude.<$> (x Lude..:? "FailedSteps")
-            Lude.<*> (x Lude..:? "CancelledSteps")
-            Lude.<*> (x Lude..:? "SuccessSteps")
-            Lude.<*> (x Lude..:? "TotalSteps")
-            Lude.<*> (x Lude..:? "TimedOutSteps")
-      )
+    Core.withObject "ProgressCounters" Core.$
+      \x ->
+        ProgressCounters'
+          Core.<$> (x Core..:? "CancelledSteps")
+          Core.<*> (x Core..:? "FailedSteps")
+          Core.<*> (x Core..:? "SuccessSteps")
+          Core.<*> (x Core..:? "TimedOutSteps")
+          Core.<*> (x Core..:? "TotalSteps")

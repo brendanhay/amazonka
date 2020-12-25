@@ -18,82 +18,78 @@ module Network.AWS.Config.Types.AccountAggregationSource
 
     -- * Lenses
     aasAccountIds,
-    aasAWSRegions,
-    aasAllAWSRegions,
+    aasAllAwsRegions,
+    aasAwsRegions,
   )
 where
 
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A collection of accounts and regions.
 --
 -- /See:/ 'mkAccountAggregationSource' smart constructor.
 data AccountAggregationSource = AccountAggregationSource'
   { -- | The 12-digit account ID of the account being aggregated.
-    accountIds :: Lude.NonEmpty Lude.Text,
-    -- | The source regions being aggregated.
-    awsRegions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    accountIds :: Core.NonEmpty Types.AccountId,
     -- | If true, aggregate existing AWS Config regions and future regions.
-    allAWSRegions :: Lude.Maybe Lude.Bool
+    allAwsRegions :: Core.Maybe Core.Bool,
+    -- | The source regions being aggregated.
+    awsRegions :: Core.Maybe (Core.NonEmpty Types.String)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountAggregationSource' with the minimum fields required to make a request.
---
--- * 'accountIds' - The 12-digit account ID of the account being aggregated.
--- * 'awsRegions' - The source regions being aggregated.
--- * 'allAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
+-- | Creates a 'AccountAggregationSource' value with any optional fields omitted.
 mkAccountAggregationSource ::
   -- | 'accountIds'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.AccountId ->
   AccountAggregationSource
-mkAccountAggregationSource pAccountIds_ =
+mkAccountAggregationSource accountIds =
   AccountAggregationSource'
-    { accountIds = pAccountIds_,
-      awsRegions = Lude.Nothing,
-      allAWSRegions = Lude.Nothing
+    { accountIds,
+      allAwsRegions = Core.Nothing,
+      awsRegions = Core.Nothing
     }
 
 -- | The 12-digit account ID of the account being aggregated.
 --
 -- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasAccountIds :: Lens.Lens' AccountAggregationSource (Lude.NonEmpty Lude.Text)
-aasAccountIds = Lens.lens (accountIds :: AccountAggregationSource -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: AccountAggregationSource)
+aasAccountIds :: Lens.Lens' AccountAggregationSource (Core.NonEmpty Types.AccountId)
+aasAccountIds = Lens.field @"accountIds"
 {-# DEPRECATED aasAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+
+-- | If true, aggregate existing AWS Config regions and future regions.
+--
+-- /Note:/ Consider using 'allAwsRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aasAllAwsRegions :: Lens.Lens' AccountAggregationSource (Core.Maybe Core.Bool)
+aasAllAwsRegions = Lens.field @"allAwsRegions"
+{-# DEPRECATED aasAllAwsRegions "Use generic-lens or generic-optics with 'allAwsRegions' instead." #-}
 
 -- | The source regions being aggregated.
 --
 -- /Note:/ Consider using 'awsRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasAWSRegions :: Lens.Lens' AccountAggregationSource (Lude.Maybe (Lude.NonEmpty Lude.Text))
-aasAWSRegions = Lens.lens (awsRegions :: AccountAggregationSource -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {awsRegions = a} :: AccountAggregationSource)
-{-# DEPRECATED aasAWSRegions "Use generic-lens or generic-optics with 'awsRegions' instead." #-}
+aasAwsRegions :: Lens.Lens' AccountAggregationSource (Core.Maybe (Core.NonEmpty Types.String))
+aasAwsRegions = Lens.field @"awsRegions"
+{-# DEPRECATED aasAwsRegions "Use generic-lens or generic-optics with 'awsRegions' instead." #-}
 
--- | If true, aggregate existing AWS Config regions and future regions.
---
--- /Note:/ Consider using 'allAWSRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasAllAWSRegions :: Lens.Lens' AccountAggregationSource (Lude.Maybe Lude.Bool)
-aasAllAWSRegions = Lens.lens (allAWSRegions :: AccountAggregationSource -> Lude.Maybe Lude.Bool) (\s a -> s {allAWSRegions = a} :: AccountAggregationSource)
-{-# DEPRECATED aasAllAWSRegions "Use generic-lens or generic-optics with 'allAWSRegions' instead." #-}
-
-instance Lude.FromJSON AccountAggregationSource where
-  parseJSON =
-    Lude.withObject
-      "AccountAggregationSource"
-      ( \x ->
-          AccountAggregationSource'
-            Lude.<$> (x Lude..: "AccountIds")
-            Lude.<*> (x Lude..:? "AwsRegions")
-            Lude.<*> (x Lude..:? "AllAwsRegions")
-      )
-
-instance Lude.ToJSON AccountAggregationSource where
-  toJSON AccountAggregationSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccountIds" Lude..= accountIds),
-            ("AwsRegions" Lude..=) Lude.<$> awsRegions,
-            ("AllAwsRegions" Lude..=) Lude.<$> allAWSRegions
+instance Core.FromJSON AccountAggregationSource where
+  toJSON AccountAggregationSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountIds" Core..= accountIds),
+            ("AllAwsRegions" Core..=) Core.<$> allAwsRegions,
+            ("AwsRegions" Core..=) Core.<$> awsRegions
           ]
       )
+
+instance Core.FromJSON AccountAggregationSource where
+  parseJSON =
+    Core.withObject "AccountAggregationSource" Core.$
+      \x ->
+        AccountAggregationSource'
+          Core.<$> (x Core..: "AccountIds")
+          Core.<*> (x Core..:? "AllAwsRegions")
+          Core.<*> (x Core..:? "AwsRegions")

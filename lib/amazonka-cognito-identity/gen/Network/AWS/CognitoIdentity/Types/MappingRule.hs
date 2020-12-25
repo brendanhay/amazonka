@@ -17,104 +17,95 @@ module Network.AWS.CognitoIdentity.Types.MappingRule
     mkMappingRule,
 
     -- * Lenses
+    mrClaim,
     mrMatchType,
     mrValue,
-    mrClaim,
     mrRoleARN,
   )
 where
 
-import Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
+import qualified Network.AWS.CognitoIdentity.Types.Claim as Types
+import qualified Network.AWS.CognitoIdentity.Types.MappingRuleMatchType as Types
+import qualified Network.AWS.CognitoIdentity.Types.RoleARN as Types
+import qualified Network.AWS.CognitoIdentity.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A rule that maps a claim name, a claim value, and a match type to a role ARN.
 --
 -- /See:/ 'mkMappingRule' smart constructor.
 data MappingRule = MappingRule'
-  { -- | The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
-    matchType :: MappingRuleMatchType,
+  { -- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
+    claim :: Types.Claim,
+    -- | The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
+    matchType :: Types.MappingRuleMatchType,
     -- | A brief string that the claim must match, for example, "paid" or "yes".
-    value :: Lude.Text,
-    -- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
-    claim :: Lude.Text,
+    value :: Types.Value,
     -- | The role ARN.
-    roleARN :: Lude.Text
+    roleARN :: Types.RoleARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MappingRule' with the minimum fields required to make a request.
---
--- * 'matchType' - The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
--- * 'value' - A brief string that the claim must match, for example, "paid" or "yes".
--- * 'claim' - The claim name that must be present in the token, for example, "isAdmin" or "paid".
--- * 'roleARN' - The role ARN.
+-- | Creates a 'MappingRule' value with any optional fields omitted.
 mkMappingRule ::
-  -- | 'matchType'
-  MappingRuleMatchType ->
-  -- | 'value'
-  Lude.Text ->
   -- | 'claim'
-  Lude.Text ->
+  Types.Claim ->
+  -- | 'matchType'
+  Types.MappingRuleMatchType ->
+  -- | 'value'
+  Types.Value ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
   MappingRule
-mkMappingRule pMatchType_ pValue_ pClaim_ pRoleARN_ =
-  MappingRule'
-    { matchType = pMatchType_,
-      value = pValue_,
-      claim = pClaim_,
-      roleARN = pRoleARN_
-    }
+mkMappingRule claim matchType value roleARN =
+  MappingRule' {claim, matchType, value, roleARN}
+
+-- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
+--
+-- /Note:/ Consider using 'claim' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrClaim :: Lens.Lens' MappingRule Types.Claim
+mrClaim = Lens.field @"claim"
+{-# DEPRECATED mrClaim "Use generic-lens or generic-optics with 'claim' instead." #-}
 
 -- | The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
 --
 -- /Note:/ Consider using 'matchType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrMatchType :: Lens.Lens' MappingRule MappingRuleMatchType
-mrMatchType = Lens.lens (matchType :: MappingRule -> MappingRuleMatchType) (\s a -> s {matchType = a} :: MappingRule)
+mrMatchType :: Lens.Lens' MappingRule Types.MappingRuleMatchType
+mrMatchType = Lens.field @"matchType"
 {-# DEPRECATED mrMatchType "Use generic-lens or generic-optics with 'matchType' instead." #-}
 
 -- | A brief string that the claim must match, for example, "paid" or "yes".
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrValue :: Lens.Lens' MappingRule Lude.Text
-mrValue = Lens.lens (value :: MappingRule -> Lude.Text) (\s a -> s {value = a} :: MappingRule)
+mrValue :: Lens.Lens' MappingRule Types.Value
+mrValue = Lens.field @"value"
 {-# DEPRECATED mrValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
---
--- /Note:/ Consider using 'claim' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrClaim :: Lens.Lens' MappingRule Lude.Text
-mrClaim = Lens.lens (claim :: MappingRule -> Lude.Text) (\s a -> s {claim = a} :: MappingRule)
-{-# DEPRECATED mrClaim "Use generic-lens or generic-optics with 'claim' instead." #-}
 
 -- | The role ARN.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrRoleARN :: Lens.Lens' MappingRule Lude.Text
-mrRoleARN = Lens.lens (roleARN :: MappingRule -> Lude.Text) (\s a -> s {roleARN = a} :: MappingRule)
+mrRoleARN :: Lens.Lens' MappingRule Types.RoleARN
+mrRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED mrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.FromJSON MappingRule where
-  parseJSON =
-    Lude.withObject
-      "MappingRule"
-      ( \x ->
-          MappingRule'
-            Lude.<$> (x Lude..: "MatchType")
-            Lude.<*> (x Lude..: "Value")
-            Lude.<*> (x Lude..: "Claim")
-            Lude.<*> (x Lude..: "RoleARN")
-      )
-
-instance Lude.ToJSON MappingRule where
-  toJSON MappingRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MatchType" Lude..= matchType),
-            Lude.Just ("Value" Lude..= value),
-            Lude.Just ("Claim" Lude..= claim),
-            Lude.Just ("RoleARN" Lude..= roleARN)
+instance Core.FromJSON MappingRule where
+  toJSON MappingRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Claim" Core..= claim),
+            Core.Just ("MatchType" Core..= matchType),
+            Core.Just ("Value" Core..= value),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )
+
+instance Core.FromJSON MappingRule where
+  parseJSON =
+    Core.withObject "MappingRule" Core.$
+      \x ->
+        MappingRule'
+          Core.<$> (x Core..: "Claim")
+          Core.<*> (x Core..: "MatchType")
+          Core.<*> (x Core..: "Value")
+          Core.<*> (x Core..: "RoleARN")

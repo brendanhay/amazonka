@@ -17,13 +17,15 @@ module Network.AWS.CloudFormation.Types.ModuleInfo
     mkModuleInfo,
 
     -- * Lenses
-    miTypeHierarchy,
     miLogicalIdHierarchy,
+    miTypeHierarchy,
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.LogicalIdHierarchy as Types
+import qualified Network.AWS.CloudFormation.Types.TypeHierarchy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.
 --
@@ -31,49 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModuleInfo' smart constructor.
 data ModuleInfo = ModuleInfo'
-  { -- | A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
-    --
-    -- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
-    -- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
-    typeHierarchy :: Lude.Maybe Lude.Text,
-    -- | A concantenated list of the logical IDs of the module or modules containing the resource. Modules are listed starting with the inner-most nested module, and separated by @/@ .
+  { -- | A concantenated list of the logical IDs of the module or modules containing the resource. Modules are listed starting with the inner-most nested module, and separated by @/@ .
     --
     -- In the following example, the resource was created from a module, @moduleA@ , that is nested inside a parent module, @moduleB@ .
     -- @moduleA/moduleB@
     -- For more information, see <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module> in the /CloudFormation User Guide/ .
-    logicalIdHierarchy :: Lude.Maybe Lude.Text
+    logicalIdHierarchy :: Core.Maybe Types.LogicalIdHierarchy,
+    -- | A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
+    --
+    -- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
+    -- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
+    typeHierarchy :: Core.Maybe Types.TypeHierarchy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModuleInfo' with the minimum fields required to make a request.
---
--- * 'typeHierarchy' - A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
---
--- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
--- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
--- * 'logicalIdHierarchy' - A concantenated list of the logical IDs of the module or modules containing the resource. Modules are listed starting with the inner-most nested module, and separated by @/@ .
---
--- In the following example, the resource was created from a module, @moduleA@ , that is nested inside a parent module, @moduleB@ .
--- @moduleA/moduleB@
--- For more information, see <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module> in the /CloudFormation User Guide/ .
+-- | Creates a 'ModuleInfo' value with any optional fields omitted.
 mkModuleInfo ::
   ModuleInfo
 mkModuleInfo =
   ModuleInfo'
-    { typeHierarchy = Lude.Nothing,
-      logicalIdHierarchy = Lude.Nothing
+    { logicalIdHierarchy = Core.Nothing,
+      typeHierarchy = Core.Nothing
     }
-
--- | A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
---
--- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
--- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
---
--- /Note:/ Consider using 'typeHierarchy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miTypeHierarchy :: Lens.Lens' ModuleInfo (Lude.Maybe Lude.Text)
-miTypeHierarchy = Lens.lens (typeHierarchy :: ModuleInfo -> Lude.Maybe Lude.Text) (\s a -> s {typeHierarchy = a} :: ModuleInfo)
-{-# DEPRECATED miTypeHierarchy "Use generic-lens or generic-optics with 'typeHierarchy' instead." #-}
 
 -- | A concantenated list of the logical IDs of the module or modules containing the resource. Modules are listed starting with the inner-most nested module, and separated by @/@ .
 --
@@ -82,12 +64,22 @@ miTypeHierarchy = Lens.lens (typeHierarchy :: ModuleInfo -> Lude.Maybe Lude.Text
 -- For more information, see <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module> in the /CloudFormation User Guide/ .
 --
 -- /Note:/ Consider using 'logicalIdHierarchy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miLogicalIdHierarchy :: Lens.Lens' ModuleInfo (Lude.Maybe Lude.Text)
-miLogicalIdHierarchy = Lens.lens (logicalIdHierarchy :: ModuleInfo -> Lude.Maybe Lude.Text) (\s a -> s {logicalIdHierarchy = a} :: ModuleInfo)
+miLogicalIdHierarchy :: Lens.Lens' ModuleInfo (Core.Maybe Types.LogicalIdHierarchy)
+miLogicalIdHierarchy = Lens.field @"logicalIdHierarchy"
 {-# DEPRECATED miLogicalIdHierarchy "Use generic-lens or generic-optics with 'logicalIdHierarchy' instead." #-}
 
-instance Lude.FromXML ModuleInfo where
+-- | A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
+--
+-- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
+-- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
+--
+-- /Note:/ Consider using 'typeHierarchy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miTypeHierarchy :: Lens.Lens' ModuleInfo (Core.Maybe Types.TypeHierarchy)
+miTypeHierarchy = Lens.field @"typeHierarchy"
+{-# DEPRECATED miTypeHierarchy "Use generic-lens or generic-optics with 'typeHierarchy' instead." #-}
+
+instance Core.FromXML ModuleInfo where
   parseXML x =
     ModuleInfo'
-      Lude.<$> (x Lude..@? "TypeHierarchy")
-      Lude.<*> (x Lude..@? "LogicalIdHierarchy")
+      Core.<$> (x Core..@? "LogicalIdHierarchy")
+      Core.<*> (x Core..@? "TypeHierarchy")

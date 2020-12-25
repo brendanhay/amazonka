@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AlphaBehavior
   ( AlphaBehavior
       ( AlphaBehavior',
-        Discard,
-        RemapToLuma
+        AlphaBehaviorDiscard,
+        AlphaBehaviorRemapToLuma,
+        fromAlphaBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ignore this setting unless this input is a QuickTime animation with an alpha channel. Use this setting to create separate Key and Fill outputs. In each output, specify which part of the input MediaConvert uses. Leave this setting at the default value DISCARD to delete the alpha channel and preserve the video. Set it to REMAP_TO_LUMA to delete the video and map the alpha channel to the luma channel of your outputs.
-newtype AlphaBehavior = AlphaBehavior' Lude.Text
+newtype AlphaBehavior = AlphaBehavior'
+  { fromAlphaBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Discard :: AlphaBehavior
-pattern Discard = AlphaBehavior' "DISCARD"
+pattern AlphaBehaviorDiscard :: AlphaBehavior
+pattern AlphaBehaviorDiscard = AlphaBehavior' "DISCARD"
 
-pattern RemapToLuma :: AlphaBehavior
-pattern RemapToLuma = AlphaBehavior' "REMAP_TO_LUMA"
+pattern AlphaBehaviorRemapToLuma :: AlphaBehavior
+pattern AlphaBehaviorRemapToLuma = AlphaBehavior' "REMAP_TO_LUMA"
 
 {-# COMPLETE
-  Discard,
-  RemapToLuma,
+  AlphaBehaviorDiscard,
+  AlphaBehaviorRemapToLuma,
   AlphaBehavior'
   #-}

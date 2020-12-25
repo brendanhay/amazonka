@@ -31,115 +31,107 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     mkSetIdentityFeedbackForwardingEnabledResponse,
 
     -- ** Response lenses
-    siffersResponseStatus,
+    sifferrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkSetIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
   { -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
-    identity :: Lude.Text,
+    identity :: Types.Identity,
     -- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
-    forwardingEnabled :: Lude.Bool
+    forwardingEnabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityFeedbackForwardingEnabled' with the minimum fields required to make a request.
---
--- * 'identity' - The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
--- * 'forwardingEnabled' - Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
+-- | Creates a 'SetIdentityFeedbackForwardingEnabled' value with any optional fields omitted.
 mkSetIdentityFeedbackForwardingEnabled ::
   -- | 'identity'
-  Lude.Text ->
+  Types.Identity ->
   -- | 'forwardingEnabled'
-  Lude.Bool ->
+  Core.Bool ->
   SetIdentityFeedbackForwardingEnabled
-mkSetIdentityFeedbackForwardingEnabled
-  pIdentity_
-  pForwardingEnabled_ =
-    SetIdentityFeedbackForwardingEnabled'
-      { identity = pIdentity_,
-        forwardingEnabled = pForwardingEnabled_
-      }
+mkSetIdentityFeedbackForwardingEnabled identity forwardingEnabled =
+  SetIdentityFeedbackForwardingEnabled'
+    { identity,
+      forwardingEnabled
+    }
 
 -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siffeIdentity :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Lude.Text
-siffeIdentity = Lens.lens (identity :: SetIdentityFeedbackForwardingEnabled -> Lude.Text) (\s a -> s {identity = a} :: SetIdentityFeedbackForwardingEnabled)
+siffeIdentity :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Types.Identity
+siffeIdentity = Lens.field @"identity"
 {-# DEPRECATED siffeIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 --
 -- /Note:/ Consider using 'forwardingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siffeForwardingEnabled :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Lude.Bool
-siffeForwardingEnabled = Lens.lens (forwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> Lude.Bool) (\s a -> s {forwardingEnabled = a} :: SetIdentityFeedbackForwardingEnabled)
+siffeForwardingEnabled :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Core.Bool
+siffeForwardingEnabled = Lens.field @"forwardingEnabled"
 {-# DEPRECATED siffeForwardingEnabled "Use generic-lens or generic-optics with 'forwardingEnabled' instead." #-}
 
-instance Lude.AWSRequest SetIdentityFeedbackForwardingEnabled where
+instance Core.AWSRequest SetIdentityFeedbackForwardingEnabled where
   type
     Rs SetIdentityFeedbackForwardingEnabled =
       SetIdentityFeedbackForwardingEnabledResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetIdentityFeedbackForwardingEnabled")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Identity" identity)
+                Core.<> (Core.toQueryValue "ForwardingEnabled" forwardingEnabled)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetIdentityFeedbackForwardingEnabledResult"
       ( \s h x ->
           SetIdentityFeedbackForwardingEnabledResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetIdentityFeedbackForwardingEnabled where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetIdentityFeedbackForwardingEnabled where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetIdentityFeedbackForwardingEnabled where
-  toQuery SetIdentityFeedbackForwardingEnabled' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("SetIdentityFeedbackForwardingEnabled" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity,
-        "ForwardingEnabled" Lude.=: forwardingEnabled
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityFeedbackForwardingEnabledResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetIdentityFeedbackForwardingEnabledResponse' value with any optional fields omitted.
 mkSetIdentityFeedbackForwardingEnabledResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetIdentityFeedbackForwardingEnabledResponse
-mkSetIdentityFeedbackForwardingEnabledResponse pResponseStatus_ =
-  SetIdentityFeedbackForwardingEnabledResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkSetIdentityFeedbackForwardingEnabledResponse responseStatus =
+  SetIdentityFeedbackForwardingEnabledResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siffersResponseStatus :: Lens.Lens' SetIdentityFeedbackForwardingEnabledResponse Lude.Int
-siffersResponseStatus = Lens.lens (responseStatus :: SetIdentityFeedbackForwardingEnabledResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetIdentityFeedbackForwardingEnabledResponse)
-{-# DEPRECATED siffersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sifferrsResponseStatus :: Lens.Lens' SetIdentityFeedbackForwardingEnabledResponse Core.Int
+sifferrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sifferrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

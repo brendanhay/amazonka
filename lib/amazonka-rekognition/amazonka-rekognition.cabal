@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Rekognition
     Network.AWS.Rekognition.CompareFaces
@@ -120,16 +126,20 @@ library
 
   other-modules:
     Network.AWS.Rekognition.Types.AgeRange
+    Network.AWS.Rekognition.Types.Arn
     Network.AWS.Rekognition.Types.Asset
     Network.AWS.Rekognition.Types.Attribute
     Network.AWS.Rekognition.Types.AudioMetadata
     Network.AWS.Rekognition.Types.Beard
     Network.AWS.Rekognition.Types.BodyPart
     Network.AWS.Rekognition.Types.BoundingBox
+    Network.AWS.Rekognition.Types.Bucket
     Network.AWS.Rekognition.Types.Celebrity
     Network.AWS.Rekognition.Types.CelebrityDetail
     Network.AWS.Rekognition.Types.CelebrityRecognition
     Network.AWS.Rekognition.Types.CelebrityRecognitionSortBy
+    Network.AWS.Rekognition.Types.ClientRequestToken
+    Network.AWS.Rekognition.Types.CollectionId
     Network.AWS.Rekognition.Types.ComparedFace
     Network.AWS.Rekognition.Types.ComparedSourceImageFace
     Network.AWS.Rekognition.Types.CompareFacesMatch
@@ -140,31 +150,46 @@ library
     Network.AWS.Rekognition.Types.CustomLabel
     Network.AWS.Rekognition.Types.DetectionFilter
     Network.AWS.Rekognition.Types.DetectTextFilters
+    Network.AWS.Rekognition.Types.DurationSMPTE
     Network.AWS.Rekognition.Types.Emotion
     Network.AWS.Rekognition.Types.EmotionName
+    Network.AWS.Rekognition.Types.EndTimecodeSMPTE
     Network.AWS.Rekognition.Types.EquipmentDetection
     Network.AWS.Rekognition.Types.EvaluationResult
+    Network.AWS.Rekognition.Types.ExtendedPaginationToken
+    Network.AWS.Rekognition.Types.ExternalImageId
     Network.AWS.Rekognition.Types.Eyeglasses
     Network.AWS.Rekognition.Types.EyeOpen
     Network.AWS.Rekognition.Types.Face
     Network.AWS.Rekognition.Types.FaceAttributes
     Network.AWS.Rekognition.Types.FaceDetail
     Network.AWS.Rekognition.Types.FaceDetection
+    Network.AWS.Rekognition.Types.FaceId
     Network.AWS.Rekognition.Types.FaceMatch
     Network.AWS.Rekognition.Types.FaceRecord
     Network.AWS.Rekognition.Types.FaceSearchSettings
     Network.AWS.Rekognition.Types.FaceSearchSortBy
+    Network.AWS.Rekognition.Types.FlowDefinitionArn
     Network.AWS.Rekognition.Types.Gender
     Network.AWS.Rekognition.Types.GenderType
     Network.AWS.Rekognition.Types.Geometry
     Network.AWS.Rekognition.Types.GroundTruthManifest
+    Network.AWS.Rekognition.Types.HumanLoopActivationConditionsEvaluationResults
     Network.AWS.Rekognition.Types.HumanLoopActivationOutput
+    Network.AWS.Rekognition.Types.HumanLoopActivationReason
+    Network.AWS.Rekognition.Types.HumanLoopArn
     Network.AWS.Rekognition.Types.HumanLoopConfig
     Network.AWS.Rekognition.Types.HumanLoopDataAttributes
+    Network.AWS.Rekognition.Types.HumanLoopName
+    Network.AWS.Rekognition.Types.Id
     Network.AWS.Rekognition.Types.Image
+    Network.AWS.Rekognition.Types.ImageId
     Network.AWS.Rekognition.Types.ImageQuality
     Network.AWS.Rekognition.Types.Instance
+    Network.AWS.Rekognition.Types.JobId
+    Network.AWS.Rekognition.Types.JobTag
     Network.AWS.Rekognition.Types.KinesisDataStream
+    Network.AWS.Rekognition.Types.KinesisVideoArn
     Network.AWS.Rekognition.Types.KinesisVideoStream
     Network.AWS.Rekognition.Types.Label
     Network.AWS.Rekognition.Types.LabelDetection
@@ -172,23 +197,32 @@ library
     Network.AWS.Rekognition.Types.Landmark
     Network.AWS.Rekognition.Types.LandmarkType
     Network.AWS.Rekognition.Types.ModerationLabel
+    Network.AWS.Rekognition.Types.ModerationModelVersion
     Network.AWS.Rekognition.Types.MouthOpen
     Network.AWS.Rekognition.Types.Mustache
+    Network.AWS.Rekognition.Types.Name
+    Network.AWS.Rekognition.Types.NextToken
     Network.AWS.Rekognition.Types.NotificationChannel
     Network.AWS.Rekognition.Types.OrientationCorrection
     Network.AWS.Rekognition.Types.OutputConfig
+    Network.AWS.Rekognition.Types.PaginationToken
     Network.AWS.Rekognition.Types.Parent
+    Network.AWS.Rekognition.Types.ParentName
     Network.AWS.Rekognition.Types.PersonDetail
     Network.AWS.Rekognition.Types.PersonDetection
     Network.AWS.Rekognition.Types.PersonMatch
     Network.AWS.Rekognition.Types.PersonTrackingSortBy
     Network.AWS.Rekognition.Types.Point
     Network.AWS.Rekognition.Types.Pose
+    Network.AWS.Rekognition.Types.ProjectArn
     Network.AWS.Rekognition.Types.ProjectDescription
+    Network.AWS.Rekognition.Types.ProjectName
     Network.AWS.Rekognition.Types.ProjectStatus
+    Network.AWS.Rekognition.Types.ProjectVersionArn
     Network.AWS.Rekognition.Types.ProjectVersionDescription
     Network.AWS.Rekognition.Types.ProjectVersionStatus
     Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
+    Network.AWS.Rekognition.Types.ProtectiveEquipmentModelVersion
     Network.AWS.Rekognition.Types.ProtectiveEquipmentPerson
     Network.AWS.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes
     Network.AWS.Rekognition.Types.ProtectiveEquipmentSummary
@@ -196,21 +230,31 @@ library
     Network.AWS.Rekognition.Types.QualityFilter
     Network.AWS.Rekognition.Types.Reason
     Network.AWS.Rekognition.Types.RegionOfInterest
+    Network.AWS.Rekognition.Types.RoleArn
+    Network.AWS.Rekognition.Types.S3Bucket
+    Network.AWS.Rekognition.Types.S3KeyPrefix
     Network.AWS.Rekognition.Types.S3Object
+    Network.AWS.Rekognition.Types.S3ObjectVersion
     Network.AWS.Rekognition.Types.SegmentDetection
     Network.AWS.Rekognition.Types.SegmentType
     Network.AWS.Rekognition.Types.SegmentTypeInfo
     Network.AWS.Rekognition.Types.ShotSegment
     Network.AWS.Rekognition.Types.Smile
+    Network.AWS.Rekognition.Types.SNSTopicArn
     Network.AWS.Rekognition.Types.StartSegmentDetectionFilters
     Network.AWS.Rekognition.Types.StartShotDetectionFilter
     Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
     Network.AWS.Rekognition.Types.StartTextDetectionFilters
+    Network.AWS.Rekognition.Types.StartTimecodeSMPTE
+    Network.AWS.Rekognition.Types.StatusMessage
     Network.AWS.Rekognition.Types.StreamProcessor
+    Network.AWS.Rekognition.Types.StreamProcessorArn
     Network.AWS.Rekognition.Types.StreamProcessorInput
+    Network.AWS.Rekognition.Types.StreamProcessorName
     Network.AWS.Rekognition.Types.StreamProcessorOutput
     Network.AWS.Rekognition.Types.StreamProcessorSettings
     Network.AWS.Rekognition.Types.StreamProcessorStatus
+    Network.AWS.Rekognition.Types.String
     Network.AWS.Rekognition.Types.Summary
     Network.AWS.Rekognition.Types.Sunglasses
     Network.AWS.Rekognition.Types.TechnicalCueSegment
@@ -219,11 +263,14 @@ library
     Network.AWS.Rekognition.Types.TestingDataResult
     Network.AWS.Rekognition.Types.TextDetection
     Network.AWS.Rekognition.Types.TextDetectionResult
+    Network.AWS.Rekognition.Types.TextModelVersion
     Network.AWS.Rekognition.Types.TextTypes
     Network.AWS.Rekognition.Types.TrainingData
     Network.AWS.Rekognition.Types.TrainingDataResult
     Network.AWS.Rekognition.Types.UnindexedFace
+    Network.AWS.Rekognition.Types.Url
     Network.AWS.Rekognition.Types.ValidationData
+    Network.AWS.Rekognition.Types.VersionName
     Network.AWS.Rekognition.Types.Video
     Network.AWS.Rekognition.Types.VideoJobStatus
     Network.AWS.Rekognition.Types.VideoMetadata

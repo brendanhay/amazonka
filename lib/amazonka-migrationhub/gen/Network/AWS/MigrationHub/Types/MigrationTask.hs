@@ -17,99 +17,93 @@ module Network.AWS.MigrationHub.Types.MigrationTask
     mkMigrationTask,
 
     -- * Lenses
-    mtUpdateDateTime,
+    mtMigrationTaskName,
+    mtProgressUpdateStream,
     mtResourceAttributeList,
     mtTask,
-    mtProgressUpdateStream,
-    mtMigrationTaskName,
+    mtUpdateDateTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types.ResourceAttribute
-import Network.AWS.MigrationHub.Types.Task
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MigrationHub.Types.MigrationTaskName as Types
+import qualified Network.AWS.MigrationHub.Types.ProgressUpdateStream as Types
+import qualified Network.AWS.MigrationHub.Types.ResourceAttribute as Types
+import qualified Network.AWS.MigrationHub.Types.Task as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a migration task in a migration tool.
 --
 -- /See:/ 'mkMigrationTask' smart constructor.
 data MigrationTask = MigrationTask'
-  { -- | The timestamp when the task was gathered.
-    updateDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
-    resourceAttributeList :: Lude.Maybe [ResourceAttribute],
-    -- | Task object encapsulating task information.
-    task :: Lude.Maybe Task,
+  { -- | Unique identifier that references the migration task. /Do not store personal data in this field./
+    migrationTaskName :: Core.Maybe Types.MigrationTaskName,
     -- | A name that identifies the vendor of the migration tool being used.
-    progressUpdateStream :: Lude.Maybe Lude.Text,
-    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-    migrationTaskName :: Lude.Maybe Lude.Text
+    progressUpdateStream :: Core.Maybe Types.ProgressUpdateStream,
+    -- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
+    resourceAttributeList :: Core.Maybe [Types.ResourceAttribute],
+    -- | Task object encapsulating task information.
+    task :: Core.Maybe Types.Task,
+    -- | The timestamp when the task was gathered.
+    updateDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MigrationTask' with the minimum fields required to make a request.
---
--- * 'updateDateTime' - The timestamp when the task was gathered.
--- * 'resourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
--- * 'task' - Task object encapsulating task information.
--- * 'progressUpdateStream' - A name that identifies the vendor of the migration tool being used.
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- | Creates a 'MigrationTask' value with any optional fields omitted.
 mkMigrationTask ::
   MigrationTask
 mkMigrationTask =
   MigrationTask'
-    { updateDateTime = Lude.Nothing,
-      resourceAttributeList = Lude.Nothing,
-      task = Lude.Nothing,
-      progressUpdateStream = Lude.Nothing,
-      migrationTaskName = Lude.Nothing
+    { migrationTaskName = Core.Nothing,
+      progressUpdateStream = Core.Nothing,
+      resourceAttributeList = Core.Nothing,
+      task = Core.Nothing,
+      updateDateTime = Core.Nothing
     }
 
--- | The timestamp when the task was gathered.
+-- | Unique identifier that references the migration task. /Do not store personal data in this field./
 --
--- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtUpdateDateTime :: Lens.Lens' MigrationTask (Lude.Maybe Lude.Timestamp)
-mtUpdateDateTime = Lens.lens (updateDateTime :: MigrationTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateDateTime = a} :: MigrationTask)
-{-# DEPRECATED mtUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
+-- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtMigrationTaskName :: Lens.Lens' MigrationTask (Core.Maybe Types.MigrationTaskName)
+mtMigrationTaskName = Lens.field @"migrationTaskName"
+{-# DEPRECATED mtMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
+
+-- | A name that identifies the vendor of the migration tool being used.
+--
+-- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtProgressUpdateStream :: Lens.Lens' MigrationTask (Core.Maybe Types.ProgressUpdateStream)
+mtProgressUpdateStream = Lens.field @"progressUpdateStream"
+{-# DEPRECATED mtProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
 --
 -- /Note:/ Consider using 'resourceAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtResourceAttributeList :: Lens.Lens' MigrationTask (Lude.Maybe [ResourceAttribute])
-mtResourceAttributeList = Lens.lens (resourceAttributeList :: MigrationTask -> Lude.Maybe [ResourceAttribute]) (\s a -> s {resourceAttributeList = a} :: MigrationTask)
+mtResourceAttributeList :: Lens.Lens' MigrationTask (Core.Maybe [Types.ResourceAttribute])
+mtResourceAttributeList = Lens.field @"resourceAttributeList"
 {-# DEPRECATED mtResourceAttributeList "Use generic-lens or generic-optics with 'resourceAttributeList' instead." #-}
 
 -- | Task object encapsulating task information.
 --
 -- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtTask :: Lens.Lens' MigrationTask (Lude.Maybe Task)
-mtTask = Lens.lens (task :: MigrationTask -> Lude.Maybe Task) (\s a -> s {task = a} :: MigrationTask)
+mtTask :: Lens.Lens' MigrationTask (Core.Maybe Types.Task)
+mtTask = Lens.field @"task"
 {-# DEPRECATED mtTask "Use generic-lens or generic-optics with 'task' instead." #-}
 
--- | A name that identifies the vendor of the migration tool being used.
+-- | The timestamp when the task was gathered.
 --
--- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtProgressUpdateStream :: Lens.Lens' MigrationTask (Lude.Maybe Lude.Text)
-mtProgressUpdateStream = Lens.lens (progressUpdateStream :: MigrationTask -> Lude.Maybe Lude.Text) (\s a -> s {progressUpdateStream = a} :: MigrationTask)
-{-# DEPRECATED mtProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
+-- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtUpdateDateTime :: Lens.Lens' MigrationTask (Core.Maybe Core.NominalDiffTime)
+mtUpdateDateTime = Lens.field @"updateDateTime"
+{-# DEPRECATED mtUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
 
--- | Unique identifier that references the migration task. /Do not store personal data in this field./
---
--- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtMigrationTaskName :: Lens.Lens' MigrationTask (Lude.Maybe Lude.Text)
-mtMigrationTaskName = Lens.lens (migrationTaskName :: MigrationTask -> Lude.Maybe Lude.Text) (\s a -> s {migrationTaskName = a} :: MigrationTask)
-{-# DEPRECATED mtMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
-
-instance Lude.FromJSON MigrationTask where
+instance Core.FromJSON MigrationTask where
   parseJSON =
-    Lude.withObject
-      "MigrationTask"
-      ( \x ->
-          MigrationTask'
-            Lude.<$> (x Lude..:? "UpdateDateTime")
-            Lude.<*> (x Lude..:? "ResourceAttributeList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Task")
-            Lude.<*> (x Lude..:? "ProgressUpdateStream")
-            Lude.<*> (x Lude..:? "MigrationTaskName")
-      )
+    Core.withObject "MigrationTask" Core.$
+      \x ->
+        MigrationTask'
+          Core.<$> (x Core..:? "MigrationTaskName")
+          Core.<*> (x Core..:? "ProgressUpdateStream")
+          Core.<*> (x Core..:? "ResourceAttributeList")
+          Core.<*> (x Core..:? "Task")
+          Core.<*> (x Core..:? "UpdateDateTime")

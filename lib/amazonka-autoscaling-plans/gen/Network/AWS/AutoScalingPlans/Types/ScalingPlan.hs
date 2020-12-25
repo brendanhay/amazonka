@@ -17,41 +17,37 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPlan
     mkScalingPlan,
 
     -- * Lenses
-    spCreationTime,
-    spScalingPlanVersion,
-    spScalingInstructions,
-    spStatusStartTime,
     spScalingPlanName,
+    spScalingPlanVersion,
     spApplicationSource,
-    spStatusMessage,
+    spScalingInstructions,
     spStatusCode,
+    spCreationTime,
+    spStatusMessage,
+    spStatusStartTime,
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.ApplicationSource
-import Network.AWS.AutoScalingPlans.Types.ScalingInstruction
-import Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
+import qualified Network.AWS.AutoScalingPlans.Types.ApplicationSource as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingInstruction as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingPlanName as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode as Types
+import qualified Network.AWS.AutoScalingPlans.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a scaling plan.
 --
 -- /See:/ 'mkScalingPlan' smart constructor.
 data ScalingPlan = ScalingPlan'
-  { -- | The Unix time stamp when the scaling plan was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The name of the scaling plan.
+    scalingPlanName :: Types.ScalingPlanName,
     -- | The version number of the scaling plan.
-    scalingPlanVersion :: Lude.Integer,
-    -- | The scaling instructions.
-    scalingInstructions :: [ScalingInstruction],
-    -- | The Unix time stamp when the scaling plan entered the current status.
-    statusStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the scaling plan.
-    scalingPlanName :: Lude.Text,
+    scalingPlanVersion :: Core.Integer,
     -- | The application source.
-    applicationSource :: ApplicationSource,
-    -- | A simple message about the current status of the scaling plan.
-    statusMessage :: Lude.Maybe Lude.Text,
+    applicationSource :: Types.ApplicationSource,
+    -- | The scaling instructions.
+    scalingInstructions :: [Types.ScalingInstruction],
     -- | The status of the scaling plan.
     --
     --
@@ -77,119 +73,71 @@ data ScalingPlan = ScalingPlan'
     --
     --
     --     * @UpdateFailed@ - The scaling plan could not be updated.
-    statusCode :: ScalingPlanStatusCode
+    statusCode :: Types.ScalingPlanStatusCode,
+    -- | The Unix time stamp when the scaling plan was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | A simple message about the current status of the scaling plan.
+    statusMessage :: Core.Maybe Types.XmlString,
+    -- | The Unix time stamp when the scaling plan entered the current status.
+    statusStartTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ScalingPlan' with the minimum fields required to make a request.
---
--- * 'creationTime' - The Unix time stamp when the scaling plan was created.
--- * 'scalingPlanVersion' - The version number of the scaling plan.
--- * 'scalingInstructions' - The scaling instructions.
--- * 'statusStartTime' - The Unix time stamp when the scaling plan entered the current status.
--- * 'scalingPlanName' - The name of the scaling plan.
--- * 'applicationSource' - The application source.
--- * 'statusMessage' - A simple message about the current status of the scaling plan.
--- * 'statusCode' - The status of the scaling plan.
---
---
---     * @Active@ - The scaling plan is active.
---
---
---     * @ActiveWithProblems@ - The scaling plan is active, but the scaling configuration for one or more resources could not be applied.
---
---
---     * @CreationInProgress@ - The scaling plan is being created.
---
---
---     * @CreationFailed@ - The scaling plan could not be created.
---
---
---     * @DeletionInProgress@ - The scaling plan is being deleted.
---
---
---     * @DeletionFailed@ - The scaling plan could not be deleted.
---
---
---     * @UpdateInProgress@ - The scaling plan is being updated.
---
---
---     * @UpdateFailed@ - The scaling plan could not be updated.
+-- | Creates a 'ScalingPlan' value with any optional fields omitted.
 mkScalingPlan ::
-  -- | 'scalingPlanVersion'
-  Lude.Integer ->
   -- | 'scalingPlanName'
-  Lude.Text ->
+  Types.ScalingPlanName ->
+  -- | 'scalingPlanVersion'
+  Core.Integer ->
   -- | 'applicationSource'
-  ApplicationSource ->
+  Types.ApplicationSource ->
   -- | 'statusCode'
-  ScalingPlanStatusCode ->
+  Types.ScalingPlanStatusCode ->
   ScalingPlan
 mkScalingPlan
-  pScalingPlanVersion_
-  pScalingPlanName_
-  pApplicationSource_
-  pStatusCode_ =
+  scalingPlanName
+  scalingPlanVersion
+  applicationSource
+  statusCode =
     ScalingPlan'
-      { creationTime = Lude.Nothing,
-        scalingPlanVersion = pScalingPlanVersion_,
-        scalingInstructions = Lude.mempty,
-        statusStartTime = Lude.Nothing,
-        scalingPlanName = pScalingPlanName_,
-        applicationSource = pApplicationSource_,
-        statusMessage = Lude.Nothing,
-        statusCode = pStatusCode_
+      { scalingPlanName,
+        scalingPlanVersion,
+        applicationSource,
+        scalingInstructions = Core.mempty,
+        statusCode,
+        creationTime = Core.Nothing,
+        statusMessage = Core.Nothing,
+        statusStartTime = Core.Nothing
       }
-
--- | The Unix time stamp when the scaling plan was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spCreationTime :: Lens.Lens' ScalingPlan (Lude.Maybe Lude.Timestamp)
-spCreationTime = Lens.lens (creationTime :: ScalingPlan -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ScalingPlan)
-{-# DEPRECATED spCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The version number of the scaling plan.
---
--- /Note:/ Consider using 'scalingPlanVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spScalingPlanVersion :: Lens.Lens' ScalingPlan Lude.Integer
-spScalingPlanVersion = Lens.lens (scalingPlanVersion :: ScalingPlan -> Lude.Integer) (\s a -> s {scalingPlanVersion = a} :: ScalingPlan)
-{-# DEPRECATED spScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
-
--- | The scaling instructions.
---
--- /Note:/ Consider using 'scalingInstructions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spScalingInstructions :: Lens.Lens' ScalingPlan [ScalingInstruction]
-spScalingInstructions = Lens.lens (scalingInstructions :: ScalingPlan -> [ScalingInstruction]) (\s a -> s {scalingInstructions = a} :: ScalingPlan)
-{-# DEPRECATED spScalingInstructions "Use generic-lens or generic-optics with 'scalingInstructions' instead." #-}
-
--- | The Unix time stamp when the scaling plan entered the current status.
---
--- /Note:/ Consider using 'statusStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spStatusStartTime :: Lens.Lens' ScalingPlan (Lude.Maybe Lude.Timestamp)
-spStatusStartTime = Lens.lens (statusStartTime :: ScalingPlan -> Lude.Maybe Lude.Timestamp) (\s a -> s {statusStartTime = a} :: ScalingPlan)
-{-# DEPRECATED spStatusStartTime "Use generic-lens or generic-optics with 'statusStartTime' instead." #-}
 
 -- | The name of the scaling plan.
 --
 -- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spScalingPlanName :: Lens.Lens' ScalingPlan Lude.Text
-spScalingPlanName = Lens.lens (scalingPlanName :: ScalingPlan -> Lude.Text) (\s a -> s {scalingPlanName = a} :: ScalingPlan)
+spScalingPlanName :: Lens.Lens' ScalingPlan Types.ScalingPlanName
+spScalingPlanName = Lens.field @"scalingPlanName"
 {-# DEPRECATED spScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
+
+-- | The version number of the scaling plan.
+--
+-- /Note:/ Consider using 'scalingPlanVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spScalingPlanVersion :: Lens.Lens' ScalingPlan Core.Integer
+spScalingPlanVersion = Lens.field @"scalingPlanVersion"
+{-# DEPRECATED spScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
 
 -- | The application source.
 --
 -- /Note:/ Consider using 'applicationSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spApplicationSource :: Lens.Lens' ScalingPlan ApplicationSource
-spApplicationSource = Lens.lens (applicationSource :: ScalingPlan -> ApplicationSource) (\s a -> s {applicationSource = a} :: ScalingPlan)
+spApplicationSource :: Lens.Lens' ScalingPlan Types.ApplicationSource
+spApplicationSource = Lens.field @"applicationSource"
 {-# DEPRECATED spApplicationSource "Use generic-lens or generic-optics with 'applicationSource' instead." #-}
 
--- | A simple message about the current status of the scaling plan.
+-- | The scaling instructions.
 --
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spStatusMessage :: Lens.Lens' ScalingPlan (Lude.Maybe Lude.Text)
-spStatusMessage = Lens.lens (statusMessage :: ScalingPlan -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ScalingPlan)
-{-# DEPRECATED spStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+-- /Note:/ Consider using 'scalingInstructions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spScalingInstructions :: Lens.Lens' ScalingPlan [Types.ScalingInstruction]
+spScalingInstructions = Lens.field @"scalingInstructions"
+{-# DEPRECATED spScalingInstructions "Use generic-lens or generic-optics with 'scalingInstructions' instead." #-}
 
 -- | The status of the scaling plan.
 --
@@ -220,22 +168,41 @@ spStatusMessage = Lens.lens (statusMessage :: ScalingPlan -> Lude.Maybe Lude.Tex
 --
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spStatusCode :: Lens.Lens' ScalingPlan ScalingPlanStatusCode
-spStatusCode = Lens.lens (statusCode :: ScalingPlan -> ScalingPlanStatusCode) (\s a -> s {statusCode = a} :: ScalingPlan)
+spStatusCode :: Lens.Lens' ScalingPlan Types.ScalingPlanStatusCode
+spStatusCode = Lens.field @"statusCode"
 {-# DEPRECATED spStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON ScalingPlan where
+-- | The Unix time stamp when the scaling plan was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spCreationTime :: Lens.Lens' ScalingPlan (Core.Maybe Core.NominalDiffTime)
+spCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED spCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | A simple message about the current status of the scaling plan.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spStatusMessage :: Lens.Lens' ScalingPlan (Core.Maybe Types.XmlString)
+spStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED spStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | The Unix time stamp when the scaling plan entered the current status.
+--
+-- /Note:/ Consider using 'statusStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spStatusStartTime :: Lens.Lens' ScalingPlan (Core.Maybe Core.NominalDiffTime)
+spStatusStartTime = Lens.field @"statusStartTime"
+{-# DEPRECATED spStatusStartTime "Use generic-lens or generic-optics with 'statusStartTime' instead." #-}
+
+instance Core.FromJSON ScalingPlan where
   parseJSON =
-    Lude.withObject
-      "ScalingPlan"
-      ( \x ->
-          ScalingPlan'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..: "ScalingPlanVersion")
-            Lude.<*> (x Lude..:? "ScalingInstructions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "StatusStartTime")
-            Lude.<*> (x Lude..: "ScalingPlanName")
-            Lude.<*> (x Lude..: "ApplicationSource")
-            Lude.<*> (x Lude..:? "StatusMessage")
-            Lude.<*> (x Lude..: "StatusCode")
-      )
+    Core.withObject "ScalingPlan" Core.$
+      \x ->
+        ScalingPlan'
+          Core.<$> (x Core..: "ScalingPlanName")
+          Core.<*> (x Core..: "ScalingPlanVersion")
+          Core.<*> (x Core..: "ApplicationSource")
+          Core.<*> (x Core..:? "ScalingInstructions" Core..!= Core.mempty)
+          Core.<*> (x Core..: "StatusCode")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "StatusMessage")
+          Core.<*> (x Core..:? "StatusStartTime")

@@ -22,51 +22,46 @@ module Network.AWS.Connect.Types.Dimensions
   )
 where
 
-import Network.AWS.Connect.Types.Channel
-import Network.AWS.Connect.Types.QueueReference
+import qualified Network.AWS.Connect.Types.Channel as Types
+import qualified Network.AWS.Connect.Types.QueueReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the dimensions for a set of metrics.
 --
 -- /See:/ 'mkDimensions' smart constructor.
 data Dimensions = Dimensions'
   { -- | The channel used for grouping and filters.
-    channel :: Lude.Maybe Channel,
+    channel :: Core.Maybe Types.Channel,
     -- | Information about the queue for which metrics are returned.
-    queue :: Lude.Maybe QueueReference
+    queue :: Core.Maybe Types.QueueReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Dimensions' with the minimum fields required to make a request.
---
--- * 'channel' - The channel used for grouping and filters.
--- * 'queue' - Information about the queue for which metrics are returned.
+-- | Creates a 'Dimensions' value with any optional fields omitted.
 mkDimensions ::
   Dimensions
 mkDimensions =
-  Dimensions' {channel = Lude.Nothing, queue = Lude.Nothing}
+  Dimensions' {channel = Core.Nothing, queue = Core.Nothing}
 
 -- | The channel used for grouping and filters.
 --
 -- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dChannel :: Lens.Lens' Dimensions (Lude.Maybe Channel)
-dChannel = Lens.lens (channel :: Dimensions -> Lude.Maybe Channel) (\s a -> s {channel = a} :: Dimensions)
+dChannel :: Lens.Lens' Dimensions (Core.Maybe Types.Channel)
+dChannel = Lens.field @"channel"
 {-# DEPRECATED dChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
 -- | Information about the queue for which metrics are returned.
 --
 -- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dQueue :: Lens.Lens' Dimensions (Lude.Maybe QueueReference)
-dQueue = Lens.lens (queue :: Dimensions -> Lude.Maybe QueueReference) (\s a -> s {queue = a} :: Dimensions)
+dQueue :: Lens.Lens' Dimensions (Core.Maybe Types.QueueReference)
+dQueue = Lens.field @"queue"
 {-# DEPRECATED dQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
-instance Lude.FromJSON Dimensions where
+instance Core.FromJSON Dimensions where
   parseJSON =
-    Lude.withObject
-      "Dimensions"
-      ( \x ->
-          Dimensions'
-            Lude.<$> (x Lude..:? "Channel") Lude.<*> (x Lude..:? "Queue")
-      )
+    Core.withObject "Dimensions" Core.$
+      \x ->
+        Dimensions'
+          Core.<$> (x Core..:? "Channel") Core.<*> (x Core..:? "Queue")

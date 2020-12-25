@@ -13,61 +13,66 @@
 module Network.AWS.Rekognition.Types.QualityFilter
   ( QualityFilter
       ( QualityFilter',
-        None,
-        Auto,
-        Low,
-        Medium,
-        High
+        QualityFilterNone,
+        QualityFilterAuto,
+        QualityFilterLow,
+        QualityFilterMedium,
+        QualityFilterHigh,
+        fromQualityFilter
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype QualityFilter = QualityFilter' Lude.Text
+newtype QualityFilter = QualityFilter'
+  { fromQualityFilter ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: QualityFilter
-pattern None = QualityFilter' "NONE"
+pattern QualityFilterNone :: QualityFilter
+pattern QualityFilterNone = QualityFilter' "NONE"
 
-pattern Auto :: QualityFilter
-pattern Auto = QualityFilter' "AUTO"
+pattern QualityFilterAuto :: QualityFilter
+pattern QualityFilterAuto = QualityFilter' "AUTO"
 
-pattern Low :: QualityFilter
-pattern Low = QualityFilter' "LOW"
+pattern QualityFilterLow :: QualityFilter
+pattern QualityFilterLow = QualityFilter' "LOW"
 
-pattern Medium :: QualityFilter
-pattern Medium = QualityFilter' "MEDIUM"
+pattern QualityFilterMedium :: QualityFilter
+pattern QualityFilterMedium = QualityFilter' "MEDIUM"
 
-pattern High :: QualityFilter
-pattern High = QualityFilter' "HIGH"
+pattern QualityFilterHigh :: QualityFilter
+pattern QualityFilterHigh = QualityFilter' "HIGH"
 
 {-# COMPLETE
-  None,
-  Auto,
-  Low,
-  Medium,
-  High,
+  QualityFilterNone,
+  QualityFilterAuto,
+  QualityFilterLow,
+  QualityFilterMedium,
+  QualityFilterHigh,
   QualityFilter'
   #-}

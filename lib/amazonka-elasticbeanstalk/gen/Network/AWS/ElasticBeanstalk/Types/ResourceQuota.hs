@@ -22,31 +22,29 @@ module Network.AWS.ElasticBeanstalk.Types.ResourceQuota
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The AWS Elastic Beanstalk quota information for a single resource type in an AWS account. It reflects the resource's limits for this account.
 --
 -- /See:/ 'mkResourceQuota' smart constructor.
 newtype ResourceQuota = ResourceQuota'
   { -- | The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.
-    maximum :: Lude.Maybe Lude.Int
+    maximum :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceQuota' with the minimum fields required to make a request.
---
--- * 'maximum' - The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.
+-- | Creates a 'ResourceQuota' value with any optional fields omitted.
 mkResourceQuota ::
   ResourceQuota
-mkResourceQuota = ResourceQuota' {maximum = Lude.Nothing}
+mkResourceQuota = ResourceQuota' {maximum = Core.Nothing}
 
 -- | The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.
 --
 -- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rqMaximum :: Lens.Lens' ResourceQuota (Lude.Maybe Lude.Int)
-rqMaximum = Lens.lens (maximum :: ResourceQuota -> Lude.Maybe Lude.Int) (\s a -> s {maximum = a} :: ResourceQuota)
+rqMaximum :: Lens.Lens' ResourceQuota (Core.Maybe Core.Int)
+rqMaximum = Lens.field @"maximum"
 {-# DEPRECATED rqMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
-instance Lude.FromXML ResourceQuota where
-  parseXML x = ResourceQuota' Lude.<$> (x Lude..@? "Maximum")
+instance Core.FromXML ResourceQuota where
+  parseXML x = ResourceQuota' Core.<$> (x Core..@? "Maximum")

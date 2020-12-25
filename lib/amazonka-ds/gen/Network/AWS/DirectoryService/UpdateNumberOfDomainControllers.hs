@@ -28,120 +28,103 @@ module Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
     mkUpdateNumberOfDomainControllersResponse,
 
     -- ** Response lenses
-    unodcrsResponseStatus,
+    unodcrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateNumberOfDomainControllers' smart constructor.
 data UpdateNumberOfDomainControllers = UpdateNumberOfDomainControllers'
   { -- | Identifier of the directory to which the domain controllers will be added or removed.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The number of domain controllers desired in the directory.
-    desiredNumber :: Lude.Natural
+    desiredNumber :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateNumberOfDomainControllers' with the minimum fields required to make a request.
---
--- * 'directoryId' - Identifier of the directory to which the domain controllers will be added or removed.
--- * 'desiredNumber' - The number of domain controllers desired in the directory.
+-- | Creates a 'UpdateNumberOfDomainControllers' value with any optional fields omitted.
 mkUpdateNumberOfDomainControllers ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'desiredNumber'
-  Lude.Natural ->
+  Core.Natural ->
   UpdateNumberOfDomainControllers
-mkUpdateNumberOfDomainControllers pDirectoryId_ pDesiredNumber_ =
-  UpdateNumberOfDomainControllers'
-    { directoryId = pDirectoryId_,
-      desiredNumber = pDesiredNumber_
-    }
+mkUpdateNumberOfDomainControllers directoryId desiredNumber =
+  UpdateNumberOfDomainControllers' {directoryId, desiredNumber}
 
 -- | Identifier of the directory to which the domain controllers will be added or removed.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unodcDirectoryId :: Lens.Lens' UpdateNumberOfDomainControllers Lude.Text
-unodcDirectoryId = Lens.lens (directoryId :: UpdateNumberOfDomainControllers -> Lude.Text) (\s a -> s {directoryId = a} :: UpdateNumberOfDomainControllers)
+unodcDirectoryId :: Lens.Lens' UpdateNumberOfDomainControllers Types.DirectoryId
+unodcDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED unodcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The number of domain controllers desired in the directory.
 --
 -- /Note:/ Consider using 'desiredNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unodcDesiredNumber :: Lens.Lens' UpdateNumberOfDomainControllers Lude.Natural
-unodcDesiredNumber = Lens.lens (desiredNumber :: UpdateNumberOfDomainControllers -> Lude.Natural) (\s a -> s {desiredNumber = a} :: UpdateNumberOfDomainControllers)
+unodcDesiredNumber :: Lens.Lens' UpdateNumberOfDomainControllers Core.Natural
+unodcDesiredNumber = Lens.field @"desiredNumber"
 {-# DEPRECATED unodcDesiredNumber "Use generic-lens or generic-optics with 'desiredNumber' instead." #-}
 
-instance Lude.AWSRequest UpdateNumberOfDomainControllers where
+instance Core.FromJSON UpdateNumberOfDomainControllers where
+  toJSON UpdateNumberOfDomainControllers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("DesiredNumber" Core..= desiredNumber)
+          ]
+      )
+
+instance Core.AWSRequest UpdateNumberOfDomainControllers where
   type
     Rs UpdateNumberOfDomainControllers =
       UpdateNumberOfDomainControllersResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "DirectoryService_20150416.UpdateNumberOfDomainControllers"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateNumberOfDomainControllersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateNumberOfDomainControllers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.UpdateNumberOfDomainControllers" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateNumberOfDomainControllers where
-  toJSON UpdateNumberOfDomainControllers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("DesiredNumber" Lude..= desiredNumber)
-          ]
-      )
-
-instance Lude.ToPath UpdateNumberOfDomainControllers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateNumberOfDomainControllers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateNumberOfDomainControllersResponse' smart constructor.
 newtype UpdateNumberOfDomainControllersResponse = UpdateNumberOfDomainControllersResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateNumberOfDomainControllersResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateNumberOfDomainControllersResponse' value with any optional fields omitted.
 mkUpdateNumberOfDomainControllersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateNumberOfDomainControllersResponse
-mkUpdateNumberOfDomainControllersResponse pResponseStatus_ =
-  UpdateNumberOfDomainControllersResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateNumberOfDomainControllersResponse responseStatus =
+  UpdateNumberOfDomainControllersResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unodcrsResponseStatus :: Lens.Lens' UpdateNumberOfDomainControllersResponse Lude.Int
-unodcrsResponseStatus = Lens.lens (responseStatus :: UpdateNumberOfDomainControllersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateNumberOfDomainControllersResponse)
-{-# DEPRECATED unodcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+unodcrrsResponseStatus :: Lens.Lens' UpdateNumberOfDomainControllersResponse Core.Int
+unodcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED unodcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

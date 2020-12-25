@@ -17,61 +17,57 @@ module Network.AWS.AutoScalingPlans.Types.TagFilter
     mkTagFilter,
 
     -- * Lenses
-    tfValues,
     tfKey,
+    tfValues,
   )
 where
 
+import qualified Network.AWS.AutoScalingPlans.Types.XmlStringMaxLen128 as Types
+import qualified Network.AWS.AutoScalingPlans.Types.XmlStringMaxLen256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a tag.
 --
 -- /See:/ 'mkTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | The tag values (0 to 20).
-    values :: Lude.Maybe [Lude.Text],
-    -- | The tag key.
-    key :: Lude.Maybe Lude.Text
+  { -- | The tag key.
+    key :: Core.Maybe Types.XmlStringMaxLen128,
+    -- | The tag values (0 to 20).
+    values :: Core.Maybe [Types.XmlStringMaxLen256]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
---
--- * 'values' - The tag values (0 to 20).
--- * 'key' - The tag key.
+-- | Creates a 'TagFilter' value with any optional fields omitted.
 mkTagFilter ::
   TagFilter
-mkTagFilter = TagFilter' {values = Lude.Nothing, key = Lude.Nothing}
-
--- | The tag values (0 to 20).
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfValues :: Lens.Lens' TagFilter (Lude.Maybe [Lude.Text])
-tfValues = Lens.lens (values :: TagFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: TagFilter)
-{-# DEPRECATED tfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkTagFilter = TagFilter' {key = Core.Nothing, values = Core.Nothing}
 
 -- | The tag key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfKey :: Lens.Lens' TagFilter (Lude.Maybe Lude.Text)
-tfKey = Lens.lens (key :: TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagFilter)
+tfKey :: Lens.Lens' TagFilter (Core.Maybe Types.XmlStringMaxLen128)
+tfKey = Lens.field @"key"
 {-# DEPRECATED tfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON TagFilter where
-  parseJSON =
-    Lude.withObject
-      "TagFilter"
-      ( \x ->
-          TagFilter'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Key")
+-- | The tag values (0 to 20).
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfValues :: Lens.Lens' TagFilter (Core.Maybe [Types.XmlStringMaxLen256])
+tfValues = Lens.field @"values"
+{-# DEPRECATED tfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON TagFilter where
+  toJSON TagFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )
 
-instance Lude.ToJSON TagFilter where
-  toJSON TagFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
-      )
+instance Core.FromJSON TagFilter where
+  parseJSON =
+    Core.withObject "TagFilter" Core.$
+      \x ->
+        TagFilter'
+          Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Values")

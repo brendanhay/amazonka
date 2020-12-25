@@ -22,8 +22,8 @@ module Network.AWS.EC2.ModifyInstanceCreditSpecification
     mkModifyInstanceCreditSpecification,
 
     -- ** Request lenses
-    micsClientToken,
     micsInstanceCreditSpecifications,
+    micsClientToken,
     micsDryRun,
 
     -- * Destructuring the response
@@ -31,151 +31,145 @@ module Network.AWS.EC2.ModifyInstanceCreditSpecification
     mkModifyInstanceCreditSpecificationResponse,
 
     -- ** Response lenses
-    micsrsUnsuccessfulInstanceCreditSpecifications,
-    micsrsSuccessfulInstanceCreditSpecifications,
-    micsrsResponseStatus,
+    micsrrsSuccessfulInstanceCreditSpecifications,
+    micsrrsUnsuccessfulInstanceCreditSpecifications,
+    micsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyInstanceCreditSpecification' smart constructor.
 data ModifyInstanceCreditSpecification = ModifyInstanceCreditSpecification'
-  { -- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | Information about the credit option for CPU usage.
-    instanceCreditSpecifications :: [InstanceCreditSpecificationRequest],
+  { -- | Information about the credit option for CPU usage.
+    instanceCreditSpecifications :: [Types.InstanceCreditSpecificationRequest],
+    -- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceCreditSpecification' with the minimum fields required to make a request.
---
--- * 'clientToken' - A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'instanceCreditSpecifications' - Information about the credit option for CPU usage.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyInstanceCreditSpecification' value with any optional fields omitted.
 mkModifyInstanceCreditSpecification ::
   ModifyInstanceCreditSpecification
 mkModifyInstanceCreditSpecification =
   ModifyInstanceCreditSpecification'
-    { clientToken = Lude.Nothing,
-      instanceCreditSpecifications = Lude.mempty,
-      dryRun = Lude.Nothing
+    { instanceCreditSpecifications =
+        Core.mempty,
+      clientToken = Core.Nothing,
+      dryRun = Core.Nothing
     }
-
--- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsClientToken :: Lens.Lens' ModifyInstanceCreditSpecification (Lude.Maybe Lude.Text)
-micsClientToken = Lens.lens (clientToken :: ModifyInstanceCreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ModifyInstanceCreditSpecification)
-{-# DEPRECATED micsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Information about the credit option for CPU usage.
 --
 -- /Note:/ Consider using 'instanceCreditSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecification [InstanceCreditSpecificationRequest]
-micsInstanceCreditSpecifications = Lens.lens (instanceCreditSpecifications :: ModifyInstanceCreditSpecification -> [InstanceCreditSpecificationRequest]) (\s a -> s {instanceCreditSpecifications = a} :: ModifyInstanceCreditSpecification)
+micsInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecification [Types.InstanceCreditSpecificationRequest]
+micsInstanceCreditSpecifications = Lens.field @"instanceCreditSpecifications"
 {-# DEPRECATED micsInstanceCreditSpecifications "Use generic-lens or generic-optics with 'instanceCreditSpecifications' instead." #-}
+
+-- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+micsClientToken :: Lens.Lens' ModifyInstanceCreditSpecification (Core.Maybe Types.String)
+micsClientToken = Lens.field @"clientToken"
+{-# DEPRECATED micsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsDryRun :: Lens.Lens' ModifyInstanceCreditSpecification (Lude.Maybe Lude.Bool)
-micsDryRun = Lens.lens (dryRun :: ModifyInstanceCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceCreditSpecification)
+micsDryRun :: Lens.Lens' ModifyInstanceCreditSpecification (Core.Maybe Core.Bool)
+micsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED micsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ModifyInstanceCreditSpecification where
+instance Core.AWSRequest ModifyInstanceCreditSpecification where
   type
     Rs ModifyInstanceCreditSpecification =
       ModifyInstanceCreditSpecificationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyInstanceCreditSpecification")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryList
+                            "InstanceCreditSpecification"
+                            instanceCreditSpecifications
+                        )
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyInstanceCreditSpecificationResponse'
-            Lude.<$> ( x Lude..@? "unsuccessfulInstanceCreditSpecificationSet"
-                         Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "successfulInstanceCreditSpecificationSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> ( x Lude..@? "successfulInstanceCreditSpecificationSet"
-                         Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<*> ( x Core..@? "unsuccessfulInstanceCreditSpecificationSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyInstanceCreditSpecification where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyInstanceCreditSpecification where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyInstanceCreditSpecification where
-  toQuery ModifyInstanceCreditSpecification' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyInstanceCreditSpecification" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        Lude.toQueryList
-          "InstanceCreditSpecification"
-          instanceCreditSpecifications,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkModifyInstanceCreditSpecificationResponse' smart constructor.
 data ModifyInstanceCreditSpecificationResponse = ModifyInstanceCreditSpecificationResponse'
-  { -- | Information about the instances whose credit option for CPU usage was not modified.
-    unsuccessfulInstanceCreditSpecifications :: Lude.Maybe [UnsuccessfulInstanceCreditSpecificationItem],
-    -- | Information about the instances whose credit option for CPU usage was successfully modified.
-    successfulInstanceCreditSpecifications :: Lude.Maybe [SuccessfulInstanceCreditSpecificationItem],
+  { -- | Information about the instances whose credit option for CPU usage was successfully modified.
+    successfulInstanceCreditSpecifications :: Core.Maybe [Types.SuccessfulInstanceCreditSpecificationItem],
+    -- | Information about the instances whose credit option for CPU usage was not modified.
+    unsuccessfulInstanceCreditSpecifications :: Core.Maybe [Types.UnsuccessfulInstanceCreditSpecificationItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceCreditSpecificationResponse' with the minimum fields required to make a request.
---
--- * 'unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was not modified.
--- * 'successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was successfully modified.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyInstanceCreditSpecificationResponse' value with any optional fields omitted.
 mkModifyInstanceCreditSpecificationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyInstanceCreditSpecificationResponse
-mkModifyInstanceCreditSpecificationResponse pResponseStatus_ =
+mkModifyInstanceCreditSpecificationResponse responseStatus =
   ModifyInstanceCreditSpecificationResponse'
-    { unsuccessfulInstanceCreditSpecifications =
-        Lude.Nothing,
-      successfulInstanceCreditSpecifications =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { successfulInstanceCreditSpecifications =
+        Core.Nothing,
+      unsuccessfulInstanceCreditSpecifications =
+        Core.Nothing,
+      responseStatus
     }
-
--- | Information about the instances whose credit option for CPU usage was not modified.
---
--- /Note:/ Consider using 'unsuccessfulInstanceCreditSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsrsUnsuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Lude.Maybe [UnsuccessfulInstanceCreditSpecificationItem])
-micsrsUnsuccessfulInstanceCreditSpecifications = Lens.lens (unsuccessfulInstanceCreditSpecifications :: ModifyInstanceCreditSpecificationResponse -> Lude.Maybe [UnsuccessfulInstanceCreditSpecificationItem]) (\s a -> s {unsuccessfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse)
-{-# DEPRECATED micsrsUnsuccessfulInstanceCreditSpecifications "Use generic-lens or generic-optics with 'unsuccessfulInstanceCreditSpecifications' instead." #-}
 
 -- | Information about the instances whose credit option for CPU usage was successfully modified.
 --
 -- /Note:/ Consider using 'successfulInstanceCreditSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsrsSuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Lude.Maybe [SuccessfulInstanceCreditSpecificationItem])
-micsrsSuccessfulInstanceCreditSpecifications = Lens.lens (successfulInstanceCreditSpecifications :: ModifyInstanceCreditSpecificationResponse -> Lude.Maybe [SuccessfulInstanceCreditSpecificationItem]) (\s a -> s {successfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse)
-{-# DEPRECATED micsrsSuccessfulInstanceCreditSpecifications "Use generic-lens or generic-optics with 'successfulInstanceCreditSpecifications' instead." #-}
+micsrrsSuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Core.Maybe [Types.SuccessfulInstanceCreditSpecificationItem])
+micsrrsSuccessfulInstanceCreditSpecifications = Lens.field @"successfulInstanceCreditSpecifications"
+{-# DEPRECATED micsrrsSuccessfulInstanceCreditSpecifications "Use generic-lens or generic-optics with 'successfulInstanceCreditSpecifications' instead." #-}
+
+-- | Information about the instances whose credit option for CPU usage was not modified.
+--
+-- /Note:/ Consider using 'unsuccessfulInstanceCreditSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+micsrrsUnsuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Core.Maybe [Types.UnsuccessfulInstanceCreditSpecificationItem])
+micsrrsUnsuccessfulInstanceCreditSpecifications = Lens.field @"unsuccessfulInstanceCreditSpecifications"
+{-# DEPRECATED micsrrsUnsuccessfulInstanceCreditSpecifications "Use generic-lens or generic-optics with 'unsuccessfulInstanceCreditSpecifications' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsrsResponseStatus :: Lens.Lens' ModifyInstanceCreditSpecificationResponse Lude.Int
-micsrsResponseStatus = Lens.lens (responseStatus :: ModifyInstanceCreditSpecificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyInstanceCreditSpecificationResponse)
-{-# DEPRECATED micsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+micsrrsResponseStatus :: Lens.Lens' ModifyInstanceCreditSpecificationResponse Core.Int
+micsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED micsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

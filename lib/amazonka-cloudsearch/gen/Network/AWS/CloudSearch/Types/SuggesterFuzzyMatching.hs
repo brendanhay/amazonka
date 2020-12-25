@@ -13,51 +13,56 @@
 module Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
   ( SuggesterFuzzyMatching
       ( SuggesterFuzzyMatching',
-        None,
-        Low,
-        High
+        SuggesterFuzzyMatchingNone,
+        SuggesterFuzzyMatchingLow,
+        SuggesterFuzzyMatchingHigh,
+        fromSuggesterFuzzyMatching
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SuggesterFuzzyMatching = SuggesterFuzzyMatching' Lude.Text
+newtype SuggesterFuzzyMatching = SuggesterFuzzyMatching'
+  { fromSuggesterFuzzyMatching ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: SuggesterFuzzyMatching
-pattern None = SuggesterFuzzyMatching' "none"
+pattern SuggesterFuzzyMatchingNone :: SuggesterFuzzyMatching
+pattern SuggesterFuzzyMatchingNone = SuggesterFuzzyMatching' "none"
 
-pattern Low :: SuggesterFuzzyMatching
-pattern Low = SuggesterFuzzyMatching' "low"
+pattern SuggesterFuzzyMatchingLow :: SuggesterFuzzyMatching
+pattern SuggesterFuzzyMatchingLow = SuggesterFuzzyMatching' "low"
 
-pattern High :: SuggesterFuzzyMatching
-pattern High = SuggesterFuzzyMatching' "high"
+pattern SuggesterFuzzyMatchingHigh :: SuggesterFuzzyMatching
+pattern SuggesterFuzzyMatchingHigh = SuggesterFuzzyMatching' "high"
 
 {-# COMPLETE
-  None,
-  Low,
-  High,
+  SuggesterFuzzyMatchingNone,
+  SuggesterFuzzyMatchingLow,
+  SuggesterFuzzyMatchingHigh,
   SuggesterFuzzyMatching'
   #-}

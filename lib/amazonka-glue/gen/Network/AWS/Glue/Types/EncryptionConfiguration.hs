@@ -17,84 +17,78 @@ module Network.AWS.Glue.Types.EncryptionConfiguration
     mkEncryptionConfiguration,
 
     -- * Lenses
-    ecS3Encryption,
-    ecJobBookmarksEncryption,
     ecCloudWatchEncryption,
+    ecJobBookmarksEncryption,
+    ecS3Encryption,
   )
 where
 
-import Network.AWS.Glue.Types.CloudWatchEncryption
-import Network.AWS.Glue.Types.JobBookmarksEncryption
-import Network.AWS.Glue.Types.S3Encryption
+import qualified Network.AWS.Glue.Types.CloudWatchEncryption as Types
+import qualified Network.AWS.Glue.Types.JobBookmarksEncryption as Types
+import qualified Network.AWS.Glue.Types.S3Encryption as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies an encryption configuration.
 --
 -- /See:/ 'mkEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { -- | The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
-    s3Encryption :: Lude.Maybe [S3Encryption],
+  { -- | The encryption configuration for Amazon CloudWatch.
+    cloudWatchEncryption :: Core.Maybe Types.CloudWatchEncryption,
     -- | The encryption configuration for job bookmarks.
-    jobBookmarksEncryption :: Lude.Maybe JobBookmarksEncryption,
-    -- | The encryption configuration for Amazon CloudWatch.
-    cloudWatchEncryption :: Lude.Maybe CloudWatchEncryption
+    jobBookmarksEncryption :: Core.Maybe Types.JobBookmarksEncryption,
+    -- | The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+    s3Encryption :: Core.Maybe [Types.S3Encryption]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
---
--- * 's3Encryption' - The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
--- * 'jobBookmarksEncryption' - The encryption configuration for job bookmarks.
--- * 'cloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
+-- | Creates a 'EncryptionConfiguration' value with any optional fields omitted.
 mkEncryptionConfiguration ::
   EncryptionConfiguration
 mkEncryptionConfiguration =
   EncryptionConfiguration'
-    { s3Encryption = Lude.Nothing,
-      jobBookmarksEncryption = Lude.Nothing,
-      cloudWatchEncryption = Lude.Nothing
+    { cloudWatchEncryption = Core.Nothing,
+      jobBookmarksEncryption = Core.Nothing,
+      s3Encryption = Core.Nothing
     }
-
--- | The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
---
--- /Note:/ Consider using 's3Encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecS3Encryption :: Lens.Lens' EncryptionConfiguration (Lude.Maybe [S3Encryption])
-ecS3Encryption = Lens.lens (s3Encryption :: EncryptionConfiguration -> Lude.Maybe [S3Encryption]) (\s a -> s {s3Encryption = a} :: EncryptionConfiguration)
-{-# DEPRECATED ecS3Encryption "Use generic-lens or generic-optics with 's3Encryption' instead." #-}
-
--- | The encryption configuration for job bookmarks.
---
--- /Note:/ Consider using 'jobBookmarksEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecJobBookmarksEncryption :: Lens.Lens' EncryptionConfiguration (Lude.Maybe JobBookmarksEncryption)
-ecJobBookmarksEncryption = Lens.lens (jobBookmarksEncryption :: EncryptionConfiguration -> Lude.Maybe JobBookmarksEncryption) (\s a -> s {jobBookmarksEncryption = a} :: EncryptionConfiguration)
-{-# DEPRECATED ecJobBookmarksEncryption "Use generic-lens or generic-optics with 'jobBookmarksEncryption' instead." #-}
 
 -- | The encryption configuration for Amazon CloudWatch.
 --
 -- /Note:/ Consider using 'cloudWatchEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecCloudWatchEncryption :: Lens.Lens' EncryptionConfiguration (Lude.Maybe CloudWatchEncryption)
-ecCloudWatchEncryption = Lens.lens (cloudWatchEncryption :: EncryptionConfiguration -> Lude.Maybe CloudWatchEncryption) (\s a -> s {cloudWatchEncryption = a} :: EncryptionConfiguration)
+ecCloudWatchEncryption :: Lens.Lens' EncryptionConfiguration (Core.Maybe Types.CloudWatchEncryption)
+ecCloudWatchEncryption = Lens.field @"cloudWatchEncryption"
 {-# DEPRECATED ecCloudWatchEncryption "Use generic-lens or generic-optics with 'cloudWatchEncryption' instead." #-}
 
-instance Lude.FromJSON EncryptionConfiguration where
-  parseJSON =
-    Lude.withObject
-      "EncryptionConfiguration"
-      ( \x ->
-          EncryptionConfiguration'
-            Lude.<$> (x Lude..:? "S3Encryption" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "JobBookmarksEncryption")
-            Lude.<*> (x Lude..:? "CloudWatchEncryption")
-      )
+-- | The encryption configuration for job bookmarks.
+--
+-- /Note:/ Consider using 'jobBookmarksEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecJobBookmarksEncryption :: Lens.Lens' EncryptionConfiguration (Core.Maybe Types.JobBookmarksEncryption)
+ecJobBookmarksEncryption = Lens.field @"jobBookmarksEncryption"
+{-# DEPRECATED ecJobBookmarksEncryption "Use generic-lens or generic-optics with 'jobBookmarksEncryption' instead." #-}
 
-instance Lude.ToJSON EncryptionConfiguration where
-  toJSON EncryptionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("S3Encryption" Lude..=) Lude.<$> s3Encryption,
-            ("JobBookmarksEncryption" Lude..=) Lude.<$> jobBookmarksEncryption,
-            ("CloudWatchEncryption" Lude..=) Lude.<$> cloudWatchEncryption
+-- | The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+--
+-- /Note:/ Consider using 's3Encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecS3Encryption :: Lens.Lens' EncryptionConfiguration (Core.Maybe [Types.S3Encryption])
+ecS3Encryption = Lens.field @"s3Encryption"
+{-# DEPRECATED ecS3Encryption "Use generic-lens or generic-optics with 's3Encryption' instead." #-}
+
+instance Core.FromJSON EncryptionConfiguration where
+  toJSON EncryptionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CloudWatchEncryption" Core..=) Core.<$> cloudWatchEncryption,
+            ("JobBookmarksEncryption" Core..=) Core.<$> jobBookmarksEncryption,
+            ("S3Encryption" Core..=) Core.<$> s3Encryption
           ]
       )
+
+instance Core.FromJSON EncryptionConfiguration where
+  parseJSON =
+    Core.withObject "EncryptionConfiguration" Core.$
+      \x ->
+        EncryptionConfiguration'
+          Core.<$> (x Core..:? "CloudWatchEncryption")
+          Core.<*> (x Core..:? "JobBookmarksEncryption")
+          Core.<*> (x Core..:? "S3Encryption")

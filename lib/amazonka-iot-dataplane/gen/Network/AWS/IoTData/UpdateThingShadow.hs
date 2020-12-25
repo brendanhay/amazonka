@@ -22,139 +22,124 @@ module Network.AWS.IoTData.UpdateThingShadow
     mkUpdateThingShadow,
 
     -- ** Request lenses
+    utsThingName,
     utsPayload,
     utsShadowName,
-    utsThingName,
 
     -- * Destructuring the response
     UpdateThingShadowResponse (..),
     mkUpdateThingShadowResponse,
 
     -- ** Response lenses
-    utsrsPayload,
-    utsrsResponseStatus,
+    utsrrsPayload,
+    utsrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTData.Types
+import qualified Network.AWS.IoTData.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the UpdateThingShadow operation.
 --
 -- /See:/ 'mkUpdateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
-  { -- | The state information, in JSON format.
-    payload :: Lude.ByteString,
+  { -- | The name of the thing.
+    thingName :: Types.ThingName,
+    -- | The state information, in JSON format.
+    payload :: Core.ByteString,
     -- | The name of the shadow.
-    shadowName :: Lude.Maybe Lude.Text,
-    -- | The name of the thing.
-    thingName :: Lude.Text
+    shadowName :: Core.Maybe Types.ShadowName
   }
-  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingShadow' with the minimum fields required to make a request.
---
--- * 'payload' - The state information, in JSON format.
--- * 'shadowName' - The name of the shadow.
--- * 'thingName' - The name of the thing.
+-- | Creates a 'UpdateThingShadow' value with any optional fields omitted.
 mkUpdateThingShadow ::
-  -- | 'payload'
-  Lude.ByteString ->
   -- | 'thingName'
-  Lude.Text ->
+  Types.ThingName ->
+  -- | 'payload'
+  Core.ByteString ->
   UpdateThingShadow
-mkUpdateThingShadow pPayload_ pThingName_ =
-  UpdateThingShadow'
-    { payload = pPayload_,
-      shadowName = Lude.Nothing,
-      thingName = pThingName_
-    }
+mkUpdateThingShadow thingName payload =
+  UpdateThingShadow' {thingName, payload, shadowName = Core.Nothing}
+
+-- | The name of the thing.
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsThingName :: Lens.Lens' UpdateThingShadow Types.ThingName
+utsThingName = Lens.field @"thingName"
+{-# DEPRECATED utsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The state information, in JSON format.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsPayload :: Lens.Lens' UpdateThingShadow Lude.ByteString
-utsPayload = Lens.lens (payload :: UpdateThingShadow -> Lude.ByteString) (\s a -> s {payload = a} :: UpdateThingShadow)
+utsPayload :: Lens.Lens' UpdateThingShadow Core.ByteString
+utsPayload = Lens.field @"payload"
 {-# DEPRECATED utsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | The name of the shadow.
 --
 -- /Note:/ Consider using 'shadowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsShadowName :: Lens.Lens' UpdateThingShadow (Lude.Maybe Lude.Text)
-utsShadowName = Lens.lens (shadowName :: UpdateThingShadow -> Lude.Maybe Lude.Text) (\s a -> s {shadowName = a} :: UpdateThingShadow)
+utsShadowName :: Lens.Lens' UpdateThingShadow (Core.Maybe Types.ShadowName)
+utsShadowName = Lens.field @"shadowName"
 {-# DEPRECATED utsShadowName "Use generic-lens or generic-optics with 'shadowName' instead." #-}
 
--- | The name of the thing.
---
--- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsThingName :: Lens.Lens' UpdateThingShadow Lude.Text
-utsThingName = Lens.lens (thingName :: UpdateThingShadow -> Lude.Text) (\s a -> s {thingName = a} :: UpdateThingShadow)
-{-# DEPRECATED utsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
-
-instance Lude.AWSRequest UpdateThingShadow where
+instance Core.AWSRequest UpdateThingShadow where
   type Rs UpdateThingShadow = UpdateThingShadowResponse
-  request = Req.postBody ioTDataService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/things/" Core.<> (Core.toText thingName) Core.<> ("/shadow")),
+        Core._rqQuery = Core.toQueryValue "name" Core.<$> shadowName,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toBody payload
+      }
   response =
-    Res.receiveBytes
+    Response.receiveBytes
       ( \s h x ->
           UpdateThingShadowResponse'
-            Lude.<$> (Lude.pure (Lude.Just x)) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToBody UpdateThingShadow where
-  toBody = Lude.toBody Lude.. payload
-
-instance Lude.ToHeaders UpdateThingShadow where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateThingShadow where
-  toPath UpdateThingShadow' {..} =
-    Lude.mconcat ["/things/", Lude.toBS thingName, "/shadow"]
-
-instance Lude.ToQuery UpdateThingShadow where
-  toQuery UpdateThingShadow' {..} =
-    Lude.mconcat ["name" Lude.=: shadowName]
 
 -- | The output from the UpdateThingShadow operation.
 --
 -- /See:/ 'mkUpdateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
   { -- | The state information, in JSON format.
-    payload :: Lude.Maybe Lude.ByteString,
+    payload :: Core.Maybe Core.ByteString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingShadowResponse' with the minimum fields required to make a request.
---
--- * 'payload' - The state information, in JSON format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateThingShadowResponse' value with any optional fields omitted.
 mkUpdateThingShadowResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateThingShadowResponse
-mkUpdateThingShadowResponse pResponseStatus_ =
+mkUpdateThingShadowResponse responseStatus =
   UpdateThingShadowResponse'
-    { payload = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { payload = Core.Nothing,
+      responseStatus
     }
 
 -- | The state information, in JSON format.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsrsPayload :: Lens.Lens' UpdateThingShadowResponse (Lude.Maybe Lude.ByteString)
-utsrsPayload = Lens.lens (payload :: UpdateThingShadowResponse -> Lude.Maybe Lude.ByteString) (\s a -> s {payload = a} :: UpdateThingShadowResponse)
-{-# DEPRECATED utsrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+utsrrsPayload :: Lens.Lens' UpdateThingShadowResponse (Core.Maybe Core.ByteString)
+utsrrsPayload = Lens.field @"payload"
+{-# DEPRECATED utsrrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsrsResponseStatus :: Lens.Lens' UpdateThingShadowResponse Lude.Int
-utsrsResponseStatus = Lens.lens (responseStatus :: UpdateThingShadowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThingShadowResponse)
-{-# DEPRECATED utsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utsrrsResponseStatus :: Lens.Lens' UpdateThingShadowResponse Core.Int
+utsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,99 +17,92 @@ module Network.AWS.EC2.Types.CreateFleetInstance
     mkCreateFleetInstance,
 
     -- * Lenses
-    cfiPlatform,
-    cfiLifecycle,
-    cfiLaunchTemplateAndOverrides,
-    cfiInstanceType,
     cfiInstanceIds,
+    cfiInstanceType,
+    cfiLaunchTemplateAndOverrides,
+    cfiLifecycle,
+    cfiPlatform,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceLifecycle
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
-import Network.AWS.EC2.Types.PlatformValues
+import qualified Network.AWS.EC2.Types.InstanceId as Types
+import qualified Network.AWS.EC2.Types.InstanceLifecycle as Types
+import qualified Network.AWS.EC2.Types.InstanceType as Types
+import qualified Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse as Types
+import qualified Network.AWS.EC2.Types.PlatformValues as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the instances that were launched by the fleet.
 --
 -- /See:/ 'mkCreateFleetInstance' smart constructor.
 data CreateFleetInstance = CreateFleetInstance'
-  { -- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
-    platform :: Lude.Maybe PlatformValues,
-    -- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-    lifecycle :: Lude.Maybe InstanceLifecycle,
-    -- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
-    launchTemplateAndOverrides :: Lude.Maybe LaunchTemplateAndOverridesResponse,
+  { -- | The IDs of the instances.
+    instanceIds :: Core.Maybe [Types.InstanceId],
     -- | The instance type.
-    instanceType :: Lude.Maybe InstanceType,
-    -- | The IDs of the instances.
-    instanceIds :: Lude.Maybe [Lude.Text]
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+    launchTemplateAndOverrides :: Core.Maybe Types.LaunchTemplateAndOverridesResponse,
+    -- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+    lifecycle :: Core.Maybe Types.InstanceLifecycle,
+    -- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
+    platform :: Core.Maybe Types.PlatformValues
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFleetInstance' with the minimum fields required to make a request.
---
--- * 'platform' - The value is @Windows@ for Windows instances. Otherwise, the value is blank.
--- * 'lifecycle' - Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
--- * 'launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
--- * 'instanceType' - The instance type.
--- * 'instanceIds' - The IDs of the instances.
+-- | Creates a 'CreateFleetInstance' value with any optional fields omitted.
 mkCreateFleetInstance ::
   CreateFleetInstance
 mkCreateFleetInstance =
   CreateFleetInstance'
-    { platform = Lude.Nothing,
-      lifecycle = Lude.Nothing,
-      launchTemplateAndOverrides = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      instanceIds = Lude.Nothing
+    { instanceIds = Core.Nothing,
+      instanceType = Core.Nothing,
+      launchTemplateAndOverrides = Core.Nothing,
+      lifecycle = Core.Nothing,
+      platform = Core.Nothing
     }
-
--- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiPlatform :: Lens.Lens' CreateFleetInstance (Lude.Maybe PlatformValues)
-cfiPlatform = Lens.lens (platform :: CreateFleetInstance -> Lude.Maybe PlatformValues) (\s a -> s {platform = a} :: CreateFleetInstance)
-{-# DEPRECATED cfiPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
---
--- /Note:/ Consider using 'lifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiLifecycle :: Lens.Lens' CreateFleetInstance (Lude.Maybe InstanceLifecycle)
-cfiLifecycle = Lens.lens (lifecycle :: CreateFleetInstance -> Lude.Maybe InstanceLifecycle) (\s a -> s {lifecycle = a} :: CreateFleetInstance)
-{-# DEPRECATED cfiLifecycle "Use generic-lens or generic-optics with 'lifecycle' instead." #-}
-
--- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
---
--- /Note:/ Consider using 'launchTemplateAndOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiLaunchTemplateAndOverrides :: Lens.Lens' CreateFleetInstance (Lude.Maybe LaunchTemplateAndOverridesResponse)
-cfiLaunchTemplateAndOverrides = Lens.lens (launchTemplateAndOverrides :: CreateFleetInstance -> Lude.Maybe LaunchTemplateAndOverridesResponse) (\s a -> s {launchTemplateAndOverrides = a} :: CreateFleetInstance)
-{-# DEPRECATED cfiLaunchTemplateAndOverrides "Use generic-lens or generic-optics with 'launchTemplateAndOverrides' instead." #-}
-
--- | The instance type.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiInstanceType :: Lens.Lens' CreateFleetInstance (Lude.Maybe InstanceType)
-cfiInstanceType = Lens.lens (instanceType :: CreateFleetInstance -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: CreateFleetInstance)
-{-# DEPRECATED cfiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The IDs of the instances.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiInstanceIds :: Lens.Lens' CreateFleetInstance (Lude.Maybe [Lude.Text])
-cfiInstanceIds = Lens.lens (instanceIds :: CreateFleetInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: CreateFleetInstance)
+cfiInstanceIds :: Lens.Lens' CreateFleetInstance (Core.Maybe [Types.InstanceId])
+cfiInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED cfiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance Lude.FromXML CreateFleetInstance where
+-- | The instance type.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfiInstanceType :: Lens.Lens' CreateFleetInstance (Core.Maybe Types.InstanceType)
+cfiInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED cfiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateAndOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfiLaunchTemplateAndOverrides :: Lens.Lens' CreateFleetInstance (Core.Maybe Types.LaunchTemplateAndOverridesResponse)
+cfiLaunchTemplateAndOverrides = Lens.field @"launchTemplateAndOverrides"
+{-# DEPRECATED cfiLaunchTemplateAndOverrides "Use generic-lens or generic-optics with 'launchTemplateAndOverrides' instead." #-}
+
+-- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+--
+-- /Note:/ Consider using 'lifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfiLifecycle :: Lens.Lens' CreateFleetInstance (Core.Maybe Types.InstanceLifecycle)
+cfiLifecycle = Lens.field @"lifecycle"
+{-# DEPRECATED cfiLifecycle "Use generic-lens or generic-optics with 'lifecycle' instead." #-}
+
+-- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfiPlatform :: Lens.Lens' CreateFleetInstance (Core.Maybe Types.PlatformValues)
+cfiPlatform = Lens.field @"platform"
+{-# DEPRECATED cfiPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+instance Core.FromXML CreateFleetInstance where
   parseXML x =
     CreateFleetInstance'
-      Lude.<$> (x Lude..@? "platform")
-      Lude.<*> (x Lude..@? "lifecycle")
-      Lude.<*> (x Lude..@? "launchTemplateAndOverrides")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> ( x Lude..@? "instanceIds" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "instanceIds" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "launchTemplateAndOverrides")
+      Core.<*> (x Core..@? "lifecycle")
+      Core.<*> (x Core..@? "platform")

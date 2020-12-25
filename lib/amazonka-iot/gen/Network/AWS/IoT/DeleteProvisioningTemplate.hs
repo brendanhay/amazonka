@@ -20,94 +20,87 @@ module Network.AWS.IoT.DeleteProvisioningTemplate
     mkDeleteProvisioningTemplate,
 
     -- ** Request lenses
-    dptfTemplateName,
+    dTemplateName,
 
     -- * Destructuring the response
     DeleteProvisioningTemplateResponse (..),
     mkDeleteProvisioningTemplateResponse,
 
     -- ** Response lenses
-    dptfrsResponseStatus,
+    dptrfrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProvisioningTemplate' smart constructor.
 newtype DeleteProvisioningTemplate = DeleteProvisioningTemplate'
   { -- | The name of the fleet provision template to delete.
-    templateName :: Lude.Text
+    templateName :: Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProvisioningTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the fleet provision template to delete.
+-- | Creates a 'DeleteProvisioningTemplate' value with any optional fields omitted.
 mkDeleteProvisioningTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Types.TemplateName ->
   DeleteProvisioningTemplate
-mkDeleteProvisioningTemplate pTemplateName_ =
-  DeleteProvisioningTemplate' {templateName = pTemplateName_}
+mkDeleteProvisioningTemplate templateName =
+  DeleteProvisioningTemplate' {templateName}
 
 -- | The name of the fleet provision template to delete.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptfTemplateName :: Lens.Lens' DeleteProvisioningTemplate Lude.Text
-dptfTemplateName = Lens.lens (templateName :: DeleteProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteProvisioningTemplate)
-{-# DEPRECATED dptfTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+dTemplateName :: Lens.Lens' DeleteProvisioningTemplate Types.TemplateName
+dTemplateName = Lens.field @"templateName"
+{-# DEPRECATED dTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.AWSRequest DeleteProvisioningTemplate where
+instance Core.AWSRequest DeleteProvisioningTemplate where
   type
     Rs DeleteProvisioningTemplate =
       DeleteProvisioningTemplateResponse
-  request = Req.delete ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/provisioning-templates/" Core.<> (Core.toText templateName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProvisioningTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteProvisioningTemplate where
-  toPath DeleteProvisioningTemplate' {..} =
-    Lude.mconcat ["/provisioning-templates/", Lude.toBS templateName]
-
-instance Lude.ToQuery DeleteProvisioningTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProvisioningTemplateResponse' smart constructor.
 newtype DeleteProvisioningTemplateResponse = DeleteProvisioningTemplateResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProvisioningTemplateResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProvisioningTemplateResponse' value with any optional fields omitted.
 mkDeleteProvisioningTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProvisioningTemplateResponse
-mkDeleteProvisioningTemplateResponse pResponseStatus_ =
-  DeleteProvisioningTemplateResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteProvisioningTemplateResponse responseStatus =
+  DeleteProvisioningTemplateResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptfrsResponseStatus :: Lens.Lens' DeleteProvisioningTemplateResponse Lude.Int
-dptfrsResponseStatus = Lens.lens (responseStatus :: DeleteProvisioningTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProvisioningTemplateResponse)
-{-# DEPRECATED dptfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dptrfrsResponseStatus :: Lens.Lens' DeleteProvisioningTemplateResponse Core.Int
+dptrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dptrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -102,7 +102,7 @@ responseGetHLSStreamingSessionURL =
   res
     "GetHLSStreamingSessionURLResponse"
     "fixture/GetHLSStreamingSessionURLResponse.proto"
-    kinesisVideoArchivedMediaService
+    mkServiceConfig
     (Proxy :: Proxy GetHLSStreamingSessionURL)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
@@ -110,7 +110,7 @@ responseListFragments =
   res
     "ListFragmentsResponse"
     "fixture/ListFragmentsResponse.proto"
-    kinesisVideoArchivedMediaService
+    mkServiceConfig
     (Proxy :: Proxy ListFragments)
 
 responseGetDASHStreamingSessionURL :: GetDASHStreamingSessionURLResponse -> TestTree
@@ -118,5 +118,5 @@ responseGetDASHStreamingSessionURL =
   res
     "GetDASHStreamingSessionURLResponse"
     "fixture/GetDASHStreamingSessionURLResponse.proto"
-    kinesisVideoArchivedMediaService
+    mkServiceConfig
     (Proxy :: Proxy GetDASHStreamingSessionURL)

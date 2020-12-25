@@ -13,167 +13,169 @@
 module Network.AWS.Route53.Types.VPCRegion
   ( VPCRegion
       ( VPCRegion',
-        VRUsEast1,
-        VRUsEast2,
-        VRUsWest1,
-        VRUsWest2,
-        VREuWest1,
-        VREuWest2,
-        VREuWest3,
-        VREuCentral1,
-        VRApEast1,
-        VRMeSouth1,
-        VRUsGovWest1,
-        VRUsGovEast1,
-        VRUsIsoEast1,
-        VRUsIsobEast1,
-        VRApSoutheast1,
-        VRApSoutheast2,
-        VRApSouth1,
-        VRApNortheast1,
-        VRApNortheast2,
-        VRApNortheast3,
-        VREuNorth1,
-        VRSaEast1,
-        VRCaCentral1,
-        VRCnNorth1,
-        VRAfSouth1,
-        VREuSouth1
+        VPCRegionUsEast1,
+        VPCRegionUsEast2,
+        VPCRegionUsWest1,
+        VPCRegionUsWest2,
+        VPCRegionEuWest1,
+        VPCRegionEuWest2,
+        VPCRegionEuWest3,
+        VPCRegionEuCentral1,
+        VPCRegionApEast1,
+        VPCRegionMeSouth1,
+        VPCRegionUsGovWest1,
+        VPCRegionUsGovEast1,
+        VPCRegionUsIsoEast1,
+        VPCRegionUsIsobEast1,
+        VPCRegionApSoutheast1,
+        VPCRegionApSoutheast2,
+        VPCRegionApSouth1,
+        VPCRegionApNortheast1,
+        VPCRegionApNortheast2,
+        VPCRegionApNortheast3,
+        VPCRegionEuNorth1,
+        VPCRegionSaEast1,
+        VPCRegionCaCentral1,
+        VPCRegionCnNorth1,
+        VPCRegionAfSouth1,
+        VPCRegionEuSouth1,
+        fromVPCRegion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype VPCRegion = VPCRegion' Lude.Text
+newtype VPCRegion = VPCRegion' {fromVPCRegion :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VRUsEast1 :: VPCRegion
-pattern VRUsEast1 = VPCRegion' "us-east-1"
+pattern VPCRegionUsEast1 :: VPCRegion
+pattern VPCRegionUsEast1 = VPCRegion' "us-east-1"
 
-pattern VRUsEast2 :: VPCRegion
-pattern VRUsEast2 = VPCRegion' "us-east-2"
+pattern VPCRegionUsEast2 :: VPCRegion
+pattern VPCRegionUsEast2 = VPCRegion' "us-east-2"
 
-pattern VRUsWest1 :: VPCRegion
-pattern VRUsWest1 = VPCRegion' "us-west-1"
+pattern VPCRegionUsWest1 :: VPCRegion
+pattern VPCRegionUsWest1 = VPCRegion' "us-west-1"
 
-pattern VRUsWest2 :: VPCRegion
-pattern VRUsWest2 = VPCRegion' "us-west-2"
+pattern VPCRegionUsWest2 :: VPCRegion
+pattern VPCRegionUsWest2 = VPCRegion' "us-west-2"
 
-pattern VREuWest1 :: VPCRegion
-pattern VREuWest1 = VPCRegion' "eu-west-1"
+pattern VPCRegionEuWest1 :: VPCRegion
+pattern VPCRegionEuWest1 = VPCRegion' "eu-west-1"
 
-pattern VREuWest2 :: VPCRegion
-pattern VREuWest2 = VPCRegion' "eu-west-2"
+pattern VPCRegionEuWest2 :: VPCRegion
+pattern VPCRegionEuWest2 = VPCRegion' "eu-west-2"
 
-pattern VREuWest3 :: VPCRegion
-pattern VREuWest3 = VPCRegion' "eu-west-3"
+pattern VPCRegionEuWest3 :: VPCRegion
+pattern VPCRegionEuWest3 = VPCRegion' "eu-west-3"
 
-pattern VREuCentral1 :: VPCRegion
-pattern VREuCentral1 = VPCRegion' "eu-central-1"
+pattern VPCRegionEuCentral1 :: VPCRegion
+pattern VPCRegionEuCentral1 = VPCRegion' "eu-central-1"
 
-pattern VRApEast1 :: VPCRegion
-pattern VRApEast1 = VPCRegion' "ap-east-1"
+pattern VPCRegionApEast1 :: VPCRegion
+pattern VPCRegionApEast1 = VPCRegion' "ap-east-1"
 
-pattern VRMeSouth1 :: VPCRegion
-pattern VRMeSouth1 = VPCRegion' "me-south-1"
+pattern VPCRegionMeSouth1 :: VPCRegion
+pattern VPCRegionMeSouth1 = VPCRegion' "me-south-1"
 
-pattern VRUsGovWest1 :: VPCRegion
-pattern VRUsGovWest1 = VPCRegion' "us-gov-west-1"
+pattern VPCRegionUsGovWest1 :: VPCRegion
+pattern VPCRegionUsGovWest1 = VPCRegion' "us-gov-west-1"
 
-pattern VRUsGovEast1 :: VPCRegion
-pattern VRUsGovEast1 = VPCRegion' "us-gov-east-1"
+pattern VPCRegionUsGovEast1 :: VPCRegion
+pattern VPCRegionUsGovEast1 = VPCRegion' "us-gov-east-1"
 
-pattern VRUsIsoEast1 :: VPCRegion
-pattern VRUsIsoEast1 = VPCRegion' "us-iso-east-1"
+pattern VPCRegionUsIsoEast1 :: VPCRegion
+pattern VPCRegionUsIsoEast1 = VPCRegion' "us-iso-east-1"
 
-pattern VRUsIsobEast1 :: VPCRegion
-pattern VRUsIsobEast1 = VPCRegion' "us-isob-east-1"
+pattern VPCRegionUsIsobEast1 :: VPCRegion
+pattern VPCRegionUsIsobEast1 = VPCRegion' "us-isob-east-1"
 
-pattern VRApSoutheast1 :: VPCRegion
-pattern VRApSoutheast1 = VPCRegion' "ap-southeast-1"
+pattern VPCRegionApSoutheast1 :: VPCRegion
+pattern VPCRegionApSoutheast1 = VPCRegion' "ap-southeast-1"
 
-pattern VRApSoutheast2 :: VPCRegion
-pattern VRApSoutheast2 = VPCRegion' "ap-southeast-2"
+pattern VPCRegionApSoutheast2 :: VPCRegion
+pattern VPCRegionApSoutheast2 = VPCRegion' "ap-southeast-2"
 
-pattern VRApSouth1 :: VPCRegion
-pattern VRApSouth1 = VPCRegion' "ap-south-1"
+pattern VPCRegionApSouth1 :: VPCRegion
+pattern VPCRegionApSouth1 = VPCRegion' "ap-south-1"
 
-pattern VRApNortheast1 :: VPCRegion
-pattern VRApNortheast1 = VPCRegion' "ap-northeast-1"
+pattern VPCRegionApNortheast1 :: VPCRegion
+pattern VPCRegionApNortheast1 = VPCRegion' "ap-northeast-1"
 
-pattern VRApNortheast2 :: VPCRegion
-pattern VRApNortheast2 = VPCRegion' "ap-northeast-2"
+pattern VPCRegionApNortheast2 :: VPCRegion
+pattern VPCRegionApNortheast2 = VPCRegion' "ap-northeast-2"
 
-pattern VRApNortheast3 :: VPCRegion
-pattern VRApNortheast3 = VPCRegion' "ap-northeast-3"
+pattern VPCRegionApNortheast3 :: VPCRegion
+pattern VPCRegionApNortheast3 = VPCRegion' "ap-northeast-3"
 
-pattern VREuNorth1 :: VPCRegion
-pattern VREuNorth1 = VPCRegion' "eu-north-1"
+pattern VPCRegionEuNorth1 :: VPCRegion
+pattern VPCRegionEuNorth1 = VPCRegion' "eu-north-1"
 
-pattern VRSaEast1 :: VPCRegion
-pattern VRSaEast1 = VPCRegion' "sa-east-1"
+pattern VPCRegionSaEast1 :: VPCRegion
+pattern VPCRegionSaEast1 = VPCRegion' "sa-east-1"
 
-pattern VRCaCentral1 :: VPCRegion
-pattern VRCaCentral1 = VPCRegion' "ca-central-1"
+pattern VPCRegionCaCentral1 :: VPCRegion
+pattern VPCRegionCaCentral1 = VPCRegion' "ca-central-1"
 
-pattern VRCnNorth1 :: VPCRegion
-pattern VRCnNorth1 = VPCRegion' "cn-north-1"
+pattern VPCRegionCnNorth1 :: VPCRegion
+pattern VPCRegionCnNorth1 = VPCRegion' "cn-north-1"
 
-pattern VRAfSouth1 :: VPCRegion
-pattern VRAfSouth1 = VPCRegion' "af-south-1"
+pattern VPCRegionAfSouth1 :: VPCRegion
+pattern VPCRegionAfSouth1 = VPCRegion' "af-south-1"
 
-pattern VREuSouth1 :: VPCRegion
-pattern VREuSouth1 = VPCRegion' "eu-south-1"
+pattern VPCRegionEuSouth1 :: VPCRegion
+pattern VPCRegionEuSouth1 = VPCRegion' "eu-south-1"
 
 {-# COMPLETE
-  VRUsEast1,
-  VRUsEast2,
-  VRUsWest1,
-  VRUsWest2,
-  VREuWest1,
-  VREuWest2,
-  VREuWest3,
-  VREuCentral1,
-  VRApEast1,
-  VRMeSouth1,
-  VRUsGovWest1,
-  VRUsGovEast1,
-  VRUsIsoEast1,
-  VRUsIsobEast1,
-  VRApSoutheast1,
-  VRApSoutheast2,
-  VRApSouth1,
-  VRApNortheast1,
-  VRApNortheast2,
-  VRApNortheast3,
-  VREuNorth1,
-  VRSaEast1,
-  VRCaCentral1,
-  VRCnNorth1,
-  VRAfSouth1,
-  VREuSouth1,
+  VPCRegionUsEast1,
+  VPCRegionUsEast2,
+  VPCRegionUsWest1,
+  VPCRegionUsWest2,
+  VPCRegionEuWest1,
+  VPCRegionEuWest2,
+  VPCRegionEuWest3,
+  VPCRegionEuCentral1,
+  VPCRegionApEast1,
+  VPCRegionMeSouth1,
+  VPCRegionUsGovWest1,
+  VPCRegionUsGovEast1,
+  VPCRegionUsIsoEast1,
+  VPCRegionUsIsobEast1,
+  VPCRegionApSoutheast1,
+  VPCRegionApSoutheast2,
+  VPCRegionApSouth1,
+  VPCRegionApNortheast1,
+  VPCRegionApNortheast2,
+  VPCRegionApNortheast3,
+  VPCRegionEuNorth1,
+  VPCRegionSaEast1,
+  VPCRegionCaCentral1,
+  VPCRegionCnNorth1,
+  VPCRegionAfSouth1,
+  VPCRegionEuSouth1,
   VPCRegion'
   #-}

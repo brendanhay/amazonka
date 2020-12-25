@@ -23,50 +23,46 @@ module Network.AWS.S3.Types.AccessControlPolicy
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Grant
-import Network.AWS.S3.Types.Owner
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Grant as Types
+import qualified Network.AWS.S3.Types.Owner as Types
 
 -- | Contains the elements that set the ACL permissions for an object per grantee.
 --
 -- /See:/ 'mkAccessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
   { -- | A list of grants.
-    grants :: Lude.Maybe [Grant],
+    grants :: Core.Maybe [Types.Grant],
     -- | Container for the bucket owner's display name and ID.
-    owner :: Lude.Maybe Owner
+    owner :: Core.Maybe Types.Owner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccessControlPolicy' with the minimum fields required to make a request.
---
--- * 'grants' - A list of grants.
--- * 'owner' - Container for the bucket owner's display name and ID.
+-- | Creates a 'AccessControlPolicy' value with any optional fields omitted.
 mkAccessControlPolicy ::
   AccessControlPolicy
 mkAccessControlPolicy =
-  AccessControlPolicy' {grants = Lude.Nothing, owner = Lude.Nothing}
+  AccessControlPolicy' {grants = Core.Nothing, owner = Core.Nothing}
 
 -- | A list of grants.
 --
 -- /Note:/ Consider using 'grants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acpGrants :: Lens.Lens' AccessControlPolicy (Lude.Maybe [Grant])
-acpGrants = Lens.lens (grants :: AccessControlPolicy -> Lude.Maybe [Grant]) (\s a -> s {grants = a} :: AccessControlPolicy)
+acpGrants :: Lens.Lens' AccessControlPolicy (Core.Maybe [Types.Grant])
+acpGrants = Lens.field @"grants"
 {-# DEPRECATED acpGrants "Use generic-lens or generic-optics with 'grants' instead." #-}
 
 -- | Container for the bucket owner's display name and ID.
 --
 -- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acpOwner :: Lens.Lens' AccessControlPolicy (Lude.Maybe Owner)
-acpOwner = Lens.lens (owner :: AccessControlPolicy -> Lude.Maybe Owner) (\s a -> s {owner = a} :: AccessControlPolicy)
+acpOwner :: Lens.Lens' AccessControlPolicy (Core.Maybe Types.Owner)
+acpOwner = Lens.field @"owner"
 {-# DEPRECATED acpOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
-instance Lude.ToXML AccessControlPolicy where
-  toXML AccessControlPolicy' {..} =
-    Lude.mconcat
-      [ "AccessControlList"
-          Lude.@= Lude.toXML (Lude.toXMLList "Grant" Lude.<$> grants),
-        "Owner" Lude.@= owner
-      ]
+instance Core.ToXML AccessControlPolicy where
+  toXML AccessControlPolicy {..} =
+    Core.toXMLNode
+      "AccessControlList"
+      (Core.toXMLList "Grant" Core.<$> grants)
+      Core.<> Core.toXMLNode "Owner" Core.<$> owner

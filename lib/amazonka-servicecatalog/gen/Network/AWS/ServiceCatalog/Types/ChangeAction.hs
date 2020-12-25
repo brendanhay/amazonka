@@ -13,51 +13,53 @@
 module Network.AWS.ServiceCatalog.Types.ChangeAction
   ( ChangeAction
       ( ChangeAction',
-        Add,
-        Modify,
-        Remove
+        ChangeActionAdd,
+        ChangeActionModify,
+        ChangeActionRemove,
+        fromChangeAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChangeAction = ChangeAction' Lude.Text
+newtype ChangeAction = ChangeAction' {fromChangeAction :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Add :: ChangeAction
-pattern Add = ChangeAction' "ADD"
+pattern ChangeActionAdd :: ChangeAction
+pattern ChangeActionAdd = ChangeAction' "ADD"
 
-pattern Modify :: ChangeAction
-pattern Modify = ChangeAction' "MODIFY"
+pattern ChangeActionModify :: ChangeAction
+pattern ChangeActionModify = ChangeAction' "MODIFY"
 
-pattern Remove :: ChangeAction
-pattern Remove = ChangeAction' "REMOVE"
+pattern ChangeActionRemove :: ChangeAction
+pattern ChangeActionRemove = ChangeAction' "REMOVE"
 
 {-# COMPLETE
-  Add,
-  Modify,
-  Remove,
+  ChangeActionAdd,
+  ChangeActionModify,
+  ChangeActionRemove,
   ChangeAction'
   #-}

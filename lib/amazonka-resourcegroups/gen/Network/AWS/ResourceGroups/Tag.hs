@@ -22,7 +22,7 @@ module Network.AWS.ResourceGroups.Tag
     mkTag,
 
     -- ** Request lenses
-    tARN,
+    tArn,
     tTags,
 
     -- * Destructuring the response
@@ -30,123 +30,116 @@ module Network.AWS.ResourceGroups.Tag
     mkTagResponse,
 
     -- ** Response lenses
-    trsARN,
-    trsTags,
-    trsResponseStatus,
+    trrsArn,
+    trrsTags,
+    trrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
   { -- | The ARN of the resource group to which to add tags.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    tags :: Core.HashMap Types.TagKey Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the resource group to which to add tags.
--- * 'tags' - The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   Tag
-mkTag pARN_ = Tag' {arn = pARN_, tags = Lude.mempty}
+mkTag arn = Tag' {arn, tags = Core.mempty}
 
 -- | The ARN of the resource group to which to add tags.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tARN :: Lens.Lens' Tag Lude.Text
-tARN = Lens.lens (arn :: Tag -> Lude.Text) (\s a -> s {arn = a} :: Tag)
-{-# DEPRECATED tARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+tArn :: Lens.Lens' Tag Types.Arn
+tArn = Lens.field @"arn"
+{-# DEPRECATED tArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTags :: Lens.Lens' Tag (Lude.HashMap Lude.Text (Lude.Text))
-tTags = Lens.lens (tags :: Tag -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: Tag)
+tTags :: Lens.Lens' Tag (Core.HashMap Types.TagKey Types.TagValue)
+tTags = Lens.field @"tags"
 {-# DEPRECATED tTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest Tag where
+instance Core.FromJSON Tag where
+  toJSON Tag {..} =
+    Core.object (Core.catMaybes [Core.Just ("Tags" Core..= tags)])
+
+instance Core.AWSRequest Tag where
   type Rs Tag = TagResponse
-  request = Req.putJSON resourceGroupsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/resources/" Core.<> (Core.toText arn) Core.<> ("/tags")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TagResponse'
-            Lude.<$> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders Tag where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON Tag where
-  toJSON Tag' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Tags" Lude..= tags)])
-
-instance Lude.ToPath Tag where
-  toPath Tag' {..} =
-    Lude.mconcat ["/resources/", Lude.toBS arn, "/tags"]
-
-instance Lude.ToQuery Tag where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTagResponse' smart constructor.
 data TagResponse = TagResponse'
   { -- | The ARN of the tagged resource.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.GroupArn,
     -- | The tags that have been added to the specified resource group.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the tagged resource.
--- * 'tags' - The tags that have been added to the specified resource group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagResponse' value with any optional fields omitted.
 mkTagResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagResponse
-mkTagResponse pResponseStatus_ =
+mkTagResponse responseStatus =
   TagResponse'
-    { arn = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the tagged resource.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trsARN :: Lens.Lens' TagResponse (Lude.Maybe Lude.Text)
-trsARN = Lens.lens (arn :: TagResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TagResponse)
-{-# DEPRECATED trsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+trrsArn :: Lens.Lens' TagResponse (Core.Maybe Types.GroupArn)
+trrsArn = Lens.field @"arn"
+{-# DEPRECATED trrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The tags that have been added to the specified resource group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trsTags :: Lens.Lens' TagResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-trsTags = Lens.lens (tags :: TagResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: TagResponse)
-{-# DEPRECATED trsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+trrsTags :: Lens.Lens' TagResponse (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+trrsTags = Lens.field @"tags"
+{-# DEPRECATED trrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trsResponseStatus :: Lens.Lens' TagResponse Lude.Int
-trsResponseStatus = Lens.lens (responseStatus :: TagResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResponse)
-{-# DEPRECATED trsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+trrsResponseStatus :: Lens.Lens' TagResponse Core.Int
+trrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

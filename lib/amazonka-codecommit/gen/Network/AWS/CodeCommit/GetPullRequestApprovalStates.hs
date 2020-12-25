@@ -28,132 +28,116 @@ module Network.AWS.CodeCommit.GetPullRequestApprovalStates
     mkGetPullRequestApprovalStatesResponse,
 
     -- ** Response lenses
-    gprasrsApprovals,
-    gprasrsResponseStatus,
+    gprasrrsApprovals,
+    gprasrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPullRequestApprovalStates' smart constructor.
 data GetPullRequestApprovalStates = GetPullRequestApprovalStates'
   { -- | The system-generated ID for the pull request.
-    pullRequestId :: Lude.Text,
+    pullRequestId :: Types.PullRequestId,
     -- | The system-generated ID for the pull request revision.
-    revisionId :: Lude.Text
+    revisionId :: Types.RevisionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPullRequestApprovalStates' with the minimum fields required to make a request.
---
--- * 'pullRequestId' - The system-generated ID for the pull request.
--- * 'revisionId' - The system-generated ID for the pull request revision.
+-- | Creates a 'GetPullRequestApprovalStates' value with any optional fields omitted.
 mkGetPullRequestApprovalStates ::
   -- | 'pullRequestId'
-  Lude.Text ->
+  Types.PullRequestId ->
   -- | 'revisionId'
-  Lude.Text ->
+  Types.RevisionId ->
   GetPullRequestApprovalStates
-mkGetPullRequestApprovalStates pPullRequestId_ pRevisionId_ =
-  GetPullRequestApprovalStates'
-    { pullRequestId = pPullRequestId_,
-      revisionId = pRevisionId_
-    }
+mkGetPullRequestApprovalStates pullRequestId revisionId =
+  GetPullRequestApprovalStates' {pullRequestId, revisionId}
 
 -- | The system-generated ID for the pull request.
 --
 -- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprasPullRequestId :: Lens.Lens' GetPullRequestApprovalStates Lude.Text
-gprasPullRequestId = Lens.lens (pullRequestId :: GetPullRequestApprovalStates -> Lude.Text) (\s a -> s {pullRequestId = a} :: GetPullRequestApprovalStates)
+gprasPullRequestId :: Lens.Lens' GetPullRequestApprovalStates Types.PullRequestId
+gprasPullRequestId = Lens.field @"pullRequestId"
 {-# DEPRECATED gprasPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The system-generated ID for the pull request revision.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprasRevisionId :: Lens.Lens' GetPullRequestApprovalStates Lude.Text
-gprasRevisionId = Lens.lens (revisionId :: GetPullRequestApprovalStates -> Lude.Text) (\s a -> s {revisionId = a} :: GetPullRequestApprovalStates)
+gprasRevisionId :: Lens.Lens' GetPullRequestApprovalStates Types.RevisionId
+gprasRevisionId = Lens.field @"revisionId"
 {-# DEPRECATED gprasRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance Lude.AWSRequest GetPullRequestApprovalStates where
+instance Core.FromJSON GetPullRequestApprovalStates where
+  toJSON GetPullRequestApprovalStates {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just ("revisionId" Core..= revisionId)
+          ]
+      )
+
+instance Core.AWSRequest GetPullRequestApprovalStates where
   type
     Rs GetPullRequestApprovalStates =
       GetPullRequestApprovalStatesResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.GetPullRequestApprovalStates"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPullRequestApprovalStatesResponse'
-            Lude.<$> (x Lude..?> "approvals" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "approvals") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPullRequestApprovalStates where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.GetPullRequestApprovalStates" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPullRequestApprovalStates where
-  toJSON GetPullRequestApprovalStates' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            Lude.Just ("revisionId" Lude..= revisionId)
-          ]
-      )
-
-instance Lude.ToPath GetPullRequestApprovalStates where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPullRequestApprovalStates where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPullRequestApprovalStatesResponse' smart constructor.
 data GetPullRequestApprovalStatesResponse = GetPullRequestApprovalStatesResponse'
   { -- | Information about users who have approved the pull request.
-    approvals :: Lude.Maybe [Approval],
+    approvals :: Core.Maybe [Types.Approval],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPullRequestApprovalStatesResponse' with the minimum fields required to make a request.
---
--- * 'approvals' - Information about users who have approved the pull request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPullRequestApprovalStatesResponse' value with any optional fields omitted.
 mkGetPullRequestApprovalStatesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPullRequestApprovalStatesResponse
-mkGetPullRequestApprovalStatesResponse pResponseStatus_ =
+mkGetPullRequestApprovalStatesResponse responseStatus =
   GetPullRequestApprovalStatesResponse'
-    { approvals = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { approvals = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about users who have approved the pull request.
 --
 -- /Note:/ Consider using 'approvals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprasrsApprovals :: Lens.Lens' GetPullRequestApprovalStatesResponse (Lude.Maybe [Approval])
-gprasrsApprovals = Lens.lens (approvals :: GetPullRequestApprovalStatesResponse -> Lude.Maybe [Approval]) (\s a -> s {approvals = a} :: GetPullRequestApprovalStatesResponse)
-{-# DEPRECATED gprasrsApprovals "Use generic-lens or generic-optics with 'approvals' instead." #-}
+gprasrrsApprovals :: Lens.Lens' GetPullRequestApprovalStatesResponse (Core.Maybe [Types.Approval])
+gprasrrsApprovals = Lens.field @"approvals"
+{-# DEPRECATED gprasrrsApprovals "Use generic-lens or generic-optics with 'approvals' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprasrsResponseStatus :: Lens.Lens' GetPullRequestApprovalStatesResponse Lude.Int
-gprasrsResponseStatus = Lens.lens (responseStatus :: GetPullRequestApprovalStatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPullRequestApprovalStatesResponse)
-{-# DEPRECATED gprasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprasrrsResponseStatus :: Lens.Lens' GetPullRequestApprovalStatesResponse Core.Int
+gprasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

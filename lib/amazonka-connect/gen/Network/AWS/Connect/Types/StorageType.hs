@@ -13,56 +13,58 @@
 module Network.AWS.Connect.Types.StorageType
   ( StorageType
       ( StorageType',
-        S3,
-        KinesisVideoStream,
-        KinesisStream,
-        KinesisFirehose
+        StorageTypeS3,
+        StorageTypeKinesisVideoStream,
+        StorageTypeKinesisStream,
+        StorageTypeKinesisFirehose,
+        fromStorageType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StorageType = StorageType' Lude.Text
+newtype StorageType = StorageType' {fromStorageType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern S3 :: StorageType
-pattern S3 = StorageType' "S3"
+pattern StorageTypeS3 :: StorageType
+pattern StorageTypeS3 = StorageType' "S3"
 
-pattern KinesisVideoStream :: StorageType
-pattern KinesisVideoStream = StorageType' "KINESIS_VIDEO_STREAM"
+pattern StorageTypeKinesisVideoStream :: StorageType
+pattern StorageTypeKinesisVideoStream = StorageType' "KINESIS_VIDEO_STREAM"
 
-pattern KinesisStream :: StorageType
-pattern KinesisStream = StorageType' "KINESIS_STREAM"
+pattern StorageTypeKinesisStream :: StorageType
+pattern StorageTypeKinesisStream = StorageType' "KINESIS_STREAM"
 
-pattern KinesisFirehose :: StorageType
-pattern KinesisFirehose = StorageType' "KINESIS_FIREHOSE"
+pattern StorageTypeKinesisFirehose :: StorageType
+pattern StorageTypeKinesisFirehose = StorageType' "KINESIS_FIREHOSE"
 
 {-# COMPLETE
-  S3,
-  KinesisVideoStream,
-  KinesisStream,
-  KinesisFirehose,
+  StorageTypeS3,
+  StorageTypeKinesisVideoStream,
+  StorageTypeKinesisStream,
+  StorageTypeKinesisFirehose,
   StorageType'
   #-}

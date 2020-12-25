@@ -22,7 +22,7 @@ module Network.AWS.EC2.Types.SpotFleetMonitoring
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes whether monitoring is enabled.
 --
@@ -31,33 +31,25 @@ newtype SpotFleetMonitoring = SpotFleetMonitoring'
   { -- | Enables monitoring for the instance.
     --
     -- Default: @false@
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpotFleetMonitoring' with the minimum fields required to make a request.
---
--- * 'enabled' - Enables monitoring for the instance.
---
--- Default: @false@
+-- | Creates a 'SpotFleetMonitoring' value with any optional fields omitted.
 mkSpotFleetMonitoring ::
   SpotFleetMonitoring
 mkSpotFleetMonitoring =
-  SpotFleetMonitoring' {enabled = Lude.Nothing}
+  SpotFleetMonitoring' {enabled = Core.Nothing}
 
 -- | Enables monitoring for the instance.
 --
 -- Default: @false@
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfmEnabled :: Lens.Lens' SpotFleetMonitoring (Lude.Maybe Lude.Bool)
-sfmEnabled = Lens.lens (enabled :: SpotFleetMonitoring -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SpotFleetMonitoring)
+sfmEnabled :: Lens.Lens' SpotFleetMonitoring (Core.Maybe Core.Bool)
+sfmEnabled = Lens.field @"enabled"
 {-# DEPRECATED sfmEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromXML SpotFleetMonitoring where
-  parseXML x = SpotFleetMonitoring' Lude.<$> (x Lude..@? "enabled")
-
-instance Lude.ToQuery SpotFleetMonitoring where
-  toQuery SpotFleetMonitoring' {..} =
-    Lude.mconcat ["Enabled" Lude.=: enabled]
+instance Core.FromXML SpotFleetMonitoring where
+  parseXML x = SpotFleetMonitoring' Core.<$> (x Core..@? "enabled")

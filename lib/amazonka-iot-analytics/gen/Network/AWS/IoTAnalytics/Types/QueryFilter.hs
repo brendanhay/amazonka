@@ -21,41 +21,38 @@ module Network.AWS.IoTAnalytics.Types.QueryFilter
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.DeltaTime
+import qualified Network.AWS.IoTAnalytics.Types.DeltaTime as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information that is used to filter message data, to segregate it according to the timeframe in which it arrives.
 --
 -- /See:/ 'mkQueryFilter' smart constructor.
 newtype QueryFilter = QueryFilter'
   { -- | Used to limit data to that which has arrived since the last execution of the action.
-    deltaTime :: Lude.Maybe DeltaTime
+    deltaTime :: Core.Maybe Types.DeltaTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueryFilter' with the minimum fields required to make a request.
---
--- * 'deltaTime' - Used to limit data to that which has arrived since the last execution of the action.
+-- | Creates a 'QueryFilter' value with any optional fields omitted.
 mkQueryFilter ::
   QueryFilter
-mkQueryFilter = QueryFilter' {deltaTime = Lude.Nothing}
+mkQueryFilter = QueryFilter' {deltaTime = Core.Nothing}
 
 -- | Used to limit data to that which has arrived since the last execution of the action.
 --
 -- /Note:/ Consider using 'deltaTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qfDeltaTime :: Lens.Lens' QueryFilter (Lude.Maybe DeltaTime)
-qfDeltaTime = Lens.lens (deltaTime :: QueryFilter -> Lude.Maybe DeltaTime) (\s a -> s {deltaTime = a} :: QueryFilter)
+qfDeltaTime :: Lens.Lens' QueryFilter (Core.Maybe Types.DeltaTime)
+qfDeltaTime = Lens.field @"deltaTime"
 {-# DEPRECATED qfDeltaTime "Use generic-lens or generic-optics with 'deltaTime' instead." #-}
 
-instance Lude.FromJSON QueryFilter where
-  parseJSON =
-    Lude.withObject
-      "QueryFilter"
-      (\x -> QueryFilter' Lude.<$> (x Lude..:? "deltaTime"))
+instance Core.FromJSON QueryFilter where
+  toJSON QueryFilter {..} =
+    Core.object
+      (Core.catMaybes [("deltaTime" Core..=) Core.<$> deltaTime])
 
-instance Lude.ToJSON QueryFilter where
-  toJSON QueryFilter' {..} =
-    Lude.object
-      (Lude.catMaybes [("deltaTime" Lude..=) Lude.<$> deltaTime])
+instance Core.FromJSON QueryFilter where
+  parseJSON =
+    Core.withObject "QueryFilter" Core.$
+      \x -> QueryFilter' Core.<$> (x Core..:? "deltaTime")

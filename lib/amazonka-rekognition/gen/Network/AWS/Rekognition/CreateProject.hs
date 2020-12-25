@@ -29,108 +29,92 @@ module Network.AWS.Rekognition.CreateProject
     mkCreateProjectResponse,
 
     -- ** Response lenses
-    cprsProjectARN,
-    cprsResponseStatus,
+    cprrsProjectArn,
+    cprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateProject' smart constructor.
 newtype CreateProject = CreateProject'
   { -- | The name of the project to create.
-    projectName :: Lude.Text
+    projectName :: Types.ProjectName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
---
--- * 'projectName' - The name of the project to create.
+-- | Creates a 'CreateProject' value with any optional fields omitted.
 mkCreateProject ::
   -- | 'projectName'
-  Lude.Text ->
+  Types.ProjectName ->
   CreateProject
-mkCreateProject pProjectName_ =
-  CreateProject' {projectName = pProjectName_}
+mkCreateProject projectName = CreateProject' {projectName}
 
 -- | The name of the project to create.
 --
 -- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpProjectName :: Lens.Lens' CreateProject Lude.Text
-cpProjectName = Lens.lens (projectName :: CreateProject -> Lude.Text) (\s a -> s {projectName = a} :: CreateProject)
+cpProjectName :: Lens.Lens' CreateProject Types.ProjectName
+cpProjectName = Lens.field @"projectName"
 {-# DEPRECATED cpProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
-instance Lude.AWSRequest CreateProject where
+instance Core.FromJSON CreateProject where
+  toJSON CreateProject {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ProjectName" Core..= projectName)])
+
+instance Core.AWSRequest CreateProject where
   type Rs CreateProject = CreateProjectResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.CreateProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Lude.<$> (x Lude..?> "ProjectArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProjectArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.CreateProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateProject where
-  toJSON CreateProject' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ProjectName" Lude..= projectName)])
-
-instance Lude.ToPath CreateProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
   { -- | The Amazon Resource Name (ARN) of the new project. You can use the ARN to configure IAM access to the project.
-    projectARN :: Lude.Maybe Lude.Text,
+    projectArn :: Core.Maybe Types.ProjectArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
---
--- * 'projectARN' - The Amazon Resource Name (ARN) of the new project. You can use the ARN to configure IAM access to the project.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateProjectResponse' value with any optional fields omitted.
 mkCreateProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateProjectResponse
-mkCreateProjectResponse pResponseStatus_ =
-  CreateProjectResponse'
-    { projectARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateProjectResponse responseStatus =
+  CreateProjectResponse' {projectArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the new project. You can use the ARN to configure IAM access to the project.
 --
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsProjectARN :: Lens.Lens' CreateProjectResponse (Lude.Maybe Lude.Text)
-cprsProjectARN = Lens.lens (projectARN :: CreateProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {projectARN = a} :: CreateProjectResponse)
-{-# DEPRECATED cprsProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+-- /Note:/ Consider using 'projectArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprrsProjectArn :: Lens.Lens' CreateProjectResponse (Core.Maybe Types.ProjectArn)
+cprrsProjectArn = Lens.field @"projectArn"
+{-# DEPRECATED cprrsProjectArn "Use generic-lens or generic-optics with 'projectArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' CreateProjectResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: CreateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProjectResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrsResponseStatus :: Lens.Lens' CreateProjectResponse Core.Int
+cprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -108,8 +108,8 @@ import Test.Tasty
 --         , requestGetAuthorizationToken $
 --             mkGetAuthorizationToken
 --
---         , requestGetDownloadURLForLayer $
---             mkGetDownloadURLForLayer
+--         , requestGetDownloadUrlForLayer $
+--             mkGetDownloadUrlForLayer
 --
 --         , requestDescribeImages $
 --             mkDescribeImages
@@ -198,8 +198,8 @@ import Test.Tasty
 --         , responseGetAuthorizationToken $
 --             mkGetAuthorizationTokenResponse
 --
---         , responseGetDownloadURLForLayer $
---             mkGetDownloadURLForLayerResponse
+--         , responseGetDownloadUrlForLayer $
+--             mkGetDownloadUrlForLayerResponse
 --
 --         , responseDescribeImages $
 --             mkDescribeImagesResponse
@@ -371,11 +371,11 @@ requestGetAuthorizationToken =
     "GetAuthorizationToken"
     "fixture/GetAuthorizationToken.yaml"
 
-requestGetDownloadURLForLayer :: GetDownloadURLForLayer -> TestTree
-requestGetDownloadURLForLayer =
+requestGetDownloadUrlForLayer :: GetDownloadUrlForLayer -> TestTree
+requestGetDownloadUrlForLayer =
   req
-    "GetDownloadURLForLayer"
-    "fixture/GetDownloadURLForLayer.yaml"
+    "GetDownloadUrlForLayer"
+    "fixture/GetDownloadUrlForLayer.yaml"
 
 requestDescribeImages :: DescribeImages -> TestTree
 requestDescribeImages =
@@ -390,7 +390,7 @@ responseGetRepositoryPolicy =
   res
     "GetRepositoryPolicyResponse"
     "fixture/GetRepositoryPolicyResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy GetRepositoryPolicy)
 
 responsePutImageScanningConfiguration :: PutImageScanningConfigurationResponse -> TestTree
@@ -398,7 +398,7 @@ responsePutImageScanningConfiguration =
   res
     "PutImageScanningConfigurationResponse"
     "fixture/PutImageScanningConfigurationResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy PutImageScanningConfiguration)
 
 responsePutLifecyclePolicy :: PutLifecyclePolicyResponse -> TestTree
@@ -406,7 +406,7 @@ responsePutLifecyclePolicy =
   res
     "PutLifecyclePolicyResponse"
     "fixture/PutLifecyclePolicyResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy PutLifecyclePolicy)
 
 responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
@@ -414,7 +414,7 @@ responseDeleteLifecyclePolicy =
   res
     "DeleteLifecyclePolicyResponse"
     "fixture/DeleteLifecyclePolicyResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLifecyclePolicy)
 
 responsePutImageTagMutability :: PutImageTagMutabilityResponse -> TestTree
@@ -422,7 +422,7 @@ responsePutImageTagMutability =
   res
     "PutImageTagMutabilityResponse"
     "fixture/PutImageTagMutabilityResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy PutImageTagMutability)
 
 responseBatchDeleteImage :: BatchDeleteImageResponse -> TestTree
@@ -430,7 +430,7 @@ responseBatchDeleteImage =
   res
     "BatchDeleteImageResponse"
     "fixture/BatchDeleteImageResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteImage)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -438,7 +438,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetLifecyclePolicyPreview :: GetLifecyclePolicyPreviewResponse -> TestTree
@@ -446,7 +446,7 @@ responseGetLifecyclePolicyPreview =
   res
     "GetLifecyclePolicyPreviewResponse"
     "fixture/GetLifecyclePolicyPreviewResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy GetLifecyclePolicyPreview)
 
 responseBatchCheckLayerAvailability :: BatchCheckLayerAvailabilityResponse -> TestTree
@@ -454,7 +454,7 @@ responseBatchCheckLayerAvailability =
   res
     "BatchCheckLayerAvailabilityResponse"
     "fixture/BatchCheckLayerAvailabilityResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy BatchCheckLayerAvailability)
 
 responseDeleteRepositoryPolicy :: DeleteRepositoryPolicyResponse -> TestTree
@@ -462,7 +462,7 @@ responseDeleteRepositoryPolicy =
   res
     "DeleteRepositoryPolicyResponse"
     "fixture/DeleteRepositoryPolicyResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRepositoryPolicy)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
@@ -470,7 +470,7 @@ responseCreateRepository =
   res
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy CreateRepository)
 
 responseCompleteLayerUpload :: CompleteLayerUploadResponse -> TestTree
@@ -478,7 +478,7 @@ responseCompleteLayerUpload =
   res
     "CompleteLayerUploadResponse"
     "fixture/CompleteLayerUploadResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy CompleteLayerUpload)
 
 responseDescribeRepositories :: DescribeRepositoriesResponse -> TestTree
@@ -486,7 +486,7 @@ responseDescribeRepositories =
   res
     "DescribeRepositoriesResponse"
     "fixture/DescribeRepositoriesResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeRepositories)
 
 responseStartLifecyclePolicyPreview :: StartLifecyclePolicyPreviewResponse -> TestTree
@@ -494,7 +494,7 @@ responseStartLifecyclePolicyPreview =
   res
     "StartLifecyclePolicyPreviewResponse"
     "fixture/StartLifecyclePolicyPreviewResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy StartLifecyclePolicyPreview)
 
 responseUploadLayerPart :: UploadLayerPartResponse -> TestTree
@@ -502,7 +502,7 @@ responseUploadLayerPart =
   res
     "UploadLayerPartResponse"
     "fixture/UploadLayerPartResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy UploadLayerPart)
 
 responseBatchGetImage :: BatchGetImageResponse -> TestTree
@@ -510,7 +510,7 @@ responseBatchGetImage =
   res
     "BatchGetImageResponse"
     "fixture/BatchGetImageResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetImage)
 
 responseStartImageScan :: StartImageScanResponse -> TestTree
@@ -518,7 +518,7 @@ responseStartImageScan =
   res
     "StartImageScanResponse"
     "fixture/StartImageScanResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy StartImageScan)
 
 responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
@@ -526,7 +526,7 @@ responseGetLifecyclePolicy =
   res
     "GetLifecyclePolicyResponse"
     "fixture/GetLifecyclePolicyResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy GetLifecyclePolicy)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -534,7 +534,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
@@ -542,7 +542,7 @@ responseSetRepositoryPolicy =
   res
     "SetRepositoryPolicyResponse"
     "fixture/SetRepositoryPolicyResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy SetRepositoryPolicy)
 
 responseDescribeImageScanFindings :: DescribeImageScanFindingsResponse -> TestTree
@@ -550,7 +550,7 @@ responseDescribeImageScanFindings =
   res
     "DescribeImageScanFindingsResponse"
     "fixture/DescribeImageScanFindingsResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImageScanFindings)
 
 responseInitiateLayerUpload :: InitiateLayerUploadResponse -> TestTree
@@ -558,7 +558,7 @@ responseInitiateLayerUpload =
   res
     "InitiateLayerUploadResponse"
     "fixture/InitiateLayerUploadResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy InitiateLayerUpload)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -566,7 +566,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeleteRepository =
   res
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRepository)
 
 responsePutImage :: PutImageResponse -> TestTree
@@ -582,7 +582,7 @@ responsePutImage =
   res
     "PutImageResponse"
     "fixture/PutImageResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy PutImage)
 
 responseListImages :: ListImagesResponse -> TestTree
@@ -590,7 +590,7 @@ responseListImages =
   res
     "ListImagesResponse"
     "fixture/ListImagesResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy ListImages)
 
 responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
@@ -598,21 +598,21 @@ responseGetAuthorizationToken =
   res
     "GetAuthorizationTokenResponse"
     "fixture/GetAuthorizationTokenResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy GetAuthorizationToken)
 
-responseGetDownloadURLForLayer :: GetDownloadURLForLayerResponse -> TestTree
-responseGetDownloadURLForLayer =
+responseGetDownloadUrlForLayer :: GetDownloadUrlForLayerResponse -> TestTree
+responseGetDownloadUrlForLayer =
   res
-    "GetDownloadURLForLayerResponse"
-    "fixture/GetDownloadURLForLayerResponse.proto"
-    ecrService
-    (Proxy :: Proxy GetDownloadURLForLayer)
+    "GetDownloadUrlForLayerResponse"
+    "fixture/GetDownloadUrlForLayerResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetDownloadUrlForLayer)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
 responseDescribeImages =
   res
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
-    ecrService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImages)

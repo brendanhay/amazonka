@@ -23,60 +23,55 @@ module Network.AWS.MediaConvert.Types.MotionImageInsertionOffset
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the offset between the upper-left corner of the video frame and the top left corner of the overlay.
 --
 -- /See:/ 'mkMotionImageInsertionOffset' smart constructor.
 data MotionImageInsertionOffset = MotionImageInsertionOffset'
   { -- | Set the distance, in pixels, between the overlay and the left edge of the video frame.
-    imageX :: Lude.Maybe Lude.Natural,
+    imageX :: Core.Maybe Core.Natural,
     -- | Set the distance, in pixels, between the overlay and the top edge of the video frame.
-    imageY :: Lude.Maybe Lude.Natural
+    imageY :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MotionImageInsertionOffset' with the minimum fields required to make a request.
---
--- * 'imageX' - Set the distance, in pixels, between the overlay and the left edge of the video frame.
--- * 'imageY' - Set the distance, in pixels, between the overlay and the top edge of the video frame.
+-- | Creates a 'MotionImageInsertionOffset' value with any optional fields omitted.
 mkMotionImageInsertionOffset ::
   MotionImageInsertionOffset
 mkMotionImageInsertionOffset =
   MotionImageInsertionOffset'
-    { imageX = Lude.Nothing,
-      imageY = Lude.Nothing
+    { imageX = Core.Nothing,
+      imageY = Core.Nothing
     }
 
 -- | Set the distance, in pixels, between the overlay and the left edge of the video frame.
 --
 -- /Note:/ Consider using 'imageX' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miioImageX :: Lens.Lens' MotionImageInsertionOffset (Lude.Maybe Lude.Natural)
-miioImageX = Lens.lens (imageX :: MotionImageInsertionOffset -> Lude.Maybe Lude.Natural) (\s a -> s {imageX = a} :: MotionImageInsertionOffset)
+miioImageX :: Lens.Lens' MotionImageInsertionOffset (Core.Maybe Core.Natural)
+miioImageX = Lens.field @"imageX"
 {-# DEPRECATED miioImageX "Use generic-lens or generic-optics with 'imageX' instead." #-}
 
 -- | Set the distance, in pixels, between the overlay and the top edge of the video frame.
 --
 -- /Note:/ Consider using 'imageY' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miioImageY :: Lens.Lens' MotionImageInsertionOffset (Lude.Maybe Lude.Natural)
-miioImageY = Lens.lens (imageY :: MotionImageInsertionOffset -> Lude.Maybe Lude.Natural) (\s a -> s {imageY = a} :: MotionImageInsertionOffset)
+miioImageY :: Lens.Lens' MotionImageInsertionOffset (Core.Maybe Core.Natural)
+miioImageY = Lens.field @"imageY"
 {-# DEPRECATED miioImageY "Use generic-lens or generic-optics with 'imageY' instead." #-}
 
-instance Lude.FromJSON MotionImageInsertionOffset where
-  parseJSON =
-    Lude.withObject
-      "MotionImageInsertionOffset"
-      ( \x ->
-          MotionImageInsertionOffset'
-            Lude.<$> (x Lude..:? "imageX") Lude.<*> (x Lude..:? "imageY")
-      )
-
-instance Lude.ToJSON MotionImageInsertionOffset where
-  toJSON MotionImageInsertionOffset' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("imageX" Lude..=) Lude.<$> imageX,
-            ("imageY" Lude..=) Lude.<$> imageY
+instance Core.FromJSON MotionImageInsertionOffset where
+  toJSON MotionImageInsertionOffset {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("imageX" Core..=) Core.<$> imageX,
+            ("imageY" Core..=) Core.<$> imageY
           ]
       )
+
+instance Core.FromJSON MotionImageInsertionOffset where
+  parseJSON =
+    Core.withObject "MotionImageInsertionOffset" Core.$
+      \x ->
+        MotionImageInsertionOffset'
+          Core.<$> (x Core..:? "imageX") Core.<*> (x Core..:? "imageY")

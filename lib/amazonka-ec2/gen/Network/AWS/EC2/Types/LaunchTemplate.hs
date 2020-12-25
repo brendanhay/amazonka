@@ -17,122 +17,114 @@ module Network.AWS.EC2.Types.LaunchTemplate
     mkLaunchTemplate,
 
     -- * Lenses
-    ltLaunchTemplateName,
-    ltLatestVersionNumber,
-    ltLaunchTemplateId,
+    ltCreateTime,
     ltCreatedBy,
     ltDefaultVersionNumber,
-    ltCreateTime,
+    ltLatestVersionNumber,
+    ltLaunchTemplateId,
+    ltLaunchTemplateName,
     ltTags,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.LaunchTemplateName as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a launch template.
 --
 -- /See:/ 'mkLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
-  { -- | The name of the launch template.
-    launchTemplateName :: Lude.Maybe Lude.Text,
-    -- | The version number of the latest version of the launch template.
-    latestVersionNumber :: Lude.Maybe Lude.Integer,
-    -- | The ID of the launch template.
-    launchTemplateId :: Lude.Maybe Lude.Text,
+  { -- | The time launch template was created.
+    createTime :: Core.Maybe Core.UTCTime,
     -- | The principal that created the launch template.
-    createdBy :: Lude.Maybe Lude.Text,
+    createdBy :: Core.Maybe Types.String,
     -- | The version number of the default version of the launch template.
-    defaultVersionNumber :: Lude.Maybe Lude.Integer,
-    -- | The time launch template was created.
-    createTime :: Lude.Maybe Lude.DateTime,
+    defaultVersionNumber :: Core.Maybe Core.Integer,
+    -- | The version number of the latest version of the launch template.
+    latestVersionNumber :: Core.Maybe Core.Integer,
+    -- | The ID of the launch template.
+    launchTemplateId :: Core.Maybe Types.String,
+    -- | The name of the launch template.
+    launchTemplateName :: Core.Maybe Types.LaunchTemplateName,
     -- | The tags for the launch template.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LaunchTemplate' with the minimum fields required to make a request.
---
--- * 'launchTemplateName' - The name of the launch template.
--- * 'latestVersionNumber' - The version number of the latest version of the launch template.
--- * 'launchTemplateId' - The ID of the launch template.
--- * 'createdBy' - The principal that created the launch template.
--- * 'defaultVersionNumber' - The version number of the default version of the launch template.
--- * 'createTime' - The time launch template was created.
--- * 'tags' - The tags for the launch template.
+-- | Creates a 'LaunchTemplate' value with any optional fields omitted.
 mkLaunchTemplate ::
   LaunchTemplate
 mkLaunchTemplate =
   LaunchTemplate'
-    { launchTemplateName = Lude.Nothing,
-      latestVersionNumber = Lude.Nothing,
-      launchTemplateId = Lude.Nothing,
-      createdBy = Lude.Nothing,
-      defaultVersionNumber = Lude.Nothing,
-      createTime = Lude.Nothing,
-      tags = Lude.Nothing
+    { createTime = Core.Nothing,
+      createdBy = Core.Nothing,
+      defaultVersionNumber = Core.Nothing,
+      latestVersionNumber = Core.Nothing,
+      launchTemplateId = Core.Nothing,
+      launchTemplateName = Core.Nothing,
+      tags = Core.Nothing
     }
 
--- | The name of the launch template.
+-- | The time launch template was created.
 --
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLaunchTemplateName :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.Text)
-ltLaunchTemplateName = Lens.lens (launchTemplateName :: LaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: LaunchTemplate)
-{-# DEPRECATED ltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
-
--- | The version number of the latest version of the launch template.
---
--- /Note:/ Consider using 'latestVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLatestVersionNumber :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.Integer)
-ltLatestVersionNumber = Lens.lens (latestVersionNumber :: LaunchTemplate -> Lude.Maybe Lude.Integer) (\s a -> s {latestVersionNumber = a} :: LaunchTemplate)
-{-# DEPRECATED ltLatestVersionNumber "Use generic-lens or generic-optics with 'latestVersionNumber' instead." #-}
-
--- | The ID of the launch template.
---
--- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLaunchTemplateId :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.Text)
-ltLaunchTemplateId = Lens.lens (launchTemplateId :: LaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: LaunchTemplate)
-{-# DEPRECATED ltLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltCreateTime :: Lens.Lens' LaunchTemplate (Core.Maybe Core.UTCTime)
+ltCreateTime = Lens.field @"createTime"
+{-# DEPRECATED ltCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The principal that created the launch template.
 --
 -- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltCreatedBy :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.Text)
-ltCreatedBy = Lens.lens (createdBy :: LaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: LaunchTemplate)
+ltCreatedBy :: Lens.Lens' LaunchTemplate (Core.Maybe Types.String)
+ltCreatedBy = Lens.field @"createdBy"
 {-# DEPRECATED ltCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | The version number of the default version of the launch template.
 --
 -- /Note:/ Consider using 'defaultVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltDefaultVersionNumber :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.Integer)
-ltDefaultVersionNumber = Lens.lens (defaultVersionNumber :: LaunchTemplate -> Lude.Maybe Lude.Integer) (\s a -> s {defaultVersionNumber = a} :: LaunchTemplate)
+ltDefaultVersionNumber :: Lens.Lens' LaunchTemplate (Core.Maybe Core.Integer)
+ltDefaultVersionNumber = Lens.field @"defaultVersionNumber"
 {-# DEPRECATED ltDefaultVersionNumber "Use generic-lens or generic-optics with 'defaultVersionNumber' instead." #-}
 
--- | The time launch template was created.
+-- | The version number of the latest version of the launch template.
 --
--- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltCreateTime :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.DateTime)
-ltCreateTime = Lens.lens (createTime :: LaunchTemplate -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: LaunchTemplate)
-{-# DEPRECATED ltCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+-- /Note:/ Consider using 'latestVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltLatestVersionNumber :: Lens.Lens' LaunchTemplate (Core.Maybe Core.Integer)
+ltLatestVersionNumber = Lens.field @"latestVersionNumber"
+{-# DEPRECATED ltLatestVersionNumber "Use generic-lens or generic-optics with 'latestVersionNumber' instead." #-}
+
+-- | The ID of the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltLaunchTemplateId :: Lens.Lens' LaunchTemplate (Core.Maybe Types.String)
+ltLaunchTemplateId = Lens.field @"launchTemplateId"
+{-# DEPRECATED ltLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+
+-- | The name of the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltLaunchTemplateName :: Lens.Lens' LaunchTemplate (Core.Maybe Types.LaunchTemplateName)
+ltLaunchTemplateName = Lens.field @"launchTemplateName"
+{-# DEPRECATED ltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The tags for the launch template.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltTags :: Lens.Lens' LaunchTemplate (Lude.Maybe [Tag])
-ltTags = Lens.lens (tags :: LaunchTemplate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LaunchTemplate)
+ltTags :: Lens.Lens' LaunchTemplate (Core.Maybe [Types.Tag])
+ltTags = Lens.field @"tags"
 {-# DEPRECATED ltTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML LaunchTemplate where
+instance Core.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate'
-      Lude.<$> (x Lude..@? "launchTemplateName")
-      Lude.<*> (x Lude..@? "latestVersionNumber")
-      Lude.<*> (x Lude..@? "launchTemplateId")
-      Lude.<*> (x Lude..@? "createdBy")
-      Lude.<*> (x Lude..@? "defaultVersionNumber")
-      Lude.<*> (x Lude..@? "createTime")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "createTime")
+      Core.<*> (x Core..@? "createdBy")
+      Core.<*> (x Core..@? "defaultVersionNumber")
+      Core.<*> (x Core..@? "latestVersionNumber")
+      Core.<*> (x Core..@? "launchTemplateId")
+      Core.<*> (x Core..@? "launchTemplateName")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

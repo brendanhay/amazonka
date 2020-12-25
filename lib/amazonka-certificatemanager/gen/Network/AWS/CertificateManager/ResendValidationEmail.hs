@@ -20,7 +20,7 @@ module Network.AWS.CertificateManager.ResendValidationEmail
     mkResendValidationEmail,
 
     -- ** Request lenses
-    rveCertificateARN,
+    rveCertificateArn,
     rveDomain,
     rveValidationDomain,
 
@@ -30,20 +30,20 @@ module Network.AWS.CertificateManager.ResendValidationEmail
   )
 where
 
-import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.CertificateManager.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'
   { -- | String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the 'RequestCertificate' action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form:
     --
     -- @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
-    certificateARN :: Lude.Text,
+    certificateArn :: Types.Arn,
     -- | The fully qualified domain name (FQDN) of the certificate that needs to be validated.
-    domain :: Lude.Text,
+    domain :: Types.DomainNameString,
     -- | The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the @Domain@ value or a superdomain of the @Domain@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:
     --
     --
@@ -60,65 +60,37 @@ data ResendValidationEmail = ResendValidationEmail'
     --
     --
     --     * webmaster@subdomain.example.com
-    validationDomain :: Lude.Text
+    validationDomain :: Types.DomainNameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResendValidationEmail' with the minimum fields required to make a request.
---
--- * 'certificateARN' - String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the 'RequestCertificate' action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form:
---
--- @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
--- * 'domain' - The fully qualified domain name (FQDN) of the certificate that needs to be validated.
--- * 'validationDomain' - The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the @Domain@ value or a superdomain of the @Domain@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:
---
---
---     * admin@subdomain.example.com
---
---
---     * administrator@subdomain.example.com
---
---
---     * hostmaster@subdomain.example.com
---
---
---     * postmaster@subdomain.example.com
---
---
---     * webmaster@subdomain.example.com
+-- | Creates a 'ResendValidationEmail' value with any optional fields omitted.
 mkResendValidationEmail ::
-  -- | 'certificateARN'
-  Lude.Text ->
+  -- | 'certificateArn'
+  Types.Arn ->
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainNameString ->
   -- | 'validationDomain'
-  Lude.Text ->
+  Types.DomainNameString ->
   ResendValidationEmail
-mkResendValidationEmail
-  pCertificateARN_
-  pDomain_
-  pValidationDomain_ =
-    ResendValidationEmail'
-      { certificateARN = pCertificateARN_,
-        domain = pDomain_,
-        validationDomain = pValidationDomain_
-      }
+mkResendValidationEmail certificateArn domain validationDomain =
+  ResendValidationEmail' {certificateArn, domain, validationDomain}
 
 -- | String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the 'RequestCertificate' action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form:
 --
 -- @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rveCertificateARN :: Lens.Lens' ResendValidationEmail Lude.Text
-rveCertificateARN = Lens.lens (certificateARN :: ResendValidationEmail -> Lude.Text) (\s a -> s {certificateARN = a} :: ResendValidationEmail)
-{-# DEPRECATED rveCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rveCertificateArn :: Lens.Lens' ResendValidationEmail Types.Arn
+rveCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED rveCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The fully qualified domain name (FQDN) of the certificate that needs to be validated.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rveDomain :: Lens.Lens' ResendValidationEmail Lude.Text
-rveDomain = Lens.lens (domain :: ResendValidationEmail -> Lude.Text) (\s a -> s {domain = a} :: ResendValidationEmail)
+rveDomain :: Lens.Lens' ResendValidationEmail Types.DomainNameString
+rveDomain = Lens.field @"domain"
 {-# DEPRECATED rveDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the @Domain@ value or a superdomain of the @Domain@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:
@@ -141,48 +113,42 @@ rveDomain = Lens.lens (domain :: ResendValidationEmail -> Lude.Text) (\s a -> s 
 --
 --
 -- /Note:/ Consider using 'validationDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rveValidationDomain :: Lens.Lens' ResendValidationEmail Lude.Text
-rveValidationDomain = Lens.lens (validationDomain :: ResendValidationEmail -> Lude.Text) (\s a -> s {validationDomain = a} :: ResendValidationEmail)
+rveValidationDomain :: Lens.Lens' ResendValidationEmail Types.DomainNameString
+rveValidationDomain = Lens.field @"validationDomain"
 {-# DEPRECATED rveValidationDomain "Use generic-lens or generic-optics with 'validationDomain' instead." #-}
 
-instance Lude.AWSRequest ResendValidationEmail where
+instance Core.FromJSON ResendValidationEmail where
+  toJSON ResendValidationEmail {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Domain" Core..= domain),
+            Core.Just ("ValidationDomain" Core..= validationDomain)
+          ]
+      )
+
+instance Core.AWSRequest ResendValidationEmail where
   type Rs ResendValidationEmail = ResendValidationEmailResponse
-  request = Req.postJSON certificateManagerService
-  response = Res.receiveNull ResendValidationEmailResponse'
-
-instance Lude.ToHeaders ResendValidationEmail where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CertificateManager.ResendValidationEmail" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResendValidationEmail where
-  toJSON ResendValidationEmail' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CertificateArn" Lude..= certificateARN),
-            Lude.Just ("Domain" Lude..= domain),
-            Lude.Just ("ValidationDomain" Lude..= validationDomain)
-          ]
-      )
-
-instance Lude.ToPath ResendValidationEmail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResendValidationEmail where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CertificateManager.ResendValidationEmail")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull ResendValidationEmailResponse'
 
 -- | /See:/ 'mkResendValidationEmailResponse' smart constructor.
 data ResendValidationEmailResponse = ResendValidationEmailResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResendValidationEmailResponse' with the minimum fields required to make a request.
+-- | Creates a 'ResendValidationEmailResponse' value with any optional fields omitted.
 mkResendValidationEmailResponse ::
   ResendValidationEmailResponse
 mkResendValidationEmailResponse = ResendValidationEmailResponse'

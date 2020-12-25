@@ -32,116 +32,100 @@ module Network.AWS.Config.PutRetentionConfiguration
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRetentionConfiguration' smart constructor.
 newtype PutRetentionConfiguration = PutRetentionConfiguration'
   { -- | Number of days AWS Config stores your historical information.
-    retentionPeriodInDays :: Lude.Natural
+    retentionPeriodInDays :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRetentionConfiguration' with the minimum fields required to make a request.
---
--- * 'retentionPeriodInDays' - Number of days AWS Config stores your historical information.
+-- | Creates a 'PutRetentionConfiguration' value with any optional fields omitted.
 mkPutRetentionConfiguration ::
   -- | 'retentionPeriodInDays'
-  Lude.Natural ->
+  Core.Natural ->
   PutRetentionConfiguration
-mkPutRetentionConfiguration pRetentionPeriodInDays_ =
-  PutRetentionConfiguration'
-    { retentionPeriodInDays =
-        pRetentionPeriodInDays_
-    }
+mkPutRetentionConfiguration retentionPeriodInDays =
+  PutRetentionConfiguration' {retentionPeriodInDays}
 
 -- | Number of days AWS Config stores your historical information.
 --
 -- /Note:/ Consider using 'retentionPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcRetentionPeriodInDays :: Lens.Lens' PutRetentionConfiguration Lude.Natural
-prcRetentionPeriodInDays = Lens.lens (retentionPeriodInDays :: PutRetentionConfiguration -> Lude.Natural) (\s a -> s {retentionPeriodInDays = a} :: PutRetentionConfiguration)
+prcRetentionPeriodInDays :: Lens.Lens' PutRetentionConfiguration Core.Natural
+prcRetentionPeriodInDays = Lens.field @"retentionPeriodInDays"
 {-# DEPRECATED prcRetentionPeriodInDays "Use generic-lens or generic-optics with 'retentionPeriodInDays' instead." #-}
 
-instance Lude.AWSRequest PutRetentionConfiguration where
+instance Core.FromJSON PutRetentionConfiguration where
+  toJSON PutRetentionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RetentionPeriodInDays" Core..= retentionPeriodInDays)
+          ]
+      )
+
+instance Core.AWSRequest PutRetentionConfiguration where
   type
     Rs PutRetentionConfiguration =
       PutRetentionConfigurationResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.PutRetentionConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRetentionConfigurationResponse'
-            Lude.<$> (x Lude..?> "RetentionConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RetentionConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRetentionConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.PutRetentionConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRetentionConfiguration where
-  toJSON PutRetentionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("RetentionPeriodInDays" Lude..= retentionPeriodInDays)
-          ]
-      )
-
-instance Lude.ToPath PutRetentionConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRetentionConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRetentionConfigurationResponse' smart constructor.
 data PutRetentionConfigurationResponse = PutRetentionConfigurationResponse'
   { -- | Returns a retention configuration object.
-    retentionConfiguration :: Lude.Maybe RetentionConfiguration,
+    retentionConfiguration :: Core.Maybe Types.RetentionConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRetentionConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'retentionConfiguration' - Returns a retention configuration object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRetentionConfigurationResponse' value with any optional fields omitted.
 mkPutRetentionConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRetentionConfigurationResponse
-mkPutRetentionConfigurationResponse pResponseStatus_ =
+mkPutRetentionConfigurationResponse responseStatus =
   PutRetentionConfigurationResponse'
     { retentionConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a retention configuration object.
 --
 -- /Note:/ Consider using 'retentionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsRetentionConfiguration :: Lens.Lens' PutRetentionConfigurationResponse (Lude.Maybe RetentionConfiguration)
-prsRetentionConfiguration = Lens.lens (retentionConfiguration :: PutRetentionConfigurationResponse -> Lude.Maybe RetentionConfiguration) (\s a -> s {retentionConfiguration = a} :: PutRetentionConfigurationResponse)
+prsRetentionConfiguration :: Lens.Lens' PutRetentionConfigurationResponse (Core.Maybe Types.RetentionConfiguration)
+prsRetentionConfiguration = Lens.field @"retentionConfiguration"
 {-# DEPRECATED prsRetentionConfiguration "Use generic-lens or generic-optics with 'retentionConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsResponseStatus :: Lens.Lens' PutRetentionConfigurationResponse Lude.Int
-prsResponseStatus = Lens.lens (responseStatus :: PutRetentionConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRetentionConfigurationResponse)
+prsResponseStatus :: Lens.Lens' PutRetentionConfigurationResponse Core.Int
+prsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

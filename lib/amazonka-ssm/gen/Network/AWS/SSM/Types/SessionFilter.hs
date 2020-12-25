@@ -17,20 +17,23 @@ module Network.AWS.SSM.Types.SessionFilter
     mkSessionFilter,
 
     -- * Lenses
-    sfValue,
     sfKey,
+    sfValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.SessionFilterKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.SessionFilterKey as Types
+import qualified Network.AWS.SSM.Types.Value as Types
 
 -- | Describes a filter for Session Manager information.
 --
 -- /See:/ 'mkSessionFilter' smart constructor.
 data SessionFilter = SessionFilter'
-  { -- | The filter value. Valid values for each filter key are as follows:
+  { -- | The name of the filter.
+    key :: Types.SessionFilterKey,
+    -- | The filter value. Valid values for each filter key are as follows:
     --
     --
     --     * InvokedAfter: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.
@@ -68,64 +71,26 @@ data SessionFilter = SessionFilter'
     --
     --
     --     * SessionId: Specify a session ID to return details about the session.
-    value :: Lude.Text,
-    -- | The name of the filter.
-    key :: SessionFilterKey
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SessionFilter' with the minimum fields required to make a request.
---
--- * 'value' - The filter value. Valid values for each filter key are as follows:
---
---
---     * InvokedAfter: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.
---
---
---     * InvokedBefore: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.
---
---
---     * Target: Specify an instance to which session connections have been made.
---
---
---     * Owner: Specify an AWS user account to see a list of sessions started by that user.
---
---
---     * Status: Specify a valid session status to see a list of all sessions with that status. Status values you can specify include:
---
---     * Connected
---
---
---     * Connecting
---
---
---     * Disconnected
---
---
---     * Terminated
---
---
---     * Terminating
---
---
---     * Failed
---
---
---
---
---     * SessionId: Specify a session ID to return details about the session.
---
---
--- * 'key' - The name of the filter.
+-- | Creates a 'SessionFilter' value with any optional fields omitted.
 mkSessionFilter ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  SessionFilterKey ->
+  Types.SessionFilterKey ->
+  -- | 'value'
+  Types.Value ->
   SessionFilter
-mkSessionFilter pValue_ pKey_ =
-  SessionFilter' {value = pValue_, key = pKey_}
+mkSessionFilter key value = SessionFilter' {key, value}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfKey :: Lens.Lens' SessionFilter Types.SessionFilterKey
+sfKey = Lens.field @"key"
+{-# DEPRECATED sfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The filter value. Valid values for each filter key are as follows:
 --
@@ -169,20 +134,13 @@ mkSessionFilter pValue_ pKey_ =
 --
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfValue :: Lens.Lens' SessionFilter Lude.Text
-sfValue = Lens.lens (value :: SessionFilter -> Lude.Text) (\s a -> s {value = a} :: SessionFilter)
+sfValue :: Lens.Lens' SessionFilter Types.Value
+sfValue = Lens.field @"value"
 {-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The name of the filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfKey :: Lens.Lens' SessionFilter SessionFilterKey
-sfKey = Lens.lens (key :: SessionFilter -> SessionFilterKey) (\s a -> s {key = a} :: SessionFilter)
-{-# DEPRECATED sfKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
-instance Lude.ToJSON SessionFilter where
-  toJSON SessionFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("value" Lude..= value), Lude.Just ("key" Lude..= key)]
+instance Core.FromJSON SessionFilter where
+  toJSON SessionFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("key" Core..= key), Core.Just ("value" Core..= value)]
       )

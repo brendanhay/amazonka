@@ -22,50 +22,47 @@ module Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptions
   )
 where
 
-import Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptions
-import Network.AWS.EC2.Types.MarketType
+import qualified Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptions as Types
+import qualified Network.AWS.EC2.Types.MarketType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The market (purchasing) option for the instances.
 --
 -- /See:/ 'mkLaunchTemplateInstanceMarketOptions' smart constructor.
 data LaunchTemplateInstanceMarketOptions = LaunchTemplateInstanceMarketOptions'
   { -- | The market type.
-    marketType :: Lude.Maybe MarketType,
+    marketType :: Core.Maybe Types.MarketType,
     -- | The options for Spot Instances.
-    spotOptions :: Lude.Maybe LaunchTemplateSpotMarketOptions
+    spotOptions :: Core.Maybe Types.LaunchTemplateSpotMarketOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LaunchTemplateInstanceMarketOptions' with the minimum fields required to make a request.
---
--- * 'marketType' - The market type.
--- * 'spotOptions' - The options for Spot Instances.
+-- | Creates a 'LaunchTemplateInstanceMarketOptions' value with any optional fields omitted.
 mkLaunchTemplateInstanceMarketOptions ::
   LaunchTemplateInstanceMarketOptions
 mkLaunchTemplateInstanceMarketOptions =
   LaunchTemplateInstanceMarketOptions'
-    { marketType = Lude.Nothing,
-      spotOptions = Lude.Nothing
+    { marketType = Core.Nothing,
+      spotOptions = Core.Nothing
     }
 
 -- | The market type.
 --
 -- /Note:/ Consider using 'marketType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltimoMarketType :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Lude.Maybe MarketType)
-ltimoMarketType = Lens.lens (marketType :: LaunchTemplateInstanceMarketOptions -> Lude.Maybe MarketType) (\s a -> s {marketType = a} :: LaunchTemplateInstanceMarketOptions)
+ltimoMarketType :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Core.Maybe Types.MarketType)
+ltimoMarketType = Lens.field @"marketType"
 {-# DEPRECATED ltimoMarketType "Use generic-lens or generic-optics with 'marketType' instead." #-}
 
 -- | The options for Spot Instances.
 --
 -- /Note:/ Consider using 'spotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltimoSpotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Lude.Maybe LaunchTemplateSpotMarketOptions)
-ltimoSpotOptions = Lens.lens (spotOptions :: LaunchTemplateInstanceMarketOptions -> Lude.Maybe LaunchTemplateSpotMarketOptions) (\s a -> s {spotOptions = a} :: LaunchTemplateInstanceMarketOptions)
+ltimoSpotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Core.Maybe Types.LaunchTemplateSpotMarketOptions)
+ltimoSpotOptions = Lens.field @"spotOptions"
 {-# DEPRECATED ltimoSpotOptions "Use generic-lens or generic-optics with 'spotOptions' instead." #-}
 
-instance Lude.FromXML LaunchTemplateInstanceMarketOptions where
+instance Core.FromXML LaunchTemplateInstanceMarketOptions where
   parseXML x =
     LaunchTemplateInstanceMarketOptions'
-      Lude.<$> (x Lude..@? "marketType") Lude.<*> (x Lude..@? "spotOptions")
+      Core.<$> (x Core..@? "marketType") Core.<*> (x Core..@? "spotOptions")

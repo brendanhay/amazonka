@@ -17,85 +17,80 @@ module Network.AWS.Glue.Types.TaskRunFilterCriteria
     mkTaskRunFilterCriteria,
 
     -- * Lenses
-    trfcStatus,
     trfcStartedAfter,
     trfcStartedBefore,
+    trfcStatus,
     trfcTaskRunType,
   )
 where
 
-import Network.AWS.Glue.Types.TaskStatusType
-import Network.AWS.Glue.Types.TaskType
+import qualified Network.AWS.Glue.Types.TaskStatusType as Types
+import qualified Network.AWS.Glue.Types.TaskType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The criteria that are used to filter the task runs for the machine learning transform.
 --
 -- /See:/ 'mkTaskRunFilterCriteria' smart constructor.
 data TaskRunFilterCriteria = TaskRunFilterCriteria'
-  { -- | The current status of the task run.
-    status :: Lude.Maybe TaskStatusType,
-    -- | Filter on task runs started after this date.
-    startedAfter :: Lude.Maybe Lude.Timestamp,
+  { -- | Filter on task runs started after this date.
+    startedAfter :: Core.Maybe Core.NominalDiffTime,
     -- | Filter on task runs started before this date.
-    startedBefore :: Lude.Maybe Lude.Timestamp,
+    startedBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | The current status of the task run.
+    status :: Core.Maybe Types.TaskStatusType,
     -- | The type of task run.
-    taskRunType :: Lude.Maybe TaskType
+    taskRunType :: Core.Maybe Types.TaskType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TaskRunFilterCriteria' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the task run.
--- * 'startedAfter' - Filter on task runs started after this date.
--- * 'startedBefore' - Filter on task runs started before this date.
--- * 'taskRunType' - The type of task run.
+-- | Creates a 'TaskRunFilterCriteria' value with any optional fields omitted.
 mkTaskRunFilterCriteria ::
   TaskRunFilterCriteria
 mkTaskRunFilterCriteria =
   TaskRunFilterCriteria'
-    { status = Lude.Nothing,
-      startedAfter = Lude.Nothing,
-      startedBefore = Lude.Nothing,
-      taskRunType = Lude.Nothing
+    { startedAfter = Core.Nothing,
+      startedBefore = Core.Nothing,
+      status = Core.Nothing,
+      taskRunType = Core.Nothing
     }
-
--- | The current status of the task run.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfcStatus :: Lens.Lens' TaskRunFilterCriteria (Lude.Maybe TaskStatusType)
-trfcStatus = Lens.lens (status :: TaskRunFilterCriteria -> Lude.Maybe TaskStatusType) (\s a -> s {status = a} :: TaskRunFilterCriteria)
-{-# DEPRECATED trfcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Filter on task runs started after this date.
 --
 -- /Note:/ Consider using 'startedAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfcStartedAfter :: Lens.Lens' TaskRunFilterCriteria (Lude.Maybe Lude.Timestamp)
-trfcStartedAfter = Lens.lens (startedAfter :: TaskRunFilterCriteria -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAfter = a} :: TaskRunFilterCriteria)
+trfcStartedAfter :: Lens.Lens' TaskRunFilterCriteria (Core.Maybe Core.NominalDiffTime)
+trfcStartedAfter = Lens.field @"startedAfter"
 {-# DEPRECATED trfcStartedAfter "Use generic-lens or generic-optics with 'startedAfter' instead." #-}
 
 -- | Filter on task runs started before this date.
 --
 -- /Note:/ Consider using 'startedBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfcStartedBefore :: Lens.Lens' TaskRunFilterCriteria (Lude.Maybe Lude.Timestamp)
-trfcStartedBefore = Lens.lens (startedBefore :: TaskRunFilterCriteria -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedBefore = a} :: TaskRunFilterCriteria)
+trfcStartedBefore :: Lens.Lens' TaskRunFilterCriteria (Core.Maybe Core.NominalDiffTime)
+trfcStartedBefore = Lens.field @"startedBefore"
 {-# DEPRECATED trfcStartedBefore "Use generic-lens or generic-optics with 'startedBefore' instead." #-}
+
+-- | The current status of the task run.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trfcStatus :: Lens.Lens' TaskRunFilterCriteria (Core.Maybe Types.TaskStatusType)
+trfcStatus = Lens.field @"status"
+{-# DEPRECATED trfcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The type of task run.
 --
 -- /Note:/ Consider using 'taskRunType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfcTaskRunType :: Lens.Lens' TaskRunFilterCriteria (Lude.Maybe TaskType)
-trfcTaskRunType = Lens.lens (taskRunType :: TaskRunFilterCriteria -> Lude.Maybe TaskType) (\s a -> s {taskRunType = a} :: TaskRunFilterCriteria)
+trfcTaskRunType :: Lens.Lens' TaskRunFilterCriteria (Core.Maybe Types.TaskType)
+trfcTaskRunType = Lens.field @"taskRunType"
 {-# DEPRECATED trfcTaskRunType "Use generic-lens or generic-optics with 'taskRunType' instead." #-}
 
-instance Lude.ToJSON TaskRunFilterCriteria where
-  toJSON TaskRunFilterCriteria' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
-            ("StartedAfter" Lude..=) Lude.<$> startedAfter,
-            ("StartedBefore" Lude..=) Lude.<$> startedBefore,
-            ("TaskRunType" Lude..=) Lude.<$> taskRunType
+instance Core.FromJSON TaskRunFilterCriteria where
+  toJSON TaskRunFilterCriteria {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("StartedAfter" Core..=) Core.<$> startedAfter,
+            ("StartedBefore" Core..=) Core.<$> startedBefore,
+            ("Status" Core..=) Core.<$> status,
+            ("TaskRunType" Core..=) Core.<$> taskRunType
           ]
       )

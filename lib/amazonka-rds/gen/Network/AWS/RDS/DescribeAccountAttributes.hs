@@ -26,58 +26,59 @@ module Network.AWS.RDS.DescribeAccountAttributes
     mkDescribeAccountAttributesResponse,
 
     -- ** Response lenses
-    daarsAccountQuotas,
-    daarsResponseStatus,
+    daarrsAccountQuotas,
+    daarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeAccountAttributes' value with any optional fields omitted.
 mkDescribeAccountAttributes ::
   DescribeAccountAttributes
 mkDescribeAccountAttributes = DescribeAccountAttributes'
 
-instance Lude.AWSRequest DescribeAccountAttributes where
+instance Core.AWSRequest DescribeAccountAttributes where
   type
     Rs DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = Req.postQuery rdsService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAccountAttributes")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAccountAttributesResult"
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Lude.<$> ( x Lude..@? "AccountQuotas" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "AccountQuota")
+            Core.<$> ( x Core..@? "AccountQuotas"
+                         Core..<@> Core.parseXMLList "AccountQuota"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeAccountAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAccountAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAccountAttributes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("DescribeAccountAttributes" :: Lude.ByteString),
-            "Version" Lude.=: ("2014-10-31" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Data returned by the __DescribeAccountAttributes__ action.
@@ -85,37 +86,34 @@ instance Lude.ToQuery DescribeAccountAttributes where
 -- /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
   { -- | A list of @AccountQuota@ objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
-    accountQuotas :: Lude.Maybe [AccountQuota],
+    accountQuotas :: Core.Maybe [Types.AccountQuota],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
---
--- * 'accountQuotas' - A list of @AccountQuota@ objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAccountAttributesResponse' value with any optional fields omitted.
 mkDescribeAccountAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAccountAttributesResponse
-mkDescribeAccountAttributesResponse pResponseStatus_ =
+mkDescribeAccountAttributesResponse responseStatus =
   DescribeAccountAttributesResponse'
-    { accountQuotas = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accountQuotas = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of @AccountQuota@ objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
 --
 -- /Note:/ Consider using 'accountQuotas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAccountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Lude.Maybe [AccountQuota])
-daarsAccountQuotas = Lens.lens (accountQuotas :: DescribeAccountAttributesResponse -> Lude.Maybe [AccountQuota]) (\s a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsAccountQuotas "Use generic-lens or generic-optics with 'accountQuotas' instead." #-}
+daarrsAccountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe [Types.AccountQuota])
+daarrsAccountQuotas = Lens.field @"accountQuotas"
+{-# DEPRECATED daarrsAccountQuotas "Use generic-lens or generic-optics with 'accountQuotas' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Lude.Int
-daarsResponseStatus = Lens.lens (responseStatus :: DescribeAccountAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daarrsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
+daarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

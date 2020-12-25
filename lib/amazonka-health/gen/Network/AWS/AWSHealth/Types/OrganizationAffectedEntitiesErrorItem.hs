@@ -18,84 +18,80 @@ module Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
 
     -- * Lenses
     oaeeiAwsAccountId,
-    oaeeiEventARN,
-    oaeeiErrorName,
     oaeeiErrorMessage,
+    oaeeiErrorName,
+    oaeeiEventArn,
   )
 where
 
+import qualified Network.AWS.AWSHealth.Types.AwsAccountId as Types
+import qualified Network.AWS.AWSHealth.Types.EventArn as Types
+import qualified Network.AWS.AWSHealth.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html DescribeAffectedEntitiesForOrganization> operation cannot find or process a specific entity.
 --
 -- /See:/ 'mkOrganizationAffectedEntitiesErrorItem' smart constructor.
 data OrganizationAffectedEntitiesErrorItem = OrganizationAffectedEntitiesErrorItem'
   { -- | The 12-digit AWS account numbers that contains the affected entities.
-    awsAccountId :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventARN :: Lude.Maybe Lude.Text,
-    -- | The name of the error.
-    errorName :: Lude.Maybe Lude.Text,
+    awsAccountId :: Core.Maybe Types.AwsAccountId,
     -- | The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.String,
+    -- | The name of the error.
+    errorName :: Core.Maybe Types.String,
+    -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    eventArn :: Core.Maybe Types.EventArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrganizationAffectedEntitiesErrorItem' with the minimum fields required to make a request.
---
--- * 'awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
--- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
--- * 'errorName' - The name of the error.
--- * 'errorMessage' - The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
+-- | Creates a 'OrganizationAffectedEntitiesErrorItem' value with any optional fields omitted.
 mkOrganizationAffectedEntitiesErrorItem ::
   OrganizationAffectedEntitiesErrorItem
 mkOrganizationAffectedEntitiesErrorItem =
   OrganizationAffectedEntitiesErrorItem'
     { awsAccountId =
-        Lude.Nothing,
-      eventARN = Lude.Nothing,
-      errorName = Lude.Nothing,
-      errorMessage = Lude.Nothing
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorName = Core.Nothing,
+      eventArn = Core.Nothing
     }
 
 -- | The 12-digit AWS account numbers that contains the affected entities.
 --
 -- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oaeeiAwsAccountId :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
-oaeeiAwsAccountId = Lens.lens (awsAccountId :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountId = a} :: OrganizationAffectedEntitiesErrorItem)
+oaeeiAwsAccountId :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Core.Maybe Types.AwsAccountId)
+oaeeiAwsAccountId = Lens.field @"awsAccountId"
 {-# DEPRECATED oaeeiAwsAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
-
--- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oaeeiEventARN :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
-oaeeiEventARN = Lens.lens (eventARN :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {eventARN = a} :: OrganizationAffectedEntitiesErrorItem)
-{-# DEPRECATED oaeeiEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
-
--- | The name of the error.
---
--- /Note:/ Consider using 'errorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oaeeiErrorName :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
-oaeeiErrorName = Lens.lens (errorName :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorName = a} :: OrganizationAffectedEntitiesErrorItem)
-{-# DEPRECATED oaeeiErrorName "Use generic-lens or generic-optics with 'errorName' instead." #-}
 
 -- | The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oaeeiErrorMessage :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
-oaeeiErrorMessage = Lens.lens (errorMessage :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: OrganizationAffectedEntitiesErrorItem)
+oaeeiErrorMessage :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Core.Maybe Types.String)
+oaeeiErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED oaeeiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON OrganizationAffectedEntitiesErrorItem where
+-- | The name of the error.
+--
+-- /Note:/ Consider using 'errorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaeeiErrorName :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Core.Maybe Types.String)
+oaeeiErrorName = Lens.field @"errorName"
+{-# DEPRECATED oaeeiErrorName "Use generic-lens or generic-optics with 'errorName' instead." #-}
+
+-- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
+-- /Note:/ Consider using 'eventArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaeeiEventArn :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Core.Maybe Types.EventArn)
+oaeeiEventArn = Lens.field @"eventArn"
+{-# DEPRECATED oaeeiEventArn "Use generic-lens or generic-optics with 'eventArn' instead." #-}
+
+instance Core.FromJSON OrganizationAffectedEntitiesErrorItem where
   parseJSON =
-    Lude.withObject
-      "OrganizationAffectedEntitiesErrorItem"
-      ( \x ->
-          OrganizationAffectedEntitiesErrorItem'
-            Lude.<$> (x Lude..:? "awsAccountId")
-            Lude.<*> (x Lude..:? "eventArn")
-            Lude.<*> (x Lude..:? "errorName")
-            Lude.<*> (x Lude..:? "errorMessage")
-      )
+    Core.withObject "OrganizationAffectedEntitiesErrorItem" Core.$
+      \x ->
+        OrganizationAffectedEntitiesErrorItem'
+          Core.<$> (x Core..:? "awsAccountId")
+          Core.<*> (x Core..:? "errorMessage")
+          Core.<*> (x Core..:? "errorName")
+          Core.<*> (x Core..:? "eventArn")

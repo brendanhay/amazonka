@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.TrafficMirrorFilterRuleField
   ( TrafficMirrorFilterRuleField
       ( TrafficMirrorFilterRuleField',
-        TMFRFDestinationPortRange,
-        TMFRFSourcePortRange,
-        TMFRFProtocol,
-        TMFRFDescription
+        TrafficMirrorFilterRuleFieldDestinationPortRange,
+        TrafficMirrorFilterRuleFieldSourcePortRange,
+        TrafficMirrorFilterRuleFieldProtocol,
+        TrafficMirrorFilterRuleFieldDescription,
+        fromTrafficMirrorFilterRuleField
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrafficMirrorFilterRuleField = TrafficMirrorFilterRuleField' Lude.Text
+newtype TrafficMirrorFilterRuleField = TrafficMirrorFilterRuleField'
+  { fromTrafficMirrorFilterRuleField ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TMFRFDestinationPortRange :: TrafficMirrorFilterRuleField
-pattern TMFRFDestinationPortRange = TrafficMirrorFilterRuleField' "destination-port-range"
+pattern TrafficMirrorFilterRuleFieldDestinationPortRange :: TrafficMirrorFilterRuleField
+pattern TrafficMirrorFilterRuleFieldDestinationPortRange = TrafficMirrorFilterRuleField' "destination-port-range"
 
-pattern TMFRFSourcePortRange :: TrafficMirrorFilterRuleField
-pattern TMFRFSourcePortRange = TrafficMirrorFilterRuleField' "source-port-range"
+pattern TrafficMirrorFilterRuleFieldSourcePortRange :: TrafficMirrorFilterRuleField
+pattern TrafficMirrorFilterRuleFieldSourcePortRange = TrafficMirrorFilterRuleField' "source-port-range"
 
-pattern TMFRFProtocol :: TrafficMirrorFilterRuleField
-pattern TMFRFProtocol = TrafficMirrorFilterRuleField' "protocol"
+pattern TrafficMirrorFilterRuleFieldProtocol :: TrafficMirrorFilterRuleField
+pattern TrafficMirrorFilterRuleFieldProtocol = TrafficMirrorFilterRuleField' "protocol"
 
-pattern TMFRFDescription :: TrafficMirrorFilterRuleField
-pattern TMFRFDescription = TrafficMirrorFilterRuleField' "description"
+pattern TrafficMirrorFilterRuleFieldDescription :: TrafficMirrorFilterRuleField
+pattern TrafficMirrorFilterRuleFieldDescription = TrafficMirrorFilterRuleField' "description"
 
 {-# COMPLETE
-  TMFRFDestinationPortRange,
-  TMFRFSourcePortRange,
-  TMFRFProtocol,
-  TMFRFDescription,
+  TrafficMirrorFilterRuleFieldDestinationPortRange,
+  TrafficMirrorFilterRuleFieldSourcePortRange,
+  TrafficMirrorFilterRuleFieldProtocol,
+  TrafficMirrorFilterRuleFieldDescription,
   TrafficMirrorFilterRuleField'
   #-}

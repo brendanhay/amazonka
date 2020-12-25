@@ -13,51 +13,56 @@
 module Network.AWS.Glue.Types.TransformStatusType
   ( TransformStatusType
       ( TransformStatusType',
-        TSTNotReady,
-        TSTReady,
-        TSTDeleting
+        TransformStatusTypeNotReady,
+        TransformStatusTypeReady,
+        TransformStatusTypeDeleting,
+        fromTransformStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransformStatusType = TransformStatusType' Lude.Text
+newtype TransformStatusType = TransformStatusType'
+  { fromTransformStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSTNotReady :: TransformStatusType
-pattern TSTNotReady = TransformStatusType' "NOT_READY"
+pattern TransformStatusTypeNotReady :: TransformStatusType
+pattern TransformStatusTypeNotReady = TransformStatusType' "NOT_READY"
 
-pattern TSTReady :: TransformStatusType
-pattern TSTReady = TransformStatusType' "READY"
+pattern TransformStatusTypeReady :: TransformStatusType
+pattern TransformStatusTypeReady = TransformStatusType' "READY"
 
-pattern TSTDeleting :: TransformStatusType
-pattern TSTDeleting = TransformStatusType' "DELETING"
+pattern TransformStatusTypeDeleting :: TransformStatusType
+pattern TransformStatusTypeDeleting = TransformStatusType' "DELETING"
 
 {-# COMPLETE
-  TSTNotReady,
-  TSTReady,
-  TSTDeleting,
+  TransformStatusTypeNotReady,
+  TransformStatusTypeReady,
+  TransformStatusTypeDeleting,
   TransformStatusType'
   #-}

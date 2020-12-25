@@ -22,35 +22,33 @@ module Network.AWS.ServiceCatalog.ListProvisionedProductPlans
     mkListProvisionedProductPlans,
 
     -- ** Request lenses
-    lpppProvisionProductId,
     lpppAcceptLanguage,
     lpppAccessLevelFilter,
-    lpppPageToken,
     lpppPageSize,
+    lpppPageToken,
+    lpppProvisionProductId,
 
     -- * Destructuring the response
     ListProvisionedProductPlansResponse (..),
     mkListProvisionedProductPlansResponse,
 
     -- ** Response lenses
-    lppprsNextPageToken,
-    lppprsProvisionedProductPlans,
-    lppprsResponseStatus,
+    lppprrsNextPageToken,
+    lppprrsProvisionedProductPlans,
+    lppprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkListProvisionedProductPlans' smart constructor.
 data ListProvisionedProductPlans = ListProvisionedProductPlans'
-  { -- | The product identifier.
-    provisionProductId :: Lude.Maybe Lude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -60,52 +58,30 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The access level to use to obtain results. The default is @User@ .
-    accessLevelFilter :: Lude.Maybe AccessLevelFilter,
-    -- | The page token for the next set of results. To retrieve the first set of results, use null.
-    pageToken :: Lude.Maybe Lude.Text,
+    accessLevelFilter :: Core.Maybe Types.AccessLevelFilter,
     -- | The maximum number of items to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Core.Maybe Types.PageToken,
+    -- | The product identifier.
+    provisionProductId :: Core.Maybe Types.ProvisionProductId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProvisionedProductPlans' with the minimum fields required to make a request.
---
--- * 'provisionProductId' - The product identifier.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'accessLevelFilter' - The access level to use to obtain results. The default is @User@ .
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'pageSize' - The maximum number of items to return with this call.
+-- | Creates a 'ListProvisionedProductPlans' value with any optional fields omitted.
 mkListProvisionedProductPlans ::
   ListProvisionedProductPlans
 mkListProvisionedProductPlans =
   ListProvisionedProductPlans'
-    { provisionProductId = Lude.Nothing,
-      acceptLanguage = Lude.Nothing,
-      accessLevelFilter = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { acceptLanguage = Core.Nothing,
+      accessLevelFilter = Core.Nothing,
+      pageSize = Core.Nothing,
+      pageToken = Core.Nothing,
+      provisionProductId = Core.Nothing
     }
-
--- | The product identifier.
---
--- /Note:/ Consider using 'provisionProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpppProvisionProductId :: Lens.Lens' ListProvisionedProductPlans (Lude.Maybe Lude.Text)
-lpppProvisionProductId = Lens.lens (provisionProductId :: ListProvisionedProductPlans -> Lude.Maybe Lude.Text) (\s a -> s {provisionProductId = a} :: ListProvisionedProductPlans)
-{-# DEPRECATED lpppProvisionProductId "Use generic-lens or generic-optics with 'provisionProductId' instead." #-}
 
 -- | The language code.
 --
@@ -121,132 +97,135 @@ lpppProvisionProductId = Lens.lens (provisionProductId :: ListProvisionedProduct
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpppAcceptLanguage :: Lens.Lens' ListProvisionedProductPlans (Lude.Maybe Lude.Text)
-lpppAcceptLanguage = Lens.lens (acceptLanguage :: ListProvisionedProductPlans -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListProvisionedProductPlans)
+lpppAcceptLanguage :: Lens.Lens' ListProvisionedProductPlans (Core.Maybe Types.AcceptLanguage)
+lpppAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED lpppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The access level to use to obtain results. The default is @User@ .
 --
 -- /Note:/ Consider using 'accessLevelFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpppAccessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Lude.Maybe AccessLevelFilter)
-lpppAccessLevelFilter = Lens.lens (accessLevelFilter :: ListProvisionedProductPlans -> Lude.Maybe AccessLevelFilter) (\s a -> s {accessLevelFilter = a} :: ListProvisionedProductPlans)
+lpppAccessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Core.Maybe Types.AccessLevelFilter)
+lpppAccessLevelFilter = Lens.field @"accessLevelFilter"
 {-# DEPRECATED lpppAccessLevelFilter "Use generic-lens or generic-optics with 'accessLevelFilter' instead." #-}
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
---
--- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpppPageToken :: Lens.Lens' ListProvisionedProductPlans (Lude.Maybe Lude.Text)
-lpppPageToken = Lens.lens (pageToken :: ListProvisionedProductPlans -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListProvisionedProductPlans)
-{-# DEPRECATED lpppPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpppPageSize :: Lens.Lens' ListProvisionedProductPlans (Lude.Maybe Lude.Natural)
-lpppPageSize = Lens.lens (pageSize :: ListProvisionedProductPlans -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListProvisionedProductPlans)
+lpppPageSize :: Lens.Lens' ListProvisionedProductPlans (Core.Maybe Core.Natural)
+lpppPageSize = Lens.field @"pageSize"
 {-# DEPRECATED lpppPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager ListProvisionedProductPlans where
-  page rq rs
-    | Page.stop (rs Lens.^. lppprsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lppprsProvisionedProductPlans) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpppPageToken Lens..~ rs Lens.^. lppprsNextPageToken
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpppPageToken :: Lens.Lens' ListProvisionedProductPlans (Core.Maybe Types.PageToken)
+lpppPageToken = Lens.field @"pageToken"
+{-# DEPRECATED lpppPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Lude.AWSRequest ListProvisionedProductPlans where
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'provisionProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpppProvisionProductId :: Lens.Lens' ListProvisionedProductPlans (Core.Maybe Types.ProvisionProductId)
+lpppProvisionProductId = Lens.field @"provisionProductId"
+{-# DEPRECATED lpppProvisionProductId "Use generic-lens or generic-optics with 'provisionProductId' instead." #-}
+
+instance Core.FromJSON ListProvisionedProductPlans where
+  toJSON ListProvisionedProductPlans {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("AccessLevelFilter" Core..=) Core.<$> accessLevelFilter,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("ProvisionProductId" Core..=) Core.<$> provisionProductId
+          ]
+      )
+
+instance Core.AWSRequest ListProvisionedProductPlans where
   type
     Rs ListProvisionedProductPlans =
       ListProvisionedProductPlansResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.ListProvisionedProductPlans"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListProvisionedProductPlansResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "ProvisionedProductPlans" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "ProvisionedProductPlans")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListProvisionedProductPlans where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.ListProvisionedProductPlans" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListProvisionedProductPlans where
-  toJSON ListProvisionedProductPlans' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProvisionProductId" Lude..=) Lude.<$> provisionProductId,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("AccessLevelFilter" Lude..=) Lude.<$> accessLevelFilter,
-            ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize
-          ]
-      )
-
-instance Lude.ToPath ListProvisionedProductPlans where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListProvisionedProductPlans where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListProvisionedProductPlans where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"provisionedProductPlans" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkListProvisionedProductPlansResponse' smart constructor.
 data ListProvisionedProductPlansResponse = ListProvisionedProductPlansResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | Information about the plans.
-    provisionedProductPlans :: Lude.Maybe [ProvisionedProductPlanSummary],
+    provisionedProductPlans :: Core.Maybe [Types.ProvisionedProductPlanSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProvisionedProductPlansResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'provisionedProductPlans' - Information about the plans.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListProvisionedProductPlansResponse' value with any optional fields omitted.
 mkListProvisionedProductPlansResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListProvisionedProductPlansResponse
-mkListProvisionedProductPlansResponse pResponseStatus_ =
+mkListProvisionedProductPlansResponse responseStatus =
   ListProvisionedProductPlansResponse'
     { nextPageToken =
-        Lude.Nothing,
-      provisionedProductPlans = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      provisionedProductPlans = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lppprsNextPageToken :: Lens.Lens' ListProvisionedProductPlansResponse (Lude.Maybe Lude.Text)
-lppprsNextPageToken = Lens.lens (nextPageToken :: ListProvisionedProductPlansResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListProvisionedProductPlansResponse)
-{-# DEPRECATED lppprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lppprrsNextPageToken :: Lens.Lens' ListProvisionedProductPlansResponse (Core.Maybe Types.NextPageToken)
+lppprrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lppprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the plans.
 --
 -- /Note:/ Consider using 'provisionedProductPlans' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lppprsProvisionedProductPlans :: Lens.Lens' ListProvisionedProductPlansResponse (Lude.Maybe [ProvisionedProductPlanSummary])
-lppprsProvisionedProductPlans = Lens.lens (provisionedProductPlans :: ListProvisionedProductPlansResponse -> Lude.Maybe [ProvisionedProductPlanSummary]) (\s a -> s {provisionedProductPlans = a} :: ListProvisionedProductPlansResponse)
-{-# DEPRECATED lppprsProvisionedProductPlans "Use generic-lens or generic-optics with 'provisionedProductPlans' instead." #-}
+lppprrsProvisionedProductPlans :: Lens.Lens' ListProvisionedProductPlansResponse (Core.Maybe [Types.ProvisionedProductPlanSummary])
+lppprrsProvisionedProductPlans = Lens.field @"provisionedProductPlans"
+{-# DEPRECATED lppprrsProvisionedProductPlans "Use generic-lens or generic-optics with 'provisionedProductPlans' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lppprsResponseStatus :: Lens.Lens' ListProvisionedProductPlansResponse Lude.Int
-lppprsResponseStatus = Lens.lens (responseStatus :: ListProvisionedProductPlansResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProvisionedProductPlansResponse)
-{-# DEPRECATED lppprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lppprrsResponseStatus :: Lens.Lens' ListProvisionedProductPlansResponse Core.Int
+lppprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lppprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

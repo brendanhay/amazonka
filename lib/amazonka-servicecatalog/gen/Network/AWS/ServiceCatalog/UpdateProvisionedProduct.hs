@@ -23,50 +23,40 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     mkUpdateProvisionedProduct,
 
     -- ** Request lenses
-    uppProductName,
-    uppProvisionedProductName,
     uppUpdateToken,
-    uppProvisioningArtifactId,
-    uppProvisioningArtifactName,
-    uppPathName,
     uppAcceptLanguage,
     uppPathId,
-    uppProvisioningParameters,
-    uppProvisionedProductId,
+    uppPathName,
     uppProductId,
-    uppTags,
+    uppProductName,
+    uppProvisionedProductId,
+    uppProvisionedProductName,
+    uppProvisioningArtifactId,
+    uppProvisioningArtifactName,
+    uppProvisioningParameters,
     uppProvisioningPreferences,
+    uppTags,
 
     -- * Destructuring the response
     UpdateProvisionedProductResponse (..),
     mkUpdateProvisionedProductResponse,
 
     -- ** Response lenses
-    upprsRecordDetail,
-    upprsResponseStatus,
+    upprrsRecordDetail,
+    upprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkUpdateProvisionedProduct' smart constructor.
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
-  { -- | The name of the product. You must provide the name or ID, but not both.
-    productName :: Lude.Maybe Lude.Text,
-    -- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
-    provisionedProductName :: Lude.Maybe Lude.Text,
-    -- | The idempotency token that uniquely identifies the provisioning update request.
-    updateToken :: Lude.Text,
-    -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Lude.Maybe Lude.Text,
-    -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
-    provisioningArtifactName :: Lude.Maybe Lude.Text,
-    -- | The name of the path. You must provide the name or ID, but not both.
-    pathName :: Lude.Maybe Lude.Text,
+  { -- | The idempotency token that uniquely identifies the provisioning update request.
+    updateToken :: Types.IdempotencyToken,
     -- | The language code.
     --
     --
@@ -77,111 +67,61 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.
-    pathId :: Lude.Maybe Lude.Text,
-    -- | The new parameters.
-    provisioningParameters :: Lude.Maybe [UpdateProvisioningParameter],
-    -- | The identifier of the provisioned product. You must provide the name or ID, but not both.
-    provisionedProductId :: Lude.Maybe Lude.Text,
+    pathId :: Core.Maybe Types.PathId,
+    -- | The name of the path. You must provide the name or ID, but not both.
+    pathName :: Core.Maybe Types.PortfolioDisplayName,
     -- | The identifier of the product. You must provide the name or ID, but not both.
-    productId :: Lude.Maybe Lude.Text,
-    -- | One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
-    tags :: Lude.Maybe [Tag],
+    productId :: Core.Maybe Types.ProductId,
+    -- | The name of the product. You must provide the name or ID, but not both.
+    productName :: Core.Maybe Types.ProductName,
+    -- | The identifier of the provisioned product. You must provide the name or ID, but not both.
+    provisionedProductId :: Core.Maybe Types.ProvisionedProductId,
+    -- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
+    provisionedProductName :: Core.Maybe Types.ProvisionedProductNameOrArn,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Core.Maybe Types.ProvisioningArtifactId,
+    -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
+    provisioningArtifactName :: Core.Maybe Types.ProvisioningArtifactName,
+    -- | The new parameters.
+    provisioningParameters :: Core.Maybe [Types.UpdateProvisioningParameter],
     -- | An object that contains information about the provisioning preferences for a stack set.
-    provisioningPreferences :: Lude.Maybe UpdateProvisioningPreferences
+    provisioningPreferences :: Core.Maybe Types.UpdateProvisioningPreferences,
+    -- | One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProvisionedProduct' with the minimum fields required to make a request.
---
--- * 'productName' - The name of the product. You must provide the name or ID, but not both.
--- * 'provisionedProductName' - The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
--- * 'updateToken' - The idempotency token that uniquely identifies the provisioning update request.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
--- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'pathId' - The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.
--- * 'provisioningParameters' - The new parameters.
--- * 'provisionedProductId' - The identifier of the provisioned product. You must provide the name or ID, but not both.
--- * 'productId' - The identifier of the product. You must provide the name or ID, but not both.
--- * 'tags' - One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
--- * 'provisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
+-- | Creates a 'UpdateProvisionedProduct' value with any optional fields omitted.
 mkUpdateProvisionedProduct ::
   -- | 'updateToken'
-  Lude.Text ->
+  Types.IdempotencyToken ->
   UpdateProvisionedProduct
-mkUpdateProvisionedProduct pUpdateToken_ =
+mkUpdateProvisionedProduct updateToken =
   UpdateProvisionedProduct'
-    { productName = Lude.Nothing,
-      provisionedProductName = Lude.Nothing,
-      updateToken = pUpdateToken_,
-      provisioningArtifactId = Lude.Nothing,
-      provisioningArtifactName = Lude.Nothing,
-      pathName = Lude.Nothing,
-      acceptLanguage = Lude.Nothing,
-      pathId = Lude.Nothing,
-      provisioningParameters = Lude.Nothing,
-      provisionedProductId = Lude.Nothing,
-      productId = Lude.Nothing,
-      tags = Lude.Nothing,
-      provisioningPreferences = Lude.Nothing
+    { updateToken,
+      acceptLanguage = Core.Nothing,
+      pathId = Core.Nothing,
+      pathName = Core.Nothing,
+      productId = Core.Nothing,
+      productName = Core.Nothing,
+      provisionedProductId = Core.Nothing,
+      provisionedProductName = Core.Nothing,
+      provisioningArtifactId = Core.Nothing,
+      provisioningArtifactName = Core.Nothing,
+      provisioningParameters = Core.Nothing,
+      provisioningPreferences = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The name of the product. You must provide the name or ID, but not both.
---
--- /Note:/ Consider using 'productName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProductName :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppProductName = Lens.lens (productName :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {productName = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
-
--- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
---
--- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProvisionedProductName :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppProvisionedProductName = Lens.lens (provisionedProductName :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductName = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
 
 -- | The idempotency token that uniquely identifies the provisioning update request.
 --
 -- /Note:/ Consider using 'updateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppUpdateToken :: Lens.Lens' UpdateProvisionedProduct Lude.Text
-uppUpdateToken = Lens.lens (updateToken :: UpdateProvisionedProduct -> Lude.Text) (\s a -> s {updateToken = a} :: UpdateProvisionedProduct)
+uppUpdateToken :: Lens.Lens' UpdateProvisionedProduct Types.IdempotencyToken
+uppUpdateToken = Lens.field @"updateToken"
 {-# DEPRECATED uppUpdateToken "Use generic-lens or generic-optics with 'updateToken' instead." #-}
-
--- | The identifier of the provisioning artifact.
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProvisioningArtifactId :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppProvisioningArtifactId = Lens.lens (provisioningArtifactId :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
--- | The name of the provisioning artifact. You must provide the name or ID, but not both.
---
--- /Note:/ Consider using 'provisioningArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProvisioningArtifactName :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppProvisioningArtifactName = Lens.lens (provisioningArtifactName :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactName = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppProvisioningArtifactName "Use generic-lens or generic-optics with 'provisioningArtifactName' instead." #-}
-
--- | The name of the path. You must provide the name or ID, but not both.
---
--- /Note:/ Consider using 'pathName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppPathName :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppPathName = Lens.lens (pathName :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {pathName = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppPathName "Use generic-lens or generic-optics with 'pathName' instead." #-}
 
 -- | The language code.
 --
@@ -197,137 +137,163 @@ uppPathName = Lens.lens (pathName :: UpdateProvisionedProduct -> Lude.Maybe Lude
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppAcceptLanguage :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdateProvisionedProduct)
+uppAcceptLanguage :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.AcceptLanguage)
+uppAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED uppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.
 --
 -- /Note:/ Consider using 'pathId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppPathId :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppPathId = Lens.lens (pathId :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {pathId = a} :: UpdateProvisionedProduct)
+uppPathId :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.PathId)
+uppPathId = Lens.field @"pathId"
 {-# DEPRECATED uppPathId "Use generic-lens or generic-optics with 'pathId' instead." #-}
 
--- | The new parameters.
+-- | The name of the path. You must provide the name or ID, but not both.
 --
--- /Note:/ Consider using 'provisioningParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProvisioningParameters :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe [UpdateProvisioningParameter])
-uppProvisioningParameters = Lens.lens (provisioningParameters :: UpdateProvisionedProduct -> Lude.Maybe [UpdateProvisioningParameter]) (\s a -> s {provisioningParameters = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppProvisioningParameters "Use generic-lens or generic-optics with 'provisioningParameters' instead." #-}
-
--- | The identifier of the provisioned product. You must provide the name or ID, but not both.
---
--- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProvisionedProductId :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppProvisionedProductId = Lens.lens (provisionedProductId :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductId = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
+-- /Note:/ Consider using 'pathName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppPathName :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.PortfolioDisplayName)
+uppPathName = Lens.field @"pathName"
+{-# DEPRECATED uppPathName "Use generic-lens or generic-optics with 'pathName' instead." #-}
 
 -- | The identifier of the product. You must provide the name or ID, but not both.
 --
 -- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProductId :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
-uppProductId = Lens.lens (productId :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: UpdateProvisionedProduct)
+uppProductId :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.ProductId)
+uppProductId = Lens.field @"productId"
 {-# DEPRECATED uppProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
--- | One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+-- | The name of the product. You must provide the name or ID, but not both.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppTags :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe [Tag])
-uppTags = Lens.lens (tags :: UpdateProvisionedProduct -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'productName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppProductName :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.ProductName)
+uppProductName = Lens.field @"productName"
+{-# DEPRECATED uppProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
+
+-- | The identifier of the provisioned product. You must provide the name or ID, but not both.
+--
+-- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppProvisionedProductId :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.ProvisionedProductId)
+uppProvisionedProductId = Lens.field @"provisionedProductId"
+{-# DEPRECATED uppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
+
+-- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppProvisionedProductName :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.ProvisionedProductNameOrArn)
+uppProvisionedProductName = Lens.field @"provisionedProductName"
+{-# DEPRECATED uppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
+
+-- | The identifier of the provisioning artifact.
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppProvisioningArtifactId :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.ProvisioningArtifactId)
+uppProvisioningArtifactId = Lens.field @"provisioningArtifactId"
+{-# DEPRECATED uppProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
+
+-- | The name of the provisioning artifact. You must provide the name or ID, but not both.
+--
+-- /Note:/ Consider using 'provisioningArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppProvisioningArtifactName :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.ProvisioningArtifactName)
+uppProvisioningArtifactName = Lens.field @"provisioningArtifactName"
+{-# DEPRECATED uppProvisioningArtifactName "Use generic-lens or generic-optics with 'provisioningArtifactName' instead." #-}
+
+-- | The new parameters.
+--
+-- /Note:/ Consider using 'provisioningParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppProvisioningParameters :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe [Types.UpdateProvisioningParameter])
+uppProvisioningParameters = Lens.field @"provisioningParameters"
+{-# DEPRECATED uppProvisioningParameters "Use generic-lens or generic-optics with 'provisioningParameters' instead." #-}
 
 -- | An object that contains information about the provisioning preferences for a stack set.
 --
 -- /Note:/ Consider using 'provisioningPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppProvisioningPreferences :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe UpdateProvisioningPreferences)
-uppProvisioningPreferences = Lens.lens (provisioningPreferences :: UpdateProvisionedProduct -> Lude.Maybe UpdateProvisioningPreferences) (\s a -> s {provisioningPreferences = a} :: UpdateProvisionedProduct)
+uppProvisioningPreferences :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe Types.UpdateProvisioningPreferences)
+uppProvisioningPreferences = Lens.field @"provisioningPreferences"
 {-# DEPRECATED uppProvisioningPreferences "Use generic-lens or generic-optics with 'provisioningPreferences' instead." #-}
 
-instance Lude.AWSRequest UpdateProvisionedProduct where
+-- | One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppTags :: Lens.Lens' UpdateProvisionedProduct (Core.Maybe [Types.Tag])
+uppTags = Lens.field @"tags"
+{-# DEPRECATED uppTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON UpdateProvisionedProduct where
+  toJSON UpdateProvisionedProduct {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UpdateToken" Core..= updateToken),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("PathId" Core..=) Core.<$> pathId,
+            ("PathName" Core..=) Core.<$> pathName,
+            ("ProductId" Core..=) Core.<$> productId,
+            ("ProductName" Core..=) Core.<$> productName,
+            ("ProvisionedProductId" Core..=) Core.<$> provisionedProductId,
+            ("ProvisionedProductName" Core..=) Core.<$> provisionedProductName,
+            ("ProvisioningArtifactId" Core..=) Core.<$> provisioningArtifactId,
+            ("ProvisioningArtifactName" Core..=)
+              Core.<$> provisioningArtifactName,
+            ("ProvisioningParameters" Core..=) Core.<$> provisioningParameters,
+            ("ProvisioningPreferences" Core..=)
+              Core.<$> provisioningPreferences,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest UpdateProvisionedProduct where
   type Rs UpdateProvisionedProduct = UpdateProvisionedProductResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.UpdateProvisionedProduct"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateProvisionedProductResponse'
-            Lude.<$> (x Lude..?> "RecordDetail") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RecordDetail") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateProvisionedProduct where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.UpdateProvisionedProduct" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateProvisionedProduct where
-  toJSON UpdateProvisionedProduct' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProductName" Lude..=) Lude.<$> productName,
-            ("ProvisionedProductName" Lude..=) Lude.<$> provisionedProductName,
-            Lude.Just ("UpdateToken" Lude..= updateToken),
-            ("ProvisioningArtifactId" Lude..=) Lude.<$> provisioningArtifactId,
-            ("ProvisioningArtifactName" Lude..=)
-              Lude.<$> provisioningArtifactName,
-            ("PathName" Lude..=) Lude.<$> pathName,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("PathId" Lude..=) Lude.<$> pathId,
-            ("ProvisioningParameters" Lude..=) Lude.<$> provisioningParameters,
-            ("ProvisionedProductId" Lude..=) Lude.<$> provisionedProductId,
-            ("ProductId" Lude..=) Lude.<$> productId,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("ProvisioningPreferences" Lude..=)
-              Lude.<$> provisioningPreferences
-          ]
-      )
-
-instance Lude.ToPath UpdateProvisionedProduct where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateProvisionedProduct where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateProvisionedProductResponse' smart constructor.
 data UpdateProvisionedProductResponse = UpdateProvisionedProductResponse'
   { -- | Information about the result of the request.
-    recordDetail :: Lude.Maybe RecordDetail,
+    recordDetail :: Core.Maybe Types.RecordDetail,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateProvisionedProductResponse' with the minimum fields required to make a request.
---
--- * 'recordDetail' - Information about the result of the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateProvisionedProductResponse' value with any optional fields omitted.
 mkUpdateProvisionedProductResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateProvisionedProductResponse
-mkUpdateProvisionedProductResponse pResponseStatus_ =
+mkUpdateProvisionedProductResponse responseStatus =
   UpdateProvisionedProductResponse'
-    { recordDetail = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { recordDetail = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the result of the request.
 --
 -- /Note:/ Consider using 'recordDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upprsRecordDetail :: Lens.Lens' UpdateProvisionedProductResponse (Lude.Maybe RecordDetail)
-upprsRecordDetail = Lens.lens (recordDetail :: UpdateProvisionedProductResponse -> Lude.Maybe RecordDetail) (\s a -> s {recordDetail = a} :: UpdateProvisionedProductResponse)
-{-# DEPRECATED upprsRecordDetail "Use generic-lens or generic-optics with 'recordDetail' instead." #-}
+upprrsRecordDetail :: Lens.Lens' UpdateProvisionedProductResponse (Core.Maybe Types.RecordDetail)
+upprrsRecordDetail = Lens.field @"recordDetail"
+{-# DEPRECATED upprrsRecordDetail "Use generic-lens or generic-optics with 'recordDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upprsResponseStatus :: Lens.Lens' UpdateProvisionedProductResponse Lude.Int
-upprsResponseStatus = Lens.lens (responseStatus :: UpdateProvisionedProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProvisionedProductResponse)
-{-# DEPRECATED upprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+upprrsResponseStatus :: Lens.Lens' UpdateProvisionedProductResponse Core.Int
+upprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED upprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

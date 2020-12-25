@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H264FieldEncoding
   ( H264FieldEncoding
       ( H264FieldEncoding',
-        Paff,
-        ForceField
+        H264FieldEncodingPaff,
+        H264FieldEncodingForceField,
+        fromH264FieldEncoding
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Keep the default value, PAFF, to have MediaConvert use PAFF encoding for interlaced outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and create separate interlaced fields.
-newtype H264FieldEncoding = H264FieldEncoding' Lude.Text
+newtype H264FieldEncoding = H264FieldEncoding'
+  { fromH264FieldEncoding ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Paff :: H264FieldEncoding
-pattern Paff = H264FieldEncoding' "PAFF"
+pattern H264FieldEncodingPaff :: H264FieldEncoding
+pattern H264FieldEncodingPaff = H264FieldEncoding' "PAFF"
 
-pattern ForceField :: H264FieldEncoding
-pattern ForceField = H264FieldEncoding' "FORCE_FIELD"
+pattern H264FieldEncodingForceField :: H264FieldEncoding
+pattern H264FieldEncodingForceField = H264FieldEncoding' "FORCE_FIELD"
 
 {-# COMPLETE
-  Paff,
-  ForceField,
+  H264FieldEncodingPaff,
+  H264FieldEncodingForceField,
   H264FieldEncoding'
   #-}

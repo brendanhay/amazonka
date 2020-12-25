@@ -22,78 +22,77 @@ module Network.AWS.RDS.DescribeDBProxies
     mkDescribeDBProxies,
 
     -- ** Request lenses
-    ddbpFilters,
-    ddbpMarker,
-    ddbpMaxRecords,
-    ddbpDBProxyName,
+    ddbpsDBProxyName,
+    ddbpsFilters,
+    ddbpsMarker,
+    ddbpsMaxRecords,
 
     -- * Destructuring the response
     DescribeDBProxiesResponse (..),
     mkDescribeDBProxiesResponse,
 
     -- ** Response lenses
-    ddpsrsDBProxies,
-    ddpsrsMarker,
-    ddpsrsResponseStatus,
+    drsDBProxies,
+    drsMarker,
+    drsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDBProxies' smart constructor.
 data DescribeDBProxies = DescribeDBProxies'
-  { -- | This parameter is not currently supported.
-    filters :: Lude.Maybe [Filter],
+  { -- | The name of the DB proxy.
+    dBProxyName :: Core.Maybe Types.String,
+    -- | This parameter is not currently supported.
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Natural,
-    -- | The name of the DB proxy.
-    dbProxyName :: Lude.Maybe Lude.Text
+    maxRecords :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBProxies' with the minimum fields required to make a request.
---
--- * 'filters' - This parameter is not currently supported.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'dbProxyName' - The name of the DB proxy.
+-- | Creates a 'DescribeDBProxies' value with any optional fields omitted.
 mkDescribeDBProxies ::
   DescribeDBProxies
 mkDescribeDBProxies =
   DescribeDBProxies'
-    { filters = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      dbProxyName = Lude.Nothing
+    { dBProxyName = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
+
+-- | The name of the DB proxy.
+--
+-- /Note:/ Consider using 'dBProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbpsDBProxyName :: Lens.Lens' DescribeDBProxies (Core.Maybe Types.String)
+ddbpsDBProxyName = Lens.field @"dBProxyName"
+{-# DEPRECATED ddbpsDBProxyName "Use generic-lens or generic-optics with 'dBProxyName' instead." #-}
 
 -- | This parameter is not currently supported.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbpFilters :: Lens.Lens' DescribeDBProxies (Lude.Maybe [Filter])
-ddbpFilters = Lens.lens (filters :: DescribeDBProxies -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBProxies)
-{-# DEPRECATED ddbpFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddbpsFilters :: Lens.Lens' DescribeDBProxies (Core.Maybe [Types.Filter])
+ddbpsFilters = Lens.field @"filters"
+{-# DEPRECATED ddbpsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbpMarker :: Lens.Lens' DescribeDBProxies (Lude.Maybe Lude.Text)
-ddbpMarker = Lens.lens (marker :: DescribeDBProxies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBProxies)
-{-# DEPRECATED ddbpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddbpsMarker :: Lens.Lens' DescribeDBProxies (Core.Maybe Types.String)
+ddbpsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbpsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -101,104 +100,98 @@ ddbpMarker = Lens.lens (marker :: DescribeDBProxies -> Lude.Maybe Lude.Text) (\s
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbpMaxRecords :: Lens.Lens' DescribeDBProxies (Lude.Maybe Lude.Natural)
-ddbpMaxRecords = Lens.lens (maxRecords :: DescribeDBProxies -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeDBProxies)
-{-# DEPRECATED ddbpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddbpsMaxRecords :: Lens.Lens' DescribeDBProxies (Core.Maybe Core.Natural)
+ddbpsMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddbpsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The name of the DB proxy.
---
--- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbpDBProxyName :: Lens.Lens' DescribeDBProxies (Lude.Maybe Lude.Text)
-ddbpDBProxyName = Lens.lens (dbProxyName :: DescribeDBProxies -> Lude.Maybe Lude.Text) (\s a -> s {dbProxyName = a} :: DescribeDBProxies)
-{-# DEPRECATED ddbpDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
-
-instance Page.AWSPager DescribeDBProxies where
-  page rq rs
-    | Page.stop (rs Lens.^. ddpsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddpsrsDBProxies) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddbpMarker Lens..~ rs Lens.^. ddpsrsMarker
-
-instance Lude.AWSRequest DescribeDBProxies where
+instance Core.AWSRequest DescribeDBProxies where
   type Rs DescribeDBProxies = DescribeDBProxiesResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBProxies")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBProxyName" Core.<$> dBProxyName)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBProxiesResult"
       ( \s h x ->
           DescribeDBProxiesResponse'
-            Lude.<$> ( x Lude..@? "DBProxies" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBProxies" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBProxies where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBProxies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBProxies where
-  toQuery DescribeDBProxies' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeDBProxies" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "DBProxyName" Lude.=: dbProxyName
-      ]
+instance Pager.AWSPager DescribeDBProxies where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"dBProxies" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeDBProxiesResponse' smart constructor.
 data DescribeDBProxiesResponse = DescribeDBProxiesResponse'
   { -- | A return value representing an arbitrary number of @DBProxy@ data structures.
-    dbProxies :: Lude.Maybe [DBProxy],
+    dBProxies :: Core.Maybe [Types.DBProxy],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDBProxiesResponse' with the minimum fields required to make a request.
---
--- * 'dbProxies' - A return value representing an arbitrary number of @DBProxy@ data structures.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBProxiesResponse' value with any optional fields omitted.
 mkDescribeDBProxiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBProxiesResponse
-mkDescribeDBProxiesResponse pResponseStatus_ =
+mkDescribeDBProxiesResponse responseStatus =
   DescribeDBProxiesResponse'
-    { dbProxies = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBProxies = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | A return value representing an arbitrary number of @DBProxy@ data structures.
 --
--- /Note:/ Consider using 'dbProxies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpsrsDBProxies :: Lens.Lens' DescribeDBProxiesResponse (Lude.Maybe [DBProxy])
-ddpsrsDBProxies = Lens.lens (dbProxies :: DescribeDBProxiesResponse -> Lude.Maybe [DBProxy]) (\s a -> s {dbProxies = a} :: DescribeDBProxiesResponse)
-{-# DEPRECATED ddpsrsDBProxies "Use generic-lens or generic-optics with 'dbProxies' instead." #-}
+-- /Note:/ Consider using 'dBProxies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDBProxies :: Lens.Lens' DescribeDBProxiesResponse (Core.Maybe [Types.DBProxy])
+drsDBProxies = Lens.field @"dBProxies"
+{-# DEPRECATED drsDBProxies "Use generic-lens or generic-optics with 'dBProxies' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpsrsMarker :: Lens.Lens' DescribeDBProxiesResponse (Lude.Maybe Lude.Text)
-ddpsrsMarker = Lens.lens (marker :: DescribeDBProxiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBProxiesResponse)
-{-# DEPRECATED ddpsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drsMarker :: Lens.Lens' DescribeDBProxiesResponse (Core.Maybe Types.String)
+drsMarker = Lens.field @"marker"
+{-# DEPRECATED drsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpsrsResponseStatus :: Lens.Lens' DescribeDBProxiesResponse Lude.Int
-ddpsrsResponseStatus = Lens.lens (responseStatus :: DescribeDBProxiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBProxiesResponse)
-{-# DEPRECATED ddpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeDBProxiesResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

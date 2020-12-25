@@ -17,61 +17,55 @@ module Network.AWS.AlexaBusiness.Types.CreateInstantBooking
     mkCreateInstantBooking,
 
     -- * Lenses
-    cibEnabled,
     cibDurationInMinutes,
+    cibEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Creates settings for the instant booking feature that are applied to a room profile. When users start their meeting with Alexa, Alexa automatically books the room for the configured duration if the room is available.
 --
 -- /See:/ 'mkCreateInstantBooking' smart constructor.
 data CreateInstantBooking = CreateInstantBooking'
-  { -- | Whether instant booking is enabled or not.
-    enabled :: Lude.Bool,
-    -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
-    durationInMinutes :: Lude.Int
+  { -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+    durationInMinutes :: Core.Int,
+    -- | Whether instant booking is enabled or not.
+    enabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInstantBooking' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether instant booking is enabled or not.
--- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+-- | Creates a 'CreateInstantBooking' value with any optional fields omitted.
 mkCreateInstantBooking ::
-  -- | 'enabled'
-  Lude.Bool ->
   -- | 'durationInMinutes'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'enabled'
+  Core.Bool ->
   CreateInstantBooking
-mkCreateInstantBooking pEnabled_ pDurationInMinutes_ =
-  CreateInstantBooking'
-    { enabled = pEnabled_,
-      durationInMinutes = pDurationInMinutes_
-    }
-
--- | Whether instant booking is enabled or not.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cibEnabled :: Lens.Lens' CreateInstantBooking Lude.Bool
-cibEnabled = Lens.lens (enabled :: CreateInstantBooking -> Lude.Bool) (\s a -> s {enabled = a} :: CreateInstantBooking)
-{-# DEPRECATED cibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+mkCreateInstantBooking durationInMinutes enabled =
+  CreateInstantBooking' {durationInMinutes, enabled}
 
 -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 --
 -- /Note:/ Consider using 'durationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cibDurationInMinutes :: Lens.Lens' CreateInstantBooking Lude.Int
-cibDurationInMinutes = Lens.lens (durationInMinutes :: CreateInstantBooking -> Lude.Int) (\s a -> s {durationInMinutes = a} :: CreateInstantBooking)
+cibDurationInMinutes :: Lens.Lens' CreateInstantBooking Core.Int
+cibDurationInMinutes = Lens.field @"durationInMinutes"
 {-# DEPRECATED cibDurationInMinutes "Use generic-lens or generic-optics with 'durationInMinutes' instead." #-}
 
-instance Lude.ToJSON CreateInstantBooking where
-  toJSON CreateInstantBooking' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Enabled" Lude..= enabled),
-            Lude.Just ("DurationInMinutes" Lude..= durationInMinutes)
+-- | Whether instant booking is enabled or not.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibEnabled :: Lens.Lens' CreateInstantBooking Core.Bool
+cibEnabled = Lens.field @"enabled"
+{-# DEPRECATED cibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+instance Core.FromJSON CreateInstantBooking where
+  toJSON CreateInstantBooking {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DurationInMinutes" Core..= durationInMinutes),
+            Core.Just ("Enabled" Core..= enabled)
           ]
       )

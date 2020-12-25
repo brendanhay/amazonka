@@ -23,68 +23,58 @@ module Network.AWS.CloudFront.Types.ActiveTrustedSigners
   )
 where
 
-import Network.AWS.CloudFront.Types.Signer
+import qualified Network.AWS.CloudFront.Types.Signer as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /See:/ 'mkActiveTrustedSigners' smart constructor.
 data ActiveTrustedSigners = ActiveTrustedSigners'
   { -- | This field is @true@ if any of the AWS accounts in the list have active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
-    enabled :: Lude.Bool,
+    enabled :: Core.Bool,
     -- | The number of AWS accounts in the list.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-    items :: Lude.Maybe [Signer]
+    items :: Core.Maybe [Types.Signer]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActiveTrustedSigners' with the minimum fields required to make a request.
---
--- * 'enabled' - This field is @true@ if any of the AWS accounts in the list have active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
--- * 'quantity' - The number of AWS accounts in the list.
--- * 'items' - A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+-- | Creates a 'ActiveTrustedSigners' value with any optional fields omitted.
 mkActiveTrustedSigners ::
   -- | 'enabled'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   ActiveTrustedSigners
-mkActiveTrustedSigners pEnabled_ pQuantity_ =
-  ActiveTrustedSigners'
-    { enabled = pEnabled_,
-      quantity = pQuantity_,
-      items = Lude.Nothing
-    }
+mkActiveTrustedSigners enabled quantity =
+  ActiveTrustedSigners' {enabled, quantity, items = Core.Nothing}
 
 -- | This field is @true@ if any of the AWS accounts in the list have active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atsEnabled :: Lens.Lens' ActiveTrustedSigners Lude.Bool
-atsEnabled = Lens.lens (enabled :: ActiveTrustedSigners -> Lude.Bool) (\s a -> s {enabled = a} :: ActiveTrustedSigners)
+atsEnabled :: Lens.Lens' ActiveTrustedSigners Core.Bool
+atsEnabled = Lens.field @"enabled"
 {-# DEPRECATED atsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The number of AWS accounts in the list.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atsQuantity :: Lens.Lens' ActiveTrustedSigners Lude.Int
-atsQuantity = Lens.lens (quantity :: ActiveTrustedSigners -> Lude.Int) (\s a -> s {quantity = a} :: ActiveTrustedSigners)
+atsQuantity :: Lens.Lens' ActiveTrustedSigners Core.Int
+atsQuantity = Lens.field @"quantity"
 {-# DEPRECATED atsQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atsItems :: Lens.Lens' ActiveTrustedSigners (Lude.Maybe [Signer])
-atsItems = Lens.lens (items :: ActiveTrustedSigners -> Lude.Maybe [Signer]) (\s a -> s {items = a} :: ActiveTrustedSigners)
+atsItems :: Lens.Lens' ActiveTrustedSigners (Core.Maybe [Types.Signer])
+atsItems = Lens.field @"items"
 {-# DEPRECATED atsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML ActiveTrustedSigners where
+instance Core.FromXML ActiveTrustedSigners where
   parseXML x =
     ActiveTrustedSigners'
-      Lude.<$> (x Lude..@ "Enabled")
-      Lude.<*> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Signer")
-               )
+      Core.<$> (x Core..@ "Enabled")
+      Core.<*> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "Signer")

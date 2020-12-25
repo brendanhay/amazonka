@@ -22,51 +22,49 @@ module Network.AWS.EC2.Types.ReservedInstancesModificationResult
   )
 where
 
-import Network.AWS.EC2.Types.ReservedInstancesConfiguration
+import qualified Network.AWS.EC2.Types.ReservedInstancesConfiguration as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the modification request/s.
 --
 -- /See:/ 'mkReservedInstancesModificationResult' smart constructor.
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
   { -- | The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.
-    reservedInstancesId :: Lude.Maybe Lude.Text,
+    reservedInstancesId :: Core.Maybe Types.String,
     -- | The target Reserved Instances configurations supplied as part of the modification request.
-    targetConfiguration :: Lude.Maybe ReservedInstancesConfiguration
+    targetConfiguration :: Core.Maybe Types.ReservedInstancesConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservedInstancesModificationResult' with the minimum fields required to make a request.
---
--- * 'reservedInstancesId' - The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.
--- * 'targetConfiguration' - The target Reserved Instances configurations supplied as part of the modification request.
+-- | Creates a 'ReservedInstancesModificationResult' value with any optional fields omitted.
 mkReservedInstancesModificationResult ::
   ReservedInstancesModificationResult
 mkReservedInstancesModificationResult =
   ReservedInstancesModificationResult'
     { reservedInstancesId =
-        Lude.Nothing,
-      targetConfiguration = Lude.Nothing
+        Core.Nothing,
+      targetConfiguration = Core.Nothing
     }
 
 -- | The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.
 --
 -- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rimrReservedInstancesId :: Lens.Lens' ReservedInstancesModificationResult (Lude.Maybe Lude.Text)
-rimrReservedInstancesId = Lens.lens (reservedInstancesId :: ReservedInstancesModificationResult -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesId = a} :: ReservedInstancesModificationResult)
+rimrReservedInstancesId :: Lens.Lens' ReservedInstancesModificationResult (Core.Maybe Types.String)
+rimrReservedInstancesId = Lens.field @"reservedInstancesId"
 {-# DEPRECATED rimrReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
 -- | The target Reserved Instances configurations supplied as part of the modification request.
 --
 -- /Note:/ Consider using 'targetConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rimrTargetConfiguration :: Lens.Lens' ReservedInstancesModificationResult (Lude.Maybe ReservedInstancesConfiguration)
-rimrTargetConfiguration = Lens.lens (targetConfiguration :: ReservedInstancesModificationResult -> Lude.Maybe ReservedInstancesConfiguration) (\s a -> s {targetConfiguration = a} :: ReservedInstancesModificationResult)
+rimrTargetConfiguration :: Lens.Lens' ReservedInstancesModificationResult (Core.Maybe Types.ReservedInstancesConfiguration)
+rimrTargetConfiguration = Lens.field @"targetConfiguration"
 {-# DEPRECATED rimrTargetConfiguration "Use generic-lens or generic-optics with 'targetConfiguration' instead." #-}
 
-instance Lude.FromXML ReservedInstancesModificationResult where
+instance Core.FromXML ReservedInstancesModificationResult where
   parseXML x =
     ReservedInstancesModificationResult'
-      Lude.<$> (x Lude..@? "reservedInstancesId")
-      Lude.<*> (x Lude..@? "targetConfiguration")
+      Core.<$> (x Core..@? "reservedInstancesId")
+      Core.<*> (x Core..@? "targetConfiguration")

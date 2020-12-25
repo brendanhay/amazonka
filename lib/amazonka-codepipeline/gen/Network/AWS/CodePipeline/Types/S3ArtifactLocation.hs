@@ -22,56 +22,50 @@ module Network.AWS.CodePipeline.Types.S3ArtifactLocation
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.BucketName as Types
+import qualified Network.AWS.CodePipeline.Types.S3ObjectKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The location of the S3 bucket that contains a revision.
 --
 -- /See:/ 'mkS3ArtifactLocation' smart constructor.
 data S3ArtifactLocation = S3ArtifactLocation'
   { -- | The name of the S3 bucket.
-    bucketName :: Lude.Text,
+    bucketName :: Types.BucketName,
     -- | The key of the object in the S3 bucket, which uniquely identifies the object in the bucket.
-    objectKey :: Lude.Text
+    objectKey :: Types.S3ObjectKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3ArtifactLocation' with the minimum fields required to make a request.
---
--- * 'bucketName' - The name of the S3 bucket.
--- * 'objectKey' - The key of the object in the S3 bucket, which uniquely identifies the object in the bucket.
+-- | Creates a 'S3ArtifactLocation' value with any optional fields omitted.
 mkS3ArtifactLocation ::
   -- | 'bucketName'
-  Lude.Text ->
+  Types.BucketName ->
   -- | 'objectKey'
-  Lude.Text ->
+  Types.S3ObjectKey ->
   S3ArtifactLocation
-mkS3ArtifactLocation pBucketName_ pObjectKey_ =
-  S3ArtifactLocation'
-    { bucketName = pBucketName_,
-      objectKey = pObjectKey_
-    }
+mkS3ArtifactLocation bucketName objectKey =
+  S3ArtifactLocation' {bucketName, objectKey}
 
 -- | The name of the S3 bucket.
 --
 -- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-salBucketName :: Lens.Lens' S3ArtifactLocation Lude.Text
-salBucketName = Lens.lens (bucketName :: S3ArtifactLocation -> Lude.Text) (\s a -> s {bucketName = a} :: S3ArtifactLocation)
+salBucketName :: Lens.Lens' S3ArtifactLocation Types.BucketName
+salBucketName = Lens.field @"bucketName"
 {-# DEPRECATED salBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | The key of the object in the S3 bucket, which uniquely identifies the object in the bucket.
 --
 -- /Note:/ Consider using 'objectKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-salObjectKey :: Lens.Lens' S3ArtifactLocation Lude.Text
-salObjectKey = Lens.lens (objectKey :: S3ArtifactLocation -> Lude.Text) (\s a -> s {objectKey = a} :: S3ArtifactLocation)
+salObjectKey :: Lens.Lens' S3ArtifactLocation Types.S3ObjectKey
+salObjectKey = Lens.field @"objectKey"
 {-# DEPRECATED salObjectKey "Use generic-lens or generic-optics with 'objectKey' instead." #-}
 
-instance Lude.FromJSON S3ArtifactLocation where
+instance Core.FromJSON S3ArtifactLocation where
   parseJSON =
-    Lude.withObject
-      "S3ArtifactLocation"
-      ( \x ->
-          S3ArtifactLocation'
-            Lude.<$> (x Lude..: "bucketName") Lude.<*> (x Lude..: "objectKey")
-      )
+    Core.withObject "S3ArtifactLocation" Core.$
+      \x ->
+        S3ArtifactLocation'
+          Core.<$> (x Core..: "bucketName") Core.<*> (x Core..: "objectKey")

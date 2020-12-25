@@ -23,56 +23,50 @@ module Network.AWS.S3.Types.MetricsAndOperator
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
 --
 -- /See:/ 'mkMetricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
   { -- | The prefix used when evaluating an AND predicate.
-    prefix :: Lude.Maybe Lude.Text,
+    prefix :: Core.Maybe Types.Prefix,
     -- | The list of tags used when evaluating an AND predicate.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricsAndOperator' with the minimum fields required to make a request.
---
--- * 'prefix' - The prefix used when evaluating an AND predicate.
--- * 'tags' - The list of tags used when evaluating an AND predicate.
+-- | Creates a 'MetricsAndOperator' value with any optional fields omitted.
 mkMetricsAndOperator ::
   MetricsAndOperator
 mkMetricsAndOperator =
-  MetricsAndOperator' {prefix = Lude.Nothing, tags = Lude.Nothing}
+  MetricsAndOperator' {prefix = Core.Nothing, tags = Core.Nothing}
 
 -- | The prefix used when evaluating an AND predicate.
 --
 -- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maoPrefix :: Lens.Lens' MetricsAndOperator (Lude.Maybe Lude.Text)
-maoPrefix = Lens.lens (prefix :: MetricsAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: MetricsAndOperator)
+maoPrefix :: Lens.Lens' MetricsAndOperator (Core.Maybe Types.Prefix)
+maoPrefix = Lens.field @"prefix"
 {-# DEPRECATED maoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The list of tags used when evaluating an AND predicate.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maoTags :: Lens.Lens' MetricsAndOperator (Lude.Maybe [Tag])
-maoTags = Lens.lens (tags :: MetricsAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: MetricsAndOperator)
+maoTags :: Lens.Lens' MetricsAndOperator (Core.Maybe [Types.Tag])
+maoTags = Lens.field @"tags"
 {-# DEPRECATED maoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML MetricsAndOperator where
+instance Core.ToXML MetricsAndOperator where
+  toXML MetricsAndOperator {..} =
+    Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" (Core.toXMLList "Tag" Core.<$> tags)
+
+instance Core.FromXML MetricsAndOperator where
   parseXML x =
     MetricsAndOperator'
-      Lude.<$> (x Lude..@? "Prefix")
-      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
-
-instance Lude.ToXML MetricsAndOperator where
-  toXML MetricsAndOperator' {..} =
-    Lude.mconcat
-      [ "Prefix" Lude.@= prefix,
-        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
-      ]
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag" Core..<@> Core.parseXMLList "Tag")

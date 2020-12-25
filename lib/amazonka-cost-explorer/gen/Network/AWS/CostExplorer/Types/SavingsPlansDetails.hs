@@ -23,65 +23,62 @@ module Network.AWS.CostExplorer.Types.SavingsPlansDetails
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.InstanceFamily as Types
+import qualified Network.AWS.CostExplorer.Types.OfferingId as Types
+import qualified Network.AWS.CostExplorer.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attribute details on a specific Savings Plan.
 --
 -- /See:/ 'mkSavingsPlansDetails' smart constructor.
 data SavingsPlansDetails = SavingsPlansDetails'
   { -- | A group of instance types that Savings Plans applies to.
-    instanceFamily :: Lude.Maybe Lude.Text,
+    instanceFamily :: Core.Maybe Types.InstanceFamily,
     -- | The unique ID used to distinguish Savings Plans from one another.
-    offeringId :: Lude.Maybe Lude.Text,
+    offeringId :: Core.Maybe Types.OfferingId,
     -- | A collection of AWS resources in a geographic area. Each AWS Region is isolated and independent of the other Regions.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.Region
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SavingsPlansDetails' with the minimum fields required to make a request.
---
--- * 'instanceFamily' - A group of instance types that Savings Plans applies to.
--- * 'offeringId' - The unique ID used to distinguish Savings Plans from one another.
--- * 'region' - A collection of AWS resources in a geographic area. Each AWS Region is isolated and independent of the other Regions.
+-- | Creates a 'SavingsPlansDetails' value with any optional fields omitted.
 mkSavingsPlansDetails ::
   SavingsPlansDetails
 mkSavingsPlansDetails =
   SavingsPlansDetails'
-    { instanceFamily = Lude.Nothing,
-      offeringId = Lude.Nothing,
-      region = Lude.Nothing
+    { instanceFamily = Core.Nothing,
+      offeringId = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | A group of instance types that Savings Plans applies to.
 --
 -- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spdInstanceFamily :: Lens.Lens' SavingsPlansDetails (Lude.Maybe Lude.Text)
-spdInstanceFamily = Lens.lens (instanceFamily :: SavingsPlansDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceFamily = a} :: SavingsPlansDetails)
+spdInstanceFamily :: Lens.Lens' SavingsPlansDetails (Core.Maybe Types.InstanceFamily)
+spdInstanceFamily = Lens.field @"instanceFamily"
 {-# DEPRECATED spdInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The unique ID used to distinguish Savings Plans from one another.
 --
 -- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spdOfferingId :: Lens.Lens' SavingsPlansDetails (Lude.Maybe Lude.Text)
-spdOfferingId = Lens.lens (offeringId :: SavingsPlansDetails -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: SavingsPlansDetails)
+spdOfferingId :: Lens.Lens' SavingsPlansDetails (Core.Maybe Types.OfferingId)
+spdOfferingId = Lens.field @"offeringId"
 {-# DEPRECATED spdOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
 -- | A collection of AWS resources in a geographic area. Each AWS Region is isolated and independent of the other Regions.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spdRegion :: Lens.Lens' SavingsPlansDetails (Lude.Maybe Lude.Text)
-spdRegion = Lens.lens (region :: SavingsPlansDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: SavingsPlansDetails)
+spdRegion :: Lens.Lens' SavingsPlansDetails (Core.Maybe Types.Region)
+spdRegion = Lens.field @"region"
 {-# DEPRECATED spdRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromJSON SavingsPlansDetails where
+instance Core.FromJSON SavingsPlansDetails where
   parseJSON =
-    Lude.withObject
-      "SavingsPlansDetails"
-      ( \x ->
-          SavingsPlansDetails'
-            Lude.<$> (x Lude..:? "InstanceFamily")
-            Lude.<*> (x Lude..:? "OfferingId")
-            Lude.<*> (x Lude..:? "Region")
-      )
+    Core.withObject "SavingsPlansDetails" Core.$
+      \x ->
+        SavingsPlansDetails'
+          Core.<$> (x Core..:? "InstanceFamily")
+          Core.<*> (x Core..:? "OfferingId")
+          Core.<*> (x Core..:? "Region")

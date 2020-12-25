@@ -22,57 +22,53 @@ module Network.AWS.IoT.Types.Stream
   )
 where
 
+import qualified Network.AWS.IoT.Types.StreamId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a group of files that can be streamed.
 --
 -- /See:/ 'mkStream' smart constructor.
 data Stream = Stream'
   { -- | The ID of a file associated with a stream.
-    fileId :: Lude.Maybe Lude.Natural,
+    fileId :: Core.Maybe Core.Natural,
     -- | The stream ID.
-    streamId :: Lude.Maybe Lude.Text
+    streamId :: Core.Maybe Types.StreamId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Stream' with the minimum fields required to make a request.
---
--- * 'fileId' - The ID of a file associated with a stream.
--- * 'streamId' - The stream ID.
+-- | Creates a 'Stream' value with any optional fields omitted.
 mkStream ::
   Stream
-mkStream = Stream' {fileId = Lude.Nothing, streamId = Lude.Nothing}
+mkStream = Stream' {fileId = Core.Nothing, streamId = Core.Nothing}
 
 -- | The ID of a file associated with a stream.
 --
 -- /Note:/ Consider using 'fileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sFileId :: Lens.Lens' Stream (Lude.Maybe Lude.Natural)
-sFileId = Lens.lens (fileId :: Stream -> Lude.Maybe Lude.Natural) (\s a -> s {fileId = a} :: Stream)
+sFileId :: Lens.Lens' Stream (Core.Maybe Core.Natural)
+sFileId = Lens.field @"fileId"
 {-# DEPRECATED sFileId "Use generic-lens or generic-optics with 'fileId' instead." #-}
 
 -- | The stream ID.
 --
 -- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStreamId :: Lens.Lens' Stream (Lude.Maybe Lude.Text)
-sStreamId = Lens.lens (streamId :: Stream -> Lude.Maybe Lude.Text) (\s a -> s {streamId = a} :: Stream)
+sStreamId :: Lens.Lens' Stream (Core.Maybe Types.StreamId)
+sStreamId = Lens.field @"streamId"
 {-# DEPRECATED sStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
-instance Lude.FromJSON Stream where
-  parseJSON =
-    Lude.withObject
-      "Stream"
-      ( \x ->
-          Stream'
-            Lude.<$> (x Lude..:? "fileId") Lude.<*> (x Lude..:? "streamId")
-      )
-
-instance Lude.ToJSON Stream where
-  toJSON Stream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("fileId" Lude..=) Lude.<$> fileId,
-            ("streamId" Lude..=) Lude.<$> streamId
+instance Core.FromJSON Stream where
+  toJSON Stream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("fileId" Core..=) Core.<$> fileId,
+            ("streamId" Core..=) Core.<$> streamId
           ]
       )
+
+instance Core.FromJSON Stream where
+  parseJSON =
+    Core.withObject "Stream" Core.$
+      \x ->
+        Stream'
+          Core.<$> (x Core..:? "fileId") Core.<*> (x Core..:? "streamId")

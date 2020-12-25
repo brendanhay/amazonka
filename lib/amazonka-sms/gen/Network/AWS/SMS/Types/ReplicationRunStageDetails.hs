@@ -23,51 +23,48 @@ module Network.AWS.SMS.Types.ReplicationRunStageDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ReplicationRunStageProgress as Types
+import qualified Network.AWS.SMS.Types.Stage as Types
 
 -- | Details of the current stage of a replication run.
 --
 -- /See:/ 'mkReplicationRunStageDetails' smart constructor.
 data ReplicationRunStageDetails = ReplicationRunStageDetails'
   { -- | The current stage of a replication run.
-    stage :: Lude.Maybe Lude.Text,
+    stage :: Core.Maybe Types.Stage,
     -- | The progress of the current stage of a replication run.
-    stageProgress :: Lude.Maybe Lude.Text
+    stageProgress :: Core.Maybe Types.ReplicationRunStageProgress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationRunStageDetails' with the minimum fields required to make a request.
---
--- * 'stage' - The current stage of a replication run.
--- * 'stageProgress' - The progress of the current stage of a replication run.
+-- | Creates a 'ReplicationRunStageDetails' value with any optional fields omitted.
 mkReplicationRunStageDetails ::
   ReplicationRunStageDetails
 mkReplicationRunStageDetails =
   ReplicationRunStageDetails'
-    { stage = Lude.Nothing,
-      stageProgress = Lude.Nothing
+    { stage = Core.Nothing,
+      stageProgress = Core.Nothing
     }
 
 -- | The current stage of a replication run.
 --
 -- /Note:/ Consider using 'stage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsdStage :: Lens.Lens' ReplicationRunStageDetails (Lude.Maybe Lude.Text)
-rrsdStage = Lens.lens (stage :: ReplicationRunStageDetails -> Lude.Maybe Lude.Text) (\s a -> s {stage = a} :: ReplicationRunStageDetails)
+rrsdStage :: Lens.Lens' ReplicationRunStageDetails (Core.Maybe Types.Stage)
+rrsdStage = Lens.field @"stage"
 {-# DEPRECATED rrsdStage "Use generic-lens or generic-optics with 'stage' instead." #-}
 
 -- | The progress of the current stage of a replication run.
 --
 -- /Note:/ Consider using 'stageProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsdStageProgress :: Lens.Lens' ReplicationRunStageDetails (Lude.Maybe Lude.Text)
-rrsdStageProgress = Lens.lens (stageProgress :: ReplicationRunStageDetails -> Lude.Maybe Lude.Text) (\s a -> s {stageProgress = a} :: ReplicationRunStageDetails)
+rrsdStageProgress :: Lens.Lens' ReplicationRunStageDetails (Core.Maybe Types.ReplicationRunStageProgress)
+rrsdStageProgress = Lens.field @"stageProgress"
 {-# DEPRECATED rrsdStageProgress "Use generic-lens or generic-optics with 'stageProgress' instead." #-}
 
-instance Lude.FromJSON ReplicationRunStageDetails where
+instance Core.FromJSON ReplicationRunStageDetails where
   parseJSON =
-    Lude.withObject
-      "ReplicationRunStageDetails"
-      ( \x ->
-          ReplicationRunStageDetails'
-            Lude.<$> (x Lude..:? "stage") Lude.<*> (x Lude..:? "stageProgress")
-      )
+    Core.withObject "ReplicationRunStageDetails" Core.$
+      \x ->
+        ReplicationRunStageDetails'
+          Core.<$> (x Core..:? "stage") Core.<*> (x Core..:? "stageProgress")

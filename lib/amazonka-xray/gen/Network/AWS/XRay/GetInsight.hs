@@ -27,99 +27,90 @@ module Network.AWS.XRay.GetInsight
     mkGetInsightResponse,
 
     -- ** Response lenses
-    girsInsight,
-    girsResponseStatus,
+    girrsInsight,
+    girrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkGetInsight' smart constructor.
 newtype GetInsight = GetInsight'
   { -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
-    insightId :: Lude.Text
+    insightId :: Types.InsightId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInsight' with the minimum fields required to make a request.
---
--- * 'insightId' - The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+-- | Creates a 'GetInsight' value with any optional fields omitted.
 mkGetInsight ::
   -- | 'insightId'
-  Lude.Text ->
+  Types.InsightId ->
   GetInsight
-mkGetInsight pInsightId_ = GetInsight' {insightId = pInsightId_}
+mkGetInsight insightId = GetInsight' {insightId}
 
 -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
 --
 -- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giInsightId :: Lens.Lens' GetInsight Lude.Text
-giInsightId = Lens.lens (insightId :: GetInsight -> Lude.Text) (\s a -> s {insightId = a} :: GetInsight)
+giInsightId :: Lens.Lens' GetInsight Types.InsightId
+giInsightId = Lens.field @"insightId"
 {-# DEPRECATED giInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
 
-instance Lude.AWSRequest GetInsight where
+instance Core.FromJSON GetInsight where
+  toJSON GetInsight {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("InsightId" Core..= insightId)])
+
+instance Core.AWSRequest GetInsight where
   type Rs GetInsight = GetInsightResponse
-  request = Req.postJSON xRayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/Insight",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInsightResponse'
-            Lude.<$> (x Lude..?> "Insight") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Insight") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInsight where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetInsight where
-  toJSON GetInsight' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("InsightId" Lude..= insightId)])
-
-instance Lude.ToPath GetInsight where
-  toPath = Lude.const "/Insight"
-
-instance Lude.ToQuery GetInsight where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInsightResponse' smart constructor.
 data GetInsightResponse = GetInsightResponse'
   { -- | The summary information of an insight.
-    insight :: Lude.Maybe Insight,
+    insight :: Core.Maybe Types.Insight,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInsightResponse' with the minimum fields required to make a request.
---
--- * 'insight' - The summary information of an insight.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInsightResponse' value with any optional fields omitted.
 mkGetInsightResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInsightResponse
-mkGetInsightResponse pResponseStatus_ =
-  GetInsightResponse'
-    { insight = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetInsightResponse responseStatus =
+  GetInsightResponse' {insight = Core.Nothing, responseStatus}
 
 -- | The summary information of an insight.
 --
 -- /Note:/ Consider using 'insight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girsInsight :: Lens.Lens' GetInsightResponse (Lude.Maybe Insight)
-girsInsight = Lens.lens (insight :: GetInsightResponse -> Lude.Maybe Insight) (\s a -> s {insight = a} :: GetInsightResponse)
-{-# DEPRECATED girsInsight "Use generic-lens or generic-optics with 'insight' instead." #-}
+girrsInsight :: Lens.Lens' GetInsightResponse (Core.Maybe Types.Insight)
+girrsInsight = Lens.field @"insight"
+{-# DEPRECATED girrsInsight "Use generic-lens or generic-optics with 'insight' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girsResponseStatus :: Lens.Lens' GetInsightResponse Lude.Int
-girsResponseStatus = Lens.lens (responseStatus :: GetInsightResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInsightResponse)
-{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+girrsResponseStatus :: Lens.Lens' GetInsightResponse Core.Int
+girrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED girrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

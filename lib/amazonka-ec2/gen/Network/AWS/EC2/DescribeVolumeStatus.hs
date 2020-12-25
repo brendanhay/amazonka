@@ -28,33 +28,35 @@ module Network.AWS.EC2.DescribeVolumeStatus
     mkDescribeVolumeStatus,
 
     -- ** Request lenses
-    dvsFilters,
-    dvsVolumeIds,
-    dvsNextToken,
-    dvsDryRun,
-    dvsMaxResults,
+    dvssDryRun,
+    dvssFilters,
+    dvssMaxResults,
+    dvssNextToken,
+    dvssVolumeIds,
 
     -- * Destructuring the response
     DescribeVolumeStatusResponse (..),
     mkDescribeVolumeStatusResponse,
 
     -- ** Response lenses
-    dvssrsNextToken,
-    dvssrsVolumeStatuses,
-    dvssrsResponseStatus,
+    dvsrrsNextToken,
+    dvsrrsVolumeStatuses,
+    dvsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeVolumeStatus' smart constructor.
 data DescribeVolumeStatus = DescribeVolumeStatus'
-  { -- | The filters.
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The filters.
     --
     --
     --     * @action.code@ - The action code for the event (for example, @enable-volume-io@ ).
@@ -91,78 +93,37 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     --
     --
     --     * @volume-status.status@ - The status of the volume (@ok@ | @impaired@ | @warning@ | @insufficient-data@ ).
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
+    -- | The maximum number of volume results returned by @DescribeVolumeStatus@ in paginated output. When this parameter is used, the request only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeVolumeStatus@ returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.
+    maxResults :: Core.Maybe Core.Int,
+    -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@ request. When the results of the request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
     -- | The IDs of the volumes.
     --
     -- Default: Describes all your volumes.
-    volumeIds :: Lude.Maybe [Lude.Text],
-    -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@ request. When the results of the request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of volume results returned by @DescribeVolumeStatus@ in paginated output. When this parameter is used, the request only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeVolumeStatus@ returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.
-    maxResults :: Lude.Maybe Lude.Int
+    volumeIds :: Core.Maybe [Types.VolumeId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVolumeStatus' with the minimum fields required to make a request.
---
--- * 'filters' - The filters.
---
---
---     * @action.code@ - The action code for the event (for example, @enable-volume-io@ ).
---
---
---     * @action.description@ - A description of the action.
---
---
---     * @action.event-id@ - The event ID associated with the action.
---
---
---     * @availability-zone@ - The Availability Zone of the instance.
---
---
---     * @event.description@ - A description of the event.
---
---
---     * @event.event-id@ - The event ID.
---
---
---     * @event.event-type@ - The event type (for @io-enabled@ : @passed@ | @failed@ ; for @io-performance@ : @io-performance:degraded@ | @io-performance:severely-degraded@ | @io-performance:stalled@ ).
---
---
---     * @event.not-after@ - The latest end time for the event.
---
---
---     * @event.not-before@ - The earliest start time for the event.
---
---
---     * @volume-status.details-name@ - The cause for @volume-status.status@ (@io-enabled@ | @io-performance@ ).
---
---
---     * @volume-status.details-status@ - The status of @volume-status.details-name@ (for @io-enabled@ : @passed@ | @failed@ ; for @io-performance@ : @normal@ | @degraded@ | @severely-degraded@ | @stalled@ ).
---
---
---     * @volume-status.status@ - The status of the volume (@ok@ | @impaired@ | @warning@ | @insufficient-data@ ).
---
---
--- * 'volumeIds' - The IDs of the volumes.
---
--- Default: Describes all your volumes.
--- * 'nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@ request. When the results of the request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of volume results returned by @DescribeVolumeStatus@ in paginated output. When this parameter is used, the request only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeVolumeStatus@ returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.
+-- | Creates a 'DescribeVolumeStatus' value with any optional fields omitted.
 mkDescribeVolumeStatus ::
   DescribeVolumeStatus
 mkDescribeVolumeStatus =
   DescribeVolumeStatus'
-    { filters = Lude.Nothing,
-      volumeIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      volumeIds = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvssDryRun :: Lens.Lens' DescribeVolumeStatus (Core.Maybe Core.Bool)
+dvssDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dvssDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters.
 --
@@ -205,126 +166,119 @@ mkDescribeVolumeStatus =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvsFilters :: Lens.Lens' DescribeVolumeStatus (Lude.Maybe [Filter])
-dvsFilters = Lens.lens (filters :: DescribeVolumeStatus -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVolumeStatus)
-{-# DEPRECATED dvsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dvssFilters :: Lens.Lens' DescribeVolumeStatus (Core.Maybe [Types.Filter])
+dvssFilters = Lens.field @"filters"
+{-# DEPRECATED dvssFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The maximum number of volume results returned by @DescribeVolumeStatus@ in paginated output. When this parameter is used, the request only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeVolumeStatus@ returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvssMaxResults :: Lens.Lens' DescribeVolumeStatus (Core.Maybe Core.Int)
+dvssMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dvssMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@ request. When the results of the request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvssNextToken :: Lens.Lens' DescribeVolumeStatus (Core.Maybe Types.String)
+dvssNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dvssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The IDs of the volumes.
 --
 -- Default: Describes all your volumes.
 --
 -- /Note:/ Consider using 'volumeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvsVolumeIds :: Lens.Lens' DescribeVolumeStatus (Lude.Maybe [Lude.Text])
-dvsVolumeIds = Lens.lens (volumeIds :: DescribeVolumeStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {volumeIds = a} :: DescribeVolumeStatus)
-{-# DEPRECATED dvsVolumeIds "Use generic-lens or generic-optics with 'volumeIds' instead." #-}
+dvssVolumeIds :: Lens.Lens' DescribeVolumeStatus (Core.Maybe [Types.VolumeId])
+dvssVolumeIds = Lens.field @"volumeIds"
+{-# DEPRECATED dvssVolumeIds "Use generic-lens or generic-optics with 'volumeIds' instead." #-}
 
--- | The @NextToken@ value to include in a future @DescribeVolumeStatus@ request. When the results of the request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvsNextToken :: Lens.Lens' DescribeVolumeStatus (Lude.Maybe Lude.Text)
-dvsNextToken = Lens.lens (nextToken :: DescribeVolumeStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVolumeStatus)
-{-# DEPRECATED dvsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvsDryRun :: Lens.Lens' DescribeVolumeStatus (Lude.Maybe Lude.Bool)
-dvsDryRun = Lens.lens (dryRun :: DescribeVolumeStatus -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVolumeStatus)
-{-# DEPRECATED dvsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of volume results returned by @DescribeVolumeStatus@ in paginated output. When this parameter is used, the request only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeVolumeStatus@ returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvsMaxResults :: Lens.Lens' DescribeVolumeStatus (Lude.Maybe Lude.Int)
-dvsMaxResults = Lens.lens (maxResults :: DescribeVolumeStatus -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeVolumeStatus)
-{-# DEPRECATED dvsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager DescribeVolumeStatus where
-  page rq rs
-    | Page.stop (rs Lens.^. dvssrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dvssrsVolumeStatuses) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dvsNextToken Lens..~ rs Lens.^. dvssrsNextToken
-
-instance Lude.AWSRequest DescribeVolumeStatus where
+instance Core.AWSRequest DescribeVolumeStatus where
   type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeVolumeStatus")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryList "VolumeId" Core.<$> volumeIds)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeVolumeStatusResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "volumeStatusSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> (x Core..@? "volumeStatusSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeVolumeStatus where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeVolumeStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeVolumeStatus where
-  toQuery DescribeVolumeStatus' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeVolumeStatus" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        Lude.toQuery (Lude.toQueryList "VolumeId" Lude.<$> volumeIds),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeVolumeStatus where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"volumeStatuses" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeVolumeStatusResponse' smart constructor.
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
   { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | Information about the status of the volumes.
-    volumeStatuses :: Lude.Maybe [VolumeStatusItem],
+    volumeStatuses :: Core.Maybe [Types.VolumeStatusItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeVolumeStatusResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'volumeStatuses' - Information about the status of the volumes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeVolumeStatusResponse' value with any optional fields omitted.
 mkDescribeVolumeStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeVolumeStatusResponse
-mkDescribeVolumeStatusResponse pResponseStatus_ =
+mkDescribeVolumeStatusResponse responseStatus =
   DescribeVolumeStatusResponse'
-    { nextToken = Lude.Nothing,
-      volumeStatuses = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      volumeStatuses = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvssrsNextToken :: Lens.Lens' DescribeVolumeStatusResponse (Lude.Maybe Lude.Text)
-dvssrsNextToken = Lens.lens (nextToken :: DescribeVolumeStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVolumeStatusResponse)
-{-# DEPRECATED dvssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dvsrrsNextToken :: Lens.Lens' DescribeVolumeStatusResponse (Core.Maybe Types.String)
+dvsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dvsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the status of the volumes.
 --
 -- /Note:/ Consider using 'volumeStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvssrsVolumeStatuses :: Lens.Lens' DescribeVolumeStatusResponse (Lude.Maybe [VolumeStatusItem])
-dvssrsVolumeStatuses = Lens.lens (volumeStatuses :: DescribeVolumeStatusResponse -> Lude.Maybe [VolumeStatusItem]) (\s a -> s {volumeStatuses = a} :: DescribeVolumeStatusResponse)
-{-# DEPRECATED dvssrsVolumeStatuses "Use generic-lens or generic-optics with 'volumeStatuses' instead." #-}
+dvsrrsVolumeStatuses :: Lens.Lens' DescribeVolumeStatusResponse (Core.Maybe [Types.VolumeStatusItem])
+dvsrrsVolumeStatuses = Lens.field @"volumeStatuses"
+{-# DEPRECATED dvsrrsVolumeStatuses "Use generic-lens or generic-optics with 'volumeStatuses' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvssrsResponseStatus :: Lens.Lens' DescribeVolumeStatusResponse Lude.Int
-dvssrsResponseStatus = Lens.lens (responseStatus :: DescribeVolumeStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVolumeStatusResponse)
-{-# DEPRECATED dvssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvsrrsResponseStatus :: Lens.Lens' DescribeVolumeStatusResponse Core.Int
+dvsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,56 @@
 module Network.AWS.DynamoDB.Types.ProjectionType
   ( ProjectionType
       ( ProjectionType',
-        All,
-        KeysOnly,
-        Include
+        ProjectionTypeAll,
+        ProjectionTypeKeysOnly,
+        ProjectionTypeInclude,
+        fromProjectionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProjectionType = ProjectionType' Lude.Text
+newtype ProjectionType = ProjectionType'
+  { fromProjectionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern All :: ProjectionType
-pattern All = ProjectionType' "ALL"
+pattern ProjectionTypeAll :: ProjectionType
+pattern ProjectionTypeAll = ProjectionType' "ALL"
 
-pattern KeysOnly :: ProjectionType
-pattern KeysOnly = ProjectionType' "KEYS_ONLY"
+pattern ProjectionTypeKeysOnly :: ProjectionType
+pattern ProjectionTypeKeysOnly = ProjectionType' "KEYS_ONLY"
 
-pattern Include :: ProjectionType
-pattern Include = ProjectionType' "INCLUDE"
+pattern ProjectionTypeInclude :: ProjectionType
+pattern ProjectionTypeInclude = ProjectionType' "INCLUDE"
 
 {-# COMPLETE
-  All,
-  KeysOnly,
-  Include,
+  ProjectionTypeAll,
+  ProjectionTypeKeysOnly,
+  ProjectionTypeInclude,
   ProjectionType'
   #-}

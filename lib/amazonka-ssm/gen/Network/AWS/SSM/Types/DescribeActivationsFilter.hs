@@ -23,52 +23,50 @@ module Network.AWS.SSM.Types.DescribeActivationsFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.DescribeActivationsFilterKeys
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.DescribeActivationsFilterKeys as Types
+import qualified Network.AWS.SSM.Types.String as Types
 
 -- | Filter for the DescribeActivation API.
 --
 -- /See:/ 'mkDescribeActivationsFilter' smart constructor.
 data DescribeActivationsFilter = DescribeActivationsFilter'
   { -- | The name of the filter.
-    filterKey :: Lude.Maybe DescribeActivationsFilterKeys,
+    filterKey :: Core.Maybe Types.DescribeActivationsFilterKeys,
     -- | The filter values.
-    filterValues :: Lude.Maybe [Lude.Text]
+    filterValues :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeActivationsFilter' with the minimum fields required to make a request.
---
--- * 'filterKey' - The name of the filter.
--- * 'filterValues' - The filter values.
+-- | Creates a 'DescribeActivationsFilter' value with any optional fields omitted.
 mkDescribeActivationsFilter ::
   DescribeActivationsFilter
 mkDescribeActivationsFilter =
   DescribeActivationsFilter'
-    { filterKey = Lude.Nothing,
-      filterValues = Lude.Nothing
+    { filterKey = Core.Nothing,
+      filterValues = Core.Nothing
     }
 
 -- | The name of the filter.
 --
 -- /Note:/ Consider using 'filterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafFilterKey :: Lens.Lens' DescribeActivationsFilter (Lude.Maybe DescribeActivationsFilterKeys)
-dafFilterKey = Lens.lens (filterKey :: DescribeActivationsFilter -> Lude.Maybe DescribeActivationsFilterKeys) (\s a -> s {filterKey = a} :: DescribeActivationsFilter)
+dafFilterKey :: Lens.Lens' DescribeActivationsFilter (Core.Maybe Types.DescribeActivationsFilterKeys)
+dafFilterKey = Lens.field @"filterKey"
 {-# DEPRECATED dafFilterKey "Use generic-lens or generic-optics with 'filterKey' instead." #-}
 
 -- | The filter values.
 --
 -- /Note:/ Consider using 'filterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafFilterValues :: Lens.Lens' DescribeActivationsFilter (Lude.Maybe [Lude.Text])
-dafFilterValues = Lens.lens (filterValues :: DescribeActivationsFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {filterValues = a} :: DescribeActivationsFilter)
+dafFilterValues :: Lens.Lens' DescribeActivationsFilter (Core.Maybe [Types.String])
+dafFilterValues = Lens.field @"filterValues"
 {-# DEPRECATED dafFilterValues "Use generic-lens or generic-optics with 'filterValues' instead." #-}
 
-instance Lude.ToJSON DescribeActivationsFilter where
-  toJSON DescribeActivationsFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FilterKey" Lude..=) Lude.<$> filterKey,
-            ("FilterValues" Lude..=) Lude.<$> filterValues
+instance Core.FromJSON DescribeActivationsFilter where
+  toJSON DescribeActivationsFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("FilterKey" Core..=) Core.<$> filterKey,
+            ("FilterValues" Core..=) Core.<$> filterValues
           ]
       )

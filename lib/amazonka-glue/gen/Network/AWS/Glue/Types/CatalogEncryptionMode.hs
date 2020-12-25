@@ -13,46 +13,51 @@
 module Network.AWS.Glue.Types.CatalogEncryptionMode
   ( CatalogEncryptionMode
       ( CatalogEncryptionMode',
-        CEMDisabled,
-        CEMSseKMS
+        CatalogEncryptionModeDisabled,
+        CatalogEncryptionModeSseKms,
+        fromCatalogEncryptionMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CatalogEncryptionMode = CatalogEncryptionMode' Lude.Text
+newtype CatalogEncryptionMode = CatalogEncryptionMode'
+  { fromCatalogEncryptionMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CEMDisabled :: CatalogEncryptionMode
-pattern CEMDisabled = CatalogEncryptionMode' "DISABLED"
+pattern CatalogEncryptionModeDisabled :: CatalogEncryptionMode
+pattern CatalogEncryptionModeDisabled = CatalogEncryptionMode' "DISABLED"
 
-pattern CEMSseKMS :: CatalogEncryptionMode
-pattern CEMSseKMS = CatalogEncryptionMode' "SSE-KMS"
+pattern CatalogEncryptionModeSseKms :: CatalogEncryptionMode
+pattern CatalogEncryptionModeSseKms = CatalogEncryptionMode' "SSE-KMS"
 
 {-# COMPLETE
-  CEMDisabled,
-  CEMSseKMS,
+  CatalogEncryptionModeDisabled,
+  CatalogEncryptionModeSseKms,
   CatalogEncryptionMode'
   #-}

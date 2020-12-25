@@ -17,138 +17,131 @@ module Network.AWS.Organizations.Types.DelegatedAdministrator
     mkDelegatedAdministrator,
 
     -- * Lenses
-    daStatus,
-    daJoinedMethod,
-    daEmail,
-    daARN,
-    daJoinedTimestamp,
+    daArn,
     daDelegationEnabledDate,
-    daName,
+    daEmail,
     daId,
+    daJoinedMethod,
+    daJoinedTimestamp,
+    daName,
+    daStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.AccountJoinedMethod
-import Network.AWS.Organizations.Types.AccountStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.AccountArn as Types
+import qualified Network.AWS.Organizations.Types.AccountId as Types
+import qualified Network.AWS.Organizations.Types.AccountJoinedMethod as Types
+import qualified Network.AWS.Organizations.Types.AccountName as Types
+import qualified Network.AWS.Organizations.Types.AccountStatus as Types
+import qualified Network.AWS.Organizations.Types.Email as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the delegated administrator.
 --
 -- /See:/ 'mkDelegatedAdministrator' smart constructor.
 data DelegatedAdministrator = DelegatedAdministrator'
-  { -- | The status of the delegated administrator's account in the organization.
-    status :: Lude.Maybe AccountStatus,
-    -- | The method by which the delegated administrator's account joined the organization.
-    joinedMethod :: Lude.Maybe AccountJoinedMethod,
-    -- | The email address that is associated with the delegated administrator's AWS account.
-    email :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The Amazon Resource Name (ARN) of the delegated administrator's account.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The date when the delegated administrator's account became a part of the organization.
-    joinedTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The Amazon Resource Name (ARN) of the delegated administrator's account.
+    arn :: Core.Maybe Types.AccountArn,
     -- | The date when the account was made a delegated administrator.
-    delegationEnabledDate :: Lude.Maybe Lude.Timestamp,
-    -- | The friendly name of the delegated administrator's account.
-    name :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    delegationEnabledDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The email address that is associated with the delegated administrator's AWS account.
+    email :: Core.Maybe Types.Email,
     -- | The unique identifier (ID) of the delegated administrator's account.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.AccountId,
+    -- | The method by which the delegated administrator's account joined the organization.
+    joinedMethod :: Core.Maybe Types.AccountJoinedMethod,
+    -- | The date when the delegated administrator's account became a part of the organization.
+    joinedTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The friendly name of the delegated administrator's account.
+    name :: Core.Maybe Types.AccountName,
+    -- | The status of the delegated administrator's account in the organization.
+    status :: Core.Maybe Types.AccountStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DelegatedAdministrator' with the minimum fields required to make a request.
---
--- * 'status' - The status of the delegated administrator's account in the organization.
--- * 'joinedMethod' - The method by which the delegated administrator's account joined the organization.
--- * 'email' - The email address that is associated with the delegated administrator's AWS account.
--- * 'arn' - The Amazon Resource Name (ARN) of the delegated administrator's account.
--- * 'joinedTimestamp' - The date when the delegated administrator's account became a part of the organization.
--- * 'delegationEnabledDate' - The date when the account was made a delegated administrator.
--- * 'name' - The friendly name of the delegated administrator's account.
--- * 'id' - The unique identifier (ID) of the delegated administrator's account.
+-- | Creates a 'DelegatedAdministrator' value with any optional fields omitted.
 mkDelegatedAdministrator ::
   DelegatedAdministrator
 mkDelegatedAdministrator =
   DelegatedAdministrator'
-    { status = Lude.Nothing,
-      joinedMethod = Lude.Nothing,
-      email = Lude.Nothing,
-      arn = Lude.Nothing,
-      joinedTimestamp = Lude.Nothing,
-      delegationEnabledDate = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      delegationEnabledDate = Core.Nothing,
+      email = Core.Nothing,
+      id = Core.Nothing,
+      joinedMethod = Core.Nothing,
+      joinedTimestamp = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the delegated administrator's account in the organization.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daStatus :: Lens.Lens' DelegatedAdministrator (Lude.Maybe AccountStatus)
-daStatus = Lens.lens (status :: DelegatedAdministrator -> Lude.Maybe AccountStatus) (\s a -> s {status = a} :: DelegatedAdministrator)
-{-# DEPRECATED daStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The method by which the delegated administrator's account joined the organization.
---
--- /Note:/ Consider using 'joinedMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daJoinedMethod :: Lens.Lens' DelegatedAdministrator (Lude.Maybe AccountJoinedMethod)
-daJoinedMethod = Lens.lens (joinedMethod :: DelegatedAdministrator -> Lude.Maybe AccountJoinedMethod) (\s a -> s {joinedMethod = a} :: DelegatedAdministrator)
-{-# DEPRECATED daJoinedMethod "Use generic-lens or generic-optics with 'joinedMethod' instead." #-}
-
--- | The email address that is associated with the delegated administrator's AWS account.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daEmail :: Lens.Lens' DelegatedAdministrator (Lude.Maybe (Lude.Sensitive Lude.Text))
-daEmail = Lens.lens (email :: DelegatedAdministrator -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {email = a} :: DelegatedAdministrator)
-{-# DEPRECATED daEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the delegated administrator's account.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daARN :: Lens.Lens' DelegatedAdministrator (Lude.Maybe Lude.Text)
-daARN = Lens.lens (arn :: DelegatedAdministrator -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DelegatedAdministrator)
-{-# DEPRECATED daARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The date when the delegated administrator's account became a part of the organization.
---
--- /Note:/ Consider using 'joinedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daJoinedTimestamp :: Lens.Lens' DelegatedAdministrator (Lude.Maybe Lude.Timestamp)
-daJoinedTimestamp = Lens.lens (joinedTimestamp :: DelegatedAdministrator -> Lude.Maybe Lude.Timestamp) (\s a -> s {joinedTimestamp = a} :: DelegatedAdministrator)
-{-# DEPRECATED daJoinedTimestamp "Use generic-lens or generic-optics with 'joinedTimestamp' instead." #-}
+daArn :: Lens.Lens' DelegatedAdministrator (Core.Maybe Types.AccountArn)
+daArn = Lens.field @"arn"
+{-# DEPRECATED daArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date when the account was made a delegated administrator.
 --
 -- /Note:/ Consider using 'delegationEnabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daDelegationEnabledDate :: Lens.Lens' DelegatedAdministrator (Lude.Maybe Lude.Timestamp)
-daDelegationEnabledDate = Lens.lens (delegationEnabledDate :: DelegatedAdministrator -> Lude.Maybe Lude.Timestamp) (\s a -> s {delegationEnabledDate = a} :: DelegatedAdministrator)
+daDelegationEnabledDate :: Lens.Lens' DelegatedAdministrator (Core.Maybe Core.NominalDiffTime)
+daDelegationEnabledDate = Lens.field @"delegationEnabledDate"
 {-# DEPRECATED daDelegationEnabledDate "Use generic-lens or generic-optics with 'delegationEnabledDate' instead." #-}
 
--- | The friendly name of the delegated administrator's account.
+-- | The email address that is associated with the delegated administrator's AWS account.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daName :: Lens.Lens' DelegatedAdministrator (Lude.Maybe (Lude.Sensitive Lude.Text))
-daName = Lens.lens (name :: DelegatedAdministrator -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {name = a} :: DelegatedAdministrator)
-{-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daEmail :: Lens.Lens' DelegatedAdministrator (Core.Maybe Types.Email)
+daEmail = Lens.field @"email"
+{-# DEPRECATED daEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The unique identifier (ID) of the delegated administrator's account.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daId :: Lens.Lens' DelegatedAdministrator (Lude.Maybe Lude.Text)
-daId = Lens.lens (id :: DelegatedAdministrator -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DelegatedAdministrator)
+daId :: Lens.Lens' DelegatedAdministrator (Core.Maybe Types.AccountId)
+daId = Lens.field @"id"
 {-# DEPRECATED daId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON DelegatedAdministrator where
+-- | The method by which the delegated administrator's account joined the organization.
+--
+-- /Note:/ Consider using 'joinedMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daJoinedMethod :: Lens.Lens' DelegatedAdministrator (Core.Maybe Types.AccountJoinedMethod)
+daJoinedMethod = Lens.field @"joinedMethod"
+{-# DEPRECATED daJoinedMethod "Use generic-lens or generic-optics with 'joinedMethod' instead." #-}
+
+-- | The date when the delegated administrator's account became a part of the organization.
+--
+-- /Note:/ Consider using 'joinedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daJoinedTimestamp :: Lens.Lens' DelegatedAdministrator (Core.Maybe Core.NominalDiffTime)
+daJoinedTimestamp = Lens.field @"joinedTimestamp"
+{-# DEPRECATED daJoinedTimestamp "Use generic-lens or generic-optics with 'joinedTimestamp' instead." #-}
+
+-- | The friendly name of the delegated administrator's account.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daName :: Lens.Lens' DelegatedAdministrator (Core.Maybe Types.AccountName)
+daName = Lens.field @"name"
+{-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The status of the delegated administrator's account in the organization.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daStatus :: Lens.Lens' DelegatedAdministrator (Core.Maybe Types.AccountStatus)
+daStatus = Lens.field @"status"
+{-# DEPRECATED daStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON DelegatedAdministrator where
   parseJSON =
-    Lude.withObject
-      "DelegatedAdministrator"
-      ( \x ->
-          DelegatedAdministrator'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "JoinedMethod")
-            Lude.<*> (x Lude..:? "Email")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "JoinedTimestamp")
-            Lude.<*> (x Lude..:? "DelegationEnabledDate")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "DelegatedAdministrator" Core.$
+      \x ->
+        DelegatedAdministrator'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "DelegationEnabledDate")
+          Core.<*> (x Core..:? "Email")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "JoinedMethod")
+          Core.<*> (x Core..:? "JoinedTimestamp")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Status")

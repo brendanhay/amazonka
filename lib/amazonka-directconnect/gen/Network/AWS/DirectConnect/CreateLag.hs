@@ -25,193 +25,177 @@ module Network.AWS.DirectConnect.CreateLag
     mkCreateLag,
 
     -- ** Request lenses
+    clNumberOfConnections,
+    clLocation,
     clConnectionsBandwidth,
     clLagName,
-    clLocation,
     clChildConnectionTags,
     clConnectionId,
-    clNumberOfConnections,
     clProviderName,
     clTags,
 
     -- * Destructuring the response
-    Lag (..),
-    mkLag,
+    Types.Lag (..),
+    Types.mkLag,
 
     -- ** Response lenses
-    lfLagId,
-    lfConnectionsBandwidth,
-    lfMinimumLinks,
-    lfLagName,
-    lfLocation,
-    lfConnections,
-    lfAwsDevice,
-    lfHasLogicalRedundancy,
-    lfAllowsHostedConnections,
-    lfNumberOfConnections,
-    lfJumboFrameCapable,
-    lfLagState,
-    lfOwnerAccount,
-    lfRegion,
-    lfProviderName,
-    lfAwsDeviceV2,
-    lfTags,
+    Types.lfAllowsHostedConnections,
+    Types.lfAwsDevice,
+    Types.lfAwsDeviceV2,
+    Types.lfConnections,
+    Types.lfConnectionsBandwidth,
+    Types.lfHasLogicalRedundancy,
+    Types.lfJumboFrameCapable,
+    Types.lfLagId,
+    Types.lfLagName,
+    Types.lfLagState,
+    Types.lfLocation,
+    Types.lfMinimumLinks,
+    Types.lfNumberOfConnections,
+    Types.lfOwnerAccount,
+    Types.lfProviderName,
+    Types.lfRegion,
+    Types.lfTags,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLag' smart constructor.
 data CreateLag = CreateLag'
-  { -- | The bandwidth of the individual physical dedicated connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
-    connectionsBandwidth :: Lude.Text,
-    -- | The name of the LAG.
-    lagName :: Lude.Text,
+  { -- | The number of physical dedicated connections initially provisioned and bundled by the LAG.
+    numberOfConnections :: Core.Int,
     -- | The location for the LAG.
-    location :: Lude.Text,
+    location :: Types.LocationCode,
+    -- | The bandwidth of the individual physical dedicated connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
+    connectionsBandwidth :: Types.Bandwidth,
+    -- | The name of the LAG.
+    lagName :: Types.LagName,
     -- | The tags to associate with the automtically created LAGs.
-    childConnectionTags :: Lude.Maybe (Lude.NonEmpty Tag),
+    childConnectionTags :: Core.Maybe (Core.NonEmpty Types.Tag),
     -- | The ID of an existing dedicated connection to migrate to the LAG.
-    connectionId :: Lude.Maybe Lude.Text,
-    -- | The number of physical dedicated connections initially provisioned and bundled by the LAG.
-    numberOfConnections :: Lude.Int,
+    connectionId :: Core.Maybe Types.ConnectionId,
     -- | The name of the service provider associated with the LAG.
-    providerName :: Lude.Maybe Lude.Text,
+    providerName :: Core.Maybe Types.ProviderName,
     -- | The tags to associate with the LAG.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLag' with the minimum fields required to make a request.
---
--- * 'connectionsBandwidth' - The bandwidth of the individual physical dedicated connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
--- * 'lagName' - The name of the LAG.
--- * 'location' - The location for the LAG.
--- * 'childConnectionTags' - The tags to associate with the automtically created LAGs.
--- * 'connectionId' - The ID of an existing dedicated connection to migrate to the LAG.
--- * 'numberOfConnections' - The number of physical dedicated connections initially provisioned and bundled by the LAG.
--- * 'providerName' - The name of the service provider associated with the LAG.
--- * 'tags' - The tags to associate with the LAG.
+-- | Creates a 'CreateLag' value with any optional fields omitted.
 mkCreateLag ::
-  -- | 'connectionsBandwidth'
-  Lude.Text ->
-  -- | 'lagName'
-  Lude.Text ->
-  -- | 'location'
-  Lude.Text ->
   -- | 'numberOfConnections'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'location'
+  Types.LocationCode ->
+  -- | 'connectionsBandwidth'
+  Types.Bandwidth ->
+  -- | 'lagName'
+  Types.LagName ->
   CreateLag
 mkCreateLag
-  pConnectionsBandwidth_
-  pLagName_
-  pLocation_
-  pNumberOfConnections_ =
+  numberOfConnections
+  location
+  connectionsBandwidth
+  lagName =
     CreateLag'
-      { connectionsBandwidth = pConnectionsBandwidth_,
-        lagName = pLagName_,
-        location = pLocation_,
-        childConnectionTags = Lude.Nothing,
-        connectionId = Lude.Nothing,
-        numberOfConnections = pNumberOfConnections_,
-        providerName = Lude.Nothing,
-        tags = Lude.Nothing
+      { numberOfConnections,
+        location,
+        connectionsBandwidth,
+        lagName,
+        childConnectionTags = Core.Nothing,
+        connectionId = Core.Nothing,
+        providerName = Core.Nothing,
+        tags = Core.Nothing
       }
+
+-- | The number of physical dedicated connections initially provisioned and bundled by the LAG.
+--
+-- /Note:/ Consider using 'numberOfConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clNumberOfConnections :: Lens.Lens' CreateLag Core.Int
+clNumberOfConnections = Lens.field @"numberOfConnections"
+{-# DEPRECATED clNumberOfConnections "Use generic-lens or generic-optics with 'numberOfConnections' instead." #-}
+
+-- | The location for the LAG.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clLocation :: Lens.Lens' CreateLag Types.LocationCode
+clLocation = Lens.field @"location"
+{-# DEPRECATED clLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The bandwidth of the individual physical dedicated connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
 --
 -- /Note:/ Consider using 'connectionsBandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clConnectionsBandwidth :: Lens.Lens' CreateLag Lude.Text
-clConnectionsBandwidth = Lens.lens (connectionsBandwidth :: CreateLag -> Lude.Text) (\s a -> s {connectionsBandwidth = a} :: CreateLag)
+clConnectionsBandwidth :: Lens.Lens' CreateLag Types.Bandwidth
+clConnectionsBandwidth = Lens.field @"connectionsBandwidth"
 {-# DEPRECATED clConnectionsBandwidth "Use generic-lens or generic-optics with 'connectionsBandwidth' instead." #-}
 
 -- | The name of the LAG.
 --
 -- /Note:/ Consider using 'lagName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clLagName :: Lens.Lens' CreateLag Lude.Text
-clLagName = Lens.lens (lagName :: CreateLag -> Lude.Text) (\s a -> s {lagName = a} :: CreateLag)
+clLagName :: Lens.Lens' CreateLag Types.LagName
+clLagName = Lens.field @"lagName"
 {-# DEPRECATED clLagName "Use generic-lens or generic-optics with 'lagName' instead." #-}
-
--- | The location for the LAG.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clLocation :: Lens.Lens' CreateLag Lude.Text
-clLocation = Lens.lens (location :: CreateLag -> Lude.Text) (\s a -> s {location = a} :: CreateLag)
-{-# DEPRECATED clLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The tags to associate with the automtically created LAGs.
 --
 -- /Note:/ Consider using 'childConnectionTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clChildConnectionTags :: Lens.Lens' CreateLag (Lude.Maybe (Lude.NonEmpty Tag))
-clChildConnectionTags = Lens.lens (childConnectionTags :: CreateLag -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {childConnectionTags = a} :: CreateLag)
+clChildConnectionTags :: Lens.Lens' CreateLag (Core.Maybe (Core.NonEmpty Types.Tag))
+clChildConnectionTags = Lens.field @"childConnectionTags"
 {-# DEPRECATED clChildConnectionTags "Use generic-lens or generic-optics with 'childConnectionTags' instead." #-}
 
 -- | The ID of an existing dedicated connection to migrate to the LAG.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clConnectionId :: Lens.Lens' CreateLag (Lude.Maybe Lude.Text)
-clConnectionId = Lens.lens (connectionId :: CreateLag -> Lude.Maybe Lude.Text) (\s a -> s {connectionId = a} :: CreateLag)
+clConnectionId :: Lens.Lens' CreateLag (Core.Maybe Types.ConnectionId)
+clConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED clConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
-
--- | The number of physical dedicated connections initially provisioned and bundled by the LAG.
---
--- /Note:/ Consider using 'numberOfConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clNumberOfConnections :: Lens.Lens' CreateLag Lude.Int
-clNumberOfConnections = Lens.lens (numberOfConnections :: CreateLag -> Lude.Int) (\s a -> s {numberOfConnections = a} :: CreateLag)
-{-# DEPRECATED clNumberOfConnections "Use generic-lens or generic-optics with 'numberOfConnections' instead." #-}
 
 -- | The name of the service provider associated with the LAG.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clProviderName :: Lens.Lens' CreateLag (Lude.Maybe Lude.Text)
-clProviderName = Lens.lens (providerName :: CreateLag -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: CreateLag)
+clProviderName :: Lens.Lens' CreateLag (Core.Maybe Types.ProviderName)
+clProviderName = Lens.field @"providerName"
 {-# DEPRECATED clProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The tags to associate with the LAG.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clTags :: Lens.Lens' CreateLag (Lude.Maybe (Lude.NonEmpty Tag))
-clTags = Lens.lens (tags :: CreateLag -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateLag)
+clTags :: Lens.Lens' CreateLag (Core.Maybe (Core.NonEmpty Types.Tag))
+clTags = Lens.field @"tags"
 {-# DEPRECATED clTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateLag where
-  type Rs CreateLag = Lag
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders CreateLag where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.CreateLag" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON CreateLag where
+  toJSON CreateLag {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("numberOfConnections" Core..= numberOfConnections),
+            Core.Just ("location" Core..= location),
+            Core.Just ("connectionsBandwidth" Core..= connectionsBandwidth),
+            Core.Just ("lagName" Core..= lagName),
+            ("childConnectionTags" Core..=) Core.<$> childConnectionTags,
+            ("connectionId" Core..=) Core.<$> connectionId,
+            ("providerName" Core..=) Core.<$> providerName,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToJSON CreateLag where
-  toJSON CreateLag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("connectionsBandwidth" Lude..= connectionsBandwidth),
-            Lude.Just ("lagName" Lude..= lagName),
-            Lude.Just ("location" Lude..= location),
-            ("childConnectionTags" Lude..=) Lude.<$> childConnectionTags,
-            ("connectionId" Lude..=) Lude.<$> connectionId,
-            Lude.Just ("numberOfConnections" Lude..= numberOfConnections),
-            ("providerName" Lude..=) Lude.<$> providerName,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateLag where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLag where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateLag where
+  type Rs CreateLag = Types.Lag
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.CreateLag")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

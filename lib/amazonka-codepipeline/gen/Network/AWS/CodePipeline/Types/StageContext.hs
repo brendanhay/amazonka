@@ -21,35 +21,33 @@ module Network.AWS.CodePipeline.Types.StageContext
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'mkStageContext' smart constructor.
 newtype StageContext = StageContext'
   { -- | The name of the stage.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StageContext' with the minimum fields required to make a request.
---
--- * 'name' - The name of the stage.
+-- | Creates a 'StageContext' value with any optional fields omitted.
 mkStageContext ::
   StageContext
-mkStageContext = StageContext' {name = Lude.Nothing}
+mkStageContext = StageContext' {name = Core.Nothing}
 
 -- | The name of the stage.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scName :: Lens.Lens' StageContext (Lude.Maybe Lude.Text)
-scName = Lens.lens (name :: StageContext -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StageContext)
+scName :: Lens.Lens' StageContext (Core.Maybe Types.Name)
+scName = Lens.field @"name"
 {-# DEPRECATED scName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON StageContext where
+instance Core.FromJSON StageContext where
   parseJSON =
-    Lude.withObject
-      "StageContext"
-      (\x -> StageContext' Lude.<$> (x Lude..:? "name"))
+    Core.withObject "StageContext" Core.$
+      \x -> StageContext' Core.<$> (x Core..:? "name")

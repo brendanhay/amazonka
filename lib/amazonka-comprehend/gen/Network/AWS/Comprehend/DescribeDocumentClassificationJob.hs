@@ -27,113 +27,102 @@ module Network.AWS.Comprehend.DescribeDocumentClassificationJob
     mkDescribeDocumentClassificationJobResponse,
 
     -- ** Response lenses
-    ddcjrsDocumentClassificationJobProperties,
-    ddcjrsResponseStatus,
+    ddcjrrsDocumentClassificationJobProperties,
+    ddcjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDocumentClassificationJob' smart constructor.
 newtype DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDocumentClassificationJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+-- | Creates a 'DescribeDocumentClassificationJob' value with any optional fields omitted.
 mkDescribeDocumentClassificationJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   DescribeDocumentClassificationJob
-mkDescribeDocumentClassificationJob pJobId_ =
-  DescribeDocumentClassificationJob' {jobId = pJobId_}
+mkDescribeDocumentClassificationJob jobId =
+  DescribeDocumentClassificationJob' {jobId}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcjJobId :: Lens.Lens' DescribeDocumentClassificationJob Lude.Text
-ddcjJobId = Lens.lens (jobId :: DescribeDocumentClassificationJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeDocumentClassificationJob)
+ddcjJobId :: Lens.Lens' DescribeDocumentClassificationJob Types.JobId
+ddcjJobId = Lens.field @"jobId"
 {-# DEPRECATED ddcjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest DescribeDocumentClassificationJob where
+instance Core.FromJSON DescribeDocumentClassificationJob where
+  toJSON DescribeDocumentClassificationJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest DescribeDocumentClassificationJob where
   type
     Rs DescribeDocumentClassificationJob =
       DescribeDocumentClassificationJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.DescribeDocumentClassificationJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDocumentClassificationJobResponse'
-            Lude.<$> (x Lude..?> "DocumentClassificationJobProperties")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DocumentClassificationJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDocumentClassificationJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.DescribeDocumentClassificationJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDocumentClassificationJob where
-  toJSON DescribeDocumentClassificationJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath DescribeDocumentClassificationJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDocumentClassificationJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeDocumentClassificationJobResponse' smart constructor.
 data DescribeDocumentClassificationJobResponse = DescribeDocumentClassificationJobResponse'
   { -- | An object that describes the properties associated with the document classification job.
-    documentClassificationJobProperties :: Lude.Maybe DocumentClassificationJobProperties,
+    documentClassificationJobProperties :: Core.Maybe Types.DocumentClassificationJobProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDocumentClassificationJobResponse' with the minimum fields required to make a request.
---
--- * 'documentClassificationJobProperties' - An object that describes the properties associated with the document classification job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDocumentClassificationJobResponse' value with any optional fields omitted.
 mkDescribeDocumentClassificationJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDocumentClassificationJobResponse
-mkDescribeDocumentClassificationJobResponse pResponseStatus_ =
+mkDescribeDocumentClassificationJobResponse responseStatus =
   DescribeDocumentClassificationJobResponse'
     { documentClassificationJobProperties =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the properties associated with the document classification job.
 --
 -- /Note:/ Consider using 'documentClassificationJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcjrsDocumentClassificationJobProperties :: Lens.Lens' DescribeDocumentClassificationJobResponse (Lude.Maybe DocumentClassificationJobProperties)
-ddcjrsDocumentClassificationJobProperties = Lens.lens (documentClassificationJobProperties :: DescribeDocumentClassificationJobResponse -> Lude.Maybe DocumentClassificationJobProperties) (\s a -> s {documentClassificationJobProperties = a} :: DescribeDocumentClassificationJobResponse)
-{-# DEPRECATED ddcjrsDocumentClassificationJobProperties "Use generic-lens or generic-optics with 'documentClassificationJobProperties' instead." #-}
+ddcjrrsDocumentClassificationJobProperties :: Lens.Lens' DescribeDocumentClassificationJobResponse (Core.Maybe Types.DocumentClassificationJobProperties)
+ddcjrrsDocumentClassificationJobProperties = Lens.field @"documentClassificationJobProperties"
+{-# DEPRECATED ddcjrrsDocumentClassificationJobProperties "Use generic-lens or generic-optics with 'documentClassificationJobProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcjrsResponseStatus :: Lens.Lens' DescribeDocumentClassificationJobResponse Lude.Int
-ddcjrsResponseStatus = Lens.lens (responseStatus :: DescribeDocumentClassificationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDocumentClassificationJobResponse)
-{-# DEPRECATED ddcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcjrrsResponseStatus :: Lens.Lens' DescribeDocumentClassificationJobResponse Core.Int
+ddcjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddcjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

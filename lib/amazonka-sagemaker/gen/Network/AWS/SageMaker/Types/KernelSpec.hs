@@ -23,59 +23,55 @@ module Network.AWS.SageMaker.Types.KernelSpec
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.DisplayName as Types
+import qualified Network.AWS.SageMaker.Types.Name as Types
 
 -- | The specification of a Jupyter kernel.
 --
 -- /See:/ 'mkKernelSpec' smart constructor.
 data KernelSpec = KernelSpec'
   { -- | The name of the kernel.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The display name of the kernel.
-    displayName :: Lude.Maybe Lude.Text
+    displayName :: Core.Maybe Types.DisplayName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KernelSpec' with the minimum fields required to make a request.
---
--- * 'name' - The name of the kernel.
--- * 'displayName' - The display name of the kernel.
+-- | Creates a 'KernelSpec' value with any optional fields omitted.
 mkKernelSpec ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   KernelSpec
-mkKernelSpec pName_ =
-  KernelSpec' {name = pName_, displayName = Lude.Nothing}
+mkKernelSpec name = KernelSpec' {name, displayName = Core.Nothing}
 
 -- | The name of the kernel.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksName :: Lens.Lens' KernelSpec Lude.Text
-ksName = Lens.lens (name :: KernelSpec -> Lude.Text) (\s a -> s {name = a} :: KernelSpec)
+ksName :: Lens.Lens' KernelSpec Types.Name
+ksName = Lens.field @"name"
 {-# DEPRECATED ksName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The display name of the kernel.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksDisplayName :: Lens.Lens' KernelSpec (Lude.Maybe Lude.Text)
-ksDisplayName = Lens.lens (displayName :: KernelSpec -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: KernelSpec)
+ksDisplayName :: Lens.Lens' KernelSpec (Core.Maybe Types.DisplayName)
+ksDisplayName = Lens.field @"displayName"
 {-# DEPRECATED ksDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance Lude.FromJSON KernelSpec where
-  parseJSON =
-    Lude.withObject
-      "KernelSpec"
-      ( \x ->
-          KernelSpec'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..:? "DisplayName")
-      )
-
-instance Lude.ToJSON KernelSpec where
-  toJSON KernelSpec' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            ("DisplayName" Lude..=) Lude.<$> displayName
+instance Core.FromJSON KernelSpec where
+  toJSON KernelSpec {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("DisplayName" Core..=) Core.<$> displayName
           ]
       )
+
+instance Core.FromJSON KernelSpec where
+  parseJSON =
+    Core.withObject "KernelSpec" Core.$
+      \x ->
+        KernelSpec'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..:? "DisplayName")

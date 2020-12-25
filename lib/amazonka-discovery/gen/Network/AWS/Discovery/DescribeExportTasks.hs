@@ -22,66 +22,63 @@ module Network.AWS.Discovery.DescribeExportTasks
     mkDescribeExportTasks,
 
     -- ** Request lenses
-    detFilters,
-    detNextToken,
     detExportIds,
+    detFilters,
     detMaxResults,
+    detNextToken,
 
     -- * Destructuring the response
     DescribeExportTasksResponse (..),
     mkDescribeExportTasksResponse,
 
     -- ** Response lenses
-    detrsNextToken,
-    detrsExportsInfo,
-    detrsResponseStatus,
+    detrrsExportsInfo,
+    detrrsNextToken,
+    detrrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | One or more filters.
+  { -- | One or more unique identifiers used to query the status of an export request.
+    exportIds :: Core.Maybe [Types.ConfigurationsExportId],
+    -- | One or more filters.
     --
     --
     --     * @AgentId@ - ID of the agent whose collected data will be exported
-    filters :: Lude.Maybe [ExportFilter],
-    -- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | One or more unique identifiers used to query the status of an export request.
-    exportIds :: Lude.Maybe [Lude.Text],
+    filters :: Core.Maybe [Types.ExportFilter],
     -- | The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @AgentId@ - ID of the agent whose collected data will be exported
---
---
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
--- * 'exportIds' - One or more unique identifiers used to query the status of an export request.
--- * 'maxResults' - The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
+-- | Creates a 'DescribeExportTasks' value with any optional fields omitted.
 mkDescribeExportTasks ::
   DescribeExportTasks
 mkDescribeExportTasks =
   DescribeExportTasks'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      exportIds = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { exportIds = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | One or more unique identifiers used to query the status of an export request.
+--
+-- /Note:/ Consider using 'exportIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detExportIds :: Lens.Lens' DescribeExportTasks (Core.Maybe [Types.ConfigurationsExportId])
+detExportIds = Lens.field @"exportIds"
+{-# DEPRECATED detExportIds "Use generic-lens or generic-optics with 'exportIds' instead." #-}
 
 -- | One or more filters.
 --
@@ -91,127 +88,113 @@ mkDescribeExportTasks =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detFilters :: Lens.Lens' DescribeExportTasks (Lude.Maybe [ExportFilter])
-detFilters = Lens.lens (filters :: DescribeExportTasks -> Lude.Maybe [ExportFilter]) (\s a -> s {filters = a} :: DescribeExportTasks)
+detFilters :: Lens.Lens' DescribeExportTasks (Core.Maybe [Types.ExportFilter])
+detFilters = Lens.field @"filters"
 {-# DEPRECATED detFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detNextToken :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Text)
-detNextToken = Lens.lens (nextToken :: DescribeExportTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeExportTasks)
-{-# DEPRECATED detNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | One or more unique identifiers used to query the status of an export request.
---
--- /Note:/ Consider using 'exportIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detExportIds :: Lens.Lens' DescribeExportTasks (Lude.Maybe [Lude.Text])
-detExportIds = Lens.lens (exportIds :: DescribeExportTasks -> Lude.Maybe [Lude.Text]) (\s a -> s {exportIds = a} :: DescribeExportTasks)
-{-# DEPRECATED detExportIds "Use generic-lens or generic-optics with 'exportIds' instead." #-}
 
 -- | The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detMaxResults :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Int)
-detMaxResults = Lens.lens (maxResults :: DescribeExportTasks -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeExportTasks)
+detMaxResults :: Lens.Lens' DescribeExportTasks (Core.Maybe Core.Int)
+detMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED detMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeExportTasks where
-  page rq rs
-    | Page.stop (rs Lens.^. detrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. detrsExportsInfo) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& detNextToken Lens..~ rs Lens.^. detrsNextToken
+-- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detNextToken :: Lens.Lens' DescribeExportTasks (Core.Maybe Types.NextToken)
+detNextToken = Lens.field @"nextToken"
+{-# DEPRECATED detNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeExportTasks where
+instance Core.FromJSON DescribeExportTasks where
+  toJSON DescribeExportTasks {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("exportIds" Core..=) Core.<$> exportIds,
+            ("filters" Core..=) Core.<$> filters,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeExportTasks where
   type Rs DescribeExportTasks = DescribeExportTasksResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.DescribeExportTasks"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeExportTasksResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "exportsInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "exportsInfo")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeExportTasks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.DescribeExportTasks" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeExportTasks where
-  toJSON DescribeExportTasks' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("filters" Lude..=) Lude.<$> filters,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("exportIds" Lude..=) Lude.<$> exportIds,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeExportTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeExportTasks where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeExportTasks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"exportsInfo" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { -- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
-    exportsInfo :: Lude.Maybe [ExportInfo],
+  { -- | Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
+    exportsInfo :: Core.Maybe [Types.ExportInfo],
+    -- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
--- * 'exportsInfo' - Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeExportTasksResponse' value with any optional fields omitted.
 mkDescribeExportTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeExportTasksResponse
-mkDescribeExportTasksResponse pResponseStatus_ =
+mkDescribeExportTasksResponse responseStatus =
   DescribeExportTasksResponse'
-    { nextToken = Lude.Nothing,
-      exportsInfo = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exportsInfo = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsNextToken :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe Lude.Text)
-detrsNextToken = Lens.lens (nextToken :: DescribeExportTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 --
 -- /Note:/ Consider using 'exportsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsExportsInfo :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe [ExportInfo])
-detrsExportsInfo = Lens.lens (exportsInfo :: DescribeExportTasksResponse -> Lude.Maybe [ExportInfo]) (\s a -> s {exportsInfo = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsExportsInfo "Use generic-lens or generic-optics with 'exportsInfo' instead." #-}
+detrrsExportsInfo :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe [Types.ExportInfo])
+detrrsExportsInfo = Lens.field @"exportsInfo"
+{-# DEPRECATED detrrsExportsInfo "Use generic-lens or generic-optics with 'exportsInfo' instead." #-}
+
+-- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrrsNextToken :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe Types.NextToken)
+detrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED detrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DescribeExportTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+detrrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Core.Int
+detrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED detrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

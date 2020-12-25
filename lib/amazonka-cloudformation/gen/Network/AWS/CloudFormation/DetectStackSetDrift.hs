@@ -36,127 +36,123 @@ module Network.AWS.CloudFormation.DetectStackSetDrift
     mkDetectStackSetDrift,
 
     -- ** Request lenses
-    dssdOperationPreferences,
-    dssdOperationId,
     dssdStackSetName,
+    dssdOperationId,
+    dssdOperationPreferences,
 
     -- * Destructuring the response
     DetectStackSetDriftResponse (..),
     mkDetectStackSetDriftResponse,
 
     -- ** Response lenses
-    dssdrsOperationId,
-    dssdrsResponseStatus,
+    dssdrrsOperationId,
+    dssdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectStackSetDrift' smart constructor.
 data DetectStackSetDrift = DetectStackSetDrift'
-  { operationPreferences :: Lude.Maybe StackSetOperationPreferences,
+  { -- | The name of the stack set on which to perform the drift detection operation.
+    stackSetName :: Types.StackSetName,
     -- | /The ID of the stack set operation./
-    operationId :: Lude.Maybe Lude.Text,
-    -- | The name of the stack set on which to perform the drift detection operation.
-    stackSetName :: Lude.Text
+    operationId :: Core.Maybe Types.OperationId,
+    operationPreferences :: Core.Maybe Types.StackSetOperationPreferences
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectStackSetDrift' with the minimum fields required to make a request.
---
--- * 'operationPreferences' -
--- * 'operationId' - /The ID of the stack set operation./
--- * 'stackSetName' - The name of the stack set on which to perform the drift detection operation.
+-- | Creates a 'DetectStackSetDrift' value with any optional fields omitted.
 mkDetectStackSetDrift ::
   -- | 'stackSetName'
-  Lude.Text ->
+  Types.StackSetName ->
   DetectStackSetDrift
-mkDetectStackSetDrift pStackSetName_ =
+mkDetectStackSetDrift stackSetName =
   DetectStackSetDrift'
-    { operationPreferences = Lude.Nothing,
-      operationId = Lude.Nothing,
-      stackSetName = pStackSetName_
+    { stackSetName,
+      operationId = Core.Nothing,
+      operationPreferences = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssdOperationPreferences :: Lens.Lens' DetectStackSetDrift (Lude.Maybe StackSetOperationPreferences)
-dssdOperationPreferences = Lens.lens (operationPreferences :: DetectStackSetDrift -> Lude.Maybe StackSetOperationPreferences) (\s a -> s {operationPreferences = a} :: DetectStackSetDrift)
-{-# DEPRECATED dssdOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
-
--- | /The ID of the stack set operation./
---
--- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssdOperationId :: Lens.Lens' DetectStackSetDrift (Lude.Maybe Lude.Text)
-dssdOperationId = Lens.lens (operationId :: DetectStackSetDrift -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: DetectStackSetDrift)
-{-# DEPRECATED dssdOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The name of the stack set on which to perform the drift detection operation.
 --
 -- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssdStackSetName :: Lens.Lens' DetectStackSetDrift Lude.Text
-dssdStackSetName = Lens.lens (stackSetName :: DetectStackSetDrift -> Lude.Text) (\s a -> s {stackSetName = a} :: DetectStackSetDrift)
+dssdStackSetName :: Lens.Lens' DetectStackSetDrift Types.StackSetName
+dssdStackSetName = Lens.field @"stackSetName"
 {-# DEPRECATED dssdStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
-instance Lude.AWSRequest DetectStackSetDrift where
+-- | /The ID of the stack set operation./
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssdOperationId :: Lens.Lens' DetectStackSetDrift (Core.Maybe Types.OperationId)
+dssdOperationId = Lens.field @"operationId"
+{-# DEPRECATED dssdOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssdOperationPreferences :: Lens.Lens' DetectStackSetDrift (Core.Maybe Types.StackSetOperationPreferences)
+dssdOperationPreferences = Lens.field @"operationPreferences"
+{-# DEPRECATED dssdOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
+
+instance Core.AWSRequest DetectStackSetDrift where
   type Rs DetectStackSetDrift = DetectStackSetDriftResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DetectStackSetDrift")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackSetName" stackSetName)
+                Core.<> (Core.toQueryValue "OperationId" Core.<$> operationId)
+                Core.<> ( Core.toQueryValue "OperationPreferences"
+                            Core.<$> operationPreferences
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DetectStackSetDriftResult"
       ( \s h x ->
           DetectStackSetDriftResponse'
-            Lude.<$> (x Lude..@? "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectStackSetDrift where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DetectStackSetDrift where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectStackSetDrift where
-  toQuery DetectStackSetDrift' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DetectStackSetDrift" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "OperationPreferences" Lude.=: operationPreferences,
-        "OperationId" Lude.=: operationId,
-        "StackSetName" Lude.=: stackSetName
-      ]
 
 -- | /See:/ 'mkDetectStackSetDriftResponse' smart constructor.
 data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
   { -- | The ID of the drift detection stack set operation.
     --
     -- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation.
-    operationId :: Lude.Maybe Lude.Text,
+    operationId :: Core.Maybe Types.ClientRequestToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectStackSetDriftResponse' with the minimum fields required to make a request.
---
--- * 'operationId' - The ID of the drift detection stack set operation.
---
--- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectStackSetDriftResponse' value with any optional fields omitted.
 mkDetectStackSetDriftResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectStackSetDriftResponse
-mkDetectStackSetDriftResponse pResponseStatus_ =
+mkDetectStackSetDriftResponse responseStatus =
   DetectStackSetDriftResponse'
-    { operationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the drift detection stack set operation.
@@ -164,13 +160,13 @@ mkDetectStackSetDriftResponse pResponseStatus_ =
 -- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssdrsOperationId :: Lens.Lens' DetectStackSetDriftResponse (Lude.Maybe Lude.Text)
-dssdrsOperationId = Lens.lens (operationId :: DetectStackSetDriftResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: DetectStackSetDriftResponse)
-{-# DEPRECATED dssdrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+dssdrrsOperationId :: Lens.Lens' DetectStackSetDriftResponse (Core.Maybe Types.ClientRequestToken)
+dssdrrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED dssdrrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssdrsResponseStatus :: Lens.Lens' DetectStackSetDriftResponse Lude.Int
-dssdrsResponseStatus = Lens.lens (responseStatus :: DetectStackSetDriftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectStackSetDriftResponse)
-{-# DEPRECATED dssdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dssdrrsResponseStatus :: Lens.Lens' DetectStackSetDriftResponse Core.Int
+dssdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dssdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

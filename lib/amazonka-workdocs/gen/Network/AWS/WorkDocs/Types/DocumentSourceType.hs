@@ -13,46 +13,51 @@
 module Network.AWS.WorkDocs.Types.DocumentSourceType
   ( DocumentSourceType
       ( DocumentSourceType',
-        Original,
-        WithComments
+        DocumentSourceTypeOriginal,
+        DocumentSourceTypeWithComments,
+        fromDocumentSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentSourceType = DocumentSourceType' Lude.Text
+newtype DocumentSourceType = DocumentSourceType'
+  { fromDocumentSourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Original :: DocumentSourceType
-pattern Original = DocumentSourceType' "ORIGINAL"
+pattern DocumentSourceTypeOriginal :: DocumentSourceType
+pattern DocumentSourceTypeOriginal = DocumentSourceType' "ORIGINAL"
 
-pattern WithComments :: DocumentSourceType
-pattern WithComments = DocumentSourceType' "WITH_COMMENTS"
+pattern DocumentSourceTypeWithComments :: DocumentSourceType
+pattern DocumentSourceTypeWithComments = DocumentSourceType' "WITH_COMMENTS"
 
 {-# COMPLETE
-  Original,
-  WithComments,
+  DocumentSourceTypeOriginal,
+  DocumentSourceTypeWithComments,
   DocumentSourceType'
   #-}

@@ -13,61 +13,66 @@
 module Network.AWS.SMS.Types.ServerCatalogStatus
   ( ServerCatalogStatus
       ( ServerCatalogStatus',
-        SCSNotImported,
-        SCSImporting,
-        SCSAvailable,
-        SCSDeleted,
-        SCSExpired
+        ServerCatalogStatusNotImported,
+        ServerCatalogStatusImporting,
+        ServerCatalogStatusAvailable,
+        ServerCatalogStatusDeleted,
+        ServerCatalogStatusExpired,
+        fromServerCatalogStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServerCatalogStatus = ServerCatalogStatus' Lude.Text
+newtype ServerCatalogStatus = ServerCatalogStatus'
+  { fromServerCatalogStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SCSNotImported :: ServerCatalogStatus
-pattern SCSNotImported = ServerCatalogStatus' "NOT_IMPORTED"
+pattern ServerCatalogStatusNotImported :: ServerCatalogStatus
+pattern ServerCatalogStatusNotImported = ServerCatalogStatus' "NOT_IMPORTED"
 
-pattern SCSImporting :: ServerCatalogStatus
-pattern SCSImporting = ServerCatalogStatus' "IMPORTING"
+pattern ServerCatalogStatusImporting :: ServerCatalogStatus
+pattern ServerCatalogStatusImporting = ServerCatalogStatus' "IMPORTING"
 
-pattern SCSAvailable :: ServerCatalogStatus
-pattern SCSAvailable = ServerCatalogStatus' "AVAILABLE"
+pattern ServerCatalogStatusAvailable :: ServerCatalogStatus
+pattern ServerCatalogStatusAvailable = ServerCatalogStatus' "AVAILABLE"
 
-pattern SCSDeleted :: ServerCatalogStatus
-pattern SCSDeleted = ServerCatalogStatus' "DELETED"
+pattern ServerCatalogStatusDeleted :: ServerCatalogStatus
+pattern ServerCatalogStatusDeleted = ServerCatalogStatus' "DELETED"
 
-pattern SCSExpired :: ServerCatalogStatus
-pattern SCSExpired = ServerCatalogStatus' "EXPIRED"
+pattern ServerCatalogStatusExpired :: ServerCatalogStatus
+pattern ServerCatalogStatusExpired = ServerCatalogStatus' "EXPIRED"
 
 {-# COMPLETE
-  SCSNotImported,
-  SCSImporting,
-  SCSAvailable,
-  SCSDeleted,
-  SCSExpired,
+  ServerCatalogStatusNotImported,
+  ServerCatalogStatusImporting,
+  ServerCatalogStatusAvailable,
+  ServerCatalogStatusDeleted,
+  ServerCatalogStatusExpired,
   ServerCatalogStatus'
   #-}

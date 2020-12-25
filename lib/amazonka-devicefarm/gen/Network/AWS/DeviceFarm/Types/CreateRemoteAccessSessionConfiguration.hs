@@ -18,58 +18,56 @@ module Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration
 
     -- * Lenses
     crascBillingMethod,
-    crascVpceConfigurationARNs,
+    crascVpceConfigurationArns,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.BillingMethod
+import qualified Network.AWS.DeviceFarm.Types.AmazonResourceName as Types
+import qualified Network.AWS.DeviceFarm.Types.BillingMethod as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration settings for a remote access session, including billing method.
 --
 -- /See:/ 'mkCreateRemoteAccessSessionConfiguration' smart constructor.
 data CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfiguration'
   { -- | The billing method for the remote access session.
-    billingMethod :: Lude.Maybe BillingMethod,
+    billingMethod :: Core.Maybe Types.BillingMethod,
     -- | An array of ARNs included in the VPC endpoint configuration.
-    vpceConfigurationARNs :: Lude.Maybe [Lude.Text]
+    vpceConfigurationArns :: Core.Maybe [Types.AmazonResourceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRemoteAccessSessionConfiguration' with the minimum fields required to make a request.
---
--- * 'billingMethod' - The billing method for the remote access session.
--- * 'vpceConfigurationARNs' - An array of ARNs included in the VPC endpoint configuration.
+-- | Creates a 'CreateRemoteAccessSessionConfiguration' value with any optional fields omitted.
 mkCreateRemoteAccessSessionConfiguration ::
   CreateRemoteAccessSessionConfiguration
 mkCreateRemoteAccessSessionConfiguration =
   CreateRemoteAccessSessionConfiguration'
     { billingMethod =
-        Lude.Nothing,
-      vpceConfigurationARNs = Lude.Nothing
+        Core.Nothing,
+      vpceConfigurationArns = Core.Nothing
     }
 
 -- | The billing method for the remote access session.
 --
 -- /Note:/ Consider using 'billingMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crascBillingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Lude.Maybe BillingMethod)
-crascBillingMethod = Lens.lens (billingMethod :: CreateRemoteAccessSessionConfiguration -> Lude.Maybe BillingMethod) (\s a -> s {billingMethod = a} :: CreateRemoteAccessSessionConfiguration)
+crascBillingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Core.Maybe Types.BillingMethod)
+crascBillingMethod = Lens.field @"billingMethod"
 {-# DEPRECATED crascBillingMethod "Use generic-lens or generic-optics with 'billingMethod' instead." #-}
 
 -- | An array of ARNs included in the VPC endpoint configuration.
 --
--- /Note:/ Consider using 'vpceConfigurationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crascVpceConfigurationARNs :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Lude.Maybe [Lude.Text])
-crascVpceConfigurationARNs = Lens.lens (vpceConfigurationARNs :: CreateRemoteAccessSessionConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {vpceConfigurationARNs = a} :: CreateRemoteAccessSessionConfiguration)
-{-# DEPRECATED crascVpceConfigurationARNs "Use generic-lens or generic-optics with 'vpceConfigurationARNs' instead." #-}
+-- /Note:/ Consider using 'vpceConfigurationArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crascVpceConfigurationArns :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Core.Maybe [Types.AmazonResourceName])
+crascVpceConfigurationArns = Lens.field @"vpceConfigurationArns"
+{-# DEPRECATED crascVpceConfigurationArns "Use generic-lens or generic-optics with 'vpceConfigurationArns' instead." #-}
 
-instance Lude.ToJSON CreateRemoteAccessSessionConfiguration where
-  toJSON CreateRemoteAccessSessionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("billingMethod" Lude..=) Lude.<$> billingMethod,
-            ("vpceConfigurationArns" Lude..=) Lude.<$> vpceConfigurationARNs
+instance Core.FromJSON CreateRemoteAccessSessionConfiguration where
+  toJSON CreateRemoteAccessSessionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("billingMethod" Core..=) Core.<$> billingMethod,
+            ("vpceConfigurationArns" Core..=) Core.<$> vpceConfigurationArns
           ]
       )

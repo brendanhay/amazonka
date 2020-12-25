@@ -21,152 +21,143 @@ module Network.AWS.ElasticSearch.DescribePackages
 
     -- ** Request lenses
     dpFilters,
-    dpNextToken,
     dpMaxResults,
+    dpNextToken,
 
     -- * Destructuring the response
     DescribePackagesResponse (..),
     mkDescribePackagesResponse,
 
     -- ** Response lenses
-    dprsPackageDetailsList,
-    dprsNextToken,
-    dprsResponseStatus,
+    dprrsNextToken,
+    dprrsPackageDetailsList,
+    dprrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for request parameters to @'DescribePackage' @ operation.
 --
 -- /See:/ 'mkDescribePackages' smart constructor.
 data DescribePackages = DescribePackages'
   { -- | Only returns packages that match the @DescribePackagesFilterList@ values.
-    filters :: Lude.Maybe [DescribePackagesFilter],
-    -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.DescribePackagesFilter],
     -- | Limits results to a maximum number of packages.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePackages' with the minimum fields required to make a request.
---
--- * 'filters' - Only returns packages that match the @DescribePackagesFilterList@ values.
--- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
--- * 'maxResults' - Limits results to a maximum number of packages.
+-- | Creates a 'DescribePackages' value with any optional fields omitted.
 mkDescribePackages ::
   DescribePackages
 mkDescribePackages =
   DescribePackages'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Only returns packages that match the @DescribePackagesFilterList@ values.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpFilters :: Lens.Lens' DescribePackages (Lude.Maybe [DescribePackagesFilter])
-dpFilters = Lens.lens (filters :: DescribePackages -> Lude.Maybe [DescribePackagesFilter]) (\s a -> s {filters = a} :: DescribePackages)
+dpFilters :: Lens.Lens' DescribePackages (Core.Maybe [Types.DescribePackagesFilter])
+dpFilters = Lens.field @"filters"
 {-# DEPRECATED dpFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpNextToken :: Lens.Lens' DescribePackages (Lude.Maybe Lude.Text)
-dpNextToken = Lens.lens (nextToken :: DescribePackages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePackages)
-{-# DEPRECATED dpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limits results to a maximum number of packages.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpMaxResults :: Lens.Lens' DescribePackages (Lude.Maybe Lude.Int)
-dpMaxResults = Lens.lens (maxResults :: DescribePackages -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribePackages)
+dpMaxResults :: Lens.Lens' DescribePackages (Core.Maybe Core.Int)
+dpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DescribePackages where
-  type Rs DescribePackages = DescribePackagesResponse
-  request = Req.postJSON elasticSearchService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribePackagesResponse'
-            Lude.<$> (x Lude..?> "PackageDetailsList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpNextToken :: Lens.Lens' DescribePackages (Core.Maybe Types.NextToken)
+dpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.ToHeaders DescribePackages where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DescribePackages where
-  toJSON DescribePackages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON DescribePackages where
+  toJSON DescribePackages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Lude.ToPath DescribePackages where
-  toPath = Lude.const "/2015-01-01/packages/describe"
-
-instance Lude.ToQuery DescribePackages where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribePackages where
+  type Rs DescribePackages = DescribePackagesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2015-01-01/packages/describe",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribePackagesResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "PackageDetailsList")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | Container for response returned by @'DescribePackages' @ operation.
 --
 -- /See:/ 'mkDescribePackagesResponse' smart constructor.
 data DescribePackagesResponse = DescribePackagesResponse'
-  { -- | List of @PackageDetails@ objects.
-    packageDetailsList :: Lude.Maybe [PackageDetails],
-    nextToken :: Lude.Maybe Lude.Text,
+  { nextToken :: Core.Maybe Types.String,
+    -- | List of @PackageDetails@ objects.
+    packageDetailsList :: Core.Maybe [Types.PackageDetails],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribePackagesResponse' with the minimum fields required to make a request.
---
--- * 'packageDetailsList' - List of @PackageDetails@ objects.
--- * 'nextToken' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePackagesResponse' value with any optional fields omitted.
 mkDescribePackagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePackagesResponse
-mkDescribePackagesResponse pResponseStatus_ =
+mkDescribePackagesResponse responseStatus =
   DescribePackagesResponse'
-    { packageDetailsList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      packageDetailsList = Core.Nothing,
+      responseStatus
     }
-
--- | List of @PackageDetails@ objects.
---
--- /Note:/ Consider using 'packageDetailsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsPackageDetailsList :: Lens.Lens' DescribePackagesResponse (Lude.Maybe [PackageDetails])
-dprsPackageDetailsList = Lens.lens (packageDetailsList :: DescribePackagesResponse -> Lude.Maybe [PackageDetails]) (\s a -> s {packageDetailsList = a} :: DescribePackagesResponse)
-{-# DEPRECATED dprsPackageDetailsList "Use generic-lens or generic-optics with 'packageDetailsList' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsNextToken :: Lens.Lens' DescribePackagesResponse (Lude.Maybe Lude.Text)
-dprsNextToken = Lens.lens (nextToken :: DescribePackagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePackagesResponse)
-{-# DEPRECATED dprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dprrsNextToken :: Lens.Lens' DescribePackagesResponse (Core.Maybe Types.String)
+dprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | List of @PackageDetails@ objects.
+--
+-- /Note:/ Consider using 'packageDetailsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprrsPackageDetailsList :: Lens.Lens' DescribePackagesResponse (Core.Maybe [Types.PackageDetails])
+dprrsPackageDetailsList = Lens.field @"packageDetailsList"
+{-# DEPRECATED dprrsPackageDetailsList "Use generic-lens or generic-optics with 'packageDetailsList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DescribePackagesResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DescribePackagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePackagesResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DescribePackagesResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

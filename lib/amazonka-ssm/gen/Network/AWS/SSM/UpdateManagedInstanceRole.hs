@@ -21,125 +21,107 @@ module Network.AWS.SSM.UpdateManagedInstanceRole
 
     -- ** Request lenses
     umirInstanceId,
-    umirIAMRole,
+    umirIamRole,
 
     -- * Destructuring the response
     UpdateManagedInstanceRoleResponse (..),
     mkUpdateManagedInstanceRoleResponse,
 
     -- ** Response lenses
-    umirrsResponseStatus,
+    umirrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkUpdateManagedInstanceRole' smart constructor.
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
   { -- | The ID of the managed instance where you want to update the role.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The IAM role you want to assign or change.
-    iamRole :: Lude.Text
+    iamRole :: Types.IamRole
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateManagedInstanceRole' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the managed instance where you want to update the role.
--- * 'iamRole' - The IAM role you want to assign or change.
+-- | Creates a 'UpdateManagedInstanceRole' value with any optional fields omitted.
 mkUpdateManagedInstanceRole ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'iamRole'
-  Lude.Text ->
+  Types.IamRole ->
   UpdateManagedInstanceRole
-mkUpdateManagedInstanceRole pInstanceId_ pIAMRole_ =
-  UpdateManagedInstanceRole'
-    { instanceId = pInstanceId_,
-      iamRole = pIAMRole_
-    }
+mkUpdateManagedInstanceRole instanceId iamRole =
+  UpdateManagedInstanceRole' {instanceId, iamRole}
 
 -- | The ID of the managed instance where you want to update the role.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umirInstanceId :: Lens.Lens' UpdateManagedInstanceRole Lude.Text
-umirInstanceId = Lens.lens (instanceId :: UpdateManagedInstanceRole -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateManagedInstanceRole)
+umirInstanceId :: Lens.Lens' UpdateManagedInstanceRole Types.InstanceId
+umirInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED umirInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The IAM role you want to assign or change.
 --
 -- /Note:/ Consider using 'iamRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umirIAMRole :: Lens.Lens' UpdateManagedInstanceRole Lude.Text
-umirIAMRole = Lens.lens (iamRole :: UpdateManagedInstanceRole -> Lude.Text) (\s a -> s {iamRole = a} :: UpdateManagedInstanceRole)
-{-# DEPRECATED umirIAMRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
+umirIamRole :: Lens.Lens' UpdateManagedInstanceRole Types.IamRole
+umirIamRole = Lens.field @"iamRole"
+{-# DEPRECATED umirIamRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
 
-instance Lude.AWSRequest UpdateManagedInstanceRole where
+instance Core.FromJSON UpdateManagedInstanceRole where
+  toJSON UpdateManagedInstanceRole {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("IamRole" Core..= iamRole)
+          ]
+      )
+
+instance Core.AWSRequest UpdateManagedInstanceRole where
   type
     Rs UpdateManagedInstanceRole =
       UpdateManagedInstanceRoleResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.UpdateManagedInstanceRole")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateManagedInstanceRoleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateManagedInstanceRole where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.UpdateManagedInstanceRole" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateManagedInstanceRole where
-  toJSON UpdateManagedInstanceRole' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("IamRole" Lude..= iamRole)
-          ]
-      )
-
-instance Lude.ToPath UpdateManagedInstanceRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateManagedInstanceRole where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateManagedInstanceRoleResponse' smart constructor.
 newtype UpdateManagedInstanceRoleResponse = UpdateManagedInstanceRoleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateManagedInstanceRoleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateManagedInstanceRoleResponse' value with any optional fields omitted.
 mkUpdateManagedInstanceRoleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateManagedInstanceRoleResponse
-mkUpdateManagedInstanceRoleResponse pResponseStatus_ =
-  UpdateManagedInstanceRoleResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateManagedInstanceRoleResponse responseStatus =
+  UpdateManagedInstanceRoleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umirrsResponseStatus :: Lens.Lens' UpdateManagedInstanceRoleResponse Lude.Int
-umirrsResponseStatus = Lens.lens (responseStatus :: UpdateManagedInstanceRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateManagedInstanceRoleResponse)
-{-# DEPRECATED umirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umirrrsResponseStatus :: Lens.Lens' UpdateManagedInstanceRoleResponse Core.Int
+umirrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umirrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,96 +29,84 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     mkEnableDomainAutoRenewResponse,
 
     -- ** Response lenses
-    edarrsResponseStatus,
+    edarrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | /See:/ 'mkEnableDomainAutoRenew' smart constructor.
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
   { -- | The name of the domain that you want to enable automatic renewal for.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableDomainAutoRenew' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain that you want to enable automatic renewal for.
+-- | Creates a 'EnableDomainAutoRenew' value with any optional fields omitted.
 mkEnableDomainAutoRenew ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   EnableDomainAutoRenew
-mkEnableDomainAutoRenew pDomainName_ =
-  EnableDomainAutoRenew' {domainName = pDomainName_}
+mkEnableDomainAutoRenew domainName =
+  EnableDomainAutoRenew' {domainName}
 
 -- | The name of the domain that you want to enable automatic renewal for.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edarDomainName :: Lens.Lens' EnableDomainAutoRenew Lude.Text
-edarDomainName = Lens.lens (domainName :: EnableDomainAutoRenew -> Lude.Text) (\s a -> s {domainName = a} :: EnableDomainAutoRenew)
+edarDomainName :: Lens.Lens' EnableDomainAutoRenew Types.DomainName
+edarDomainName = Lens.field @"domainName"
 {-# DEPRECATED edarDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest EnableDomainAutoRenew where
+instance Core.FromJSON EnableDomainAutoRenew where
+  toJSON EnableDomainAutoRenew {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DomainName" Core..= domainName)])
+
+instance Core.AWSRequest EnableDomainAutoRenew where
   type Rs EnableDomainAutoRenew = EnableDomainAutoRenewResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.EnableDomainAutoRenew")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           EnableDomainAutoRenewResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableDomainAutoRenew where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.EnableDomainAutoRenew" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableDomainAutoRenew where
-  toJSON EnableDomainAutoRenew' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
-
-instance Lude.ToPath EnableDomainAutoRenew where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableDomainAutoRenew where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkEnableDomainAutoRenewResponse' smart constructor.
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableDomainAutoRenewResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableDomainAutoRenewResponse' value with any optional fields omitted.
 mkEnableDomainAutoRenewResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableDomainAutoRenewResponse
-mkEnableDomainAutoRenewResponse pResponseStatus_ =
-  EnableDomainAutoRenewResponse' {responseStatus = pResponseStatus_}
+mkEnableDomainAutoRenewResponse responseStatus =
+  EnableDomainAutoRenewResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edarrsResponseStatus :: Lens.Lens' EnableDomainAutoRenewResponse Lude.Int
-edarrsResponseStatus = Lens.lens (responseStatus :: EnableDomainAutoRenewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableDomainAutoRenewResponse)
-{-# DEPRECATED edarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+edarrrsResponseStatus :: Lens.Lens' EnableDomainAutoRenewResponse Core.Int
+edarrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED edarrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

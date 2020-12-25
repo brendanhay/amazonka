@@ -13,51 +13,56 @@
 module Network.AWS.KMS.Types.EncryptionAlgorithmSpec
   ( EncryptionAlgorithmSpec
       ( EncryptionAlgorithmSpec',
-        SymmetricDefault,
-        RsaesOaepSha1,
-        RsaesOaepSha256
+        EncryptionAlgorithmSpecSymmetricDefault,
+        EncryptionAlgorithmSpecRsaesOaepSha1,
+        EncryptionAlgorithmSpecRsaesOaepSha256,
+        fromEncryptionAlgorithmSpec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EncryptionAlgorithmSpec = EncryptionAlgorithmSpec' Lude.Text
+newtype EncryptionAlgorithmSpec = EncryptionAlgorithmSpec'
+  { fromEncryptionAlgorithmSpec ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SymmetricDefault :: EncryptionAlgorithmSpec
-pattern SymmetricDefault = EncryptionAlgorithmSpec' "SYMMETRIC_DEFAULT"
+pattern EncryptionAlgorithmSpecSymmetricDefault :: EncryptionAlgorithmSpec
+pattern EncryptionAlgorithmSpecSymmetricDefault = EncryptionAlgorithmSpec' "SYMMETRIC_DEFAULT"
 
-pattern RsaesOaepSha1 :: EncryptionAlgorithmSpec
-pattern RsaesOaepSha1 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_1"
+pattern EncryptionAlgorithmSpecRsaesOaepSha1 :: EncryptionAlgorithmSpec
+pattern EncryptionAlgorithmSpecRsaesOaepSha1 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_1"
 
-pattern RsaesOaepSha256 :: EncryptionAlgorithmSpec
-pattern RsaesOaepSha256 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_256"
+pattern EncryptionAlgorithmSpecRsaesOaepSha256 :: EncryptionAlgorithmSpec
+pattern EncryptionAlgorithmSpecRsaesOaepSha256 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_256"
 
 {-# COMPLETE
-  SymmetricDefault,
-  RsaesOaepSha1,
-  RsaesOaepSha256,
+  EncryptionAlgorithmSpecSymmetricDefault,
+  EncryptionAlgorithmSpecRsaesOaepSha1,
+  EncryptionAlgorithmSpecRsaesOaepSha256,
   EncryptionAlgorithmSpec'
   #-}

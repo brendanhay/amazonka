@@ -17,127 +17,118 @@ module Network.AWS.Support.Types.TrustedAdvisorCheckSummary
     mkTrustedAdvisorCheckSummary,
 
     -- * Lenses
-    tacsCategorySpecificSummary,
-    tacsStatus,
     tacsCheckId,
-    tacsResourcesSummary,
     tacsTimestamp,
+    tacsStatus,
+    tacsResourcesSummary,
+    tacsCategorySpecificSummary,
     tacsHasFlaggedResources,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
-import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.String as Types
+import qualified Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary as Types
+import qualified Network.AWS.Support.Types.TrustedAdvisorResourcesSummary as Types
 
 -- | A summary of a Trusted Advisor check result, including the alert status, last refresh, and number of resources examined.
 --
 -- /See:/ 'mkTrustedAdvisorCheckSummary' smart constructor.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
-  { -- | Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
-    categorySpecificSummary :: TrustedAdvisorCategorySpecificSummary,
-    -- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
-    status :: Lude.Text,
-    -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Lude.Text,
-    resourcesSummary :: TrustedAdvisorResourcesSummary,
+  { -- | The unique identifier for the Trusted Advisor check.
+    checkId :: Types.String,
     -- | The time of the last refresh of the check.
-    timestamp :: Lude.Text,
+    timestamp :: Types.String,
+    -- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
+    status :: Types.String,
+    resourcesSummary :: Types.TrustedAdvisorResourcesSummary,
+    -- | Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
+    categorySpecificSummary :: Types.TrustedAdvisorCategorySpecificSummary,
     -- | Specifies whether the Trusted Advisor check has flagged resources.
-    hasFlaggedResources :: Lude.Maybe Lude.Bool
+    hasFlaggedResources :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrustedAdvisorCheckSummary' with the minimum fields required to make a request.
---
--- * 'categorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
--- * 'status' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
--- * 'checkId' - The unique identifier for the Trusted Advisor check.
--- * 'resourcesSummary' -
--- * 'timestamp' - The time of the last refresh of the check.
--- * 'hasFlaggedResources' - Specifies whether the Trusted Advisor check has flagged resources.
+-- | Creates a 'TrustedAdvisorCheckSummary' value with any optional fields omitted.
 mkTrustedAdvisorCheckSummary ::
-  -- | 'categorySpecificSummary'
-  TrustedAdvisorCategorySpecificSummary ->
-  -- | 'status'
-  Lude.Text ->
   -- | 'checkId'
-  Lude.Text ->
-  -- | 'resourcesSummary'
-  TrustedAdvisorResourcesSummary ->
+  Types.String ->
   -- | 'timestamp'
-  Lude.Text ->
+  Types.String ->
+  -- | 'status'
+  Types.String ->
+  -- | 'resourcesSummary'
+  Types.TrustedAdvisorResourcesSummary ->
+  -- | 'categorySpecificSummary'
+  Types.TrustedAdvisorCategorySpecificSummary ->
   TrustedAdvisorCheckSummary
 mkTrustedAdvisorCheckSummary
-  pCategorySpecificSummary_
-  pStatus_
-  pCheckId_
-  pResourcesSummary_
-  pTimestamp_ =
+  checkId
+  timestamp
+  status
+  resourcesSummary
+  categorySpecificSummary =
     TrustedAdvisorCheckSummary'
-      { categorySpecificSummary =
-          pCategorySpecificSummary_,
-        status = pStatus_,
-        checkId = pCheckId_,
-        resourcesSummary = pResourcesSummary_,
-        timestamp = pTimestamp_,
-        hasFlaggedResources = Lude.Nothing
+      { checkId,
+        timestamp,
+        status,
+        resourcesSummary,
+        categorySpecificSummary,
+        hasFlaggedResources = Core.Nothing
       }
-
--- | Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
---
--- /Note:/ Consider using 'categorySpecificSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacsCategorySpecificSummary :: Lens.Lens' TrustedAdvisorCheckSummary TrustedAdvisorCategorySpecificSummary
-tacsCategorySpecificSummary = Lens.lens (categorySpecificSummary :: TrustedAdvisorCheckSummary -> TrustedAdvisorCategorySpecificSummary) (\s a -> s {categorySpecificSummary = a} :: TrustedAdvisorCheckSummary)
-{-# DEPRECATED tacsCategorySpecificSummary "Use generic-lens or generic-optics with 'categorySpecificSummary' instead." #-}
-
--- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacsStatus :: Lens.Lens' TrustedAdvisorCheckSummary Lude.Text
-tacsStatus = Lens.lens (status :: TrustedAdvisorCheckSummary -> Lude.Text) (\s a -> s {status = a} :: TrustedAdvisorCheckSummary)
-{-# DEPRECATED tacsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique identifier for the Trusted Advisor check.
 --
 -- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacsCheckId :: Lens.Lens' TrustedAdvisorCheckSummary Lude.Text
-tacsCheckId = Lens.lens (checkId :: TrustedAdvisorCheckSummary -> Lude.Text) (\s a -> s {checkId = a} :: TrustedAdvisorCheckSummary)
+tacsCheckId :: Lens.Lens' TrustedAdvisorCheckSummary Types.String
+tacsCheckId = Lens.field @"checkId"
 {-# DEPRECATED tacsCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'resourcesSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacsResourcesSummary :: Lens.Lens' TrustedAdvisorCheckSummary TrustedAdvisorResourcesSummary
-tacsResourcesSummary = Lens.lens (resourcesSummary :: TrustedAdvisorCheckSummary -> TrustedAdvisorResourcesSummary) (\s a -> s {resourcesSummary = a} :: TrustedAdvisorCheckSummary)
-{-# DEPRECATED tacsResourcesSummary "Use generic-lens or generic-optics with 'resourcesSummary' instead." #-}
 
 -- | The time of the last refresh of the check.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacsTimestamp :: Lens.Lens' TrustedAdvisorCheckSummary Lude.Text
-tacsTimestamp = Lens.lens (timestamp :: TrustedAdvisorCheckSummary -> Lude.Text) (\s a -> s {timestamp = a} :: TrustedAdvisorCheckSummary)
+tacsTimestamp :: Lens.Lens' TrustedAdvisorCheckSummary Types.String
+tacsTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED tacsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+
+-- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacsStatus :: Lens.Lens' TrustedAdvisorCheckSummary Types.String
+tacsStatus = Lens.field @"status"
+{-# DEPRECATED tacsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourcesSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacsResourcesSummary :: Lens.Lens' TrustedAdvisorCheckSummary Types.TrustedAdvisorResourcesSummary
+tacsResourcesSummary = Lens.field @"resourcesSummary"
+{-# DEPRECATED tacsResourcesSummary "Use generic-lens or generic-optics with 'resourcesSummary' instead." #-}
+
+-- | Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
+--
+-- /Note:/ Consider using 'categorySpecificSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacsCategorySpecificSummary :: Lens.Lens' TrustedAdvisorCheckSummary Types.TrustedAdvisorCategorySpecificSummary
+tacsCategorySpecificSummary = Lens.field @"categorySpecificSummary"
+{-# DEPRECATED tacsCategorySpecificSummary "Use generic-lens or generic-optics with 'categorySpecificSummary' instead." #-}
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
 --
 -- /Note:/ Consider using 'hasFlaggedResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacsHasFlaggedResources :: Lens.Lens' TrustedAdvisorCheckSummary (Lude.Maybe Lude.Bool)
-tacsHasFlaggedResources = Lens.lens (hasFlaggedResources :: TrustedAdvisorCheckSummary -> Lude.Maybe Lude.Bool) (\s a -> s {hasFlaggedResources = a} :: TrustedAdvisorCheckSummary)
+tacsHasFlaggedResources :: Lens.Lens' TrustedAdvisorCheckSummary (Core.Maybe Core.Bool)
+tacsHasFlaggedResources = Lens.field @"hasFlaggedResources"
 {-# DEPRECATED tacsHasFlaggedResources "Use generic-lens or generic-optics with 'hasFlaggedResources' instead." #-}
 
-instance Lude.FromJSON TrustedAdvisorCheckSummary where
+instance Core.FromJSON TrustedAdvisorCheckSummary where
   parseJSON =
-    Lude.withObject
-      "TrustedAdvisorCheckSummary"
-      ( \x ->
-          TrustedAdvisorCheckSummary'
-            Lude.<$> (x Lude..: "categorySpecificSummary")
-            Lude.<*> (x Lude..: "status")
-            Lude.<*> (x Lude..: "checkId")
-            Lude.<*> (x Lude..: "resourcesSummary")
-            Lude.<*> (x Lude..: "timestamp")
-            Lude.<*> (x Lude..:? "hasFlaggedResources")
-      )
+    Core.withObject "TrustedAdvisorCheckSummary" Core.$
+      \x ->
+        TrustedAdvisorCheckSummary'
+          Core.<$> (x Core..: "checkId")
+          Core.<*> (x Core..: "timestamp")
+          Core.<*> (x Core..: "status")
+          Core.<*> (x Core..: "resourcesSummary")
+          Core.<*> (x Core..: "categorySpecificSummary")
+          Core.<*> (x Core..:? "hasFlaggedResources")

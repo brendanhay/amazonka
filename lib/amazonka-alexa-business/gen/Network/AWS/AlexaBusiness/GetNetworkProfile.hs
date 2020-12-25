@@ -20,118 +20,106 @@ module Network.AWS.AlexaBusiness.GetNetworkProfile
     mkGetNetworkProfile,
 
     -- ** Request lenses
-    gnpNetworkProfileARN,
+    gnpNetworkProfileArn,
 
     -- * Destructuring the response
     GetNetworkProfileResponse (..),
     mkGetNetworkProfileResponse,
 
     -- ** Response lenses
-    gnprsNetworkProfile,
-    gnprsResponseStatus,
+    gnprrsNetworkProfile,
+    gnprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetNetworkProfile' smart constructor.
 newtype GetNetworkProfile = GetNetworkProfile'
   { -- | The ARN of the network profile associated with a device.
-    networkProfileARN :: Lude.Text
+    networkProfileArn :: Types.NetworkProfileArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetNetworkProfile' with the minimum fields required to make a request.
---
--- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+-- | Creates a 'GetNetworkProfile' value with any optional fields omitted.
 mkGetNetworkProfile ::
-  -- | 'networkProfileARN'
-  Lude.Text ->
+  -- | 'networkProfileArn'
+  Types.NetworkProfileArn ->
   GetNetworkProfile
-mkGetNetworkProfile pNetworkProfileARN_ =
-  GetNetworkProfile' {networkProfileARN = pNetworkProfileARN_}
+mkGetNetworkProfile networkProfileArn =
+  GetNetworkProfile' {networkProfileArn}
 
 -- | The ARN of the network profile associated with a device.
 --
--- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gnpNetworkProfileARN :: Lens.Lens' GetNetworkProfile Lude.Text
-gnpNetworkProfileARN = Lens.lens (networkProfileARN :: GetNetworkProfile -> Lude.Text) (\s a -> s {networkProfileARN = a} :: GetNetworkProfile)
-{-# DEPRECATED gnpNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
+-- /Note:/ Consider using 'networkProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnpNetworkProfileArn :: Lens.Lens' GetNetworkProfile Types.NetworkProfileArn
+gnpNetworkProfileArn = Lens.field @"networkProfileArn"
+{-# DEPRECATED gnpNetworkProfileArn "Use generic-lens or generic-optics with 'networkProfileArn' instead." #-}
 
-instance Lude.AWSRequest GetNetworkProfile where
+instance Core.FromJSON GetNetworkProfile where
+  toJSON GetNetworkProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NetworkProfileArn" Core..= networkProfileArn)]
+      )
+
+instance Core.AWSRequest GetNetworkProfile where
   type Rs GetNetworkProfile = GetNetworkProfileResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.GetNetworkProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetNetworkProfileResponse'
-            Lude.<$> (x Lude..?> "NetworkProfile")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NetworkProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetNetworkProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetNetworkProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetNetworkProfile where
-  toJSON GetNetworkProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("NetworkProfileArn" Lude..= networkProfileARN)]
-      )
-
-instance Lude.ToPath GetNetworkProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetNetworkProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetNetworkProfileResponse' smart constructor.
 data GetNetworkProfileResponse = GetNetworkProfileResponse'
   { -- | The network profile associated with a device.
-    networkProfile :: Lude.Maybe NetworkProfile,
+    networkProfile :: Core.Maybe Types.NetworkProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetNetworkProfileResponse' with the minimum fields required to make a request.
---
--- * 'networkProfile' - The network profile associated with a device.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetNetworkProfileResponse' value with any optional fields omitted.
 mkGetNetworkProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetNetworkProfileResponse
-mkGetNetworkProfileResponse pResponseStatus_ =
+mkGetNetworkProfileResponse responseStatus =
   GetNetworkProfileResponse'
-    { networkProfile = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { networkProfile = Core.Nothing,
+      responseStatus
     }
 
 -- | The network profile associated with a device.
 --
 -- /Note:/ Consider using 'networkProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gnprsNetworkProfile :: Lens.Lens' GetNetworkProfileResponse (Lude.Maybe NetworkProfile)
-gnprsNetworkProfile = Lens.lens (networkProfile :: GetNetworkProfileResponse -> Lude.Maybe NetworkProfile) (\s a -> s {networkProfile = a} :: GetNetworkProfileResponse)
-{-# DEPRECATED gnprsNetworkProfile "Use generic-lens or generic-optics with 'networkProfile' instead." #-}
+gnprrsNetworkProfile :: Lens.Lens' GetNetworkProfileResponse (Core.Maybe Types.NetworkProfile)
+gnprrsNetworkProfile = Lens.field @"networkProfile"
+{-# DEPRECATED gnprrsNetworkProfile "Use generic-lens or generic-optics with 'networkProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gnprsResponseStatus :: Lens.Lens' GetNetworkProfileResponse Lude.Int
-gnprsResponseStatus = Lens.lens (responseStatus :: GetNetworkProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetNetworkProfileResponse)
-{-# DEPRECATED gnprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gnprrsResponseStatus :: Lens.Lens' GetNetworkProfileResponse Core.Int
+gnprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gnprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

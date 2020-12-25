@@ -22,45 +22,41 @@ module Network.AWS.Rekognition.Types.StreamProcessorInput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.KinesisVideoStream
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.KinesisVideoStream as Types
 
 -- | Information about the source streaming video.
 --
 -- /See:/ 'mkStreamProcessorInput' smart constructor.
 newtype StreamProcessorInput = StreamProcessorInput'
   { -- | The Kinesis video stream input stream for the source streaming video.
-    kinesisVideoStream :: Lude.Maybe KinesisVideoStream
+    kinesisVideoStream :: Core.Maybe Types.KinesisVideoStream
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StreamProcessorInput' with the minimum fields required to make a request.
---
--- * 'kinesisVideoStream' - The Kinesis video stream input stream for the source streaming video.
+-- | Creates a 'StreamProcessorInput' value with any optional fields omitted.
 mkStreamProcessorInput ::
   StreamProcessorInput
 mkStreamProcessorInput =
-  StreamProcessorInput' {kinesisVideoStream = Lude.Nothing}
+  StreamProcessorInput' {kinesisVideoStream = Core.Nothing}
 
 -- | The Kinesis video stream input stream for the source streaming video.
 --
 -- /Note:/ Consider using 'kinesisVideoStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spiKinesisVideoStream :: Lens.Lens' StreamProcessorInput (Lude.Maybe KinesisVideoStream)
-spiKinesisVideoStream = Lens.lens (kinesisVideoStream :: StreamProcessorInput -> Lude.Maybe KinesisVideoStream) (\s a -> s {kinesisVideoStream = a} :: StreamProcessorInput)
+spiKinesisVideoStream :: Lens.Lens' StreamProcessorInput (Core.Maybe Types.KinesisVideoStream)
+spiKinesisVideoStream = Lens.field @"kinesisVideoStream"
 {-# DEPRECATED spiKinesisVideoStream "Use generic-lens or generic-optics with 'kinesisVideoStream' instead." #-}
 
-instance Lude.FromJSON StreamProcessorInput where
-  parseJSON =
-    Lude.withObject
-      "StreamProcessorInput"
-      ( \x ->
-          StreamProcessorInput' Lude.<$> (x Lude..:? "KinesisVideoStream")
+instance Core.FromJSON StreamProcessorInput where
+  toJSON StreamProcessorInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [("KinesisVideoStream" Core..=) Core.<$> kinesisVideoStream]
       )
 
-instance Lude.ToJSON StreamProcessorInput where
-  toJSON StreamProcessorInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("KinesisVideoStream" Lude..=) Lude.<$> kinesisVideoStream]
-      )
+instance Core.FromJSON StreamProcessorInput where
+  parseJSON =
+    Core.withObject "StreamProcessorInput" Core.$
+      \x ->
+        StreamProcessorInput' Core.<$> (x Core..:? "KinesisVideoStream")

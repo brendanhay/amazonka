@@ -17,61 +17,58 @@ module Network.AWS.OpsWorksCM.Types.EngineAttribute
     mkEngineAttribute,
 
     -- * Lenses
-    eaValue,
     eaName,
+    eaValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorksCM.Types.EngineAttributeName as Types
+import qualified Network.AWS.OpsWorksCM.Types.Value as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A name and value pair that is specific to the engine of the server.
 --
 -- /See:/ 'mkEngineAttribute' smart constructor.
 data EngineAttribute = EngineAttribute'
-  { -- | The value of the engine attribute.
-    value :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The name of the engine attribute.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the engine attribute.
+    name :: Core.Maybe Types.EngineAttributeName,
+    -- | The value of the engine attribute.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EngineAttribute' with the minimum fields required to make a request.
---
--- * 'value' - The value of the engine attribute.
--- * 'name' - The name of the engine attribute.
+-- | Creates a 'EngineAttribute' value with any optional fields omitted.
 mkEngineAttribute ::
   EngineAttribute
 mkEngineAttribute =
-  EngineAttribute' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The value of the engine attribute.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaValue :: Lens.Lens' EngineAttribute (Lude.Maybe (Lude.Sensitive Lude.Text))
-eaValue = Lens.lens (value :: EngineAttribute -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {value = a} :: EngineAttribute)
-{-# DEPRECATED eaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  EngineAttribute' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The name of the engine attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaName :: Lens.Lens' EngineAttribute (Lude.Maybe Lude.Text)
-eaName = Lens.lens (name :: EngineAttribute -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: EngineAttribute)
+eaName :: Lens.Lens' EngineAttribute (Core.Maybe Types.EngineAttributeName)
+eaName = Lens.field @"name"
 {-# DEPRECATED eaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON EngineAttribute where
-  parseJSON =
-    Lude.withObject
-      "EngineAttribute"
-      ( \x ->
-          EngineAttribute'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Name")
+-- | The value of the engine attribute.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaValue :: Lens.Lens' EngineAttribute (Core.Maybe Types.Value)
+eaValue = Lens.field @"value"
+{-# DEPRECATED eaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON EngineAttribute where
+  toJSON EngineAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Name" Core..=) Core.<$> name, ("Value" Core..=) Core.<$> value]
       )
 
-instance Lude.ToJSON EngineAttribute where
-  toJSON EngineAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Name" Lude..=) Lude.<$> name]
-      )
+instance Core.FromJSON EngineAttribute where
+  parseJSON =
+    Core.withObject "EngineAttribute" Core.$
+      \x ->
+        EngineAttribute'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Value")

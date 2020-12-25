@@ -18,72 +18,66 @@ module Network.AWS.Rekognition.Types.PersonDetail
 
     -- * Lenses
     pdBoundingBox,
-    pdIndex,
     pdFace,
+    pdIndex,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.FaceDetail
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
+import qualified Network.AWS.Rekognition.Types.FaceDetail as Types
 
 -- | Details about a person detected in a video analysis request.
 --
 -- /See:/ 'mkPersonDetail' smart constructor.
 data PersonDetail = PersonDetail'
   { -- | Bounding box around the detected person.
-    boundingBox :: Lude.Maybe BoundingBox,
-    -- | Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
-    index :: Lude.Maybe Lude.Integer,
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | Face details for the detected person.
-    face :: Lude.Maybe FaceDetail
+    face :: Core.Maybe Types.FaceDetail,
+    -- | Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
+    index :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PersonDetail' with the minimum fields required to make a request.
---
--- * 'boundingBox' - Bounding box around the detected person.
--- * 'index' - Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
--- * 'face' - Face details for the detected person.
+-- | Creates a 'PersonDetail' value with any optional fields omitted.
 mkPersonDetail ::
   PersonDetail
 mkPersonDetail =
   PersonDetail'
-    { boundingBox = Lude.Nothing,
-      index = Lude.Nothing,
-      face = Lude.Nothing
+    { boundingBox = Core.Nothing,
+      face = Core.Nothing,
+      index = Core.Nothing
     }
 
 -- | Bounding box around the detected person.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdBoundingBox :: Lens.Lens' PersonDetail (Lude.Maybe BoundingBox)
-pdBoundingBox = Lens.lens (boundingBox :: PersonDetail -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: PersonDetail)
+pdBoundingBox :: Lens.Lens' PersonDetail (Core.Maybe Types.BoundingBox)
+pdBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED pdBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
-
--- | Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
---
--- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdIndex :: Lens.Lens' PersonDetail (Lude.Maybe Lude.Integer)
-pdIndex = Lens.lens (index :: PersonDetail -> Lude.Maybe Lude.Integer) (\s a -> s {index = a} :: PersonDetail)
-{-# DEPRECATED pdIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
 -- | Face details for the detected person.
 --
 -- /Note:/ Consider using 'face' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdFace :: Lens.Lens' PersonDetail (Lude.Maybe FaceDetail)
-pdFace = Lens.lens (face :: PersonDetail -> Lude.Maybe FaceDetail) (\s a -> s {face = a} :: PersonDetail)
+pdFace :: Lens.Lens' PersonDetail (Core.Maybe Types.FaceDetail)
+pdFace = Lens.field @"face"
 {-# DEPRECATED pdFace "Use generic-lens or generic-optics with 'face' instead." #-}
 
-instance Lude.FromJSON PersonDetail where
+-- | Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
+--
+-- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdIndex :: Lens.Lens' PersonDetail (Core.Maybe Core.Integer)
+pdIndex = Lens.field @"index"
+{-# DEPRECATED pdIndex "Use generic-lens or generic-optics with 'index' instead." #-}
+
+instance Core.FromJSON PersonDetail where
   parseJSON =
-    Lude.withObject
-      "PersonDetail"
-      ( \x ->
-          PersonDetail'
-            Lude.<$> (x Lude..:? "BoundingBox")
-            Lude.<*> (x Lude..:? "Index")
-            Lude.<*> (x Lude..:? "Face")
-      )
+    Core.withObject "PersonDetail" Core.$
+      \x ->
+        PersonDetail'
+          Core.<$> (x Core..:? "BoundingBox")
+          Core.<*> (x Core..:? "Face")
+          Core.<*> (x Core..:? "Index")

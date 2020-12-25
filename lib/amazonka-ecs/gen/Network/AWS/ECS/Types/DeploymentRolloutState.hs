@@ -13,51 +13,56 @@
 module Network.AWS.ECS.Types.DeploymentRolloutState
   ( DeploymentRolloutState
       ( DeploymentRolloutState',
-        Completed,
-        Failed,
-        InProgress
+        DeploymentRolloutStateCompleted,
+        DeploymentRolloutStateFailed,
+        DeploymentRolloutStateInProgress,
+        fromDeploymentRolloutState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeploymentRolloutState = DeploymentRolloutState' Lude.Text
+newtype DeploymentRolloutState = DeploymentRolloutState'
+  { fromDeploymentRolloutState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Completed :: DeploymentRolloutState
-pattern Completed = DeploymentRolloutState' "COMPLETED"
+pattern DeploymentRolloutStateCompleted :: DeploymentRolloutState
+pattern DeploymentRolloutStateCompleted = DeploymentRolloutState' "COMPLETED"
 
-pattern Failed :: DeploymentRolloutState
-pattern Failed = DeploymentRolloutState' "FAILED"
+pattern DeploymentRolloutStateFailed :: DeploymentRolloutState
+pattern DeploymentRolloutStateFailed = DeploymentRolloutState' "FAILED"
 
-pattern InProgress :: DeploymentRolloutState
-pattern InProgress = DeploymentRolloutState' "IN_PROGRESS"
+pattern DeploymentRolloutStateInProgress :: DeploymentRolloutState
+pattern DeploymentRolloutStateInProgress = DeploymentRolloutState' "IN_PROGRESS"
 
 {-# COMPLETE
-  Completed,
-  Failed,
-  InProgress,
+  DeploymentRolloutStateCompleted,
+  DeploymentRolloutStateFailed,
+  DeploymentRolloutStateInProgress,
   DeploymentRolloutState'
   #-}

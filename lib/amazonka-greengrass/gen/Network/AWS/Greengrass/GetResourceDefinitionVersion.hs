@@ -20,188 +20,171 @@ module Network.AWS.Greengrass.GetResourceDefinitionVersion
     mkGetResourceDefinitionVersion,
 
     -- ** Request lenses
-    grdvResourceDefinitionId,
     grdvResourceDefinitionVersionId,
+    grdvResourceDefinitionId,
 
     -- * Destructuring the response
     GetResourceDefinitionVersionResponse (..),
     mkGetResourceDefinitionVersionResponse,
 
     -- ** Response lenses
-    grdvrsDefinition,
-    grdvrsARN,
-    grdvrsCreationTimestamp,
-    grdvrsVersion,
-    grdvrsId,
-    grdvrsResponseStatus,
+    grdvrrsArn,
+    grdvrrsCreationTimestamp,
+    grdvrrsDefinition,
+    grdvrrsId,
+    grdvrrsVersion,
+    grdvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetResourceDefinitionVersion' smart constructor.
 data GetResourceDefinitionVersion = GetResourceDefinitionVersion'
-  { -- | The ID of the resource definition.
-    resourceDefinitionId :: Lude.Text,
-    -- | The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
-    resourceDefinitionVersionId :: Lude.Text
+  { -- | The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+    resourceDefinitionVersionId :: Core.Text,
+    -- | The ID of the resource definition.
+    resourceDefinitionId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetResourceDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'resourceDefinitionId' - The ID of the resource definition.
--- * 'resourceDefinitionVersionId' - The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+-- | Creates a 'GetResourceDefinitionVersion' value with any optional fields omitted.
 mkGetResourceDefinitionVersion ::
-  -- | 'resourceDefinitionId'
-  Lude.Text ->
   -- | 'resourceDefinitionVersionId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'resourceDefinitionId'
+  Core.Text ->
   GetResourceDefinitionVersion
 mkGetResourceDefinitionVersion
-  pResourceDefinitionId_
-  pResourceDefinitionVersionId_ =
+  resourceDefinitionVersionId
+  resourceDefinitionId =
     GetResourceDefinitionVersion'
-      { resourceDefinitionId =
-          pResourceDefinitionId_,
-        resourceDefinitionVersionId = pResourceDefinitionVersionId_
+      { resourceDefinitionVersionId,
+        resourceDefinitionId
       }
-
--- | The ID of the resource definition.
---
--- /Note:/ Consider using 'resourceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvResourceDefinitionId :: Lens.Lens' GetResourceDefinitionVersion Lude.Text
-grdvResourceDefinitionId = Lens.lens (resourceDefinitionId :: GetResourceDefinitionVersion -> Lude.Text) (\s a -> s {resourceDefinitionId = a} :: GetResourceDefinitionVersion)
-{-# DEPRECATED grdvResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
 
 -- | The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 --
 -- /Note:/ Consider using 'resourceDefinitionVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvResourceDefinitionVersionId :: Lens.Lens' GetResourceDefinitionVersion Lude.Text
-grdvResourceDefinitionVersionId = Lens.lens (resourceDefinitionVersionId :: GetResourceDefinitionVersion -> Lude.Text) (\s a -> s {resourceDefinitionVersionId = a} :: GetResourceDefinitionVersion)
+grdvResourceDefinitionVersionId :: Lens.Lens' GetResourceDefinitionVersion Core.Text
+grdvResourceDefinitionVersionId = Lens.field @"resourceDefinitionVersionId"
 {-# DEPRECATED grdvResourceDefinitionVersionId "Use generic-lens or generic-optics with 'resourceDefinitionVersionId' instead." #-}
 
-instance Lude.AWSRequest GetResourceDefinitionVersion where
+-- | The ID of the resource definition.
+--
+-- /Note:/ Consider using 'resourceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdvResourceDefinitionId :: Lens.Lens' GetResourceDefinitionVersion Core.Text
+grdvResourceDefinitionId = Lens.field @"resourceDefinitionId"
+{-# DEPRECATED grdvResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
+
+instance Core.AWSRequest GetResourceDefinitionVersion where
   type
     Rs GetResourceDefinitionVersion =
       GetResourceDefinitionVersionResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/resources/"
+                Core.<> (Core.toText resourceDefinitionId)
+                Core.<> ("/versions/")
+                Core.<> (Core.toText resourceDefinitionVersionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetResourceDefinitionVersionResponse'
-            Lude.<$> (x Lude..?> "Definition")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Version")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Definition")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetResourceDefinitionVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetResourceDefinitionVersion where
-  toPath GetResourceDefinitionVersion' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/resources/",
-        Lude.toBS resourceDefinitionId,
-        "/versions/",
-        Lude.toBS resourceDefinitionVersionId
-      ]
-
-instance Lude.ToQuery GetResourceDefinitionVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetResourceDefinitionVersionResponse' smart constructor.
 data GetResourceDefinitionVersionResponse = GetResourceDefinitionVersionResponse'
-  { -- | Information about the definition.
-    definition :: Lude.Maybe ResourceDefinitionVersion,
-    -- | Arn of the resource definition version.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | Arn of the resource definition version.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the resource definition version was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
-    -- | The version of the resource definition version.
-    version :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
+    -- | Information about the definition.
+    definition :: Core.Maybe Types.ResourceDefinitionVersion,
     -- | The ID of the resource definition version.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
+    -- | The version of the resource definition version.
+    version :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetResourceDefinitionVersionResponse' with the minimum fields required to make a request.
---
--- * 'definition' - Information about the definition.
--- * 'arn' - Arn of the resource definition version.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the resource definition version was created.
--- * 'version' - The version of the resource definition version.
--- * 'id' - The ID of the resource definition version.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetResourceDefinitionVersionResponse' value with any optional fields omitted.
 mkGetResourceDefinitionVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetResourceDefinitionVersionResponse
-mkGetResourceDefinitionVersionResponse pResponseStatus_ =
+mkGetResourceDefinitionVersionResponse responseStatus =
   GetResourceDefinitionVersionResponse'
-    { definition = Lude.Nothing,
-      arn = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      version = Lude.Nothing,
-      id = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      definition = Core.Nothing,
+      id = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the definition.
---
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvrsDefinition :: Lens.Lens' GetResourceDefinitionVersionResponse (Lude.Maybe ResourceDefinitionVersion)
-grdvrsDefinition = Lens.lens (definition :: GetResourceDefinitionVersionResponse -> Lude.Maybe ResourceDefinitionVersion) (\s a -> s {definition = a} :: GetResourceDefinitionVersionResponse)
-{-# DEPRECATED grdvrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | Arn of the resource definition version.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvrsARN :: Lens.Lens' GetResourceDefinitionVersionResponse (Lude.Maybe Lude.Text)
-grdvrsARN = Lens.lens (arn :: GetResourceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetResourceDefinitionVersionResponse)
-{-# DEPRECATED grdvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+grdvrrsArn :: Lens.Lens' GetResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+grdvrrsArn = Lens.field @"arn"
+{-# DEPRECATED grdvrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the resource definition version was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvrsCreationTimestamp :: Lens.Lens' GetResourceDefinitionVersionResponse (Lude.Maybe Lude.Text)
-grdvrsCreationTimestamp = Lens.lens (creationTimestamp :: GetResourceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetResourceDefinitionVersionResponse)
-{-# DEPRECATED grdvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+grdvrrsCreationTimestamp :: Lens.Lens' GetResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+grdvrrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED grdvrrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
--- | The version of the resource definition version.
+-- | Information about the definition.
 --
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvrsVersion :: Lens.Lens' GetResourceDefinitionVersionResponse (Lude.Maybe Lude.Text)
-grdvrsVersion = Lens.lens (version :: GetResourceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetResourceDefinitionVersionResponse)
-{-# DEPRECATED grdvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdvrrsDefinition :: Lens.Lens' GetResourceDefinitionVersionResponse (Core.Maybe Types.ResourceDefinitionVersion)
+grdvrrsDefinition = Lens.field @"definition"
+{-# DEPRECATED grdvrrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The ID of the resource definition version.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvrsId :: Lens.Lens' GetResourceDefinitionVersionResponse (Lude.Maybe Lude.Text)
-grdvrsId = Lens.lens (id :: GetResourceDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetResourceDefinitionVersionResponse)
-{-# DEPRECATED grdvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+grdvrrsId :: Lens.Lens' GetResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+grdvrrsId = Lens.field @"id"
+{-# DEPRECATED grdvrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The version of the resource definition version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdvrrsVersion :: Lens.Lens' GetResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+grdvrrsVersion = Lens.field @"version"
+{-# DEPRECATED grdvrrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdvrsResponseStatus :: Lens.Lens' GetResourceDefinitionVersionResponse Lude.Int
-grdvrsResponseStatus = Lens.lens (responseStatus :: GetResourceDefinitionVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourceDefinitionVersionResponse)
-{-# DEPRECATED grdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grdvrrsResponseStatus :: Lens.Lens' GetResourceDefinitionVersionResponse Core.Int
+grdvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grdvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

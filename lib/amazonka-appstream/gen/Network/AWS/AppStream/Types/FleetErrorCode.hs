@@ -13,176 +13,181 @@
 module Network.AWS.AppStream.Types.FleetErrorCode
   ( FleetErrorCode
       ( FleetErrorCode',
-        IAMServiceRoleMissingEniDescribeAction,
-        IAMServiceRoleMissingEniCreateAction,
-        IAMServiceRoleMissingEniDeleteAction,
-        NetworkInterfaceLimitExceeded,
-        InternalServiceError,
-        IAMServiceRoleIsMissing,
-        MachineRoleIsMissing,
-        StsDisabledInRegion,
-        SubnetHasInsufficientIPAddresses,
-        IAMServiceRoleMissingDescribeSubnetAction,
-        SubnetNotFound,
-        ImageNotFound,
-        InvalidSubnetConfiguration,
-        SecurityGroupsNotFound,
-        IgwNotAttached,
-        IAMServiceRoleMissingDescribeSecurityGroupsAction,
-        DomainJoinErrorFileNotFound,
-        DomainJoinErrorAccessDenied,
-        DomainJoinErrorLogonFailure,
-        DomainJoinErrorInvalidParameter,
-        DomainJoinErrorMoreData,
-        DomainJoinErrorNoSuchDomain,
-        DomainJoinErrorNotSupported,
-        DomainJoinNerrInvalidWorkgroupName,
-        DomainJoinNerrWorkstationNotStarted,
-        DomainJoinErrorDsMachineAccountQuotaExceeded,
-        DomainJoinNerrPasswordExpired,
-        DomainJoinInternalServiceError
+        FleetErrorCodeIamServiceRoleMissingEniDescribeAction,
+        FleetErrorCodeIamServiceRoleMissingEniCreateAction,
+        FleetErrorCodeIamServiceRoleMissingEniDeleteAction,
+        FleetErrorCodeNetworkInterfaceLimitExceeded,
+        FleetErrorCodeInternalServiceError,
+        FleetErrorCodeIamServiceRoleIsMissing,
+        FleetErrorCodeMachineRoleIsMissing,
+        FleetErrorCodeStsDisabledInRegion,
+        FleetErrorCodeSubnetHasInsufficientIpAddresses,
+        FleetErrorCodeIamServiceRoleMissingDescribeSubnetAction,
+        FleetErrorCodeSubnetNotFound,
+        FleetErrorCodeImageNotFound,
+        FleetErrorCodeInvalidSubnetConfiguration,
+        FleetErrorCodeSecurityGroupsNotFound,
+        FleetErrorCodeIgwNotAttached,
+        FleetErrorCodeIamServiceRoleMissingDescribeSecurityGroupsAction,
+        FleetErrorCodeDomainJoinErrorFileNotFound,
+        FleetErrorCodeDomainJoinErrorAccessDenied,
+        FleetErrorCodeDomainJoinErrorLogonFailure,
+        FleetErrorCodeDomainJoinErrorInvalidParameter,
+        FleetErrorCodeDomainJoinErrorMoreData,
+        FleetErrorCodeDomainJoinErrorNoSuchDomain,
+        FleetErrorCodeDomainJoinErrorNotSupported,
+        FleetErrorCodeDomainJoinNerrInvalidWorkgroupName,
+        FleetErrorCodeDomainJoinNerrWorkstationNotStarted,
+        FleetErrorCodeDomainJoinErrorDsMachineAccountQuotaExceeded,
+        FleetErrorCodeDomainJoinNerrPasswordExpired,
+        FleetErrorCodeDomainJoinInternalServiceError,
+        fromFleetErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FleetErrorCode = FleetErrorCode' Lude.Text
+newtype FleetErrorCode = FleetErrorCode'
+  { fromFleetErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IAMServiceRoleMissingEniDescribeAction :: FleetErrorCode
-pattern IAMServiceRoleMissingEniDescribeAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION"
+pattern FleetErrorCodeIamServiceRoleMissingEniDescribeAction :: FleetErrorCode
+pattern FleetErrorCodeIamServiceRoleMissingEniDescribeAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION"
 
-pattern IAMServiceRoleMissingEniCreateAction :: FleetErrorCode
-pattern IAMServiceRoleMissingEniCreateAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION"
+pattern FleetErrorCodeIamServiceRoleMissingEniCreateAction :: FleetErrorCode
+pattern FleetErrorCodeIamServiceRoleMissingEniCreateAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION"
 
-pattern IAMServiceRoleMissingEniDeleteAction :: FleetErrorCode
-pattern IAMServiceRoleMissingEniDeleteAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION"
+pattern FleetErrorCodeIamServiceRoleMissingEniDeleteAction :: FleetErrorCode
+pattern FleetErrorCodeIamServiceRoleMissingEniDeleteAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION"
 
-pattern NetworkInterfaceLimitExceeded :: FleetErrorCode
-pattern NetworkInterfaceLimitExceeded = FleetErrorCode' "NETWORK_INTERFACE_LIMIT_EXCEEDED"
+pattern FleetErrorCodeNetworkInterfaceLimitExceeded :: FleetErrorCode
+pattern FleetErrorCodeNetworkInterfaceLimitExceeded = FleetErrorCode' "NETWORK_INTERFACE_LIMIT_EXCEEDED"
 
-pattern InternalServiceError :: FleetErrorCode
-pattern InternalServiceError = FleetErrorCode' "INTERNAL_SERVICE_ERROR"
+pattern FleetErrorCodeInternalServiceError :: FleetErrorCode
+pattern FleetErrorCodeInternalServiceError = FleetErrorCode' "INTERNAL_SERVICE_ERROR"
 
-pattern IAMServiceRoleIsMissing :: FleetErrorCode
-pattern IAMServiceRoleIsMissing = FleetErrorCode' "IAM_SERVICE_ROLE_IS_MISSING"
+pattern FleetErrorCodeIamServiceRoleIsMissing :: FleetErrorCode
+pattern FleetErrorCodeIamServiceRoleIsMissing = FleetErrorCode' "IAM_SERVICE_ROLE_IS_MISSING"
 
-pattern MachineRoleIsMissing :: FleetErrorCode
-pattern MachineRoleIsMissing = FleetErrorCode' "MACHINE_ROLE_IS_MISSING"
+pattern FleetErrorCodeMachineRoleIsMissing :: FleetErrorCode
+pattern FleetErrorCodeMachineRoleIsMissing = FleetErrorCode' "MACHINE_ROLE_IS_MISSING"
 
-pattern StsDisabledInRegion :: FleetErrorCode
-pattern StsDisabledInRegion = FleetErrorCode' "STS_DISABLED_IN_REGION"
+pattern FleetErrorCodeStsDisabledInRegion :: FleetErrorCode
+pattern FleetErrorCodeStsDisabledInRegion = FleetErrorCode' "STS_DISABLED_IN_REGION"
 
-pattern SubnetHasInsufficientIPAddresses :: FleetErrorCode
-pattern SubnetHasInsufficientIPAddresses = FleetErrorCode' "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES"
+pattern FleetErrorCodeSubnetHasInsufficientIpAddresses :: FleetErrorCode
+pattern FleetErrorCodeSubnetHasInsufficientIpAddresses = FleetErrorCode' "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES"
 
-pattern IAMServiceRoleMissingDescribeSubnetAction :: FleetErrorCode
-pattern IAMServiceRoleMissingDescribeSubnetAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION"
+pattern FleetErrorCodeIamServiceRoleMissingDescribeSubnetAction :: FleetErrorCode
+pattern FleetErrorCodeIamServiceRoleMissingDescribeSubnetAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION"
 
-pattern SubnetNotFound :: FleetErrorCode
-pattern SubnetNotFound = FleetErrorCode' "SUBNET_NOT_FOUND"
+pattern FleetErrorCodeSubnetNotFound :: FleetErrorCode
+pattern FleetErrorCodeSubnetNotFound = FleetErrorCode' "SUBNET_NOT_FOUND"
 
-pattern ImageNotFound :: FleetErrorCode
-pattern ImageNotFound = FleetErrorCode' "IMAGE_NOT_FOUND"
+pattern FleetErrorCodeImageNotFound :: FleetErrorCode
+pattern FleetErrorCodeImageNotFound = FleetErrorCode' "IMAGE_NOT_FOUND"
 
-pattern InvalidSubnetConfiguration :: FleetErrorCode
-pattern InvalidSubnetConfiguration = FleetErrorCode' "INVALID_SUBNET_CONFIGURATION"
+pattern FleetErrorCodeInvalidSubnetConfiguration :: FleetErrorCode
+pattern FleetErrorCodeInvalidSubnetConfiguration = FleetErrorCode' "INVALID_SUBNET_CONFIGURATION"
 
-pattern SecurityGroupsNotFound :: FleetErrorCode
-pattern SecurityGroupsNotFound = FleetErrorCode' "SECURITY_GROUPS_NOT_FOUND"
+pattern FleetErrorCodeSecurityGroupsNotFound :: FleetErrorCode
+pattern FleetErrorCodeSecurityGroupsNotFound = FleetErrorCode' "SECURITY_GROUPS_NOT_FOUND"
 
-pattern IgwNotAttached :: FleetErrorCode
-pattern IgwNotAttached = FleetErrorCode' "IGW_NOT_ATTACHED"
+pattern FleetErrorCodeIgwNotAttached :: FleetErrorCode
+pattern FleetErrorCodeIgwNotAttached = FleetErrorCode' "IGW_NOT_ATTACHED"
 
-pattern IAMServiceRoleMissingDescribeSecurityGroupsAction :: FleetErrorCode
-pattern IAMServiceRoleMissingDescribeSecurityGroupsAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION"
+pattern FleetErrorCodeIamServiceRoleMissingDescribeSecurityGroupsAction :: FleetErrorCode
+pattern FleetErrorCodeIamServiceRoleMissingDescribeSecurityGroupsAction = FleetErrorCode' "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION"
 
-pattern DomainJoinErrorFileNotFound :: FleetErrorCode
-pattern DomainJoinErrorFileNotFound = FleetErrorCode' "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND"
+pattern FleetErrorCodeDomainJoinErrorFileNotFound :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorFileNotFound = FleetErrorCode' "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND"
 
-pattern DomainJoinErrorAccessDenied :: FleetErrorCode
-pattern DomainJoinErrorAccessDenied = FleetErrorCode' "DOMAIN_JOIN_ERROR_ACCESS_DENIED"
+pattern FleetErrorCodeDomainJoinErrorAccessDenied :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorAccessDenied = FleetErrorCode' "DOMAIN_JOIN_ERROR_ACCESS_DENIED"
 
-pattern DomainJoinErrorLogonFailure :: FleetErrorCode
-pattern DomainJoinErrorLogonFailure = FleetErrorCode' "DOMAIN_JOIN_ERROR_LOGON_FAILURE"
+pattern FleetErrorCodeDomainJoinErrorLogonFailure :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorLogonFailure = FleetErrorCode' "DOMAIN_JOIN_ERROR_LOGON_FAILURE"
 
-pattern DomainJoinErrorInvalidParameter :: FleetErrorCode
-pattern DomainJoinErrorInvalidParameter = FleetErrorCode' "DOMAIN_JOIN_ERROR_INVALID_PARAMETER"
+pattern FleetErrorCodeDomainJoinErrorInvalidParameter :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorInvalidParameter = FleetErrorCode' "DOMAIN_JOIN_ERROR_INVALID_PARAMETER"
 
-pattern DomainJoinErrorMoreData :: FleetErrorCode
-pattern DomainJoinErrorMoreData = FleetErrorCode' "DOMAIN_JOIN_ERROR_MORE_DATA"
+pattern FleetErrorCodeDomainJoinErrorMoreData :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorMoreData = FleetErrorCode' "DOMAIN_JOIN_ERROR_MORE_DATA"
 
-pattern DomainJoinErrorNoSuchDomain :: FleetErrorCode
-pattern DomainJoinErrorNoSuchDomain = FleetErrorCode' "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN"
+pattern FleetErrorCodeDomainJoinErrorNoSuchDomain :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorNoSuchDomain = FleetErrorCode' "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN"
 
-pattern DomainJoinErrorNotSupported :: FleetErrorCode
-pattern DomainJoinErrorNotSupported = FleetErrorCode' "DOMAIN_JOIN_ERROR_NOT_SUPPORTED"
+pattern FleetErrorCodeDomainJoinErrorNotSupported :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorNotSupported = FleetErrorCode' "DOMAIN_JOIN_ERROR_NOT_SUPPORTED"
 
-pattern DomainJoinNerrInvalidWorkgroupName :: FleetErrorCode
-pattern DomainJoinNerrInvalidWorkgroupName = FleetErrorCode' "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME"
+pattern FleetErrorCodeDomainJoinNerrInvalidWorkgroupName :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinNerrInvalidWorkgroupName = FleetErrorCode' "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME"
 
-pattern DomainJoinNerrWorkstationNotStarted :: FleetErrorCode
-pattern DomainJoinNerrWorkstationNotStarted = FleetErrorCode' "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED"
+pattern FleetErrorCodeDomainJoinNerrWorkstationNotStarted :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinNerrWorkstationNotStarted = FleetErrorCode' "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED"
 
-pattern DomainJoinErrorDsMachineAccountQuotaExceeded :: FleetErrorCode
-pattern DomainJoinErrorDsMachineAccountQuotaExceeded = FleetErrorCode' "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED"
+pattern FleetErrorCodeDomainJoinErrorDsMachineAccountQuotaExceeded :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinErrorDsMachineAccountQuotaExceeded = FleetErrorCode' "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED"
 
-pattern DomainJoinNerrPasswordExpired :: FleetErrorCode
-pattern DomainJoinNerrPasswordExpired = FleetErrorCode' "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED"
+pattern FleetErrorCodeDomainJoinNerrPasswordExpired :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinNerrPasswordExpired = FleetErrorCode' "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED"
 
-pattern DomainJoinInternalServiceError :: FleetErrorCode
-pattern DomainJoinInternalServiceError = FleetErrorCode' "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR"
+pattern FleetErrorCodeDomainJoinInternalServiceError :: FleetErrorCode
+pattern FleetErrorCodeDomainJoinInternalServiceError = FleetErrorCode' "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR"
 
 {-# COMPLETE
-  IAMServiceRoleMissingEniDescribeAction,
-  IAMServiceRoleMissingEniCreateAction,
-  IAMServiceRoleMissingEniDeleteAction,
-  NetworkInterfaceLimitExceeded,
-  InternalServiceError,
-  IAMServiceRoleIsMissing,
-  MachineRoleIsMissing,
-  StsDisabledInRegion,
-  SubnetHasInsufficientIPAddresses,
-  IAMServiceRoleMissingDescribeSubnetAction,
-  SubnetNotFound,
-  ImageNotFound,
-  InvalidSubnetConfiguration,
-  SecurityGroupsNotFound,
-  IgwNotAttached,
-  IAMServiceRoleMissingDescribeSecurityGroupsAction,
-  DomainJoinErrorFileNotFound,
-  DomainJoinErrorAccessDenied,
-  DomainJoinErrorLogonFailure,
-  DomainJoinErrorInvalidParameter,
-  DomainJoinErrorMoreData,
-  DomainJoinErrorNoSuchDomain,
-  DomainJoinErrorNotSupported,
-  DomainJoinNerrInvalidWorkgroupName,
-  DomainJoinNerrWorkstationNotStarted,
-  DomainJoinErrorDsMachineAccountQuotaExceeded,
-  DomainJoinNerrPasswordExpired,
-  DomainJoinInternalServiceError,
+  FleetErrorCodeIamServiceRoleMissingEniDescribeAction,
+  FleetErrorCodeIamServiceRoleMissingEniCreateAction,
+  FleetErrorCodeIamServiceRoleMissingEniDeleteAction,
+  FleetErrorCodeNetworkInterfaceLimitExceeded,
+  FleetErrorCodeInternalServiceError,
+  FleetErrorCodeIamServiceRoleIsMissing,
+  FleetErrorCodeMachineRoleIsMissing,
+  FleetErrorCodeStsDisabledInRegion,
+  FleetErrorCodeSubnetHasInsufficientIpAddresses,
+  FleetErrorCodeIamServiceRoleMissingDescribeSubnetAction,
+  FleetErrorCodeSubnetNotFound,
+  FleetErrorCodeImageNotFound,
+  FleetErrorCodeInvalidSubnetConfiguration,
+  FleetErrorCodeSecurityGroupsNotFound,
+  FleetErrorCodeIgwNotAttached,
+  FleetErrorCodeIamServiceRoleMissingDescribeSecurityGroupsAction,
+  FleetErrorCodeDomainJoinErrorFileNotFound,
+  FleetErrorCodeDomainJoinErrorAccessDenied,
+  FleetErrorCodeDomainJoinErrorLogonFailure,
+  FleetErrorCodeDomainJoinErrorInvalidParameter,
+  FleetErrorCodeDomainJoinErrorMoreData,
+  FleetErrorCodeDomainJoinErrorNoSuchDomain,
+  FleetErrorCodeDomainJoinErrorNotSupported,
+  FleetErrorCodeDomainJoinNerrInvalidWorkgroupName,
+  FleetErrorCodeDomainJoinNerrWorkstationNotStarted,
+  FleetErrorCodeDomainJoinErrorDsMachineAccountQuotaExceeded,
+  FleetErrorCodeDomainJoinNerrPasswordExpired,
+  FleetErrorCodeDomainJoinInternalServiceError,
   FleetErrorCode'
   #-}

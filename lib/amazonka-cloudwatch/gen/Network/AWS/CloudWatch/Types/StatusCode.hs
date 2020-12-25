@@ -13,51 +13,53 @@
 module Network.AWS.CloudWatch.Types.StatusCode
   ( StatusCode
       ( StatusCode',
-        Complete,
-        InternalError,
-        PartialData
+        StatusCodeComplete,
+        StatusCodeInternalError,
+        StatusCodePartialData,
+        fromStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StatusCode = StatusCode' Lude.Text
+newtype StatusCode = StatusCode' {fromStatusCode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Complete :: StatusCode
-pattern Complete = StatusCode' "Complete"
+pattern StatusCodeComplete :: StatusCode
+pattern StatusCodeComplete = StatusCode' "Complete"
 
-pattern InternalError :: StatusCode
-pattern InternalError = StatusCode' "InternalError"
+pattern StatusCodeInternalError :: StatusCode
+pattern StatusCodeInternalError = StatusCode' "InternalError"
 
-pattern PartialData :: StatusCode
-pattern PartialData = StatusCode' "PartialData"
+pattern StatusCodePartialData :: StatusCode
+pattern StatusCodePartialData = StatusCode' "PartialData"
 
 {-# COMPLETE
-  Complete,
-  InternalError,
-  PartialData,
+  StatusCodeComplete,
+  StatusCodeInternalError,
+  StatusCodePartialData,
   StatusCode'
   #-}

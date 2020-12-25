@@ -17,67 +17,62 @@ module Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
     mkAttributeKeyAndValue,
 
     -- * Lenses
-    akavValue,
     akavKey,
+    akavValue,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKey
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import qualified Network.AWS.CloudDirectory.Types.AttributeKey as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedAttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The combination of an attribute key and an attribute value.
 --
 -- /See:/ 'mkAttributeKeyAndValue' smart constructor.
 data AttributeKeyAndValue = AttributeKeyAndValue'
-  { -- | The value of the attribute.
-    value :: TypedAttributeValue,
-    -- | The key of the attribute.
-    key :: AttributeKey
+  { -- | The key of the attribute.
+    key :: Types.AttributeKey,
+    -- | The value of the attribute.
+    value :: Types.TypedAttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AttributeKeyAndValue' with the minimum fields required to make a request.
---
--- * 'value' - The value of the attribute.
--- * 'key' - The key of the attribute.
+-- | Creates a 'AttributeKeyAndValue' value with any optional fields omitted.
 mkAttributeKeyAndValue ::
-  -- | 'value'
-  TypedAttributeValue ->
   -- | 'key'
-  AttributeKey ->
+  Types.AttributeKey ->
+  -- | 'value'
+  Types.TypedAttributeValue ->
   AttributeKeyAndValue
-mkAttributeKeyAndValue pValue_ pKey_ =
-  AttributeKeyAndValue' {value = pValue_, key = pKey_}
-
--- | The value of the attribute.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akavValue :: Lens.Lens' AttributeKeyAndValue TypedAttributeValue
-akavValue = Lens.lens (value :: AttributeKeyAndValue -> TypedAttributeValue) (\s a -> s {value = a} :: AttributeKeyAndValue)
-{-# DEPRECATED akavValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkAttributeKeyAndValue key value =
+  AttributeKeyAndValue' {key, value}
 
 -- | The key of the attribute.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akavKey :: Lens.Lens' AttributeKeyAndValue AttributeKey
-akavKey = Lens.lens (key :: AttributeKeyAndValue -> AttributeKey) (\s a -> s {key = a} :: AttributeKeyAndValue)
+akavKey :: Lens.Lens' AttributeKeyAndValue Types.AttributeKey
+akavKey = Lens.field @"key"
 {-# DEPRECATED akavKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON AttributeKeyAndValue where
-  parseJSON =
-    Lude.withObject
-      "AttributeKeyAndValue"
-      ( \x ->
-          AttributeKeyAndValue'
-            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Key")
+-- | The value of the attribute.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akavValue :: Lens.Lens' AttributeKeyAndValue Types.TypedAttributeValue
+akavValue = Lens.field @"value"
+{-# DEPRECATED akavValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON AttributeKeyAndValue where
+  toJSON AttributeKeyAndValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Key" Core..= key), Core.Just ("Value" Core..= value)]
       )
 
-instance Lude.ToJSON AttributeKeyAndValue where
-  toJSON AttributeKeyAndValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
-      )
+instance Core.FromJSON AttributeKeyAndValue where
+  parseJSON =
+    Core.withObject "AttributeKeyAndValue" Core.$
+      \x ->
+        AttributeKeyAndValue'
+          Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")

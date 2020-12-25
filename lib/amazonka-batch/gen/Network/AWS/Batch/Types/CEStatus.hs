@@ -13,66 +13,68 @@
 module Network.AWS.Batch.Types.CEStatus
   ( CEStatus
       ( CEStatus',
-        CESCreating,
-        CESUpdating,
-        CESDeleting,
-        CESDeleted,
-        CESValid,
-        CESInvalid
+        CEStatusCreating,
+        CEStatusUpdating,
+        CEStatusDeleting,
+        CEStatusDeleted,
+        CEStatusValid,
+        CEStatusInvalid,
+        fromCEStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CEStatus = CEStatus' Lude.Text
+newtype CEStatus = CEStatus' {fromCEStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CESCreating :: CEStatus
-pattern CESCreating = CEStatus' "CREATING"
+pattern CEStatusCreating :: CEStatus
+pattern CEStatusCreating = CEStatus' "CREATING"
 
-pattern CESUpdating :: CEStatus
-pattern CESUpdating = CEStatus' "UPDATING"
+pattern CEStatusUpdating :: CEStatus
+pattern CEStatusUpdating = CEStatus' "UPDATING"
 
-pattern CESDeleting :: CEStatus
-pattern CESDeleting = CEStatus' "DELETING"
+pattern CEStatusDeleting :: CEStatus
+pattern CEStatusDeleting = CEStatus' "DELETING"
 
-pattern CESDeleted :: CEStatus
-pattern CESDeleted = CEStatus' "DELETED"
+pattern CEStatusDeleted :: CEStatus
+pattern CEStatusDeleted = CEStatus' "DELETED"
 
-pattern CESValid :: CEStatus
-pattern CESValid = CEStatus' "VALID"
+pattern CEStatusValid :: CEStatus
+pattern CEStatusValid = CEStatus' "VALID"
 
-pattern CESInvalid :: CEStatus
-pattern CESInvalid = CEStatus' "INVALID"
+pattern CEStatusInvalid :: CEStatus
+pattern CEStatusInvalid = CEStatus' "INVALID"
 
 {-# COMPLETE
-  CESCreating,
-  CESUpdating,
-  CESDeleting,
-  CESDeleted,
-  CESValid,
-  CESInvalid,
+  CEStatusCreating,
+  CEStatusUpdating,
+  CEStatusDeleting,
+  CEStatusDeleted,
+  CEStatusValid,
+  CEStatusInvalid,
   CEStatus'
   #-}

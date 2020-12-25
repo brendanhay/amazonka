@@ -13,61 +13,63 @@
 module Network.AWS.LexModels.Types.LexStatus
   ( LexStatus
       ( LexStatus',
-        Building,
-        Ready,
-        ReadyBasicTesting,
-        Failed,
-        NotBuilt
+        LexStatusBuilding,
+        LexStatusReady,
+        LexStatusReadyBasicTesting,
+        LexStatusFailed,
+        LexStatusNotBuilt,
+        fromLexStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LexStatus = LexStatus' Lude.Text
+newtype LexStatus = LexStatus' {fromLexStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Building :: LexStatus
-pattern Building = LexStatus' "BUILDING"
+pattern LexStatusBuilding :: LexStatus
+pattern LexStatusBuilding = LexStatus' "BUILDING"
 
-pattern Ready :: LexStatus
-pattern Ready = LexStatus' "READY"
+pattern LexStatusReady :: LexStatus
+pattern LexStatusReady = LexStatus' "READY"
 
-pattern ReadyBasicTesting :: LexStatus
-pattern ReadyBasicTesting = LexStatus' "READY_BASIC_TESTING"
+pattern LexStatusReadyBasicTesting :: LexStatus
+pattern LexStatusReadyBasicTesting = LexStatus' "READY_BASIC_TESTING"
 
-pattern Failed :: LexStatus
-pattern Failed = LexStatus' "FAILED"
+pattern LexStatusFailed :: LexStatus
+pattern LexStatusFailed = LexStatus' "FAILED"
 
-pattern NotBuilt :: LexStatus
-pattern NotBuilt = LexStatus' "NOT_BUILT"
+pattern LexStatusNotBuilt :: LexStatus
+pattern LexStatusNotBuilt = LexStatus' "NOT_BUILT"
 
 {-# COMPLETE
-  Building,
-  Ready,
-  ReadyBasicTesting,
-  Failed,
-  NotBuilt,
+  LexStatusBuilding,
+  LexStatusReady,
+  LexStatusReadyBasicTesting,
+  LexStatusFailed,
+  LexStatusNotBuilt,
   LexStatus'
   #-}

@@ -22,55 +22,52 @@ module Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
   )
 where
 
-import Network.AWS.KinesisVideo.Types.ChannelProtocol
-import Network.AWS.KinesisVideo.Types.ChannelRole
+import qualified Network.AWS.KinesisVideo.Types.ChannelProtocol as Types
+import qualified Network.AWS.KinesisVideo.Types.ChannelRole as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that contains the endpoint configuration for the @SINGLE_MASTER@ channel type.
 --
 -- /See:/ 'mkSingleMasterChannelEndpointConfiguration' smart constructor.
 data SingleMasterChannelEndpointConfiguration = SingleMasterChannelEndpointConfiguration'
   { -- | This property is used to determine the nature of communication over this @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API returns a websocket endpoint. If @HTTPS@ is specified, this API returns an @HTTPS@ endpoint.
-    protocols :: Lude.Maybe (Lude.NonEmpty ChannelProtocol),
+    protocols :: Core.Maybe (Core.NonEmpty Types.ChannelProtocol),
     -- | This property is used to determine messaging permissions in this @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If @VIEWER@ is specified, this API returns an endpoint that a client can use only to send offers to another @MASTER@ client on this signaling channel.
-    role' :: Lude.Maybe ChannelRole
+    role' :: Core.Maybe Types.ChannelRole
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SingleMasterChannelEndpointConfiguration' with the minimum fields required to make a request.
---
--- * 'protocols' - This property is used to determine the nature of communication over this @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API returns a websocket endpoint. If @HTTPS@ is specified, this API returns an @HTTPS@ endpoint.
--- * 'role'' - This property is used to determine messaging permissions in this @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If @VIEWER@ is specified, this API returns an endpoint that a client can use only to send offers to another @MASTER@ client on this signaling channel.
+-- | Creates a 'SingleMasterChannelEndpointConfiguration' value with any optional fields omitted.
 mkSingleMasterChannelEndpointConfiguration ::
   SingleMasterChannelEndpointConfiguration
 mkSingleMasterChannelEndpointConfiguration =
   SingleMasterChannelEndpointConfiguration'
     { protocols =
-        Lude.Nothing,
-      role' = Lude.Nothing
+        Core.Nothing,
+      role' = Core.Nothing
     }
 
 -- | This property is used to determine the nature of communication over this @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API returns a websocket endpoint. If @HTTPS@ is specified, this API returns an @HTTPS@ endpoint.
 --
 -- /Note:/ Consider using 'protocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smcecProtocols :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Lude.Maybe (Lude.NonEmpty ChannelProtocol))
-smcecProtocols = Lens.lens (protocols :: SingleMasterChannelEndpointConfiguration -> Lude.Maybe (Lude.NonEmpty ChannelProtocol)) (\s a -> s {protocols = a} :: SingleMasterChannelEndpointConfiguration)
+smcecProtocols :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Core.Maybe (Core.NonEmpty Types.ChannelProtocol))
+smcecProtocols = Lens.field @"protocols"
 {-# DEPRECATED smcecProtocols "Use generic-lens or generic-optics with 'protocols' instead." #-}
 
 -- | This property is used to determine messaging permissions in this @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If @VIEWER@ is specified, this API returns an endpoint that a client can use only to send offers to another @MASTER@ client on this signaling channel.
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smcecRole :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Lude.Maybe ChannelRole)
-smcecRole = Lens.lens (role' :: SingleMasterChannelEndpointConfiguration -> Lude.Maybe ChannelRole) (\s a -> s {role' = a} :: SingleMasterChannelEndpointConfiguration)
+smcecRole :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Core.Maybe Types.ChannelRole)
+smcecRole = Lens.field @"role'"
 {-# DEPRECATED smcecRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
-instance Lude.ToJSON SingleMasterChannelEndpointConfiguration where
-  toJSON SingleMasterChannelEndpointConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Protocols" Lude..=) Lude.<$> protocols,
-            ("Role" Lude..=) Lude.<$> role'
+instance Core.FromJSON SingleMasterChannelEndpointConfiguration where
+  toJSON SingleMasterChannelEndpointConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Protocols" Core..=) Core.<$> protocols,
+            ("Role" Core..=) Core.<$> role'
           ]
       )

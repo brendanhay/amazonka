@@ -27,121 +27,110 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     mkDescribeDeliveryChannelStatusResponse,
 
     -- ** Response lenses
-    ddcsrsDeliveryChannelsStatus,
-    ddcsrsResponseStatus,
+    ddcsrrsDeliveryChannelsStatus,
+    ddcsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'DeliveryChannelStatus' action.
 --
 -- /See:/ 'mkDescribeDeliveryChannelStatus' smart constructor.
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
   { -- | A list of delivery channel names.
-    deliveryChannelNames :: Lude.Maybe [Lude.Text]
+    deliveryChannelNames :: Core.Maybe [Types.ChannelName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDeliveryChannelStatus' with the minimum fields required to make a request.
---
--- * 'deliveryChannelNames' - A list of delivery channel names.
+-- | Creates a 'DescribeDeliveryChannelStatus' value with any optional fields omitted.
 mkDescribeDeliveryChannelStatus ::
   DescribeDeliveryChannelStatus
 mkDescribeDeliveryChannelStatus =
   DescribeDeliveryChannelStatus'
     { deliveryChannelNames =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | A list of delivery channel names.
 --
 -- /Note:/ Consider using 'deliveryChannelNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsDeliveryChannelNames :: Lens.Lens' DescribeDeliveryChannelStatus (Lude.Maybe [Lude.Text])
-ddcsDeliveryChannelNames = Lens.lens (deliveryChannelNames :: DescribeDeliveryChannelStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {deliveryChannelNames = a} :: DescribeDeliveryChannelStatus)
+ddcsDeliveryChannelNames :: Lens.Lens' DescribeDeliveryChannelStatus (Core.Maybe [Types.ChannelName])
+ddcsDeliveryChannelNames = Lens.field @"deliveryChannelNames"
 {-# DEPRECATED ddcsDeliveryChannelNames "Use generic-lens or generic-optics with 'deliveryChannelNames' instead." #-}
 
-instance Lude.AWSRequest DescribeDeliveryChannelStatus where
+instance Core.FromJSON DescribeDeliveryChannelStatus where
+  toJSON DescribeDeliveryChannelStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [("DeliveryChannelNames" Core..=) Core.<$> deliveryChannelNames]
+      )
+
+instance Core.AWSRequest DescribeDeliveryChannelStatus where
   type
     Rs DescribeDeliveryChannelStatus =
       DescribeDeliveryChannelStatusResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeDeliveryChannelStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDeliveryChannelStatusResponse'
-            Lude.<$> (x Lude..?> "DeliveryChannelsStatus" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DeliveryChannelsStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDeliveryChannelStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeDeliveryChannelStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDeliveryChannelStatus where
-  toJSON DescribeDeliveryChannelStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("DeliveryChannelNames" Lude..=) Lude.<$> deliveryChannelNames]
-      )
-
-instance Lude.ToPath DescribeDeliveryChannelStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDeliveryChannelStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output for the 'DescribeDeliveryChannelStatus' action.
 --
 -- /See:/ 'mkDescribeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
   { -- | A list that contains the status of a specified delivery channel.
-    deliveryChannelsStatus :: Lude.Maybe [DeliveryChannelStatus],
+    deliveryChannelsStatus :: Core.Maybe [Types.DeliveryChannelStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.
---
--- * 'deliveryChannelsStatus' - A list that contains the status of a specified delivery channel.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDeliveryChannelStatusResponse' value with any optional fields omitted.
 mkDescribeDeliveryChannelStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDeliveryChannelStatusResponse
-mkDescribeDeliveryChannelStatusResponse pResponseStatus_ =
+mkDescribeDeliveryChannelStatusResponse responseStatus =
   DescribeDeliveryChannelStatusResponse'
     { deliveryChannelsStatus =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list that contains the status of a specified delivery channel.
 --
 -- /Note:/ Consider using 'deliveryChannelsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsrsDeliveryChannelsStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse (Lude.Maybe [DeliveryChannelStatus])
-ddcsrsDeliveryChannelsStatus = Lens.lens (deliveryChannelsStatus :: DescribeDeliveryChannelStatusResponse -> Lude.Maybe [DeliveryChannelStatus]) (\s a -> s {deliveryChannelsStatus = a} :: DescribeDeliveryChannelStatusResponse)
-{-# DEPRECATED ddcsrsDeliveryChannelsStatus "Use generic-lens or generic-optics with 'deliveryChannelsStatus' instead." #-}
+ddcsrrsDeliveryChannelsStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse (Core.Maybe [Types.DeliveryChannelStatus])
+ddcsrrsDeliveryChannelsStatus = Lens.field @"deliveryChannelsStatus"
+{-# DEPRECATED ddcsrrsDeliveryChannelsStatus "Use generic-lens or generic-optics with 'deliveryChannelsStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsrsResponseStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse Lude.Int
-ddcsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryChannelStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeliveryChannelStatusResponse)
-{-# DEPRECATED ddcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcsrrsResponseStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse Core.Int
+ddcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,43 +21,38 @@ module Network.AWS.AppSync.Types.PipelineConfig
   )
 where
 
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The pipeline configuration for a resolver of kind @PIPELINE@ .
 --
 -- /See:/ 'mkPipelineConfig' smart constructor.
 newtype PipelineConfig = PipelineConfig'
   { -- | A list of @Function@ objects.
-    functions :: Lude.Maybe [Lude.Text]
+    functions :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PipelineConfig' with the minimum fields required to make a request.
---
--- * 'functions' - A list of @Function@ objects.
+-- | Creates a 'PipelineConfig' value with any optional fields omitted.
 mkPipelineConfig ::
   PipelineConfig
-mkPipelineConfig = PipelineConfig' {functions = Lude.Nothing}
+mkPipelineConfig = PipelineConfig' {functions = Core.Nothing}
 
 -- | A list of @Function@ objects.
 --
 -- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcFunctions :: Lens.Lens' PipelineConfig (Lude.Maybe [Lude.Text])
-pcFunctions = Lens.lens (functions :: PipelineConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {functions = a} :: PipelineConfig)
+pcFunctions :: Lens.Lens' PipelineConfig (Core.Maybe [Types.String])
+pcFunctions = Lens.field @"functions"
 {-# DEPRECATED pcFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
 
-instance Lude.FromJSON PipelineConfig where
-  parseJSON =
-    Lude.withObject
-      "PipelineConfig"
-      ( \x ->
-          PipelineConfig'
-            Lude.<$> (x Lude..:? "functions" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON PipelineConfig where
+  toJSON PipelineConfig {..} =
+    Core.object
+      (Core.catMaybes [("functions" Core..=) Core.<$> functions])
 
-instance Lude.ToJSON PipelineConfig where
-  toJSON PipelineConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [("functions" Lude..=) Lude.<$> functions])
+instance Core.FromJSON PipelineConfig where
+  parseJSON =
+    Core.withObject "PipelineConfig" Core.$
+      \x -> PipelineConfig' Core.<$> (x Core..:? "functions")

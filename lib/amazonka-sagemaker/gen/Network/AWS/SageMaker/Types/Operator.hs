@@ -13,86 +13,88 @@
 module Network.AWS.SageMaker.Types.Operator
   ( Operator
       ( Operator',
-        Equals,
-        NotEquals,
-        GreaterThan,
-        GreaterThanOrEqualTo,
-        LessThan,
-        LessThanOrEqualTo,
-        Contains,
-        Exists,
-        NotExists,
-        IN
+        OperatorEquals,
+        OperatorNotEquals,
+        OperatorGreaterThan,
+        OperatorGreaterThanOrEqualTo,
+        OperatorLessThan,
+        OperatorLessThanOrEqualTo,
+        OperatorContains,
+        OperatorExists,
+        OperatorNotExists,
+        OperatorIN,
+        fromOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Operator = Operator' Lude.Text
+newtype Operator = Operator' {fromOperator :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Equals :: Operator
-pattern Equals = Operator' "Equals"
+pattern OperatorEquals :: Operator
+pattern OperatorEquals = Operator' "Equals"
 
-pattern NotEquals :: Operator
-pattern NotEquals = Operator' "NotEquals"
+pattern OperatorNotEquals :: Operator
+pattern OperatorNotEquals = Operator' "NotEquals"
 
-pattern GreaterThan :: Operator
-pattern GreaterThan = Operator' "GreaterThan"
+pattern OperatorGreaterThan :: Operator
+pattern OperatorGreaterThan = Operator' "GreaterThan"
 
-pattern GreaterThanOrEqualTo :: Operator
-pattern GreaterThanOrEqualTo = Operator' "GreaterThanOrEqualTo"
+pattern OperatorGreaterThanOrEqualTo :: Operator
+pattern OperatorGreaterThanOrEqualTo = Operator' "GreaterThanOrEqualTo"
 
-pattern LessThan :: Operator
-pattern LessThan = Operator' "LessThan"
+pattern OperatorLessThan :: Operator
+pattern OperatorLessThan = Operator' "LessThan"
 
-pattern LessThanOrEqualTo :: Operator
-pattern LessThanOrEqualTo = Operator' "LessThanOrEqualTo"
+pattern OperatorLessThanOrEqualTo :: Operator
+pattern OperatorLessThanOrEqualTo = Operator' "LessThanOrEqualTo"
 
-pattern Contains :: Operator
-pattern Contains = Operator' "Contains"
+pattern OperatorContains :: Operator
+pattern OperatorContains = Operator' "Contains"
 
-pattern Exists :: Operator
-pattern Exists = Operator' "Exists"
+pattern OperatorExists :: Operator
+pattern OperatorExists = Operator' "Exists"
 
-pattern NotExists :: Operator
-pattern NotExists = Operator' "NotExists"
+pattern OperatorNotExists :: Operator
+pattern OperatorNotExists = Operator' "NotExists"
 
-pattern IN :: Operator
-pattern IN = Operator' "In"
+pattern OperatorIN :: Operator
+pattern OperatorIN = Operator' "In"
 
 {-# COMPLETE
-  Equals,
-  NotEquals,
-  GreaterThan,
-  GreaterThanOrEqualTo,
-  LessThan,
-  LessThanOrEqualTo,
-  Contains,
-  Exists,
-  NotExists,
-  IN,
+  OperatorEquals,
+  OperatorNotEquals,
+  OperatorGreaterThan,
+  OperatorGreaterThanOrEqualTo,
+  OperatorLessThan,
+  OperatorLessThanOrEqualTo,
+  OperatorContains,
+  OperatorExists,
+  OperatorNotExists,
+  OperatorIN,
   Operator'
   #-}

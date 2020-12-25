@@ -17,145 +17,134 @@ module Network.AWS.CodeBuild.Types.ReportGroup
     mkReportGroup,
 
     -- * Lenses
-    rgStatus,
     rgArn,
     rgCreated,
-    rgName,
-    rgType,
-    rgLastModified,
     rgExportConfig,
+    rgLastModified,
+    rgName,
+    rgStatus,
     rgTags,
+    rgType,
   )
 where
 
-import Network.AWS.CodeBuild.Types.ReportExportConfig
-import Network.AWS.CodeBuild.Types.ReportGroupStatusType
-import Network.AWS.CodeBuild.Types.ReportType
-import Network.AWS.CodeBuild.Types.Tag
+import qualified Network.AWS.CodeBuild.Types.NonEmptyString as Types
+import qualified Network.AWS.CodeBuild.Types.ReportExportConfig as Types
+import qualified Network.AWS.CodeBuild.Types.ReportGroupName as Types
+import qualified Network.AWS.CodeBuild.Types.ReportGroupStatusType as Types
+import qualified Network.AWS.CodeBuild.Types.ReportType as Types
+import qualified Network.AWS.CodeBuild.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A series of reports. Each report contains information about the results from running a series of test cases. You specify the test cases for a report group in the buildspec for a build project using one or more paths to the test case files.
 --
 -- /See:/ 'mkReportGroup' smart constructor.
 data ReportGroup = ReportGroup'
-  { status :: Lude.Maybe ReportGroupStatusType,
-    -- | The ARN of a @ReportGroup@ .
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of a @ReportGroup@ .
+    arn :: Core.Maybe Types.NonEmptyString,
     -- | The date and time this @ReportGroup@ was created.
-    created :: Lude.Maybe Lude.Timestamp,
-    -- | The name of a @ReportGroup@ .
-    name :: Lude.Maybe Lude.Text,
-    -- | The type of the @ReportGroup@ . The one valid value is @TEST@ .
-    type' :: Lude.Maybe ReportType,
-    -- | The date and time this @ReportGroup@ was last modified.
-    lastModified :: Lude.Maybe Lude.Timestamp,
+    created :: Core.Maybe Core.NominalDiffTime,
     -- | Information about the destination where the raw data of this @ReportGroup@ is exported.
-    exportConfig :: Lude.Maybe ReportExportConfig,
+    exportConfig :: Core.Maybe Types.ReportExportConfig,
+    -- | The date and time this @ReportGroup@ was last modified.
+    lastModified :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of a @ReportGroup@ .
+    name :: Core.Maybe Types.ReportGroupName,
+    status :: Core.Maybe Types.ReportGroupStatusType,
     -- | A list of tag key and value pairs associated with this report group.
     --
     -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The type of the @ReportGroup@ . The one valid value is @TEST@ .
+    type' :: Core.Maybe Types.ReportType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ReportGroup' with the minimum fields required to make a request.
---
--- * 'status' -
--- * 'arn' - The ARN of a @ReportGroup@ .
--- * 'created' - The date and time this @ReportGroup@ was created.
--- * 'name' - The name of a @ReportGroup@ .
--- * 'type'' - The type of the @ReportGroup@ . The one valid value is @TEST@ .
--- * 'lastModified' - The date and time this @ReportGroup@ was last modified.
--- * 'exportConfig' - Information about the destination where the raw data of this @ReportGroup@ is exported.
--- * 'tags' - A list of tag key and value pairs associated with this report group.
---
--- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+-- | Creates a 'ReportGroup' value with any optional fields omitted.
 mkReportGroup ::
   ReportGroup
 mkReportGroup =
   ReportGroup'
-    { status = Lude.Nothing,
-      arn = Lude.Nothing,
-      created = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing,
-      lastModified = Lude.Nothing,
-      exportConfig = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      created = Core.Nothing,
+      exportConfig = Core.Nothing,
+      lastModified = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing,
+      tags = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgStatus :: Lens.Lens' ReportGroup (Lude.Maybe ReportGroupStatusType)
-rgStatus = Lens.lens (status :: ReportGroup -> Lude.Maybe ReportGroupStatusType) (\s a -> s {status = a} :: ReportGroup)
-{-# DEPRECATED rgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ARN of a @ReportGroup@ .
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgArn :: Lens.Lens' ReportGroup (Lude.Maybe Lude.Text)
-rgArn = Lens.lens (arn :: ReportGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ReportGroup)
+rgArn :: Lens.Lens' ReportGroup (Core.Maybe Types.NonEmptyString)
+rgArn = Lens.field @"arn"
 {-# DEPRECATED rgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time this @ReportGroup@ was created.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgCreated :: Lens.Lens' ReportGroup (Lude.Maybe Lude.Timestamp)
-rgCreated = Lens.lens (created :: ReportGroup -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: ReportGroup)
+rgCreated :: Lens.Lens' ReportGroup (Core.Maybe Core.NominalDiffTime)
+rgCreated = Lens.field @"created"
 {-# DEPRECATED rgCreated "Use generic-lens or generic-optics with 'created' instead." #-}
-
--- | The name of a @ReportGroup@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgName :: Lens.Lens' ReportGroup (Lude.Maybe Lude.Text)
-rgName = Lens.lens (name :: ReportGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ReportGroup)
-{-# DEPRECATED rgName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The type of the @ReportGroup@ . The one valid value is @TEST@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgType :: Lens.Lens' ReportGroup (Lude.Maybe ReportType)
-rgType = Lens.lens (type' :: ReportGroup -> Lude.Maybe ReportType) (\s a -> s {type' = a} :: ReportGroup)
-{-# DEPRECATED rgType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The date and time this @ReportGroup@ was last modified.
---
--- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgLastModified :: Lens.Lens' ReportGroup (Lude.Maybe Lude.Timestamp)
-rgLastModified = Lens.lens (lastModified :: ReportGroup -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: ReportGroup)
-{-# DEPRECATED rgLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | Information about the destination where the raw data of this @ReportGroup@ is exported.
 --
 -- /Note:/ Consider using 'exportConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgExportConfig :: Lens.Lens' ReportGroup (Lude.Maybe ReportExportConfig)
-rgExportConfig = Lens.lens (exportConfig :: ReportGroup -> Lude.Maybe ReportExportConfig) (\s a -> s {exportConfig = a} :: ReportGroup)
+rgExportConfig :: Lens.Lens' ReportGroup (Core.Maybe Types.ReportExportConfig)
+rgExportConfig = Lens.field @"exportConfig"
 {-# DEPRECATED rgExportConfig "Use generic-lens or generic-optics with 'exportConfig' instead." #-}
+
+-- | The date and time this @ReportGroup@ was last modified.
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgLastModified :: Lens.Lens' ReportGroup (Core.Maybe Core.NominalDiffTime)
+rgLastModified = Lens.field @"lastModified"
+{-# DEPRECATED rgLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
+
+-- | The name of a @ReportGroup@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgName :: Lens.Lens' ReportGroup (Core.Maybe Types.ReportGroupName)
+rgName = Lens.field @"name"
+{-# DEPRECATED rgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgStatus :: Lens.Lens' ReportGroup (Core.Maybe Types.ReportGroupStatusType)
+rgStatus = Lens.field @"status"
+{-# DEPRECATED rgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A list of tag key and value pairs associated with this report group.
 --
 -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgTags :: Lens.Lens' ReportGroup (Lude.Maybe [Tag])
-rgTags = Lens.lens (tags :: ReportGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ReportGroup)
+rgTags :: Lens.Lens' ReportGroup (Core.Maybe [Types.Tag])
+rgTags = Lens.field @"tags"
 {-# DEPRECATED rgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ReportGroup where
+-- | The type of the @ReportGroup@ . The one valid value is @TEST@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgType :: Lens.Lens' ReportGroup (Core.Maybe Types.ReportType)
+rgType = Lens.field @"type'"
+{-# DEPRECATED rgType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON ReportGroup where
   parseJSON =
-    Lude.withObject
-      "ReportGroup"
-      ( \x ->
-          ReportGroup'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "created")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "lastModified")
-            Lude.<*> (x Lude..:? "exportConfig")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ReportGroup" Core.$
+      \x ->
+        ReportGroup'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "created")
+          Core.<*> (x Core..:? "exportConfig")
+          Core.<*> (x Core..:? "lastModified")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "tags")
+          Core.<*> (x Core..:? "type")

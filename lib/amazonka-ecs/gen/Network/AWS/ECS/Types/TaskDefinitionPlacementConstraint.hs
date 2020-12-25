@@ -22,62 +22,58 @@ module Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint
   )
 where
 
-import Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType
+import qualified Network.AWS.ECS.Types.String as Types
+import qualified Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a constraint on task placement in the task definition. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /See:/ 'mkTaskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
   { -- | A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
-    expression :: Lude.Maybe Lude.Text,
+    expression :: Core.Maybe Types.String,
     -- | The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
-    type' :: Lude.Maybe TaskDefinitionPlacementConstraintType
+    type' :: Core.Maybe Types.TaskDefinitionPlacementConstraintType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskDefinitionPlacementConstraint' with the minimum fields required to make a request.
---
--- * 'expression' - A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'type'' - The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
+-- | Creates a 'TaskDefinitionPlacementConstraint' value with any optional fields omitted.
 mkTaskDefinitionPlacementConstraint ::
   TaskDefinitionPlacementConstraint
 mkTaskDefinitionPlacementConstraint =
   TaskDefinitionPlacementConstraint'
-    { expression = Lude.Nothing,
-      type' = Lude.Nothing
+    { expression = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdpcExpression :: Lens.Lens' TaskDefinitionPlacementConstraint (Lude.Maybe Lude.Text)
-tdpcExpression = Lens.lens (expression :: TaskDefinitionPlacementConstraint -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: TaskDefinitionPlacementConstraint)
+tdpcExpression :: Lens.Lens' TaskDefinitionPlacementConstraint (Core.Maybe Types.String)
+tdpcExpression = Lens.field @"expression"
 {-# DEPRECATED tdpcExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdpcType :: Lens.Lens' TaskDefinitionPlacementConstraint (Lude.Maybe TaskDefinitionPlacementConstraintType)
-tdpcType = Lens.lens (type' :: TaskDefinitionPlacementConstraint -> Lude.Maybe TaskDefinitionPlacementConstraintType) (\s a -> s {type' = a} :: TaskDefinitionPlacementConstraint)
+tdpcType :: Lens.Lens' TaskDefinitionPlacementConstraint (Core.Maybe Types.TaskDefinitionPlacementConstraintType)
+tdpcType = Lens.field @"type'"
 {-# DEPRECATED tdpcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON TaskDefinitionPlacementConstraint where
-  parseJSON =
-    Lude.withObject
-      "TaskDefinitionPlacementConstraint"
-      ( \x ->
-          TaskDefinitionPlacementConstraint'
-            Lude.<$> (x Lude..:? "expression") Lude.<*> (x Lude..:? "type")
-      )
-
-instance Lude.ToJSON TaskDefinitionPlacementConstraint where
-  toJSON TaskDefinitionPlacementConstraint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("expression" Lude..=) Lude.<$> expression,
-            ("type" Lude..=) Lude.<$> type'
+instance Core.FromJSON TaskDefinitionPlacementConstraint where
+  toJSON TaskDefinitionPlacementConstraint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("expression" Core..=) Core.<$> expression,
+            ("type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON TaskDefinitionPlacementConstraint where
+  parseJSON =
+    Core.withObject "TaskDefinitionPlacementConstraint" Core.$
+      \x ->
+        TaskDefinitionPlacementConstraint'
+          Core.<$> (x Core..:? "expression") Core.<*> (x Core..:? "type")

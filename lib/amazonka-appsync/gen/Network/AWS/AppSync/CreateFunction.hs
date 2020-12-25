@@ -22,204 +22,188 @@ module Network.AWS.AppSync.CreateFunction
     mkCreateFunction,
 
     -- ** Request lenses
-    cfDataSourceName,
     cfApiId,
-    cfRequestMappingTemplate,
     cfName,
-    cfResponseMappingTemplate,
+    cfDataSourceName,
     cfFunctionVersion,
     cfDescription,
+    cfRequestMappingTemplate,
+    cfResponseMappingTemplate,
 
     -- * Destructuring the response
     CreateFunctionResponse (..),
     mkCreateFunctionResponse,
 
     -- ** Response lenses
-    cfrsFunctionConfiguration,
-    cfrsResponseStatus,
+    cfrrsFunctionConfiguration,
+    cfrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppSync.Types
+import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { -- | The @Function@ @DataSource@ name.
-    dataSourceName :: Lude.Text,
-    -- | The GraphQL API ID.
-    apiId :: Lude.Text,
-    -- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-    requestMappingTemplate :: Lude.Maybe Lude.Text,
+  { -- | The GraphQL API ID.
+    apiId :: Types.ApiId,
     -- | The @Function@ name. The function name does not have to be unique.
-    name :: Lude.Text,
-    -- | The @Function@ response mapping template.
-    responseMappingTemplate :: Lude.Maybe Lude.Text,
+    name :: Types.Name,
+    -- | The @Function@ @DataSource@ name.
+    dataSourceName :: Types.DataSourceName,
     -- | The @version@ of the request mapping template. Currently the supported value is 2018-05-29.
-    functionVersion :: Lude.Text,
+    functionVersion :: Types.FunctionVersion,
     -- | The @Function@ description.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+    requestMappingTemplate :: Core.Maybe Types.MappingTemplate,
+    -- | The @Function@ response mapping template.
+    responseMappingTemplate :: Core.Maybe Types.MappingTemplate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
---
--- * 'dataSourceName' - The @Function@ @DataSource@ name.
--- * 'apiId' - The GraphQL API ID.
--- * 'requestMappingTemplate' - The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
--- * 'name' - The @Function@ name. The function name does not have to be unique.
--- * 'responseMappingTemplate' - The @Function@ response mapping template.
--- * 'functionVersion' - The @version@ of the request mapping template. Currently the supported value is 2018-05-29.
--- * 'description' - The @Function@ description.
+-- | Creates a 'CreateFunction' value with any optional fields omitted.
 mkCreateFunction ::
-  -- | 'dataSourceName'
-  Lude.Text ->
   -- | 'apiId'
-  Lude.Text ->
+  Types.ApiId ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'dataSourceName'
+  Types.DataSourceName ->
   -- | 'functionVersion'
-  Lude.Text ->
+  Types.FunctionVersion ->
   CreateFunction
-mkCreateFunction pDataSourceName_ pApiId_ pName_ pFunctionVersion_ =
+mkCreateFunction apiId name dataSourceName functionVersion =
   CreateFunction'
-    { dataSourceName = pDataSourceName_,
-      apiId = pApiId_,
-      requestMappingTemplate = Lude.Nothing,
-      name = pName_,
-      responseMappingTemplate = Lude.Nothing,
-      functionVersion = pFunctionVersion_,
-      description = Lude.Nothing
+    { apiId,
+      name,
+      dataSourceName,
+      functionVersion,
+      description = Core.Nothing,
+      requestMappingTemplate = Core.Nothing,
+      responseMappingTemplate = Core.Nothing
     }
-
--- | The @Function@ @DataSource@ name.
---
--- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfDataSourceName :: Lens.Lens' CreateFunction Lude.Text
-cfDataSourceName = Lens.lens (dataSourceName :: CreateFunction -> Lude.Text) (\s a -> s {dataSourceName = a} :: CreateFunction)
-{-# DEPRECATED cfDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
 -- | The GraphQL API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfApiId :: Lens.Lens' CreateFunction Lude.Text
-cfApiId = Lens.lens (apiId :: CreateFunction -> Lude.Text) (\s a -> s {apiId = a} :: CreateFunction)
+cfApiId :: Lens.Lens' CreateFunction Types.ApiId
+cfApiId = Lens.field @"apiId"
 {-# DEPRECATED cfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
-
--- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
---
--- /Note:/ Consider using 'requestMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfRequestMappingTemplate :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
-cfRequestMappingTemplate = Lens.lens (requestMappingTemplate :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {requestMappingTemplate = a} :: CreateFunction)
-{-# DEPRECATED cfRequestMappingTemplate "Use generic-lens or generic-optics with 'requestMappingTemplate' instead." #-}
 
 -- | The @Function@ name. The function name does not have to be unique.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfName :: Lens.Lens' CreateFunction Lude.Text
-cfName = Lens.lens (name :: CreateFunction -> Lude.Text) (\s a -> s {name = a} :: CreateFunction)
+cfName :: Lens.Lens' CreateFunction Types.Name
+cfName = Lens.field @"name"
 {-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The @Function@ response mapping template.
+-- | The @Function@ @DataSource@ name.
 --
--- /Note:/ Consider using 'responseMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfResponseMappingTemplate :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
-cfResponseMappingTemplate = Lens.lens (responseMappingTemplate :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {responseMappingTemplate = a} :: CreateFunction)
-{-# DEPRECATED cfResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
+-- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfDataSourceName :: Lens.Lens' CreateFunction Types.DataSourceName
+cfDataSourceName = Lens.field @"dataSourceName"
+{-# DEPRECATED cfDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
 -- | The @version@ of the request mapping template. Currently the supported value is 2018-05-29.
 --
 -- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfFunctionVersion :: Lens.Lens' CreateFunction Lude.Text
-cfFunctionVersion = Lens.lens (functionVersion :: CreateFunction -> Lude.Text) (\s a -> s {functionVersion = a} :: CreateFunction)
+cfFunctionVersion :: Lens.Lens' CreateFunction Types.FunctionVersion
+cfFunctionVersion = Lens.field @"functionVersion"
 {-# DEPRECATED cfFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
 -- | The @Function@ description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfDescription :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
-cfDescription = Lens.lens (description :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateFunction)
+cfDescription :: Lens.Lens' CreateFunction (Core.Maybe Types.Description)
+cfDescription = Lens.field @"description"
 {-# DEPRECATED cfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest CreateFunction where
+-- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+--
+-- /Note:/ Consider using 'requestMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfRequestMappingTemplate :: Lens.Lens' CreateFunction (Core.Maybe Types.MappingTemplate)
+cfRequestMappingTemplate = Lens.field @"requestMappingTemplate"
+{-# DEPRECATED cfRequestMappingTemplate "Use generic-lens or generic-optics with 'requestMappingTemplate' instead." #-}
+
+-- | The @Function@ response mapping template.
+--
+-- /Note:/ Consider using 'responseMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfResponseMappingTemplate :: Lens.Lens' CreateFunction (Core.Maybe Types.MappingTemplate)
+cfResponseMappingTemplate = Lens.field @"responseMappingTemplate"
+{-# DEPRECATED cfResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
+
+instance Core.FromJSON CreateFunction where
+  toJSON CreateFunction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("dataSourceName" Core..= dataSourceName),
+            Core.Just ("functionVersion" Core..= functionVersion),
+            ("description" Core..=) Core.<$> description,
+            ("requestMappingTemplate" Core..=) Core.<$> requestMappingTemplate,
+            ("responseMappingTemplate" Core..=)
+              Core.<$> responseMappingTemplate
+          ]
+      )
+
+instance Core.AWSRequest CreateFunction where
   type Rs CreateFunction = CreateFunctionResponse
-  request = Req.postJSON appSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/functions")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateFunctionResponse'
-            Lude.<$> (x Lude..?> "functionConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "functionConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateFunction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateFunction where
-  toJSON CreateFunction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("dataSourceName" Lude..= dataSourceName),
-            ("requestMappingTemplate" Lude..=) Lude.<$> requestMappingTemplate,
-            Lude.Just ("name" Lude..= name),
-            ("responseMappingTemplate" Lude..=)
-              Lude.<$> responseMappingTemplate,
-            Lude.Just ("functionVersion" Lude..= functionVersion),
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath CreateFunction where
-  toPath CreateFunction' {..} =
-    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/functions"]
-
-instance Lude.ToQuery CreateFunction where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateFunctionResponse' smart constructor.
 data CreateFunctionResponse = CreateFunctionResponse'
   { -- | The @Function@ object.
-    functionConfiguration :: Lude.Maybe FunctionConfiguration,
+    functionConfiguration :: Core.Maybe Types.FunctionConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFunctionResponse' with the minimum fields required to make a request.
---
--- * 'functionConfiguration' - The @Function@ object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateFunctionResponse' value with any optional fields omitted.
 mkCreateFunctionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateFunctionResponse
-mkCreateFunctionResponse pResponseStatus_ =
+mkCreateFunctionResponse responseStatus =
   CreateFunctionResponse'
-    { functionConfiguration = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { functionConfiguration = Core.Nothing,
+      responseStatus
     }
 
 -- | The @Function@ object.
 --
 -- /Note:/ Consider using 'functionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfrsFunctionConfiguration :: Lens.Lens' CreateFunctionResponse (Lude.Maybe FunctionConfiguration)
-cfrsFunctionConfiguration = Lens.lens (functionConfiguration :: CreateFunctionResponse -> Lude.Maybe FunctionConfiguration) (\s a -> s {functionConfiguration = a} :: CreateFunctionResponse)
-{-# DEPRECATED cfrsFunctionConfiguration "Use generic-lens or generic-optics with 'functionConfiguration' instead." #-}
+cfrrsFunctionConfiguration :: Lens.Lens' CreateFunctionResponse (Core.Maybe Types.FunctionConfiguration)
+cfrrsFunctionConfiguration = Lens.field @"functionConfiguration"
+{-# DEPRECATED cfrrsFunctionConfiguration "Use generic-lens or generic-optics with 'functionConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfrsResponseStatus :: Lens.Lens' CreateFunctionResponse Lude.Int
-cfrsResponseStatus = Lens.lens (responseStatus :: CreateFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFunctionResponse)
-{-# DEPRECATED cfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cfrrsResponseStatus :: Lens.Lens' CreateFunctionResponse Core.Int
+cfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,59 +17,55 @@ module Network.AWS.GuardDuty.Types.PublicAccess
     mkPublicAccess,
 
     -- * Lenses
-    paPermissionConfiguration,
     paEffectivePermission,
+    paPermissionConfiguration,
   )
 where
 
-import Network.AWS.GuardDuty.Types.PermissionConfiguration
+import qualified Network.AWS.GuardDuty.Types.PermissionConfiguration as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the public access policies that apply to the S3 bucket.
 --
 -- /See:/ 'mkPublicAccess' smart constructor.
 data PublicAccess = PublicAccess'
-  { -- | Contains information about how permissions are configured for the S3 bucket.
-    permissionConfiguration :: Lude.Maybe PermissionConfiguration,
-    -- | Describes the effective permission on this bucket after factoring all attached policies.
-    effectivePermission :: Lude.Maybe Lude.Text
+  { -- | Describes the effective permission on this bucket after factoring all attached policies.
+    effectivePermission :: Core.Maybe Types.String,
+    -- | Contains information about how permissions are configured for the S3 bucket.
+    permissionConfiguration :: Core.Maybe Types.PermissionConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PublicAccess' with the minimum fields required to make a request.
---
--- * 'permissionConfiguration' - Contains information about how permissions are configured for the S3 bucket.
--- * 'effectivePermission' - Describes the effective permission on this bucket after factoring all attached policies.
+-- | Creates a 'PublicAccess' value with any optional fields omitted.
 mkPublicAccess ::
   PublicAccess
 mkPublicAccess =
   PublicAccess'
-    { permissionConfiguration = Lude.Nothing,
-      effectivePermission = Lude.Nothing
+    { effectivePermission = Core.Nothing,
+      permissionConfiguration = Core.Nothing
     }
-
--- | Contains information about how permissions are configured for the S3 bucket.
---
--- /Note:/ Consider using 'permissionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paPermissionConfiguration :: Lens.Lens' PublicAccess (Lude.Maybe PermissionConfiguration)
-paPermissionConfiguration = Lens.lens (permissionConfiguration :: PublicAccess -> Lude.Maybe PermissionConfiguration) (\s a -> s {permissionConfiguration = a} :: PublicAccess)
-{-# DEPRECATED paPermissionConfiguration "Use generic-lens or generic-optics with 'permissionConfiguration' instead." #-}
 
 -- | Describes the effective permission on this bucket after factoring all attached policies.
 --
 -- /Note:/ Consider using 'effectivePermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paEffectivePermission :: Lens.Lens' PublicAccess (Lude.Maybe Lude.Text)
-paEffectivePermission = Lens.lens (effectivePermission :: PublicAccess -> Lude.Maybe Lude.Text) (\s a -> s {effectivePermission = a} :: PublicAccess)
+paEffectivePermission :: Lens.Lens' PublicAccess (Core.Maybe Types.String)
+paEffectivePermission = Lens.field @"effectivePermission"
 {-# DEPRECATED paEffectivePermission "Use generic-lens or generic-optics with 'effectivePermission' instead." #-}
 
-instance Lude.FromJSON PublicAccess where
+-- | Contains information about how permissions are configured for the S3 bucket.
+--
+-- /Note:/ Consider using 'permissionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPermissionConfiguration :: Lens.Lens' PublicAccess (Core.Maybe Types.PermissionConfiguration)
+paPermissionConfiguration = Lens.field @"permissionConfiguration"
+{-# DEPRECATED paPermissionConfiguration "Use generic-lens or generic-optics with 'permissionConfiguration' instead." #-}
+
+instance Core.FromJSON PublicAccess where
   parseJSON =
-    Lude.withObject
-      "PublicAccess"
-      ( \x ->
-          PublicAccess'
-            Lude.<$> (x Lude..:? "permissionConfiguration")
-            Lude.<*> (x Lude..:? "effectivePermission")
-      )
+    Core.withObject "PublicAccess" Core.$
+      \x ->
+        PublicAccess'
+          Core.<$> (x Core..:? "effectivePermission")
+          Core.<*> (x Core..:? "permissionConfiguration")

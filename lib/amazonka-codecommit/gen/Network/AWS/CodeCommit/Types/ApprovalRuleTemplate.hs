@@ -17,136 +17,131 @@ module Network.AWS.CodeCommit.Types.ApprovalRuleTemplate
     mkApprovalRuleTemplate,
 
     -- * Lenses
-    artRuleContentSha256,
-    artApprovalRuleTemplateId,
-    artLastModifiedDate,
-    artApprovalRuleTemplateDescription,
     artApprovalRuleTemplateContent,
-    artLastModifiedUser,
-    artCreationDate,
+    artApprovalRuleTemplateDescription,
+    artApprovalRuleTemplateId,
     artApprovalRuleTemplateName,
+    artCreationDate,
+    artLastModifiedDate,
+    artLastModifiedUser,
+    artRuleContentSha256,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleTemplateContent as Types
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleTemplateDescription as Types
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleTemplateId as Types
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleTemplateName as Types
+import qualified Network.AWS.CodeCommit.Types.Arn as Types
+import qualified Network.AWS.CodeCommit.Types.RuleContentSha256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about an approval rule template.
 --
 -- /See:/ 'mkApprovalRuleTemplate' smart constructor.
 data ApprovalRuleTemplate = ApprovalRuleTemplate'
-  { -- | The SHA-256 hash signature for the content of the approval rule template.
-    ruleContentSha256 :: Lude.Maybe Lude.Text,
-    -- | The system-generated ID of the approval rule template.
-    approvalRuleTemplateId :: Lude.Maybe Lude.Text,
-    -- | The date the approval rule template was most recently changed, in timestamp format.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The content of the approval rule template.
+    approvalRuleTemplateContent :: Core.Maybe Types.ApprovalRuleTemplateContent,
     -- | The description of the approval rule template.
-    approvalRuleTemplateDescription :: Lude.Maybe Lude.Text,
-    -- | The content of the approval rule template.
-    approvalRuleTemplateContent :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-    lastModifiedUser :: Lude.Maybe Lude.Text,
-    -- | The date the approval rule template was created, in timestamp format.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+    approvalRuleTemplateDescription :: Core.Maybe Types.ApprovalRuleTemplateDescription,
+    -- | The system-generated ID of the approval rule template.
+    approvalRuleTemplateId :: Core.Maybe Types.ApprovalRuleTemplateId,
     -- | The name of the approval rule template.
-    approvalRuleTemplateName :: Lude.Maybe Lude.Text
+    approvalRuleTemplateName :: Core.Maybe Types.ApprovalRuleTemplateName,
+    -- | The date the approval rule template was created, in timestamp format.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The date the approval rule template was most recently changed, in timestamp format.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+    lastModifiedUser :: Core.Maybe Types.Arn,
+    -- | The SHA-256 hash signature for the content of the approval rule template.
+    ruleContentSha256 :: Core.Maybe Types.RuleContentSha256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ApprovalRuleTemplate' with the minimum fields required to make a request.
---
--- * 'ruleContentSha256' - The SHA-256 hash signature for the content of the approval rule template.
--- * 'approvalRuleTemplateId' - The system-generated ID of the approval rule template.
--- * 'lastModifiedDate' - The date the approval rule template was most recently changed, in timestamp format.
--- * 'approvalRuleTemplateDescription' - The description of the approval rule template.
--- * 'approvalRuleTemplateContent' - The content of the approval rule template.
--- * 'lastModifiedUser' - The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
--- * 'creationDate' - The date the approval rule template was created, in timestamp format.
--- * 'approvalRuleTemplateName' - The name of the approval rule template.
+-- | Creates a 'ApprovalRuleTemplate' value with any optional fields omitted.
 mkApprovalRuleTemplate ::
   ApprovalRuleTemplate
 mkApprovalRuleTemplate =
   ApprovalRuleTemplate'
-    { ruleContentSha256 = Lude.Nothing,
-      approvalRuleTemplateId = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      approvalRuleTemplateDescription = Lude.Nothing,
-      approvalRuleTemplateContent = Lude.Nothing,
-      lastModifiedUser = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      approvalRuleTemplateName = Lude.Nothing
+    { approvalRuleTemplateContent = Core.Nothing,
+      approvalRuleTemplateDescription = Core.Nothing,
+      approvalRuleTemplateId = Core.Nothing,
+      approvalRuleTemplateName = Core.Nothing,
+      creationDate = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      lastModifiedUser = Core.Nothing,
+      ruleContentSha256 = Core.Nothing
     }
-
--- | The SHA-256 hash signature for the content of the approval rule template.
---
--- /Note:/ Consider using 'ruleContentSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artRuleContentSha256 :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Text)
-artRuleContentSha256 = Lens.lens (ruleContentSha256 :: ApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {ruleContentSha256 = a} :: ApprovalRuleTemplate)
-{-# DEPRECATED artRuleContentSha256 "Use generic-lens or generic-optics with 'ruleContentSha256' instead." #-}
-
--- | The system-generated ID of the approval rule template.
---
--- /Note:/ Consider using 'approvalRuleTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artApprovalRuleTemplateId :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Text)
-artApprovalRuleTemplateId = Lens.lens (approvalRuleTemplateId :: ApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateId = a} :: ApprovalRuleTemplate)
-{-# DEPRECATED artApprovalRuleTemplateId "Use generic-lens or generic-optics with 'approvalRuleTemplateId' instead." #-}
-
--- | The date the approval rule template was most recently changed, in timestamp format.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artLastModifiedDate :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Timestamp)
-artLastModifiedDate = Lens.lens (lastModifiedDate :: ApprovalRuleTemplate -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: ApprovalRuleTemplate)
-{-# DEPRECATED artLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The description of the approval rule template.
---
--- /Note:/ Consider using 'approvalRuleTemplateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artApprovalRuleTemplateDescription :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Text)
-artApprovalRuleTemplateDescription = Lens.lens (approvalRuleTemplateDescription :: ApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateDescription = a} :: ApprovalRuleTemplate)
-{-# DEPRECATED artApprovalRuleTemplateDescription "Use generic-lens or generic-optics with 'approvalRuleTemplateDescription' instead." #-}
 
 -- | The content of the approval rule template.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artApprovalRuleTemplateContent :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Text)
-artApprovalRuleTemplateContent = Lens.lens (approvalRuleTemplateContent :: ApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateContent = a} :: ApprovalRuleTemplate)
+artApprovalRuleTemplateContent :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Types.ApprovalRuleTemplateContent)
+artApprovalRuleTemplateContent = Lens.field @"approvalRuleTemplateContent"
 {-# DEPRECATED artApprovalRuleTemplateContent "Use generic-lens or generic-optics with 'approvalRuleTemplateContent' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+-- | The description of the approval rule template.
 --
--- /Note:/ Consider using 'lastModifiedUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artLastModifiedUser :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Text)
-artLastModifiedUser = Lens.lens (lastModifiedUser :: ApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedUser = a} :: ApprovalRuleTemplate)
-{-# DEPRECATED artLastModifiedUser "Use generic-lens or generic-optics with 'lastModifiedUser' instead." #-}
+-- /Note:/ Consider using 'approvalRuleTemplateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artApprovalRuleTemplateDescription :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Types.ApprovalRuleTemplateDescription)
+artApprovalRuleTemplateDescription = Lens.field @"approvalRuleTemplateDescription"
+{-# DEPRECATED artApprovalRuleTemplateDescription "Use generic-lens or generic-optics with 'approvalRuleTemplateDescription' instead." #-}
 
--- | The date the approval rule template was created, in timestamp format.
+-- | The system-generated ID of the approval rule template.
 --
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artCreationDate :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Timestamp)
-artCreationDate = Lens.lens (creationDate :: ApprovalRuleTemplate -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: ApprovalRuleTemplate)
-{-# DEPRECATED artCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+-- /Note:/ Consider using 'approvalRuleTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artApprovalRuleTemplateId :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Types.ApprovalRuleTemplateId)
+artApprovalRuleTemplateId = Lens.field @"approvalRuleTemplateId"
+{-# DEPRECATED artApprovalRuleTemplateId "Use generic-lens or generic-optics with 'approvalRuleTemplateId' instead." #-}
 
 -- | The name of the approval rule template.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artApprovalRuleTemplateName :: Lens.Lens' ApprovalRuleTemplate (Lude.Maybe Lude.Text)
-artApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: ApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: ApprovalRuleTemplate)
+artApprovalRuleTemplateName :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Types.ApprovalRuleTemplateName)
+artApprovalRuleTemplateName = Lens.field @"approvalRuleTemplateName"
 {-# DEPRECATED artApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
-instance Lude.FromJSON ApprovalRuleTemplate where
+-- | The date the approval rule template was created, in timestamp format.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artCreationDate :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Core.NominalDiffTime)
+artCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED artCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The date the approval rule template was most recently changed, in timestamp format.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artLastModifiedDate :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Core.NominalDiffTime)
+artLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED artLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+--
+-- /Note:/ Consider using 'lastModifiedUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artLastModifiedUser :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Types.Arn)
+artLastModifiedUser = Lens.field @"lastModifiedUser"
+{-# DEPRECATED artLastModifiedUser "Use generic-lens or generic-optics with 'lastModifiedUser' instead." #-}
+
+-- | The SHA-256 hash signature for the content of the approval rule template.
+--
+-- /Note:/ Consider using 'ruleContentSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artRuleContentSha256 :: Lens.Lens' ApprovalRuleTemplate (Core.Maybe Types.RuleContentSha256)
+artRuleContentSha256 = Lens.field @"ruleContentSha256"
+{-# DEPRECATED artRuleContentSha256 "Use generic-lens or generic-optics with 'ruleContentSha256' instead." #-}
+
+instance Core.FromJSON ApprovalRuleTemplate where
   parseJSON =
-    Lude.withObject
-      "ApprovalRuleTemplate"
-      ( \x ->
-          ApprovalRuleTemplate'
-            Lude.<$> (x Lude..:? "ruleContentSha256")
-            Lude.<*> (x Lude..:? "approvalRuleTemplateId")
-            Lude.<*> (x Lude..:? "lastModifiedDate")
-            Lude.<*> (x Lude..:? "approvalRuleTemplateDescription")
-            Lude.<*> (x Lude..:? "approvalRuleTemplateContent")
-            Lude.<*> (x Lude..:? "lastModifiedUser")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "approvalRuleTemplateName")
-      )
+    Core.withObject "ApprovalRuleTemplate" Core.$
+      \x ->
+        ApprovalRuleTemplate'
+          Core.<$> (x Core..:? "approvalRuleTemplateContent")
+          Core.<*> (x Core..:? "approvalRuleTemplateDescription")
+          Core.<*> (x Core..:? "approvalRuleTemplateId")
+          Core.<*> (x Core..:? "approvalRuleTemplateName")
+          Core.<*> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "lastModifiedDate")
+          Core.<*> (x Core..:? "lastModifiedUser")
+          Core.<*> (x Core..:? "ruleContentSha256")

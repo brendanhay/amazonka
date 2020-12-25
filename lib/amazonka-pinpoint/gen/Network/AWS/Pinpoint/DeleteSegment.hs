@@ -20,131 +20,112 @@ module Network.AWS.Pinpoint.DeleteSegment
     mkDeleteSegment,
 
     -- ** Request lenses
-    dsApplicationId,
     dsSegmentId,
+    dsApplicationId,
 
     -- * Destructuring the response
     DeleteSegmentResponse (..),
     mkDeleteSegmentResponse,
 
     -- ** Response lenses
-    dsrsSegmentResponse,
-    dsrsResponseStatus,
+    dsrrsSegmentResponse,
+    dsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSegment' smart constructor.
 data DeleteSegment = DeleteSegment'
-  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    -- | The unique identifier for the segment.
-    segmentId :: Lude.Text
+  { -- | The unique identifier for the segment.
+    segmentId :: Core.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSegment' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'segmentId' - The unique identifier for the segment.
+-- | Creates a 'DeleteSegment' value with any optional fields omitted.
 mkDeleteSegment ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'segmentId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
   DeleteSegment
-mkDeleteSegment pApplicationId_ pSegmentId_ =
-  DeleteSegment'
-    { applicationId = pApplicationId_,
-      segmentId = pSegmentId_
-    }
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsApplicationId :: Lens.Lens' DeleteSegment Lude.Text
-dsApplicationId = Lens.lens (applicationId :: DeleteSegment -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteSegment)
-{-# DEPRECATED dsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+mkDeleteSegment segmentId applicationId =
+  DeleteSegment' {segmentId, applicationId}
 
 -- | The unique identifier for the segment.
 --
 -- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSegmentId :: Lens.Lens' DeleteSegment Lude.Text
-dsSegmentId = Lens.lens (segmentId :: DeleteSegment -> Lude.Text) (\s a -> s {segmentId = a} :: DeleteSegment)
+dsSegmentId :: Lens.Lens' DeleteSegment Core.Text
+dsSegmentId = Lens.field @"segmentId"
 {-# DEPRECATED dsSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
-instance Lude.AWSRequest DeleteSegment where
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsApplicationId :: Lens.Lens' DeleteSegment Core.Text
+dsApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED dsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+instance Core.AWSRequest DeleteSegment where
   type Rs DeleteSegment = DeleteSegmentResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/segments/")
+                Core.<> (Core.toText segmentId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSegmentResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSegment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteSegment where
-  toPath DeleteSegment' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/segments/",
-        Lude.toBS segmentId
-      ]
-
-instance Lude.ToQuery DeleteSegment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSegmentResponse' smart constructor.
 data DeleteSegmentResponse = DeleteSegmentResponse'
-  { segmentResponse :: SegmentResponse,
+  { segmentResponse :: Types.SegmentResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSegmentResponse' with the minimum fields required to make a request.
---
--- * 'segmentResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSegmentResponse' value with any optional fields omitted.
 mkDeleteSegmentResponse ::
   -- | 'segmentResponse'
-  SegmentResponse ->
+  Types.SegmentResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSegmentResponse
-mkDeleteSegmentResponse pSegmentResponse_ pResponseStatus_ =
-  DeleteSegmentResponse'
-    { segmentResponse = pSegmentResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteSegmentResponse segmentResponse responseStatus =
+  DeleteSegmentResponse' {segmentResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSegmentResponse :: Lens.Lens' DeleteSegmentResponse SegmentResponse
-dsrsSegmentResponse = Lens.lens (segmentResponse :: DeleteSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: DeleteSegmentResponse)
-{-# DEPRECATED dsrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
+dsrrsSegmentResponse :: Lens.Lens' DeleteSegmentResponse Types.SegmentResponse
+dsrrsSegmentResponse = Lens.field @"segmentResponse"
+{-# DEPRECATED dsrrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteSegmentResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSegmentResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DeleteSegmentResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

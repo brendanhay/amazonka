@@ -22,35 +22,37 @@ module Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
     mkDescribeConfigurationAggregatorSourcesStatus,
 
     -- ** Request lenses
-    dcassNextToken,
-    dcassLimit,
-    dcassUpdateStatus,
     dcassConfigurationAggregatorName,
+    dcassLimit,
+    dcassNextToken,
+    dcassUpdateStatus,
 
     -- * Destructuring the response
     DescribeConfigurationAggregatorSourcesStatusResponse (..),
     mkDescribeConfigurationAggregatorSourcesStatusResponse,
 
     -- ** Response lenses
-    dcassrsAggregatedSourceStatusList,
-    dcassrsNextToken,
-    dcassrsResponseStatus,
+    dcassrrsAggregatedSourceStatusList,
+    dcassrrsNextToken,
+    dcassrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeConfigurationAggregatorSourcesStatus' smart constructor.
 data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggregatorSourcesStatus'
-  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Types.ConfigurationAggregatorName,
     -- | The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-    limit :: Lude.Maybe Lude.Natural,
+    limit :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.String,
     -- | Filters the status type.
     --
     --
@@ -61,58 +63,45 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
     --
     --
     --     * Valid value OUTDATED indicates the data is not the most recent.
-    updateStatus :: Lude.Maybe (Lude.NonEmpty AggregatedSourceStatusType),
-    -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Lude.Text
+    updateStatus :: Core.Maybe (Core.NonEmpty Types.AggregatedSourceStatusType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationAggregatorSourcesStatus' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'limit' - The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
--- * 'updateStatus' - Filters the status type.
---
---
---     * Valid value FAILED indicates errors while moving data.
---
---
---     * Valid value SUCCEEDED indicates the data was successfully moved.
---
---
---     * Valid value OUTDATED indicates the data is not the most recent.
---
---
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- | Creates a 'DescribeConfigurationAggregatorSourcesStatus' value with any optional fields omitted.
 mkDescribeConfigurationAggregatorSourcesStatus ::
   -- | 'configurationAggregatorName'
-  Lude.Text ->
+  Types.ConfigurationAggregatorName ->
   DescribeConfigurationAggregatorSourcesStatus
 mkDescribeConfigurationAggregatorSourcesStatus
-  pConfigurationAggregatorName_ =
+  configurationAggregatorName =
     DescribeConfigurationAggregatorSourcesStatus'
-      { nextToken =
-          Lude.Nothing,
-        limit = Lude.Nothing,
-        updateStatus = Lude.Nothing,
-        configurationAggregatorName =
-          pConfigurationAggregatorName_
+      { configurationAggregatorName,
+        limit = Core.Nothing,
+        nextToken = Core.Nothing,
+        updateStatus = Core.Nothing
       }
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The name of the configuration aggregator.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassNextToken :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Lude.Maybe Lude.Text)
-dcassNextToken = Lens.lens (nextToken :: DescribeConfigurationAggregatorSourcesStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigurationAggregatorSourcesStatus)
-{-# DEPRECATED dcassNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcassConfigurationAggregatorName :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus Types.ConfigurationAggregatorName
+dcassConfigurationAggregatorName = Lens.field @"configurationAggregatorName"
+{-# DEPRECATED dcassConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
 -- | The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassLimit :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Lude.Maybe Lude.Natural)
-dcassLimit = Lens.lens (limit :: DescribeConfigurationAggregatorSourcesStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeConfigurationAggregatorSourcesStatus)
+dcassLimit :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Core.Maybe Core.Natural)
+dcassLimit = Lens.field @"limit"
 {-# DEPRECATED dcassLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcassNextToken :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Core.Maybe Types.String)
+dcassNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcassNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the status type.
 --
@@ -128,127 +117,114 @@ dcassLimit = Lens.lens (limit :: DescribeConfigurationAggregatorSourcesStatus ->
 --
 --
 -- /Note:/ Consider using 'updateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassUpdateStatus :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Lude.Maybe (Lude.NonEmpty AggregatedSourceStatusType))
-dcassUpdateStatus = Lens.lens (updateStatus :: DescribeConfigurationAggregatorSourcesStatus -> Lude.Maybe (Lude.NonEmpty AggregatedSourceStatusType)) (\s a -> s {updateStatus = a} :: DescribeConfigurationAggregatorSourcesStatus)
+dcassUpdateStatus :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Core.Maybe (Core.NonEmpty Types.AggregatedSourceStatusType))
+dcassUpdateStatus = Lens.field @"updateStatus"
 {-# DEPRECATED dcassUpdateStatus "Use generic-lens or generic-optics with 'updateStatus' instead." #-}
 
--- | The name of the configuration aggregator.
---
--- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassConfigurationAggregatorName :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus Lude.Text
-dcassConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: DescribeConfigurationAggregatorSourcesStatus -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: DescribeConfigurationAggregatorSourcesStatus)
-{-# DEPRECATED dcassConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
-
-instance Page.AWSPager DescribeConfigurationAggregatorSourcesStatus where
-  page rq rs
-    | Page.stop (rs Lens.^. dcassrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcassrsAggregatedSourceStatusList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcassNextToken Lens..~ rs Lens.^. dcassrsNextToken
+instance Core.FromJSON DescribeConfigurationAggregatorSourcesStatus where
+  toJSON DescribeConfigurationAggregatorSourcesStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "ConfigurationAggregatorName"
+                  Core..= configurationAggregatorName
+              ),
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("UpdateStatus" Core..=) Core.<$> updateStatus
+          ]
+      )
 
 instance
-  Lude.AWSRequest
+  Core.AWSRequest
     DescribeConfigurationAggregatorSourcesStatus
   where
   type
     Rs DescribeConfigurationAggregatorSourcesStatus =
       DescribeConfigurationAggregatorSourcesStatusResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationAggregatorSourcesStatusResponse'
-            Lude.<$> (x Lude..?> "AggregatedSourceStatusList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AggregatedSourceStatusList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Lude.ToHeaders
+  Pager.AWSPager
     DescribeConfigurationAggregatorSourcesStatus
   where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConfigurationAggregatorSourcesStatus where
-  toJSON DescribeConfigurationAggregatorSourcesStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("UpdateStatus" Lude..=) Lude.<$> updateStatus,
-            Lude.Just
-              ( "ConfigurationAggregatorName"
-                  Lude..= configurationAggregatorName
-              )
-          ]
-      )
-
-instance Lude.ToPath DescribeConfigurationAggregatorSourcesStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConfigurationAggregatorSourcesStatus where
-  toQuery = Lude.const Lude.mempty
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"aggregatedSourceStatusList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeConfigurationAggregatorSourcesStatusResponse' smart constructor.
 data DescribeConfigurationAggregatorSourcesStatusResponse = DescribeConfigurationAggregatorSourcesStatusResponse'
   { -- | Returns an AggregatedSourceStatus object.
-    aggregatedSourceStatusList :: Lude.Maybe [AggregatedSourceStatus],
+    aggregatedSourceStatusList :: Core.Maybe [Types.AggregatedSourceStatus],
     -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationAggregatorSourcesStatusResponse' with the minimum fields required to make a request.
---
--- * 'aggregatedSourceStatusList' - Returns an AggregatedSourceStatus object.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConfigurationAggregatorSourcesStatusResponse' value with any optional fields omitted.
 mkDescribeConfigurationAggregatorSourcesStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConfigurationAggregatorSourcesStatusResponse
 mkDescribeConfigurationAggregatorSourcesStatusResponse
-  pResponseStatus_ =
+  responseStatus =
     DescribeConfigurationAggregatorSourcesStatusResponse'
       { aggregatedSourceStatusList =
-          Lude.Nothing,
-        nextToken = Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        nextToken = Core.Nothing,
+        responseStatus
       }
 
 -- | Returns an AggregatedSourceStatus object.
 --
 -- /Note:/ Consider using 'aggregatedSourceStatusList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassrsAggregatedSourceStatusList :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Lude.Maybe [AggregatedSourceStatus])
-dcassrsAggregatedSourceStatusList = Lens.lens (aggregatedSourceStatusList :: DescribeConfigurationAggregatorSourcesStatusResponse -> Lude.Maybe [AggregatedSourceStatus]) (\s a -> s {aggregatedSourceStatusList = a} :: DescribeConfigurationAggregatorSourcesStatusResponse)
-{-# DEPRECATED dcassrsAggregatedSourceStatusList "Use generic-lens or generic-optics with 'aggregatedSourceStatusList' instead." #-}
+dcassrrsAggregatedSourceStatusList :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Core.Maybe [Types.AggregatedSourceStatus])
+dcassrrsAggregatedSourceStatusList = Lens.field @"aggregatedSourceStatusList"
+{-# DEPRECATED dcassrrsAggregatedSourceStatusList "Use generic-lens or generic-optics with 'aggregatedSourceStatusList' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassrsNextToken :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Lude.Maybe Lude.Text)
-dcassrsNextToken = Lens.lens (nextToken :: DescribeConfigurationAggregatorSourcesStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigurationAggregatorSourcesStatusResponse)
-{-# DEPRECATED dcassrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcassrrsNextToken :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Core.Maybe Types.NextToken)
+dcassrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcassrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcassrsResponseStatus :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse Lude.Int
-dcassrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationAggregatorSourcesStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationAggregatorSourcesStatusResponse)
-{-# DEPRECATED dcassrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcassrrsResponseStatus :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse Core.Int
+dcassrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcassrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

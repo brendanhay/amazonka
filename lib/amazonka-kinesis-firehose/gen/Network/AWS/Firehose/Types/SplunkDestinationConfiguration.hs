@@ -17,175 +17,165 @@ module Network.AWS.Firehose.Types.SplunkDestinationConfiguration
     mkSplunkDestinationConfiguration,
 
     -- * Lenses
-    sS3BackupMode,
-    sHECToken,
-    sHECEndpointType,
-    sS3Configuration,
-    sCloudWatchLoggingOptions,
-    sHECAcknowledgmentTimeoutInSeconds,
-    sHECEndpoint,
-    sRetryOptions,
-    sProcessingConfiguration,
+    sdcfHECEndpoint,
+    sdcfHECEndpointType,
+    sdcfHECToken,
+    sdcfS3Configuration,
+    sdcfCloudWatchLoggingOptions,
+    sdcfHECAcknowledgmentTimeoutInSeconds,
+    sdcfProcessingConfiguration,
+    sdcfRetryOptions,
+    sdcfS3BackupMode,
   )
 where
 
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.HECEndpointType
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.S3DestinationConfiguration
-import Network.AWS.Firehose.Types.SplunkRetryOptions
-import Network.AWS.Firehose.Types.SplunkS3BackupMode
+import qualified Network.AWS.Firehose.Types.CloudWatchLoggingOptions as Types
+import qualified Network.AWS.Firehose.Types.HECEndpoint as Types
+import qualified Network.AWS.Firehose.Types.HECEndpointType as Types
+import qualified Network.AWS.Firehose.Types.HECToken as Types
+import qualified Network.AWS.Firehose.Types.ProcessingConfiguration as Types
+import qualified Network.AWS.Firehose.Types.S3DestinationConfiguration as Types
+import qualified Network.AWS.Firehose.Types.SplunkRetryOptions as Types
+import qualified Network.AWS.Firehose.Types.SplunkS3BackupMode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the configuration of a destination in Splunk.
 --
 -- /See:/ 'mkSplunkDestinationConfiguration' smart constructor.
 data SplunkDestinationConfiguration = SplunkDestinationConfiguration'
-  { -- | Defines how documents should be delivered to Amazon S3. When set to @FailedEventsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllEvents@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is @FailedEventsOnly@ .
+  { -- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
+    hECEndpoint :: Types.HECEndpoint,
+    -- | This type can be either "Raw" or "Event."
+    hECEndpointType :: Types.HECEndpointType,
+    -- | This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+    hECToken :: Types.HECToken,
+    -- | The configuration for the backup Amazon S3 location.
+    s3Configuration :: Types.S3DestinationConfiguration,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Core.Maybe Types.CloudWatchLoggingOptions,
+    -- | The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
+    hECAcknowledgmentTimeoutInSeconds :: Core.Maybe Core.Natural,
+    -- | The data processing configuration.
+    processingConfiguration :: Core.Maybe Types.ProcessingConfiguration,
+    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
+    retryOptions :: Core.Maybe Types.SplunkRetryOptions,
+    -- | Defines how documents should be delivered to Amazon S3. When set to @FailedEventsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllEvents@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is @FailedEventsOnly@ .
     --
     -- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@ . You can't update it from @AllEvents@ to @FailedEventsOnly@ .
-    s3BackupMode :: Lude.Maybe SplunkS3BackupMode,
-    -- | This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-    hECToken :: Lude.Text,
-    -- | This type can be either "Raw" or "Event."
-    hECEndpointType :: HECEndpointType,
-    -- | The configuration for the backup Amazon S3 location.
-    s3Configuration :: S3DestinationConfiguration,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
-    -- | The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
-    hECAcknowledgmentTimeoutInSeconds :: Lude.Maybe Lude.Natural,
-    -- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
-    hECEndpoint :: Lude.Text,
-    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
-    retryOptions :: Lude.Maybe SplunkRetryOptions,
-    -- | The data processing configuration.
-    processingConfiguration :: Lude.Maybe ProcessingConfiguration
+    s3BackupMode :: Core.Maybe Types.SplunkS3BackupMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SplunkDestinationConfiguration' with the minimum fields required to make a request.
---
--- * 's3BackupMode' - Defines how documents should be delivered to Amazon S3. When set to @FailedEventsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllEvents@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is @FailedEventsOnly@ .
---
--- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@ . You can't update it from @AllEvents@ to @FailedEventsOnly@ .
--- * 'hECToken' - This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
--- * 'hECEndpointType' - This type can be either "Raw" or "Event."
--- * 's3Configuration' - The configuration for the backup Amazon S3 location.
--- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
--- * 'hECAcknowledgmentTimeoutInSeconds' - The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
--- * 'hECEndpoint' - The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
--- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
--- * 'processingConfiguration' - The data processing configuration.
+-- | Creates a 'SplunkDestinationConfiguration' value with any optional fields omitted.
 mkSplunkDestinationConfiguration ::
-  -- | 'hECToken'
-  Lude.Text ->
-  -- | 'hECEndpointType'
-  HECEndpointType ->
-  -- | 's3Configuration'
-  S3DestinationConfiguration ->
   -- | 'hECEndpoint'
-  Lude.Text ->
+  Types.HECEndpoint ->
+  -- | 'hECEndpointType'
+  Types.HECEndpointType ->
+  -- | 'hECToken'
+  Types.HECToken ->
+  -- | 's3Configuration'
+  Types.S3DestinationConfiguration ->
   SplunkDestinationConfiguration
 mkSplunkDestinationConfiguration
-  pHECToken_
-  pHECEndpointType_
-  pS3Configuration_
-  pHECEndpoint_ =
+  hECEndpoint
+  hECEndpointType
+  hECToken
+  s3Configuration =
     SplunkDestinationConfiguration'
-      { s3BackupMode = Lude.Nothing,
-        hECToken = pHECToken_,
-        hECEndpointType = pHECEndpointType_,
-        s3Configuration = pS3Configuration_,
-        cloudWatchLoggingOptions = Lude.Nothing,
-        hECAcknowledgmentTimeoutInSeconds = Lude.Nothing,
-        hECEndpoint = pHECEndpoint_,
-        retryOptions = Lude.Nothing,
-        processingConfiguration = Lude.Nothing
+      { hECEndpoint,
+        hECEndpointType,
+        hECToken,
+        s3Configuration,
+        cloudWatchLoggingOptions = Core.Nothing,
+        hECAcknowledgmentTimeoutInSeconds = Core.Nothing,
+        processingConfiguration = Core.Nothing,
+        retryOptions = Core.Nothing,
+        s3BackupMode = Core.Nothing
       }
+
+-- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
+--
+-- /Note:/ Consider using 'hECEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfHECEndpoint :: Lens.Lens' SplunkDestinationConfiguration Types.HECEndpoint
+sdcfHECEndpoint = Lens.field @"hECEndpoint"
+{-# DEPRECATED sdcfHECEndpoint "Use generic-lens or generic-optics with 'hECEndpoint' instead." #-}
+
+-- | This type can be either "Raw" or "Event."
+--
+-- /Note:/ Consider using 'hECEndpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfHECEndpointType :: Lens.Lens' SplunkDestinationConfiguration Types.HECEndpointType
+sdcfHECEndpointType = Lens.field @"hECEndpointType"
+{-# DEPRECATED sdcfHECEndpointType "Use generic-lens or generic-optics with 'hECEndpointType' instead." #-}
+
+-- | This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+--
+-- /Note:/ Consider using 'hECToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfHECToken :: Lens.Lens' SplunkDestinationConfiguration Types.HECToken
+sdcfHECToken = Lens.field @"hECToken"
+{-# DEPRECATED sdcfHECToken "Use generic-lens or generic-optics with 'hECToken' instead." #-}
+
+-- | The configuration for the backup Amazon S3 location.
+--
+-- /Note:/ Consider using 's3Configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfS3Configuration :: Lens.Lens' SplunkDestinationConfiguration Types.S3DestinationConfiguration
+sdcfS3Configuration = Lens.field @"s3Configuration"
+{-# DEPRECATED sdcfS3Configuration "Use generic-lens or generic-optics with 's3Configuration' instead." #-}
+
+-- | The Amazon CloudWatch logging options for your delivery stream.
+--
+-- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfCloudWatchLoggingOptions :: Lens.Lens' SplunkDestinationConfiguration (Core.Maybe Types.CloudWatchLoggingOptions)
+sdcfCloudWatchLoggingOptions = Lens.field @"cloudWatchLoggingOptions"
+{-# DEPRECATED sdcfCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
+
+-- | The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
+--
+-- /Note:/ Consider using 'hECAcknowledgmentTimeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfHECAcknowledgmentTimeoutInSeconds :: Lens.Lens' SplunkDestinationConfiguration (Core.Maybe Core.Natural)
+sdcfHECAcknowledgmentTimeoutInSeconds = Lens.field @"hECAcknowledgmentTimeoutInSeconds"
+{-# DEPRECATED sdcfHECAcknowledgmentTimeoutInSeconds "Use generic-lens or generic-optics with 'hECAcknowledgmentTimeoutInSeconds' instead." #-}
+
+-- | The data processing configuration.
+--
+-- /Note:/ Consider using 'processingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfProcessingConfiguration :: Lens.Lens' SplunkDestinationConfiguration (Core.Maybe Types.ProcessingConfiguration)
+sdcfProcessingConfiguration = Lens.field @"processingConfiguration"
+{-# DEPRECATED sdcfProcessingConfiguration "Use generic-lens or generic-optics with 'processingConfiguration' instead." #-}
+
+-- | The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
+--
+-- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcfRetryOptions :: Lens.Lens' SplunkDestinationConfiguration (Core.Maybe Types.SplunkRetryOptions)
+sdcfRetryOptions = Lens.field @"retryOptions"
+{-# DEPRECATED sdcfRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
 
 -- | Defines how documents should be delivered to Amazon S3. When set to @FailedEventsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllEvents@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is @FailedEventsOnly@ .
 --
 -- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@ . You can't update it from @AllEvents@ to @FailedEventsOnly@ .
 --
 -- /Note:/ Consider using 's3BackupMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sS3BackupMode :: Lens.Lens' SplunkDestinationConfiguration (Lude.Maybe SplunkS3BackupMode)
-sS3BackupMode = Lens.lens (s3BackupMode :: SplunkDestinationConfiguration -> Lude.Maybe SplunkS3BackupMode) (\s a -> s {s3BackupMode = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sS3BackupMode "Use generic-lens or generic-optics with 's3BackupMode' instead." #-}
+sdcfS3BackupMode :: Lens.Lens' SplunkDestinationConfiguration (Core.Maybe Types.SplunkS3BackupMode)
+sdcfS3BackupMode = Lens.field @"s3BackupMode"
+{-# DEPRECATED sdcfS3BackupMode "Use generic-lens or generic-optics with 's3BackupMode' instead." #-}
 
--- | This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
---
--- /Note:/ Consider using 'hECToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sHECToken :: Lens.Lens' SplunkDestinationConfiguration Lude.Text
-sHECToken = Lens.lens (hECToken :: SplunkDestinationConfiguration -> Lude.Text) (\s a -> s {hECToken = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sHECToken "Use generic-lens or generic-optics with 'hECToken' instead." #-}
-
--- | This type can be either "Raw" or "Event."
---
--- /Note:/ Consider using 'hECEndpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sHECEndpointType :: Lens.Lens' SplunkDestinationConfiguration HECEndpointType
-sHECEndpointType = Lens.lens (hECEndpointType :: SplunkDestinationConfiguration -> HECEndpointType) (\s a -> s {hECEndpointType = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sHECEndpointType "Use generic-lens or generic-optics with 'hECEndpointType' instead." #-}
-
--- | The configuration for the backup Amazon S3 location.
---
--- /Note:/ Consider using 's3Configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sS3Configuration :: Lens.Lens' SplunkDestinationConfiguration S3DestinationConfiguration
-sS3Configuration = Lens.lens (s3Configuration :: SplunkDestinationConfiguration -> S3DestinationConfiguration) (\s a -> s {s3Configuration = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sS3Configuration "Use generic-lens or generic-optics with 's3Configuration' instead." #-}
-
--- | The Amazon CloudWatch logging options for your delivery stream.
---
--- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCloudWatchLoggingOptions :: Lens.Lens' SplunkDestinationConfiguration (Lude.Maybe CloudWatchLoggingOptions)
-sCloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: SplunkDestinationConfiguration -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
-
--- | The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
---
--- /Note:/ Consider using 'hECAcknowledgmentTimeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sHECAcknowledgmentTimeoutInSeconds :: Lens.Lens' SplunkDestinationConfiguration (Lude.Maybe Lude.Natural)
-sHECAcknowledgmentTimeoutInSeconds = Lens.lens (hECAcknowledgmentTimeoutInSeconds :: SplunkDestinationConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {hECAcknowledgmentTimeoutInSeconds = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sHECAcknowledgmentTimeoutInSeconds "Use generic-lens or generic-optics with 'hECAcknowledgmentTimeoutInSeconds' instead." #-}
-
--- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
---
--- /Note:/ Consider using 'hECEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sHECEndpoint :: Lens.Lens' SplunkDestinationConfiguration Lude.Text
-sHECEndpoint = Lens.lens (hECEndpoint :: SplunkDestinationConfiguration -> Lude.Text) (\s a -> s {hECEndpoint = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sHECEndpoint "Use generic-lens or generic-optics with 'hECEndpoint' instead." #-}
-
--- | The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
---
--- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sRetryOptions :: Lens.Lens' SplunkDestinationConfiguration (Lude.Maybe SplunkRetryOptions)
-sRetryOptions = Lens.lens (retryOptions :: SplunkDestinationConfiguration -> Lude.Maybe SplunkRetryOptions) (\s a -> s {retryOptions = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
-
--- | The data processing configuration.
---
--- /Note:/ Consider using 'processingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sProcessingConfiguration :: Lens.Lens' SplunkDestinationConfiguration (Lude.Maybe ProcessingConfiguration)
-sProcessingConfiguration = Lens.lens (processingConfiguration :: SplunkDestinationConfiguration -> Lude.Maybe ProcessingConfiguration) (\s a -> s {processingConfiguration = a} :: SplunkDestinationConfiguration)
-{-# DEPRECATED sProcessingConfiguration "Use generic-lens or generic-optics with 'processingConfiguration' instead." #-}
-
-instance Lude.ToJSON SplunkDestinationConfiguration where
-  toJSON SplunkDestinationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("S3BackupMode" Lude..=) Lude.<$> s3BackupMode,
-            Lude.Just ("HECToken" Lude..= hECToken),
-            Lude.Just ("HECEndpointType" Lude..= hECEndpointType),
-            Lude.Just ("S3Configuration" Lude..= s3Configuration),
-            ("CloudWatchLoggingOptions" Lude..=)
-              Lude.<$> cloudWatchLoggingOptions,
-            ("HECAcknowledgmentTimeoutInSeconds" Lude..=)
-              Lude.<$> hECAcknowledgmentTimeoutInSeconds,
-            Lude.Just ("HECEndpoint" Lude..= hECEndpoint),
-            ("RetryOptions" Lude..=) Lude.<$> retryOptions,
-            ("ProcessingConfiguration" Lude..=)
-              Lude.<$> processingConfiguration
+instance Core.FromJSON SplunkDestinationConfiguration where
+  toJSON SplunkDestinationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HECEndpoint" Core..= hECEndpoint),
+            Core.Just ("HECEndpointType" Core..= hECEndpointType),
+            Core.Just ("HECToken" Core..= hECToken),
+            Core.Just ("S3Configuration" Core..= s3Configuration),
+            ("CloudWatchLoggingOptions" Core..=)
+              Core.<$> cloudWatchLoggingOptions,
+            ("HECAcknowledgmentTimeoutInSeconds" Core..=)
+              Core.<$> hECAcknowledgmentTimeoutInSeconds,
+            ("ProcessingConfiguration" Core..=)
+              Core.<$> processingConfiguration,
+            ("RetryOptions" Core..=) Core.<$> retryOptions,
+            ("S3BackupMode" Core..=) Core.<$> s3BackupMode
           ]
       )

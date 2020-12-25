@@ -17,53 +17,51 @@ module Network.AWS.CloudFront.Types.KGKeyPairIds
     mkKGKeyPairIds,
 
     -- * Lenses
-    kgkpiKeyPairIds,
     kgkpiKeyGroupId,
+    kgkpiKeyPairIds,
   )
 where
 
-import Network.AWS.CloudFront.Types.KeyPairIds
+import qualified Network.AWS.CloudFront.Types.KeyPairIds as Types
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of identifiers for the public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /See:/ 'mkKGKeyPairIds' smart constructor.
 data KGKeyPairIds = KGKeyPairIds'
-  { keyPairIds :: Lude.Maybe KeyPairIds,
-    -- | The identifier of the key group that contains the public keys.
-    keyGroupId :: Lude.Maybe Lude.Text
+  { -- | The identifier of the key group that contains the public keys.
+    keyGroupId :: Core.Maybe Types.String,
+    keyPairIds :: Core.Maybe Types.KeyPairIds
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KGKeyPairIds' with the minimum fields required to make a request.
---
--- * 'keyPairIds' -
--- * 'keyGroupId' - The identifier of the key group that contains the public keys.
+-- | Creates a 'KGKeyPairIds' value with any optional fields omitted.
 mkKGKeyPairIds ::
   KGKeyPairIds
 mkKGKeyPairIds =
   KGKeyPairIds'
-    { keyPairIds = Lude.Nothing,
-      keyGroupId = Lude.Nothing
+    { keyGroupId = Core.Nothing,
+      keyPairIds = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgkpiKeyPairIds :: Lens.Lens' KGKeyPairIds (Lude.Maybe KeyPairIds)
-kgkpiKeyPairIds = Lens.lens (keyPairIds :: KGKeyPairIds -> Lude.Maybe KeyPairIds) (\s a -> s {keyPairIds = a} :: KGKeyPairIds)
-{-# DEPRECATED kgkpiKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
 
 -- | The identifier of the key group that contains the public keys.
 --
 -- /Note:/ Consider using 'keyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgkpiKeyGroupId :: Lens.Lens' KGKeyPairIds (Lude.Maybe Lude.Text)
-kgkpiKeyGroupId = Lens.lens (keyGroupId :: KGKeyPairIds -> Lude.Maybe Lude.Text) (\s a -> s {keyGroupId = a} :: KGKeyPairIds)
+kgkpiKeyGroupId :: Lens.Lens' KGKeyPairIds (Core.Maybe Types.String)
+kgkpiKeyGroupId = Lens.field @"keyGroupId"
 {-# DEPRECATED kgkpiKeyGroupId "Use generic-lens or generic-optics with 'keyGroupId' instead." #-}
 
-instance Lude.FromXML KGKeyPairIds where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgkpiKeyPairIds :: Lens.Lens' KGKeyPairIds (Core.Maybe Types.KeyPairIds)
+kgkpiKeyPairIds = Lens.field @"keyPairIds"
+{-# DEPRECATED kgkpiKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
+
+instance Core.FromXML KGKeyPairIds where
   parseXML x =
     KGKeyPairIds'
-      Lude.<$> (x Lude..@? "KeyPairIds") Lude.<*> (x Lude..@? "KeyGroupId")
+      Core.<$> (x Core..@? "KeyGroupId") Core.<*> (x Core..@? "KeyPairIds")

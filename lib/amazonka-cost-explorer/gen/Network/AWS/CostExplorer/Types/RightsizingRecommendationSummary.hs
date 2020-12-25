@@ -17,85 +17,82 @@ module Network.AWS.CostExplorer.Types.RightsizingRecommendationSummary
     mkRightsizingRecommendationSummary,
 
     -- * Lenses
-    rrsSavingsPercentage,
-    rrsSavingsCurrencyCode,
-    rrsTotalRecommendationCount,
     rrsEstimatedTotalMonthlySavingsAmount,
+    rrsSavingsCurrencyCode,
+    rrsSavingsPercentage,
+    rrsTotalRecommendationCount,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.EstimatedTotalMonthlySavingsAmount as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsCurrencyCode as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPercentage as Types
+import qualified Network.AWS.CostExplorer.Types.TotalRecommendationCount as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary of rightsizing recommendations
 --
 -- /See:/ 'mkRightsizingRecommendationSummary' smart constructor.
 data RightsizingRecommendationSummary = RightsizingRecommendationSummary'
-  { -- | Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
-    savingsPercentage :: Lude.Maybe Lude.Text,
+  { -- | Estimated total savings resulting from modifications, on a monthly basis.
+    estimatedTotalMonthlySavingsAmount :: Core.Maybe Types.EstimatedTotalMonthlySavingsAmount,
     -- | The currency code that AWS used to calculate the savings.
-    savingsCurrencyCode :: Lude.Maybe Lude.Text,
+    savingsCurrencyCode :: Core.Maybe Types.SavingsCurrencyCode,
+    -- | Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
+    savingsPercentage :: Core.Maybe Types.SavingsPercentage,
     -- | Total number of instance recommendations.
-    totalRecommendationCount :: Lude.Maybe Lude.Text,
-    -- | Estimated total savings resulting from modifications, on a monthly basis.
-    estimatedTotalMonthlySavingsAmount :: Lude.Maybe Lude.Text
+    totalRecommendationCount :: Core.Maybe Types.TotalRecommendationCount
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RightsizingRecommendationSummary' with the minimum fields required to make a request.
---
--- * 'savingsPercentage' - Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
--- * 'savingsCurrencyCode' - The currency code that AWS used to calculate the savings.
--- * 'totalRecommendationCount' - Total number of instance recommendations.
--- * 'estimatedTotalMonthlySavingsAmount' - Estimated total savings resulting from modifications, on a monthly basis.
+-- | Creates a 'RightsizingRecommendationSummary' value with any optional fields omitted.
 mkRightsizingRecommendationSummary ::
   RightsizingRecommendationSummary
 mkRightsizingRecommendationSummary =
   RightsizingRecommendationSummary'
-    { savingsPercentage =
-        Lude.Nothing,
-      savingsCurrencyCode = Lude.Nothing,
-      totalRecommendationCount = Lude.Nothing,
-      estimatedTotalMonthlySavingsAmount = Lude.Nothing
+    { estimatedTotalMonthlySavingsAmount =
+        Core.Nothing,
+      savingsCurrencyCode = Core.Nothing,
+      savingsPercentage = Core.Nothing,
+      totalRecommendationCount = Core.Nothing
     }
-
--- | Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
---
--- /Note:/ Consider using 'savingsPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsSavingsPercentage :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
-rrsSavingsPercentage = Lens.lens (savingsPercentage :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {savingsPercentage = a} :: RightsizingRecommendationSummary)
-{-# DEPRECATED rrsSavingsPercentage "Use generic-lens or generic-optics with 'savingsPercentage' instead." #-}
-
--- | The currency code that AWS used to calculate the savings.
---
--- /Note:/ Consider using 'savingsCurrencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsSavingsCurrencyCode :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
-rrsSavingsCurrencyCode = Lens.lens (savingsCurrencyCode :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {savingsCurrencyCode = a} :: RightsizingRecommendationSummary)
-{-# DEPRECATED rrsSavingsCurrencyCode "Use generic-lens or generic-optics with 'savingsCurrencyCode' instead." #-}
-
--- | Total number of instance recommendations.
---
--- /Note:/ Consider using 'totalRecommendationCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsTotalRecommendationCount :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
-rrsTotalRecommendationCount = Lens.lens (totalRecommendationCount :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {totalRecommendationCount = a} :: RightsizingRecommendationSummary)
-{-# DEPRECATED rrsTotalRecommendationCount "Use generic-lens or generic-optics with 'totalRecommendationCount' instead." #-}
 
 -- | Estimated total savings resulting from modifications, on a monthly basis.
 --
 -- /Note:/ Consider using 'estimatedTotalMonthlySavingsAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsEstimatedTotalMonthlySavingsAmount :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
-rrsEstimatedTotalMonthlySavingsAmount = Lens.lens (estimatedTotalMonthlySavingsAmount :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedTotalMonthlySavingsAmount = a} :: RightsizingRecommendationSummary)
+rrsEstimatedTotalMonthlySavingsAmount :: Lens.Lens' RightsizingRecommendationSummary (Core.Maybe Types.EstimatedTotalMonthlySavingsAmount)
+rrsEstimatedTotalMonthlySavingsAmount = Lens.field @"estimatedTotalMonthlySavingsAmount"
 {-# DEPRECATED rrsEstimatedTotalMonthlySavingsAmount "Use generic-lens or generic-optics with 'estimatedTotalMonthlySavingsAmount' instead." #-}
 
-instance Lude.FromJSON RightsizingRecommendationSummary where
+-- | The currency code that AWS used to calculate the savings.
+--
+-- /Note:/ Consider using 'savingsCurrencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsSavingsCurrencyCode :: Lens.Lens' RightsizingRecommendationSummary (Core.Maybe Types.SavingsCurrencyCode)
+rrsSavingsCurrencyCode = Lens.field @"savingsCurrencyCode"
+{-# DEPRECATED rrsSavingsCurrencyCode "Use generic-lens or generic-optics with 'savingsCurrencyCode' instead." #-}
+
+-- | Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
+--
+-- /Note:/ Consider using 'savingsPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsSavingsPercentage :: Lens.Lens' RightsizingRecommendationSummary (Core.Maybe Types.SavingsPercentage)
+rrsSavingsPercentage = Lens.field @"savingsPercentage"
+{-# DEPRECATED rrsSavingsPercentage "Use generic-lens or generic-optics with 'savingsPercentage' instead." #-}
+
+-- | Total number of instance recommendations.
+--
+-- /Note:/ Consider using 'totalRecommendationCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsTotalRecommendationCount :: Lens.Lens' RightsizingRecommendationSummary (Core.Maybe Types.TotalRecommendationCount)
+rrsTotalRecommendationCount = Lens.field @"totalRecommendationCount"
+{-# DEPRECATED rrsTotalRecommendationCount "Use generic-lens or generic-optics with 'totalRecommendationCount' instead." #-}
+
+instance Core.FromJSON RightsizingRecommendationSummary where
   parseJSON =
-    Lude.withObject
-      "RightsizingRecommendationSummary"
-      ( \x ->
-          RightsizingRecommendationSummary'
-            Lude.<$> (x Lude..:? "SavingsPercentage")
-            Lude.<*> (x Lude..:? "SavingsCurrencyCode")
-            Lude.<*> (x Lude..:? "TotalRecommendationCount")
-            Lude.<*> (x Lude..:? "EstimatedTotalMonthlySavingsAmount")
-      )
+    Core.withObject "RightsizingRecommendationSummary" Core.$
+      \x ->
+        RightsizingRecommendationSummary'
+          Core.<$> (x Core..:? "EstimatedTotalMonthlySavingsAmount")
+          Core.<*> (x Core..:? "SavingsCurrencyCode")
+          Core.<*> (x Core..:? "SavingsPercentage")
+          Core.<*> (x Core..:? "TotalRecommendationCount")

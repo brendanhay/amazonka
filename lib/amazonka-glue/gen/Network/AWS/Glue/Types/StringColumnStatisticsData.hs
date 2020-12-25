@@ -19,106 +19,99 @@ module Network.AWS.Glue.Types.StringColumnStatisticsData
     -- * Lenses
     scsdMaximumLength,
     scsdAverageLength,
-    scsdNumberOfDistinctValues,
     scsdNumberOfNulls,
+    scsdNumberOfDistinctValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines column statistics supported for character sequence data values.
 --
 -- /See:/ 'mkStringColumnStatisticsData' smart constructor.
 data StringColumnStatisticsData = StringColumnStatisticsData'
   { -- | The size of the longest string in the column.
-    maximumLength :: Lude.Natural,
+    maximumLength :: Core.Natural,
     -- | The average string length in the column.
-    averageLength :: Lude.Double,
-    -- | The number of distinct values in a column.
-    numberOfDistinctValues :: Lude.Natural,
+    averageLength :: Core.Double,
     -- | The number of null values in the column.
-    numberOfNulls :: Lude.Natural
+    numberOfNulls :: Core.Natural,
+    -- | The number of distinct values in a column.
+    numberOfDistinctValues :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StringColumnStatisticsData' with the minimum fields required to make a request.
---
--- * 'maximumLength' - The size of the longest string in the column.
--- * 'averageLength' - The average string length in the column.
--- * 'numberOfDistinctValues' - The number of distinct values in a column.
--- * 'numberOfNulls' - The number of null values in the column.
+-- | Creates a 'StringColumnStatisticsData' value with any optional fields omitted.
 mkStringColumnStatisticsData ::
   -- | 'maximumLength'
-  Lude.Natural ->
+  Core.Natural ->
   -- | 'averageLength'
-  Lude.Double ->
-  -- | 'numberOfDistinctValues'
-  Lude.Natural ->
+  Core.Double ->
   -- | 'numberOfNulls'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'numberOfDistinctValues'
+  Core.Natural ->
   StringColumnStatisticsData
 mkStringColumnStatisticsData
-  pMaximumLength_
-  pAverageLength_
-  pNumberOfDistinctValues_
-  pNumberOfNulls_ =
+  maximumLength
+  averageLength
+  numberOfNulls
+  numberOfDistinctValues =
     StringColumnStatisticsData'
-      { maximumLength = pMaximumLength_,
-        averageLength = pAverageLength_,
-        numberOfDistinctValues = pNumberOfDistinctValues_,
-        numberOfNulls = pNumberOfNulls_
+      { maximumLength,
+        averageLength,
+        numberOfNulls,
+        numberOfDistinctValues
       }
 
 -- | The size of the longest string in the column.
 --
 -- /Note:/ Consider using 'maximumLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsdMaximumLength :: Lens.Lens' StringColumnStatisticsData Lude.Natural
-scsdMaximumLength = Lens.lens (maximumLength :: StringColumnStatisticsData -> Lude.Natural) (\s a -> s {maximumLength = a} :: StringColumnStatisticsData)
+scsdMaximumLength :: Lens.Lens' StringColumnStatisticsData Core.Natural
+scsdMaximumLength = Lens.field @"maximumLength"
 {-# DEPRECATED scsdMaximumLength "Use generic-lens or generic-optics with 'maximumLength' instead." #-}
 
 -- | The average string length in the column.
 --
 -- /Note:/ Consider using 'averageLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsdAverageLength :: Lens.Lens' StringColumnStatisticsData Lude.Double
-scsdAverageLength = Lens.lens (averageLength :: StringColumnStatisticsData -> Lude.Double) (\s a -> s {averageLength = a} :: StringColumnStatisticsData)
+scsdAverageLength :: Lens.Lens' StringColumnStatisticsData Core.Double
+scsdAverageLength = Lens.field @"averageLength"
 {-# DEPRECATED scsdAverageLength "Use generic-lens or generic-optics with 'averageLength' instead." #-}
-
--- | The number of distinct values in a column.
---
--- /Note:/ Consider using 'numberOfDistinctValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsdNumberOfDistinctValues :: Lens.Lens' StringColumnStatisticsData Lude.Natural
-scsdNumberOfDistinctValues = Lens.lens (numberOfDistinctValues :: StringColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfDistinctValues = a} :: StringColumnStatisticsData)
-{-# DEPRECATED scsdNumberOfDistinctValues "Use generic-lens or generic-optics with 'numberOfDistinctValues' instead." #-}
 
 -- | The number of null values in the column.
 --
 -- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsdNumberOfNulls :: Lens.Lens' StringColumnStatisticsData Lude.Natural
-scsdNumberOfNulls = Lens.lens (numberOfNulls :: StringColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: StringColumnStatisticsData)
+scsdNumberOfNulls :: Lens.Lens' StringColumnStatisticsData Core.Natural
+scsdNumberOfNulls = Lens.field @"numberOfNulls"
 {-# DEPRECATED scsdNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
 
-instance Lude.FromJSON StringColumnStatisticsData where
-  parseJSON =
-    Lude.withObject
-      "StringColumnStatisticsData"
-      ( \x ->
-          StringColumnStatisticsData'
-            Lude.<$> (x Lude..: "MaximumLength")
-            Lude.<*> (x Lude..: "AverageLength")
-            Lude.<*> (x Lude..: "NumberOfDistinctValues")
-            Lude.<*> (x Lude..: "NumberOfNulls")
-      )
+-- | The number of distinct values in a column.
+--
+-- /Note:/ Consider using 'numberOfDistinctValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsdNumberOfDistinctValues :: Lens.Lens' StringColumnStatisticsData Core.Natural
+scsdNumberOfDistinctValues = Lens.field @"numberOfDistinctValues"
+{-# DEPRECATED scsdNumberOfDistinctValues "Use generic-lens or generic-optics with 'numberOfDistinctValues' instead." #-}
 
-instance Lude.ToJSON StringColumnStatisticsData where
-  toJSON StringColumnStatisticsData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MaximumLength" Lude..= maximumLength),
-            Lude.Just ("AverageLength" Lude..= averageLength),
-            Lude.Just
-              ("NumberOfDistinctValues" Lude..= numberOfDistinctValues),
-            Lude.Just ("NumberOfNulls" Lude..= numberOfNulls)
+instance Core.FromJSON StringColumnStatisticsData where
+  toJSON StringColumnStatisticsData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MaximumLength" Core..= maximumLength),
+            Core.Just ("AverageLength" Core..= averageLength),
+            Core.Just ("NumberOfNulls" Core..= numberOfNulls),
+            Core.Just
+              ("NumberOfDistinctValues" Core..= numberOfDistinctValues)
           ]
       )
+
+instance Core.FromJSON StringColumnStatisticsData where
+  parseJSON =
+    Core.withObject "StringColumnStatisticsData" Core.$
+      \x ->
+        StringColumnStatisticsData'
+          Core.<$> (x Core..: "MaximumLength")
+          Core.<*> (x Core..: "AverageLength")
+          Core.<*> (x Core..: "NumberOfNulls")
+          Core.<*> (x Core..: "NumberOfDistinctValues")

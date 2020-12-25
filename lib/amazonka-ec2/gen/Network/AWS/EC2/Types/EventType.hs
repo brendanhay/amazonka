@@ -13,56 +13,58 @@
 module Network.AWS.EC2.Types.EventType
   ( EventType
       ( EventType',
-        ETInstanceChange,
-        ETFleetRequestChange,
-        ETError,
-        ETInformation
+        EventTypeInstanceChange,
+        EventTypeFleetRequestChange,
+        EventTypeError,
+        EventTypeInformation,
+        fromEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventType = EventType' Lude.Text
+newtype EventType = EventType' {fromEventType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ETInstanceChange :: EventType
-pattern ETInstanceChange = EventType' "instanceChange"
+pattern EventTypeInstanceChange :: EventType
+pattern EventTypeInstanceChange = EventType' "instanceChange"
 
-pattern ETFleetRequestChange :: EventType
-pattern ETFleetRequestChange = EventType' "fleetRequestChange"
+pattern EventTypeFleetRequestChange :: EventType
+pattern EventTypeFleetRequestChange = EventType' "fleetRequestChange"
 
-pattern ETError :: EventType
-pattern ETError = EventType' "error"
+pattern EventTypeError :: EventType
+pattern EventTypeError = EventType' "error"
 
-pattern ETInformation :: EventType
-pattern ETInformation = EventType' "information"
+pattern EventTypeInformation :: EventType
+pattern EventTypeInformation = EventType' "information"
 
 {-# COMPLETE
-  ETInstanceChange,
-  ETFleetRequestChange,
-  ETError,
-  ETInformation,
+  EventTypeInstanceChange,
+  EventTypeFleetRequestChange,
+  EventTypeError,
+  EventTypeInformation,
   EventType'
   #-}

@@ -17,59 +17,54 @@ module Network.AWS.Glue.Types.ColumnStatisticsError
     mkColumnStatisticsError,
 
     -- * Lenses
-    cseError,
     cseColumnStatistics,
+    cseError,
   )
 where
 
-import Network.AWS.Glue.Types.ColumnStatistics
-import Network.AWS.Glue.Types.ErrorDetail
+import qualified Network.AWS.Glue.Types.ColumnStatistics as Types
+import qualified Network.AWS.Glue.Types.ErrorDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Encapsulates a @ColumnStatistics@ object that failed and the reason for failure.
 --
 -- /See:/ 'mkColumnStatisticsError' smart constructor.
 data ColumnStatisticsError = ColumnStatisticsError'
-  { -- | An error message with the reason for the failure of an operation.
-    error :: Lude.Maybe ErrorDetail,
-    -- | The @ColumnStatistics@ of the column.
-    columnStatistics :: Lude.Maybe ColumnStatistics
+  { -- | The @ColumnStatistics@ of the column.
+    columnStatistics :: Core.Maybe Types.ColumnStatistics,
+    -- | An error message with the reason for the failure of an operation.
+    error :: Core.Maybe Types.ErrorDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ColumnStatisticsError' with the minimum fields required to make a request.
---
--- * 'error' - An error message with the reason for the failure of an operation.
--- * 'columnStatistics' - The @ColumnStatistics@ of the column.
+-- | Creates a 'ColumnStatisticsError' value with any optional fields omitted.
 mkColumnStatisticsError ::
   ColumnStatisticsError
 mkColumnStatisticsError =
   ColumnStatisticsError'
-    { error = Lude.Nothing,
-      columnStatistics = Lude.Nothing
+    { columnStatistics = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | An error message with the reason for the failure of an operation.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseError :: Lens.Lens' ColumnStatisticsError (Lude.Maybe ErrorDetail)
-cseError = Lens.lens (error :: ColumnStatisticsError -> Lude.Maybe ErrorDetail) (\s a -> s {error = a} :: ColumnStatisticsError)
-{-# DEPRECATED cseError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The @ColumnStatistics@ of the column.
 --
 -- /Note:/ Consider using 'columnStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseColumnStatistics :: Lens.Lens' ColumnStatisticsError (Lude.Maybe ColumnStatistics)
-cseColumnStatistics = Lens.lens (columnStatistics :: ColumnStatisticsError -> Lude.Maybe ColumnStatistics) (\s a -> s {columnStatistics = a} :: ColumnStatisticsError)
+cseColumnStatistics :: Lens.Lens' ColumnStatisticsError (Core.Maybe Types.ColumnStatistics)
+cseColumnStatistics = Lens.field @"columnStatistics"
 {-# DEPRECATED cseColumnStatistics "Use generic-lens or generic-optics with 'columnStatistics' instead." #-}
 
-instance Lude.FromJSON ColumnStatisticsError where
+-- | An error message with the reason for the failure of an operation.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cseError :: Lens.Lens' ColumnStatisticsError (Core.Maybe Types.ErrorDetail)
+cseError = Lens.field @"error"
+{-# DEPRECATED cseError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON ColumnStatisticsError where
   parseJSON =
-    Lude.withObject
-      "ColumnStatisticsError"
-      ( \x ->
-          ColumnStatisticsError'
-            Lude.<$> (x Lude..:? "Error") Lude.<*> (x Lude..:? "ColumnStatistics")
-      )
+    Core.withObject "ColumnStatisticsError" Core.$
+      \x ->
+        ColumnStatisticsError'
+          Core.<$> (x Core..:? "ColumnStatistics") Core.<*> (x Core..:? "Error")

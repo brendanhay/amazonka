@@ -13,61 +13,66 @@
 module Network.AWS.RDS.Types.WriteForwardingStatus
   ( WriteForwardingStatus
       ( WriteForwardingStatus',
-        Enabled,
-        Disabled,
-        Enabling,
-        Disabling,
-        Unknown
+        WriteForwardingStatusEnabled,
+        WriteForwardingStatusDisabled,
+        WriteForwardingStatusEnabling,
+        WriteForwardingStatusDisabling,
+        WriteForwardingStatusUnknown,
+        fromWriteForwardingStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WriteForwardingStatus = WriteForwardingStatus' Lude.Text
+newtype WriteForwardingStatus = WriteForwardingStatus'
+  { fromWriteForwardingStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: WriteForwardingStatus
-pattern Enabled = WriteForwardingStatus' "enabled"
+pattern WriteForwardingStatusEnabled :: WriteForwardingStatus
+pattern WriteForwardingStatusEnabled = WriteForwardingStatus' "enabled"
 
-pattern Disabled :: WriteForwardingStatus
-pattern Disabled = WriteForwardingStatus' "disabled"
+pattern WriteForwardingStatusDisabled :: WriteForwardingStatus
+pattern WriteForwardingStatusDisabled = WriteForwardingStatus' "disabled"
 
-pattern Enabling :: WriteForwardingStatus
-pattern Enabling = WriteForwardingStatus' "enabling"
+pattern WriteForwardingStatusEnabling :: WriteForwardingStatus
+pattern WriteForwardingStatusEnabling = WriteForwardingStatus' "enabling"
 
-pattern Disabling :: WriteForwardingStatus
-pattern Disabling = WriteForwardingStatus' "disabling"
+pattern WriteForwardingStatusDisabling :: WriteForwardingStatus
+pattern WriteForwardingStatusDisabling = WriteForwardingStatus' "disabling"
 
-pattern Unknown :: WriteForwardingStatus
-pattern Unknown = WriteForwardingStatus' "unknown"
+pattern WriteForwardingStatusUnknown :: WriteForwardingStatus
+pattern WriteForwardingStatusUnknown = WriteForwardingStatus' "unknown"
 
 {-# COMPLETE
-  Enabled,
-  Disabled,
-  Enabling,
-  Disabling,
-  Unknown,
+  WriteForwardingStatusEnabled,
+  WriteForwardingStatusDisabled,
+  WriteForwardingStatusEnabling,
+  WriteForwardingStatusDisabling,
+  WriteForwardingStatusUnknown,
   WriteForwardingStatus'
   #-}

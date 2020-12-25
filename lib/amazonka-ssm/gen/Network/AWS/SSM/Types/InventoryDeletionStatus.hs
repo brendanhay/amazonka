@@ -13,46 +13,51 @@
 module Network.AWS.SSM.Types.InventoryDeletionStatus
   ( InventoryDeletionStatus
       ( InventoryDeletionStatus',
-        IDSInProgress,
-        IDSComplete
+        InventoryDeletionStatusInProgress,
+        InventoryDeletionStatusComplete,
+        fromInventoryDeletionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InventoryDeletionStatus = InventoryDeletionStatus' Lude.Text
+newtype InventoryDeletionStatus = InventoryDeletionStatus'
+  { fromInventoryDeletionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IDSInProgress :: InventoryDeletionStatus
-pattern IDSInProgress = InventoryDeletionStatus' "InProgress"
+pattern InventoryDeletionStatusInProgress :: InventoryDeletionStatus
+pattern InventoryDeletionStatusInProgress = InventoryDeletionStatus' "InProgress"
 
-pattern IDSComplete :: InventoryDeletionStatus
-pattern IDSComplete = InventoryDeletionStatus' "Complete"
+pattern InventoryDeletionStatusComplete :: InventoryDeletionStatus
+pattern InventoryDeletionStatusComplete = InventoryDeletionStatus' "Complete"
 
 {-# COMPLETE
-  IDSInProgress,
-  IDSComplete,
+  InventoryDeletionStatusInProgress,
+  InventoryDeletionStatusComplete,
   InventoryDeletionStatus'
   #-}

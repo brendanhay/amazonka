@@ -17,47 +17,45 @@ module Network.AWS.Firehose.Types.KMSEncryptionConfig
     mkKMSEncryptionConfig,
 
     -- * Lenses
-    kecAWSKMSKeyARN,
+    kmsecAWSKMSKeyARN,
   )
 where
 
+import qualified Network.AWS.Firehose.Types.AWSKMSKeyARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an encryption key for a destination in Amazon S3.
 --
 -- /See:/ 'mkKMSEncryptionConfig' smart constructor.
 newtype KMSEncryptionConfig = KMSEncryptionConfig'
   { -- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    awsKMSKeyARN :: Lude.Text
+    aWSKMSKeyARN :: Types.AWSKMSKeyARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KMSEncryptionConfig' with the minimum fields required to make a request.
---
--- * 'awsKMSKeyARN' - The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | Creates a 'KMSEncryptionConfig' value with any optional fields omitted.
 mkKMSEncryptionConfig ::
-  -- | 'awsKMSKeyARN'
-  Lude.Text ->
+  -- | 'aWSKMSKeyARN'
+  Types.AWSKMSKeyARN ->
   KMSEncryptionConfig
-mkKMSEncryptionConfig pAWSKMSKeyARN_ =
-  KMSEncryptionConfig' {awsKMSKeyARN = pAWSKMSKeyARN_}
+mkKMSEncryptionConfig aWSKMSKeyARN =
+  KMSEncryptionConfig' {aWSKMSKeyARN}
 
 -- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- /Note:/ Consider using 'awsKMSKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kecAWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Lude.Text
-kecAWSKMSKeyARN = Lens.lens (awsKMSKeyARN :: KMSEncryptionConfig -> Lude.Text) (\s a -> s {awsKMSKeyARN = a} :: KMSEncryptionConfig)
-{-# DEPRECATED kecAWSKMSKeyARN "Use generic-lens or generic-optics with 'awsKMSKeyARN' instead." #-}
+-- /Note:/ Consider using 'aWSKMSKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmsecAWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Types.AWSKMSKeyARN
+kmsecAWSKMSKeyARN = Lens.field @"aWSKMSKeyARN"
+{-# DEPRECATED kmsecAWSKMSKeyARN "Use generic-lens or generic-optics with 'aWSKMSKeyARN' instead." #-}
 
-instance Lude.FromJSON KMSEncryptionConfig where
+instance Core.FromJSON KMSEncryptionConfig where
+  toJSON KMSEncryptionConfig {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AWSKMSKeyARN" Core..= aWSKMSKeyARN)])
+
+instance Core.FromJSON KMSEncryptionConfig where
   parseJSON =
-    Lude.withObject
-      "KMSEncryptionConfig"
-      (\x -> KMSEncryptionConfig' Lude.<$> (x Lude..: "AWSKMSKeyARN"))
-
-instance Lude.ToJSON KMSEncryptionConfig where
-  toJSON KMSEncryptionConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AWSKMSKeyARN" Lude..= awsKMSKeyARN)])
+    Core.withObject "KMSEncryptionConfig" Core.$
+      \x -> KMSEncryptionConfig' Core.<$> (x Core..: "AWSKMSKeyARN")

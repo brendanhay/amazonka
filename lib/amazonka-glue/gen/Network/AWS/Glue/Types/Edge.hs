@@ -17,54 +17,50 @@ module Network.AWS.Glue.Types.Edge
     mkEdge,
 
     -- * Lenses
-    eSourceId,
     eDestinationId,
+    eSourceId,
   )
 where
 
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An edge represents a directed connection between two AWS Glue components that are part of the workflow the edge belongs to.
 --
 -- /See:/ 'mkEdge' smart constructor.
 data Edge = Edge'
-  { -- | The unique of the node within the workflow where the edge starts.
-    sourceId :: Lude.Maybe Lude.Text,
-    -- | The unique of the node within the workflow where the edge ends.
-    destinationId :: Lude.Maybe Lude.Text
+  { -- | The unique of the node within the workflow where the edge ends.
+    destinationId :: Core.Maybe Types.NameString,
+    -- | The unique of the node within the workflow where the edge starts.
+    sourceId :: Core.Maybe Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Edge' with the minimum fields required to make a request.
---
--- * 'sourceId' - The unique of the node within the workflow where the edge starts.
--- * 'destinationId' - The unique of the node within the workflow where the edge ends.
+-- | Creates a 'Edge' value with any optional fields omitted.
 mkEdge ::
   Edge
 mkEdge =
-  Edge' {sourceId = Lude.Nothing, destinationId = Lude.Nothing}
-
--- | The unique of the node within the workflow where the edge starts.
---
--- /Note:/ Consider using 'sourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceId :: Lens.Lens' Edge (Lude.Maybe Lude.Text)
-eSourceId = Lens.lens (sourceId :: Edge -> Lude.Maybe Lude.Text) (\s a -> s {sourceId = a} :: Edge)
-{-# DEPRECATED eSourceId "Use generic-lens or generic-optics with 'sourceId' instead." #-}
+  Edge' {destinationId = Core.Nothing, sourceId = Core.Nothing}
 
 -- | The unique of the node within the workflow where the edge ends.
 --
 -- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDestinationId :: Lens.Lens' Edge (Lude.Maybe Lude.Text)
-eDestinationId = Lens.lens (destinationId :: Edge -> Lude.Maybe Lude.Text) (\s a -> s {destinationId = a} :: Edge)
+eDestinationId :: Lens.Lens' Edge (Core.Maybe Types.NameString)
+eDestinationId = Lens.field @"destinationId"
 {-# DEPRECATED eDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
 
-instance Lude.FromJSON Edge where
+-- | The unique of the node within the workflow where the edge starts.
+--
+-- /Note:/ Consider using 'sourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceId :: Lens.Lens' Edge (Core.Maybe Types.NameString)
+eSourceId = Lens.field @"sourceId"
+{-# DEPRECATED eSourceId "Use generic-lens or generic-optics with 'sourceId' instead." #-}
+
+instance Core.FromJSON Edge where
   parseJSON =
-    Lude.withObject
-      "Edge"
-      ( \x ->
-          Edge'
-            Lude.<$> (x Lude..:? "SourceId") Lude.<*> (x Lude..:? "DestinationId")
-      )
+    Core.withObject "Edge" Core.$
+      \x ->
+        Edge'
+          Core.<$> (x Core..:? "DestinationId") Core.<*> (x Core..:? "SourceId")

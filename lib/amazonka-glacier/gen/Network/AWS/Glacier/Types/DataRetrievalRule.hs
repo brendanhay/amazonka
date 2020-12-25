@@ -17,78 +17,70 @@ module Network.AWS.Glacier.Types.DataRetrievalRule
     mkDataRetrievalRule,
 
     -- * Lenses
-    drrStrategy,
     drrBytesPerHour,
+    drrStrategy,
   )
 where
 
+import qualified Network.AWS.Glacier.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Data retrieval policy rule.
 --
 -- /See:/ 'mkDataRetrievalRule' smart constructor.
 data DataRetrievalRule = DataRetrievalRule'
-  { -- | The type of data retrieval policy to set.
-    --
-    -- Valid values: BytesPerHour|FreeTier|None
-    strategy :: Lude.Maybe Lude.Text,
-    -- | The maximum number of bytes that can be retrieved in an hour.
+  { -- | The maximum number of bytes that can be retrieved in an hour.
     --
     -- This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
-    bytesPerHour :: Lude.Maybe Lude.Integer
+    bytesPerHour :: Core.Maybe Core.Integer,
+    -- | The type of data retrieval policy to set.
+    --
+    -- Valid values: BytesPerHour|FreeTier|None
+    strategy :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataRetrievalRule' with the minimum fields required to make a request.
---
--- * 'strategy' - The type of data retrieval policy to set.
---
--- Valid values: BytesPerHour|FreeTier|None
--- * 'bytesPerHour' - The maximum number of bytes that can be retrieved in an hour.
---
--- This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
+-- | Creates a 'DataRetrievalRule' value with any optional fields omitted.
 mkDataRetrievalRule ::
   DataRetrievalRule
 mkDataRetrievalRule =
   DataRetrievalRule'
-    { strategy = Lude.Nothing,
-      bytesPerHour = Lude.Nothing
+    { bytesPerHour = Core.Nothing,
+      strategy = Core.Nothing
     }
-
--- | The type of data retrieval policy to set.
---
--- Valid values: BytesPerHour|FreeTier|None
---
--- /Note:/ Consider using 'strategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrStrategy :: Lens.Lens' DataRetrievalRule (Lude.Maybe Lude.Text)
-drrStrategy = Lens.lens (strategy :: DataRetrievalRule -> Lude.Maybe Lude.Text) (\s a -> s {strategy = a} :: DataRetrievalRule)
-{-# DEPRECATED drrStrategy "Use generic-lens or generic-optics with 'strategy' instead." #-}
 
 -- | The maximum number of bytes that can be retrieved in an hour.
 --
 -- This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
 --
 -- /Note:/ Consider using 'bytesPerHour' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrBytesPerHour :: Lens.Lens' DataRetrievalRule (Lude.Maybe Lude.Integer)
-drrBytesPerHour = Lens.lens (bytesPerHour :: DataRetrievalRule -> Lude.Maybe Lude.Integer) (\s a -> s {bytesPerHour = a} :: DataRetrievalRule)
+drrBytesPerHour :: Lens.Lens' DataRetrievalRule (Core.Maybe Core.Integer)
+drrBytesPerHour = Lens.field @"bytesPerHour"
 {-# DEPRECATED drrBytesPerHour "Use generic-lens or generic-optics with 'bytesPerHour' instead." #-}
 
-instance Lude.FromJSON DataRetrievalRule where
-  parseJSON =
-    Lude.withObject
-      "DataRetrievalRule"
-      ( \x ->
-          DataRetrievalRule'
-            Lude.<$> (x Lude..:? "Strategy") Lude.<*> (x Lude..:? "BytesPerHour")
-      )
+-- | The type of data retrieval policy to set.
+--
+-- Valid values: BytesPerHour|FreeTier|None
+--
+-- /Note:/ Consider using 'strategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrStrategy :: Lens.Lens' DataRetrievalRule (Core.Maybe Types.String)
+drrStrategy = Lens.field @"strategy"
+{-# DEPRECATED drrStrategy "Use generic-lens or generic-optics with 'strategy' instead." #-}
 
-instance Lude.ToJSON DataRetrievalRule where
-  toJSON DataRetrievalRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Strategy" Lude..=) Lude.<$> strategy,
-            ("BytesPerHour" Lude..=) Lude.<$> bytesPerHour
+instance Core.FromJSON DataRetrievalRule where
+  toJSON DataRetrievalRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BytesPerHour" Core..=) Core.<$> bytesPerHour,
+            ("Strategy" Core..=) Core.<$> strategy
           ]
       )
+
+instance Core.FromJSON DataRetrievalRule where
+  parseJSON =
+    Core.withObject "DataRetrievalRule" Core.$
+      \x ->
+        DataRetrievalRule'
+          Core.<$> (x Core..:? "BytesPerHour") Core.<*> (x Core..:? "Strategy")

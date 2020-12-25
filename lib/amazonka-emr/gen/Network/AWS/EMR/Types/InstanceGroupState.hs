@@ -13,91 +13,96 @@
 module Network.AWS.EMR.Types.InstanceGroupState
   ( InstanceGroupState
       ( InstanceGroupState',
-        Provisioning,
-        Bootstrapping,
-        Running,
-        Reconfiguring,
-        Resizing,
-        Suspended,
-        Terminating,
-        Terminated,
-        Arrested,
-        ShuttingDown,
-        Ended
+        InstanceGroupStateProvisioning,
+        InstanceGroupStateBootstrapping,
+        InstanceGroupStateRunning,
+        InstanceGroupStateReconfiguring,
+        InstanceGroupStateResizing,
+        InstanceGroupStateSuspended,
+        InstanceGroupStateTerminating,
+        InstanceGroupStateTerminated,
+        InstanceGroupStateArrested,
+        InstanceGroupStateShuttingDown,
+        InstanceGroupStateEnded,
+        fromInstanceGroupState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceGroupState = InstanceGroupState' Lude.Text
+newtype InstanceGroupState = InstanceGroupState'
+  { fromInstanceGroupState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Provisioning :: InstanceGroupState
-pattern Provisioning = InstanceGroupState' "PROVISIONING"
+pattern InstanceGroupStateProvisioning :: InstanceGroupState
+pattern InstanceGroupStateProvisioning = InstanceGroupState' "PROVISIONING"
 
-pattern Bootstrapping :: InstanceGroupState
-pattern Bootstrapping = InstanceGroupState' "BOOTSTRAPPING"
+pattern InstanceGroupStateBootstrapping :: InstanceGroupState
+pattern InstanceGroupStateBootstrapping = InstanceGroupState' "BOOTSTRAPPING"
 
-pattern Running :: InstanceGroupState
-pattern Running = InstanceGroupState' "RUNNING"
+pattern InstanceGroupStateRunning :: InstanceGroupState
+pattern InstanceGroupStateRunning = InstanceGroupState' "RUNNING"
 
-pattern Reconfiguring :: InstanceGroupState
-pattern Reconfiguring = InstanceGroupState' "RECONFIGURING"
+pattern InstanceGroupStateReconfiguring :: InstanceGroupState
+pattern InstanceGroupStateReconfiguring = InstanceGroupState' "RECONFIGURING"
 
-pattern Resizing :: InstanceGroupState
-pattern Resizing = InstanceGroupState' "RESIZING"
+pattern InstanceGroupStateResizing :: InstanceGroupState
+pattern InstanceGroupStateResizing = InstanceGroupState' "RESIZING"
 
-pattern Suspended :: InstanceGroupState
-pattern Suspended = InstanceGroupState' "SUSPENDED"
+pattern InstanceGroupStateSuspended :: InstanceGroupState
+pattern InstanceGroupStateSuspended = InstanceGroupState' "SUSPENDED"
 
-pattern Terminating :: InstanceGroupState
-pattern Terminating = InstanceGroupState' "TERMINATING"
+pattern InstanceGroupStateTerminating :: InstanceGroupState
+pattern InstanceGroupStateTerminating = InstanceGroupState' "TERMINATING"
 
-pattern Terminated :: InstanceGroupState
-pattern Terminated = InstanceGroupState' "TERMINATED"
+pattern InstanceGroupStateTerminated :: InstanceGroupState
+pattern InstanceGroupStateTerminated = InstanceGroupState' "TERMINATED"
 
-pattern Arrested :: InstanceGroupState
-pattern Arrested = InstanceGroupState' "ARRESTED"
+pattern InstanceGroupStateArrested :: InstanceGroupState
+pattern InstanceGroupStateArrested = InstanceGroupState' "ARRESTED"
 
-pattern ShuttingDown :: InstanceGroupState
-pattern ShuttingDown = InstanceGroupState' "SHUTTING_DOWN"
+pattern InstanceGroupStateShuttingDown :: InstanceGroupState
+pattern InstanceGroupStateShuttingDown = InstanceGroupState' "SHUTTING_DOWN"
 
-pattern Ended :: InstanceGroupState
-pattern Ended = InstanceGroupState' "ENDED"
+pattern InstanceGroupStateEnded :: InstanceGroupState
+pattern InstanceGroupStateEnded = InstanceGroupState' "ENDED"
 
 {-# COMPLETE
-  Provisioning,
-  Bootstrapping,
-  Running,
-  Reconfiguring,
-  Resizing,
-  Suspended,
-  Terminating,
-  Terminated,
-  Arrested,
-  ShuttingDown,
-  Ended,
+  InstanceGroupStateProvisioning,
+  InstanceGroupStateBootstrapping,
+  InstanceGroupStateRunning,
+  InstanceGroupStateReconfiguring,
+  InstanceGroupStateResizing,
+  InstanceGroupStateSuspended,
+  InstanceGroupStateTerminating,
+  InstanceGroupStateTerminated,
+  InstanceGroupStateArrested,
+  InstanceGroupStateShuttingDown,
+  InstanceGroupStateEnded,
   InstanceGroupState'
   #-}

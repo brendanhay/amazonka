@@ -23,75 +23,67 @@ module Network.AWS.DMS.DescribePendingMaintenanceActions
     dpmaFilters,
     dpmaMarker,
     dpmaMaxRecords,
-    dpmaReplicationInstanceARN,
+    dpmaReplicationInstanceArn,
 
     -- * Destructuring the response
     DescribePendingMaintenanceActionsResponse (..),
     mkDescribePendingMaintenanceActionsResponse,
 
     -- ** Response lenses
-    dpmarsPendingMaintenanceActions,
-    dpmarsMarker,
-    dpmarsResponseStatus,
+    dpmarrsMarker,
+    dpmarrsPendingMaintenanceActions,
+    dpmarrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribePendingMaintenanceActions' smart constructor.
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
   { -- |
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
+    maxRecords :: Core.Maybe Core.Int,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceARN :: Lude.Maybe Lude.Text
+    replicationInstanceArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePendingMaintenanceActions' with the minimum fields required to make a request.
---
--- * 'filters' -
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- | Creates a 'DescribePendingMaintenanceActions' value with any optional fields omitted.
 mkDescribePendingMaintenanceActions ::
   DescribePendingMaintenanceActions
 mkDescribePendingMaintenanceActions =
   DescribePendingMaintenanceActions'
-    { filters = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      replicationInstanceARN = Lude.Nothing
+    { filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      replicationInstanceArn = Core.Nothing
     }
 
 -- |
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmaFilters :: Lens.Lens' DescribePendingMaintenanceActions (Lude.Maybe [Filter])
-dpmaFilters = Lens.lens (filters :: DescribePendingMaintenanceActions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribePendingMaintenanceActions)
+dpmaFilters :: Lens.Lens' DescribePendingMaintenanceActions (Core.Maybe [Types.Filter])
+dpmaFilters = Lens.field @"filters"
 {-# DEPRECATED dpmaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmaMarker :: Lens.Lens' DescribePendingMaintenanceActions (Lude.Maybe Lude.Text)
-dpmaMarker = Lens.lens (marker :: DescribePendingMaintenanceActions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribePendingMaintenanceActions)
+dpmaMarker :: Lens.Lens' DescribePendingMaintenanceActions (Core.Maybe Types.String)
+dpmaMarker = Lens.field @"marker"
 {-# DEPRECATED dpmaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
@@ -100,110 +92,99 @@ dpmaMarker = Lens.lens (marker :: DescribePendingMaintenanceActions -> Lude.Mayb
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmaMaxRecords :: Lens.Lens' DescribePendingMaintenanceActions (Lude.Maybe Lude.Int)
-dpmaMaxRecords = Lens.lens (maxRecords :: DescribePendingMaintenanceActions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribePendingMaintenanceActions)
+dpmaMaxRecords :: Lens.Lens' DescribePendingMaintenanceActions (Core.Maybe Core.Int)
+dpmaMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dpmaMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 --
--- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmaReplicationInstanceARN :: Lens.Lens' DescribePendingMaintenanceActions (Lude.Maybe Lude.Text)
-dpmaReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DescribePendingMaintenanceActions -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DescribePendingMaintenanceActions)
-{-# DEPRECATED dpmaReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+-- /Note:/ Consider using 'replicationInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpmaReplicationInstanceArn :: Lens.Lens' DescribePendingMaintenanceActions (Core.Maybe Types.String)
+dpmaReplicationInstanceArn = Lens.field @"replicationInstanceArn"
+{-# DEPRECATED dpmaReplicationInstanceArn "Use generic-lens or generic-optics with 'replicationInstanceArn' instead." #-}
 
-instance Lude.AWSRequest DescribePendingMaintenanceActions where
+instance Core.FromJSON DescribePendingMaintenanceActions where
+  toJSON DescribePendingMaintenanceActions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords,
+            ("ReplicationInstanceArn" Core..=)
+              Core.<$> replicationInstanceArn
+          ]
+      )
+
+instance Core.AWSRequest DescribePendingMaintenanceActions where
   type
     Rs DescribePendingMaintenanceActions =
       DescribePendingMaintenanceActionsResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonDMSv20160101.DescribePendingMaintenanceActions"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePendingMaintenanceActionsResponse'
-            Lude.<$> (x Lude..?> "PendingMaintenanceActions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "PendingMaintenanceActions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribePendingMaintenanceActions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonDMSv20160101.DescribePendingMaintenanceActions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribePendingMaintenanceActions where
-  toJSON DescribePendingMaintenanceActions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords,
-            ("ReplicationInstanceArn" Lude..=)
-              Lude.<$> replicationInstanceARN
-          ]
-      )
-
-instance Lude.ToPath DescribePendingMaintenanceActions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePendingMaintenanceActions where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkDescribePendingMaintenanceActionsResponse' smart constructor.
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
-  { -- | The pending maintenance action.
-    pendingMaintenanceActions :: Lude.Maybe [ResourcePendingMaintenanceActions],
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
+    -- | The pending maintenance action.
+    pendingMaintenanceActions :: Core.Maybe [Types.ResourcePendingMaintenanceActions],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribePendingMaintenanceActionsResponse' with the minimum fields required to make a request.
---
--- * 'pendingMaintenanceActions' - The pending maintenance action.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePendingMaintenanceActionsResponse' value with any optional fields omitted.
 mkDescribePendingMaintenanceActionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePendingMaintenanceActionsResponse
-mkDescribePendingMaintenanceActionsResponse pResponseStatus_ =
+mkDescribePendingMaintenanceActionsResponse responseStatus =
   DescribePendingMaintenanceActionsResponse'
-    { pendingMaintenanceActions =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      pendingMaintenanceActions = Core.Nothing,
+      responseStatus
     }
-
--- | The pending maintenance action.
---
--- /Note:/ Consider using 'pendingMaintenanceActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmarsPendingMaintenanceActions :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Lude.Maybe [ResourcePendingMaintenanceActions])
-dpmarsPendingMaintenanceActions = Lens.lens (pendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> Lude.Maybe [ResourcePendingMaintenanceActions]) (\s a -> s {pendingMaintenanceActions = a} :: DescribePendingMaintenanceActionsResponse)
-{-# DEPRECATED dpmarsPendingMaintenanceActions "Use generic-lens or generic-optics with 'pendingMaintenanceActions' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmarsMarker :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Lude.Maybe Lude.Text)
-dpmarsMarker = Lens.lens (marker :: DescribePendingMaintenanceActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribePendingMaintenanceActionsResponse)
-{-# DEPRECATED dpmarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dpmarrsMarker :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Core.Maybe Types.String)
+dpmarrsMarker = Lens.field @"marker"
+{-# DEPRECATED dpmarrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The pending maintenance action.
+--
+-- /Note:/ Consider using 'pendingMaintenanceActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpmarrsPendingMaintenanceActions :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Core.Maybe [Types.ResourcePendingMaintenanceActions])
+dpmarrsPendingMaintenanceActions = Lens.field @"pendingMaintenanceActions"
+{-# DEPRECATED dpmarrsPendingMaintenanceActions "Use generic-lens or generic-optics with 'pendingMaintenanceActions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpmarsResponseStatus :: Lens.Lens' DescribePendingMaintenanceActionsResponse Lude.Int
-dpmarsResponseStatus = Lens.lens (responseStatus :: DescribePendingMaintenanceActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePendingMaintenanceActionsResponse)
-{-# DEPRECATED dpmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpmarrsResponseStatus :: Lens.Lens' DescribePendingMaintenanceActionsResponse Core.Int
+dpmarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpmarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

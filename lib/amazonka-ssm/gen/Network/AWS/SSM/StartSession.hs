@@ -20,182 +20,163 @@ module Network.AWS.SSM.StartSession
     mkStartSession,
 
     -- ** Request lenses
+    ssTarget,
     ssDocumentName,
     ssParameters,
-    ssTarget,
 
     -- * Destructuring the response
     StartSessionResponse (..),
     mkStartSessionResponse,
 
     -- ** Response lenses
-    ssrsStreamURL,
-    ssrsTokenValue,
-    ssrsSessionId,
-    ssrsResponseStatus,
+    ssrrsSessionId,
+    ssrrsStreamUrl,
+    ssrrsTokenValue,
+    ssrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkStartSession' smart constructor.
 data StartSession = StartSession'
-  { -- | The name of the SSM document to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ . You can call the 'GetDocument' API to verify the document exists before attempting to start a session. If no document name is provided, a shell to the instance is launched by default.
-    documentName :: Lude.Maybe Lude.Text,
+  { -- | The instance to connect to for the session.
+    target :: Types.SessionTarget,
+    -- | The name of the SSM document to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ . You can call the 'GetDocument' API to verify the document exists before attempting to start a session. If no document name is provided, a shell to the instance is launched by default.
+    documentName :: Core.Maybe Types.DocumentARN,
     -- | Reserved for future use.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The instance to connect to for the session.
-    target :: Lude.Text
+    parameters :: Core.Maybe (Core.HashMap Types.SessionManagerParameterName [Types.SessionManagerParameterValue])
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSession' with the minimum fields required to make a request.
---
--- * 'documentName' - The name of the SSM document to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ . You can call the 'GetDocument' API to verify the document exists before attempting to start a session. If no document name is provided, a shell to the instance is launched by default.
--- * 'parameters' - Reserved for future use.
--- * 'target' - The instance to connect to for the session.
+-- | Creates a 'StartSession' value with any optional fields omitted.
 mkStartSession ::
   -- | 'target'
-  Lude.Text ->
+  Types.SessionTarget ->
   StartSession
-mkStartSession pTarget_ =
+mkStartSession target =
   StartSession'
-    { documentName = Lude.Nothing,
-      parameters = Lude.Nothing,
-      target = pTarget_
+    { target,
+      documentName = Core.Nothing,
+      parameters = Core.Nothing
     }
+
+-- | The instance to connect to for the session.
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssTarget :: Lens.Lens' StartSession Types.SessionTarget
+ssTarget = Lens.field @"target"
+{-# DEPRECATED ssTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
 -- | The name of the SSM document to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ . You can call the 'GetDocument' API to verify the document exists before attempting to start a session. If no document name is provided, a shell to the instance is launched by default.
 --
 -- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssDocumentName :: Lens.Lens' StartSession (Lude.Maybe Lude.Text)
-ssDocumentName = Lens.lens (documentName :: StartSession -> Lude.Maybe Lude.Text) (\s a -> s {documentName = a} :: StartSession)
+ssDocumentName :: Lens.Lens' StartSession (Core.Maybe Types.DocumentARN)
+ssDocumentName = Lens.field @"documentName"
 {-# DEPRECATED ssDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
 
 -- | Reserved for future use.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssParameters :: Lens.Lens' StartSession (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-ssParameters = Lens.lens (parameters :: StartSession -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {parameters = a} :: StartSession)
+ssParameters :: Lens.Lens' StartSession (Core.Maybe (Core.HashMap Types.SessionManagerParameterName [Types.SessionManagerParameterValue]))
+ssParameters = Lens.field @"parameters"
 {-# DEPRECATED ssParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The instance to connect to for the session.
---
--- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssTarget :: Lens.Lens' StartSession Lude.Text
-ssTarget = Lens.lens (target :: StartSession -> Lude.Text) (\s a -> s {target = a} :: StartSession)
-{-# DEPRECATED ssTarget "Use generic-lens or generic-optics with 'target' instead." #-}
+instance Core.FromJSON StartSession where
+  toJSON StartSession {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Target" Core..= target),
+            ("DocumentName" Core..=) Core.<$> documentName,
+            ("Parameters" Core..=) Core.<$> parameters
+          ]
+      )
 
-instance Lude.AWSRequest StartSession where
+instance Core.AWSRequest StartSession where
   type Rs StartSession = StartSessionResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.StartSession")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartSessionResponse'
-            Lude.<$> (x Lude..?> "StreamUrl")
-            Lude.<*> (x Lude..?> "TokenValue")
-            Lude.<*> (x Lude..?> "SessionId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SessionId")
+            Core.<*> (x Core..:? "StreamUrl")
+            Core.<*> (x Core..:? "TokenValue")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartSession where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.StartSession" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartSession where
-  toJSON StartSession' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DocumentName" Lude..=) Lude.<$> documentName,
-            ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("Target" Lude..= target)
-          ]
-      )
-
-instance Lude.ToPath StartSession where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartSession where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
-  { -- | A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: @wss://ssmmessages.__region__ .amazonaws.com/v1/data-channel/__session-id__ ?stream=(input|output)@
+  { -- | The ID of the session.
+    sessionId :: Core.Maybe Types.SessionId,
+    -- | A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: @wss://ssmmessages.__region__ .amazonaws.com/v1/data-channel/__session-id__ ?stream=(input|output)@
     --
     -- __region__ represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio) Region. For a list of supported __region__ values, see the __Region__ column in <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints> in the /AWS General Reference/ .
     -- __session-id__ represents the ID of a Session Manager session, such as @1a2b3c4dEXAMPLE@ .
-    streamURL :: Lude.Maybe Lude.Text,
+    streamUrl :: Core.Maybe Types.StreamUrl,
     -- | An encrypted token value containing session and caller information. Used to authenticate the connection to the instance.
-    tokenValue :: Lude.Maybe Lude.Text,
-    -- | The ID of the session.
-    sessionId :: Lude.Maybe Lude.Text,
+    tokenValue :: Core.Maybe Types.TokenValue,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSessionResponse' with the minimum fields required to make a request.
---
--- * 'streamURL' - A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: @wss://ssmmessages.__region__ .amazonaws.com/v1/data-channel/__session-id__ ?stream=(input|output)@
---
--- __region__ represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio) Region. For a list of supported __region__ values, see the __Region__ column in <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints> in the /AWS General Reference/ .
--- __session-id__ represents the ID of a Session Manager session, such as @1a2b3c4dEXAMPLE@ .
--- * 'tokenValue' - An encrypted token value containing session and caller information. Used to authenticate the connection to the instance.
--- * 'sessionId' - The ID of the session.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartSessionResponse' value with any optional fields omitted.
 mkStartSessionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartSessionResponse
-mkStartSessionResponse pResponseStatus_ =
+mkStartSessionResponse responseStatus =
   StartSessionResponse'
-    { streamURL = Lude.Nothing,
-      tokenValue = Lude.Nothing,
-      sessionId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { sessionId = Core.Nothing,
+      streamUrl = Core.Nothing,
+      tokenValue = Core.Nothing,
+      responseStatus
     }
+
+-- | The ID of the session.
+--
+-- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssrrsSessionId :: Lens.Lens' StartSessionResponse (Core.Maybe Types.SessionId)
+ssrrsSessionId = Lens.field @"sessionId"
+{-# DEPRECATED ssrrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
 -- | A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: @wss://ssmmessages.__region__ .amazonaws.com/v1/data-channel/__session-id__ ?stream=(input|output)@
 --
 -- __region__ represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio) Region. For a list of supported __region__ values, see the __Region__ column in <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints> in the /AWS General Reference/ .
 -- __session-id__ represents the ID of a Session Manager session, such as @1a2b3c4dEXAMPLE@ .
 --
--- /Note:/ Consider using 'streamURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsStreamURL :: Lens.Lens' StartSessionResponse (Lude.Maybe Lude.Text)
-ssrsStreamURL = Lens.lens (streamURL :: StartSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamURL = a} :: StartSessionResponse)
-{-# DEPRECATED ssrsStreamURL "Use generic-lens or generic-optics with 'streamURL' instead." #-}
+-- /Note:/ Consider using 'streamUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssrrsStreamUrl :: Lens.Lens' StartSessionResponse (Core.Maybe Types.StreamUrl)
+ssrrsStreamUrl = Lens.field @"streamUrl"
+{-# DEPRECATED ssrrsStreamUrl "Use generic-lens or generic-optics with 'streamUrl' instead." #-}
 
 -- | An encrypted token value containing session and caller information. Used to authenticate the connection to the instance.
 --
 -- /Note:/ Consider using 'tokenValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsTokenValue :: Lens.Lens' StartSessionResponse (Lude.Maybe Lude.Text)
-ssrsTokenValue = Lens.lens (tokenValue :: StartSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {tokenValue = a} :: StartSessionResponse)
-{-# DEPRECATED ssrsTokenValue "Use generic-lens or generic-optics with 'tokenValue' instead." #-}
-
--- | The ID of the session.
---
--- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsSessionId :: Lens.Lens' StartSessionResponse (Lude.Maybe Lude.Text)
-ssrsSessionId = Lens.lens (sessionId :: StartSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: StartSessionResponse)
-{-# DEPRECATED ssrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
+ssrrsTokenValue :: Lens.Lens' StartSessionResponse (Core.Maybe Types.TokenValue)
+ssrrsTokenValue = Lens.field @"tokenValue"
+{-# DEPRECATED ssrrsTokenValue "Use generic-lens or generic-optics with 'tokenValue' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsResponseStatus :: Lens.Lens' StartSessionResponse Lude.Int
-ssrsResponseStatus = Lens.lens (responseStatus :: StartSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSessionResponse)
-{-# DEPRECATED ssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssrrsResponseStatus :: Lens.Lens' StartSessionResponse Core.Int
+ssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

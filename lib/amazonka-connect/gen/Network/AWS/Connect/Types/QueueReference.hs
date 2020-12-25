@@ -17,54 +17,51 @@ module Network.AWS.Connect.Types.QueueReference
     mkQueueReference,
 
     -- * Lenses
-    qrARN,
+    qrArn,
     qrId,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.QueueId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a queue resource for which metrics are returned.
 --
 -- /See:/ 'mkQueueReference' smart constructor.
 data QueueReference = QueueReference'
   { -- | The Amazon Resource Name (ARN) of the queue.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | The identifier of the queue.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.QueueId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueueReference' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the queue.
--- * 'id' - The identifier of the queue.
+-- | Creates a 'QueueReference' value with any optional fields omitted.
 mkQueueReference ::
   QueueReference
 mkQueueReference =
-  QueueReference' {arn = Lude.Nothing, id = Lude.Nothing}
+  QueueReference' {arn = Core.Nothing, id = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the queue.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qrARN :: Lens.Lens' QueueReference (Lude.Maybe Lude.Text)
-qrARN = Lens.lens (arn :: QueueReference -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: QueueReference)
-{-# DEPRECATED qrARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+qrArn :: Lens.Lens' QueueReference (Core.Maybe Types.ARN)
+qrArn = Lens.field @"arn"
+{-# DEPRECATED qrArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The identifier of the queue.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qrId :: Lens.Lens' QueueReference (Lude.Maybe Lude.Text)
-qrId = Lens.lens (id :: QueueReference -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: QueueReference)
+qrId :: Lens.Lens' QueueReference (Core.Maybe Types.QueueId)
+qrId = Lens.field @"id"
 {-# DEPRECATED qrId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON QueueReference where
+instance Core.FromJSON QueueReference where
   parseJSON =
-    Lude.withObject
-      "QueueReference"
-      ( \x ->
-          QueueReference'
-            Lude.<$> (x Lude..:? "Arn") Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "QueueReference" Core.$
+      \x ->
+        QueueReference'
+          Core.<$> (x Core..:? "Arn") Core.<*> (x Core..:? "Id")

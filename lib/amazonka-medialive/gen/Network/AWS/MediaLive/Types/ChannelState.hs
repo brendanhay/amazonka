@@ -13,92 +13,94 @@
 module Network.AWS.MediaLive.Types.ChannelState
   ( ChannelState
       ( ChannelState',
-        CSCreating,
-        CSCreateFailed,
-        CSIdle,
-        CSStarting,
-        CSRunning,
-        CSRecovering,
-        CSStopping,
-        CSDeleting,
-        CSDeleted,
-        CSUpdating,
-        CSUpdateFailed
+        ChannelStateCreating,
+        ChannelStateCreateFailed,
+        ChannelStateIdle,
+        ChannelStateStarting,
+        ChannelStateRunning,
+        ChannelStateRecovering,
+        ChannelStateStopping,
+        ChannelStateDeleting,
+        ChannelStateDeleted,
+        ChannelStateUpdating,
+        ChannelStateUpdateFailed,
+        fromChannelState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for ChannelState
-newtype ChannelState = ChannelState' Lude.Text
+newtype ChannelState = ChannelState' {fromChannelState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSCreating :: ChannelState
-pattern CSCreating = ChannelState' "CREATING"
+pattern ChannelStateCreating :: ChannelState
+pattern ChannelStateCreating = ChannelState' "CREATING"
 
-pattern CSCreateFailed :: ChannelState
-pattern CSCreateFailed = ChannelState' "CREATE_FAILED"
+pattern ChannelStateCreateFailed :: ChannelState
+pattern ChannelStateCreateFailed = ChannelState' "CREATE_FAILED"
 
-pattern CSIdle :: ChannelState
-pattern CSIdle = ChannelState' "IDLE"
+pattern ChannelStateIdle :: ChannelState
+pattern ChannelStateIdle = ChannelState' "IDLE"
 
-pattern CSStarting :: ChannelState
-pattern CSStarting = ChannelState' "STARTING"
+pattern ChannelStateStarting :: ChannelState
+pattern ChannelStateStarting = ChannelState' "STARTING"
 
-pattern CSRunning :: ChannelState
-pattern CSRunning = ChannelState' "RUNNING"
+pattern ChannelStateRunning :: ChannelState
+pattern ChannelStateRunning = ChannelState' "RUNNING"
 
-pattern CSRecovering :: ChannelState
-pattern CSRecovering = ChannelState' "RECOVERING"
+pattern ChannelStateRecovering :: ChannelState
+pattern ChannelStateRecovering = ChannelState' "RECOVERING"
 
-pattern CSStopping :: ChannelState
-pattern CSStopping = ChannelState' "STOPPING"
+pattern ChannelStateStopping :: ChannelState
+pattern ChannelStateStopping = ChannelState' "STOPPING"
 
-pattern CSDeleting :: ChannelState
-pattern CSDeleting = ChannelState' "DELETING"
+pattern ChannelStateDeleting :: ChannelState
+pattern ChannelStateDeleting = ChannelState' "DELETING"
 
-pattern CSDeleted :: ChannelState
-pattern CSDeleted = ChannelState' "DELETED"
+pattern ChannelStateDeleted :: ChannelState
+pattern ChannelStateDeleted = ChannelState' "DELETED"
 
-pattern CSUpdating :: ChannelState
-pattern CSUpdating = ChannelState' "UPDATING"
+pattern ChannelStateUpdating :: ChannelState
+pattern ChannelStateUpdating = ChannelState' "UPDATING"
 
-pattern CSUpdateFailed :: ChannelState
-pattern CSUpdateFailed = ChannelState' "UPDATE_FAILED"
+pattern ChannelStateUpdateFailed :: ChannelState
+pattern ChannelStateUpdateFailed = ChannelState' "UPDATE_FAILED"
 
 {-# COMPLETE
-  CSCreating,
-  CSCreateFailed,
-  CSIdle,
-  CSStarting,
-  CSRunning,
-  CSRecovering,
-  CSStopping,
-  CSDeleting,
-  CSDeleted,
-  CSUpdating,
-  CSUpdateFailed,
+  ChannelStateCreating,
+  ChannelStateCreateFailed,
+  ChannelStateIdle,
+  ChannelStateStarting,
+  ChannelStateRunning,
+  ChannelStateRecovering,
+  ChannelStateStopping,
+  ChannelStateDeleting,
+  ChannelStateDeleted,
+  ChannelStateUpdating,
+  ChannelStateUpdateFailed,
   ChannelState'
   #-}

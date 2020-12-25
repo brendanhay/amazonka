@@ -13,51 +13,56 @@
 module Network.AWS.ServiceCatalog.Types.StackInstanceStatus
   ( StackInstanceStatus
       ( StackInstanceStatus',
-        Current,
-        Outdated,
-        Inoperable
+        StackInstanceStatusCurrent,
+        StackInstanceStatusOutdated,
+        StackInstanceStatusInoperable,
+        fromStackInstanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackInstanceStatus = StackInstanceStatus' Lude.Text
+newtype StackInstanceStatus = StackInstanceStatus'
+  { fromStackInstanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Current :: StackInstanceStatus
-pattern Current = StackInstanceStatus' "CURRENT"
+pattern StackInstanceStatusCurrent :: StackInstanceStatus
+pattern StackInstanceStatusCurrent = StackInstanceStatus' "CURRENT"
 
-pattern Outdated :: StackInstanceStatus
-pattern Outdated = StackInstanceStatus' "OUTDATED"
+pattern StackInstanceStatusOutdated :: StackInstanceStatus
+pattern StackInstanceStatusOutdated = StackInstanceStatus' "OUTDATED"
 
-pattern Inoperable :: StackInstanceStatus
-pattern Inoperable = StackInstanceStatus' "INOPERABLE"
+pattern StackInstanceStatusInoperable :: StackInstanceStatus
+pattern StackInstanceStatusInoperable = StackInstanceStatus' "INOPERABLE"
 
 {-# COMPLETE
-  Current,
-  Outdated,
-  Inoperable,
+  StackInstanceStatusCurrent,
+  StackInstanceStatusOutdated,
+  StackInstanceStatusInoperable,
   StackInstanceStatus'
   #-}

@@ -28,114 +28,108 @@ module Network.AWS.EC2.DeleteManagedPrefixList
     mkDeleteManagedPrefixListResponse,
 
     -- ** Response lenses
-    dmplrsPrefixList,
-    dmplrsResponseStatus,
+    dmplrrsPrefixList,
+    dmplrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteManagedPrefixList' smart constructor.
 data DeleteManagedPrefixList = DeleteManagedPrefixList'
   { -- | The ID of the prefix list.
-    prefixListId :: Lude.Text,
+    prefixListId :: Types.PrefixListResourceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteManagedPrefixList' with the minimum fields required to make a request.
---
--- * 'prefixListId' - The ID of the prefix list.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteManagedPrefixList' value with any optional fields omitted.
 mkDeleteManagedPrefixList ::
   -- | 'prefixListId'
-  Lude.Text ->
+  Types.PrefixListResourceId ->
   DeleteManagedPrefixList
-mkDeleteManagedPrefixList pPrefixListId_ =
-  DeleteManagedPrefixList'
-    { prefixListId = pPrefixListId_,
-      dryRun = Lude.Nothing
-    }
+mkDeleteManagedPrefixList prefixListId =
+  DeleteManagedPrefixList' {prefixListId, dryRun = Core.Nothing}
 
 -- | The ID of the prefix list.
 --
 -- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmplPrefixListId :: Lens.Lens' DeleteManagedPrefixList Lude.Text
-dmplPrefixListId = Lens.lens (prefixListId :: DeleteManagedPrefixList -> Lude.Text) (\s a -> s {prefixListId = a} :: DeleteManagedPrefixList)
+dmplPrefixListId :: Lens.Lens' DeleteManagedPrefixList Types.PrefixListResourceId
+dmplPrefixListId = Lens.field @"prefixListId"
 {-# DEPRECATED dmplPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmplDryRun :: Lens.Lens' DeleteManagedPrefixList (Lude.Maybe Lude.Bool)
-dmplDryRun = Lens.lens (dryRun :: DeleteManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteManagedPrefixList)
+dmplDryRun :: Lens.Lens' DeleteManagedPrefixList (Core.Maybe Core.Bool)
+dmplDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteManagedPrefixList where
+instance Core.AWSRequest DeleteManagedPrefixList where
   type Rs DeleteManagedPrefixList = DeleteManagedPrefixListResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteManagedPrefixList")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "PrefixListId" prefixListId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteManagedPrefixListResponse'
-            Lude.<$> (x Lude..@? "prefixList") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "prefixList") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteManagedPrefixList where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteManagedPrefixList where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteManagedPrefixList where
-  toQuery DeleteManagedPrefixList' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteManagedPrefixList" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "PrefixListId" Lude.=: prefixListId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteManagedPrefixListResponse' smart constructor.
 data DeleteManagedPrefixListResponse = DeleteManagedPrefixListResponse'
   { -- | Information about the prefix list.
-    prefixList :: Lude.Maybe ManagedPrefixList,
+    prefixList :: Core.Maybe Types.ManagedPrefixList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteManagedPrefixListResponse' with the minimum fields required to make a request.
---
--- * 'prefixList' - Information about the prefix list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteManagedPrefixListResponse' value with any optional fields omitted.
 mkDeleteManagedPrefixListResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteManagedPrefixListResponse
-mkDeleteManagedPrefixListResponse pResponseStatus_ =
+mkDeleteManagedPrefixListResponse responseStatus =
   DeleteManagedPrefixListResponse'
-    { prefixList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { prefixList = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the prefix list.
 --
 -- /Note:/ Consider using 'prefixList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmplrsPrefixList :: Lens.Lens' DeleteManagedPrefixListResponse (Lude.Maybe ManagedPrefixList)
-dmplrsPrefixList = Lens.lens (prefixList :: DeleteManagedPrefixListResponse -> Lude.Maybe ManagedPrefixList) (\s a -> s {prefixList = a} :: DeleteManagedPrefixListResponse)
-{-# DEPRECATED dmplrsPrefixList "Use generic-lens or generic-optics with 'prefixList' instead." #-}
+dmplrrsPrefixList :: Lens.Lens' DeleteManagedPrefixListResponse (Core.Maybe Types.ManagedPrefixList)
+dmplrrsPrefixList = Lens.field @"prefixList"
+{-# DEPRECATED dmplrrsPrefixList "Use generic-lens or generic-optics with 'prefixList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmplrsResponseStatus :: Lens.Lens' DeleteManagedPrefixListResponse Lude.Int
-dmplrsResponseStatus = Lens.lens (responseStatus :: DeleteManagedPrefixListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteManagedPrefixListResponse)
-{-# DEPRECATED dmplrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmplrrsResponseStatus :: Lens.Lens' DeleteManagedPrefixListResponse Core.Int
+dmplrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmplrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

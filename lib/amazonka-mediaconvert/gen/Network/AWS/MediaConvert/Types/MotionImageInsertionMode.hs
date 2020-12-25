@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.MotionImageInsertionMode
   ( MotionImageInsertionMode
       ( MotionImageInsertionMode',
-        Mov,
-        Png
+        MotionImageInsertionModeMov,
+        MotionImageInsertionModePng,
+        fromMotionImageInsertionMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose the type of motion graphic asset that you are providing for your overlay. You can choose either a .mov file or a series of .png files.
-newtype MotionImageInsertionMode = MotionImageInsertionMode' Lude.Text
+newtype MotionImageInsertionMode = MotionImageInsertionMode'
+  { fromMotionImageInsertionMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Mov :: MotionImageInsertionMode
-pattern Mov = MotionImageInsertionMode' "MOV"
+pattern MotionImageInsertionModeMov :: MotionImageInsertionMode
+pattern MotionImageInsertionModeMov = MotionImageInsertionMode' "MOV"
 
-pattern Png :: MotionImageInsertionMode
-pattern Png = MotionImageInsertionMode' "PNG"
+pattern MotionImageInsertionModePng :: MotionImageInsertionMode
+pattern MotionImageInsertionModePng = MotionImageInsertionMode' "PNG"
 
 {-# COMPLETE
-  Mov,
-  Png,
+  MotionImageInsertionModeMov,
+  MotionImageInsertionModePng,
   MotionImageInsertionMode'
   #-}

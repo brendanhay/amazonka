@@ -17,17 +17,20 @@ module Network.AWS.DynamoDB.Types.KeysAndAttributes
     mkKeysAndAttributes,
 
     -- * Lenses
-    kaaProjectionExpression,
-    kaaAttributesToGet,
-    kaaExpressionAttributeNames,
-    kaaConsistentRead,
     kaaKeys,
+    kaaAttributesToGet,
+    kaaConsistentRead,
+    kaaExpressionAttributeNames,
+    kaaProjectionExpression,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AttributeValue
+import qualified Network.AWS.DynamoDB.Types.AttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.AttributeValue as Types
+import qualified Network.AWS.DynamoDB.Types.ExpressionAttributeNameVariable as Types
+import qualified Network.AWS.DynamoDB.Types.ProjectionExpression as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a set of primary keys and, for each key, the attributes to retrieve from the table.
 --
@@ -35,13 +38,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
-  { -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
-    --
-    -- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
-    projectionExpression :: Lude.Maybe Lude.Text,
+  { -- | The primary key attribute values that define the items and the attributes associated with the items.
+    keys :: Core.NonEmpty (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/ .
-    attributesToGet :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    attributesToGet :: Core.Maybe (Core.NonEmpty Types.AttributeName),
+    -- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+    consistentRead :: Core.Maybe Core.Bool,
     -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
     --
     --
@@ -70,81 +72,50 @@ data KeysAndAttributes = KeysAndAttributes'
     --
     --
     -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
-    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
-    consistentRead :: Lude.Maybe Lude.Bool,
-    -- | The primary key attribute values that define the items and the attributes associated with the items.
-    keys :: Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue))
+    expressionAttributeNames :: Core.Maybe (Core.HashMap Types.ExpressionAttributeNameVariable Types.AttributeName),
+    -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
+    --
+    -- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
+    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    projectionExpression :: Core.Maybe Types.ProjectionExpression
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeysAndAttributes' with the minimum fields required to make a request.
---
--- * 'projectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
---
--- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
--- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
--- * 'attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/ .
--- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
---
---
---     * To access an attribute whose name conflicts with a DynamoDB reserved word.
---
---
---     * To create a placeholder for repeating occurrences of an attribute name in an expression.
---
---
---     * To prevent special characters in an attribute name from being misinterpreted in an expression.
---
---
--- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
---
---     * @Percentile@
---
---
--- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
---
---     * @{"#P":"Percentile"}@
---
---
--- You could then use this substitution in an expression, as in this example:
---
---     * @#P = :val@
---
---
--- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
--- * 'consistentRead' - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
--- * 'keys' - The primary key attribute values that define the items and the attributes associated with the items.
+-- | Creates a 'KeysAndAttributes' value with any optional fields omitted.
 mkKeysAndAttributes ::
   -- | 'keys'
-  Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue)) ->
+  Core.NonEmpty (Core.HashMap Types.AttributeName Types.AttributeValue) ->
   KeysAndAttributes
-mkKeysAndAttributes pKeys_ =
+mkKeysAndAttributes keys =
   KeysAndAttributes'
-    { projectionExpression = Lude.Nothing,
-      attributesToGet = Lude.Nothing,
-      expressionAttributeNames = Lude.Nothing,
-      consistentRead = Lude.Nothing,
-      keys = pKeys_
+    { keys,
+      attributesToGet = Core.Nothing,
+      consistentRead = Core.Nothing,
+      expressionAttributeNames = Core.Nothing,
+      projectionExpression = Core.Nothing
     }
 
--- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
+-- | The primary key attribute values that define the items and the attributes associated with the items.
 --
--- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
--- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
---
--- /Note:/ Consider using 'projectionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaaProjectionExpression :: Lens.Lens' KeysAndAttributes (Lude.Maybe Lude.Text)
-kaaProjectionExpression = Lens.lens (projectionExpression :: KeysAndAttributes -> Lude.Maybe Lude.Text) (\s a -> s {projectionExpression = a} :: KeysAndAttributes)
-{-# DEPRECATED kaaProjectionExpression "Use generic-lens or generic-optics with 'projectionExpression' instead." #-}
+-- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaaKeys :: Lens.Lens' KeysAndAttributes (Core.NonEmpty (Core.HashMap Types.AttributeName Types.AttributeValue))
+kaaKeys = Lens.field @"keys"
+{-# DEPRECATED kaaKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- /Note:/ Consider using 'attributesToGet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaaAttributesToGet :: Lens.Lens' KeysAndAttributes (Lude.Maybe (Lude.NonEmpty Lude.Text))
-kaaAttributesToGet = Lens.lens (attributesToGet :: KeysAndAttributes -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {attributesToGet = a} :: KeysAndAttributes)
+kaaAttributesToGet :: Lens.Lens' KeysAndAttributes (Core.Maybe (Core.NonEmpty Types.AttributeName))
+kaaAttributesToGet = Lens.field @"attributesToGet"
 {-# DEPRECATED kaaAttributesToGet "Use generic-lens or generic-optics with 'attributesToGet' instead." #-}
+
+-- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+--
+-- /Note:/ Consider using 'consistentRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaaConsistentRead :: Lens.Lens' KeysAndAttributes (Core.Maybe Core.Bool)
+kaaConsistentRead = Lens.field @"consistentRead"
+{-# DEPRECATED kaaConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
 
 -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
 --
@@ -176,46 +147,40 @@ kaaAttributesToGet = Lens.lens (attributesToGet :: KeysAndAttributes -> Lude.May
 -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- /Note:/ Consider using 'expressionAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaaExpressionAttributeNames :: Lens.Lens' KeysAndAttributes (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-kaaExpressionAttributeNames = Lens.lens (expressionAttributeNames :: KeysAndAttributes -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {expressionAttributeNames = a} :: KeysAndAttributes)
+kaaExpressionAttributeNames :: Lens.Lens' KeysAndAttributes (Core.Maybe (Core.HashMap Types.ExpressionAttributeNameVariable Types.AttributeName))
+kaaExpressionAttributeNames = Lens.field @"expressionAttributeNames"
 {-# DEPRECATED kaaExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
 
--- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+-- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
 --
--- /Note:/ Consider using 'consistentRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaaConsistentRead :: Lens.Lens' KeysAndAttributes (Lude.Maybe Lude.Bool)
-kaaConsistentRead = Lens.lens (consistentRead :: KeysAndAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: KeysAndAttributes)
-{-# DEPRECATED kaaConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
-
--- | The primary key attribute values that define the items and the attributes associated with the items.
+-- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 --
--- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaaKeys :: Lens.Lens' KeysAndAttributes (Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue)))
-kaaKeys = Lens.lens (keys :: KeysAndAttributes -> Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {keys = a} :: KeysAndAttributes)
-{-# DEPRECATED kaaKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
+-- /Note:/ Consider using 'projectionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaaProjectionExpression :: Lens.Lens' KeysAndAttributes (Core.Maybe Types.ProjectionExpression)
+kaaProjectionExpression = Lens.field @"projectionExpression"
+{-# DEPRECATED kaaProjectionExpression "Use generic-lens or generic-optics with 'projectionExpression' instead." #-}
 
-instance Lude.FromJSON KeysAndAttributes where
-  parseJSON =
-    Lude.withObject
-      "KeysAndAttributes"
-      ( \x ->
-          KeysAndAttributes'
-            Lude.<$> (x Lude..:? "ProjectionExpression")
-            Lude.<*> (x Lude..:? "AttributesToGet")
-            Lude.<*> (x Lude..:? "ExpressionAttributeNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ConsistentRead")
-            Lude.<*> (x Lude..: "Keys")
-      )
-
-instance Lude.ToJSON KeysAndAttributes where
-  toJSON KeysAndAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProjectionExpression" Lude..=) Lude.<$> projectionExpression,
-            ("AttributesToGet" Lude..=) Lude.<$> attributesToGet,
-            ("ExpressionAttributeNames" Lude..=)
-              Lude.<$> expressionAttributeNames,
-            ("ConsistentRead" Lude..=) Lude.<$> consistentRead,
-            Lude.Just ("Keys" Lude..= keys)
+instance Core.FromJSON KeysAndAttributes where
+  toJSON KeysAndAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Keys" Core..= keys),
+            ("AttributesToGet" Core..=) Core.<$> attributesToGet,
+            ("ConsistentRead" Core..=) Core.<$> consistentRead,
+            ("ExpressionAttributeNames" Core..=)
+              Core.<$> expressionAttributeNames,
+            ("ProjectionExpression" Core..=) Core.<$> projectionExpression
           ]
       )
+
+instance Core.FromJSON KeysAndAttributes where
+  parseJSON =
+    Core.withObject "KeysAndAttributes" Core.$
+      \x ->
+        KeysAndAttributes'
+          Core.<$> (x Core..: "Keys")
+          Core.<*> (x Core..:? "AttributesToGet")
+          Core.<*> (x Core..:? "ConsistentRead")
+          Core.<*> (x Core..:? "ExpressionAttributeNames")
+          Core.<*> (x Core..:? "ProjectionExpression")

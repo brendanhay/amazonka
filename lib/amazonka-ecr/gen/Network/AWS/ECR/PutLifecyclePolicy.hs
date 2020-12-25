@@ -20,177 +20,162 @@ module Network.AWS.ECR.PutLifecyclePolicy
     mkPutLifecyclePolicy,
 
     -- ** Request lenses
-    plpRegistryId,
-    plpLifecyclePolicyText,
     plpRepositoryName,
+    plpLifecyclePolicyText,
+    plpRegistryId,
 
     -- * Destructuring the response
     PutLifecyclePolicyResponse (..),
     mkPutLifecyclePolicyResponse,
 
     -- ** Response lenses
-    plprsRegistryId,
-    plprsLifecyclePolicyText,
-    plprsRepositoryName,
-    plprsResponseStatus,
+    plprrsLifecyclePolicyText,
+    plprrsRegistryId,
+    plprrsRepositoryName,
+    plprrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutLifecyclePolicy' smart constructor.
 data PutLifecyclePolicy = PutLifecyclePolicy'
-  { -- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
-    registryId :: Lude.Maybe Lude.Text,
+  { -- | The name of the repository to receive the policy.
+    repositoryName :: Types.RepositoryName,
     -- | The JSON repository policy text to apply to the repository.
-    lifecyclePolicyText :: Lude.Text,
-    -- | The name of the repository to receive the policy.
-    repositoryName :: Lude.Text
+    lifecyclePolicyText :: Types.LifecyclePolicyText,
+    -- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLifecyclePolicy' with the minimum fields required to make a request.
---
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
--- * 'lifecyclePolicyText' - The JSON repository policy text to apply to the repository.
--- * 'repositoryName' - The name of the repository to receive the policy.
+-- | Creates a 'PutLifecyclePolicy' value with any optional fields omitted.
 mkPutLifecyclePolicy ::
-  -- | 'lifecyclePolicyText'
-  Lude.Text ->
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
+  -- | 'lifecyclePolicyText'
+  Types.LifecyclePolicyText ->
   PutLifecyclePolicy
-mkPutLifecyclePolicy pLifecyclePolicyText_ pRepositoryName_ =
+mkPutLifecyclePolicy repositoryName lifecyclePolicyText =
   PutLifecyclePolicy'
-    { registryId = Lude.Nothing,
-      lifecyclePolicyText = pLifecyclePolicyText_,
-      repositoryName = pRepositoryName_
+    { repositoryName,
+      lifecyclePolicyText,
+      registryId = Core.Nothing
     }
-
--- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plpRegistryId :: Lens.Lens' PutLifecyclePolicy (Lude.Maybe Lude.Text)
-plpRegistryId = Lens.lens (registryId :: PutLifecyclePolicy -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: PutLifecyclePolicy)
-{-# DEPRECATED plpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | The JSON repository policy text to apply to the repository.
---
--- /Note:/ Consider using 'lifecyclePolicyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plpLifecyclePolicyText :: Lens.Lens' PutLifecyclePolicy Lude.Text
-plpLifecyclePolicyText = Lens.lens (lifecyclePolicyText :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {lifecyclePolicyText = a} :: PutLifecyclePolicy)
-{-# DEPRECATED plpLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
 
 -- | The name of the repository to receive the policy.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plpRepositoryName :: Lens.Lens' PutLifecyclePolicy Lude.Text
-plpRepositoryName = Lens.lens (repositoryName :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {repositoryName = a} :: PutLifecyclePolicy)
+plpRepositoryName :: Lens.Lens' PutLifecyclePolicy Types.RepositoryName
+plpRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED plpRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.AWSRequest PutLifecyclePolicy where
+-- | The JSON repository policy text to apply to the repository.
+--
+-- /Note:/ Consider using 'lifecyclePolicyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plpLifecyclePolicyText :: Lens.Lens' PutLifecyclePolicy Types.LifecyclePolicyText
+plpLifecyclePolicyText = Lens.field @"lifecyclePolicyText"
+{-# DEPRECATED plpLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
+
+-- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plpRegistryId :: Lens.Lens' PutLifecyclePolicy (Core.Maybe Types.RegistryId)
+plpRegistryId = Lens.field @"registryId"
+{-# DEPRECATED plpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON PutLifecyclePolicy where
+  toJSON PutLifecyclePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("lifecyclePolicyText" Core..= lifecyclePolicyText),
+            ("registryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest PutLifecyclePolicy where
   type Rs PutLifecyclePolicy = PutLifecyclePolicyResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutLifecyclePolicyResponse'
-            Lude.<$> (x Lude..?> "registryId")
-            Lude.<*> (x Lude..?> "lifecyclePolicyText")
-            Lude.<*> (x Lude..?> "repositoryName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "lifecyclePolicyText")
+            Core.<*> (x Core..:? "registryId")
+            Core.<*> (x Core..:? "repositoryName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutLifecyclePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutLifecyclePolicy where
-  toJSON PutLifecyclePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("lifecyclePolicyText" Lude..= lifecyclePolicyText),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath PutLifecyclePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutLifecyclePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutLifecyclePolicyResponse' smart constructor.
 data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
-  { -- | The registry ID associated with the request.
-    registryId :: Lude.Maybe Lude.Text,
-    -- | The JSON repository policy text.
-    lifecyclePolicyText :: Lude.Maybe Lude.Text,
+  { -- | The JSON repository policy text.
+    lifecyclePolicyText :: Core.Maybe Types.LifecyclePolicyText,
+    -- | The registry ID associated with the request.
+    registryId :: Core.Maybe Types.RegistryId,
     -- | The repository name associated with the request.
-    repositoryName :: Lude.Maybe Lude.Text,
+    repositoryName :: Core.Maybe Types.RepositoryName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLifecyclePolicyResponse' with the minimum fields required to make a request.
---
--- * 'registryId' - The registry ID associated with the request.
--- * 'lifecyclePolicyText' - The JSON repository policy text.
--- * 'repositoryName' - The repository name associated with the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutLifecyclePolicyResponse' value with any optional fields omitted.
 mkPutLifecyclePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutLifecyclePolicyResponse
-mkPutLifecyclePolicyResponse pResponseStatus_ =
+mkPutLifecyclePolicyResponse responseStatus =
   PutLifecyclePolicyResponse'
-    { registryId = Lude.Nothing,
-      lifecyclePolicyText = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lifecyclePolicyText = Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryName = Core.Nothing,
+      responseStatus
     }
-
--- | The registry ID associated with the request.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plprsRegistryId :: Lens.Lens' PutLifecyclePolicyResponse (Lude.Maybe Lude.Text)
-plprsRegistryId = Lens.lens (registryId :: PutLifecyclePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: PutLifecyclePolicyResponse)
-{-# DEPRECATED plprsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The JSON repository policy text.
 --
 -- /Note:/ Consider using 'lifecyclePolicyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plprsLifecyclePolicyText :: Lens.Lens' PutLifecyclePolicyResponse (Lude.Maybe Lude.Text)
-plprsLifecyclePolicyText = Lens.lens (lifecyclePolicyText :: PutLifecyclePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {lifecyclePolicyText = a} :: PutLifecyclePolicyResponse)
-{-# DEPRECATED plprsLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
+plprrsLifecyclePolicyText :: Lens.Lens' PutLifecyclePolicyResponse (Core.Maybe Types.LifecyclePolicyText)
+plprrsLifecyclePolicyText = Lens.field @"lifecyclePolicyText"
+{-# DEPRECATED plprrsLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
+
+-- | The registry ID associated with the request.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plprrsRegistryId :: Lens.Lens' PutLifecyclePolicyResponse (Core.Maybe Types.RegistryId)
+plprrsRegistryId = Lens.field @"registryId"
+{-# DEPRECATED plprrsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The repository name associated with the request.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plprsRepositoryName :: Lens.Lens' PutLifecyclePolicyResponse (Lude.Maybe Lude.Text)
-plprsRepositoryName = Lens.lens (repositoryName :: PutLifecyclePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: PutLifecyclePolicyResponse)
-{-# DEPRECATED plprsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+plprrsRepositoryName :: Lens.Lens' PutLifecyclePolicyResponse (Core.Maybe Types.RepositoryName)
+plprrsRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED plprrsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plprsResponseStatus :: Lens.Lens' PutLifecyclePolicyResponse Lude.Int
-plprsResponseStatus = Lens.lens (responseStatus :: PutLifecyclePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLifecyclePolicyResponse)
-{-# DEPRECATED plprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+plprrsResponseStatus :: Lens.Lens' PutLifecyclePolicyResponse Core.Int
+plprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED plprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

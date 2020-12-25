@@ -17,133 +17,127 @@ module Network.AWS.EC2.Types.NetworkInterfaceAttachment
     mkNetworkInterfaceAttachment,
 
     -- * Lenses
-    niaInstanceId,
-    niaStatus,
-    niaDeleteOnTermination,
-    niaAttachmentId,
-    niaNetworkCardIndex,
-    niaInstanceOwnerId,
     niaAttachTime,
+    niaAttachmentId,
+    niaDeleteOnTermination,
     niaDeviceIndex,
+    niaInstanceId,
+    niaInstanceOwnerId,
+    niaNetworkCardIndex,
+    niaStatus,
   )
 where
 
-import Network.AWS.EC2.Types.AttachmentStatus
+import qualified Network.AWS.EC2.Types.AttachmentId as Types
+import qualified Network.AWS.EC2.Types.AttachmentStatus as Types
+import qualified Network.AWS.EC2.Types.InstanceId as Types
+import qualified Network.AWS.EC2.Types.InstanceOwnerId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a network interface attachment.
 --
 -- /See:/ 'mkNetworkInterfaceAttachment' smart constructor.
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The attachment state.
-    status :: Lude.Maybe AttachmentStatus,
-    -- | Indicates whether the network interface is deleted when the instance is terminated.
-    deleteOnTermination :: Lude.Maybe Lude.Bool,
+  { -- | The timestamp indicating when the attachment initiated.
+    attachTime :: Core.Maybe Core.UTCTime,
     -- | The ID of the network interface attachment.
-    attachmentId :: Lude.Maybe Lude.Text,
-    -- | The index of the network card.
-    networkCardIndex :: Lude.Maybe Lude.Int,
-    -- | The AWS account ID of the owner of the instance.
-    instanceOwnerId :: Lude.Maybe Lude.Text,
-    -- | The timestamp indicating when the attachment initiated.
-    attachTime :: Lude.Maybe Lude.DateTime,
+    attachmentId :: Core.Maybe Types.AttachmentId,
+    -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Core.Maybe Core.Bool,
     -- | The device index of the network interface attachment on the instance.
-    deviceIndex :: Lude.Maybe Lude.Int
+    deviceIndex :: Core.Maybe Core.Int,
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.InstanceId,
+    -- | The AWS account ID of the owner of the instance.
+    instanceOwnerId :: Core.Maybe Types.InstanceOwnerId,
+    -- | The index of the network card.
+    networkCardIndex :: Core.Maybe Core.Int,
+    -- | The attachment state.
+    status :: Core.Maybe Types.AttachmentStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NetworkInterfaceAttachment' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'status' - The attachment state.
--- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
--- * 'attachmentId' - The ID of the network interface attachment.
--- * 'networkCardIndex' - The index of the network card.
--- * 'instanceOwnerId' - The AWS account ID of the owner of the instance.
--- * 'attachTime' - The timestamp indicating when the attachment initiated.
--- * 'deviceIndex' - The device index of the network interface attachment on the instance.
+-- | Creates a 'NetworkInterfaceAttachment' value with any optional fields omitted.
 mkNetworkInterfaceAttachment ::
   NetworkInterfaceAttachment
 mkNetworkInterfaceAttachment =
   NetworkInterfaceAttachment'
-    { instanceId = Lude.Nothing,
-      status = Lude.Nothing,
-      deleteOnTermination = Lude.Nothing,
-      attachmentId = Lude.Nothing,
-      networkCardIndex = Lude.Nothing,
-      instanceOwnerId = Lude.Nothing,
-      attachTime = Lude.Nothing,
-      deviceIndex = Lude.Nothing
+    { attachTime = Core.Nothing,
+      attachmentId = Core.Nothing,
+      deleteOnTermination = Core.Nothing,
+      deviceIndex = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceOwnerId = Core.Nothing,
+      networkCardIndex = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaInstanceId :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.Text)
-niaInstanceId = Lens.lens (instanceId :: NetworkInterfaceAttachment -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: NetworkInterfaceAttachment)
-{-# DEPRECATED niaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The attachment state.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaStatus :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe AttachmentStatus)
-niaStatus = Lens.lens (status :: NetworkInterfaceAttachment -> Lude.Maybe AttachmentStatus) (\s a -> s {status = a} :: NetworkInterfaceAttachment)
-{-# DEPRECATED niaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Indicates whether the network interface is deleted when the instance is terminated.
---
--- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaDeleteOnTermination :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.Bool)
-niaDeleteOnTermination = Lens.lens (deleteOnTermination :: NetworkInterfaceAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: NetworkInterfaceAttachment)
-{-# DEPRECATED niaDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
-
--- | The ID of the network interface attachment.
---
--- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaAttachmentId :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.Text)
-niaAttachmentId = Lens.lens (attachmentId :: NetworkInterfaceAttachment -> Lude.Maybe Lude.Text) (\s a -> s {attachmentId = a} :: NetworkInterfaceAttachment)
-{-# DEPRECATED niaAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
-
--- | The index of the network card.
---
--- /Note:/ Consider using 'networkCardIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaNetworkCardIndex :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.Int)
-niaNetworkCardIndex = Lens.lens (networkCardIndex :: NetworkInterfaceAttachment -> Lude.Maybe Lude.Int) (\s a -> s {networkCardIndex = a} :: NetworkInterfaceAttachment)
-{-# DEPRECATED niaNetworkCardIndex "Use generic-lens or generic-optics with 'networkCardIndex' instead." #-}
-
--- | The AWS account ID of the owner of the instance.
---
--- /Note:/ Consider using 'instanceOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaInstanceOwnerId :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.Text)
-niaInstanceOwnerId = Lens.lens (instanceOwnerId :: NetworkInterfaceAttachment -> Lude.Maybe Lude.Text) (\s a -> s {instanceOwnerId = a} :: NetworkInterfaceAttachment)
-{-# DEPRECATED niaInstanceOwnerId "Use generic-lens or generic-optics with 'instanceOwnerId' instead." #-}
 
 -- | The timestamp indicating when the attachment initiated.
 --
 -- /Note:/ Consider using 'attachTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaAttachTime :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.DateTime)
-niaAttachTime = Lens.lens (attachTime :: NetworkInterfaceAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {attachTime = a} :: NetworkInterfaceAttachment)
+niaAttachTime :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Core.UTCTime)
+niaAttachTime = Lens.field @"attachTime"
 {-# DEPRECATED niaAttachTime "Use generic-lens or generic-optics with 'attachTime' instead." #-}
+
+-- | The ID of the network interface attachment.
+--
+-- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaAttachmentId :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Types.AttachmentId)
+niaAttachmentId = Lens.field @"attachmentId"
+{-# DEPRECATED niaAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
+
+-- | Indicates whether the network interface is deleted when the instance is terminated.
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaDeleteOnTermination :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Core.Bool)
+niaDeleteOnTermination = Lens.field @"deleteOnTermination"
+{-# DEPRECATED niaDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | The device index of the network interface attachment on the instance.
 --
 -- /Note:/ Consider using 'deviceIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaDeviceIndex :: Lens.Lens' NetworkInterfaceAttachment (Lude.Maybe Lude.Int)
-niaDeviceIndex = Lens.lens (deviceIndex :: NetworkInterfaceAttachment -> Lude.Maybe Lude.Int) (\s a -> s {deviceIndex = a} :: NetworkInterfaceAttachment)
+niaDeviceIndex :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Core.Int)
+niaDeviceIndex = Lens.field @"deviceIndex"
 {-# DEPRECATED niaDeviceIndex "Use generic-lens or generic-optics with 'deviceIndex' instead." #-}
 
-instance Lude.FromXML NetworkInterfaceAttachment where
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaInstanceId :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Types.InstanceId)
+niaInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED niaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The AWS account ID of the owner of the instance.
+--
+-- /Note:/ Consider using 'instanceOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaInstanceOwnerId :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Types.InstanceOwnerId)
+niaInstanceOwnerId = Lens.field @"instanceOwnerId"
+{-# DEPRECATED niaInstanceOwnerId "Use generic-lens or generic-optics with 'instanceOwnerId' instead." #-}
+
+-- | The index of the network card.
+--
+-- /Note:/ Consider using 'networkCardIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaNetworkCardIndex :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Core.Int)
+niaNetworkCardIndex = Lens.field @"networkCardIndex"
+{-# DEPRECATED niaNetworkCardIndex "Use generic-lens or generic-optics with 'networkCardIndex' instead." #-}
+
+-- | The attachment state.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaStatus :: Lens.Lens' NetworkInterfaceAttachment (Core.Maybe Types.AttachmentStatus)
+niaStatus = Lens.field @"status"
+{-# DEPRECATED niaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML NetworkInterfaceAttachment where
   parseXML x =
     NetworkInterfaceAttachment'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "status")
-      Lude.<*> (x Lude..@? "deleteOnTermination")
-      Lude.<*> (x Lude..@? "attachmentId")
-      Lude.<*> (x Lude..@? "networkCardIndex")
-      Lude.<*> (x Lude..@? "instanceOwnerId")
-      Lude.<*> (x Lude..@? "attachTime")
-      Lude.<*> (x Lude..@? "deviceIndex")
+      Core.<$> (x Core..@? "attachTime")
+      Core.<*> (x Core..@? "attachmentId")
+      Core.<*> (x Core..@? "deleteOnTermination")
+      Core.<*> (x Core..@? "deviceIndex")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "instanceOwnerId")
+      Core.<*> (x Core..@? "networkCardIndex")
+      Core.<*> (x Core..@? "status")

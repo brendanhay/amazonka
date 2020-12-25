@@ -13,76 +13,81 @@
 module Network.AWS.CodeDeploy.Types.DeploymentStatus
   ( DeploymentStatus
       ( DeploymentStatus',
-        Created,
-        Queued,
-        InProgress,
-        Baking,
-        Succeeded,
-        Failed,
-        Stopped,
-        Ready
+        DeploymentStatusCreated,
+        DeploymentStatusQueued,
+        DeploymentStatusInProgress,
+        DeploymentStatusBaking,
+        DeploymentStatusSucceeded,
+        DeploymentStatusFailed,
+        DeploymentStatusStopped,
+        DeploymentStatusReady,
+        fromDeploymentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeploymentStatus = DeploymentStatus' Lude.Text
+newtype DeploymentStatus = DeploymentStatus'
+  { fromDeploymentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Created :: DeploymentStatus
-pattern Created = DeploymentStatus' "Created"
+pattern DeploymentStatusCreated :: DeploymentStatus
+pattern DeploymentStatusCreated = DeploymentStatus' "Created"
 
-pattern Queued :: DeploymentStatus
-pattern Queued = DeploymentStatus' "Queued"
+pattern DeploymentStatusQueued :: DeploymentStatus
+pattern DeploymentStatusQueued = DeploymentStatus' "Queued"
 
-pattern InProgress :: DeploymentStatus
-pattern InProgress = DeploymentStatus' "InProgress"
+pattern DeploymentStatusInProgress :: DeploymentStatus
+pattern DeploymentStatusInProgress = DeploymentStatus' "InProgress"
 
-pattern Baking :: DeploymentStatus
-pattern Baking = DeploymentStatus' "Baking"
+pattern DeploymentStatusBaking :: DeploymentStatus
+pattern DeploymentStatusBaking = DeploymentStatus' "Baking"
 
-pattern Succeeded :: DeploymentStatus
-pattern Succeeded = DeploymentStatus' "Succeeded"
+pattern DeploymentStatusSucceeded :: DeploymentStatus
+pattern DeploymentStatusSucceeded = DeploymentStatus' "Succeeded"
 
-pattern Failed :: DeploymentStatus
-pattern Failed = DeploymentStatus' "Failed"
+pattern DeploymentStatusFailed :: DeploymentStatus
+pattern DeploymentStatusFailed = DeploymentStatus' "Failed"
 
-pattern Stopped :: DeploymentStatus
-pattern Stopped = DeploymentStatus' "Stopped"
+pattern DeploymentStatusStopped :: DeploymentStatus
+pattern DeploymentStatusStopped = DeploymentStatus' "Stopped"
 
-pattern Ready :: DeploymentStatus
-pattern Ready = DeploymentStatus' "Ready"
+pattern DeploymentStatusReady :: DeploymentStatus
+pattern DeploymentStatusReady = DeploymentStatus' "Ready"
 
 {-# COMPLETE
-  Created,
-  Queued,
-  InProgress,
-  Baking,
-  Succeeded,
-  Failed,
-  Stopped,
-  Ready,
+  DeploymentStatusCreated,
+  DeploymentStatusQueued,
+  DeploymentStatusInProgress,
+  DeploymentStatusBaking,
+  DeploymentStatusSucceeded,
+  DeploymentStatusFailed,
+  DeploymentStatusStopped,
+  DeploymentStatusReady,
   DeploymentStatus'
   #-}

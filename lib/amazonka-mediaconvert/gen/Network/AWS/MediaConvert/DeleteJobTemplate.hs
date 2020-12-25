@@ -27,86 +27,77 @@ module Network.AWS.MediaConvert.DeleteJobTemplate
     mkDeleteJobTemplateResponse,
 
     -- ** Response lenses
-    djtrsResponseStatus,
+    djtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteJobTemplate' smart constructor.
 newtype DeleteJobTemplate = DeleteJobTemplate'
   { -- | The name of the job template to be deleted.
-    name :: Lude.Text
+    name :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteJobTemplate' with the minimum fields required to make a request.
---
--- * 'name' - The name of the job template to be deleted.
+-- | Creates a 'DeleteJobTemplate' value with any optional fields omitted.
 mkDeleteJobTemplate ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   DeleteJobTemplate
-mkDeleteJobTemplate pName_ = DeleteJobTemplate' {name = pName_}
+mkDeleteJobTemplate name = DeleteJobTemplate' {name}
 
 -- | The name of the job template to be deleted.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djtName :: Lens.Lens' DeleteJobTemplate Lude.Text
-djtName = Lens.lens (name :: DeleteJobTemplate -> Lude.Text) (\s a -> s {name = a} :: DeleteJobTemplate)
+djtName :: Lens.Lens' DeleteJobTemplate Core.Text
+djtName = Lens.field @"name"
 {-# DEPRECATED djtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteJobTemplate where
+instance Core.AWSRequest DeleteJobTemplate where
   type Rs DeleteJobTemplate = DeleteJobTemplateResponse
-  request = Req.delete mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2017-08-29/jobTemplates/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteJobTemplateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteJobTemplateResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteJobTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteJobTemplate where
-  toPath DeleteJobTemplate' {..} =
-    Lude.mconcat ["/2017-08-29/jobTemplates/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteJobTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteJobTemplateResponse' smart constructor.
 newtype DeleteJobTemplateResponse = DeleteJobTemplateResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteJobTemplateResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteJobTemplateResponse' value with any optional fields omitted.
 mkDeleteJobTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteJobTemplateResponse
-mkDeleteJobTemplateResponse pResponseStatus_ =
-  DeleteJobTemplateResponse' {responseStatus = pResponseStatus_}
+mkDeleteJobTemplateResponse responseStatus =
+  DeleteJobTemplateResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djtrsResponseStatus :: Lens.Lens' DeleteJobTemplateResponse Lude.Int
-djtrsResponseStatus = Lens.lens (responseStatus :: DeleteJobTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteJobTemplateResponse)
-{-# DEPRECATED djtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djtrrsResponseStatus :: Lens.Lens' DeleteJobTemplateResponse Core.Int
+djtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED djtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

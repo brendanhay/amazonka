@@ -28,141 +28,124 @@ module Network.AWS.Glue.UpdateRegistry
     mkUpdateRegistryResponse,
 
     -- ** Response lenses
-    urrsRegistryName,
-    urrsRegistryARN,
-    urrsResponseStatus,
+    urrrsRegistryArn,
+    urrrsRegistryName,
+    urrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateRegistry' smart constructor.
 data UpdateRegistry = UpdateRegistry'
   { -- | This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
-    registryId :: RegistryId,
+    registryId :: Types.RegistryId,
     -- | A description of the registry. If description is not provided, this field will not be updated.
-    description :: Lude.Text
+    description :: Types.DescriptionString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRegistry' with the minimum fields required to make a request.
---
--- * 'registryId' - This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
--- * 'description' - A description of the registry. If description is not provided, this field will not be updated.
+-- | Creates a 'UpdateRegistry' value with any optional fields omitted.
 mkUpdateRegistry ::
   -- | 'registryId'
-  RegistryId ->
+  Types.RegistryId ->
   -- | 'description'
-  Lude.Text ->
+  Types.DescriptionString ->
   UpdateRegistry
-mkUpdateRegistry pRegistryId_ pDescription_ =
-  UpdateRegistry'
-    { registryId = pRegistryId_,
-      description = pDescription_
-    }
+mkUpdateRegistry registryId description =
+  UpdateRegistry' {registryId, description}
 
 -- | This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urRegistryId :: Lens.Lens' UpdateRegistry RegistryId
-urRegistryId = Lens.lens (registryId :: UpdateRegistry -> RegistryId) (\s a -> s {registryId = a} :: UpdateRegistry)
+urRegistryId :: Lens.Lens' UpdateRegistry Types.RegistryId
+urRegistryId = Lens.field @"registryId"
 {-# DEPRECATED urRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | A description of the registry. If description is not provided, this field will not be updated.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urDescription :: Lens.Lens' UpdateRegistry Lude.Text
-urDescription = Lens.lens (description :: UpdateRegistry -> Lude.Text) (\s a -> s {description = a} :: UpdateRegistry)
+urDescription :: Lens.Lens' UpdateRegistry Types.DescriptionString
+urDescription = Lens.field @"description"
 {-# DEPRECATED urDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateRegistry where
+instance Core.FromJSON UpdateRegistry where
+  toJSON UpdateRegistry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RegistryId" Core..= registryId),
+            Core.Just ("Description" Core..= description)
+          ]
+      )
+
+instance Core.AWSRequest UpdateRegistry where
   type Rs UpdateRegistry = UpdateRegistryResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateRegistry")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateRegistryResponse'
-            Lude.<$> (x Lude..?> "RegistryName")
-            Lude.<*> (x Lude..?> "RegistryArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RegistryArn")
+            Core.<*> (x Core..:? "RegistryName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateRegistry where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.UpdateRegistry" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRegistry where
-  toJSON UpdateRegistry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RegistryId" Lude..= registryId),
-            Lude.Just ("Description" Lude..= description)
-          ]
-      )
-
-instance Lude.ToPath UpdateRegistry where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRegistry where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateRegistryResponse' smart constructor.
 data UpdateRegistryResponse = UpdateRegistryResponse'
-  { -- | The name of the updated registry.
-    registryName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource name (ARN) of the updated registry.
-    registryARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource name (ARN) of the updated registry.
+    registryArn :: Core.Maybe Types.GlueResourceArn,
+    -- | The name of the updated registry.
+    registryName :: Core.Maybe Types.RegistryName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRegistryResponse' with the minimum fields required to make a request.
---
--- * 'registryName' - The name of the updated registry.
--- * 'registryARN' - The Amazon Resource name (ARN) of the updated registry.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRegistryResponse' value with any optional fields omitted.
 mkUpdateRegistryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRegistryResponse
-mkUpdateRegistryResponse pResponseStatus_ =
+mkUpdateRegistryResponse responseStatus =
   UpdateRegistryResponse'
-    { registryName = Lude.Nothing,
-      registryARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { registryArn = Core.Nothing,
+      registryName = Core.Nothing,
+      responseStatus
     }
+
+-- | The Amazon Resource name (ARN) of the updated registry.
+--
+-- /Note:/ Consider using 'registryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrrsRegistryArn :: Lens.Lens' UpdateRegistryResponse (Core.Maybe Types.GlueResourceArn)
+urrrsRegistryArn = Lens.field @"registryArn"
+{-# DEPRECATED urrrsRegistryArn "Use generic-lens or generic-optics with 'registryArn' instead." #-}
 
 -- | The name of the updated registry.
 --
 -- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsRegistryName :: Lens.Lens' UpdateRegistryResponse (Lude.Maybe Lude.Text)
-urrsRegistryName = Lens.lens (registryName :: UpdateRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: UpdateRegistryResponse)
-{-# DEPRECATED urrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
-
--- | The Amazon Resource name (ARN) of the updated registry.
---
--- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsRegistryARN :: Lens.Lens' UpdateRegistryResponse (Lude.Maybe Lude.Text)
-urrsRegistryARN = Lens.lens (registryARN :: UpdateRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: UpdateRegistryResponse)
-{-# DEPRECATED urrsRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
+urrrsRegistryName :: Lens.Lens' UpdateRegistryResponse (Core.Maybe Types.RegistryName)
+urrrsRegistryName = Lens.field @"registryName"
+{-# DEPRECATED urrrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UpdateRegistryResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UpdateRegistryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRegistryResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UpdateRegistryResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

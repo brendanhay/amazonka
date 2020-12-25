@@ -20,102 +20,99 @@ module Network.AWS.Inspector.Types.RulesPackage
     rpArn,
     rpName,
     rpVersion,
-    rpDescription,
     rpProvider,
+    rpDescription,
   )
 where
 
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.Description as Types
+import qualified Network.AWS.Inspector.Types.Name as Types
+import qualified Network.AWS.Inspector.Types.Provider as Types
+import qualified Network.AWS.Inspector.Types.Version as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an Amazon Inspector rules package. This data type is used as the response element in the 'DescribeRulesPackages' action.
 --
 -- /See:/ 'mkRulesPackage' smart constructor.
 data RulesPackage = RulesPackage'
   { -- | The ARN of the rules package.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | The name of the rules package.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The version ID of the rules package.
-    version :: Lude.Text,
-    -- | The description of the rules package.
-    description :: Lude.Maybe Lude.Text,
+    version :: Types.Version,
     -- | The provider of the rules package.
-    provider :: Lude.Text
+    provider :: Types.Provider,
+    -- | The description of the rules package.
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RulesPackage' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the rules package.
--- * 'name' - The name of the rules package.
--- * 'version' - The version ID of the rules package.
--- * 'description' - The description of the rules package.
--- * 'provider' - The provider of the rules package.
+-- | Creates a 'RulesPackage' value with any optional fields omitted.
 mkRulesPackage ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'version'
-  Lude.Text ->
+  Types.Version ->
   -- | 'provider'
-  Lude.Text ->
+  Types.Provider ->
   RulesPackage
-mkRulesPackage pArn_ pName_ pVersion_ pProvider_ =
+mkRulesPackage arn name version provider =
   RulesPackage'
-    { arn = pArn_,
-      name = pName_,
-      version = pVersion_,
-      description = Lude.Nothing,
-      provider = pProvider_
+    { arn,
+      name,
+      version,
+      provider,
+      description = Core.Nothing
     }
 
 -- | The ARN of the rules package.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpArn :: Lens.Lens' RulesPackage Lude.Text
-rpArn = Lens.lens (arn :: RulesPackage -> Lude.Text) (\s a -> s {arn = a} :: RulesPackage)
+rpArn :: Lens.Lens' RulesPackage Types.Arn
+rpArn = Lens.field @"arn"
 {-# DEPRECATED rpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the rules package.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpName :: Lens.Lens' RulesPackage Lude.Text
-rpName = Lens.lens (name :: RulesPackage -> Lude.Text) (\s a -> s {name = a} :: RulesPackage)
+rpName :: Lens.Lens' RulesPackage Types.Name
+rpName = Lens.field @"name"
 {-# DEPRECATED rpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version ID of the rules package.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpVersion :: Lens.Lens' RulesPackage Lude.Text
-rpVersion = Lens.lens (version :: RulesPackage -> Lude.Text) (\s a -> s {version = a} :: RulesPackage)
+rpVersion :: Lens.Lens' RulesPackage Types.Version
+rpVersion = Lens.field @"version"
 {-# DEPRECATED rpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The description of the rules package.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpDescription :: Lens.Lens' RulesPackage (Lude.Maybe Lude.Text)
-rpDescription = Lens.lens (description :: RulesPackage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RulesPackage)
-{-# DEPRECATED rpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The provider of the rules package.
 --
 -- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpProvider :: Lens.Lens' RulesPackage Lude.Text
-rpProvider = Lens.lens (provider :: RulesPackage -> Lude.Text) (\s a -> s {provider = a} :: RulesPackage)
+rpProvider :: Lens.Lens' RulesPackage Types.Provider
+rpProvider = Lens.field @"provider"
 {-# DEPRECATED rpProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
 
-instance Lude.FromJSON RulesPackage where
+-- | The description of the rules package.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpDescription :: Lens.Lens' RulesPackage (Core.Maybe Types.Description)
+rpDescription = Lens.field @"description"
+{-# DEPRECATED rpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+instance Core.FromJSON RulesPackage where
   parseJSON =
-    Lude.withObject
-      "RulesPackage"
-      ( \x ->
-          RulesPackage'
-            Lude.<$> (x Lude..: "arn")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "version")
-            Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..: "provider")
-      )
+    Core.withObject "RulesPackage" Core.$
+      \x ->
+        RulesPackage'
+          Core.<$> (x Core..: "arn")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..: "version")
+          Core.<*> (x Core..: "provider")
+          Core.<*> (x Core..:? "description")

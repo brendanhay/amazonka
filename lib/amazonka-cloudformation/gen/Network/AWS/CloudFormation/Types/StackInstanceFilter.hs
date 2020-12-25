@@ -17,50 +17,44 @@ module Network.AWS.CloudFormation.Types.StackInstanceFilter
     mkStackInstanceFilter,
 
     -- * Lenses
-    sifValues,
     sifName,
+    sifValues,
   )
 where
 
-import Network.AWS.CloudFormation.Types.StackInstanceFilterName
+import qualified Network.AWS.CloudFormation.Types.StackInstanceFilterName as Types
+import qualified Network.AWS.CloudFormation.Types.Values as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status that stack instances are filtered by.
 --
 -- /See:/ 'mkStackInstanceFilter' smart constructor.
 data StackInstanceFilter = StackInstanceFilter'
-  { -- | The status to filter by.
-    values :: Lude.Maybe Lude.Text,
-    -- | The type of filter to apply.
-    name :: Lude.Maybe StackInstanceFilterName
+  { -- | The type of filter to apply.
+    name :: Core.Maybe Types.StackInstanceFilterName,
+    -- | The status to filter by.
+    values :: Core.Maybe Types.Values
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StackInstanceFilter' with the minimum fields required to make a request.
---
--- * 'values' - The status to filter by.
--- * 'name' - The type of filter to apply.
+-- | Creates a 'StackInstanceFilter' value with any optional fields omitted.
 mkStackInstanceFilter ::
   StackInstanceFilter
 mkStackInstanceFilter =
-  StackInstanceFilter' {values = Lude.Nothing, name = Lude.Nothing}
-
--- | The status to filter by.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sifValues :: Lens.Lens' StackInstanceFilter (Lude.Maybe Lude.Text)
-sifValues = Lens.lens (values :: StackInstanceFilter -> Lude.Maybe Lude.Text) (\s a -> s {values = a} :: StackInstanceFilter)
-{-# DEPRECATED sifValues "Use generic-lens or generic-optics with 'values' instead." #-}
+  StackInstanceFilter' {name = Core.Nothing, values = Core.Nothing}
 
 -- | The type of filter to apply.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sifName :: Lens.Lens' StackInstanceFilter (Lude.Maybe StackInstanceFilterName)
-sifName = Lens.lens (name :: StackInstanceFilter -> Lude.Maybe StackInstanceFilterName) (\s a -> s {name = a} :: StackInstanceFilter)
+sifName :: Lens.Lens' StackInstanceFilter (Core.Maybe Types.StackInstanceFilterName)
+sifName = Lens.field @"name"
 {-# DEPRECATED sifName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery StackInstanceFilter where
-  toQuery StackInstanceFilter' {..} =
-    Lude.mconcat ["Values" Lude.=: values, "Name" Lude.=: name]
+-- | The status to filter by.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sifValues :: Lens.Lens' StackInstanceFilter (Core.Maybe Types.Values)
+sifValues = Lens.field @"values"
+{-# DEPRECATED sifValues "Use generic-lens or generic-optics with 'values' instead." #-}

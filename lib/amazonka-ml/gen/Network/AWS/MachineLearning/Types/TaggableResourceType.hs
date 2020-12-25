@@ -13,56 +13,61 @@
 module Network.AWS.MachineLearning.Types.TaggableResourceType
   ( TaggableResourceType
       ( TaggableResourceType',
-        BatchPrediction,
-        DataSource,
-        Evaluation,
-        MLModel
+        TaggableResourceTypeBatchPrediction,
+        TaggableResourceTypeDataSource,
+        TaggableResourceTypeEvaluation,
+        TaggableResourceTypeMLModel,
+        fromTaggableResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TaggableResourceType = TaggableResourceType' Lude.Text
+newtype TaggableResourceType = TaggableResourceType'
+  { fromTaggableResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BatchPrediction :: TaggableResourceType
-pattern BatchPrediction = TaggableResourceType' "BatchPrediction"
+pattern TaggableResourceTypeBatchPrediction :: TaggableResourceType
+pattern TaggableResourceTypeBatchPrediction = TaggableResourceType' "BatchPrediction"
 
-pattern DataSource :: TaggableResourceType
-pattern DataSource = TaggableResourceType' "DataSource"
+pattern TaggableResourceTypeDataSource :: TaggableResourceType
+pattern TaggableResourceTypeDataSource = TaggableResourceType' "DataSource"
 
-pattern Evaluation :: TaggableResourceType
-pattern Evaluation = TaggableResourceType' "Evaluation"
+pattern TaggableResourceTypeEvaluation :: TaggableResourceType
+pattern TaggableResourceTypeEvaluation = TaggableResourceType' "Evaluation"
 
-pattern MLModel :: TaggableResourceType
-pattern MLModel = TaggableResourceType' "MLModel"
+pattern TaggableResourceTypeMLModel :: TaggableResourceType
+pattern TaggableResourceTypeMLModel = TaggableResourceType' "MLModel"
 
 {-# COMPLETE
-  BatchPrediction,
-  DataSource,
-  Evaluation,
-  MLModel,
+  TaggableResourceTypeBatchPrediction,
+  TaggableResourceTypeDataSource,
+  TaggableResourceTypeEvaluation,
+  TaggableResourceTypeMLModel,
   TaggableResourceType'
   #-}

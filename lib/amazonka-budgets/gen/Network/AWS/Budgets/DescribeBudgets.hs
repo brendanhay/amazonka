@@ -25,173 +25,161 @@ module Network.AWS.Budgets.DescribeBudgets
 
     -- ** Request lenses
     dbAccountId,
-    dbNextToken,
     dbMaxResults,
+    dbNextToken,
 
     -- * Destructuring the response
     DescribeBudgetsResponse (..),
     mkDescribeBudgetsResponse,
 
     -- ** Response lenses
-    dbrsNextToken,
-    dbrsBudgets,
-    dbrsResponseStatus,
+    dbrrsBudgets,
+    dbrrsNextToken,
+    dbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request of DescribeBudgets
 --
 -- /See:/ 'mkDescribeBudgets' smart constructor.
 data DescribeBudgets = DescribeBudgets'
   { -- | The @accountId@ that is associated with the budgets that you want descriptions of.
-    accountId :: Lude.Text,
-    -- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
-    nextToken :: Lude.Maybe Lude.Text,
+    accountId :: Types.AccountId,
     -- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBudgets' with the minimum fields required to make a request.
---
--- * 'accountId' - The @accountId@ that is associated with the budgets that you want descriptions of.
--- * 'nextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
--- * 'maxResults' - An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+-- | Creates a 'DescribeBudgets' value with any optional fields omitted.
 mkDescribeBudgets ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   DescribeBudgets
-mkDescribeBudgets pAccountId_ =
+mkDescribeBudgets accountId =
   DescribeBudgets'
-    { accountId = pAccountId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { accountId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The @accountId@ that is associated with the budgets that you want descriptions of.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbAccountId :: Lens.Lens' DescribeBudgets Lude.Text
-dbAccountId = Lens.lens (accountId :: DescribeBudgets -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgets)
+dbAccountId :: Lens.Lens' DescribeBudgets Types.AccountId
+dbAccountId = Lens.field @"accountId"
 {-# DEPRECATED dbAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbNextToken :: Lens.Lens' DescribeBudgets (Lude.Maybe Lude.Text)
-dbNextToken = Lens.lens (nextToken :: DescribeBudgets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgets)
-{-# DEPRECATED dbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbMaxResults :: Lens.Lens' DescribeBudgets (Lude.Maybe Lude.Natural)
-dbMaxResults = Lens.lens (maxResults :: DescribeBudgets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgets)
+dbMaxResults :: Lens.Lens' DescribeBudgets (Core.Maybe Core.Natural)
+dbMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeBudgets where
-  page rq rs
-    | Page.stop (rs Lens.^. dbrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dbrsBudgets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dbNextToken Lens..~ rs Lens.^. dbrsNextToken
+-- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbNextToken :: Lens.Lens' DescribeBudgets (Core.Maybe Types.NextToken)
+dbNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeBudgets where
+instance Core.FromJSON DescribeBudgets where
+  toJSON DescribeBudgets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeBudgets where
   type Rs DescribeBudgets = DescribeBudgetsResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSBudgetServiceGateway.DescribeBudgets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBudgetsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Budgets" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Budgets")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeBudgets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSBudgetServiceGateway.DescribeBudgets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBudgets where
-  toJSON DescribeBudgets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeBudgets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBudgets where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeBudgets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"budgets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Response of DescribeBudgets
 --
 -- /See:/ 'mkDescribeBudgetsResponse' smart constructor.
 data DescribeBudgetsResponse = DescribeBudgetsResponse'
-  { -- | The pagination token in the service response that indicates the next set of results that you can retrieve.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of budgets.
-    budgets :: Lude.Maybe [Budget],
+  { -- | A list of budgets.
+    budgets :: Core.Maybe [Types.Budget],
+    -- | The pagination token in the service response that indicates the next set of results that you can retrieve.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeBudgetsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token in the service response that indicates the next set of results that you can retrieve.
--- * 'budgets' - A list of budgets.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBudgetsResponse' value with any optional fields omitted.
 mkDescribeBudgetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBudgetsResponse
-mkDescribeBudgetsResponse pResponseStatus_ =
+mkDescribeBudgetsResponse responseStatus =
   DescribeBudgetsResponse'
-    { nextToken = Lude.Nothing,
-      budgets = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { budgets = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination token in the service response that indicates the next set of results that you can retrieve.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsNextToken :: Lens.Lens' DescribeBudgetsResponse (Lude.Maybe Lude.Text)
-dbrsNextToken = Lens.lens (nextToken :: DescribeBudgetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetsResponse)
-{-# DEPRECATED dbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of budgets.
 --
 -- /Note:/ Consider using 'budgets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsBudgets :: Lens.Lens' DescribeBudgetsResponse (Lude.Maybe [Budget])
-dbrsBudgets = Lens.lens (budgets :: DescribeBudgetsResponse -> Lude.Maybe [Budget]) (\s a -> s {budgets = a} :: DescribeBudgetsResponse)
-{-# DEPRECATED dbrsBudgets "Use generic-lens or generic-optics with 'budgets' instead." #-}
+dbrrsBudgets :: Lens.Lens' DescribeBudgetsResponse (Core.Maybe [Types.Budget])
+dbrrsBudgets = Lens.field @"budgets"
+{-# DEPRECATED dbrrsBudgets "Use generic-lens or generic-optics with 'budgets' instead." #-}
+
+-- | The pagination token in the service response that indicates the next set of results that you can retrieve.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrrsNextToken :: Lens.Lens' DescribeBudgetsResponse (Core.Maybe Types.NextToken)
+dbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsResponseStatus :: Lens.Lens' DescribeBudgetsResponse Lude.Int
-dbrsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetsResponse)
-{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrrsResponseStatus :: Lens.Lens' DescribeBudgetsResponse Core.Int
+dbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

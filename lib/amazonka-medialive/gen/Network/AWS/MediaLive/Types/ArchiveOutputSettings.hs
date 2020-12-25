@@ -17,84 +17,78 @@ module Network.AWS.MediaLive.Types.ArchiveOutputSettings
     mkArchiveOutputSettings,
 
     -- * Lenses
-    aosExtension,
     aosContainerSettings,
+    aosExtension,
     aosNameModifier,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ArchiveContainerSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.ArchiveContainerSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Archive Output Settings
 --
 -- /See:/ 'mkArchiveOutputSettings' smart constructor.
 data ArchiveOutputSettings = ArchiveOutputSettings'
-  { -- | Output file extension. If excluded, this will be auto-selected from the container type.
-    extension :: Lude.Maybe Lude.Text,
-    -- | Settings specific to the container type of the file.
-    containerSettings :: ArchiveContainerSettings,
+  { -- | Settings specific to the container type of the file.
+    containerSettings :: Types.ArchiveContainerSettings,
+    -- | Output file extension. If excluded, this will be auto-selected from the container type.
+    extension :: Core.Maybe Core.Text,
     -- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-    nameModifier :: Lude.Maybe Lude.Text
+    nameModifier :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArchiveOutputSettings' with the minimum fields required to make a request.
---
--- * 'extension' - Output file extension. If excluded, this will be auto-selected from the container type.
--- * 'containerSettings' - Settings specific to the container type of the file.
--- * 'nameModifier' - String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+-- | Creates a 'ArchiveOutputSettings' value with any optional fields omitted.
 mkArchiveOutputSettings ::
   -- | 'containerSettings'
-  ArchiveContainerSettings ->
+  Types.ArchiveContainerSettings ->
   ArchiveOutputSettings
-mkArchiveOutputSettings pContainerSettings_ =
+mkArchiveOutputSettings containerSettings =
   ArchiveOutputSettings'
-    { extension = Lude.Nothing,
-      containerSettings = pContainerSettings_,
-      nameModifier = Lude.Nothing
+    { containerSettings,
+      extension = Core.Nothing,
+      nameModifier = Core.Nothing
     }
-
--- | Output file extension. If excluded, this will be auto-selected from the container type.
---
--- /Note:/ Consider using 'extension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosExtension :: Lens.Lens' ArchiveOutputSettings (Lude.Maybe Lude.Text)
-aosExtension = Lens.lens (extension :: ArchiveOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {extension = a} :: ArchiveOutputSettings)
-{-# DEPRECATED aosExtension "Use generic-lens or generic-optics with 'extension' instead." #-}
 
 -- | Settings specific to the container type of the file.
 --
 -- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosContainerSettings :: Lens.Lens' ArchiveOutputSettings ArchiveContainerSettings
-aosContainerSettings = Lens.lens (containerSettings :: ArchiveOutputSettings -> ArchiveContainerSettings) (\s a -> s {containerSettings = a} :: ArchiveOutputSettings)
+aosContainerSettings :: Lens.Lens' ArchiveOutputSettings Types.ArchiveContainerSettings
+aosContainerSettings = Lens.field @"containerSettings"
 {-# DEPRECATED aosContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
+
+-- | Output file extension. If excluded, this will be auto-selected from the container type.
+--
+-- /Note:/ Consider using 'extension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosExtension :: Lens.Lens' ArchiveOutputSettings (Core.Maybe Core.Text)
+aosExtension = Lens.field @"extension"
+{-# DEPRECATED aosExtension "Use generic-lens or generic-optics with 'extension' instead." #-}
 
 -- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
 --
 -- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosNameModifier :: Lens.Lens' ArchiveOutputSettings (Lude.Maybe Lude.Text)
-aosNameModifier = Lens.lens (nameModifier :: ArchiveOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: ArchiveOutputSettings)
+aosNameModifier :: Lens.Lens' ArchiveOutputSettings (Core.Maybe Core.Text)
+aosNameModifier = Lens.field @"nameModifier"
 {-# DEPRECATED aosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
-instance Lude.FromJSON ArchiveOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "ArchiveOutputSettings"
-      ( \x ->
-          ArchiveOutputSettings'
-            Lude.<$> (x Lude..:? "extension")
-            Lude.<*> (x Lude..: "containerSettings")
-            Lude.<*> (x Lude..:? "nameModifier")
-      )
-
-instance Lude.ToJSON ArchiveOutputSettings where
-  toJSON ArchiveOutputSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("extension" Lude..=) Lude.<$> extension,
-            Lude.Just ("containerSettings" Lude..= containerSettings),
-            ("nameModifier" Lude..=) Lude.<$> nameModifier
+instance Core.FromJSON ArchiveOutputSettings where
+  toJSON ArchiveOutputSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerSettings" Core..= containerSettings),
+            ("extension" Core..=) Core.<$> extension,
+            ("nameModifier" Core..=) Core.<$> nameModifier
           ]
       )
+
+instance Core.FromJSON ArchiveOutputSettings where
+  parseJSON =
+    Core.withObject "ArchiveOutputSettings" Core.$
+      \x ->
+        ArchiveOutputSettings'
+          Core.<$> (x Core..: "containerSettings")
+          Core.<*> (x Core..:? "extension")
+          Core.<*> (x Core..:? "nameModifier")

@@ -22,44 +22,40 @@ module Network.AWS.Firehose.Types.RedshiftRetryOptions
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift.
 --
 -- /See:/ 'mkRedshiftRetryOptions' smart constructor.
 newtype RedshiftRetryOptions = RedshiftRetryOptions'
   { -- | The length of time during which Kinesis Data Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Kinesis Data Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
-    durationInSeconds :: Lude.Maybe Lude.Natural
+    durationInSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedshiftRetryOptions' with the minimum fields required to make a request.
---
--- * 'durationInSeconds' - The length of time during which Kinesis Data Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Kinesis Data Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
+-- | Creates a 'RedshiftRetryOptions' value with any optional fields omitted.
 mkRedshiftRetryOptions ::
   RedshiftRetryOptions
 mkRedshiftRetryOptions =
-  RedshiftRetryOptions' {durationInSeconds = Lude.Nothing}
+  RedshiftRetryOptions' {durationInSeconds = Core.Nothing}
 
 -- | The length of time during which Kinesis Data Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Kinesis Data Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
 --
 -- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rroDurationInSeconds :: Lens.Lens' RedshiftRetryOptions (Lude.Maybe Lude.Natural)
-rroDurationInSeconds = Lens.lens (durationInSeconds :: RedshiftRetryOptions -> Lude.Maybe Lude.Natural) (\s a -> s {durationInSeconds = a} :: RedshiftRetryOptions)
+rroDurationInSeconds :: Lens.Lens' RedshiftRetryOptions (Core.Maybe Core.Natural)
+rroDurationInSeconds = Lens.field @"durationInSeconds"
 {-# DEPRECATED rroDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
 
-instance Lude.FromJSON RedshiftRetryOptions where
-  parseJSON =
-    Lude.withObject
-      "RedshiftRetryOptions"
-      ( \x ->
-          RedshiftRetryOptions' Lude.<$> (x Lude..:? "DurationInSeconds")
+instance Core.FromJSON RedshiftRetryOptions where
+  toJSON RedshiftRetryOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [("DurationInSeconds" Core..=) Core.<$> durationInSeconds]
       )
 
-instance Lude.ToJSON RedshiftRetryOptions where
-  toJSON RedshiftRetryOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("DurationInSeconds" Lude..=) Lude.<$> durationInSeconds]
-      )
+instance Core.FromJSON RedshiftRetryOptions where
+  parseJSON =
+    Core.withObject "RedshiftRetryOptions" Core.$
+      \x ->
+        RedshiftRetryOptions' Core.<$> (x Core..:? "DurationInSeconds")

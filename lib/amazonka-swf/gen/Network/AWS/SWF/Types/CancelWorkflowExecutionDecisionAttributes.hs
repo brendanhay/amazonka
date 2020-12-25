@@ -22,7 +22,8 @@ module Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
 
 -- | Provides the details of the @CancelWorkflowExecution@ decision.
 --
@@ -43,30 +44,28 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCancelWorkflowExecutionDecisionAttributes' smart constructor.
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'
   { -- | Details of the cancellation.
-    details :: Lude.Maybe Lude.Text
+    details :: Core.Maybe Types.Data
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'details' - Details of the cancellation.
+-- | Creates a 'CancelWorkflowExecutionDecisionAttributes' value with any optional fields omitted.
 mkCancelWorkflowExecutionDecisionAttributes ::
   CancelWorkflowExecutionDecisionAttributes
 mkCancelWorkflowExecutionDecisionAttributes =
   CancelWorkflowExecutionDecisionAttributes'
     { details =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Details of the cancellation.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwedaDetails :: Lens.Lens' CancelWorkflowExecutionDecisionAttributes (Lude.Maybe Lude.Text)
-cwedaDetails = Lens.lens (details :: CancelWorkflowExecutionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: CancelWorkflowExecutionDecisionAttributes)
+cwedaDetails :: Lens.Lens' CancelWorkflowExecutionDecisionAttributes (Core.Maybe Types.Data)
+cwedaDetails = Lens.field @"details"
 {-# DEPRECATED cwedaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.ToJSON CancelWorkflowExecutionDecisionAttributes where
-  toJSON CancelWorkflowExecutionDecisionAttributes' {..} =
-    Lude.object
-      (Lude.catMaybes [("details" Lude..=) Lude.<$> details])
+instance Core.FromJSON CancelWorkflowExecutionDecisionAttributes where
+  toJSON CancelWorkflowExecutionDecisionAttributes {..} =
+    Core.object
+      (Core.catMaybes [("details" Core..=) Core.<$> details])

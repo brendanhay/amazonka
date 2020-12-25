@@ -21,35 +21,33 @@ module Network.AWS.CostExplorer.Types.CoverageCost
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.OnDemandCost as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | How much it costs to run an instance.
 --
 -- /See:/ 'mkCoverageCost' smart constructor.
 newtype CoverageCost = CoverageCost'
   { -- | How much an On-Demand Instance costs.
-    onDemandCost :: Lude.Maybe Lude.Text
+    onDemandCost :: Core.Maybe Types.OnDemandCost
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CoverageCost' with the minimum fields required to make a request.
---
--- * 'onDemandCost' - How much an On-Demand Instance costs.
+-- | Creates a 'CoverageCost' value with any optional fields omitted.
 mkCoverageCost ::
   CoverageCost
-mkCoverageCost = CoverageCost' {onDemandCost = Lude.Nothing}
+mkCoverageCost = CoverageCost' {onDemandCost = Core.Nothing}
 
 -- | How much an On-Demand Instance costs.
 --
 -- /Note:/ Consider using 'onDemandCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccOnDemandCost :: Lens.Lens' CoverageCost (Lude.Maybe Lude.Text)
-ccOnDemandCost = Lens.lens (onDemandCost :: CoverageCost -> Lude.Maybe Lude.Text) (\s a -> s {onDemandCost = a} :: CoverageCost)
+ccOnDemandCost :: Lens.Lens' CoverageCost (Core.Maybe Types.OnDemandCost)
+ccOnDemandCost = Lens.field @"onDemandCost"
 {-# DEPRECATED ccOnDemandCost "Use generic-lens or generic-optics with 'onDemandCost' instead." #-}
 
-instance Lude.FromJSON CoverageCost where
+instance Core.FromJSON CoverageCost where
   parseJSON =
-    Lude.withObject
-      "CoverageCost"
-      (\x -> CoverageCost' Lude.<$> (x Lude..:? "OnDemandCost"))
+    Core.withObject "CoverageCost" Core.$
+      \x -> CoverageCost' Core.<$> (x Core..:? "OnDemandCost")

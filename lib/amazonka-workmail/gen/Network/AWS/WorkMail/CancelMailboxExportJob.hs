@@ -29,130 +29,111 @@ module Network.AWS.WorkMail.CancelMailboxExportJob
     mkCancelMailboxExportJobResponse,
 
     -- ** Response lenses
-    cmejrsResponseStatus,
+    cmejrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkCancelMailboxExportJob' smart constructor.
 data CancelMailboxExportJob = CancelMailboxExportJob'
   { -- | The idempotency token for the client request.
-    clientToken :: Lude.Text,
+    clientToken :: Types.IdempotencyClientToken,
     -- | The job ID.
-    jobId :: Lude.Text,
+    jobId :: Types.MailboxExportJobId,
     -- | The organization ID.
-    organizationId :: Lude.Text
+    organizationId :: Types.OrganizationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelMailboxExportJob' with the minimum fields required to make a request.
---
--- * 'clientToken' - The idempotency token for the client request.
--- * 'jobId' - The job ID.
--- * 'organizationId' - The organization ID.
+-- | Creates a 'CancelMailboxExportJob' value with any optional fields omitted.
 mkCancelMailboxExportJob ::
   -- | 'clientToken'
-  Lude.Text ->
+  Types.IdempotencyClientToken ->
   -- | 'jobId'
-  Lude.Text ->
+  Types.MailboxExportJobId ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
   CancelMailboxExportJob
-mkCancelMailboxExportJob pClientToken_ pJobId_ pOrganizationId_ =
-  CancelMailboxExportJob'
-    { clientToken = pClientToken_,
-      jobId = pJobId_,
-      organizationId = pOrganizationId_
-    }
+mkCancelMailboxExportJob clientToken jobId organizationId =
+  CancelMailboxExportJob' {clientToken, jobId, organizationId}
 
 -- | The idempotency token for the client request.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmejClientToken :: Lens.Lens' CancelMailboxExportJob Lude.Text
-cmejClientToken = Lens.lens (clientToken :: CancelMailboxExportJob -> Lude.Text) (\s a -> s {clientToken = a} :: CancelMailboxExportJob)
+cmejClientToken :: Lens.Lens' CancelMailboxExportJob Types.IdempotencyClientToken
+cmejClientToken = Lens.field @"clientToken"
 {-# DEPRECATED cmejClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The job ID.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmejJobId :: Lens.Lens' CancelMailboxExportJob Lude.Text
-cmejJobId = Lens.lens (jobId :: CancelMailboxExportJob -> Lude.Text) (\s a -> s {jobId = a} :: CancelMailboxExportJob)
+cmejJobId :: Lens.Lens' CancelMailboxExportJob Types.MailboxExportJobId
+cmejJobId = Lens.field @"jobId"
 {-# DEPRECATED cmejJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The organization ID.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmejOrganizationId :: Lens.Lens' CancelMailboxExportJob Lude.Text
-cmejOrganizationId = Lens.lens (organizationId :: CancelMailboxExportJob -> Lude.Text) (\s a -> s {organizationId = a} :: CancelMailboxExportJob)
+cmejOrganizationId :: Lens.Lens' CancelMailboxExportJob Types.OrganizationId
+cmejOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED cmejOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest CancelMailboxExportJob where
+instance Core.FromJSON CancelMailboxExportJob where
+  toJSON CancelMailboxExportJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClientToken" Core..= clientToken),
+            Core.Just ("JobId" Core..= jobId),
+            Core.Just ("OrganizationId" Core..= organizationId)
+          ]
+      )
+
+instance Core.AWSRequest CancelMailboxExportJob where
   type Rs CancelMailboxExportJob = CancelMailboxExportJobResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkMailService.CancelMailboxExportJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CancelMailboxExportJobResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelMailboxExportJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.CancelMailboxExportJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelMailboxExportJob where
-  toJSON CancelMailboxExportJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClientToken" Lude..= clientToken),
-            Lude.Just ("JobId" Lude..= jobId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath CancelMailboxExportJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelMailboxExportJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCancelMailboxExportJobResponse' smart constructor.
 newtype CancelMailboxExportJobResponse = CancelMailboxExportJobResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelMailboxExportJobResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelMailboxExportJobResponse' value with any optional fields omitted.
 mkCancelMailboxExportJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelMailboxExportJobResponse
-mkCancelMailboxExportJobResponse pResponseStatus_ =
-  CancelMailboxExportJobResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCancelMailboxExportJobResponse responseStatus =
+  CancelMailboxExportJobResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmejrsResponseStatus :: Lens.Lens' CancelMailboxExportJobResponse Lude.Int
-cmejrsResponseStatus = Lens.lens (responseStatus :: CancelMailboxExportJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelMailboxExportJobResponse)
-{-# DEPRECATED cmejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmejrrsResponseStatus :: Lens.Lens' CancelMailboxExportJobResponse Core.Int
+cmejrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmejrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

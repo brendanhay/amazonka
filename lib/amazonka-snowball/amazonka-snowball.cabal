@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Snowball
     Network.AWS.Snowball.CancelCluster
@@ -94,15 +100,23 @@ library
 
   other-modules:
     Network.AWS.Snowball.Types.Address
+    Network.AWS.Snowball.Types.AddressId
+    Network.AWS.Snowball.Types.AmiId
+    Network.AWS.Snowball.Types.BucketArn
+    Network.AWS.Snowball.Types.ClusterId
     Network.AWS.Snowball.Types.ClusterListEntry
     Network.AWS.Snowball.Types.ClusterMetadata
     Network.AWS.Snowball.Types.ClusterState
     Network.AWS.Snowball.Types.CompatibleImage
     Network.AWS.Snowball.Types.DataTransfer
+    Network.AWS.Snowball.Types.Description
     Network.AWS.Snowball.Types.DeviceConfiguration
-    Network.AWS.Snowball.Types.EC2AMIResource
+    Network.AWS.Snowball.Types.Ec2AmiResource
     Network.AWS.Snowball.Types.EventTriggerDefinition
+    Network.AWS.Snowball.Types.ForwardingAddressId
+    Network.AWS.Snowball.Types.GSTIN
     Network.AWS.Snowball.Types.INDTaxDocuments
+    Network.AWS.Snowball.Types.JobId
     Network.AWS.Snowball.Types.JobListEntry
     Network.AWS.Snowball.Types.JobLogs
     Network.AWS.Snowball.Types.JobMetadata
@@ -110,8 +124,13 @@ library
     Network.AWS.Snowball.Types.JobState
     Network.AWS.Snowball.Types.JobType
     Network.AWS.Snowball.Types.KeyRange
+    Network.AWS.Snowball.Types.KmsKeyARN
+    Network.AWS.Snowball.Types.LambdaArn
     Network.AWS.Snowball.Types.LambdaResource
+    Network.AWS.Snowball.Types.NextToken
     Network.AWS.Snowball.Types.Notification
+    Network.AWS.Snowball.Types.ResourceARN
+    Network.AWS.Snowball.Types.RoleARN
     Network.AWS.Snowball.Types.S3Resource
     Network.AWS.Snowball.Types.Shipment
     Network.AWS.Snowball.Types.ShipmentState
@@ -121,7 +140,10 @@ library
     Network.AWS.Snowball.Types.SnowballCapacity
     Network.AWS.Snowball.Types.SnowballType
     Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+    Network.AWS.Snowball.Types.SnsTopicARN
+    Network.AWS.Snowball.Types.String
     Network.AWS.Snowball.Types.TaxDocuments
+    Network.AWS.Snowball.Types.UpdatesURI
     Network.AWS.Snowball.Types.WirelessConnection
 
   build-depends:   amazonka-core ==2.0.0.0.*

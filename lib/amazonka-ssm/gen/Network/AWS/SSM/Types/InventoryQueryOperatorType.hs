@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.InventoryQueryOperatorType
   ( InventoryQueryOperatorType
       ( InventoryQueryOperatorType',
-        IQOTEqual,
-        IQOTNotEqual,
-        IQOTBeginWith,
-        IQOTLessThan,
-        IQOTGreaterThan,
-        IQOTExists
+        InventoryQueryOperatorTypeEqual,
+        InventoryQueryOperatorTypeNotEqual,
+        InventoryQueryOperatorTypeBeginWith,
+        InventoryQueryOperatorTypeLessThan,
+        InventoryQueryOperatorTypeGreaterThan,
+        InventoryQueryOperatorTypeExists,
+        fromInventoryQueryOperatorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InventoryQueryOperatorType = InventoryQueryOperatorType' Lude.Text
+newtype InventoryQueryOperatorType = InventoryQueryOperatorType'
+  { fromInventoryQueryOperatorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IQOTEqual :: InventoryQueryOperatorType
-pattern IQOTEqual = InventoryQueryOperatorType' "Equal"
+pattern InventoryQueryOperatorTypeEqual :: InventoryQueryOperatorType
+pattern InventoryQueryOperatorTypeEqual = InventoryQueryOperatorType' "Equal"
 
-pattern IQOTNotEqual :: InventoryQueryOperatorType
-pattern IQOTNotEqual = InventoryQueryOperatorType' "NotEqual"
+pattern InventoryQueryOperatorTypeNotEqual :: InventoryQueryOperatorType
+pattern InventoryQueryOperatorTypeNotEqual = InventoryQueryOperatorType' "NotEqual"
 
-pattern IQOTBeginWith :: InventoryQueryOperatorType
-pattern IQOTBeginWith = InventoryQueryOperatorType' "BeginWith"
+pattern InventoryQueryOperatorTypeBeginWith :: InventoryQueryOperatorType
+pattern InventoryQueryOperatorTypeBeginWith = InventoryQueryOperatorType' "BeginWith"
 
-pattern IQOTLessThan :: InventoryQueryOperatorType
-pattern IQOTLessThan = InventoryQueryOperatorType' "LessThan"
+pattern InventoryQueryOperatorTypeLessThan :: InventoryQueryOperatorType
+pattern InventoryQueryOperatorTypeLessThan = InventoryQueryOperatorType' "LessThan"
 
-pattern IQOTGreaterThan :: InventoryQueryOperatorType
-pattern IQOTGreaterThan = InventoryQueryOperatorType' "GreaterThan"
+pattern InventoryQueryOperatorTypeGreaterThan :: InventoryQueryOperatorType
+pattern InventoryQueryOperatorTypeGreaterThan = InventoryQueryOperatorType' "GreaterThan"
 
-pattern IQOTExists :: InventoryQueryOperatorType
-pattern IQOTExists = InventoryQueryOperatorType' "Exists"
+pattern InventoryQueryOperatorTypeExists :: InventoryQueryOperatorType
+pattern InventoryQueryOperatorTypeExists = InventoryQueryOperatorType' "Exists"
 
 {-# COMPLETE
-  IQOTEqual,
-  IQOTNotEqual,
-  IQOTBeginWith,
-  IQOTLessThan,
-  IQOTGreaterThan,
-  IQOTExists,
+  InventoryQueryOperatorTypeEqual,
+  InventoryQueryOperatorTypeNotEqual,
+  InventoryQueryOperatorTypeBeginWith,
+  InventoryQueryOperatorTypeLessThan,
+  InventoryQueryOperatorTypeGreaterThan,
+  InventoryQueryOperatorTypeExists,
   InventoryQueryOperatorType'
   #-}

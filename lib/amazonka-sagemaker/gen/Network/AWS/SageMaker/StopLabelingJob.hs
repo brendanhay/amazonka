@@ -29,71 +29,62 @@ module Network.AWS.SageMaker.StopLabelingJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopLabelingJob' smart constructor.
 newtype StopLabelingJob = StopLabelingJob'
   { -- | The name of the labeling job to stop.
-    labelingJobName :: Lude.Text
+    labelingJobName :: Types.LabelingJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopLabelingJob' with the minimum fields required to make a request.
---
--- * 'labelingJobName' - The name of the labeling job to stop.
+-- | Creates a 'StopLabelingJob' value with any optional fields omitted.
 mkStopLabelingJob ::
   -- | 'labelingJobName'
-  Lude.Text ->
+  Types.LabelingJobName ->
   StopLabelingJob
-mkStopLabelingJob pLabelingJobName_ =
-  StopLabelingJob' {labelingJobName = pLabelingJobName_}
+mkStopLabelingJob labelingJobName =
+  StopLabelingJob' {labelingJobName}
 
 -- | The name of the labeling job to stop.
 --
 -- /Note:/ Consider using 'labelingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sljLabelingJobName :: Lens.Lens' StopLabelingJob Lude.Text
-sljLabelingJobName = Lens.lens (labelingJobName :: StopLabelingJob -> Lude.Text) (\s a -> s {labelingJobName = a} :: StopLabelingJob)
+sljLabelingJobName :: Lens.Lens' StopLabelingJob Types.LabelingJobName
+sljLabelingJobName = Lens.field @"labelingJobName"
 {-# DEPRECATED sljLabelingJobName "Use generic-lens or generic-optics with 'labelingJobName' instead." #-}
 
-instance Lude.AWSRequest StopLabelingJob where
+instance Core.FromJSON StopLabelingJob where
+  toJSON StopLabelingJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LabelingJobName" Core..= labelingJobName)]
+      )
+
+instance Core.AWSRequest StopLabelingJob where
   type Rs StopLabelingJob = StopLabelingJobResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopLabelingJobResponse'
-
-instance Lude.ToHeaders StopLabelingJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopLabelingJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopLabelingJob where
-  toJSON StopLabelingJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("LabelingJobName" Lude..= labelingJobName)]
-      )
-
-instance Lude.ToPath StopLabelingJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopLabelingJob where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopLabelingJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopLabelingJobResponse'
 
 -- | /See:/ 'mkStopLabelingJobResponse' smart constructor.
 data StopLabelingJobResponse = StopLabelingJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopLabelingJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopLabelingJobResponse' value with any optional fields omitted.
 mkStopLabelingJobResponse ::
   StopLabelingJobResponse
 mkStopLabelingJobResponse = StopLabelingJobResponse'

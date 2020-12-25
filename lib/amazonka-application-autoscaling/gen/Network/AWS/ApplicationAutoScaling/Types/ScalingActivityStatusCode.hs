@@ -13,66 +13,71 @@
 module Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
   ( ScalingActivityStatusCode
       ( ScalingActivityStatusCode',
-        Pending,
-        InProgress,
-        Successful,
-        Overridden,
-        Unfulfilled,
-        Failed
+        ScalingActivityStatusCodePending,
+        ScalingActivityStatusCodeInProgress,
+        ScalingActivityStatusCodeSuccessful,
+        ScalingActivityStatusCodeOverridden,
+        ScalingActivityStatusCodeUnfulfilled,
+        ScalingActivityStatusCodeFailed,
+        fromScalingActivityStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalingActivityStatusCode = ScalingActivityStatusCode' Lude.Text
+newtype ScalingActivityStatusCode = ScalingActivityStatusCode'
+  { fromScalingActivityStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: ScalingActivityStatusCode
-pattern Pending = ScalingActivityStatusCode' "Pending"
+pattern ScalingActivityStatusCodePending :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodePending = ScalingActivityStatusCode' "Pending"
 
-pattern InProgress :: ScalingActivityStatusCode
-pattern InProgress = ScalingActivityStatusCode' "InProgress"
+pattern ScalingActivityStatusCodeInProgress :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeInProgress = ScalingActivityStatusCode' "InProgress"
 
-pattern Successful :: ScalingActivityStatusCode
-pattern Successful = ScalingActivityStatusCode' "Successful"
+pattern ScalingActivityStatusCodeSuccessful :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeSuccessful = ScalingActivityStatusCode' "Successful"
 
-pattern Overridden :: ScalingActivityStatusCode
-pattern Overridden = ScalingActivityStatusCode' "Overridden"
+pattern ScalingActivityStatusCodeOverridden :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeOverridden = ScalingActivityStatusCode' "Overridden"
 
-pattern Unfulfilled :: ScalingActivityStatusCode
-pattern Unfulfilled = ScalingActivityStatusCode' "Unfulfilled"
+pattern ScalingActivityStatusCodeUnfulfilled :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeUnfulfilled = ScalingActivityStatusCode' "Unfulfilled"
 
-pattern Failed :: ScalingActivityStatusCode
-pattern Failed = ScalingActivityStatusCode' "Failed"
+pattern ScalingActivityStatusCodeFailed :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeFailed = ScalingActivityStatusCode' "Failed"
 
 {-# COMPLETE
-  Pending,
-  InProgress,
-  Successful,
-  Overridden,
-  Unfulfilled,
-  Failed,
+  ScalingActivityStatusCodePending,
+  ScalingActivityStatusCodeInProgress,
+  ScalingActivityStatusCodeSuccessful,
+  ScalingActivityStatusCodeOverridden,
+  ScalingActivityStatusCodeUnfulfilled,
+  ScalingActivityStatusCodeFailed,
   ScalingActivityStatusCode'
   #-}

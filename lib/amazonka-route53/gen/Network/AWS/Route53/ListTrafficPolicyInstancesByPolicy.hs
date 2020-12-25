@@ -22,129 +22,95 @@ module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
     mkListTrafficPolicyInstancesByPolicy,
 
     -- ** Request lenses
-    ltpibpTrafficPolicyVersion,
-    ltpibpTrafficPolicyInstanceTypeMarker,
-    ltpibpMaxItems,
     ltpibpTrafficPolicyId,
+    ltpibpTrafficPolicyVersion,
     ltpibpHostedZoneIdMarker,
+    ltpibpMaxItems,
     ltpibpTrafficPolicyInstanceNameMarker,
+    ltpibpTrafficPolicyInstanceTypeMarker,
 
     -- * Destructuring the response
     ListTrafficPolicyInstancesByPolicyResponse (..),
     mkListTrafficPolicyInstancesByPolicyResponse,
 
     -- ** Response lenses
-    ltpibprsTrafficPolicyInstances,
-    ltpibprsTrafficPolicyInstanceTypeMarker,
-    ltpibprsMaxItems,
-    ltpibprsHostedZoneIdMarker,
-    ltpibprsIsTruncated,
-    ltpibprsTrafficPolicyInstanceNameMarker,
-    ltpibprsResponseStatus,
+    ltpibprrsTrafficPolicyInstances,
+    ltpibprrsIsTruncated,
+    ltpibprrsMaxItems,
+    ltpibprrsHostedZoneIdMarker,
+    ltpibprrsTrafficPolicyInstanceNameMarker,
+    ltpibprrsTrafficPolicyInstanceTypeMarker,
+    ltpibprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains the information about the request to list your traffic policy instances.
 --
 -- /See:/ 'mkListTrafficPolicyInstancesByPolicy' smart constructor.
 data ListTrafficPolicyInstancesByPolicy = ListTrafficPolicyInstancesByPolicy'
-  { -- | The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by @TrafficPolicyId@ .
-    trafficPolicyVersion :: Lude.Natural,
-    -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
-    --
-    -- For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
-    -- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
-    trafficPolicyInstanceTypeMarker :: Lude.Maybe RecordType,
-    -- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
-    maxItems :: Lude.Maybe Lude.Text,
-    -- | The ID of the traffic policy for which you want to list traffic policy instances.
-    trafficPolicyId :: Lude.Text,
+  { -- | The ID of the traffic policy for which you want to list traffic policy instances.
+    trafficPolicyId :: Types.TrafficPolicyId,
+    -- | The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by @TrafficPolicyId@ .
+    trafficPolicyVersion :: Core.Natural,
     -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
     --
     -- For the value of @hostedzoneid@ , specify the value of @HostedZoneIdMarker@ from the previous response, which is the hosted zone ID of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
     -- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
-    hostedZoneIdMarker :: Lude.Maybe ResourceId,
+    hostedZoneIdMarker :: Core.Maybe Types.HostedZoneIdMarker,
+    -- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
+    maxItems :: Core.Maybe Types.MaxItems,
     -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
     --
     -- For the value of @trafficpolicyinstancename@ , specify the value of @TrafficPolicyInstanceNameMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
     -- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
-    trafficPolicyInstanceNameMarker :: Lude.Maybe Lude.Text
+    trafficPolicyInstanceNameMarker :: Core.Maybe Types.TrafficPolicyInstanceNameMarker,
+    -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
+    --
+    -- For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
+    -- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
+    trafficPolicyInstanceTypeMarker :: Core.Maybe Types.RecordType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTrafficPolicyInstancesByPolicy' with the minimum fields required to make a request.
---
--- * 'trafficPolicyVersion' - The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by @TrafficPolicyId@ .
--- * 'trafficPolicyInstanceTypeMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
---
--- For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
--- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
--- * 'maxItems' - The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
--- * 'trafficPolicyId' - The ID of the traffic policy for which you want to list traffic policy instances.
--- * 'hostedZoneIdMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
---
--- For the value of @hostedzoneid@ , specify the value of @HostedZoneIdMarker@ from the previous response, which is the hosted zone ID of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
--- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
--- * 'trafficPolicyInstanceNameMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
---
--- For the value of @trafficpolicyinstancename@ , specify the value of @TrafficPolicyInstanceNameMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
--- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
+-- | Creates a 'ListTrafficPolicyInstancesByPolicy' value with any optional fields omitted.
 mkListTrafficPolicyInstancesByPolicy ::
-  -- | 'trafficPolicyVersion'
-  Lude.Natural ->
   -- | 'trafficPolicyId'
-  Lude.Text ->
+  Types.TrafficPolicyId ->
+  -- | 'trafficPolicyVersion'
+  Core.Natural ->
   ListTrafficPolicyInstancesByPolicy
 mkListTrafficPolicyInstancesByPolicy
-  pTrafficPolicyVersion_
-  pTrafficPolicyId_ =
+  trafficPolicyId
+  trafficPolicyVersion =
     ListTrafficPolicyInstancesByPolicy'
-      { trafficPolicyVersion =
-          pTrafficPolicyVersion_,
-        trafficPolicyInstanceTypeMarker = Lude.Nothing,
-        maxItems = Lude.Nothing,
-        trafficPolicyId = pTrafficPolicyId_,
-        hostedZoneIdMarker = Lude.Nothing,
-        trafficPolicyInstanceNameMarker = Lude.Nothing
+      { trafficPolicyId,
+        trafficPolicyVersion,
+        hostedZoneIdMarker = Core.Nothing,
+        maxItems = Core.Nothing,
+        trafficPolicyInstanceNameMarker = Core.Nothing,
+        trafficPolicyInstanceTypeMarker = Core.Nothing
       }
-
--- | The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by @TrafficPolicyId@ .
---
--- /Note:/ Consider using 'trafficPolicyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibpTrafficPolicyVersion :: Lens.Lens' ListTrafficPolicyInstancesByPolicy Lude.Natural
-ltpibpTrafficPolicyVersion = Lens.lens (trafficPolicyVersion :: ListTrafficPolicyInstancesByPolicy -> Lude.Natural) (\s a -> s {trafficPolicyVersion = a} :: ListTrafficPolicyInstancesByPolicy)
-{-# DEPRECATED ltpibpTrafficPolicyVersion "Use generic-lens or generic-optics with 'trafficPolicyVersion' instead." #-}
-
--- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
---
--- For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
--- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
---
--- /Note:/ Consider using 'trafficPolicyInstanceTypeMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibpTrafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Lude.Maybe RecordType)
-ltpibpTrafficPolicyInstanceTypeMarker = Lens.lens (trafficPolicyInstanceTypeMarker :: ListTrafficPolicyInstancesByPolicy -> Lude.Maybe RecordType) (\s a -> s {trafficPolicyInstanceTypeMarker = a} :: ListTrafficPolicyInstancesByPolicy)
-{-# DEPRECATED ltpibpTrafficPolicyInstanceTypeMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceTypeMarker' instead." #-}
-
--- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibpMaxItems :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Lude.Maybe Lude.Text)
-ltpibpMaxItems = Lens.lens (maxItems :: ListTrafficPolicyInstancesByPolicy -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListTrafficPolicyInstancesByPolicy)
-{-# DEPRECATED ltpibpMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The ID of the traffic policy for which you want to list traffic policy instances.
 --
 -- /Note:/ Consider using 'trafficPolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibpTrafficPolicyId :: Lens.Lens' ListTrafficPolicyInstancesByPolicy Lude.Text
-ltpibpTrafficPolicyId = Lens.lens (trafficPolicyId :: ListTrafficPolicyInstancesByPolicy -> Lude.Text) (\s a -> s {trafficPolicyId = a} :: ListTrafficPolicyInstancesByPolicy)
+ltpibpTrafficPolicyId :: Lens.Lens' ListTrafficPolicyInstancesByPolicy Types.TrafficPolicyId
+ltpibpTrafficPolicyId = Lens.field @"trafficPolicyId"
 {-# DEPRECATED ltpibpTrafficPolicyId "Use generic-lens or generic-optics with 'trafficPolicyId' instead." #-}
+
+-- | The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by @TrafficPolicyId@ .
+--
+-- /Note:/ Consider using 'trafficPolicyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpibpTrafficPolicyVersion :: Lens.Lens' ListTrafficPolicyInstancesByPolicy Core.Natural
+ltpibpTrafficPolicyVersion = Lens.field @"trafficPolicyVersion"
+{-# DEPRECATED ltpibpTrafficPolicyVersion "Use generic-lens or generic-optics with 'trafficPolicyVersion' instead." #-}
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
 --
@@ -152,9 +118,16 @@ ltpibpTrafficPolicyId = Lens.lens (trafficPolicyId :: ListTrafficPolicyInstances
 -- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 --
 -- /Note:/ Consider using 'hostedZoneIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibpHostedZoneIdMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Lude.Maybe ResourceId)
-ltpibpHostedZoneIdMarker = Lens.lens (hostedZoneIdMarker :: ListTrafficPolicyInstancesByPolicy -> Lude.Maybe ResourceId) (\s a -> s {hostedZoneIdMarker = a} :: ListTrafficPolicyInstancesByPolicy)
+ltpibpHostedZoneIdMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Core.Maybe Types.HostedZoneIdMarker)
+ltpibpHostedZoneIdMarker = Lens.field @"hostedZoneIdMarker"
 {-# DEPRECATED ltpibpHostedZoneIdMarker "Use generic-lens or generic-optics with 'hostedZoneIdMarker' instead." #-}
+
+-- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpibpMaxItems :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Core.Maybe Types.MaxItems)
+ltpibpMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED ltpibpMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
 --
@@ -162,149 +135,150 @@ ltpibpHostedZoneIdMarker = Lens.lens (hostedZoneIdMarker :: ListTrafficPolicyIns
 -- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 --
 -- /Note:/ Consider using 'trafficPolicyInstanceNameMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibpTrafficPolicyInstanceNameMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Lude.Maybe Lude.Text)
-ltpibpTrafficPolicyInstanceNameMarker = Lens.lens (trafficPolicyInstanceNameMarker :: ListTrafficPolicyInstancesByPolicy -> Lude.Maybe Lude.Text) (\s a -> s {trafficPolicyInstanceNameMarker = a} :: ListTrafficPolicyInstancesByPolicy)
+ltpibpTrafficPolicyInstanceNameMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Core.Maybe Types.TrafficPolicyInstanceNameMarker)
+ltpibpTrafficPolicyInstanceNameMarker = Lens.field @"trafficPolicyInstanceNameMarker"
 {-# DEPRECATED ltpibpTrafficPolicyInstanceNameMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceNameMarker' instead." #-}
 
-instance Lude.AWSRequest ListTrafficPolicyInstancesByPolicy where
+-- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request.
+--
+-- For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request.
+-- If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
+--
+-- /Note:/ Consider using 'trafficPolicyInstanceTypeMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpibpTrafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicy (Core.Maybe Types.RecordType)
+ltpibpTrafficPolicyInstanceTypeMarker = Lens.field @"trafficPolicyInstanceTypeMarker"
+{-# DEPRECATED ltpibpTrafficPolicyInstanceTypeMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceTypeMarker' instead." #-}
+
+instance Core.AWSRequest ListTrafficPolicyInstancesByPolicy where
   type
     Rs ListTrafficPolicyInstancesByPolicy =
       ListTrafficPolicyInstancesByPolicyResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath "/2013-04-01/trafficpolicyinstances/trafficpolicy",
+        Core._rqQuery =
+          Core.toQueryValue "id" trafficPolicyId
+            Core.<> (Core.toQueryValue "version" trafficPolicyVersion)
+            Core.<> (Core.toQueryValue "hostedzoneid" Core.<$> hostedZoneIdMarker)
+            Core.<> (Core.toQueryValue "maxitems" Core.<$> maxItems)
+            Core.<> ( Core.toQueryValue "trafficpolicyinstancename"
+                        Core.<$> trafficPolicyInstanceNameMarker
+                    )
+            Core.<> ( Core.toQueryValue "trafficpolicyinstancetype"
+                        Core.<$> trafficPolicyInstanceTypeMarker
+                    ),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListTrafficPolicyInstancesByPolicyResponse'
-            Lude.<$> ( x Lude..@? "TrafficPolicyInstances" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "TrafficPolicyInstance"
+            Core.<$> ( x Core..@? "TrafficPolicyInstances" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "TrafficPolicyInstance"
                      )
-            Lude.<*> (x Lude..@? "TrafficPolicyInstanceTypeMarker")
-            Lude.<*> (x Lude..@ "MaxItems")
-            Lude.<*> (x Lude..@? "HostedZoneIdMarker")
-            Lude.<*> (x Lude..@ "IsTruncated")
-            Lude.<*> (x Lude..@? "TrafficPolicyInstanceNameMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@ "IsTruncated")
+            Core.<*> (x Core..@ "MaxItems")
+            Core.<*> (x Core..@? "HostedZoneIdMarker")
+            Core.<*> (x Core..@? "TrafficPolicyInstanceNameMarker")
+            Core.<*> (x Core..@? "TrafficPolicyInstanceTypeMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTrafficPolicyInstancesByPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListTrafficPolicyInstancesByPolicy where
-  toPath =
-    Lude.const "/2013-04-01/trafficpolicyinstances/trafficpolicy"
-
-instance Lude.ToQuery ListTrafficPolicyInstancesByPolicy where
-  toQuery ListTrafficPolicyInstancesByPolicy' {..} =
-    Lude.mconcat
-      [ "version" Lude.=: trafficPolicyVersion,
-        "trafficpolicyinstancetype"
-          Lude.=: trafficPolicyInstanceTypeMarker,
-        "maxitems" Lude.=: maxItems,
-        "id" Lude.=: trafficPolicyId,
-        "hostedzoneid" Lude.=: hostedZoneIdMarker,
-        "trafficpolicyinstancename"
-          Lude.=: trafficPolicyInstanceNameMarker
-      ]
 
 -- | A complex type that contains the response information for the request.
 --
 -- /See:/ 'mkListTrafficPolicyInstancesByPolicyResponse' smart constructor.
 data ListTrafficPolicyInstancesByPolicyResponse = ListTrafficPolicyInstancesByPolicyResponse'
   { -- | A list that contains one @TrafficPolicyInstance@ element for each traffic policy instance that matches the elements in the request.
-    trafficPolicyInstances :: [TrafficPolicyInstance],
-    -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
-    trafficPolicyInstanceTypeMarker :: Lude.Maybe RecordType,
-    -- | The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByPolicy@ that produced the current response.
-    maxItems :: Lude.Text,
-    -- | If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of traffic policy instances.
-    hostedZoneIdMarker :: Lude.Maybe ResourceId,
+    trafficPolicyInstances :: [Types.TrafficPolicyInstance],
     -- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of traffic policy instances by calling @ListTrafficPolicyInstancesByPolicy@ again and specifying the values of the @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ elements in the corresponding request parameters.
-    isTruncated :: Lude.Bool,
+    isTruncated :: Core.Bool,
+    -- | The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByPolicy@ that produced the current response.
+    maxItems :: Types.MaxItems,
+    -- | If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of traffic policy instances.
+    hostedZoneIdMarker :: Core.Maybe Types.ResourceId,
     -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
-    trafficPolicyInstanceNameMarker :: Lude.Maybe Lude.Text,
+    trafficPolicyInstanceNameMarker :: Core.Maybe Types.TrafficPolicyInstanceNameMarker,
+    -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+    trafficPolicyInstanceTypeMarker :: Core.Maybe Types.RecordType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTrafficPolicyInstancesByPolicyResponse' with the minimum fields required to make a request.
---
--- * 'trafficPolicyInstances' - A list that contains one @TrafficPolicyInstance@ element for each traffic policy instance that matches the elements in the request.
--- * 'trafficPolicyInstanceTypeMarker' - If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
--- * 'maxItems' - The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByPolicy@ that produced the current response.
--- * 'hostedZoneIdMarker' - If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of traffic policy instances.
--- * 'isTruncated' - A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of traffic policy instances by calling @ListTrafficPolicyInstancesByPolicy@ again and specifying the values of the @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ elements in the corresponding request parameters.
--- * 'trafficPolicyInstanceNameMarker' - If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTrafficPolicyInstancesByPolicyResponse' value with any optional fields omitted.
 mkListTrafficPolicyInstancesByPolicyResponse ::
-  -- | 'maxItems'
-  Lude.Text ->
   -- | 'isTruncated'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'maxItems'
+  Types.MaxItems ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTrafficPolicyInstancesByPolicyResponse
 mkListTrafficPolicyInstancesByPolicyResponse
-  pMaxItems_
-  pIsTruncated_
-  pResponseStatus_ =
+  isTruncated
+  maxItems
+  responseStatus =
     ListTrafficPolicyInstancesByPolicyResponse'
       { trafficPolicyInstances =
-          Lude.mempty,
-        trafficPolicyInstanceTypeMarker = Lude.Nothing,
-        maxItems = pMaxItems_,
-        hostedZoneIdMarker = Lude.Nothing,
-        isTruncated = pIsTruncated_,
-        trafficPolicyInstanceNameMarker = Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.mempty,
+        isTruncated,
+        maxItems,
+        hostedZoneIdMarker = Core.Nothing,
+        trafficPolicyInstanceNameMarker = Core.Nothing,
+        trafficPolicyInstanceTypeMarker = Core.Nothing,
+        responseStatus
       }
 
 -- | A list that contains one @TrafficPolicyInstance@ element for each traffic policy instance that matches the elements in the request.
 --
 -- /Note:/ Consider using 'trafficPolicyInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsTrafficPolicyInstances :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse [TrafficPolicyInstance]
-ltpibprsTrafficPolicyInstances = Lens.lens (trafficPolicyInstances :: ListTrafficPolicyInstancesByPolicyResponse -> [TrafficPolicyInstance]) (\s a -> s {trafficPolicyInstances = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsTrafficPolicyInstances "Use generic-lens or generic-optics with 'trafficPolicyInstances' instead." #-}
-
--- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
---
--- /Note:/ Consider using 'trafficPolicyInstanceTypeMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsTrafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse (Lude.Maybe RecordType)
-ltpibprsTrafficPolicyInstanceTypeMarker = Lens.lens (trafficPolicyInstanceTypeMarker :: ListTrafficPolicyInstancesByPolicyResponse -> Lude.Maybe RecordType) (\s a -> s {trafficPolicyInstanceTypeMarker = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsTrafficPolicyInstanceTypeMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceTypeMarker' instead." #-}
-
--- | The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByPolicy@ that produced the current response.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsMaxItems :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse Lude.Text
-ltpibprsMaxItems = Lens.lens (maxItems :: ListTrafficPolicyInstancesByPolicyResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of traffic policy instances.
---
--- /Note:/ Consider using 'hostedZoneIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsHostedZoneIdMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse (Lude.Maybe ResourceId)
-ltpibprsHostedZoneIdMarker = Lens.lens (hostedZoneIdMarker :: ListTrafficPolicyInstancesByPolicyResponse -> Lude.Maybe ResourceId) (\s a -> s {hostedZoneIdMarker = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsHostedZoneIdMarker "Use generic-lens or generic-optics with 'hostedZoneIdMarker' instead." #-}
+ltpibprrsTrafficPolicyInstances :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse [Types.TrafficPolicyInstance]
+ltpibprrsTrafficPolicyInstances = Lens.field @"trafficPolicyInstances"
+{-# DEPRECATED ltpibprrsTrafficPolicyInstances "Use generic-lens or generic-optics with 'trafficPolicyInstances' instead." #-}
 
 -- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of traffic policy instances by calling @ListTrafficPolicyInstancesByPolicy@ again and specifying the values of the @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ elements in the corresponding request parameters.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsIsTruncated :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse Lude.Bool
-ltpibprsIsTruncated = Lens.lens (isTruncated :: ListTrafficPolicyInstancesByPolicyResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+ltpibprrsIsTruncated :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse Core.Bool
+ltpibprrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED ltpibprrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByPolicy@ that produced the current response.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpibprrsMaxItems :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse Types.MaxItems
+ltpibprrsMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED ltpibprrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+-- | If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of traffic policy instances.
+--
+-- /Note:/ Consider using 'hostedZoneIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpibprrsHostedZoneIdMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse (Core.Maybe Types.ResourceId)
+ltpibprrsHostedZoneIdMarker = Lens.field @"hostedZoneIdMarker"
+{-# DEPRECATED ltpibprrsHostedZoneIdMarker "Use generic-lens or generic-optics with 'hostedZoneIdMarker' instead." #-}
 
 -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
 --
 -- /Note:/ Consider using 'trafficPolicyInstanceNameMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsTrafficPolicyInstanceNameMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse (Lude.Maybe Lude.Text)
-ltpibprsTrafficPolicyInstanceNameMarker = Lens.lens (trafficPolicyInstanceNameMarker :: ListTrafficPolicyInstancesByPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {trafficPolicyInstanceNameMarker = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsTrafficPolicyInstanceNameMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceNameMarker' instead." #-}
+ltpibprrsTrafficPolicyInstanceNameMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse (Core.Maybe Types.TrafficPolicyInstanceNameMarker)
+ltpibprrsTrafficPolicyInstanceNameMarker = Lens.field @"trafficPolicyInstanceNameMarker"
+{-# DEPRECATED ltpibprrsTrafficPolicyInstanceNameMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceNameMarker' instead." #-}
+
+-- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+--
+-- /Note:/ Consider using 'trafficPolicyInstanceTypeMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpibprrsTrafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse (Core.Maybe Types.RecordType)
+ltpibprrsTrafficPolicyInstanceTypeMarker = Lens.field @"trafficPolicyInstanceTypeMarker"
+{-# DEPRECATED ltpibprrsTrafficPolicyInstanceTypeMarker "Use generic-lens or generic-optics with 'trafficPolicyInstanceTypeMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpibprsResponseStatus :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse Lude.Int
-ltpibprsResponseStatus = Lens.lens (responseStatus :: ListTrafficPolicyInstancesByPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrafficPolicyInstancesByPolicyResponse)
-{-# DEPRECATED ltpibprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltpibprrsResponseStatus :: Lens.Lens' ListTrafficPolicyInstancesByPolicyResponse Core.Int
+ltpibprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltpibprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

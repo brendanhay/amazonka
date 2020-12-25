@@ -17,58 +17,54 @@ module Network.AWS.IoT.Types.AuthorizerSummary
     mkAuthorizerSummary,
 
     -- * Lenses
+    asAuthorizerArn,
     asAuthorizerName,
-    asAuthorizerARN,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AuthorizerArn as Types
+import qualified Network.AWS.IoT.Types.AuthorizerName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The authorizer summary.
 --
 -- /See:/ 'mkAuthorizerSummary' smart constructor.
 data AuthorizerSummary = AuthorizerSummary'
-  { -- | The authorizer name.
-    authorizerName :: Lude.Maybe Lude.Text,
-    -- | The authorizer ARN.
-    authorizerARN :: Lude.Maybe Lude.Text
+  { -- | The authorizer ARN.
+    authorizerArn :: Core.Maybe Types.AuthorizerArn,
+    -- | The authorizer name.
+    authorizerName :: Core.Maybe Types.AuthorizerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizerSummary' with the minimum fields required to make a request.
---
--- * 'authorizerName' - The authorizer name.
--- * 'authorizerARN' - The authorizer ARN.
+-- | Creates a 'AuthorizerSummary' value with any optional fields omitted.
 mkAuthorizerSummary ::
   AuthorizerSummary
 mkAuthorizerSummary =
   AuthorizerSummary'
-    { authorizerName = Lude.Nothing,
-      authorizerARN = Lude.Nothing
+    { authorizerArn = Core.Nothing,
+      authorizerName = Core.Nothing
     }
+
+-- | The authorizer ARN.
+--
+-- /Note:/ Consider using 'authorizerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAuthorizerArn :: Lens.Lens' AuthorizerSummary (Core.Maybe Types.AuthorizerArn)
+asAuthorizerArn = Lens.field @"authorizerArn"
+{-# DEPRECATED asAuthorizerArn "Use generic-lens or generic-optics with 'authorizerArn' instead." #-}
 
 -- | The authorizer name.
 --
 -- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAuthorizerName :: Lens.Lens' AuthorizerSummary (Lude.Maybe Lude.Text)
-asAuthorizerName = Lens.lens (authorizerName :: AuthorizerSummary -> Lude.Maybe Lude.Text) (\s a -> s {authorizerName = a} :: AuthorizerSummary)
+asAuthorizerName :: Lens.Lens' AuthorizerSummary (Core.Maybe Types.AuthorizerName)
+asAuthorizerName = Lens.field @"authorizerName"
 {-# DEPRECATED asAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
--- | The authorizer ARN.
---
--- /Note:/ Consider using 'authorizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAuthorizerARN :: Lens.Lens' AuthorizerSummary (Lude.Maybe Lude.Text)
-asAuthorizerARN = Lens.lens (authorizerARN :: AuthorizerSummary -> Lude.Maybe Lude.Text) (\s a -> s {authorizerARN = a} :: AuthorizerSummary)
-{-# DEPRECATED asAuthorizerARN "Use generic-lens or generic-optics with 'authorizerARN' instead." #-}
-
-instance Lude.FromJSON AuthorizerSummary where
+instance Core.FromJSON AuthorizerSummary where
   parseJSON =
-    Lude.withObject
-      "AuthorizerSummary"
-      ( \x ->
-          AuthorizerSummary'
-            Lude.<$> (x Lude..:? "authorizerName")
-            Lude.<*> (x Lude..:? "authorizerArn")
-      )
+    Core.withObject "AuthorizerSummary" Core.$
+      \x ->
+        AuthorizerSummary'
+          Core.<$> (x Core..:? "authorizerArn") Core.<*> (x Core..:? "authorizerName")

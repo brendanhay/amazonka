@@ -17,69 +17,66 @@ module Network.AWS.ELBv2.Types.TargetHealthDescription
     mkTargetHealthDescription,
 
     -- * Lenses
-    thdTargetHealth,
     thdHealthCheckPort,
     thdTarget,
+    thdTargetHealth,
   )
 where
 
-import Network.AWS.ELBv2.Types.TargetDescription
-import Network.AWS.ELBv2.Types.TargetHealth
+import qualified Network.AWS.ELBv2.Types.HealthCheckPort as Types
+import qualified Network.AWS.ELBv2.Types.TargetDescription as Types
+import qualified Network.AWS.ELBv2.Types.TargetHealth as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the health of a target.
 --
 -- /See:/ 'mkTargetHealthDescription' smart constructor.
 data TargetHealthDescription = TargetHealthDescription'
-  { -- | The health information for the target.
-    targetHealth :: Lude.Maybe TargetHealth,
-    -- | The port to use to connect with the target.
-    healthCheckPort :: Lude.Maybe Lude.Text,
+  { -- | The port to use to connect with the target.
+    healthCheckPort :: Core.Maybe Types.HealthCheckPort,
     -- | The description of the target.
-    target :: Lude.Maybe TargetDescription
+    target :: Core.Maybe Types.TargetDescription,
+    -- | The health information for the target.
+    targetHealth :: Core.Maybe Types.TargetHealth
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetHealthDescription' with the minimum fields required to make a request.
---
--- * 'targetHealth' - The health information for the target.
--- * 'healthCheckPort' - The port to use to connect with the target.
--- * 'target' - The description of the target.
+-- | Creates a 'TargetHealthDescription' value with any optional fields omitted.
 mkTargetHealthDescription ::
   TargetHealthDescription
 mkTargetHealthDescription =
   TargetHealthDescription'
-    { targetHealth = Lude.Nothing,
-      healthCheckPort = Lude.Nothing,
-      target = Lude.Nothing
+    { healthCheckPort = Core.Nothing,
+      target = Core.Nothing,
+      targetHealth = Core.Nothing
     }
-
--- | The health information for the target.
---
--- /Note:/ Consider using 'targetHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-thdTargetHealth :: Lens.Lens' TargetHealthDescription (Lude.Maybe TargetHealth)
-thdTargetHealth = Lens.lens (targetHealth :: TargetHealthDescription -> Lude.Maybe TargetHealth) (\s a -> s {targetHealth = a} :: TargetHealthDescription)
-{-# DEPRECATED thdTargetHealth "Use generic-lens or generic-optics with 'targetHealth' instead." #-}
 
 -- | The port to use to connect with the target.
 --
 -- /Note:/ Consider using 'healthCheckPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-thdHealthCheckPort :: Lens.Lens' TargetHealthDescription (Lude.Maybe Lude.Text)
-thdHealthCheckPort = Lens.lens (healthCheckPort :: TargetHealthDescription -> Lude.Maybe Lude.Text) (\s a -> s {healthCheckPort = a} :: TargetHealthDescription)
+thdHealthCheckPort :: Lens.Lens' TargetHealthDescription (Core.Maybe Types.HealthCheckPort)
+thdHealthCheckPort = Lens.field @"healthCheckPort"
 {-# DEPRECATED thdHealthCheckPort "Use generic-lens or generic-optics with 'healthCheckPort' instead." #-}
 
 -- | The description of the target.
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-thdTarget :: Lens.Lens' TargetHealthDescription (Lude.Maybe TargetDescription)
-thdTarget = Lens.lens (target :: TargetHealthDescription -> Lude.Maybe TargetDescription) (\s a -> s {target = a} :: TargetHealthDescription)
+thdTarget :: Lens.Lens' TargetHealthDescription (Core.Maybe Types.TargetDescription)
+thdTarget = Lens.field @"target"
 {-# DEPRECATED thdTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Lude.FromXML TargetHealthDescription where
+-- | The health information for the target.
+--
+-- /Note:/ Consider using 'targetHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thdTargetHealth :: Lens.Lens' TargetHealthDescription (Core.Maybe Types.TargetHealth)
+thdTargetHealth = Lens.field @"targetHealth"
+{-# DEPRECATED thdTargetHealth "Use generic-lens or generic-optics with 'targetHealth' instead." #-}
+
+instance Core.FromXML TargetHealthDescription where
   parseXML x =
     TargetHealthDescription'
-      Lude.<$> (x Lude..@? "TargetHealth")
-      Lude.<*> (x Lude..@? "HealthCheckPort")
-      Lude.<*> (x Lude..@? "Target")
+      Core.<$> (x Core..@? "HealthCheckPort")
+      Core.<*> (x Core..@? "Target")
+      Core.<*> (x Core..@? "TargetHealth")

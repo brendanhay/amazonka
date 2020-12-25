@@ -13,52 +13,57 @@
 module Network.AWS.MQ.Types.SanitizationWarningReason
   ( SanitizationWarningReason
       ( SanitizationWarningReason',
-        DisallowedElementRemoved,
-        DisallowedAttributeRemoved,
-        InvalidAttributeValueRemoved
+        SanitizationWarningReasonDisallowedElementRemoved,
+        SanitizationWarningReasonDisallowedAttributeRemoved,
+        SanitizationWarningReasonInvalidAttributeValueRemoved,
+        fromSanitizationWarningReason
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The reason for which the XML elements or attributes were sanitized.
-newtype SanitizationWarningReason = SanitizationWarningReason' Lude.Text
+newtype SanitizationWarningReason = SanitizationWarningReason'
+  { fromSanitizationWarningReason ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DisallowedElementRemoved :: SanitizationWarningReason
-pattern DisallowedElementRemoved = SanitizationWarningReason' "DISALLOWED_ELEMENT_REMOVED"
+pattern SanitizationWarningReasonDisallowedElementRemoved :: SanitizationWarningReason
+pattern SanitizationWarningReasonDisallowedElementRemoved = SanitizationWarningReason' "DISALLOWED_ELEMENT_REMOVED"
 
-pattern DisallowedAttributeRemoved :: SanitizationWarningReason
-pattern DisallowedAttributeRemoved = SanitizationWarningReason' "DISALLOWED_ATTRIBUTE_REMOVED"
+pattern SanitizationWarningReasonDisallowedAttributeRemoved :: SanitizationWarningReason
+pattern SanitizationWarningReasonDisallowedAttributeRemoved = SanitizationWarningReason' "DISALLOWED_ATTRIBUTE_REMOVED"
 
-pattern InvalidAttributeValueRemoved :: SanitizationWarningReason
-pattern InvalidAttributeValueRemoved = SanitizationWarningReason' "INVALID_ATTRIBUTE_VALUE_REMOVED"
+pattern SanitizationWarningReasonInvalidAttributeValueRemoved :: SanitizationWarningReason
+pattern SanitizationWarningReasonInvalidAttributeValueRemoved = SanitizationWarningReason' "INVALID_ATTRIBUTE_VALUE_REMOVED"
 
 {-# COMPLETE
-  DisallowedElementRemoved,
-  DisallowedAttributeRemoved,
-  InvalidAttributeValueRemoved,
+  SanitizationWarningReasonDisallowedElementRemoved,
+  SanitizationWarningReasonDisallowedAttributeRemoved,
+  SanitizationWarningReasonInvalidAttributeValueRemoved,
   SanitizationWarningReason'
   #-}

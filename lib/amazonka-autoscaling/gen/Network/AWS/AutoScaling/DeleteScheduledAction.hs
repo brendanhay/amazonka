@@ -20,8 +20,8 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     mkDeleteScheduledAction,
 
     -- ** Request lenses
-    dsafScheduledActionName,
-    dsafAutoScalingGroupName,
+    dsaAutoScalingGroupName,
+    dsaScheduledActionName,
 
     -- * Destructuring the response
     DeleteScheduledActionResponse (..),
@@ -29,81 +29,75 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-  { -- | The name of the action to delete.
-    scheduledActionName :: Lude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.ResourceName,
+    -- | The name of the action to delete.
+    scheduledActionName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
---
--- * 'scheduledActionName' - The name of the action to delete.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'DeleteScheduledAction' value with any optional fields omitted.
 mkDeleteScheduledAction ::
-  -- | 'scheduledActionName'
-  Lude.Text ->
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
+  -- | 'scheduledActionName'
+  Types.ResourceName ->
   DeleteScheduledAction
-mkDeleteScheduledAction
-  pScheduledActionName_
-  pAutoScalingGroupName_ =
-    DeleteScheduledAction'
-      { scheduledActionName =
-          pScheduledActionName_,
-        autoScalingGroupName = pAutoScalingGroupName_
-      }
-
--- | The name of the action to delete.
---
--- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsafScheduledActionName :: Lens.Lens' DeleteScheduledAction Lude.Text
-dsafScheduledActionName = Lens.lens (scheduledActionName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: DeleteScheduledAction)
-{-# DEPRECATED dsafScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
+mkDeleteScheduledAction autoScalingGroupName scheduledActionName =
+  DeleteScheduledAction' {autoScalingGroupName, scheduledActionName}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsafAutoScalingGroupName :: Lens.Lens' DeleteScheduledAction Lude.Text
-dsafAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteScheduledAction)
-{-# DEPRECATED dsafAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dsaAutoScalingGroupName :: Lens.Lens' DeleteScheduledAction Types.ResourceName
+dsaAutoScalingGroupName = Lens.field @"autoScalingGroupName"
+{-# DEPRECATED dsaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteScheduledAction where
+-- | The name of the action to delete.
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaScheduledActionName :: Lens.Lens' DeleteScheduledAction Types.ResourceName
+dsaScheduledActionName = Lens.field @"scheduledActionName"
+{-# DEPRECATED dsaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
+
+instance Core.AWSRequest DeleteScheduledAction where
   type Rs DeleteScheduledAction = DeleteScheduledActionResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull DeleteScheduledActionResponse'
-
-instance Lude.ToHeaders DeleteScheduledAction where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteScheduledAction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteScheduledAction where
-  toQuery DeleteScheduledAction' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteScheduledAction" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "ScheduledActionName" Lude.=: scheduledActionName,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteScheduledAction")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "ScheduledActionName" scheduledActionName)
+            )
+      }
+  response = Response.receiveNull DeleteScheduledActionResponse'
 
 -- | /See:/ 'mkDeleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteScheduledActionResponse' value with any optional fields omitted.
 mkDeleteScheduledActionResponse ::
   DeleteScheduledActionResponse
 mkDeleteScheduledActionResponse = DeleteScheduledActionResponse'

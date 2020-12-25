@@ -17,179 +17,169 @@ module Network.AWS.DirectoryService.Types.Trust
     mkTrust,
 
     -- * Lenses
-    tDirectoryId,
-    tTrustState,
-    tLastUpdatedDateTime,
-    tTrustDirection,
-    tStateLastUpdatedDateTime,
-    tTrustType,
-    tTrustStateReason,
-    tSelectiveAuth,
-    tRemoteDomainName,
-    tTrustId,
     tCreatedDateTime,
+    tDirectoryId,
+    tLastUpdatedDateTime,
+    tRemoteDomainName,
+    tSelectiveAuth,
+    tStateLastUpdatedDateTime,
+    tTrustDirection,
+    tTrustId,
+    tTrustState,
+    tTrustStateReason,
+    tTrustType,
   )
 where
 
-import Network.AWS.DirectoryService.Types.SelectiveAuth
-import Network.AWS.DirectoryService.Types.TrustDirection
-import Network.AWS.DirectoryService.Types.TrustState
-import Network.AWS.DirectoryService.Types.TrustType
+import qualified Network.AWS.DirectoryService.Types.DirectoryId as Types
+import qualified Network.AWS.DirectoryService.Types.RemoteDomainName as Types
+import qualified Network.AWS.DirectoryService.Types.SelectiveAuth as Types
+import qualified Network.AWS.DirectoryService.Types.TrustDirection as Types
+import qualified Network.AWS.DirectoryService.Types.TrustId as Types
+import qualified Network.AWS.DirectoryService.Types.TrustState as Types
+import qualified Network.AWS.DirectoryService.Types.TrustStateReason as Types
+import qualified Network.AWS.DirectoryService.Types.TrustType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a trust relationship between an AWS Managed Microsoft AD directory and an external domain.
 --
 -- /See:/ 'mkTrust' smart constructor.
 data Trust = Trust'
-  { -- | The Directory ID of the AWS directory involved in the trust relationship.
-    directoryId :: Lude.Maybe Lude.Text,
-    -- | The trust relationship state.
-    trustState :: Lude.Maybe TrustState,
+  { -- | The date and time that the trust relationship was created.
+    createdDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The Directory ID of the AWS directory involved in the trust relationship.
+    directoryId :: Core.Maybe Types.DirectoryId,
     -- | The date and time that the trust relationship was last updated.
-    lastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The trust relationship direction.
-    trustDirection :: Lude.Maybe TrustDirection,
-    -- | The date and time that the TrustState was last updated.
-    stateLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The trust relationship type. @Forest@ is the default.
-    trustType :: Lude.Maybe TrustType,
-    -- | The reason for the TrustState.
-    trustStateReason :: Lude.Maybe Lude.Text,
-    -- | Current state of selective authentication for the trust.
-    selectiveAuth :: Lude.Maybe SelectiveAuth,
+    lastUpdatedDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
-    remoteDomainName :: Lude.Maybe Lude.Text,
+    remoteDomainName :: Core.Maybe Types.RemoteDomainName,
+    -- | Current state of selective authentication for the trust.
+    selectiveAuth :: Core.Maybe Types.SelectiveAuth,
+    -- | The date and time that the TrustState was last updated.
+    stateLastUpdatedDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The trust relationship direction.
+    trustDirection :: Core.Maybe Types.TrustDirection,
     -- | The unique ID of the trust relationship.
-    trustId :: Lude.Maybe Lude.Text,
-    -- | The date and time that the trust relationship was created.
-    createdDateTime :: Lude.Maybe Lude.Timestamp
+    trustId :: Core.Maybe Types.TrustId,
+    -- | The trust relationship state.
+    trustState :: Core.Maybe Types.TrustState,
+    -- | The reason for the TrustState.
+    trustStateReason :: Core.Maybe Types.TrustStateReason,
+    -- | The trust relationship type. @Forest@ is the default.
+    trustType :: Core.Maybe Types.TrustType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Trust' with the minimum fields required to make a request.
---
--- * 'directoryId' - The Directory ID of the AWS directory involved in the trust relationship.
--- * 'trustState' - The trust relationship state.
--- * 'lastUpdatedDateTime' - The date and time that the trust relationship was last updated.
--- * 'trustDirection' - The trust relationship direction.
--- * 'stateLastUpdatedDateTime' - The date and time that the TrustState was last updated.
--- * 'trustType' - The trust relationship type. @Forest@ is the default.
--- * 'trustStateReason' - The reason for the TrustState.
--- * 'selectiveAuth' - Current state of selective authentication for the trust.
--- * 'remoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
--- * 'trustId' - The unique ID of the trust relationship.
--- * 'createdDateTime' - The date and time that the trust relationship was created.
+-- | Creates a 'Trust' value with any optional fields omitted.
 mkTrust ::
   Trust
 mkTrust =
   Trust'
-    { directoryId = Lude.Nothing,
-      trustState = Lude.Nothing,
-      lastUpdatedDateTime = Lude.Nothing,
-      trustDirection = Lude.Nothing,
-      stateLastUpdatedDateTime = Lude.Nothing,
-      trustType = Lude.Nothing,
-      trustStateReason = Lude.Nothing,
-      selectiveAuth = Lude.Nothing,
-      remoteDomainName = Lude.Nothing,
-      trustId = Lude.Nothing,
-      createdDateTime = Lude.Nothing
+    { createdDateTime = Core.Nothing,
+      directoryId = Core.Nothing,
+      lastUpdatedDateTime = Core.Nothing,
+      remoteDomainName = Core.Nothing,
+      selectiveAuth = Core.Nothing,
+      stateLastUpdatedDateTime = Core.Nothing,
+      trustDirection = Core.Nothing,
+      trustId = Core.Nothing,
+      trustState = Core.Nothing,
+      trustStateReason = Core.Nothing,
+      trustType = Core.Nothing
     }
-
--- | The Directory ID of the AWS directory involved in the trust relationship.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tDirectoryId :: Lens.Lens' Trust (Lude.Maybe Lude.Text)
-tDirectoryId = Lens.lens (directoryId :: Trust -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: Trust)
-{-# DEPRECATED tDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | The trust relationship state.
---
--- /Note:/ Consider using 'trustState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrustState :: Lens.Lens' Trust (Lude.Maybe TrustState)
-tTrustState = Lens.lens (trustState :: Trust -> Lude.Maybe TrustState) (\s a -> s {trustState = a} :: Trust)
-{-# DEPRECATED tTrustState "Use generic-lens or generic-optics with 'trustState' instead." #-}
-
--- | The date and time that the trust relationship was last updated.
---
--- /Note:/ Consider using 'lastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tLastUpdatedDateTime :: Lens.Lens' Trust (Lude.Maybe Lude.Timestamp)
-tLastUpdatedDateTime = Lens.lens (lastUpdatedDateTime :: Trust -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDateTime = a} :: Trust)
-{-# DEPRECATED tLastUpdatedDateTime "Use generic-lens or generic-optics with 'lastUpdatedDateTime' instead." #-}
-
--- | The trust relationship direction.
---
--- /Note:/ Consider using 'trustDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrustDirection :: Lens.Lens' Trust (Lude.Maybe TrustDirection)
-tTrustDirection = Lens.lens (trustDirection :: Trust -> Lude.Maybe TrustDirection) (\s a -> s {trustDirection = a} :: Trust)
-{-# DEPRECATED tTrustDirection "Use generic-lens or generic-optics with 'trustDirection' instead." #-}
-
--- | The date and time that the TrustState was last updated.
---
--- /Note:/ Consider using 'stateLastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tStateLastUpdatedDateTime :: Lens.Lens' Trust (Lude.Maybe Lude.Timestamp)
-tStateLastUpdatedDateTime = Lens.lens (stateLastUpdatedDateTime :: Trust -> Lude.Maybe Lude.Timestamp) (\s a -> s {stateLastUpdatedDateTime = a} :: Trust)
-{-# DEPRECATED tStateLastUpdatedDateTime "Use generic-lens or generic-optics with 'stateLastUpdatedDateTime' instead." #-}
-
--- | The trust relationship type. @Forest@ is the default.
---
--- /Note:/ Consider using 'trustType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrustType :: Lens.Lens' Trust (Lude.Maybe TrustType)
-tTrustType = Lens.lens (trustType :: Trust -> Lude.Maybe TrustType) (\s a -> s {trustType = a} :: Trust)
-{-# DEPRECATED tTrustType "Use generic-lens or generic-optics with 'trustType' instead." #-}
-
--- | The reason for the TrustState.
---
--- /Note:/ Consider using 'trustStateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrustStateReason :: Lens.Lens' Trust (Lude.Maybe Lude.Text)
-tTrustStateReason = Lens.lens (trustStateReason :: Trust -> Lude.Maybe Lude.Text) (\s a -> s {trustStateReason = a} :: Trust)
-{-# DEPRECATED tTrustStateReason "Use generic-lens or generic-optics with 'trustStateReason' instead." #-}
-
--- | Current state of selective authentication for the trust.
---
--- /Note:/ Consider using 'selectiveAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tSelectiveAuth :: Lens.Lens' Trust (Lude.Maybe SelectiveAuth)
-tSelectiveAuth = Lens.lens (selectiveAuth :: Trust -> Lude.Maybe SelectiveAuth) (\s a -> s {selectiveAuth = a} :: Trust)
-{-# DEPRECATED tSelectiveAuth "Use generic-lens or generic-optics with 'selectiveAuth' instead." #-}
-
--- | The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
---
--- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tRemoteDomainName :: Lens.Lens' Trust (Lude.Maybe Lude.Text)
-tRemoteDomainName = Lens.lens (remoteDomainName :: Trust -> Lude.Maybe Lude.Text) (\s a -> s {remoteDomainName = a} :: Trust)
-{-# DEPRECATED tRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
-
--- | The unique ID of the trust relationship.
---
--- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrustId :: Lens.Lens' Trust (Lude.Maybe Lude.Text)
-tTrustId = Lens.lens (trustId :: Trust -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: Trust)
-{-# DEPRECATED tTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
 -- | The date and time that the trust relationship was created.
 --
 -- /Note:/ Consider using 'createdDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tCreatedDateTime :: Lens.Lens' Trust (Lude.Maybe Lude.Timestamp)
-tCreatedDateTime = Lens.lens (createdDateTime :: Trust -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDateTime = a} :: Trust)
+tCreatedDateTime :: Lens.Lens' Trust (Core.Maybe Core.NominalDiffTime)
+tCreatedDateTime = Lens.field @"createdDateTime"
 {-# DEPRECATED tCreatedDateTime "Use generic-lens or generic-optics with 'createdDateTime' instead." #-}
 
-instance Lude.FromJSON Trust where
+-- | The Directory ID of the AWS directory involved in the trust relationship.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDirectoryId :: Lens.Lens' Trust (Core.Maybe Types.DirectoryId)
+tDirectoryId = Lens.field @"directoryId"
+{-# DEPRECATED tDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+
+-- | The date and time that the trust relationship was last updated.
+--
+-- /Note:/ Consider using 'lastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tLastUpdatedDateTime :: Lens.Lens' Trust (Core.Maybe Core.NominalDiffTime)
+tLastUpdatedDateTime = Lens.field @"lastUpdatedDateTime"
+{-# DEPRECATED tLastUpdatedDateTime "Use generic-lens or generic-optics with 'lastUpdatedDateTime' instead." #-}
+
+-- | The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
+--
+-- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tRemoteDomainName :: Lens.Lens' Trust (Core.Maybe Types.RemoteDomainName)
+tRemoteDomainName = Lens.field @"remoteDomainName"
+{-# DEPRECATED tRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
+
+-- | Current state of selective authentication for the trust.
+--
+-- /Note:/ Consider using 'selectiveAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSelectiveAuth :: Lens.Lens' Trust (Core.Maybe Types.SelectiveAuth)
+tSelectiveAuth = Lens.field @"selectiveAuth"
+{-# DEPRECATED tSelectiveAuth "Use generic-lens or generic-optics with 'selectiveAuth' instead." #-}
+
+-- | The date and time that the TrustState was last updated.
+--
+-- /Note:/ Consider using 'stateLastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStateLastUpdatedDateTime :: Lens.Lens' Trust (Core.Maybe Core.NominalDiffTime)
+tStateLastUpdatedDateTime = Lens.field @"stateLastUpdatedDateTime"
+{-# DEPRECATED tStateLastUpdatedDateTime "Use generic-lens or generic-optics with 'stateLastUpdatedDateTime' instead." #-}
+
+-- | The trust relationship direction.
+--
+-- /Note:/ Consider using 'trustDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrustDirection :: Lens.Lens' Trust (Core.Maybe Types.TrustDirection)
+tTrustDirection = Lens.field @"trustDirection"
+{-# DEPRECATED tTrustDirection "Use generic-lens or generic-optics with 'trustDirection' instead." #-}
+
+-- | The unique ID of the trust relationship.
+--
+-- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrustId :: Lens.Lens' Trust (Core.Maybe Types.TrustId)
+tTrustId = Lens.field @"trustId"
+{-# DEPRECATED tTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
+
+-- | The trust relationship state.
+--
+-- /Note:/ Consider using 'trustState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrustState :: Lens.Lens' Trust (Core.Maybe Types.TrustState)
+tTrustState = Lens.field @"trustState"
+{-# DEPRECATED tTrustState "Use generic-lens or generic-optics with 'trustState' instead." #-}
+
+-- | The reason for the TrustState.
+--
+-- /Note:/ Consider using 'trustStateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrustStateReason :: Lens.Lens' Trust (Core.Maybe Types.TrustStateReason)
+tTrustStateReason = Lens.field @"trustStateReason"
+{-# DEPRECATED tTrustStateReason "Use generic-lens or generic-optics with 'trustStateReason' instead." #-}
+
+-- | The trust relationship type. @Forest@ is the default.
+--
+-- /Note:/ Consider using 'trustType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrustType :: Lens.Lens' Trust (Core.Maybe Types.TrustType)
+tTrustType = Lens.field @"trustType"
+{-# DEPRECATED tTrustType "Use generic-lens or generic-optics with 'trustType' instead." #-}
+
+instance Core.FromJSON Trust where
   parseJSON =
-    Lude.withObject
-      "Trust"
-      ( \x ->
-          Trust'
-            Lude.<$> (x Lude..:? "DirectoryId")
-            Lude.<*> (x Lude..:? "TrustState")
-            Lude.<*> (x Lude..:? "LastUpdatedDateTime")
-            Lude.<*> (x Lude..:? "TrustDirection")
-            Lude.<*> (x Lude..:? "StateLastUpdatedDateTime")
-            Lude.<*> (x Lude..:? "TrustType")
-            Lude.<*> (x Lude..:? "TrustStateReason")
-            Lude.<*> (x Lude..:? "SelectiveAuth")
-            Lude.<*> (x Lude..:? "RemoteDomainName")
-            Lude.<*> (x Lude..:? "TrustId")
-            Lude.<*> (x Lude..:? "CreatedDateTime")
-      )
+    Core.withObject "Trust" Core.$
+      \x ->
+        Trust'
+          Core.<$> (x Core..:? "CreatedDateTime")
+          Core.<*> (x Core..:? "DirectoryId")
+          Core.<*> (x Core..:? "LastUpdatedDateTime")
+          Core.<*> (x Core..:? "RemoteDomainName")
+          Core.<*> (x Core..:? "SelectiveAuth")
+          Core.<*> (x Core..:? "StateLastUpdatedDateTime")
+          Core.<*> (x Core..:? "TrustDirection")
+          Core.<*> (x Core..:? "TrustId")
+          Core.<*> (x Core..:? "TrustState")
+          Core.<*> (x Core..:? "TrustStateReason")
+          Core.<*> (x Core..:? "TrustType")

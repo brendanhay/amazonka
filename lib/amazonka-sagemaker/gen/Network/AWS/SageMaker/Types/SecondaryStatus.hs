@@ -13,106 +13,111 @@
 module Network.AWS.SageMaker.Types.SecondaryStatus
   ( SecondaryStatus
       ( SecondaryStatus',
-        SStarting,
-        SLaunchingMLInstances,
-        SPreparingTrainingStack,
-        SDownloading,
-        SDownloadingTrainingImage,
-        STraining,
-        SUploading,
-        SStopping,
-        SStopped,
-        SMaxRuntimeExceeded,
-        SCompleted,
-        SFailed,
-        SInterrupted,
-        SMaxWaitTimeExceeded
+        SecondaryStatusStarting,
+        SecondaryStatusLaunchingMLInstances,
+        SecondaryStatusPreparingTrainingStack,
+        SecondaryStatusDownloading,
+        SecondaryStatusDownloadingTrainingImage,
+        SecondaryStatusTraining,
+        SecondaryStatusUploading,
+        SecondaryStatusStopping,
+        SecondaryStatusStopped,
+        SecondaryStatusMaxRuntimeExceeded,
+        SecondaryStatusCompleted,
+        SecondaryStatusFailed,
+        SecondaryStatusInterrupted,
+        SecondaryStatusMaxWaitTimeExceeded,
+        fromSecondaryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SecondaryStatus = SecondaryStatus' Lude.Text
+newtype SecondaryStatus = SecondaryStatus'
+  { fromSecondaryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SStarting :: SecondaryStatus
-pattern SStarting = SecondaryStatus' "Starting"
+pattern SecondaryStatusStarting :: SecondaryStatus
+pattern SecondaryStatusStarting = SecondaryStatus' "Starting"
 
-pattern SLaunchingMLInstances :: SecondaryStatus
-pattern SLaunchingMLInstances = SecondaryStatus' "LaunchingMLInstances"
+pattern SecondaryStatusLaunchingMLInstances :: SecondaryStatus
+pattern SecondaryStatusLaunchingMLInstances = SecondaryStatus' "LaunchingMLInstances"
 
-pattern SPreparingTrainingStack :: SecondaryStatus
-pattern SPreparingTrainingStack = SecondaryStatus' "PreparingTrainingStack"
+pattern SecondaryStatusPreparingTrainingStack :: SecondaryStatus
+pattern SecondaryStatusPreparingTrainingStack = SecondaryStatus' "PreparingTrainingStack"
 
-pattern SDownloading :: SecondaryStatus
-pattern SDownloading = SecondaryStatus' "Downloading"
+pattern SecondaryStatusDownloading :: SecondaryStatus
+pattern SecondaryStatusDownloading = SecondaryStatus' "Downloading"
 
-pattern SDownloadingTrainingImage :: SecondaryStatus
-pattern SDownloadingTrainingImage = SecondaryStatus' "DownloadingTrainingImage"
+pattern SecondaryStatusDownloadingTrainingImage :: SecondaryStatus
+pattern SecondaryStatusDownloadingTrainingImage = SecondaryStatus' "DownloadingTrainingImage"
 
-pattern STraining :: SecondaryStatus
-pattern STraining = SecondaryStatus' "Training"
+pattern SecondaryStatusTraining :: SecondaryStatus
+pattern SecondaryStatusTraining = SecondaryStatus' "Training"
 
-pattern SUploading :: SecondaryStatus
-pattern SUploading = SecondaryStatus' "Uploading"
+pattern SecondaryStatusUploading :: SecondaryStatus
+pattern SecondaryStatusUploading = SecondaryStatus' "Uploading"
 
-pattern SStopping :: SecondaryStatus
-pattern SStopping = SecondaryStatus' "Stopping"
+pattern SecondaryStatusStopping :: SecondaryStatus
+pattern SecondaryStatusStopping = SecondaryStatus' "Stopping"
 
-pattern SStopped :: SecondaryStatus
-pattern SStopped = SecondaryStatus' "Stopped"
+pattern SecondaryStatusStopped :: SecondaryStatus
+pattern SecondaryStatusStopped = SecondaryStatus' "Stopped"
 
-pattern SMaxRuntimeExceeded :: SecondaryStatus
-pattern SMaxRuntimeExceeded = SecondaryStatus' "MaxRuntimeExceeded"
+pattern SecondaryStatusMaxRuntimeExceeded :: SecondaryStatus
+pattern SecondaryStatusMaxRuntimeExceeded = SecondaryStatus' "MaxRuntimeExceeded"
 
-pattern SCompleted :: SecondaryStatus
-pattern SCompleted = SecondaryStatus' "Completed"
+pattern SecondaryStatusCompleted :: SecondaryStatus
+pattern SecondaryStatusCompleted = SecondaryStatus' "Completed"
 
-pattern SFailed :: SecondaryStatus
-pattern SFailed = SecondaryStatus' "Failed"
+pattern SecondaryStatusFailed :: SecondaryStatus
+pattern SecondaryStatusFailed = SecondaryStatus' "Failed"
 
-pattern SInterrupted :: SecondaryStatus
-pattern SInterrupted = SecondaryStatus' "Interrupted"
+pattern SecondaryStatusInterrupted :: SecondaryStatus
+pattern SecondaryStatusInterrupted = SecondaryStatus' "Interrupted"
 
-pattern SMaxWaitTimeExceeded :: SecondaryStatus
-pattern SMaxWaitTimeExceeded = SecondaryStatus' "MaxWaitTimeExceeded"
+pattern SecondaryStatusMaxWaitTimeExceeded :: SecondaryStatus
+pattern SecondaryStatusMaxWaitTimeExceeded = SecondaryStatus' "MaxWaitTimeExceeded"
 
 {-# COMPLETE
-  SStarting,
-  SLaunchingMLInstances,
-  SPreparingTrainingStack,
-  SDownloading,
-  SDownloadingTrainingImage,
-  STraining,
-  SUploading,
-  SStopping,
-  SStopped,
-  SMaxRuntimeExceeded,
-  SCompleted,
-  SFailed,
-  SInterrupted,
-  SMaxWaitTimeExceeded,
+  SecondaryStatusStarting,
+  SecondaryStatusLaunchingMLInstances,
+  SecondaryStatusPreparingTrainingStack,
+  SecondaryStatusDownloading,
+  SecondaryStatusDownloadingTrainingImage,
+  SecondaryStatusTraining,
+  SecondaryStatusUploading,
+  SecondaryStatusStopping,
+  SecondaryStatusStopped,
+  SecondaryStatusMaxRuntimeExceeded,
+  SecondaryStatusCompleted,
+  SecondaryStatusFailed,
+  SecondaryStatusInterrupted,
+  SecondaryStatusMaxWaitTimeExceeded,
   SecondaryStatus'
   #-}

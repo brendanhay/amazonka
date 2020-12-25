@@ -13,81 +13,86 @@
 module Network.AWS.CodeCommit.Types.PullRequestEventType
   ( PullRequestEventType
       ( PullRequestEventType',
-        PullRequestCreated,
-        PullRequestStatusChanged,
-        PullRequestSourceReferenceUpdated,
-        PullRequestMergeStateChanged,
-        PullRequestApprovalRuleCreated,
-        PullRequestApprovalRuleUpdated,
-        PullRequestApprovalRuleDeleted,
-        PullRequestApprovalRuleOverridden,
-        PullRequestApprovalStateChanged
+        PullRequestEventTypePullRequestCreated,
+        PullRequestEventTypePullRequestStatusChanged,
+        PullRequestEventTypePullRequestSourceReferenceUpdated,
+        PullRequestEventTypePullRequestMergeStateChanged,
+        PullRequestEventTypePullRequestApprovalRuleCreated,
+        PullRequestEventTypePullRequestApprovalRuleUpdated,
+        PullRequestEventTypePullRequestApprovalRuleDeleted,
+        PullRequestEventTypePullRequestApprovalRuleOverridden,
+        PullRequestEventTypePullRequestApprovalStateChanged,
+        fromPullRequestEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PullRequestEventType = PullRequestEventType' Lude.Text
+newtype PullRequestEventType = PullRequestEventType'
+  { fromPullRequestEventType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PullRequestCreated :: PullRequestEventType
-pattern PullRequestCreated = PullRequestEventType' "PULL_REQUEST_CREATED"
+pattern PullRequestEventTypePullRequestCreated :: PullRequestEventType
+pattern PullRequestEventTypePullRequestCreated = PullRequestEventType' "PULL_REQUEST_CREATED"
 
-pattern PullRequestStatusChanged :: PullRequestEventType
-pattern PullRequestStatusChanged = PullRequestEventType' "PULL_REQUEST_STATUS_CHANGED"
+pattern PullRequestEventTypePullRequestStatusChanged :: PullRequestEventType
+pattern PullRequestEventTypePullRequestStatusChanged = PullRequestEventType' "PULL_REQUEST_STATUS_CHANGED"
 
-pattern PullRequestSourceReferenceUpdated :: PullRequestEventType
-pattern PullRequestSourceReferenceUpdated = PullRequestEventType' "PULL_REQUEST_SOURCE_REFERENCE_UPDATED"
+pattern PullRequestEventTypePullRequestSourceReferenceUpdated :: PullRequestEventType
+pattern PullRequestEventTypePullRequestSourceReferenceUpdated = PullRequestEventType' "PULL_REQUEST_SOURCE_REFERENCE_UPDATED"
 
-pattern PullRequestMergeStateChanged :: PullRequestEventType
-pattern PullRequestMergeStateChanged = PullRequestEventType' "PULL_REQUEST_MERGE_STATE_CHANGED"
+pattern PullRequestEventTypePullRequestMergeStateChanged :: PullRequestEventType
+pattern PullRequestEventTypePullRequestMergeStateChanged = PullRequestEventType' "PULL_REQUEST_MERGE_STATE_CHANGED"
 
-pattern PullRequestApprovalRuleCreated :: PullRequestEventType
-pattern PullRequestApprovalRuleCreated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_CREATED"
+pattern PullRequestEventTypePullRequestApprovalRuleCreated :: PullRequestEventType
+pattern PullRequestEventTypePullRequestApprovalRuleCreated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_CREATED"
 
-pattern PullRequestApprovalRuleUpdated :: PullRequestEventType
-pattern PullRequestApprovalRuleUpdated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_UPDATED"
+pattern PullRequestEventTypePullRequestApprovalRuleUpdated :: PullRequestEventType
+pattern PullRequestEventTypePullRequestApprovalRuleUpdated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_UPDATED"
 
-pattern PullRequestApprovalRuleDeleted :: PullRequestEventType
-pattern PullRequestApprovalRuleDeleted = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_DELETED"
+pattern PullRequestEventTypePullRequestApprovalRuleDeleted :: PullRequestEventType
+pattern PullRequestEventTypePullRequestApprovalRuleDeleted = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_DELETED"
 
-pattern PullRequestApprovalRuleOverridden :: PullRequestEventType
-pattern PullRequestApprovalRuleOverridden = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN"
+pattern PullRequestEventTypePullRequestApprovalRuleOverridden :: PullRequestEventType
+pattern PullRequestEventTypePullRequestApprovalRuleOverridden = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN"
 
-pattern PullRequestApprovalStateChanged :: PullRequestEventType
-pattern PullRequestApprovalStateChanged = PullRequestEventType' "PULL_REQUEST_APPROVAL_STATE_CHANGED"
+pattern PullRequestEventTypePullRequestApprovalStateChanged :: PullRequestEventType
+pattern PullRequestEventTypePullRequestApprovalStateChanged = PullRequestEventType' "PULL_REQUEST_APPROVAL_STATE_CHANGED"
 
 {-# COMPLETE
-  PullRequestCreated,
-  PullRequestStatusChanged,
-  PullRequestSourceReferenceUpdated,
-  PullRequestMergeStateChanged,
-  PullRequestApprovalRuleCreated,
-  PullRequestApprovalRuleUpdated,
-  PullRequestApprovalRuleDeleted,
-  PullRequestApprovalRuleOverridden,
-  PullRequestApprovalStateChanged,
+  PullRequestEventTypePullRequestCreated,
+  PullRequestEventTypePullRequestStatusChanged,
+  PullRequestEventTypePullRequestSourceReferenceUpdated,
+  PullRequestEventTypePullRequestMergeStateChanged,
+  PullRequestEventTypePullRequestApprovalRuleCreated,
+  PullRequestEventTypePullRequestApprovalRuleUpdated,
+  PullRequestEventTypePullRequestApprovalRuleDeleted,
+  PullRequestEventTypePullRequestApprovalRuleOverridden,
+  PullRequestEventTypePullRequestApprovalStateChanged,
   PullRequestEventType'
   #-}

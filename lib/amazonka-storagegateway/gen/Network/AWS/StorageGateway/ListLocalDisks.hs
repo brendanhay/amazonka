@@ -29,119 +29,94 @@ module Network.AWS.StorageGateway.ListLocalDisks
     mkListLocalDisksResponse,
 
     -- ** Response lenses
-    lldrsGatewayARN,
-    lldrsDisks,
-    lldrsResponseStatus,
+    lldrrsDisks,
+    lldrrsGatewayARN,
+    lldrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway.
 --
 -- /See:/ 'mkListLocalDisks' smart constructor.
 newtype ListLocalDisks = ListLocalDisks'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListLocalDisks' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'ListLocalDisks' value with any optional fields omitted.
 mkListLocalDisks ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   ListLocalDisks
-mkListLocalDisks pGatewayARN_ =
-  ListLocalDisks' {gatewayARN = pGatewayARN_}
+mkListLocalDisks gatewayARN = ListLocalDisks' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lldGatewayARN :: Lens.Lens' ListLocalDisks Lude.Text
-lldGatewayARN = Lens.lens (gatewayARN :: ListLocalDisks -> Lude.Text) (\s a -> s {gatewayARN = a} :: ListLocalDisks)
+lldGatewayARN :: Lens.Lens' ListLocalDisks Types.GatewayARN
+lldGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED lldGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest ListLocalDisks where
+instance Core.FromJSON ListLocalDisks where
+  toJSON ListLocalDisks {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest ListLocalDisks where
   type Rs ListLocalDisks = ListLocalDisksResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.ListLocalDisks")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListLocalDisksResponse'
-            Lude.<$> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "Disks" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Disks")
+            Core.<*> (x Core..:? "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListLocalDisks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.ListLocalDisks" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListLocalDisks where
-  toJSON ListLocalDisks' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath ListLocalDisks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListLocalDisks where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListLocalDisksResponse' smart constructor.
 data ListLocalDisksResponse = ListLocalDisksResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
-    -- | A JSON object containing the following fields:
+  { -- | A JSON object containing the following fields:
     --
     --
     --     * 'ListLocalDisksOutput$Disks'
-    disks :: Lude.Maybe [Disk],
+    disks :: Core.Maybe [Types.Disk],
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListLocalDisksResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'disks' - A JSON object containing the following fields:
---
---
---     * 'ListLocalDisksOutput$Disks'
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListLocalDisksResponse' value with any optional fields omitted.
 mkListLocalDisksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListLocalDisksResponse
-mkListLocalDisksResponse pResponseStatus_ =
+mkListLocalDisksResponse responseStatus =
   ListLocalDisksResponse'
-    { gatewayARN = Lude.Nothing,
-      disks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { disks = Core.Nothing,
+      gatewayARN = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lldrsGatewayARN :: Lens.Lens' ListLocalDisksResponse (Lude.Maybe Lude.Text)
-lldrsGatewayARN = Lens.lens (gatewayARN :: ListLocalDisksResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ListLocalDisksResponse)
-{-# DEPRECATED lldrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | A JSON object containing the following fields:
 --
@@ -151,13 +126,20 @@ lldrsGatewayARN = Lens.lens (gatewayARN :: ListLocalDisksResponse -> Lude.Maybe 
 --
 --
 -- /Note:/ Consider using 'disks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lldrsDisks :: Lens.Lens' ListLocalDisksResponse (Lude.Maybe [Disk])
-lldrsDisks = Lens.lens (disks :: ListLocalDisksResponse -> Lude.Maybe [Disk]) (\s a -> s {disks = a} :: ListLocalDisksResponse)
-{-# DEPRECATED lldrsDisks "Use generic-lens or generic-optics with 'disks' instead." #-}
+lldrrsDisks :: Lens.Lens' ListLocalDisksResponse (Core.Maybe [Types.Disk])
+lldrrsDisks = Lens.field @"disks"
+{-# DEPRECATED lldrrsDisks "Use generic-lens or generic-optics with 'disks' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldrrsGatewayARN :: Lens.Lens' ListLocalDisksResponse (Core.Maybe Types.GatewayARN)
+lldrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED lldrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lldrsResponseStatus :: Lens.Lens' ListLocalDisksResponse Lude.Int
-lldrsResponseStatus = Lens.lens (responseStatus :: ListLocalDisksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLocalDisksResponse)
-{-# DEPRECATED lldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lldrrsResponseStatus :: Lens.Lens' ListLocalDisksResponse Core.Int
+lldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

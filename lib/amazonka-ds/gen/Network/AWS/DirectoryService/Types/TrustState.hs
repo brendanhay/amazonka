@@ -13,91 +13,93 @@
 module Network.AWS.DirectoryService.Types.TrustState
   ( TrustState
       ( TrustState',
-        TSCreating,
-        TSCreated,
-        TSVerifying,
-        TSVerifyFailed,
-        TSVerified,
-        TSUpdating,
-        TSUpdateFailed,
-        TSUpdated,
-        TSDeleting,
-        TSDeleted,
-        TSFailed
+        TrustStateCreating,
+        TrustStateCreated,
+        TrustStateVerifying,
+        TrustStateVerifyFailed,
+        TrustStateVerified,
+        TrustStateUpdating,
+        TrustStateUpdateFailed,
+        TrustStateUpdated,
+        TrustStateDeleting,
+        TrustStateDeleted,
+        TrustStateFailed,
+        fromTrustState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrustState = TrustState' Lude.Text
+newtype TrustState = TrustState' {fromTrustState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSCreating :: TrustState
-pattern TSCreating = TrustState' "Creating"
+pattern TrustStateCreating :: TrustState
+pattern TrustStateCreating = TrustState' "Creating"
 
-pattern TSCreated :: TrustState
-pattern TSCreated = TrustState' "Created"
+pattern TrustStateCreated :: TrustState
+pattern TrustStateCreated = TrustState' "Created"
 
-pattern TSVerifying :: TrustState
-pattern TSVerifying = TrustState' "Verifying"
+pattern TrustStateVerifying :: TrustState
+pattern TrustStateVerifying = TrustState' "Verifying"
 
-pattern TSVerifyFailed :: TrustState
-pattern TSVerifyFailed = TrustState' "VerifyFailed"
+pattern TrustStateVerifyFailed :: TrustState
+pattern TrustStateVerifyFailed = TrustState' "VerifyFailed"
 
-pattern TSVerified :: TrustState
-pattern TSVerified = TrustState' "Verified"
+pattern TrustStateVerified :: TrustState
+pattern TrustStateVerified = TrustState' "Verified"
 
-pattern TSUpdating :: TrustState
-pattern TSUpdating = TrustState' "Updating"
+pattern TrustStateUpdating :: TrustState
+pattern TrustStateUpdating = TrustState' "Updating"
 
-pattern TSUpdateFailed :: TrustState
-pattern TSUpdateFailed = TrustState' "UpdateFailed"
+pattern TrustStateUpdateFailed :: TrustState
+pattern TrustStateUpdateFailed = TrustState' "UpdateFailed"
 
-pattern TSUpdated :: TrustState
-pattern TSUpdated = TrustState' "Updated"
+pattern TrustStateUpdated :: TrustState
+pattern TrustStateUpdated = TrustState' "Updated"
 
-pattern TSDeleting :: TrustState
-pattern TSDeleting = TrustState' "Deleting"
+pattern TrustStateDeleting :: TrustState
+pattern TrustStateDeleting = TrustState' "Deleting"
 
-pattern TSDeleted :: TrustState
-pattern TSDeleted = TrustState' "Deleted"
+pattern TrustStateDeleted :: TrustState
+pattern TrustStateDeleted = TrustState' "Deleted"
 
-pattern TSFailed :: TrustState
-pattern TSFailed = TrustState' "Failed"
+pattern TrustStateFailed :: TrustState
+pattern TrustStateFailed = TrustState' "Failed"
 
 {-# COMPLETE
-  TSCreating,
-  TSCreated,
-  TSVerifying,
-  TSVerifyFailed,
-  TSVerified,
-  TSUpdating,
-  TSUpdateFailed,
-  TSUpdated,
-  TSDeleting,
-  TSDeleted,
-  TSFailed,
+  TrustStateCreating,
+  TrustStateCreated,
+  TrustStateVerifying,
+  TrustStateVerifyFailed,
+  TrustStateVerified,
+  TrustStateUpdating,
+  TrustStateUpdateFailed,
+  TrustStateUpdated,
+  TrustStateDeleting,
+  TrustStateDeleted,
+  TrustStateFailed,
   TrustState'
   #-}

@@ -17,38 +17,37 @@ module Network.AWS.EC2.Types.CreditSpecification
     mkCreditSpecification,
 
     -- * Lenses
-    csCPUCredits,
+    csCpuCredits,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the credit option for CPU usage of a T2, T3, or T3a instance.
 --
 -- /See:/ 'mkCreditSpecification' smart constructor.
 newtype CreditSpecification = CreditSpecification'
   { -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are @standard@ and @unlimited@ .
-    cpuCredits :: Lude.Maybe Lude.Text
+    cpuCredits :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreditSpecification' with the minimum fields required to make a request.
---
--- * 'cpuCredits' - The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are @standard@ and @unlimited@ .
+-- | Creates a 'CreditSpecification' value with any optional fields omitted.
 mkCreditSpecification ::
   CreditSpecification
 mkCreditSpecification =
-  CreditSpecification' {cpuCredits = Lude.Nothing}
+  CreditSpecification' {cpuCredits = Core.Nothing}
 
 -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are @standard@ and @unlimited@ .
 --
 -- /Note:/ Consider using 'cpuCredits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCPUCredits :: Lens.Lens' CreditSpecification (Lude.Maybe Lude.Text)
-csCPUCredits = Lens.lens (cpuCredits :: CreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {cpuCredits = a} :: CreditSpecification)
-{-# DEPRECATED csCPUCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
+csCpuCredits :: Lens.Lens' CreditSpecification (Core.Maybe Types.String)
+csCpuCredits = Lens.field @"cpuCredits"
+{-# DEPRECATED csCpuCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
 
-instance Lude.FromXML CreditSpecification where
+instance Core.FromXML CreditSpecification where
   parseXML x =
-    CreditSpecification' Lude.<$> (x Lude..@? "cpuCredits")
+    CreditSpecification' Core.<$> (x Core..@? "cpuCredits")

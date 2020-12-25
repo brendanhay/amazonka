@@ -20,169 +20,159 @@ module Network.AWS.IoT.RegisterCertificate
     mkRegisterCertificate,
 
     -- ** Request lenses
-    rcStatus,
-    rcCaCertificatePem,
     rcCertificatePem,
+    rcCaCertificatePem,
     rcSetAsActive,
+    rcStatus,
 
     -- * Destructuring the response
     RegisterCertificateResponse (..),
     mkRegisterCertificateResponse,
 
     -- ** Response lenses
-    rcrsCertificateARN,
-    rcrsCertificateId,
-    rcrsResponseStatus,
+    rcrrsCertificateArn,
+    rcrrsCertificateId,
+    rcrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input to the RegisterCertificate operation.
 --
 -- /See:/ 'mkRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { -- | The status of the register certificate request.
-    status :: Lude.Maybe CertificateStatus,
+  { -- | The certificate data, in PEM format.
+    certificatePem :: Types.CertificatePem,
     -- | The CA certificate used to sign the device certificate being registered.
-    caCertificatePem :: Lude.Maybe Lude.Text,
-    -- | The certificate data, in PEM format.
-    certificatePem :: Lude.Text,
+    caCertificatePem :: Core.Maybe Types.CertificatePem,
     -- | A boolean value that specifies if the certificate is set to active.
-    setAsActive :: Lude.Maybe Lude.Bool
+    setAsActive :: Core.Maybe Core.Bool,
+    -- | The status of the register certificate request.
+    status :: Core.Maybe Types.CertificateStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterCertificate' with the minimum fields required to make a request.
---
--- * 'status' - The status of the register certificate request.
--- * 'caCertificatePem' - The CA certificate used to sign the device certificate being registered.
--- * 'certificatePem' - The certificate data, in PEM format.
--- * 'setAsActive' - A boolean value that specifies if the certificate is set to active.
+-- | Creates a 'RegisterCertificate' value with any optional fields omitted.
 mkRegisterCertificate ::
   -- | 'certificatePem'
-  Lude.Text ->
+  Types.CertificatePem ->
   RegisterCertificate
-mkRegisterCertificate pCertificatePem_ =
+mkRegisterCertificate certificatePem =
   RegisterCertificate'
-    { status = Lude.Nothing,
-      caCertificatePem = Lude.Nothing,
-      certificatePem = pCertificatePem_,
-      setAsActive = Lude.Nothing
+    { certificatePem,
+      caCertificatePem = Core.Nothing,
+      setAsActive = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the register certificate request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcStatus :: Lens.Lens' RegisterCertificate (Lude.Maybe CertificateStatus)
-rcStatus = Lens.lens (status :: RegisterCertificate -> Lude.Maybe CertificateStatus) (\s a -> s {status = a} :: RegisterCertificate)
-{-# DEPRECATED rcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The CA certificate used to sign the device certificate being registered.
---
--- /Note:/ Consider using 'caCertificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCaCertificatePem :: Lens.Lens' RegisterCertificate (Lude.Maybe Lude.Text)
-rcCaCertificatePem = Lens.lens (caCertificatePem :: RegisterCertificate -> Lude.Maybe Lude.Text) (\s a -> s {caCertificatePem = a} :: RegisterCertificate)
-{-# DEPRECATED rcCaCertificatePem "Use generic-lens or generic-optics with 'caCertificatePem' instead." #-}
 
 -- | The certificate data, in PEM format.
 --
 -- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCertificatePem :: Lens.Lens' RegisterCertificate Lude.Text
-rcCertificatePem = Lens.lens (certificatePem :: RegisterCertificate -> Lude.Text) (\s a -> s {certificatePem = a} :: RegisterCertificate)
+rcCertificatePem :: Lens.Lens' RegisterCertificate Types.CertificatePem
+rcCertificatePem = Lens.field @"certificatePem"
 {-# DEPRECATED rcCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
+
+-- | The CA certificate used to sign the device certificate being registered.
+--
+-- /Note:/ Consider using 'caCertificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcCaCertificatePem :: Lens.Lens' RegisterCertificate (Core.Maybe Types.CertificatePem)
+rcCaCertificatePem = Lens.field @"caCertificatePem"
+{-# DEPRECATED rcCaCertificatePem "Use generic-lens or generic-optics with 'caCertificatePem' instead." #-}
 
 -- | A boolean value that specifies if the certificate is set to active.
 --
 -- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcSetAsActive :: Lens.Lens' RegisterCertificate (Lude.Maybe Lude.Bool)
-rcSetAsActive = Lens.lens (setAsActive :: RegisterCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: RegisterCertificate)
+rcSetAsActive :: Lens.Lens' RegisterCertificate (Core.Maybe Core.Bool)
+rcSetAsActive = Lens.field @"setAsActive"
 {-# DEPRECATED rcSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
-instance Lude.AWSRequest RegisterCertificate where
-  type Rs RegisterCertificate = RegisterCertificateResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          RegisterCertificateResponse'
-            Lude.<$> (x Lude..?> "certificateArn")
-            Lude.<*> (x Lude..?> "certificateId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The status of the register certificate request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcStatus :: Lens.Lens' RegisterCertificate (Core.Maybe Types.CertificateStatus)
+rcStatus = Lens.field @"status"
+{-# DEPRECATED rcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.ToHeaders RegisterCertificate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON RegisterCertificate where
-  toJSON RegisterCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("caCertificatePem" Lude..=) Lude.<$> caCertificatePem,
-            Lude.Just ("certificatePem" Lude..= certificatePem)
+instance Core.FromJSON RegisterCertificate where
+  toJSON RegisterCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("certificatePem" Core..= certificatePem),
+            ("caCertificatePem" Core..=) Core.<$> caCertificatePem,
+            ("status" Core..=) Core.<$> status
           ]
       )
 
-instance Lude.ToPath RegisterCertificate where
-  toPath = Lude.const "/certificate/register"
-
-instance Lude.ToQuery RegisterCertificate where
-  toQuery RegisterCertificate' {..} =
-    Lude.mconcat ["setAsActive" Lude.=: setAsActive]
+instance Core.AWSRequest RegisterCertificate where
+  type Rs RegisterCertificate = RegisterCertificateResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/certificate/register",
+        Core._rqQuery =
+          Core.toQueryValue "setAsActive" Core.<$> setAsActive,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterCertificateResponse'
+            Core.<$> (x Core..:? "certificateArn")
+            Core.<*> (x Core..:? "certificateId")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | The output from the RegisterCertificate operation.
 --
 -- /See:/ 'mkRegisterCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
   { -- | The certificate ARN.
-    certificateARN :: Lude.Maybe Lude.Text,
+    certificateArn :: Core.Maybe Types.CertificateArn,
     -- | The certificate identifier.
-    certificateId :: Lude.Maybe Lude.Text,
+    certificateId :: Core.Maybe Types.CertificateId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterCertificateResponse' with the minimum fields required to make a request.
---
--- * 'certificateARN' - The certificate ARN.
--- * 'certificateId' - The certificate identifier.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterCertificateResponse' value with any optional fields omitted.
 mkRegisterCertificateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterCertificateResponse
-mkRegisterCertificateResponse pResponseStatus_ =
+mkRegisterCertificateResponse responseStatus =
   RegisterCertificateResponse'
-    { certificateARN = Lude.Nothing,
-      certificateId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificateArn = Core.Nothing,
+      certificateId = Core.Nothing,
+      responseStatus
     }
 
 -- | The certificate ARN.
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsCertificateARN :: Lens.Lens' RegisterCertificateResponse (Lude.Maybe Lude.Text)
-rcrsCertificateARN = Lens.lens (certificateARN :: RegisterCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: RegisterCertificateResponse)
-{-# DEPRECATED rcrsCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrrsCertificateArn :: Lens.Lens' RegisterCertificateResponse (Core.Maybe Types.CertificateArn)
+rcrrsCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED rcrrsCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The certificate identifier.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsCertificateId :: Lens.Lens' RegisterCertificateResponse (Lude.Maybe Lude.Text)
-rcrsCertificateId = Lens.lens (certificateId :: RegisterCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: RegisterCertificateResponse)
-{-# DEPRECATED rcrsCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+rcrrsCertificateId :: Lens.Lens' RegisterCertificateResponse (Core.Maybe Types.CertificateId)
+rcrrsCertificateId = Lens.field @"certificateId"
+{-# DEPRECATED rcrrsCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsResponseStatus :: Lens.Lens' RegisterCertificateResponse Lude.Int
-rcrsResponseStatus = Lens.lens (responseStatus :: RegisterCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterCertificateResponse)
-{-# DEPRECATED rcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rcrrsResponseStatus :: Lens.Lens' RegisterCertificateResponse Core.Int
+rcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

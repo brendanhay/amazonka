@@ -38,16 +38,16 @@ module Network.AWS.KMS.GetKeyRotationStatus
     mkGetKeyRotationStatusResponse,
 
     -- ** Response lenses
-    gkrsrsKeyRotationEnabled,
-    gkrsrsResponseStatus,
+    gkrsrrsKeyRotationEnabled,
+    gkrsrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetKeyRotationStatus' smart constructor.
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
@@ -63,31 +63,17 @@ newtype GetKeyRotationStatus = GetKeyRotationStatus'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text
+    keyId :: Types.KeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyRotationStatus' with the minimum fields required to make a request.
---
--- * 'keyId' - A unique identifier for the customer master key (CMK).
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- | Creates a 'GetKeyRotationStatus' value with any optional fields omitted.
 mkGetKeyRotationStatus ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyId ->
   GetKeyRotationStatus
-mkGetKeyRotationStatus pKeyId_ =
-  GetKeyRotationStatus' {keyId = pKeyId_}
+mkGetKeyRotationStatus keyId = GetKeyRotationStatus' {keyId}
 
 -- | A unique identifier for the customer master key (CMK).
 --
@@ -103,76 +89,66 @@ mkGetKeyRotationStatus pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkrsKeyId :: Lens.Lens' GetKeyRotationStatus Lude.Text
-gkrsKeyId = Lens.lens (keyId :: GetKeyRotationStatus -> Lude.Text) (\s a -> s {keyId = a} :: GetKeyRotationStatus)
+gkrsKeyId :: Lens.Lens' GetKeyRotationStatus Types.KeyId
+gkrsKeyId = Lens.field @"keyId"
 {-# DEPRECATED gkrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance Lude.AWSRequest GetKeyRotationStatus where
+instance Core.FromJSON GetKeyRotationStatus where
+  toJSON GetKeyRotationStatus {..} =
+    Core.object (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+
+instance Core.AWSRequest GetKeyRotationStatus where
   type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.GetKeyRotationStatus")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetKeyRotationStatusResponse'
-            Lude.<$> (x Lude..?> "KeyRotationEnabled")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "KeyRotationEnabled")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetKeyRotationStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.GetKeyRotationStatus" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetKeyRotationStatus where
-  toJSON GetKeyRotationStatus' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("KeyId" Lude..= keyId)])
-
-instance Lude.ToPath GetKeyRotationStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetKeyRotationStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetKeyRotationStatusResponse' smart constructor.
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
   { -- | A Boolean value that specifies whether key rotation is enabled.
-    keyRotationEnabled :: Lude.Maybe Lude.Bool,
+    keyRotationEnabled :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyRotationStatusResponse' with the minimum fields required to make a request.
---
--- * 'keyRotationEnabled' - A Boolean value that specifies whether key rotation is enabled.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetKeyRotationStatusResponse' value with any optional fields omitted.
 mkGetKeyRotationStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetKeyRotationStatusResponse
-mkGetKeyRotationStatusResponse pResponseStatus_ =
+mkGetKeyRotationStatusResponse responseStatus =
   GetKeyRotationStatusResponse'
-    { keyRotationEnabled = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { keyRotationEnabled = Core.Nothing,
+      responseStatus
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.
 --
 -- /Note:/ Consider using 'keyRotationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkrsrsKeyRotationEnabled :: Lens.Lens' GetKeyRotationStatusResponse (Lude.Maybe Lude.Bool)
-gkrsrsKeyRotationEnabled = Lens.lens (keyRotationEnabled :: GetKeyRotationStatusResponse -> Lude.Maybe Lude.Bool) (\s a -> s {keyRotationEnabled = a} :: GetKeyRotationStatusResponse)
-{-# DEPRECATED gkrsrsKeyRotationEnabled "Use generic-lens or generic-optics with 'keyRotationEnabled' instead." #-}
+gkrsrrsKeyRotationEnabled :: Lens.Lens' GetKeyRotationStatusResponse (Core.Maybe Core.Bool)
+gkrsrrsKeyRotationEnabled = Lens.field @"keyRotationEnabled"
+{-# DEPRECATED gkrsrrsKeyRotationEnabled "Use generic-lens or generic-optics with 'keyRotationEnabled' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkrsrsResponseStatus :: Lens.Lens' GetKeyRotationStatusResponse Lude.Int
-gkrsrsResponseStatus = Lens.lens (responseStatus :: GetKeyRotationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyRotationStatusResponse)
-{-# DEPRECATED gkrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gkrsrrsResponseStatus :: Lens.Lens' GetKeyRotationStatusResponse Core.Int
+gkrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gkrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

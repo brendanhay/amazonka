@@ -20,108 +20,93 @@ module Network.AWS.WorkSpaces.DisassociateConnectionAlias
     mkDisassociateConnectionAlias,
 
     -- ** Request lenses
-    dAliasId,
+    dcaAliasId,
 
     -- * Destructuring the response
     DisassociateConnectionAliasResponse (..),
     mkDisassociateConnectionAliasResponse,
 
     -- ** Response lenses
-    dcasrsResponseStatus,
+    dcarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDisassociateConnectionAlias' smart constructor.
 newtype DisassociateConnectionAlias = DisassociateConnectionAlias'
   { -- | The identifier of the connection alias to disassociate.
-    aliasId :: Lude.Text
+    aliasId :: Types.ConnectionAliasId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConnectionAlias' with the minimum fields required to make a request.
---
--- * 'aliasId' - The identifier of the connection alias to disassociate.
+-- | Creates a 'DisassociateConnectionAlias' value with any optional fields omitted.
 mkDisassociateConnectionAlias ::
   -- | 'aliasId'
-  Lude.Text ->
+  Types.ConnectionAliasId ->
   DisassociateConnectionAlias
-mkDisassociateConnectionAlias pAliasId_ =
-  DisassociateConnectionAlias' {aliasId = pAliasId_}
+mkDisassociateConnectionAlias aliasId =
+  DisassociateConnectionAlias' {aliasId}
 
 -- | The identifier of the connection alias to disassociate.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAliasId :: Lens.Lens' DisassociateConnectionAlias Lude.Text
-dAliasId = Lens.lens (aliasId :: DisassociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DisassociateConnectionAlias)
-{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+dcaAliasId :: Lens.Lens' DisassociateConnectionAlias Types.ConnectionAliasId
+dcaAliasId = Lens.field @"aliasId"
+{-# DEPRECATED dcaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance Lude.AWSRequest DisassociateConnectionAlias where
+instance Core.FromJSON DisassociateConnectionAlias where
+  toJSON DisassociateConnectionAlias {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AliasId" Core..= aliasId)])
+
+instance Core.AWSRequest DisassociateConnectionAlias where
   type
     Rs DisassociateConnectionAlias =
       DisassociateConnectionAliasResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.DisassociateConnectionAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateConnectionAliasResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateConnectionAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.DisassociateConnectionAlias" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateConnectionAlias where
-  toJSON DisassociateConnectionAlias' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
-
-instance Lude.ToPath DisassociateConnectionAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateConnectionAlias where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateConnectionAliasResponse' smart constructor.
 newtype DisassociateConnectionAliasResponse = DisassociateConnectionAliasResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConnectionAliasResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateConnectionAliasResponse' value with any optional fields omitted.
 mkDisassociateConnectionAliasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateConnectionAliasResponse
-mkDisassociateConnectionAliasResponse pResponseStatus_ =
-  DisassociateConnectionAliasResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateConnectionAliasResponse responseStatus =
+  DisassociateConnectionAliasResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcasrsResponseStatus :: Lens.Lens' DisassociateConnectionAliasResponse Lude.Int
-dcasrsResponseStatus = Lens.lens (responseStatus :: DisassociateConnectionAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateConnectionAliasResponse)
-{-# DEPRECATED dcasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcarrsResponseStatus :: Lens.Lens' DisassociateConnectionAliasResponse Core.Int
+dcarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

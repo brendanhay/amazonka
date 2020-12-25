@@ -20,127 +20,108 @@ module Network.AWS.Mobile.UpdateProject
     mkUpdateProject,
 
     -- ** Request lenses
-    upContents,
     upProjectId,
+    upContents,
 
     -- * Destructuring the response
     UpdateProjectResponse (..),
     mkUpdateProjectResponse,
 
     -- ** Response lenses
-    uprsDetails,
-    uprsResponseStatus,
+    uprrsDetails,
+    uprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Mobile.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Mobile.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure used for requests to update project configuration.
 --
 -- /See:/ 'mkUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
-    contents :: Lude.Maybe Lude.ByteString,
-    -- | Unique project identifier.
-    projectId :: Lude.Text
+  { -- | Unique project identifier.
+    projectId :: Types.ProjectId,
+    -- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
+    contents :: Core.Maybe Core.ByteString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
---
--- * 'contents' - ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
--- * 'projectId' - Unique project identifier.
+-- | Creates a 'UpdateProject' value with any optional fields omitted.
 mkUpdateProject ::
   -- | 'projectId'
-  Lude.Text ->
+  Types.ProjectId ->
   UpdateProject
-mkUpdateProject pProjectId_ =
-  UpdateProject' {contents = Lude.Nothing, projectId = pProjectId_}
-
--- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
---
--- /Note:/ Consider using 'contents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upContents :: Lens.Lens' UpdateProject (Lude.Maybe Lude.ByteString)
-upContents = Lens.lens (contents :: UpdateProject -> Lude.Maybe Lude.ByteString) (\s a -> s {contents = a} :: UpdateProject)
-{-# DEPRECATED upContents "Use generic-lens or generic-optics with 'contents' instead." #-}
+mkUpdateProject projectId =
+  UpdateProject' {projectId, contents = Core.Nothing}
 
 -- | Unique project identifier.
 --
 -- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upProjectId :: Lens.Lens' UpdateProject Lude.Text
-upProjectId = Lens.lens (projectId :: UpdateProject -> Lude.Text) (\s a -> s {projectId = a} :: UpdateProject)
+upProjectId :: Lens.Lens' UpdateProject Types.ProjectId
+upProjectId = Lens.field @"projectId"
 {-# DEPRECATED upProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance Lude.AWSRequest UpdateProject where
+-- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
+--
+-- /Note:/ Consider using 'contents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upContents :: Lens.Lens' UpdateProject (Core.Maybe Core.ByteString)
+upContents = Lens.field @"contents"
+{-# DEPRECATED upContents "Use generic-lens or generic-optics with 'contents' instead." #-}
+
+instance Core.AWSRequest UpdateProject where
   type Rs UpdateProject = UpdateProjectResponse
-  request = Req.postBody mobileService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/update",
+        Core._rqQuery = Core.toQueryValue "projectId" projectId,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toBody contents
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateProjectResponse'
-            Lude.<$> (x Lude..?> "details") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "details") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToBody UpdateProject where
-  toBody = Lude.toBody Lude.. contents
-
-instance Lude.ToHeaders UpdateProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath UpdateProject where
-  toPath = Lude.const "/update"
-
-instance Lude.ToQuery UpdateProject where
-  toQuery UpdateProject' {..} =
-    Lude.mconcat ["projectId" Lude.=: projectId]
 
 -- | Result structure used for requests to updated project configuration.
 --
 -- /See:/ 'mkUpdateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
   { -- | Detailed information about the updated AWS Mobile Hub project.
-    details :: Lude.Maybe ProjectDetails,
+    details :: Core.Maybe Types.ProjectDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
---
--- * 'details' - Detailed information about the updated AWS Mobile Hub project.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateProjectResponse' value with any optional fields omitted.
 mkUpdateProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateProjectResponse
-mkUpdateProjectResponse pResponseStatus_ =
-  UpdateProjectResponse'
-    { details = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateProjectResponse responseStatus =
+  UpdateProjectResponse' {details = Core.Nothing, responseStatus}
 
 -- | Detailed information about the updated AWS Mobile Hub project.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsDetails :: Lens.Lens' UpdateProjectResponse (Lude.Maybe ProjectDetails)
-uprsDetails = Lens.lens (details :: UpdateProjectResponse -> Lude.Maybe ProjectDetails) (\s a -> s {details = a} :: UpdateProjectResponse)
-{-# DEPRECATED uprsDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+uprrsDetails :: Lens.Lens' UpdateProjectResponse (Core.Maybe Types.ProjectDetails)
+uprrsDetails = Lens.field @"details"
+{-# DEPRECATED uprrsDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UpdateProjectResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UpdateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProjectResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UpdateProjectResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

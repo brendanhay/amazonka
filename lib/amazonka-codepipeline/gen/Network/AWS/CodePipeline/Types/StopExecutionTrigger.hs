@@ -21,36 +21,34 @@ module Network.AWS.CodePipeline.Types.StopExecutionTrigger
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.StopPipelineExecutionReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The interaction that stopped a pipeline execution.
 --
 -- /See:/ 'mkStopExecutionTrigger' smart constructor.
 newtype StopExecutionTrigger = StopExecutionTrigger'
   { -- | The user-specified reason the pipeline was stopped.
-    reason :: Lude.Maybe Lude.Text
+    reason :: Core.Maybe Types.StopPipelineExecutionReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopExecutionTrigger' with the minimum fields required to make a request.
---
--- * 'reason' - The user-specified reason the pipeline was stopped.
+-- | Creates a 'StopExecutionTrigger' value with any optional fields omitted.
 mkStopExecutionTrigger ::
   StopExecutionTrigger
 mkStopExecutionTrigger =
-  StopExecutionTrigger' {reason = Lude.Nothing}
+  StopExecutionTrigger' {reason = Core.Nothing}
 
 -- | The user-specified reason the pipeline was stopped.
 --
 -- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setReason :: Lens.Lens' StopExecutionTrigger (Lude.Maybe Lude.Text)
-setReason = Lens.lens (reason :: StopExecutionTrigger -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: StopExecutionTrigger)
+setReason :: Lens.Lens' StopExecutionTrigger (Core.Maybe Types.StopPipelineExecutionReason)
+setReason = Lens.field @"reason"
 {-# DEPRECATED setReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance Lude.FromJSON StopExecutionTrigger where
+instance Core.FromJSON StopExecutionTrigger where
   parseJSON =
-    Lude.withObject
-      "StopExecutionTrigger"
-      (\x -> StopExecutionTrigger' Lude.<$> (x Lude..:? "reason"))
+    Core.withObject "StopExecutionTrigger" Core.$
+      \x -> StopExecutionTrigger' Core.<$> (x Core..:? "reason")

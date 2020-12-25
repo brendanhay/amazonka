@@ -17,55 +17,51 @@ module Network.AWS.Rekognition.Types.StreamProcessor
     mkStreamProcessor,
 
     -- * Lenses
-    spStatus,
     spName,
+    spStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.StreamProcessorStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.StreamProcessorName as Types
+import qualified Network.AWS.Rekognition.Types.StreamProcessorStatus as Types
 
 -- | An object that recognizes faces in a streaming video. An Amazon Rekognition stream processor is created by a call to 'CreateStreamProcessor' . The request parameters for @CreateStreamProcessor@ describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts.
 --
 -- /See:/ 'mkStreamProcessor' smart constructor.
 data StreamProcessor = StreamProcessor'
-  { -- | Current status of the Amazon Rekognition stream processor.
-    status :: Lude.Maybe StreamProcessorStatus,
-    -- | Name of the Amazon Rekognition stream processor.
-    name :: Lude.Maybe Lude.Text
+  { -- | Name of the Amazon Rekognition stream processor.
+    name :: Core.Maybe Types.StreamProcessorName,
+    -- | Current status of the Amazon Rekognition stream processor.
+    status :: Core.Maybe Types.StreamProcessorStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StreamProcessor' with the minimum fields required to make a request.
---
--- * 'status' - Current status of the Amazon Rekognition stream processor.
--- * 'name' - Name of the Amazon Rekognition stream processor.
+-- | Creates a 'StreamProcessor' value with any optional fields omitted.
 mkStreamProcessor ::
   StreamProcessor
 mkStreamProcessor =
-  StreamProcessor' {status = Lude.Nothing, name = Lude.Nothing}
-
--- | Current status of the Amazon Rekognition stream processor.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spStatus :: Lens.Lens' StreamProcessor (Lude.Maybe StreamProcessorStatus)
-spStatus = Lens.lens (status :: StreamProcessor -> Lude.Maybe StreamProcessorStatus) (\s a -> s {status = a} :: StreamProcessor)
-{-# DEPRECATED spStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+  StreamProcessor' {name = Core.Nothing, status = Core.Nothing}
 
 -- | Name of the Amazon Rekognition stream processor.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spName :: Lens.Lens' StreamProcessor (Lude.Maybe Lude.Text)
-spName = Lens.lens (name :: StreamProcessor -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StreamProcessor)
+spName :: Lens.Lens' StreamProcessor (Core.Maybe Types.StreamProcessorName)
+spName = Lens.field @"name"
 {-# DEPRECATED spName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON StreamProcessor where
+-- | Current status of the Amazon Rekognition stream processor.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spStatus :: Lens.Lens' StreamProcessor (Core.Maybe Types.StreamProcessorStatus)
+spStatus = Lens.field @"status"
+{-# DEPRECATED spStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON StreamProcessor where
   parseJSON =
-    Lude.withObject
-      "StreamProcessor"
-      ( \x ->
-          StreamProcessor'
-            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "StreamProcessor" Core.$
+      \x ->
+        StreamProcessor'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Status")

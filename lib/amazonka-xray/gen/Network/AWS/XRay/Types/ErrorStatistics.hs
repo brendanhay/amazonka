@@ -24,64 +24,58 @@ module Network.AWS.XRay.Types.ErrorStatistics
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about requests that failed with a 4xx Client Error status code.
 --
 -- /See:/ 'mkErrorStatistics' smart constructor.
 data ErrorStatistics = ErrorStatistics'
   { -- | The number of requests that failed with untracked 4xx Client Error status codes.
-    otherCount :: Lude.Maybe Lude.Integer,
+    otherCount :: Core.Maybe Core.Integer,
     -- | The number of requests that failed with a 419 throttling status code.
-    throttleCount :: Lude.Maybe Lude.Integer,
+    throttleCount :: Core.Maybe Core.Integer,
     -- | The total number of requests that failed with a 4xx Client Error status code.
-    totalCount :: Lude.Maybe Lude.Integer
+    totalCount :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ErrorStatistics' with the minimum fields required to make a request.
---
--- * 'otherCount' - The number of requests that failed with untracked 4xx Client Error status codes.
--- * 'throttleCount' - The number of requests that failed with a 419 throttling status code.
--- * 'totalCount' - The total number of requests that failed with a 4xx Client Error status code.
+-- | Creates a 'ErrorStatistics' value with any optional fields omitted.
 mkErrorStatistics ::
   ErrorStatistics
 mkErrorStatistics =
   ErrorStatistics'
-    { otherCount = Lude.Nothing,
-      throttleCount = Lude.Nothing,
-      totalCount = Lude.Nothing
+    { otherCount = Core.Nothing,
+      throttleCount = Core.Nothing,
+      totalCount = Core.Nothing
     }
 
 -- | The number of requests that failed with untracked 4xx Client Error status codes.
 --
 -- /Note:/ Consider using 'otherCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eOtherCount :: Lens.Lens' ErrorStatistics (Lude.Maybe Lude.Integer)
-eOtherCount = Lens.lens (otherCount :: ErrorStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {otherCount = a} :: ErrorStatistics)
+eOtherCount :: Lens.Lens' ErrorStatistics (Core.Maybe Core.Integer)
+eOtherCount = Lens.field @"otherCount"
 {-# DEPRECATED eOtherCount "Use generic-lens or generic-optics with 'otherCount' instead." #-}
 
 -- | The number of requests that failed with a 419 throttling status code.
 --
 -- /Note:/ Consider using 'throttleCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eThrottleCount :: Lens.Lens' ErrorStatistics (Lude.Maybe Lude.Integer)
-eThrottleCount = Lens.lens (throttleCount :: ErrorStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {throttleCount = a} :: ErrorStatistics)
+eThrottleCount :: Lens.Lens' ErrorStatistics (Core.Maybe Core.Integer)
+eThrottleCount = Lens.field @"throttleCount"
 {-# DEPRECATED eThrottleCount "Use generic-lens or generic-optics with 'throttleCount' instead." #-}
 
 -- | The total number of requests that failed with a 4xx Client Error status code.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eTotalCount :: Lens.Lens' ErrorStatistics (Lude.Maybe Lude.Integer)
-eTotalCount = Lens.lens (totalCount :: ErrorStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: ErrorStatistics)
+eTotalCount :: Lens.Lens' ErrorStatistics (Core.Maybe Core.Integer)
+eTotalCount = Lens.field @"totalCount"
 {-# DEPRECATED eTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance Lude.FromJSON ErrorStatistics where
+instance Core.FromJSON ErrorStatistics where
   parseJSON =
-    Lude.withObject
-      "ErrorStatistics"
-      ( \x ->
-          ErrorStatistics'
-            Lude.<$> (x Lude..:? "OtherCount")
-            Lude.<*> (x Lude..:? "ThrottleCount")
-            Lude.<*> (x Lude..:? "TotalCount")
-      )
+    Core.withObject "ErrorStatistics" Core.$
+      \x ->
+        ErrorStatistics'
+          Core.<$> (x Core..:? "OtherCount")
+          Core.<*> (x Core..:? "ThrottleCount")
+          Core.<*> (x Core..:? "TotalCount")

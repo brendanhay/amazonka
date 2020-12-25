@@ -20,173 +20,148 @@ module Network.AWS.CodeCommit.BatchAssociateApprovalRuleTemplateWithRepositories
     mkBatchAssociateApprovalRuleTemplateWithRepositories,
 
     -- ** Request lenses
-    baartwrRepositoryNames,
     baartwrApprovalRuleTemplateName,
+    baartwrRepositoryNames,
 
     -- * Destructuring the response
     BatchAssociateApprovalRuleTemplateWithRepositoriesResponse (..),
     mkBatchAssociateApprovalRuleTemplateWithRepositoriesResponse,
 
     -- ** Response lenses
-    baartwrrsErrors,
-    baartwrrsAssociatedRepositoryNames,
-    baartwrrsResponseStatus,
+    baartwrrrsAssociatedRepositoryNames,
+    baartwrrrsErrors,
+    baartwrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchAssociateApprovalRuleTemplateWithRepositories' smart constructor.
 data BatchAssociateApprovalRuleTemplateWithRepositories = BatchAssociateApprovalRuleTemplateWithRepositories'
-  { -- | The names of the repositories you want to associate with the template.
-    repositoryNames :: [Lude.Text],
-    -- | The name of the template you want to associate with one or more repositories.
-    approvalRuleTemplateName :: Lude.Text
+  { -- | The name of the template you want to associate with one or more repositories.
+    approvalRuleTemplateName :: Types.ApprovalRuleTemplateName,
+    -- | The names of the repositories you want to associate with the template.
+    repositoryNames :: [Types.RepositoryName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAssociateApprovalRuleTemplateWithRepositories' with the minimum fields required to make a request.
---
--- * 'repositoryNames' - The names of the repositories you want to associate with the template.
--- * 'approvalRuleTemplateName' - The name of the template you want to associate with one or more repositories.
+-- | Creates a 'BatchAssociateApprovalRuleTemplateWithRepositories' value with any optional fields omitted.
 mkBatchAssociateApprovalRuleTemplateWithRepositories ::
   -- | 'approvalRuleTemplateName'
-  Lude.Text ->
+  Types.ApprovalRuleTemplateName ->
   BatchAssociateApprovalRuleTemplateWithRepositories
 mkBatchAssociateApprovalRuleTemplateWithRepositories
-  pApprovalRuleTemplateName_ =
+  approvalRuleTemplateName =
     BatchAssociateApprovalRuleTemplateWithRepositories'
-      { repositoryNames =
-          Lude.mempty,
-        approvalRuleTemplateName =
-          pApprovalRuleTemplateName_
+      { approvalRuleTemplateName,
+        repositoryNames = Core.mempty
       }
-
--- | The names of the repositories you want to associate with the template.
---
--- /Note:/ Consider using 'repositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baartwrRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories [Lude.Text]
-baartwrRepositoryNames = Lens.lens (repositoryNames :: BatchAssociateApprovalRuleTemplateWithRepositories -> [Lude.Text]) (\s a -> s {repositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositories)
-{-# DEPRECATED baartwrRepositoryNames "Use generic-lens or generic-optics with 'repositoryNames' instead." #-}
 
 -- | The name of the template you want to associate with one or more repositories.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baartwrApprovalRuleTemplateName :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories Lude.Text
-baartwrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: BatchAssociateApprovalRuleTemplateWithRepositories -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: BatchAssociateApprovalRuleTemplateWithRepositories)
+baartwrApprovalRuleTemplateName :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories Types.ApprovalRuleTemplateName
+baartwrApprovalRuleTemplateName = Lens.field @"approvalRuleTemplateName"
 {-# DEPRECATED baartwrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
+-- | The names of the repositories you want to associate with the template.
+--
+-- /Note:/ Consider using 'repositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baartwrRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories [Types.RepositoryName]
+baartwrRepositoryNames = Lens.field @"repositoryNames"
+{-# DEPRECATED baartwrRepositoryNames "Use generic-lens or generic-optics with 'repositoryNames' instead." #-}
+
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    BatchAssociateApprovalRuleTemplateWithRepositories
+  where
+  toJSON BatchAssociateApprovalRuleTemplateWithRepositories {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("approvalRuleTemplateName" Core..= approvalRuleTemplateName),
+            Core.Just ("repositoryNames" Core..= repositoryNames)
+          ]
+      )
+
+instance
+  Core.AWSRequest
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   type
     Rs BatchAssociateApprovalRuleTemplateWithRepositories =
       BatchAssociateApprovalRuleTemplateWithRepositoriesResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
-            Lude.<$> (x Lude..?> "errors" Lude..!@ Lude.mempty)
-              Lude.<*> (x Lude..?> "associatedRepositoryNames" Lude..!@ Lude.mempty)
-              Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "associatedRepositoryNames" Core..!= Core.mempty)
+              Core.<*> (x Core..:? "errors" Core..!= Core.mempty)
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    BatchAssociateApprovalRuleTemplateWithRepositories
-  where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance
-  Lude.ToJSON
-    BatchAssociateApprovalRuleTemplateWithRepositories
-  where
-  toJSON BatchAssociateApprovalRuleTemplateWithRepositories' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("repositoryNames" Lude..= repositoryNames),
-            Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
-          ]
-      )
-
-instance
-  Lude.ToPath
-    BatchAssociateApprovalRuleTemplateWithRepositories
-  where
-  toPath = Lude.const "/"
-
-instance
-  Lude.ToQuery
-    BatchAssociateApprovalRuleTemplateWithRepositories
-  where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchAssociateApprovalRuleTemplateWithRepositoriesResponse' smart constructor.
 data BatchAssociateApprovalRuleTemplateWithRepositoriesResponse = BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
-  { -- | A list of any errors that might have occurred while attempting to create the association between the template and the repositories.
-    errors :: [BatchAssociateApprovalRuleTemplateWithRepositoriesError],
-    -- | A list of names of the repositories that have been associated with the template.
-    associatedRepositoryNames :: [Lude.Text],
+  { -- | A list of names of the repositories that have been associated with the template.
+    associatedRepositoryNames :: [Types.RepositoryName],
+    -- | A list of any errors that might have occurred while attempting to create the association between the template and the repositories.
+    errors :: [Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' with the minimum fields required to make a request.
---
--- * 'errors' - A list of any errors that might have occurred while attempting to create the association between the template and the repositories.
--- * 'associatedRepositoryNames' - A list of names of the repositories that have been associated with the template.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' value with any optional fields omitted.
 mkBatchAssociateApprovalRuleTemplateWithRepositoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchAssociateApprovalRuleTemplateWithRepositoriesResponse
 mkBatchAssociateApprovalRuleTemplateWithRepositoriesResponse
-  pResponseStatus_ =
+  responseStatus =
     BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
-      { errors =
-          Lude.mempty,
-        associatedRepositoryNames =
-          Lude.mempty,
-        responseStatus = pResponseStatus_
+      { associatedRepositoryNames =
+          Core.mempty,
+        errors = Core.mempty,
+        responseStatus
       }
-
--- | A list of any errors that might have occurred while attempting to create the association between the template and the repositories.
---
--- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baartwrrsErrors :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [BatchAssociateApprovalRuleTemplateWithRepositoriesError]
-baartwrrsErrors = Lens.lens (errors :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse -> [BatchAssociateApprovalRuleTemplateWithRepositoriesError]) (\s a -> s {errors = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse)
-{-# DEPRECATED baartwrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | A list of names of the repositories that have been associated with the template.
 --
 -- /Note:/ Consider using 'associatedRepositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baartwrrsAssociatedRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [Lude.Text]
-baartwrrsAssociatedRepositoryNames = Lens.lens (associatedRepositoryNames :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse -> [Lude.Text]) (\s a -> s {associatedRepositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse)
-{-# DEPRECATED baartwrrsAssociatedRepositoryNames "Use generic-lens or generic-optics with 'associatedRepositoryNames' instead." #-}
+baartwrrrsAssociatedRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [Types.RepositoryName]
+baartwrrrsAssociatedRepositoryNames = Lens.field @"associatedRepositoryNames"
+{-# DEPRECATED baartwrrrsAssociatedRepositoryNames "Use generic-lens or generic-optics with 'associatedRepositoryNames' instead." #-}
+
+-- | A list of any errors that might have occurred while attempting to create the association between the template and the repositories.
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baartwrrrsErrors :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError]
+baartwrrrsErrors = Lens.field @"errors"
+{-# DEPRECATED baartwrrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baartwrrsResponseStatus :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse Lude.Int
-baartwrrsResponseStatus = Lens.lens (responseStatus :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse)
-{-# DEPRECATED baartwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+baartwrrrsResponseStatus :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse Core.Int
+baartwrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED baartwrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

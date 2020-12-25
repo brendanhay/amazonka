@@ -17,73 +17,67 @@ module Network.AWS.Comprehend.Types.BatchDetectSentimentItemResult
     mkBatchDetectSentimentItemResult,
 
     -- * Lenses
+    bIndex,
     bSentiment,
     bSentimentScore,
-    bIndex,
   )
 where
 
-import Network.AWS.Comprehend.Types.SentimentScore
-import Network.AWS.Comprehend.Types.SentimentType
+import qualified Network.AWS.Comprehend.Types.SentimentScore as Types
+import qualified Network.AWS.Comprehend.Types.SentimentType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.
 --
 -- /See:/ 'mkBatchDetectSentimentItemResult' smart constructor.
 data BatchDetectSentimentItemResult = BatchDetectSentimentItemResult'
-  { -- | The sentiment detected in the document.
-    sentiment :: Lude.Maybe SentimentType,
+  { -- | The zero-based index of the document in the input list.
+    index :: Core.Maybe Core.Int,
+    -- | The sentiment detected in the document.
+    sentiment :: Core.Maybe Types.SentimentType,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.
-    sentimentScore :: Lude.Maybe SentimentScore,
-    -- | The zero-based index of the document in the input list.
-    index :: Lude.Maybe Lude.Int
+    sentimentScore :: Core.Maybe Types.SentimentScore
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectSentimentItemResult' with the minimum fields required to make a request.
---
--- * 'sentiment' - The sentiment detected in the document.
--- * 'sentimentScore' - The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.
--- * 'index' - The zero-based index of the document in the input list.
+-- | Creates a 'BatchDetectSentimentItemResult' value with any optional fields omitted.
 mkBatchDetectSentimentItemResult ::
   BatchDetectSentimentItemResult
 mkBatchDetectSentimentItemResult =
   BatchDetectSentimentItemResult'
-    { sentiment = Lude.Nothing,
-      sentimentScore = Lude.Nothing,
-      index = Lude.Nothing
+    { index = Core.Nothing,
+      sentiment = Core.Nothing,
+      sentimentScore = Core.Nothing
     }
+
+-- | The zero-based index of the document in the input list.
+--
+-- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bIndex :: Lens.Lens' BatchDetectSentimentItemResult (Core.Maybe Core.Int)
+bIndex = Lens.field @"index"
+{-# DEPRECATED bIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
 -- | The sentiment detected in the document.
 --
 -- /Note:/ Consider using 'sentiment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bSentiment :: Lens.Lens' BatchDetectSentimentItemResult (Lude.Maybe SentimentType)
-bSentiment = Lens.lens (sentiment :: BatchDetectSentimentItemResult -> Lude.Maybe SentimentType) (\s a -> s {sentiment = a} :: BatchDetectSentimentItemResult)
+bSentiment :: Lens.Lens' BatchDetectSentimentItemResult (Core.Maybe Types.SentimentType)
+bSentiment = Lens.field @"sentiment"
 {-# DEPRECATED bSentiment "Use generic-lens or generic-optics with 'sentiment' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.
 --
 -- /Note:/ Consider using 'sentimentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bSentimentScore :: Lens.Lens' BatchDetectSentimentItemResult (Lude.Maybe SentimentScore)
-bSentimentScore = Lens.lens (sentimentScore :: BatchDetectSentimentItemResult -> Lude.Maybe SentimentScore) (\s a -> s {sentimentScore = a} :: BatchDetectSentimentItemResult)
+bSentimentScore :: Lens.Lens' BatchDetectSentimentItemResult (Core.Maybe Types.SentimentScore)
+bSentimentScore = Lens.field @"sentimentScore"
 {-# DEPRECATED bSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
 
--- | The zero-based index of the document in the input list.
---
--- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bIndex :: Lens.Lens' BatchDetectSentimentItemResult (Lude.Maybe Lude.Int)
-bIndex = Lens.lens (index :: BatchDetectSentimentItemResult -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: BatchDetectSentimentItemResult)
-{-# DEPRECATED bIndex "Use generic-lens or generic-optics with 'index' instead." #-}
-
-instance Lude.FromJSON BatchDetectSentimentItemResult where
+instance Core.FromJSON BatchDetectSentimentItemResult where
   parseJSON =
-    Lude.withObject
-      "BatchDetectSentimentItemResult"
-      ( \x ->
-          BatchDetectSentimentItemResult'
-            Lude.<$> (x Lude..:? "Sentiment")
-            Lude.<*> (x Lude..:? "SentimentScore")
-            Lude.<*> (x Lude..:? "Index")
-      )
+    Core.withObject "BatchDetectSentimentItemResult" Core.$
+      \x ->
+        BatchDetectSentimentItemResult'
+          Core.<$> (x Core..:? "Index")
+          Core.<*> (x Core..:? "Sentiment")
+          Core.<*> (x Core..:? "SentimentScore")

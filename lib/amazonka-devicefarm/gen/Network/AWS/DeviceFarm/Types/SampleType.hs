@@ -13,121 +13,123 @@
 module Network.AWS.DeviceFarm.Types.SampleType
   ( SampleType
       ( SampleType',
-        CPU,
-        Memory,
-        Threads,
-        RxRate,
-        TxRate,
-        RX,
-        TX,
-        NativeFrames,
-        NativeFps,
-        NativeMinDrawtime,
-        NativeAvgDrawtime,
-        NativeMaxDrawtime,
-        OpenglFrames,
-        OpenglFps,
-        OpenglMinDrawtime,
-        OpenglAvgDrawtime,
-        OpenglMaxDrawtime
+        SampleTypeCpu,
+        SampleTypeMemory,
+        SampleTypeThreads,
+        SampleTypeRxRate,
+        SampleTypeTxRate,
+        SampleTypeRX,
+        SampleTypeTX,
+        SampleTypeNativeFrames,
+        SampleTypeNativeFps,
+        SampleTypeNativeMinDrawtime,
+        SampleTypeNativeAvgDrawtime,
+        SampleTypeNativeMaxDrawtime,
+        SampleTypeOpenglFrames,
+        SampleTypeOpenglFps,
+        SampleTypeOpenglMinDrawtime,
+        SampleTypeOpenglAvgDrawtime,
+        SampleTypeOpenglMaxDrawtime,
+        fromSampleType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SampleType = SampleType' Lude.Text
+newtype SampleType = SampleType' {fromSampleType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPU :: SampleType
-pattern CPU = SampleType' "CPU"
+pattern SampleTypeCpu :: SampleType
+pattern SampleTypeCpu = SampleType' "CPU"
 
-pattern Memory :: SampleType
-pattern Memory = SampleType' "MEMORY"
+pattern SampleTypeMemory :: SampleType
+pattern SampleTypeMemory = SampleType' "MEMORY"
 
-pattern Threads :: SampleType
-pattern Threads = SampleType' "THREADS"
+pattern SampleTypeThreads :: SampleType
+pattern SampleTypeThreads = SampleType' "THREADS"
 
-pattern RxRate :: SampleType
-pattern RxRate = SampleType' "RX_RATE"
+pattern SampleTypeRxRate :: SampleType
+pattern SampleTypeRxRate = SampleType' "RX_RATE"
 
-pattern TxRate :: SampleType
-pattern TxRate = SampleType' "TX_RATE"
+pattern SampleTypeTxRate :: SampleType
+pattern SampleTypeTxRate = SampleType' "TX_RATE"
 
-pattern RX :: SampleType
-pattern RX = SampleType' "RX"
+pattern SampleTypeRX :: SampleType
+pattern SampleTypeRX = SampleType' "RX"
 
-pattern TX :: SampleType
-pattern TX = SampleType' "TX"
+pattern SampleTypeTX :: SampleType
+pattern SampleTypeTX = SampleType' "TX"
 
-pattern NativeFrames :: SampleType
-pattern NativeFrames = SampleType' "NATIVE_FRAMES"
+pattern SampleTypeNativeFrames :: SampleType
+pattern SampleTypeNativeFrames = SampleType' "NATIVE_FRAMES"
 
-pattern NativeFps :: SampleType
-pattern NativeFps = SampleType' "NATIVE_FPS"
+pattern SampleTypeNativeFps :: SampleType
+pattern SampleTypeNativeFps = SampleType' "NATIVE_FPS"
 
-pattern NativeMinDrawtime :: SampleType
-pattern NativeMinDrawtime = SampleType' "NATIVE_MIN_DRAWTIME"
+pattern SampleTypeNativeMinDrawtime :: SampleType
+pattern SampleTypeNativeMinDrawtime = SampleType' "NATIVE_MIN_DRAWTIME"
 
-pattern NativeAvgDrawtime :: SampleType
-pattern NativeAvgDrawtime = SampleType' "NATIVE_AVG_DRAWTIME"
+pattern SampleTypeNativeAvgDrawtime :: SampleType
+pattern SampleTypeNativeAvgDrawtime = SampleType' "NATIVE_AVG_DRAWTIME"
 
-pattern NativeMaxDrawtime :: SampleType
-pattern NativeMaxDrawtime = SampleType' "NATIVE_MAX_DRAWTIME"
+pattern SampleTypeNativeMaxDrawtime :: SampleType
+pattern SampleTypeNativeMaxDrawtime = SampleType' "NATIVE_MAX_DRAWTIME"
 
-pattern OpenglFrames :: SampleType
-pattern OpenglFrames = SampleType' "OPENGL_FRAMES"
+pattern SampleTypeOpenglFrames :: SampleType
+pattern SampleTypeOpenglFrames = SampleType' "OPENGL_FRAMES"
 
-pattern OpenglFps :: SampleType
-pattern OpenglFps = SampleType' "OPENGL_FPS"
+pattern SampleTypeOpenglFps :: SampleType
+pattern SampleTypeOpenglFps = SampleType' "OPENGL_FPS"
 
-pattern OpenglMinDrawtime :: SampleType
-pattern OpenglMinDrawtime = SampleType' "OPENGL_MIN_DRAWTIME"
+pattern SampleTypeOpenglMinDrawtime :: SampleType
+pattern SampleTypeOpenglMinDrawtime = SampleType' "OPENGL_MIN_DRAWTIME"
 
-pattern OpenglAvgDrawtime :: SampleType
-pattern OpenglAvgDrawtime = SampleType' "OPENGL_AVG_DRAWTIME"
+pattern SampleTypeOpenglAvgDrawtime :: SampleType
+pattern SampleTypeOpenglAvgDrawtime = SampleType' "OPENGL_AVG_DRAWTIME"
 
-pattern OpenglMaxDrawtime :: SampleType
-pattern OpenglMaxDrawtime = SampleType' "OPENGL_MAX_DRAWTIME"
+pattern SampleTypeOpenglMaxDrawtime :: SampleType
+pattern SampleTypeOpenglMaxDrawtime = SampleType' "OPENGL_MAX_DRAWTIME"
 
 {-# COMPLETE
-  CPU,
-  Memory,
-  Threads,
-  RxRate,
-  TxRate,
-  RX,
-  TX,
-  NativeFrames,
-  NativeFps,
-  NativeMinDrawtime,
-  NativeAvgDrawtime,
-  NativeMaxDrawtime,
-  OpenglFrames,
-  OpenglFps,
-  OpenglMinDrawtime,
-  OpenglAvgDrawtime,
-  OpenglMaxDrawtime,
+  SampleTypeCpu,
+  SampleTypeMemory,
+  SampleTypeThreads,
+  SampleTypeRxRate,
+  SampleTypeTxRate,
+  SampleTypeRX,
+  SampleTypeTX,
+  SampleTypeNativeFrames,
+  SampleTypeNativeFps,
+  SampleTypeNativeMinDrawtime,
+  SampleTypeNativeAvgDrawtime,
+  SampleTypeNativeMaxDrawtime,
+  SampleTypeOpenglFrames,
+  SampleTypeOpenglFps,
+  SampleTypeOpenglMinDrawtime,
+  SampleTypeOpenglAvgDrawtime,
+  SampleTypeOpenglMaxDrawtime,
   SampleType'
   #-}

@@ -17,81 +17,77 @@ module Network.AWS.IoT.Types.AuditNotificationTarget
     mkAuditNotificationTarget,
 
     -- * Lenses
-    antTargetARN,
     antEnabled,
-    antRoleARN,
+    antRoleArn,
+    antTargetArn,
   )
 where
 
+import qualified Network.AWS.IoT.Types.RoleArn as Types
+import qualified Network.AWS.IoT.Types.TargetArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the targets to which audit notifications are sent.
 --
 -- /See:/ 'mkAuditNotificationTarget' smart constructor.
 data AuditNotificationTarget = AuditNotificationTarget'
-  { -- | The ARN of the target (SNS topic) to which audit notifications are sent.
-    targetARN :: Lude.Maybe Lude.Text,
-    -- | True if notifications to the target are enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+  { -- | True if notifications to the target are enabled.
+    enabled :: Core.Maybe Core.Bool,
     -- | The ARN of the role that grants permission to send notifications to the target.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | The ARN of the target (SNS topic) to which audit notifications are sent.
+    targetArn :: Core.Maybe Types.TargetArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuditNotificationTarget' with the minimum fields required to make a request.
---
--- * 'targetARN' - The ARN of the target (SNS topic) to which audit notifications are sent.
--- * 'enabled' - True if notifications to the target are enabled.
--- * 'roleARN' - The ARN of the role that grants permission to send notifications to the target.
+-- | Creates a 'AuditNotificationTarget' value with any optional fields omitted.
 mkAuditNotificationTarget ::
   AuditNotificationTarget
 mkAuditNotificationTarget =
   AuditNotificationTarget'
-    { targetARN = Lude.Nothing,
-      enabled = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { enabled = Core.Nothing,
+      roleArn = Core.Nothing,
+      targetArn = Core.Nothing
     }
-
--- | The ARN of the target (SNS topic) to which audit notifications are sent.
---
--- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-antTargetARN :: Lens.Lens' AuditNotificationTarget (Lude.Maybe Lude.Text)
-antTargetARN = Lens.lens (targetARN :: AuditNotificationTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: AuditNotificationTarget)
-{-# DEPRECATED antTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | True if notifications to the target are enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-antEnabled :: Lens.Lens' AuditNotificationTarget (Lude.Maybe Lude.Bool)
-antEnabled = Lens.lens (enabled :: AuditNotificationTarget -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AuditNotificationTarget)
+antEnabled :: Lens.Lens' AuditNotificationTarget (Core.Maybe Core.Bool)
+antEnabled = Lens.field @"enabled"
 {-# DEPRECATED antEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The ARN of the role that grants permission to send notifications to the target.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-antRoleARN :: Lens.Lens' AuditNotificationTarget (Lude.Maybe Lude.Text)
-antRoleARN = Lens.lens (roleARN :: AuditNotificationTarget -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: AuditNotificationTarget)
-{-# DEPRECATED antRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+antRoleArn :: Lens.Lens' AuditNotificationTarget (Core.Maybe Types.RoleArn)
+antRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED antRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON AuditNotificationTarget where
-  parseJSON =
-    Lude.withObject
-      "AuditNotificationTarget"
-      ( \x ->
-          AuditNotificationTarget'
-            Lude.<$> (x Lude..:? "targetArn")
-            Lude.<*> (x Lude..:? "enabled")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+-- | The ARN of the target (SNS topic) to which audit notifications are sent.
+--
+-- /Note:/ Consider using 'targetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+antTargetArn :: Lens.Lens' AuditNotificationTarget (Core.Maybe Types.TargetArn)
+antTargetArn = Lens.field @"targetArn"
+{-# DEPRECATED antTargetArn "Use generic-lens or generic-optics with 'targetArn' instead." #-}
 
-instance Lude.ToJSON AuditNotificationTarget where
-  toJSON AuditNotificationTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("targetArn" Lude..=) Lude.<$> targetARN,
-            ("enabled" Lude..=) Lude.<$> enabled,
-            ("roleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON AuditNotificationTarget where
+  toJSON AuditNotificationTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("enabled" Core..=) Core.<$> enabled,
+            ("roleArn" Core..=) Core.<$> roleArn,
+            ("targetArn" Core..=) Core.<$> targetArn
           ]
       )
+
+instance Core.FromJSON AuditNotificationTarget where
+  parseJSON =
+    Core.withObject "AuditNotificationTarget" Core.$
+      \x ->
+        AuditNotificationTarget'
+          Core.<$> (x Core..:? "enabled")
+          Core.<*> (x Core..:? "roleArn")
+          Core.<*> (x Core..:? "targetArn")

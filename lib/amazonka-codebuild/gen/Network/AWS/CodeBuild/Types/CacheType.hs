@@ -13,51 +13,53 @@
 module Network.AWS.CodeBuild.Types.CacheType
   ( CacheType
       ( CacheType',
-        NoCache,
-        S3,
-        Local
+        CacheTypeNoCache,
+        CacheTypeS3,
+        CacheTypeLocal,
+        fromCacheType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CacheType = CacheType' Lude.Text
+newtype CacheType = CacheType' {fromCacheType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NoCache :: CacheType
-pattern NoCache = CacheType' "NO_CACHE"
+pattern CacheTypeNoCache :: CacheType
+pattern CacheTypeNoCache = CacheType' "NO_CACHE"
 
-pattern S3 :: CacheType
-pattern S3 = CacheType' "S3"
+pattern CacheTypeS3 :: CacheType
+pattern CacheTypeS3 = CacheType' "S3"
 
-pattern Local :: CacheType
-pattern Local = CacheType' "LOCAL"
+pattern CacheTypeLocal :: CacheType
+pattern CacheTypeLocal = CacheType' "LOCAL"
 
 {-# COMPLETE
-  NoCache,
-  S3,
-  Local,
+  CacheTypeNoCache,
+  CacheTypeS3,
+  CacheTypeLocal,
   CacheType'
   #-}

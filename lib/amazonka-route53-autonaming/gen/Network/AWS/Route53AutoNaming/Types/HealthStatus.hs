@@ -13,51 +13,53 @@
 module Network.AWS.Route53AutoNaming.Types.HealthStatus
   ( HealthStatus
       ( HealthStatus',
-        Healthy,
-        Unhealthy,
-        Unknown
+        HealthStatusHealthy,
+        HealthStatusUnhealthy,
+        HealthStatusUnknown,
+        fromHealthStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HealthStatus = HealthStatus' Lude.Text
+newtype HealthStatus = HealthStatus' {fromHealthStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Healthy :: HealthStatus
-pattern Healthy = HealthStatus' "HEALTHY"
+pattern HealthStatusHealthy :: HealthStatus
+pattern HealthStatusHealthy = HealthStatus' "HEALTHY"
 
-pattern Unhealthy :: HealthStatus
-pattern Unhealthy = HealthStatus' "UNHEALTHY"
+pattern HealthStatusUnhealthy :: HealthStatus
+pattern HealthStatusUnhealthy = HealthStatus' "UNHEALTHY"
 
-pattern Unknown :: HealthStatus
-pattern Unknown = HealthStatus' "UNKNOWN"
+pattern HealthStatusUnknown :: HealthStatus
+pattern HealthStatusUnknown = HealthStatus' "UNKNOWN"
 
 {-# COMPLETE
-  Healthy,
-  Unhealthy,
-  Unknown,
+  HealthStatusHealthy,
+  HealthStatusUnhealthy,
+  HealthStatusUnknown,
   HealthStatus'
   #-}

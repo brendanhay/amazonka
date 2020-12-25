@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,25 @@
 -- Operations and objects for transcribing speech to text.
 module Network.AWS.Transcribe
   ( -- * Service configuration
-    transcribeService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -108,189 +122,17 @@ module Network.AWS.Transcribe
 
     -- * Types
 
-    -- ** BaseModelName
-    BaseModelName (..),
-
-    -- ** CLMLanguageCode
-    CLMLanguageCode (..),
-
-    -- ** LanguageCode
-    LanguageCode (..),
-
-    -- ** MediaFormat
-    MediaFormat (..),
-
-    -- ** ModelStatus
-    ModelStatus (..),
-
-    -- ** OutputLocationType
-    OutputLocationType (..),
-
-    -- ** RedactionOutput
-    RedactionOutput (..),
-
-    -- ** RedactionType
-    RedactionType (..),
-
     -- ** Specialty
     Specialty (..),
 
-    -- ** TranscriptionJobStatus
-    TranscriptionJobStatus (..),
-
-    -- ** Type
-    Type (..),
-
-    -- ** VocabularyFilterMethod
-    VocabularyFilterMethod (..),
-
-    -- ** VocabularyState
-    VocabularyState (..),
+    -- ** FailureReason
+    FailureReason (..),
 
     -- ** ContentRedaction
     ContentRedaction (..),
     mkContentRedaction,
-    crRedactionOutput,
     crRedactionType,
-
-    -- ** InputDataConfig
-    InputDataConfig (..),
-    mkInputDataConfig,
-    idcTuningDataS3URI,
-    idcDataAccessRoleARN,
-    idcS3URI,
-
-    -- ** JobExecutionSettings
-    JobExecutionSettings (..),
-    mkJobExecutionSettings,
-    jesDataAccessRoleARN,
-    jesAllowDeferredExecution,
-
-    -- ** LanguageModel
-    LanguageModel (..),
-    mkLanguageModel,
-    lmFailureReason,
-    lmLanguageCode,
-    lmModelName,
-    lmLastModifiedTime,
-    lmUpgradeAvailability,
-    lmInputDataConfig,
-    lmBaseModelName,
-    lmModelStatus,
-    lmCreateTime,
-
-    -- ** Media
-    Media (..),
-    mkMedia,
-    mMediaFileURI,
-
-    -- ** MedicalTranscript
-    MedicalTranscript (..),
-    mkMedicalTranscript,
-    mtTranscriptFileURI,
-
-    -- ** MedicalTranscriptionJob
-    MedicalTranscriptionJob (..),
-    mkMedicalTranscriptionJob,
-    mtjCreationTime,
-    mtjSpecialty,
-    mtjFailureReason,
-    mtjLanguageCode,
-    mtjSettings,
-    mtjStartTime,
-    mtjCompletionTime,
-    mtjMedia,
-    mtjMediaFormat,
-    mtjMedicalTranscriptionJobName,
-    mtjTranscriptionJobStatus,
-    mtjType,
-    mtjTranscript,
-    mtjMediaSampleRateHertz,
-
-    -- ** MedicalTranscriptionJobSummary
-    MedicalTranscriptionJobSummary (..),
-    mkMedicalTranscriptionJobSummary,
-    mtjsCreationTime,
-    mtjsSpecialty,
-    mtjsFailureReason,
-    mtjsLanguageCode,
-    mtjsOutputLocationType,
-    mtjsStartTime,
-    mtjsCompletionTime,
-    mtjsMedicalTranscriptionJobName,
-    mtjsTranscriptionJobStatus,
-    mtjsType,
-
-    -- ** MedicalTranscriptionSetting
-    MedicalTranscriptionSetting (..),
-    mkMedicalTranscriptionSetting,
-    mtsVocabularyName,
-    mtsMaxAlternatives,
-    mtsChannelIdentification,
-    mtsShowAlternatives,
-    mtsMaxSpeakerLabels,
-    mtsShowSpeakerLabels,
-
-    -- ** ModelSettings
-    ModelSettings (..),
-    mkModelSettings,
-    msLanguageModelName,
-
-    -- ** Settings
-    Settings (..),
-    mkSettings,
-    sVocabularyName,
-    sMaxAlternatives,
-    sChannelIdentification,
-    sShowAlternatives,
-    sMaxSpeakerLabels,
-    sVocabularyFilterName,
-    sShowSpeakerLabels,
-    sVocabularyFilterMethod,
-
-    -- ** Transcript
-    Transcript (..),
-    mkTranscript,
-    tRedactedTranscriptFileURI,
-    tTranscriptFileURI,
-
-    -- ** TranscriptionJob
-    TranscriptionJob (..),
-    mkTranscriptionJob,
-    tjCreationTime,
-    tjFailureReason,
-    tjContentRedaction,
-    tjIdentifiedLanguageScore,
-    tjLanguageCode,
-    tjLanguageOptions,
-    tjSettings,
-    tjStartTime,
-    tjCompletionTime,
-    tjMedia,
-    tjMediaFormat,
-    tjModelSettings,
-    tjTranscriptionJobStatus,
-    tjJobExecutionSettings,
-    tjTranscriptionJobName,
-    tjIdentifyLanguage,
-    tjTranscript,
-    tjMediaSampleRateHertz,
-
-    -- ** TranscriptionJobSummary
-    TranscriptionJobSummary (..),
-    mkTranscriptionJobSummary,
-    tjsCreationTime,
-    tjsFailureReason,
-    tjsContentRedaction,
-    tjsIdentifiedLanguageScore,
-    tjsLanguageCode,
-    tjsOutputLocationType,
-    tjsStartTime,
-    tjsCompletionTime,
-    tjsModelSettings,
-    tjsTranscriptionJobStatus,
-    tjsTranscriptionJobName,
-    tjsIdentifyLanguage,
+    crRedactionOutput,
 
     -- ** VocabularyFilterInfo
     VocabularyFilterInfo (..),
@@ -299,23 +141,250 @@ module Network.AWS.Transcribe
     vfiLastModifiedTime,
     vfiVocabularyFilterName,
 
+    -- ** LanguageCode
+    LanguageCode (..),
+
+    -- ** OutputLocationType
+    OutputLocationType (..),
+
+    -- ** RedactionOutput
+    RedactionOutput (..),
+
+    -- ** MedicalTranscriptionJob
+    MedicalTranscriptionJob (..),
+    mkMedicalTranscriptionJob,
+    mtjCompletionTime,
+    mtjCreationTime,
+    mtjFailureReason,
+    mtjLanguageCode,
+    mtjMedia,
+    mtjMediaFormat,
+    mtjMediaSampleRateHertz,
+    mtjMedicalTranscriptionJobName,
+    mtjSettings,
+    mtjSpecialty,
+    mtjStartTime,
+    mtjTranscript,
+    mtjTranscriptionJobStatus,
+    mtjType,
+
+    -- ** LanguageModel
+    LanguageModel (..),
+    mkLanguageModel,
+    lmBaseModelName,
+    lmCreateTime,
+    lmFailureReason,
+    lmInputDataConfig,
+    lmLanguageCode,
+    lmLastModifiedTime,
+    lmModelName,
+    lmModelStatus,
+    lmUpgradeAvailability,
+
+    -- ** Settings
+    Settings (..),
+    mkSettings,
+    sChannelIdentification,
+    sMaxAlternatives,
+    sMaxSpeakerLabels,
+    sShowAlternatives,
+    sShowSpeakerLabels,
+    sVocabularyFilterMethod,
+    sVocabularyFilterName,
+    sVocabularyName,
+
+    -- ** VocabularyName
+    VocabularyName (..),
+
+    -- ** RedactionType
+    RedactionType (..),
+
+    -- ** TranscriptionJobSummary
+    TranscriptionJobSummary (..),
+    mkTranscriptionJobSummary,
+    tjsCompletionTime,
+    tjsContentRedaction,
+    tjsCreationTime,
+    tjsFailureReason,
+    tjsIdentifiedLanguageScore,
+    tjsIdentifyLanguage,
+    tjsLanguageCode,
+    tjsModelSettings,
+    tjsOutputLocationType,
+    tjsStartTime,
+    tjsTranscriptionJobName,
+    tjsTranscriptionJobStatus,
+
+    -- ** ModelName
+    ModelName (..),
+
+    -- ** MedicalTranscriptionSetting
+    MedicalTranscriptionSetting (..),
+    mkMedicalTranscriptionSetting,
+    mtsChannelIdentification,
+    mtsMaxAlternatives,
+    mtsMaxSpeakerLabels,
+    mtsShowAlternatives,
+    mtsShowSpeakerLabels,
+    mtsVocabularyName,
+
+    -- ** OutputBucketName
+    OutputBucketName (..),
+
+    -- ** Uri
+    Uri (..),
+
     -- ** VocabularyInfo
     VocabularyInfo (..),
     mkVocabularyInfo,
     viLanguageCode,
-    viVocabularyName,
     viLastModifiedTime,
+    viVocabularyName,
     viVocabularyState,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** InputDataConfig
+    InputDataConfig (..),
+    mkInputDataConfig,
+    idcS3Uri,
+    idcDataAccessRoleArn,
+    idcTuningDataS3Uri,
+
+    -- ** Media
+    Media (..),
+    mkMedia,
+    mMediaFileUri,
+
+    -- ** KMSKeyId
+    KMSKeyId (..),
+
+    -- ** MediaFormat
+    MediaFormat (..),
+
+    -- ** ModelSettings
+    ModelSettings (..),
+    mkModelSettings,
+    msLanguageModelName,
+
+    -- ** VocabularyFilterName
+    VocabularyFilterName (..),
+
+    -- ** BaseModelName
+    BaseModelName (..),
+
+    -- ** CLMLanguageCode
+    CLMLanguageCode (..),
+
+    -- ** TranscriptionJobStatus
+    TranscriptionJobStatus (..),
+
+    -- ** MedicalTranscript
+    MedicalTranscript (..),
+    mkMedicalTranscript,
+    mtTranscriptFileUri,
+
+    -- ** Phrase
+    Phrase (..),
+
+    -- ** VocabularyFilterMethod
+    VocabularyFilterMethod (..),
+
+    -- ** DataAccessRoleArn
+    DataAccessRoleArn (..),
+
+    -- ** VocabularyState
+    VocabularyState (..),
+
+    -- ** JobExecutionSettings
+    JobExecutionSettings (..),
+    mkJobExecutionSettings,
+    jesAllowDeferredExecution,
+    jesDataAccessRoleArn,
+
+    -- ** Type
+    Type (..),
+
+    -- ** OutputKey
+    OutputKey (..),
+
+    -- ** ModelStatus
+    ModelStatus (..),
+
+    -- ** TranscriptionJobName
+    TranscriptionJobName (..),
+
+    -- ** Word
+    Word (..),
+
+    -- ** Transcript
+    Transcript (..),
+    mkTranscript,
+    tRedactedTranscriptFileUri,
+    tTranscriptFileUri,
+
+    -- ** MedicalTranscriptionJobSummary
+    MedicalTranscriptionJobSummary (..),
+    mkMedicalTranscriptionJobSummary,
+    mtjsCompletionTime,
+    mtjsCreationTime,
+    mtjsFailureReason,
+    mtjsLanguageCode,
+    mtjsMedicalTranscriptionJobName,
+    mtjsOutputLocationType,
+    mtjsSpecialty,
+    mtjsStartTime,
+    mtjsTranscriptionJobStatus,
+    mtjsType,
+
+    -- ** TranscriptionJob
+    TranscriptionJob (..),
+    mkTranscriptionJob,
+    tjCompletionTime,
+    tjContentRedaction,
+    tjCreationTime,
+    tjFailureReason,
+    tjIdentifiedLanguageScore,
+    tjIdentifyLanguage,
+    tjJobExecutionSettings,
+    tjLanguageCode,
+    tjLanguageOptions,
+    tjMedia,
+    tjMediaFormat,
+    tjMediaSampleRateHertz,
+    tjModelSettings,
+    tjSettings,
+    tjStartTime,
+    tjTranscript,
+    tjTranscriptionJobName,
+    tjTranscriptionJobStatus,
+
+    -- ** DownloadUri
+    DownloadUri (..),
+
+    -- ** VocabularyFilterFileUri
+    VocabularyFilterFileUri (..),
+
+    -- ** MedicalTranscriptionJobName
+    MedicalTranscriptionJobName (..),
+
+    -- ** VocabularyFileUri
+    VocabularyFileUri (..),
+
+    -- ** JobNameContains
+    JobNameContains (..),
+
+    -- ** NameContains
+    NameContains (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

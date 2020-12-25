@@ -28,123 +28,111 @@ module Network.AWS.DeviceFarm.CreateTestGridProject
     mkCreateTestGridProjectResponse,
 
     -- ** Response lenses
-    ctgprsTestGridProject,
-    ctgprsResponseStatus,
+    ctgprrsTestGridProject,
+    ctgprrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTestGridProject' smart constructor.
 data CreateTestGridProject = CreateTestGridProject'
   { -- | Human-readable name of the Selenium testing project.
-    name :: Lude.Text,
+    name :: Types.ResourceName,
     -- | Human-readable description of the project.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTestGridProject' with the minimum fields required to make a request.
---
--- * 'name' - Human-readable name of the Selenium testing project.
--- * 'description' - Human-readable description of the project.
+-- | Creates a 'CreateTestGridProject' value with any optional fields omitted.
 mkCreateTestGridProject ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   CreateTestGridProject
-mkCreateTestGridProject pName_ =
-  CreateTestGridProject' {name = pName_, description = Lude.Nothing}
+mkCreateTestGridProject name =
+  CreateTestGridProject' {name, description = Core.Nothing}
 
 -- | Human-readable name of the Selenium testing project.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpName :: Lens.Lens' CreateTestGridProject Lude.Text
-ctgpName = Lens.lens (name :: CreateTestGridProject -> Lude.Text) (\s a -> s {name = a} :: CreateTestGridProject)
+ctgpName :: Lens.Lens' CreateTestGridProject Types.ResourceName
+ctgpName = Lens.field @"name"
 {-# DEPRECATED ctgpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Human-readable description of the project.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpDescription :: Lens.Lens' CreateTestGridProject (Lude.Maybe Lude.Text)
-ctgpDescription = Lens.lens (description :: CreateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTestGridProject)
+ctgpDescription :: Lens.Lens' CreateTestGridProject (Core.Maybe Types.Description)
+ctgpDescription = Lens.field @"description"
 {-# DEPRECATED ctgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest CreateTestGridProject where
+instance Core.FromJSON CreateTestGridProject where
+  toJSON CreateTestGridProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("description" Core..=) Core.<$> description
+          ]
+      )
+
+instance Core.AWSRequest CreateTestGridProject where
   type Rs CreateTestGridProject = CreateTestGridProjectResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.CreateTestGridProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateTestGridProjectResponse'
-            Lude.<$> (x Lude..?> "testGridProject")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "testGridProject")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTestGridProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.CreateTestGridProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateTestGridProject where
-  toJSON CreateTestGridProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath CreateTestGridProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTestGridProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateTestGridProjectResponse' smart constructor.
 data CreateTestGridProjectResponse = CreateTestGridProjectResponse'
   { -- | ARN of the Selenium testing project that was created.
-    testGridProject :: Lude.Maybe TestGridProject,
+    testGridProject :: Core.Maybe Types.TestGridProject,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateTestGridProjectResponse' with the minimum fields required to make a request.
---
--- * 'testGridProject' - ARN of the Selenium testing project that was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTestGridProjectResponse' value with any optional fields omitted.
 mkCreateTestGridProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTestGridProjectResponse
-mkCreateTestGridProjectResponse pResponseStatus_ =
+mkCreateTestGridProjectResponse responseStatus =
   CreateTestGridProjectResponse'
-    { testGridProject = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { testGridProject = Core.Nothing,
+      responseStatus
     }
 
 -- | ARN of the Selenium testing project that was created.
 --
 -- /Note:/ Consider using 'testGridProject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgprsTestGridProject :: Lens.Lens' CreateTestGridProjectResponse (Lude.Maybe TestGridProject)
-ctgprsTestGridProject = Lens.lens (testGridProject :: CreateTestGridProjectResponse -> Lude.Maybe TestGridProject) (\s a -> s {testGridProject = a} :: CreateTestGridProjectResponse)
-{-# DEPRECATED ctgprsTestGridProject "Use generic-lens or generic-optics with 'testGridProject' instead." #-}
+ctgprrsTestGridProject :: Lens.Lens' CreateTestGridProjectResponse (Core.Maybe Types.TestGridProject)
+ctgprrsTestGridProject = Lens.field @"testGridProject"
+{-# DEPRECATED ctgprrsTestGridProject "Use generic-lens or generic-optics with 'testGridProject' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgprsResponseStatus :: Lens.Lens' CreateTestGridProjectResponse Lude.Int
-ctgprsResponseStatus = Lens.lens (responseStatus :: CreateTestGridProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTestGridProjectResponse)
-{-# DEPRECATED ctgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctgprrsResponseStatus :: Lens.Lens' CreateTestGridProjectResponse Core.Int
+ctgprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctgprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

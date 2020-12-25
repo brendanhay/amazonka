@@ -22,7 +22,7 @@ module Network.AWS.SageMaker.DeleteEndpointConfig
     mkDeleteEndpointConfig,
 
     -- ** Request lenses
-    decEndpointConfigName,
+    dEndpointConfigName,
 
     -- * Destructuring the response
     DeleteEndpointConfigResponse (..),
@@ -31,71 +31,62 @@ module Network.AWS.SageMaker.DeleteEndpointConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteEndpointConfig' smart constructor.
 newtype DeleteEndpointConfig = DeleteEndpointConfig'
   { -- | The name of the endpoint configuration that you want to delete.
-    endpointConfigName :: Lude.Text
+    endpointConfigName :: Types.EndpointConfigName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpointConfig' with the minimum fields required to make a request.
---
--- * 'endpointConfigName' - The name of the endpoint configuration that you want to delete.
+-- | Creates a 'DeleteEndpointConfig' value with any optional fields omitted.
 mkDeleteEndpointConfig ::
   -- | 'endpointConfigName'
-  Lude.Text ->
+  Types.EndpointConfigName ->
   DeleteEndpointConfig
-mkDeleteEndpointConfig pEndpointConfigName_ =
-  DeleteEndpointConfig' {endpointConfigName = pEndpointConfigName_}
+mkDeleteEndpointConfig endpointConfigName =
+  DeleteEndpointConfig' {endpointConfigName}
 
 -- | The name of the endpoint configuration that you want to delete.
 --
 -- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decEndpointConfigName :: Lens.Lens' DeleteEndpointConfig Lude.Text
-decEndpointConfigName = Lens.lens (endpointConfigName :: DeleteEndpointConfig -> Lude.Text) (\s a -> s {endpointConfigName = a} :: DeleteEndpointConfig)
-{-# DEPRECATED decEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
+dEndpointConfigName :: Lens.Lens' DeleteEndpointConfig Types.EndpointConfigName
+dEndpointConfigName = Lens.field @"endpointConfigName"
+{-# DEPRECATED dEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
-instance Lude.AWSRequest DeleteEndpointConfig where
+instance Core.FromJSON DeleteEndpointConfig where
+  toJSON DeleteEndpointConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointConfigName" Core..= endpointConfigName)]
+      )
+
+instance Core.AWSRequest DeleteEndpointConfig where
   type Rs DeleteEndpointConfig = DeleteEndpointConfigResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull DeleteEndpointConfigResponse'
-
-instance Lude.ToHeaders DeleteEndpointConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteEndpointConfig" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteEndpointConfig where
-  toJSON DeleteEndpointConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("EndpointConfigName" Lude..= endpointConfigName)]
-      )
-
-instance Lude.ToPath DeleteEndpointConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEndpointConfig where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteEndpointConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteEndpointConfigResponse'
 
 -- | /See:/ 'mkDeleteEndpointConfigResponse' smart constructor.
 data DeleteEndpointConfigResponse = DeleteEndpointConfigResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpointConfigResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteEndpointConfigResponse' value with any optional fields omitted.
 mkDeleteEndpointConfigResponse ::
   DeleteEndpointConfigResponse
 mkDeleteEndpointConfigResponse = DeleteEndpointConfigResponse'

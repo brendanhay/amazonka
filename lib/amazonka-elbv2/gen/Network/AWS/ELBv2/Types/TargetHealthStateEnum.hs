@@ -13,66 +13,71 @@
 module Network.AWS.ELBv2.Types.TargetHealthStateEnum
   ( TargetHealthStateEnum
       ( TargetHealthStateEnum',
-        Initial,
-        Healthy,
-        Unhealthy,
-        Unused,
-        Draining,
-        Unavailable
+        TargetHealthStateEnumInitial,
+        TargetHealthStateEnumHealthy,
+        TargetHealthStateEnumUnhealthy,
+        TargetHealthStateEnumUnused,
+        TargetHealthStateEnumDraining,
+        TargetHealthStateEnumUnavailable,
+        fromTargetHealthStateEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetHealthStateEnum = TargetHealthStateEnum' Lude.Text
+newtype TargetHealthStateEnum = TargetHealthStateEnum'
+  { fromTargetHealthStateEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Initial :: TargetHealthStateEnum
-pattern Initial = TargetHealthStateEnum' "initial"
+pattern TargetHealthStateEnumInitial :: TargetHealthStateEnum
+pattern TargetHealthStateEnumInitial = TargetHealthStateEnum' "initial"
 
-pattern Healthy :: TargetHealthStateEnum
-pattern Healthy = TargetHealthStateEnum' "healthy"
+pattern TargetHealthStateEnumHealthy :: TargetHealthStateEnum
+pattern TargetHealthStateEnumHealthy = TargetHealthStateEnum' "healthy"
 
-pattern Unhealthy :: TargetHealthStateEnum
-pattern Unhealthy = TargetHealthStateEnum' "unhealthy"
+pattern TargetHealthStateEnumUnhealthy :: TargetHealthStateEnum
+pattern TargetHealthStateEnumUnhealthy = TargetHealthStateEnum' "unhealthy"
 
-pattern Unused :: TargetHealthStateEnum
-pattern Unused = TargetHealthStateEnum' "unused"
+pattern TargetHealthStateEnumUnused :: TargetHealthStateEnum
+pattern TargetHealthStateEnumUnused = TargetHealthStateEnum' "unused"
 
-pattern Draining :: TargetHealthStateEnum
-pattern Draining = TargetHealthStateEnum' "draining"
+pattern TargetHealthStateEnumDraining :: TargetHealthStateEnum
+pattern TargetHealthStateEnumDraining = TargetHealthStateEnum' "draining"
 
-pattern Unavailable :: TargetHealthStateEnum
-pattern Unavailable = TargetHealthStateEnum' "unavailable"
+pattern TargetHealthStateEnumUnavailable :: TargetHealthStateEnum
+pattern TargetHealthStateEnumUnavailable = TargetHealthStateEnum' "unavailable"
 
 {-# COMPLETE
-  Initial,
-  Healthy,
-  Unhealthy,
-  Unused,
-  Draining,
-  Unavailable,
+  TargetHealthStateEnumInitial,
+  TargetHealthStateEnumHealthy,
+  TargetHealthStateEnumUnhealthy,
+  TargetHealthStateEnumUnused,
+  TargetHealthStateEnumDraining,
+  TargetHealthStateEnumUnavailable,
   TargetHealthStateEnum'
   #-}

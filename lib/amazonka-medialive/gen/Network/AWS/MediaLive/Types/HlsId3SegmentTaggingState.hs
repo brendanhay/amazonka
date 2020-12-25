@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
   ( HlsId3SegmentTaggingState
       ( HlsId3SegmentTaggingState',
-        HISTSDisabled,
-        HISTSEnabled
+        HlsId3SegmentTaggingStateDisabled,
+        HlsId3SegmentTaggingStateEnabled,
+        fromHlsId3SegmentTaggingState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | State of HLS ID3 Segment Tagging
-newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState' Lude.Text
+newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState'
+  { fromHlsId3SegmentTaggingState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HISTSDisabled :: HlsId3SegmentTaggingState
-pattern HISTSDisabled = HlsId3SegmentTaggingState' "DISABLED"
+pattern HlsId3SegmentTaggingStateDisabled :: HlsId3SegmentTaggingState
+pattern HlsId3SegmentTaggingStateDisabled = HlsId3SegmentTaggingState' "DISABLED"
 
-pattern HISTSEnabled :: HlsId3SegmentTaggingState
-pattern HISTSEnabled = HlsId3SegmentTaggingState' "ENABLED"
+pattern HlsId3SegmentTaggingStateEnabled :: HlsId3SegmentTaggingState
+pattern HlsId3SegmentTaggingStateEnabled = HlsId3SegmentTaggingState' "ENABLED"
 
 {-# COMPLETE
-  HISTSDisabled,
-  HISTSEnabled,
+  HlsId3SegmentTaggingStateDisabled,
+  HlsId3SegmentTaggingStateEnabled,
   HlsId3SegmentTaggingState'
   #-}

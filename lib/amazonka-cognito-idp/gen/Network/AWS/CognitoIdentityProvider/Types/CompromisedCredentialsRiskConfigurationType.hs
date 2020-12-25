@@ -22,66 +22,60 @@ module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfi
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
-import Network.AWS.CognitoIdentityProvider.Types.EventFilterType
+import qualified Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.EventFilterType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The compromised credentials risk configuration type.
 --
 -- /See:/ 'mkCompromisedCredentialsRiskConfigurationType' smart constructor.
 data CompromisedCredentialsRiskConfigurationType = CompromisedCredentialsRiskConfigurationType'
   { -- | The compromised credentials risk configuration actions.
-    actions :: CompromisedCredentialsActionsType,
+    actions :: Types.CompromisedCredentialsActionsType,
     -- | Perform the action for these events. The default is to perform all events if no event filter is specified.
-    eventFilter :: Lude.Maybe [EventFilterType]
+    eventFilter :: Core.Maybe [Types.EventFilterType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CompromisedCredentialsRiskConfigurationType' with the minimum fields required to make a request.
---
--- * 'actions' - The compromised credentials risk configuration actions.
--- * 'eventFilter' - Perform the action for these events. The default is to perform all events if no event filter is specified.
+-- | Creates a 'CompromisedCredentialsRiskConfigurationType' value with any optional fields omitted.
 mkCompromisedCredentialsRiskConfigurationType ::
   -- | 'actions'
-  CompromisedCredentialsActionsType ->
+  Types.CompromisedCredentialsActionsType ->
   CompromisedCredentialsRiskConfigurationType
-mkCompromisedCredentialsRiskConfigurationType pActions_ =
+mkCompromisedCredentialsRiskConfigurationType actions =
   CompromisedCredentialsRiskConfigurationType'
-    { actions = pActions_,
-      eventFilter = Lude.Nothing
+    { actions,
+      eventFilter = Core.Nothing
     }
 
 -- | The compromised credentials risk configuration actions.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrctActions :: Lens.Lens' CompromisedCredentialsRiskConfigurationType CompromisedCredentialsActionsType
-ccrctActions = Lens.lens (actions :: CompromisedCredentialsRiskConfigurationType -> CompromisedCredentialsActionsType) (\s a -> s {actions = a} :: CompromisedCredentialsRiskConfigurationType)
+ccrctActions :: Lens.Lens' CompromisedCredentialsRiskConfigurationType Types.CompromisedCredentialsActionsType
+ccrctActions = Lens.field @"actions"
 {-# DEPRECATED ccrctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | Perform the action for these events. The default is to perform all events if no event filter is specified.
 --
 -- /Note:/ Consider using 'eventFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrctEventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Lude.Maybe [EventFilterType])
-ccrctEventFilter = Lens.lens (eventFilter :: CompromisedCredentialsRiskConfigurationType -> Lude.Maybe [EventFilterType]) (\s a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType)
+ccrctEventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Core.Maybe [Types.EventFilterType])
+ccrctEventFilter = Lens.field @"eventFilter"
 {-# DEPRECATED ccrctEventFilter "Use generic-lens or generic-optics with 'eventFilter' instead." #-}
 
-instance Lude.FromJSON CompromisedCredentialsRiskConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "CompromisedCredentialsRiskConfigurationType"
-      ( \x ->
-          CompromisedCredentialsRiskConfigurationType'
-            Lude.<$> (x Lude..: "Actions")
-            Lude.<*> (x Lude..:? "EventFilter" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON CompromisedCredentialsRiskConfigurationType where
-  toJSON CompromisedCredentialsRiskConfigurationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Actions" Lude..= actions),
-            ("EventFilter" Lude..=) Lude.<$> eventFilter
+instance Core.FromJSON CompromisedCredentialsRiskConfigurationType where
+  toJSON CompromisedCredentialsRiskConfigurationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Actions" Core..= actions),
+            ("EventFilter" Core..=) Core.<$> eventFilter
           ]
       )
+
+instance Core.FromJSON CompromisedCredentialsRiskConfigurationType where
+  parseJSON =
+    Core.withObject "CompromisedCredentialsRiskConfigurationType" Core.$
+      \x ->
+        CompromisedCredentialsRiskConfigurationType'
+          Core.<$> (x Core..: "Actions") Core.<*> (x Core..:? "EventFilter")

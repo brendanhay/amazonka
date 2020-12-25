@@ -59,104 +59,98 @@ module Network.AWS.XRay.PutTraceSegments
     mkPutTraceSegmentsResponse,
 
     -- ** Response lenses
-    ptsrsUnprocessedTraceSegments,
-    ptsrsResponseStatus,
+    ptsrrsUnprocessedTraceSegments,
+    ptsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkPutTraceSegments' smart constructor.
 newtype PutTraceSegments = PutTraceSegments'
   { -- | A string containing a JSON document defining one or more segments or subsegments.
-    traceSegmentDocuments :: [Lude.Text]
+    traceSegmentDocuments :: [Types.TraceSegmentDocument]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutTraceSegments' with the minimum fields required to make a request.
---
--- * 'traceSegmentDocuments' - A string containing a JSON document defining one or more segments or subsegments.
+-- | Creates a 'PutTraceSegments' value with any optional fields omitted.
 mkPutTraceSegments ::
   PutTraceSegments
 mkPutTraceSegments =
-  PutTraceSegments' {traceSegmentDocuments = Lude.mempty}
+  PutTraceSegments' {traceSegmentDocuments = Core.mempty}
 
 -- | A string containing a JSON document defining one or more segments or subsegments.
 --
 -- /Note:/ Consider using 'traceSegmentDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsTraceSegmentDocuments :: Lens.Lens' PutTraceSegments [Lude.Text]
-ptsTraceSegmentDocuments = Lens.lens (traceSegmentDocuments :: PutTraceSegments -> [Lude.Text]) (\s a -> s {traceSegmentDocuments = a} :: PutTraceSegments)
+ptsTraceSegmentDocuments :: Lens.Lens' PutTraceSegments [Types.TraceSegmentDocument]
+ptsTraceSegmentDocuments = Lens.field @"traceSegmentDocuments"
 {-# DEPRECATED ptsTraceSegmentDocuments "Use generic-lens or generic-optics with 'traceSegmentDocuments' instead." #-}
 
-instance Lude.AWSRequest PutTraceSegments where
-  type Rs PutTraceSegments = PutTraceSegmentsResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          PutTraceSegmentsResponse'
-            Lude.<$> (x Lude..?> "UnprocessedTraceSegments" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders PutTraceSegments where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PutTraceSegments where
-  toJSON PutTraceSegments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("TraceSegmentDocuments" Lude..= traceSegmentDocuments)
+instance Core.FromJSON PutTraceSegments where
+  toJSON PutTraceSegments {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TraceSegmentDocuments" Core..= traceSegmentDocuments)
           ]
       )
 
-instance Lude.ToPath PutTraceSegments where
-  toPath = Lude.const "/TraceSegments"
-
-instance Lude.ToQuery PutTraceSegments where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest PutTraceSegments where
+  type Rs PutTraceSegments = PutTraceSegmentsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/TraceSegments",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutTraceSegmentsResponse'
+            Core.<$> (x Core..:? "UnprocessedTraceSegments")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkPutTraceSegmentsResponse' smart constructor.
 data PutTraceSegmentsResponse = PutTraceSegmentsResponse'
   { -- | Segments that failed processing.
-    unprocessedTraceSegments :: Lude.Maybe [UnprocessedTraceSegment],
+    unprocessedTraceSegments :: Core.Maybe [Types.UnprocessedTraceSegment],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutTraceSegmentsResponse' with the minimum fields required to make a request.
---
--- * 'unprocessedTraceSegments' - Segments that failed processing.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutTraceSegmentsResponse' value with any optional fields omitted.
 mkPutTraceSegmentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutTraceSegmentsResponse
-mkPutTraceSegmentsResponse pResponseStatus_ =
+mkPutTraceSegmentsResponse responseStatus =
   PutTraceSegmentsResponse'
     { unprocessedTraceSegments =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Segments that failed processing.
 --
 -- /Note:/ Consider using 'unprocessedTraceSegments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsrsUnprocessedTraceSegments :: Lens.Lens' PutTraceSegmentsResponse (Lude.Maybe [UnprocessedTraceSegment])
-ptsrsUnprocessedTraceSegments = Lens.lens (unprocessedTraceSegments :: PutTraceSegmentsResponse -> Lude.Maybe [UnprocessedTraceSegment]) (\s a -> s {unprocessedTraceSegments = a} :: PutTraceSegmentsResponse)
-{-# DEPRECATED ptsrsUnprocessedTraceSegments "Use generic-lens or generic-optics with 'unprocessedTraceSegments' instead." #-}
+ptsrrsUnprocessedTraceSegments :: Lens.Lens' PutTraceSegmentsResponse (Core.Maybe [Types.UnprocessedTraceSegment])
+ptsrrsUnprocessedTraceSegments = Lens.field @"unprocessedTraceSegments"
+{-# DEPRECATED ptsrrsUnprocessedTraceSegments "Use generic-lens or generic-optics with 'unprocessedTraceSegments' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsrsResponseStatus :: Lens.Lens' PutTraceSegmentsResponse Lude.Int
-ptsrsResponseStatus = Lens.lens (responseStatus :: PutTraceSegmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutTraceSegmentsResponse)
-{-# DEPRECATED ptsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ptsrrsResponseStatus :: Lens.Lens' PutTraceSegmentsResponse Core.Int
+ptsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ptsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

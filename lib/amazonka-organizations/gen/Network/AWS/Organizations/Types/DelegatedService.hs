@@ -17,58 +17,54 @@ module Network.AWS.Organizations.Types.DelegatedService
     mkDelegatedService,
 
     -- * Lenses
-    dsServicePrincipal,
     dsDelegationEnabledDate,
+    dsServicePrincipal,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.ServicePrincipal as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the AWS service for which the account is a delegated administrator.
 --
 -- /See:/ 'mkDelegatedService' smart constructor.
 data DelegatedService = DelegatedService'
-  { -- | The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
-    servicePrincipal :: Lude.Maybe Lude.Text,
-    -- | The date that the account became a delegated administrator for this service.
-    delegationEnabledDate :: Lude.Maybe Lude.Timestamp
+  { -- | The date that the account became a delegated administrator for this service.
+    delegationEnabledDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
+    servicePrincipal :: Core.Maybe Types.ServicePrincipal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DelegatedService' with the minimum fields required to make a request.
---
--- * 'servicePrincipal' - The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
--- * 'delegationEnabledDate' - The date that the account became a delegated administrator for this service.
+-- | Creates a 'DelegatedService' value with any optional fields omitted.
 mkDelegatedService ::
   DelegatedService
 mkDelegatedService =
   DelegatedService'
-    { servicePrincipal = Lude.Nothing,
-      delegationEnabledDate = Lude.Nothing
+    { delegationEnabledDate = Core.Nothing,
+      servicePrincipal = Core.Nothing
     }
-
--- | The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
---
--- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsServicePrincipal :: Lens.Lens' DelegatedService (Lude.Maybe Lude.Text)
-dsServicePrincipal = Lens.lens (servicePrincipal :: DelegatedService -> Lude.Maybe Lude.Text) (\s a -> s {servicePrincipal = a} :: DelegatedService)
-{-# DEPRECATED dsServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
 
 -- | The date that the account became a delegated administrator for this service.
 --
 -- /Note:/ Consider using 'delegationEnabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDelegationEnabledDate :: Lens.Lens' DelegatedService (Lude.Maybe Lude.Timestamp)
-dsDelegationEnabledDate = Lens.lens (delegationEnabledDate :: DelegatedService -> Lude.Maybe Lude.Timestamp) (\s a -> s {delegationEnabledDate = a} :: DelegatedService)
+dsDelegationEnabledDate :: Lens.Lens' DelegatedService (Core.Maybe Core.NominalDiffTime)
+dsDelegationEnabledDate = Lens.field @"delegationEnabledDate"
 {-# DEPRECATED dsDelegationEnabledDate "Use generic-lens or generic-optics with 'delegationEnabledDate' instead." #-}
 
-instance Lude.FromJSON DelegatedService where
+-- | The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
+--
+-- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServicePrincipal :: Lens.Lens' DelegatedService (Core.Maybe Types.ServicePrincipal)
+dsServicePrincipal = Lens.field @"servicePrincipal"
+{-# DEPRECATED dsServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
+
+instance Core.FromJSON DelegatedService where
   parseJSON =
-    Lude.withObject
-      "DelegatedService"
-      ( \x ->
-          DelegatedService'
-            Lude.<$> (x Lude..:? "ServicePrincipal")
-            Lude.<*> (x Lude..:? "DelegationEnabledDate")
-      )
+    Core.withObject "DelegatedService" Core.$
+      \x ->
+        DelegatedService'
+          Core.<$> (x Core..:? "DelegationEnabledDate")
+          Core.<*> (x Core..:? "ServicePrincipal")

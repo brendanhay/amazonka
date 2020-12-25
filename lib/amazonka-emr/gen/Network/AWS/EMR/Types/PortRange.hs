@@ -23,59 +23,54 @@ module Network.AWS.EMR.Types.PortRange
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of port ranges that are permitted to allow inbound traffic from all public IP addresses. To specify a single port, use the same value for @MinRange@ and @MaxRange@ .
 --
 -- /See:/ 'mkPortRange' smart constructor.
 data PortRange = PortRange'
   { -- | The smallest port number in a specified range of port numbers.
-    minRange :: Lude.Int,
+    minRange :: Core.Int,
     -- | The smallest port number in a specified range of port numbers.
-    maxRange :: Lude.Maybe Lude.Int
+    maxRange :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PortRange' with the minimum fields required to make a request.
---
--- * 'minRange' - The smallest port number in a specified range of port numbers.
--- * 'maxRange' - The smallest port number in a specified range of port numbers.
+-- | Creates a 'PortRange' value with any optional fields omitted.
 mkPortRange ::
   -- | 'minRange'
-  Lude.Int ->
+  Core.Int ->
   PortRange
-mkPortRange pMinRange_ =
-  PortRange' {minRange = pMinRange_, maxRange = Lude.Nothing}
+mkPortRange minRange =
+  PortRange' {minRange, maxRange = Core.Nothing}
 
 -- | The smallest port number in a specified range of port numbers.
 --
 -- /Note:/ Consider using 'minRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prMinRange :: Lens.Lens' PortRange Lude.Int
-prMinRange = Lens.lens (minRange :: PortRange -> Lude.Int) (\s a -> s {minRange = a} :: PortRange)
+prMinRange :: Lens.Lens' PortRange Core.Int
+prMinRange = Lens.field @"minRange"
 {-# DEPRECATED prMinRange "Use generic-lens or generic-optics with 'minRange' instead." #-}
 
 -- | The smallest port number in a specified range of port numbers.
 --
 -- /Note:/ Consider using 'maxRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prMaxRange :: Lens.Lens' PortRange (Lude.Maybe Lude.Int)
-prMaxRange = Lens.lens (maxRange :: PortRange -> Lude.Maybe Lude.Int) (\s a -> s {maxRange = a} :: PortRange)
+prMaxRange :: Lens.Lens' PortRange (Core.Maybe Core.Int)
+prMaxRange = Lens.field @"maxRange"
 {-# DEPRECATED prMaxRange "Use generic-lens or generic-optics with 'maxRange' instead." #-}
 
-instance Lude.FromJSON PortRange where
-  parseJSON =
-    Lude.withObject
-      "PortRange"
-      ( \x ->
-          PortRange'
-            Lude.<$> (x Lude..: "MinRange") Lude.<*> (x Lude..:? "MaxRange")
-      )
-
-instance Lude.ToJSON PortRange where
-  toJSON PortRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MinRange" Lude..= minRange),
-            ("MaxRange" Lude..=) Lude.<$> maxRange
+instance Core.FromJSON PortRange where
+  toJSON PortRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MinRange" Core..= minRange),
+            ("MaxRange" Core..=) Core.<$> maxRange
           ]
       )
+
+instance Core.FromJSON PortRange where
+  parseJSON =
+    Core.withObject "PortRange" Core.$
+      \x ->
+        PortRange'
+          Core.<$> (x Core..: "MinRange") Core.<*> (x Core..:? "MaxRange")

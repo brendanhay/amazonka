@@ -13,111 +13,116 @@
 module Network.AWS.EC2.Types.InstanceAttributeName
   ( InstanceAttributeName
       ( InstanceAttributeName',
-        IANInstanceType,
-        IANKernel,
-        IANRAMDisk,
-        IANUserData,
-        IANDisableAPITermination,
-        IANInstanceInitiatedShutdownBehavior,
-        IANRootDeviceName,
-        IANBlockDeviceMapping,
-        IANProductCodes,
-        IANSourceDestCheck,
-        IANGroupSet,
-        IANEBSOptimized,
-        IANSRIOVNetSupport,
-        IANEnaSupport,
-        IANEnclaveOptions
+        InstanceAttributeNameInstanceType,
+        InstanceAttributeNameKernel,
+        InstanceAttributeNameRamdisk,
+        InstanceAttributeNameUserData,
+        InstanceAttributeNameDisableApiTermination,
+        InstanceAttributeNameInstanceInitiatedShutdownBehavior,
+        InstanceAttributeNameRootDeviceName,
+        InstanceAttributeNameBlockDeviceMapping,
+        InstanceAttributeNameProductCodes,
+        InstanceAttributeNameSourceDestCheck,
+        InstanceAttributeNameGroupSet,
+        InstanceAttributeNameEbsOptimized,
+        InstanceAttributeNameSriovNetSupport,
+        InstanceAttributeNameEnaSupport,
+        InstanceAttributeNameEnclaveOptions,
+        fromInstanceAttributeName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceAttributeName = InstanceAttributeName' Lude.Text
+newtype InstanceAttributeName = InstanceAttributeName'
+  { fromInstanceAttributeName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IANInstanceType :: InstanceAttributeName
-pattern IANInstanceType = InstanceAttributeName' "instanceType"
+pattern InstanceAttributeNameInstanceType :: InstanceAttributeName
+pattern InstanceAttributeNameInstanceType = InstanceAttributeName' "instanceType"
 
-pattern IANKernel :: InstanceAttributeName
-pattern IANKernel = InstanceAttributeName' "kernel"
+pattern InstanceAttributeNameKernel :: InstanceAttributeName
+pattern InstanceAttributeNameKernel = InstanceAttributeName' "kernel"
 
-pattern IANRAMDisk :: InstanceAttributeName
-pattern IANRAMDisk = InstanceAttributeName' "ramdisk"
+pattern InstanceAttributeNameRamdisk :: InstanceAttributeName
+pattern InstanceAttributeNameRamdisk = InstanceAttributeName' "ramdisk"
 
-pattern IANUserData :: InstanceAttributeName
-pattern IANUserData = InstanceAttributeName' "userData"
+pattern InstanceAttributeNameUserData :: InstanceAttributeName
+pattern InstanceAttributeNameUserData = InstanceAttributeName' "userData"
 
-pattern IANDisableAPITermination :: InstanceAttributeName
-pattern IANDisableAPITermination = InstanceAttributeName' "disableApiTermination"
+pattern InstanceAttributeNameDisableApiTermination :: InstanceAttributeName
+pattern InstanceAttributeNameDisableApiTermination = InstanceAttributeName' "disableApiTermination"
 
-pattern IANInstanceInitiatedShutdownBehavior :: InstanceAttributeName
-pattern IANInstanceInitiatedShutdownBehavior = InstanceAttributeName' "instanceInitiatedShutdownBehavior"
+pattern InstanceAttributeNameInstanceInitiatedShutdownBehavior :: InstanceAttributeName
+pattern InstanceAttributeNameInstanceInitiatedShutdownBehavior = InstanceAttributeName' "instanceInitiatedShutdownBehavior"
 
-pattern IANRootDeviceName :: InstanceAttributeName
-pattern IANRootDeviceName = InstanceAttributeName' "rootDeviceName"
+pattern InstanceAttributeNameRootDeviceName :: InstanceAttributeName
+pattern InstanceAttributeNameRootDeviceName = InstanceAttributeName' "rootDeviceName"
 
-pattern IANBlockDeviceMapping :: InstanceAttributeName
-pattern IANBlockDeviceMapping = InstanceAttributeName' "blockDeviceMapping"
+pattern InstanceAttributeNameBlockDeviceMapping :: InstanceAttributeName
+pattern InstanceAttributeNameBlockDeviceMapping = InstanceAttributeName' "blockDeviceMapping"
 
-pattern IANProductCodes :: InstanceAttributeName
-pattern IANProductCodes = InstanceAttributeName' "productCodes"
+pattern InstanceAttributeNameProductCodes :: InstanceAttributeName
+pattern InstanceAttributeNameProductCodes = InstanceAttributeName' "productCodes"
 
-pattern IANSourceDestCheck :: InstanceAttributeName
-pattern IANSourceDestCheck = InstanceAttributeName' "sourceDestCheck"
+pattern InstanceAttributeNameSourceDestCheck :: InstanceAttributeName
+pattern InstanceAttributeNameSourceDestCheck = InstanceAttributeName' "sourceDestCheck"
 
-pattern IANGroupSet :: InstanceAttributeName
-pattern IANGroupSet = InstanceAttributeName' "groupSet"
+pattern InstanceAttributeNameGroupSet :: InstanceAttributeName
+pattern InstanceAttributeNameGroupSet = InstanceAttributeName' "groupSet"
 
-pattern IANEBSOptimized :: InstanceAttributeName
-pattern IANEBSOptimized = InstanceAttributeName' "ebsOptimized"
+pattern InstanceAttributeNameEbsOptimized :: InstanceAttributeName
+pattern InstanceAttributeNameEbsOptimized = InstanceAttributeName' "ebsOptimized"
 
-pattern IANSRIOVNetSupport :: InstanceAttributeName
-pattern IANSRIOVNetSupport = InstanceAttributeName' "sriovNetSupport"
+pattern InstanceAttributeNameSriovNetSupport :: InstanceAttributeName
+pattern InstanceAttributeNameSriovNetSupport = InstanceAttributeName' "sriovNetSupport"
 
-pattern IANEnaSupport :: InstanceAttributeName
-pattern IANEnaSupport = InstanceAttributeName' "enaSupport"
+pattern InstanceAttributeNameEnaSupport :: InstanceAttributeName
+pattern InstanceAttributeNameEnaSupport = InstanceAttributeName' "enaSupport"
 
-pattern IANEnclaveOptions :: InstanceAttributeName
-pattern IANEnclaveOptions = InstanceAttributeName' "enclaveOptions"
+pattern InstanceAttributeNameEnclaveOptions :: InstanceAttributeName
+pattern InstanceAttributeNameEnclaveOptions = InstanceAttributeName' "enclaveOptions"
 
 {-# COMPLETE
-  IANInstanceType,
-  IANKernel,
-  IANRAMDisk,
-  IANUserData,
-  IANDisableAPITermination,
-  IANInstanceInitiatedShutdownBehavior,
-  IANRootDeviceName,
-  IANBlockDeviceMapping,
-  IANProductCodes,
-  IANSourceDestCheck,
-  IANGroupSet,
-  IANEBSOptimized,
-  IANSRIOVNetSupport,
-  IANEnaSupport,
-  IANEnclaveOptions,
+  InstanceAttributeNameInstanceType,
+  InstanceAttributeNameKernel,
+  InstanceAttributeNameRamdisk,
+  InstanceAttributeNameUserData,
+  InstanceAttributeNameDisableApiTermination,
+  InstanceAttributeNameInstanceInitiatedShutdownBehavior,
+  InstanceAttributeNameRootDeviceName,
+  InstanceAttributeNameBlockDeviceMapping,
+  InstanceAttributeNameProductCodes,
+  InstanceAttributeNameSourceDestCheck,
+  InstanceAttributeNameGroupSet,
+  InstanceAttributeNameEbsOptimized,
+  InstanceAttributeNameSriovNetSupport,
+  InstanceAttributeNameEnaSupport,
+  InstanceAttributeNameEnclaveOptions,
   InstanceAttributeName'
   #-}

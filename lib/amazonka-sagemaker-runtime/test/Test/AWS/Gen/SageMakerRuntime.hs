@@ -54,5 +54,5 @@ responseInvokeEndpoint =
   res
     "InvokeEndpointResponse"
     "fixture/InvokeEndpointResponse.proto"
-    sageMakerRuntimeService
+    mkServiceConfig
     (Proxy :: Proxy InvokeEndpoint)

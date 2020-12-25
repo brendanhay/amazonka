@@ -21,39 +21,33 @@ module Network.AWS.Glue.Types.CrawlerNodeDetails
   )
 where
 
-import Network.AWS.Glue.Types.Crawl
+import qualified Network.AWS.Glue.Types.Crawl as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of a Crawler node present in the workflow.
 --
 -- /See:/ 'mkCrawlerNodeDetails' smart constructor.
 newtype CrawlerNodeDetails = CrawlerNodeDetails'
   { -- | A list of crawls represented by the crawl node.
-    crawls :: Lude.Maybe [Crawl]
+    crawls :: Core.Maybe [Types.Crawl]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'CrawlerNodeDetails' with the minimum fields required to make a request.
---
--- * 'crawls' - A list of crawls represented by the crawl node.
+-- | Creates a 'CrawlerNodeDetails' value with any optional fields omitted.
 mkCrawlerNodeDetails ::
   CrawlerNodeDetails
-mkCrawlerNodeDetails = CrawlerNodeDetails' {crawls = Lude.Nothing}
+mkCrawlerNodeDetails = CrawlerNodeDetails' {crawls = Core.Nothing}
 
 -- | A list of crawls represented by the crawl node.
 --
 -- /Note:/ Consider using 'crawls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cndCrawls :: Lens.Lens' CrawlerNodeDetails (Lude.Maybe [Crawl])
-cndCrawls = Lens.lens (crawls :: CrawlerNodeDetails -> Lude.Maybe [Crawl]) (\s a -> s {crawls = a} :: CrawlerNodeDetails)
+cndCrawls :: Lens.Lens' CrawlerNodeDetails (Core.Maybe [Types.Crawl])
+cndCrawls = Lens.field @"crawls"
 {-# DEPRECATED cndCrawls "Use generic-lens or generic-optics with 'crawls' instead." #-}
 
-instance Lude.FromJSON CrawlerNodeDetails where
+instance Core.FromJSON CrawlerNodeDetails where
   parseJSON =
-    Lude.withObject
-      "CrawlerNodeDetails"
-      ( \x ->
-          CrawlerNodeDetails'
-            Lude.<$> (x Lude..:? "Crawls" Lude..!= Lude.mempty)
-      )
+    Core.withObject "CrawlerNodeDetails" Core.$
+      \x -> CrawlerNodeDetails' Core.<$> (x Core..:? "Crawls")

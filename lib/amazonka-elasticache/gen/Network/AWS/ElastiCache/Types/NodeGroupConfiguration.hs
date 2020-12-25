@@ -17,147 +17,124 @@ module Network.AWS.ElastiCache.Types.NodeGroupConfiguration
     mkNodeGroupConfiguration,
 
     -- * Lenses
-    ngcSlots,
-    ngcReplicaOutpostARNs,
-    ngcReplicaCount,
-    ngcPrimaryAvailabilityZone,
-    ngcReplicaAvailabilityZones,
-    ngcPrimaryOutpostARN,
     ngcNodeGroupId,
+    ngcPrimaryAvailabilityZone,
+    ngcPrimaryOutpostArn,
+    ngcReplicaAvailabilityZones,
+    ngcReplicaCount,
+    ngcReplicaOutpostArns,
+    ngcSlots,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.NodeGroupId as Types
+import qualified Network.AWS.ElastiCache.Types.PrimaryAvailabilityZone as Types
+import qualified Network.AWS.ElastiCache.Types.PrimaryOutpostArn as Types
+import qualified Network.AWS.ElastiCache.Types.Slots as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Node group (shard) configuration options. Each node group (shard) configuration has the following: @Slots@ , @PrimaryAvailabilityZone@ , @ReplicaAvailabilityZones@ , @ReplicaCount@ .
 --
 -- /See:/ 'mkNodeGroupConfiguration' smart constructor.
 data NodeGroupConfiguration = NodeGroupConfiguration'
-  { -- | A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ .
+  { -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+    nodeGroupId :: Core.Maybe Types.NodeGroupId,
+    -- | The Availability Zone where the primary node of this node group (shard) is launched.
+    primaryAvailabilityZone :: Core.Maybe Types.PrimaryAvailabilityZone,
+    -- | The output ARN of the primary node.
+    primaryOutpostArn :: Core.Maybe Types.PrimaryOutpostArn,
+    -- | A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
+    replicaAvailabilityZones :: Core.Maybe [Types.String],
+    -- | The number of read replica nodes in this node group (shard).
+    replicaCount :: Core.Maybe Core.Int,
+    -- | The outpost ARN of the node replicas.
+    replicaOutpostArns :: Core.Maybe [Types.String],
+    -- | A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ .
     --
     -- Example: @"0-3999"@
-    slots :: Lude.Maybe Lude.Text,
-    -- | The outpost ARN of the node replicas.
-    replicaOutpostARNs :: Lude.Maybe [Lude.Text],
-    -- | The number of read replica nodes in this node group (shard).
-    replicaCount :: Lude.Maybe Lude.Int,
-    -- | The Availability Zone where the primary node of this node group (shard) is launched.
-    primaryAvailabilityZone :: Lude.Maybe Lude.Text,
-    -- | A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
-    replicaAvailabilityZones :: Lude.Maybe [Lude.Text],
-    -- | The output ARN of the primary node.
-    primaryOutpostARN :: Lude.Maybe Lude.Text,
-    -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
-    nodeGroupId :: Lude.Maybe Lude.Text
+    slots :: Core.Maybe Types.Slots
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NodeGroupConfiguration' with the minimum fields required to make a request.
---
--- * 'slots' - A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ .
---
--- Example: @"0-3999"@
--- * 'replicaOutpostARNs' - The outpost ARN of the node replicas.
--- * 'replicaCount' - The number of read replica nodes in this node group (shard).
--- * 'primaryAvailabilityZone' - The Availability Zone where the primary node of this node group (shard) is launched.
--- * 'replicaAvailabilityZones' - A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
--- * 'primaryOutpostARN' - The output ARN of the primary node.
--- * 'nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+-- | Creates a 'NodeGroupConfiguration' value with any optional fields omitted.
 mkNodeGroupConfiguration ::
   NodeGroupConfiguration
 mkNodeGroupConfiguration =
   NodeGroupConfiguration'
-    { slots = Lude.Nothing,
-      replicaOutpostARNs = Lude.Nothing,
-      replicaCount = Lude.Nothing,
-      primaryAvailabilityZone = Lude.Nothing,
-      replicaAvailabilityZones = Lude.Nothing,
-      primaryOutpostARN = Lude.Nothing,
-      nodeGroupId = Lude.Nothing
+    { nodeGroupId = Core.Nothing,
+      primaryAvailabilityZone = Core.Nothing,
+      primaryOutpostArn = Core.Nothing,
+      replicaAvailabilityZones = Core.Nothing,
+      replicaCount = Core.Nothing,
+      replicaOutpostArns = Core.Nothing,
+      slots = Core.Nothing
     }
+
+-- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+--
+-- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngcNodeGroupId :: Lens.Lens' NodeGroupConfiguration (Core.Maybe Types.NodeGroupId)
+ngcNodeGroupId = Lens.field @"nodeGroupId"
+{-# DEPRECATED ngcNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
+
+-- | The Availability Zone where the primary node of this node group (shard) is launched.
+--
+-- /Note:/ Consider using 'primaryAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngcPrimaryAvailabilityZone :: Lens.Lens' NodeGroupConfiguration (Core.Maybe Types.PrimaryAvailabilityZone)
+ngcPrimaryAvailabilityZone = Lens.field @"primaryAvailabilityZone"
+{-# DEPRECATED ngcPrimaryAvailabilityZone "Use generic-lens or generic-optics with 'primaryAvailabilityZone' instead." #-}
+
+-- | The output ARN of the primary node.
+--
+-- /Note:/ Consider using 'primaryOutpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngcPrimaryOutpostArn :: Lens.Lens' NodeGroupConfiguration (Core.Maybe Types.PrimaryOutpostArn)
+ngcPrimaryOutpostArn = Lens.field @"primaryOutpostArn"
+{-# DEPRECATED ngcPrimaryOutpostArn "Use generic-lens or generic-optics with 'primaryOutpostArn' instead." #-}
+
+-- | A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
+--
+-- /Note:/ Consider using 'replicaAvailabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngcReplicaAvailabilityZones :: Lens.Lens' NodeGroupConfiguration (Core.Maybe [Types.String])
+ngcReplicaAvailabilityZones = Lens.field @"replicaAvailabilityZones"
+{-# DEPRECATED ngcReplicaAvailabilityZones "Use generic-lens or generic-optics with 'replicaAvailabilityZones' instead." #-}
+
+-- | The number of read replica nodes in this node group (shard).
+--
+-- /Note:/ Consider using 'replicaCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngcReplicaCount :: Lens.Lens' NodeGroupConfiguration (Core.Maybe Core.Int)
+ngcReplicaCount = Lens.field @"replicaCount"
+{-# DEPRECATED ngcReplicaCount "Use generic-lens or generic-optics with 'replicaCount' instead." #-}
+
+-- | The outpost ARN of the node replicas.
+--
+-- /Note:/ Consider using 'replicaOutpostArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngcReplicaOutpostArns :: Lens.Lens' NodeGroupConfiguration (Core.Maybe [Types.String])
+ngcReplicaOutpostArns = Lens.field @"replicaOutpostArns"
+{-# DEPRECATED ngcReplicaOutpostArns "Use generic-lens or generic-optics with 'replicaOutpostArns' instead." #-}
 
 -- | A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ .
 --
 -- Example: @"0-3999"@
 --
 -- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcSlots :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe Lude.Text)
-ngcSlots = Lens.lens (slots :: NodeGroupConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {slots = a} :: NodeGroupConfiguration)
+ngcSlots :: Lens.Lens' NodeGroupConfiguration (Core.Maybe Types.Slots)
+ngcSlots = Lens.field @"slots"
 {-# DEPRECATED ngcSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
--- | The outpost ARN of the node replicas.
---
--- /Note:/ Consider using 'replicaOutpostARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcReplicaOutpostARNs :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe [Lude.Text])
-ngcReplicaOutpostARNs = Lens.lens (replicaOutpostARNs :: NodeGroupConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {replicaOutpostARNs = a} :: NodeGroupConfiguration)
-{-# DEPRECATED ngcReplicaOutpostARNs "Use generic-lens or generic-optics with 'replicaOutpostARNs' instead." #-}
-
--- | The number of read replica nodes in this node group (shard).
---
--- /Note:/ Consider using 'replicaCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcReplicaCount :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe Lude.Int)
-ngcReplicaCount = Lens.lens (replicaCount :: NodeGroupConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {replicaCount = a} :: NodeGroupConfiguration)
-{-# DEPRECATED ngcReplicaCount "Use generic-lens or generic-optics with 'replicaCount' instead." #-}
-
--- | The Availability Zone where the primary node of this node group (shard) is launched.
---
--- /Note:/ Consider using 'primaryAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcPrimaryAvailabilityZone :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe Lude.Text)
-ngcPrimaryAvailabilityZone = Lens.lens (primaryAvailabilityZone :: NodeGroupConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {primaryAvailabilityZone = a} :: NodeGroupConfiguration)
-{-# DEPRECATED ngcPrimaryAvailabilityZone "Use generic-lens or generic-optics with 'primaryAvailabilityZone' instead." #-}
-
--- | A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
---
--- /Note:/ Consider using 'replicaAvailabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcReplicaAvailabilityZones :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe [Lude.Text])
-ngcReplicaAvailabilityZones = Lens.lens (replicaAvailabilityZones :: NodeGroupConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {replicaAvailabilityZones = a} :: NodeGroupConfiguration)
-{-# DEPRECATED ngcReplicaAvailabilityZones "Use generic-lens or generic-optics with 'replicaAvailabilityZones' instead." #-}
-
--- | The output ARN of the primary node.
---
--- /Note:/ Consider using 'primaryOutpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcPrimaryOutpostARN :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe Lude.Text)
-ngcPrimaryOutpostARN = Lens.lens (primaryOutpostARN :: NodeGroupConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {primaryOutpostARN = a} :: NodeGroupConfiguration)
-{-# DEPRECATED ngcPrimaryOutpostARN "Use generic-lens or generic-optics with 'primaryOutpostARN' instead." #-}
-
--- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
---
--- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngcNodeGroupId :: Lens.Lens' NodeGroupConfiguration (Lude.Maybe Lude.Text)
-ngcNodeGroupId = Lens.lens (nodeGroupId :: NodeGroupConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {nodeGroupId = a} :: NodeGroupConfiguration)
-{-# DEPRECATED ngcNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
-
-instance Lude.FromXML NodeGroupConfiguration where
+instance Core.FromXML NodeGroupConfiguration where
   parseXML x =
     NodeGroupConfiguration'
-      Lude.<$> (x Lude..@? "Slots")
-      Lude.<*> ( x Lude..@? "ReplicaOutpostArns" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "OutpostArn")
+      Core.<$> (x Core..@? "NodeGroupId")
+      Core.<*> (x Core..@? "PrimaryAvailabilityZone")
+      Core.<*> (x Core..@? "PrimaryOutpostArn")
+      Core.<*> ( x Core..@? "ReplicaAvailabilityZones"
+                   Core..<@> Core.parseXMLList "AvailabilityZone"
                )
-      Lude.<*> (x Lude..@? "ReplicaCount")
-      Lude.<*> (x Lude..@? "PrimaryAvailabilityZone")
-      Lude.<*> ( x Lude..@? "ReplicaAvailabilityZones" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "AvailabilityZone")
+      Core.<*> (x Core..@? "ReplicaCount")
+      Core.<*> ( x Core..@? "ReplicaOutpostArns"
+                   Core..<@> Core.parseXMLList "OutpostArn"
                )
-      Lude.<*> (x Lude..@? "PrimaryOutpostArn")
-      Lude.<*> (x Lude..@? "NodeGroupId")
-
-instance Lude.ToQuery NodeGroupConfiguration where
-  toQuery NodeGroupConfiguration' {..} =
-    Lude.mconcat
-      [ "Slots" Lude.=: slots,
-        "ReplicaOutpostArns"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "OutpostArn" Lude.<$> replicaOutpostARNs),
-        "ReplicaCount" Lude.=: replicaCount,
-        "PrimaryAvailabilityZone" Lude.=: primaryAvailabilityZone,
-        "ReplicaAvailabilityZones"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "AvailabilityZone"
-                Lude.<$> replicaAvailabilityZones
-            ),
-        "PrimaryOutpostArn" Lude.=: primaryOutpostARN,
-        "NodeGroupId" Lude.=: nodeGroupId
-      ]
+      Core.<*> (x Core..@? "Slots")

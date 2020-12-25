@@ -17,72 +17,68 @@ module Network.AWS.Glue.Types.BatchStopJobRunError
     mkBatchStopJobRunError,
 
     -- * Lenses
+    bsjreErrorDetail,
     bsjreJobName,
     bsjreJobRunId,
-    bsjreErrorDetail,
   )
 where
 
-import Network.AWS.Glue.Types.ErrorDetail
+import qualified Network.AWS.Glue.Types.ErrorDetail as Types
+import qualified Network.AWS.Glue.Types.JobRunId as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Records an error that occurred when attempting to stop a specified job run.
 --
 -- /See:/ 'mkBatchStopJobRunError' smart constructor.
 data BatchStopJobRunError = BatchStopJobRunError'
-  { -- | The name of the job definition that is used in the job run in question.
-    jobName :: Lude.Maybe Lude.Text,
+  { -- | Specifies details about the error that was encountered.
+    errorDetail :: Core.Maybe Types.ErrorDetail,
+    -- | The name of the job definition that is used in the job run in question.
+    jobName :: Core.Maybe Types.NameString,
     -- | The @JobRunId@ of the job run in question.
-    jobRunId :: Lude.Maybe Lude.Text,
-    -- | Specifies details about the error that was encountered.
-    errorDetail :: Lude.Maybe ErrorDetail
+    jobRunId :: Core.Maybe Types.JobRunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchStopJobRunError' with the minimum fields required to make a request.
---
--- * 'jobName' - The name of the job definition that is used in the job run in question.
--- * 'jobRunId' - The @JobRunId@ of the job run in question.
--- * 'errorDetail' - Specifies details about the error that was encountered.
+-- | Creates a 'BatchStopJobRunError' value with any optional fields omitted.
 mkBatchStopJobRunError ::
   BatchStopJobRunError
 mkBatchStopJobRunError =
   BatchStopJobRunError'
-    { jobName = Lude.Nothing,
-      jobRunId = Lude.Nothing,
-      errorDetail = Lude.Nothing
+    { errorDetail = Core.Nothing,
+      jobName = Core.Nothing,
+      jobRunId = Core.Nothing
     }
+
+-- | Specifies details about the error that was encountered.
+--
+-- /Note:/ Consider using 'errorDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsjreErrorDetail :: Lens.Lens' BatchStopJobRunError (Core.Maybe Types.ErrorDetail)
+bsjreErrorDetail = Lens.field @"errorDetail"
+{-# DEPRECATED bsjreErrorDetail "Use generic-lens or generic-optics with 'errorDetail' instead." #-}
 
 -- | The name of the job definition that is used in the job run in question.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsjreJobName :: Lens.Lens' BatchStopJobRunError (Lude.Maybe Lude.Text)
-bsjreJobName = Lens.lens (jobName :: BatchStopJobRunError -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: BatchStopJobRunError)
+bsjreJobName :: Lens.Lens' BatchStopJobRunError (Core.Maybe Types.NameString)
+bsjreJobName = Lens.field @"jobName"
 {-# DEPRECATED bsjreJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The @JobRunId@ of the job run in question.
 --
 -- /Note:/ Consider using 'jobRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsjreJobRunId :: Lens.Lens' BatchStopJobRunError (Lude.Maybe Lude.Text)
-bsjreJobRunId = Lens.lens (jobRunId :: BatchStopJobRunError -> Lude.Maybe Lude.Text) (\s a -> s {jobRunId = a} :: BatchStopJobRunError)
+bsjreJobRunId :: Lens.Lens' BatchStopJobRunError (Core.Maybe Types.JobRunId)
+bsjreJobRunId = Lens.field @"jobRunId"
 {-# DEPRECATED bsjreJobRunId "Use generic-lens or generic-optics with 'jobRunId' instead." #-}
 
--- | Specifies details about the error that was encountered.
---
--- /Note:/ Consider using 'errorDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsjreErrorDetail :: Lens.Lens' BatchStopJobRunError (Lude.Maybe ErrorDetail)
-bsjreErrorDetail = Lens.lens (errorDetail :: BatchStopJobRunError -> Lude.Maybe ErrorDetail) (\s a -> s {errorDetail = a} :: BatchStopJobRunError)
-{-# DEPRECATED bsjreErrorDetail "Use generic-lens or generic-optics with 'errorDetail' instead." #-}
-
-instance Lude.FromJSON BatchStopJobRunError where
+instance Core.FromJSON BatchStopJobRunError where
   parseJSON =
-    Lude.withObject
-      "BatchStopJobRunError"
-      ( \x ->
-          BatchStopJobRunError'
-            Lude.<$> (x Lude..:? "JobName")
-            Lude.<*> (x Lude..:? "JobRunId")
-            Lude.<*> (x Lude..:? "ErrorDetail")
-      )
+    Core.withObject "BatchStopJobRunError" Core.$
+      \x ->
+        BatchStopJobRunError'
+          Core.<$> (x Core..:? "ErrorDetail")
+          Core.<*> (x Core..:? "JobName")
+          Core.<*> (x Core..:? "JobRunId")

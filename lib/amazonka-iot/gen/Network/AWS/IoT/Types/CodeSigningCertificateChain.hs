@@ -22,62 +22,59 @@ module Network.AWS.IoT.Types.CodeSigningCertificateChain
   )
 where
 
+import qualified Network.AWS.IoT.Types.CertificateName as Types
+import qualified Network.AWS.IoT.Types.InlineDocument as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the certificate chain being used when code signing a file.
 --
 -- /See:/ 'mkCodeSigningCertificateChain' smart constructor.
 data CodeSigningCertificateChain = CodeSigningCertificateChain'
   { -- | The name of the certificate.
-    certificateName :: Lude.Maybe Lude.Text,
+    certificateName :: Core.Maybe Types.CertificateName,
     -- | A base64 encoded binary representation of the code signing certificate chain.
-    inlineDocument :: Lude.Maybe Lude.Text
+    inlineDocument :: Core.Maybe Types.InlineDocument
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeSigningCertificateChain' with the minimum fields required to make a request.
---
--- * 'certificateName' - The name of the certificate.
--- * 'inlineDocument' - A base64 encoded binary representation of the code signing certificate chain.
+-- | Creates a 'CodeSigningCertificateChain' value with any optional fields omitted.
 mkCodeSigningCertificateChain ::
   CodeSigningCertificateChain
 mkCodeSigningCertificateChain =
   CodeSigningCertificateChain'
-    { certificateName = Lude.Nothing,
-      inlineDocument = Lude.Nothing
+    { certificateName = Core.Nothing,
+      inlineDocument = Core.Nothing
     }
 
 -- | The name of the certificate.
 --
 -- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csccCertificateName :: Lens.Lens' CodeSigningCertificateChain (Lude.Maybe Lude.Text)
-csccCertificateName = Lens.lens (certificateName :: CodeSigningCertificateChain -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: CodeSigningCertificateChain)
+csccCertificateName :: Lens.Lens' CodeSigningCertificateChain (Core.Maybe Types.CertificateName)
+csccCertificateName = Lens.field @"certificateName"
 {-# DEPRECATED csccCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
 -- | A base64 encoded binary representation of the code signing certificate chain.
 --
 -- /Note:/ Consider using 'inlineDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csccInlineDocument :: Lens.Lens' CodeSigningCertificateChain (Lude.Maybe Lude.Text)
-csccInlineDocument = Lens.lens (inlineDocument :: CodeSigningCertificateChain -> Lude.Maybe Lude.Text) (\s a -> s {inlineDocument = a} :: CodeSigningCertificateChain)
+csccInlineDocument :: Lens.Lens' CodeSigningCertificateChain (Core.Maybe Types.InlineDocument)
+csccInlineDocument = Lens.field @"inlineDocument"
 {-# DEPRECATED csccInlineDocument "Use generic-lens or generic-optics with 'inlineDocument' instead." #-}
 
-instance Lude.FromJSON CodeSigningCertificateChain where
-  parseJSON =
-    Lude.withObject
-      "CodeSigningCertificateChain"
-      ( \x ->
-          CodeSigningCertificateChain'
-            Lude.<$> (x Lude..:? "certificateName")
-            Lude.<*> (x Lude..:? "inlineDocument")
-      )
-
-instance Lude.ToJSON CodeSigningCertificateChain where
-  toJSON CodeSigningCertificateChain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("certificateName" Lude..=) Lude.<$> certificateName,
-            ("inlineDocument" Lude..=) Lude.<$> inlineDocument
+instance Core.FromJSON CodeSigningCertificateChain where
+  toJSON CodeSigningCertificateChain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("certificateName" Core..=) Core.<$> certificateName,
+            ("inlineDocument" Core..=) Core.<$> inlineDocument
           ]
       )
+
+instance Core.FromJSON CodeSigningCertificateChain where
+  parseJSON =
+    Core.withObject "CodeSigningCertificateChain" Core.$
+      \x ->
+        CodeSigningCertificateChain'
+          Core.<$> (x Core..:? "certificateName")
+          Core.<*> (x Core..:? "inlineDocument")

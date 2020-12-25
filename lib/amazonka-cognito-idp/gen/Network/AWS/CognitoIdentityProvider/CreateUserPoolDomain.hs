@@ -20,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
     mkCreateUserPoolDomain,
 
     -- ** Request lenses
-    cupdUserPoolId,
     cupdDomain,
+    cupdUserPoolId,
     cupdCustomDomainConfig,
 
     -- * Destructuring the response
@@ -29,66 +29,59 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
     mkCreateUserPoolDomainResponse,
 
     -- ** Response lenses
-    cupdrsCloudFrontDomain,
-    cupdrsResponseStatus,
+    cupdrrsCloudFrontDomain,
+    cupdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUserPoolDomain' smart constructor.
 data CreateUserPoolDomain = CreateUserPoolDomain'
-  { -- | The user pool ID.
-    userPoolId :: Lude.Text,
-    -- | The domain string.
-    domain :: Lude.Text,
+  { -- | The domain string.
+    domain :: Types.Domain,
+    -- | The user pool ID.
+    userPoolId :: Types.UserPoolId,
     -- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
     --
     -- Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.
     -- For more information about the hosted domain and custom domains, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain> .
-    customDomainConfig :: Lude.Maybe CustomDomainConfigType
+    customDomainConfig :: Core.Maybe Types.CustomDomainConfigType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserPoolDomain' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID.
--- * 'domain' - The domain string.
--- * 'customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
---
--- Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.
--- For more information about the hosted domain and custom domains, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain> .
+-- | Creates a 'CreateUserPoolDomain' value with any optional fields omitted.
 mkCreateUserPoolDomain ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
+  -- | 'userPoolId'
+  Types.UserPoolId ->
   CreateUserPoolDomain
-mkCreateUserPoolDomain pUserPoolId_ pDomain_ =
+mkCreateUserPoolDomain domain userPoolId =
   CreateUserPoolDomain'
-    { userPoolId = pUserPoolId_,
-      domain = pDomain_,
-      customDomainConfig = Lude.Nothing
+    { domain,
+      userPoolId,
+      customDomainConfig = Core.Nothing
     }
-
--- | The user pool ID.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupdUserPoolId :: Lens.Lens' CreateUserPoolDomain Lude.Text
-cupdUserPoolId = Lens.lens (userPoolId :: CreateUserPoolDomain -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateUserPoolDomain)
-{-# DEPRECATED cupdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The domain string.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupdDomain :: Lens.Lens' CreateUserPoolDomain Lude.Text
-cupdDomain = Lens.lens (domain :: CreateUserPoolDomain -> Lude.Text) (\s a -> s {domain = a} :: CreateUserPoolDomain)
+cupdDomain :: Lens.Lens' CreateUserPoolDomain Types.Domain
+cupdDomain = Lens.field @"domain"
 {-# DEPRECATED cupdDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | The user pool ID.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupdUserPoolId :: Lens.Lens' CreateUserPoolDomain Types.UserPoolId
+cupdUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED cupdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
 --
@@ -96,84 +89,75 @@ cupdDomain = Lens.lens (domain :: CreateUserPoolDomain -> Lude.Text) (\s a -> s 
 -- For more information about the hosted domain and custom domains, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain> .
 --
 -- /Note:/ Consider using 'customDomainConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupdCustomDomainConfig :: Lens.Lens' CreateUserPoolDomain (Lude.Maybe CustomDomainConfigType)
-cupdCustomDomainConfig = Lens.lens (customDomainConfig :: CreateUserPoolDomain -> Lude.Maybe CustomDomainConfigType) (\s a -> s {customDomainConfig = a} :: CreateUserPoolDomain)
+cupdCustomDomainConfig :: Lens.Lens' CreateUserPoolDomain (Core.Maybe Types.CustomDomainConfigType)
+cupdCustomDomainConfig = Lens.field @"customDomainConfig"
 {-# DEPRECATED cupdCustomDomainConfig "Use generic-lens or generic-optics with 'customDomainConfig' instead." #-}
 
-instance Lude.AWSRequest CreateUserPoolDomain where
+instance Core.FromJSON CreateUserPoolDomain where
+  toJSON CreateUserPoolDomain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Domain" Core..= domain),
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            ("CustomDomainConfig" Core..=) Core.<$> customDomainConfig
+          ]
+      )
+
+instance Core.AWSRequest CreateUserPoolDomain where
   type Rs CreateUserPoolDomain = CreateUserPoolDomainResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.CreateUserPoolDomain"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateUserPoolDomainResponse'
-            Lude.<$> (x Lude..?> "CloudFrontDomain")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CloudFrontDomain")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateUserPoolDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.CreateUserPoolDomain" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateUserPoolDomain where
-  toJSON CreateUserPoolDomain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Domain" Lude..= domain),
-            ("CustomDomainConfig" Lude..=) Lude.<$> customDomainConfig
-          ]
-      )
-
-instance Lude.ToPath CreateUserPoolDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUserPoolDomain where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateUserPoolDomainResponse' smart constructor.
 data CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
   { -- | The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-    cloudFrontDomain :: Lude.Maybe Lude.Text,
+    cloudFrontDomain :: Core.Maybe Types.CloudFrontDomain,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserPoolDomainResponse' with the minimum fields required to make a request.
---
--- * 'cloudFrontDomain' - The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateUserPoolDomainResponse' value with any optional fields omitted.
 mkCreateUserPoolDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateUserPoolDomainResponse
-mkCreateUserPoolDomainResponse pResponseStatus_ =
+mkCreateUserPoolDomainResponse responseStatus =
   CreateUserPoolDomainResponse'
-    { cloudFrontDomain = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cloudFrontDomain = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 --
 -- /Note:/ Consider using 'cloudFrontDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupdrsCloudFrontDomain :: Lens.Lens' CreateUserPoolDomainResponse (Lude.Maybe Lude.Text)
-cupdrsCloudFrontDomain = Lens.lens (cloudFrontDomain :: CreateUserPoolDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {cloudFrontDomain = a} :: CreateUserPoolDomainResponse)
-{-# DEPRECATED cupdrsCloudFrontDomain "Use generic-lens or generic-optics with 'cloudFrontDomain' instead." #-}
+cupdrrsCloudFrontDomain :: Lens.Lens' CreateUserPoolDomainResponse (Core.Maybe Types.CloudFrontDomain)
+cupdrrsCloudFrontDomain = Lens.field @"cloudFrontDomain"
+{-# DEPRECATED cupdrrsCloudFrontDomain "Use generic-lens or generic-optics with 'cloudFrontDomain' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupdrsResponseStatus :: Lens.Lens' CreateUserPoolDomainResponse Lude.Int
-cupdrsResponseStatus = Lens.lens (responseStatus :: CreateUserPoolDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserPoolDomainResponse)
-{-# DEPRECATED cupdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cupdrrsResponseStatus :: Lens.Lens' CreateUserPoolDomainResponse Core.Int
+cupdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cupdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

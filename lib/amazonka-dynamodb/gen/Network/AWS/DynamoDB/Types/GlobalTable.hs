@@ -22,54 +22,50 @@ module Network.AWS.DynamoDB.Types.GlobalTable
   )
 where
 
-import Network.AWS.DynamoDB.Types.Replica
+import qualified Network.AWS.DynamoDB.Types.GlobalTableName as Types
+import qualified Network.AWS.DynamoDB.Types.Replica as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the properties of a global table.
 --
 -- /See:/ 'mkGlobalTable' smart constructor.
 data GlobalTable = GlobalTable'
   { -- | The global table name.
-    globalTableName :: Lude.Maybe Lude.Text,
+    globalTableName :: Core.Maybe Types.GlobalTableName,
     -- | The Regions where the global table has replicas.
-    replicationGroup :: Lude.Maybe [Replica]
+    replicationGroup :: Core.Maybe [Types.Replica]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalTable' with the minimum fields required to make a request.
---
--- * 'globalTableName' - The global table name.
--- * 'replicationGroup' - The Regions where the global table has replicas.
+-- | Creates a 'GlobalTable' value with any optional fields omitted.
 mkGlobalTable ::
   GlobalTable
 mkGlobalTable =
   GlobalTable'
-    { globalTableName = Lude.Nothing,
-      replicationGroup = Lude.Nothing
+    { globalTableName = Core.Nothing,
+      replicationGroup = Core.Nothing
     }
 
 -- | The global table name.
 --
 -- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtGlobalTableName :: Lens.Lens' GlobalTable (Lude.Maybe Lude.Text)
-gtGlobalTableName = Lens.lens (globalTableName :: GlobalTable -> Lude.Maybe Lude.Text) (\s a -> s {globalTableName = a} :: GlobalTable)
+gtGlobalTableName :: Lens.Lens' GlobalTable (Core.Maybe Types.GlobalTableName)
+gtGlobalTableName = Lens.field @"globalTableName"
 {-# DEPRECATED gtGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
 -- | The Regions where the global table has replicas.
 --
 -- /Note:/ Consider using 'replicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtReplicationGroup :: Lens.Lens' GlobalTable (Lude.Maybe [Replica])
-gtReplicationGroup = Lens.lens (replicationGroup :: GlobalTable -> Lude.Maybe [Replica]) (\s a -> s {replicationGroup = a} :: GlobalTable)
+gtReplicationGroup :: Lens.Lens' GlobalTable (Core.Maybe [Types.Replica])
+gtReplicationGroup = Lens.field @"replicationGroup"
 {-# DEPRECATED gtReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
 
-instance Lude.FromJSON GlobalTable where
+instance Core.FromJSON GlobalTable where
   parseJSON =
-    Lude.withObject
-      "GlobalTable"
-      ( \x ->
-          GlobalTable'
-            Lude.<$> (x Lude..:? "GlobalTableName")
-            Lude.<*> (x Lude..:? "ReplicationGroup" Lude..!= Lude.mempty)
-      )
+    Core.withObject "GlobalTable" Core.$
+      \x ->
+        GlobalTable'
+          Core.<$> (x Core..:? "GlobalTableName")
+          Core.<*> (x Core..:? "ReplicationGroup")

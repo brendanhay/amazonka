@@ -23,61 +23,56 @@ module Network.AWS.CodeDeploy.Types.TimeBasedCanary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 --
 -- /See:/ 'mkTimeBasedCanary' smart constructor.
 data TimeBasedCanary = TimeBasedCanary'
   { -- | The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
-    canaryInterval :: Lude.Maybe Lude.Int,
+    canaryInterval :: Core.Maybe Core.Int,
     -- | The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
-    canaryPercentage :: Lude.Maybe Lude.Int
+    canaryPercentage :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimeBasedCanary' with the minimum fields required to make a request.
---
--- * 'canaryInterval' - The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
--- * 'canaryPercentage' - The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
+-- | Creates a 'TimeBasedCanary' value with any optional fields omitted.
 mkTimeBasedCanary ::
   TimeBasedCanary
 mkTimeBasedCanary =
   TimeBasedCanary'
-    { canaryInterval = Lude.Nothing,
-      canaryPercentage = Lude.Nothing
+    { canaryInterval = Core.Nothing,
+      canaryPercentage = Core.Nothing
     }
 
 -- | The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
 --
 -- /Note:/ Consider using 'canaryInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbcCanaryInterval :: Lens.Lens' TimeBasedCanary (Lude.Maybe Lude.Int)
-tbcCanaryInterval = Lens.lens (canaryInterval :: TimeBasedCanary -> Lude.Maybe Lude.Int) (\s a -> s {canaryInterval = a} :: TimeBasedCanary)
+tbcCanaryInterval :: Lens.Lens' TimeBasedCanary (Core.Maybe Core.Int)
+tbcCanaryInterval = Lens.field @"canaryInterval"
 {-# DEPRECATED tbcCanaryInterval "Use generic-lens or generic-optics with 'canaryInterval' instead." #-}
 
 -- | The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
 --
 -- /Note:/ Consider using 'canaryPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbcCanaryPercentage :: Lens.Lens' TimeBasedCanary (Lude.Maybe Lude.Int)
-tbcCanaryPercentage = Lens.lens (canaryPercentage :: TimeBasedCanary -> Lude.Maybe Lude.Int) (\s a -> s {canaryPercentage = a} :: TimeBasedCanary)
+tbcCanaryPercentage :: Lens.Lens' TimeBasedCanary (Core.Maybe Core.Int)
+tbcCanaryPercentage = Lens.field @"canaryPercentage"
 {-# DEPRECATED tbcCanaryPercentage "Use generic-lens or generic-optics with 'canaryPercentage' instead." #-}
 
-instance Lude.FromJSON TimeBasedCanary where
-  parseJSON =
-    Lude.withObject
-      "TimeBasedCanary"
-      ( \x ->
-          TimeBasedCanary'
-            Lude.<$> (x Lude..:? "canaryInterval")
-            Lude.<*> (x Lude..:? "canaryPercentage")
-      )
-
-instance Lude.ToJSON TimeBasedCanary where
-  toJSON TimeBasedCanary' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("canaryInterval" Lude..=) Lude.<$> canaryInterval,
-            ("canaryPercentage" Lude..=) Lude.<$> canaryPercentage
+instance Core.FromJSON TimeBasedCanary where
+  toJSON TimeBasedCanary {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("canaryInterval" Core..=) Core.<$> canaryInterval,
+            ("canaryPercentage" Core..=) Core.<$> canaryPercentage
           ]
       )
+
+instance Core.FromJSON TimeBasedCanary where
+  parseJSON =
+    Core.withObject "TimeBasedCanary" Core.$
+      \x ->
+        TimeBasedCanary'
+          Core.<$> (x Core..:? "canaryInterval")
+          Core.<*> (x Core..:? "canaryPercentage")

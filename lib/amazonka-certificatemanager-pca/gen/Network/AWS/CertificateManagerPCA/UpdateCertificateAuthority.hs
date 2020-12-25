@@ -20,9 +20,9 @@ module Network.AWS.CertificateManagerPCA.UpdateCertificateAuthority
     mkUpdateCertificateAuthority,
 
     -- ** Request lenses
-    ucaStatus,
+    ucaCertificateAuthorityArn,
     ucaRevocationConfiguration,
-    ucaCertificateAuthorityARN,
+    ucaStatus,
 
     -- * Destructuring the response
     UpdateCertificateAuthorityResponse (..),
@@ -30,109 +30,97 @@ module Network.AWS.CertificateManagerPCA.UpdateCertificateAuthority
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateCertificateAuthority' smart constructor.
 data UpdateCertificateAuthority = UpdateCertificateAuthority'
-  { -- | Status of your private CA.
-    status :: Lude.Maybe CertificateAuthorityStatus,
-    -- | Revocation information for your private CA.
-    revocationConfiguration :: Lude.Maybe RevocationConfiguration,
-    -- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
+  { -- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
     --
     -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-    certificateAuthorityARN :: Lude.Text
+    certificateAuthorityArn :: Types.CertificateAuthorityArn,
+    -- | Revocation information for your private CA.
+    revocationConfiguration :: Core.Maybe Types.RevocationConfiguration,
+    -- | Status of your private CA.
+    status :: Core.Maybe Types.CertificateAuthorityStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCertificateAuthority' with the minimum fields required to make a request.
---
--- * 'status' - Status of your private CA.
--- * 'revocationConfiguration' - Revocation information for your private CA.
--- * 'certificateAuthorityARN' - Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | Creates a 'UpdateCertificateAuthority' value with any optional fields omitted.
 mkUpdateCertificateAuthority ::
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  -- | 'certificateAuthorityArn'
+  Types.CertificateAuthorityArn ->
   UpdateCertificateAuthority
-mkUpdateCertificateAuthority pCertificateAuthorityARN_ =
+mkUpdateCertificateAuthority certificateAuthorityArn =
   UpdateCertificateAuthority'
-    { status = Lude.Nothing,
-      revocationConfiguration = Lude.Nothing,
-      certificateAuthorityARN = pCertificateAuthorityARN_
+    { certificateAuthorityArn,
+      revocationConfiguration = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | Status of your private CA.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaStatus :: Lens.Lens' UpdateCertificateAuthority (Lude.Maybe CertificateAuthorityStatus)
-ucaStatus = Lens.lens (status :: UpdateCertificateAuthority -> Lude.Maybe CertificateAuthorityStatus) (\s a -> s {status = a} :: UpdateCertificateAuthority)
-{-# DEPRECATED ucaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Revocation information for your private CA.
---
--- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaRevocationConfiguration :: Lens.Lens' UpdateCertificateAuthority (Lude.Maybe RevocationConfiguration)
-ucaRevocationConfiguration = Lens.lens (revocationConfiguration :: UpdateCertificateAuthority -> Lude.Maybe RevocationConfiguration) (\s a -> s {revocationConfiguration = a} :: UpdateCertificateAuthority)
-{-# DEPRECATED ucaRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaCertificateAuthorityARN :: Lens.Lens' UpdateCertificateAuthority Lude.Text
-ucaCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: UpdateCertificateAuthority -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: UpdateCertificateAuthority)
-{-# DEPRECATED ucaCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaCertificateAuthorityArn :: Lens.Lens' UpdateCertificateAuthority Types.CertificateAuthorityArn
+ucaCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED ucaCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
-instance Lude.AWSRequest UpdateCertificateAuthority where
+-- | Revocation information for your private CA.
+--
+-- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaRevocationConfiguration :: Lens.Lens' UpdateCertificateAuthority (Core.Maybe Types.RevocationConfiguration)
+ucaRevocationConfiguration = Lens.field @"revocationConfiguration"
+{-# DEPRECATED ucaRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
+
+-- | Status of your private CA.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaStatus :: Lens.Lens' UpdateCertificateAuthority (Core.Maybe Types.CertificateAuthorityStatus)
+ucaStatus = Lens.field @"status"
+{-# DEPRECATED ucaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON UpdateCertificateAuthority where
+  toJSON UpdateCertificateAuthority {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            ("RevocationConfiguration" Core..=)
+              Core.<$> revocationConfiguration,
+            ("Status" Core..=) Core.<$> status
+          ]
+      )
+
+instance Core.AWSRequest UpdateCertificateAuthority where
   type
     Rs UpdateCertificateAuthority =
       UpdateCertificateAuthorityResponse
-  request = Req.postJSON certificateManagerPCAService
-  response = Res.receiveNull UpdateCertificateAuthorityResponse'
-
-instance Lude.ToHeaders UpdateCertificateAuthority where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.UpdateCertificateAuthority" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateCertificateAuthority where
-  toJSON UpdateCertificateAuthority' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
-            ("RevocationConfiguration" Lude..=)
-              Lude.<$> revocationConfiguration,
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath UpdateCertificateAuthority where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateCertificateAuthority where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ACMPrivateCA.UpdateCertificateAuthority")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateCertificateAuthorityResponse'
 
 -- | /See:/ 'mkUpdateCertificateAuthorityResponse' smart constructor.
 data UpdateCertificateAuthorityResponse = UpdateCertificateAuthorityResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCertificateAuthorityResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateCertificateAuthorityResponse' value with any optional fields omitted.
 mkUpdateCertificateAuthorityResponse ::
   UpdateCertificateAuthorityResponse
 mkUpdateCertificateAuthorityResponse =

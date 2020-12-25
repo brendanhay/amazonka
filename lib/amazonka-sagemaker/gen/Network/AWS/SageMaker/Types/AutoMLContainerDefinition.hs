@@ -17,75 +17,73 @@ module Network.AWS.SageMaker.Types.AutoMLContainerDefinition
     mkAutoMLContainerDefinition,
 
     -- * Lenses
-    amlcdModelDataURL,
     amlcdImage,
+    amlcdModelDataUrl,
     amlcdEnvironment,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ContainerImage as Types
+import qualified Network.AWS.SageMaker.Types.EnvironmentKey as Types
+import qualified Network.AWS.SageMaker.Types.EnvironmentValue as Types
+import qualified Network.AWS.SageMaker.Types.ModelDataUrl as Types
 
 -- | A list of container definitions that describe the different containers that make up one AutoML candidate. Refer to ContainerDefinition for more details.
 --
 -- /See:/ 'mkAutoMLContainerDefinition' smart constructor.
 data AutoMLContainerDefinition = AutoMLContainerDefinition'
-  { -- | The location of the model artifacts. Refer to ContainerDefinition for more details.
-    modelDataURL :: Lude.Text,
-    -- | The ECR path of the container. Refer to ContainerDefinition for more details.
-    image :: Lude.Text,
+  { -- | The ECR path of the container. Refer to ContainerDefinition for more details.
+    image :: Types.ContainerImage,
+    -- | The location of the model artifacts. Refer to ContainerDefinition for more details.
+    modelDataUrl :: Types.ModelDataUrl,
     -- | Environment variables to set in the container. Refer to ContainerDefinition for more details.
-    environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    environment :: Core.Maybe (Core.HashMap Types.EnvironmentKey Types.EnvironmentValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLContainerDefinition' with the minimum fields required to make a request.
---
--- * 'modelDataURL' - The location of the model artifacts. Refer to ContainerDefinition for more details.
--- * 'image' - The ECR path of the container. Refer to ContainerDefinition for more details.
--- * 'environment' - Environment variables to set in the container. Refer to ContainerDefinition for more details.
+-- | Creates a 'AutoMLContainerDefinition' value with any optional fields omitted.
 mkAutoMLContainerDefinition ::
-  -- | 'modelDataURL'
-  Lude.Text ->
   -- | 'image'
-  Lude.Text ->
+  Types.ContainerImage ->
+  -- | 'modelDataUrl'
+  Types.ModelDataUrl ->
   AutoMLContainerDefinition
-mkAutoMLContainerDefinition pModelDataURL_ pImage_ =
+mkAutoMLContainerDefinition image modelDataUrl =
   AutoMLContainerDefinition'
-    { modelDataURL = pModelDataURL_,
-      image = pImage_,
-      environment = Lude.Nothing
+    { image,
+      modelDataUrl,
+      environment = Core.Nothing
     }
-
--- | The location of the model artifacts. Refer to ContainerDefinition for more details.
---
--- /Note:/ Consider using 'modelDataURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcdModelDataURL :: Lens.Lens' AutoMLContainerDefinition Lude.Text
-amlcdModelDataURL = Lens.lens (modelDataURL :: AutoMLContainerDefinition -> Lude.Text) (\s a -> s {modelDataURL = a} :: AutoMLContainerDefinition)
-{-# DEPRECATED amlcdModelDataURL "Use generic-lens or generic-optics with 'modelDataURL' instead." #-}
 
 -- | The ECR path of the container. Refer to ContainerDefinition for more details.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcdImage :: Lens.Lens' AutoMLContainerDefinition Lude.Text
-amlcdImage = Lens.lens (image :: AutoMLContainerDefinition -> Lude.Text) (\s a -> s {image = a} :: AutoMLContainerDefinition)
+amlcdImage :: Lens.Lens' AutoMLContainerDefinition Types.ContainerImage
+amlcdImage = Lens.field @"image"
 {-# DEPRECATED amlcdImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+-- | The location of the model artifacts. Refer to ContainerDefinition for more details.
+--
+-- /Note:/ Consider using 'modelDataUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcdModelDataUrl :: Lens.Lens' AutoMLContainerDefinition Types.ModelDataUrl
+amlcdModelDataUrl = Lens.field @"modelDataUrl"
+{-# DEPRECATED amlcdModelDataUrl "Use generic-lens or generic-optics with 'modelDataUrl' instead." #-}
 
 -- | Environment variables to set in the container. Refer to ContainerDefinition for more details.
 --
 -- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcdEnvironment :: Lens.Lens' AutoMLContainerDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-amlcdEnvironment = Lens.lens (environment :: AutoMLContainerDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: AutoMLContainerDefinition)
+amlcdEnvironment :: Lens.Lens' AutoMLContainerDefinition (Core.Maybe (Core.HashMap Types.EnvironmentKey Types.EnvironmentValue))
+amlcdEnvironment = Lens.field @"environment"
 {-# DEPRECATED amlcdEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
-instance Lude.FromJSON AutoMLContainerDefinition where
+instance Core.FromJSON AutoMLContainerDefinition where
   parseJSON =
-    Lude.withObject
-      "AutoMLContainerDefinition"
-      ( \x ->
-          AutoMLContainerDefinition'
-            Lude.<$> (x Lude..: "ModelDataUrl")
-            Lude.<*> (x Lude..: "Image")
-            Lude.<*> (x Lude..:? "Environment" Lude..!= Lude.mempty)
-      )
+    Core.withObject "AutoMLContainerDefinition" Core.$
+      \x ->
+        AutoMLContainerDefinition'
+          Core.<$> (x Core..: "Image")
+          Core.<*> (x Core..: "ModelDataUrl")
+          Core.<*> (x Core..:? "Environment")

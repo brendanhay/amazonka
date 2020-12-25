@@ -13,56 +13,58 @@
 module Network.AWS.Pinpoint.Types.TemplateType
   ( TemplateType
       ( TemplateType',
-        TTEmail,
-        TTSms,
-        TTVoice,
-        TTPush
+        TemplateTypeEmail,
+        TemplateTypeSms,
+        TemplateTypeVoice,
+        TemplateTypePush,
+        fromTemplateType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TemplateType = TemplateType' Lude.Text
+newtype TemplateType = TemplateType' {fromTemplateType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TTEmail :: TemplateType
-pattern TTEmail = TemplateType' "EMAIL"
+pattern TemplateTypeEmail :: TemplateType
+pattern TemplateTypeEmail = TemplateType' "EMAIL"
 
-pattern TTSms :: TemplateType
-pattern TTSms = TemplateType' "SMS"
+pattern TemplateTypeSms :: TemplateType
+pattern TemplateTypeSms = TemplateType' "SMS"
 
-pattern TTVoice :: TemplateType
-pattern TTVoice = TemplateType' "VOICE"
+pattern TemplateTypeVoice :: TemplateType
+pattern TemplateTypeVoice = TemplateType' "VOICE"
 
-pattern TTPush :: TemplateType
-pattern TTPush = TemplateType' "PUSH"
+pattern TemplateTypePush :: TemplateType
+pattern TemplateTypePush = TemplateType' "PUSH"
 
 {-# COMPLETE
-  TTEmail,
-  TTSms,
-  TTVoice,
-  TTPush,
+  TemplateTypeEmail,
+  TemplateTypeSms,
+  TemplateTypeVoice,
+  TemplateTypePush,
   TemplateType'
   #-}

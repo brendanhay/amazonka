@@ -17,71 +17,65 @@ module Network.AWS.EMR.Types.InstanceFleetTimeline
     mkInstanceFleetTimeline,
 
     -- * Lenses
-    iftReadyDateTime,
     iftCreationDateTime,
     iftEndDateTime,
+    iftReadyDateTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
 --
 -- /See:/ 'mkInstanceFleetTimeline' smart constructor.
 data InstanceFleetTimeline = InstanceFleetTimeline'
-  { -- | The time and date the instance fleet was ready to run jobs.
-    readyDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The time and date the instance fleet was created.
-    creationDateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The time and date the instance fleet was created.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The time and date the instance fleet terminated.
-    endDateTime :: Lude.Maybe Lude.Timestamp
+    endDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time and date the instance fleet was ready to run jobs.
+    readyDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceFleetTimeline' with the minimum fields required to make a request.
---
--- * 'readyDateTime' - The time and date the instance fleet was ready to run jobs.
--- * 'creationDateTime' - The time and date the instance fleet was created.
--- * 'endDateTime' - The time and date the instance fleet terminated.
+-- | Creates a 'InstanceFleetTimeline' value with any optional fields omitted.
 mkInstanceFleetTimeline ::
   InstanceFleetTimeline
 mkInstanceFleetTimeline =
   InstanceFleetTimeline'
-    { readyDateTime = Lude.Nothing,
-      creationDateTime = Lude.Nothing,
-      endDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      endDateTime = Core.Nothing,
+      readyDateTime = Core.Nothing
     }
-
--- | The time and date the instance fleet was ready to run jobs.
---
--- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iftReadyDateTime :: Lens.Lens' InstanceFleetTimeline (Lude.Maybe Lude.Timestamp)
-iftReadyDateTime = Lens.lens (readyDateTime :: InstanceFleetTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {readyDateTime = a} :: InstanceFleetTimeline)
-{-# DEPRECATED iftReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
 
 -- | The time and date the instance fleet was created.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iftCreationDateTime :: Lens.Lens' InstanceFleetTimeline (Lude.Maybe Lude.Timestamp)
-iftCreationDateTime = Lens.lens (creationDateTime :: InstanceFleetTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: InstanceFleetTimeline)
+iftCreationDateTime :: Lens.Lens' InstanceFleetTimeline (Core.Maybe Core.NominalDiffTime)
+iftCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED iftCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The time and date the instance fleet terminated.
 --
 -- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iftEndDateTime :: Lens.Lens' InstanceFleetTimeline (Lude.Maybe Lude.Timestamp)
-iftEndDateTime = Lens.lens (endDateTime :: InstanceFleetTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: InstanceFleetTimeline)
+iftEndDateTime :: Lens.Lens' InstanceFleetTimeline (Core.Maybe Core.NominalDiffTime)
+iftEndDateTime = Lens.field @"endDateTime"
 {-# DEPRECATED iftEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
-instance Lude.FromJSON InstanceFleetTimeline where
+-- | The time and date the instance fleet was ready to run jobs.
+--
+-- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iftReadyDateTime :: Lens.Lens' InstanceFleetTimeline (Core.Maybe Core.NominalDiffTime)
+iftReadyDateTime = Lens.field @"readyDateTime"
+{-# DEPRECATED iftReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
+
+instance Core.FromJSON InstanceFleetTimeline where
   parseJSON =
-    Lude.withObject
-      "InstanceFleetTimeline"
-      ( \x ->
-          InstanceFleetTimeline'
-            Lude.<$> (x Lude..:? "ReadyDateTime")
-            Lude.<*> (x Lude..:? "CreationDateTime")
-            Lude.<*> (x Lude..:? "EndDateTime")
-      )
+    Core.withObject "InstanceFleetTimeline" Core.$
+      \x ->
+        InstanceFleetTimeline'
+          Core.<$> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "EndDateTime")
+          Core.<*> (x Core..:? "ReadyDateTime")

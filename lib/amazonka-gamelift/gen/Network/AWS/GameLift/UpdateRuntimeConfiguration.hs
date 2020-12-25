@@ -56,144 +56,127 @@ module Network.AWS.GameLift.UpdateRuntimeConfiguration
     mkUpdateRuntimeConfiguration,
 
     -- ** Request lenses
-    urcRuntimeConfiguration,
     urcFleetId,
+    urcRuntimeConfiguration,
 
     -- * Destructuring the response
     UpdateRuntimeConfigurationResponse (..),
     mkUpdateRuntimeConfigurationResponse,
 
     -- ** Response lenses
-    urcrsRuntimeConfiguration,
-    urcrsResponseStatus,
+    urcrrsRuntimeConfiguration,
+    urcrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkUpdateRuntimeConfiguration' smart constructor.
 data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
-  { -- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
-    runtimeConfiguration :: RuntimeConfiguration,
-    -- | A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+  { -- | A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
+    fleetId :: Types.FleetIdOrArn,
+    -- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
+    runtimeConfiguration :: Types.RuntimeConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRuntimeConfiguration' with the minimum fields required to make a request.
---
--- * 'runtimeConfiguration' - Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
--- * 'fleetId' - A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
+-- | Creates a 'UpdateRuntimeConfiguration' value with any optional fields omitted.
 mkUpdateRuntimeConfiguration ::
-  -- | 'runtimeConfiguration'
-  RuntimeConfiguration ->
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
+  -- | 'runtimeConfiguration'
+  Types.RuntimeConfiguration ->
   UpdateRuntimeConfiguration
-mkUpdateRuntimeConfiguration pRuntimeConfiguration_ pFleetId_ =
-  UpdateRuntimeConfiguration'
-    { runtimeConfiguration =
-        pRuntimeConfiguration_,
-      fleetId = pFleetId_
-    }
-
--- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
---
--- /Note:/ Consider using 'runtimeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urcRuntimeConfiguration :: Lens.Lens' UpdateRuntimeConfiguration RuntimeConfiguration
-urcRuntimeConfiguration = Lens.lens (runtimeConfiguration :: UpdateRuntimeConfiguration -> RuntimeConfiguration) (\s a -> s {runtimeConfiguration = a} :: UpdateRuntimeConfiguration)
-{-# DEPRECATED urcRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
+mkUpdateRuntimeConfiguration fleetId runtimeConfiguration =
+  UpdateRuntimeConfiguration' {fleetId, runtimeConfiguration}
 
 -- | A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urcFleetId :: Lens.Lens' UpdateRuntimeConfiguration Lude.Text
-urcFleetId = Lens.lens (fleetId :: UpdateRuntimeConfiguration -> Lude.Text) (\s a -> s {fleetId = a} :: UpdateRuntimeConfiguration)
+urcFleetId :: Lens.Lens' UpdateRuntimeConfiguration Types.FleetIdOrArn
+urcFleetId = Lens.field @"fleetId"
 {-# DEPRECATED urcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest UpdateRuntimeConfiguration where
+-- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
+--
+-- /Note:/ Consider using 'runtimeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urcRuntimeConfiguration :: Lens.Lens' UpdateRuntimeConfiguration Types.RuntimeConfiguration
+urcRuntimeConfiguration = Lens.field @"runtimeConfiguration"
+{-# DEPRECATED urcRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
+
+instance Core.FromJSON UpdateRuntimeConfiguration where
+  toJSON UpdateRuntimeConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            Core.Just ("RuntimeConfiguration" Core..= runtimeConfiguration)
+          ]
+      )
+
+instance Core.AWSRequest UpdateRuntimeConfiguration where
   type
     Rs UpdateRuntimeConfiguration =
       UpdateRuntimeConfigurationResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.UpdateRuntimeConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateRuntimeConfigurationResponse'
-            Lude.<$> (x Lude..?> "RuntimeConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RuntimeConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateRuntimeConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.UpdateRuntimeConfiguration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRuntimeConfiguration where
-  toJSON UpdateRuntimeConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RuntimeConfiguration" Lude..= runtimeConfiguration),
-            Lude.Just ("FleetId" Lude..= fleetId)
-          ]
-      )
-
-instance Lude.ToPath UpdateRuntimeConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRuntimeConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkUpdateRuntimeConfigurationResponse' smart constructor.
 data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
   { -- | The runtime configuration currently in force. If the update was successful, this object matches the one in the request.
-    runtimeConfiguration :: Lude.Maybe RuntimeConfiguration,
+    runtimeConfiguration :: Core.Maybe Types.RuntimeConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRuntimeConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'runtimeConfiguration' - The runtime configuration currently in force. If the update was successful, this object matches the one in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRuntimeConfigurationResponse' value with any optional fields omitted.
 mkUpdateRuntimeConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRuntimeConfigurationResponse
-mkUpdateRuntimeConfigurationResponse pResponseStatus_ =
+mkUpdateRuntimeConfigurationResponse responseStatus =
   UpdateRuntimeConfigurationResponse'
     { runtimeConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The runtime configuration currently in force. If the update was successful, this object matches the one in the request.
 --
 -- /Note:/ Consider using 'runtimeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urcrsRuntimeConfiguration :: Lens.Lens' UpdateRuntimeConfigurationResponse (Lude.Maybe RuntimeConfiguration)
-urcrsRuntimeConfiguration = Lens.lens (runtimeConfiguration :: UpdateRuntimeConfigurationResponse -> Lude.Maybe RuntimeConfiguration) (\s a -> s {runtimeConfiguration = a} :: UpdateRuntimeConfigurationResponse)
-{-# DEPRECATED urcrsRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
+urcrrsRuntimeConfiguration :: Lens.Lens' UpdateRuntimeConfigurationResponse (Core.Maybe Types.RuntimeConfiguration)
+urcrrsRuntimeConfiguration = Lens.field @"runtimeConfiguration"
+{-# DEPRECATED urcrrsRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urcrsResponseStatus :: Lens.Lens' UpdateRuntimeConfigurationResponse Lude.Int
-urcrsResponseStatus = Lens.lens (responseStatus :: UpdateRuntimeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRuntimeConfigurationResponse)
-{-# DEPRECATED urcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urcrrsResponseStatus :: Lens.Lens' UpdateRuntimeConfigurationResponse Core.Int
+urcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

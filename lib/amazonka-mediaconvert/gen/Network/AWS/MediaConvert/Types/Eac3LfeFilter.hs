@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Eac3LfeFilter
   ( Eac3LfeFilter
       ( Eac3LfeFilter',
-        ELFEnabled,
-        ELFDisabled
+        Eac3LfeFilterEnabled,
+        Eac3LfeFilterDisabled,
+        fromEac3LfeFilter
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
-newtype Eac3LfeFilter = Eac3LfeFilter' Lude.Text
+newtype Eac3LfeFilter = Eac3LfeFilter'
+  { fromEac3LfeFilter ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ELFEnabled :: Eac3LfeFilter
-pattern ELFEnabled = Eac3LfeFilter' "ENABLED"
+pattern Eac3LfeFilterEnabled :: Eac3LfeFilter
+pattern Eac3LfeFilterEnabled = Eac3LfeFilter' "ENABLED"
 
-pattern ELFDisabled :: Eac3LfeFilter
-pattern ELFDisabled = Eac3LfeFilter' "DISABLED"
+pattern Eac3LfeFilterDisabled :: Eac3LfeFilter
+pattern Eac3LfeFilterDisabled = Eac3LfeFilter' "DISABLED"
 
 {-# COMPLETE
-  ELFEnabled,
-  ELFDisabled,
+  Eac3LfeFilterEnabled,
+  Eac3LfeFilterDisabled,
   Eac3LfeFilter'
   #-}

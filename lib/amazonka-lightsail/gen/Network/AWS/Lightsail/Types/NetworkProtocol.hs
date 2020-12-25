@@ -13,56 +13,61 @@
 module Network.AWS.Lightsail.Types.NetworkProtocol
   ( NetworkProtocol
       ( NetworkProtocol',
-        TCP,
-        All,
-        Udp,
-        ICMP
+        NetworkProtocolTcp,
+        NetworkProtocolAll,
+        NetworkProtocolUdp,
+        NetworkProtocolIcmp,
+        fromNetworkProtocol
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NetworkProtocol = NetworkProtocol' Lude.Text
+newtype NetworkProtocol = NetworkProtocol'
+  { fromNetworkProtocol ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TCP :: NetworkProtocol
-pattern TCP = NetworkProtocol' "tcp"
+pattern NetworkProtocolTcp :: NetworkProtocol
+pattern NetworkProtocolTcp = NetworkProtocol' "tcp"
 
-pattern All :: NetworkProtocol
-pattern All = NetworkProtocol' "all"
+pattern NetworkProtocolAll :: NetworkProtocol
+pattern NetworkProtocolAll = NetworkProtocol' "all"
 
-pattern Udp :: NetworkProtocol
-pattern Udp = NetworkProtocol' "udp"
+pattern NetworkProtocolUdp :: NetworkProtocol
+pattern NetworkProtocolUdp = NetworkProtocol' "udp"
 
-pattern ICMP :: NetworkProtocol
-pattern ICMP = NetworkProtocol' "icmp"
+pattern NetworkProtocolIcmp :: NetworkProtocol
+pattern NetworkProtocolIcmp = NetworkProtocol' "icmp"
 
 {-# COMPLETE
-  TCP,
-  All,
-  Udp,
-  ICMP,
+  NetworkProtocolTcp,
+  NetworkProtocolAll,
+  NetworkProtocolUdp,
+  NetworkProtocolIcmp,
   NetworkProtocol'
   #-}

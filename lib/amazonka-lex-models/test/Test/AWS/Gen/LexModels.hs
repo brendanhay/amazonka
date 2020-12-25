@@ -510,7 +510,7 @@ responseDeleteIntentVersion =
   res
     "DeleteIntentVersionResponse"
     "fixture/DeleteIntentVersionResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIntentVersion)
 
 responseGetBotAliases :: GetBotAliasesResponse -> TestTree
@@ -518,7 +518,7 @@ responseGetBotAliases =
   res
     "GetBotAliasesResponse"
     "fixture/GetBotAliasesResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBotAliases)
 
 responseDeleteBotChannelAssociation :: DeleteBotChannelAssociationResponse -> TestTree
@@ -526,7 +526,7 @@ responseDeleteBotChannelAssociation =
   res
     "DeleteBotChannelAssociationResponse"
     "fixture/DeleteBotChannelAssociationResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBotChannelAssociation)
 
 responseCreateSlotTypeVersion :: CreateSlotTypeVersionResponse -> TestTree
@@ -534,7 +534,7 @@ responseCreateSlotTypeVersion =
   res
     "CreateSlotTypeVersionResponse"
     "fixture/CreateSlotTypeVersionResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy CreateSlotTypeVersion)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -542,7 +542,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetIntent :: GetIntentResponse -> TestTree
@@ -550,7 +550,7 @@ responseGetIntent =
   res
     "GetIntentResponse"
     "fixture/GetIntentResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetIntent)
 
 responsePutIntent :: PutIntentResponse -> TestTree
@@ -558,7 +558,7 @@ responsePutIntent =
   res
     "PutIntentResponse"
     "fixture/PutIntentResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy PutIntent)
 
 responseDeleteIntent :: DeleteIntentResponse -> TestTree
@@ -566,7 +566,7 @@ responseDeleteIntent =
   res
     "DeleteIntentResponse"
     "fixture/DeleteIntentResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIntent)
 
 responseGetBuiltinIntents :: GetBuiltinIntentsResponse -> TestTree
@@ -574,7 +574,7 @@ responseGetBuiltinIntents =
   res
     "GetBuiltinIntentsResponse"
     "fixture/GetBuiltinIntentsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBuiltinIntents)
 
 responsePutBot :: PutBotResponse -> TestTree
@@ -582,7 +582,7 @@ responsePutBot =
   res
     "PutBotResponse"
     "fixture/PutBotResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy PutBot)
 
 responseDeleteBot :: DeleteBotResponse -> TestTree
@@ -590,7 +590,7 @@ responseDeleteBot =
   res
     "DeleteBotResponse"
     "fixture/DeleteBotResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBot)
 
 responseGetImport :: GetImportResponse -> TestTree
@@ -598,7 +598,7 @@ responseGetImport =
   res
     "GetImportResponse"
     "fixture/GetImportResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetImport)
 
 responseGetIntentVersions :: GetIntentVersionsResponse -> TestTree
@@ -606,7 +606,7 @@ responseGetIntentVersions =
   res
     "GetIntentVersionsResponse"
     "fixture/GetIntentVersionsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetIntentVersions)
 
 responseGetBuiltinIntent :: GetBuiltinIntentResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetBuiltinIntent =
   res
     "GetBuiltinIntentResponse"
     "fixture/GetBuiltinIntentResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBuiltinIntent)
 
 responsePutBotAlias :: PutBotAliasResponse -> TestTree
@@ -622,7 +622,7 @@ responsePutBotAlias =
   res
     "PutBotAliasResponse"
     "fixture/PutBotAliasResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy PutBotAlias)
 
 responseGetBotVersions :: GetBotVersionsResponse -> TestTree
@@ -630,7 +630,7 @@ responseGetBotVersions =
   res
     "GetBotVersionsResponse"
     "fixture/GetBotVersionsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBotVersions)
 
 responseGetBotChannelAssociations :: GetBotChannelAssociationsResponse -> TestTree
@@ -638,7 +638,7 @@ responseGetBotChannelAssociations =
   res
     "GetBotChannelAssociationsResponse"
     "fixture/GetBotChannelAssociationsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBotChannelAssociations)
 
 responseDeleteBotAlias :: DeleteBotAliasResponse -> TestTree
@@ -646,7 +646,7 @@ responseDeleteBotAlias =
   res
     "DeleteBotAliasResponse"
     "fixture/DeleteBotAliasResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBotAlias)
 
 responseGetSlotTypes :: GetSlotTypesResponse -> TestTree
@@ -654,7 +654,7 @@ responseGetSlotTypes =
   res
     "GetSlotTypesResponse"
     "fixture/GetSlotTypesResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetSlotTypes)
 
 responseDeleteUtterances :: DeleteUtterancesResponse -> TestTree
@@ -662,7 +662,7 @@ responseDeleteUtterances =
   res
     "DeleteUtterancesResponse"
     "fixture/DeleteUtterancesResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUtterances)
 
 responseGetBots :: GetBotsResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetBots =
   res
     "GetBotsResponse"
     "fixture/GetBotsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBots)
 
 responseGetBot :: GetBotResponse -> TestTree
@@ -678,7 +678,7 @@ responseGetBot =
   res
     "GetBotResponse"
     "fixture/GetBotResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBot)
 
 responseCreateBotVersion :: CreateBotVersionResponse -> TestTree
@@ -686,7 +686,7 @@ responseCreateBotVersion =
   res
     "CreateBotVersionResponse"
     "fixture/CreateBotVersionResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy CreateBotVersion)
 
 responseDeleteSlotTypeVersion :: DeleteSlotTypeVersionResponse -> TestTree
@@ -694,7 +694,7 @@ responseDeleteSlotTypeVersion =
   res
     "DeleteSlotTypeVersionResponse"
     "fixture/DeleteSlotTypeVersionResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSlotTypeVersion)
 
 responseDeleteBotVersion :: DeleteBotVersionResponse -> TestTree
@@ -702,7 +702,7 @@ responseDeleteBotVersion =
   res
     "DeleteBotVersionResponse"
     "fixture/DeleteBotVersionResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBotVersion)
 
 responseGetSlotType :: GetSlotTypeResponse -> TestTree
@@ -710,7 +710,7 @@ responseGetSlotType =
   res
     "GetSlotTypeResponse"
     "fixture/GetSlotTypeResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetSlotType)
 
 responseGetExport :: GetExportResponse -> TestTree
@@ -718,7 +718,7 @@ responseGetExport =
   res
     "GetExportResponse"
     "fixture/GetExportResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetExport)
 
 responseCreateIntentVersion :: CreateIntentVersionResponse -> TestTree
@@ -726,7 +726,7 @@ responseCreateIntentVersion =
   res
     "CreateIntentVersionResponse"
     "fixture/CreateIntentVersionResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy CreateIntentVersion)
 
 responseDeleteSlotType :: DeleteSlotTypeResponse -> TestTree
@@ -734,7 +734,7 @@ responseDeleteSlotType =
   res
     "DeleteSlotTypeResponse"
     "fixture/DeleteSlotTypeResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSlotType)
 
 responseStartImport :: StartImportResponse -> TestTree
@@ -742,7 +742,7 @@ responseStartImport =
   res
     "StartImportResponse"
     "fixture/StartImportResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy StartImport)
 
 responseGetBotChannelAssociation :: GetBotChannelAssociationResponse -> TestTree
@@ -750,7 +750,7 @@ responseGetBotChannelAssociation =
   res
     "GetBotChannelAssociationResponse"
     "fixture/GetBotChannelAssociationResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBotChannelAssociation)
 
 responsePutSlotType :: PutSlotTypeResponse -> TestTree
@@ -758,7 +758,7 @@ responsePutSlotType =
   res
     "PutSlotTypeResponse"
     "fixture/PutSlotTypeResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy PutSlotType)
 
 responseGetBuiltinSlotTypes :: GetBuiltinSlotTypesResponse -> TestTree
@@ -766,7 +766,7 @@ responseGetBuiltinSlotTypes =
   res
     "GetBuiltinSlotTypesResponse"
     "fixture/GetBuiltinSlotTypesResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBuiltinSlotTypes)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -774,7 +774,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetUtterancesView :: GetUtterancesViewResponse -> TestTree
@@ -782,7 +782,7 @@ responseGetUtterancesView =
   res
     "GetUtterancesViewResponse"
     "fixture/GetUtterancesViewResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetUtterancesView)
 
 responseGetSlotTypeVersions :: GetSlotTypeVersionsResponse -> TestTree
@@ -790,7 +790,7 @@ responseGetSlotTypeVersions =
   res
     "GetSlotTypeVersionsResponse"
     "fixture/GetSlotTypeVersionsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetSlotTypeVersions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -798,7 +798,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetIntents :: GetIntentsResponse -> TestTree
@@ -806,7 +806,7 @@ responseGetIntents =
   res
     "GetIntentsResponse"
     "fixture/GetIntentsResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetIntents)
 
 responseGetBotAlias :: GetBotAliasResponse -> TestTree
@@ -814,5 +814,5 @@ responseGetBotAlias =
   res
     "GetBotAliasResponse"
     "fixture/GetBotAliasResponse.proto"
-    lexModelsService
+    mkServiceConfig
     (Proxy :: Proxy GetBotAlias)

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Translate
     Network.AWS.Translate.CreateParallelData
@@ -86,23 +92,41 @@ library
 
   other-modules:
     Network.AWS.Translate.Types.AppliedTerminology
+    Network.AWS.Translate.Types.Arn
+    Network.AWS.Translate.Types.ClientTokenString
+    Network.AWS.Translate.Types.ContentType
+    Network.AWS.Translate.Types.Description
     Network.AWS.Translate.Types.EncryptionKey
+    Network.AWS.Translate.Types.EncryptionKeyID
     Network.AWS.Translate.Types.EncryptionKeyType
+    Network.AWS.Translate.Types.IamRoleArn
     Network.AWS.Translate.Types.InputDataConfig
     Network.AWS.Translate.Types.JobDetails
+    Network.AWS.Translate.Types.JobId
+    Network.AWS.Translate.Types.JobName
     Network.AWS.Translate.Types.JobStatus
+    Network.AWS.Translate.Types.LanguageCodeString
     Network.AWS.Translate.Types.MergeStrategy
+    Network.AWS.Translate.Types.Message
+    Network.AWS.Translate.Types.Name
+    Network.AWS.Translate.Types.NextToken
     Network.AWS.Translate.Types.OutputDataConfig
     Network.AWS.Translate.Types.ParallelDataConfig
     Network.AWS.Translate.Types.ParallelDataDataLocation
     Network.AWS.Translate.Types.ParallelDataFormat
     Network.AWS.Translate.Types.ParallelDataProperties
     Network.AWS.Translate.Types.ParallelDataStatus
+    Network.AWS.Translate.Types.ResourceName
+    Network.AWS.Translate.Types.S3Uri
+    Network.AWS.Translate.Types.SourceLanguageCode
+    Network.AWS.Translate.Types.String
+    Network.AWS.Translate.Types.TargetLanguageCode
     Network.AWS.Translate.Types.Term
     Network.AWS.Translate.Types.TerminologyData
     Network.AWS.Translate.Types.TerminologyDataFormat
     Network.AWS.Translate.Types.TerminologyDataLocation
     Network.AWS.Translate.Types.TerminologyProperties
+    Network.AWS.Translate.Types.Text
     Network.AWS.Translate.Types.TextTranslationJobFilter
     Network.AWS.Translate.Types.TextTranslationJobProperties
 

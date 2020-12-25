@@ -22,41 +22,36 @@ module Network.AWS.Rekognition.Types.TrainingData
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.Asset
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Asset as Types
 
 -- | The dataset used for training.
 --
 -- /See:/ 'mkTrainingData' smart constructor.
 newtype TrainingData = TrainingData'
   { -- | A Sagemaker GroundTruth manifest file that contains the training images (assets).
-    assets :: Lude.Maybe [Asset]
+    assets :: Core.Maybe [Types.Asset]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrainingData' with the minimum fields required to make a request.
---
--- * 'assets' - A Sagemaker GroundTruth manifest file that contains the training images (assets).
+-- | Creates a 'TrainingData' value with any optional fields omitted.
 mkTrainingData ::
   TrainingData
-mkTrainingData = TrainingData' {assets = Lude.Nothing}
+mkTrainingData = TrainingData' {assets = Core.Nothing}
 
 -- | A Sagemaker GroundTruth manifest file that contains the training images (assets).
 --
 -- /Note:/ Consider using 'assets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tAssets :: Lens.Lens' TrainingData (Lude.Maybe [Asset])
-tAssets = Lens.lens (assets :: TrainingData -> Lude.Maybe [Asset]) (\s a -> s {assets = a} :: TrainingData)
+tAssets :: Lens.Lens' TrainingData (Core.Maybe [Types.Asset])
+tAssets = Lens.field @"assets"
 {-# DEPRECATED tAssets "Use generic-lens or generic-optics with 'assets' instead." #-}
 
-instance Lude.FromJSON TrainingData where
-  parseJSON =
-    Lude.withObject
-      "TrainingData"
-      ( \x ->
-          TrainingData' Lude.<$> (x Lude..:? "Assets" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON TrainingData where
+  toJSON TrainingData {..} =
+    Core.object (Core.catMaybes [("Assets" Core..=) Core.<$> assets])
 
-instance Lude.ToJSON TrainingData where
-  toJSON TrainingData' {..} =
-    Lude.object (Lude.catMaybes [("Assets" Lude..=) Lude.<$> assets])
+instance Core.FromJSON TrainingData where
+  parseJSON =
+    Core.withObject "TrainingData" Core.$
+      \x -> TrainingData' Core.<$> (x Core..:? "Assets")

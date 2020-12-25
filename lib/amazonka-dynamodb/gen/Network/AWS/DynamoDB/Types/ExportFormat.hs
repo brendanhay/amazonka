@@ -13,46 +13,48 @@
 module Network.AWS.DynamoDB.Types.ExportFormat
   ( ExportFormat
       ( ExportFormat',
-        DynamodbJSON,
-        Ion
+        ExportFormatDynamodbJson,
+        ExportFormatIon,
+        fromExportFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExportFormat = ExportFormat' Lude.Text
+newtype ExportFormat = ExportFormat' {fromExportFormat :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DynamodbJSON :: ExportFormat
-pattern DynamodbJSON = ExportFormat' "DYNAMODB_JSON"
+pattern ExportFormatDynamodbJson :: ExportFormat
+pattern ExportFormatDynamodbJson = ExportFormat' "DYNAMODB_JSON"
 
-pattern Ion :: ExportFormat
-pattern Ion = ExportFormat' "ION"
+pattern ExportFormatIon :: ExportFormat
+pattern ExportFormatIon = ExportFormat' "ION"
 
 {-# COMPLETE
-  DynamodbJSON,
-  Ion,
+  ExportFormatDynamodbJson,
+  ExportFormatIon,
   ExportFormat'
   #-}

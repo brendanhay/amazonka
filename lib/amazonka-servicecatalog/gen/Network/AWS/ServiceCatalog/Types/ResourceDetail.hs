@@ -19,95 +19,91 @@ module Network.AWS.ServiceCatalog.Types.ResourceDetail
     -- * Lenses
     rARN,
     rCreatedTime,
-    rName,
-    rId,
     rDescription,
+    rId,
+    rName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ARN as Types
+import qualified Network.AWS.ServiceCatalog.Types.Description as Types
+import qualified Network.AWS.ServiceCatalog.Types.Name as Types
+import qualified Network.AWS.ServiceCatalog.Types.ResourceDetailId as Types
 
 -- | Information about a resource.
 --
 -- /See:/ 'mkResourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
   { -- | The ARN of the resource.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | The creation time of the resource.
-    createdTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the resource.
-    name :: Lude.Maybe Lude.Text,
-    -- | The identifier of the resource.
-    id :: Lude.Maybe Lude.Text,
+    createdTime :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the resource.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The identifier of the resource.
+    id :: Core.Maybe Types.ResourceDetailId,
+    -- | The name of the resource.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResourceDetail' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the resource.
--- * 'createdTime' - The creation time of the resource.
--- * 'name' - The name of the resource.
--- * 'id' - The identifier of the resource.
--- * 'description' - The description of the resource.
+-- | Creates a 'ResourceDetail' value with any optional fields omitted.
 mkResourceDetail ::
   ResourceDetail
 mkResourceDetail =
   ResourceDetail'
-    { arn = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      createdTime = Core.Nothing,
+      description = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ARN of the resource.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rARN :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
-rARN = Lens.lens (arn :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ResourceDetail)
+rARN :: Lens.Lens' ResourceDetail (Core.Maybe Types.ARN)
+rARN = Lens.field @"arn"
 {-# DEPRECATED rARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The creation time of the resource.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rCreatedTime :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Timestamp)
-rCreatedTime = Lens.lens (createdTime :: ResourceDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ResourceDetail)
+rCreatedTime :: Lens.Lens' ResourceDetail (Core.Maybe Core.NominalDiffTime)
+rCreatedTime = Lens.field @"createdTime"
 {-# DEPRECATED rCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
--- | The name of the resource.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rName :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
-rName = Lens.lens (name :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceDetail)
-{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The identifier of the resource.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rId :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
-rId = Lens.lens (id :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ResourceDetail)
-{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The description of the resource.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDescription :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
-rDescription = Lens.lens (description :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ResourceDetail)
+rDescription :: Lens.Lens' ResourceDetail (Core.Maybe Types.Description)
+rDescription = Lens.field @"description"
 {-# DEPRECATED rDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ResourceDetail where
+-- | The identifier of the resource.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rId :: Lens.Lens' ResourceDetail (Core.Maybe Types.ResourceDetailId)
+rId = Lens.field @"id"
+{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the resource.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' ResourceDetail (Core.Maybe Types.Name)
+rName = Lens.field @"name"
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON ResourceDetail where
   parseJSON =
-    Lude.withObject
-      "ResourceDetail"
-      ( \x ->
-          ResourceDetail'
-            Lude.<$> (x Lude..:? "ARN")
-            Lude.<*> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "ResourceDetail" Core.$
+      \x ->
+        ResourceDetail'
+          Core.<$> (x Core..:? "ARN")
+          Core.<*> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")

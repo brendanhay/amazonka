@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,55 @@
 -- Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization.
 module Network.AWS.AlexaBusiness
   ( -- * Service configuration
-    alexaBusinessService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** SkillNotLinkedException
+    _SkillNotLinkedException,
+
+    -- ** InvalidCertificateAuthorityException
+    _InvalidCertificateAuthorityException,
+
+    -- ** DeviceNotRegisteredException
+    _DeviceNotRegisteredException,
+
+    -- ** ResourceAssociatedException
+    _ResourceAssociatedException,
+
+    -- ** InvalidUserStatusException
+    _InvalidUserStatusException,
+
+    -- ** InvalidDeviceException
+    _InvalidDeviceException,
+
+    -- ** InvalidServiceLinkedRoleStateException
+    _InvalidServiceLinkedRoleStateException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** NameInUseException
+    _NameInUseException,
+
+    -- ** InvalidSecretsManagerResourceException
+    _InvalidSecretsManagerResourceException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -306,289 +350,446 @@ module Network.AWS.AlexaBusiness
 
     -- * Types
 
-    -- ** BusinessReportFailureCode
-    BusinessReportFailureCode (..),
-
-    -- ** BusinessReportFormat
-    BusinessReportFormat (..),
-
-    -- ** BusinessReportInterval
-    BusinessReportInterval (..),
-
-    -- ** BusinessReportStatus
-    BusinessReportStatus (..),
-
-    -- ** CommsProtocol
-    CommsProtocol (..),
-
-    -- ** ConferenceProviderType
-    ConferenceProviderType (..),
-
-    -- ** ConnectionStatus
-    ConnectionStatus (..),
-
-    -- ** DeviceEventType
-    DeviceEventType (..),
-
     -- ** DeviceStatus
     DeviceStatus (..),
 
-    -- ** DeviceStatusDetailCode
-    DeviceStatusDetailCode (..),
+    -- ** DeviceSerialNumberForAVS
+    DeviceSerialNumberForAVS (..),
 
-    -- ** DeviceUsageType
-    DeviceUsageType (..),
+    -- ** DeviceEvent
+    DeviceEvent (..),
+    mkDeviceEvent,
+    deTimestamp,
+    deType,
+    deValue,
 
-    -- ** DistanceUnit
-    DistanceUnit (..),
+    -- ** GatewaySummary
+    GatewaySummary (..),
+    mkGatewaySummary,
+    gsArn,
+    gsDescription,
+    gsGatewayGroupArn,
+    gsName,
+    gsSoftwareVersion,
 
-    -- ** EnablementType
-    EnablementType (..),
+    -- ** SipAddress
+    SipAddress (..),
+    mkSipAddress,
+    saUri,
+    saType,
 
-    -- ** EnablementTypeFilter
-    EnablementTypeFilter (..),
+    -- ** SkillId
+    SkillId (..),
 
-    -- ** EndOfMeetingReminderType
-    EndOfMeetingReminderType (..),
-
-    -- ** EnrollmentStatus
-    EnrollmentStatus (..),
+    -- ** RoomSkillParameterValue
+    RoomSkillParameterValue (..),
 
     -- ** Feature
     Feature (..),
 
-    -- ** Locale
-    Locale (..),
-
-    -- ** NetworkEapMethod
-    NetworkEapMethod (..),
-
-    -- ** NetworkSecurityType
-    NetworkSecurityType (..),
-
-    -- ** PhoneNumberType
-    PhoneNumberType (..),
-
-    -- ** RequirePin
-    RequirePin (..),
-
-    -- ** SipType
-    SipType (..),
-
-    -- ** SkillType
-    SkillType (..),
-
-    -- ** SkillTypeFilter
-    SkillTypeFilter (..),
-
-    -- ** SortValue
-    SortValue (..),
-
-    -- ** TemperatureUnit
-    TemperatureUnit (..),
-
-    -- ** WakeWord
-    WakeWord (..),
-
-    -- ** AddressBook
-    AddressBook (..),
-    mkAddressBook,
-    abAddressBookARN,
-    abName,
-    abDescription,
-
-    -- ** AddressBookData
-    AddressBookData (..),
-    mkAddressBookData,
-    abdAddressBookARN,
-    abdName,
-    abdDescription,
-
-    -- ** Audio
-    Audio (..),
-    mkAudio,
-    aLocation,
-    aLocale,
-
-    -- ** BusinessReport
-    BusinessReport (..),
-    mkBusinessReport,
-    brStatus,
-    brFailureCode,
-    brDeliveryTime,
-    brDownloadURL,
-    brS3Location,
-
-    -- ** BusinessReportContentRange
-    BusinessReportContentRange (..),
-    mkBusinessReportContentRange,
-    brcrInterval,
+    -- ** OrganizationName
+    OrganizationName (..),
 
     -- ** BusinessReportRecurrence
     BusinessReportRecurrence (..),
     mkBusinessReportRecurrence,
     brrStartDate,
 
-    -- ** BusinessReportS3Location
-    BusinessReportS3Location (..),
-    mkBusinessReportS3Location,
-    brslPath,
-    brslBucketName,
+    -- ** Email
+    Email (..),
 
-    -- ** BusinessReportSchedule
-    BusinessReportSchedule (..),
-    mkBusinessReportSchedule,
-    brsS3KeyPrefix,
-    brsLastBusinessReport,
-    brsFormat,
-    brsRecurrence,
-    brsScheduleName,
-    brsScheduleARN,
-    brsContentRange,
-    brsS3BucketName,
+    -- ** SkillsStoreSkill
+    SkillsStoreSkill (..),
+    mkSkillsStoreSkill,
+    sssIconUrl,
+    sssSampleUtterances,
+    sssShortDescription,
+    sssSkillDetails,
+    sssSkillId,
+    sssSkillName,
+    sssSupportsLinking,
 
-    -- ** Category
-    Category (..),
-    mkCategory,
-    cCategoryName,
-    cCategoryId,
+    -- ** ClientId
+    ClientId (..),
 
-    -- ** ConferencePreference
-    ConferencePreference (..),
-    mkConferencePreference,
-    cpDefaultConferenceProviderARN,
+    -- ** PhoneNumberType
+    PhoneNumberType (..),
 
     -- ** ConferenceProvider
     ConferenceProvider (..),
     mkConferenceProvider,
-    cpMeetingSetting,
-    cpARN,
-    cpPSTNDialIn,
-    cpName,
-    cpType,
+    cpArn,
     cpIPDialIn,
+    cpMeetingSetting,
+    cpName,
+    cpPSTNDialIn,
+    cpType,
 
-    -- ** Contact
-    Contact (..),
-    mkContact,
-    cLastName,
-    cContactARN,
-    cPhoneNumbers,
-    cPhoneNumber,
-    cSipAddresses,
-    cFirstName,
-    cDisplayName,
+    -- ** MeetingSetting
+    MeetingSetting (..),
+    mkMeetingSetting,
+    msRequirePin,
 
-    -- ** ContactData
-    ContactData (..),
-    mkContactData,
-    cdLastName,
-    cdContactARN,
-    cdPhoneNumbers,
-    cdPhoneNumber,
-    cdSipAddresses,
-    cdFirstName,
-    cdDisplayName,
+    -- ** CurrentWiFiPassword
+    CurrentWiFiPassword (..),
 
-    -- ** Content
-    Content (..),
-    mkContent,
-    cAudioList,
-    cTextList,
-    cSsmlList,
+    -- ** BusinessReportDownloadUrl
+    BusinessReportDownloadUrl (..),
 
-    -- ** CreateEndOfMeetingReminder
-    CreateEndOfMeetingReminder (..),
-    mkCreateEndOfMeetingReminder,
-    ceomrEnabled,
-    ceomrReminderAtMinutes,
-    ceomrReminderType,
+    -- ** GatewayGroup
+    GatewayGroup (..),
+    mkGatewayGroup,
+    ggArn,
+    ggDescription,
+    ggName,
 
-    -- ** CreateInstantBooking
-    CreateInstantBooking (..),
-    mkCreateInstantBooking,
-    cibEnabled,
-    cibDurationInMinutes,
+    -- ** Room
+    Room (..),
+    mkRoom,
+    rDescription,
+    rProfileArn,
+    rProviderCalendarId,
+    rRoomArn,
+    rRoomName,
 
-    -- ** CreateMeetingRoomConfiguration
-    CreateMeetingRoomConfiguration (..),
-    mkCreateMeetingRoomConfiguration,
-    cmrcInstantBooking,
-    cmrcEndOfMeetingReminder,
-    cmrcRequireCheckIn,
-    cmrcRoomUtilizationMetricsEnabled,
+    -- ** BusinessReportInterval
+    BusinessReportInterval (..),
 
-    -- ** CreateRequireCheckIn
-    CreateRequireCheckIn (..),
-    mkCreateRequireCheckIn,
-    crciEnabled,
-    crciReleaseAfterMinutes,
+    -- ** DeviceEventValue
+    DeviceEventValue (..),
 
-    -- ** DeveloperInfo
-    DeveloperInfo (..),
-    mkDeveloperInfo,
-    diEmail,
-    diURL,
-    diPrivacyPolicy,
-    diDeveloperName,
+    -- ** RoomData
+    RoomData (..),
+    mkRoomData,
+    rdDescription,
+    rdProfileArn,
+    rdProfileName,
+    rdProviderCalendarId,
+    rdRoomArn,
+    rdRoomName,
 
-    -- ** Device
-    Device (..),
-    mkDevice,
-    dDeviceStatus,
-    dDeviceStatusInfo,
-    dDeviceARN,
-    dMACAddress,
-    dDeviceName,
-    dRoomARN,
-    dSoftwareVersion,
-    dDeviceType,
-    dNetworkProfileInfo,
-    dDeviceSerialNumber,
+    -- ** UpdateMeetingRoomConfiguration
+    UpdateMeetingRoomConfiguration (..),
+    mkUpdateMeetingRoomConfiguration,
+    umrcEndOfMeetingReminder,
+    umrcInstantBooking,
+    umrcRequireCheckIn,
+    umrcRoomUtilizationMetricsEnabled,
 
-    -- ** DeviceData
-    DeviceData (..),
-    mkDeviceData,
-    ddDeviceStatus,
-    ddNetworkProfileName,
-    ddDeviceStatusInfo,
-    ddCreatedTime,
-    ddDeviceARN,
-    ddNetworkProfileARN,
-    ddMACAddress,
-    ddDeviceName,
-    ddRoomARN,
-    ddSoftwareVersion,
-    ddDeviceType,
-    ddRoomName,
-    ddDeviceSerialNumber,
+    -- ** FilterKey
+    FilterKey (..),
 
-    -- ** DeviceEvent
-    DeviceEvent (..),
-    mkDeviceEvent,
-    deValue,
-    deType,
-    deTimestamp,
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
 
-    -- ** DeviceNetworkProfileInfo
-    DeviceNetworkProfileInfo (..),
-    mkDeviceNetworkProfileInfo,
-    dnpiCertificateARN,
-    dnpiNetworkProfileARN,
-    dnpiCertificateExpirationTime,
+    -- ** BulletPoint
+    BulletPoint (..),
 
-    -- ** DeviceStatusDetail
-    DeviceStatusDetail (..),
-    mkDeviceStatusDetail,
-    dsdFeature,
-    dsdCode,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** NetworkProfileName
+    NetworkProfileName (..),
+
+    -- ** InstantBooking
+    InstantBooking (..),
+    mkInstantBooking,
+    ibDurationInMinutes,
+    ibEnabled,
+
+    -- ** OneClickIdDelay
+    OneClickIdDelay (..),
 
     -- ** DeviceStatusInfo
     DeviceStatusInfo (..),
     mkDeviceStatusInfo,
+    dsiConnectionStatus,
     dsiConnectionStatusUpdatedTime,
     dsiDeviceStatusDetails,
-    dsiConnectionStatus,
+
+    -- ** SipType
+    SipType (..),
+
+    -- ** RequirePin
+    RequirePin (..),
+
+    -- ** BusinessReportScheduleName
+    BusinessReportScheduleName (..),
+
+    -- ** CreateMeetingRoomConfiguration
+    CreateMeetingRoomConfiguration (..),
+    mkCreateMeetingRoomConfiguration,
+    cmrcEndOfMeetingReminder,
+    cmrcInstantBooking,
+    cmrcRequireCheckIn,
+    cmrcRoomUtilizationMetricsEnabled,
+
+    -- ** DistanceUnit
+    DistanceUnit (..),
+
+    -- ** SortKey
+    SortKey (..),
+
+    -- ** UpdateRequireCheckIn
+    UpdateRequireCheckIn (..),
+    mkUpdateRequireCheckIn,
+    urciEnabled,
+    urciReleaseAfterMinutes,
+
+    -- ** BusinessReportS3Location
+    BusinessReportS3Location (..),
+    mkBusinessReportS3Location,
+    brslBucketName,
+    brslPath,
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** ProductDescription
+    ProductDescription (..),
+
+    -- ** ApplianceFriendlyName
+    ApplianceFriendlyName (..),
+
+    -- ** ReviewKey
+    ReviewKey (..),
+
+    -- ** DeviceUsageType
+    DeviceUsageType (..),
+
+    -- ** TextMessage
+    TextMessage (..),
+    mkTextMessage,
+    tmLocale,
+    tmValue,
+
+    -- ** SkillSummary
+    SkillSummary (..),
+    mkSkillSummary,
+    ssEnablementType,
+    ssSkillId,
+    ssSkillName,
+    ssSkillType,
+    ssSupportsLinking,
+
+    -- ** NetworkEapMethod
+    NetworkEapMethod (..),
+
+    -- ** CustomerS3BucketName
+    CustomerS3BucketName (..),
+
+    -- ** InvocationPhrase
+    InvocationPhrase (..),
+
+    -- ** TrustAnchor
+    TrustAnchor (..),
+
+    -- ** AddressBookName
+    AddressBookName (..),
+
+    -- ** Contact
+    Contact (..),
+    mkContact,
+    cContactArn,
+    cDisplayName,
+    cFirstName,
+    cLastName,
+    cPhoneNumber,
+    cPhoneNumbers,
+    cSipAddresses,
+
+    -- ** Locale
+    Locale (..),
+
+    -- ** CreateRequireCheckIn
+    CreateRequireCheckIn (..),
+    mkCreateRequireCheckIn,
+    crciReleaseAfterMinutes,
+    crciEnabled,
+
+    -- ** Category
+    Category (..),
+    mkCategory,
+    cCategoryId,
+    cCategoryName,
+
+    -- ** DeveloperInfo
+    DeveloperInfo (..),
+    mkDeveloperInfo,
+    diDeveloperName,
+    diEmail,
+    diPrivacyPolicy,
+    diUrl,
+
+    -- ** SkillGroupDescription
+    SkillGroupDescription (..),
+
+    -- ** Device
+    Device (..),
+    mkDevice,
+    dDeviceArn,
+    dDeviceName,
+    dDeviceSerialNumber,
+    dDeviceStatus,
+    dDeviceStatusInfo,
+    dDeviceType,
+    dMacAddress,
+    dNetworkProfileInfo,
+    dRoomArn,
+    dSoftwareVersion,
+
+    -- ** DeviceData
+    DeviceData (..),
+    mkDeviceData,
+    ddCreatedTime,
+    ddDeviceArn,
+    ddDeviceName,
+    ddDeviceSerialNumber,
+    ddDeviceStatus,
+    ddDeviceStatusInfo,
+    ddDeviceType,
+    ddMacAddress,
+    ddNetworkProfileArn,
+    ddNetworkProfileName,
+    ddRoomArn,
+    ddRoomName,
+    ddSoftwareVersion,
+
+    -- ** DeviceStatusDetailCode
+    DeviceStatusDetailCode (..),
+
+    -- ** ContactData
+    ContactData (..),
+    mkContactData,
+    cdContactArn,
+    cdDisplayName,
+    cdFirstName,
+    cdLastName,
+    cdPhoneNumber,
+    cdPhoneNumbers,
+    cdSipAddresses,
+
+    -- ** Gateway
+    Gateway (..),
+    mkGateway,
+    gArn,
+    gDescription,
+    gGatewayGroupArn,
+    gName,
+    gSoftwareVersion,
+
+    -- ** DeviceLocale
+    DeviceLocale (..),
+
+    -- ** OneClickPinDelay
+    OneClickPinDelay (..),
+
+    -- ** NetworkSecurityType
+    NetworkSecurityType (..),
+
+    -- ** User_LastName
+    User_LastName (..),
+
+    -- ** EndUserLicenseAgreement
+    EndUserLicenseAgreement (..),
+
+    -- ** SmartHomeAppliance
+    SmartHomeAppliance (..),
+    mkSmartHomeAppliance,
+    shaDescription,
+    shaFriendlyName,
+    shaManufacturerName,
+
+    -- ** Url
+    Url (..),
+
+    -- ** AmazonId
+    AmazonId (..),
+
+    -- ** EnablementTypeFilter
+    EnablementTypeFilter (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** NetworkProfileDescription
+    NetworkProfileDescription (..),
+
+    -- ** Profile
+    Profile (..),
+    mkProfile,
+    pAddress,
+    pAddressBookArn,
+    pDistanceUnit,
+    pIsDefault,
+    pLocale,
+    pMaxVolumeLimit,
+    pMeetingRoomConfiguration,
+    pPSTNEnabled,
+    pProfileArn,
+    pProfileName,
+    pSetupModeDisabled,
+    pTemperatureUnit,
+    pTimezone,
+    pWakeWord,
+
+    -- ** AudioLocation
+    AudioLocation (..),
+
+    -- ** ProfileData
+    ProfileData (..),
+    mkProfileData,
+    pdAddress,
+    pdDistanceUnit,
+    pdIsDefault,
+    pdLocale,
+    pdProfileArn,
+    pdProfileName,
+    pdTemperatureUnit,
+    pdTimezone,
+    pdWakeWord,
+
+    -- ** Address
+    Address (..),
+
+    -- ** BusinessReportContentRange
+    BusinessReportContentRange (..),
+    mkBusinessReportContentRange,
+    brcrInterval,
+
+    -- ** PSTNDialIn
+    PSTNDialIn (..),
+    mkPSTNDialIn,
+    pstndiCountryCode,
+    pstndiPhoneNumber,
+    pstndiOneClickIdDelay,
+    pstndiOneClickPinDelay,
+
+    -- ** WakeWord
+    WakeWord (..),
+
+    -- ** CreateInstantBooking
+    CreateInstantBooking (..),
+    mkCreateInstantBooking,
+    cibDurationInMinutes,
+    cibEnabled,
+
+    -- ** MeetingRoomConfiguration
+    MeetingRoomConfiguration (..),
+    mkMeetingRoomConfiguration,
+    mrcEndOfMeetingReminder,
+    mrcInstantBooking,
+    mrcRequireCheckIn,
+    mrcRoomUtilizationMetricsEnabled,
+
+    -- ** TextValue
+    TextValue (..),
+
+    -- ** ProviderCalendarId
+    ProviderCalendarId (..),
 
     -- ** EndOfMeetingReminder
     EndOfMeetingReminder (..),
@@ -597,236 +798,27 @@ module Network.AWS.AlexaBusiness
     eomrReminderAtMinutes,
     eomrReminderType,
 
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fKey,
+    -- ** MacAddress
+    MacAddress (..),
 
-    -- ** Gateway
-    Gateway (..),
-    mkGateway,
-    gARN,
-    gName,
-    gGatewayGroupARN,
-    gSoftwareVersion,
-    gDescription,
+    -- ** NextWiFiPassword
+    NextWiFiPassword (..),
 
-    -- ** GatewayGroup
-    GatewayGroup (..),
-    mkGatewayGroup,
-    ggARN,
-    ggName,
-    ggDescription,
+    -- ** TagValue
+    TagValue (..),
 
-    -- ** GatewayGroupSummary
-    GatewayGroupSummary (..),
-    mkGatewayGroupSummary,
-    ggsARN,
-    ggsName,
-    ggsDescription,
+    -- ** Content
+    Content (..),
+    mkContent,
+    cAudioList,
+    cSsmlList,
+    cTextList,
 
-    -- ** GatewaySummary
-    GatewaySummary (..),
-    mkGatewaySummary,
-    gsARN,
-    gsName,
-    gsGatewayGroupARN,
-    gsSoftwareVersion,
-    gsDescription,
+    -- ** EnrollmentId
+    EnrollmentId (..),
 
-    -- ** IPDialIn
-    IPDialIn (..),
-    mkIPDialIn,
-    idiCommsProtocol,
-    idiEndpoint,
-
-    -- ** InstantBooking
-    InstantBooking (..),
-    mkInstantBooking,
-    ibEnabled,
-    ibDurationInMinutes,
-
-    -- ** MeetingRoomConfiguration
-    MeetingRoomConfiguration (..),
-    mkMeetingRoomConfiguration,
-    mrcInstantBooking,
-    mrcEndOfMeetingReminder,
-    mrcRequireCheckIn,
-    mrcRoomUtilizationMetricsEnabled,
-
-    -- ** MeetingSetting
-    MeetingSetting (..),
-    mkMeetingSetting,
-    msRequirePin,
-
-    -- ** NetworkProfile
-    NetworkProfile (..),
-    mkNetworkProfile,
-    npNetworkProfileName,
-    npSsid,
-    npNetworkProfileARN,
-    npSecurityType,
-    npCurrentPassword,
-    npNextPassword,
-    npEapMethod,
-    npDescription,
-    npTrustAnchors,
-    npCertificateAuthorityARN,
-
-    -- ** NetworkProfileData
-    NetworkProfileData (..),
-    mkNetworkProfileData,
-    npdNetworkProfileName,
-    npdSsid,
-    npdNetworkProfileARN,
-    npdSecurityType,
-    npdEapMethod,
-    npdDescription,
-    npdCertificateAuthorityARN,
-
-    -- ** PSTNDialIn
-    PSTNDialIn (..),
-    mkPSTNDialIn,
-    pstndiOneClickIdDelay,
-    pstndiOneClickPinDelay,
-    pstndiPhoneNumber,
-    pstndiCountryCode,
-
-    -- ** PhoneNumber
-    PhoneNumber (..),
-    mkPhoneNumber,
-    pnType,
-    pnNumber,
-
-    -- ** Profile
-    Profile (..),
-    mkProfile,
-    pSetupModeDisabled,
-    pPSTNEnabled,
-    pAddressBookARN,
-    pDistanceUnit,
-    pLocale,
-    pAddress,
-    pProfileARN,
-    pWakeWord,
-    pMeetingRoomConfiguration,
-    pProfileName,
-    pTemperatureUnit,
-    pTimezone,
-    pMaxVolumeLimit,
-    pIsDefault,
-
-    -- ** ProfileData
-    ProfileData (..),
-    mkProfileData,
-    pdDistanceUnit,
-    pdLocale,
-    pdAddress,
-    pdProfileARN,
-    pdWakeWord,
-    pdProfileName,
-    pdTemperatureUnit,
-    pdTimezone,
-    pdIsDefault,
-
-    -- ** RequireCheckIn
-    RequireCheckIn (..),
-    mkRequireCheckIn,
-    rciEnabled,
-    rciReleaseAfterMinutes,
-
-    -- ** Room
-    Room (..),
-    mkRoom,
-    rProfileARN,
-    rProviderCalendarId,
-    rRoomARN,
-    rRoomName,
-    rDescription,
-
-    -- ** RoomData
-    RoomData (..),
-    mkRoomData,
-    rdProfileARN,
-    rdProviderCalendarId,
-    rdProfileName,
-    rdRoomARN,
-    rdRoomName,
-    rdDescription,
-
-    -- ** RoomSkillParameter
-    RoomSkillParameter (..),
-    mkRoomSkillParameter,
-    rspParameterValue,
-    rspParameterKey,
-
-    -- ** SipAddress
-    SipAddress (..),
-    mkSipAddress,
-    saURI,
-    saType,
-
-    -- ** SkillDetails
-    SkillDetails (..),
-    mkSkillDetails,
-    sdSkillTypes,
-    sdProductDescription,
-    sdInvocationPhrase,
-    sdDeveloperInfo,
-    sdEndUserLicenseAgreement,
-    sdGenericKeywords,
-    sdReviews,
-    sdReleaseDate,
-    sdNewInThisVersionBulletPoints,
-    sdBulletPoints,
-
-    -- ** SkillGroup
-    SkillGroup (..),
-    mkSkillGroup,
-    sgSkillGroupARN,
-    sgDescription,
-    sgSkillGroupName,
-
-    -- ** SkillGroupData
-    SkillGroupData (..),
-    mkSkillGroupData,
-    sgdSkillGroupARN,
-    sgdDescription,
-    sgdSkillGroupName,
-
-    -- ** SkillSummary
-    SkillSummary (..),
-    mkSkillSummary,
-    ssSkillId,
-    ssSupportsLinking,
-    ssSkillType,
-    ssEnablementType,
-    ssSkillName,
-
-    -- ** SkillsStoreSkill
-    SkillsStoreSkill (..),
-    mkSkillsStoreSkill,
-    sssSkillId,
-    sssSupportsLinking,
-    sssSampleUtterances,
-    sssShortDescription,
-    sssIconURL,
-    sssSkillDetails,
-    sssSkillName,
-
-    -- ** SmartHomeAppliance
-    SmartHomeAppliance (..),
-    mkSmartHomeAppliance,
-    shaFriendlyName,
-    shaManufacturerName,
-    shaDescription,
-
-    -- ** Sort
-    Sort (..),
-    mkSort,
-    sfValue,
-    sfKey,
+    -- ** AddressBookDescription
+    AddressBookDescription (..),
 
     -- ** Ssml
     Ssml (..),
@@ -834,17 +826,174 @@ module Network.AWS.AlexaBusiness
     sLocale,
     sValue,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** CommsProtocol
+    CommsProtocol (..),
 
-    -- ** TextMessage
-    TextMessage (..),
-    mkTextMessage,
-    tmLocale,
-    tmValue,
+    -- ** SkillType
+    SkillType (..),
+
+    -- ** UserData
+    UserData (..),
+    mkUserData,
+    udEmail,
+    udEnrollmentId,
+    udEnrollmentStatus,
+    udFirstName,
+    udLastName,
+    udUserArn,
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** DeviceEventType
+    DeviceEventType (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ProfileName
+    ProfileName (..),
+
+    -- ** RequireCheckIn
+    RequireCheckIn (..),
+    mkRequireCheckIn,
+    rciEnabled,
+    rciReleaseAfterMinutes,
+
+    -- ** ShortDescription
+    ShortDescription (..),
+
+    -- ** UserCode
+    UserCode (..),
+
+    -- ** BusinessReportStatus
+    BusinessReportStatus (..),
+
+    -- ** CategoryName
+    CategoryName (..),
+
+    -- ** AddressBookData
+    AddressBookData (..),
+    mkAddressBookData,
+    abdAddressBookArn,
+    abdDescription,
+    abdName,
+
+    -- ** DeviceName
+    DeviceName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** ConferenceProviderType
+    ConferenceProviderType (..),
+
+    -- ** RoomSkillParameter
+    RoomSkillParameter (..),
+    mkRoomSkillParameter,
+    rspParameterKey,
+    rspParameterValue,
+
+    -- ** PhoneNumber
+    PhoneNumber (..),
+    mkPhoneNumber,
+    pnNumber,
+    pnType,
+
+    -- ** AddressBook
+    AddressBook (..),
+    mkAddressBook,
+    abAddressBookArn,
+    abDescription,
+    abName,
+
+    -- ** ConnectionStatus
+    ConnectionStatus (..),
+
+    -- ** Sort
+    Sort (..),
+    mkSort,
+    sfKey,
+    sfValue,
+
+    -- ** TemperatureUnit
+    TemperatureUnit (..),
+
+    -- ** BusinessReportSchedule
+    BusinessReportSchedule (..),
+    mkBusinessReportSchedule,
+    brsContentRange,
+    brsFormat,
+    brsLastBusinessReport,
+    brsRecurrence,
+    brsS3BucketName,
+    brsS3KeyPrefix,
+    brsScheduleArn,
+    brsScheduleName,
+
+    -- ** ConferencePreference
+    ConferencePreference (..),
+    mkConferencePreference,
+    cpDefaultConferenceProviderArn,
+
+    -- ** NetworkProfileData
+    NetworkProfileData (..),
+    mkNetworkProfileData,
+    npdCertificateAuthorityArn,
+    npdDescription,
+    npdEapMethod,
+    npdNetworkProfileArn,
+    npdNetworkProfileName,
+    npdSecurityType,
+    npdSsid,
+
+    -- ** CountryCode
+    CountryCode (..),
+
+    -- ** DeviceStatusDetail
+    DeviceStatusDetail (..),
+    mkDeviceStatusDetail,
+    dsdCode,
+    dsdFeature,
+
+    -- ** SoftwareVersion
+    SoftwareVersion (..),
+
+    -- ** ReleaseDate
+    ReleaseDate (..),
+
+    -- ** NetworkProfile
+    NetworkProfile (..),
+    mkNetworkProfile,
+    npCertificateAuthorityArn,
+    npCurrentPassword,
+    npDescription,
+    npEapMethod,
+    npNetworkProfileArn,
+    npNetworkProfileName,
+    npNextPassword,
+    npSecurityType,
+    npSsid,
+    npTrustAnchors,
+
+    -- ** CreateEndOfMeetingReminder
+    CreateEndOfMeetingReminder (..),
+    mkCreateEndOfMeetingReminder,
+    ceomrReminderAtMinutes,
+    ceomrReminderType,
+    ceomrEnabled,
+
+    -- ** BusinessReportFailureCode
+    BusinessReportFailureCode (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** DeviceType
+    DeviceType (..),
+
+    -- ** EnrollmentStatus
+    EnrollmentStatus (..),
 
     -- ** UpdateEndOfMeetingReminder
     UpdateEndOfMeetingReminder (..),
@@ -853,45 +1002,241 @@ module Network.AWS.AlexaBusiness
     ueomrReminderAtMinutes,
     ueomrReminderType,
 
+    -- ** IconUrl
+    IconUrl (..),
+
+    -- ** GatewayGroupName
+    GatewayGroupName (..),
+
+    -- ** GenericKeyword
+    GenericKeyword (..),
+
+    -- ** DeviceRoomName
+    DeviceRoomName (..),
+
+    -- ** RoomName
+    RoomName (..),
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fKey,
+    fValues,
+
+    -- ** BusinessReport
+    BusinessReport (..),
+    mkBusinessReport,
+    brDeliveryTime,
+    brDownloadUrl,
+    brFailureCode,
+    brS3Location,
+    brStatus,
+
+    -- ** ConferenceProviderName
+    ConferenceProviderName (..),
+
+    -- ** DeviceNetworkProfileInfo
+    DeviceNetworkProfileInfo (..),
+    mkDeviceNetworkProfileInfo,
+    dnpiCertificateArn,
+    dnpiCertificateExpirationTime,
+    dnpiNetworkProfileArn,
+
+    -- ** FilterValue
+    FilterValue (..),
+
+    -- ** SkillDetails
+    SkillDetails (..),
+    mkSkillDetails,
+    sdBulletPoints,
+    sdDeveloperInfo,
+    sdEndUserLicenseAgreement,
+    sdGenericKeywords,
+    sdInvocationPhrase,
+    sdNewInThisVersionBulletPoints,
+    sdProductDescription,
+    sdReleaseDate,
+    sdReviews,
+    sdSkillTypes,
+
+    -- ** EnablementType
+    EnablementType (..),
+
+    -- ** Timezone
+    Timezone (..),
+
+    -- ** RawPhoneNumber
+    RawPhoneNumber (..),
+
+    -- ** GatewayGroupSummary
+    GatewayGroupSummary (..),
+    mkGatewayGroupSummary,
+    ggsArn,
+    ggsDescription,
+    ggsName,
+
+    -- ** Endpoint
+    Endpoint (..),
+
+    -- ** BusinessReportFormat
+    BusinessReportFormat (..),
+
+    -- ** DeviceSerialNumber
+    DeviceSerialNumber (..),
+
+    -- ** OutboundPhoneNumber
+    OutboundPhoneNumber (..),
+
+    -- ** Utterance
+    Utterance (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
     -- ** UpdateInstantBooking
     UpdateInstantBooking (..),
     mkUpdateInstantBooking,
-    uibEnabled,
     uibDurationInMinutes,
+    uibEnabled,
 
-    -- ** UpdateMeetingRoomConfiguration
-    UpdateMeetingRoomConfiguration (..),
-    mkUpdateMeetingRoomConfiguration,
-    umrcInstantBooking,
-    umrcEndOfMeetingReminder,
-    umrcRequireCheckIn,
-    umrcRoomUtilizationMetricsEnabled,
+    -- ** SkillGroupData
+    SkillGroupData (..),
+    mkSkillGroupData,
+    sgdDescription,
+    sgdSkillGroupArn,
+    sgdSkillGroupName,
 
-    -- ** UpdateRequireCheckIn
-    UpdateRequireCheckIn (..),
-    mkUpdateRequireCheckIn,
-    urciEnabled,
-    urciReleaseAfterMinutes,
+    -- ** SkillGroup
+    SkillGroup (..),
+    mkSkillGroup,
+    sgDescription,
+    sgSkillGroupArn,
+    sgSkillGroupName,
 
-    -- ** UserData
-    UserData (..),
-    mkUserData,
-    udEmail,
-    udLastName,
-    udEnrollmentId,
-    udUserARN,
-    udFirstName,
-    udEnrollmentStatus,
+    -- ** IPDialIn
+    IPDialIn (..),
+    mkIPDialIn,
+    ipdiEndpoint,
+    ipdiCommsProtocol,
+
+    -- ** PrivacyPolicy
+    PrivacyPolicy (..),
+
+    -- ** ProductId
+    ProductId (..),
+
+    -- ** Audio
+    Audio (..),
+    mkAudio,
+    aLocale,
+    aLocation,
+
+    -- ** SkillName
+    SkillName (..),
+
+    -- ** SkillStoreType
+    SkillStoreType (..),
+
+    -- ** SkillTypeFilter
+    SkillTypeFilter (..),
+
+    -- ** SortValue
+    SortValue (..),
+
+    -- ** SkillGroupName
+    SkillGroupName (..),
+
+    -- ** ReviewValue
+    ReviewValue (..),
+
+    -- ** EndOfMeetingReminderType
+    EndOfMeetingReminderType (..),
+
+    -- ** DeveloperName
+    DeveloperName (..),
+
+    -- ** RoomArn
+    RoomArn (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** GatewayGroupArn
+    GatewayGroupArn (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Uri
+    Uri (..),
+
+    -- ** StartDate
+    StartDate (..),
+
+    -- ** AddressBookArn
+    AddressBookArn (..),
+
+    -- ** GatewayArn
+    GatewayArn (..),
+
+    -- ** ConferenceProviderArn
+    ConferenceProviderArn (..),
+
+    -- ** ContactArn
+    ContactArn (..),
+
+    -- ** DeviceArn
+    DeviceArn (..),
+
+    -- ** ProfileArn
+    ProfileArn (..),
+
+    -- ** ScheduleArn
+    ScheduleArn (..),
+
+    -- ** SkillGroupArn
+    SkillGroupArn (..),
+
+    -- ** NetworkProfileArn
+    NetworkProfileArn (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** Path
+    Path (..),
+
+    -- ** FirstName
+    FirstName (..),
+
+    -- ** DisplayName
+    DisplayName (..),
+
+    -- ** LastName
+    LastName (..),
+
+    -- ** ParameterKey
+    ParameterKey (..),
+
+    -- ** Ssid
+    Ssid (..),
+
+    -- ** NextPassword
+    NextPassword (..),
+
+    -- ** ManufacturerName
+    ManufacturerName (..),
+
+    -- ** Number
+    Number (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

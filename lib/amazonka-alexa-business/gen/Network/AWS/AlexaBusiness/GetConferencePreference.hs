@@ -24,91 +24,82 @@ module Network.AWS.AlexaBusiness.GetConferencePreference
     mkGetConferencePreferenceResponse,
 
     -- ** Response lenses
-    gcprsPreference,
-    gcprsResponseStatus,
+    gcprrsPreference,
+    gcprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetConferencePreference' smart constructor.
 data GetConferencePreference = GetConferencePreference'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConferencePreference' with the minimum fields required to make a request.
+-- | Creates a 'GetConferencePreference' value with any optional fields omitted.
 mkGetConferencePreference ::
   GetConferencePreference
 mkGetConferencePreference = GetConferencePreference'
 
-instance Lude.AWSRequest GetConferencePreference where
+instance Core.FromJSON GetConferencePreference where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetConferencePreference where
   type Rs GetConferencePreference = GetConferencePreferenceResponse
-  request = Req.postJSON alexaBusinessService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.GetConferencePreference")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetConferencePreferenceResponse'
-            Lude.<$> (x Lude..?> "Preference") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Preference") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetConferencePreference where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetConferencePreference" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetConferencePreference where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetConferencePreference where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetConferencePreference where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetConferencePreferenceResponse' smart constructor.
 data GetConferencePreferenceResponse = GetConferencePreferenceResponse'
   { -- | The conference preference.
-    preference :: Lude.Maybe ConferencePreference,
+    preference :: Core.Maybe Types.ConferencePreference,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConferencePreferenceResponse' with the minimum fields required to make a request.
---
--- * 'preference' - The conference preference.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetConferencePreferenceResponse' value with any optional fields omitted.
 mkGetConferencePreferenceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetConferencePreferenceResponse
-mkGetConferencePreferenceResponse pResponseStatus_ =
+mkGetConferencePreferenceResponse responseStatus =
   GetConferencePreferenceResponse'
-    { preference = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { preference = Core.Nothing,
+      responseStatus
     }
 
 -- | The conference preference.
 --
 -- /Note:/ Consider using 'preference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcprsPreference :: Lens.Lens' GetConferencePreferenceResponse (Lude.Maybe ConferencePreference)
-gcprsPreference = Lens.lens (preference :: GetConferencePreferenceResponse -> Lude.Maybe ConferencePreference) (\s a -> s {preference = a} :: GetConferencePreferenceResponse)
-{-# DEPRECATED gcprsPreference "Use generic-lens or generic-optics with 'preference' instead." #-}
+gcprrsPreference :: Lens.Lens' GetConferencePreferenceResponse (Core.Maybe Types.ConferencePreference)
+gcprrsPreference = Lens.field @"preference"
+{-# DEPRECATED gcprrsPreference "Use generic-lens or generic-optics with 'preference' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcprsResponseStatus :: Lens.Lens' GetConferencePreferenceResponse Lude.Int
-gcprsResponseStatus = Lens.lens (responseStatus :: GetConferencePreferenceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConferencePreferenceResponse)
-{-# DEPRECATED gcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcprrsResponseStatus :: Lens.Lens' GetConferencePreferenceResponse Core.Int
+gcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

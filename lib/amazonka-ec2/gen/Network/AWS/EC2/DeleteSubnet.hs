@@ -29,73 +29,73 @@ module Network.AWS.EC2.DeleteSubnet
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSubnet' smart constructor.
 data DeleteSubnet = DeleteSubnet'
   { -- | The ID of the subnet.
-    subnetId :: Lude.Text,
+    subnetId :: Types.SubnetId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSubnet' with the minimum fields required to make a request.
---
--- * 'subnetId' - The ID of the subnet.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteSubnet' value with any optional fields omitted.
 mkDeleteSubnet ::
   -- | 'subnetId'
-  Lude.Text ->
+  Types.SubnetId ->
   DeleteSubnet
-mkDeleteSubnet pSubnetId_ =
-  DeleteSubnet' {subnetId = pSubnetId_, dryRun = Lude.Nothing}
+mkDeleteSubnet subnetId =
+  DeleteSubnet' {subnetId, dryRun = Core.Nothing}
 
 -- | The ID of the subnet.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfSubnetId :: Lens.Lens' DeleteSubnet Lude.Text
-dsfSubnetId = Lens.lens (subnetId :: DeleteSubnet -> Lude.Text) (\s a -> s {subnetId = a} :: DeleteSubnet)
+dsfSubnetId :: Lens.Lens' DeleteSubnet Types.SubnetId
+dsfSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED dsfSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfDryRun :: Lens.Lens' DeleteSubnet (Lude.Maybe Lude.Bool)
-dsfDryRun = Lens.lens (dryRun :: DeleteSubnet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSubnet)
+dsfDryRun :: Lens.Lens' DeleteSubnet (Core.Maybe Core.Bool)
+dsfDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dsfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteSubnet where
+instance Core.AWSRequest DeleteSubnet where
   type Rs DeleteSubnet = DeleteSubnetResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteSubnetResponse'
-
-instance Lude.ToHeaders DeleteSubnet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteSubnet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSubnet where
-  toQuery DeleteSubnet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteSubnet" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "SubnetId" Lude.=: subnetId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteSubnet")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "SubnetId" subnetId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteSubnetResponse'
 
 -- | /See:/ 'mkDeleteSubnetResponse' smart constructor.
 data DeleteSubnetResponse = DeleteSubnetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSubnetResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSubnetResponse' value with any optional fields omitted.
 mkDeleteSubnetResponse ::
   DeleteSubnetResponse
 mkDeleteSubnetResponse = DeleteSubnetResponse'

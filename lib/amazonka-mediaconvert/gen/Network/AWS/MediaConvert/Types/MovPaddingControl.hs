@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.MovPaddingControl
   ( MovPaddingControl
       ( MovPaddingControl',
-        MPCOmneon,
-        MPCNone
+        MovPaddingControlOmneon,
+        MovPaddingControlNone,
+        fromMovPaddingControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
-newtype MovPaddingControl = MovPaddingControl' Lude.Text
+newtype MovPaddingControl = MovPaddingControl'
+  { fromMovPaddingControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MPCOmneon :: MovPaddingControl
-pattern MPCOmneon = MovPaddingControl' "OMNEON"
+pattern MovPaddingControlOmneon :: MovPaddingControl
+pattern MovPaddingControlOmneon = MovPaddingControl' "OMNEON"
 
-pattern MPCNone :: MovPaddingControl
-pattern MPCNone = MovPaddingControl' "NONE"
+pattern MovPaddingControlNone :: MovPaddingControl
+pattern MovPaddingControlNone = MovPaddingControl' "NONE"
 
 {-# COMPLETE
-  MPCOmneon,
-  MPCNone,
+  MovPaddingControlOmneon,
+  MovPaddingControlNone,
   MovPaddingControl'
   #-}

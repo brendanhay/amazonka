@@ -13,46 +13,51 @@
 module Network.AWS.CloudFormation.Types.TemplateStage
   ( TemplateStage
       ( TemplateStage',
-        Original,
-        Processed
+        TemplateStageOriginal,
+        TemplateStageProcessed,
+        fromTemplateStage
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TemplateStage = TemplateStage' Lude.Text
+newtype TemplateStage = TemplateStage'
+  { fromTemplateStage ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Original :: TemplateStage
-pattern Original = TemplateStage' "Original"
+pattern TemplateStageOriginal :: TemplateStage
+pattern TemplateStageOriginal = TemplateStage' "Original"
 
-pattern Processed :: TemplateStage
-pattern Processed = TemplateStage' "Processed"
+pattern TemplateStageProcessed :: TemplateStage
+pattern TemplateStageProcessed = TemplateStage' "Processed"
 
 {-# COMPLETE
-  Original,
-  Processed,
+  TemplateStageOriginal,
+  TemplateStageProcessed,
   TemplateStage'
   #-}

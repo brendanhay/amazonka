@@ -20,47 +20,38 @@ module Network.AWS.RDS.ImportInstallationMedia
     mkImportInstallationMedia,
 
     -- ** Request lenses
+    iimCustomAvailabilityZoneId,
+    iimEngine,
     iimEngineVersion,
     iimEngineInstallationMediaPath,
-    iimEngine,
     iimOSInstallationMediaPath,
-    iimCustomAvailabilityZoneId,
 
     -- * Destructuring the response
-    InstallationMedia (..),
-    mkInstallationMedia,
+    Types.InstallationMedia (..),
+    Types.mkInstallationMedia,
 
     -- ** Response lenses
-    imEngineVersion,
-    imStatus,
-    imInstallationMediaId,
-    imEngineInstallationMediaPath,
-    imEngine,
-    imOSInstallationMediaPath,
-    imCustomAvailabilityZoneId,
-    imFailureCause,
+    Types.imCustomAvailabilityZoneId,
+    Types.imEngine,
+    Types.imEngineInstallationMediaPath,
+    Types.imEngineVersion,
+    Types.imFailureCause,
+    Types.imInstallationMediaId,
+    Types.imOSInstallationMediaPath,
+    Types.imStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkImportInstallationMedia' smart constructor.
 data ImportInstallationMedia = ImportInstallationMedia'
-  { -- | The version number of the database engine to use.
-    --
-    -- For a list of valid engine versions, call 'DescribeDBEngineVersions' .
-    -- The following are the database engines and links to information about the major and minor versions. The list only includes DB engines that require an on-premises customer provided license.
-    -- __Microsoft SQL Server__
-    -- See <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS> in the /Amazon RDS User Guide./
-    engineVersion :: Lude.Text,
-    -- | The path to the installation medium for the specified DB engine.
-    --
-    -- Example: @SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
-    engineInstallationMediaPath :: Lude.Text,
+  { -- | The identifier of the custom Availability Zone (AZ) to import the installation media to.
+    customAvailabilityZoneId :: Types.String,
     -- | The name of the database engine to be used for this instance.
     --
     -- The list only includes supported DB engines that require an on-premises customer provided license.
@@ -76,95 +67,59 @@ data ImportInstallationMedia = ImportInstallationMedia'
     --
     --
     --     * @sqlserver-web@
-    engine :: Lude.Text,
+    engine :: Types.String,
+    -- | The version number of the database engine to use.
+    --
+    -- For a list of valid engine versions, call 'DescribeDBEngineVersions' .
+    -- The following are the database engines and links to information about the major and minor versions. The list only includes DB engines that require an on-premises customer provided license.
+    -- __Microsoft SQL Server__
+    -- See <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS> in the /Amazon RDS User Guide./
+    engineVersion :: Types.String,
+    -- | The path to the installation medium for the specified DB engine.
+    --
+    -- Example: @SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
+    engineInstallationMediaPath :: Types.String,
     -- | The path to the installation medium for the operating system associated with the specified DB engine.
     --
     -- Example: @WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso@
-    osInstallationMediaPath :: Lude.Text,
-    -- | The identifier of the custom Availability Zone (AZ) to import the installation media to.
-    customAvailabilityZoneId :: Lude.Text
+    oSInstallationMediaPath :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportInstallationMedia' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The version number of the database engine to use.
---
--- For a list of valid engine versions, call 'DescribeDBEngineVersions' .
--- The following are the database engines and links to information about the major and minor versions. The list only includes DB engines that require an on-premises customer provided license.
--- __Microsoft SQL Server__
--- See <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS> in the /Amazon RDS User Guide./
--- * 'engineInstallationMediaPath' - The path to the installation medium for the specified DB engine.
---
--- Example: @SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
--- * 'engine' - The name of the database engine to be used for this instance.
---
--- The list only includes supported DB engines that require an on-premises customer provided license.
--- Valid Values:
---
---     * @sqlserver-ee@
---
---
---     * @sqlserver-se@
---
---
---     * @sqlserver-ex@
---
---
---     * @sqlserver-web@
---
---
--- * 'osInstallationMediaPath' - The path to the installation medium for the operating system associated with the specified DB engine.
---
--- Example: @WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso@
--- * 'customAvailabilityZoneId' - The identifier of the custom Availability Zone (AZ) to import the installation media to.
+-- | Creates a 'ImportInstallationMedia' value with any optional fields omitted.
 mkImportInstallationMedia ::
-  -- | 'engineVersion'
-  Lude.Text ->
-  -- | 'engineInstallationMediaPath'
-  Lude.Text ->
-  -- | 'engine'
-  Lude.Text ->
-  -- | 'osInstallationMediaPath'
-  Lude.Text ->
   -- | 'customAvailabilityZoneId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'engine'
+  Types.String ->
+  -- | 'engineVersion'
+  Types.String ->
+  -- | 'engineInstallationMediaPath'
+  Types.String ->
+  -- | 'oSInstallationMediaPath'
+  Types.String ->
   ImportInstallationMedia
 mkImportInstallationMedia
-  pEngineVersion_
-  pEngineInstallationMediaPath_
-  pEngine_
-  pOSInstallationMediaPath_
-  pCustomAvailabilityZoneId_ =
+  customAvailabilityZoneId
+  engine
+  engineVersion
+  engineInstallationMediaPath
+  oSInstallationMediaPath =
     ImportInstallationMedia'
-      { engineVersion = pEngineVersion_,
-        engineInstallationMediaPath = pEngineInstallationMediaPath_,
-        engine = pEngine_,
-        osInstallationMediaPath = pOSInstallationMediaPath_,
-        customAvailabilityZoneId = pCustomAvailabilityZoneId_
+      { customAvailabilityZoneId,
+        engine,
+        engineVersion,
+        engineInstallationMediaPath,
+        oSInstallationMediaPath
       }
 
--- | The version number of the database engine to use.
+-- | The identifier of the custom Availability Zone (AZ) to import the installation media to.
 --
--- For a list of valid engine versions, call 'DescribeDBEngineVersions' .
--- The following are the database engines and links to information about the major and minor versions. The list only includes DB engines that require an on-premises customer provided license.
--- __Microsoft SQL Server__
--- See <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS> in the /Amazon RDS User Guide./
---
--- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iimEngineVersion :: Lens.Lens' ImportInstallationMedia Lude.Text
-iimEngineVersion = Lens.lens (engineVersion :: ImportInstallationMedia -> Lude.Text) (\s a -> s {engineVersion = a} :: ImportInstallationMedia)
-{-# DEPRECATED iimEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
-
--- | The path to the installation medium for the specified DB engine.
---
--- Example: @SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
---
--- /Note:/ Consider using 'engineInstallationMediaPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iimEngineInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Lude.Text
-iimEngineInstallationMediaPath = Lens.lens (engineInstallationMediaPath :: ImportInstallationMedia -> Lude.Text) (\s a -> s {engineInstallationMediaPath = a} :: ImportInstallationMedia)
-{-# DEPRECATED iimEngineInstallationMediaPath "Use generic-lens or generic-optics with 'engineInstallationMediaPath' instead." #-}
+-- /Note:/ Consider using 'customAvailabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iimCustomAvailabilityZoneId :: Lens.Lens' ImportInstallationMedia Types.String
+iimCustomAvailabilityZoneId = Lens.field @"customAvailabilityZoneId"
+{-# DEPRECATED iimCustomAvailabilityZoneId "Use generic-lens or generic-optics with 'customAvailabilityZoneId' instead." #-}
 
 -- | The name of the database engine to be used for this instance.
 --
@@ -185,48 +140,74 @@ iimEngineInstallationMediaPath = Lens.lens (engineInstallationMediaPath :: Impor
 --
 --
 -- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iimEngine :: Lens.Lens' ImportInstallationMedia Lude.Text
-iimEngine = Lens.lens (engine :: ImportInstallationMedia -> Lude.Text) (\s a -> s {engine = a} :: ImportInstallationMedia)
+iimEngine :: Lens.Lens' ImportInstallationMedia Types.String
+iimEngine = Lens.field @"engine"
 {-# DEPRECATED iimEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
+
+-- | The version number of the database engine to use.
+--
+-- For a list of valid engine versions, call 'DescribeDBEngineVersions' .
+-- The following are the database engines and links to information about the major and minor versions. The list only includes DB engines that require an on-premises customer provided license.
+-- __Microsoft SQL Server__
+-- See <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS> in the /Amazon RDS User Guide./
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iimEngineVersion :: Lens.Lens' ImportInstallationMedia Types.String
+iimEngineVersion = Lens.field @"engineVersion"
+{-# DEPRECATED iimEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
+
+-- | The path to the installation medium for the specified DB engine.
+--
+-- Example: @SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
+--
+-- /Note:/ Consider using 'engineInstallationMediaPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iimEngineInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Types.String
+iimEngineInstallationMediaPath = Lens.field @"engineInstallationMediaPath"
+{-# DEPRECATED iimEngineInstallationMediaPath "Use generic-lens or generic-optics with 'engineInstallationMediaPath' instead." #-}
 
 -- | The path to the installation medium for the operating system associated with the specified DB engine.
 --
 -- Example: @WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso@
 --
--- /Note:/ Consider using 'osInstallationMediaPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iimOSInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Lude.Text
-iimOSInstallationMediaPath = Lens.lens (osInstallationMediaPath :: ImportInstallationMedia -> Lude.Text) (\s a -> s {osInstallationMediaPath = a} :: ImportInstallationMedia)
-{-# DEPRECATED iimOSInstallationMediaPath "Use generic-lens or generic-optics with 'osInstallationMediaPath' instead." #-}
+-- /Note:/ Consider using 'oSInstallationMediaPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iimOSInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Types.String
+iimOSInstallationMediaPath = Lens.field @"oSInstallationMediaPath"
+{-# DEPRECATED iimOSInstallationMediaPath "Use generic-lens or generic-optics with 'oSInstallationMediaPath' instead." #-}
 
--- | The identifier of the custom Availability Zone (AZ) to import the installation media to.
---
--- /Note:/ Consider using 'customAvailabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iimCustomAvailabilityZoneId :: Lens.Lens' ImportInstallationMedia Lude.Text
-iimCustomAvailabilityZoneId = Lens.lens (customAvailabilityZoneId :: ImportInstallationMedia -> Lude.Text) (\s a -> s {customAvailabilityZoneId = a} :: ImportInstallationMedia)
-{-# DEPRECATED iimCustomAvailabilityZoneId "Use generic-lens or generic-optics with 'customAvailabilityZoneId' instead." #-}
-
-instance Lude.AWSRequest ImportInstallationMedia where
-  type Rs ImportInstallationMedia = InstallationMedia
-  request = Req.postQuery rdsService
+instance Core.AWSRequest ImportInstallationMedia where
+  type Rs ImportInstallationMedia = Types.InstallationMedia
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ImportInstallationMedia")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "CustomAvailabilityZoneId"
+                            customAvailabilityZoneId
+                        )
+                Core.<> (Core.toQueryValue "Engine" engine)
+                Core.<> (Core.toQueryValue "EngineVersion" engineVersion)
+                Core.<> ( Core.toQueryValue
+                            "EngineInstallationMediaPath"
+                            engineInstallationMediaPath
+                        )
+                Core.<> ( Core.toQueryValue
+                            "OSInstallationMediaPath"
+                            oSInstallationMediaPath
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ImportInstallationMediaResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ImportInstallationMedia where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ImportInstallationMedia where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportInstallationMedia where
-  toQuery ImportInstallationMedia' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ImportInstallationMedia" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "EngineVersion" Lude.=: engineVersion,
-        "EngineInstallationMediaPath" Lude.=: engineInstallationMediaPath,
-        "Engine" Lude.=: engine,
-        "OSInstallationMediaPath" Lude.=: osInstallationMediaPath,
-        "CustomAvailabilityZoneId" Lude.=: customAvailabilityZoneId
-      ]
+      (\s h x -> Core.parseXML x)

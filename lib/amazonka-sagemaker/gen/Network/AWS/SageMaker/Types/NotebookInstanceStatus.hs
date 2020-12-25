@@ -13,71 +13,76 @@
 module Network.AWS.SageMaker.Types.NotebookInstanceStatus
   ( NotebookInstanceStatus
       ( NotebookInstanceStatus',
-        NISPending,
-        NISInService,
-        NISStopping,
-        NISStopped,
-        NISFailed,
-        NISDeleting,
-        NISUpdating
+        NotebookInstanceStatusPending,
+        NotebookInstanceStatusInService,
+        NotebookInstanceStatusStopping,
+        NotebookInstanceStatusStopped,
+        NotebookInstanceStatusFailed,
+        NotebookInstanceStatusDeleting,
+        NotebookInstanceStatusUpdating,
+        fromNotebookInstanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NotebookInstanceStatus = NotebookInstanceStatus' Lude.Text
+newtype NotebookInstanceStatus = NotebookInstanceStatus'
+  { fromNotebookInstanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NISPending :: NotebookInstanceStatus
-pattern NISPending = NotebookInstanceStatus' "Pending"
+pattern NotebookInstanceStatusPending :: NotebookInstanceStatus
+pattern NotebookInstanceStatusPending = NotebookInstanceStatus' "Pending"
 
-pattern NISInService :: NotebookInstanceStatus
-pattern NISInService = NotebookInstanceStatus' "InService"
+pattern NotebookInstanceStatusInService :: NotebookInstanceStatus
+pattern NotebookInstanceStatusInService = NotebookInstanceStatus' "InService"
 
-pattern NISStopping :: NotebookInstanceStatus
-pattern NISStopping = NotebookInstanceStatus' "Stopping"
+pattern NotebookInstanceStatusStopping :: NotebookInstanceStatus
+pattern NotebookInstanceStatusStopping = NotebookInstanceStatus' "Stopping"
 
-pattern NISStopped :: NotebookInstanceStatus
-pattern NISStopped = NotebookInstanceStatus' "Stopped"
+pattern NotebookInstanceStatusStopped :: NotebookInstanceStatus
+pattern NotebookInstanceStatusStopped = NotebookInstanceStatus' "Stopped"
 
-pattern NISFailed :: NotebookInstanceStatus
-pattern NISFailed = NotebookInstanceStatus' "Failed"
+pattern NotebookInstanceStatusFailed :: NotebookInstanceStatus
+pattern NotebookInstanceStatusFailed = NotebookInstanceStatus' "Failed"
 
-pattern NISDeleting :: NotebookInstanceStatus
-pattern NISDeleting = NotebookInstanceStatus' "Deleting"
+pattern NotebookInstanceStatusDeleting :: NotebookInstanceStatus
+pattern NotebookInstanceStatusDeleting = NotebookInstanceStatus' "Deleting"
 
-pattern NISUpdating :: NotebookInstanceStatus
-pattern NISUpdating = NotebookInstanceStatus' "Updating"
+pattern NotebookInstanceStatusUpdating :: NotebookInstanceStatus
+pattern NotebookInstanceStatusUpdating = NotebookInstanceStatus' "Updating"
 
 {-# COMPLETE
-  NISPending,
-  NISInService,
-  NISStopping,
-  NISStopped,
-  NISFailed,
-  NISDeleting,
-  NISUpdating,
+  NotebookInstanceStatusPending,
+  NotebookInstanceStatusInService,
+  NotebookInstanceStatusStopping,
+  NotebookInstanceStatusStopped,
+  NotebookInstanceStatusFailed,
+  NotebookInstanceStatusDeleting,
+  NotebookInstanceStatusUpdating,
   NotebookInstanceStatus'
   #-}

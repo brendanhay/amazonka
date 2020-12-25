@@ -20,133 +20,121 @@ module Network.AWS.MediaLive.CreateInputSecurityGroup
     mkCreateInputSecurityGroup,
 
     -- ** Request lenses
-    cisgWhitelistRules,
     cisgTags,
+    cisgWhitelistRules,
 
     -- * Destructuring the response
     CreateInputSecurityGroupResponse (..),
     mkCreateInputSecurityGroupResponse,
 
     -- ** Response lenses
-    cisgrsSecurityGroup,
-    cisgrsResponseStatus,
+    cisgrrsSecurityGroup,
+    cisgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The IPv4 CIDRs to whitelist for this Input Security Group
 --
 -- /See:/ 'mkCreateInputSecurityGroup' smart constructor.
 data CreateInputSecurityGroup = CreateInputSecurityGroup'
-  { -- | List of IPv4 CIDR addresses to whitelist
-    whitelistRules :: Lude.Maybe [InputWhitelistRuleCidr],
-    -- | A collection of key-value pairs.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | A collection of key-value pairs.
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    -- | List of IPv4 CIDR addresses to whitelist
+    whitelistRules :: Core.Maybe [Types.InputWhitelistRuleCidr]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInputSecurityGroup' with the minimum fields required to make a request.
---
--- * 'whitelistRules' - List of IPv4 CIDR addresses to whitelist
--- * 'tags' - A collection of key-value pairs.
+-- | Creates a 'CreateInputSecurityGroup' value with any optional fields omitted.
 mkCreateInputSecurityGroup ::
   CreateInputSecurityGroup
 mkCreateInputSecurityGroup =
   CreateInputSecurityGroup'
-    { whitelistRules = Lude.Nothing,
-      tags = Lude.Nothing
+    { tags = Core.Nothing,
+      whitelistRules = Core.Nothing
     }
-
--- | List of IPv4 CIDR addresses to whitelist
---
--- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisgWhitelistRules :: Lens.Lens' CreateInputSecurityGroup (Lude.Maybe [InputWhitelistRuleCidr])
-cisgWhitelistRules = Lens.lens (whitelistRules :: CreateInputSecurityGroup -> Lude.Maybe [InputWhitelistRuleCidr]) (\s a -> s {whitelistRules = a} :: CreateInputSecurityGroup)
-{-# DEPRECATED cisgWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
 
 -- | A collection of key-value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisgTags :: Lens.Lens' CreateInputSecurityGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cisgTags = Lens.lens (tags :: CreateInputSecurityGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateInputSecurityGroup)
+cisgTags :: Lens.Lens' CreateInputSecurityGroup (Core.Maybe (Core.HashMap Core.Text Core.Text))
+cisgTags = Lens.field @"tags"
 {-# DEPRECATED cisgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateInputSecurityGroup where
+-- | List of IPv4 CIDR addresses to whitelist
+--
+-- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisgWhitelistRules :: Lens.Lens' CreateInputSecurityGroup (Core.Maybe [Types.InputWhitelistRuleCidr])
+cisgWhitelistRules = Lens.field @"whitelistRules"
+{-# DEPRECATED cisgWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
+
+instance Core.FromJSON CreateInputSecurityGroup where
+  toJSON CreateInputSecurityGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            ("whitelistRules" Core..=) Core.<$> whitelistRules
+          ]
+      )
+
+instance Core.AWSRequest CreateInputSecurityGroup where
   type Rs CreateInputSecurityGroup = CreateInputSecurityGroupResponse
-  request = Req.postJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/prod/inputSecurityGroups",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateInputSecurityGroupResponse'
-            Lude.<$> (x Lude..?> "securityGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "securityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateInputSecurityGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateInputSecurityGroup where
-  toJSON CreateInputSecurityGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("whitelistRules" Lude..=) Lude.<$> whitelistRules,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateInputSecurityGroup where
-  toPath = Lude.const "/prod/inputSecurityGroups"
-
-instance Lude.ToQuery CreateInputSecurityGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for CreateInputSecurityGroupResponse
 --
 -- /See:/ 'mkCreateInputSecurityGroupResponse' smart constructor.
 data CreateInputSecurityGroupResponse = CreateInputSecurityGroupResponse'
-  { securityGroup :: Lude.Maybe InputSecurityGroup,
+  { securityGroup :: Core.Maybe Types.InputSecurityGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInputSecurityGroupResponse' with the minimum fields required to make a request.
---
--- * 'securityGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateInputSecurityGroupResponse' value with any optional fields omitted.
 mkCreateInputSecurityGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateInputSecurityGroupResponse
-mkCreateInputSecurityGroupResponse pResponseStatus_ =
+mkCreateInputSecurityGroupResponse responseStatus =
   CreateInputSecurityGroupResponse'
-    { securityGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { securityGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'securityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisgrsSecurityGroup :: Lens.Lens' CreateInputSecurityGroupResponse (Lude.Maybe InputSecurityGroup)
-cisgrsSecurityGroup = Lens.lens (securityGroup :: CreateInputSecurityGroupResponse -> Lude.Maybe InputSecurityGroup) (\s a -> s {securityGroup = a} :: CreateInputSecurityGroupResponse)
-{-# DEPRECATED cisgrsSecurityGroup "Use generic-lens or generic-optics with 'securityGroup' instead." #-}
+cisgrrsSecurityGroup :: Lens.Lens' CreateInputSecurityGroupResponse (Core.Maybe Types.InputSecurityGroup)
+cisgrrsSecurityGroup = Lens.field @"securityGroup"
+{-# DEPRECATED cisgrrsSecurityGroup "Use generic-lens or generic-optics with 'securityGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisgrsResponseStatus :: Lens.Lens' CreateInputSecurityGroupResponse Lude.Int
-cisgrsResponseStatus = Lens.lens (responseStatus :: CreateInputSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInputSecurityGroupResponse)
-{-# DEPRECATED cisgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cisgrrsResponseStatus :: Lens.Lens' CreateInputSecurityGroupResponse Core.Int
+cisgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cisgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

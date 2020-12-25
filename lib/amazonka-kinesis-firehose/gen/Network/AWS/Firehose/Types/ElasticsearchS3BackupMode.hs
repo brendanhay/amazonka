@@ -13,46 +13,51 @@
 module Network.AWS.Firehose.Types.ElasticsearchS3BackupMode
   ( ElasticsearchS3BackupMode
       ( ElasticsearchS3BackupMode',
-        FailedDocumentsOnly,
-        AllDocuments
+        ElasticsearchS3BackupModeFailedDocumentsOnly,
+        ElasticsearchS3BackupModeAllDocuments,
+        fromElasticsearchS3BackupMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ElasticsearchS3BackupMode = ElasticsearchS3BackupMode' Lude.Text
+newtype ElasticsearchS3BackupMode = ElasticsearchS3BackupMode'
+  { fromElasticsearchS3BackupMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FailedDocumentsOnly :: ElasticsearchS3BackupMode
-pattern FailedDocumentsOnly = ElasticsearchS3BackupMode' "FailedDocumentsOnly"
+pattern ElasticsearchS3BackupModeFailedDocumentsOnly :: ElasticsearchS3BackupMode
+pattern ElasticsearchS3BackupModeFailedDocumentsOnly = ElasticsearchS3BackupMode' "FailedDocumentsOnly"
 
-pattern AllDocuments :: ElasticsearchS3BackupMode
-pattern AllDocuments = ElasticsearchS3BackupMode' "AllDocuments"
+pattern ElasticsearchS3BackupModeAllDocuments :: ElasticsearchS3BackupMode
+pattern ElasticsearchS3BackupModeAllDocuments = ElasticsearchS3BackupMode' "AllDocuments"
 
 {-# COMPLETE
-  FailedDocumentsOnly,
-  AllDocuments,
+  ElasticsearchS3BackupModeFailedDocumentsOnly,
+  ElasticsearchS3BackupModeAllDocuments,
   ElasticsearchS3BackupMode'
   #-}

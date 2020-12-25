@@ -22,166 +22,154 @@ module Network.AWS.Batch.DescribeJobQueues
     mkDescribeJobQueues,
 
     -- ** Request lenses
-    djqNextToken,
     djqJobQueues,
     djqMaxResults,
+    djqNextToken,
 
     -- * Destructuring the response
     DescribeJobQueuesResponse (..),
     mkDescribeJobQueuesResponse,
 
     -- ** Response lenses
-    djqsrsNextToken,
-    djqsrsJobQueues,
-    djqsrsResponseStatus,
+    djqrfrsJobQueues,
+    djqrfrsNextToken,
+    djqrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Batch.Types
+import qualified Network.AWS.Batch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeJobQueues' smart constructor.
 data DescribeJobQueues = DescribeJobQueues'
-  { -- | The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.
-    jobQueues :: Lude.Maybe [Lude.Text],
+  { -- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.
+    jobQueues :: Core.Maybe [Types.String],
     -- | The maximum number of results returned by @DescribeJobQueues@ in paginated output. When this parameter is used, @DescribeJobQueues@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobQueues@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobQueues@ returns up to 100 results and a @nextToken@ value if applicable.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeJobQueues' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
--- * 'jobQueues' - A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.
--- * 'maxResults' - The maximum number of results returned by @DescribeJobQueues@ in paginated output. When this parameter is used, @DescribeJobQueues@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobQueues@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobQueues@ returns up to 100 results and a @nextToken@ value if applicable.
+-- | Creates a 'DescribeJobQueues' value with any optional fields omitted.
 mkDescribeJobQueues ::
   DescribeJobQueues
 mkDescribeJobQueues =
   DescribeJobQueues'
-    { nextToken = Lude.Nothing,
-      jobQueues = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { jobQueues = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqNextToken :: Lens.Lens' DescribeJobQueues (Lude.Maybe Lude.Text)
-djqNextToken = Lens.lens (nextToken :: DescribeJobQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeJobQueues)
-{-# DEPRECATED djqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.
 --
 -- /Note:/ Consider using 'jobQueues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqJobQueues :: Lens.Lens' DescribeJobQueues (Lude.Maybe [Lude.Text])
-djqJobQueues = Lens.lens (jobQueues :: DescribeJobQueues -> Lude.Maybe [Lude.Text]) (\s a -> s {jobQueues = a} :: DescribeJobQueues)
+djqJobQueues :: Lens.Lens' DescribeJobQueues (Core.Maybe [Types.String])
+djqJobQueues = Lens.field @"jobQueues"
 {-# DEPRECATED djqJobQueues "Use generic-lens or generic-optics with 'jobQueues' instead." #-}
 
 -- | The maximum number of results returned by @DescribeJobQueues@ in paginated output. When this parameter is used, @DescribeJobQueues@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobQueues@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobQueues@ returns up to 100 results and a @nextToken@ value if applicable.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqMaxResults :: Lens.Lens' DescribeJobQueues (Lude.Maybe Lude.Int)
-djqMaxResults = Lens.lens (maxResults :: DescribeJobQueues -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeJobQueues)
+djqMaxResults :: Lens.Lens' DescribeJobQueues (Core.Maybe Core.Int)
+djqMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED djqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeJobQueues where
-  page rq rs
-    | Page.stop (rs Lens.^. djqsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. djqsrsJobQueues) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& djqNextToken Lens..~ rs Lens.^. djqsrsNextToken
+-- | The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djqNextToken :: Lens.Lens' DescribeJobQueues (Core.Maybe Types.String)
+djqNextToken = Lens.field @"nextToken"
+{-# DEPRECATED djqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeJobQueues where
+instance Core.FromJSON DescribeJobQueues where
+  toJSON DescribeJobQueues {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("jobQueues" Core..=) Core.<$> jobQueues,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeJobQueues where
   type Rs DescribeJobQueues = DescribeJobQueuesResponse
-  request = Req.postJSON batchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/describejobqueues",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeJobQueuesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "jobQueues" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobQueues")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeJobQueues where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeJobQueues where
-  toJSON DescribeJobQueues' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("jobQueues" Lude..=) Lude.<$> jobQueues,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeJobQueues where
-  toPath = Lude.const "/v1/describejobqueues"
-
-instance Lude.ToQuery DescribeJobQueues where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeJobQueues where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"jobQueues" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeJobQueuesResponse' smart constructor.
 data DescribeJobQueuesResponse = DescribeJobQueuesResponse'
-  { -- | The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The list of job queues.
-    jobQueues :: Lude.Maybe [JobQueueDetail],
+  { -- | The list of job queues.
+    jobQueues :: Core.Maybe [Types.JobQueueDetail],
+    -- | The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeJobQueuesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'jobQueues' - The list of job queues.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeJobQueuesResponse' value with any optional fields omitted.
 mkDescribeJobQueuesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeJobQueuesResponse
-mkDescribeJobQueuesResponse pResponseStatus_ =
+mkDescribeJobQueuesResponse responseStatus =
   DescribeJobQueuesResponse'
-    { nextToken = Lude.Nothing,
-      jobQueues = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobQueues = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqsrsNextToken :: Lens.Lens' DescribeJobQueuesResponse (Lude.Maybe Lude.Text)
-djqsrsNextToken = Lens.lens (nextToken :: DescribeJobQueuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeJobQueuesResponse)
-{-# DEPRECATED djqsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of job queues.
 --
 -- /Note:/ Consider using 'jobQueues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqsrsJobQueues :: Lens.Lens' DescribeJobQueuesResponse (Lude.Maybe [JobQueueDetail])
-djqsrsJobQueues = Lens.lens (jobQueues :: DescribeJobQueuesResponse -> Lude.Maybe [JobQueueDetail]) (\s a -> s {jobQueues = a} :: DescribeJobQueuesResponse)
-{-# DEPRECATED djqsrsJobQueues "Use generic-lens or generic-optics with 'jobQueues' instead." #-}
+djqrfrsJobQueues :: Lens.Lens' DescribeJobQueuesResponse (Core.Maybe [Types.JobQueueDetail])
+djqrfrsJobQueues = Lens.field @"jobQueues"
+{-# DEPRECATED djqrfrsJobQueues "Use generic-lens or generic-optics with 'jobQueues' instead." #-}
+
+-- | The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djqrfrsNextToken :: Lens.Lens' DescribeJobQueuesResponse (Core.Maybe Types.String)
+djqrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED djqrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqsrsResponseStatus :: Lens.Lens' DescribeJobQueuesResponse Lude.Int
-djqsrsResponseStatus = Lens.lens (responseStatus :: DescribeJobQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeJobQueuesResponse)
-{-# DEPRECATED djqsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djqrfrsResponseStatus :: Lens.Lens' DescribeJobQueuesResponse Core.Int
+djqrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED djqrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

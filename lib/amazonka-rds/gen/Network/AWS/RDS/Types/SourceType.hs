@@ -13,66 +13,68 @@
 module Network.AWS.RDS.Types.SourceType
   ( SourceType
       ( SourceType',
-        DBInstance,
-        DBParameterGroup,
-        DBSecurityGroup,
-        DBSnapshot,
-        DBCluster,
-        DBClusterSnapshot
+        SourceTypeDbInstance,
+        SourceTypeDbParameterGroup,
+        SourceTypeDbSecurityGroup,
+        SourceTypeDbSnapshot,
+        SourceTypeDbCluster,
+        SourceTypeDbClusterSnapshot,
+        fromSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SourceType = SourceType' Lude.Text
+newtype SourceType = SourceType' {fromSourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DBInstance :: SourceType
-pattern DBInstance = SourceType' "db-instance"
+pattern SourceTypeDbInstance :: SourceType
+pattern SourceTypeDbInstance = SourceType' "db-instance"
 
-pattern DBParameterGroup :: SourceType
-pattern DBParameterGroup = SourceType' "db-parameter-group"
+pattern SourceTypeDbParameterGroup :: SourceType
+pattern SourceTypeDbParameterGroup = SourceType' "db-parameter-group"
 
-pattern DBSecurityGroup :: SourceType
-pattern DBSecurityGroup = SourceType' "db-security-group"
+pattern SourceTypeDbSecurityGroup :: SourceType
+pattern SourceTypeDbSecurityGroup = SourceType' "db-security-group"
 
-pattern DBSnapshot :: SourceType
-pattern DBSnapshot = SourceType' "db-snapshot"
+pattern SourceTypeDbSnapshot :: SourceType
+pattern SourceTypeDbSnapshot = SourceType' "db-snapshot"
 
-pattern DBCluster :: SourceType
-pattern DBCluster = SourceType' "db-cluster"
+pattern SourceTypeDbCluster :: SourceType
+pattern SourceTypeDbCluster = SourceType' "db-cluster"
 
-pattern DBClusterSnapshot :: SourceType
-pattern DBClusterSnapshot = SourceType' "db-cluster-snapshot"
+pattern SourceTypeDbClusterSnapshot :: SourceType
+pattern SourceTypeDbClusterSnapshot = SourceType' "db-cluster-snapshot"
 
 {-# COMPLETE
-  DBInstance,
-  DBParameterGroup,
-  DBSecurityGroup,
-  DBSnapshot,
-  DBCluster,
-  DBClusterSnapshot,
+  SourceTypeDbInstance,
+  SourceTypeDbParameterGroup,
+  SourceTypeDbSecurityGroup,
+  SourceTypeDbSnapshot,
+  SourceTypeDbCluster,
+  SourceTypeDbClusterSnapshot,
   SourceType'
   #-}

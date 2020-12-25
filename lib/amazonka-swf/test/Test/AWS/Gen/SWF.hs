@@ -486,7 +486,7 @@ responseListOpenWorkflowExecutions =
   res
     "ListOpenWorkflowExecutionsResponse"
     "fixture/ListOpenWorkflowExecutionsResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy ListOpenWorkflowExecutions)
 
 responseRegisterActivityType :: RegisterActivityTypeResponse -> TestTree
@@ -494,7 +494,7 @@ responseRegisterActivityType =
   res
     "RegisterActivityTypeResponse"
     "fixture/RegisterActivityTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RegisterActivityType)
 
 responseListActivityTypes :: ListActivityTypesResponse -> TestTree
@@ -502,7 +502,7 @@ responseListActivityTypes =
   res
     "ListActivityTypesResponse"
     "fixture/ListActivityTypesResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy ListActivityTypes)
 
 responseCountPendingActivityTasks :: PendingTaskCount -> TestTree
@@ -510,7 +510,7 @@ responseCountPendingActivityTasks =
   res
     "CountPendingActivityTasksResponse"
     "fixture/CountPendingActivityTasksResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy CountPendingActivityTasks)
 
 responseRegisterWorkflowType :: RegisterWorkflowTypeResponse -> TestTree
@@ -518,7 +518,7 @@ responseRegisterWorkflowType =
   res
     "RegisterWorkflowTypeResponse"
     "fixture/RegisterWorkflowTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RegisterWorkflowType)
 
 responseListWorkflowTypes :: ListWorkflowTypesResponse -> TestTree
@@ -526,7 +526,7 @@ responseListWorkflowTypes =
   res
     "ListWorkflowTypesResponse"
     "fixture/ListWorkflowTypesResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkflowTypes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -534,7 +534,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRespondActivityTaskFailed :: RespondActivityTaskFailedResponse -> TestTree
@@ -542,7 +542,7 @@ responseRespondActivityTaskFailed =
   res
     "RespondActivityTaskFailedResponse"
     "fixture/RespondActivityTaskFailedResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RespondActivityTaskFailed)
 
 responseCountOpenWorkflowExecutions :: WorkflowExecutionCount -> TestTree
@@ -550,7 +550,7 @@ responseCountOpenWorkflowExecutions =
   res
     "CountOpenWorkflowExecutionsResponse"
     "fixture/CountOpenWorkflowExecutionsResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy CountOpenWorkflowExecutions)
 
 responseUndeprecateDomain :: UndeprecateDomainResponse -> TestTree
@@ -558,7 +558,7 @@ responseUndeprecateDomain =
   res
     "UndeprecateDomainResponse"
     "fixture/UndeprecateDomainResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy UndeprecateDomain)
 
 responseDescribeWorkflowType :: DescribeWorkflowTypeResponse -> TestTree
@@ -566,7 +566,7 @@ responseDescribeWorkflowType =
   res
     "DescribeWorkflowTypeResponse"
     "fixture/DescribeWorkflowTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkflowType)
 
 responseDeprecateWorkflowType :: DeprecateWorkflowTypeResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeprecateWorkflowType =
   res
     "DeprecateWorkflowTypeResponse"
     "fixture/DeprecateWorkflowTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DeprecateWorkflowType)
 
 responseRequestCancelWorkflowExecution :: RequestCancelWorkflowExecutionResponse -> TestTree
@@ -582,7 +582,7 @@ responseRequestCancelWorkflowExecution =
   res
     "RequestCancelWorkflowExecutionResponse"
     "fixture/RequestCancelWorkflowExecutionResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RequestCancelWorkflowExecution)
 
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
@@ -590,7 +590,7 @@ responseRegisterDomain =
   res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RegisterDomain)
 
 responseRespondDecisionTaskCompleted :: RespondDecisionTaskCompletedResponse -> TestTree
@@ -598,7 +598,7 @@ responseRespondDecisionTaskCompleted =
   res
     "RespondDecisionTaskCompletedResponse"
     "fixture/RespondDecisionTaskCompletedResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RespondDecisionTaskCompleted)
 
 responsePollForActivityTask :: PollForActivityTaskResponse -> TestTree
@@ -606,7 +606,7 @@ responsePollForActivityTask =
   res
     "PollForActivityTaskResponse"
     "fixture/PollForActivityTaskResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy PollForActivityTask)
 
 responseRespondActivityTaskCompleted :: RespondActivityTaskCompletedResponse -> TestTree
@@ -614,7 +614,7 @@ responseRespondActivityTaskCompleted =
   res
     "RespondActivityTaskCompletedResponse"
     "fixture/RespondActivityTaskCompletedResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RespondActivityTaskCompleted)
 
 responseDescribeWorkflowExecution :: DescribeWorkflowExecutionResponse -> TestTree
@@ -622,7 +622,7 @@ responseDescribeWorkflowExecution =
   res
     "DescribeWorkflowExecutionResponse"
     "fixture/DescribeWorkflowExecutionResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkflowExecution)
 
 responseSignalWorkflowExecution :: SignalWorkflowExecutionResponse -> TestTree
@@ -630,7 +630,7 @@ responseSignalWorkflowExecution =
   res
     "SignalWorkflowExecutionResponse"
     "fixture/SignalWorkflowExecutionResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy SignalWorkflowExecution)
 
 responseCountPendingDecisionTasks :: PendingTaskCount -> TestTree
@@ -638,7 +638,7 @@ responseCountPendingDecisionTasks =
   res
     "CountPendingDecisionTasksResponse"
     "fixture/CountPendingDecisionTasksResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy CountPendingDecisionTasks)
 
 responseListClosedWorkflowExecutions :: WorkflowExecutionInfos -> TestTree
@@ -646,7 +646,7 @@ responseListClosedWorkflowExecutions =
   res
     "ListClosedWorkflowExecutionsResponse"
     "fixture/ListClosedWorkflowExecutionsResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy ListClosedWorkflowExecutions)
 
 responseRecordActivityTaskHeartbeat :: RecordActivityTaskHeartbeatResponse -> TestTree
@@ -654,7 +654,7 @@ responseRecordActivityTaskHeartbeat =
   res
     "RecordActivityTaskHeartbeatResponse"
     "fixture/RecordActivityTaskHeartbeatResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RecordActivityTaskHeartbeat)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
@@ -662,7 +662,7 @@ responseDescribeDomain =
   res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDomain)
 
 responseGetWorkflowExecutionHistory :: GetWorkflowExecutionHistoryResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetWorkflowExecutionHistory =
   res
     "GetWorkflowExecutionHistoryResponse"
     "fixture/GetWorkflowExecutionHistoryResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy GetWorkflowExecutionHistory)
 
 responseDeprecateDomain :: DeprecateDomainResponse -> TestTree
@@ -678,7 +678,7 @@ responseDeprecateDomain =
   res
     "DeprecateDomainResponse"
     "fixture/DeprecateDomainResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DeprecateDomain)
 
 responseUndeprecateWorkflowType :: UndeprecateWorkflowTypeResponse -> TestTree
@@ -686,7 +686,7 @@ responseUndeprecateWorkflowType =
   res
     "UndeprecateWorkflowTypeResponse"
     "fixture/UndeprecateWorkflowTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy UndeprecateWorkflowType)
 
 responseTerminateWorkflowExecution :: TerminateWorkflowExecutionResponse -> TestTree
@@ -694,7 +694,7 @@ responseTerminateWorkflowExecution =
   res
     "TerminateWorkflowExecutionResponse"
     "fixture/TerminateWorkflowExecutionResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy TerminateWorkflowExecution)
 
 responseDescribeActivityType :: DescribeActivityTypeResponse -> TestTree
@@ -702,7 +702,7 @@ responseDescribeActivityType =
   res
     "DescribeActivityTypeResponse"
     "fixture/DescribeActivityTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DescribeActivityType)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -710,7 +710,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDeprecateActivityType :: DeprecateActivityTypeResponse -> TestTree
@@ -718,7 +718,7 @@ responseDeprecateActivityType =
   res
     "DeprecateActivityTypeResponse"
     "fixture/DeprecateActivityTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy DeprecateActivityType)
 
 responseUndeprecateActivityType :: UndeprecateActivityTypeResponse -> TestTree
@@ -726,7 +726,7 @@ responseUndeprecateActivityType =
   res
     "UndeprecateActivityTypeResponse"
     "fixture/UndeprecateActivityTypeResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy UndeprecateActivityType)
 
 responseCountClosedWorkflowExecutions :: WorkflowExecutionCount -> TestTree
@@ -734,7 +734,7 @@ responseCountClosedWorkflowExecutions =
   res
     "CountClosedWorkflowExecutionsResponse"
     "fixture/CountClosedWorkflowExecutionsResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy CountClosedWorkflowExecutions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -742,7 +742,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseRespondActivityTaskCanceled :: RespondActivityTaskCanceledResponse -> TestTree
@@ -750,7 +750,7 @@ responseRespondActivityTaskCanceled =
   res
     "RespondActivityTaskCanceledResponse"
     "fixture/RespondActivityTaskCanceledResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy RespondActivityTaskCanceled)
 
 responseStartWorkflowExecution :: StartWorkflowExecutionResponse -> TestTree
@@ -758,7 +758,7 @@ responseStartWorkflowExecution =
   res
     "StartWorkflowExecutionResponse"
     "fixture/StartWorkflowExecutionResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy StartWorkflowExecution)
 
 responsePollForDecisionTask :: PollForDecisionTaskResponse -> TestTree
@@ -766,7 +766,7 @@ responsePollForDecisionTask =
   res
     "PollForDecisionTaskResponse"
     "fixture/PollForDecisionTaskResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy PollForDecisionTask)
 
 responseListDomains :: ListDomainsResponse -> TestTree
@@ -774,5 +774,5 @@ responseListDomains =
   res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
-    swfService
+    mkServiceConfig
     (Proxy :: Proxy ListDomains)

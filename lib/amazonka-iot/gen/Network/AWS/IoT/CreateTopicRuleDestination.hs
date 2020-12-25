@@ -32,106 +32,97 @@ module Network.AWS.IoT.CreateTopicRuleDestination
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTopicRuleDestination' smart constructor.
 newtype CreateTopicRuleDestination = CreateTopicRuleDestination'
   { -- | The topic rule destination configuration.
-    destinationConfiguration :: TopicRuleDestinationConfiguration
+    destinationConfiguration :: Types.TopicRuleDestinationConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTopicRuleDestination' with the minimum fields required to make a request.
---
--- * 'destinationConfiguration' - The topic rule destination configuration.
+-- | Creates a 'CreateTopicRuleDestination' value with any optional fields omitted.
 mkCreateTopicRuleDestination ::
   -- | 'destinationConfiguration'
-  TopicRuleDestinationConfiguration ->
+  Types.TopicRuleDestinationConfiguration ->
   CreateTopicRuleDestination
-mkCreateTopicRuleDestination pDestinationConfiguration_ =
-  CreateTopicRuleDestination'
-    { destinationConfiguration =
-        pDestinationConfiguration_
-    }
+mkCreateTopicRuleDestination destinationConfiguration =
+  CreateTopicRuleDestination' {destinationConfiguration}
 
 -- | The topic rule destination configuration.
 --
 -- /Note:/ Consider using 'destinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrdDestinationConfiguration :: Lens.Lens' CreateTopicRuleDestination TopicRuleDestinationConfiguration
-ctrdDestinationConfiguration = Lens.lens (destinationConfiguration :: CreateTopicRuleDestination -> TopicRuleDestinationConfiguration) (\s a -> s {destinationConfiguration = a} :: CreateTopicRuleDestination)
+ctrdDestinationConfiguration :: Lens.Lens' CreateTopicRuleDestination Types.TopicRuleDestinationConfiguration
+ctrdDestinationConfiguration = Lens.field @"destinationConfiguration"
 {-# DEPRECATED ctrdDestinationConfiguration "Use generic-lens or generic-optics with 'destinationConfiguration' instead." #-}
 
-instance Lude.AWSRequest CreateTopicRuleDestination where
-  type
-    Rs CreateTopicRuleDestination =
-      CreateTopicRuleDestinationResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateTopicRuleDestinationResponse'
-            Lude.<$> (x Lude..?> "topicRuleDestination")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateTopicRuleDestination where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateTopicRuleDestination where
-  toJSON CreateTopicRuleDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("destinationConfiguration" Lude..= destinationConfiguration)
+instance Core.FromJSON CreateTopicRuleDestination where
+  toJSON CreateTopicRuleDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("destinationConfiguration" Core..= destinationConfiguration)
           ]
       )
 
-instance Lude.ToPath CreateTopicRuleDestination where
-  toPath = Lude.const "/destinations"
-
-instance Lude.ToQuery CreateTopicRuleDestination where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateTopicRuleDestination where
+  type
+    Rs CreateTopicRuleDestination =
+      CreateTopicRuleDestinationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/destinations",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateTopicRuleDestinationResponse'
+            Core.<$> (x Core..:? "topicRuleDestination")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateTopicRuleDestinationResponse' smart constructor.
 data CreateTopicRuleDestinationResponse = CreateTopicRuleDestinationResponse'
   { -- | The topic rule destination.
-    topicRuleDestination :: Lude.Maybe TopicRuleDestination,
+    topicRuleDestination :: Core.Maybe Types.TopicRuleDestination,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTopicRuleDestinationResponse' with the minimum fields required to make a request.
---
--- * 'topicRuleDestination' - The topic rule destination.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTopicRuleDestinationResponse' value with any optional fields omitted.
 mkCreateTopicRuleDestinationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTopicRuleDestinationResponse
-mkCreateTopicRuleDestinationResponse pResponseStatus_ =
+mkCreateTopicRuleDestinationResponse responseStatus =
   CreateTopicRuleDestinationResponse'
     { topicRuleDestination =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The topic rule destination.
 --
 -- /Note:/ Consider using 'topicRuleDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsTopicRuleDestination :: Lens.Lens' CreateTopicRuleDestinationResponse (Lude.Maybe TopicRuleDestination)
-crsTopicRuleDestination = Lens.lens (topicRuleDestination :: CreateTopicRuleDestinationResponse -> Lude.Maybe TopicRuleDestination) (\s a -> s {topicRuleDestination = a} :: CreateTopicRuleDestinationResponse)
+crsTopicRuleDestination :: Lens.Lens' CreateTopicRuleDestinationResponse (Core.Maybe Types.TopicRuleDestination)
+crsTopicRuleDestination = Lens.field @"topicRuleDestination"
 {-# DEPRECATED crsTopicRuleDestination "Use generic-lens or generic-optics with 'topicRuleDestination' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateTopicRuleDestinationResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateTopicRuleDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTopicRuleDestinationResponse)
+crsResponseStatus :: Lens.Lens' CreateTopicRuleDestinationResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,113 +20,101 @@ module Network.AWS.MediaStore.DescribeContainer
     mkDescribeContainer,
 
     -- ** Request lenses
-    dcContainerName,
+    dContainerName,
 
     -- * Destructuring the response
     DescribeContainerResponse (..),
     mkDescribeContainerResponse,
 
     -- ** Response lenses
-    dcrsContainer,
-    dcrsResponseStatus,
+    drsContainer,
+    drsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeContainer' smart constructor.
 newtype DescribeContainer = DescribeContainer'
   { -- | The name of the container to query.
-    containerName :: Lude.Maybe Lude.Text
+    containerName :: Core.Maybe Types.ContainerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeContainer' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container to query.
+-- | Creates a 'DescribeContainer' value with any optional fields omitted.
 mkDescribeContainer ::
   DescribeContainer
 mkDescribeContainer =
-  DescribeContainer' {containerName = Lude.Nothing}
+  DescribeContainer' {containerName = Core.Nothing}
 
 -- | The name of the container to query.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcContainerName :: Lens.Lens' DescribeContainer (Lude.Maybe Lude.Text)
-dcContainerName = Lens.lens (containerName :: DescribeContainer -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: DescribeContainer)
-{-# DEPRECATED dcContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+dContainerName :: Lens.Lens' DescribeContainer (Core.Maybe Types.ContainerName)
+dContainerName = Lens.field @"containerName"
+{-# DEPRECATED dContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance Lude.AWSRequest DescribeContainer where
+instance Core.FromJSON DescribeContainer where
+  toJSON DescribeContainer {..} =
+    Core.object
+      (Core.catMaybes [("ContainerName" Core..=) Core.<$> containerName])
+
+instance Core.AWSRequest DescribeContainer where
   type Rs DescribeContainer = DescribeContainerResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "MediaStore_20170901.DescribeContainer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeContainerResponse'
-            Lude.<$> (x Lude..?> "Container") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Container") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeContainer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.DescribeContainer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeContainer where
-  toJSON DescribeContainer' {..} =
-    Lude.object
-      (Lude.catMaybes [("ContainerName" Lude..=) Lude.<$> containerName])
-
-instance Lude.ToPath DescribeContainer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeContainer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeContainerResponse' smart constructor.
 data DescribeContainerResponse = DescribeContainerResponse'
   { -- | The name of the queried container.
-    container :: Lude.Maybe Container,
+    container :: Core.Maybe Types.Container,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeContainerResponse' with the minimum fields required to make a request.
---
--- * 'container' - The name of the queried container.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeContainerResponse' value with any optional fields omitted.
 mkDescribeContainerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeContainerResponse
-mkDescribeContainerResponse pResponseStatus_ =
+mkDescribeContainerResponse responseStatus =
   DescribeContainerResponse'
-    { container = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { container = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the queried container.
 --
 -- /Note:/ Consider using 'container' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsContainer :: Lens.Lens' DescribeContainerResponse (Lude.Maybe Container)
-dcrsContainer = Lens.lens (container :: DescribeContainerResponse -> Lude.Maybe Container) (\s a -> s {container = a} :: DescribeContainerResponse)
-{-# DEPRECATED dcrsContainer "Use generic-lens or generic-optics with 'container' instead." #-}
+drsContainer :: Lens.Lens' DescribeContainerResponse (Core.Maybe Types.Container)
+drsContainer = Lens.field @"container"
+{-# DEPRECATED drsContainer "Use generic-lens or generic-optics with 'container' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeContainerResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeContainerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContainerResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeContainerResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,55 +17,52 @@ module Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
     mkLambdaConflictHandlerConfig,
 
     -- * Lenses
-    lchcLambdaConflictHandlerARN,
+    lchcLambdaConflictHandlerArn,
   )
 where
 
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The @LambdaConflictHandlerConfig@ object when configuring LAMBDA as the Conflict Handler.
 --
 -- /See:/ 'mkLambdaConflictHandlerConfig' smart constructor.
 newtype LambdaConflictHandlerConfig = LambdaConflictHandlerConfig'
   { -- | The Arn for the Lambda function to use as the Conflict Handler.
-    lambdaConflictHandlerARN :: Lude.Maybe Lude.Text
+    lambdaConflictHandlerArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaConflictHandlerConfig' with the minimum fields required to make a request.
---
--- * 'lambdaConflictHandlerARN' - The Arn for the Lambda function to use as the Conflict Handler.
+-- | Creates a 'LambdaConflictHandlerConfig' value with any optional fields omitted.
 mkLambdaConflictHandlerConfig ::
   LambdaConflictHandlerConfig
 mkLambdaConflictHandlerConfig =
   LambdaConflictHandlerConfig'
-    { lambdaConflictHandlerARN =
-        Lude.Nothing
+    { lambdaConflictHandlerArn =
+        Core.Nothing
     }
 
 -- | The Arn for the Lambda function to use as the Conflict Handler.
 --
--- /Note:/ Consider using 'lambdaConflictHandlerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lchcLambdaConflictHandlerARN :: Lens.Lens' LambdaConflictHandlerConfig (Lude.Maybe Lude.Text)
-lchcLambdaConflictHandlerARN = Lens.lens (lambdaConflictHandlerARN :: LambdaConflictHandlerConfig -> Lude.Maybe Lude.Text) (\s a -> s {lambdaConflictHandlerARN = a} :: LambdaConflictHandlerConfig)
-{-# DEPRECATED lchcLambdaConflictHandlerARN "Use generic-lens or generic-optics with 'lambdaConflictHandlerARN' instead." #-}
+-- /Note:/ Consider using 'lambdaConflictHandlerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lchcLambdaConflictHandlerArn :: Lens.Lens' LambdaConflictHandlerConfig (Core.Maybe Types.String)
+lchcLambdaConflictHandlerArn = Lens.field @"lambdaConflictHandlerArn"
+{-# DEPRECATED lchcLambdaConflictHandlerArn "Use generic-lens or generic-optics with 'lambdaConflictHandlerArn' instead." #-}
 
-instance Lude.FromJSON LambdaConflictHandlerConfig where
-  parseJSON =
-    Lude.withObject
-      "LambdaConflictHandlerConfig"
-      ( \x ->
-          LambdaConflictHandlerConfig'
-            Lude.<$> (x Lude..:? "lambdaConflictHandlerArn")
-      )
-
-instance Lude.ToJSON LambdaConflictHandlerConfig where
-  toJSON LambdaConflictHandlerConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("lambdaConflictHandlerArn" Lude..=)
-              Lude.<$> lambdaConflictHandlerARN
+instance Core.FromJSON LambdaConflictHandlerConfig where
+  toJSON LambdaConflictHandlerConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("lambdaConflictHandlerArn" Core..=)
+              Core.<$> lambdaConflictHandlerArn
           ]
       )
+
+instance Core.FromJSON LambdaConflictHandlerConfig where
+  parseJSON =
+    Core.withObject "LambdaConflictHandlerConfig" Core.$
+      \x ->
+        LambdaConflictHandlerConfig'
+          Core.<$> (x Core..:? "lambdaConflictHandlerArn")

@@ -13,61 +13,66 @@
 module Network.AWS.DMS.Types.DatePartitionSequenceValue
   ( DatePartitionSequenceValue
       ( DatePartitionSequenceValue',
-        Yyyymmdd,
-        Yyyymmddhh,
-        Yyyymm,
-        Mmyyyydd,
-        Ddmmyyyy
+        DatePartitionSequenceValueYyyymmdd,
+        DatePartitionSequenceValueYyyymmddhh,
+        DatePartitionSequenceValueYyyymm,
+        DatePartitionSequenceValueMmyyyydd,
+        DatePartitionSequenceValueDdmmyyyy,
+        fromDatePartitionSequenceValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DatePartitionSequenceValue = DatePartitionSequenceValue' Lude.Text
+newtype DatePartitionSequenceValue = DatePartitionSequenceValue'
+  { fromDatePartitionSequenceValue ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Yyyymmdd :: DatePartitionSequenceValue
-pattern Yyyymmdd = DatePartitionSequenceValue' "YYYYMMDD"
+pattern DatePartitionSequenceValueYyyymmdd :: DatePartitionSequenceValue
+pattern DatePartitionSequenceValueYyyymmdd = DatePartitionSequenceValue' "YYYYMMDD"
 
-pattern Yyyymmddhh :: DatePartitionSequenceValue
-pattern Yyyymmddhh = DatePartitionSequenceValue' "YYYYMMDDHH"
+pattern DatePartitionSequenceValueYyyymmddhh :: DatePartitionSequenceValue
+pattern DatePartitionSequenceValueYyyymmddhh = DatePartitionSequenceValue' "YYYYMMDDHH"
 
-pattern Yyyymm :: DatePartitionSequenceValue
-pattern Yyyymm = DatePartitionSequenceValue' "YYYYMM"
+pattern DatePartitionSequenceValueYyyymm :: DatePartitionSequenceValue
+pattern DatePartitionSequenceValueYyyymm = DatePartitionSequenceValue' "YYYYMM"
 
-pattern Mmyyyydd :: DatePartitionSequenceValue
-pattern Mmyyyydd = DatePartitionSequenceValue' "MMYYYYDD"
+pattern DatePartitionSequenceValueMmyyyydd :: DatePartitionSequenceValue
+pattern DatePartitionSequenceValueMmyyyydd = DatePartitionSequenceValue' "MMYYYYDD"
 
-pattern Ddmmyyyy :: DatePartitionSequenceValue
-pattern Ddmmyyyy = DatePartitionSequenceValue' "DDMMYYYY"
+pattern DatePartitionSequenceValueDdmmyyyy :: DatePartitionSequenceValue
+pattern DatePartitionSequenceValueDdmmyyyy = DatePartitionSequenceValue' "DDMMYYYY"
 
 {-# COMPLETE
-  Yyyymmdd,
-  Yyyymmddhh,
-  Yyyymm,
-  Mmyyyydd,
-  Ddmmyyyy,
+  DatePartitionSequenceValueYyyymmdd,
+  DatePartitionSequenceValueYyyymmddhh,
+  DatePartitionSequenceValueYyyymm,
+  DatePartitionSequenceValueMmyyyydd,
+  DatePartitionSequenceValueDdmmyyyy,
   DatePartitionSequenceValue'
   #-}

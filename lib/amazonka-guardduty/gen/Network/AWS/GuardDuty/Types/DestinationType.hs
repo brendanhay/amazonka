@@ -13,41 +13,46 @@
 module Network.AWS.GuardDuty.Types.DestinationType
   ( DestinationType
       ( DestinationType',
-        S3
+        DestinationTypeS3,
+        fromDestinationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DestinationType = DestinationType' Lude.Text
+newtype DestinationType = DestinationType'
+  { fromDestinationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern S3 :: DestinationType
-pattern S3 = DestinationType' "S3"
+pattern DestinationTypeS3 :: DestinationType
+pattern DestinationTypeS3 = DestinationType' "S3"
 
 {-# COMPLETE
-  S3,
+  DestinationTypeS3,
   DestinationType'
   #-}

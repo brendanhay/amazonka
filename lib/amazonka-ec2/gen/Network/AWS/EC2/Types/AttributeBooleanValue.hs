@@ -22,36 +22,30 @@ module Network.AWS.EC2.Types.AttributeBooleanValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a value for a resource attribute that is a Boolean value.
 --
 -- /See:/ 'mkAttributeBooleanValue' smart constructor.
 newtype AttributeBooleanValue = AttributeBooleanValue'
   { -- | The attribute value. The valid values are @true@ or @false@ .
-    value :: Lude.Maybe Lude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeBooleanValue' with the minimum fields required to make a request.
---
--- * 'value' - The attribute value. The valid values are @true@ or @false@ .
+-- | Creates a 'AttributeBooleanValue' value with any optional fields omitted.
 mkAttributeBooleanValue ::
   AttributeBooleanValue
 mkAttributeBooleanValue =
-  AttributeBooleanValue' {value = Lude.Nothing}
+  AttributeBooleanValue' {value = Core.Nothing}
 
 -- | The attribute value. The valid values are @true@ or @false@ .
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abvValue :: Lens.Lens' AttributeBooleanValue (Lude.Maybe Lude.Bool)
-abvValue = Lens.lens (value :: AttributeBooleanValue -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: AttributeBooleanValue)
+abvValue :: Lens.Lens' AttributeBooleanValue (Core.Maybe Core.Bool)
+abvValue = Lens.field @"value"
 {-# DEPRECATED abvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML AttributeBooleanValue where
-  parseXML x = AttributeBooleanValue' Lude.<$> (x Lude..@? "value")
-
-instance Lude.ToQuery AttributeBooleanValue where
-  toQuery AttributeBooleanValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]
+instance Core.FromXML AttributeBooleanValue where
+  parseXML x = AttributeBooleanValue' Core.<$> (x Core..@? "value")

@@ -21,32 +21,31 @@ module Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.ResourceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'mkLaunchConfiguration' smart constructor.
 newtype LaunchConfiguration = LaunchConfiguration'
   { -- | The name of the launch configuration.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
---
--- * 'name' - The name of the launch configuration.
+-- | Creates a 'LaunchConfiguration' value with any optional fields omitted.
 mkLaunchConfiguration ::
   LaunchConfiguration
-mkLaunchConfiguration = LaunchConfiguration' {name = Lude.Nothing}
+mkLaunchConfiguration = LaunchConfiguration' {name = Core.Nothing}
 
 -- | The name of the launch configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcName :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
-lcName = Lens.lens (name :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LaunchConfiguration)
+lcName :: Lens.Lens' LaunchConfiguration (Core.Maybe Types.ResourceId)
+lcName = Lens.field @"name"
 {-# DEPRECATED lcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML LaunchConfiguration where
-  parseXML x = LaunchConfiguration' Lude.<$> (x Lude..@? "Name")
+instance Core.FromXML LaunchConfiguration where
+  parseXML x = LaunchConfiguration' Core.<$> (x Core..@? "Name")

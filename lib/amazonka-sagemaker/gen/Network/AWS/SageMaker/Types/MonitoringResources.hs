@@ -22,45 +22,42 @@ module Network.AWS.SageMaker.Types.MonitoringResources
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.MonitoringClusterConfig
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.MonitoringClusterConfig as Types
 
 -- | Identifies the resources to deploy for a monitoring job.
 --
 -- /See:/ 'mkMonitoringResources' smart constructor.
 newtype MonitoringResources = MonitoringResources'
   { -- | The configuration for the cluster resources used to run the processing job.
-    clusterConfig :: MonitoringClusterConfig
+    clusterConfig :: Types.MonitoringClusterConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringResources' with the minimum fields required to make a request.
---
--- * 'clusterConfig' - The configuration for the cluster resources used to run the processing job.
+-- | Creates a 'MonitoringResources' value with any optional fields omitted.
 mkMonitoringResources ::
   -- | 'clusterConfig'
-  MonitoringClusterConfig ->
+  Types.MonitoringClusterConfig ->
   MonitoringResources
-mkMonitoringResources pClusterConfig_ =
-  MonitoringResources' {clusterConfig = pClusterConfig_}
+mkMonitoringResources clusterConfig =
+  MonitoringResources' {clusterConfig}
 
 -- | The configuration for the cluster resources used to run the processing job.
 --
 -- /Note:/ Consider using 'clusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrClusterConfig :: Lens.Lens' MonitoringResources MonitoringClusterConfig
-mrClusterConfig = Lens.lens (clusterConfig :: MonitoringResources -> MonitoringClusterConfig) (\s a -> s {clusterConfig = a} :: MonitoringResources)
+mrClusterConfig :: Lens.Lens' MonitoringResources Types.MonitoringClusterConfig
+mrClusterConfig = Lens.field @"clusterConfig"
 {-# DEPRECATED mrClusterConfig "Use generic-lens or generic-optics with 'clusterConfig' instead." #-}
 
-instance Lude.FromJSON MonitoringResources where
-  parseJSON =
-    Lude.withObject
-      "MonitoringResources"
-      (\x -> MonitoringResources' Lude.<$> (x Lude..: "ClusterConfig"))
-
-instance Lude.ToJSON MonitoringResources where
-  toJSON MonitoringResources' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ClusterConfig" Lude..= clusterConfig)]
+instance Core.FromJSON MonitoringResources where
+  toJSON MonitoringResources {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ClusterConfig" Core..= clusterConfig)]
       )
+
+instance Core.FromJSON MonitoringResources where
+  parseJSON =
+    Core.withObject "MonitoringResources" Core.$
+      \x -> MonitoringResources' Core.<$> (x Core..: "ClusterConfig")

@@ -13,62 +13,67 @@
 module Network.AWS.Redshift.Types.TableRestoreStatusType
   ( TableRestoreStatusType
       ( TableRestoreStatusType',
-        Pending,
-        InProgress,
-        Succeeded,
-        Failed,
-        Canceled
+        TableRestoreStatusTypePending,
+        TableRestoreStatusTypeInProgress,
+        TableRestoreStatusTypeSucceeded,
+        TableRestoreStatusTypeFailed,
+        TableRestoreStatusTypeCanceled,
+        fromTableRestoreStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype TableRestoreStatusType = TableRestoreStatusType' Lude.Text
+newtype TableRestoreStatusType = TableRestoreStatusType'
+  { fromTableRestoreStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: TableRestoreStatusType
-pattern Pending = TableRestoreStatusType' "PENDING"
+pattern TableRestoreStatusTypePending :: TableRestoreStatusType
+pattern TableRestoreStatusTypePending = TableRestoreStatusType' "PENDING"
 
-pattern InProgress :: TableRestoreStatusType
-pattern InProgress = TableRestoreStatusType' "IN_PROGRESS"
+pattern TableRestoreStatusTypeInProgress :: TableRestoreStatusType
+pattern TableRestoreStatusTypeInProgress = TableRestoreStatusType' "IN_PROGRESS"
 
-pattern Succeeded :: TableRestoreStatusType
-pattern Succeeded = TableRestoreStatusType' "SUCCEEDED"
+pattern TableRestoreStatusTypeSucceeded :: TableRestoreStatusType
+pattern TableRestoreStatusTypeSucceeded = TableRestoreStatusType' "SUCCEEDED"
 
-pattern Failed :: TableRestoreStatusType
-pattern Failed = TableRestoreStatusType' "FAILED"
+pattern TableRestoreStatusTypeFailed :: TableRestoreStatusType
+pattern TableRestoreStatusTypeFailed = TableRestoreStatusType' "FAILED"
 
-pattern Canceled :: TableRestoreStatusType
-pattern Canceled = TableRestoreStatusType' "CANCELED"
+pattern TableRestoreStatusTypeCanceled :: TableRestoreStatusType
+pattern TableRestoreStatusTypeCanceled = TableRestoreStatusType' "CANCELED"
 
 {-# COMPLETE
-  Pending,
-  InProgress,
-  Succeeded,
-  Failed,
-  Canceled,
+  TableRestoreStatusTypePending,
+  TableRestoreStatusTypeInProgress,
+  TableRestoreStatusTypeSucceeded,
+  TableRestoreStatusTypeFailed,
+  TableRestoreStatusTypeCanceled,
   TableRestoreStatusType'
   #-}

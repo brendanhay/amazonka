@@ -18,83 +18,80 @@ module Network.AWS.Shield.Types.Protection
 
     -- * Lenses
     pHealthCheckIds,
-    pResourceARN,
-    pName,
     pId,
+    pName,
+    pResourceArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.HealthCheckId as Types
+import qualified Network.AWS.Shield.Types.Id as Types
+import qualified Network.AWS.Shield.Types.Name as Types
+import qualified Network.AWS.Shield.Types.ResourceArn as Types
 
 -- | An object that represents a resource that is under DDoS protection.
 --
 -- /See:/ 'mkProtection' smart constructor.
 data Protection = Protection'
   { -- | The unique identifier (ID) for the Route 53 health check that's associated with the protection.
-    healthCheckIds :: Lude.Maybe [Lude.Text],
-    -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
-    resourceARN :: Lude.Maybe Lude.Text,
-    -- | The name of the protection. For example, @My CloudFront distributions@ .
-    name :: Lude.Maybe Lude.Text,
+    healthCheckIds :: Core.Maybe [Types.HealthCheckId],
     -- | The unique identifier (ID) of the protection.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.Id,
+    -- | The name of the protection. For example, @My CloudFront distributions@ .
+    name :: Core.Maybe Types.Name,
+    -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
+    resourceArn :: Core.Maybe Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Protection' with the minimum fields required to make a request.
---
--- * 'healthCheckIds' - The unique identifier (ID) for the Route 53 health check that's associated with the protection.
--- * 'resourceARN' - The ARN (Amazon Resource Name) of the AWS resource that is protected.
--- * 'name' - The name of the protection. For example, @My CloudFront distributions@ .
--- * 'id' - The unique identifier (ID) of the protection.
+-- | Creates a 'Protection' value with any optional fields omitted.
 mkProtection ::
   Protection
 mkProtection =
   Protection'
-    { healthCheckIds = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { healthCheckIds = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      resourceArn = Core.Nothing
     }
 
 -- | The unique identifier (ID) for the Route 53 health check that's associated with the protection.
 --
 -- /Note:/ Consider using 'healthCheckIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pHealthCheckIds :: Lens.Lens' Protection (Lude.Maybe [Lude.Text])
-pHealthCheckIds = Lens.lens (healthCheckIds :: Protection -> Lude.Maybe [Lude.Text]) (\s a -> s {healthCheckIds = a} :: Protection)
+pHealthCheckIds :: Lens.Lens' Protection (Core.Maybe [Types.HealthCheckId])
+pHealthCheckIds = Lens.field @"healthCheckIds"
 {-# DEPRECATED pHealthCheckIds "Use generic-lens or generic-optics with 'healthCheckIds' instead." #-}
-
--- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pResourceARN :: Lens.Lens' Protection (Lude.Maybe Lude.Text)
-pResourceARN = Lens.lens (resourceARN :: Protection -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: Protection)
-{-# DEPRECATED pResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
-
--- | The name of the protection. For example, @My CloudFront distributions@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pName :: Lens.Lens' Protection (Lude.Maybe Lude.Text)
-pName = Lens.lens (name :: Protection -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Protection)
-{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique identifier (ID) of the protection.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pId :: Lens.Lens' Protection (Lude.Maybe Lude.Text)
-pId = Lens.lens (id :: Protection -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Protection)
+pId :: Lens.Lens' Protection (Core.Maybe Types.Id)
+pId = Lens.field @"id"
 {-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON Protection where
+-- | The name of the protection. For example, @My CloudFront distributions@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pName :: Lens.Lens' Protection (Core.Maybe Types.Name)
+pName = Lens.field @"name"
+{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pResourceArn :: Lens.Lens' Protection (Core.Maybe Types.ResourceArn)
+pResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED pResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+
+instance Core.FromJSON Protection where
   parseJSON =
-    Lude.withObject
-      "Protection"
-      ( \x ->
-          Protection'
-            Lude.<$> (x Lude..:? "HealthCheckIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ResourceArn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "Protection" Core.$
+      \x ->
+        Protection'
+          Core.<$> (x Core..:? "HealthCheckIds")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "ResourceArn")

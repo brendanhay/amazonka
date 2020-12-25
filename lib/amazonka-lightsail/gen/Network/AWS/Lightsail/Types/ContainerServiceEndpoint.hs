@@ -17,72 +17,67 @@ module Network.AWS.Lightsail.Types.ContainerServiceEndpoint
     mkContainerServiceEndpoint,
 
     -- * Lenses
-    cseHealthCheck,
     cseContainerName,
     cseContainerPort,
+    cseHealthCheck,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the public endpoint configuration of a deployment of an Amazon Lightsail container service.
 --
 -- /See:/ 'mkContainerServiceEndpoint' smart constructor.
 data ContainerServiceEndpoint = ContainerServiceEndpoint'
-  { -- | An object that describes the health check configuration of the container.
-    healthCheck :: Lude.Maybe ContainerServiceHealthCheckConfig,
-    -- | The name of the container entry of the deployment that the endpoint configuration applies to.
-    containerName :: Lude.Maybe Lude.Text,
+  { -- | The name of the container entry of the deployment that the endpoint configuration applies to.
+    containerName :: Core.Maybe Types.String,
     -- | The port of the specified container to which traffic is forwarded to.
-    containerPort :: Lude.Maybe Lude.Int
+    containerPort :: Core.Maybe Core.Int,
+    -- | An object that describes the health check configuration of the container.
+    healthCheck :: Core.Maybe Types.ContainerServiceHealthCheckConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContainerServiceEndpoint' with the minimum fields required to make a request.
---
--- * 'healthCheck' - An object that describes the health check configuration of the container.
--- * 'containerName' - The name of the container entry of the deployment that the endpoint configuration applies to.
--- * 'containerPort' - The port of the specified container to which traffic is forwarded to.
+-- | Creates a 'ContainerServiceEndpoint' value with any optional fields omitted.
 mkContainerServiceEndpoint ::
   ContainerServiceEndpoint
 mkContainerServiceEndpoint =
   ContainerServiceEndpoint'
-    { healthCheck = Lude.Nothing,
-      containerName = Lude.Nothing,
-      containerPort = Lude.Nothing
+    { containerName = Core.Nothing,
+      containerPort = Core.Nothing,
+      healthCheck = Core.Nothing
     }
-
--- | An object that describes the health check configuration of the container.
---
--- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseHealthCheck :: Lens.Lens' ContainerServiceEndpoint (Lude.Maybe ContainerServiceHealthCheckConfig)
-cseHealthCheck = Lens.lens (healthCheck :: ContainerServiceEndpoint -> Lude.Maybe ContainerServiceHealthCheckConfig) (\s a -> s {healthCheck = a} :: ContainerServiceEndpoint)
-{-# DEPRECATED cseHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
 
 -- | The name of the container entry of the deployment that the endpoint configuration applies to.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseContainerName :: Lens.Lens' ContainerServiceEndpoint (Lude.Maybe Lude.Text)
-cseContainerName = Lens.lens (containerName :: ContainerServiceEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: ContainerServiceEndpoint)
+cseContainerName :: Lens.Lens' ContainerServiceEndpoint (Core.Maybe Types.String)
+cseContainerName = Lens.field @"containerName"
 {-# DEPRECATED cseContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The port of the specified container to which traffic is forwarded to.
 --
 -- /Note:/ Consider using 'containerPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseContainerPort :: Lens.Lens' ContainerServiceEndpoint (Lude.Maybe Lude.Int)
-cseContainerPort = Lens.lens (containerPort :: ContainerServiceEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {containerPort = a} :: ContainerServiceEndpoint)
+cseContainerPort :: Lens.Lens' ContainerServiceEndpoint (Core.Maybe Core.Int)
+cseContainerPort = Lens.field @"containerPort"
 {-# DEPRECATED cseContainerPort "Use generic-lens or generic-optics with 'containerPort' instead." #-}
 
-instance Lude.FromJSON ContainerServiceEndpoint where
+-- | An object that describes the health check configuration of the container.
+--
+-- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cseHealthCheck :: Lens.Lens' ContainerServiceEndpoint (Core.Maybe Types.ContainerServiceHealthCheckConfig)
+cseHealthCheck = Lens.field @"healthCheck"
+{-# DEPRECATED cseHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
+
+instance Core.FromJSON ContainerServiceEndpoint where
   parseJSON =
-    Lude.withObject
-      "ContainerServiceEndpoint"
-      ( \x ->
-          ContainerServiceEndpoint'
-            Lude.<$> (x Lude..:? "healthCheck")
-            Lude.<*> (x Lude..:? "containerName")
-            Lude.<*> (x Lude..:? "containerPort")
-      )
+    Core.withObject "ContainerServiceEndpoint" Core.$
+      \x ->
+        ContainerServiceEndpoint'
+          Core.<$> (x Core..:? "containerName")
+          Core.<*> (x Core..:? "containerPort")
+          Core.<*> (x Core..:? "healthCheck")

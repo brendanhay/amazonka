@@ -22,77 +22,62 @@ module Network.AWS.DMS.DescribeReplicationTaskAssessmentResults
     mkDescribeReplicationTaskAssessmentResults,
 
     -- ** Request lenses
-    drtarReplicationTaskARN,
-    drtarMarker,
-    drtarMaxRecords,
+    dMarker,
+    dMaxRecords,
+    dReplicationTaskArn,
 
     -- * Destructuring the response
     DescribeReplicationTaskAssessmentResultsResponse (..),
     mkDescribeReplicationTaskAssessmentResultsResponse,
 
     -- ** Response lenses
-    drtarfrsBucketName,
-    drtarfrsMarker,
-    drtarfrsReplicationTaskAssessmentResults,
-    drtarfrsResponseStatus,
+    drtarrgrsBucketName,
+    drtarrgrsMarker,
+    drtarrgrsReplicationTaskAssessmentResults,
+    drtarrgrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeReplicationTaskAssessmentResults' smart constructor.
 data DescribeReplicationTaskAssessmentResults = DescribeReplicationTaskAssessmentResults'
-  { -- | The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the @MaxRecords@ and @Marker@ parameters.
-    replicationTaskARN :: Lude.Maybe Lude.Text,
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the @MaxRecords@ and @Marker@ parameters.
+    replicationTaskArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReplicationTaskAssessmentResults' with the minimum fields required to make a request.
---
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the @MaxRecords@ and @Marker@ parameters.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeReplicationTaskAssessmentResults' value with any optional fields omitted.
 mkDescribeReplicationTaskAssessmentResults ::
   DescribeReplicationTaskAssessmentResults
 mkDescribeReplicationTaskAssessmentResults =
   DescribeReplicationTaskAssessmentResults'
-    { replicationTaskARN =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      replicationTaskArn = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the @MaxRecords@ and @Marker@ parameters.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarReplicationTaskARN :: Lens.Lens' DescribeReplicationTaskAssessmentResults (Lude.Maybe Lude.Text)
-drtarReplicationTaskARN = Lens.lens (replicationTaskARN :: DescribeReplicationTaskAssessmentResults -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskARN = a} :: DescribeReplicationTaskAssessmentResults)
-{-# DEPRECATED drtarReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarMarker :: Lens.Lens' DescribeReplicationTaskAssessmentResults (Lude.Maybe Lude.Text)
-drtarMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentResults -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskAssessmentResults)
-{-# DEPRECATED drtarMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dMarker :: Lens.Lens' DescribeReplicationTaskAssessmentResults (Core.Maybe Types.String)
+dMarker = Lens.field @"marker"
+{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -100,126 +85,124 @@ drtarMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentResults -> L
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarMaxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentResults (Lude.Maybe Lude.Int)
-drtarMaxRecords = Lens.lens (maxRecords :: DescribeReplicationTaskAssessmentResults -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationTaskAssessmentResults)
-{-# DEPRECATED drtarMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dMaxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentResults (Core.Maybe Core.Int)
+dMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeReplicationTaskAssessmentResults where
-  page rq rs
-    | Page.stop (rs Lens.^. drtarfrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drtarfrsReplicationTaskAssessmentResults) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drtarMarker Lens..~ rs Lens.^. drtarfrsMarker
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the @MaxRecords@ and @Marker@ parameters.
+--
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dReplicationTaskArn :: Lens.Lens' DescribeReplicationTaskAssessmentResults (Core.Maybe Types.String)
+dReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED dReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
 
-instance Lude.AWSRequest DescribeReplicationTaskAssessmentResults where
+instance Core.FromJSON DescribeReplicationTaskAssessmentResults where
+  toJSON DescribeReplicationTaskAssessmentResults {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords,
+            ("ReplicationTaskArn" Core..=) Core.<$> replicationTaskArn
+          ]
+      )
+
+instance Core.AWSRequest DescribeReplicationTaskAssessmentResults where
   type
     Rs DescribeReplicationTaskAssessmentResults =
       DescribeReplicationTaskAssessmentResultsResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskAssessmentResultsResponse'
-            Lude.<$> (x Lude..?> "BucketName")
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> ( x Lude..?> "ReplicationTaskAssessmentResults"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BucketName")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "ReplicationTaskAssessmentResults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReplicationTaskAssessmentResults where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeReplicationTaskAssessmentResults where
-  toJSON DescribeReplicationTaskAssessmentResults' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ReplicationTaskArn" Lude..=) Lude.<$> replicationTaskARN,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords
-          ]
-      )
-
-instance Lude.ToPath DescribeReplicationTaskAssessmentResults where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReplicationTaskAssessmentResults where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeReplicationTaskAssessmentResults where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"replicationTaskAssessmentResults" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeReplicationTaskAssessmentResultsResponse' smart constructor.
 data DescribeReplicationTaskAssessmentResultsResponse = DescribeReplicationTaskAssessmentResultsResponse'
   { -- | - The Amazon S3 bucket where the task assessment report is located.
-    bucketName :: Lude.Maybe Lude.Text,
+    bucketName :: Core.Maybe Types.String,
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The task assessment report.
-    replicationTaskAssessmentResults :: Lude.Maybe [ReplicationTaskAssessmentResult],
+    replicationTaskAssessmentResults :: Core.Maybe [Types.ReplicationTaskAssessmentResult],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeReplicationTaskAssessmentResultsResponse' with the minimum fields required to make a request.
---
--- * 'bucketName' - - The Amazon S3 bucket where the task assessment report is located.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'replicationTaskAssessmentResults' - The task assessment report.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReplicationTaskAssessmentResultsResponse' value with any optional fields omitted.
 mkDescribeReplicationTaskAssessmentResultsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReplicationTaskAssessmentResultsResponse
-mkDescribeReplicationTaskAssessmentResultsResponse pResponseStatus_ =
+mkDescribeReplicationTaskAssessmentResultsResponse responseStatus =
   DescribeReplicationTaskAssessmentResultsResponse'
     { bucketName =
-        Lude.Nothing,
-      marker = Lude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       replicationTaskAssessmentResults =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | - The Amazon S3 bucket where the task assessment report is located.
 --
 -- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarfrsBucketName :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Lude.Maybe Lude.Text)
-drtarfrsBucketName = Lens.lens (bucketName :: DescribeReplicationTaskAssessmentResultsResponse -> Lude.Maybe Lude.Text) (\s a -> s {bucketName = a} :: DescribeReplicationTaskAssessmentResultsResponse)
-{-# DEPRECATED drtarfrsBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
+drtarrgrsBucketName :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Core.Maybe Types.String)
+drtarrgrsBucketName = Lens.field @"bucketName"
+{-# DEPRECATED drtarrgrsBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarfrsMarker :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Lude.Maybe Lude.Text)
-drtarfrsMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentResultsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskAssessmentResultsResponse)
-{-# DEPRECATED drtarfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drtarrgrsMarker :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Core.Maybe Types.String)
+drtarrgrsMarker = Lens.field @"marker"
+{-# DEPRECATED drtarrgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The task assessment report.
 --
 -- /Note:/ Consider using 'replicationTaskAssessmentResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarfrsReplicationTaskAssessmentResults :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Lude.Maybe [ReplicationTaskAssessmentResult])
-drtarfrsReplicationTaskAssessmentResults = Lens.lens (replicationTaskAssessmentResults :: DescribeReplicationTaskAssessmentResultsResponse -> Lude.Maybe [ReplicationTaskAssessmentResult]) (\s a -> s {replicationTaskAssessmentResults = a} :: DescribeReplicationTaskAssessmentResultsResponse)
-{-# DEPRECATED drtarfrsReplicationTaskAssessmentResults "Use generic-lens or generic-optics with 'replicationTaskAssessmentResults' instead." #-}
+drtarrgrsReplicationTaskAssessmentResults :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse (Core.Maybe [Types.ReplicationTaskAssessmentResult])
+drtarrgrsReplicationTaskAssessmentResults = Lens.field @"replicationTaskAssessmentResults"
+{-# DEPRECATED drtarrgrsReplicationTaskAssessmentResults "Use generic-lens or generic-optics with 'replicationTaskAssessmentResults' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarfrsResponseStatus :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse Lude.Int
-drtarfrsResponseStatus = Lens.lens (responseStatus :: DescribeReplicationTaskAssessmentResultsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReplicationTaskAssessmentResultsResponse)
-{-# DEPRECATED drtarfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drtarrgrsResponseStatus :: Lens.Lens' DescribeReplicationTaskAssessmentResultsResponse Core.Int
+drtarrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drtarrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

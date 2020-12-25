@@ -20,273 +20,251 @@ module Network.AWS.CodeCommit.MergeBranchesByThreeWay
     mkMergeBranchesByThreeWay,
 
     -- ** Request lenses
-    mbbtwEmail,
-    mbbtwAuthorName,
-    mbbtwTargetBranch,
-    mbbtwConflictDetailLevel,
-    mbbtwCommitMessage,
     mbbtwRepositoryName,
     mbbtwSourceCommitSpecifier,
+    mbbtwDestinationCommitSpecifier,
+    mbbtwAuthorName,
+    mbbtwCommitMessage,
+    mbbtwConflictDetailLevel,
     mbbtwConflictResolution,
     mbbtwConflictResolutionStrategy,
+    mbbtwEmail,
     mbbtwKeepEmptyFolders,
-    mbbtwDestinationCommitSpecifier,
+    mbbtwTargetBranch,
 
     -- * Destructuring the response
     MergeBranchesByThreeWayResponse (..),
     mkMergeBranchesByThreeWayResponse,
 
     -- ** Response lenses
-    mbbtwrsCommitId,
-    mbbtwrsTreeId,
-    mbbtwrsResponseStatus,
+    mbbtwrrsCommitId,
+    mbbtwrrsTreeId,
+    mbbtwrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkMergeBranchesByThreeWay' smart constructor.
 data MergeBranchesByThreeWay = MergeBranchesByThreeWay'
-  { -- | The email address of the person merging the branches. This information is used in the commit information for the merge.
-    email :: Lude.Maybe Lude.Text,
+  { -- | The name of the repository where you want to merge two branches.
+    repositoryName :: Types.RepositoryName,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+    sourceCommitSpecifier :: Types.CommitName,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+    destinationCommitSpecifier :: Types.CommitName,
     -- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
-    authorName :: Lude.Maybe Lude.Text,
-    -- | The branch where the merge is applied.
-    targetBranch :: Lude.Maybe Lude.Text,
-    -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
-    conflictDetailLevel :: Lude.Maybe ConflictDetailLevelTypeEnum,
+    authorName :: Core.Maybe Types.Name,
     -- | The commit message to include in the commit information for the merge.
-    commitMessage :: Lude.Maybe Lude.Text,
-    -- | The name of the repository where you want to merge two branches.
-    repositoryName :: Lude.Text,
-    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-    sourceCommitSpecifier :: Lude.Text,
+    commitMessage :: Core.Maybe Types.Message,
+    -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+    conflictDetailLevel :: Core.Maybe Types.ConflictDetailLevelTypeEnum,
     -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
-    conflictResolution :: Lude.Maybe ConflictResolution,
+    conflictResolution :: Core.Maybe Types.ConflictResolution,
     -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
-    conflictResolutionStrategy :: Lude.Maybe ConflictResolutionStrategyTypeEnum,
+    conflictResolutionStrategy :: Core.Maybe Types.ConflictResolutionStrategyTypeEnum,
+    -- | The email address of the person merging the branches. This information is used in the commit information for the merge.
+    email :: Core.Maybe Types.Email,
     -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.
-    keepEmptyFolders :: Lude.Maybe Lude.Bool,
-    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-    destinationCommitSpecifier :: Lude.Text
+    keepEmptyFolders :: Core.Maybe Core.Bool,
+    -- | The branch where the merge is applied.
+    targetBranch :: Core.Maybe Types.BranchName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeBranchesByThreeWay' with the minimum fields required to make a request.
---
--- * 'email' - The email address of the person merging the branches. This information is used in the commit information for the merge.
--- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
--- * 'targetBranch' - The branch where the merge is applied.
--- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
--- * 'commitMessage' - The commit message to include in the commit information for the merge.
--- * 'repositoryName' - The name of the repository where you want to merge two branches.
--- * 'sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
--- * 'conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
--- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
--- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.
--- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+-- | Creates a 'MergeBranchesByThreeWay' value with any optional fields omitted.
 mkMergeBranchesByThreeWay ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   -- | 'sourceCommitSpecifier'
-  Lude.Text ->
+  Types.CommitName ->
   -- | 'destinationCommitSpecifier'
-  Lude.Text ->
+  Types.CommitName ->
   MergeBranchesByThreeWay
 mkMergeBranchesByThreeWay
-  pRepositoryName_
-  pSourceCommitSpecifier_
-  pDestinationCommitSpecifier_ =
+  repositoryName
+  sourceCommitSpecifier
+  destinationCommitSpecifier =
     MergeBranchesByThreeWay'
-      { email = Lude.Nothing,
-        authorName = Lude.Nothing,
-        targetBranch = Lude.Nothing,
-        conflictDetailLevel = Lude.Nothing,
-        commitMessage = Lude.Nothing,
-        repositoryName = pRepositoryName_,
-        sourceCommitSpecifier = pSourceCommitSpecifier_,
-        conflictResolution = Lude.Nothing,
-        conflictResolutionStrategy = Lude.Nothing,
-        keepEmptyFolders = Lude.Nothing,
-        destinationCommitSpecifier = pDestinationCommitSpecifier_
+      { repositoryName,
+        sourceCommitSpecifier,
+        destinationCommitSpecifier,
+        authorName = Core.Nothing,
+        commitMessage = Core.Nothing,
+        conflictDetailLevel = Core.Nothing,
+        conflictResolution = Core.Nothing,
+        conflictResolutionStrategy = Core.Nothing,
+        email = Core.Nothing,
+        keepEmptyFolders = Core.Nothing,
+        targetBranch = Core.Nothing
       }
-
--- | The email address of the person merging the branches. This information is used in the commit information for the merge.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwEmail :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe Lude.Text)
-mbbtwEmail = Lens.lens (email :: MergeBranchesByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: MergeBranchesByThreeWay)
-{-# DEPRECATED mbbtwEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
---
--- /Note:/ Consider using 'authorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwAuthorName :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe Lude.Text)
-mbbtwAuthorName = Lens.lens (authorName :: MergeBranchesByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {authorName = a} :: MergeBranchesByThreeWay)
-{-# DEPRECATED mbbtwAuthorName "Use generic-lens or generic-optics with 'authorName' instead." #-}
-
--- | The branch where the merge is applied.
---
--- /Note:/ Consider using 'targetBranch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwTargetBranch :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe Lude.Text)
-mbbtwTargetBranch = Lens.lens (targetBranch :: MergeBranchesByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {targetBranch = a} :: MergeBranchesByThreeWay)
-{-# DEPRECATED mbbtwTargetBranch "Use generic-lens or generic-optics with 'targetBranch' instead." #-}
-
--- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
---
--- /Note:/ Consider using 'conflictDetailLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwConflictDetailLevel :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe ConflictDetailLevelTypeEnum)
-mbbtwConflictDetailLevel = Lens.lens (conflictDetailLevel :: MergeBranchesByThreeWay -> Lude.Maybe ConflictDetailLevelTypeEnum) (\s a -> s {conflictDetailLevel = a} :: MergeBranchesByThreeWay)
-{-# DEPRECATED mbbtwConflictDetailLevel "Use generic-lens or generic-optics with 'conflictDetailLevel' instead." #-}
-
--- | The commit message to include in the commit information for the merge.
---
--- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwCommitMessage :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe Lude.Text)
-mbbtwCommitMessage = Lens.lens (commitMessage :: MergeBranchesByThreeWay -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: MergeBranchesByThreeWay)
-{-# DEPRECATED mbbtwCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
 -- | The name of the repository where you want to merge two branches.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwRepositoryName :: Lens.Lens' MergeBranchesByThreeWay Lude.Text
-mbbtwRepositoryName = Lens.lens (repositoryName :: MergeBranchesByThreeWay -> Lude.Text) (\s a -> s {repositoryName = a} :: MergeBranchesByThreeWay)
+mbbtwRepositoryName :: Lens.Lens' MergeBranchesByThreeWay Types.RepositoryName
+mbbtwRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED mbbtwRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 --
 -- /Note:/ Consider using 'sourceCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwSourceCommitSpecifier :: Lens.Lens' MergeBranchesByThreeWay Lude.Text
-mbbtwSourceCommitSpecifier = Lens.lens (sourceCommitSpecifier :: MergeBranchesByThreeWay -> Lude.Text) (\s a -> s {sourceCommitSpecifier = a} :: MergeBranchesByThreeWay)
+mbbtwSourceCommitSpecifier :: Lens.Lens' MergeBranchesByThreeWay Types.CommitName
+mbbtwSourceCommitSpecifier = Lens.field @"sourceCommitSpecifier"
 {-# DEPRECATED mbbtwSourceCommitSpecifier "Use generic-lens or generic-optics with 'sourceCommitSpecifier' instead." #-}
+
+-- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+--
+-- /Note:/ Consider using 'destinationCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbtwDestinationCommitSpecifier :: Lens.Lens' MergeBranchesByThreeWay Types.CommitName
+mbbtwDestinationCommitSpecifier = Lens.field @"destinationCommitSpecifier"
+{-# DEPRECATED mbbtwDestinationCommitSpecifier "Use generic-lens or generic-optics with 'destinationCommitSpecifier' instead." #-}
+
+-- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
+--
+-- /Note:/ Consider using 'authorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbtwAuthorName :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.Name)
+mbbtwAuthorName = Lens.field @"authorName"
+{-# DEPRECATED mbbtwAuthorName "Use generic-lens or generic-optics with 'authorName' instead." #-}
+
+-- | The commit message to include in the commit information for the merge.
+--
+-- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbtwCommitMessage :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.Message)
+mbbtwCommitMessage = Lens.field @"commitMessage"
+{-# DEPRECATED mbbtwCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
+
+-- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+--
+-- /Note:/ Consider using 'conflictDetailLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbtwConflictDetailLevel :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.ConflictDetailLevelTypeEnum)
+mbbtwConflictDetailLevel = Lens.field @"conflictDetailLevel"
+{-# DEPRECATED mbbtwConflictDetailLevel "Use generic-lens or generic-optics with 'conflictDetailLevel' instead." #-}
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
 --
 -- /Note:/ Consider using 'conflictResolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwConflictResolution :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe ConflictResolution)
-mbbtwConflictResolution = Lens.lens (conflictResolution :: MergeBranchesByThreeWay -> Lude.Maybe ConflictResolution) (\s a -> s {conflictResolution = a} :: MergeBranchesByThreeWay)
+mbbtwConflictResolution :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.ConflictResolution)
+mbbtwConflictResolution = Lens.field @"conflictResolution"
 {-# DEPRECATED mbbtwConflictResolution "Use generic-lens or generic-optics with 'conflictResolution' instead." #-}
 
 -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
 --
 -- /Note:/ Consider using 'conflictResolutionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwConflictResolutionStrategy :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe ConflictResolutionStrategyTypeEnum)
-mbbtwConflictResolutionStrategy = Lens.lens (conflictResolutionStrategy :: MergeBranchesByThreeWay -> Lude.Maybe ConflictResolutionStrategyTypeEnum) (\s a -> s {conflictResolutionStrategy = a} :: MergeBranchesByThreeWay)
+mbbtwConflictResolutionStrategy :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.ConflictResolutionStrategyTypeEnum)
+mbbtwConflictResolutionStrategy = Lens.field @"conflictResolutionStrategy"
 {-# DEPRECATED mbbtwConflictResolutionStrategy "Use generic-lens or generic-optics with 'conflictResolutionStrategy' instead." #-}
+
+-- | The email address of the person merging the branches. This information is used in the commit information for the merge.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbtwEmail :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.Email)
+mbbtwEmail = Lens.field @"email"
+{-# DEPRECATED mbbtwEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.
 --
 -- /Note:/ Consider using 'keepEmptyFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwKeepEmptyFolders :: Lens.Lens' MergeBranchesByThreeWay (Lude.Maybe Lude.Bool)
-mbbtwKeepEmptyFolders = Lens.lens (keepEmptyFolders :: MergeBranchesByThreeWay -> Lude.Maybe Lude.Bool) (\s a -> s {keepEmptyFolders = a} :: MergeBranchesByThreeWay)
+mbbtwKeepEmptyFolders :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Core.Bool)
+mbbtwKeepEmptyFolders = Lens.field @"keepEmptyFolders"
 {-# DEPRECATED mbbtwKeepEmptyFolders "Use generic-lens or generic-optics with 'keepEmptyFolders' instead." #-}
 
--- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+-- | The branch where the merge is applied.
 --
--- /Note:/ Consider using 'destinationCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwDestinationCommitSpecifier :: Lens.Lens' MergeBranchesByThreeWay Lude.Text
-mbbtwDestinationCommitSpecifier = Lens.lens (destinationCommitSpecifier :: MergeBranchesByThreeWay -> Lude.Text) (\s a -> s {destinationCommitSpecifier = a} :: MergeBranchesByThreeWay)
-{-# DEPRECATED mbbtwDestinationCommitSpecifier "Use generic-lens or generic-optics with 'destinationCommitSpecifier' instead." #-}
+-- /Note:/ Consider using 'targetBranch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbtwTargetBranch :: Lens.Lens' MergeBranchesByThreeWay (Core.Maybe Types.BranchName)
+mbbtwTargetBranch = Lens.field @"targetBranch"
+{-# DEPRECATED mbbtwTargetBranch "Use generic-lens or generic-optics with 'targetBranch' instead." #-}
 
-instance Lude.AWSRequest MergeBranchesByThreeWay where
+instance Core.FromJSON MergeBranchesByThreeWay where
+  toJSON MergeBranchesByThreeWay {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("sourceCommitSpecifier" Core..= sourceCommitSpecifier),
+            Core.Just
+              ("destinationCommitSpecifier" Core..= destinationCommitSpecifier),
+            ("authorName" Core..=) Core.<$> authorName,
+            ("commitMessage" Core..=) Core.<$> commitMessage,
+            ("conflictDetailLevel" Core..=) Core.<$> conflictDetailLevel,
+            ("conflictResolution" Core..=) Core.<$> conflictResolution,
+            ("conflictResolutionStrategy" Core..=)
+              Core.<$> conflictResolutionStrategy,
+            ("email" Core..=) Core.<$> email,
+            ("keepEmptyFolders" Core..=) Core.<$> keepEmptyFolders,
+            ("targetBranch" Core..=) Core.<$> targetBranch
+          ]
+      )
+
+instance Core.AWSRequest MergeBranchesByThreeWay where
   type Rs MergeBranchesByThreeWay = MergeBranchesByThreeWayResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.MergeBranchesByThreeWay")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           MergeBranchesByThreeWayResponse'
-            Lude.<$> (x Lude..?> "commitId")
-            Lude.<*> (x Lude..?> "treeId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "commitId")
+            Core.<*> (x Core..:? "treeId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders MergeBranchesByThreeWay where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.MergeBranchesByThreeWay" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON MergeBranchesByThreeWay where
-  toJSON MergeBranchesByThreeWay' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("email" Lude..=) Lude.<$> email,
-            ("authorName" Lude..=) Lude.<$> authorName,
-            ("targetBranch" Lude..=) Lude.<$> targetBranch,
-            ("conflictDetailLevel" Lude..=) Lude.<$> conflictDetailLevel,
-            ("commitMessage" Lude..=) Lude.<$> commitMessage,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
-            ("conflictResolution" Lude..=) Lude.<$> conflictResolution,
-            ("conflictResolutionStrategy" Lude..=)
-              Lude.<$> conflictResolutionStrategy,
-            ("keepEmptyFolders" Lude..=) Lude.<$> keepEmptyFolders,
-            Lude.Just
-              ("destinationCommitSpecifier" Lude..= destinationCommitSpecifier)
-          ]
-      )
-
-instance Lude.ToPath MergeBranchesByThreeWay where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery MergeBranchesByThreeWay where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkMergeBranchesByThreeWayResponse' smart constructor.
 data MergeBranchesByThreeWayResponse = MergeBranchesByThreeWayResponse'
   { -- | The commit ID of the merge in the destination or target branch.
-    commitId :: Lude.Maybe Lude.Text,
+    commitId :: Core.Maybe Types.CommitId,
     -- | The tree ID of the merge in the destination or target branch.
-    treeId :: Lude.Maybe Lude.Text,
+    treeId :: Core.Maybe Types.TreeId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeBranchesByThreeWayResponse' with the minimum fields required to make a request.
---
--- * 'commitId' - The commit ID of the merge in the destination or target branch.
--- * 'treeId' - The tree ID of the merge in the destination or target branch.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'MergeBranchesByThreeWayResponse' value with any optional fields omitted.
 mkMergeBranchesByThreeWayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   MergeBranchesByThreeWayResponse
-mkMergeBranchesByThreeWayResponse pResponseStatus_ =
+mkMergeBranchesByThreeWayResponse responseStatus =
   MergeBranchesByThreeWayResponse'
-    { commitId = Lude.Nothing,
-      treeId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { commitId = Core.Nothing,
+      treeId = Core.Nothing,
+      responseStatus
     }
 
 -- | The commit ID of the merge in the destination or target branch.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwrsCommitId :: Lens.Lens' MergeBranchesByThreeWayResponse (Lude.Maybe Lude.Text)
-mbbtwrsCommitId = Lens.lens (commitId :: MergeBranchesByThreeWayResponse -> Lude.Maybe Lude.Text) (\s a -> s {commitId = a} :: MergeBranchesByThreeWayResponse)
-{-# DEPRECATED mbbtwrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+mbbtwrrsCommitId :: Lens.Lens' MergeBranchesByThreeWayResponse (Core.Maybe Types.CommitId)
+mbbtwrrsCommitId = Lens.field @"commitId"
+{-# DEPRECATED mbbtwrrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | The tree ID of the merge in the destination or target branch.
 --
 -- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwrsTreeId :: Lens.Lens' MergeBranchesByThreeWayResponse (Lude.Maybe Lude.Text)
-mbbtwrsTreeId = Lens.lens (treeId :: MergeBranchesByThreeWayResponse -> Lude.Maybe Lude.Text) (\s a -> s {treeId = a} :: MergeBranchesByThreeWayResponse)
-{-# DEPRECATED mbbtwrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
+mbbtwrrsTreeId :: Lens.Lens' MergeBranchesByThreeWayResponse (Core.Maybe Types.TreeId)
+mbbtwrrsTreeId = Lens.field @"treeId"
+{-# DEPRECATED mbbtwrrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbtwrsResponseStatus :: Lens.Lens' MergeBranchesByThreeWayResponse Lude.Int
-mbbtwrsResponseStatus = Lens.lens (responseStatus :: MergeBranchesByThreeWayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MergeBranchesByThreeWayResponse)
-{-# DEPRECATED mbbtwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mbbtwrrsResponseStatus :: Lens.Lens' MergeBranchesByThreeWayResponse Core.Int
+mbbtwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mbbtwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

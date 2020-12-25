@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.CancelSpotInstanceRequestState
   ( CancelSpotInstanceRequestState
       ( CancelSpotInstanceRequestState',
-        CSIRSActive,
-        CSIRSOpen,
-        CSIRSClosed,
-        CSIRSCancelled,
-        CSIRSCompleted
+        CancelSpotInstanceRequestStateActive,
+        CancelSpotInstanceRequestStateOpen,
+        CancelSpotInstanceRequestStateClosed,
+        CancelSpotInstanceRequestStateCancelled,
+        CancelSpotInstanceRequestStateCompleted,
+        fromCancelSpotInstanceRequestState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CancelSpotInstanceRequestState = CancelSpotInstanceRequestState' Lude.Text
+newtype CancelSpotInstanceRequestState = CancelSpotInstanceRequestState'
+  { fromCancelSpotInstanceRequestState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSIRSActive :: CancelSpotInstanceRequestState
-pattern CSIRSActive = CancelSpotInstanceRequestState' "active"
+pattern CancelSpotInstanceRequestStateActive :: CancelSpotInstanceRequestState
+pattern CancelSpotInstanceRequestStateActive = CancelSpotInstanceRequestState' "active"
 
-pattern CSIRSOpen :: CancelSpotInstanceRequestState
-pattern CSIRSOpen = CancelSpotInstanceRequestState' "open"
+pattern CancelSpotInstanceRequestStateOpen :: CancelSpotInstanceRequestState
+pattern CancelSpotInstanceRequestStateOpen = CancelSpotInstanceRequestState' "open"
 
-pattern CSIRSClosed :: CancelSpotInstanceRequestState
-pattern CSIRSClosed = CancelSpotInstanceRequestState' "closed"
+pattern CancelSpotInstanceRequestStateClosed :: CancelSpotInstanceRequestState
+pattern CancelSpotInstanceRequestStateClosed = CancelSpotInstanceRequestState' "closed"
 
-pattern CSIRSCancelled :: CancelSpotInstanceRequestState
-pattern CSIRSCancelled = CancelSpotInstanceRequestState' "cancelled"
+pattern CancelSpotInstanceRequestStateCancelled :: CancelSpotInstanceRequestState
+pattern CancelSpotInstanceRequestStateCancelled = CancelSpotInstanceRequestState' "cancelled"
 
-pattern CSIRSCompleted :: CancelSpotInstanceRequestState
-pattern CSIRSCompleted = CancelSpotInstanceRequestState' "completed"
+pattern CancelSpotInstanceRequestStateCompleted :: CancelSpotInstanceRequestState
+pattern CancelSpotInstanceRequestStateCompleted = CancelSpotInstanceRequestState' "completed"
 
 {-# COMPLETE
-  CSIRSActive,
-  CSIRSOpen,
-  CSIRSClosed,
-  CSIRSCancelled,
-  CSIRSCompleted,
+  CancelSpotInstanceRequestStateActive,
+  CancelSpotInstanceRequestStateOpen,
+  CancelSpotInstanceRequestStateClosed,
+  CancelSpotInstanceRequestStateCancelled,
+  CancelSpotInstanceRequestStateCompleted,
   CancelSpotInstanceRequestState'
   #-}

@@ -44,143 +44,125 @@ module Network.AWS.WAFRegional.CreateRegexPatternSet
     mkCreateRegexPatternSetResponse,
 
     -- ** Response lenses
-    crpsrsRegexPatternSet,
-    crpsrsChangeToken,
-    crpsrsResponseStatus,
+    crpsrrsChangeToken,
+    crpsrrsRegexPatternSet,
+    crpsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkCreateRegexPatternSet' smart constructor.
 data CreateRegexPatternSet = CreateRegexPatternSet'
   { -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
-    name :: Lude.Text,
+    name :: Types.ResourceName,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRegexPatternSet' with the minimum fields required to make a request.
---
--- * 'name' - A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'CreateRegexPatternSet' value with any optional fields omitted.
 mkCreateRegexPatternSet ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateRegexPatternSet
-mkCreateRegexPatternSet pName_ pChangeToken_ =
-  CreateRegexPatternSet'
-    { name = pName_,
-      changeToken = pChangeToken_
-    }
+mkCreateRegexPatternSet name changeToken =
+  CreateRegexPatternSet' {name, changeToken}
 
 -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpsName :: Lens.Lens' CreateRegexPatternSet Lude.Text
-crpsName = Lens.lens (name :: CreateRegexPatternSet -> Lude.Text) (\s a -> s {name = a} :: CreateRegexPatternSet)
+crpsName :: Lens.Lens' CreateRegexPatternSet Types.ResourceName
+crpsName = Lens.field @"name"
 {-# DEPRECATED crpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpsChangeToken :: Lens.Lens' CreateRegexPatternSet Lude.Text
-crpsChangeToken = Lens.lens (changeToken :: CreateRegexPatternSet -> Lude.Text) (\s a -> s {changeToken = a} :: CreateRegexPatternSet)
+crpsChangeToken :: Lens.Lens' CreateRegexPatternSet Types.ChangeToken
+crpsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED crpsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest CreateRegexPatternSet where
+instance Core.FromJSON CreateRegexPatternSet where
+  toJSON CreateRegexPatternSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest CreateRegexPatternSet where
   type Rs CreateRegexPatternSet = CreateRegexPatternSetResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.CreateRegexPatternSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateRegexPatternSetResponse'
-            Lude.<$> (x Lude..?> "RegexPatternSet")
-            Lude.<*> (x Lude..?> "ChangeToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken")
+            Core.<*> (x Core..:? "RegexPatternSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateRegexPatternSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSWAF_Regional_20161128.CreateRegexPatternSet" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateRegexPatternSet where
-  toJSON CreateRegexPatternSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath CreateRegexPatternSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateRegexPatternSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateRegexPatternSetResponse' smart constructor.
 data CreateRegexPatternSetResponse = CreateRegexPatternSetResponse'
-  { -- | A 'RegexPatternSet' that contains no objects.
-    regexPatternSet :: Lude.Maybe RegexPatternSet,
-    -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Core.Maybe Types.ChangeToken,
+    -- | A 'RegexPatternSet' that contains no objects.
+    regexPatternSet :: Core.Maybe Types.RegexPatternSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRegexPatternSetResponse' with the minimum fields required to make a request.
---
--- * 'regexPatternSet' - A 'RegexPatternSet' that contains no objects.
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRegexPatternSetResponse' value with any optional fields omitted.
 mkCreateRegexPatternSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRegexPatternSetResponse
-mkCreateRegexPatternSetResponse pResponseStatus_ =
+mkCreateRegexPatternSetResponse responseStatus =
   CreateRegexPatternSetResponse'
-    { regexPatternSet = Lude.Nothing,
-      changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      regexPatternSet = Core.Nothing,
+      responseStatus
     }
-
--- | A 'RegexPatternSet' that contains no objects.
---
--- /Note:/ Consider using 'regexPatternSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpsrsRegexPatternSet :: Lens.Lens' CreateRegexPatternSetResponse (Lude.Maybe RegexPatternSet)
-crpsrsRegexPatternSet = Lens.lens (regexPatternSet :: CreateRegexPatternSetResponse -> Lude.Maybe RegexPatternSet) (\s a -> s {regexPatternSet = a} :: CreateRegexPatternSetResponse)
-{-# DEPRECATED crpsrsRegexPatternSet "Use generic-lens or generic-optics with 'regexPatternSet' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpsrsChangeToken :: Lens.Lens' CreateRegexPatternSetResponse (Lude.Maybe Lude.Text)
-crpsrsChangeToken = Lens.lens (changeToken :: CreateRegexPatternSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateRegexPatternSetResponse)
-{-# DEPRECATED crpsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+crpsrrsChangeToken :: Lens.Lens' CreateRegexPatternSetResponse (Core.Maybe Types.ChangeToken)
+crpsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED crpsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | A 'RegexPatternSet' that contains no objects.
+--
+-- /Note:/ Consider using 'regexPatternSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crpsrrsRegexPatternSet :: Lens.Lens' CreateRegexPatternSetResponse (Core.Maybe Types.RegexPatternSet)
+crpsrrsRegexPatternSet = Lens.field @"regexPatternSet"
+{-# DEPRECATED crpsrrsRegexPatternSet "Use generic-lens or generic-optics with 'regexPatternSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpsrsResponseStatus :: Lens.Lens' CreateRegexPatternSetResponse Lude.Int
-crpsrsResponseStatus = Lens.lens (responseStatus :: CreateRegexPatternSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRegexPatternSetResponse)
-{-# DEPRECATED crpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crpsrrsResponseStatus :: Lens.Lens' CreateRegexPatternSetResponse Core.Int
+crpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

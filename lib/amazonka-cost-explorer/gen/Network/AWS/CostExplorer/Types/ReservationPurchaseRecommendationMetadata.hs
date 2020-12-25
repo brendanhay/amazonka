@@ -17,59 +17,55 @@ module Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
     mkReservationPurchaseRecommendationMetadata,
 
     -- * Lenses
-    rprmRecommendationId,
     rprmGenerationTimestamp,
+    rprmRecommendationId,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about this specific recommendation, such as the timestamp for when AWS made a specific recommendation.
 --
 -- /See:/ 'mkReservationPurchaseRecommendationMetadata' smart constructor.
 data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendationMetadata'
-  { -- | The ID for this specific recommendation.
-    recommendationId :: Lude.Maybe Lude.Text,
-    -- | The timestamp for when AWS made this recommendation.
-    generationTimestamp :: Lude.Maybe Lude.Text
+  { -- | The timestamp for when AWS made this recommendation.
+    generationTimestamp :: Core.Maybe Types.GenericString,
+    -- | The ID for this specific recommendation.
+    recommendationId :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservationPurchaseRecommendationMetadata' with the minimum fields required to make a request.
---
--- * 'recommendationId' - The ID for this specific recommendation.
--- * 'generationTimestamp' - The timestamp for when AWS made this recommendation.
+-- | Creates a 'ReservationPurchaseRecommendationMetadata' value with any optional fields omitted.
 mkReservationPurchaseRecommendationMetadata ::
   ReservationPurchaseRecommendationMetadata
 mkReservationPurchaseRecommendationMetadata =
   ReservationPurchaseRecommendationMetadata'
-    { recommendationId =
-        Lude.Nothing,
-      generationTimestamp = Lude.Nothing
+    { generationTimestamp =
+        Core.Nothing,
+      recommendationId = Core.Nothing
     }
-
--- | The ID for this specific recommendation.
---
--- /Note:/ Consider using 'recommendationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprmRecommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Lude.Maybe Lude.Text)
-rprmRecommendationId = Lens.lens (recommendationId :: ReservationPurchaseRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {recommendationId = a} :: ReservationPurchaseRecommendationMetadata)
-{-# DEPRECATED rprmRecommendationId "Use generic-lens or generic-optics with 'recommendationId' instead." #-}
 
 -- | The timestamp for when AWS made this recommendation.
 --
 -- /Note:/ Consider using 'generationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprmGenerationTimestamp :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Lude.Maybe Lude.Text)
-rprmGenerationTimestamp = Lens.lens (generationTimestamp :: ReservationPurchaseRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {generationTimestamp = a} :: ReservationPurchaseRecommendationMetadata)
+rprmGenerationTimestamp :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Core.Maybe Types.GenericString)
+rprmGenerationTimestamp = Lens.field @"generationTimestamp"
 {-# DEPRECATED rprmGenerationTimestamp "Use generic-lens or generic-optics with 'generationTimestamp' instead." #-}
 
-instance Lude.FromJSON ReservationPurchaseRecommendationMetadata where
+-- | The ID for this specific recommendation.
+--
+-- /Note:/ Consider using 'recommendationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprmRecommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Core.Maybe Types.GenericString)
+rprmRecommendationId = Lens.field @"recommendationId"
+{-# DEPRECATED rprmRecommendationId "Use generic-lens or generic-optics with 'recommendationId' instead." #-}
+
+instance Core.FromJSON ReservationPurchaseRecommendationMetadata where
   parseJSON =
-    Lude.withObject
-      "ReservationPurchaseRecommendationMetadata"
-      ( \x ->
-          ReservationPurchaseRecommendationMetadata'
-            Lude.<$> (x Lude..:? "RecommendationId")
-            Lude.<*> (x Lude..:? "GenerationTimestamp")
-      )
+    Core.withObject "ReservationPurchaseRecommendationMetadata" Core.$
+      \x ->
+        ReservationPurchaseRecommendationMetadata'
+          Core.<$> (x Core..:? "GenerationTimestamp")
+          Core.<*> (x Core..:? "RecommendationId")

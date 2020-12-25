@@ -22,42 +22,38 @@ module Network.AWS.EC2.DescribeLaunchTemplateVersions
     mkDescribeLaunchTemplateVersions,
 
     -- ** Request lenses
-    dltvsLaunchTemplateName,
-    dltvsLaunchTemplateId,
-    dltvsMinVersion,
-    dltvsFilters,
-    dltvsMaxVersion,
-    dltvsVersions,
-    dltvsNextToken,
     dltvsDryRun,
+    dltvsFilters,
+    dltvsLaunchTemplateId,
+    dltvsLaunchTemplateName,
     dltvsMaxResults,
+    dltvsMaxVersion,
+    dltvsMinVersion,
+    dltvsNextToken,
+    dltvsVersions,
 
     -- * Destructuring the response
     DescribeLaunchTemplateVersionsResponse (..),
     mkDescribeLaunchTemplateVersionsResponse,
 
     -- ** Response lenses
-    dltvsrsNextToken,
-    dltvsrsLaunchTemplateVersions,
-    dltvsrsResponseStatus,
+    dltvrfrsLaunchTemplateVersions,
+    dltvrfrsNextToken,
+    dltvrfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLaunchTemplateVersions' smart constructor.
 data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
-  { -- | The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
-    launchTemplateName :: Lude.Maybe Lude.Text,
-    -- | The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
-    launchTemplateId :: Lude.Maybe Lude.Text,
-    -- | The version number after which to describe launch template versions.
-    minVersion :: Lude.Maybe Lude.Text,
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters.
     --
     --
@@ -83,100 +79,50 @@ data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
     --
     --
     --     * @ram-disk-id@ - The RAM disk ID.
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
+    -- | The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
+    launchTemplateId :: Core.Maybe Types.LaunchTemplateId,
+    -- | The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
+    launchTemplateName :: Core.Maybe Types.LaunchTemplateName,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
+    maxResults :: Core.Maybe Core.Int,
     -- | The version number up to which to describe launch template versions.
-    maxVersion :: Lude.Maybe Lude.Text,
+    maxVersion :: Core.Maybe Types.String,
+    -- | The version number after which to describe launch template versions.
+    minVersion :: Core.Maybe Types.String,
+    -- | The token to request the next page of results.
+    nextToken :: Core.Maybe Types.String,
     -- | One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.
     --
     -- To describe one or more versions of a specified launch template, valid values are @> Latest@ , @> Default@ , and numbers.
     -- To describe all launch templates in your account that are defined as the latest version, the valid value is @> Latest@ . To describe all launch templates in your account that are defined as the default version, the valid value is @> Default@ . You can specify @> Latest@ and @> Default@ in the same call. You cannot specify numbers.
-    versions :: Lude.Maybe [Lude.Text],
-    -- | The token to request the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
-    maxResults :: Lude.Maybe Lude.Int
+    versions :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLaunchTemplateVersions' with the minimum fields required to make a request.
---
--- * 'launchTemplateName' - The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
--- * 'launchTemplateId' - The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
--- * 'minVersion' - The version number after which to describe launch template versions.
--- * 'filters' - One or more filters.
---
---
---     * @create-time@ - The time the launch template version was created.
---
---
---     * @ebs-optimized@ - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.
---
---
---     * @iam-instance-profile@ - The ARN of the IAM instance profile.
---
---
---     * @image-id@ - The ID of the AMI.
---
---
---     * @instance-type@ - The instance type.
---
---
---     * @is-default-version@ - A boolean that indicates whether the launch template version is the default version.
---
---
---     * @kernel-id@ - The kernel ID.
---
---
---     * @ram-disk-id@ - The RAM disk ID.
---
---
--- * 'maxVersion' - The version number up to which to describe launch template versions.
--- * 'versions' - One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.
---
--- To describe one or more versions of a specified launch template, valid values are @> Latest@ , @> Default@ , and numbers.
--- To describe all launch templates in your account that are defined as the latest version, the valid value is @> Latest@ . To describe all launch templates in your account that are defined as the default version, the valid value is @> Default@ . You can specify @> Latest@ and @> Default@ in the same call. You cannot specify numbers.
--- * 'nextToken' - The token to request the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
+-- | Creates a 'DescribeLaunchTemplateVersions' value with any optional fields omitted.
 mkDescribeLaunchTemplateVersions ::
   DescribeLaunchTemplateVersions
 mkDescribeLaunchTemplateVersions =
   DescribeLaunchTemplateVersions'
-    { launchTemplateName =
-        Lude.Nothing,
-      launchTemplateId = Lude.Nothing,
-      minVersion = Lude.Nothing,
-      filters = Lude.Nothing,
-      maxVersion = Lude.Nothing,
-      versions = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      launchTemplateId = Core.Nothing,
+      launchTemplateName = Core.Nothing,
+      maxResults = Core.Nothing,
+      maxVersion = Core.Nothing,
+      minVersion = Core.Nothing,
+      nextToken = Core.Nothing,
+      versions = Core.Nothing
     }
 
--- | The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsLaunchTemplateName :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Text)
-dltvsLaunchTemplateName = Lens.lens (launchTemplateName :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: DescribeLaunchTemplateVersions)
-{-# DEPRECATED dltvsLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
-
--- | The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
---
--- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsLaunchTemplateId :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Text)
-dltvsLaunchTemplateId = Lens.lens (launchTemplateId :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: DescribeLaunchTemplateVersions)
-{-# DEPRECATED dltvsLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
-
--- | The version number after which to describe launch template versions.
---
--- /Note:/ Consider using 'minVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsMinVersion :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Text)
-dltvsMinVersion = Lens.lens (minVersion :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {minVersion = a} :: DescribeLaunchTemplateVersions)
-{-# DEPRECATED dltvsMinVersion "Use generic-lens or generic-optics with 'minVersion' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsDryRun :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Core.Bool)
+dltvsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dltvsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -207,16 +153,51 @@ dltvsMinVersion = Lens.lens (minVersion :: DescribeLaunchTemplateVersions -> Lud
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsFilters :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe [Filter])
-dltvsFilters = Lens.lens (filters :: DescribeLaunchTemplateVersions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeLaunchTemplateVersions)
+dltvsFilters :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe [Types.Filter])
+dltvsFilters = Lens.field @"filters"
 {-# DEPRECATED dltvsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
+--
+-- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsLaunchTemplateId :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Types.LaunchTemplateId)
+dltvsLaunchTemplateId = Lens.field @"launchTemplateId"
+{-# DEPRECATED dltvsLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+
+-- | The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsLaunchTemplateName :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Types.LaunchTemplateName)
+dltvsLaunchTemplateName = Lens.field @"launchTemplateName"
+{-# DEPRECATED dltvsLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
+
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsMaxResults :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Core.Int)
+dltvsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dltvsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The version number up to which to describe launch template versions.
 --
 -- /Note:/ Consider using 'maxVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsMaxVersion :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Text)
-dltvsMaxVersion = Lens.lens (maxVersion :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxVersion = a} :: DescribeLaunchTemplateVersions)
+dltvsMaxVersion :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Types.String)
+dltvsMaxVersion = Lens.field @"maxVersion"
 {-# DEPRECATED dltvsMaxVersion "Use generic-lens or generic-optics with 'maxVersion' instead." #-}
+
+-- | The version number after which to describe launch template versions.
+--
+-- /Note:/ Consider using 'minVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsMinVersion :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Types.String)
+dltvsMinVersion = Lens.field @"minVersion"
+{-# DEPRECATED dltvsMinVersion "Use generic-lens or generic-optics with 'minVersion' instead." #-}
+
+-- | The token to request the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvsNextToken :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe Types.String)
+dltvsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dltvsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.
 --
@@ -224,126 +205,107 @@ dltvsMaxVersion = Lens.lens (maxVersion :: DescribeLaunchTemplateVersions -> Lud
 -- To describe all launch templates in your account that are defined as the latest version, the valid value is @> Latest@ . To describe all launch templates in your account that are defined as the default version, the valid value is @> Default@ . You can specify @> Latest@ and @> Default@ in the same call. You cannot specify numbers.
 --
 -- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsVersions :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe [Lude.Text])
-dltvsVersions = Lens.lens (versions :: DescribeLaunchTemplateVersions -> Lude.Maybe [Lude.Text]) (\s a -> s {versions = a} :: DescribeLaunchTemplateVersions)
+dltvsVersions :: Lens.Lens' DescribeLaunchTemplateVersions (Core.Maybe [Types.String])
+dltvsVersions = Lens.field @"versions"
 {-# DEPRECATED dltvsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
--- | The token to request the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsNextToken :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Text)
-dltvsNextToken = Lens.lens (nextToken :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchTemplateVersions)
-{-# DEPRECATED dltvsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsDryRun :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Bool)
-dltvsDryRun = Lens.lens (dryRun :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeLaunchTemplateVersions)
-{-# DEPRECATED dltvsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsMaxResults :: Lens.Lens' DescribeLaunchTemplateVersions (Lude.Maybe Lude.Int)
-dltvsMaxResults = Lens.lens (maxResults :: DescribeLaunchTemplateVersions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeLaunchTemplateVersions)
-{-# DEPRECATED dltvsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager DescribeLaunchTemplateVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. dltvsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dltvsrsLaunchTemplateVersions) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dltvsNextToken Lens..~ rs Lens.^. dltvsrsNextToken
-
-instance Lude.AWSRequest DescribeLaunchTemplateVersions where
+instance Core.AWSRequest DescribeLaunchTemplateVersions where
   type
     Rs DescribeLaunchTemplateVersions =
       DescribeLaunchTemplateVersionsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLaunchTemplateVersions")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "LaunchTemplateId" Core.<$> launchTemplateId)
+                Core.<> ( Core.toQueryValue "LaunchTemplateName"
+                            Core.<$> launchTemplateName
+                        )
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "MaxVersion" Core.<$> maxVersion)
+                Core.<> (Core.toQueryValue "MinVersion" Core.<$> minVersion)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryList "LaunchTemplateVersion" Core.<$> versions)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplateVersionsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "launchTemplateVersionSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "launchTemplateVersionSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLaunchTemplateVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLaunchTemplateVersions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLaunchTemplateVersions where
-  toQuery DescribeLaunchTemplateVersions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeLaunchTemplateVersions" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "LaunchTemplateName" Lude.=: launchTemplateName,
-        "LaunchTemplateId" Lude.=: launchTemplateId,
-        "MinVersion" Lude.=: minVersion,
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "MaxVersion" Lude.=: maxVersion,
-        Lude.toQuery
-          (Lude.toQueryList "LaunchTemplateVersion" Lude.<$> versions),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeLaunchTemplateVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"launchTemplateVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLaunchTemplateVersionsResponse' smart constructor.
 data DescribeLaunchTemplateVersionsResponse = DescribeLaunchTemplateVersionsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the launch template versions.
-    launchTemplateVersions :: Lude.Maybe [LaunchTemplateVersion],
+  { -- | Information about the launch template versions.
+    launchTemplateVersions :: Core.Maybe [Types.LaunchTemplateVersion],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeLaunchTemplateVersionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'launchTemplateVersions' - Information about the launch template versions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLaunchTemplateVersionsResponse' value with any optional fields omitted.
 mkDescribeLaunchTemplateVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLaunchTemplateVersionsResponse
-mkDescribeLaunchTemplateVersionsResponse pResponseStatus_ =
+mkDescribeLaunchTemplateVersionsResponse responseStatus =
   DescribeLaunchTemplateVersionsResponse'
-    { nextToken = Lude.Nothing,
-      launchTemplateVersions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { launchTemplateVersions =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsrsNextToken :: Lens.Lens' DescribeLaunchTemplateVersionsResponse (Lude.Maybe Lude.Text)
-dltvsrsNextToken = Lens.lens (nextToken :: DescribeLaunchTemplateVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchTemplateVersionsResponse)
-{-# DEPRECATED dltvsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the launch template versions.
 --
 -- /Note:/ Consider using 'launchTemplateVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsrsLaunchTemplateVersions :: Lens.Lens' DescribeLaunchTemplateVersionsResponse (Lude.Maybe [LaunchTemplateVersion])
-dltvsrsLaunchTemplateVersions = Lens.lens (launchTemplateVersions :: DescribeLaunchTemplateVersionsResponse -> Lude.Maybe [LaunchTemplateVersion]) (\s a -> s {launchTemplateVersions = a} :: DescribeLaunchTemplateVersionsResponse)
-{-# DEPRECATED dltvsrsLaunchTemplateVersions "Use generic-lens or generic-optics with 'launchTemplateVersions' instead." #-}
+dltvrfrsLaunchTemplateVersions :: Lens.Lens' DescribeLaunchTemplateVersionsResponse (Core.Maybe [Types.LaunchTemplateVersion])
+dltvrfrsLaunchTemplateVersions = Lens.field @"launchTemplateVersions"
+{-# DEPRECATED dltvrfrsLaunchTemplateVersions "Use generic-lens or generic-optics with 'launchTemplateVersions' instead." #-}
+
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvrfrsNextToken :: Lens.Lens' DescribeLaunchTemplateVersionsResponse (Core.Maybe Types.String)
+dltvrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dltvrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvsrsResponseStatus :: Lens.Lens' DescribeLaunchTemplateVersionsResponse Lude.Int
-dltvsrsResponseStatus = Lens.lens (responseStatus :: DescribeLaunchTemplateVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLaunchTemplateVersionsResponse)
-{-# DEPRECATED dltvsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dltvrfrsResponseStatus :: Lens.Lens' DescribeLaunchTemplateVersionsResponse Core.Int
+dltvrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dltvrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

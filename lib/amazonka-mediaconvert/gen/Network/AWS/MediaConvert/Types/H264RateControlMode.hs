@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.H264RateControlMode
   ( H264RateControlMode
       ( H264RateControlMode',
-        HVbr,
-        HCbr,
-        HQvbr
+        H264RateControlModeVbr,
+        H264RateControlModeCbr,
+        H264RateControlModeQvbr,
+        fromH264RateControlMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
-newtype H264RateControlMode = H264RateControlMode' Lude.Text
+newtype H264RateControlMode = H264RateControlMode'
+  { fromH264RateControlMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HVbr :: H264RateControlMode
-pattern HVbr = H264RateControlMode' "VBR"
+pattern H264RateControlModeVbr :: H264RateControlMode
+pattern H264RateControlModeVbr = H264RateControlMode' "VBR"
 
-pattern HCbr :: H264RateControlMode
-pattern HCbr = H264RateControlMode' "CBR"
+pattern H264RateControlModeCbr :: H264RateControlMode
+pattern H264RateControlModeCbr = H264RateControlMode' "CBR"
 
-pattern HQvbr :: H264RateControlMode
-pattern HQvbr = H264RateControlMode' "QVBR"
+pattern H264RateControlModeQvbr :: H264RateControlMode
+pattern H264RateControlModeQvbr = H264RateControlMode' "QVBR"
 
 {-# COMPLETE
-  HVbr,
-  HCbr,
-  HQvbr,
+  H264RateControlModeVbr,
+  H264RateControlModeCbr,
+  H264RateControlModeQvbr,
   H264RateControlMode'
   #-}

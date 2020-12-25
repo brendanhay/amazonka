@@ -18,120 +18,111 @@ module Network.AWS.ECS.Types.Volume
 
     -- * Lenses
     vDockerVolumeConfiguration,
-    vFsxWindowsFileServerVolumeConfiguration,
-    vName,
     vEfsVolumeConfiguration,
+    vFsxWindowsFileServerVolumeConfiguration,
     vHost,
+    vName,
   )
 where
 
-import Network.AWS.ECS.Types.DockerVolumeConfiguration
-import Network.AWS.ECS.Types.EFSVolumeConfiguration
-import Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
-import Network.AWS.ECS.Types.HostVolumeProperties
+import qualified Network.AWS.ECS.Types.DockerVolumeConfiguration as Types
+import qualified Network.AWS.ECS.Types.EFSVolumeConfiguration as Types
+import qualified Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration as Types
+import qualified Network.AWS.ECS.Types.HostVolumeProperties as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A data volume used in a task definition. For tasks that use the Amazon Elastic File System (Amazon EFS), specify an @efsVolumeConfiguration@ . For Windows tasks that use Amazon FSx for Windows File Server file system, specify a @fsxWindowsFileServerVolumeConfiguration@ . For tasks that use a Docker volume, specify a @DockerVolumeConfiguration@ . For tasks that use a bind mount host volume, specify a @host@ and optional @sourcePath@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html Using Data Volumes in Tasks> .
 --
 -- /See:/ 'mkVolume' smart constructor.
 data Volume = Volume'
   { -- | This parameter is specified when you are using Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the @local@ driver. To use bind mounts, specify the @host@ parameter instead.
-    dockerVolumeConfiguration :: Lude.Maybe DockerVolumeConfiguration,
-    -- | This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
-    fsxWindowsFileServerVolumeConfiguration :: Lude.Maybe FSxWindowsFileServerVolumeConfiguration,
-    -- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
-    name :: Lude.Maybe Lude.Text,
+    dockerVolumeConfiguration :: Core.Maybe Types.DockerVolumeConfiguration,
     -- | This parameter is specified when you are using an Amazon Elastic File System file system for task storage.
-    efsVolumeConfiguration :: Lude.Maybe EFSVolumeConfiguration,
+    efsVolumeConfiguration :: Core.Maybe Types.EFSVolumeConfiguration,
+    -- | This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
+    fsxWindowsFileServerVolumeConfiguration :: Core.Maybe Types.FSxWindowsFileServerVolumeConfiguration,
     -- | This parameter is specified when you are using bind mount host volumes. The contents of the @host@ parameter determine whether your bind mount host volume persists on the host container instance and where it is stored. If the @host@ parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
     --
     -- Windows containers can mount whole directories on the same drive as @> env:ProgramData@ . Windows containers cannot mount directories on a different drive, and mount point cannot be across drives. For example, you can mount @C:\my\path:C:\my\path@ and @D:\:D:\@ , but not @D:\my\path:C:\my\path@ or @D:\:C:\my\path@ .
-    host :: Lude.Maybe HostVolumeProperties
+    host :: Core.Maybe Types.HostVolumeProperties,
+    -- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Volume' with the minimum fields required to make a request.
---
--- * 'dockerVolumeConfiguration' - This parameter is specified when you are using Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the @local@ driver. To use bind mounts, specify the @host@ parameter instead.
--- * 'fsxWindowsFileServerVolumeConfiguration' - This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
--- * 'name' - The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
--- * 'efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File System file system for task storage.
--- * 'host' - This parameter is specified when you are using bind mount host volumes. The contents of the @host@ parameter determine whether your bind mount host volume persists on the host container instance and where it is stored. If the @host@ parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
---
--- Windows containers can mount whole directories on the same drive as @> env:ProgramData@ . Windows containers cannot mount directories on a different drive, and mount point cannot be across drives. For example, you can mount @C:\my\path:C:\my\path@ and @D:\:D:\@ , but not @D:\my\path:C:\my\path@ or @D:\:C:\my\path@ .
+-- | Creates a 'Volume' value with any optional fields omitted.
 mkVolume ::
   Volume
 mkVolume =
   Volume'
-    { dockerVolumeConfiguration = Lude.Nothing,
-      fsxWindowsFileServerVolumeConfiguration = Lude.Nothing,
-      name = Lude.Nothing,
-      efsVolumeConfiguration = Lude.Nothing,
-      host = Lude.Nothing
+    { dockerVolumeConfiguration = Core.Nothing,
+      efsVolumeConfiguration = Core.Nothing,
+      fsxWindowsFileServerVolumeConfiguration = Core.Nothing,
+      host = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | This parameter is specified when you are using Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the @local@ driver. To use bind mounts, specify the @host@ parameter instead.
 --
 -- /Note:/ Consider using 'dockerVolumeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vDockerVolumeConfiguration :: Lens.Lens' Volume (Lude.Maybe DockerVolumeConfiguration)
-vDockerVolumeConfiguration = Lens.lens (dockerVolumeConfiguration :: Volume -> Lude.Maybe DockerVolumeConfiguration) (\s a -> s {dockerVolumeConfiguration = a} :: Volume)
+vDockerVolumeConfiguration :: Lens.Lens' Volume (Core.Maybe Types.DockerVolumeConfiguration)
+vDockerVolumeConfiguration = Lens.field @"dockerVolumeConfiguration"
 {-# DEPRECATED vDockerVolumeConfiguration "Use generic-lens or generic-optics with 'dockerVolumeConfiguration' instead." #-}
-
--- | This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
---
--- /Note:/ Consider using 'fsxWindowsFileServerVolumeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vFsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Lude.Maybe FSxWindowsFileServerVolumeConfiguration)
-vFsxWindowsFileServerVolumeConfiguration = Lens.lens (fsxWindowsFileServerVolumeConfiguration :: Volume -> Lude.Maybe FSxWindowsFileServerVolumeConfiguration) (\s a -> s {fsxWindowsFileServerVolumeConfiguration = a} :: Volume)
-{-# DEPRECATED vFsxWindowsFileServerVolumeConfiguration "Use generic-lens or generic-optics with 'fsxWindowsFileServerVolumeConfiguration' instead." #-}
-
--- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vName :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vName = Lens.lens (name :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Volume)
-{-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | This parameter is specified when you are using an Amazon Elastic File System file system for task storage.
 --
 -- /Note:/ Consider using 'efsVolumeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vEfsVolumeConfiguration :: Lens.Lens' Volume (Lude.Maybe EFSVolumeConfiguration)
-vEfsVolumeConfiguration = Lens.lens (efsVolumeConfiguration :: Volume -> Lude.Maybe EFSVolumeConfiguration) (\s a -> s {efsVolumeConfiguration = a} :: Volume)
+vEfsVolumeConfiguration :: Lens.Lens' Volume (Core.Maybe Types.EFSVolumeConfiguration)
+vEfsVolumeConfiguration = Lens.field @"efsVolumeConfiguration"
 {-# DEPRECATED vEfsVolumeConfiguration "Use generic-lens or generic-optics with 'efsVolumeConfiguration' instead." #-}
+
+-- | This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
+--
+-- /Note:/ Consider using 'fsxWindowsFileServerVolumeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vFsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Core.Maybe Types.FSxWindowsFileServerVolumeConfiguration)
+vFsxWindowsFileServerVolumeConfiguration = Lens.field @"fsxWindowsFileServerVolumeConfiguration"
+{-# DEPRECATED vFsxWindowsFileServerVolumeConfiguration "Use generic-lens or generic-optics with 'fsxWindowsFileServerVolumeConfiguration' instead." #-}
 
 -- | This parameter is specified when you are using bind mount host volumes. The contents of the @host@ parameter determine whether your bind mount host volume persists on the host container instance and where it is stored. If the @host@ parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
 --
 -- Windows containers can mount whole directories on the same drive as @> env:ProgramData@ . Windows containers cannot mount directories on a different drive, and mount point cannot be across drives. For example, you can mount @C:\my\path:C:\my\path@ and @D:\:D:\@ , but not @D:\my\path:C:\my\path@ or @D:\:C:\my\path@ .
 --
 -- /Note:/ Consider using 'host' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vHost :: Lens.Lens' Volume (Lude.Maybe HostVolumeProperties)
-vHost = Lens.lens (host :: Volume -> Lude.Maybe HostVolumeProperties) (\s a -> s {host = a} :: Volume)
+vHost :: Lens.Lens' Volume (Core.Maybe Types.HostVolumeProperties)
+vHost = Lens.field @"host"
 {-# DEPRECATED vHost "Use generic-lens or generic-optics with 'host' instead." #-}
 
-instance Lude.FromJSON Volume where
-  parseJSON =
-    Lude.withObject
-      "Volume"
-      ( \x ->
-          Volume'
-            Lude.<$> (x Lude..:? "dockerVolumeConfiguration")
-            Lude.<*> (x Lude..:? "fsxWindowsFileServerVolumeConfiguration")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "efsVolumeConfiguration")
-            Lude.<*> (x Lude..:? "host")
-      )
+-- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vName :: Lens.Lens' Volume (Core.Maybe Types.String)
+vName = Lens.field @"name"
+{-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON Volume where
-  toJSON Volume' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("dockerVolumeConfiguration" Lude..=)
-              Lude.<$> dockerVolumeConfiguration,
-            ("fsxWindowsFileServerVolumeConfiguration" Lude..=)
-              Lude.<$> fsxWindowsFileServerVolumeConfiguration,
-            ("name" Lude..=) Lude.<$> name,
-            ("efsVolumeConfiguration" Lude..=) Lude.<$> efsVolumeConfiguration,
-            ("host" Lude..=) Lude.<$> host
+instance Core.FromJSON Volume where
+  toJSON Volume {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("dockerVolumeConfiguration" Core..=)
+              Core.<$> dockerVolumeConfiguration,
+            ("efsVolumeConfiguration" Core..=) Core.<$> efsVolumeConfiguration,
+            ("fsxWindowsFileServerVolumeConfiguration" Core..=)
+              Core.<$> fsxWindowsFileServerVolumeConfiguration,
+            ("host" Core..=) Core.<$> host,
+            ("name" Core..=) Core.<$> name
           ]
       )
+
+instance Core.FromJSON Volume where
+  parseJSON =
+    Core.withObject "Volume" Core.$
+      \x ->
+        Volume'
+          Core.<$> (x Core..:? "dockerVolumeConfiguration")
+          Core.<*> (x Core..:? "efsVolumeConfiguration")
+          Core.<*> (x Core..:? "fsxWindowsFileServerVolumeConfiguration")
+          Core.<*> (x Core..:? "host")
+          Core.<*> (x Core..:? "name")

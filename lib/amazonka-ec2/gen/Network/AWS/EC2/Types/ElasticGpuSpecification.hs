@@ -21,36 +21,30 @@ module Network.AWS.EC2.Types.ElasticGpuSpecification
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A specification for an Elastic Graphics accelerator.
 --
 -- /See:/ 'mkElasticGpuSpecification' smart constructor.
 newtype ElasticGpuSpecification = ElasticGpuSpecification'
   { -- | The type of Elastic Graphics accelerator. For more information about the values to specify for @Type@ , see <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics> , specifically the Elastic Graphics accelerator column, in the /Amazon Elastic Compute Cloud User Guide for Windows Instances/ .
-    type' :: Lude.Text
+    type' :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticGpuSpecification' with the minimum fields required to make a request.
---
--- * 'type'' - The type of Elastic Graphics accelerator. For more information about the values to specify for @Type@ , see <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics> , specifically the Elastic Graphics accelerator column, in the /Amazon Elastic Compute Cloud User Guide for Windows Instances/ .
+-- | Creates a 'ElasticGpuSpecification' value with any optional fields omitted.
 mkElasticGpuSpecification ::
-  -- | 'type''
-  Lude.Text ->
+  -- | 'type\''
+  Types.String ->
   ElasticGpuSpecification
-mkElasticGpuSpecification pType_ =
-  ElasticGpuSpecification' {type' = pType_}
+mkElasticGpuSpecification type' = ElasticGpuSpecification' {type'}
 
 -- | The type of Elastic Graphics accelerator. For more information about the values to specify for @Type@ , see <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics> , specifically the Elastic Graphics accelerator column, in the /Amazon Elastic Compute Cloud User Guide for Windows Instances/ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egsType :: Lens.Lens' ElasticGpuSpecification Lude.Text
-egsType = Lens.lens (type' :: ElasticGpuSpecification -> Lude.Text) (\s a -> s {type' = a} :: ElasticGpuSpecification)
+egsType :: Lens.Lens' ElasticGpuSpecification Types.String
+egsType = Lens.field @"type'"
 {-# DEPRECATED egsType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
-instance Lude.ToQuery ElasticGpuSpecification where
-  toQuery ElasticGpuSpecification' {..} =
-    Lude.mconcat ["Type" Lude.=: type']

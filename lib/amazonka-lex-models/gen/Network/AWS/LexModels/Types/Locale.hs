@@ -13,86 +13,88 @@
 module Network.AWS.LexModels.Types.Locale
   ( Locale
       ( Locale',
-        DeDe,
-        EnAu,
-        EnGb,
-        EnUs,
-        Es419,
-        EsEs,
-        EsUs,
-        FrFr,
-        FrCa,
-        ItIt
+        LocaleDeDe,
+        LocaleEnAu,
+        LocaleEnGb,
+        LocaleEnUs,
+        LocaleEs419,
+        LocaleEsEs,
+        LocaleEsUs,
+        LocaleFrFr,
+        LocaleFrCa,
+        LocaleItIt,
+        fromLocale
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Locale = Locale' Lude.Text
+newtype Locale = Locale' {fromLocale :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DeDe :: Locale
-pattern DeDe = Locale' "de-DE"
+pattern LocaleDeDe :: Locale
+pattern LocaleDeDe = Locale' "de-DE"
 
-pattern EnAu :: Locale
-pattern EnAu = Locale' "en-AU"
+pattern LocaleEnAu :: Locale
+pattern LocaleEnAu = Locale' "en-AU"
 
-pattern EnGb :: Locale
-pattern EnGb = Locale' "en-GB"
+pattern LocaleEnGb :: Locale
+pattern LocaleEnGb = Locale' "en-GB"
 
-pattern EnUs :: Locale
-pattern EnUs = Locale' "en-US"
+pattern LocaleEnUs :: Locale
+pattern LocaleEnUs = Locale' "en-US"
 
-pattern Es419 :: Locale
-pattern Es419 = Locale' "es-419"
+pattern LocaleEs419 :: Locale
+pattern LocaleEs419 = Locale' "es-419"
 
-pattern EsEs :: Locale
-pattern EsEs = Locale' "es-ES"
+pattern LocaleEsEs :: Locale
+pattern LocaleEsEs = Locale' "es-ES"
 
-pattern EsUs :: Locale
-pattern EsUs = Locale' "es-US"
+pattern LocaleEsUs :: Locale
+pattern LocaleEsUs = Locale' "es-US"
 
-pattern FrFr :: Locale
-pattern FrFr = Locale' "fr-FR"
+pattern LocaleFrFr :: Locale
+pattern LocaleFrFr = Locale' "fr-FR"
 
-pattern FrCa :: Locale
-pattern FrCa = Locale' "fr-CA"
+pattern LocaleFrCa :: Locale
+pattern LocaleFrCa = Locale' "fr-CA"
 
-pattern ItIt :: Locale
-pattern ItIt = Locale' "it-IT"
+pattern LocaleItIt :: Locale
+pattern LocaleItIt = Locale' "it-IT"
 
 {-# COMPLETE
-  DeDe,
-  EnAu,
-  EnGb,
-  EnUs,
-  Es419,
-  EsEs,
-  EsUs,
-  FrFr,
-  FrCa,
-  ItIt,
+  LocaleDeDe,
+  LocaleEnAu,
+  LocaleEnGb,
+  LocaleEnUs,
+  LocaleEs419,
+  LocaleEsEs,
+  LocaleEsUs,
+  LocaleFrFr,
+  LocaleFrCa,
+  LocaleItIt,
   Locale'
   #-}

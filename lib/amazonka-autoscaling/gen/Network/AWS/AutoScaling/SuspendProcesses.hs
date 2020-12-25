@@ -32,16 +32,16 @@ module Network.AWS.AutoScaling.SuspendProcesses
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSuspendProcesses' smart constructor.
 data SuspendProcesses = SuspendProcesses'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
+    autoScalingGroupName :: Types.ResourceName,
     -- | One or more of the following processes:
     --
     --
@@ -73,60 +73,27 @@ data SuspendProcesses = SuspendProcesses'
     --
     --
     -- If you omit this parameter, all processes are specified.
-    scalingProcesses :: Lude.Maybe [Lude.Text]
+    scalingProcesses :: Core.Maybe [Types.XmlStringMaxLen255]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuspendProcesses' with the minimum fields required to make a request.
---
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'scalingProcesses' - One or more of the following processes:
---
---
---     * @Launch@
---
---
---     * @Terminate@
---
---
---     * @AddToLoadBalancer@
---
---
---     * @AlarmNotification@
---
---
---     * @AZRebalance@
---
---
---     * @HealthCheck@
---
---
---     * @InstanceRefresh@
---
---
---     * @ReplaceUnhealthy@
---
---
---     * @ScheduledActions@
---
---
--- If you omit this parameter, all processes are specified.
+-- | Creates a 'SuspendProcesses' value with any optional fields omitted.
 mkSuspendProcesses ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
   SuspendProcesses
-mkSuspendProcesses pAutoScalingGroupName_ =
+mkSuspendProcesses autoScalingGroupName =
   SuspendProcesses'
-    { autoScalingGroupName = pAutoScalingGroupName_,
-      scalingProcesses = Lude.Nothing
+    { autoScalingGroupName,
+      scalingProcesses = Core.Nothing
     }
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAutoScalingGroupName :: Lens.Lens' SuspendProcesses Lude.Text
-sAutoScalingGroupName = Lens.lens (autoScalingGroupName :: SuspendProcesses -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: SuspendProcesses)
+sAutoScalingGroupName :: Lens.Lens' SuspendProcesses Types.ResourceName
+sAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED sAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One or more of the following processes:
@@ -162,37 +129,42 @@ sAutoScalingGroupName = Lens.lens (autoScalingGroupName :: SuspendProcesses -> L
 -- If you omit this parameter, all processes are specified.
 --
 -- /Note:/ Consider using 'scalingProcesses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sScalingProcesses :: Lens.Lens' SuspendProcesses (Lude.Maybe [Lude.Text])
-sScalingProcesses = Lens.lens (scalingProcesses :: SuspendProcesses -> Lude.Maybe [Lude.Text]) (\s a -> s {scalingProcesses = a} :: SuspendProcesses)
+sScalingProcesses :: Lens.Lens' SuspendProcesses (Core.Maybe [Types.XmlStringMaxLen255])
+sScalingProcesses = Lens.field @"scalingProcesses"
 {-# DEPRECATED sScalingProcesses "Use generic-lens or generic-optics with 'scalingProcesses' instead." #-}
 
-instance Lude.AWSRequest SuspendProcesses where
+instance Core.AWSRequest SuspendProcesses where
   type Rs SuspendProcesses = SuspendProcessesResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull SuspendProcessesResponse'
-
-instance Lude.ToHeaders SuspendProcesses where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SuspendProcesses where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SuspendProcesses where
-  toQuery SuspendProcesses' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SuspendProcesses" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "ScalingProcesses"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses)
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SuspendProcesses")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "ScalingProcesses"
+                            (Core.toQueryList "member" Core.<$> scalingProcesses)
+                        )
+            )
+      }
+  response = Response.receiveNull SuspendProcessesResponse'
 
 -- | /See:/ 'mkSuspendProcessesResponse' smart constructor.
 data SuspendProcessesResponse = SuspendProcessesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuspendProcessesResponse' with the minimum fields required to make a request.
+-- | Creates a 'SuspendProcessesResponse' value with any optional fields omitted.
 mkSuspendProcessesResponse ::
   SuspendProcessesResponse
 mkSuspendProcessesResponse = SuspendProcessesResponse'

@@ -17,25 +17,29 @@ module Network.AWS.IAM.Types.EvaluationResult
     mkEvaluationResult,
 
     -- * Lenses
-    erMatchedStatements,
-    erEvalDecisionDetails,
     erEvalActionName,
-    erResourceSpecificResults,
-    erEvalResourceName,
-    erMissingContextValues,
     erEvalDecision,
-    erPermissionsBoundaryDecisionDetail,
+    erEvalDecisionDetails,
+    erEvalResourceName,
+    erMatchedStatements,
+    erMissingContextValues,
     erOrganizationsDecisionDetail,
+    erPermissionsBoundaryDecisionDetail,
+    erResourceSpecificResults,
   )
 where
 
-import Network.AWS.IAM.Types.OrganizationsDecisionDetail
-import Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail
-import Network.AWS.IAM.Types.PolicyEvaluationDecisionType
-import Network.AWS.IAM.Types.ResourceSpecificResult
-import Network.AWS.IAM.Types.Statement
+import qualified Network.AWS.IAM.Types.ContextKeyNameType as Types
+import qualified Network.AWS.IAM.Types.EvalActionName as Types
+import qualified Network.AWS.IAM.Types.EvalDecisionSourceType as Types
+import qualified Network.AWS.IAM.Types.EvalResourceName as Types
+import qualified Network.AWS.IAM.Types.OrganizationsDecisionDetail as Types
+import qualified Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail as Types
+import qualified Network.AWS.IAM.Types.PolicyEvaluationDecisionType as Types
+import qualified Network.AWS.IAM.Types.ResourceSpecificResult as Types
+import qualified Network.AWS.IAM.Types.Statement as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the results of a simulation.
 --
@@ -43,72 +47,65 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
-    matchedStatements :: Lude.Maybe [Statement],
+  { -- | The name of the API operation tested on the indicated resource.
+    evalActionName :: Types.EvalActionName,
+    -- | The result of the simulation.
+    evalDecision :: Types.PolicyEvaluationDecisionType,
     -- | Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.
     --
     -- If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (@*@ ), then the parameter is not returned.
     -- When you make a cross-account request, AWS evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return @true@ . For more information about how policies are evaluated, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating Policies Within a Single Account> .
     -- If an AWS Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.
-    evalDecisionDetails :: Lude.Maybe (Lude.HashMap Lude.Text (PolicyEvaluationDecisionType)),
-    -- | The name of the API operation tested on the indicated resource.
-    evalActionName :: Lude.Text,
-    -- | The individual results of the simulation of the API operation specified in EvalActionName on each resource.
-    resourceSpecificResults :: Lude.Maybe [ResourceSpecificResult],
+    evalDecisionDetails :: Core.Maybe (Core.HashMap Types.EvalDecisionSourceType Types.PolicyEvaluationDecisionType),
     -- | The ARN of the resource that the indicated API operation was tested on.
-    evalResourceName :: Lude.Maybe Lude.Text,
+    evalResourceName :: Core.Maybe Types.EvalResourceName,
+    -- | A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
+    matchedStatements :: Core.Maybe [Types.Statement],
     -- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the @ResourceArns@ parameter blank. If you include a list of resources, then any missing context values are instead included under the @ResourceSpecificResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
-    missingContextValues :: Lude.Maybe [Lude.Text],
-    -- | The result of the simulation.
-    evalDecision :: PolicyEvaluationDecisionType,
-    -- | Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.
-    permissionsBoundaryDecisionDetail :: Lude.Maybe PermissionsBoundaryDecisionDetail,
+    missingContextValues :: Core.Maybe [Types.ContextKeyNameType],
     -- | A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
-    organizationsDecisionDetail :: Lude.Maybe OrganizationsDecisionDetail
+    organizationsDecisionDetail :: Core.Maybe Types.OrganizationsDecisionDetail,
+    -- | Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.
+    permissionsBoundaryDecisionDetail :: Core.Maybe Types.PermissionsBoundaryDecisionDetail,
+    -- | The individual results of the simulation of the API operation specified in EvalActionName on each resource.
+    resourceSpecificResults :: Core.Maybe [Types.ResourceSpecificResult]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
---
--- * 'matchedStatements' - A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
--- * 'evalDecisionDetails' - Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.
---
--- If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (@*@ ), then the parameter is not returned.
--- When you make a cross-account request, AWS evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return @true@ . For more information about how policies are evaluated, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating Policies Within a Single Account> .
--- If an AWS Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.
--- * 'evalActionName' - The name of the API operation tested on the indicated resource.
--- * 'resourceSpecificResults' - The individual results of the simulation of the API operation specified in EvalActionName on each resource.
--- * 'evalResourceName' - The ARN of the resource that the indicated API operation was tested on.
--- * 'missingContextValues' - A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the @ResourceArns@ parameter blank. If you include a list of resources, then any missing context values are instead included under the @ResourceSpecificResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
--- * 'evalDecision' - The result of the simulation.
--- * 'permissionsBoundaryDecisionDetail' - Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.
--- * 'organizationsDecisionDetail' - A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+-- | Creates a 'EvaluationResult' value with any optional fields omitted.
 mkEvaluationResult ::
   -- | 'evalActionName'
-  Lude.Text ->
+  Types.EvalActionName ->
   -- | 'evalDecision'
-  PolicyEvaluationDecisionType ->
+  Types.PolicyEvaluationDecisionType ->
   EvaluationResult
-mkEvaluationResult pEvalActionName_ pEvalDecision_ =
+mkEvaluationResult evalActionName evalDecision =
   EvaluationResult'
-    { matchedStatements = Lude.Nothing,
-      evalDecisionDetails = Lude.Nothing,
-      evalActionName = pEvalActionName_,
-      resourceSpecificResults = Lude.Nothing,
-      evalResourceName = Lude.Nothing,
-      missingContextValues = Lude.Nothing,
-      evalDecision = pEvalDecision_,
-      permissionsBoundaryDecisionDetail = Lude.Nothing,
-      organizationsDecisionDetail = Lude.Nothing
+    { evalActionName,
+      evalDecision,
+      evalDecisionDetails = Core.Nothing,
+      evalResourceName = Core.Nothing,
+      matchedStatements = Core.Nothing,
+      missingContextValues = Core.Nothing,
+      organizationsDecisionDetail = Core.Nothing,
+      permissionsBoundaryDecisionDetail = Core.Nothing,
+      resourceSpecificResults = Core.Nothing
     }
 
--- | A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
+-- | The name of the API operation tested on the indicated resource.
 --
--- /Note:/ Consider using 'matchedStatements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erMatchedStatements :: Lens.Lens' EvaluationResult (Lude.Maybe [Statement])
-erMatchedStatements = Lens.lens (matchedStatements :: EvaluationResult -> Lude.Maybe [Statement]) (\s a -> s {matchedStatements = a} :: EvaluationResult)
-{-# DEPRECATED erMatchedStatements "Use generic-lens or generic-optics with 'matchedStatements' instead." #-}
+-- /Note:/ Consider using 'evalActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erEvalActionName :: Lens.Lens' EvaluationResult Types.EvalActionName
+erEvalActionName = Lens.field @"evalActionName"
+{-# DEPRECATED erEvalActionName "Use generic-lens or generic-optics with 'evalActionName' instead." #-}
+
+-- | The result of the simulation.
+--
+-- /Note:/ Consider using 'evalDecision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erEvalDecision :: Lens.Lens' EvaluationResult Types.PolicyEvaluationDecisionType
+erEvalDecision = Lens.field @"evalDecision"
+{-# DEPRECATED erEvalDecision "Use generic-lens or generic-optics with 'evalDecision' instead." #-}
 
 -- | Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.
 --
@@ -117,76 +114,69 @@ erMatchedStatements = Lens.lens (matchedStatements :: EvaluationResult -> Lude.M
 -- If an AWS Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.
 --
 -- /Note:/ Consider using 'evalDecisionDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erEvalDecisionDetails :: Lens.Lens' EvaluationResult (Lude.Maybe (Lude.HashMap Lude.Text (PolicyEvaluationDecisionType)))
-erEvalDecisionDetails = Lens.lens (evalDecisionDetails :: EvaluationResult -> Lude.Maybe (Lude.HashMap Lude.Text (PolicyEvaluationDecisionType))) (\s a -> s {evalDecisionDetails = a} :: EvaluationResult)
+erEvalDecisionDetails :: Lens.Lens' EvaluationResult (Core.Maybe (Core.HashMap Types.EvalDecisionSourceType Types.PolicyEvaluationDecisionType))
+erEvalDecisionDetails = Lens.field @"evalDecisionDetails"
 {-# DEPRECATED erEvalDecisionDetails "Use generic-lens or generic-optics with 'evalDecisionDetails' instead." #-}
-
--- | The name of the API operation tested on the indicated resource.
---
--- /Note:/ Consider using 'evalActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erEvalActionName :: Lens.Lens' EvaluationResult Lude.Text
-erEvalActionName = Lens.lens (evalActionName :: EvaluationResult -> Lude.Text) (\s a -> s {evalActionName = a} :: EvaluationResult)
-{-# DEPRECATED erEvalActionName "Use generic-lens or generic-optics with 'evalActionName' instead." #-}
-
--- | The individual results of the simulation of the API operation specified in EvalActionName on each resource.
---
--- /Note:/ Consider using 'resourceSpecificResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erResourceSpecificResults :: Lens.Lens' EvaluationResult (Lude.Maybe [ResourceSpecificResult])
-erResourceSpecificResults = Lens.lens (resourceSpecificResults :: EvaluationResult -> Lude.Maybe [ResourceSpecificResult]) (\s a -> s {resourceSpecificResults = a} :: EvaluationResult)
-{-# DEPRECATED erResourceSpecificResults "Use generic-lens or generic-optics with 'resourceSpecificResults' instead." #-}
 
 -- | The ARN of the resource that the indicated API operation was tested on.
 --
 -- /Note:/ Consider using 'evalResourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erEvalResourceName :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Text)
-erEvalResourceName = Lens.lens (evalResourceName :: EvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {evalResourceName = a} :: EvaluationResult)
+erEvalResourceName :: Lens.Lens' EvaluationResult (Core.Maybe Types.EvalResourceName)
+erEvalResourceName = Lens.field @"evalResourceName"
 {-# DEPRECATED erEvalResourceName "Use generic-lens or generic-optics with 'evalResourceName' instead." #-}
+
+-- | A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
+--
+-- /Note:/ Consider using 'matchedStatements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erMatchedStatements :: Lens.Lens' EvaluationResult (Core.Maybe [Types.Statement])
+erMatchedStatements = Lens.field @"matchedStatements"
+{-# DEPRECATED erMatchedStatements "Use generic-lens or generic-optics with 'matchedStatements' instead." #-}
 
 -- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the @ResourceArns@ parameter blank. If you include a list of resources, then any missing context values are instead included under the @ResourceSpecificResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
 --
 -- /Note:/ Consider using 'missingContextValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erMissingContextValues :: Lens.Lens' EvaluationResult (Lude.Maybe [Lude.Text])
-erMissingContextValues = Lens.lens (missingContextValues :: EvaluationResult -> Lude.Maybe [Lude.Text]) (\s a -> s {missingContextValues = a} :: EvaluationResult)
+erMissingContextValues :: Lens.Lens' EvaluationResult (Core.Maybe [Types.ContextKeyNameType])
+erMissingContextValues = Lens.field @"missingContextValues"
 {-# DEPRECATED erMissingContextValues "Use generic-lens or generic-optics with 'missingContextValues' instead." #-}
-
--- | The result of the simulation.
---
--- /Note:/ Consider using 'evalDecision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erEvalDecision :: Lens.Lens' EvaluationResult PolicyEvaluationDecisionType
-erEvalDecision = Lens.lens (evalDecision :: EvaluationResult -> PolicyEvaluationDecisionType) (\s a -> s {evalDecision = a} :: EvaluationResult)
-{-# DEPRECATED erEvalDecision "Use generic-lens or generic-optics with 'evalDecision' instead." #-}
-
--- | Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.
---
--- /Note:/ Consider using 'permissionsBoundaryDecisionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erPermissionsBoundaryDecisionDetail :: Lens.Lens' EvaluationResult (Lude.Maybe PermissionsBoundaryDecisionDetail)
-erPermissionsBoundaryDecisionDetail = Lens.lens (permissionsBoundaryDecisionDetail :: EvaluationResult -> Lude.Maybe PermissionsBoundaryDecisionDetail) (\s a -> s {permissionsBoundaryDecisionDetail = a} :: EvaluationResult)
-{-# DEPRECATED erPermissionsBoundaryDecisionDetail "Use generic-lens or generic-optics with 'permissionsBoundaryDecisionDetail' instead." #-}
 
 -- | A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
 --
 -- /Note:/ Consider using 'organizationsDecisionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erOrganizationsDecisionDetail :: Lens.Lens' EvaluationResult (Lude.Maybe OrganizationsDecisionDetail)
-erOrganizationsDecisionDetail = Lens.lens (organizationsDecisionDetail :: EvaluationResult -> Lude.Maybe OrganizationsDecisionDetail) (\s a -> s {organizationsDecisionDetail = a} :: EvaluationResult)
+erOrganizationsDecisionDetail :: Lens.Lens' EvaluationResult (Core.Maybe Types.OrganizationsDecisionDetail)
+erOrganizationsDecisionDetail = Lens.field @"organizationsDecisionDetail"
 {-# DEPRECATED erOrganizationsDecisionDetail "Use generic-lens or generic-optics with 'organizationsDecisionDetail' instead." #-}
 
-instance Lude.FromXML EvaluationResult where
+-- | Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.
+--
+-- /Note:/ Consider using 'permissionsBoundaryDecisionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erPermissionsBoundaryDecisionDetail :: Lens.Lens' EvaluationResult (Core.Maybe Types.PermissionsBoundaryDecisionDetail)
+erPermissionsBoundaryDecisionDetail = Lens.field @"permissionsBoundaryDecisionDetail"
+{-# DEPRECATED erPermissionsBoundaryDecisionDetail "Use generic-lens or generic-optics with 'permissionsBoundaryDecisionDetail' instead." #-}
+
+-- | The individual results of the simulation of the API operation specified in EvalActionName on each resource.
+--
+-- /Note:/ Consider using 'resourceSpecificResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erResourceSpecificResults :: Lens.Lens' EvaluationResult (Core.Maybe [Types.ResourceSpecificResult])
+erResourceSpecificResults = Lens.field @"resourceSpecificResults"
+{-# DEPRECATED erResourceSpecificResults "Use generic-lens or generic-optics with 'resourceSpecificResults' instead." #-}
+
+instance Core.FromXML EvaluationResult where
   parseXML x =
     EvaluationResult'
-      Lude.<$> ( x Lude..@? "MatchedStatements" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@ "EvalActionName")
+      Core.<*> (x Core..@ "EvalDecision")
+      Core.<*> ( x Core..@? "EvalDecisionDetails"
+                   Core..<@> Core.parseXMLMap "entry" "key" "value"
                )
-      Lude.<*> ( x Lude..@? "EvalDecisionDetails" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+      Core.<*> (x Core..@? "EvalResourceName")
+      Core.<*> ( x Core..@? "MatchedStatements"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@ "EvalActionName")
-      Lude.<*> ( x Lude..@? "ResourceSpecificResults" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> ( x Core..@? "MissingContextValues"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "EvalResourceName")
-      Lude.<*> ( x Lude..@? "MissingContextValues" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> (x Core..@? "OrganizationsDecisionDetail")
+      Core.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
+      Core.<*> ( x Core..@? "ResourceSpecificResults"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@ "EvalDecision")
-      Lude.<*> (x Lude..@? "PermissionsBoundaryDecisionDetail")
-      Lude.<*> (x Lude..@? "OrganizationsDecisionDetail")

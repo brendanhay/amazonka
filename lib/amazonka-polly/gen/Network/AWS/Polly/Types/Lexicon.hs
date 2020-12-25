@@ -23,47 +23,44 @@ module Network.AWS.Polly.Types.Lexicon
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Polly.Types.Content as Types
+import qualified Network.AWS.Polly.Types.LexiconName as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides lexicon name and lexicon content in string format. For more information, see <https://www.w3.org/TR/pronunciation-lexicon/ Pronunciation Lexicon Specification (PLS) Version 1.0> .
 --
 -- /See:/ 'mkLexicon' smart constructor.
 data Lexicon = Lexicon'
   { -- | Lexicon content in string format. The content of a lexicon must be in PLS format.
-    content :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    content :: Core.Maybe Types.Content,
     -- | Name of the lexicon.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.LexiconName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Lexicon' with the minimum fields required to make a request.
---
--- * 'content' - Lexicon content in string format. The content of a lexicon must be in PLS format.
--- * 'name' - Name of the lexicon.
+-- | Creates a 'Lexicon' value with any optional fields omitted.
 mkLexicon ::
   Lexicon
-mkLexicon = Lexicon' {content = Lude.Nothing, name = Lude.Nothing}
+mkLexicon = Lexicon' {content = Core.Nothing, name = Core.Nothing}
 
 -- | Lexicon content in string format. The content of a lexicon must be in PLS format.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lContent :: Lens.Lens' Lexicon (Lude.Maybe (Lude.Sensitive Lude.Text))
-lContent = Lens.lens (content :: Lexicon -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {content = a} :: Lexicon)
+lContent :: Lens.Lens' Lexicon (Core.Maybe Types.Content)
+lContent = Lens.field @"content"
 {-# DEPRECATED lContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | Name of the lexicon.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lName :: Lens.Lens' Lexicon (Lude.Maybe Lude.Text)
-lName = Lens.lens (name :: Lexicon -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Lexicon)
+lName :: Lens.Lens' Lexicon (Core.Maybe Types.LexiconName)
+lName = Lens.field @"name"
 {-# DEPRECATED lName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON Lexicon where
+instance Core.FromJSON Lexicon where
   parseJSON =
-    Lude.withObject
-      "Lexicon"
-      ( \x ->
-          Lexicon'
-            Lude.<$> (x Lude..:? "Content") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "Lexicon" Core.$
+      \x ->
+        Lexicon'
+          Core.<$> (x Core..:? "Content") Core.<*> (x Core..:? "Name")

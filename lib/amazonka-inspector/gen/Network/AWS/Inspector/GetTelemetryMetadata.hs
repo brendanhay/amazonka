@@ -20,118 +20,106 @@ module Network.AWS.Inspector.GetTelemetryMetadata
     mkGetTelemetryMetadata,
 
     -- ** Request lenses
-    gtmAssessmentRunARN,
+    gtmAssessmentRunArn,
 
     -- * Destructuring the response
     GetTelemetryMetadataResponse (..),
     mkGetTelemetryMetadataResponse,
 
     -- ** Response lenses
-    gtmrsTelemetryMetadata,
-    gtmrsResponseStatus,
+    gtmrrsTelemetryMetadata,
+    gtmrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTelemetryMetadata' smart constructor.
 newtype GetTelemetryMetadata = GetTelemetryMetadata'
   { -- | The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
-    assessmentRunARN :: Lude.Text
+    assessmentRunArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTelemetryMetadata' with the minimum fields required to make a request.
---
--- * 'assessmentRunARN' - The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
+-- | Creates a 'GetTelemetryMetadata' value with any optional fields omitted.
 mkGetTelemetryMetadata ::
-  -- | 'assessmentRunARN'
-  Lude.Text ->
+  -- | 'assessmentRunArn'
+  Types.Arn ->
   GetTelemetryMetadata
-mkGetTelemetryMetadata pAssessmentRunARN_ =
-  GetTelemetryMetadata' {assessmentRunARN = pAssessmentRunARN_}
+mkGetTelemetryMetadata assessmentRunArn =
+  GetTelemetryMetadata' {assessmentRunArn}
 
 -- | The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
 --
--- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmAssessmentRunARN :: Lens.Lens' GetTelemetryMetadata Lude.Text
-gtmAssessmentRunARN = Lens.lens (assessmentRunARN :: GetTelemetryMetadata -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: GetTelemetryMetadata)
-{-# DEPRECATED gtmAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
+-- /Note:/ Consider using 'assessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtmAssessmentRunArn :: Lens.Lens' GetTelemetryMetadata Types.Arn
+gtmAssessmentRunArn = Lens.field @"assessmentRunArn"
+{-# DEPRECATED gtmAssessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead." #-}
 
-instance Lude.AWSRequest GetTelemetryMetadata where
+instance Core.FromJSON GetTelemetryMetadata where
+  toJSON GetTelemetryMetadata {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("assessmentRunArn" Core..= assessmentRunArn)]
+      )
+
+instance Core.AWSRequest GetTelemetryMetadata where
   type Rs GetTelemetryMetadata = GetTelemetryMetadataResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.GetTelemetryMetadata")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTelemetryMetadataResponse'
-            Lude.<$> (x Lude..?> "telemetryMetadata" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "telemetryMetadata" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTelemetryMetadata where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.GetTelemetryMetadata" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTelemetryMetadata where
-  toJSON GetTelemetryMetadata' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN)]
-      )
-
-instance Lude.ToPath GetTelemetryMetadata where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTelemetryMetadata where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTelemetryMetadataResponse' smart constructor.
 data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
   { -- | Telemetry details.
-    telemetryMetadata :: [TelemetryMetadata],
+    telemetryMetadata :: [Types.TelemetryMetadata],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTelemetryMetadataResponse' with the minimum fields required to make a request.
---
--- * 'telemetryMetadata' - Telemetry details.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTelemetryMetadataResponse' value with any optional fields omitted.
 mkGetTelemetryMetadataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTelemetryMetadataResponse
-mkGetTelemetryMetadataResponse pResponseStatus_ =
+mkGetTelemetryMetadataResponse responseStatus =
   GetTelemetryMetadataResponse'
-    { telemetryMetadata = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { telemetryMetadata = Core.mempty,
+      responseStatus
     }
 
 -- | Telemetry details.
 --
 -- /Note:/ Consider using 'telemetryMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmrsTelemetryMetadata :: Lens.Lens' GetTelemetryMetadataResponse [TelemetryMetadata]
-gtmrsTelemetryMetadata = Lens.lens (telemetryMetadata :: GetTelemetryMetadataResponse -> [TelemetryMetadata]) (\s a -> s {telemetryMetadata = a} :: GetTelemetryMetadataResponse)
-{-# DEPRECATED gtmrsTelemetryMetadata "Use generic-lens or generic-optics with 'telemetryMetadata' instead." #-}
+gtmrrsTelemetryMetadata :: Lens.Lens' GetTelemetryMetadataResponse [Types.TelemetryMetadata]
+gtmrrsTelemetryMetadata = Lens.field @"telemetryMetadata"
+{-# DEPRECATED gtmrrsTelemetryMetadata "Use generic-lens or generic-optics with 'telemetryMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmrsResponseStatus :: Lens.Lens' GetTelemetryMetadataResponse Lude.Int
-gtmrsResponseStatus = Lens.lens (responseStatus :: GetTelemetryMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTelemetryMetadataResponse)
-{-# DEPRECATED gtmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtmrrsResponseStatus :: Lens.Lens' GetTelemetryMetadataResponse Core.Int
+gtmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

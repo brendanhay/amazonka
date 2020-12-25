@@ -18,100 +18,93 @@ module Network.AWS.CostExplorer.Types.RightsizingRecommendation
 
     -- * Lenses
     rrAccountId,
-    rrModifyRecommendationDetail,
     rrCurrentInstance,
+    rrModifyRecommendationDetail,
     rrRightsizingType,
     rrTerminateRecommendationDetail,
   )
 where
 
-import Network.AWS.CostExplorer.Types.CurrentInstance
-import Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
-import Network.AWS.CostExplorer.Types.RightsizingType
-import Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
+import qualified Network.AWS.CostExplorer.Types.CurrentInstance as Types
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
+import qualified Network.AWS.CostExplorer.Types.ModifyRecommendationDetail as Types
+import qualified Network.AWS.CostExplorer.Types.RightsizingType as Types
+import qualified Network.AWS.CostExplorer.Types.TerminateRecommendationDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Recommendations to rightsize resources.
 --
 -- /See:/ 'mkRightsizingRecommendation' smart constructor.
 data RightsizingRecommendation = RightsizingRecommendation'
   { -- | The account that this recommendation is for.
-    accountId :: Lude.Maybe Lude.Text,
-    -- | Details for modification recommendations.
-    modifyRecommendationDetail :: Lude.Maybe ModifyRecommendationDetail,
+    accountId :: Core.Maybe Types.GenericString,
     -- | Context regarding the current instance.
-    currentInstance :: Lude.Maybe CurrentInstance,
+    currentInstance :: Core.Maybe Types.CurrentInstance,
+    -- | Details for modification recommendations.
+    modifyRecommendationDetail :: Core.Maybe Types.ModifyRecommendationDetail,
     -- | Recommendation to either terminate or modify the resource.
-    rightsizingType :: Lude.Maybe RightsizingType,
+    rightsizingType :: Core.Maybe Types.RightsizingType,
     -- | Details for termination recommendations.
-    terminateRecommendationDetail :: Lude.Maybe TerminateRecommendationDetail
+    terminateRecommendationDetail :: Core.Maybe Types.TerminateRecommendationDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RightsizingRecommendation' with the minimum fields required to make a request.
---
--- * 'accountId' - The account that this recommendation is for.
--- * 'modifyRecommendationDetail' - Details for modification recommendations.
--- * 'currentInstance' - Context regarding the current instance.
--- * 'rightsizingType' - Recommendation to either terminate or modify the resource.
--- * 'terminateRecommendationDetail' - Details for termination recommendations.
+-- | Creates a 'RightsizingRecommendation' value with any optional fields omitted.
 mkRightsizingRecommendation ::
   RightsizingRecommendation
 mkRightsizingRecommendation =
   RightsizingRecommendation'
-    { accountId = Lude.Nothing,
-      modifyRecommendationDetail = Lude.Nothing,
-      currentInstance = Lude.Nothing,
-      rightsizingType = Lude.Nothing,
-      terminateRecommendationDetail = Lude.Nothing
+    { accountId = Core.Nothing,
+      currentInstance = Core.Nothing,
+      modifyRecommendationDetail = Core.Nothing,
+      rightsizingType = Core.Nothing,
+      terminateRecommendationDetail = Core.Nothing
     }
 
 -- | The account that this recommendation is for.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrAccountId :: Lens.Lens' RightsizingRecommendation (Lude.Maybe Lude.Text)
-rrAccountId = Lens.lens (accountId :: RightsizingRecommendation -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: RightsizingRecommendation)
+rrAccountId :: Lens.Lens' RightsizingRecommendation (Core.Maybe Types.GenericString)
+rrAccountId = Lens.field @"accountId"
 {-# DEPRECATED rrAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | Details for modification recommendations.
---
--- /Note:/ Consider using 'modifyRecommendationDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrModifyRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Lude.Maybe ModifyRecommendationDetail)
-rrModifyRecommendationDetail = Lens.lens (modifyRecommendationDetail :: RightsizingRecommendation -> Lude.Maybe ModifyRecommendationDetail) (\s a -> s {modifyRecommendationDetail = a} :: RightsizingRecommendation)
-{-# DEPRECATED rrModifyRecommendationDetail "Use generic-lens or generic-optics with 'modifyRecommendationDetail' instead." #-}
 
 -- | Context regarding the current instance.
 --
 -- /Note:/ Consider using 'currentInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrCurrentInstance :: Lens.Lens' RightsizingRecommendation (Lude.Maybe CurrentInstance)
-rrCurrentInstance = Lens.lens (currentInstance :: RightsizingRecommendation -> Lude.Maybe CurrentInstance) (\s a -> s {currentInstance = a} :: RightsizingRecommendation)
+rrCurrentInstance :: Lens.Lens' RightsizingRecommendation (Core.Maybe Types.CurrentInstance)
+rrCurrentInstance = Lens.field @"currentInstance"
 {-# DEPRECATED rrCurrentInstance "Use generic-lens or generic-optics with 'currentInstance' instead." #-}
+
+-- | Details for modification recommendations.
+--
+-- /Note:/ Consider using 'modifyRecommendationDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrModifyRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Core.Maybe Types.ModifyRecommendationDetail)
+rrModifyRecommendationDetail = Lens.field @"modifyRecommendationDetail"
+{-# DEPRECATED rrModifyRecommendationDetail "Use generic-lens or generic-optics with 'modifyRecommendationDetail' instead." #-}
 
 -- | Recommendation to either terminate or modify the resource.
 --
 -- /Note:/ Consider using 'rightsizingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrRightsizingType :: Lens.Lens' RightsizingRecommendation (Lude.Maybe RightsizingType)
-rrRightsizingType = Lens.lens (rightsizingType :: RightsizingRecommendation -> Lude.Maybe RightsizingType) (\s a -> s {rightsizingType = a} :: RightsizingRecommendation)
+rrRightsizingType :: Lens.Lens' RightsizingRecommendation (Core.Maybe Types.RightsizingType)
+rrRightsizingType = Lens.field @"rightsizingType"
 {-# DEPRECATED rrRightsizingType "Use generic-lens or generic-optics with 'rightsizingType' instead." #-}
 
 -- | Details for termination recommendations.
 --
 -- /Note:/ Consider using 'terminateRecommendationDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrTerminateRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Lude.Maybe TerminateRecommendationDetail)
-rrTerminateRecommendationDetail = Lens.lens (terminateRecommendationDetail :: RightsizingRecommendation -> Lude.Maybe TerminateRecommendationDetail) (\s a -> s {terminateRecommendationDetail = a} :: RightsizingRecommendation)
+rrTerminateRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Core.Maybe Types.TerminateRecommendationDetail)
+rrTerminateRecommendationDetail = Lens.field @"terminateRecommendationDetail"
 {-# DEPRECATED rrTerminateRecommendationDetail "Use generic-lens or generic-optics with 'terminateRecommendationDetail' instead." #-}
 
-instance Lude.FromJSON RightsizingRecommendation where
+instance Core.FromJSON RightsizingRecommendation where
   parseJSON =
-    Lude.withObject
-      "RightsizingRecommendation"
-      ( \x ->
-          RightsizingRecommendation'
-            Lude.<$> (x Lude..:? "AccountId")
-            Lude.<*> (x Lude..:? "ModifyRecommendationDetail")
-            Lude.<*> (x Lude..:? "CurrentInstance")
-            Lude.<*> (x Lude..:? "RightsizingType")
-            Lude.<*> (x Lude..:? "TerminateRecommendationDetail")
-      )
+    Core.withObject "RightsizingRecommendation" Core.$
+      \x ->
+        RightsizingRecommendation'
+          Core.<$> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "CurrentInstance")
+          Core.<*> (x Core..:? "ModifyRecommendationDetail")
+          Core.<*> (x Core..:? "RightsizingType")
+          Core.<*> (x Core..:? "TerminateRecommendationDetail")

@@ -17,71 +17,67 @@ module Network.AWS.DMS.Types.ReplicationInstanceTaskLog
     mkReplicationInstanceTaskLog,
 
     -- * Lenses
-    ritlReplicationTaskName,
-    ritlReplicationTaskARN,
     ritlReplicationInstanceTaskLogSize,
+    ritlReplicationTaskArn,
+    ritlReplicationTaskName,
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains metadata for a replication instance task log.
 --
 -- /See:/ 'mkReplicationInstanceTaskLog' smart constructor.
 data ReplicationInstanceTaskLog = ReplicationInstanceTaskLog'
-  { -- | The name of the replication task.
-    replicationTaskName :: Lude.Maybe Lude.Text,
+  { -- | The size, in bytes, of the replication task log.
+    replicationInstanceTaskLogSize :: Core.Maybe Core.Integer,
     -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskARN :: Lude.Maybe Lude.Text,
-    -- | The size, in bytes, of the replication task log.
-    replicationInstanceTaskLogSize :: Lude.Maybe Lude.Integer
+    replicationTaskArn :: Core.Maybe Types.String,
+    -- | The name of the replication task.
+    replicationTaskName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationInstanceTaskLog' with the minimum fields required to make a request.
---
--- * 'replicationTaskName' - The name of the replication task.
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
--- * 'replicationInstanceTaskLogSize' - The size, in bytes, of the replication task log.
+-- | Creates a 'ReplicationInstanceTaskLog' value with any optional fields omitted.
 mkReplicationInstanceTaskLog ::
   ReplicationInstanceTaskLog
 mkReplicationInstanceTaskLog =
   ReplicationInstanceTaskLog'
-    { replicationTaskName = Lude.Nothing,
-      replicationTaskARN = Lude.Nothing,
-      replicationInstanceTaskLogSize = Lude.Nothing
+    { replicationInstanceTaskLogSize =
+        Core.Nothing,
+      replicationTaskArn = Core.Nothing,
+      replicationTaskName = Core.Nothing
     }
-
--- | The name of the replication task.
---
--- /Note:/ Consider using 'replicationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ritlReplicationTaskName :: Lens.Lens' ReplicationInstanceTaskLog (Lude.Maybe Lude.Text)
-ritlReplicationTaskName = Lens.lens (replicationTaskName :: ReplicationInstanceTaskLog -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskName = a} :: ReplicationInstanceTaskLog)
-{-# DEPRECATED ritlReplicationTaskName "Use generic-lens or generic-optics with 'replicationTaskName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the replication task.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ritlReplicationTaskARN :: Lens.Lens' ReplicationInstanceTaskLog (Lude.Maybe Lude.Text)
-ritlReplicationTaskARN = Lens.lens (replicationTaskARN :: ReplicationInstanceTaskLog -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskARN = a} :: ReplicationInstanceTaskLog)
-{-# DEPRECATED ritlReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | The size, in bytes, of the replication task log.
 --
 -- /Note:/ Consider using 'replicationInstanceTaskLogSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ritlReplicationInstanceTaskLogSize :: Lens.Lens' ReplicationInstanceTaskLog (Lude.Maybe Lude.Integer)
-ritlReplicationInstanceTaskLogSize = Lens.lens (replicationInstanceTaskLogSize :: ReplicationInstanceTaskLog -> Lude.Maybe Lude.Integer) (\s a -> s {replicationInstanceTaskLogSize = a} :: ReplicationInstanceTaskLog)
+ritlReplicationInstanceTaskLogSize :: Lens.Lens' ReplicationInstanceTaskLog (Core.Maybe Core.Integer)
+ritlReplicationInstanceTaskLogSize = Lens.field @"replicationInstanceTaskLogSize"
 {-# DEPRECATED ritlReplicationInstanceTaskLogSize "Use generic-lens or generic-optics with 'replicationInstanceTaskLogSize' instead." #-}
 
-instance Lude.FromJSON ReplicationInstanceTaskLog where
+-- | The Amazon Resource Name (ARN) of the replication task.
+--
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ritlReplicationTaskArn :: Lens.Lens' ReplicationInstanceTaskLog (Core.Maybe Types.String)
+ritlReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED ritlReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
+
+-- | The name of the replication task.
+--
+-- /Note:/ Consider using 'replicationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ritlReplicationTaskName :: Lens.Lens' ReplicationInstanceTaskLog (Core.Maybe Types.String)
+ritlReplicationTaskName = Lens.field @"replicationTaskName"
+{-# DEPRECATED ritlReplicationTaskName "Use generic-lens or generic-optics with 'replicationTaskName' instead." #-}
+
+instance Core.FromJSON ReplicationInstanceTaskLog where
   parseJSON =
-    Lude.withObject
-      "ReplicationInstanceTaskLog"
-      ( \x ->
-          ReplicationInstanceTaskLog'
-            Lude.<$> (x Lude..:? "ReplicationTaskName")
-            Lude.<*> (x Lude..:? "ReplicationTaskArn")
-            Lude.<*> (x Lude..:? "ReplicationInstanceTaskLogSize")
-      )
+    Core.withObject "ReplicationInstanceTaskLog" Core.$
+      \x ->
+        ReplicationInstanceTaskLog'
+          Core.<$> (x Core..:? "ReplicationInstanceTaskLogSize")
+          Core.<*> (x Core..:? "ReplicationTaskArn")
+          Core.<*> (x Core..:? "ReplicationTaskName")

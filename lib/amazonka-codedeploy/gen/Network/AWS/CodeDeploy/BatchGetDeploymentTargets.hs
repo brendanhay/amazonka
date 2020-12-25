@@ -41,21 +41,21 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentTargets
     mkBatchGetDeploymentTargetsResponse,
 
     -- ** Response lenses
-    bgdtrsDeploymentTargets,
-    bgdtrsResponseStatus,
+    bgdtrrsDeploymentTargets,
+    bgdtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetDeploymentTargets' smart constructor.
 data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
   { -- | The unique ID of a deployment.
-    deploymentId :: Lude.Maybe Lude.Text,
+    deploymentId :: Core.Maybe Types.DeploymentId,
     -- | The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.
     --
     --
@@ -69,40 +69,25 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
     --
     --
     --     * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
-    targetIds :: Lude.Maybe [Lude.Text]
+    targetIds :: Core.Maybe [Types.TargetId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetDeploymentTargets' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The unique ID of a deployment.
--- * 'targetIds' - The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.
---
---
---     * For deployments that use the EC2/On-premises compute platform, the target IDs are EC2 or on-premises instances IDs, and their target type is @instanceTarget@ .
---
---
---     * For deployments that use the AWS Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is @instanceTarget@ .
---
---
---     * For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format @<clustername>:<servicename>@ . Their target type is @ecsTarget@ .
---
---
---     * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
+-- | Creates a 'BatchGetDeploymentTargets' value with any optional fields omitted.
 mkBatchGetDeploymentTargets ::
   BatchGetDeploymentTargets
 mkBatchGetDeploymentTargets =
   BatchGetDeploymentTargets'
-    { deploymentId = Lude.Nothing,
-      targetIds = Lude.Nothing
+    { deploymentId = Core.Nothing,
+      targetIds = Core.Nothing
     }
 
 -- | The unique ID of a deployment.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdtDeploymentId :: Lens.Lens' BatchGetDeploymentTargets (Lude.Maybe Lude.Text)
-bgdtDeploymentId = Lens.lens (deploymentId :: BatchGetDeploymentTargets -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: BatchGetDeploymentTargets)
+bgdtDeploymentId :: Lens.Lens' BatchGetDeploymentTargets (Core.Maybe Types.DeploymentId)
+bgdtDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED bgdtDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.
@@ -122,50 +107,42 @@ bgdtDeploymentId = Lens.lens (deploymentId :: BatchGetDeploymentTargets -> Lude.
 --
 --
 -- /Note:/ Consider using 'targetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdtTargetIds :: Lens.Lens' BatchGetDeploymentTargets (Lude.Maybe [Lude.Text])
-bgdtTargetIds = Lens.lens (targetIds :: BatchGetDeploymentTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {targetIds = a} :: BatchGetDeploymentTargets)
+bgdtTargetIds :: Lens.Lens' BatchGetDeploymentTargets (Core.Maybe [Types.TargetId])
+bgdtTargetIds = Lens.field @"targetIds"
 {-# DEPRECATED bgdtTargetIds "Use generic-lens or generic-optics with 'targetIds' instead." #-}
 
-instance Lude.AWSRequest BatchGetDeploymentTargets where
+instance Core.FromJSON BatchGetDeploymentTargets where
+  toJSON BatchGetDeploymentTargets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("targetIds" Core..=) Core.<$> targetIds
+          ]
+      )
+
+instance Core.AWSRequest BatchGetDeploymentTargets where
   type
     Rs BatchGetDeploymentTargets =
       BatchGetDeploymentTargetsResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.BatchGetDeploymentTargets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentTargetsResponse'
-            Lude.<$> (x Lude..?> "deploymentTargets" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deploymentTargets")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetDeploymentTargets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeDeploy_20141006.BatchGetDeploymentTargets" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetDeploymentTargets where
-  toJSON BatchGetDeploymentTargets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deploymentId" Lude..=) Lude.<$> deploymentId,
-            ("targetIds" Lude..=) Lude.<$> targetIds
-          ]
-      )
-
-instance Lude.ToPath BatchGetDeploymentTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetDeploymentTargets where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetDeploymentTargetsResponse' smart constructor.
 data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
@@ -182,40 +159,23 @@ data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
     --
     --
     --     * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
-    deploymentTargets :: Lude.Maybe [DeploymentTarget],
+    deploymentTargets :: Core.Maybe [Types.DeploymentTarget],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetDeploymentTargetsResponse' with the minimum fields required to make a request.
---
--- * 'deploymentTargets' - A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.
---
---
---     * __EC2/On-premises__ : Each target object is an EC2 or on-premises instance.
---
---
---     * __AWS Lambda__ : The target object is a specific version of an AWS Lambda function.
---
---
---     * __Amazon ECS__ : The target object is an Amazon ECS service.
---
---
---     * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetDeploymentTargetsResponse' value with any optional fields omitted.
 mkBatchGetDeploymentTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetDeploymentTargetsResponse
-mkBatchGetDeploymentTargetsResponse pResponseStatus_ =
+mkBatchGetDeploymentTargetsResponse responseStatus =
   BatchGetDeploymentTargetsResponse'
     { deploymentTargets =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.
@@ -235,13 +195,13 @@ mkBatchGetDeploymentTargetsResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'deploymentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdtrsDeploymentTargets :: Lens.Lens' BatchGetDeploymentTargetsResponse (Lude.Maybe [DeploymentTarget])
-bgdtrsDeploymentTargets = Lens.lens (deploymentTargets :: BatchGetDeploymentTargetsResponse -> Lude.Maybe [DeploymentTarget]) (\s a -> s {deploymentTargets = a} :: BatchGetDeploymentTargetsResponse)
-{-# DEPRECATED bgdtrsDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
+bgdtrrsDeploymentTargets :: Lens.Lens' BatchGetDeploymentTargetsResponse (Core.Maybe [Types.DeploymentTarget])
+bgdtrrsDeploymentTargets = Lens.field @"deploymentTargets"
+{-# DEPRECATED bgdtrrsDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdtrsResponseStatus :: Lens.Lens' BatchGetDeploymentTargetsResponse Lude.Int
-bgdtrsResponseStatus = Lens.lens (responseStatus :: BatchGetDeploymentTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetDeploymentTargetsResponse)
-{-# DEPRECATED bgdtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgdtrrsResponseStatus :: Lens.Lens' BatchGetDeploymentTargetsResponse Core.Int
+bgdtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgdtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

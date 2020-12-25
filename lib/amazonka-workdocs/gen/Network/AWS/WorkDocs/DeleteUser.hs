@@ -20,8 +20,8 @@ module Network.AWS.WorkDocs.DeleteUser
     mkDeleteUser,
 
     -- ** Request lenses
-    dufAuthenticationToken,
     dufUserId,
+    dufAuthenticationToken,
 
     -- * Destructuring the response
     DeleteUserResponse (..),
@@ -30,75 +30,65 @@ module Network.AWS.WorkDocs.DeleteUser
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The ID of the user.
-    userId :: Lude.Text
+  { -- | The ID of the user.
+    userId :: Types.IdType,
+    -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
---
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
--- * 'userId' - The ID of the user.
+-- | Creates a 'DeleteUser' value with any optional fields omitted.
 mkDeleteUser ::
   -- | 'userId'
-  Lude.Text ->
+  Types.IdType ->
   DeleteUser
-mkDeleteUser pUserId_ =
-  DeleteUser'
-    { authenticationToken = Lude.Nothing,
-      userId = pUserId_
-    }
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dufAuthenticationToken :: Lens.Lens' DeleteUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-dufAuthenticationToken = Lens.lens (authenticationToken :: DeleteUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteUser)
-{-# DEPRECATED dufAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+mkDeleteUser userId =
+  DeleteUser' {userId, authenticationToken = Core.Nothing}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dufUserId :: Lens.Lens' DeleteUser Lude.Text
-dufUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
+dufUserId :: Lens.Lens' DeleteUser Types.IdType
+dufUserId = Lens.field @"userId"
 {-# DEPRECATED dufUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest DeleteUser where
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dufAuthenticationToken :: Lens.Lens' DeleteUser (Core.Maybe Types.AuthenticationHeaderType)
+dufAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED dufAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+instance Core.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
-  request = Req.delete workDocsService
-  response = Res.receiveNull DeleteUserResponse'
-
-instance Lude.ToHeaders DeleteUser where
-  toHeaders DeleteUser' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DeleteUser where
-  toPath DeleteUser' {..} =
-    Lude.mconcat ["/api/v1/users/", Lude.toBS userId]
-
-instance Lude.ToQuery DeleteUser where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/api/v1/users/" Core.<> (Core.toText userId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteUserResponse'
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteUserResponse' value with any optional fields omitted.
 mkDeleteUserResponse ::
   DeleteUserResponse
 mkDeleteUserResponse = DeleteUserResponse'

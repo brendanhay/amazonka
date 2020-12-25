@@ -22,39 +22,33 @@ module Network.AWS.SageMaker.CreateModelPackage
     mkCreateModelPackage,
 
     -- ** Request lenses
-    cmpSourceAlgorithmSpecification,
-    cmpModelPackageName,
-    cmpModelPackageDescription,
-    cmpValidationSpecification,
-    cmpInferenceSpecification,
     cmpCertifyForMarketplace,
+    cmpInferenceSpecification,
+    cmpModelPackageDescription,
+    cmpModelPackageName,
+    cmpSourceAlgorithmSpecification,
+    cmpValidationSpecification,
 
     -- * Destructuring the response
     CreateModelPackageResponse (..),
     mkCreateModelPackageResponse,
 
     -- ** Response lenses
-    cmprsModelPackageARN,
-    cmprsResponseStatus,
+    cmprrsModelPackageArn,
+    cmprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateModelPackage' smart constructor.
 data CreateModelPackage = CreateModelPackage'
-  { -- | Details about the algorithm that was used to create the model package.
-    sourceAlgorithmSpecification :: Lude.Maybe SourceAlgorithmSpecification,
-    -- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-    modelPackageName :: Lude.Maybe Lude.Text,
-    -- | A description of the model package.
-    modelPackageDescription :: Lude.Maybe Lude.Text,
-    -- | Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
-    validationSpecification :: Lude.Maybe ModelPackageValidationSpecification,
+  { -- | Whether to certify the model package for listing on AWS Marketplace.
+    certifyForMarketplace :: Core.Maybe Core.Bool,
     -- | Specifies details about inference jobs that can be run with models based on this model package, including the following:
     --
     --
@@ -65,71 +59,38 @@ data CreateModelPackage = CreateModelPackage'
     --
     --
     --     * The input and output content formats that the model package supports for inference.
-    inferenceSpecification :: Lude.Maybe InferenceSpecification,
-    -- | Whether to certify the model package for listing on AWS Marketplace.
-    certifyForMarketplace :: Lude.Maybe Lude.Bool
+    inferenceSpecification :: Core.Maybe Types.InferenceSpecification,
+    -- | A description of the model package.
+    modelPackageDescription :: Core.Maybe Types.ModelPackageDescription,
+    -- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+    modelPackageName :: Core.Maybe Types.EntityName,
+    -- | Details about the algorithm that was used to create the model package.
+    sourceAlgorithmSpecification :: Core.Maybe Types.SourceAlgorithmSpecification,
+    -- | Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+    validationSpecification :: Core.Maybe Types.ModelPackageValidationSpecification
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateModelPackage' with the minimum fields required to make a request.
---
--- * 'sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
--- * 'modelPackageName' - The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
--- * 'modelPackageDescription' - A description of the model package.
--- * 'validationSpecification' - Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
--- * 'inferenceSpecification' - Specifies details about inference jobs that can be run with models based on this model package, including the following:
---
---
---     * The Amazon ECR paths of containers that contain the inference code and model artifacts.
---
---
---     * The instance types that the model package supports for transform jobs and real-time endpoints used for inference.
---
---
---     * The input and output content formats that the model package supports for inference.
---
---
--- * 'certifyForMarketplace' - Whether to certify the model package for listing on AWS Marketplace.
+-- | Creates a 'CreateModelPackage' value with any optional fields omitted.
 mkCreateModelPackage ::
   CreateModelPackage
 mkCreateModelPackage =
   CreateModelPackage'
-    { sourceAlgorithmSpecification = Lude.Nothing,
-      modelPackageName = Lude.Nothing,
-      modelPackageDescription = Lude.Nothing,
-      validationSpecification = Lude.Nothing,
-      inferenceSpecification = Lude.Nothing,
-      certifyForMarketplace = Lude.Nothing
+    { certifyForMarketplace = Core.Nothing,
+      inferenceSpecification = Core.Nothing,
+      modelPackageDescription = Core.Nothing,
+      modelPackageName = Core.Nothing,
+      sourceAlgorithmSpecification = Core.Nothing,
+      validationSpecification = Core.Nothing
     }
 
--- | Details about the algorithm that was used to create the model package.
+-- | Whether to certify the model package for listing on AWS Marketplace.
 --
--- /Note:/ Consider using 'sourceAlgorithmSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpSourceAlgorithmSpecification :: Lens.Lens' CreateModelPackage (Lude.Maybe SourceAlgorithmSpecification)
-cmpSourceAlgorithmSpecification = Lens.lens (sourceAlgorithmSpecification :: CreateModelPackage -> Lude.Maybe SourceAlgorithmSpecification) (\s a -> s {sourceAlgorithmSpecification = a} :: CreateModelPackage)
-{-# DEPRECATED cmpSourceAlgorithmSpecification "Use generic-lens or generic-optics with 'sourceAlgorithmSpecification' instead." #-}
-
--- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
---
--- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpModelPackageName :: Lens.Lens' CreateModelPackage (Lude.Maybe Lude.Text)
-cmpModelPackageName = Lens.lens (modelPackageName :: CreateModelPackage -> Lude.Maybe Lude.Text) (\s a -> s {modelPackageName = a} :: CreateModelPackage)
-{-# DEPRECATED cmpModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
-
--- | A description of the model package.
---
--- /Note:/ Consider using 'modelPackageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpModelPackageDescription :: Lens.Lens' CreateModelPackage (Lude.Maybe Lude.Text)
-cmpModelPackageDescription = Lens.lens (modelPackageDescription :: CreateModelPackage -> Lude.Maybe Lude.Text) (\s a -> s {modelPackageDescription = a} :: CreateModelPackage)
-{-# DEPRECATED cmpModelPackageDescription "Use generic-lens or generic-optics with 'modelPackageDescription' instead." #-}
-
--- | Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
---
--- /Note:/ Consider using 'validationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpValidationSpecification :: Lens.Lens' CreateModelPackage (Lude.Maybe ModelPackageValidationSpecification)
-cmpValidationSpecification = Lens.lens (validationSpecification :: CreateModelPackage -> Lude.Maybe ModelPackageValidationSpecification) (\s a -> s {validationSpecification = a} :: CreateModelPackage)
-{-# DEPRECATED cmpValidationSpecification "Use generic-lens or generic-optics with 'validationSpecification' instead." #-}
+-- /Note:/ Consider using 'certifyForMarketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpCertifyForMarketplace :: Lens.Lens' CreateModelPackage (Core.Maybe Core.Bool)
+cmpCertifyForMarketplace = Lens.field @"certifyForMarketplace"
+{-# DEPRECATED cmpCertifyForMarketplace "Use generic-lens or generic-optics with 'certifyForMarketplace' instead." #-}
 
 -- | Specifies details about inference jobs that can be run with models based on this model package, including the following:
 --
@@ -145,97 +106,105 @@ cmpValidationSpecification = Lens.lens (validationSpecification :: CreateModelPa
 --
 --
 -- /Note:/ Consider using 'inferenceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpInferenceSpecification :: Lens.Lens' CreateModelPackage (Lude.Maybe InferenceSpecification)
-cmpInferenceSpecification = Lens.lens (inferenceSpecification :: CreateModelPackage -> Lude.Maybe InferenceSpecification) (\s a -> s {inferenceSpecification = a} :: CreateModelPackage)
+cmpInferenceSpecification :: Lens.Lens' CreateModelPackage (Core.Maybe Types.InferenceSpecification)
+cmpInferenceSpecification = Lens.field @"inferenceSpecification"
 {-# DEPRECATED cmpInferenceSpecification "Use generic-lens or generic-optics with 'inferenceSpecification' instead." #-}
 
--- | Whether to certify the model package for listing on AWS Marketplace.
+-- | A description of the model package.
 --
--- /Note:/ Consider using 'certifyForMarketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpCertifyForMarketplace :: Lens.Lens' CreateModelPackage (Lude.Maybe Lude.Bool)
-cmpCertifyForMarketplace = Lens.lens (certifyForMarketplace :: CreateModelPackage -> Lude.Maybe Lude.Bool) (\s a -> s {certifyForMarketplace = a} :: CreateModelPackage)
-{-# DEPRECATED cmpCertifyForMarketplace "Use generic-lens or generic-optics with 'certifyForMarketplace' instead." #-}
+-- /Note:/ Consider using 'modelPackageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpModelPackageDescription :: Lens.Lens' CreateModelPackage (Core.Maybe Types.ModelPackageDescription)
+cmpModelPackageDescription = Lens.field @"modelPackageDescription"
+{-# DEPRECATED cmpModelPackageDescription "Use generic-lens or generic-optics with 'modelPackageDescription' instead." #-}
 
-instance Lude.AWSRequest CreateModelPackage where
+-- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+--
+-- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpModelPackageName :: Lens.Lens' CreateModelPackage (Core.Maybe Types.EntityName)
+cmpModelPackageName = Lens.field @"modelPackageName"
+{-# DEPRECATED cmpModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
+
+-- | Details about the algorithm that was used to create the model package.
+--
+-- /Note:/ Consider using 'sourceAlgorithmSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpSourceAlgorithmSpecification :: Lens.Lens' CreateModelPackage (Core.Maybe Types.SourceAlgorithmSpecification)
+cmpSourceAlgorithmSpecification = Lens.field @"sourceAlgorithmSpecification"
+{-# DEPRECATED cmpSourceAlgorithmSpecification "Use generic-lens or generic-optics with 'sourceAlgorithmSpecification' instead." #-}
+
+-- | Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+--
+-- /Note:/ Consider using 'validationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpValidationSpecification :: Lens.Lens' CreateModelPackage (Core.Maybe Types.ModelPackageValidationSpecification)
+cmpValidationSpecification = Lens.field @"validationSpecification"
+{-# DEPRECATED cmpValidationSpecification "Use generic-lens or generic-optics with 'validationSpecification' instead." #-}
+
+instance Core.FromJSON CreateModelPackage where
+  toJSON CreateModelPackage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CertifyForMarketplace" Core..=) Core.<$> certifyForMarketplace,
+            ("InferenceSpecification" Core..=) Core.<$> inferenceSpecification,
+            ("ModelPackageDescription" Core..=)
+              Core.<$> modelPackageDescription,
+            ("ModelPackageName" Core..=) Core.<$> modelPackageName,
+            ("SourceAlgorithmSpecification" Core..=)
+              Core.<$> sourceAlgorithmSpecification,
+            ("ValidationSpecification" Core..=)
+              Core.<$> validationSpecification
+          ]
+      )
+
+instance Core.AWSRequest CreateModelPackage where
   type Rs CreateModelPackage = CreateModelPackageResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateModelPackage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateModelPackageResponse'
-            Lude.<$> (x Lude..:> "ModelPackageArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "ModelPackageArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateModelPackage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateModelPackage" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateModelPackage where
-  toJSON CreateModelPackage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SourceAlgorithmSpecification" Lude..=)
-              Lude.<$> sourceAlgorithmSpecification,
-            ("ModelPackageName" Lude..=) Lude.<$> modelPackageName,
-            ("ModelPackageDescription" Lude..=)
-              Lude.<$> modelPackageDescription,
-            ("ValidationSpecification" Lude..=)
-              Lude.<$> validationSpecification,
-            ("InferenceSpecification" Lude..=) Lude.<$> inferenceSpecification,
-            ("CertifyForMarketplace" Lude..=) Lude.<$> certifyForMarketplace
-          ]
-      )
-
-instance Lude.ToPath CreateModelPackage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateModelPackage where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateModelPackageResponse' smart constructor.
 data CreateModelPackageResponse = CreateModelPackageResponse'
   { -- | The Amazon Resource Name (ARN) of the new model package.
-    modelPackageARN :: Lude.Text,
+    modelPackageArn :: Types.ModelPackageArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateModelPackageResponse' with the minimum fields required to make a request.
---
--- * 'modelPackageARN' - The Amazon Resource Name (ARN) of the new model package.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateModelPackageResponse' value with any optional fields omitted.
 mkCreateModelPackageResponse ::
-  -- | 'modelPackageARN'
-  Lude.Text ->
+  -- | 'modelPackageArn'
+  Types.ModelPackageArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateModelPackageResponse
-mkCreateModelPackageResponse pModelPackageARN_ pResponseStatus_ =
-  CreateModelPackageResponse'
-    { modelPackageARN = pModelPackageARN_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateModelPackageResponse modelPackageArn responseStatus =
+  CreateModelPackageResponse' {modelPackageArn, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the new model package.
 --
--- /Note:/ Consider using 'modelPackageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmprsModelPackageARN :: Lens.Lens' CreateModelPackageResponse Lude.Text
-cmprsModelPackageARN = Lens.lens (modelPackageARN :: CreateModelPackageResponse -> Lude.Text) (\s a -> s {modelPackageARN = a} :: CreateModelPackageResponse)
-{-# DEPRECATED cmprsModelPackageARN "Use generic-lens or generic-optics with 'modelPackageARN' instead." #-}
+-- /Note:/ Consider using 'modelPackageArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmprrsModelPackageArn :: Lens.Lens' CreateModelPackageResponse Types.ModelPackageArn
+cmprrsModelPackageArn = Lens.field @"modelPackageArn"
+{-# DEPRECATED cmprrsModelPackageArn "Use generic-lens or generic-optics with 'modelPackageArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmprsResponseStatus :: Lens.Lens' CreateModelPackageResponse Lude.Int
-cmprsResponseStatus = Lens.lens (responseStatus :: CreateModelPackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateModelPackageResponse)
-{-# DEPRECATED cmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmprrsResponseStatus :: Lens.Lens' CreateModelPackageResponse Core.Int
+cmprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

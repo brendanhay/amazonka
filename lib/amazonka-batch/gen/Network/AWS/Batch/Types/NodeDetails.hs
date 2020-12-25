@@ -17,54 +17,49 @@ module Network.AWS.Batch.Types.NodeDetails
     mkNodeDetails,
 
     -- * Lenses
-    ndNodeIndex,
     ndIsMainNode,
+    ndNodeIndex,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing the details of a multi-node parallel job node.
 --
 -- /See:/ 'mkNodeDetails' smart constructor.
 data NodeDetails = NodeDetails'
-  { -- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
-    nodeIndex :: Lude.Maybe Lude.Int,
-    -- | Specifies whether the current node is the main node for a multi-node parallel job.
-    isMainNode :: Lude.Maybe Lude.Bool
+  { -- | Specifies whether the current node is the main node for a multi-node parallel job.
+    isMainNode :: Core.Maybe Core.Bool,
+    -- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
+    nodeIndex :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NodeDetails' with the minimum fields required to make a request.
---
--- * 'nodeIndex' - The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
--- * 'isMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
+-- | Creates a 'NodeDetails' value with any optional fields omitted.
 mkNodeDetails ::
   NodeDetails
 mkNodeDetails =
-  NodeDetails' {nodeIndex = Lude.Nothing, isMainNode = Lude.Nothing}
-
--- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
---
--- /Note:/ Consider using 'nodeIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ndNodeIndex :: Lens.Lens' NodeDetails (Lude.Maybe Lude.Int)
-ndNodeIndex = Lens.lens (nodeIndex :: NodeDetails -> Lude.Maybe Lude.Int) (\s a -> s {nodeIndex = a} :: NodeDetails)
-{-# DEPRECATED ndNodeIndex "Use generic-lens or generic-optics with 'nodeIndex' instead." #-}
+  NodeDetails' {isMainNode = Core.Nothing, nodeIndex = Core.Nothing}
 
 -- | Specifies whether the current node is the main node for a multi-node parallel job.
 --
 -- /Note:/ Consider using 'isMainNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ndIsMainNode :: Lens.Lens' NodeDetails (Lude.Maybe Lude.Bool)
-ndIsMainNode = Lens.lens (isMainNode :: NodeDetails -> Lude.Maybe Lude.Bool) (\s a -> s {isMainNode = a} :: NodeDetails)
+ndIsMainNode :: Lens.Lens' NodeDetails (Core.Maybe Core.Bool)
+ndIsMainNode = Lens.field @"isMainNode"
 {-# DEPRECATED ndIsMainNode "Use generic-lens or generic-optics with 'isMainNode' instead." #-}
 
-instance Lude.FromJSON NodeDetails where
+-- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
+--
+-- /Note:/ Consider using 'nodeIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ndNodeIndex :: Lens.Lens' NodeDetails (Core.Maybe Core.Int)
+ndNodeIndex = Lens.field @"nodeIndex"
+{-# DEPRECATED ndNodeIndex "Use generic-lens or generic-optics with 'nodeIndex' instead." #-}
+
+instance Core.FromJSON NodeDetails where
   parseJSON =
-    Lude.withObject
-      "NodeDetails"
-      ( \x ->
-          NodeDetails'
-            Lude.<$> (x Lude..:? "nodeIndex") Lude.<*> (x Lude..:? "isMainNode")
-      )
+    Core.withObject "NodeDetails" Core.$
+      \x ->
+        NodeDetails'
+          Core.<$> (x Core..:? "isMainNode") Core.<*> (x Core..:? "nodeIndex")

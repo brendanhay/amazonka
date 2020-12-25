@@ -17,126 +17,119 @@ module Network.AWS.Config.Types.ConfigurationAggregator
     mkConfigurationAggregator,
 
     -- * Lenses
-    caConfigurationAggregatorARN,
-    caCreationTime,
-    caOrganizationAggregationSource,
-    caLastUpdatedTime,
     caAccountAggregationSources,
-    caCreatedBy,
+    caConfigurationAggregatorArn,
     caConfigurationAggregatorName,
+    caCreatedBy,
+    caCreationTime,
+    caLastUpdatedTime,
+    caOrganizationAggregationSource,
   )
 where
 
-import Network.AWS.Config.Types.AccountAggregationSource
-import Network.AWS.Config.Types.OrganizationAggregationSource
+import qualified Network.AWS.Config.Types.AccountAggregationSource as Types
+import qualified Network.AWS.Config.Types.ConfigurationAggregatorArn as Types
+import qualified Network.AWS.Config.Types.ConfigurationAggregatorName as Types
+import qualified Network.AWS.Config.Types.OrganizationAggregationSource as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details about the configuration aggregator, including information about source accounts, regions, and metadata of the aggregator.
 --
 -- /See:/ 'mkConfigurationAggregator' smart constructor.
 data ConfigurationAggregator = ConfigurationAggregator'
-  { -- | The Amazon Resource Name (ARN) of the aggregator.
-    configurationAggregatorARN :: Lude.Maybe Lude.Text,
-    -- | The time stamp when the configuration aggregator was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | Provides an organization and list of regions to be aggregated.
-    organizationAggregationSource :: Lude.Maybe OrganizationAggregationSource,
-    -- | The time of the last update.
-    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
-    -- | Provides a list of source accounts and regions to be aggregated.
-    accountAggregationSources :: Lude.Maybe [AccountAggregationSource],
-    -- | AWS service that created the configuration aggregator.
-    createdBy :: Lude.Maybe Lude.Text,
+  { -- | Provides a list of source accounts and regions to be aggregated.
+    accountAggregationSources :: Core.Maybe [Types.AccountAggregationSource],
+    -- | The Amazon Resource Name (ARN) of the aggregator.
+    configurationAggregatorArn :: Core.Maybe Types.ConfigurationAggregatorArn,
     -- | The name of the aggregator.
-    configurationAggregatorName :: Lude.Maybe Lude.Text
+    configurationAggregatorName :: Core.Maybe Types.ConfigurationAggregatorName,
+    -- | AWS service that created the configuration aggregator.
+    createdBy :: Core.Maybe Types.StringWithCharLimit256,
+    -- | The time stamp when the configuration aggregator was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time of the last update.
+    lastUpdatedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Provides an organization and list of regions to be aggregated.
+    organizationAggregationSource :: Core.Maybe Types.OrganizationAggregationSource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ConfigurationAggregator' with the minimum fields required to make a request.
---
--- * 'configurationAggregatorARN' - The Amazon Resource Name (ARN) of the aggregator.
--- * 'creationTime' - The time stamp when the configuration aggregator was created.
--- * 'organizationAggregationSource' - Provides an organization and list of regions to be aggregated.
--- * 'lastUpdatedTime' - The time of the last update.
--- * 'accountAggregationSources' - Provides a list of source accounts and regions to be aggregated.
--- * 'createdBy' - AWS service that created the configuration aggregator.
--- * 'configurationAggregatorName' - The name of the aggregator.
+-- | Creates a 'ConfigurationAggregator' value with any optional fields omitted.
 mkConfigurationAggregator ::
   ConfigurationAggregator
 mkConfigurationAggregator =
   ConfigurationAggregator'
-    { configurationAggregatorARN =
-        Lude.Nothing,
-      creationTime = Lude.Nothing,
-      organizationAggregationSource = Lude.Nothing,
-      lastUpdatedTime = Lude.Nothing,
-      accountAggregationSources = Lude.Nothing,
-      createdBy = Lude.Nothing,
-      configurationAggregatorName = Lude.Nothing
+    { accountAggregationSources =
+        Core.Nothing,
+      configurationAggregatorArn = Core.Nothing,
+      configurationAggregatorName = Core.Nothing,
+      createdBy = Core.Nothing,
+      creationTime = Core.Nothing,
+      lastUpdatedTime = Core.Nothing,
+      organizationAggregationSource = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the aggregator.
---
--- /Note:/ Consider using 'configurationAggregatorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caConfigurationAggregatorARN :: Lens.Lens' ConfigurationAggregator (Lude.Maybe Lude.Text)
-caConfigurationAggregatorARN = Lens.lens (configurationAggregatorARN :: ConfigurationAggregator -> Lude.Maybe Lude.Text) (\s a -> s {configurationAggregatorARN = a} :: ConfigurationAggregator)
-{-# DEPRECATED caConfigurationAggregatorARN "Use generic-lens or generic-optics with 'configurationAggregatorARN' instead." #-}
-
--- | The time stamp when the configuration aggregator was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caCreationTime :: Lens.Lens' ConfigurationAggregator (Lude.Maybe Lude.Timestamp)
-caCreationTime = Lens.lens (creationTime :: ConfigurationAggregator -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ConfigurationAggregator)
-{-# DEPRECATED caCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | Provides an organization and list of regions to be aggregated.
---
--- /Note:/ Consider using 'organizationAggregationSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caOrganizationAggregationSource :: Lens.Lens' ConfigurationAggregator (Lude.Maybe OrganizationAggregationSource)
-caOrganizationAggregationSource = Lens.lens (organizationAggregationSource :: ConfigurationAggregator -> Lude.Maybe OrganizationAggregationSource) (\s a -> s {organizationAggregationSource = a} :: ConfigurationAggregator)
-{-# DEPRECATED caOrganizationAggregationSource "Use generic-lens or generic-optics with 'organizationAggregationSource' instead." #-}
-
--- | The time of the last update.
---
--- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caLastUpdatedTime :: Lens.Lens' ConfigurationAggregator (Lude.Maybe Lude.Timestamp)
-caLastUpdatedTime = Lens.lens (lastUpdatedTime :: ConfigurationAggregator -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: ConfigurationAggregator)
-{-# DEPRECATED caLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | Provides a list of source accounts and regions to be aggregated.
 --
 -- /Note:/ Consider using 'accountAggregationSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAccountAggregationSources :: Lens.Lens' ConfigurationAggregator (Lude.Maybe [AccountAggregationSource])
-caAccountAggregationSources = Lens.lens (accountAggregationSources :: ConfigurationAggregator -> Lude.Maybe [AccountAggregationSource]) (\s a -> s {accountAggregationSources = a} :: ConfigurationAggregator)
+caAccountAggregationSources :: Lens.Lens' ConfigurationAggregator (Core.Maybe [Types.AccountAggregationSource])
+caAccountAggregationSources = Lens.field @"accountAggregationSources"
 {-# DEPRECATED caAccountAggregationSources "Use generic-lens or generic-optics with 'accountAggregationSources' instead." #-}
 
--- | AWS service that created the configuration aggregator.
+-- | The Amazon Resource Name (ARN) of the aggregator.
 --
--- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caCreatedBy :: Lens.Lens' ConfigurationAggregator (Lude.Maybe Lude.Text)
-caCreatedBy = Lens.lens (createdBy :: ConfigurationAggregator -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: ConfigurationAggregator)
-{-# DEPRECATED caCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
+-- /Note:/ Consider using 'configurationAggregatorArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caConfigurationAggregatorArn :: Lens.Lens' ConfigurationAggregator (Core.Maybe Types.ConfigurationAggregatorArn)
+caConfigurationAggregatorArn = Lens.field @"configurationAggregatorArn"
+{-# DEPRECATED caConfigurationAggregatorArn "Use generic-lens or generic-optics with 'configurationAggregatorArn' instead." #-}
 
 -- | The name of the aggregator.
 --
 -- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caConfigurationAggregatorName :: Lens.Lens' ConfigurationAggregator (Lude.Maybe Lude.Text)
-caConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: ConfigurationAggregator -> Lude.Maybe Lude.Text) (\s a -> s {configurationAggregatorName = a} :: ConfigurationAggregator)
+caConfigurationAggregatorName :: Lens.Lens' ConfigurationAggregator (Core.Maybe Types.ConfigurationAggregatorName)
+caConfigurationAggregatorName = Lens.field @"configurationAggregatorName"
 {-# DEPRECATED caConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
-instance Lude.FromJSON ConfigurationAggregator where
+-- | AWS service that created the configuration aggregator.
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caCreatedBy :: Lens.Lens' ConfigurationAggregator (Core.Maybe Types.StringWithCharLimit256)
+caCreatedBy = Lens.field @"createdBy"
+{-# DEPRECATED caCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
+
+-- | The time stamp when the configuration aggregator was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caCreationTime :: Lens.Lens' ConfigurationAggregator (Core.Maybe Core.NominalDiffTime)
+caCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED caCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The time of the last update.
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caLastUpdatedTime :: Lens.Lens' ConfigurationAggregator (Core.Maybe Core.NominalDiffTime)
+caLastUpdatedTime = Lens.field @"lastUpdatedTime"
+{-# DEPRECATED caLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
+
+-- | Provides an organization and list of regions to be aggregated.
+--
+-- /Note:/ Consider using 'organizationAggregationSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caOrganizationAggregationSource :: Lens.Lens' ConfigurationAggregator (Core.Maybe Types.OrganizationAggregationSource)
+caOrganizationAggregationSource = Lens.field @"organizationAggregationSource"
+{-# DEPRECATED caOrganizationAggregationSource "Use generic-lens or generic-optics with 'organizationAggregationSource' instead." #-}
+
+instance Core.FromJSON ConfigurationAggregator where
   parseJSON =
-    Lude.withObject
-      "ConfigurationAggregator"
-      ( \x ->
-          ConfigurationAggregator'
-            Lude.<$> (x Lude..:? "ConfigurationAggregatorArn")
-            Lude.<*> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "OrganizationAggregationSource")
-            Lude.<*> (x Lude..:? "LastUpdatedTime")
-            Lude.<*> (x Lude..:? "AccountAggregationSources" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CreatedBy")
-            Lude.<*> (x Lude..:? "ConfigurationAggregatorName")
-      )
+    Core.withObject "ConfigurationAggregator" Core.$
+      \x ->
+        ConfigurationAggregator'
+          Core.<$> (x Core..:? "AccountAggregationSources")
+          Core.<*> (x Core..:? "ConfigurationAggregatorArn")
+          Core.<*> (x Core..:? "ConfigurationAggregatorName")
+          Core.<*> (x Core..:? "CreatedBy")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "LastUpdatedTime")
+          Core.<*> (x Core..:? "OrganizationAggregationSource")

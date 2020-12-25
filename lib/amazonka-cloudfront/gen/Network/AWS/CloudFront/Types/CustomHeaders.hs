@@ -22,59 +22,55 @@ module Network.AWS.CloudFront.Types.CustomHeaders
   )
 where
 
-import Network.AWS.CloudFront.Types.OriginCustomHeader
+import qualified Network.AWS.CloudFront.Types.OriginCustomHeader as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains the list of Custom Headers for each origin.
 --
 -- /See:/ 'mkCustomHeaders' smart constructor.
 data CustomHeaders = CustomHeaders'
   { -- | The number of custom headers, if any, for this distribution.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | __Optional__ : A list that contains one @OriginCustomHeader@ element for each custom header that you want CloudFront to forward to the origin. If Quantity is @0@ , omit @Items@ .
-    items :: Lude.Maybe [OriginCustomHeader]
+    items :: Core.Maybe [Types.OriginCustomHeader]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomHeaders' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of custom headers, if any, for this distribution.
--- * 'items' - __Optional__ : A list that contains one @OriginCustomHeader@ element for each custom header that you want CloudFront to forward to the origin. If Quantity is @0@ , omit @Items@ .
+-- | Creates a 'CustomHeaders' value with any optional fields omitted.
 mkCustomHeaders ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   CustomHeaders
-mkCustomHeaders pQuantity_ =
-  CustomHeaders' {quantity = pQuantity_, items = Lude.Nothing}
+mkCustomHeaders quantity =
+  CustomHeaders' {quantity, items = Core.Nothing}
 
 -- | The number of custom headers, if any, for this distribution.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chQuantity :: Lens.Lens' CustomHeaders Lude.Int
-chQuantity = Lens.lens (quantity :: CustomHeaders -> Lude.Int) (\s a -> s {quantity = a} :: CustomHeaders)
+chQuantity :: Lens.Lens' CustomHeaders Core.Int
+chQuantity = Lens.field @"quantity"
 {-# DEPRECATED chQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | __Optional__ : A list that contains one @OriginCustomHeader@ element for each custom header that you want CloudFront to forward to the origin. If Quantity is @0@ , omit @Items@ .
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chItems :: Lens.Lens' CustomHeaders (Lude.Maybe [OriginCustomHeader])
-chItems = Lens.lens (items :: CustomHeaders -> Lude.Maybe [OriginCustomHeader]) (\s a -> s {items = a} :: CustomHeaders)
+chItems :: Lens.Lens' CustomHeaders (Core.Maybe [Types.OriginCustomHeader])
+chItems = Lens.field @"items"
 {-# DEPRECATED chItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML CustomHeaders where
+instance Core.ToXML CustomHeaders where
+  toXML CustomHeaders {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode
+        "Items"
+        (Core.toXMLList "OriginCustomHeader" Core.<$> items)
+
+instance Core.FromXML CustomHeaders where
   parseXML x =
     CustomHeaders'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "OriginCustomHeader")
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items"
+                   Core..<@> Core.parseXMLList "OriginCustomHeader"
                )
-
-instance Lude.ToXML CustomHeaders where
-  toXML CustomHeaders' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "OriginCustomHeader" Lude.<$> items)
-      ]

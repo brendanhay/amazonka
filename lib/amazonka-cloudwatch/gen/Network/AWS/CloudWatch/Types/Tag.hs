@@ -17,56 +17,51 @@ module Network.AWS.CloudWatch.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
+import qualified Network.AWS.CloudWatch.Types.Key as Types
+import qualified Network.AWS.CloudWatch.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A key-value pair associated with a CloudWatch resource.
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The value for the specified tag key.
-    value :: Lude.Text,
-    -- | A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
-    key :: Lude.Text
+  { -- | A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+    key :: Types.Key,
+    -- | The value for the specified tag key.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - The value for the specified tag key.
--- * 'key' - A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'value'
+  Types.Value ->
   Tag
-mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
-
--- | The value for the specified tag key.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag Lude.Text
-tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag key value = Tag' {key, value}
 
 -- | A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Types.Key
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML Tag where
-  parseXML x =
-    Tag' Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Key")
+-- | The value for the specified tag key.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag Types.Value
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToQuery Tag where
-  toQuery Tag' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]
+instance Core.FromXML Tag where
+  parseXML x =
+    Tag' Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")

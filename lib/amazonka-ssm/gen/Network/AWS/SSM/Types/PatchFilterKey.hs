@@ -13,131 +13,136 @@
 module Network.AWS.SSM.Types.PatchFilterKey
   ( PatchFilterKey
       ( PatchFilterKey',
-        Arch,
-        AdvisoryId,
-        BugzillaId,
-        PatchSet,
-        Product,
-        ProductFamily,
-        Classification,
-        CveId,
-        Epoch,
-        MsrcSeverity,
-        Name,
-        PatchId,
-        Section,
-        Priority,
-        Repository,
-        Release,
-        Severity,
-        Security,
-        Version
+        PatchFilterKeyArch,
+        PatchFilterKeyAdvisoryId,
+        PatchFilterKeyBugzillaId,
+        PatchFilterKeyPatchSet,
+        PatchFilterKeyProduct,
+        PatchFilterKeyProductFamily,
+        PatchFilterKeyClassification,
+        PatchFilterKeyCveId,
+        PatchFilterKeyEpoch,
+        PatchFilterKeyMsrcSeverity,
+        PatchFilterKeyName,
+        PatchFilterKeyPatchId,
+        PatchFilterKeySection,
+        PatchFilterKeyPriority,
+        PatchFilterKeyRepository,
+        PatchFilterKeyRelease,
+        PatchFilterKeySeverity,
+        PatchFilterKeySecurity,
+        PatchFilterKeyVersion,
+        fromPatchFilterKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PatchFilterKey = PatchFilterKey' Lude.Text
+newtype PatchFilterKey = PatchFilterKey'
+  { fromPatchFilterKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Arch :: PatchFilterKey
-pattern Arch = PatchFilterKey' "ARCH"
+pattern PatchFilterKeyArch :: PatchFilterKey
+pattern PatchFilterKeyArch = PatchFilterKey' "ARCH"
 
-pattern AdvisoryId :: PatchFilterKey
-pattern AdvisoryId = PatchFilterKey' "ADVISORY_ID"
+pattern PatchFilterKeyAdvisoryId :: PatchFilterKey
+pattern PatchFilterKeyAdvisoryId = PatchFilterKey' "ADVISORY_ID"
 
-pattern BugzillaId :: PatchFilterKey
-pattern BugzillaId = PatchFilterKey' "BUGZILLA_ID"
+pattern PatchFilterKeyBugzillaId :: PatchFilterKey
+pattern PatchFilterKeyBugzillaId = PatchFilterKey' "BUGZILLA_ID"
 
-pattern PatchSet :: PatchFilterKey
-pattern PatchSet = PatchFilterKey' "PATCH_SET"
+pattern PatchFilterKeyPatchSet :: PatchFilterKey
+pattern PatchFilterKeyPatchSet = PatchFilterKey' "PATCH_SET"
 
-pattern Product :: PatchFilterKey
-pattern Product = PatchFilterKey' "PRODUCT"
+pattern PatchFilterKeyProduct :: PatchFilterKey
+pattern PatchFilterKeyProduct = PatchFilterKey' "PRODUCT"
 
-pattern ProductFamily :: PatchFilterKey
-pattern ProductFamily = PatchFilterKey' "PRODUCT_FAMILY"
+pattern PatchFilterKeyProductFamily :: PatchFilterKey
+pattern PatchFilterKeyProductFamily = PatchFilterKey' "PRODUCT_FAMILY"
 
-pattern Classification :: PatchFilterKey
-pattern Classification = PatchFilterKey' "CLASSIFICATION"
+pattern PatchFilterKeyClassification :: PatchFilterKey
+pattern PatchFilterKeyClassification = PatchFilterKey' "CLASSIFICATION"
 
-pattern CveId :: PatchFilterKey
-pattern CveId = PatchFilterKey' "CVE_ID"
+pattern PatchFilterKeyCveId :: PatchFilterKey
+pattern PatchFilterKeyCveId = PatchFilterKey' "CVE_ID"
 
-pattern Epoch :: PatchFilterKey
-pattern Epoch = PatchFilterKey' "EPOCH"
+pattern PatchFilterKeyEpoch :: PatchFilterKey
+pattern PatchFilterKeyEpoch = PatchFilterKey' "EPOCH"
 
-pattern MsrcSeverity :: PatchFilterKey
-pattern MsrcSeverity = PatchFilterKey' "MSRC_SEVERITY"
+pattern PatchFilterKeyMsrcSeverity :: PatchFilterKey
+pattern PatchFilterKeyMsrcSeverity = PatchFilterKey' "MSRC_SEVERITY"
 
-pattern Name :: PatchFilterKey
-pattern Name = PatchFilterKey' "NAME"
+pattern PatchFilterKeyName :: PatchFilterKey
+pattern PatchFilterKeyName = PatchFilterKey' "NAME"
 
-pattern PatchId :: PatchFilterKey
-pattern PatchId = PatchFilterKey' "PATCH_ID"
+pattern PatchFilterKeyPatchId :: PatchFilterKey
+pattern PatchFilterKeyPatchId = PatchFilterKey' "PATCH_ID"
 
-pattern Section :: PatchFilterKey
-pattern Section = PatchFilterKey' "SECTION"
+pattern PatchFilterKeySection :: PatchFilterKey
+pattern PatchFilterKeySection = PatchFilterKey' "SECTION"
 
-pattern Priority :: PatchFilterKey
-pattern Priority = PatchFilterKey' "PRIORITY"
+pattern PatchFilterKeyPriority :: PatchFilterKey
+pattern PatchFilterKeyPriority = PatchFilterKey' "PRIORITY"
 
-pattern Repository :: PatchFilterKey
-pattern Repository = PatchFilterKey' "REPOSITORY"
+pattern PatchFilterKeyRepository :: PatchFilterKey
+pattern PatchFilterKeyRepository = PatchFilterKey' "REPOSITORY"
 
-pattern Release :: PatchFilterKey
-pattern Release = PatchFilterKey' "RELEASE"
+pattern PatchFilterKeyRelease :: PatchFilterKey
+pattern PatchFilterKeyRelease = PatchFilterKey' "RELEASE"
 
-pattern Severity :: PatchFilterKey
-pattern Severity = PatchFilterKey' "SEVERITY"
+pattern PatchFilterKeySeverity :: PatchFilterKey
+pattern PatchFilterKeySeverity = PatchFilterKey' "SEVERITY"
 
-pattern Security :: PatchFilterKey
-pattern Security = PatchFilterKey' "SECURITY"
+pattern PatchFilterKeySecurity :: PatchFilterKey
+pattern PatchFilterKeySecurity = PatchFilterKey' "SECURITY"
 
-pattern Version :: PatchFilterKey
-pattern Version = PatchFilterKey' "VERSION"
+pattern PatchFilterKeyVersion :: PatchFilterKey
+pattern PatchFilterKeyVersion = PatchFilterKey' "VERSION"
 
 {-# COMPLETE
-  Arch,
-  AdvisoryId,
-  BugzillaId,
-  PatchSet,
-  Product,
-  ProductFamily,
-  Classification,
-  CveId,
-  Epoch,
-  MsrcSeverity,
-  Name,
-  PatchId,
-  Section,
-  Priority,
-  Repository,
-  Release,
-  Severity,
-  Security,
-  Version,
+  PatchFilterKeyArch,
+  PatchFilterKeyAdvisoryId,
+  PatchFilterKeyBugzillaId,
+  PatchFilterKeyPatchSet,
+  PatchFilterKeyProduct,
+  PatchFilterKeyProductFamily,
+  PatchFilterKeyClassification,
+  PatchFilterKeyCveId,
+  PatchFilterKeyEpoch,
+  PatchFilterKeyMsrcSeverity,
+  PatchFilterKeyName,
+  PatchFilterKeyPatchId,
+  PatchFilterKeySection,
+  PatchFilterKeyPriority,
+  PatchFilterKeyRepository,
+  PatchFilterKeyRelease,
+  PatchFilterKeySeverity,
+  PatchFilterKeySecurity,
+  PatchFilterKeyVersion,
   PatchFilterKey'
   #-}

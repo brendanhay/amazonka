@@ -23,69 +23,67 @@ module Network.AWS.CloudDirectory.Types.BatchDetachObject
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.BatchReferenceName as Types
+import qualified Network.AWS.CloudDirectory.Types.LinkName as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'DetachObject' operation.
 --
 -- /See:/ 'mkBatchDetachObject' smart constructor.
 data BatchDetachObject = BatchDetachObject'
   { -- | Parent reference from which the object with the specified link name is detached.
-    parentReference :: ObjectReference,
+    parentReference :: Types.ObjectReference,
     -- | The name of the link.
-    linkName :: Lude.Text,
+    linkName :: Types.LinkName,
     -- | The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
-    batchReferenceName :: Lude.Maybe Lude.Text
+    batchReferenceName :: Core.Maybe Types.BatchReferenceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetachObject' with the minimum fields required to make a request.
---
--- * 'parentReference' - Parent reference from which the object with the specified link name is detached.
--- * 'linkName' - The name of the link.
--- * 'batchReferenceName' - The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
+-- | Creates a 'BatchDetachObject' value with any optional fields omitted.
 mkBatchDetachObject ::
   -- | 'parentReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'linkName'
-  Lude.Text ->
+  Types.LinkName ->
   BatchDetachObject
-mkBatchDetachObject pParentReference_ pLinkName_ =
+mkBatchDetachObject parentReference linkName =
   BatchDetachObject'
-    { parentReference = pParentReference_,
-      linkName = pLinkName_,
-      batchReferenceName = Lude.Nothing
+    { parentReference,
+      linkName,
+      batchReferenceName = Core.Nothing
     }
 
 -- | Parent reference from which the object with the specified link name is detached.
 --
 -- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdoParentReference :: Lens.Lens' BatchDetachObject ObjectReference
-bdoParentReference = Lens.lens (parentReference :: BatchDetachObject -> ObjectReference) (\s a -> s {parentReference = a} :: BatchDetachObject)
+bdoParentReference :: Lens.Lens' BatchDetachObject Types.ObjectReference
+bdoParentReference = Lens.field @"parentReference"
 {-# DEPRECATED bdoParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
 -- | The name of the link.
 --
 -- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdoLinkName :: Lens.Lens' BatchDetachObject Lude.Text
-bdoLinkName = Lens.lens (linkName :: BatchDetachObject -> Lude.Text) (\s a -> s {linkName = a} :: BatchDetachObject)
+bdoLinkName :: Lens.Lens' BatchDetachObject Types.LinkName
+bdoLinkName = Lens.field @"linkName"
 {-# DEPRECATED bdoLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 -- | The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
 --
 -- /Note:/ Consider using 'batchReferenceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdoBatchReferenceName :: Lens.Lens' BatchDetachObject (Lude.Maybe Lude.Text)
-bdoBatchReferenceName = Lens.lens (batchReferenceName :: BatchDetachObject -> Lude.Maybe Lude.Text) (\s a -> s {batchReferenceName = a} :: BatchDetachObject)
+bdoBatchReferenceName :: Lens.Lens' BatchDetachObject (Core.Maybe Types.BatchReferenceName)
+bdoBatchReferenceName = Lens.field @"batchReferenceName"
 {-# DEPRECATED bdoBatchReferenceName "Use generic-lens or generic-optics with 'batchReferenceName' instead." #-}
 
-instance Lude.ToJSON BatchDetachObject where
-  toJSON BatchDetachObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ParentReference" Lude..= parentReference),
-            Lude.Just ("LinkName" Lude..= linkName),
-            ("BatchReferenceName" Lude..=) Lude.<$> batchReferenceName
+instance Core.FromJSON BatchDetachObject where
+  toJSON BatchDetachObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParentReference" Core..= parentReference),
+            Core.Just ("LinkName" Core..= linkName),
+            ("BatchReferenceName" Core..=) Core.<$> batchReferenceName
           ]
       )

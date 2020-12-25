@@ -17,24 +17,31 @@ module Network.AWS.ELB.Types.PolicyAttributeTypeDescription
     mkPolicyAttributeTypeDescription,
 
     -- * Lenses
+    patdAttributeName,
     patdAttributeType,
     patdCardinality,
     patdDefaultValue,
-    patdAttributeName,
     patdDescription,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.AttributeName as Types
+import qualified Network.AWS.ELB.Types.AttributeType as Types
+import qualified Network.AWS.ELB.Types.Cardinality as Types
+import qualified Network.AWS.ELB.Types.DefaultValue as Types
+import qualified Network.AWS.ELB.Types.Description as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a policy attribute type.
 --
 -- /See:/ 'mkPolicyAttributeTypeDescription' smart constructor.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
-  { -- | The type of the attribute. For example, @Boolean@ or @Integer@ .
-    attributeType :: Lude.Maybe Lude.Text,
+  { -- | The name of the attribute.
+    attributeName :: Core.Maybe Types.AttributeName,
+    -- | The type of the attribute. For example, @Boolean@ or @Integer@ .
+    attributeType :: Core.Maybe Types.AttributeType,
     -- | The cardinality of the attribute.
     --
     -- Valid values:
@@ -49,55 +56,39 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
     --
     --
     --     * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
-    cardinality :: Lude.Maybe Lude.Text,
+    cardinality :: Core.Maybe Types.Cardinality,
     -- | The default value of the attribute, if applicable.
-    defaultValue :: Lude.Maybe Lude.Text,
-    -- | The name of the attribute.
-    attributeName :: Lude.Maybe Lude.Text,
+    defaultValue :: Core.Maybe Types.DefaultValue,
     -- | A description of the attribute.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyAttributeTypeDescription' with the minimum fields required to make a request.
---
--- * 'attributeType' - The type of the attribute. For example, @Boolean@ or @Integer@ .
--- * 'cardinality' - The cardinality of the attribute.
---
--- Valid values:
---
---     * ONE(1) : Single value required
---
---
---     * ZERO_OR_ONE(0..1) : Up to one value is allowed
---
---
---     * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
---
---
---     * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
---
---
--- * 'defaultValue' - The default value of the attribute, if applicable.
--- * 'attributeName' - The name of the attribute.
--- * 'description' - A description of the attribute.
+-- | Creates a 'PolicyAttributeTypeDescription' value with any optional fields omitted.
 mkPolicyAttributeTypeDescription ::
   PolicyAttributeTypeDescription
 mkPolicyAttributeTypeDescription =
   PolicyAttributeTypeDescription'
-    { attributeType = Lude.Nothing,
-      cardinality = Lude.Nothing,
-      defaultValue = Lude.Nothing,
-      attributeName = Lude.Nothing,
-      description = Lude.Nothing
+    { attributeName = Core.Nothing,
+      attributeType = Core.Nothing,
+      cardinality = Core.Nothing,
+      defaultValue = Core.Nothing,
+      description = Core.Nothing
     }
+
+-- | The name of the attribute.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+patdAttributeName :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Types.AttributeName)
+patdAttributeName = Lens.field @"attributeName"
+{-# DEPRECATED patdAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The type of the attribute. For example, @Boolean@ or @Integer@ .
 --
 -- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patdAttributeType :: Lens.Lens' PolicyAttributeTypeDescription (Lude.Maybe Lude.Text)
-patdAttributeType = Lens.lens (attributeType :: PolicyAttributeTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeType = a} :: PolicyAttributeTypeDescription)
+patdAttributeType :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Types.AttributeType)
+patdAttributeType = Lens.field @"attributeType"
 {-# DEPRECATED patdAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 -- | The cardinality of the attribute.
@@ -118,36 +109,29 @@ patdAttributeType = Lens.lens (attributeType :: PolicyAttributeTypeDescription -
 --
 --
 -- /Note:/ Consider using 'cardinality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patdCardinality :: Lens.Lens' PolicyAttributeTypeDescription (Lude.Maybe Lude.Text)
-patdCardinality = Lens.lens (cardinality :: PolicyAttributeTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {cardinality = a} :: PolicyAttributeTypeDescription)
+patdCardinality :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Types.Cardinality)
+patdCardinality = Lens.field @"cardinality"
 {-# DEPRECATED patdCardinality "Use generic-lens or generic-optics with 'cardinality' instead." #-}
 
 -- | The default value of the attribute, if applicable.
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patdDefaultValue :: Lens.Lens' PolicyAttributeTypeDescription (Lude.Maybe Lude.Text)
-patdDefaultValue = Lens.lens (defaultValue :: PolicyAttributeTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: PolicyAttributeTypeDescription)
+patdDefaultValue :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Types.DefaultValue)
+patdDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED patdDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
-
--- | The name of the attribute.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patdAttributeName :: Lens.Lens' PolicyAttributeTypeDescription (Lude.Maybe Lude.Text)
-patdAttributeName = Lens.lens (attributeName :: PolicyAttributeTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: PolicyAttributeTypeDescription)
-{-# DEPRECATED patdAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | A description of the attribute.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patdDescription :: Lens.Lens' PolicyAttributeTypeDescription (Lude.Maybe Lude.Text)
-patdDescription = Lens.lens (description :: PolicyAttributeTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PolicyAttributeTypeDescription)
+patdDescription :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Types.Description)
+patdDescription = Lens.field @"description"
 {-# DEPRECATED patdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML PolicyAttributeTypeDescription where
+instance Core.FromXML PolicyAttributeTypeDescription where
   parseXML x =
     PolicyAttributeTypeDescription'
-      Lude.<$> (x Lude..@? "AttributeType")
-      Lude.<*> (x Lude..@? "Cardinality")
-      Lude.<*> (x Lude..@? "DefaultValue")
-      Lude.<*> (x Lude..@? "AttributeName")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "AttributeName")
+      Core.<*> (x Core..@? "AttributeType")
+      Core.<*> (x Core..@? "Cardinality")
+      Core.<*> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "Description")

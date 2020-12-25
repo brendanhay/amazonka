@@ -17,57 +17,54 @@ module Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails
     mkExecutionTimedOutEventDetails,
 
     -- * Lenses
-    etoedError,
     etoedCause,
+    etoedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about the execution timeout that occurred during the execution.
 --
 -- /See:/ 'mkExecutionTimedOutEventDetails' smart constructor.
 data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the timeout.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
+  { -- | A more detailed explanation of the cause of the timeout.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionTimedOutEventDetails' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the timeout.
+-- | Creates a 'ExecutionTimedOutEventDetails' value with any optional fields omitted.
 mkExecutionTimedOutEventDetails ::
   ExecutionTimedOutEventDetails
 mkExecutionTimedOutEventDetails =
   ExecutionTimedOutEventDetails'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etoedError :: Lens.Lens' ExecutionTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-etoedError = Lens.lens (error :: ExecutionTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: ExecutionTimedOutEventDetails)
-{-# DEPRECATED etoedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the timeout.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etoedCause :: Lens.Lens' ExecutionTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-etoedCause = Lens.lens (cause :: ExecutionTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: ExecutionTimedOutEventDetails)
+etoedCause :: Lens.Lens' ExecutionTimedOutEventDetails (Core.Maybe Types.SensitiveCause)
+etoedCause = Lens.field @"cause"
 {-# DEPRECATED etoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance Lude.FromJSON ExecutionTimedOutEventDetails where
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etoedError :: Lens.Lens' ExecutionTimedOutEventDetails (Core.Maybe Types.SensitiveError)
+etoedError = Lens.field @"error"
+{-# DEPRECATED etoedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON ExecutionTimedOutEventDetails where
   parseJSON =
-    Lude.withObject
-      "ExecutionTimedOutEventDetails"
-      ( \x ->
-          ExecutionTimedOutEventDetails'
-            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
-      )
+    Core.withObject "ExecutionTimedOutEventDetails" Core.$
+      \x ->
+        ExecutionTimedOutEventDetails'
+          Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")

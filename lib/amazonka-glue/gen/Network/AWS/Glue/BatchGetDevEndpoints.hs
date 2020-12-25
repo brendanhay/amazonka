@@ -27,125 +27,111 @@ module Network.AWS.Glue.BatchGetDevEndpoints
     mkBatchGetDevEndpointsResponse,
 
     -- ** Response lenses
-    bgdersDevEndpointsNotFound,
-    bgdersDevEndpoints,
-    bgdersResponseStatus,
+    bgderrsDevEndpoints,
+    bgderrsDevEndpointsNotFound,
+    bgderrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetDevEndpoints' smart constructor.
 newtype BatchGetDevEndpoints = BatchGetDevEndpoints'
   { -- | The list of @DevEndpoint@ names, which might be the names returned from the @ListDevEndpoint@ operation.
-    devEndpointNames :: Lude.NonEmpty Lude.Text
+    devEndpointNames :: Core.NonEmpty Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetDevEndpoints' with the minimum fields required to make a request.
---
--- * 'devEndpointNames' - The list of @DevEndpoint@ names, which might be the names returned from the @ListDevEndpoint@ operation.
+-- | Creates a 'BatchGetDevEndpoints' value with any optional fields omitted.
 mkBatchGetDevEndpoints ::
   -- | 'devEndpointNames'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.GenericString ->
   BatchGetDevEndpoints
-mkBatchGetDevEndpoints pDevEndpointNames_ =
-  BatchGetDevEndpoints' {devEndpointNames = pDevEndpointNames_}
+mkBatchGetDevEndpoints devEndpointNames =
+  BatchGetDevEndpoints' {devEndpointNames}
 
 -- | The list of @DevEndpoint@ names, which might be the names returned from the @ListDevEndpoint@ operation.
 --
 -- /Note:/ Consider using 'devEndpointNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdeDevEndpointNames :: Lens.Lens' BatchGetDevEndpoints (Lude.NonEmpty Lude.Text)
-bgdeDevEndpointNames = Lens.lens (devEndpointNames :: BatchGetDevEndpoints -> Lude.NonEmpty Lude.Text) (\s a -> s {devEndpointNames = a} :: BatchGetDevEndpoints)
+bgdeDevEndpointNames :: Lens.Lens' BatchGetDevEndpoints (Core.NonEmpty Types.GenericString)
+bgdeDevEndpointNames = Lens.field @"devEndpointNames"
 {-# DEPRECATED bgdeDevEndpointNames "Use generic-lens or generic-optics with 'devEndpointNames' instead." #-}
 
-instance Lude.AWSRequest BatchGetDevEndpoints where
+instance Core.FromJSON BatchGetDevEndpoints where
+  toJSON BatchGetDevEndpoints {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DevEndpointNames" Core..= devEndpointNames)]
+      )
+
+instance Core.AWSRequest BatchGetDevEndpoints where
   type Rs BatchGetDevEndpoints = BatchGetDevEndpointsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.BatchGetDevEndpoints")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetDevEndpointsResponse'
-            Lude.<$> (x Lude..?> "DevEndpointsNotFound")
-            Lude.<*> (x Lude..?> "DevEndpoints" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DevEndpoints")
+            Core.<*> (x Core..:? "DevEndpointsNotFound")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetDevEndpoints where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.BatchGetDevEndpoints" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetDevEndpoints where
-  toJSON BatchGetDevEndpoints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("DevEndpointNames" Lude..= devEndpointNames)]
-      )
-
-instance Lude.ToPath BatchGetDevEndpoints where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetDevEndpoints where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetDevEndpointsResponse' smart constructor.
 data BatchGetDevEndpointsResponse = BatchGetDevEndpointsResponse'
-  { -- | A list of @DevEndpoints@ not found.
-    devEndpointsNotFound :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | A list of @DevEndpoint@ definitions.
-    devEndpoints :: Lude.Maybe [DevEndpoint],
+  { -- | A list of @DevEndpoint@ definitions.
+    devEndpoints :: Core.Maybe [Types.DevEndpoint],
+    -- | A list of @DevEndpoints@ not found.
+    devEndpointsNotFound :: Core.Maybe (Core.NonEmpty Types.GenericString),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetDevEndpointsResponse' with the minimum fields required to make a request.
---
--- * 'devEndpointsNotFound' - A list of @DevEndpoints@ not found.
--- * 'devEndpoints' - A list of @DevEndpoint@ definitions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetDevEndpointsResponse' value with any optional fields omitted.
 mkBatchGetDevEndpointsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetDevEndpointsResponse
-mkBatchGetDevEndpointsResponse pResponseStatus_ =
+mkBatchGetDevEndpointsResponse responseStatus =
   BatchGetDevEndpointsResponse'
-    { devEndpointsNotFound =
-        Lude.Nothing,
-      devEndpoints = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { devEndpoints = Core.Nothing,
+      devEndpointsNotFound = Core.Nothing,
+      responseStatus
     }
-
--- | A list of @DevEndpoints@ not found.
---
--- /Note:/ Consider using 'devEndpointsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdersDevEndpointsNotFound :: Lens.Lens' BatchGetDevEndpointsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-bgdersDevEndpointsNotFound = Lens.lens (devEndpointsNotFound :: BatchGetDevEndpointsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {devEndpointsNotFound = a} :: BatchGetDevEndpointsResponse)
-{-# DEPRECATED bgdersDevEndpointsNotFound "Use generic-lens or generic-optics with 'devEndpointsNotFound' instead." #-}
 
 -- | A list of @DevEndpoint@ definitions.
 --
 -- /Note:/ Consider using 'devEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdersDevEndpoints :: Lens.Lens' BatchGetDevEndpointsResponse (Lude.Maybe [DevEndpoint])
-bgdersDevEndpoints = Lens.lens (devEndpoints :: BatchGetDevEndpointsResponse -> Lude.Maybe [DevEndpoint]) (\s a -> s {devEndpoints = a} :: BatchGetDevEndpointsResponse)
-{-# DEPRECATED bgdersDevEndpoints "Use generic-lens or generic-optics with 'devEndpoints' instead." #-}
+bgderrsDevEndpoints :: Lens.Lens' BatchGetDevEndpointsResponse (Core.Maybe [Types.DevEndpoint])
+bgderrsDevEndpoints = Lens.field @"devEndpoints"
+{-# DEPRECATED bgderrsDevEndpoints "Use generic-lens or generic-optics with 'devEndpoints' instead." #-}
+
+-- | A list of @DevEndpoints@ not found.
+--
+-- /Note:/ Consider using 'devEndpointsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgderrsDevEndpointsNotFound :: Lens.Lens' BatchGetDevEndpointsResponse (Core.Maybe (Core.NonEmpty Types.GenericString))
+bgderrsDevEndpointsNotFound = Lens.field @"devEndpointsNotFound"
+{-# DEPRECATED bgderrsDevEndpointsNotFound "Use generic-lens or generic-optics with 'devEndpointsNotFound' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdersResponseStatus :: Lens.Lens' BatchGetDevEndpointsResponse Lude.Int
-bgdersResponseStatus = Lens.lens (responseStatus :: BatchGetDevEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetDevEndpointsResponse)
-{-# DEPRECATED bgdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgderrsResponseStatus :: Lens.Lens' BatchGetDevEndpointsResponse Core.Int
+bgderrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgderrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

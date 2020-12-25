@@ -29,138 +29,130 @@ module Network.AWS.CloudDirectory.UpdateFacet
     mkUpdateFacet,
 
     -- ** Request lenses
-    ufObjectType,
-    ufAttributeUpdates,
-    ufSchemaARN,
+    ufSchemaArn,
     ufName,
+    ufAttributeUpdates,
+    ufObjectType,
 
     -- * Destructuring the response
     UpdateFacetResponse (..),
     mkUpdateFacetResponse,
 
     -- ** Response lenses
-    ufrsResponseStatus,
+    ufrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-  { -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
-    objectType :: Lude.Maybe ObjectType,
-    -- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
-    attributeUpdates :: Lude.Maybe [FacetAttributeUpdate],
-    -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
-    schemaARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
+    schemaArn :: Types.Arn,
     -- | The name of the facet.
-    name :: Lude.Text
+    name :: Types.FacetName,
+    -- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
+    attributeUpdates :: Core.Maybe [Types.FacetAttributeUpdate],
+    -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+    objectType :: Core.Maybe Types.ObjectType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateFacet' with the minimum fields required to make a request.
---
--- * 'objectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
--- * 'attributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
--- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
--- * 'name' - The name of the facet.
+-- | Creates a 'UpdateFacet' value with any optional fields omitted.
 mkUpdateFacet ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.FacetName ->
   UpdateFacet
-mkUpdateFacet pSchemaARN_ pName_ =
+mkUpdateFacet schemaArn name =
   UpdateFacet'
-    { objectType = Lude.Nothing,
-      attributeUpdates = Lude.Nothing,
-      schemaARN = pSchemaARN_,
-      name = pName_
+    { schemaArn,
+      name,
+      attributeUpdates = Core.Nothing,
+      objectType = Core.Nothing
     }
-
--- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
---
--- /Note:/ Consider using 'objectType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufObjectType :: Lens.Lens' UpdateFacet (Lude.Maybe ObjectType)
-ufObjectType = Lens.lens (objectType :: UpdateFacet -> Lude.Maybe ObjectType) (\s a -> s {objectType = a} :: UpdateFacet)
-{-# DEPRECATED ufObjectType "Use generic-lens or generic-optics with 'objectType' instead." #-}
-
--- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
---
--- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufAttributeUpdates :: Lens.Lens' UpdateFacet (Lude.Maybe [FacetAttributeUpdate])
-ufAttributeUpdates = Lens.lens (attributeUpdates :: UpdateFacet -> Lude.Maybe [FacetAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: UpdateFacet)
-{-# DEPRECATED ufAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufSchemaARN :: Lens.Lens' UpdateFacet Lude.Text
-ufSchemaARN = Lens.lens (schemaARN :: UpdateFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: UpdateFacet)
-{-# DEPRECATED ufSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufSchemaArn :: Lens.Lens' UpdateFacet Types.Arn
+ufSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED ufSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The name of the facet.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufName :: Lens.Lens' UpdateFacet Lude.Text
-ufName = Lens.lens (name :: UpdateFacet -> Lude.Text) (\s a -> s {name = a} :: UpdateFacet)
+ufName :: Lens.Lens' UpdateFacet Types.FacetName
+ufName = Lens.field @"name"
 {-# DEPRECATED ufName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateFacet where
-  type Rs UpdateFacet = UpdateFacetResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateFacetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
+-- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
+--
+-- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufAttributeUpdates :: Lens.Lens' UpdateFacet (Core.Maybe [Types.FacetAttributeUpdate])
+ufAttributeUpdates = Lens.field @"attributeUpdates"
+{-# DEPRECATED ufAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
-instance Lude.ToHeaders UpdateFacet where
-  toHeaders UpdateFacet' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
+-- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+--
+-- /Note:/ Consider using 'objectType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufObjectType :: Lens.Lens' UpdateFacet (Core.Maybe Types.ObjectType)
+ufObjectType = Lens.field @"objectType"
+{-# DEPRECATED ufObjectType "Use generic-lens or generic-optics with 'objectType' instead." #-}
 
-instance Lude.ToJSON UpdateFacet where
-  toJSON UpdateFacet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ObjectType" Lude..=) Lude.<$> objectType,
-            ("AttributeUpdates" Lude..=) Lude.<$> attributeUpdates,
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON UpdateFacet where
+  toJSON UpdateFacet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("AttributeUpdates" Core..=) Core.<$> attributeUpdates,
+            ("ObjectType" Core..=) Core.<$> objectType
           ]
       )
 
-instance Lude.ToPath UpdateFacet where
-  toPath = Lude.const "/amazonclouddirectory/2017-01-11/facet"
-
-instance Lude.ToQuery UpdateFacet where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateFacet where
+  type Rs UpdateFacet = UpdateFacetResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/facet",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-data-partition" schemaArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateFacetResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateFacetResponse' smart constructor.
 newtype UpdateFacetResponse = UpdateFacetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFacetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateFacetResponse' value with any optional fields omitted.
 mkUpdateFacetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateFacetResponse
-mkUpdateFacetResponse pResponseStatus_ =
-  UpdateFacetResponse' {responseStatus = pResponseStatus_}
+mkUpdateFacetResponse responseStatus =
+  UpdateFacetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufrsResponseStatus :: Lens.Lens' UpdateFacetResponse Lude.Int
-ufrsResponseStatus = Lens.lens (responseStatus :: UpdateFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFacetResponse)
-{-# DEPRECATED ufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ufrrsResponseStatus :: Lens.Lens' UpdateFacetResponse Core.Int
+ufrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ufrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

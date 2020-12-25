@@ -20,124 +20,107 @@ module Network.AWS.Inspector.CreateExclusionsPreview
     mkCreateExclusionsPreview,
 
     -- ** Request lenses
-    cepAssessmentTemplateARN,
+    cepAssessmentTemplateArn,
 
     -- * Destructuring the response
     CreateExclusionsPreviewResponse (..),
     mkCreateExclusionsPreviewResponse,
 
     -- ** Response lenses
-    ceprsPreviewToken,
-    ceprsResponseStatus,
+    ceprrsPreviewToken,
+    ceprrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateExclusionsPreview' smart constructor.
 newtype CreateExclusionsPreview = CreateExclusionsPreview'
   { -- | The ARN that specifies the assessment template for which you want to create an exclusions preview.
-    assessmentTemplateARN :: Lude.Text
+    assessmentTemplateArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateExclusionsPreview' with the minimum fields required to make a request.
---
--- * 'assessmentTemplateARN' - The ARN that specifies the assessment template for which you want to create an exclusions preview.
+-- | Creates a 'CreateExclusionsPreview' value with any optional fields omitted.
 mkCreateExclusionsPreview ::
-  -- | 'assessmentTemplateARN'
-  Lude.Text ->
+  -- | 'assessmentTemplateArn'
+  Types.Arn ->
   CreateExclusionsPreview
-mkCreateExclusionsPreview pAssessmentTemplateARN_ =
-  CreateExclusionsPreview'
-    { assessmentTemplateARN =
-        pAssessmentTemplateARN_
-    }
+mkCreateExclusionsPreview assessmentTemplateArn =
+  CreateExclusionsPreview' {assessmentTemplateArn}
 
 -- | The ARN that specifies the assessment template for which you want to create an exclusions preview.
 --
--- /Note:/ Consider using 'assessmentTemplateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cepAssessmentTemplateARN :: Lens.Lens' CreateExclusionsPreview Lude.Text
-cepAssessmentTemplateARN = Lens.lens (assessmentTemplateARN :: CreateExclusionsPreview -> Lude.Text) (\s a -> s {assessmentTemplateARN = a} :: CreateExclusionsPreview)
-{-# DEPRECATED cepAssessmentTemplateARN "Use generic-lens or generic-optics with 'assessmentTemplateARN' instead." #-}
+-- /Note:/ Consider using 'assessmentTemplateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cepAssessmentTemplateArn :: Lens.Lens' CreateExclusionsPreview Types.Arn
+cepAssessmentTemplateArn = Lens.field @"assessmentTemplateArn"
+{-# DEPRECATED cepAssessmentTemplateArn "Use generic-lens or generic-optics with 'assessmentTemplateArn' instead." #-}
 
-instance Lude.AWSRequest CreateExclusionsPreview where
+instance Core.FromJSON CreateExclusionsPreview where
+  toJSON CreateExclusionsPreview {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("assessmentTemplateArn" Core..= assessmentTemplateArn)
+          ]
+      )
+
+instance Core.AWSRequest CreateExclusionsPreview where
   type Rs CreateExclusionsPreview = CreateExclusionsPreviewResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.CreateExclusionsPreview")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateExclusionsPreviewResponse'
-            Lude.<$> (x Lude..:> "previewToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "previewToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateExclusionsPreview where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.CreateExclusionsPreview" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateExclusionsPreview where
-  toJSON CreateExclusionsPreview' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("assessmentTemplateArn" Lude..= assessmentTemplateARN)
-          ]
-      )
-
-instance Lude.ToPath CreateExclusionsPreview where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateExclusionsPreview where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateExclusionsPreviewResponse' smart constructor.
 data CreateExclusionsPreviewResponse = CreateExclusionsPreviewResponse'
   { -- | Specifies the unique identifier of the requested exclusions preview. You can use the unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview API.
-    previewToken :: Lude.Text,
+    previewToken :: Types.PreviewToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateExclusionsPreviewResponse' with the minimum fields required to make a request.
---
--- * 'previewToken' - Specifies the unique identifier of the requested exclusions preview. You can use the unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview API.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateExclusionsPreviewResponse' value with any optional fields omitted.
 mkCreateExclusionsPreviewResponse ::
   -- | 'previewToken'
-  Lude.Text ->
+  Types.PreviewToken ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateExclusionsPreviewResponse
-mkCreateExclusionsPreviewResponse pPreviewToken_ pResponseStatus_ =
-  CreateExclusionsPreviewResponse'
-    { previewToken = pPreviewToken_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateExclusionsPreviewResponse previewToken responseStatus =
+  CreateExclusionsPreviewResponse' {previewToken, responseStatus}
 
 -- | Specifies the unique identifier of the requested exclusions preview. You can use the unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview API.
 --
 -- /Note:/ Consider using 'previewToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceprsPreviewToken :: Lens.Lens' CreateExclusionsPreviewResponse Lude.Text
-ceprsPreviewToken = Lens.lens (previewToken :: CreateExclusionsPreviewResponse -> Lude.Text) (\s a -> s {previewToken = a} :: CreateExclusionsPreviewResponse)
-{-# DEPRECATED ceprsPreviewToken "Use generic-lens or generic-optics with 'previewToken' instead." #-}
+ceprrsPreviewToken :: Lens.Lens' CreateExclusionsPreviewResponse Types.PreviewToken
+ceprrsPreviewToken = Lens.field @"previewToken"
+{-# DEPRECATED ceprrsPreviewToken "Use generic-lens or generic-optics with 'previewToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceprsResponseStatus :: Lens.Lens' CreateExclusionsPreviewResponse Lude.Int
-ceprsResponseStatus = Lens.lens (responseStatus :: CreateExclusionsPreviewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateExclusionsPreviewResponse)
-{-# DEPRECATED ceprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ceprrsResponseStatus :: Lens.Lens' CreateExclusionsPreviewResponse Core.Int
+ceprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ceprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

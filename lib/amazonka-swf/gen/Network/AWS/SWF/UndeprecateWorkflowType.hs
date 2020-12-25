@@ -51,90 +51,76 @@ module Network.AWS.SWF.UndeprecateWorkflowType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkUndeprecateWorkflowType' smart constructor.
 data UndeprecateWorkflowType = UndeprecateWorkflowType'
   { -- | The name of the domain of the deprecated workflow type.
-    domain :: Lude.Text,
+    domain :: Types.DomainName,
     -- | The name of the domain of the deprecated workflow type.
-    workflowType :: WorkflowType
+    workflowType :: Types.WorkflowType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UndeprecateWorkflowType' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain of the deprecated workflow type.
--- * 'workflowType' - The name of the domain of the deprecated workflow type.
+-- | Creates a 'UndeprecateWorkflowType' value with any optional fields omitted.
 mkUndeprecateWorkflowType ::
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'workflowType'
-  WorkflowType ->
+  Types.WorkflowType ->
   UndeprecateWorkflowType
-mkUndeprecateWorkflowType pDomain_ pWorkflowType_ =
-  UndeprecateWorkflowType'
-    { domain = pDomain_,
-      workflowType = pWorkflowType_
-    }
+mkUndeprecateWorkflowType domain workflowType =
+  UndeprecateWorkflowType' {domain, workflowType}
 
 -- | The name of the domain of the deprecated workflow type.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uwtDomain :: Lens.Lens' UndeprecateWorkflowType Lude.Text
-uwtDomain = Lens.lens (domain :: UndeprecateWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: UndeprecateWorkflowType)
+uwtDomain :: Lens.Lens' UndeprecateWorkflowType Types.DomainName
+uwtDomain = Lens.field @"domain"
 {-# DEPRECATED uwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The name of the domain of the deprecated workflow type.
 --
 -- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uwtWorkflowType :: Lens.Lens' UndeprecateWorkflowType WorkflowType
-uwtWorkflowType = Lens.lens (workflowType :: UndeprecateWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: UndeprecateWorkflowType)
+uwtWorkflowType :: Lens.Lens' UndeprecateWorkflowType Types.WorkflowType
+uwtWorkflowType = Lens.field @"workflowType"
 {-# DEPRECATED uwtWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
-instance Lude.AWSRequest UndeprecateWorkflowType where
+instance Core.FromJSON UndeprecateWorkflowType where
+  toJSON UndeprecateWorkflowType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowType" Core..= workflowType)
+          ]
+      )
+
+instance Core.AWSRequest UndeprecateWorkflowType where
   type Rs UndeprecateWorkflowType = UndeprecateWorkflowTypeResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull UndeprecateWorkflowTypeResponse'
-
-instance Lude.ToHeaders UndeprecateWorkflowType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.UndeprecateWorkflowType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UndeprecateWorkflowType where
-  toJSON UndeprecateWorkflowType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("workflowType" Lude..= workflowType)
-          ]
-      )
-
-instance Lude.ToPath UndeprecateWorkflowType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UndeprecateWorkflowType where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.UndeprecateWorkflowType")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UndeprecateWorkflowTypeResponse'
 
 -- | /See:/ 'mkUndeprecateWorkflowTypeResponse' smart constructor.
 data UndeprecateWorkflowTypeResponse = UndeprecateWorkflowTypeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UndeprecateWorkflowTypeResponse' with the minimum fields required to make a request.
+-- | Creates a 'UndeprecateWorkflowTypeResponse' value with any optional fields omitted.
 mkUndeprecateWorkflowTypeResponse ::
   UndeprecateWorkflowTypeResponse
 mkUndeprecateWorkflowTypeResponse =

@@ -22,10 +22,10 @@ module Network.AWS.CodeBuild.Types.ReportExportConfig
   )
 where
 
-import Network.AWS.CodeBuild.Types.ReportExportConfigType
-import Network.AWS.CodeBuild.Types.S3ReportExportConfig
+import qualified Network.AWS.CodeBuild.Types.ReportExportConfigType as Types
+import qualified Network.AWS.CodeBuild.Types.S3ReportExportConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the location where the run of a report is exported.
 --
@@ -38,31 +38,20 @@ data ReportExportConfig = ReportExportConfig'
     --
     --
     --     * @NO_EXPORT@ : The report results are not exported.
-    exportConfigType :: Lude.Maybe ReportExportConfigType,
+    exportConfigType :: Core.Maybe Types.ReportExportConfigType,
     -- | A @S3ReportExportConfig@ object that contains information about the S3 bucket where the run of a report is exported.
-    s3Destination :: Lude.Maybe S3ReportExportConfig
+    s3Destination :: Core.Maybe Types.S3ReportExportConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportExportConfig' with the minimum fields required to make a request.
---
--- * 'exportConfigType' - The export configuration type. Valid values are:
---
---
---     * @S3@ : The report results are exported to an S3 bucket.
---
---
---     * @NO_EXPORT@ : The report results are not exported.
---
---
--- * 's3Destination' - A @S3ReportExportConfig@ object that contains information about the S3 bucket where the run of a report is exported.
+-- | Creates a 'ReportExportConfig' value with any optional fields omitted.
 mkReportExportConfig ::
   ReportExportConfig
 mkReportExportConfig =
   ReportExportConfig'
-    { exportConfigType = Lude.Nothing,
-      s3Destination = Lude.Nothing
+    { exportConfigType = Core.Nothing,
+      s3Destination = Core.Nothing
     }
 
 -- | The export configuration type. Valid values are:
@@ -76,32 +65,30 @@ mkReportExportConfig =
 --
 --
 -- /Note:/ Consider using 'exportConfigType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-recExportConfigType :: Lens.Lens' ReportExportConfig (Lude.Maybe ReportExportConfigType)
-recExportConfigType = Lens.lens (exportConfigType :: ReportExportConfig -> Lude.Maybe ReportExportConfigType) (\s a -> s {exportConfigType = a} :: ReportExportConfig)
+recExportConfigType :: Lens.Lens' ReportExportConfig (Core.Maybe Types.ReportExportConfigType)
+recExportConfigType = Lens.field @"exportConfigType"
 {-# DEPRECATED recExportConfigType "Use generic-lens or generic-optics with 'exportConfigType' instead." #-}
 
 -- | A @S3ReportExportConfig@ object that contains information about the S3 bucket where the run of a report is exported.
 --
 -- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-recS3Destination :: Lens.Lens' ReportExportConfig (Lude.Maybe S3ReportExportConfig)
-recS3Destination = Lens.lens (s3Destination :: ReportExportConfig -> Lude.Maybe S3ReportExportConfig) (\s a -> s {s3Destination = a} :: ReportExportConfig)
+recS3Destination :: Lens.Lens' ReportExportConfig (Core.Maybe Types.S3ReportExportConfig)
+recS3Destination = Lens.field @"s3Destination"
 {-# DEPRECATED recS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
 
-instance Lude.FromJSON ReportExportConfig where
-  parseJSON =
-    Lude.withObject
-      "ReportExportConfig"
-      ( \x ->
-          ReportExportConfig'
-            Lude.<$> (x Lude..:? "exportConfigType")
-            Lude.<*> (x Lude..:? "s3Destination")
-      )
-
-instance Lude.ToJSON ReportExportConfig where
-  toJSON ReportExportConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("exportConfigType" Lude..=) Lude.<$> exportConfigType,
-            ("s3Destination" Lude..=) Lude.<$> s3Destination
+instance Core.FromJSON ReportExportConfig where
+  toJSON ReportExportConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("exportConfigType" Core..=) Core.<$> exportConfigType,
+            ("s3Destination" Core..=) Core.<$> s3Destination
           ]
       )
+
+instance Core.FromJSON ReportExportConfig where
+  parseJSON =
+    Core.withObject "ReportExportConfig" Core.$
+      \x ->
+        ReportExportConfig'
+          Core.<$> (x Core..:? "exportConfigType")
+          Core.<*> (x Core..:? "s3Destination")

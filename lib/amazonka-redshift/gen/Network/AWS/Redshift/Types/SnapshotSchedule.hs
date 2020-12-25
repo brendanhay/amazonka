@@ -17,130 +17,121 @@ module Network.AWS.Redshift.Types.SnapshotSchedule
     mkSnapshotSchedule,
 
     -- * Lenses
+    ssAssociatedClusterCount,
     ssAssociatedClusters,
     ssNextInvocations,
     ssScheduleDefinitions,
     ssScheduleDescription,
     ssScheduleIdentifier,
-    ssAssociatedClusterCount,
     ssTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
-import Network.AWS.Redshift.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.ClusterAssociatedToSchedule as Types
+import qualified Network.AWS.Redshift.Types.String as Types
+import qualified Network.AWS.Redshift.Types.Tag as Types
 
 -- | Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates.
 --
 -- /See:/ 'mkSnapshotSchedule' smart constructor.
 data SnapshotSchedule = SnapshotSchedule'
-  { -- | A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
-    associatedClusters :: Lude.Maybe [ClusterAssociatedToSchedule],
+  { -- | The number of clusters associated with the schedule.
+    associatedClusterCount :: Core.Maybe Core.Int,
+    -- | A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
+    associatedClusters :: Core.Maybe [Types.ClusterAssociatedToSchedule],
     -- |
-    nextInvocations :: Lude.Maybe [Lude.DateTime],
+    nextInvocations :: Core.Maybe [Core.UTCTime],
     -- | A list of ScheduleDefinitions.
-    scheduleDefinitions :: Lude.Maybe [Lude.Text],
+    scheduleDefinitions :: Core.Maybe [Types.String],
     -- | The description of the schedule.
-    scheduleDescription :: Lude.Maybe Lude.Text,
+    scheduleDescription :: Core.Maybe Types.String,
     -- | A unique identifier for the schedule.
-    scheduleIdentifier :: Lude.Maybe Lude.Text,
-    -- | The number of clusters associated with the schedule.
-    associatedClusterCount :: Lude.Maybe Lude.Int,
+    scheduleIdentifier :: Core.Maybe Types.String,
     -- | An optional set of tags describing the schedule.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SnapshotSchedule' with the minimum fields required to make a request.
---
--- * 'associatedClusters' - A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
--- * 'nextInvocations' -
--- * 'scheduleDefinitions' - A list of ScheduleDefinitions.
--- * 'scheduleDescription' - The description of the schedule.
--- * 'scheduleIdentifier' - A unique identifier for the schedule.
--- * 'associatedClusterCount' - The number of clusters associated with the schedule.
--- * 'tags' - An optional set of tags describing the schedule.
+-- | Creates a 'SnapshotSchedule' value with any optional fields omitted.
 mkSnapshotSchedule ::
   SnapshotSchedule
 mkSnapshotSchedule =
   SnapshotSchedule'
-    { associatedClusters = Lude.Nothing,
-      nextInvocations = Lude.Nothing,
-      scheduleDefinitions = Lude.Nothing,
-      scheduleDescription = Lude.Nothing,
-      scheduleIdentifier = Lude.Nothing,
-      associatedClusterCount = Lude.Nothing,
-      tags = Lude.Nothing
+    { associatedClusterCount = Core.Nothing,
+      associatedClusters = Core.Nothing,
+      nextInvocations = Core.Nothing,
+      scheduleDefinitions = Core.Nothing,
+      scheduleDescription = Core.Nothing,
+      scheduleIdentifier = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The number of clusters associated with the schedule.
+--
+-- /Note:/ Consider using 'associatedClusterCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssAssociatedClusterCount :: Lens.Lens' SnapshotSchedule (Core.Maybe Core.Int)
+ssAssociatedClusterCount = Lens.field @"associatedClusterCount"
+{-# DEPRECATED ssAssociatedClusterCount "Use generic-lens or generic-optics with 'associatedClusterCount' instead." #-}
 
 -- | A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
 --
 -- /Note:/ Consider using 'associatedClusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssAssociatedClusters :: Lens.Lens' SnapshotSchedule (Lude.Maybe [ClusterAssociatedToSchedule])
-ssAssociatedClusters = Lens.lens (associatedClusters :: SnapshotSchedule -> Lude.Maybe [ClusterAssociatedToSchedule]) (\s a -> s {associatedClusters = a} :: SnapshotSchedule)
+ssAssociatedClusters :: Lens.Lens' SnapshotSchedule (Core.Maybe [Types.ClusterAssociatedToSchedule])
+ssAssociatedClusters = Lens.field @"associatedClusters"
 {-# DEPRECATED ssAssociatedClusters "Use generic-lens or generic-optics with 'associatedClusters' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'nextInvocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssNextInvocations :: Lens.Lens' SnapshotSchedule (Lude.Maybe [Lude.DateTime])
-ssNextInvocations = Lens.lens (nextInvocations :: SnapshotSchedule -> Lude.Maybe [Lude.DateTime]) (\s a -> s {nextInvocations = a} :: SnapshotSchedule)
+ssNextInvocations :: Lens.Lens' SnapshotSchedule (Core.Maybe [Core.UTCTime])
+ssNextInvocations = Lens.field @"nextInvocations"
 {-# DEPRECATED ssNextInvocations "Use generic-lens or generic-optics with 'nextInvocations' instead." #-}
 
 -- | A list of ScheduleDefinitions.
 --
 -- /Note:/ Consider using 'scheduleDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssScheduleDefinitions :: Lens.Lens' SnapshotSchedule (Lude.Maybe [Lude.Text])
-ssScheduleDefinitions = Lens.lens (scheduleDefinitions :: SnapshotSchedule -> Lude.Maybe [Lude.Text]) (\s a -> s {scheduleDefinitions = a} :: SnapshotSchedule)
+ssScheduleDefinitions :: Lens.Lens' SnapshotSchedule (Core.Maybe [Types.String])
+ssScheduleDefinitions = Lens.field @"scheduleDefinitions"
 {-# DEPRECATED ssScheduleDefinitions "Use generic-lens or generic-optics with 'scheduleDefinitions' instead." #-}
 
 -- | The description of the schedule.
 --
 -- /Note:/ Consider using 'scheduleDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssScheduleDescription :: Lens.Lens' SnapshotSchedule (Lude.Maybe Lude.Text)
-ssScheduleDescription = Lens.lens (scheduleDescription :: SnapshotSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleDescription = a} :: SnapshotSchedule)
+ssScheduleDescription :: Lens.Lens' SnapshotSchedule (Core.Maybe Types.String)
+ssScheduleDescription = Lens.field @"scheduleDescription"
 {-# DEPRECATED ssScheduleDescription "Use generic-lens or generic-optics with 'scheduleDescription' instead." #-}
 
 -- | A unique identifier for the schedule.
 --
 -- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssScheduleIdentifier :: Lens.Lens' SnapshotSchedule (Lude.Maybe Lude.Text)
-ssScheduleIdentifier = Lens.lens (scheduleIdentifier :: SnapshotSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleIdentifier = a} :: SnapshotSchedule)
+ssScheduleIdentifier :: Lens.Lens' SnapshotSchedule (Core.Maybe Types.String)
+ssScheduleIdentifier = Lens.field @"scheduleIdentifier"
 {-# DEPRECATED ssScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
-
--- | The number of clusters associated with the schedule.
---
--- /Note:/ Consider using 'associatedClusterCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssAssociatedClusterCount :: Lens.Lens' SnapshotSchedule (Lude.Maybe Lude.Int)
-ssAssociatedClusterCount = Lens.lens (associatedClusterCount :: SnapshotSchedule -> Lude.Maybe Lude.Int) (\s a -> s {associatedClusterCount = a} :: SnapshotSchedule)
-{-# DEPRECATED ssAssociatedClusterCount "Use generic-lens or generic-optics with 'associatedClusterCount' instead." #-}
 
 -- | An optional set of tags describing the schedule.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssTags :: Lens.Lens' SnapshotSchedule (Lude.Maybe [Tag])
-ssTags = Lens.lens (tags :: SnapshotSchedule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SnapshotSchedule)
+ssTags :: Lens.Lens' SnapshotSchedule (Core.Maybe [Types.Tag])
+ssTags = Lens.field @"tags"
 {-# DEPRECATED ssTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML SnapshotSchedule where
+instance Core.FromXML SnapshotSchedule where
   parseXML x =
     SnapshotSchedule'
-      Lude.<$> ( x Lude..@? "AssociatedClusters" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "ClusterAssociatedToSchedule")
+      Core.<$> (x Core..@? "AssociatedClusterCount")
+      Core.<*> ( x Core..@? "AssociatedClusters"
+                   Core..<@> Core.parseXMLList "ClusterAssociatedToSchedule"
                )
-      Lude.<*> ( x Lude..@? "NextInvocations" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "SnapshotTime")
+      Core.<*> ( x Core..@? "NextInvocations"
+                   Core..<@> Core.parseXMLList "SnapshotTime"
                )
-      Lude.<*> ( x Lude..@? "ScheduleDefinitions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "ScheduleDefinition")
+      Core.<*> ( x Core..@? "ScheduleDefinitions"
+                   Core..<@> Core.parseXMLList "ScheduleDefinition"
                )
-      Lude.<*> (x Lude..@? "ScheduleDescription")
-      Lude.<*> (x Lude..@? "ScheduleIdentifier")
-      Lude.<*> (x Lude..@? "AssociatedClusterCount")
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
+      Core.<*> (x Core..@? "ScheduleDescription")
+      Core.<*> (x Core..@? "ScheduleIdentifier")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLList "Tag")

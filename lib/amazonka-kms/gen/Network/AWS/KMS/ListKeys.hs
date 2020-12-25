@@ -22,170 +22,155 @@ module Network.AWS.KMS.ListKeys
     mkListKeys,
 
     -- ** Request lenses
-    lkMarker,
     lkLimit,
+    lkMarker,
 
     -- * Destructuring the response
     ListKeysResponse (..),
     mkListKeysResponse,
 
     -- ** Response lenses
-    lkrsTruncated,
-    lkrsKeys,
-    lkrsNextMarker,
-    lkrsResponseStatus,
+    lkrrsKeys,
+    lkrrsNextMarker,
+    lkrrsTruncated,
+    lkrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListKeys' smart constructor.
 data ListKeys = ListKeys'
-  { -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-    marker :: Lude.Maybe Lude.Text,
-    -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+  { -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListKeys' with the minimum fields required to make a request.
---
--- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
--- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
+-- | Creates a 'ListKeys' value with any optional fields omitted.
 mkListKeys ::
   ListKeys
-mkListKeys = ListKeys' {marker = Lude.Nothing, limit = Lude.Nothing}
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkMarker :: Lens.Lens' ListKeys (Lude.Maybe Lude.Text)
-lkMarker = Lens.lens (marker :: ListKeys -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListKeys)
-{-# DEPRECATED lkMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+mkListKeys = ListKeys' {limit = Core.Nothing, marker = Core.Nothing}
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkLimit :: Lens.Lens' ListKeys (Lude.Maybe Lude.Natural)
-lkLimit = Lens.lens (limit :: ListKeys -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListKeys)
+lkLimit :: Lens.Lens' ListKeys (Core.Maybe Core.Natural)
+lkLimit = Lens.field @"limit"
 {-# DEPRECATED lkLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListKeys where
-  page rq rs
-    | Page.stop (rs Lens.^. lkrsTruncated) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^. lkrsNextMarker) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lkMarker Lens..~ rs Lens.^. lkrsNextMarker
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkMarker :: Lens.Lens' ListKeys (Core.Maybe Types.Marker)
+lkMarker = Lens.field @"marker"
+{-# DEPRECATED lkMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListKeys where
+instance Core.FromJSON ListKeys where
+  toJSON ListKeys {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
+
+instance Core.AWSRequest ListKeys where
   type Rs ListKeys = ListKeysResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.ListKeys")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListKeysResponse'
-            Lude.<$> (x Lude..?> "Truncated")
-            Lude.<*> (x Lude..?> "Keys" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Keys")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "Truncated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListKeys where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.ListKeys" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListKeys where
-  toJSON ListKeys' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListKeys where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListKeys where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListKeys where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"truncated") = Core.Nothing
+    | Core.isNothing (rs Lens.^. Lens.field @"nextMarker") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListKeysResponse' smart constructor.
 data ListKeysResponse = ListKeysResponse'
-  { -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-    truncated :: Lude.Maybe Lude.Bool,
-    -- | A list of customer master keys (CMKs).
-    keys :: Lude.Maybe [KeyListEntry],
+  { -- | A list of customer master keys (CMKs).
+    keys :: Core.Maybe [Types.KeyListEntry],
     -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.MarkerType,
+    -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+    truncated :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListKeysResponse' with the minimum fields required to make a request.
---
--- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
--- * 'keys' - A list of customer master keys (CMKs).
--- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListKeysResponse' value with any optional fields omitted.
 mkListKeysResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListKeysResponse
-mkListKeysResponse pResponseStatus_ =
+mkListKeysResponse responseStatus =
   ListKeysResponse'
-    { truncated = Lude.Nothing,
-      keys = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { keys = Core.Nothing,
+      nextMarker = Core.Nothing,
+      truncated = Core.Nothing,
+      responseStatus
     }
-
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkrsTruncated :: Lens.Lens' ListKeysResponse (Lude.Maybe Lude.Bool)
-lkrsTruncated = Lens.lens (truncated :: ListKeysResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ListKeysResponse)
-{-# DEPRECATED lkrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | A list of customer master keys (CMKs).
 --
 -- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkrsKeys :: Lens.Lens' ListKeysResponse (Lude.Maybe [KeyListEntry])
-lkrsKeys = Lens.lens (keys :: ListKeysResponse -> Lude.Maybe [KeyListEntry]) (\s a -> s {keys = a} :: ListKeysResponse)
-{-# DEPRECATED lkrsKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
+lkrrsKeys :: Lens.Lens' ListKeysResponse (Core.Maybe [Types.KeyListEntry])
+lkrrsKeys = Lens.field @"keys"
+{-# DEPRECATED lkrrsKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkrsNextMarker :: Lens.Lens' ListKeysResponse (Lude.Maybe Lude.Text)
-lkrsNextMarker = Lens.lens (nextMarker :: ListKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListKeysResponse)
-{-# DEPRECATED lkrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lkrrsNextMarker :: Lens.Lens' ListKeysResponse (Core.Maybe Types.MarkerType)
+lkrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lkrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkrrsTruncated :: Lens.Lens' ListKeysResponse (Core.Maybe Core.Bool)
+lkrrsTruncated = Lens.field @"truncated"
+{-# DEPRECATED lkrrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkrsResponseStatus :: Lens.Lens' ListKeysResponse Lude.Int
-lkrsResponseStatus = Lens.lens (responseStatus :: ListKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListKeysResponse)
-{-# DEPRECATED lkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lkrrsResponseStatus :: Lens.Lens' ListKeysResponse Core.Int
+lkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

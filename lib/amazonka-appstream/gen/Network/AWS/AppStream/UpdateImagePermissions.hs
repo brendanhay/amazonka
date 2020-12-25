@@ -20,144 +20,120 @@ module Network.AWS.AppStream.UpdateImagePermissions
     mkUpdateImagePermissions,
 
     -- ** Request lenses
-    uipImagePermissions,
-    uipSharedAccountId,
     uipName,
+    uipSharedAccountId,
+    uipImagePermissions,
 
     -- * Destructuring the response
     UpdateImagePermissionsResponse (..),
     mkUpdateImagePermissionsResponse,
 
     -- ** Response lenses
-    uiprsResponseStatus,
+    uiprrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateImagePermissions' smart constructor.
 data UpdateImagePermissions = UpdateImagePermissions'
-  { -- | The permissions for the image.
-    imagePermissions :: ImagePermissions,
+  { -- | The name of the private image.
+    name :: Types.Name,
     -- | The 12-digit identifier of the AWS account for which you want add or update image permissions.
-    sharedAccountId :: Lude.Text,
-    -- | The name of the private image.
-    name :: Lude.Text
+    sharedAccountId :: Types.SharedAccountId,
+    -- | The permissions for the image.
+    imagePermissions :: Types.ImagePermissions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateImagePermissions' with the minimum fields required to make a request.
---
--- * 'imagePermissions' - The permissions for the image.
--- * 'sharedAccountId' - The 12-digit identifier of the AWS account for which you want add or update image permissions.
--- * 'name' - The name of the private image.
+-- | Creates a 'UpdateImagePermissions' value with any optional fields omitted.
 mkUpdateImagePermissions ::
-  -- | 'imagePermissions'
-  ImagePermissions ->
-  -- | 'sharedAccountId'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'sharedAccountId'
+  Types.SharedAccountId ->
+  -- | 'imagePermissions'
+  Types.ImagePermissions ->
   UpdateImagePermissions
-mkUpdateImagePermissions
-  pImagePermissions_
-  pSharedAccountId_
-  pName_ =
-    UpdateImagePermissions'
-      { imagePermissions = pImagePermissions_,
-        sharedAccountId = pSharedAccountId_,
-        name = pName_
-      }
-
--- | The permissions for the image.
---
--- /Note:/ Consider using 'imagePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipImagePermissions :: Lens.Lens' UpdateImagePermissions ImagePermissions
-uipImagePermissions = Lens.lens (imagePermissions :: UpdateImagePermissions -> ImagePermissions) (\s a -> s {imagePermissions = a} :: UpdateImagePermissions)
-{-# DEPRECATED uipImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
-
--- | The 12-digit identifier of the AWS account for which you want add or update image permissions.
---
--- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipSharedAccountId :: Lens.Lens' UpdateImagePermissions Lude.Text
-uipSharedAccountId = Lens.lens (sharedAccountId :: UpdateImagePermissions -> Lude.Text) (\s a -> s {sharedAccountId = a} :: UpdateImagePermissions)
-{-# DEPRECATED uipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+mkUpdateImagePermissions name sharedAccountId imagePermissions =
+  UpdateImagePermissions' {name, sharedAccountId, imagePermissions}
 
 -- | The name of the private image.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipName :: Lens.Lens' UpdateImagePermissions Lude.Text
-uipName = Lens.lens (name :: UpdateImagePermissions -> Lude.Text) (\s a -> s {name = a} :: UpdateImagePermissions)
+uipName :: Lens.Lens' UpdateImagePermissions Types.Name
+uipName = Lens.field @"name"
 {-# DEPRECATED uipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateImagePermissions where
+-- | The 12-digit identifier of the AWS account for which you want add or update image permissions.
+--
+-- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipSharedAccountId :: Lens.Lens' UpdateImagePermissions Types.SharedAccountId
+uipSharedAccountId = Lens.field @"sharedAccountId"
+{-# DEPRECATED uipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+
+-- | The permissions for the image.
+--
+-- /Note:/ Consider using 'imagePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipImagePermissions :: Lens.Lens' UpdateImagePermissions Types.ImagePermissions
+uipImagePermissions = Lens.field @"imagePermissions"
+{-# DEPRECATED uipImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
+
+instance Core.FromJSON UpdateImagePermissions where
+  toJSON UpdateImagePermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("SharedAccountId" Core..= sharedAccountId),
+            Core.Just ("ImagePermissions" Core..= imagePermissions)
+          ]
+      )
+
+instance Core.AWSRequest UpdateImagePermissions where
   type Rs UpdateImagePermissions = UpdateImagePermissionsResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.UpdateImagePermissions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateImagePermissionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateImagePermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.UpdateImagePermissions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateImagePermissions where
-  toJSON UpdateImagePermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ImagePermissions" Lude..= imagePermissions),
-            Lude.Just ("SharedAccountId" Lude..= sharedAccountId),
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath UpdateImagePermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateImagePermissions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateImagePermissionsResponse' smart constructor.
 newtype UpdateImagePermissionsResponse = UpdateImagePermissionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateImagePermissionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateImagePermissionsResponse' value with any optional fields omitted.
 mkUpdateImagePermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateImagePermissionsResponse
-mkUpdateImagePermissionsResponse pResponseStatus_ =
-  UpdateImagePermissionsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateImagePermissionsResponse responseStatus =
+  UpdateImagePermissionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiprsResponseStatus :: Lens.Lens' UpdateImagePermissionsResponse Lude.Int
-uiprsResponseStatus = Lens.lens (responseStatus :: UpdateImagePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateImagePermissionsResponse)
-{-# DEPRECATED uiprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uiprrsResponseStatus :: Lens.Lens' UpdateImagePermissionsResponse Core.Int
+uiprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uiprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

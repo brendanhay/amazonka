@@ -13,52 +13,54 @@
 module Network.AWS.MediaConvert.Types.JobPhase
   ( JobPhase
       ( JobPhase',
-        Probing,
-        Transcoding,
-        Uploading
+        JobPhaseProbing,
+        JobPhaseTranscoding,
+        JobPhaseUploading,
+        fromJobPhase
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A job's phase can be PROBING, TRANSCODING OR UPLOADING
-newtype JobPhase = JobPhase' Lude.Text
+newtype JobPhase = JobPhase' {fromJobPhase :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Probing :: JobPhase
-pattern Probing = JobPhase' "PROBING"
+pattern JobPhaseProbing :: JobPhase
+pattern JobPhaseProbing = JobPhase' "PROBING"
 
-pattern Transcoding :: JobPhase
-pattern Transcoding = JobPhase' "TRANSCODING"
+pattern JobPhaseTranscoding :: JobPhase
+pattern JobPhaseTranscoding = JobPhase' "TRANSCODING"
 
-pattern Uploading :: JobPhase
-pattern Uploading = JobPhase' "UPLOADING"
+pattern JobPhaseUploading :: JobPhase
+pattern JobPhaseUploading = JobPhase' "UPLOADING"
 
 {-# COMPLETE
-  Probing,
-  Transcoding,
-  Uploading,
+  JobPhaseProbing,
+  JobPhaseTranscoding,
+  JobPhaseUploading,
   JobPhase'
   #-}

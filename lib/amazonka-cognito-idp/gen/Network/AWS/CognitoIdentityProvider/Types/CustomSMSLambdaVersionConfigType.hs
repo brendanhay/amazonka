@@ -17,71 +17,64 @@ module Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigTyp
     mkCustomSMSLambdaVersionConfigType,
 
     -- * Lenses
-    csmslvctLambdaARN,
     csmslvctLambdaVersion,
+    csmslvctLambdaArn,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
+import qualified Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.LambdaArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A custom SMS sender Lambda configuration type.
 --
 -- /See:/ 'mkCustomSMSLambdaVersionConfigType' smart constructor.
 data CustomSMSLambdaVersionConfigType = CustomSMSLambdaVersionConfigType'
-  { -- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-    lambdaARN :: Lude.Text,
-    -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is @V1_0@ .
-    lambdaVersion :: CustomSMSSenderLambdaVersionType
+  { -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is @V1_0@ .
+    lambdaVersion :: Types.CustomSMSSenderLambdaVersionType,
+    -- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+    lambdaArn :: Types.LambdaArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomSMSLambdaVersionConfigType' with the minimum fields required to make a request.
---
--- * 'lambdaARN' - The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
--- * 'lambdaVersion' - The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is @V1_0@ .
+-- | Creates a 'CustomSMSLambdaVersionConfigType' value with any optional fields omitted.
 mkCustomSMSLambdaVersionConfigType ::
-  -- | 'lambdaARN'
-  Lude.Text ->
   -- | 'lambdaVersion'
-  CustomSMSSenderLambdaVersionType ->
+  Types.CustomSMSSenderLambdaVersionType ->
+  -- | 'lambdaArn'
+  Types.LambdaArn ->
   CustomSMSLambdaVersionConfigType
-mkCustomSMSLambdaVersionConfigType pLambdaARN_ pLambdaVersion_ =
-  CustomSMSLambdaVersionConfigType'
-    { lambdaARN = pLambdaARN_,
-      lambdaVersion = pLambdaVersion_
-    }
-
--- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
---
--- /Note:/ Consider using 'lambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmslvctLambdaARN :: Lens.Lens' CustomSMSLambdaVersionConfigType Lude.Text
-csmslvctLambdaARN = Lens.lens (lambdaARN :: CustomSMSLambdaVersionConfigType -> Lude.Text) (\s a -> s {lambdaARN = a} :: CustomSMSLambdaVersionConfigType)
-{-# DEPRECATED csmslvctLambdaARN "Use generic-lens or generic-optics with 'lambdaARN' instead." #-}
+mkCustomSMSLambdaVersionConfigType lambdaVersion lambdaArn =
+  CustomSMSLambdaVersionConfigType' {lambdaVersion, lambdaArn}
 
 -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is @V1_0@ .
 --
 -- /Note:/ Consider using 'lambdaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmslvctLambdaVersion :: Lens.Lens' CustomSMSLambdaVersionConfigType CustomSMSSenderLambdaVersionType
-csmslvctLambdaVersion = Lens.lens (lambdaVersion :: CustomSMSLambdaVersionConfigType -> CustomSMSSenderLambdaVersionType) (\s a -> s {lambdaVersion = a} :: CustomSMSLambdaVersionConfigType)
+csmslvctLambdaVersion :: Lens.Lens' CustomSMSLambdaVersionConfigType Types.CustomSMSSenderLambdaVersionType
+csmslvctLambdaVersion = Lens.field @"lambdaVersion"
 {-# DEPRECATED csmslvctLambdaVersion "Use generic-lens or generic-optics with 'lambdaVersion' instead." #-}
 
-instance Lude.FromJSON CustomSMSLambdaVersionConfigType where
-  parseJSON =
-    Lude.withObject
-      "CustomSMSLambdaVersionConfigType"
-      ( \x ->
-          CustomSMSLambdaVersionConfigType'
-            Lude.<$> (x Lude..: "LambdaArn") Lude.<*> (x Lude..: "LambdaVersion")
-      )
+-- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+--
+-- /Note:/ Consider using 'lambdaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmslvctLambdaArn :: Lens.Lens' CustomSMSLambdaVersionConfigType Types.LambdaArn
+csmslvctLambdaArn = Lens.field @"lambdaArn"
+{-# DEPRECATED csmslvctLambdaArn "Use generic-lens or generic-optics with 'lambdaArn' instead." #-}
 
-instance Lude.ToJSON CustomSMSLambdaVersionConfigType where
-  toJSON CustomSMSLambdaVersionConfigType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LambdaArn" Lude..= lambdaARN),
-            Lude.Just ("LambdaVersion" Lude..= lambdaVersion)
+instance Core.FromJSON CustomSMSLambdaVersionConfigType where
+  toJSON CustomSMSLambdaVersionConfigType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("LambdaVersion" Core..= lambdaVersion),
+            Core.Just ("LambdaArn" Core..= lambdaArn)
           ]
       )
+
+instance Core.FromJSON CustomSMSLambdaVersionConfigType where
+  parseJSON =
+    Core.withObject "CustomSMSLambdaVersionConfigType" Core.$
+      \x ->
+        CustomSMSLambdaVersionConfigType'
+          Core.<$> (x Core..: "LambdaVersion") Core.<*> (x Core..: "LambdaArn")

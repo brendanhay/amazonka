@@ -17,75 +17,69 @@ module Network.AWS.SSM.Types.InventoryFilter
     mkInventoryFilter,
 
     -- * Lenses
-    ifValues,
     ifKey,
+    ifValues,
     ifType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryQueryOperatorType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryFilterValue as Types
+import qualified Network.AWS.SSM.Types.InventoryQueryOperatorType as Types
+import qualified Network.AWS.SSM.Types.Key as Types
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 --
 -- /See:/ 'mkInventoryFilter' smart constructor.
 data InventoryFilter = InventoryFilter'
-  { -- | Inventory filter values. Example: inventory filter where instance IDs are specified as values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
-    values :: Lude.NonEmpty Lude.Text,
-    -- | The name of the filter key.
-    key :: Lude.Text,
+  { -- | The name of the filter key.
+    key :: Types.Key,
+    -- | Inventory filter values. Example: inventory filter where instance IDs are specified as values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
+    values :: Core.NonEmpty Types.InventoryFilterValue,
     -- | The type of filter.
-    type' :: Lude.Maybe InventoryQueryOperatorType
+    type' :: Core.Maybe Types.InventoryQueryOperatorType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryFilter' with the minimum fields required to make a request.
---
--- * 'values' - Inventory filter values. Example: inventory filter where instance IDs are specified as values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
--- * 'key' - The name of the filter key.
--- * 'type'' - The type of filter.
+-- | Creates a 'InventoryFilter' value with any optional fields omitted.
 mkInventoryFilter ::
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'values'
+  Core.NonEmpty Types.InventoryFilterValue ->
   InventoryFilter
-mkInventoryFilter pValues_ pKey_ =
-  InventoryFilter'
-    { values = pValues_,
-      key = pKey_,
-      type' = Lude.Nothing
-    }
-
--- | Inventory filter values. Example: inventory filter where instance IDs are specified as values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifValues :: Lens.Lens' InventoryFilter (Lude.NonEmpty Lude.Text)
-ifValues = Lens.lens (values :: InventoryFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: InventoryFilter)
-{-# DEPRECATED ifValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkInventoryFilter key values =
+  InventoryFilter' {key, values, type' = Core.Nothing}
 
 -- | The name of the filter key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifKey :: Lens.Lens' InventoryFilter Lude.Text
-ifKey = Lens.lens (key :: InventoryFilter -> Lude.Text) (\s a -> s {key = a} :: InventoryFilter)
+ifKey :: Lens.Lens' InventoryFilter Types.Key
+ifKey = Lens.field @"key"
 {-# DEPRECATED ifKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | Inventory filter values. Example: inventory filter where instance IDs are specified as values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifValues :: Lens.Lens' InventoryFilter (Core.NonEmpty Types.InventoryFilterValue)
+ifValues = Lens.field @"values"
+{-# DEPRECATED ifValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The type of filter.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifType :: Lens.Lens' InventoryFilter (Lude.Maybe InventoryQueryOperatorType)
-ifType = Lens.lens (type' :: InventoryFilter -> Lude.Maybe InventoryQueryOperatorType) (\s a -> s {type' = a} :: InventoryFilter)
+ifType :: Lens.Lens' InventoryFilter (Core.Maybe Types.InventoryQueryOperatorType)
+ifType = Lens.field @"type'"
 {-# DEPRECATED ifType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON InventoryFilter where
-  toJSON InventoryFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Key" Lude..= key),
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON InventoryFilter where
+  toJSON InventoryFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values),
+            ("Type" Core..=) Core.<$> type'
           ]
       )

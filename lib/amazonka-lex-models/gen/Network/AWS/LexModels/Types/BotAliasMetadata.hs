@@ -17,137 +17,131 @@ module Network.AWS.LexModels.Types.BotAliasMetadata
     mkBotAliasMetadata,
 
     -- * Lenses
-    bamChecksum,
-    bamBotVersion,
     bamBotName,
-    bamCreatedDate,
-    bamName,
+    bamBotVersion,
+    bamChecksum,
     bamConversationLogs,
-    bamLastUpdatedDate,
+    bamCreatedDate,
     bamDescription,
+    bamLastUpdatedDate,
+    bamName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.ConversationLogsResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.AliasName as Types
+import qualified Network.AWS.LexModels.Types.BotName as Types
+import qualified Network.AWS.LexModels.Types.ConversationLogsResponse as Types
+import qualified Network.AWS.LexModels.Types.Description as Types
+import qualified Network.AWS.LexModels.Types.String as Types
+import qualified Network.AWS.LexModels.Types.Version as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a bot alias.
 --
 -- /See:/ 'mkBotAliasMetadata' smart constructor.
 data BotAliasMetadata = BotAliasMetadata'
-  { -- | Checksum of the bot alias.
-    checksum :: Lude.Maybe Lude.Text,
+  { -- | The name of the bot to which the alias points.
+    botName :: Core.Maybe Types.BotName,
     -- | The version of the Amazon Lex bot to which the alias points.
-    botVersion :: Lude.Maybe Lude.Text,
-    -- | The name of the bot to which the alias points.
-    botName :: Lude.Maybe Lude.Text,
-    -- | The date that the bot alias was created.
-    createdDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the bot alias.
-    name :: Lude.Maybe Lude.Text,
+    botVersion :: Core.Maybe Types.Version,
+    -- | Checksum of the bot alias.
+    checksum :: Core.Maybe Types.String,
     -- | Settings that determine how Amazon Lex uses conversation logs for the alias.
-    conversationLogs :: Lude.Maybe ConversationLogsResponse,
-    -- | The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
-    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    conversationLogs :: Core.Maybe Types.ConversationLogsResponse,
+    -- | The date that the bot alias was created.
+    createdDate :: Core.Maybe Core.NominalDiffTime,
     -- | A description of the bot alias.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
+    lastUpdatedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the bot alias.
+    name :: Core.Maybe Types.AliasName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BotAliasMetadata' with the minimum fields required to make a request.
---
--- * 'checksum' - Checksum of the bot alias.
--- * 'botVersion' - The version of the Amazon Lex bot to which the alias points.
--- * 'botName' - The name of the bot to which the alias points.
--- * 'createdDate' - The date that the bot alias was created.
--- * 'name' - The name of the bot alias.
--- * 'conversationLogs' - Settings that determine how Amazon Lex uses conversation logs for the alias.
--- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
--- * 'description' - A description of the bot alias.
+-- | Creates a 'BotAliasMetadata' value with any optional fields omitted.
 mkBotAliasMetadata ::
   BotAliasMetadata
 mkBotAliasMetadata =
   BotAliasMetadata'
-    { checksum = Lude.Nothing,
-      botVersion = Lude.Nothing,
-      botName = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      name = Lude.Nothing,
-      conversationLogs = Lude.Nothing,
-      lastUpdatedDate = Lude.Nothing,
-      description = Lude.Nothing
+    { botName = Core.Nothing,
+      botVersion = Core.Nothing,
+      checksum = Core.Nothing,
+      conversationLogs = Core.Nothing,
+      createdDate = Core.Nothing,
+      description = Core.Nothing,
+      lastUpdatedDate = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | Checksum of the bot alias.
---
--- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamChecksum :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Text)
-bamChecksum = Lens.lens (checksum :: BotAliasMetadata -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: BotAliasMetadata)
-{-# DEPRECATED bamChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
-
--- | The version of the Amazon Lex bot to which the alias points.
---
--- /Note:/ Consider using 'botVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamBotVersion :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Text)
-bamBotVersion = Lens.lens (botVersion :: BotAliasMetadata -> Lude.Maybe Lude.Text) (\s a -> s {botVersion = a} :: BotAliasMetadata)
-{-# DEPRECATED bamBotVersion "Use generic-lens or generic-optics with 'botVersion' instead." #-}
 
 -- | The name of the bot to which the alias points.
 --
 -- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamBotName :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Text)
-bamBotName = Lens.lens (botName :: BotAliasMetadata -> Lude.Maybe Lude.Text) (\s a -> s {botName = a} :: BotAliasMetadata)
+bamBotName :: Lens.Lens' BotAliasMetadata (Core.Maybe Types.BotName)
+bamBotName = Lens.field @"botName"
 {-# DEPRECATED bamBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
--- | The date that the bot alias was created.
+-- | The version of the Amazon Lex bot to which the alias points.
 --
--- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamCreatedDate :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Timestamp)
-bamCreatedDate = Lens.lens (createdDate :: BotAliasMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: BotAliasMetadata)
-{-# DEPRECATED bamCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+-- /Note:/ Consider using 'botVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bamBotVersion :: Lens.Lens' BotAliasMetadata (Core.Maybe Types.Version)
+bamBotVersion = Lens.field @"botVersion"
+{-# DEPRECATED bamBotVersion "Use generic-lens or generic-optics with 'botVersion' instead." #-}
 
--- | The name of the bot alias.
+-- | Checksum of the bot alias.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamName :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Text)
-bamName = Lens.lens (name :: BotAliasMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: BotAliasMetadata)
-{-# DEPRECATED bamName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bamChecksum :: Lens.Lens' BotAliasMetadata (Core.Maybe Types.String)
+bamChecksum = Lens.field @"checksum"
+{-# DEPRECATED bamChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | Settings that determine how Amazon Lex uses conversation logs for the alias.
 --
 -- /Note:/ Consider using 'conversationLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamConversationLogs :: Lens.Lens' BotAliasMetadata (Lude.Maybe ConversationLogsResponse)
-bamConversationLogs = Lens.lens (conversationLogs :: BotAliasMetadata -> Lude.Maybe ConversationLogsResponse) (\s a -> s {conversationLogs = a} :: BotAliasMetadata)
+bamConversationLogs :: Lens.Lens' BotAliasMetadata (Core.Maybe Types.ConversationLogsResponse)
+bamConversationLogs = Lens.field @"conversationLogs"
 {-# DEPRECATED bamConversationLogs "Use generic-lens or generic-optics with 'conversationLogs' instead." #-}
 
--- | The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
+-- | The date that the bot alias was created.
 --
--- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamLastUpdatedDate :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Timestamp)
-bamLastUpdatedDate = Lens.lens (lastUpdatedDate :: BotAliasMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: BotAliasMetadata)
-{-# DEPRECATED bamLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bamCreatedDate :: Lens.Lens' BotAliasMetadata (Core.Maybe Core.NominalDiffTime)
+bamCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED bamCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | A description of the bot alias.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bamDescription :: Lens.Lens' BotAliasMetadata (Lude.Maybe Lude.Text)
-bamDescription = Lens.lens (description :: BotAliasMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: BotAliasMetadata)
+bamDescription :: Lens.Lens' BotAliasMetadata (Core.Maybe Types.Description)
+bamDescription = Lens.field @"description"
 {-# DEPRECATED bamDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON BotAliasMetadata where
+-- | The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bamLastUpdatedDate :: Lens.Lens' BotAliasMetadata (Core.Maybe Core.NominalDiffTime)
+bamLastUpdatedDate = Lens.field @"lastUpdatedDate"
+{-# DEPRECATED bamLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
+
+-- | The name of the bot alias.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bamName :: Lens.Lens' BotAliasMetadata (Core.Maybe Types.AliasName)
+bamName = Lens.field @"name"
+{-# DEPRECATED bamName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON BotAliasMetadata where
   parseJSON =
-    Lude.withObject
-      "BotAliasMetadata"
-      ( \x ->
-          BotAliasMetadata'
-            Lude.<$> (x Lude..:? "checksum")
-            Lude.<*> (x Lude..:? "botVersion")
-            Lude.<*> (x Lude..:? "botName")
-            Lude.<*> (x Lude..:? "createdDate")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "conversationLogs")
-            Lude.<*> (x Lude..:? "lastUpdatedDate")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "BotAliasMetadata" Core.$
+      \x ->
+        BotAliasMetadata'
+          Core.<$> (x Core..:? "botName")
+          Core.<*> (x Core..:? "botVersion")
+          Core.<*> (x Core..:? "checksum")
+          Core.<*> (x Core..:? "conversationLogs")
+          Core.<*> (x Core..:? "createdDate")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "lastUpdatedDate")
+          Core.<*> (x Core..:? "name")

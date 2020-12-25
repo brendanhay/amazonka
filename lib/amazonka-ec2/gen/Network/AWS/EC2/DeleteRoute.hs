@@ -20,11 +20,11 @@ module Network.AWS.EC2.DeleteRoute
     mkDeleteRoute,
 
     -- ** Request lenses
-    drfRouteTableId,
-    drfDestinationIPv6CidrBlock,
-    drfDestinationPrefixListId,
-    drfDryRun,
-    drfDestinationCidrBlock,
+    drRouteTableId,
+    drDestinationCidrBlock,
+    drDestinationIpv6CidrBlock,
+    drDestinationPrefixListId,
+    drDryRun,
 
     -- * Destructuring the response
     DeleteRouteResponse (..),
@@ -32,112 +32,115 @@ module Network.AWS.EC2.DeleteRoute
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRoute' smart constructor.
 data DeleteRoute = DeleteRoute'
   { -- | The ID of the route table.
-    routeTableId :: Lude.Text,
-    -- | The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
-    destinationIPv6CidrBlock :: Lude.Maybe Lude.Text,
-    -- | The ID of the prefix list for the route.
-    destinationPrefixListId :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    routeTableId :: Types.RouteTableId,
     -- | The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
-    destinationCidrBlock :: Lude.Maybe Lude.Text
+    destinationCidrBlock :: Core.Maybe Types.String,
+    -- | The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+    destinationIpv6CidrBlock :: Core.Maybe Types.String,
+    -- | The ID of the prefix list for the route.
+    destinationPrefixListId :: Core.Maybe Types.PrefixListResourceId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRoute' with the minimum fields required to make a request.
---
--- * 'routeTableId' - The ID of the route table.
--- * 'destinationIPv6CidrBlock' - The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
--- * 'destinationPrefixListId' - The ID of the prefix list for the route.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'destinationCidrBlock' - The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+-- | Creates a 'DeleteRoute' value with any optional fields omitted.
 mkDeleteRoute ::
   -- | 'routeTableId'
-  Lude.Text ->
+  Types.RouteTableId ->
   DeleteRoute
-mkDeleteRoute pRouteTableId_ =
+mkDeleteRoute routeTableId =
   DeleteRoute'
-    { routeTableId = pRouteTableId_,
-      destinationIPv6CidrBlock = Lude.Nothing,
-      destinationPrefixListId = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      destinationCidrBlock = Lude.Nothing
+    { routeTableId,
+      destinationCidrBlock = Core.Nothing,
+      destinationIpv6CidrBlock = Core.Nothing,
+      destinationPrefixListId = Core.Nothing,
+      dryRun = Core.Nothing
     }
 
 -- | The ID of the route table.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfRouteTableId :: Lens.Lens' DeleteRoute Lude.Text
-drfRouteTableId = Lens.lens (routeTableId :: DeleteRoute -> Lude.Text) (\s a -> s {routeTableId = a} :: DeleteRoute)
-{-# DEPRECATED drfRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
-
--- | The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
---
--- /Note:/ Consider using 'destinationIPv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfDestinationIPv6CidrBlock :: Lens.Lens' DeleteRoute (Lude.Maybe Lude.Text)
-drfDestinationIPv6CidrBlock = Lens.lens (destinationIPv6CidrBlock :: DeleteRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationIPv6CidrBlock = a} :: DeleteRoute)
-{-# DEPRECATED drfDestinationIPv6CidrBlock "Use generic-lens or generic-optics with 'destinationIPv6CidrBlock' instead." #-}
-
--- | The ID of the prefix list for the route.
---
--- /Note:/ Consider using 'destinationPrefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfDestinationPrefixListId :: Lens.Lens' DeleteRoute (Lude.Maybe Lude.Text)
-drfDestinationPrefixListId = Lens.lens (destinationPrefixListId :: DeleteRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationPrefixListId = a} :: DeleteRoute)
-{-# DEPRECATED drfDestinationPrefixListId "Use generic-lens or generic-optics with 'destinationPrefixListId' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfDryRun :: Lens.Lens' DeleteRoute (Lude.Maybe Lude.Bool)
-drfDryRun = Lens.lens (dryRun :: DeleteRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteRoute)
-{-# DEPRECATED drfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+drRouteTableId :: Lens.Lens' DeleteRoute Types.RouteTableId
+drRouteTableId = Lens.field @"routeTableId"
+{-# DEPRECATED drRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
 
 -- | The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
 --
 -- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfDestinationCidrBlock :: Lens.Lens' DeleteRoute (Lude.Maybe Lude.Text)
-drfDestinationCidrBlock = Lens.lens (destinationCidrBlock :: DeleteRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: DeleteRoute)
-{-# DEPRECATED drfDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
+drDestinationCidrBlock :: Lens.Lens' DeleteRoute (Core.Maybe Types.String)
+drDestinationCidrBlock = Lens.field @"destinationCidrBlock"
+{-# DEPRECATED drDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance Lude.AWSRequest DeleteRoute where
+-- | The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+--
+-- /Note:/ Consider using 'destinationIpv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drDestinationIpv6CidrBlock :: Lens.Lens' DeleteRoute (Core.Maybe Types.String)
+drDestinationIpv6CidrBlock = Lens.field @"destinationIpv6CidrBlock"
+{-# DEPRECATED drDestinationIpv6CidrBlock "Use generic-lens or generic-optics with 'destinationIpv6CidrBlock' instead." #-}
+
+-- | The ID of the prefix list for the route.
+--
+-- /Note:/ Consider using 'destinationPrefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drDestinationPrefixListId :: Lens.Lens' DeleteRoute (Core.Maybe Types.PrefixListResourceId)
+drDestinationPrefixListId = Lens.field @"destinationPrefixListId"
+{-# DEPRECATED drDestinationPrefixListId "Use generic-lens or generic-optics with 'destinationPrefixListId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drDryRun :: Lens.Lens' DeleteRoute (Core.Maybe Core.Bool)
+drDryRun = Lens.field @"dryRun"
+{-# DEPRECATED drDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+instance Core.AWSRequest DeleteRoute where
   type Rs DeleteRoute = DeleteRouteResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteRouteResponse'
-
-instance Lude.ToHeaders DeleteRoute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteRoute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRoute where
-  toQuery DeleteRoute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteRoute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "RouteTableId" Lude.=: routeTableId,
-        "DestinationIpv6CidrBlock" Lude.=: destinationIPv6CidrBlock,
-        "DestinationPrefixListId" Lude.=: destinationPrefixListId,
-        "DryRun" Lude.=: dryRun,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteRoute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "RouteTableId" routeTableId)
+                Core.<> ( Core.toQueryValue "DestinationCidrBlock"
+                            Core.<$> destinationCidrBlock
+                        )
+                Core.<> ( Core.toQueryValue "DestinationIpv6CidrBlock"
+                            Core.<$> destinationIpv6CidrBlock
+                        )
+                Core.<> ( Core.toQueryValue "DestinationPrefixListId"
+                            Core.<$> destinationPrefixListId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteRouteResponse'
 
 -- | /See:/ 'mkDeleteRouteResponse' smart constructor.
 data DeleteRouteResponse = DeleteRouteResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRouteResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRouteResponse' value with any optional fields omitted.
 mkDeleteRouteResponse ::
   DeleteRouteResponse
 mkDeleteRouteResponse = DeleteRouteResponse'

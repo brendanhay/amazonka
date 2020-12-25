@@ -17,155 +17,143 @@ module Network.AWS.MediaLive.Types.OutputSettings
     mkOutputSettings,
 
     -- * Lenses
-    osMultiplexOutputSettings,
     osArchiveOutputSettings,
-    osRtmpOutputSettings,
-    osMediaPackageOutputSettings,
-    osHlsOutputSettings,
     osFrameCaptureOutputSettings,
-    osUdpOutputSettings,
+    osHlsOutputSettings,
+    osMediaPackageOutputSettings,
     osMsSmoothOutputSettings,
+    osMultiplexOutputSettings,
+    osRtmpOutputSettings,
+    osUdpOutputSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ArchiveOutputSettings
-import Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
-import Network.AWS.MediaLive.Types.HlsOutputSettings
-import Network.AWS.MediaLive.Types.MediaPackageOutputSettings
-import Network.AWS.MediaLive.Types.MsSmoothOutputSettings
-import Network.AWS.MediaLive.Types.MultiplexOutputSettings
-import Network.AWS.MediaLive.Types.RtmpOutputSettings
-import Network.AWS.MediaLive.Types.UdpOutputSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.ArchiveOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.FrameCaptureOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.HlsOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.MediaPackageOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.MsSmoothOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.MultiplexOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.RtmpOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.UdpOutputSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Output Settings
 --
 -- /See:/ 'mkOutputSettings' smart constructor.
 data OutputSettings = OutputSettings'
-  { multiplexOutputSettings :: Lude.Maybe MultiplexOutputSettings,
-    archiveOutputSettings :: Lude.Maybe ArchiveOutputSettings,
-    rtmpOutputSettings :: Lude.Maybe RtmpOutputSettings,
-    mediaPackageOutputSettings :: Lude.Maybe MediaPackageOutputSettings,
-    hlsOutputSettings :: Lude.Maybe HlsOutputSettings,
-    frameCaptureOutputSettings :: Lude.Maybe FrameCaptureOutputSettings,
-    udpOutputSettings :: Lude.Maybe UdpOutputSettings,
-    msSmoothOutputSettings :: Lude.Maybe MsSmoothOutputSettings
+  { archiveOutputSettings :: Core.Maybe Types.ArchiveOutputSettings,
+    frameCaptureOutputSettings :: Core.Maybe Types.FrameCaptureOutputSettings,
+    hlsOutputSettings :: Core.Maybe Types.HlsOutputSettings,
+    mediaPackageOutputSettings :: Core.Maybe Types.MediaPackageOutputSettings,
+    msSmoothOutputSettings :: Core.Maybe Types.MsSmoothOutputSettings,
+    multiplexOutputSettings :: Core.Maybe Types.MultiplexOutputSettings,
+    rtmpOutputSettings :: Core.Maybe Types.RtmpOutputSettings,
+    udpOutputSettings :: Core.Maybe Types.UdpOutputSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputSettings' with the minimum fields required to make a request.
---
--- * 'multiplexOutputSettings' -
--- * 'archiveOutputSettings' -
--- * 'rtmpOutputSettings' -
--- * 'mediaPackageOutputSettings' -
--- * 'hlsOutputSettings' -
--- * 'frameCaptureOutputSettings' -
--- * 'udpOutputSettings' -
--- * 'msSmoothOutputSettings' -
+-- | Creates a 'OutputSettings' value with any optional fields omitted.
 mkOutputSettings ::
   OutputSettings
 mkOutputSettings =
   OutputSettings'
-    { multiplexOutputSettings = Lude.Nothing,
-      archiveOutputSettings = Lude.Nothing,
-      rtmpOutputSettings = Lude.Nothing,
-      mediaPackageOutputSettings = Lude.Nothing,
-      hlsOutputSettings = Lude.Nothing,
-      frameCaptureOutputSettings = Lude.Nothing,
-      udpOutputSettings = Lude.Nothing,
-      msSmoothOutputSettings = Lude.Nothing
+    { archiveOutputSettings = Core.Nothing,
+      frameCaptureOutputSettings = Core.Nothing,
+      hlsOutputSettings = Core.Nothing,
+      mediaPackageOutputSettings = Core.Nothing,
+      msSmoothOutputSettings = Core.Nothing,
+      multiplexOutputSettings = Core.Nothing,
+      rtmpOutputSettings = Core.Nothing,
+      udpOutputSettings = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'multiplexOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osMultiplexOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe MultiplexOutputSettings)
-osMultiplexOutputSettings = Lens.lens (multiplexOutputSettings :: OutputSettings -> Lude.Maybe MultiplexOutputSettings) (\s a -> s {multiplexOutputSettings = a} :: OutputSettings)
-{-# DEPRECATED osMultiplexOutputSettings "Use generic-lens or generic-optics with 'multiplexOutputSettings' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'archiveOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osArchiveOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe ArchiveOutputSettings)
-osArchiveOutputSettings = Lens.lens (archiveOutputSettings :: OutputSettings -> Lude.Maybe ArchiveOutputSettings) (\s a -> s {archiveOutputSettings = a} :: OutputSettings)
+osArchiveOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.ArchiveOutputSettings)
+osArchiveOutputSettings = Lens.field @"archiveOutputSettings"
 {-# DEPRECATED osArchiveOutputSettings "Use generic-lens or generic-optics with 'archiveOutputSettings' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'rtmpOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osRtmpOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe RtmpOutputSettings)
-osRtmpOutputSettings = Lens.lens (rtmpOutputSettings :: OutputSettings -> Lude.Maybe RtmpOutputSettings) (\s a -> s {rtmpOutputSettings = a} :: OutputSettings)
-{-# DEPRECATED osRtmpOutputSettings "Use generic-lens or generic-optics with 'rtmpOutputSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'mediaPackageOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osMediaPackageOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe MediaPackageOutputSettings)
-osMediaPackageOutputSettings = Lens.lens (mediaPackageOutputSettings :: OutputSettings -> Lude.Maybe MediaPackageOutputSettings) (\s a -> s {mediaPackageOutputSettings = a} :: OutputSettings)
-{-# DEPRECATED osMediaPackageOutputSettings "Use generic-lens or generic-optics with 'mediaPackageOutputSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'hlsOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osHlsOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe HlsOutputSettings)
-osHlsOutputSettings = Lens.lens (hlsOutputSettings :: OutputSettings -> Lude.Maybe HlsOutputSettings) (\s a -> s {hlsOutputSettings = a} :: OutputSettings)
-{-# DEPRECATED osHlsOutputSettings "Use generic-lens or generic-optics with 'hlsOutputSettings' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'frameCaptureOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osFrameCaptureOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe FrameCaptureOutputSettings)
-osFrameCaptureOutputSettings = Lens.lens (frameCaptureOutputSettings :: OutputSettings -> Lude.Maybe FrameCaptureOutputSettings) (\s a -> s {frameCaptureOutputSettings = a} :: OutputSettings)
+osFrameCaptureOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.FrameCaptureOutputSettings)
+osFrameCaptureOutputSettings = Lens.field @"frameCaptureOutputSettings"
 {-# DEPRECATED osFrameCaptureOutputSettings "Use generic-lens or generic-optics with 'frameCaptureOutputSettings' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'udpOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osUdpOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe UdpOutputSettings)
-osUdpOutputSettings = Lens.lens (udpOutputSettings :: OutputSettings -> Lude.Maybe UdpOutputSettings) (\s a -> s {udpOutputSettings = a} :: OutputSettings)
-{-# DEPRECATED osUdpOutputSettings "Use generic-lens or generic-optics with 'udpOutputSettings' instead." #-}
+-- /Note:/ Consider using 'hlsOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osHlsOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.HlsOutputSettings)
+osHlsOutputSettings = Lens.field @"hlsOutputSettings"
+{-# DEPRECATED osHlsOutputSettings "Use generic-lens or generic-optics with 'hlsOutputSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mediaPackageOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osMediaPackageOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.MediaPackageOutputSettings)
+osMediaPackageOutputSettings = Lens.field @"mediaPackageOutputSettings"
+{-# DEPRECATED osMediaPackageOutputSettings "Use generic-lens or generic-optics with 'mediaPackageOutputSettings' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'msSmoothOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osMsSmoothOutputSettings :: Lens.Lens' OutputSettings (Lude.Maybe MsSmoothOutputSettings)
-osMsSmoothOutputSettings = Lens.lens (msSmoothOutputSettings :: OutputSettings -> Lude.Maybe MsSmoothOutputSettings) (\s a -> s {msSmoothOutputSettings = a} :: OutputSettings)
+osMsSmoothOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.MsSmoothOutputSettings)
+osMsSmoothOutputSettings = Lens.field @"msSmoothOutputSettings"
 {-# DEPRECATED osMsSmoothOutputSettings "Use generic-lens or generic-optics with 'msSmoothOutputSettings' instead." #-}
 
-instance Lude.FromJSON OutputSettings where
-  parseJSON =
-    Lude.withObject
-      "OutputSettings"
-      ( \x ->
-          OutputSettings'
-            Lude.<$> (x Lude..:? "multiplexOutputSettings")
-            Lude.<*> (x Lude..:? "archiveOutputSettings")
-            Lude.<*> (x Lude..:? "rtmpOutputSettings")
-            Lude.<*> (x Lude..:? "mediaPackageOutputSettings")
-            Lude.<*> (x Lude..:? "hlsOutputSettings")
-            Lude.<*> (x Lude..:? "frameCaptureOutputSettings")
-            Lude.<*> (x Lude..:? "udpOutputSettings")
-            Lude.<*> (x Lude..:? "msSmoothOutputSettings")
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'multiplexOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osMultiplexOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.MultiplexOutputSettings)
+osMultiplexOutputSettings = Lens.field @"multiplexOutputSettings"
+{-# DEPRECATED osMultiplexOutputSettings "Use generic-lens or generic-optics with 'multiplexOutputSettings' instead." #-}
 
-instance Lude.ToJSON OutputSettings where
-  toJSON OutputSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("multiplexOutputSettings" Lude..=)
-              Lude.<$> multiplexOutputSettings,
-            ("archiveOutputSettings" Lude..=) Lude.<$> archiveOutputSettings,
-            ("rtmpOutputSettings" Lude..=) Lude.<$> rtmpOutputSettings,
-            ("mediaPackageOutputSettings" Lude..=)
-              Lude.<$> mediaPackageOutputSettings,
-            ("hlsOutputSettings" Lude..=) Lude.<$> hlsOutputSettings,
-            ("frameCaptureOutputSettings" Lude..=)
-              Lude.<$> frameCaptureOutputSettings,
-            ("udpOutputSettings" Lude..=) Lude.<$> udpOutputSettings,
-            ("msSmoothOutputSettings" Lude..=)
-              Lude.<$> msSmoothOutputSettings
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rtmpOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osRtmpOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.RtmpOutputSettings)
+osRtmpOutputSettings = Lens.field @"rtmpOutputSettings"
+{-# DEPRECATED osRtmpOutputSettings "Use generic-lens or generic-optics with 'rtmpOutputSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'udpOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osUdpOutputSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.UdpOutputSettings)
+osUdpOutputSettings = Lens.field @"udpOutputSettings"
+{-# DEPRECATED osUdpOutputSettings "Use generic-lens or generic-optics with 'udpOutputSettings' instead." #-}
+
+instance Core.FromJSON OutputSettings where
+  toJSON OutputSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("archiveOutputSettings" Core..=) Core.<$> archiveOutputSettings,
+            ("frameCaptureOutputSettings" Core..=)
+              Core.<$> frameCaptureOutputSettings,
+            ("hlsOutputSettings" Core..=) Core.<$> hlsOutputSettings,
+            ("mediaPackageOutputSettings" Core..=)
+              Core.<$> mediaPackageOutputSettings,
+            ("msSmoothOutputSettings" Core..=) Core.<$> msSmoothOutputSettings,
+            ("multiplexOutputSettings" Core..=)
+              Core.<$> multiplexOutputSettings,
+            ("rtmpOutputSettings" Core..=) Core.<$> rtmpOutputSettings,
+            ("udpOutputSettings" Core..=) Core.<$> udpOutputSettings
           ]
       )
+
+instance Core.FromJSON OutputSettings where
+  parseJSON =
+    Core.withObject "OutputSettings" Core.$
+      \x ->
+        OutputSettings'
+          Core.<$> (x Core..:? "archiveOutputSettings")
+          Core.<*> (x Core..:? "frameCaptureOutputSettings")
+          Core.<*> (x Core..:? "hlsOutputSettings")
+          Core.<*> (x Core..:? "mediaPackageOutputSettings")
+          Core.<*> (x Core..:? "msSmoothOutputSettings")
+          Core.<*> (x Core..:? "multiplexOutputSettings")
+          Core.<*> (x Core..:? "rtmpOutputSettings")
+          Core.<*> (x Core..:? "udpOutputSettings")

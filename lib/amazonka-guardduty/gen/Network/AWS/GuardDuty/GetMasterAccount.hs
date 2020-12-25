@@ -27,104 +27,92 @@ module Network.AWS.GuardDuty.GetMasterAccount
     mkGetMasterAccountResponse,
 
     -- ** Response lenses
-    gmarsMaster,
-    gmarsResponseStatus,
+    gmarrsMaster,
+    gmarrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetMasterAccount' smart constructor.
 newtype GetMasterAccount = GetMasterAccount'
   { -- | The unique ID of the detector of the GuardDuty member account.
-    detectorId :: Lude.Text
+    detectorId :: Types.DetectorId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMasterAccount' with the minimum fields required to make a request.
---
--- * 'detectorId' - The unique ID of the detector of the GuardDuty member account.
+-- | Creates a 'GetMasterAccount' value with any optional fields omitted.
 mkGetMasterAccount ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   GetMasterAccount
-mkGetMasterAccount pDetectorId_ =
-  GetMasterAccount' {detectorId = pDetectorId_}
+mkGetMasterAccount detectorId = GetMasterAccount' {detectorId}
 
 -- | The unique ID of the detector of the GuardDuty member account.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmaDetectorId :: Lens.Lens' GetMasterAccount Lude.Text
-gmaDetectorId = Lens.lens (detectorId :: GetMasterAccount -> Lude.Text) (\s a -> s {detectorId = a} :: GetMasterAccount)
+gmaDetectorId :: Lens.Lens' GetMasterAccount Types.DetectorId
+gmaDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED gmaDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest GetMasterAccount where
+instance Core.AWSRequest GetMasterAccount where
   type Rs GetMasterAccount = GetMasterAccountResponse
-  request = Req.get guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/master")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetMasterAccountResponse'
-            Lude.<$> (x Lude..:> "master") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "master") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMasterAccount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetMasterAccount where
-  toPath GetMasterAccount' {..} =
-    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/master"]
-
-instance Lude.ToQuery GetMasterAccount where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetMasterAccountResponse' smart constructor.
 data GetMasterAccountResponse = GetMasterAccountResponse'
   { -- | The master account details.
-    master :: Master,
+    master :: Types.Master,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMasterAccountResponse' with the minimum fields required to make a request.
---
--- * 'master' - The master account details.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMasterAccountResponse' value with any optional fields omitted.
 mkGetMasterAccountResponse ::
   -- | 'master'
-  Master ->
+  Types.Master ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMasterAccountResponse
-mkGetMasterAccountResponse pMaster_ pResponseStatus_ =
-  GetMasterAccountResponse'
-    { master = pMaster_,
-      responseStatus = pResponseStatus_
-    }
+mkGetMasterAccountResponse master responseStatus =
+  GetMasterAccountResponse' {master, responseStatus}
 
 -- | The master account details.
 --
 -- /Note:/ Consider using 'master' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmarsMaster :: Lens.Lens' GetMasterAccountResponse Master
-gmarsMaster = Lens.lens (master :: GetMasterAccountResponse -> Master) (\s a -> s {master = a} :: GetMasterAccountResponse)
-{-# DEPRECATED gmarsMaster "Use generic-lens or generic-optics with 'master' instead." #-}
+gmarrsMaster :: Lens.Lens' GetMasterAccountResponse Types.Master
+gmarrsMaster = Lens.field @"master"
+{-# DEPRECATED gmarrsMaster "Use generic-lens or generic-optics with 'master' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmarsResponseStatus :: Lens.Lens' GetMasterAccountResponse Lude.Int
-gmarsResponseStatus = Lens.lens (responseStatus :: GetMasterAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMasterAccountResponse)
-{-# DEPRECATED gmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmarrsResponseStatus :: Lens.Lens' GetMasterAccountResponse Core.Int
+gmarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

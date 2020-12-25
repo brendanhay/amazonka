@@ -25,73 +25,64 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     diIdentityId,
 
     -- * Destructuring the response
-    IdentityDescription (..),
-    mkIdentityDescription,
+    Types.IdentityDescription (..),
+    Types.mkIdentityDescription,
 
     -- ** Response lenses
-    idLastModifiedDate,
-    idCreationDate,
-    idLogins,
-    idIdentityId,
+    Types.idCreationDate,
+    Types.idIdentityId,
+    Types.idLastModifiedDate,
+    Types.idLogins,
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the @DescribeIdentity@ action.
 --
 -- /See:/ 'mkDescribeIdentity' smart constructor.
 newtype DescribeIdentity = DescribeIdentity'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Lude.Text
+    identityId :: Types.IdentityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeIdentity' with the minimum fields required to make a request.
---
--- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- | Creates a 'DescribeIdentity' value with any optional fields omitted.
 mkDescribeIdentity ::
   -- | 'identityId'
-  Lude.Text ->
+  Types.IdentityId ->
   DescribeIdentity
-mkDescribeIdentity pIdentityId_ =
-  DescribeIdentity' {identityId = pIdentityId_}
+mkDescribeIdentity identityId = DescribeIdentity' {identityId}
 
 -- | A unique identifier in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diIdentityId :: Lens.Lens' DescribeIdentity Lude.Text
-diIdentityId = Lens.lens (identityId :: DescribeIdentity -> Lude.Text) (\s a -> s {identityId = a} :: DescribeIdentity)
+diIdentityId :: Lens.Lens' DescribeIdentity Types.IdentityId
+diIdentityId = Lens.field @"identityId"
 {-# DEPRECATED diIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance Lude.AWSRequest DescribeIdentity where
-  type Rs DescribeIdentity = IdentityDescription
-  request = Req.postJSON cognitoIdentityService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+instance Core.FromJSON DescribeIdentity where
+  toJSON DescribeIdentity {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("IdentityId" Core..= identityId)])
 
-instance Lude.ToHeaders DescribeIdentity where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSCognitoIdentityService.DescribeIdentity" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeIdentity where
-  toJSON DescribeIdentity' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("IdentityId" Lude..= identityId)])
-
-instance Lude.ToPath DescribeIdentity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeIdentity where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeIdentity where
+  type Rs DescribeIdentity = Types.IdentityDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityService.DescribeIdentity")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

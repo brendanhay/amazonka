@@ -19,87 +19,83 @@ module Network.AWS.SSM.Types.InventoryItemSchema
     -- * Lenses
     iisTypeName,
     iisAttributes,
-    iisVersion,
     iisDisplayName,
+    iisVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryItemAttribute
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryItemAttribute as Types
+import qualified Network.AWS.SSM.Types.InventoryItemSchemaVersion as Types
+import qualified Network.AWS.SSM.Types.InventoryItemTypeName as Types
+import qualified Network.AWS.SSM.Types.InventoryTypeDisplayName as Types
 
 -- | The inventory item schema definition. Users can use this to compose inventory query filters.
 --
 -- /See:/ 'mkInventoryItemSchema' smart constructor.
 data InventoryItemSchema = InventoryItemSchema'
   { -- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
-    typeName :: Lude.Text,
+    typeName :: Types.InventoryItemTypeName,
     -- | The schema attributes for inventory. This contains data type and attribute name.
-    attributes :: Lude.NonEmpty InventoryItemAttribute,
-    -- | The schema version for the inventory item.
-    version :: Lude.Maybe Lude.Text,
+    attributes :: Core.NonEmpty Types.InventoryItemAttribute,
     -- | The alias name of the inventory type. The alias name is used for display purposes.
-    displayName :: Lude.Maybe Lude.Text
+    displayName :: Core.Maybe Types.InventoryTypeDisplayName,
+    -- | The schema version for the inventory item.
+    version :: Core.Maybe Types.InventoryItemSchemaVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryItemSchema' with the minimum fields required to make a request.
---
--- * 'typeName' - The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
--- * 'attributes' - The schema attributes for inventory. This contains data type and attribute name.
--- * 'version' - The schema version for the inventory item.
--- * 'displayName' - The alias name of the inventory type. The alias name is used for display purposes.
+-- | Creates a 'InventoryItemSchema' value with any optional fields omitted.
 mkInventoryItemSchema ::
   -- | 'typeName'
-  Lude.Text ->
+  Types.InventoryItemTypeName ->
   -- | 'attributes'
-  Lude.NonEmpty InventoryItemAttribute ->
+  Core.NonEmpty Types.InventoryItemAttribute ->
   InventoryItemSchema
-mkInventoryItemSchema pTypeName_ pAttributes_ =
+mkInventoryItemSchema typeName attributes =
   InventoryItemSchema'
-    { typeName = pTypeName_,
-      attributes = pAttributes_,
-      version = Lude.Nothing,
-      displayName = Lude.Nothing
+    { typeName,
+      attributes,
+      displayName = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
 --
 -- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iisTypeName :: Lens.Lens' InventoryItemSchema Lude.Text
-iisTypeName = Lens.lens (typeName :: InventoryItemSchema -> Lude.Text) (\s a -> s {typeName = a} :: InventoryItemSchema)
+iisTypeName :: Lens.Lens' InventoryItemSchema Types.InventoryItemTypeName
+iisTypeName = Lens.field @"typeName"
 {-# DEPRECATED iisTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The schema attributes for inventory. This contains data type and attribute name.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iisAttributes :: Lens.Lens' InventoryItemSchema (Lude.NonEmpty InventoryItemAttribute)
-iisAttributes = Lens.lens (attributes :: InventoryItemSchema -> Lude.NonEmpty InventoryItemAttribute) (\s a -> s {attributes = a} :: InventoryItemSchema)
+iisAttributes :: Lens.Lens' InventoryItemSchema (Core.NonEmpty Types.InventoryItemAttribute)
+iisAttributes = Lens.field @"attributes"
 {-# DEPRECATED iisAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The schema version for the inventory item.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iisVersion :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
-iisVersion = Lens.lens (version :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: InventoryItemSchema)
-{-# DEPRECATED iisVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The alias name of the inventory type. The alias name is used for display purposes.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iisDisplayName :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
-iisDisplayName = Lens.lens (displayName :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: InventoryItemSchema)
+iisDisplayName :: Lens.Lens' InventoryItemSchema (Core.Maybe Types.InventoryTypeDisplayName)
+iisDisplayName = Lens.field @"displayName"
 {-# DEPRECATED iisDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance Lude.FromJSON InventoryItemSchema where
+-- | The schema version for the inventory item.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisVersion :: Lens.Lens' InventoryItemSchema (Core.Maybe Types.InventoryItemSchemaVersion)
+iisVersion = Lens.field @"version"
+{-# DEPRECATED iisVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON InventoryItemSchema where
   parseJSON =
-    Lude.withObject
-      "InventoryItemSchema"
-      ( \x ->
-          InventoryItemSchema'
-            Lude.<$> (x Lude..: "TypeName")
-            Lude.<*> (x Lude..: "Attributes")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "DisplayName")
-      )
+    Core.withObject "InventoryItemSchema" Core.$
+      \x ->
+        InventoryItemSchema'
+          Core.<$> (x Core..: "TypeName")
+          Core.<*> (x Core..: "Attributes")
+          Core.<*> (x Core..:? "DisplayName")
+          Core.<*> (x Core..:? "Version")

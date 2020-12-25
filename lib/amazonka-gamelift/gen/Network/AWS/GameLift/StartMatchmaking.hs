@@ -43,151 +43,137 @@ module Network.AWS.GameLift.StartMatchmaking
     mkStartMatchmaking,
 
     -- ** Request lenses
-    smConfigurationName,
-    smTicketId,
-    smPlayers,
+    sConfigurationName,
+    sPlayers,
+    sTicketId,
 
     -- * Destructuring the response
     StartMatchmakingResponse (..),
     mkStartMatchmakingResponse,
 
     -- ** Response lenses
-    smrsMatchmakingTicket,
-    smrsResponseStatus,
+    srsMatchmakingTicket,
+    srsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkStartMatchmaking' smart constructor.
 data StartMatchmaking = StartMatchmaking'
   { -- | Name of the matchmaking configuration to use for this request. Matchmaking configurations must exist in the same Region as this request. You can use either the configuration name or ARN value.
-    configurationName :: Lude.Text,
-    -- | A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
-    ticketId :: Lude.Maybe Lude.Text,
+    configurationName :: Types.ConfigurationName,
     -- | Information on each player to be matched. This information must include a player ID, and may contain player attributes and latency data to be used in the matchmaking process. After a successful match, @Player@ objects contain the name of the team the player is assigned to.
-    players :: [Player]
+    players :: [Types.Player],
+    -- | A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
+    ticketId :: Core.Maybe Types.TicketId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartMatchmaking' with the minimum fields required to make a request.
---
--- * 'configurationName' - Name of the matchmaking configuration to use for this request. Matchmaking configurations must exist in the same Region as this request. You can use either the configuration name or ARN value.
--- * 'ticketId' - A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
--- * 'players' - Information on each player to be matched. This information must include a player ID, and may contain player attributes and latency data to be used in the matchmaking process. After a successful match, @Player@ objects contain the name of the team the player is assigned to.
+-- | Creates a 'StartMatchmaking' value with any optional fields omitted.
 mkStartMatchmaking ::
   -- | 'configurationName'
-  Lude.Text ->
+  Types.ConfigurationName ->
   StartMatchmaking
-mkStartMatchmaking pConfigurationName_ =
+mkStartMatchmaking configurationName =
   StartMatchmaking'
-    { configurationName = pConfigurationName_,
-      ticketId = Lude.Nothing,
-      players = Lude.mempty
+    { configurationName,
+      players = Core.mempty,
+      ticketId = Core.Nothing
     }
 
 -- | Name of the matchmaking configuration to use for this request. Matchmaking configurations must exist in the same Region as this request. You can use either the configuration name or ARN value.
 --
 -- /Note:/ Consider using 'configurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smConfigurationName :: Lens.Lens' StartMatchmaking Lude.Text
-smConfigurationName = Lens.lens (configurationName :: StartMatchmaking -> Lude.Text) (\s a -> s {configurationName = a} :: StartMatchmaking)
-{-# DEPRECATED smConfigurationName "Use generic-lens or generic-optics with 'configurationName' instead." #-}
-
--- | A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
---
--- /Note:/ Consider using 'ticketId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smTicketId :: Lens.Lens' StartMatchmaking (Lude.Maybe Lude.Text)
-smTicketId = Lens.lens (ticketId :: StartMatchmaking -> Lude.Maybe Lude.Text) (\s a -> s {ticketId = a} :: StartMatchmaking)
-{-# DEPRECATED smTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
+sConfigurationName :: Lens.Lens' StartMatchmaking Types.ConfigurationName
+sConfigurationName = Lens.field @"configurationName"
+{-# DEPRECATED sConfigurationName "Use generic-lens or generic-optics with 'configurationName' instead." #-}
 
 -- | Information on each player to be matched. This information must include a player ID, and may contain player attributes and latency data to be used in the matchmaking process. After a successful match, @Player@ objects contain the name of the team the player is assigned to.
 --
 -- /Note:/ Consider using 'players' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smPlayers :: Lens.Lens' StartMatchmaking [Player]
-smPlayers = Lens.lens (players :: StartMatchmaking -> [Player]) (\s a -> s {players = a} :: StartMatchmaking)
-{-# DEPRECATED smPlayers "Use generic-lens or generic-optics with 'players' instead." #-}
+sPlayers :: Lens.Lens' StartMatchmaking [Types.Player]
+sPlayers = Lens.field @"players"
+{-# DEPRECATED sPlayers "Use generic-lens or generic-optics with 'players' instead." #-}
 
-instance Lude.AWSRequest StartMatchmaking where
+-- | A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.
+--
+-- /Note:/ Consider using 'ticketId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTicketId :: Lens.Lens' StartMatchmaking (Core.Maybe Types.TicketId)
+sTicketId = Lens.field @"ticketId"
+{-# DEPRECATED sTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
+
+instance Core.FromJSON StartMatchmaking where
+  toJSON StartMatchmaking {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConfigurationName" Core..= configurationName),
+            Core.Just ("Players" Core..= players),
+            ("TicketId" Core..=) Core.<$> ticketId
+          ]
+      )
+
+instance Core.AWSRequest StartMatchmaking where
   type Rs StartMatchmaking = StartMatchmakingResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.StartMatchmaking")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartMatchmakingResponse'
-            Lude.<$> (x Lude..?> "MatchmakingTicket")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "MatchmakingTicket")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartMatchmaking where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.StartMatchmaking" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartMatchmaking where
-  toJSON StartMatchmaking' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConfigurationName" Lude..= configurationName),
-            ("TicketId" Lude..=) Lude.<$> ticketId,
-            Lude.Just ("Players" Lude..= players)
-          ]
-      )
-
-instance Lude.ToPath StartMatchmaking where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartMatchmaking where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkStartMatchmakingResponse' smart constructor.
 data StartMatchmakingResponse = StartMatchmakingResponse'
   { -- | Ticket representing the matchmaking request. This object include the information included in the request, ticket status, and match results as generated during the matchmaking process.
-    matchmakingTicket :: Lude.Maybe MatchmakingTicket,
+    matchmakingTicket :: Core.Maybe Types.MatchmakingTicket,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartMatchmakingResponse' with the minimum fields required to make a request.
---
--- * 'matchmakingTicket' - Ticket representing the matchmaking request. This object include the information included in the request, ticket status, and match results as generated during the matchmaking process.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartMatchmakingResponse' value with any optional fields omitted.
 mkStartMatchmakingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartMatchmakingResponse
-mkStartMatchmakingResponse pResponseStatus_ =
+mkStartMatchmakingResponse responseStatus =
   StartMatchmakingResponse'
-    { matchmakingTicket = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { matchmakingTicket = Core.Nothing,
+      responseStatus
     }
 
 -- | Ticket representing the matchmaking request. This object include the information included in the request, ticket status, and match results as generated during the matchmaking process.
 --
 -- /Note:/ Consider using 'matchmakingTicket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smrsMatchmakingTicket :: Lens.Lens' StartMatchmakingResponse (Lude.Maybe MatchmakingTicket)
-smrsMatchmakingTicket = Lens.lens (matchmakingTicket :: StartMatchmakingResponse -> Lude.Maybe MatchmakingTicket) (\s a -> s {matchmakingTicket = a} :: StartMatchmakingResponse)
-{-# DEPRECATED smrsMatchmakingTicket "Use generic-lens or generic-optics with 'matchmakingTicket' instead." #-}
+srsMatchmakingTicket :: Lens.Lens' StartMatchmakingResponse (Core.Maybe Types.MatchmakingTicket)
+srsMatchmakingTicket = Lens.field @"matchmakingTicket"
+{-# DEPRECATED srsMatchmakingTicket "Use generic-lens or generic-optics with 'matchmakingTicket' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smrsResponseStatus :: Lens.Lens' StartMatchmakingResponse Lude.Int
-smrsResponseStatus = Lens.lens (responseStatus :: StartMatchmakingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartMatchmakingResponse)
-{-# DEPRECATED smrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartMatchmakingResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,40 +22,37 @@ module Network.AWS.MediaLive.Types.UdpContainerSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.M2tsSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.M2tsSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Udp Container Settings
 --
 -- /See:/ 'mkUdpContainerSettings' smart constructor.
 newtype UdpContainerSettings = UdpContainerSettings'
-  { m2tsSettings :: Lude.Maybe M2tsSettings
+  { m2tsSettings :: Core.Maybe Types.M2tsSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UdpContainerSettings' with the minimum fields required to make a request.
---
--- * 'm2tsSettings' -
+-- | Creates a 'UdpContainerSettings' value with any optional fields omitted.
 mkUdpContainerSettings ::
   UdpContainerSettings
 mkUdpContainerSettings =
-  UdpContainerSettings' {m2tsSettings = Lude.Nothing}
+  UdpContainerSettings' {m2tsSettings = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'm2tsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsM2tsSettings :: Lens.Lens' UdpContainerSettings (Lude.Maybe M2tsSettings)
-ucsM2tsSettings = Lens.lens (m2tsSettings :: UdpContainerSettings -> Lude.Maybe M2tsSettings) (\s a -> s {m2tsSettings = a} :: UdpContainerSettings)
+ucsM2tsSettings :: Lens.Lens' UdpContainerSettings (Core.Maybe Types.M2tsSettings)
+ucsM2tsSettings = Lens.field @"m2tsSettings"
 {-# DEPRECATED ucsM2tsSettings "Use generic-lens or generic-optics with 'm2tsSettings' instead." #-}
 
-instance Lude.FromJSON UdpContainerSettings where
-  parseJSON =
-    Lude.withObject
-      "UdpContainerSettings"
-      (\x -> UdpContainerSettings' Lude.<$> (x Lude..:? "m2tsSettings"))
+instance Core.FromJSON UdpContainerSettings where
+  toJSON UdpContainerSettings {..} =
+    Core.object
+      (Core.catMaybes [("m2tsSettings" Core..=) Core.<$> m2tsSettings])
 
-instance Lude.ToJSON UdpContainerSettings where
-  toJSON UdpContainerSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("m2tsSettings" Lude..=) Lude.<$> m2tsSettings])
+instance Core.FromJSON UdpContainerSettings where
+  parseJSON =
+    Core.withObject "UdpContainerSettings" Core.$
+      \x -> UdpContainerSettings' Core.<$> (x Core..:? "m2tsSettings")

@@ -68,197 +68,178 @@ module Network.AWS.SSM.PutComplianceItems
     -- ** Request lenses
     pciResourceId,
     pciResourceType,
-    pciUploadType,
+    pciComplianceType,
     pciExecutionSummary,
     pciItems,
-    pciComplianceType,
     pciItemContentHash,
+    pciUploadType,
 
     -- * Destructuring the response
     PutComplianceItemsResponse (..),
     mkPutComplianceItemsResponse,
 
     -- ** Response lenses
-    pcirsResponseStatus,
+    pcirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkPutComplianceItems' smart constructor.
 data PutComplianceItems = PutComplianceItems'
   { -- | Specify an ID for this resource. For a managed instance, this is the instance ID.
-    resourceId :: Lude.Text,
+    resourceId :: Types.ComplianceResourceId,
     -- | Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
-    resourceType :: Lude.Text,
+    resourceType :: Types.ComplianceResourceType,
+    -- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
+    complianceType :: Types.ComplianceTypeName,
+    -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+    executionSummary :: Types.ComplianceExecutionSummary,
+    -- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
+    items :: [Types.ComplianceItemEntry],
+    -- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
+    itemContentHash :: Core.Maybe Types.ComplianceItemContentHash,
     -- | The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
     --
     -- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
-    uploadType :: Lude.Maybe ComplianceUploadType,
-    -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
-    executionSummary :: ComplianceExecutionSummary,
-    -- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
-    items :: [ComplianceItemEntry],
-    -- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
-    complianceType :: Lude.Text,
-    -- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
-    itemContentHash :: Lude.Maybe Lude.Text
+    uploadType :: Core.Maybe Types.ComplianceUploadType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PutComplianceItems' with the minimum fields required to make a request.
---
--- * 'resourceId' - Specify an ID for this resource. For a managed instance, this is the instance ID.
--- * 'resourceType' - Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
--- * 'uploadType' - The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
---
--- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
--- * 'executionSummary' - A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
--- * 'items' - Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
--- * 'complianceType' - Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
--- * 'itemContentHash' - MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
+-- | Creates a 'PutComplianceItems' value with any optional fields omitted.
 mkPutComplianceItems ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ComplianceResourceId ->
   -- | 'resourceType'
-  Lude.Text ->
-  -- | 'executionSummary'
-  ComplianceExecutionSummary ->
+  Types.ComplianceResourceType ->
   -- | 'complianceType'
-  Lude.Text ->
+  Types.ComplianceTypeName ->
+  -- | 'executionSummary'
+  Types.ComplianceExecutionSummary ->
   PutComplianceItems
 mkPutComplianceItems
-  pResourceId_
-  pResourceType_
-  pExecutionSummary_
-  pComplianceType_ =
+  resourceId
+  resourceType
+  complianceType
+  executionSummary =
     PutComplianceItems'
-      { resourceId = pResourceId_,
-        resourceType = pResourceType_,
-        uploadType = Lude.Nothing,
-        executionSummary = pExecutionSummary_,
-        items = Lude.mempty,
-        complianceType = pComplianceType_,
-        itemContentHash = Lude.Nothing
+      { resourceId,
+        resourceType,
+        complianceType,
+        executionSummary,
+        items = Core.mempty,
+        itemContentHash = Core.Nothing,
+        uploadType = Core.Nothing
       }
 
 -- | Specify an ID for this resource. For a managed instance, this is the instance ID.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciResourceId :: Lens.Lens' PutComplianceItems Lude.Text
-pciResourceId = Lens.lens (resourceId :: PutComplianceItems -> Lude.Text) (\s a -> s {resourceId = a} :: PutComplianceItems)
+pciResourceId :: Lens.Lens' PutComplianceItems Types.ComplianceResourceId
+pciResourceId = Lens.field @"resourceId"
 {-# DEPRECATED pciResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciResourceType :: Lens.Lens' PutComplianceItems Lude.Text
-pciResourceType = Lens.lens (resourceType :: PutComplianceItems -> Lude.Text) (\s a -> s {resourceType = a} :: PutComplianceItems)
+pciResourceType :: Lens.Lens' PutComplianceItems Types.ComplianceResourceType
+pciResourceType = Lens.field @"resourceType"
 {-# DEPRECATED pciResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciComplianceType :: Lens.Lens' PutComplianceItems Types.ComplianceTypeName
+pciComplianceType = Lens.field @"complianceType"
+{-# DEPRECATED pciComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
+
+-- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+--
+-- /Note:/ Consider using 'executionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciExecutionSummary :: Lens.Lens' PutComplianceItems Types.ComplianceExecutionSummary
+pciExecutionSummary = Lens.field @"executionSummary"
+{-# DEPRECATED pciExecutionSummary "Use generic-lens or generic-optics with 'executionSummary' instead." #-}
+
+-- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciItems :: Lens.Lens' PutComplianceItems [Types.ComplianceItemEntry]
+pciItems = Lens.field @"items"
+{-# DEPRECATED pciItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+-- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
+--
+-- /Note:/ Consider using 'itemContentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciItemContentHash :: Lens.Lens' PutComplianceItems (Core.Maybe Types.ComplianceItemContentHash)
+pciItemContentHash = Lens.field @"itemContentHash"
+{-# DEPRECATED pciItemContentHash "Use generic-lens or generic-optics with 'itemContentHash' instead." #-}
 
 -- | The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
 --
 -- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
 --
 -- /Note:/ Consider using 'uploadType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciUploadType :: Lens.Lens' PutComplianceItems (Lude.Maybe ComplianceUploadType)
-pciUploadType = Lens.lens (uploadType :: PutComplianceItems -> Lude.Maybe ComplianceUploadType) (\s a -> s {uploadType = a} :: PutComplianceItems)
+pciUploadType :: Lens.Lens' PutComplianceItems (Core.Maybe Types.ComplianceUploadType)
+pciUploadType = Lens.field @"uploadType"
 {-# DEPRECATED pciUploadType "Use generic-lens or generic-optics with 'uploadType' instead." #-}
 
--- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
---
--- /Note:/ Consider using 'executionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciExecutionSummary :: Lens.Lens' PutComplianceItems ComplianceExecutionSummary
-pciExecutionSummary = Lens.lens (executionSummary :: PutComplianceItems -> ComplianceExecutionSummary) (\s a -> s {executionSummary = a} :: PutComplianceItems)
-{-# DEPRECATED pciExecutionSummary "Use generic-lens or generic-optics with 'executionSummary' instead." #-}
+instance Core.FromJSON PutComplianceItems where
+  toJSON PutComplianceItems {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ResourceType" Core..= resourceType),
+            Core.Just ("ComplianceType" Core..= complianceType),
+            Core.Just ("ExecutionSummary" Core..= executionSummary),
+            Core.Just ("Items" Core..= items),
+            ("ItemContentHash" Core..=) Core.<$> itemContentHash,
+            ("UploadType" Core..=) Core.<$> uploadType
+          ]
+      )
 
--- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciItems :: Lens.Lens' PutComplianceItems [ComplianceItemEntry]
-pciItems = Lens.lens (items :: PutComplianceItems -> [ComplianceItemEntry]) (\s a -> s {items = a} :: PutComplianceItems)
-{-# DEPRECATED pciItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
---
--- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciComplianceType :: Lens.Lens' PutComplianceItems Lude.Text
-pciComplianceType = Lens.lens (complianceType :: PutComplianceItems -> Lude.Text) (\s a -> s {complianceType = a} :: PutComplianceItems)
-{-# DEPRECATED pciComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
-
--- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
---
--- /Note:/ Consider using 'itemContentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciItemContentHash :: Lens.Lens' PutComplianceItems (Lude.Maybe Lude.Text)
-pciItemContentHash = Lens.lens (itemContentHash :: PutComplianceItems -> Lude.Maybe Lude.Text) (\s a -> s {itemContentHash = a} :: PutComplianceItems)
-{-# DEPRECATED pciItemContentHash "Use generic-lens or generic-optics with 'itemContentHash' instead." #-}
-
-instance Lude.AWSRequest PutComplianceItems where
+instance Core.AWSRequest PutComplianceItems where
   type Rs PutComplianceItems = PutComplianceItemsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.PutComplianceItems")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          PutComplianceItemsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          PutComplianceItemsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutComplianceItems where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.PutComplianceItems" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutComplianceItems where
-  toJSON PutComplianceItems' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ResourceType" Lude..= resourceType),
-            ("UploadType" Lude..=) Lude.<$> uploadType,
-            Lude.Just ("ExecutionSummary" Lude..= executionSummary),
-            Lude.Just ("Items" Lude..= items),
-            Lude.Just ("ComplianceType" Lude..= complianceType),
-            ("ItemContentHash" Lude..=) Lude.<$> itemContentHash
-          ]
-      )
-
-instance Lude.ToPath PutComplianceItems where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutComplianceItems where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutComplianceItemsResponse' smart constructor.
 newtype PutComplianceItemsResponse = PutComplianceItemsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutComplianceItemsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutComplianceItemsResponse' value with any optional fields omitted.
 mkPutComplianceItemsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutComplianceItemsResponse
-mkPutComplianceItemsResponse pResponseStatus_ =
-  PutComplianceItemsResponse' {responseStatus = pResponseStatus_}
+mkPutComplianceItemsResponse responseStatus =
+  PutComplianceItemsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcirsResponseStatus :: Lens.Lens' PutComplianceItemsResponse Lude.Int
-pcirsResponseStatus = Lens.lens (responseStatus :: PutComplianceItemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutComplianceItemsResponse)
-{-# DEPRECATED pcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pcirrsResponseStatus :: Lens.Lens' PutComplianceItemsResponse Core.Int
+pcirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -26,149 +26,134 @@ module Network.AWS.KinesisAnalytics.AddApplicationOutput
     mkAddApplicationOutput,
 
     -- ** Request lenses
+    aaoApplicationName,
     aaoCurrentApplicationVersionId,
     aaoOutput,
-    aaoApplicationName,
 
     -- * Destructuring the response
     AddApplicationOutputResponse (..),
     mkAddApplicationOutputResponse,
 
     -- ** Response lenses
-    aaorsResponseStatus,
+    aaorrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkAddApplicationOutput' smart constructor.
 data AddApplicationOutput = AddApplicationOutput'
-  { -- | Version of the application to which you want to add the output configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
-    currentApplicationVersionId :: Lude.Natural,
+  { -- | Name of the application to which you want to add the output configuration.
+    applicationName :: Types.ApplicationName,
+    -- | Version of the application to which you want to add the output configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+    currentApplicationVersionId :: Core.Natural,
     -- | An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda function), and record the formation to use when writing to the destination.
-    output :: Output,
-    -- | Name of the application to which you want to add the output configuration.
-    applicationName :: Lude.Text
+    output :: Types.Output
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddApplicationOutput' with the minimum fields required to make a request.
---
--- * 'currentApplicationVersionId' - Version of the application to which you want to add the output configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
--- * 'output' - An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda function), and record the formation to use when writing to the destination.
--- * 'applicationName' - Name of the application to which you want to add the output configuration.
+-- | Creates a 'AddApplicationOutput' value with any optional fields omitted.
 mkAddApplicationOutput ::
-  -- | 'currentApplicationVersionId'
-  Lude.Natural ->
-  -- | 'output'
-  Output ->
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
+  -- | 'currentApplicationVersionId'
+  Core.Natural ->
+  -- | 'output'
+  Types.Output ->
   AddApplicationOutput
 mkAddApplicationOutput
-  pCurrentApplicationVersionId_
-  pOutput_
-  pApplicationName_ =
+  applicationName
+  currentApplicationVersionId
+  output =
     AddApplicationOutput'
-      { currentApplicationVersionId =
-          pCurrentApplicationVersionId_,
-        output = pOutput_,
-        applicationName = pApplicationName_
+      { applicationName,
+        currentApplicationVersionId,
+        output
       }
+
+-- | Name of the application to which you want to add the output configuration.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaoApplicationName :: Lens.Lens' AddApplicationOutput Types.ApplicationName
+aaoApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED aaoApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Version of the application to which you want to add the output configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 --
 -- /Note:/ Consider using 'currentApplicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaoCurrentApplicationVersionId :: Lens.Lens' AddApplicationOutput Lude.Natural
-aaoCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: AddApplicationOutput -> Lude.Natural) (\s a -> s {currentApplicationVersionId = a} :: AddApplicationOutput)
+aaoCurrentApplicationVersionId :: Lens.Lens' AddApplicationOutput Core.Natural
+aaoCurrentApplicationVersionId = Lens.field @"currentApplicationVersionId"
 {-# DEPRECATED aaoCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
 
 -- | An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda function), and record the formation to use when writing to the destination.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaoOutput :: Lens.Lens' AddApplicationOutput Output
-aaoOutput = Lens.lens (output :: AddApplicationOutput -> Output) (\s a -> s {output = a} :: AddApplicationOutput)
+aaoOutput :: Lens.Lens' AddApplicationOutput Types.Output
+aaoOutput = Lens.field @"output"
 {-# DEPRECATED aaoOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
--- | Name of the application to which you want to add the output configuration.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaoApplicationName :: Lens.Lens' AddApplicationOutput Lude.Text
-aaoApplicationName = Lens.lens (applicationName :: AddApplicationOutput -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationOutput)
-{-# DEPRECATED aaoApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+instance Core.FromJSON AddApplicationOutput where
+  toJSON AddApplicationOutput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ApplicationName" Core..= applicationName),
+            Core.Just
+              ( "CurrentApplicationVersionId"
+                  Core..= currentApplicationVersionId
+              ),
+            Core.Just ("Output" Core..= output)
+          ]
+      )
 
-instance Lude.AWSRequest AddApplicationOutput where
+instance Core.AWSRequest AddApplicationOutput where
   type Rs AddApplicationOutput = AddApplicationOutputResponse
-  request = Req.postJSON kinesisAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.AddApplicationOutput")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AddApplicationOutputResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddApplicationOutput where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "KinesisAnalytics_20150814.AddApplicationOutput" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddApplicationOutput where
-  toJSON AddApplicationOutput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ( "CurrentApplicationVersionId"
-                  Lude..= currentApplicationVersionId
-              ),
-            Lude.Just ("Output" Lude..= output),
-            Lude.Just ("ApplicationName" Lude..= applicationName)
-          ]
-      )
-
-instance Lude.ToPath AddApplicationOutput where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddApplicationOutput where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkAddApplicationOutputResponse' smart constructor.
 newtype AddApplicationOutputResponse = AddApplicationOutputResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddApplicationOutputResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddApplicationOutputResponse' value with any optional fields omitted.
 mkAddApplicationOutputResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddApplicationOutputResponse
-mkAddApplicationOutputResponse pResponseStatus_ =
-  AddApplicationOutputResponse' {responseStatus = pResponseStatus_}
+mkAddApplicationOutputResponse responseStatus =
+  AddApplicationOutputResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaorsResponseStatus :: Lens.Lens' AddApplicationOutputResponse Lude.Int
-aaorsResponseStatus = Lens.lens (responseStatus :: AddApplicationOutputResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddApplicationOutputResponse)
-{-# DEPRECATED aaorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aaorrsResponseStatus :: Lens.Lens' AddApplicationOutputResponse Core.Int
+aaorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aaorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

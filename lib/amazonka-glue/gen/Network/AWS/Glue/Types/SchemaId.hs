@@ -18,75 +18,72 @@ module Network.AWS.Glue.Types.SchemaId
 
     -- * Lenses
     siRegistryName,
+    siSchemaArn,
     siSchemaName,
-    siSchemaARN,
   )
 where
 
+import qualified Network.AWS.Glue.Types.GlueResourceArn as Types
+import qualified Network.AWS.Glue.Types.RegistryName as Types
+import qualified Network.AWS.Glue.Types.SchemaName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkSchemaId' smart constructor.
 data SchemaId = SchemaId'
-  { registryName :: Lude.Maybe Lude.Text,
-    schemaName :: Lude.Maybe Lude.Text,
-    schemaARN :: Lude.Maybe Lude.Text
+  { registryName :: Core.Maybe Types.RegistryName,
+    schemaArn :: Core.Maybe Types.GlueResourceArn,
+    schemaName :: Core.Maybe Types.SchemaName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaId' with the minimum fields required to make a request.
---
--- * 'registryName' -
--- * 'schemaName' -
--- * 'schemaARN' -
+-- | Creates a 'SchemaId' value with any optional fields omitted.
 mkSchemaId ::
   SchemaId
 mkSchemaId =
   SchemaId'
-    { registryName = Lude.Nothing,
-      schemaName = Lude.Nothing,
-      schemaARN = Lude.Nothing
+    { registryName = Core.Nothing,
+      schemaArn = Core.Nothing,
+      schemaName = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siRegistryName :: Lens.Lens' SchemaId (Lude.Maybe Lude.Text)
-siRegistryName = Lens.lens (registryName :: SchemaId -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: SchemaId)
+siRegistryName :: Lens.Lens' SchemaId (Core.Maybe Types.RegistryName)
+siRegistryName = Lens.field @"registryName"
 {-# DEPRECATED siRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSchemaName :: Lens.Lens' SchemaId (Lude.Maybe Lude.Text)
-siSchemaName = Lens.lens (schemaName :: SchemaId -> Lude.Maybe Lude.Text) (\s a -> s {schemaName = a} :: SchemaId)
-{-# DEPRECATED siSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siSchemaArn :: Lens.Lens' SchemaId (Core.Maybe Types.GlueResourceArn)
+siSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED siSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSchemaARN :: Lens.Lens' SchemaId (Lude.Maybe Lude.Text)
-siSchemaARN = Lens.lens (schemaARN :: SchemaId -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: SchemaId)
-{-# DEPRECATED siSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siSchemaName :: Lens.Lens' SchemaId (Core.Maybe Types.SchemaName)
+siSchemaName = Lens.field @"schemaName"
+{-# DEPRECATED siSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
-instance Lude.FromJSON SchemaId where
-  parseJSON =
-    Lude.withObject
-      "SchemaId"
-      ( \x ->
-          SchemaId'
-            Lude.<$> (x Lude..:? "RegistryName")
-            Lude.<*> (x Lude..:? "SchemaName")
-            Lude.<*> (x Lude..:? "SchemaArn")
-      )
-
-instance Lude.ToJSON SchemaId where
-  toJSON SchemaId' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RegistryName" Lude..=) Lude.<$> registryName,
-            ("SchemaName" Lude..=) Lude.<$> schemaName,
-            ("SchemaArn" Lude..=) Lude.<$> schemaARN
+instance Core.FromJSON SchemaId where
+  toJSON SchemaId {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("RegistryName" Core..=) Core.<$> registryName,
+            ("SchemaArn" Core..=) Core.<$> schemaArn,
+            ("SchemaName" Core..=) Core.<$> schemaName
           ]
       )
+
+instance Core.FromJSON SchemaId where
+  parseJSON =
+    Core.withObject "SchemaId" Core.$
+      \x ->
+        SchemaId'
+          Core.<$> (x Core..:? "RegistryName")
+          Core.<*> (x Core..:? "SchemaArn")
+          Core.<*> (x Core..:? "SchemaName")

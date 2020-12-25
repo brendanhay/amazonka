@@ -17,87 +17,78 @@ module Network.AWS.LexModels.Types.OutputContext
     mkOutputContext,
 
     -- * Lenses
-    ocTurnsToLive,
-    ocTimeToLiveInSeconds,
     ocName,
+    ocTimeToLiveInSeconds,
+    ocTurnsToLive,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.OutputContextName as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The specification of an output context that is set when an intent is fulfilled.
 --
 -- /See:/ 'mkOutputContext' smart constructor.
 data OutputContext = OutputContext'
-  { -- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
-    turnsToLive :: Lude.Natural,
+  { -- | The name of the context.
+    name :: Types.OutputContextName,
     -- | The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
-    timeToLiveInSeconds :: Lude.Natural,
-    -- | The name of the context.
-    name :: Lude.Text
+    timeToLiveInSeconds :: Core.Natural,
+    -- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
+    turnsToLive :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputContext' with the minimum fields required to make a request.
---
--- * 'turnsToLive' - The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
--- * 'timeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
--- * 'name' - The name of the context.
+-- | Creates a 'OutputContext' value with any optional fields omitted.
 mkOutputContext ::
-  -- | 'turnsToLive'
-  Lude.Natural ->
-  -- | 'timeToLiveInSeconds'
-  Lude.Natural ->
   -- | 'name'
-  Lude.Text ->
+  Types.OutputContextName ->
+  -- | 'timeToLiveInSeconds'
+  Core.Natural ->
+  -- | 'turnsToLive'
+  Core.Natural ->
   OutputContext
-mkOutputContext pTurnsToLive_ pTimeToLiveInSeconds_ pName_ =
-  OutputContext'
-    { turnsToLive = pTurnsToLive_,
-      timeToLiveInSeconds = pTimeToLiveInSeconds_,
-      name = pName_
-    }
-
--- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
---
--- /Note:/ Consider using 'turnsToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocTurnsToLive :: Lens.Lens' OutputContext Lude.Natural
-ocTurnsToLive = Lens.lens (turnsToLive :: OutputContext -> Lude.Natural) (\s a -> s {turnsToLive = a} :: OutputContext)
-{-# DEPRECATED ocTurnsToLive "Use generic-lens or generic-optics with 'turnsToLive' instead." #-}
-
--- | The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
---
--- /Note:/ Consider using 'timeToLiveInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocTimeToLiveInSeconds :: Lens.Lens' OutputContext Lude.Natural
-ocTimeToLiveInSeconds = Lens.lens (timeToLiveInSeconds :: OutputContext -> Lude.Natural) (\s a -> s {timeToLiveInSeconds = a} :: OutputContext)
-{-# DEPRECATED ocTimeToLiveInSeconds "Use generic-lens or generic-optics with 'timeToLiveInSeconds' instead." #-}
+mkOutputContext name timeToLiveInSeconds turnsToLive =
+  OutputContext' {name, timeToLiveInSeconds, turnsToLive}
 
 -- | The name of the context.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocName :: Lens.Lens' OutputContext Lude.Text
-ocName = Lens.lens (name :: OutputContext -> Lude.Text) (\s a -> s {name = a} :: OutputContext)
+ocName :: Lens.Lens' OutputContext Types.OutputContextName
+ocName = Lens.field @"name"
 {-# DEPRECATED ocName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON OutputContext where
-  parseJSON =
-    Lude.withObject
-      "OutputContext"
-      ( \x ->
-          OutputContext'
-            Lude.<$> (x Lude..: "turnsToLive")
-            Lude.<*> (x Lude..: "timeToLiveInSeconds")
-            Lude.<*> (x Lude..: "name")
-      )
+-- | The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
+--
+-- /Note:/ Consider using 'timeToLiveInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTimeToLiveInSeconds :: Lens.Lens' OutputContext Core.Natural
+ocTimeToLiveInSeconds = Lens.field @"timeToLiveInSeconds"
+{-# DEPRECATED ocTimeToLiveInSeconds "Use generic-lens or generic-optics with 'timeToLiveInSeconds' instead." #-}
 
-instance Lude.ToJSON OutputContext where
-  toJSON OutputContext' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("turnsToLive" Lude..= turnsToLive),
-            Lude.Just ("timeToLiveInSeconds" Lude..= timeToLiveInSeconds),
-            Lude.Just ("name" Lude..= name)
+-- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
+--
+-- /Note:/ Consider using 'turnsToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTurnsToLive :: Lens.Lens' OutputContext Core.Natural
+ocTurnsToLive = Lens.field @"turnsToLive"
+{-# DEPRECATED ocTurnsToLive "Use generic-lens or generic-optics with 'turnsToLive' instead." #-}
+
+instance Core.FromJSON OutputContext where
+  toJSON OutputContext {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("timeToLiveInSeconds" Core..= timeToLiveInSeconds),
+            Core.Just ("turnsToLive" Core..= turnsToLive)
           ]
       )
+
+instance Core.FromJSON OutputContext where
+  parseJSON =
+    Core.withObject "OutputContext" Core.$
+      \x ->
+        OutputContext'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "timeToLiveInSeconds")
+          Core.<*> (x Core..: "turnsToLive")

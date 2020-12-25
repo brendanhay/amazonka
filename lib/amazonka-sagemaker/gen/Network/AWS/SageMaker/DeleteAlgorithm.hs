@@ -20,7 +20,7 @@ module Network.AWS.SageMaker.DeleteAlgorithm
     mkDeleteAlgorithm,
 
     -- ** Request lenses
-    dAlgorithmName,
+    daAlgorithmName,
 
     -- * Destructuring the response
     DeleteAlgorithmResponse (..),
@@ -29,71 +29,61 @@ module Network.AWS.SageMaker.DeleteAlgorithm
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteAlgorithm' smart constructor.
 newtype DeleteAlgorithm = DeleteAlgorithm'
   { -- | The name of the algorithm to delete.
-    algorithmName :: Lude.Text
+    algorithmName :: Types.EntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlgorithm' with the minimum fields required to make a request.
---
--- * 'algorithmName' - The name of the algorithm to delete.
+-- | Creates a 'DeleteAlgorithm' value with any optional fields omitted.
 mkDeleteAlgorithm ::
   -- | 'algorithmName'
-  Lude.Text ->
+  Types.EntityName ->
   DeleteAlgorithm
-mkDeleteAlgorithm pAlgorithmName_ =
-  DeleteAlgorithm' {algorithmName = pAlgorithmName_}
+mkDeleteAlgorithm algorithmName = DeleteAlgorithm' {algorithmName}
 
 -- | The name of the algorithm to delete.
 --
 -- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAlgorithmName :: Lens.Lens' DeleteAlgorithm Lude.Text
-dAlgorithmName = Lens.lens (algorithmName :: DeleteAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: DeleteAlgorithm)
-{-# DEPRECATED dAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
+daAlgorithmName :: Lens.Lens' DeleteAlgorithm Types.EntityName
+daAlgorithmName = Lens.field @"algorithmName"
+{-# DEPRECATED daAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
 
-instance Lude.AWSRequest DeleteAlgorithm where
+instance Core.FromJSON DeleteAlgorithm where
+  toJSON DeleteAlgorithm {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AlgorithmName" Core..= algorithmName)]
+      )
+
+instance Core.AWSRequest DeleteAlgorithm where
   type Rs DeleteAlgorithm = DeleteAlgorithmResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull DeleteAlgorithmResponse'
-
-instance Lude.ToHeaders DeleteAlgorithm where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteAlgorithm" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAlgorithm where
-  toJSON DeleteAlgorithm' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("AlgorithmName" Lude..= algorithmName)]
-      )
-
-instance Lude.ToPath DeleteAlgorithm where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAlgorithm where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteAlgorithm")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAlgorithmResponse'
 
 -- | /See:/ 'mkDeleteAlgorithmResponse' smart constructor.
 data DeleteAlgorithmResponse = DeleteAlgorithmResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlgorithmResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAlgorithmResponse' value with any optional fields omitted.
 mkDeleteAlgorithmResponse ::
   DeleteAlgorithmResponse
 mkDeleteAlgorithmResponse = DeleteAlgorithmResponse'

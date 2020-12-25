@@ -13,81 +13,86 @@
 module Network.AWS.KMS.Types.ConnectionErrorCodeType
   ( ConnectionErrorCodeType
       ( ConnectionErrorCodeType',
-        InvalidCredentials,
-        ClusterNotFound,
-        NetworkErrors,
-        InternalError,
-        InsufficientCloudhsmHSMs,
-        UserLockedOut,
-        UserNotFound,
-        UserLoggedIn,
-        SubnetNotFound
+        ConnectionErrorCodeTypeInvalidCredentials,
+        ConnectionErrorCodeTypeClusterNotFound,
+        ConnectionErrorCodeTypeNetworkErrors,
+        ConnectionErrorCodeTypeInternalError,
+        ConnectionErrorCodeTypeInsufficientCloudhsmHsms,
+        ConnectionErrorCodeTypeUserLockedOut,
+        ConnectionErrorCodeTypeUserNotFound,
+        ConnectionErrorCodeTypeUserLoggedIn,
+        ConnectionErrorCodeTypeSubnetNotFound,
+        fromConnectionErrorCodeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConnectionErrorCodeType = ConnectionErrorCodeType' Lude.Text
+newtype ConnectionErrorCodeType = ConnectionErrorCodeType'
+  { fromConnectionErrorCodeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InvalidCredentials :: ConnectionErrorCodeType
-pattern InvalidCredentials = ConnectionErrorCodeType' "INVALID_CREDENTIALS"
+pattern ConnectionErrorCodeTypeInvalidCredentials :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeInvalidCredentials = ConnectionErrorCodeType' "INVALID_CREDENTIALS"
 
-pattern ClusterNotFound :: ConnectionErrorCodeType
-pattern ClusterNotFound = ConnectionErrorCodeType' "CLUSTER_NOT_FOUND"
+pattern ConnectionErrorCodeTypeClusterNotFound :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeClusterNotFound = ConnectionErrorCodeType' "CLUSTER_NOT_FOUND"
 
-pattern NetworkErrors :: ConnectionErrorCodeType
-pattern NetworkErrors = ConnectionErrorCodeType' "NETWORK_ERRORS"
+pattern ConnectionErrorCodeTypeNetworkErrors :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeNetworkErrors = ConnectionErrorCodeType' "NETWORK_ERRORS"
 
-pattern InternalError :: ConnectionErrorCodeType
-pattern InternalError = ConnectionErrorCodeType' "INTERNAL_ERROR"
+pattern ConnectionErrorCodeTypeInternalError :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeInternalError = ConnectionErrorCodeType' "INTERNAL_ERROR"
 
-pattern InsufficientCloudhsmHSMs :: ConnectionErrorCodeType
-pattern InsufficientCloudhsmHSMs = ConnectionErrorCodeType' "INSUFFICIENT_CLOUDHSM_HSMS"
+pattern ConnectionErrorCodeTypeInsufficientCloudhsmHsms :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeInsufficientCloudhsmHsms = ConnectionErrorCodeType' "INSUFFICIENT_CLOUDHSM_HSMS"
 
-pattern UserLockedOut :: ConnectionErrorCodeType
-pattern UserLockedOut = ConnectionErrorCodeType' "USER_LOCKED_OUT"
+pattern ConnectionErrorCodeTypeUserLockedOut :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeUserLockedOut = ConnectionErrorCodeType' "USER_LOCKED_OUT"
 
-pattern UserNotFound :: ConnectionErrorCodeType
-pattern UserNotFound = ConnectionErrorCodeType' "USER_NOT_FOUND"
+pattern ConnectionErrorCodeTypeUserNotFound :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeUserNotFound = ConnectionErrorCodeType' "USER_NOT_FOUND"
 
-pattern UserLoggedIn :: ConnectionErrorCodeType
-pattern UserLoggedIn = ConnectionErrorCodeType' "USER_LOGGED_IN"
+pattern ConnectionErrorCodeTypeUserLoggedIn :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeUserLoggedIn = ConnectionErrorCodeType' "USER_LOGGED_IN"
 
-pattern SubnetNotFound :: ConnectionErrorCodeType
-pattern SubnetNotFound = ConnectionErrorCodeType' "SUBNET_NOT_FOUND"
+pattern ConnectionErrorCodeTypeSubnetNotFound :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeTypeSubnetNotFound = ConnectionErrorCodeType' "SUBNET_NOT_FOUND"
 
 {-# COMPLETE
-  InvalidCredentials,
-  ClusterNotFound,
-  NetworkErrors,
-  InternalError,
-  InsufficientCloudhsmHSMs,
-  UserLockedOut,
-  UserNotFound,
-  UserLoggedIn,
-  SubnetNotFound,
+  ConnectionErrorCodeTypeInvalidCredentials,
+  ConnectionErrorCodeTypeClusterNotFound,
+  ConnectionErrorCodeTypeNetworkErrors,
+  ConnectionErrorCodeTypeInternalError,
+  ConnectionErrorCodeTypeInsufficientCloudhsmHsms,
+  ConnectionErrorCodeTypeUserLockedOut,
+  ConnectionErrorCodeTypeUserNotFound,
+  ConnectionErrorCodeTypeUserLoggedIn,
+  ConnectionErrorCodeTypeSubnetNotFound,
   ConnectionErrorCodeType'
   #-}

@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
   ( Scte35AposNoRegionalBlackoutBehavior
       ( Scte35AposNoRegionalBlackoutBehavior',
-        SANRBBFollow,
-        SANRBBIgnore
+        Scte35AposNoRegionalBlackoutBehaviorFollow,
+        Scte35AposNoRegionalBlackoutBehaviorIgnore,
+        fromScte35AposNoRegionalBlackoutBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte35 Apos No Regional Blackout Behavior
-newtype Scte35AposNoRegionalBlackoutBehavior = Scte35AposNoRegionalBlackoutBehavior' Lude.Text
+newtype Scte35AposNoRegionalBlackoutBehavior = Scte35AposNoRegionalBlackoutBehavior'
+  { fromScte35AposNoRegionalBlackoutBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SANRBBFollow :: Scte35AposNoRegionalBlackoutBehavior
-pattern SANRBBFollow = Scte35AposNoRegionalBlackoutBehavior' "FOLLOW"
+pattern Scte35AposNoRegionalBlackoutBehaviorFollow :: Scte35AposNoRegionalBlackoutBehavior
+pattern Scte35AposNoRegionalBlackoutBehaviorFollow = Scte35AposNoRegionalBlackoutBehavior' "FOLLOW"
 
-pattern SANRBBIgnore :: Scte35AposNoRegionalBlackoutBehavior
-pattern SANRBBIgnore = Scte35AposNoRegionalBlackoutBehavior' "IGNORE"
+pattern Scte35AposNoRegionalBlackoutBehaviorIgnore :: Scte35AposNoRegionalBlackoutBehavior
+pattern Scte35AposNoRegionalBlackoutBehaviorIgnore = Scte35AposNoRegionalBlackoutBehavior' "IGNORE"
 
 {-# COMPLETE
-  SANRBBFollow,
-  SANRBBIgnore,
+  Scte35AposNoRegionalBlackoutBehaviorFollow,
+  Scte35AposNoRegionalBlackoutBehaviorIgnore,
   Scte35AposNoRegionalBlackoutBehavior'
   #-}

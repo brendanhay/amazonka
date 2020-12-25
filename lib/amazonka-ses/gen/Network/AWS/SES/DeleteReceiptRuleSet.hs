@@ -30,91 +30,90 @@ module Network.AWS.SES.DeleteReceiptRuleSet
     mkDeleteReceiptRuleSetResponse,
 
     -- ** Response lenses
-    drrsrsResponseStatus,
+    drrsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkDeleteReceiptRuleSet' smart constructor.
 newtype DeleteReceiptRuleSet = DeleteReceiptRuleSet'
   { -- | The name of the receipt rule set to delete.
-    ruleSetName :: Lude.Text
+    ruleSetName :: Types.ReceiptRuleSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReceiptRuleSet' with the minimum fields required to make a request.
---
--- * 'ruleSetName' - The name of the receipt rule set to delete.
+-- | Creates a 'DeleteReceiptRuleSet' value with any optional fields omitted.
 mkDeleteReceiptRuleSet ::
   -- | 'ruleSetName'
-  Lude.Text ->
+  Types.ReceiptRuleSetName ->
   DeleteReceiptRuleSet
-mkDeleteReceiptRuleSet pRuleSetName_ =
-  DeleteReceiptRuleSet' {ruleSetName = pRuleSetName_}
+mkDeleteReceiptRuleSet ruleSetName =
+  DeleteReceiptRuleSet' {ruleSetName}
 
 -- | The name of the receipt rule set to delete.
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRuleSetName :: Lens.Lens' DeleteReceiptRuleSet Lude.Text
-dRuleSetName = Lens.lens (ruleSetName :: DeleteReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: DeleteReceiptRuleSet)
+dRuleSetName :: Lens.Lens' DeleteReceiptRuleSet Types.ReceiptRuleSetName
+dRuleSetName = Lens.field @"ruleSetName"
 {-# DEPRECATED dRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance Lude.AWSRequest DeleteReceiptRuleSet where
+instance Core.AWSRequest DeleteReceiptRuleSet where
   type Rs DeleteReceiptRuleSet = DeleteReceiptRuleSetResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteReceiptRuleSet")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "RuleSetName" ruleSetName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteReceiptRuleSetResult"
       ( \s h x ->
           DeleteReceiptRuleSetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteReceiptRuleSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteReceiptRuleSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteReceiptRuleSet where
-  toQuery DeleteReceiptRuleSet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteReceiptRuleSet" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "RuleSetName" Lude.=: ruleSetName
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteReceiptRuleSetResponse' smart constructor.
 newtype DeleteReceiptRuleSetResponse = DeleteReceiptRuleSetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReceiptRuleSetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteReceiptRuleSetResponse' value with any optional fields omitted.
 mkDeleteReceiptRuleSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteReceiptRuleSetResponse
-mkDeleteReceiptRuleSetResponse pResponseStatus_ =
-  DeleteReceiptRuleSetResponse' {responseStatus = pResponseStatus_}
+mkDeleteReceiptRuleSetResponse responseStatus =
+  DeleteReceiptRuleSetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsrsResponseStatus :: Lens.Lens' DeleteReceiptRuleSetResponse Lude.Int
-drrsrsResponseStatus = Lens.lens (responseStatus :: DeleteReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReceiptRuleSetResponse)
-{-# DEPRECATED drrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrsrrsResponseStatus :: Lens.Lens' DeleteReceiptRuleSetResponse Core.Int
+drrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

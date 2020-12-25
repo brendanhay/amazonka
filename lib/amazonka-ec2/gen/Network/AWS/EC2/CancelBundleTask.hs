@@ -28,116 +28,113 @@ module Network.AWS.EC2.CancelBundleTask
     mkCancelBundleTaskResponse,
 
     -- ** Response lenses
-    cbtrsBundleTask,
-    cbtrsResponseStatus,
+    cbtrrsBundleTask,
+    cbtrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CancelBundleTask.
 --
 -- /See:/ 'mkCancelBundleTask' smart constructor.
 data CancelBundleTask = CancelBundleTask'
   { -- | The ID of the bundle task.
-    bundleId :: Lude.Text,
+    bundleId :: Types.BundleId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelBundleTask' with the minimum fields required to make a request.
---
--- * 'bundleId' - The ID of the bundle task.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CancelBundleTask' value with any optional fields omitted.
 mkCancelBundleTask ::
   -- | 'bundleId'
-  Lude.Text ->
+  Types.BundleId ->
   CancelBundleTask
-mkCancelBundleTask pBundleId_ =
-  CancelBundleTask' {bundleId = pBundleId_, dryRun = Lude.Nothing}
+mkCancelBundleTask bundleId =
+  CancelBundleTask' {bundleId, dryRun = Core.Nothing}
 
 -- | The ID of the bundle task.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtBundleId :: Lens.Lens' CancelBundleTask Lude.Text
-cbtBundleId = Lens.lens (bundleId :: CancelBundleTask -> Lude.Text) (\s a -> s {bundleId = a} :: CancelBundleTask)
+cbtBundleId :: Lens.Lens' CancelBundleTask Types.BundleId
+cbtBundleId = Lens.field @"bundleId"
 {-# DEPRECATED cbtBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtDryRun :: Lens.Lens' CancelBundleTask (Lude.Maybe Lude.Bool)
-cbtDryRun = Lens.lens (dryRun :: CancelBundleTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelBundleTask)
+cbtDryRun :: Lens.Lens' CancelBundleTask (Core.Maybe Core.Bool)
+cbtDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cbtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CancelBundleTask where
+instance Core.AWSRequest CancelBundleTask where
   type Rs CancelBundleTask = CancelBundleTaskResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelBundleTask")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "BundleId" bundleId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CancelBundleTaskResponse'
-            Lude.<$> (x Lude..@? "bundleInstanceTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "bundleInstanceTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelBundleTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelBundleTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelBundleTask where
-  toQuery CancelBundleTask' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelBundleTask" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "BundleId" Lude.=: bundleId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of CancelBundleTask.
 --
 -- /See:/ 'mkCancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
   { -- | Information about the bundle task.
-    bundleTask :: Lude.Maybe BundleTask,
+    bundleTask :: Core.Maybe Types.BundleTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CancelBundleTaskResponse' with the minimum fields required to make a request.
---
--- * 'bundleTask' - Information about the bundle task.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelBundleTaskResponse' value with any optional fields omitted.
 mkCancelBundleTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelBundleTaskResponse
-mkCancelBundleTaskResponse pResponseStatus_ =
+mkCancelBundleTaskResponse responseStatus =
   CancelBundleTaskResponse'
-    { bundleTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bundleTask = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the bundle task.
 --
 -- /Note:/ Consider using 'bundleTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtrsBundleTask :: Lens.Lens' CancelBundleTaskResponse (Lude.Maybe BundleTask)
-cbtrsBundleTask = Lens.lens (bundleTask :: CancelBundleTaskResponse -> Lude.Maybe BundleTask) (\s a -> s {bundleTask = a} :: CancelBundleTaskResponse)
-{-# DEPRECATED cbtrsBundleTask "Use generic-lens or generic-optics with 'bundleTask' instead." #-}
+cbtrrsBundleTask :: Lens.Lens' CancelBundleTaskResponse (Core.Maybe Types.BundleTask)
+cbtrrsBundleTask = Lens.field @"bundleTask"
+{-# DEPRECATED cbtrrsBundleTask "Use generic-lens or generic-optics with 'bundleTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtrsResponseStatus :: Lens.Lens' CancelBundleTaskResponse Lude.Int
-cbtrsResponseStatus = Lens.lens (responseStatus :: CancelBundleTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelBundleTaskResponse)
-{-# DEPRECATED cbtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbtrrsResponseStatus :: Lens.Lens' CancelBundleTaskResponse Core.Int
+cbtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

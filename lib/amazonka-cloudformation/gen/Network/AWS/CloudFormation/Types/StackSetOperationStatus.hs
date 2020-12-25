@@ -13,66 +13,71 @@
 module Network.AWS.CloudFormation.Types.StackSetOperationStatus
   ( StackSetOperationStatus
       ( StackSetOperationStatus',
-        SSOSRunning,
-        SSOSSucceeded,
-        SSOSFailed,
-        SSOSStopping,
-        SSOSStopped,
-        SSOSQueued
+        StackSetOperationStatusRunning,
+        StackSetOperationStatusSucceeded,
+        StackSetOperationStatusFailed,
+        StackSetOperationStatusStopping,
+        StackSetOperationStatusStopped,
+        StackSetOperationStatusQueued,
+        fromStackSetOperationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackSetOperationStatus = StackSetOperationStatus' Lude.Text
+newtype StackSetOperationStatus = StackSetOperationStatus'
+  { fromStackSetOperationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSOSRunning :: StackSetOperationStatus
-pattern SSOSRunning = StackSetOperationStatus' "RUNNING"
+pattern StackSetOperationStatusRunning :: StackSetOperationStatus
+pattern StackSetOperationStatusRunning = StackSetOperationStatus' "RUNNING"
 
-pattern SSOSSucceeded :: StackSetOperationStatus
-pattern SSOSSucceeded = StackSetOperationStatus' "SUCCEEDED"
+pattern StackSetOperationStatusSucceeded :: StackSetOperationStatus
+pattern StackSetOperationStatusSucceeded = StackSetOperationStatus' "SUCCEEDED"
 
-pattern SSOSFailed :: StackSetOperationStatus
-pattern SSOSFailed = StackSetOperationStatus' "FAILED"
+pattern StackSetOperationStatusFailed :: StackSetOperationStatus
+pattern StackSetOperationStatusFailed = StackSetOperationStatus' "FAILED"
 
-pattern SSOSStopping :: StackSetOperationStatus
-pattern SSOSStopping = StackSetOperationStatus' "STOPPING"
+pattern StackSetOperationStatusStopping :: StackSetOperationStatus
+pattern StackSetOperationStatusStopping = StackSetOperationStatus' "STOPPING"
 
-pattern SSOSStopped :: StackSetOperationStatus
-pattern SSOSStopped = StackSetOperationStatus' "STOPPED"
+pattern StackSetOperationStatusStopped :: StackSetOperationStatus
+pattern StackSetOperationStatusStopped = StackSetOperationStatus' "STOPPED"
 
-pattern SSOSQueued :: StackSetOperationStatus
-pattern SSOSQueued = StackSetOperationStatus' "QUEUED"
+pattern StackSetOperationStatusQueued :: StackSetOperationStatus
+pattern StackSetOperationStatusQueued = StackSetOperationStatus' "QUEUED"
 
 {-# COMPLETE
-  SSOSRunning,
-  SSOSSucceeded,
-  SSOSFailed,
-  SSOSStopping,
-  SSOSStopped,
-  SSOSQueued,
+  StackSetOperationStatusRunning,
+  StackSetOperationStatusSucceeded,
+  StackSetOperationStatusFailed,
+  StackSetOperationStatusStopping,
+  StackSetOperationStatusStopped,
+  StackSetOperationStatusQueued,
   StackSetOperationStatus'
   #-}

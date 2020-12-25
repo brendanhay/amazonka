@@ -13,54 +13,59 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
   ( DvbSubtitleBackgroundColor
       ( DvbSubtitleBackgroundColor',
-        DSBCNone,
-        DSBCBlack,
-        DSBCWhite
+        DvbSubtitleBackgroundColorNone,
+        DvbSubtitleBackgroundColorBlack,
+        DvbSubtitleBackgroundColorWhite,
+        fromDvbSubtitleBackgroundColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the color of the rectangle behind the captions.
 --
 -- All burn-in and DVB-Sub font settings must match.
-newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor' Lude.Text
+newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor'
+  { fromDvbSubtitleBackgroundColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSBCNone :: DvbSubtitleBackgroundColor
-pattern DSBCNone = DvbSubtitleBackgroundColor' "NONE"
+pattern DvbSubtitleBackgroundColorNone :: DvbSubtitleBackgroundColor
+pattern DvbSubtitleBackgroundColorNone = DvbSubtitleBackgroundColor' "NONE"
 
-pattern DSBCBlack :: DvbSubtitleBackgroundColor
-pattern DSBCBlack = DvbSubtitleBackgroundColor' "BLACK"
+pattern DvbSubtitleBackgroundColorBlack :: DvbSubtitleBackgroundColor
+pattern DvbSubtitleBackgroundColorBlack = DvbSubtitleBackgroundColor' "BLACK"
 
-pattern DSBCWhite :: DvbSubtitleBackgroundColor
-pattern DSBCWhite = DvbSubtitleBackgroundColor' "WHITE"
+pattern DvbSubtitleBackgroundColorWhite :: DvbSubtitleBackgroundColor
+pattern DvbSubtitleBackgroundColorWhite = DvbSubtitleBackgroundColor' "WHITE"
 
 {-# COMPLETE
-  DSBCNone,
-  DSBCBlack,
-  DSBCWhite,
+  DvbSubtitleBackgroundColorNone,
+  DvbSubtitleBackgroundColorBlack,
+  DvbSubtitleBackgroundColorWhite,
   DvbSubtitleBackgroundColor'
   #-}

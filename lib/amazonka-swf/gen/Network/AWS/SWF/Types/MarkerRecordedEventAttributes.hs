@@ -18,76 +18,72 @@ module Network.AWS.SWF.Types.MarkerRecordedEventAttributes
 
     -- * Lenses
     mreaMarkerName,
-    mreaDetails,
     mreaDecisionTaskCompletedEventId,
+    mreaDetails,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Details as Types
+import qualified Network.AWS.SWF.Types.MarkerName as Types
 
 -- | Provides the details of the @MarkerRecorded@ event.
 --
 -- /See:/ 'mkMarkerRecordedEventAttributes' smart constructor.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
   { -- | The name of the marker.
-    markerName :: Lude.Text,
-    -- | The details of the marker.
-    details :: Lude.Maybe Lude.Text,
+    markerName :: Types.MarkerName,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Lude.Integer
+    decisionTaskCompletedEventId :: Core.Integer,
+    -- | The details of the marker.
+    details :: Core.Maybe Types.Details
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MarkerRecordedEventAttributes' with the minimum fields required to make a request.
---
--- * 'markerName' - The name of the marker.
--- * 'details' - The details of the marker.
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Creates a 'MarkerRecordedEventAttributes' value with any optional fields omitted.
 mkMarkerRecordedEventAttributes ::
   -- | 'markerName'
-  Lude.Text ->
+  Types.MarkerName ->
   -- | 'decisionTaskCompletedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   MarkerRecordedEventAttributes
 mkMarkerRecordedEventAttributes
-  pMarkerName_
-  pDecisionTaskCompletedEventId_ =
+  markerName
+  decisionTaskCompletedEventId =
     MarkerRecordedEventAttributes'
-      { markerName = pMarkerName_,
-        details = Lude.Nothing,
-        decisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+      { markerName,
+        decisionTaskCompletedEventId,
+        details = Core.Nothing
       }
 
 -- | The name of the marker.
 --
 -- /Note:/ Consider using 'markerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mreaMarkerName :: Lens.Lens' MarkerRecordedEventAttributes Lude.Text
-mreaMarkerName = Lens.lens (markerName :: MarkerRecordedEventAttributes -> Lude.Text) (\s a -> s {markerName = a} :: MarkerRecordedEventAttributes)
+mreaMarkerName :: Lens.Lens' MarkerRecordedEventAttributes Types.MarkerName
+mreaMarkerName = Lens.field @"markerName"
 {-# DEPRECATED mreaMarkerName "Use generic-lens or generic-optics with 'markerName' instead." #-}
-
--- | The details of the marker.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mreaDetails :: Lens.Lens' MarkerRecordedEventAttributes (Lude.Maybe Lude.Text)
-mreaDetails = Lens.lens (details :: MarkerRecordedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: MarkerRecordedEventAttributes)
-{-# DEPRECATED mreaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mreaDecisionTaskCompletedEventId :: Lens.Lens' MarkerRecordedEventAttributes Lude.Integer
-mreaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: MarkerRecordedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: MarkerRecordedEventAttributes)
+mreaDecisionTaskCompletedEventId :: Lens.Lens' MarkerRecordedEventAttributes Core.Integer
+mreaDecisionTaskCompletedEventId = Lens.field @"decisionTaskCompletedEventId"
 {-# DEPRECATED mreaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
-instance Lude.FromJSON MarkerRecordedEventAttributes where
+-- | The details of the marker.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mreaDetails :: Lens.Lens' MarkerRecordedEventAttributes (Core.Maybe Types.Details)
+mreaDetails = Lens.field @"details"
+{-# DEPRECATED mreaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+
+instance Core.FromJSON MarkerRecordedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "MarkerRecordedEventAttributes"
-      ( \x ->
-          MarkerRecordedEventAttributes'
-            Lude.<$> (x Lude..: "markerName")
-            Lude.<*> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
-      )
+    Core.withObject "MarkerRecordedEventAttributes" Core.$
+      \x ->
+        MarkerRecordedEventAttributes'
+          Core.<$> (x Core..: "markerName")
+          Core.<*> (x Core..: "decisionTaskCompletedEventId")
+          Core.<*> (x Core..:? "details")

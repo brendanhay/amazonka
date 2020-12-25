@@ -13,46 +13,48 @@
 module Network.AWS.ResourceGroups.Types.QueryType
   ( QueryType
       ( QueryType',
-        TagFilters10,
-        CloudformationStack10
+        QueryTypeTagFilters10,
+        QueryTypeCloudformationStack10,
+        fromQueryType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype QueryType = QueryType' Lude.Text
+newtype QueryType = QueryType' {fromQueryType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TagFilters10 :: QueryType
-pattern TagFilters10 = QueryType' "TAG_FILTERS_1_0"
+pattern QueryTypeTagFilters10 :: QueryType
+pattern QueryTypeTagFilters10 = QueryType' "TAG_FILTERS_1_0"
 
-pattern CloudformationStack10 :: QueryType
-pattern CloudformationStack10 = QueryType' "CLOUDFORMATION_STACK_1_0"
+pattern QueryTypeCloudformationStack10 :: QueryType
+pattern QueryTypeCloudformationStack10 = QueryType' "CLOUDFORMATION_STACK_1_0"
 
 {-# COMPLETE
-  TagFilters10,
-  CloudformationStack10,
+  QueryTypeTagFilters10,
+  QueryTypeCloudformationStack10,
   QueryType'
   #-}

@@ -22,35 +22,32 @@ module Network.AWS.SMS.Types.ServerValidationOutput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.Server
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.Server as Types
 
 -- | Contains output from validating an instance.
 --
 -- /See:/ 'mkServerValidationOutput' smart constructor.
 newtype ServerValidationOutput = ServerValidationOutput'
-  { server :: Lude.Maybe Server
+  { server :: Core.Maybe Types.Server
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServerValidationOutput' with the minimum fields required to make a request.
---
--- * 'server' -
+-- | Creates a 'ServerValidationOutput' value with any optional fields omitted.
 mkServerValidationOutput ::
   ServerValidationOutput
 mkServerValidationOutput =
-  ServerValidationOutput' {server = Lude.Nothing}
+  ServerValidationOutput' {server = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'server' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svoServer :: Lens.Lens' ServerValidationOutput (Lude.Maybe Server)
-svoServer = Lens.lens (server :: ServerValidationOutput -> Lude.Maybe Server) (\s a -> s {server = a} :: ServerValidationOutput)
+svoServer :: Lens.Lens' ServerValidationOutput (Core.Maybe Types.Server)
+svoServer = Lens.field @"server"
 {-# DEPRECATED svoServer "Use generic-lens or generic-optics with 'server' instead." #-}
 
-instance Lude.FromJSON ServerValidationOutput where
+instance Core.FromJSON ServerValidationOutput where
   parseJSON =
-    Lude.withObject
-      "ServerValidationOutput"
-      (\x -> ServerValidationOutput' Lude.<$> (x Lude..:? "server"))
+    Core.withObject "ServerValidationOutput" Core.$
+      \x -> ServerValidationOutput' Core.<$> (x Core..:? "server")

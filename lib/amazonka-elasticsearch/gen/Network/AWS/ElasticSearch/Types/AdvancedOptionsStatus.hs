@@ -17,14 +17,15 @@ module Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
     mkAdvancedOptionsStatus,
 
     -- * Lenses
-    aosStatus,
     aosOptions,
+    aosStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
+import qualified Network.AWS.ElasticSearch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:
 --
@@ -37,45 +38,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdvancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
-  { -- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
-    status :: OptionStatus,
-    -- | Specifies the status of advanced options for the specified Elasticsearch domain.
-    options :: Lude.HashMap Lude.Text (Lude.Text)
+  { -- | Specifies the status of advanced options for the specified Elasticsearch domain.
+    options :: Core.HashMap Types.String Types.String,
+    -- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AdvancedOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
--- * 'options' - Specifies the status of advanced options for the specified Elasticsearch domain.
+-- | Creates a 'AdvancedOptionsStatus' value with any optional fields omitted.
 mkAdvancedOptionsStatus ::
   -- | 'status'
-  OptionStatus ->
+  Types.OptionStatus ->
   AdvancedOptionsStatus
-mkAdvancedOptionsStatus pStatus_ =
-  AdvancedOptionsStatus' {status = pStatus_, options = Lude.mempty}
-
--- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosStatus :: Lens.Lens' AdvancedOptionsStatus OptionStatus
-aosStatus = Lens.lens (status :: AdvancedOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: AdvancedOptionsStatus)
-{-# DEPRECATED aosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkAdvancedOptionsStatus status =
+  AdvancedOptionsStatus' {options = Core.mempty, status}
 
 -- | Specifies the status of advanced options for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosOptions :: Lens.Lens' AdvancedOptionsStatus (Lude.HashMap Lude.Text (Lude.Text))
-aosOptions = Lens.lens (options :: AdvancedOptionsStatus -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {options = a} :: AdvancedOptionsStatus)
+aosOptions :: Lens.Lens' AdvancedOptionsStatus (Core.HashMap Types.String Types.String)
+aosOptions = Lens.field @"options"
 {-# DEPRECATED aosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON AdvancedOptionsStatus where
+-- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosStatus :: Lens.Lens' AdvancedOptionsStatus Types.OptionStatus
+aosStatus = Lens.field @"status"
+{-# DEPRECATED aosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON AdvancedOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "AdvancedOptionsStatus"
-      ( \x ->
-          AdvancedOptionsStatus'
-            Lude.<$> (x Lude..: "Status")
-            Lude.<*> (x Lude..:? "Options" Lude..!= Lude.mempty)
-      )
+    Core.withObject "AdvancedOptionsStatus" Core.$
+      \x ->
+        AdvancedOptionsStatus'
+          Core.<$> (x Core..:? "Options" Core..!= Core.mempty)
+          Core.<*> (x Core..: "Status")

@@ -29,16 +29,16 @@ module Network.AWS.Pinpoint.RemoveAttributes
     mkRemoveAttributesResponse,
 
     -- ** Response lenses
-    rarsAttributesResource,
-    rarsResponseStatus,
+    rarrsAttributesResource,
+    rarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveAttributes' smart constructor.
 data RemoveAttributes = RemoveAttributes'
@@ -52,46 +52,31 @@ data RemoveAttributes = RemoveAttributes'
     --
     --
     --     * endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.
-    attributeType :: Lude.Text,
+    attributeType :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    updateAttributesRequest :: UpdateAttributesRequest
+    applicationId :: Core.Text,
+    updateAttributesRequest :: Types.UpdateAttributesRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAttributes' with the minimum fields required to make a request.
---
--- * 'attributeType' - The type of attribute or attributes to remove. Valid values are:
---
---
---     * endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.
---
---
---     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.
---
---
---     * endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.
---
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'updateAttributesRequest' -
+-- | Creates a 'RemoveAttributes' value with any optional fields omitted.
 mkRemoveAttributes ::
   -- | 'attributeType'
-  Lude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'updateAttributesRequest'
-  UpdateAttributesRequest ->
+  Types.UpdateAttributesRequest ->
   RemoveAttributes
 mkRemoveAttributes
-  pAttributeType_
-  pApplicationId_
-  pUpdateAttributesRequest_ =
+  attributeType
+  applicationId
+  updateAttributesRequest =
     RemoveAttributes'
-      { attributeType = pAttributeType_,
-        applicationId = pApplicationId_,
-        updateAttributesRequest = pUpdateAttributesRequest_
+      { attributeType,
+        applicationId,
+        updateAttributesRequest
       }
 
 -- | The type of attribute or attributes to remove. Valid values are:
@@ -108,100 +93,86 @@ mkRemoveAttributes
 --
 --
 -- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raAttributeType :: Lens.Lens' RemoveAttributes Lude.Text
-raAttributeType = Lens.lens (attributeType :: RemoveAttributes -> Lude.Text) (\s a -> s {attributeType = a} :: RemoveAttributes)
+raAttributeType :: Lens.Lens' RemoveAttributes Core.Text
+raAttributeType = Lens.field @"attributeType"
 {-# DEPRECATED raAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raApplicationId :: Lens.Lens' RemoveAttributes Lude.Text
-raApplicationId = Lens.lens (applicationId :: RemoveAttributes -> Lude.Text) (\s a -> s {applicationId = a} :: RemoveAttributes)
+raApplicationId :: Lens.Lens' RemoveAttributes Core.Text
+raApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED raApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'updateAttributesRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raUpdateAttributesRequest :: Lens.Lens' RemoveAttributes UpdateAttributesRequest
-raUpdateAttributesRequest = Lens.lens (updateAttributesRequest :: RemoveAttributes -> UpdateAttributesRequest) (\s a -> s {updateAttributesRequest = a} :: RemoveAttributes)
+raUpdateAttributesRequest :: Lens.Lens' RemoveAttributes Types.UpdateAttributesRequest
+raUpdateAttributesRequest = Lens.field @"updateAttributesRequest"
 {-# DEPRECATED raUpdateAttributesRequest "Use generic-lens or generic-optics with 'updateAttributesRequest' instead." #-}
 
-instance Lude.AWSRequest RemoveAttributes where
+instance Core.FromJSON RemoveAttributes where
+  toJSON RemoveAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("UpdateAttributesRequest" Core..= updateAttributesRequest)
+          ]
+      )
+
+instance Core.AWSRequest RemoveAttributes where
   type Rs RemoveAttributes = RemoveAttributesResponse
-  request = Req.putJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/attributes/")
+                Core.<> (Core.toText attributeType)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RemoveAttributesResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveAttributes where
-  toJSON RemoveAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("UpdateAttributesRequest" Lude..= updateAttributesRequest)
-          ]
-      )
-
-instance Lude.ToPath RemoveAttributes where
-  toPath RemoveAttributes' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/attributes/",
-        Lude.toBS attributeType
-      ]
-
-instance Lude.ToQuery RemoveAttributes where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRemoveAttributesResponse' smart constructor.
 data RemoveAttributesResponse = RemoveAttributesResponse'
-  { attributesResource :: AttributesResource,
+  { attributesResource :: Types.AttributesResource,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributesResource' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveAttributesResponse' value with any optional fields omitted.
 mkRemoveAttributesResponse ::
   -- | 'attributesResource'
-  AttributesResource ->
+  Types.AttributesResource ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveAttributesResponse
-mkRemoveAttributesResponse pAttributesResource_ pResponseStatus_ =
-  RemoveAttributesResponse'
-    { attributesResource =
-        pAttributesResource_,
-      responseStatus = pResponseStatus_
-    }
+mkRemoveAttributesResponse attributesResource responseStatus =
+  RemoveAttributesResponse' {attributesResource, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'attributesResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rarsAttributesResource :: Lens.Lens' RemoveAttributesResponse AttributesResource
-rarsAttributesResource = Lens.lens (attributesResource :: RemoveAttributesResponse -> AttributesResource) (\s a -> s {attributesResource = a} :: RemoveAttributesResponse)
-{-# DEPRECATED rarsAttributesResource "Use generic-lens or generic-optics with 'attributesResource' instead." #-}
+rarrsAttributesResource :: Lens.Lens' RemoveAttributesResponse Types.AttributesResource
+rarrsAttributesResource = Lens.field @"attributesResource"
+{-# DEPRECATED rarrsAttributesResource "Use generic-lens or generic-optics with 'attributesResource' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rarsResponseStatus :: Lens.Lens' RemoveAttributesResponse Lude.Int
-rarsResponseStatus = Lens.lens (responseStatus :: RemoveAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveAttributesResponse)
-{-# DEPRECATED rarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rarrsResponseStatus :: Lens.Lens' RemoveAttributesResponse Core.Int
+rarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

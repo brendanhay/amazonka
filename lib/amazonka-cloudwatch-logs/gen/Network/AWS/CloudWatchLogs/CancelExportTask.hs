@@ -30,69 +30,60 @@ module Network.AWS.CloudWatchLogs.CancelExportTask
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelExportTask' smart constructor.
 newtype CancelExportTask = CancelExportTask'
   { -- | The ID of the export task.
-    taskId :: Lude.Text
+    taskId :: Types.ExportTaskId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelExportTask' with the minimum fields required to make a request.
---
--- * 'taskId' - The ID of the export task.
+-- | Creates a 'CancelExportTask' value with any optional fields omitted.
 mkCancelExportTask ::
   -- | 'taskId'
-  Lude.Text ->
+  Types.ExportTaskId ->
   CancelExportTask
-mkCancelExportTask pTaskId_ = CancelExportTask' {taskId = pTaskId_}
+mkCancelExportTask taskId = CancelExportTask' {taskId}
 
 -- | The ID of the export task.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetTaskId :: Lens.Lens' CancelExportTask Lude.Text
-cetTaskId = Lens.lens (taskId :: CancelExportTask -> Lude.Text) (\s a -> s {taskId = a} :: CancelExportTask)
+cetTaskId :: Lens.Lens' CancelExportTask Types.ExportTaskId
+cetTaskId = Lens.field @"taskId"
 {-# DEPRECATED cetTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance Lude.AWSRequest CancelExportTask where
+instance Core.FromJSON CancelExportTask where
+  toJSON CancelExportTask {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("taskId" Core..= taskId)])
+
+instance Core.AWSRequest CancelExportTask where
   type Rs CancelExportTask = CancelExportTaskResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull CancelExportTaskResponse'
-
-instance Lude.ToHeaders CancelExportTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.CancelExportTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelExportTask where
-  toJSON CancelExportTask' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("taskId" Lude..= taskId)])
-
-instance Lude.ToPath CancelExportTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelExportTask where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.CancelExportTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull CancelExportTaskResponse'
 
 -- | /See:/ 'mkCancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse = CancelExportTaskResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelExportTaskResponse' with the minimum fields required to make a request.
+-- | Creates a 'CancelExportTaskResponse' value with any optional fields omitted.
 mkCancelExportTaskResponse ::
   CancelExportTaskResponse
 mkCancelExportTaskResponse = CancelExportTaskResponse'

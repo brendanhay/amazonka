@@ -13,66 +13,68 @@
 module Network.AWS.CodeBuild.Types.StatusType
   ( StatusType
       ( StatusType',
-        Succeeded,
-        Failed,
-        Fault,
-        TimedOut,
-        InProgress,
-        Stopped
+        StatusTypeSucceeded,
+        StatusTypeFailed,
+        StatusTypeFault,
+        StatusTypeTimedOut,
+        StatusTypeInProgress,
+        StatusTypeStopped,
+        fromStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StatusType = StatusType' Lude.Text
+newtype StatusType = StatusType' {fromStatusType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Succeeded :: StatusType
-pattern Succeeded = StatusType' "SUCCEEDED"
+pattern StatusTypeSucceeded :: StatusType
+pattern StatusTypeSucceeded = StatusType' "SUCCEEDED"
 
-pattern Failed :: StatusType
-pattern Failed = StatusType' "FAILED"
+pattern StatusTypeFailed :: StatusType
+pattern StatusTypeFailed = StatusType' "FAILED"
 
-pattern Fault :: StatusType
-pattern Fault = StatusType' "FAULT"
+pattern StatusTypeFault :: StatusType
+pattern StatusTypeFault = StatusType' "FAULT"
 
-pattern TimedOut :: StatusType
-pattern TimedOut = StatusType' "TIMED_OUT"
+pattern StatusTypeTimedOut :: StatusType
+pattern StatusTypeTimedOut = StatusType' "TIMED_OUT"
 
-pattern InProgress :: StatusType
-pattern InProgress = StatusType' "IN_PROGRESS"
+pattern StatusTypeInProgress :: StatusType
+pattern StatusTypeInProgress = StatusType' "IN_PROGRESS"
 
-pattern Stopped :: StatusType
-pattern Stopped = StatusType' "STOPPED"
+pattern StatusTypeStopped :: StatusType
+pattern StatusTypeStopped = StatusType' "STOPPED"
 
 {-# COMPLETE
-  Succeeded,
-  Failed,
-  Fault,
-  TimedOut,
-  InProgress,
-  Stopped,
+  StatusTypeSucceeded,
+  StatusTypeFailed,
+  StatusTypeFault,
+  StatusTypeTimedOut,
+  StatusTypeInProgress,
+  StatusTypeStopped,
   StatusType'
   #-}

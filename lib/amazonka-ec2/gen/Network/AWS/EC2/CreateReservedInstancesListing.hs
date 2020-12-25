@@ -34,156 +34,150 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     mkCreateReservedInstancesListingResponse,
 
     -- ** Response lenses
-    crilfrsReservedInstancesListings,
-    crilfrsResponseStatus,
+    crilrfrsReservedInstancesListings,
+    crilrfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateReservedInstancesListing.
 --
 -- /See:/ 'mkCreateReservedInstancesListing' smart constructor.
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
   { -- | Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-    clientToken :: Lude.Text,
+    clientToken :: Types.String,
     -- | The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
-    instanceCount :: Lude.Int,
+    instanceCount :: Core.Int,
     -- | A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
-    priceSchedules :: [PriceScheduleSpecification],
+    priceSchedules :: [Types.PriceScheduleSpecification],
     -- | The ID of the active Standard Reserved Instance.
-    reservedInstancesId :: Lude.Text
+    reservedInstancesId :: Types.ReservationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReservedInstancesListing' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'instanceCount' - The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
--- * 'priceSchedules' - A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
--- * 'reservedInstancesId' - The ID of the active Standard Reserved Instance.
+-- | Creates a 'CreateReservedInstancesListing' value with any optional fields omitted.
 mkCreateReservedInstancesListing ::
   -- | 'clientToken'
-  Lude.Text ->
+  Types.String ->
   -- | 'instanceCount'
-  Lude.Int ->
+  Core.Int ->
   -- | 'reservedInstancesId'
-  Lude.Text ->
+  Types.ReservationId ->
   CreateReservedInstancesListing
 mkCreateReservedInstancesListing
-  pClientToken_
-  pInstanceCount_
-  pReservedInstancesId_ =
+  clientToken
+  instanceCount
+  reservedInstancesId =
     CreateReservedInstancesListing'
-      { clientToken = pClientToken_,
-        instanceCount = pInstanceCount_,
-        priceSchedules = Lude.mempty,
-        reservedInstancesId = pReservedInstancesId_
+      { clientToken,
+        instanceCount,
+        priceSchedules = Core.mempty,
+        reservedInstancesId
       }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilClientToken :: Lens.Lens' CreateReservedInstancesListing Lude.Text
-crilClientToken = Lens.lens (clientToken :: CreateReservedInstancesListing -> Lude.Text) (\s a -> s {clientToken = a} :: CreateReservedInstancesListing)
+crilClientToken :: Lens.Lens' CreateReservedInstancesListing Types.String
+crilClientToken = Lens.field @"clientToken"
 {-# DEPRECATED crilClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilInstanceCount :: Lens.Lens' CreateReservedInstancesListing Lude.Int
-crilInstanceCount = Lens.lens (instanceCount :: CreateReservedInstancesListing -> Lude.Int) (\s a -> s {instanceCount = a} :: CreateReservedInstancesListing)
+crilInstanceCount :: Lens.Lens' CreateReservedInstancesListing Core.Int
+crilInstanceCount = Lens.field @"instanceCount"
 {-# DEPRECATED crilInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
 --
 -- /Note:/ Consider using 'priceSchedules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilPriceSchedules :: Lens.Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-crilPriceSchedules = Lens.lens (priceSchedules :: CreateReservedInstancesListing -> [PriceScheduleSpecification]) (\s a -> s {priceSchedules = a} :: CreateReservedInstancesListing)
+crilPriceSchedules :: Lens.Lens' CreateReservedInstancesListing [Types.PriceScheduleSpecification]
+crilPriceSchedules = Lens.field @"priceSchedules"
 {-# DEPRECATED crilPriceSchedules "Use generic-lens or generic-optics with 'priceSchedules' instead." #-}
 
 -- | The ID of the active Standard Reserved Instance.
 --
 -- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilReservedInstancesId :: Lens.Lens' CreateReservedInstancesListing Lude.Text
-crilReservedInstancesId = Lens.lens (reservedInstancesId :: CreateReservedInstancesListing -> Lude.Text) (\s a -> s {reservedInstancesId = a} :: CreateReservedInstancesListing)
+crilReservedInstancesId :: Lens.Lens' CreateReservedInstancesListing Types.ReservationId
+crilReservedInstancesId = Lens.field @"reservedInstancesId"
 {-# DEPRECATED crilReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
-instance Lude.AWSRequest CreateReservedInstancesListing where
+instance Core.AWSRequest CreateReservedInstancesListing where
   type
     Rs CreateReservedInstancesListing =
       CreateReservedInstancesListingResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateReservedInstancesListing")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "ClientToken" clientToken)
+                Core.<> (Core.toQueryValue "InstanceCount" instanceCount)
+                Core.<> (Core.toQueryList "PriceSchedules" priceSchedules)
+                Core.<> (Core.toQueryValue "ReservedInstancesId" reservedInstancesId)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateReservedInstancesListingResponse'
-            Lude.<$> ( x Lude..@? "reservedInstancesListingsSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "reservedInstancesListingsSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateReservedInstancesListing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateReservedInstancesListing where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateReservedInstancesListing where
-  toQuery CreateReservedInstancesListing' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateReservedInstancesListing" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        "InstanceCount" Lude.=: instanceCount,
-        Lude.toQueryList "PriceSchedules" priceSchedules,
-        "ReservedInstancesId" Lude.=: reservedInstancesId
-      ]
 
 -- | Contains the output of CreateReservedInstancesListing.
 --
 -- /See:/ 'mkCreateReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
   { -- | Information about the Standard Reserved Instance listing.
-    reservedInstancesListings :: Lude.Maybe [ReservedInstancesListing],
+    reservedInstancesListings :: Core.Maybe [Types.ReservedInstancesListing],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateReservedInstancesListingResponse' with the minimum fields required to make a request.
---
--- * 'reservedInstancesListings' - Information about the Standard Reserved Instance listing.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateReservedInstancesListingResponse' value with any optional fields omitted.
 mkCreateReservedInstancesListingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateReservedInstancesListingResponse
-mkCreateReservedInstancesListingResponse pResponseStatus_ =
+mkCreateReservedInstancesListingResponse responseStatus =
   CreateReservedInstancesListingResponse'
     { reservedInstancesListings =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the Standard Reserved Instance listing.
 --
 -- /Note:/ Consider using 'reservedInstancesListings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilfrsReservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Lude.Maybe [ReservedInstancesListing])
-crilfrsReservedInstancesListings = Lens.lens (reservedInstancesListings :: CreateReservedInstancesListingResponse -> Lude.Maybe [ReservedInstancesListing]) (\s a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse)
-{-# DEPRECATED crilfrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
+crilrfrsReservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Core.Maybe [Types.ReservedInstancesListing])
+crilrfrsReservedInstancesListings = Lens.field @"reservedInstancesListings"
+{-# DEPRECATED crilrfrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilfrsResponseStatus :: Lens.Lens' CreateReservedInstancesListingResponse Lude.Int
-crilfrsResponseStatus = Lens.lens (responseStatus :: CreateReservedInstancesListingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReservedInstancesListingResponse)
-{-# DEPRECATED crilfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crilrfrsResponseStatus :: Lens.Lens' CreateReservedInstancesListingResponse Core.Int
+crilrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crilrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

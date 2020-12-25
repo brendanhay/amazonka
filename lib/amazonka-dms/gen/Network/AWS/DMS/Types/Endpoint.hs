@@ -17,62 +17,63 @@ module Network.AWS.DMS.Types.Endpoint
     mkEndpoint,
 
     -- * Lenses
-    eStatus,
-    eDmsTransferSettings,
-    eMySQLSettings,
-    eServerName,
-    eMicrosoftSQLServerSettings,
-    eCertificateARN,
-    eServiceAccessRoleARN,
-    eDocDBSettings,
-    eEngineDisplayName,
-    ePostgreSQLSettings,
-    eExtraConnectionAttributes,
-    eKafkaSettings,
-    eOracleSettings,
-    eEndpointType,
-    eRedshiftSettings,
-    eElasticsearchSettings,
-    eUsername,
-    eExternalTableDefinition,
-    eEngineName,
-    eNeptuneSettings,
-    eIBMDB2Settings,
-    eKMSKeyId,
-    eMongoDBSettings,
-    eSSLMode,
-    eSybaseSettings,
+    eCertificateArn,
     eDatabaseName,
-    eS3Settings,
-    eKinesisSettings,
+    eDmsTransferSettings,
+    eDocDbSettings,
+    eDynamoDbSettings,
+    eElasticsearchSettings,
+    eEndpointArn,
     eEndpointIdentifier,
+    eEndpointType,
+    eEngineDisplayName,
+    eEngineName,
     eExternalId,
-    eDynamoDBSettings,
-    eEndpointARN,
+    eExternalTableDefinition,
+    eExtraConnectionAttributes,
+    eIBMDb2Settings,
+    eKafkaSettings,
+    eKinesisSettings,
+    eKmsKeyId,
+    eMicrosoftSQLServerSettings,
+    eMongoDbSettings,
+    eMySQLSettings,
+    eNeptuneSettings,
+    eOracleSettings,
     ePort,
+    ePostgreSQLSettings,
+    eRedshiftSettings,
+    eS3Settings,
+    eServerName,
+    eServiceAccessRoleArn,
+    eSslMode,
+    eStatus,
+    eSybaseSettings,
+    eUsername,
   )
 where
 
-import Network.AWS.DMS.Types.DmsSSLModeValue
-import Network.AWS.DMS.Types.DmsTransferSettings
-import Network.AWS.DMS.Types.DocDBSettings
-import Network.AWS.DMS.Types.DynamoDBSettings
-import Network.AWS.DMS.Types.ElasticsearchSettings
-import Network.AWS.DMS.Types.IBMDB2Settings
-import Network.AWS.DMS.Types.KafkaSettings
-import Network.AWS.DMS.Types.KinesisSettings
-import Network.AWS.DMS.Types.MicrosoftSQLServerSettings
-import Network.AWS.DMS.Types.MongoDBSettings
-import Network.AWS.DMS.Types.MySQLSettings
-import Network.AWS.DMS.Types.NeptuneSettings
-import Network.AWS.DMS.Types.OracleSettings
-import Network.AWS.DMS.Types.PostgreSQLSettings
-import Network.AWS.DMS.Types.RedshiftSettings
-import Network.AWS.DMS.Types.ReplicationEndpointTypeValue
-import Network.AWS.DMS.Types.S3Settings
-import Network.AWS.DMS.Types.SybaseSettings
+import qualified Network.AWS.DMS.Types.DmsSslModeValue as Types
+import qualified Network.AWS.DMS.Types.DmsTransferSettings as Types
+import qualified Network.AWS.DMS.Types.DocDbSettings as Types
+import qualified Network.AWS.DMS.Types.DynamoDbSettings as Types
+import qualified Network.AWS.DMS.Types.ElasticsearchSettings as Types
+import qualified Network.AWS.DMS.Types.IBMDb2Settings as Types
+import qualified Network.AWS.DMS.Types.KafkaSettings as Types
+import qualified Network.AWS.DMS.Types.KinesisSettings as Types
+import qualified Network.AWS.DMS.Types.MicrosoftSQLServerSettings as Types
+import qualified Network.AWS.DMS.Types.MongoDbSettings as Types
+import qualified Network.AWS.DMS.Types.MySQLSettings as Types
+import qualified Network.AWS.DMS.Types.NeptuneSettings as Types
+import qualified Network.AWS.DMS.Types.OracleSettings as Types
+import qualified Network.AWS.DMS.Types.PostgreSQLSettings as Types
+import qualified Network.AWS.DMS.Types.RedshiftSettings as Types
+import qualified Network.AWS.DMS.Types.ReplicationEndpointTypeValue as Types
+import qualified Network.AWS.DMS.Types.S3Settings as Types
+import qualified Network.AWS.DMS.Types.String as Types
+import qualified Network.AWS.DMS.Types.SybaseSettings as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an endpoint of a database instance in response to operations such as the following:
 --
@@ -92,8 +93,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The status of the endpoint.
-    status :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
+    certificateArn :: Core.Maybe Types.String,
+    -- | The name of the database at the endpoint.
+    databaseName :: Core.Maybe Types.String,
     -- | The settings in JSON format for the DMS transfer type of source endpoint.
     --
     -- Possible settings include the following:
@@ -109,172 +112,126 @@ data Endpoint = Endpoint'
     --
     -- Shorthand syntax for these settings is as follows: @ServiceAccessRoleArn=string,BucketName=string,CompressionType=string@
     -- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
-    dmsTransferSettings :: Lude.Maybe DmsTransferSettings,
-    -- | The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
-    mySQLSettings :: Lude.Maybe MySQLSettings,
-    -- | The name of the server at the endpoint.
-    serverName :: Lude.Maybe Lude.Text,
-    -- | The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
-    microsoftSQLServerSettings :: Lude.Maybe MicrosoftSQLServerSettings,
-    -- | The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) used by the service access IAM role.
-    serviceAccessRoleARN :: Lude.Maybe Lude.Text,
-    docDBSettings :: Lude.Maybe DocDBSettings,
-    -- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
-    engineDisplayName :: Lude.Maybe Lude.Text,
-    -- | The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
-    postgreSQLSettings :: Lude.Maybe PostgreSQLSettings,
-    -- | Additional connection attributes used to connect to the endpoint.
-    extraConnectionAttributes :: Lude.Maybe Lude.Text,
-    -- | The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
-    kafkaSettings :: Lude.Maybe KafkaSettings,
-    -- | The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
-    oracleSettings :: Lude.Maybe OracleSettings,
-    -- | The type of endpoint. Valid values are @source@ and @target@ .
-    endpointType :: Lude.Maybe ReplicationEndpointTypeValue,
-    -- | Settings for the Amazon Redshift endpoint.
-    redshiftSettings :: Lude.Maybe RedshiftSettings,
+    dmsTransferSettings :: Core.Maybe Types.DmsTransferSettings,
+    docDbSettings :: Core.Maybe Types.DocDbSettings,
+    -- | The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
+    dynamoDbSettings :: Core.Maybe Types.DynamoDbSettings,
     -- | The settings for the Elasticsearch source endpoint. For more information, see the @ElasticsearchSettings@ structure.
-    elasticsearchSettings :: Lude.Maybe ElasticsearchSettings,
-    -- | The user name used to connect to the endpoint.
-    username :: Lude.Maybe Lude.Text,
-    -- | The external table definition.
-    externalTableDefinition :: Lude.Maybe Lude.Text,
+    elasticsearchSettings :: Core.Maybe Types.ElasticsearchSettings,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointArn :: Core.Maybe Types.String,
+    -- | The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+    endpointIdentifier :: Core.Maybe Types.String,
+    -- | The type of endpoint. Valid values are @source@ and @target@ .
+    endpointType :: Core.Maybe Types.ReplicationEndpointTypeValue,
+    -- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+    engineDisplayName :: Core.Maybe Types.String,
     -- | The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
-    engineName :: Lude.Maybe Lude.Text,
-    -- | The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
-    neptuneSettings :: Lude.Maybe NeptuneSettings,
+    engineName :: Core.Maybe Types.String,
+    -- | Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
+    externalId :: Core.Maybe Types.String,
+    -- | The external table definition.
+    externalTableDefinition :: Core.Maybe Types.String,
+    -- | Additional connection attributes used to connect to the endpoint.
+    extraConnectionAttributes :: Core.Maybe Types.String,
     -- | The settings for the IBM Db2 LUW source endpoint. For more information, see the @IBMDb2Settings@ structure.
-    iBMDB2Settings :: Lude.Maybe IBMDB2Settings,
+    iBMDb2Settings :: Core.Maybe Types.IBMDb2Settings,
+    -- | The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
+    kafkaSettings :: Core.Maybe Types.KafkaSettings,
+    -- | The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
+    kinesisSettings :: Core.Maybe Types.KinesisSettings,
     -- | An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
     --
     -- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
     -- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
-    kmsKeyId :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Core.Maybe Types.String,
+    -- | The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
+    microsoftSQLServerSettings :: Core.Maybe Types.MicrosoftSQLServerSettings,
     -- | The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
-    mongoDBSettings :: Lude.Maybe MongoDBSettings,
-    -- | The SSL mode used to connect to the endpoint. The default value is @none@ .
-    sslMode :: Lude.Maybe DmsSSLModeValue,
-    -- | The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
-    sybaseSettings :: Lude.Maybe SybaseSettings,
-    -- | The name of the database at the endpoint.
-    databaseName :: Lude.Maybe Lude.Text,
-    -- | The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
-    s3Settings :: Lude.Maybe S3Settings,
-    -- | The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
-    kinesisSettings :: Lude.Maybe KinesisSettings,
-    -- | The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-    endpointIdentifier :: Lude.Maybe Lude.Text,
-    -- | Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
-    externalId :: Lude.Maybe Lude.Text,
-    -- | The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
-    dynamoDBSettings :: Lude.Maybe DynamoDBSettings,
-    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-    endpointARN :: Lude.Maybe Lude.Text,
+    mongoDbSettings :: Core.Maybe Types.MongoDbSettings,
+    -- | The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
+    mySQLSettings :: Core.Maybe Types.MySQLSettings,
+    -- | The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
+    neptuneSettings :: Core.Maybe Types.NeptuneSettings,
+    -- | The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
+    oracleSettings :: Core.Maybe Types.OracleSettings,
     -- | The port value used to access the endpoint.
-    port :: Lude.Maybe Lude.Int
+    port :: Core.Maybe Core.Int,
+    -- | The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
+    postgreSQLSettings :: Core.Maybe Types.PostgreSQLSettings,
+    -- | Settings for the Amazon Redshift endpoint.
+    redshiftSettings :: Core.Maybe Types.RedshiftSettings,
+    -- | The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
+    s3Settings :: Core.Maybe Types.S3Settings,
+    -- | The name of the server at the endpoint.
+    serverName :: Core.Maybe Types.String,
+    -- | The Amazon Resource Name (ARN) used by the service access IAM role.
+    serviceAccessRoleArn :: Core.Maybe Types.String,
+    -- | The SSL mode used to connect to the endpoint. The default value is @none@ .
+    sslMode :: Core.Maybe Types.DmsSslModeValue,
+    -- | The status of the endpoint.
+    status :: Core.Maybe Types.String,
+    -- | The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
+    sybaseSettings :: Core.Maybe Types.SybaseSettings,
+    -- | The user name used to connect to the endpoint.
+    username :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
---
--- * 'status' - The status of the endpoint.
--- * 'dmsTransferSettings' - The settings in JSON format for the DMS transfer type of source endpoint.
---
--- Possible settings include the following:
---
---     * @ServiceAccessRoleArn@ - The IAM role that has permission to access the Amazon S3 bucket.
---
---
---     * @BucketName@ - The name of the S3 bucket to use.
---
---
---     * @CompressionType@ - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to @NONE@ (the default). To keep the files uncompressed, don't use this value.
---
---
--- Shorthand syntax for these settings is as follows: @ServiceAccessRoleArn=string,BucketName=string,CompressionType=string@
--- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
--- * 'mySQLSettings' - The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
--- * 'serverName' - The name of the server at the endpoint.
--- * 'microsoftSQLServerSettings' - The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
--- * 'certificateARN' - The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
--- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
--- * 'docDBSettings' -
--- * 'engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
--- * 'postgreSQLSettings' - The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
--- * 'extraConnectionAttributes' - Additional connection attributes used to connect to the endpoint.
--- * 'kafkaSettings' - The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
--- * 'oracleSettings' - The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
--- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
--- * 'redshiftSettings' - Settings for the Amazon Redshift endpoint.
--- * 'elasticsearchSettings' - The settings for the Elasticsearch source endpoint. For more information, see the @ElasticsearchSettings@ structure.
--- * 'username' - The user name used to connect to the endpoint.
--- * 'externalTableDefinition' - The external table definition.
--- * 'engineName' - The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
--- * 'neptuneSettings' - The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
--- * 'iBMDB2Settings' - The settings for the IBM Db2 LUW source endpoint. For more information, see the @IBMDb2Settings@ structure.
--- * 'kmsKeyId' - An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
---
--- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
--- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
--- * 'mongoDBSettings' - The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
--- * 'sslMode' - The SSL mode used to connect to the endpoint. The default value is @none@ .
--- * 'sybaseSettings' - The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
--- * 'databaseName' - The name of the database at the endpoint.
--- * 's3Settings' - The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
--- * 'kinesisSettings' - The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
--- * 'endpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
--- * 'externalId' - Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
--- * 'dynamoDBSettings' - The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
--- * 'port' - The port value used to access the endpoint.
+-- | Creates a 'Endpoint' value with any optional fields omitted.
 mkEndpoint ::
   Endpoint
 mkEndpoint =
   Endpoint'
-    { status = Lude.Nothing,
-      dmsTransferSettings = Lude.Nothing,
-      mySQLSettings = Lude.Nothing,
-      serverName = Lude.Nothing,
-      microsoftSQLServerSettings = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      serviceAccessRoleARN = Lude.Nothing,
-      docDBSettings = Lude.Nothing,
-      engineDisplayName = Lude.Nothing,
-      postgreSQLSettings = Lude.Nothing,
-      extraConnectionAttributes = Lude.Nothing,
-      kafkaSettings = Lude.Nothing,
-      oracleSettings = Lude.Nothing,
-      endpointType = Lude.Nothing,
-      redshiftSettings = Lude.Nothing,
-      elasticsearchSettings = Lude.Nothing,
-      username = Lude.Nothing,
-      externalTableDefinition = Lude.Nothing,
-      engineName = Lude.Nothing,
-      neptuneSettings = Lude.Nothing,
-      iBMDB2Settings = Lude.Nothing,
-      kmsKeyId = Lude.Nothing,
-      mongoDBSettings = Lude.Nothing,
-      sslMode = Lude.Nothing,
-      sybaseSettings = Lude.Nothing,
-      databaseName = Lude.Nothing,
-      s3Settings = Lude.Nothing,
-      kinesisSettings = Lude.Nothing,
-      endpointIdentifier = Lude.Nothing,
-      externalId = Lude.Nothing,
-      dynamoDBSettings = Lude.Nothing,
-      endpointARN = Lude.Nothing,
-      port = Lude.Nothing
+    { certificateArn = Core.Nothing,
+      databaseName = Core.Nothing,
+      dmsTransferSettings = Core.Nothing,
+      docDbSettings = Core.Nothing,
+      dynamoDbSettings = Core.Nothing,
+      elasticsearchSettings = Core.Nothing,
+      endpointArn = Core.Nothing,
+      endpointIdentifier = Core.Nothing,
+      endpointType = Core.Nothing,
+      engineDisplayName = Core.Nothing,
+      engineName = Core.Nothing,
+      externalId = Core.Nothing,
+      externalTableDefinition = Core.Nothing,
+      extraConnectionAttributes = Core.Nothing,
+      iBMDb2Settings = Core.Nothing,
+      kafkaSettings = Core.Nothing,
+      kinesisSettings = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      microsoftSQLServerSettings = Core.Nothing,
+      mongoDbSettings = Core.Nothing,
+      mySQLSettings = Core.Nothing,
+      neptuneSettings = Core.Nothing,
+      oracleSettings = Core.Nothing,
+      port = Core.Nothing,
+      postgreSQLSettings = Core.Nothing,
+      redshiftSettings = Core.Nothing,
+      s3Settings = Core.Nothing,
+      serverName = Core.Nothing,
+      serviceAccessRoleArn = Core.Nothing,
+      sslMode = Core.Nothing,
+      status = Core.Nothing,
+      sybaseSettings = Core.Nothing,
+      username = Core.Nothing
     }
 
--- | The status of the endpoint.
+-- | The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eStatus :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eStatus = Lens.lens (status :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Endpoint)
-{-# DEPRECATED eStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCertificateArn :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED eCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
+
+-- | The name of the database at the endpoint.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDatabaseName :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED eDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The settings in JSON format for the DMS transfer type of source endpoint.
 --
@@ -293,142 +250,107 @@ eStatus = Lens.lens (status :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {sta
 -- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
 --
 -- /Note:/ Consider using 'dmsTransferSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDmsTransferSettings :: Lens.Lens' Endpoint (Lude.Maybe DmsTransferSettings)
-eDmsTransferSettings = Lens.lens (dmsTransferSettings :: Endpoint -> Lude.Maybe DmsTransferSettings) (\s a -> s {dmsTransferSettings = a} :: Endpoint)
+eDmsTransferSettings :: Lens.Lens' Endpoint (Core.Maybe Types.DmsTransferSettings)
+eDmsTransferSettings = Lens.field @"dmsTransferSettings"
 {-# DEPRECATED eDmsTransferSettings "Use generic-lens or generic-optics with 'dmsTransferSettings' instead." #-}
-
--- | The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
---
--- /Note:/ Consider using 'mySQLSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMySQLSettings :: Lens.Lens' Endpoint (Lude.Maybe MySQLSettings)
-eMySQLSettings = Lens.lens (mySQLSettings :: Endpoint -> Lude.Maybe MySQLSettings) (\s a -> s {mySQLSettings = a} :: Endpoint)
-{-# DEPRECATED eMySQLSettings "Use generic-lens or generic-optics with 'mySQLSettings' instead." #-}
-
--- | The name of the server at the endpoint.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eServerName :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eServerName = Lens.lens (serverName :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: Endpoint)
-{-# DEPRECATED eServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
-
--- | The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
---
--- /Note:/ Consider using 'microsoftSQLServerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMicrosoftSQLServerSettings :: Lens.Lens' Endpoint (Lude.Maybe MicrosoftSQLServerSettings)
-eMicrosoftSQLServerSettings = Lens.lens (microsoftSQLServerSettings :: Endpoint -> Lude.Maybe MicrosoftSQLServerSettings) (\s a -> s {microsoftSQLServerSettings = a} :: Endpoint)
-{-# DEPRECATED eMicrosoftSQLServerSettings "Use generic-lens or generic-optics with 'microsoftSQLServerSettings' instead." #-}
-
--- | The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eCertificateARN :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eCertificateARN = Lens.lens (certificateARN :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: Endpoint)
-{-# DEPRECATED eCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
-
--- | The Amazon Resource Name (ARN) used by the service access IAM role.
---
--- /Note:/ Consider using 'serviceAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eServiceAccessRoleARN :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eServiceAccessRoleARN = Lens.lens (serviceAccessRoleARN :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {serviceAccessRoleARN = a} :: Endpoint)
-{-# DEPRECATED eServiceAccessRoleARN "Use generic-lens or generic-optics with 'serviceAccessRoleARN' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'docDBSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDocDBSettings :: Lens.Lens' Endpoint (Lude.Maybe DocDBSettings)
-eDocDBSettings = Lens.lens (docDBSettings :: Endpoint -> Lude.Maybe DocDBSettings) (\s a -> s {docDBSettings = a} :: Endpoint)
-{-# DEPRECATED eDocDBSettings "Use generic-lens or generic-optics with 'docDBSettings' instead." #-}
+-- /Note:/ Consider using 'docDbSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDocDbSettings :: Lens.Lens' Endpoint (Core.Maybe Types.DocDbSettings)
+eDocDbSettings = Lens.field @"docDbSettings"
+{-# DEPRECATED eDocDbSettings "Use generic-lens or generic-optics with 'docDbSettings' instead." #-}
 
--- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+-- | The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
 --
--- /Note:/ Consider using 'engineDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEngineDisplayName :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eEngineDisplayName = Lens.lens (engineDisplayName :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {engineDisplayName = a} :: Endpoint)
-{-# DEPRECATED eEngineDisplayName "Use generic-lens or generic-optics with 'engineDisplayName' instead." #-}
-
--- | The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
---
--- /Note:/ Consider using 'postgreSQLSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ePostgreSQLSettings :: Lens.Lens' Endpoint (Lude.Maybe PostgreSQLSettings)
-ePostgreSQLSettings = Lens.lens (postgreSQLSettings :: Endpoint -> Lude.Maybe PostgreSQLSettings) (\s a -> s {postgreSQLSettings = a} :: Endpoint)
-{-# DEPRECATED ePostgreSQLSettings "Use generic-lens or generic-optics with 'postgreSQLSettings' instead." #-}
-
--- | Additional connection attributes used to connect to the endpoint.
---
--- /Note:/ Consider using 'extraConnectionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eExtraConnectionAttributes :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eExtraConnectionAttributes = Lens.lens (extraConnectionAttributes :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {extraConnectionAttributes = a} :: Endpoint)
-{-# DEPRECATED eExtraConnectionAttributes "Use generic-lens or generic-optics with 'extraConnectionAttributes' instead." #-}
-
--- | The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
---
--- /Note:/ Consider using 'kafkaSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eKafkaSettings :: Lens.Lens' Endpoint (Lude.Maybe KafkaSettings)
-eKafkaSettings = Lens.lens (kafkaSettings :: Endpoint -> Lude.Maybe KafkaSettings) (\s a -> s {kafkaSettings = a} :: Endpoint)
-{-# DEPRECATED eKafkaSettings "Use generic-lens or generic-optics with 'kafkaSettings' instead." #-}
-
--- | The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
---
--- /Note:/ Consider using 'oracleSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eOracleSettings :: Lens.Lens' Endpoint (Lude.Maybe OracleSettings)
-eOracleSettings = Lens.lens (oracleSettings :: Endpoint -> Lude.Maybe OracleSettings) (\s a -> s {oracleSettings = a} :: Endpoint)
-{-# DEPRECATED eOracleSettings "Use generic-lens or generic-optics with 'oracleSettings' instead." #-}
-
--- | The type of endpoint. Valid values are @source@ and @target@ .
---
--- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEndpointType :: Lens.Lens' Endpoint (Lude.Maybe ReplicationEndpointTypeValue)
-eEndpointType = Lens.lens (endpointType :: Endpoint -> Lude.Maybe ReplicationEndpointTypeValue) (\s a -> s {endpointType = a} :: Endpoint)
-{-# DEPRECATED eEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
-
--- | Settings for the Amazon Redshift endpoint.
---
--- /Note:/ Consider using 'redshiftSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eRedshiftSettings :: Lens.Lens' Endpoint (Lude.Maybe RedshiftSettings)
-eRedshiftSettings = Lens.lens (redshiftSettings :: Endpoint -> Lude.Maybe RedshiftSettings) (\s a -> s {redshiftSettings = a} :: Endpoint)
-{-# DEPRECATED eRedshiftSettings "Use generic-lens or generic-optics with 'redshiftSettings' instead." #-}
+-- /Note:/ Consider using 'dynamoDbSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDynamoDbSettings :: Lens.Lens' Endpoint (Core.Maybe Types.DynamoDbSettings)
+eDynamoDbSettings = Lens.field @"dynamoDbSettings"
+{-# DEPRECATED eDynamoDbSettings "Use generic-lens or generic-optics with 'dynamoDbSettings' instead." #-}
 
 -- | The settings for the Elasticsearch source endpoint. For more information, see the @ElasticsearchSettings@ structure.
 --
 -- /Note:/ Consider using 'elasticsearchSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eElasticsearchSettings :: Lens.Lens' Endpoint (Lude.Maybe ElasticsearchSettings)
-eElasticsearchSettings = Lens.lens (elasticsearchSettings :: Endpoint -> Lude.Maybe ElasticsearchSettings) (\s a -> s {elasticsearchSettings = a} :: Endpoint)
+eElasticsearchSettings :: Lens.Lens' Endpoint (Core.Maybe Types.ElasticsearchSettings)
+eElasticsearchSettings = Lens.field @"elasticsearchSettings"
 {-# DEPRECATED eElasticsearchSettings "Use generic-lens or generic-optics with 'elasticsearchSettings' instead." #-}
 
--- | The user name used to connect to the endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eUsername :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eUsername = Lens.lens (username :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: Endpoint)
-{-# DEPRECATED eUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEndpointArn :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED eEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
--- | The external table definition.
+-- | The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
 --
--- /Note:/ Consider using 'externalTableDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eExternalTableDefinition :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eExternalTableDefinition = Lens.lens (externalTableDefinition :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {externalTableDefinition = a} :: Endpoint)
-{-# DEPRECATED eExternalTableDefinition "Use generic-lens or generic-optics with 'externalTableDefinition' instead." #-}
+-- /Note:/ Consider using 'endpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEndpointIdentifier :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eEndpointIdentifier = Lens.field @"endpointIdentifier"
+{-# DEPRECATED eEndpointIdentifier "Use generic-lens or generic-optics with 'endpointIdentifier' instead." #-}
+
+-- | The type of endpoint. Valid values are @source@ and @target@ .
+--
+-- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEndpointType :: Lens.Lens' Endpoint (Core.Maybe Types.ReplicationEndpointTypeValue)
+eEndpointType = Lens.field @"endpointType"
+{-# DEPRECATED eEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
+
+-- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+--
+-- /Note:/ Consider using 'engineDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEngineDisplayName :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eEngineDisplayName = Lens.field @"engineDisplayName"
+{-# DEPRECATED eEngineDisplayName "Use generic-lens or generic-optics with 'engineDisplayName' instead." #-}
 
 -- | The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
 --
 -- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEngineName :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eEngineName = Lens.lens (engineName :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {engineName = a} :: Endpoint)
+eEngineName :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eEngineName = Lens.field @"engineName"
 {-# DEPRECATED eEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
--- | The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
+-- | Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
 --
--- /Note:/ Consider using 'neptuneSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eNeptuneSettings :: Lens.Lens' Endpoint (Lude.Maybe NeptuneSettings)
-eNeptuneSettings = Lens.lens (neptuneSettings :: Endpoint -> Lude.Maybe NeptuneSettings) (\s a -> s {neptuneSettings = a} :: Endpoint)
-{-# DEPRECATED eNeptuneSettings "Use generic-lens or generic-optics with 'neptuneSettings' instead." #-}
+-- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eExternalId :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eExternalId = Lens.field @"externalId"
+{-# DEPRECATED eExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
+
+-- | The external table definition.
+--
+-- /Note:/ Consider using 'externalTableDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eExternalTableDefinition :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eExternalTableDefinition = Lens.field @"externalTableDefinition"
+{-# DEPRECATED eExternalTableDefinition "Use generic-lens or generic-optics with 'externalTableDefinition' instead." #-}
+
+-- | Additional connection attributes used to connect to the endpoint.
+--
+-- /Note:/ Consider using 'extraConnectionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eExtraConnectionAttributes :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eExtraConnectionAttributes = Lens.field @"extraConnectionAttributes"
+{-# DEPRECATED eExtraConnectionAttributes "Use generic-lens or generic-optics with 'extraConnectionAttributes' instead." #-}
 
 -- | The settings for the IBM Db2 LUW source endpoint. For more information, see the @IBMDb2Settings@ structure.
 --
--- /Note:/ Consider using 'iBMDB2Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eIBMDB2Settings :: Lens.Lens' Endpoint (Lude.Maybe IBMDB2Settings)
-eIBMDB2Settings = Lens.lens (iBMDB2Settings :: Endpoint -> Lude.Maybe IBMDB2Settings) (\s a -> s {iBMDB2Settings = a} :: Endpoint)
-{-# DEPRECATED eIBMDB2Settings "Use generic-lens or generic-optics with 'iBMDB2Settings' instead." #-}
+-- /Note:/ Consider using 'iBMDb2Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eIBMDb2Settings :: Lens.Lens' Endpoint (Core.Maybe Types.IBMDb2Settings)
+eIBMDb2Settings = Lens.field @"iBMDb2Settings"
+{-# DEPRECATED eIBMDb2Settings "Use generic-lens or generic-optics with 'iBMDb2Settings' instead." #-}
+
+-- | The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
+--
+-- /Note:/ Consider using 'kafkaSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eKafkaSettings :: Lens.Lens' Endpoint (Core.Maybe Types.KafkaSettings)
+eKafkaSettings = Lens.field @"kafkaSettings"
+{-# DEPRECATED eKafkaSettings "Use generic-lens or generic-optics with 'kafkaSettings' instead." #-}
+
+-- | The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
+--
+-- /Note:/ Consider using 'kinesisSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eKinesisSettings :: Lens.Lens' Endpoint (Core.Maybe Types.KinesisSettings)
+eKinesisSettings = Lens.field @"kinesisSettings"
+{-# DEPRECATED eKinesisSettings "Use generic-lens or generic-optics with 'kinesisSettings' instead." #-}
 
 -- | An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
 --
@@ -436,124 +358,150 @@ eIBMDB2Settings = Lens.lens (iBMDB2Settings :: Endpoint -> Lude.Maybe IBMDB2Sett
 -- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eKMSKeyId :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eKMSKeyId = Lens.lens (kmsKeyId :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: Endpoint)
-{-# DEPRECATED eKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+eKmsKeyId :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED eKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
+-- | The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
+--
+-- /Note:/ Consider using 'microsoftSQLServerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMicrosoftSQLServerSettings :: Lens.Lens' Endpoint (Core.Maybe Types.MicrosoftSQLServerSettings)
+eMicrosoftSQLServerSettings = Lens.field @"microsoftSQLServerSettings"
+{-# DEPRECATED eMicrosoftSQLServerSettings "Use generic-lens or generic-optics with 'microsoftSQLServerSettings' instead." #-}
 
 -- | The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
 --
--- /Note:/ Consider using 'mongoDBSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMongoDBSettings :: Lens.Lens' Endpoint (Lude.Maybe MongoDBSettings)
-eMongoDBSettings = Lens.lens (mongoDBSettings :: Endpoint -> Lude.Maybe MongoDBSettings) (\s a -> s {mongoDBSettings = a} :: Endpoint)
-{-# DEPRECATED eMongoDBSettings "Use generic-lens or generic-optics with 'mongoDBSettings' instead." #-}
+-- /Note:/ Consider using 'mongoDbSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMongoDbSettings :: Lens.Lens' Endpoint (Core.Maybe Types.MongoDbSettings)
+eMongoDbSettings = Lens.field @"mongoDbSettings"
+{-# DEPRECATED eMongoDbSettings "Use generic-lens or generic-optics with 'mongoDbSettings' instead." #-}
 
--- | The SSL mode used to connect to the endpoint. The default value is @none@ .
+-- | The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
 --
--- /Note:/ Consider using 'sslMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSSLMode :: Lens.Lens' Endpoint (Lude.Maybe DmsSSLModeValue)
-eSSLMode = Lens.lens (sslMode :: Endpoint -> Lude.Maybe DmsSSLModeValue) (\s a -> s {sslMode = a} :: Endpoint)
-{-# DEPRECATED eSSLMode "Use generic-lens or generic-optics with 'sslMode' instead." #-}
+-- /Note:/ Consider using 'mySQLSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMySQLSettings :: Lens.Lens' Endpoint (Core.Maybe Types.MySQLSettings)
+eMySQLSettings = Lens.field @"mySQLSettings"
+{-# DEPRECATED eMySQLSettings "Use generic-lens or generic-optics with 'mySQLSettings' instead." #-}
 
--- | The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
+-- | The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
 --
--- /Note:/ Consider using 'sybaseSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSybaseSettings :: Lens.Lens' Endpoint (Lude.Maybe SybaseSettings)
-eSybaseSettings = Lens.lens (sybaseSettings :: Endpoint -> Lude.Maybe SybaseSettings) (\s a -> s {sybaseSettings = a} :: Endpoint)
-{-# DEPRECATED eSybaseSettings "Use generic-lens or generic-optics with 'sybaseSettings' instead." #-}
+-- /Note:/ Consider using 'neptuneSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eNeptuneSettings :: Lens.Lens' Endpoint (Core.Maybe Types.NeptuneSettings)
+eNeptuneSettings = Lens.field @"neptuneSettings"
+{-# DEPRECATED eNeptuneSettings "Use generic-lens or generic-optics with 'neptuneSettings' instead." #-}
 
--- | The name of the database at the endpoint.
+-- | The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
 --
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDatabaseName :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eDatabaseName = Lens.lens (databaseName :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: Endpoint)
-{-# DEPRECATED eDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
--- | The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
---
--- /Note:/ Consider using 's3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eS3Settings :: Lens.Lens' Endpoint (Lude.Maybe S3Settings)
-eS3Settings = Lens.lens (s3Settings :: Endpoint -> Lude.Maybe S3Settings) (\s a -> s {s3Settings = a} :: Endpoint)
-{-# DEPRECATED eS3Settings "Use generic-lens or generic-optics with 's3Settings' instead." #-}
-
--- | The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
---
--- /Note:/ Consider using 'kinesisSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eKinesisSettings :: Lens.Lens' Endpoint (Lude.Maybe KinesisSettings)
-eKinesisSettings = Lens.lens (kinesisSettings :: Endpoint -> Lude.Maybe KinesisSettings) (\s a -> s {kinesisSettings = a} :: Endpoint)
-{-# DEPRECATED eKinesisSettings "Use generic-lens or generic-optics with 'kinesisSettings' instead." #-}
-
--- | The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
---
--- /Note:/ Consider using 'endpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEndpointIdentifier :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eEndpointIdentifier = Lens.lens (endpointIdentifier :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointIdentifier = a} :: Endpoint)
-{-# DEPRECATED eEndpointIdentifier "Use generic-lens or generic-optics with 'endpointIdentifier' instead." #-}
-
--- | Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
---
--- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eExternalId :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eExternalId = Lens.lens (externalId :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: Endpoint)
-{-# DEPRECATED eExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
-
--- | The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
---
--- /Note:/ Consider using 'dynamoDBSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDynamoDBSettings :: Lens.Lens' Endpoint (Lude.Maybe DynamoDBSettings)
-eDynamoDBSettings = Lens.lens (dynamoDBSettings :: Endpoint -> Lude.Maybe DynamoDBSettings) (\s a -> s {dynamoDBSettings = a} :: Endpoint)
-{-# DEPRECATED eDynamoDBSettings "Use generic-lens or generic-optics with 'dynamoDBSettings' instead." #-}
-
--- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
---
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEndpointARN :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eEndpointARN = Lens.lens (endpointARN :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointARN = a} :: Endpoint)
-{-# DEPRECATED eEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'oracleSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOracleSettings :: Lens.Lens' Endpoint (Core.Maybe Types.OracleSettings)
+eOracleSettings = Lens.field @"oracleSettings"
+{-# DEPRECATED eOracleSettings "Use generic-lens or generic-optics with 'oracleSettings' instead." #-}
 
 -- | The port value used to access the endpoint.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ePort :: Lens.Lens' Endpoint (Lude.Maybe Lude.Int)
-ePort = Lens.lens (port :: Endpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: Endpoint)
+ePort :: Lens.Lens' Endpoint (Core.Maybe Core.Int)
+ePort = Lens.field @"port"
 {-# DEPRECATED ePort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromJSON Endpoint where
+-- | The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
+--
+-- /Note:/ Consider using 'postgreSQLSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ePostgreSQLSettings :: Lens.Lens' Endpoint (Core.Maybe Types.PostgreSQLSettings)
+ePostgreSQLSettings = Lens.field @"postgreSQLSettings"
+{-# DEPRECATED ePostgreSQLSettings "Use generic-lens or generic-optics with 'postgreSQLSettings' instead." #-}
+
+-- | Settings for the Amazon Redshift endpoint.
+--
+-- /Note:/ Consider using 'redshiftSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eRedshiftSettings :: Lens.Lens' Endpoint (Core.Maybe Types.RedshiftSettings)
+eRedshiftSettings = Lens.field @"redshiftSettings"
+{-# DEPRECATED eRedshiftSettings "Use generic-lens or generic-optics with 'redshiftSettings' instead." #-}
+
+-- | The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
+--
+-- /Note:/ Consider using 's3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eS3Settings :: Lens.Lens' Endpoint (Core.Maybe Types.S3Settings)
+eS3Settings = Lens.field @"s3Settings"
+{-# DEPRECATED eS3Settings "Use generic-lens or generic-optics with 's3Settings' instead." #-}
+
+-- | The name of the server at the endpoint.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eServerName :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eServerName = Lens.field @"serverName"
+{-# DEPRECATED eServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) used by the service access IAM role.
+--
+-- /Note:/ Consider using 'serviceAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eServiceAccessRoleArn :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eServiceAccessRoleArn = Lens.field @"serviceAccessRoleArn"
+{-# DEPRECATED eServiceAccessRoleArn "Use generic-lens or generic-optics with 'serviceAccessRoleArn' instead." #-}
+
+-- | The SSL mode used to connect to the endpoint. The default value is @none@ .
+--
+-- /Note:/ Consider using 'sslMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSslMode :: Lens.Lens' Endpoint (Core.Maybe Types.DmsSslModeValue)
+eSslMode = Lens.field @"sslMode"
+{-# DEPRECATED eSslMode "Use generic-lens or generic-optics with 'sslMode' instead." #-}
+
+-- | The status of the endpoint.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eStatus :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eStatus = Lens.field @"status"
+{-# DEPRECATED eStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
+--
+-- /Note:/ Consider using 'sybaseSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSybaseSettings :: Lens.Lens' Endpoint (Core.Maybe Types.SybaseSettings)
+eSybaseSettings = Lens.field @"sybaseSettings"
+{-# DEPRECATED eSybaseSettings "Use generic-lens or generic-optics with 'sybaseSettings' instead." #-}
+
+-- | The user name used to connect to the endpoint.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eUsername :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eUsername = Lens.field @"username"
+{-# DEPRECATED eUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON Endpoint where
   parseJSON =
-    Lude.withObject
-      "Endpoint"
-      ( \x ->
-          Endpoint'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "DmsTransferSettings")
-            Lude.<*> (x Lude..:? "MySQLSettings")
-            Lude.<*> (x Lude..:? "ServerName")
-            Lude.<*> (x Lude..:? "MicrosoftSQLServerSettings")
-            Lude.<*> (x Lude..:? "CertificateArn")
-            Lude.<*> (x Lude..:? "ServiceAccessRoleArn")
-            Lude.<*> (x Lude..:? "DocDbSettings")
-            Lude.<*> (x Lude..:? "EngineDisplayName")
-            Lude.<*> (x Lude..:? "PostgreSQLSettings")
-            Lude.<*> (x Lude..:? "ExtraConnectionAttributes")
-            Lude.<*> (x Lude..:? "KafkaSettings")
-            Lude.<*> (x Lude..:? "OracleSettings")
-            Lude.<*> (x Lude..:? "EndpointType")
-            Lude.<*> (x Lude..:? "RedshiftSettings")
-            Lude.<*> (x Lude..:? "ElasticsearchSettings")
-            Lude.<*> (x Lude..:? "Username")
-            Lude.<*> (x Lude..:? "ExternalTableDefinition")
-            Lude.<*> (x Lude..:? "EngineName")
-            Lude.<*> (x Lude..:? "NeptuneSettings")
-            Lude.<*> (x Lude..:? "IBMDb2Settings")
-            Lude.<*> (x Lude..:? "KmsKeyId")
-            Lude.<*> (x Lude..:? "MongoDbSettings")
-            Lude.<*> (x Lude..:? "SslMode")
-            Lude.<*> (x Lude..:? "SybaseSettings")
-            Lude.<*> (x Lude..:? "DatabaseName")
-            Lude.<*> (x Lude..:? "S3Settings")
-            Lude.<*> (x Lude..:? "KinesisSettings")
-            Lude.<*> (x Lude..:? "EndpointIdentifier")
-            Lude.<*> (x Lude..:? "ExternalId")
-            Lude.<*> (x Lude..:? "DynamoDbSettings")
-            Lude.<*> (x Lude..:? "EndpointArn")
-            Lude.<*> (x Lude..:? "Port")
-      )
+    Core.withObject "Endpoint" Core.$
+      \x ->
+        Endpoint'
+          Core.<$> (x Core..:? "CertificateArn")
+          Core.<*> (x Core..:? "DatabaseName")
+          Core.<*> (x Core..:? "DmsTransferSettings")
+          Core.<*> (x Core..:? "DocDbSettings")
+          Core.<*> (x Core..:? "DynamoDbSettings")
+          Core.<*> (x Core..:? "ElasticsearchSettings")
+          Core.<*> (x Core..:? "EndpointArn")
+          Core.<*> (x Core..:? "EndpointIdentifier")
+          Core.<*> (x Core..:? "EndpointType")
+          Core.<*> (x Core..:? "EngineDisplayName")
+          Core.<*> (x Core..:? "EngineName")
+          Core.<*> (x Core..:? "ExternalId")
+          Core.<*> (x Core..:? "ExternalTableDefinition")
+          Core.<*> (x Core..:? "ExtraConnectionAttributes")
+          Core.<*> (x Core..:? "IBMDb2Settings")
+          Core.<*> (x Core..:? "KafkaSettings")
+          Core.<*> (x Core..:? "KinesisSettings")
+          Core.<*> (x Core..:? "KmsKeyId")
+          Core.<*> (x Core..:? "MicrosoftSQLServerSettings")
+          Core.<*> (x Core..:? "MongoDbSettings")
+          Core.<*> (x Core..:? "MySQLSettings")
+          Core.<*> (x Core..:? "NeptuneSettings")
+          Core.<*> (x Core..:? "OracleSettings")
+          Core.<*> (x Core..:? "Port")
+          Core.<*> (x Core..:? "PostgreSQLSettings")
+          Core.<*> (x Core..:? "RedshiftSettings")
+          Core.<*> (x Core..:? "S3Settings")
+          Core.<*> (x Core..:? "ServerName")
+          Core.<*> (x Core..:? "ServiceAccessRoleArn")
+          Core.<*> (x Core..:? "SslMode")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "SybaseSettings")
+          Core.<*> (x Core..:? "Username")

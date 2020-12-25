@@ -18,54 +18,56 @@ module Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
 
     -- * Lenses
     cipClientId,
-    cipServerSideTokenCheck,
     cipProviderName,
+    cipServerSideTokenCheck,
   )
 where
 
+import qualified Network.AWS.CognitoIdentity.Types.CognitoIdentityProviderClientId as Types
+import qualified Network.AWS.CognitoIdentity.Types.ProviderName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A provider representing an Amazon Cognito user pool and its client ID.
 --
 -- /See:/ 'mkCognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
   { -- | The client ID for the Amazon Cognito user pool.
-    clientId :: Lude.Maybe Lude.Text,
+    clientId :: Core.Maybe Types.CognitoIdentityProviderClientId,
+    -- | The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
+    providerName :: Core.Maybe Types.ProviderName,
     -- | TRUE if server-side token validation is enabled for the identity provider’s token.
     --
     -- Once you set @ServerSideTokenCheck@ to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
     -- If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
-    serverSideTokenCheck :: Lude.Maybe Lude.Bool,
-    -- | The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
-    providerName :: Lude.Maybe Lude.Text
+    serverSideTokenCheck :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CognitoIdentityProvider' with the minimum fields required to make a request.
---
--- * 'clientId' - The client ID for the Amazon Cognito user pool.
--- * 'serverSideTokenCheck' - TRUE if server-side token validation is enabled for the identity provider’s token.
---
--- Once you set @ServerSideTokenCheck@ to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
--- If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
--- * 'providerName' - The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
+-- | Creates a 'CognitoIdentityProvider' value with any optional fields omitted.
 mkCognitoIdentityProvider ::
   CognitoIdentityProvider
 mkCognitoIdentityProvider =
   CognitoIdentityProvider'
-    { clientId = Lude.Nothing,
-      serverSideTokenCheck = Lude.Nothing,
-      providerName = Lude.Nothing
+    { clientId = Core.Nothing,
+      providerName = Core.Nothing,
+      serverSideTokenCheck = Core.Nothing
     }
 
 -- | The client ID for the Amazon Cognito user pool.
 --
 -- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipClientId :: Lens.Lens' CognitoIdentityProvider (Lude.Maybe Lude.Text)
-cipClientId = Lens.lens (clientId :: CognitoIdentityProvider -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: CognitoIdentityProvider)
+cipClientId :: Lens.Lens' CognitoIdentityProvider (Core.Maybe Types.CognitoIdentityProviderClientId)
+cipClientId = Lens.field @"clientId"
 {-# DEPRECATED cipClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+-- | The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipProviderName :: Lens.Lens' CognitoIdentityProvider (Core.Maybe Types.ProviderName)
+cipProviderName = Lens.field @"providerName"
+{-# DEPRECATED cipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | TRUE if server-side token validation is enabled for the identity provider’s token.
 --
@@ -73,34 +75,25 @@ cipClientId = Lens.lens (clientId :: CognitoIdentityProvider -> Lude.Maybe Lude.
 -- If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
 --
 -- /Note:/ Consider using 'serverSideTokenCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipServerSideTokenCheck :: Lens.Lens' CognitoIdentityProvider (Lude.Maybe Lude.Bool)
-cipServerSideTokenCheck = Lens.lens (serverSideTokenCheck :: CognitoIdentityProvider -> Lude.Maybe Lude.Bool) (\s a -> s {serverSideTokenCheck = a} :: CognitoIdentityProvider)
+cipServerSideTokenCheck :: Lens.Lens' CognitoIdentityProvider (Core.Maybe Core.Bool)
+cipServerSideTokenCheck = Lens.field @"serverSideTokenCheck"
 {-# DEPRECATED cipServerSideTokenCheck "Use generic-lens or generic-optics with 'serverSideTokenCheck' instead." #-}
 
--- | The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
---
--- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipProviderName :: Lens.Lens' CognitoIdentityProvider (Lude.Maybe Lude.Text)
-cipProviderName = Lens.lens (providerName :: CognitoIdentityProvider -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: CognitoIdentityProvider)
-{-# DEPRECATED cipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
-
-instance Lude.FromJSON CognitoIdentityProvider where
-  parseJSON =
-    Lude.withObject
-      "CognitoIdentityProvider"
-      ( \x ->
-          CognitoIdentityProvider'
-            Lude.<$> (x Lude..:? "ClientId")
-            Lude.<*> (x Lude..:? "ServerSideTokenCheck")
-            Lude.<*> (x Lude..:? "ProviderName")
-      )
-
-instance Lude.ToJSON CognitoIdentityProvider where
-  toJSON CognitoIdentityProvider' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientId" Lude..=) Lude.<$> clientId,
-            ("ServerSideTokenCheck" Lude..=) Lude.<$> serverSideTokenCheck,
-            ("ProviderName" Lude..=) Lude.<$> providerName
+instance Core.FromJSON CognitoIdentityProvider where
+  toJSON CognitoIdentityProvider {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientId" Core..=) Core.<$> clientId,
+            ("ProviderName" Core..=) Core.<$> providerName,
+            ("ServerSideTokenCheck" Core..=) Core.<$> serverSideTokenCheck
           ]
       )
+
+instance Core.FromJSON CognitoIdentityProvider where
+  parseJSON =
+    Core.withObject "CognitoIdentityProvider" Core.$
+      \x ->
+        CognitoIdentityProvider'
+          Core.<$> (x Core..:? "ClientId")
+          Core.<*> (x Core..:? "ProviderName")
+          Core.<*> (x Core..:? "ServerSideTokenCheck")

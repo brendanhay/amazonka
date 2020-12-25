@@ -22,46 +22,42 @@ module Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Snowball.Types.WirelessConnection
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.WirelessConnection as Types
 
 -- | Specifies the device configuration for an AWS Snowcone job.
 --
 -- /See:/ 'mkSnowconeDeviceConfiguration' smart constructor.
 newtype SnowconeDeviceConfiguration = SnowconeDeviceConfiguration'
   { -- | Configures the wireless connection for the AWS Snowcone device.
-    wirelessConnection :: Lude.Maybe WirelessConnection
+    wirelessConnection :: Core.Maybe Types.WirelessConnection
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SnowconeDeviceConfiguration' with the minimum fields required to make a request.
---
--- * 'wirelessConnection' - Configures the wireless connection for the AWS Snowcone device.
+-- | Creates a 'SnowconeDeviceConfiguration' value with any optional fields omitted.
 mkSnowconeDeviceConfiguration ::
   SnowconeDeviceConfiguration
 mkSnowconeDeviceConfiguration =
-  SnowconeDeviceConfiguration' {wirelessConnection = Lude.Nothing}
+  SnowconeDeviceConfiguration' {wirelessConnection = Core.Nothing}
 
 -- | Configures the wireless connection for the AWS Snowcone device.
 --
 -- /Note:/ Consider using 'wirelessConnection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcWirelessConnection :: Lens.Lens' SnowconeDeviceConfiguration (Lude.Maybe WirelessConnection)
-sdcWirelessConnection = Lens.lens (wirelessConnection :: SnowconeDeviceConfiguration -> Lude.Maybe WirelessConnection) (\s a -> s {wirelessConnection = a} :: SnowconeDeviceConfiguration)
+sdcWirelessConnection :: Lens.Lens' SnowconeDeviceConfiguration (Core.Maybe Types.WirelessConnection)
+sdcWirelessConnection = Lens.field @"wirelessConnection"
 {-# DEPRECATED sdcWirelessConnection "Use generic-lens or generic-optics with 'wirelessConnection' instead." #-}
 
-instance Lude.FromJSON SnowconeDeviceConfiguration where
-  parseJSON =
-    Lude.withObject
-      "SnowconeDeviceConfiguration"
-      ( \x ->
-          SnowconeDeviceConfiguration'
-            Lude.<$> (x Lude..:? "WirelessConnection")
+instance Core.FromJSON SnowconeDeviceConfiguration where
+  toJSON SnowconeDeviceConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [("WirelessConnection" Core..=) Core.<$> wirelessConnection]
       )
 
-instance Lude.ToJSON SnowconeDeviceConfiguration where
-  toJSON SnowconeDeviceConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("WirelessConnection" Lude..=) Lude.<$> wirelessConnection]
-      )
+instance Core.FromJSON SnowconeDeviceConfiguration where
+  parseJSON =
+    Core.withObject "SnowconeDeviceConfiguration" Core.$
+      \x ->
+        SnowconeDeviceConfiguration'
+          Core.<$> (x Core..:? "WirelessConnection")

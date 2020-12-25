@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Transcribe
     Network.AWS.Transcribe.CreateLanguageModel
@@ -101,32 +107,51 @@ library
     Network.AWS.Transcribe.Types.BaseModelName
     Network.AWS.Transcribe.Types.CLMLanguageCode
     Network.AWS.Transcribe.Types.ContentRedaction
+    Network.AWS.Transcribe.Types.DataAccessRoleArn
+    Network.AWS.Transcribe.Types.DownloadUri
+    Network.AWS.Transcribe.Types.FailureReason
     Network.AWS.Transcribe.Types.InputDataConfig
     Network.AWS.Transcribe.Types.JobExecutionSettings
+    Network.AWS.Transcribe.Types.JobNameContains
+    Network.AWS.Transcribe.Types.KMSKeyId
     Network.AWS.Transcribe.Types.LanguageCode
     Network.AWS.Transcribe.Types.LanguageModel
     Network.AWS.Transcribe.Types.Media
     Network.AWS.Transcribe.Types.MediaFormat
     Network.AWS.Transcribe.Types.MedicalTranscript
     Network.AWS.Transcribe.Types.MedicalTranscriptionJob
+    Network.AWS.Transcribe.Types.MedicalTranscriptionJobName
     Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
     Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
+    Network.AWS.Transcribe.Types.ModelName
     Network.AWS.Transcribe.Types.ModelSettings
     Network.AWS.Transcribe.Types.ModelStatus
+    Network.AWS.Transcribe.Types.NameContains
+    Network.AWS.Transcribe.Types.NextToken
+    Network.AWS.Transcribe.Types.OutputBucketName
+    Network.AWS.Transcribe.Types.OutputKey
     Network.AWS.Transcribe.Types.OutputLocationType
+    Network.AWS.Transcribe.Types.Phrase
     Network.AWS.Transcribe.Types.RedactionOutput
     Network.AWS.Transcribe.Types.RedactionType
     Network.AWS.Transcribe.Types.Settings
     Network.AWS.Transcribe.Types.Specialty
     Network.AWS.Transcribe.Types.Transcript
     Network.AWS.Transcribe.Types.TranscriptionJob
+    Network.AWS.Transcribe.Types.TranscriptionJobName
     Network.AWS.Transcribe.Types.TranscriptionJobStatus
     Network.AWS.Transcribe.Types.TranscriptionJobSummary
     Network.AWS.Transcribe.Types.Type
+    Network.AWS.Transcribe.Types.Uri
+    Network.AWS.Transcribe.Types.VocabularyFileUri
+    Network.AWS.Transcribe.Types.VocabularyFilterFileUri
     Network.AWS.Transcribe.Types.VocabularyFilterInfo
     Network.AWS.Transcribe.Types.VocabularyFilterMethod
+    Network.AWS.Transcribe.Types.VocabularyFilterName
     Network.AWS.Transcribe.Types.VocabularyInfo
+    Network.AWS.Transcribe.Types.VocabularyName
     Network.AWS.Transcribe.Types.VocabularyState
+    Network.AWS.Transcribe.Types.Word
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

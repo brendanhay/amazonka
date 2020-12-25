@@ -570,7 +570,7 @@ responseListProjects =
   res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
@@ -578,7 +578,7 @@ responseDeleteProject =
   res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
@@ -586,7 +586,7 @@ responseUpdateProject =
   res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProject)
 
 responseDeleteSourceCredentials :: DeleteSourceCredentialsResponse -> TestTree
@@ -594,7 +594,7 @@ responseDeleteSourceCredentials =
   res
     "DeleteSourceCredentialsResponse"
     "fixture/DeleteSourceCredentialsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSourceCredentials)
 
 responseListBuilds :: ListBuildsResponse -> TestTree
@@ -602,7 +602,7 @@ responseListBuilds =
   res
     "ListBuildsResponse"
     "fixture/ListBuildsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListBuilds)
 
 responseListSourceCredentials :: ListSourceCredentialsResponse -> TestTree
@@ -610,7 +610,7 @@ responseListSourceCredentials =
   res
     "ListSourceCredentialsResponse"
     "fixture/ListSourceCredentialsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListSourceCredentials)
 
 responseListReports :: ListReportsResponse -> TestTree
@@ -618,7 +618,7 @@ responseListReports =
   res
     "ListReportsResponse"
     "fixture/ListReportsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListReports)
 
 responseDeleteReport :: DeleteReportResponse -> TestTree
@@ -626,7 +626,7 @@ responseDeleteReport =
   res
     "DeleteReportResponse"
     "fixture/DeleteReportResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReport)
 
 responseCreateWebhook :: CreateWebhookResponse -> TestTree
@@ -634,7 +634,7 @@ responseCreateWebhook =
   res
     "CreateWebhookResponse"
     "fixture/CreateWebhookResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy CreateWebhook)
 
 responseStopBuildBatch :: StopBuildBatchResponse -> TestTree
@@ -642,7 +642,7 @@ responseStopBuildBatch =
   res
     "StopBuildBatchResponse"
     "fixture/StopBuildBatchResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy StopBuildBatch)
 
 responseListSharedProjects :: ListSharedProjectsResponse -> TestTree
@@ -650,7 +650,7 @@ responseListSharedProjects =
   res
     "ListSharedProjectsResponse"
     "fixture/ListSharedProjectsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListSharedProjects)
 
 responseCreateReportGroup :: CreateReportGroupResponse -> TestTree
@@ -658,7 +658,7 @@ responseCreateReportGroup =
   res
     "CreateReportGroupResponse"
     "fixture/CreateReportGroupResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy CreateReportGroup)
 
 responseDescribeCodeCoverages :: DescribeCodeCoveragesResponse -> TestTree
@@ -666,7 +666,7 @@ responseDescribeCodeCoverages =
   res
     "DescribeCodeCoveragesResponse"
     "fixture/DescribeCodeCoveragesResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCodeCoverages)
 
 responseImportSourceCredentials :: ImportSourceCredentialsResponse -> TestTree
@@ -674,7 +674,7 @@ responseImportSourceCredentials =
   res
     "ImportSourceCredentialsResponse"
     "fixture/ImportSourceCredentialsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ImportSourceCredentials)
 
 responseListBuildBatchesForProject :: ListBuildBatchesForProjectResponse -> TestTree
@@ -682,7 +682,7 @@ responseListBuildBatchesForProject =
   res
     "ListBuildBatchesForProjectResponse"
     "fixture/ListBuildBatchesForProjectResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListBuildBatchesForProject)
 
 responseBatchGetReportGroups :: BatchGetReportGroupsResponse -> TestTree
@@ -690,7 +690,7 @@ responseBatchGetReportGroups =
   res
     "BatchGetReportGroupsResponse"
     "fixture/BatchGetReportGroupsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetReportGroups)
 
 responseDeleteBuildBatch :: DeleteBuildBatchResponse -> TestTree
@@ -698,7 +698,7 @@ responseDeleteBuildBatch =
   res
     "DeleteBuildBatchResponse"
     "fixture/DeleteBuildBatchResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBuildBatch)
 
 responseStartBuild :: StartBuildResponse -> TestTree
@@ -706,7 +706,7 @@ responseStartBuild =
   res
     "StartBuildResponse"
     "fixture/StartBuildResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy StartBuild)
 
 responseBatchGetBuildBatches :: BatchGetBuildBatchesResponse -> TestTree
@@ -714,7 +714,7 @@ responseBatchGetBuildBatches =
   res
     "BatchGetBuildBatchesResponse"
     "fixture/BatchGetBuildBatchesResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetBuildBatches)
 
 responseRetryBuild :: RetryBuildResponse -> TestTree
@@ -722,7 +722,7 @@ responseRetryBuild =
   res
     "RetryBuildResponse"
     "fixture/RetryBuildResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy RetryBuild)
 
 responseListBuildsForProject :: ListBuildsForProjectResponse -> TestTree
@@ -730,7 +730,7 @@ responseListBuildsForProject =
   res
     "ListBuildsForProjectResponse"
     "fixture/ListBuildsForProjectResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListBuildsForProject)
 
 responseDescribeTestCases :: DescribeTestCasesResponse -> TestTree
@@ -738,7 +738,7 @@ responseDescribeTestCases =
   res
     "DescribeTestCasesResponse"
     "fixture/DescribeTestCasesResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTestCases)
 
 responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
@@ -746,7 +746,7 @@ responseGetResourcePolicy =
   res
     "GetResourcePolicyResponse"
     "fixture/GetResourcePolicyResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy GetResourcePolicy)
 
 responseBatchGetProjects :: BatchGetProjectsResponse -> TestTree
@@ -754,7 +754,7 @@ responseBatchGetProjects =
   res
     "BatchGetProjectsResponse"
     "fixture/BatchGetProjectsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetProjects)
 
 responseBatchGetBuilds :: BatchGetBuildsResponse -> TestTree
@@ -762,7 +762,7 @@ responseBatchGetBuilds =
   res
     "BatchGetBuildsResponse"
     "fixture/BatchGetBuildsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetBuilds)
 
 responseBatchGetReports :: BatchGetReportsResponse -> TestTree
@@ -770,7 +770,7 @@ responseBatchGetReports =
   res
     "BatchGetReportsResponse"
     "fixture/BatchGetReportsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetReports)
 
 responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
@@ -778,7 +778,7 @@ responseUpdateWebhook =
   res
     "UpdateWebhookResponse"
     "fixture/UpdateWebhookResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy UpdateWebhook)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
@@ -786,7 +786,7 @@ responseDeleteWebhook =
   res
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWebhook)
 
 responseStartBuildBatch :: StartBuildBatchResponse -> TestTree
@@ -794,7 +794,7 @@ responseStartBuildBatch =
   res
     "StartBuildBatchResponse"
     "fixture/StartBuildBatchResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy StartBuildBatch)
 
 responseRetryBuildBatch :: RetryBuildBatchResponse -> TestTree
@@ -802,7 +802,7 @@ responseRetryBuildBatch =
   res
     "RetryBuildBatchResponse"
     "fixture/RetryBuildBatchResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy RetryBuildBatch)
 
 responseListReportsForReportGroup :: ListReportsForReportGroupResponse -> TestTree
@@ -810,7 +810,7 @@ responseListReportsForReportGroup =
   res
     "ListReportsForReportGroupResponse"
     "fixture/ListReportsForReportGroupResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListReportsForReportGroup)
 
 responseInvalidateProjectCache :: InvalidateProjectCacheResponse -> TestTree
@@ -818,7 +818,7 @@ responseInvalidateProjectCache =
   res
     "InvalidateProjectCacheResponse"
     "fixture/InvalidateProjectCacheResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy InvalidateProjectCache)
 
 responseUpdateReportGroup :: UpdateReportGroupResponse -> TestTree
@@ -826,7 +826,7 @@ responseUpdateReportGroup =
   res
     "UpdateReportGroupResponse"
     "fixture/UpdateReportGroupResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy UpdateReportGroup)
 
 responseDeleteReportGroup :: DeleteReportGroupResponse -> TestTree
@@ -834,7 +834,7 @@ responseDeleteReportGroup =
   res
     "DeleteReportGroupResponse"
     "fixture/DeleteReportGroupResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReportGroup)
 
 responseBatchDeleteBuilds :: BatchDeleteBuildsResponse -> TestTree
@@ -842,7 +842,7 @@ responseBatchDeleteBuilds =
   res
     "BatchDeleteBuildsResponse"
     "fixture/BatchDeleteBuildsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteBuilds)
 
 responseListReportGroups :: ListReportGroupsResponse -> TestTree
@@ -850,7 +850,7 @@ responseListReportGroups =
   res
     "ListReportGroupsResponse"
     "fixture/ListReportGroupsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListReportGroups)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
@@ -858,7 +858,7 @@ responsePutResourcePolicy =
   res
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
@@ -866,7 +866,7 @@ responseDeleteResourcePolicy =
   res
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResourcePolicy)
 
 responseListCuratedEnvironmentImages :: ListCuratedEnvironmentImagesResponse -> TestTree
@@ -874,7 +874,7 @@ responseListCuratedEnvironmentImages =
   res
     "ListCuratedEnvironmentImagesResponse"
     "fixture/ListCuratedEnvironmentImagesResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListCuratedEnvironmentImages)
 
 responseGetReportGroupTrend :: GetReportGroupTrendResponse -> TestTree
@@ -882,7 +882,7 @@ responseGetReportGroupTrend =
   res
     "GetReportGroupTrendResponse"
     "fixture/GetReportGroupTrendResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy GetReportGroupTrend)
 
 responseStopBuild :: StopBuildResponse -> TestTree
@@ -890,7 +890,7 @@ responseStopBuild =
   res
     "StopBuildResponse"
     "fixture/StopBuildResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy StopBuild)
 
 responseListBuildBatches :: ListBuildBatchesResponse -> TestTree
@@ -898,7 +898,7 @@ responseListBuildBatches =
   res
     "ListBuildBatchesResponse"
     "fixture/ListBuildBatchesResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListBuildBatches)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
@@ -906,7 +906,7 @@ responseCreateProject =
   res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy CreateProject)
 
 responseListSharedReportGroups :: ListSharedReportGroupsResponse -> TestTree
@@ -914,5 +914,5 @@ responseListSharedReportGroups =
   res
     "ListSharedReportGroupsResponse"
     "fixture/ListSharedReportGroupsResponse.proto"
-    codeBuildService
+    mkServiceConfig
     (Proxy :: Proxy ListSharedReportGroups)

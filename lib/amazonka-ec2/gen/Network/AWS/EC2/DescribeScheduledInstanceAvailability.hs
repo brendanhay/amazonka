@@ -25,39 +25,43 @@ module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     mkDescribeScheduledInstanceAvailability,
 
     -- ** Request lenses
-    dsiaMinSlotDurationInHours,
-    dsiaFilters,
     dsiaFirstSlotStartTimeRange,
-    dsiaNextToken,
     dsiaRecurrence,
-    dsiaMaxSlotDurationInHours,
     dsiaDryRun,
+    dsiaFilters,
     dsiaMaxResults,
+    dsiaMaxSlotDurationInHours,
+    dsiaMinSlotDurationInHours,
+    dsiaNextToken,
 
     -- * Destructuring the response
     DescribeScheduledInstanceAvailabilityResponse (..),
     mkDescribeScheduledInstanceAvailabilityResponse,
 
     -- ** Response lenses
-    dsiarsScheduledInstanceAvailabilitySet,
-    dsiarsNextToken,
-    dsiarsResponseStatus,
+    dsiarrsNextToken,
+    dsiarrsScheduledInstanceAvailabilitySet,
+    dsiarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeScheduledInstanceAvailability.
 --
 -- /See:/ 'mkDescribeScheduledInstanceAvailability' smart constructor.
 data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailability'
-  { -- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
-    minSlotDurationInHours :: Lude.Maybe Lude.Int,
+  { -- | The time period for the first schedule to start.
+    firstSlotStartTimeRange :: Types.SlotDateTimeRangeRequest,
+    -- | The schedule recurrence.
+    recurrence :: Types.ScheduledInstanceRecurrenceRequest,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The filters.
     --
     --
@@ -71,74 +75,60 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     --
     --
     --     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
-    filters :: Lude.Maybe [Filter],
-    -- | The time period for the first schedule to start.
-    firstSlotStartTimeRange :: SlotDateTimeRangeRequest,
-    -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The schedule recurrence.
-    recurrence :: ScheduledInstanceRecurrenceRequest,
-    -- | The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
-    maxSlotDurationInHours :: Lude.Maybe Lude.Int,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
+    maxSlotDurationInHours :: Core.Maybe Core.Int,
+    -- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
+    minSlotDurationInHours :: Core.Maybe Core.Int,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeScheduledInstanceAvailability' with the minimum fields required to make a request.
---
--- * 'minSlotDurationInHours' - The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
--- * 'filters' - The filters.
---
---
---     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).
---
---
---     * @instance-type@ - The instance type (for example, @c4.large@ ).
---
---
---     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
---
---
---     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
---
---
--- * 'firstSlotStartTimeRange' - The time period for the first schedule to start.
--- * 'nextToken' - The token for the next set of results.
--- * 'recurrence' - The schedule recurrence.
--- * 'maxSlotDurationInHours' - The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- | Creates a 'DescribeScheduledInstanceAvailability' value with any optional fields omitted.
 mkDescribeScheduledInstanceAvailability ::
   -- | 'firstSlotStartTimeRange'
-  SlotDateTimeRangeRequest ->
+  Types.SlotDateTimeRangeRequest ->
   -- | 'recurrence'
-  ScheduledInstanceRecurrenceRequest ->
+  Types.ScheduledInstanceRecurrenceRequest ->
   DescribeScheduledInstanceAvailability
 mkDescribeScheduledInstanceAvailability
-  pFirstSlotStartTimeRange_
-  pRecurrence_ =
+  firstSlotStartTimeRange
+  recurrence =
     DescribeScheduledInstanceAvailability'
-      { minSlotDurationInHours =
-          Lude.Nothing,
-        filters = Lude.Nothing,
-        firstSlotStartTimeRange = pFirstSlotStartTimeRange_,
-        nextToken = Lude.Nothing,
-        recurrence = pRecurrence_,
-        maxSlotDurationInHours = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        maxResults = Lude.Nothing
+      { firstSlotStartTimeRange,
+        recurrence,
+        dryRun = Core.Nothing,
+        filters = Core.Nothing,
+        maxResults = Core.Nothing,
+        maxSlotDurationInHours = Core.Nothing,
+        minSlotDurationInHours = Core.Nothing,
+        nextToken = Core.Nothing
       }
 
--- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
+-- | The time period for the first schedule to start.
 --
--- /Note:/ Consider using 'minSlotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaMinSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Int)
-dsiaMinSlotDurationInHours = Lens.lens (minSlotDurationInHours :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {minSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaMinSlotDurationInHours "Use generic-lens or generic-optics with 'minSlotDurationInHours' instead." #-}
+-- /Note:/ Consider using 'firstSlotStartTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaFirstSlotStartTimeRange :: Lens.Lens' DescribeScheduledInstanceAvailability Types.SlotDateTimeRangeRequest
+dsiaFirstSlotStartTimeRange = Lens.field @"firstSlotStartTimeRange"
+{-# DEPRECATED dsiaFirstSlotStartTimeRange "Use generic-lens or generic-optics with 'firstSlotStartTimeRange' instead." #-}
+
+-- | The schedule recurrence.
+--
+-- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaRecurrence :: Lens.Lens' DescribeScheduledInstanceAvailability Types.ScheduledInstanceRecurrenceRequest
+dsiaRecurrence = Lens.field @"recurrence"
+{-# DEPRECATED dsiaRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaDryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Bool)
+dsiaDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dsiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters.
 --
@@ -157,148 +147,143 @@ dsiaMinSlotDurationInHours = Lens.lens (minSlotDurationInHours :: DescribeSchedu
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaFilters :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe [Filter])
-dsiaFilters = Lens.lens (filters :: DescribeScheduledInstanceAvailability -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeScheduledInstanceAvailability)
+dsiaFilters :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe [Types.Filter])
+dsiaFilters = Lens.field @"filters"
 {-# DEPRECATED dsiaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The time period for the first schedule to start.
---
--- /Note:/ Consider using 'firstSlotStartTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaFirstSlotStartTimeRange :: Lens.Lens' DescribeScheduledInstanceAvailability SlotDateTimeRangeRequest
-dsiaFirstSlotStartTimeRange = Lens.lens (firstSlotStartTimeRange :: DescribeScheduledInstanceAvailability -> SlotDateTimeRangeRequest) (\s a -> s {firstSlotStartTimeRange = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaFirstSlotStartTimeRange "Use generic-lens or generic-optics with 'firstSlotStartTimeRange' instead." #-}
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaNextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Text)
-dsiaNextToken = Lens.lens (nextToken :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The schedule recurrence.
---
--- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaRecurrence :: Lens.Lens' DescribeScheduledInstanceAvailability ScheduledInstanceRecurrenceRequest
-dsiaRecurrence = Lens.lens (recurrence :: DescribeScheduledInstanceAvailability -> ScheduledInstanceRecurrenceRequest) (\s a -> s {recurrence = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
-
--- | The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
---
--- /Note:/ Consider using 'maxSlotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaMaxSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Int)
-dsiaMaxSlotDurationInHours = Lens.lens (maxSlotDurationInHours :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {maxSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaMaxSlotDurationInHours "Use generic-lens or generic-optics with 'maxSlotDurationInHours' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaDryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Bool)
-dsiaDryRun = Lens.lens (dryRun :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaMaxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Natural)
-dsiaMaxResults = Lens.lens (maxResults :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeScheduledInstanceAvailability)
+dsiaMaxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Natural)
+dsiaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dsiaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeScheduledInstanceAvailability where
-  page rq rs
-    | Page.stop (rs Lens.^. dsiarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsiarsScheduledInstanceAvailabilitySet) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsiaNextToken Lens..~ rs Lens.^. dsiarsNextToken
+-- | The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
+--
+-- /Note:/ Consider using 'maxSlotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaMaxSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Int)
+dsiaMaxSlotDurationInHours = Lens.field @"maxSlotDurationInHours"
+{-# DEPRECATED dsiaMaxSlotDurationInHours "Use generic-lens or generic-optics with 'maxSlotDurationInHours' instead." #-}
 
-instance Lude.AWSRequest DescribeScheduledInstanceAvailability where
+-- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
+--
+-- /Note:/ Consider using 'minSlotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaMinSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Int)
+dsiaMinSlotDurationInHours = Lens.field @"minSlotDurationInHours"
+{-# DEPRECATED dsiaMinSlotDurationInHours "Use generic-lens or generic-optics with 'minSlotDurationInHours' instead." #-}
+
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaNextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Types.String)
+dsiaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsiaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest DescribeScheduledInstanceAvailability where
   type
     Rs DescribeScheduledInstanceAvailability =
       DescribeScheduledInstanceAvailabilityResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeScheduledInstanceAvailability")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "FirstSlotStartTimeRange"
+                            firstSlotStartTimeRange
+                        )
+                Core.<> (Core.toQueryValue "Recurrence" recurrence)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> ( Core.toQueryValue "MaxSlotDurationInHours"
+                            Core.<$> maxSlotDurationInHours
+                        )
+                Core.<> ( Core.toQueryValue "MinSlotDurationInHours"
+                            Core.<$> minSlotDurationInHours
+                        )
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeScheduledInstanceAvailabilityResponse'
-            Lude.<$> ( x Lude..@? "scheduledInstanceAvailabilitySet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "scheduledInstanceAvailabilitySet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeScheduledInstanceAvailability where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeScheduledInstanceAvailability where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeScheduledInstanceAvailability where
-  toQuery DescribeScheduledInstanceAvailability' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeScheduledInstanceAvailability" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "MinSlotDurationInHours" Lude.=: minSlotDurationInHours,
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "FirstSlotStartTimeRange" Lude.=: firstSlotStartTimeRange,
-        "NextToken" Lude.=: nextToken,
-        "Recurrence" Lude.=: recurrence,
-        "MaxSlotDurationInHours" Lude.=: maxSlotDurationInHours,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeScheduledInstanceAvailability where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"scheduledInstanceAvailabilitySet" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Contains the output of DescribeScheduledInstanceAvailability.
 --
 -- /See:/ 'mkDescribeScheduledInstanceAvailabilityResponse' smart constructor.
 data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAvailabilityResponse'
-  { -- | Information about the available Scheduled Instances.
-    scheduledInstanceAvailabilitySet :: Lude.Maybe [ScheduledInstanceAvailability],
-    -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | Information about the available Scheduled Instances.
+    scheduledInstanceAvailabilitySet :: Core.Maybe [Types.ScheduledInstanceAvailability],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeScheduledInstanceAvailabilityResponse' with the minimum fields required to make a request.
---
--- * 'scheduledInstanceAvailabilitySet' - Information about the available Scheduled Instances.
--- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeScheduledInstanceAvailabilityResponse' value with any optional fields omitted.
 mkDescribeScheduledInstanceAvailabilityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeScheduledInstanceAvailabilityResponse
-mkDescribeScheduledInstanceAvailabilityResponse pResponseStatus_ =
+mkDescribeScheduledInstanceAvailabilityResponse responseStatus =
   DescribeScheduledInstanceAvailabilityResponse'
-    { scheduledInstanceAvailabilitySet =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken =
+        Core.Nothing,
+      scheduledInstanceAvailabilitySet = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the available Scheduled Instances.
---
--- /Note:/ Consider using 'scheduledInstanceAvailabilitySet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiarsScheduledInstanceAvailabilitySet :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Lude.Maybe [ScheduledInstanceAvailability])
-dsiarsScheduledInstanceAvailabilitySet = Lens.lens (scheduledInstanceAvailabilitySet :: DescribeScheduledInstanceAvailabilityResponse -> Lude.Maybe [ScheduledInstanceAvailability]) (\s a -> s {scheduledInstanceAvailabilitySet = a} :: DescribeScheduledInstanceAvailabilityResponse)
-{-# DEPRECATED dsiarsScheduledInstanceAvailabilitySet "Use generic-lens or generic-optics with 'scheduledInstanceAvailabilitySet' instead." #-}
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiarsNextToken :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Lude.Maybe Lude.Text)
-dsiarsNextToken = Lens.lens (nextToken :: DescribeScheduledInstanceAvailabilityResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScheduledInstanceAvailabilityResponse)
-{-# DEPRECATED dsiarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsiarrsNextToken :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Core.Maybe Types.String)
+dsiarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsiarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about the available Scheduled Instances.
+--
+-- /Note:/ Consider using 'scheduledInstanceAvailabilitySet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiarrsScheduledInstanceAvailabilitySet :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Core.Maybe [Types.ScheduledInstanceAvailability])
+dsiarrsScheduledInstanceAvailabilitySet = Lens.field @"scheduledInstanceAvailabilitySet"
+{-# DEPRECATED dsiarrsScheduledInstanceAvailabilitySet "Use generic-lens or generic-optics with 'scheduledInstanceAvailabilitySet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiarsResponseStatus :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse Lude.Int
-dsiarsResponseStatus = Lens.lens (responseStatus :: DescribeScheduledInstanceAvailabilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScheduledInstanceAvailabilityResponse)
-{-# DEPRECATED dsiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsiarrsResponseStatus :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse Core.Int
+dsiarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsiarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

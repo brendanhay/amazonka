@@ -17,161 +17,151 @@ module Network.AWS.EC2.Types.InstanceNetworkInterfaceSpecification
     mkInstanceNetworkInterfaceSpecification,
 
     -- * Lenses
-    inisGroups,
-    inisPrivateIPAddresses,
+    inisAssociateCarrierIpAddress,
+    inisAssociatePublicIpAddress,
     inisDeleteOnTermination,
-    inisAssociateCarrierIPAddress,
-    inisAssociatePublicIPAddress,
-    inisInterfaceType,
-    inisNetworkInterfaceId,
-    inisSubnetId,
-    inisIPv6AddressCount,
-    inisNetworkCardIndex,
-    inisPrivateIPAddress,
-    inisSecondaryPrivateIPAddressCount,
     inisDescription,
     inisDeviceIndex,
-    inisIPv6Addresses,
+    inisGroups,
+    inisInterfaceType,
+    inisIpv6AddressCount,
+    inisIpv6Addresses,
+    inisNetworkCardIndex,
+    inisNetworkInterfaceId,
+    inisPrivateIpAddress,
+    inisPrivateIpAddresses,
+    inisSecondaryPrivateIpAddressCount,
+    inisSubnetId,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceIPv6Address
-import Network.AWS.EC2.Types.PrivateIPAddressSpecification
+import qualified Network.AWS.EC2.Types.Description as Types
+import qualified Network.AWS.EC2.Types.InstanceIpv6Address as Types
+import qualified Network.AWS.EC2.Types.InterfaceType as Types
+import qualified Network.AWS.EC2.Types.NetworkInterfaceId as Types
+import qualified Network.AWS.EC2.Types.PrivateIpAddress as Types
+import qualified Network.AWS.EC2.Types.PrivateIpAddressSpecification as Types
+import qualified Network.AWS.EC2.Types.SecurityGroupId as Types
+import qualified Network.AWS.EC2.Types.SubnetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a network interface.
 --
 -- /See:/ 'mkInstanceNetworkInterfaceSpecification' smart constructor.
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
-  { -- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
-    groups :: Lude.Maybe [Lude.Text],
-    -- | One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
-    privateIPAddresses :: Lude.Maybe [PrivateIPAddressSpecification],
-    -- | If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
-    deleteOnTermination :: Lude.Maybe Lude.Bool,
-    -- | Indicates whether to assign a carrier IP address to the network interface.
+  { -- | Indicates whether to assign a carrier IP address to the network interface.
     --
     -- You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.
-    associateCarrierIPAddress :: Lude.Maybe Lude.Bool,
+    associateCarrierIpAddress :: Core.Maybe Core.Bool,
     -- | Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
-    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    associatePublicIpAddress :: Core.Maybe Core.Bool,
+    -- | If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
+    deleteOnTermination :: Core.Maybe Core.Bool,
+    -- | The description of the network interface. Applies only if creating a network interface when launching an instance.
+    description :: Core.Maybe Types.Description,
+    -- | The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+    --
+    -- If you specify a network interface when launching an instance, you must specify the device index.
+    deviceIndex :: Core.Maybe Core.Int,
+    -- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+    groups :: Core.Maybe [Types.SecurityGroupId],
     -- | The type of network interface.
     --
     -- To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
     -- If you are not creating an EFA, specify @interface@ or omit this parameter.
     -- Valid values: @interface@ | @efa@
-    interfaceType :: Lude.Maybe Lude.Text,
+    interfaceType :: Core.Maybe Types.InterfaceType,
+    -- | A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+    ipv6AddressCount :: Core.Maybe Core.Int,
+    -- | One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+    ipv6Addresses :: Core.Maybe [Types.InstanceIpv6Address],
+    -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+    networkCardIndex :: Core.Maybe Core.Int,
     -- | The ID of the network interface.
     --
     -- If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-    ipv6AddressCount :: Lude.Maybe Lude.Int,
-    -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
-    networkCardIndex :: Lude.Maybe Lude.Int,
+    networkInterfaceId :: Core.Maybe Types.NetworkInterfaceId,
     -- | The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
-    privateIPAddress :: Lude.Maybe Lude.Text,
+    privateIpAddress :: Core.Maybe Types.PrivateIpAddress,
+    -- | One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+    privateIpAddresses :: Core.Maybe [Types.PrivateIpAddressSpecification],
     -- | The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
-    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
-    -- | The description of the network interface. Applies only if creating a network interface when launching an instance.
-    description :: Lude.Maybe Lude.Text,
-    -- | The position of the network interface in the attachment order. A primary network interface has a device index of 0.
-    --
-    -- If you specify a network interface when launching an instance, you must specify the device index.
-    deviceIndex :: Lude.Maybe Lude.Int,
-    -- | One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
-    ipv6Addresses :: Lude.Maybe [InstanceIPv6Address]
+    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
+    -- | The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceNetworkInterfaceSpecification' with the minimum fields required to make a request.
---
--- * 'groups' - The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
--- * 'privateIPAddresses' - One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
--- * 'deleteOnTermination' - If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
--- * 'associateCarrierIPAddress' - Indicates whether to assign a carrier IP address to the network interface.
---
--- You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.
--- * 'associatePublicIPAddress' - Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
--- * 'interfaceType' - The type of network interface.
---
--- To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
--- If you are not creating an EFA, specify @interface@ or omit this parameter.
--- Valid values: @interface@ | @efa@
--- * 'networkInterfaceId' - The ID of the network interface.
---
--- If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
--- * 'subnetId' - The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.
--- * 'ipv6AddressCount' - A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
--- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
--- * 'privateIPAddress' - The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
--- * 'description' - The description of the network interface. Applies only if creating a network interface when launching an instance.
--- * 'deviceIndex' - The position of the network interface in the attachment order. A primary network interface has a device index of 0.
---
--- If you specify a network interface when launching an instance, you must specify the device index.
--- * 'ipv6Addresses' - One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+-- | Creates a 'InstanceNetworkInterfaceSpecification' value with any optional fields omitted.
 mkInstanceNetworkInterfaceSpecification ::
   InstanceNetworkInterfaceSpecification
 mkInstanceNetworkInterfaceSpecification =
   InstanceNetworkInterfaceSpecification'
-    { groups = Lude.Nothing,
-      privateIPAddresses = Lude.Nothing,
-      deleteOnTermination = Lude.Nothing,
-      associateCarrierIPAddress = Lude.Nothing,
-      associatePublicIPAddress = Lude.Nothing,
-      interfaceType = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      ipv6AddressCount = Lude.Nothing,
-      networkCardIndex = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      secondaryPrivateIPAddressCount = Lude.Nothing,
-      description = Lude.Nothing,
-      deviceIndex = Lude.Nothing,
-      ipv6Addresses = Lude.Nothing
+    { associateCarrierIpAddress =
+        Core.Nothing,
+      associatePublicIpAddress = Core.Nothing,
+      deleteOnTermination = Core.Nothing,
+      description = Core.Nothing,
+      deviceIndex = Core.Nothing,
+      groups = Core.Nothing,
+      interfaceType = Core.Nothing,
+      ipv6AddressCount = Core.Nothing,
+      ipv6Addresses = Core.Nothing,
+      networkCardIndex = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      privateIpAddresses = Core.Nothing,
+      secondaryPrivateIpAddressCount = Core.Nothing,
+      subnetId = Core.Nothing
     }
-
--- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisGroups :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe [Lude.Text])
-inisGroups = Lens.lens (groups :: InstanceNetworkInterfaceSpecification -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
-
--- | One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
---
--- /Note:/ Consider using 'privateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisPrivateIPAddresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe [PrivateIPAddressSpecification])
-inisPrivateIPAddresses = Lens.lens (privateIPAddresses :: InstanceNetworkInterfaceSpecification -> Lude.Maybe [PrivateIPAddressSpecification]) (\s a -> s {privateIPAddresses = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
-
--- | If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
---
--- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisDeleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Bool)
-inisDeleteOnTermination = Lens.lens (deleteOnTermination :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | Indicates whether to assign a carrier IP address to the network interface.
 --
 -- You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.
 --
--- /Note:/ Consider using 'associateCarrierIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisAssociateCarrierIPAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Bool)
-inisAssociateCarrierIPAddress = Lens.lens (associateCarrierIPAddress :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {associateCarrierIPAddress = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisAssociateCarrierIPAddress "Use generic-lens or generic-optics with 'associateCarrierIPAddress' instead." #-}
+-- /Note:/ Consider using 'associateCarrierIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisAssociateCarrierIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
+inisAssociateCarrierIpAddress = Lens.field @"associateCarrierIpAddress"
+{-# DEPRECATED inisAssociateCarrierIpAddress "Use generic-lens or generic-optics with 'associateCarrierIpAddress' instead." #-}
 
 -- | Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
 --
--- /Note:/ Consider using 'associatePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisAssociatePublicIPAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Bool)
-inisAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {associatePublicIPAddress = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisAssociatePublicIPAddress "Use generic-lens or generic-optics with 'associatePublicIPAddress' instead." #-}
+-- /Note:/ Consider using 'associatePublicIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisAssociatePublicIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
+inisAssociatePublicIpAddress = Lens.field @"associatePublicIpAddress"
+{-# DEPRECATED inisAssociatePublicIpAddress "Use generic-lens or generic-optics with 'associatePublicIpAddress' instead." #-}
+
+-- | If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisDeleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
+inisDeleteOnTermination = Lens.field @"deleteOnTermination"
+{-# DEPRECATED inisDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
+
+-- | The description of the network interface. Applies only if creating a network interface when launching an instance.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisDescription :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Types.Description)
+inisDescription = Lens.field @"description"
+{-# DEPRECATED inisDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+--
+-- If you specify a network interface when launching an instance, you must specify the device index.
+--
+-- /Note:/ Consider using 'deviceIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisDeviceIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
+inisDeviceIndex = Lens.field @"deviceIndex"
+{-# DEPRECATED inisDeviceIndex "Use generic-lens or generic-optics with 'deviceIndex' instead." #-}
+
+-- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisGroups :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe [Types.SecurityGroupId])
+inisGroups = Lens.field @"groups"
+{-# DEPRECATED inisGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The type of network interface.
 --
@@ -180,123 +170,87 @@ inisAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: InstanceNe
 -- Valid values: @interface@ | @efa@
 --
 -- /Note:/ Consider using 'interfaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisInterfaceType :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Text)
-inisInterfaceType = Lens.lens (interfaceType :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {interfaceType = a} :: InstanceNetworkInterfaceSpecification)
+inisInterfaceType :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Types.InterfaceType)
+inisInterfaceType = Lens.field @"interfaceType"
 {-# DEPRECATED inisInterfaceType "Use generic-lens or generic-optics with 'interfaceType' instead." #-}
+
+-- | A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+--
+-- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisIpv6AddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
+inisIpv6AddressCount = Lens.field @"ipv6AddressCount"
+{-# DEPRECATED inisIpv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
+
+-- | One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+--
+-- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisIpv6Addresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe [Types.InstanceIpv6Address])
+inisIpv6Addresses = Lens.field @"ipv6Addresses"
+{-# DEPRECATED inisIpv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
+
+-- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+--
+-- /Note:/ Consider using 'networkCardIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisNetworkCardIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
+inisNetworkCardIndex = Lens.field @"networkCardIndex"
+{-# DEPRECATED inisNetworkCardIndex "Use generic-lens or generic-optics with 'networkCardIndex' instead." #-}
 
 -- | The ID of the network interface.
 --
 -- If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisNetworkInterfaceId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Text)
-inisNetworkInterfaceId = Lens.lens (networkInterfaceId :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: InstanceNetworkInterfaceSpecification)
+inisNetworkInterfaceId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Types.NetworkInterfaceId)
+inisNetworkInterfaceId = Lens.field @"networkInterfaceId"
 {-# DEPRECATED inisNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+--
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisPrivateIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Types.PrivateIpAddress)
+inisPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED inisPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
+
+-- | One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+--
+-- /Note:/ Consider using 'privateIpAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisPrivateIpAddresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe [Types.PrivateIpAddressSpecification])
+inisPrivateIpAddresses = Lens.field @"privateIpAddresses"
+{-# DEPRECATED inisPrivateIpAddresses "Use generic-lens or generic-optics with 'privateIpAddresses' instead." #-}
+
+-- | The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+--
+-- /Note:/ Consider using 'secondaryPrivateIpAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inisSecondaryPrivateIpAddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
+inisSecondaryPrivateIpAddressCount = Lens.field @"secondaryPrivateIpAddressCount"
+{-# DEPRECATED inisSecondaryPrivateIpAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIpAddressCount' instead." #-}
 
 -- | The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisSubnetId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Text)
-inisSubnetId = Lens.lens (subnetId :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: InstanceNetworkInterfaceSpecification)
+inisSubnetId :: Lens.Lens' InstanceNetworkInterfaceSpecification (Core.Maybe Types.SubnetId)
+inisSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED inisSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
--- | A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
---
--- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisIPv6AddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Int)
-inisIPv6AddressCount = Lens.lens (ipv6AddressCount :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Int) (\s a -> s {ipv6AddressCount = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisIPv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
-
--- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
---
--- /Note:/ Consider using 'networkCardIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisNetworkCardIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Int)
-inisNetworkCardIndex = Lens.lens (networkCardIndex :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Int) (\s a -> s {networkCardIndex = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisNetworkCardIndex "Use generic-lens or generic-optics with 'networkCardIndex' instead." #-}
-
--- | The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
---
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisPrivateIPAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Text)
-inisPrivateIPAddress = Lens.lens (privateIPAddress :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
-
--- | The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
---
--- /Note:/ Consider using 'secondaryPrivateIPAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisSecondaryPrivateIPAddressCount :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Int)
-inisSecondaryPrivateIPAddressCount = Lens.lens (secondaryPrivateIPAddressCount :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Int) (\s a -> s {secondaryPrivateIPAddressCount = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisSecondaryPrivateIPAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIPAddressCount' instead." #-}
-
--- | The description of the network interface. Applies only if creating a network interface when launching an instance.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisDescription :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Text)
-inisDescription = Lens.lens (description :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The position of the network interface in the attachment order. A primary network interface has a device index of 0.
---
--- If you specify a network interface when launching an instance, you must specify the device index.
---
--- /Note:/ Consider using 'deviceIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisDeviceIndex :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe Lude.Int)
-inisDeviceIndex = Lens.lens (deviceIndex :: InstanceNetworkInterfaceSpecification -> Lude.Maybe Lude.Int) (\s a -> s {deviceIndex = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisDeviceIndex "Use generic-lens or generic-optics with 'deviceIndex' instead." #-}
-
--- | One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
---
--- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inisIPv6Addresses :: Lens.Lens' InstanceNetworkInterfaceSpecification (Lude.Maybe [InstanceIPv6Address])
-inisIPv6Addresses = Lens.lens (ipv6Addresses :: InstanceNetworkInterfaceSpecification -> Lude.Maybe [InstanceIPv6Address]) (\s a -> s {ipv6Addresses = a} :: InstanceNetworkInterfaceSpecification)
-{-# DEPRECATED inisIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
-
-instance Lude.FromXML InstanceNetworkInterfaceSpecification where
+instance Core.FromXML InstanceNetworkInterfaceSpecification where
   parseXML x =
     InstanceNetworkInterfaceSpecification'
-      Lude.<$> ( x Lude..@? "SecurityGroupId" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "SecurityGroupId")
+      Core.<$> (x Core..@? "AssociateCarrierIpAddress")
+      Core.<*> (x Core..@? "associatePublicIpAddress")
+      Core.<*> (x Core..@? "deleteOnTermination")
+      Core.<*> (x Core..@? "description")
+      Core.<*> (x Core..@? "deviceIndex")
+      Core.<*> ( x Core..@? "SecurityGroupId"
+                   Core..<@> Core.parseXMLList "SecurityGroupId"
                )
-      Lude.<*> ( x Lude..@? "privateIpAddressesSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> (x Core..@? "InterfaceType")
+      Core.<*> (x Core..@? "ipv6AddressCount")
+      Core.<*> (x Core..@? "ipv6AddressesSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "NetworkCardIndex")
+      Core.<*> (x Core..@? "networkInterfaceId")
+      Core.<*> (x Core..@? "privateIpAddress")
+      Core.<*> ( x Core..@? "privateIpAddressesSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "deleteOnTermination")
-      Lude.<*> (x Lude..@? "AssociateCarrierIpAddress")
-      Lude.<*> (x Lude..@? "associatePublicIpAddress")
-      Lude.<*> (x Lude..@? "InterfaceType")
-      Lude.<*> (x Lude..@? "networkInterfaceId")
-      Lude.<*> (x Lude..@? "subnetId")
-      Lude.<*> (x Lude..@? "ipv6AddressCount")
-      Lude.<*> (x Lude..@? "NetworkCardIndex")
-      Lude.<*> (x Lude..@? "privateIpAddress")
-      Lude.<*> (x Lude..@? "secondaryPrivateIpAddressCount")
-      Lude.<*> (x Lude..@? "description")
-      Lude.<*> (x Lude..@? "deviceIndex")
-      Lude.<*> ( x Lude..@? "ipv6AddressesSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-
-instance Lude.ToQuery InstanceNetworkInterfaceSpecification where
-  toQuery InstanceNetworkInterfaceSpecification' {..} =
-    Lude.mconcat
-      [ Lude.toQuery (Lude.toQueryList "SecurityGroupId" Lude.<$> groups),
-        Lude.toQuery
-          ( Lude.toQueryList "PrivateIpAddresses"
-              Lude.<$> privateIPAddresses
-          ),
-        "DeleteOnTermination" Lude.=: deleteOnTermination,
-        "AssociateCarrierIpAddress" Lude.=: associateCarrierIPAddress,
-        "AssociatePublicIpAddress" Lude.=: associatePublicIPAddress,
-        "InterfaceType" Lude.=: interfaceType,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "SubnetId" Lude.=: subnetId,
-        "Ipv6AddressCount" Lude.=: ipv6AddressCount,
-        "NetworkCardIndex" Lude.=: networkCardIndex,
-        "PrivateIpAddress" Lude.=: privateIPAddress,
-        "SecondaryPrivateIpAddressCount"
-          Lude.=: secondaryPrivateIPAddressCount,
-        "Description" Lude.=: description,
-        "DeviceIndex" Lude.=: deviceIndex,
-        Lude.toQuery
-          (Lude.toQueryList "Ipv6Addresses" Lude.<$> ipv6Addresses)
-      ]
+      Core.<*> (x Core..@? "secondaryPrivateIpAddressCount")
+      Core.<*> (x Core..@? "subnetId")

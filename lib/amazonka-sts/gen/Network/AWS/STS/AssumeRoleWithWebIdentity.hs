@@ -49,146 +49,112 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     mkAssumeRoleWithWebIdentity,
 
     -- ** Request lenses
-    arwwiProviderId,
+    arwwiRoleArn,
     arwwiRoleSessionName,
-    arwwiPolicyARNs,
     arwwiWebIdentityToken,
     arwwiDurationSeconds,
     arwwiPolicy,
-    arwwiRoleARN,
+    arwwiPolicyArns,
+    arwwiProviderId,
 
     -- * Destructuring the response
     AssumeRoleWithWebIdentityResponse (..),
     mkAssumeRoleWithWebIdentityResponse,
 
     -- ** Response lenses
-    arwwirsAudience,
-    arwwirsSubjectFromWebIdentityToken,
-    arwwirsPackedPolicySize,
-    arwwirsCredentials,
-    arwwirsAssumedRoleUser,
-    arwwirsProvider,
-    arwwirsResponseStatus,
+    arwwirrsAssumedRoleUser,
+    arwwirrsAudience,
+    arwwirrsCredentials,
+    arwwirrsPackedPolicySize,
+    arwwirrsProvider,
+    arwwirrsSubjectFromWebIdentityToken,
+    arwwirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.STS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.STS.Types as Types
 
 -- | /See:/ 'mkAssumeRoleWithWebIdentity' smart constructor.
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
-  { -- | The fully qualified host component of the domain name of the identity provider.
-    --
-    -- Specify this value only for OAuth 2.0 access tokens. Currently @www.amazon.com@ and @graph.facebook.com@ are the only supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port numbers.
-    -- Do not specify this value for OpenID Connect ID tokens.
-    providerId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
+    roleArn :: Types.RoleArn,
     -- | An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element.
     --
     -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
-    roleSessionName :: Lude.Text,
-    -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
-    --
-    -- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
-    -- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
-    policyARNs :: Lude.Maybe [PolicyDescriptorType],
+    roleSessionName :: Types.RoleSessionName,
     -- | The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider. Your application must get this token by authenticating the user who is using your application with a web identity provider before the application makes an @AssumeRoleWithWebIdentity@ call.
-    webIdentityToken :: Lude.Text,
+    webIdentityToken :: Types.WebIdentityToken,
     -- | The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
     --
     -- By default, the value is set to @3600@ seconds.
-    durationSeconds :: Lude.Maybe Lude.Natural,
+    durationSeconds :: Core.Maybe Core.Natural,
     -- | An IAM policy in JSON format that you want to use as an inline session policy.
     --
     -- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
     -- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
-    policy :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-    roleARN :: Lude.Text
+    policy :: Core.Maybe Types.Policy,
+    -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
+    --
+    -- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
+    -- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+    policyArns :: Core.Maybe [Types.PolicyDescriptorType],
+    -- | The fully qualified host component of the domain name of the identity provider.
+    --
+    -- Specify this value only for OAuth 2.0 access tokens. Currently @www.amazon.com@ and @graph.facebook.com@ are the only supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port numbers.
+    -- Do not specify this value for OpenID Connect ID tokens.
+    providerId :: Core.Maybe Types.ProviderId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssumeRoleWithWebIdentity' with the minimum fields required to make a request.
---
--- * 'providerId' - The fully qualified host component of the domain name of the identity provider.
---
--- Specify this value only for OAuth 2.0 access tokens. Currently @www.amazon.com@ and @graph.facebook.com@ are the only supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port numbers.
--- Do not specify this value for OpenID Connect ID tokens.
--- * 'roleSessionName' - An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element.
---
--- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
--- * 'policyARNs' - The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
---
--- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
--- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
--- * 'webIdentityToken' - The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider. Your application must get this token by authenticating the user who is using your application with a web identity provider before the application makes an @AssumeRoleWithWebIdentity@ call.
--- * 'durationSeconds' - The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
---
--- By default, the value is set to @3600@ seconds.
--- * 'policy' - An IAM policy in JSON format that you want to use as an inline session policy.
---
--- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
--- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
+-- | Creates a 'AssumeRoleWithWebIdentity' value with any optional fields omitted.
 mkAssumeRoleWithWebIdentity ::
+  -- | 'roleArn'
+  Types.RoleArn ->
   -- | 'roleSessionName'
-  Lude.Text ->
+  Types.RoleSessionName ->
   -- | 'webIdentityToken'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.WebIdentityToken ->
   AssumeRoleWithWebIdentity
 mkAssumeRoleWithWebIdentity
-  pRoleSessionName_
-  pWebIdentityToken_
-  pRoleARN_ =
+  roleArn
+  roleSessionName
+  webIdentityToken =
     AssumeRoleWithWebIdentity'
-      { providerId = Lude.Nothing,
-        roleSessionName = pRoleSessionName_,
-        policyARNs = Lude.Nothing,
-        webIdentityToken = pWebIdentityToken_,
-        durationSeconds = Lude.Nothing,
-        policy = Lude.Nothing,
-        roleARN = pRoleARN_
+      { roleArn,
+        roleSessionName,
+        webIdentityToken,
+        durationSeconds = Core.Nothing,
+        policy = Core.Nothing,
+        policyArns = Core.Nothing,
+        providerId = Core.Nothing
       }
 
--- | The fully qualified host component of the domain name of the identity provider.
+-- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
 --
--- Specify this value only for OAuth 2.0 access tokens. Currently @www.amazon.com@ and @graph.facebook.com@ are the only supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port numbers.
--- Do not specify this value for OpenID Connect ID tokens.
---
--- /Note:/ Consider using 'providerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiProviderId :: Lens.Lens' AssumeRoleWithWebIdentity (Lude.Maybe Lude.Text)
-arwwiProviderId = Lens.lens (providerId :: AssumeRoleWithWebIdentity -> Lude.Maybe Lude.Text) (\s a -> s {providerId = a} :: AssumeRoleWithWebIdentity)
-{-# DEPRECATED arwwiProviderId "Use generic-lens or generic-optics with 'providerId' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwiRoleArn :: Lens.Lens' AssumeRoleWithWebIdentity Types.RoleArn
+arwwiRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED arwwiRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element.
 --
 -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
 --
 -- /Note:/ Consider using 'roleSessionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiRoleSessionName :: Lens.Lens' AssumeRoleWithWebIdentity Lude.Text
-arwwiRoleSessionName = Lens.lens (roleSessionName :: AssumeRoleWithWebIdentity -> Lude.Text) (\s a -> s {roleSessionName = a} :: AssumeRoleWithWebIdentity)
+arwwiRoleSessionName :: Lens.Lens' AssumeRoleWithWebIdentity Types.RoleSessionName
+arwwiRoleSessionName = Lens.field @"roleSessionName"
 {-# DEPRECATED arwwiRoleSessionName "Use generic-lens or generic-optics with 'roleSessionName' instead." #-}
-
--- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
---
--- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
--- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'policyARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiPolicyARNs :: Lens.Lens' AssumeRoleWithWebIdentity (Lude.Maybe [PolicyDescriptorType])
-arwwiPolicyARNs = Lens.lens (policyARNs :: AssumeRoleWithWebIdentity -> Lude.Maybe [PolicyDescriptorType]) (\s a -> s {policyARNs = a} :: AssumeRoleWithWebIdentity)
-{-# DEPRECATED arwwiPolicyARNs "Use generic-lens or generic-optics with 'policyARNs' instead." #-}
 
 -- | The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider. Your application must get this token by authenticating the user who is using your application with a web identity provider before the application makes an @AssumeRoleWithWebIdentity@ call.
 --
 -- /Note:/ Consider using 'webIdentityToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiWebIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentity Lude.Text
-arwwiWebIdentityToken = Lens.lens (webIdentityToken :: AssumeRoleWithWebIdentity -> Lude.Text) (\s a -> s {webIdentityToken = a} :: AssumeRoleWithWebIdentity)
+arwwiWebIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentity Types.WebIdentityToken
+arwwiWebIdentityToken = Lens.field @"webIdentityToken"
 {-# DEPRECATED arwwiWebIdentityToken "Use generic-lens or generic-optics with 'webIdentityToken' instead." #-}
 
 -- | The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
@@ -196,8 +162,8 @@ arwwiWebIdentityToken = Lens.lens (webIdentityToken :: AssumeRoleWithWebIdentity
 -- By default, the value is set to @3600@ seconds.
 --
 -- /Note:/ Consider using 'durationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiDurationSeconds :: Lens.Lens' AssumeRoleWithWebIdentity (Lude.Maybe Lude.Natural)
-arwwiDurationSeconds = Lens.lens (durationSeconds :: AssumeRoleWithWebIdentity -> Lude.Maybe Lude.Natural) (\s a -> s {durationSeconds = a} :: AssumeRoleWithWebIdentity)
+arwwiDurationSeconds :: Lens.Lens' AssumeRoleWithWebIdentity (Core.Maybe Core.Natural)
+arwwiDurationSeconds = Lens.field @"durationSeconds"
 {-# DEPRECATED arwwiDurationSeconds "Use generic-lens or generic-optics with 'durationSeconds' instead." #-}
 
 -- | An IAM policy in JSON format that you want to use as an inline session policy.
@@ -206,148 +172,159 @@ arwwiDurationSeconds = Lens.lens (durationSeconds :: AssumeRoleWithWebIdentity -
 -- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiPolicy :: Lens.Lens' AssumeRoleWithWebIdentity (Lude.Maybe Lude.Text)
-arwwiPolicy = Lens.lens (policy :: AssumeRoleWithWebIdentity -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: AssumeRoleWithWebIdentity)
+arwwiPolicy :: Lens.Lens' AssumeRoleWithWebIdentity (Core.Maybe Types.Policy)
+arwwiPolicy = Lens.field @"policy"
 {-# DEPRECATED arwwiPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
+-- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwiRoleARN :: Lens.Lens' AssumeRoleWithWebIdentity Lude.Text
-arwwiRoleARN = Lens.lens (roleARN :: AssumeRoleWithWebIdentity -> Lude.Text) (\s a -> s {roleARN = a} :: AssumeRoleWithWebIdentity)
-{-# DEPRECATED arwwiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
+-- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'policyArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwiPolicyArns :: Lens.Lens' AssumeRoleWithWebIdentity (Core.Maybe [Types.PolicyDescriptorType])
+arwwiPolicyArns = Lens.field @"policyArns"
+{-# DEPRECATED arwwiPolicyArns "Use generic-lens or generic-optics with 'policyArns' instead." #-}
 
-instance Lude.AWSRequest AssumeRoleWithWebIdentity where
+-- | The fully qualified host component of the domain name of the identity provider.
+--
+-- Specify this value only for OAuth 2.0 access tokens. Currently @www.amazon.com@ and @graph.facebook.com@ are the only supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port numbers.
+-- Do not specify this value for OpenID Connect ID tokens.
+--
+-- /Note:/ Consider using 'providerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwiProviderId :: Lens.Lens' AssumeRoleWithWebIdentity (Core.Maybe Types.ProviderId)
+arwwiProviderId = Lens.field @"providerId"
+{-# DEPRECATED arwwiProviderId "Use generic-lens or generic-optics with 'providerId' instead." #-}
+
+instance Core.AWSRequest AssumeRoleWithWebIdentity where
   type
     Rs AssumeRoleWithWebIdentity =
       AssumeRoleWithWebIdentityResponse
-  request = Req.postQuery stsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AssumeRoleWithWebIdentity")
+                Core.<> (Core.pure ("Version", "2011-06-15"))
+                Core.<> (Core.toQueryValue "RoleArn" roleArn)
+                Core.<> (Core.toQueryValue "RoleSessionName" roleSessionName)
+                Core.<> (Core.toQueryValue "WebIdentityToken" webIdentityToken)
+                Core.<> (Core.toQueryValue "DurationSeconds" Core.<$> durationSeconds)
+                Core.<> (Core.toQueryValue "Policy" Core.<$> policy)
+                Core.<> ( Core.toQueryValue
+                            "PolicyArns"
+                            (Core.toQueryList "member" Core.<$> policyArns)
+                        )
+                Core.<> (Core.toQueryValue "ProviderId" Core.<$> providerId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "AssumeRoleWithWebIdentityResult"
       ( \s h x ->
           AssumeRoleWithWebIdentityResponse'
-            Lude.<$> (x Lude..@? "Audience")
-            Lude.<*> (x Lude..@? "SubjectFromWebIdentityToken")
-            Lude.<*> (x Lude..@? "PackedPolicySize")
-            Lude.<*> (x Lude..@? "Credentials")
-            Lude.<*> (x Lude..@? "AssumedRoleUser")
-            Lude.<*> (x Lude..@? "Provider")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "AssumedRoleUser")
+            Core.<*> (x Core..@? "Audience")
+            Core.<*> (x Core..@? "Credentials")
+            Core.<*> (x Core..@? "PackedPolicySize")
+            Core.<*> (x Core..@? "Provider")
+            Core.<*> (x Core..@? "SubjectFromWebIdentityToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssumeRoleWithWebIdentity where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AssumeRoleWithWebIdentity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssumeRoleWithWebIdentity where
-  toQuery AssumeRoleWithWebIdentity' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AssumeRoleWithWebIdentity" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-06-15" :: Lude.ByteString),
-        "ProviderId" Lude.=: providerId,
-        "RoleSessionName" Lude.=: roleSessionName,
-        "PolicyArns"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> policyARNs),
-        "WebIdentityToken" Lude.=: webIdentityToken,
-        "DurationSeconds" Lude.=: durationSeconds,
-        "Policy" Lude.=: policy,
-        "RoleArn" Lude.=: roleARN
-      ]
 
 -- | Contains the response to a successful 'AssumeRoleWithWebIdentity' request, including temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'mkAssumeRoleWithWebIdentityResponse' smart constructor.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
-  { -- | The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.
-    audience :: Lude.Maybe Lude.Text,
-    -- | The unique user identifier that is returned by the identity provider. This identifier is associated with the @WebIdentityToken@ that was submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is typically unique to the user and the application that acquired the @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's @sub@ (Subject) claim.
-    subjectFromWebIdentityToken :: Lude.Maybe Lude.Text,
-    -- | A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
-    packedPolicySize :: Lude.Maybe Lude.Natural,
+  { -- | The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
+    assumedRoleUser :: Core.Maybe Types.AssumedRoleUser,
+    -- | The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.
+    audience :: Core.Maybe Types.Audience,
     -- | The temporary security credentials, which include an access key ID, a secret access key, and a security token.
-    credentials :: Lude.Maybe AuthEnv,
-    -- | The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
-    assumedRoleUser :: Lude.Maybe AssumedRoleUser,
+    credentials :: Core.Maybe Types.AuthEnv,
+    -- | A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
+    packedPolicySize :: Core.Maybe Core.Natural,
     -- | The issuing authority of the web identity token presented. For OpenID Connect ID tokens, this contains the value of the @iss@ field. For OAuth 2.0 access tokens, this contains the value of the @ProviderId@ parameter that was passed in the @AssumeRoleWithWebIdentity@ request.
-    provider :: Lude.Maybe Lude.Text,
+    provider :: Core.Maybe Types.Provider,
+    -- | The unique user identifier that is returned by the identity provider. This identifier is associated with the @WebIdentityToken@ that was submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is typically unique to the user and the application that acquired the @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's @sub@ (Subject) claim.
+    subjectFromWebIdentityToken :: Core.Maybe Types.WebIdentitySubjectType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssumeRoleWithWebIdentityResponse' with the minimum fields required to make a request.
---
--- * 'audience' - The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.
--- * 'subjectFromWebIdentityToken' - The unique user identifier that is returned by the identity provider. This identifier is associated with the @WebIdentityToken@ that was submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is typically unique to the user and the application that acquired the @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's @sub@ (Subject) claim.
--- * 'packedPolicySize' - A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
--- * 'credentials' - The temporary security credentials, which include an access key ID, a secret access key, and a security token.
--- * 'assumedRoleUser' - The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
--- * 'provider' - The issuing authority of the web identity token presented. For OpenID Connect ID tokens, this contains the value of the @iss@ field. For OAuth 2.0 access tokens, this contains the value of the @ProviderId@ parameter that was passed in the @AssumeRoleWithWebIdentity@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssumeRoleWithWebIdentityResponse' value with any optional fields omitted.
 mkAssumeRoleWithWebIdentityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssumeRoleWithWebIdentityResponse
-mkAssumeRoleWithWebIdentityResponse pResponseStatus_ =
+mkAssumeRoleWithWebIdentityResponse responseStatus =
   AssumeRoleWithWebIdentityResponse'
-    { audience = Lude.Nothing,
-      subjectFromWebIdentityToken = Lude.Nothing,
-      packedPolicySize = Lude.Nothing,
-      credentials = Lude.Nothing,
-      assumedRoleUser = Lude.Nothing,
-      provider = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { assumedRoleUser =
+        Core.Nothing,
+      audience = Core.Nothing,
+      credentials = Core.Nothing,
+      packedPolicySize = Core.Nothing,
+      provider = Core.Nothing,
+      subjectFromWebIdentityToken = Core.Nothing,
+      responseStatus
     }
-
--- | The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.
---
--- /Note:/ Consider using 'audience' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsAudience :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Lude.Maybe Lude.Text)
-arwwirsAudience = Lens.lens (audience :: AssumeRoleWithWebIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {audience = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsAudience "Use generic-lens or generic-optics with 'audience' instead." #-}
-
--- | The unique user identifier that is returned by the identity provider. This identifier is associated with the @WebIdentityToken@ that was submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is typically unique to the user and the application that acquired the @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's @sub@ (Subject) claim.
---
--- /Note:/ Consider using 'subjectFromWebIdentityToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsSubjectFromWebIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Lude.Maybe Lude.Text)
-arwwirsSubjectFromWebIdentityToken = Lens.lens (subjectFromWebIdentityToken :: AssumeRoleWithWebIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {subjectFromWebIdentityToken = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsSubjectFromWebIdentityToken "Use generic-lens or generic-optics with 'subjectFromWebIdentityToken' instead." #-}
-
--- | A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
---
--- /Note:/ Consider using 'packedPolicySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsPackedPolicySize :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Lude.Maybe Lude.Natural)
-arwwirsPackedPolicySize = Lens.lens (packedPolicySize :: AssumeRoleWithWebIdentityResponse -> Lude.Maybe Lude.Natural) (\s a -> s {packedPolicySize = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsPackedPolicySize "Use generic-lens or generic-optics with 'packedPolicySize' instead." #-}
-
--- | The temporary security credentials, which include an access key ID, a secret access key, and a security token.
---
--- /Note:/ Consider using 'credentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsCredentials :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Lude.Maybe AuthEnv)
-arwwirsCredentials = Lens.lens (credentials :: AssumeRoleWithWebIdentityResponse -> Lude.Maybe AuthEnv) (\s a -> s {credentials = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsCredentials "Use generic-lens or generic-optics with 'credentials' instead." #-}
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
 --
 -- /Note:/ Consider using 'assumedRoleUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsAssumedRoleUser :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Lude.Maybe AssumedRoleUser)
-arwwirsAssumedRoleUser = Lens.lens (assumedRoleUser :: AssumeRoleWithWebIdentityResponse -> Lude.Maybe AssumedRoleUser) (\s a -> s {assumedRoleUser = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsAssumedRoleUser "Use generic-lens or generic-optics with 'assumedRoleUser' instead." #-}
+arwwirrsAssumedRoleUser :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Core.Maybe Types.AssumedRoleUser)
+arwwirrsAssumedRoleUser = Lens.field @"assumedRoleUser"
+{-# DEPRECATED arwwirrsAssumedRoleUser "Use generic-lens or generic-optics with 'assumedRoleUser' instead." #-}
+
+-- | The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.
+--
+-- /Note:/ Consider using 'audience' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwirrsAudience :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Core.Maybe Types.Audience)
+arwwirrsAudience = Lens.field @"audience"
+{-# DEPRECATED arwwirrsAudience "Use generic-lens or generic-optics with 'audience' instead." #-}
+
+-- | The temporary security credentials, which include an access key ID, a secret access key, and a security token.
+--
+-- /Note:/ Consider using 'credentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwirrsCredentials :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Core.Maybe Types.AuthEnv)
+arwwirrsCredentials = Lens.field @"credentials"
+{-# DEPRECATED arwwirrsCredentials "Use generic-lens or generic-optics with 'credentials' instead." #-}
+
+-- | A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
+--
+-- /Note:/ Consider using 'packedPolicySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwirrsPackedPolicySize :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Core.Maybe Core.Natural)
+arwwirrsPackedPolicySize = Lens.field @"packedPolicySize"
+{-# DEPRECATED arwwirrsPackedPolicySize "Use generic-lens or generic-optics with 'packedPolicySize' instead." #-}
 
 -- | The issuing authority of the web identity token presented. For OpenID Connect ID tokens, this contains the value of the @iss@ field. For OAuth 2.0 access tokens, this contains the value of the @ProviderId@ parameter that was passed in the @AssumeRoleWithWebIdentity@ request.
 --
 -- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsProvider :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Lude.Maybe Lude.Text)
-arwwirsProvider = Lens.lens (provider :: AssumeRoleWithWebIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {provider = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
+arwwirrsProvider :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Core.Maybe Types.Provider)
+arwwirrsProvider = Lens.field @"provider"
+{-# DEPRECATED arwwirrsProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
+
+-- | The unique user identifier that is returned by the identity provider. This identifier is associated with the @WebIdentityToken@ that was submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is typically unique to the user and the application that acquired the @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's @sub@ (Subject) claim.
+--
+-- /Note:/ Consider using 'subjectFromWebIdentityToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwwirrsSubjectFromWebIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Core.Maybe Types.WebIdentitySubjectType)
+arwwirrsSubjectFromWebIdentityToken = Lens.field @"subjectFromWebIdentityToken"
+{-# DEPRECATED arwwirrsSubjectFromWebIdentityToken "Use generic-lens or generic-optics with 'subjectFromWebIdentityToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwwirsResponseStatus :: Lens.Lens' AssumeRoleWithWebIdentityResponse Lude.Int
-arwwirsResponseStatus = Lens.lens (responseStatus :: AssumeRoleWithWebIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssumeRoleWithWebIdentityResponse)
-{-# DEPRECATED arwwirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+arwwirrsResponseStatus :: Lens.Lens' AssumeRoleWithWebIdentityResponse Core.Int
+arwwirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED arwwirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

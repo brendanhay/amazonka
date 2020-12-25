@@ -29,137 +29,135 @@ module Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
     mkEnableTransitGatewayRouteTablePropagationResponse,
 
     -- ** Response lenses
-    etgrtprsPropagation,
-    etgrtprsResponseStatus,
+    etgrtprrsPropagation,
+    etgrtprrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableTransitGatewayRouteTablePropagation' smart constructor.
 data EnableTransitGatewayRouteTablePropagation = EnableTransitGatewayRouteTablePropagation'
   { -- | The ID of the propagation route table.
-    transitGatewayRouteTableId :: Lude.Text,
+    transitGatewayRouteTableId :: Types.TransitGatewayRouteTableId,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Lude.Text,
+    transitGatewayAttachmentId :: Types.TransitGatewayAttachmentId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableTransitGatewayRouteTablePropagation' with the minimum fields required to make a request.
---
--- * 'transitGatewayRouteTableId' - The ID of the propagation route table.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'EnableTransitGatewayRouteTablePropagation' value with any optional fields omitted.
 mkEnableTransitGatewayRouteTablePropagation ::
   -- | 'transitGatewayRouteTableId'
-  Lude.Text ->
+  Types.TransitGatewayRouteTableId ->
   -- | 'transitGatewayAttachmentId'
-  Lude.Text ->
+  Types.TransitGatewayAttachmentId ->
   EnableTransitGatewayRouteTablePropagation
 mkEnableTransitGatewayRouteTablePropagation
-  pTransitGatewayRouteTableId_
-  pTransitGatewayAttachmentId_ =
+  transitGatewayRouteTableId
+  transitGatewayAttachmentId =
     EnableTransitGatewayRouteTablePropagation'
-      { transitGatewayRouteTableId =
-          pTransitGatewayRouteTableId_,
-        transitGatewayAttachmentId =
-          pTransitGatewayAttachmentId_,
-        dryRun = Lude.Nothing
+      { transitGatewayRouteTableId,
+        transitGatewayAttachmentId,
+        dryRun = Core.Nothing
       }
 
 -- | The ID of the propagation route table.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrtpTransitGatewayRouteTableId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Lude.Text
-etgrtpTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: EnableTransitGatewayRouteTablePropagation -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: EnableTransitGatewayRouteTablePropagation)
+etgrtpTransitGatewayRouteTableId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Types.TransitGatewayRouteTableId
+etgrtpTransitGatewayRouteTableId = Lens.field @"transitGatewayRouteTableId"
 {-# DEPRECATED etgrtpTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | The ID of the attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrtpTransitGatewayAttachmentId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Lude.Text
-etgrtpTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: EnableTransitGatewayRouteTablePropagation -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: EnableTransitGatewayRouteTablePropagation)
+etgrtpTransitGatewayAttachmentId :: Lens.Lens' EnableTransitGatewayRouteTablePropagation Types.TransitGatewayAttachmentId
+etgrtpTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
 {-# DEPRECATED etgrtpTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrtpDryRun :: Lens.Lens' EnableTransitGatewayRouteTablePropagation (Lude.Maybe Lude.Bool)
-etgrtpDryRun = Lens.lens (dryRun :: EnableTransitGatewayRouteTablePropagation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableTransitGatewayRouteTablePropagation)
+etgrtpDryRun :: Lens.Lens' EnableTransitGatewayRouteTablePropagation (Core.Maybe Core.Bool)
+etgrtpDryRun = Lens.field @"dryRun"
 {-# DEPRECATED etgrtpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest EnableTransitGatewayRouteTablePropagation where
+instance Core.AWSRequest EnableTransitGatewayRouteTablePropagation where
   type
     Rs EnableTransitGatewayRouteTablePropagation =
       EnableTransitGatewayRouteTablePropagationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnableTransitGatewayRouteTablePropagation")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "TransitGatewayRouteTableId"
+                            transitGatewayRouteTableId
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TransitGatewayAttachmentId"
+                            transitGatewayAttachmentId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           EnableTransitGatewayRouteTablePropagationResponse'
-            Lude.<$> (x Lude..@? "propagation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "propagation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableTransitGatewayRouteTablePropagation where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnableTransitGatewayRouteTablePropagation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableTransitGatewayRouteTablePropagation where
-  toQuery EnableTransitGatewayRouteTablePropagation' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("EnableTransitGatewayRouteTablePropagation" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
-        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkEnableTransitGatewayRouteTablePropagationResponse' smart constructor.
 data EnableTransitGatewayRouteTablePropagationResponse = EnableTransitGatewayRouteTablePropagationResponse'
   { -- | Information about route propagation.
-    propagation :: Lude.Maybe TransitGatewayPropagation,
+    propagation :: Core.Maybe Types.TransitGatewayPropagation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableTransitGatewayRouteTablePropagationResponse' with the minimum fields required to make a request.
---
--- * 'propagation' - Information about route propagation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableTransitGatewayRouteTablePropagationResponse' value with any optional fields omitted.
 mkEnableTransitGatewayRouteTablePropagationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableTransitGatewayRouteTablePropagationResponse
-mkEnableTransitGatewayRouteTablePropagationResponse
-  pResponseStatus_ =
-    EnableTransitGatewayRouteTablePropagationResponse'
-      { propagation =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
+mkEnableTransitGatewayRouteTablePropagationResponse responseStatus =
+  EnableTransitGatewayRouteTablePropagationResponse'
+    { propagation =
+        Core.Nothing,
+      responseStatus
+    }
 
 -- | Information about route propagation.
 --
 -- /Note:/ Consider using 'propagation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrtprsPropagation :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse (Lude.Maybe TransitGatewayPropagation)
-etgrtprsPropagation = Lens.lens (propagation :: EnableTransitGatewayRouteTablePropagationResponse -> Lude.Maybe TransitGatewayPropagation) (\s a -> s {propagation = a} :: EnableTransitGatewayRouteTablePropagationResponse)
-{-# DEPRECATED etgrtprsPropagation "Use generic-lens or generic-optics with 'propagation' instead." #-}
+etgrtprrsPropagation :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse (Core.Maybe Types.TransitGatewayPropagation)
+etgrtprrsPropagation = Lens.field @"propagation"
+{-# DEPRECATED etgrtprrsPropagation "Use generic-lens or generic-optics with 'propagation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrtprsResponseStatus :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse Lude.Int
-etgrtprsResponseStatus = Lens.lens (responseStatus :: EnableTransitGatewayRouteTablePropagationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableTransitGatewayRouteTablePropagationResponse)
-{-# DEPRECATED etgrtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+etgrtprrsResponseStatus :: Lens.Lens' EnableTransitGatewayRouteTablePropagationResponse Core.Int
+etgrtprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED etgrtprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

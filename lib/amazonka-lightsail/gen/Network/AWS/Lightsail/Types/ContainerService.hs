@@ -17,40 +17,90 @@ module Network.AWS.Lightsail.Types.ContainerService
     mkContainerService,
 
     -- * Lenses
-    csState,
-    csPowerId,
-    csResourceType,
     csArn,
-    csCreatedAt,
-    csLocation,
-    csScale,
-    csUrl,
-    csNextDeployment,
-    csPrincipalARN,
-    csPower,
-    csPrivateDomainName,
-    csIsDisabled,
-    csPublicDomainNames,
     csContainerServiceName,
+    csCreatedAt,
     csCurrentDeployment,
+    csIsDisabled,
+    csLocation,
+    csNextDeployment,
+    csPower,
+    csPowerId,
+    csPrincipalArn,
+    csPrivateDomainName,
+    csPublicDomainNames,
+    csResourceType,
+    csScale,
+    csState,
     csTags,
+    csUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ContainerServiceDeployment
-import Network.AWS.Lightsail.Types.ContainerServicePowerName
-import Network.AWS.Lightsail.Types.ContainerServiceState
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Lightsail.Types.Tag
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Arn as Types
+import qualified Network.AWS.Lightsail.Types.ContainerServiceDeployment as Types
+import qualified Network.AWS.Lightsail.Types.ContainerServiceName as Types
+import qualified Network.AWS.Lightsail.Types.ContainerServicePowerName as Types
+import qualified Network.AWS.Lightsail.Types.ContainerServiceState as Types
+import qualified Network.AWS.Lightsail.Types.PowerId as Types
+import qualified Network.AWS.Lightsail.Types.PrincipalArn as Types
+import qualified Network.AWS.Lightsail.Types.PrivateDomainName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceLocation as Types
+import qualified Network.AWS.Lightsail.Types.ResourceType as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Lightsail.Types.Tag as Types
+import qualified Network.AWS.Lightsail.Types.Url as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Amazon Lightsail container service.
 --
 -- /See:/ 'mkContainerService' smart constructor.
 data ContainerService = ContainerService'
-  { -- | The current state of the container service.
+  { -- | The Amazon Resource Name (ARN) of the container service.
+    arn :: Core.Maybe Types.Arn,
+    -- | The name of the container service.
+    containerServiceName :: Core.Maybe Types.ContainerServiceName,
+    -- | The timestamp when the container service was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | An object that describes the current container deployment of the container service.
+    currentDeployment :: Core.Maybe Types.ContainerServiceDeployment,
+    -- | A Boolean value indicating whether the container service is disabled.
+    isDisabled :: Core.Maybe Core.Bool,
+    -- | An object that describes the location of the container service, such as the AWS Region and Availability Zone.
+    location :: Core.Maybe Types.ResourceLocation,
+    -- | An object that describes the next deployment of the container service.
+    --
+    -- This value is @null@ when there is no deployment in a @pending@ state.
+    nextDeployment :: Core.Maybe Types.ContainerServiceDeployment,
+    -- | The power specification of the container service.
+    --
+    -- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
+    power :: Core.Maybe Types.ContainerServicePowerName,
+    -- | The ID of the power of the container service.
+    powerId :: Core.Maybe Types.PowerId,
+    -- | The principal ARN of the container service.
+    --
+    -- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
+    principalArn :: Core.Maybe Types.PrincipalArn,
+    -- | The private domain name of the container service.
+    --
+    -- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+    privateDomainName :: Core.Maybe Types.PrivateDomainName,
+    -- | The public domain name of the container service, such as @example.com@ and @www.example.com@ .
+    --
+    -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
+    -- If you don't specify public domain names, then you can use the default domain of the container service.
+    -- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
+    -- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
+    publicDomainNames :: Core.Maybe (Core.HashMap Types.String [Types.String]),
+    -- | The Lightsail resource type of the container service (i.e., @ContainerService@ ).
+    resourceType :: Core.Maybe Types.ResourceType,
+    -- | The scale specification of the container service.
+    --
+    -- The scale specifies the allocated compute nodes of the container service.
+    scale :: Core.Maybe Core.Natural,
+    -- | The current state of the container service.
     --
     -- The state can be:
     --
@@ -70,139 +120,153 @@ data ContainerService = ContainerService'
     --
     --
     --     * @Running@ - The container service is created and it has a container deployment.
-    state :: Lude.Maybe ContainerServiceState,
-    -- | The ID of the power of the container service.
-    powerId :: Lude.Maybe Lude.Text,
-    -- | The Lightsail resource type of the container service (i.e., @ContainerService@ ).
-    resourceType :: Lude.Maybe ResourceType,
-    -- | The Amazon Resource Name (ARN) of the container service.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The timestamp when the container service was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | An object that describes the location of the container service, such as the AWS Region and Availability Zone.
-    location :: Lude.Maybe ResourceLocation,
-    -- | The scale specification of the container service.
-    --
-    -- The scale specifies the allocated compute nodes of the container service.
-    scale :: Lude.Maybe Lude.Natural,
+    state :: Core.Maybe Types.ContainerServiceState,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+    tags :: Core.Maybe [Types.Tag],
     -- | The publicly accessible URL of the container service.
     --
     -- If no public endpoint is specified in the @currentDeployment@ , this URL returns a 404 response.
-    url :: Lude.Maybe Lude.Text,
-    -- | An object that describes the next deployment of the container service.
-    --
-    -- This value is @null@ when there is no deployment in a @pending@ state.
-    nextDeployment :: Lude.Maybe ContainerServiceDeployment,
-    -- | The principal ARN of the container service.
-    --
-    -- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
-    principalARN :: Lude.Maybe Lude.Text,
-    -- | The power specification of the container service.
-    --
-    -- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
-    power :: Lude.Maybe ContainerServicePowerName,
-    -- | The private domain name of the container service.
-    --
-    -- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-    privateDomainName :: Lude.Maybe Lude.Text,
-    -- | A Boolean value indicating whether the container service is disabled.
-    isDisabled :: Lude.Maybe Lude.Bool,
-    -- | The public domain name of the container service, such as @example.com@ and @www.example.com@ .
-    --
-    -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
-    -- If you don't specify public domain names, then you can use the default domain of the container service.
-    -- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
-    -- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
-    publicDomainNames :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The name of the container service.
-    containerServiceName :: Lude.Maybe Lude.Text,
-    -- | An object that describes the current container deployment of the container service.
-    currentDeployment :: Lude.Maybe ContainerServiceDeployment,
-    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-    tags :: Lude.Maybe [Tag]
+    url :: Core.Maybe Types.Url
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
+-- | Creates a 'ContainerService' value with any optional fields omitted.
+mkContainerService ::
+  ContainerService
+mkContainerService =
+  ContainerService'
+    { arn = Core.Nothing,
+      containerServiceName = Core.Nothing,
+      createdAt = Core.Nothing,
+      currentDeployment = Core.Nothing,
+      isDisabled = Core.Nothing,
+      location = Core.Nothing,
+      nextDeployment = Core.Nothing,
+      power = Core.Nothing,
+      powerId = Core.Nothing,
+      principalArn = Core.Nothing,
+      privateDomainName = Core.Nothing,
+      publicDomainNames = Core.Nothing,
+      resourceType = Core.Nothing,
+      scale = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      url = Core.Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the container service.
 --
--- * 'state' - The current state of the container service.
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csArn :: Lens.Lens' ContainerService (Core.Maybe Types.Arn)
+csArn = Lens.field @"arn"
+{-# DEPRECATED csArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The name of the container service.
 --
--- The state can be:
+-- /Note:/ Consider using 'containerServiceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csContainerServiceName :: Lens.Lens' ContainerService (Core.Maybe Types.ContainerServiceName)
+csContainerServiceName = Lens.field @"containerServiceName"
+{-# DEPRECATED csContainerServiceName "Use generic-lens or generic-optics with 'containerServiceName' instead." #-}
+
+-- | The timestamp when the container service was created.
 --
---     * @Pending@ - The container service is being created.
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCreatedAt :: Lens.Lens' ContainerService (Core.Maybe Core.NominalDiffTime)
+csCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED csCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | An object that describes the current container deployment of the container service.
 --
+-- /Note:/ Consider using 'currentDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCurrentDeployment :: Lens.Lens' ContainerService (Core.Maybe Types.ContainerServiceDeployment)
+csCurrentDeployment = Lens.field @"currentDeployment"
+{-# DEPRECATED csCurrentDeployment "Use generic-lens or generic-optics with 'currentDeployment' instead." #-}
+
+-- | A Boolean value indicating whether the container service is disabled.
 --
---     * @Ready@ - The container service is created but does not have a container deployment.
+-- /Note:/ Consider using 'isDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csIsDisabled :: Lens.Lens' ContainerService (Core.Maybe Core.Bool)
+csIsDisabled = Lens.field @"isDisabled"
+{-# DEPRECATED csIsDisabled "Use generic-lens or generic-optics with 'isDisabled' instead." #-}
+
+-- | An object that describes the location of the container service, such as the AWS Region and Availability Zone.
 --
---
---     * @Disabled@ - The container service is disabled.
---
---
---     * @Updating@ - The container service capacity or other setting is being updated.
---
---
---     * @Deploying@ - The container service is launching a container deployment.
---
---
---     * @Running@ - The container service is created and it has a container deployment.
---
---
--- * 'powerId' - The ID of the power of the container service.
--- * 'resourceType' - The Lightsail resource type of the container service (i.e., @ContainerService@ ).
--- * 'arn' - The Amazon Resource Name (ARN) of the container service.
--- * 'createdAt' - The timestamp when the container service was created.
--- * 'location' - An object that describes the location of the container service, such as the AWS Region and Availability Zone.
--- * 'scale' - The scale specification of the container service.
---
--- The scale specifies the allocated compute nodes of the container service.
--- * 'url' - The publicly accessible URL of the container service.
---
--- If no public endpoint is specified in the @currentDeployment@ , this URL returns a 404 response.
--- * 'nextDeployment' - An object that describes the next deployment of the container service.
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLocation :: Lens.Lens' ContainerService (Core.Maybe Types.ResourceLocation)
+csLocation = Lens.field @"location"
+{-# DEPRECATED csLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | An object that describes the next deployment of the container service.
 --
 -- This value is @null@ when there is no deployment in a @pending@ state.
--- * 'principalARN' - The principal ARN of the container service.
 --
--- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
--- * 'power' - The power specification of the container service.
+-- /Note:/ Consider using 'nextDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csNextDeployment :: Lens.Lens' ContainerService (Core.Maybe Types.ContainerServiceDeployment)
+csNextDeployment = Lens.field @"nextDeployment"
+{-# DEPRECATED csNextDeployment "Use generic-lens or generic-optics with 'nextDeployment' instead." #-}
+
+-- | The power specification of the container service.
 --
 -- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
--- * 'privateDomainName' - The private domain name of the container service.
+--
+-- /Note:/ Consider using 'power' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPower :: Lens.Lens' ContainerService (Core.Maybe Types.ContainerServicePowerName)
+csPower = Lens.field @"power"
+{-# DEPRECATED csPower "Use generic-lens or generic-optics with 'power' instead." #-}
+
+-- | The ID of the power of the container service.
+--
+-- /Note:/ Consider using 'powerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPowerId :: Lens.Lens' ContainerService (Core.Maybe Types.PowerId)
+csPowerId = Lens.field @"powerId"
+{-# DEPRECATED csPowerId "Use generic-lens or generic-optics with 'powerId' instead." #-}
+
+-- | The principal ARN of the container service.
+--
+-- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
+--
+-- /Note:/ Consider using 'principalArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPrincipalArn :: Lens.Lens' ContainerService (Core.Maybe Types.PrincipalArn)
+csPrincipalArn = Lens.field @"principalArn"
+{-# DEPRECATED csPrincipalArn "Use generic-lens or generic-optics with 'principalArn' instead." #-}
+
+-- | The private domain name of the container service.
 --
 -- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
--- * 'isDisabled' - A Boolean value indicating whether the container service is disabled.
--- * 'publicDomainNames' - The public domain name of the container service, such as @example.com@ and @www.example.com@ .
+--
+-- /Note:/ Consider using 'privateDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPrivateDomainName :: Lens.Lens' ContainerService (Core.Maybe Types.PrivateDomainName)
+csPrivateDomainName = Lens.field @"privateDomainName"
+{-# DEPRECATED csPrivateDomainName "Use generic-lens or generic-optics with 'privateDomainName' instead." #-}
+
+-- | The public domain name of the container service, such as @example.com@ and @www.example.com@ .
 --
 -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
 -- If you don't specify public domain names, then you can use the default domain of the container service.
 -- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
 -- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
--- * 'containerServiceName' - The name of the container service.
--- * 'currentDeployment' - An object that describes the current container deployment of the container service.
--- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-mkContainerService ::
-  ContainerService
-mkContainerService =
-  ContainerService'
-    { state = Lude.Nothing,
-      powerId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      location = Lude.Nothing,
-      scale = Lude.Nothing,
-      url = Lude.Nothing,
-      nextDeployment = Lude.Nothing,
-      principalARN = Lude.Nothing,
-      power = Lude.Nothing,
-      privateDomainName = Lude.Nothing,
-      isDisabled = Lude.Nothing,
-      publicDomainNames = Lude.Nothing,
-      containerServiceName = Lude.Nothing,
-      currentDeployment = Lude.Nothing,
-      tags = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'publicDomainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPublicDomainNames :: Lens.Lens' ContainerService (Core.Maybe (Core.HashMap Types.String [Types.String]))
+csPublicDomainNames = Lens.field @"publicDomainNames"
+{-# DEPRECATED csPublicDomainNames "Use generic-lens or generic-optics with 'publicDomainNames' instead." #-}
+
+-- | The Lightsail resource type of the container service (i.e., @ContainerService@ ).
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csResourceType :: Lens.Lens' ContainerService (Core.Maybe Types.ResourceType)
+csResourceType = Lens.field @"resourceType"
+{-# DEPRECATED csResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The scale specification of the container service.
+--
+-- The scale specifies the allocated compute nodes of the container service.
+--
+-- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csScale :: Lens.Lens' ContainerService (Core.Maybe Core.Natural)
+csScale = Lens.field @"scale"
+{-# DEPRECATED csScale "Use generic-lens or generic-optics with 'scale' instead." #-}
 
 -- | The current state of the container service.
 --
@@ -228,160 +292,45 @@ mkContainerService =
 --
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csState :: Lens.Lens' ContainerService (Lude.Maybe ContainerServiceState)
-csState = Lens.lens (state :: ContainerService -> Lude.Maybe ContainerServiceState) (\s a -> s {state = a} :: ContainerService)
+csState :: Lens.Lens' ContainerService (Core.Maybe Types.ContainerServiceState)
+csState = Lens.field @"state"
 {-# DEPRECATED csState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | The ID of the power of the container service.
+-- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 --
--- /Note:/ Consider using 'powerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csPowerId :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
-csPowerId = Lens.lens (powerId :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {powerId = a} :: ContainerService)
-{-# DEPRECATED csPowerId "Use generic-lens or generic-optics with 'powerId' instead." #-}
-
--- | The Lightsail resource type of the container service (i.e., @ContainerService@ ).
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csResourceType :: Lens.Lens' ContainerService (Lude.Maybe ResourceType)
-csResourceType = Lens.lens (resourceType :: ContainerService -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ContainerService)
-{-# DEPRECATED csResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the container service.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csArn :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
-csArn = Lens.lens (arn :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ContainerService)
-{-# DEPRECATED csArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The timestamp when the container service was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCreatedAt :: Lens.Lens' ContainerService (Lude.Maybe Lude.Timestamp)
-csCreatedAt = Lens.lens (createdAt :: ContainerService -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContainerService)
-{-# DEPRECATED csCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | An object that describes the location of the container service, such as the AWS Region and Availability Zone.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csLocation :: Lens.Lens' ContainerService (Lude.Maybe ResourceLocation)
-csLocation = Lens.lens (location :: ContainerService -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: ContainerService)
-{-# DEPRECATED csLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The scale specification of the container service.
---
--- The scale specifies the allocated compute nodes of the container service.
---
--- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csScale :: Lens.Lens' ContainerService (Lude.Maybe Lude.Natural)
-csScale = Lens.lens (scale :: ContainerService -> Lude.Maybe Lude.Natural) (\s a -> s {scale = a} :: ContainerService)
-{-# DEPRECATED csScale "Use generic-lens or generic-optics with 'scale' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' ContainerService (Core.Maybe [Types.Tag])
+csTags = Lens.field @"tags"
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The publicly accessible URL of the container service.
 --
 -- If no public endpoint is specified in the @currentDeployment@ , this URL returns a 404 response.
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csUrl :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
-csUrl = Lens.lens (url :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: ContainerService)
+csUrl :: Lens.Lens' ContainerService (Core.Maybe Types.Url)
+csUrl = Lens.field @"url"
 {-# DEPRECATED csUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | An object that describes the next deployment of the container service.
---
--- This value is @null@ when there is no deployment in a @pending@ state.
---
--- /Note:/ Consider using 'nextDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csNextDeployment :: Lens.Lens' ContainerService (Lude.Maybe ContainerServiceDeployment)
-csNextDeployment = Lens.lens (nextDeployment :: ContainerService -> Lude.Maybe ContainerServiceDeployment) (\s a -> s {nextDeployment = a} :: ContainerService)
-{-# DEPRECATED csNextDeployment "Use generic-lens or generic-optics with 'nextDeployment' instead." #-}
-
--- | The principal ARN of the container service.
---
--- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
---
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csPrincipalARN :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
-csPrincipalARN = Lens.lens (principalARN :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: ContainerService)
-{-# DEPRECATED csPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
-
--- | The power specification of the container service.
---
--- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
---
--- /Note:/ Consider using 'power' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csPower :: Lens.Lens' ContainerService (Lude.Maybe ContainerServicePowerName)
-csPower = Lens.lens (power :: ContainerService -> Lude.Maybe ContainerServicePowerName) (\s a -> s {power = a} :: ContainerService)
-{-# DEPRECATED csPower "Use generic-lens or generic-optics with 'power' instead." #-}
-
--- | The private domain name of the container service.
---
--- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
---
--- /Note:/ Consider using 'privateDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csPrivateDomainName :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
-csPrivateDomainName = Lens.lens (privateDomainName :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {privateDomainName = a} :: ContainerService)
-{-# DEPRECATED csPrivateDomainName "Use generic-lens or generic-optics with 'privateDomainName' instead." #-}
-
--- | A Boolean value indicating whether the container service is disabled.
---
--- /Note:/ Consider using 'isDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csIsDisabled :: Lens.Lens' ContainerService (Lude.Maybe Lude.Bool)
-csIsDisabled = Lens.lens (isDisabled :: ContainerService -> Lude.Maybe Lude.Bool) (\s a -> s {isDisabled = a} :: ContainerService)
-{-# DEPRECATED csIsDisabled "Use generic-lens or generic-optics with 'isDisabled' instead." #-}
-
--- | The public domain name of the container service, such as @example.com@ and @www.example.com@ .
---
--- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
--- If you don't specify public domain names, then you can use the default domain of the container service.
--- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
--- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
---
--- /Note:/ Consider using 'publicDomainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csPublicDomainNames :: Lens.Lens' ContainerService (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-csPublicDomainNames = Lens.lens (publicDomainNames :: ContainerService -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {publicDomainNames = a} :: ContainerService)
-{-# DEPRECATED csPublicDomainNames "Use generic-lens or generic-optics with 'publicDomainNames' instead." #-}
-
--- | The name of the container service.
---
--- /Note:/ Consider using 'containerServiceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csContainerServiceName :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
-csContainerServiceName = Lens.lens (containerServiceName :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {containerServiceName = a} :: ContainerService)
-{-# DEPRECATED csContainerServiceName "Use generic-lens or generic-optics with 'containerServiceName' instead." #-}
-
--- | An object that describes the current container deployment of the container service.
---
--- /Note:/ Consider using 'currentDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCurrentDeployment :: Lens.Lens' ContainerService (Lude.Maybe ContainerServiceDeployment)
-csCurrentDeployment = Lens.lens (currentDeployment :: ContainerService -> Lude.Maybe ContainerServiceDeployment) (\s a -> s {currentDeployment = a} :: ContainerService)
-{-# DEPRECATED csCurrentDeployment "Use generic-lens or generic-optics with 'currentDeployment' instead." #-}
-
--- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTags :: Lens.Lens' ContainerService (Lude.Maybe [Tag])
-csTags = Lens.lens (tags :: ContainerService -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ContainerService)
-{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
-instance Lude.FromJSON ContainerService where
+instance Core.FromJSON ContainerService where
   parseJSON =
-    Lude.withObject
-      "ContainerService"
-      ( \x ->
-          ContainerService'
-            Lude.<$> (x Lude..:? "state")
-            Lude.<*> (x Lude..:? "powerId")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "scale")
-            Lude.<*> (x Lude..:? "url")
-            Lude.<*> (x Lude..:? "nextDeployment")
-            Lude.<*> (x Lude..:? "principalArn")
-            Lude.<*> (x Lude..:? "power")
-            Lude.<*> (x Lude..:? "privateDomainName")
-            Lude.<*> (x Lude..:? "isDisabled")
-            Lude.<*> (x Lude..:? "publicDomainNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "containerServiceName")
-            Lude.<*> (x Lude..:? "currentDeployment")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ContainerService" Core.$
+      \x ->
+        ContainerService'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "containerServiceName")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "currentDeployment")
+          Core.<*> (x Core..:? "isDisabled")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "nextDeployment")
+          Core.<*> (x Core..:? "power")
+          Core.<*> (x Core..:? "powerId")
+          Core.<*> (x Core..:? "principalArn")
+          Core.<*> (x Core..:? "privateDomainName")
+          Core.<*> (x Core..:? "publicDomainNames")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "scale")
+          Core.<*> (x Core..:? "state")
+          Core.<*> (x Core..:? "tags")
+          Core.<*> (x Core..:? "url")

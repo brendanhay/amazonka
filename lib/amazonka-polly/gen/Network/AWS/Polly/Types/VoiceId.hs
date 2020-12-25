@@ -13,346 +13,348 @@
 module Network.AWS.Polly.Types.VoiceId
   ( VoiceId
       ( VoiceId',
-        Aditi,
-        Amy,
-        Astrid,
-        Bianca,
-        Brian,
-        Camila,
-        Carla,
-        Carmen,
-        Celine,
-        Chantal,
-        Conchita,
-        Cristiano,
-        Dora,
-        Emma,
-        Enrique,
-        Ewa,
-        Filiz,
-        Geraint,
-        Giorgio,
-        Gwyneth,
-        Hans,
-        Ines,
-        Ivy,
-        Jacek,
-        Jan,
-        Joanna,
-        Joey,
-        Justin,
-        Karl,
-        Kendra,
-        Kevin,
-        Kimberly,
-        Lea,
-        Liv,
-        Lotte,
-        Lucia,
-        Lupe,
-        Mads,
-        Maja,
-        Marlene,
-        Mathieu,
-        Matthew,
-        Maxim,
-        Mia,
-        Miguel,
-        Mizuki,
-        Naja,
-        Nicole,
-        Olivia,
-        Penelope,
-        Raveena,
-        Ricardo,
-        Ruben,
-        Russell,
-        Salli,
-        Seoyeon,
-        Takumi,
-        Tatyana,
-        Vicki,
-        Vitoria,
-        Zeina,
-        Zhiyu
+        VoiceIdAditi,
+        VoiceIdAmy,
+        VoiceIdAstrid,
+        VoiceIdBianca,
+        VoiceIdBrian,
+        VoiceIdCamila,
+        VoiceIdCarla,
+        VoiceIdCarmen,
+        VoiceIdCeline,
+        VoiceIdChantal,
+        VoiceIdConchita,
+        VoiceIdCristiano,
+        VoiceIdDora,
+        VoiceIdEmma,
+        VoiceIdEnrique,
+        VoiceIdEwa,
+        VoiceIdFiliz,
+        VoiceIdGeraint,
+        VoiceIdGiorgio,
+        VoiceIdGwyneth,
+        VoiceIdHans,
+        VoiceIdInes,
+        VoiceIdIvy,
+        VoiceIdJacek,
+        VoiceIdJan,
+        VoiceIdJoanna,
+        VoiceIdJoey,
+        VoiceIdJustin,
+        VoiceIdKarl,
+        VoiceIdKendra,
+        VoiceIdKevin,
+        VoiceIdKimberly,
+        VoiceIdLea,
+        VoiceIdLiv,
+        VoiceIdLotte,
+        VoiceIdLucia,
+        VoiceIdLupe,
+        VoiceIdMads,
+        VoiceIdMaja,
+        VoiceIdMarlene,
+        VoiceIdMathieu,
+        VoiceIdMatthew,
+        VoiceIdMaxim,
+        VoiceIdMia,
+        VoiceIdMiguel,
+        VoiceIdMizuki,
+        VoiceIdNaja,
+        VoiceIdNicole,
+        VoiceIdOlivia,
+        VoiceIdPenelope,
+        VoiceIdRaveena,
+        VoiceIdRicardo,
+        VoiceIdRuben,
+        VoiceIdRussell,
+        VoiceIdSalli,
+        VoiceIdSeoyeon,
+        VoiceIdTakumi,
+        VoiceIdTatyana,
+        VoiceIdVicki,
+        VoiceIdVitoria,
+        VoiceIdZeina,
+        VoiceIdZhiyu,
+        fromVoiceId
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VoiceId = VoiceId' Lude.Text
+newtype VoiceId = VoiceId' {fromVoiceId :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Aditi :: VoiceId
-pattern Aditi = VoiceId' "Aditi"
+pattern VoiceIdAditi :: VoiceId
+pattern VoiceIdAditi = VoiceId' "Aditi"
 
-pattern Amy :: VoiceId
-pattern Amy = VoiceId' "Amy"
+pattern VoiceIdAmy :: VoiceId
+pattern VoiceIdAmy = VoiceId' "Amy"
 
-pattern Astrid :: VoiceId
-pattern Astrid = VoiceId' "Astrid"
+pattern VoiceIdAstrid :: VoiceId
+pattern VoiceIdAstrid = VoiceId' "Astrid"
 
-pattern Bianca :: VoiceId
-pattern Bianca = VoiceId' "Bianca"
+pattern VoiceIdBianca :: VoiceId
+pattern VoiceIdBianca = VoiceId' "Bianca"
 
-pattern Brian :: VoiceId
-pattern Brian = VoiceId' "Brian"
+pattern VoiceIdBrian :: VoiceId
+pattern VoiceIdBrian = VoiceId' "Brian"
 
-pattern Camila :: VoiceId
-pattern Camila = VoiceId' "Camila"
+pattern VoiceIdCamila :: VoiceId
+pattern VoiceIdCamila = VoiceId' "Camila"
 
-pattern Carla :: VoiceId
-pattern Carla = VoiceId' "Carla"
+pattern VoiceIdCarla :: VoiceId
+pattern VoiceIdCarla = VoiceId' "Carla"
 
-pattern Carmen :: VoiceId
-pattern Carmen = VoiceId' "Carmen"
+pattern VoiceIdCarmen :: VoiceId
+pattern VoiceIdCarmen = VoiceId' "Carmen"
 
-pattern Celine :: VoiceId
-pattern Celine = VoiceId' "Celine"
+pattern VoiceIdCeline :: VoiceId
+pattern VoiceIdCeline = VoiceId' "Celine"
 
-pattern Chantal :: VoiceId
-pattern Chantal = VoiceId' "Chantal"
+pattern VoiceIdChantal :: VoiceId
+pattern VoiceIdChantal = VoiceId' "Chantal"
 
-pattern Conchita :: VoiceId
-pattern Conchita = VoiceId' "Conchita"
+pattern VoiceIdConchita :: VoiceId
+pattern VoiceIdConchita = VoiceId' "Conchita"
 
-pattern Cristiano :: VoiceId
-pattern Cristiano = VoiceId' "Cristiano"
+pattern VoiceIdCristiano :: VoiceId
+pattern VoiceIdCristiano = VoiceId' "Cristiano"
 
-pattern Dora :: VoiceId
-pattern Dora = VoiceId' "Dora"
+pattern VoiceIdDora :: VoiceId
+pattern VoiceIdDora = VoiceId' "Dora"
 
-pattern Emma :: VoiceId
-pattern Emma = VoiceId' "Emma"
+pattern VoiceIdEmma :: VoiceId
+pattern VoiceIdEmma = VoiceId' "Emma"
 
-pattern Enrique :: VoiceId
-pattern Enrique = VoiceId' "Enrique"
+pattern VoiceIdEnrique :: VoiceId
+pattern VoiceIdEnrique = VoiceId' "Enrique"
 
-pattern Ewa :: VoiceId
-pattern Ewa = VoiceId' "Ewa"
+pattern VoiceIdEwa :: VoiceId
+pattern VoiceIdEwa = VoiceId' "Ewa"
 
-pattern Filiz :: VoiceId
-pattern Filiz = VoiceId' "Filiz"
+pattern VoiceIdFiliz :: VoiceId
+pattern VoiceIdFiliz = VoiceId' "Filiz"
 
-pattern Geraint :: VoiceId
-pattern Geraint = VoiceId' "Geraint"
+pattern VoiceIdGeraint :: VoiceId
+pattern VoiceIdGeraint = VoiceId' "Geraint"
 
-pattern Giorgio :: VoiceId
-pattern Giorgio = VoiceId' "Giorgio"
+pattern VoiceIdGiorgio :: VoiceId
+pattern VoiceIdGiorgio = VoiceId' "Giorgio"
 
-pattern Gwyneth :: VoiceId
-pattern Gwyneth = VoiceId' "Gwyneth"
+pattern VoiceIdGwyneth :: VoiceId
+pattern VoiceIdGwyneth = VoiceId' "Gwyneth"
 
-pattern Hans :: VoiceId
-pattern Hans = VoiceId' "Hans"
+pattern VoiceIdHans :: VoiceId
+pattern VoiceIdHans = VoiceId' "Hans"
 
-pattern Ines :: VoiceId
-pattern Ines = VoiceId' "Ines"
+pattern VoiceIdInes :: VoiceId
+pattern VoiceIdInes = VoiceId' "Ines"
 
-pattern Ivy :: VoiceId
-pattern Ivy = VoiceId' "Ivy"
+pattern VoiceIdIvy :: VoiceId
+pattern VoiceIdIvy = VoiceId' "Ivy"
 
-pattern Jacek :: VoiceId
-pattern Jacek = VoiceId' "Jacek"
+pattern VoiceIdJacek :: VoiceId
+pattern VoiceIdJacek = VoiceId' "Jacek"
 
-pattern Jan :: VoiceId
-pattern Jan = VoiceId' "Jan"
+pattern VoiceIdJan :: VoiceId
+pattern VoiceIdJan = VoiceId' "Jan"
 
-pattern Joanna :: VoiceId
-pattern Joanna = VoiceId' "Joanna"
+pattern VoiceIdJoanna :: VoiceId
+pattern VoiceIdJoanna = VoiceId' "Joanna"
 
-pattern Joey :: VoiceId
-pattern Joey = VoiceId' "Joey"
+pattern VoiceIdJoey :: VoiceId
+pattern VoiceIdJoey = VoiceId' "Joey"
 
-pattern Justin :: VoiceId
-pattern Justin = VoiceId' "Justin"
+pattern VoiceIdJustin :: VoiceId
+pattern VoiceIdJustin = VoiceId' "Justin"
 
-pattern Karl :: VoiceId
-pattern Karl = VoiceId' "Karl"
+pattern VoiceIdKarl :: VoiceId
+pattern VoiceIdKarl = VoiceId' "Karl"
 
-pattern Kendra :: VoiceId
-pattern Kendra = VoiceId' "Kendra"
+pattern VoiceIdKendra :: VoiceId
+pattern VoiceIdKendra = VoiceId' "Kendra"
 
-pattern Kevin :: VoiceId
-pattern Kevin = VoiceId' "Kevin"
+pattern VoiceIdKevin :: VoiceId
+pattern VoiceIdKevin = VoiceId' "Kevin"
 
-pattern Kimberly :: VoiceId
-pattern Kimberly = VoiceId' "Kimberly"
+pattern VoiceIdKimberly :: VoiceId
+pattern VoiceIdKimberly = VoiceId' "Kimberly"
 
-pattern Lea :: VoiceId
-pattern Lea = VoiceId' "Lea"
+pattern VoiceIdLea :: VoiceId
+pattern VoiceIdLea = VoiceId' "Lea"
 
-pattern Liv :: VoiceId
-pattern Liv = VoiceId' "Liv"
+pattern VoiceIdLiv :: VoiceId
+pattern VoiceIdLiv = VoiceId' "Liv"
 
-pattern Lotte :: VoiceId
-pattern Lotte = VoiceId' "Lotte"
+pattern VoiceIdLotte :: VoiceId
+pattern VoiceIdLotte = VoiceId' "Lotte"
 
-pattern Lucia :: VoiceId
-pattern Lucia = VoiceId' "Lucia"
+pattern VoiceIdLucia :: VoiceId
+pattern VoiceIdLucia = VoiceId' "Lucia"
 
-pattern Lupe :: VoiceId
-pattern Lupe = VoiceId' "Lupe"
+pattern VoiceIdLupe :: VoiceId
+pattern VoiceIdLupe = VoiceId' "Lupe"
 
-pattern Mads :: VoiceId
-pattern Mads = VoiceId' "Mads"
+pattern VoiceIdMads :: VoiceId
+pattern VoiceIdMads = VoiceId' "Mads"
 
-pattern Maja :: VoiceId
-pattern Maja = VoiceId' "Maja"
+pattern VoiceIdMaja :: VoiceId
+pattern VoiceIdMaja = VoiceId' "Maja"
 
-pattern Marlene :: VoiceId
-pattern Marlene = VoiceId' "Marlene"
+pattern VoiceIdMarlene :: VoiceId
+pattern VoiceIdMarlene = VoiceId' "Marlene"
 
-pattern Mathieu :: VoiceId
-pattern Mathieu = VoiceId' "Mathieu"
+pattern VoiceIdMathieu :: VoiceId
+pattern VoiceIdMathieu = VoiceId' "Mathieu"
 
-pattern Matthew :: VoiceId
-pattern Matthew = VoiceId' "Matthew"
+pattern VoiceIdMatthew :: VoiceId
+pattern VoiceIdMatthew = VoiceId' "Matthew"
 
-pattern Maxim :: VoiceId
-pattern Maxim = VoiceId' "Maxim"
+pattern VoiceIdMaxim :: VoiceId
+pattern VoiceIdMaxim = VoiceId' "Maxim"
 
-pattern Mia :: VoiceId
-pattern Mia = VoiceId' "Mia"
+pattern VoiceIdMia :: VoiceId
+pattern VoiceIdMia = VoiceId' "Mia"
 
-pattern Miguel :: VoiceId
-pattern Miguel = VoiceId' "Miguel"
+pattern VoiceIdMiguel :: VoiceId
+pattern VoiceIdMiguel = VoiceId' "Miguel"
 
-pattern Mizuki :: VoiceId
-pattern Mizuki = VoiceId' "Mizuki"
+pattern VoiceIdMizuki :: VoiceId
+pattern VoiceIdMizuki = VoiceId' "Mizuki"
 
-pattern Naja :: VoiceId
-pattern Naja = VoiceId' "Naja"
+pattern VoiceIdNaja :: VoiceId
+pattern VoiceIdNaja = VoiceId' "Naja"
 
-pattern Nicole :: VoiceId
-pattern Nicole = VoiceId' "Nicole"
+pattern VoiceIdNicole :: VoiceId
+pattern VoiceIdNicole = VoiceId' "Nicole"
 
-pattern Olivia :: VoiceId
-pattern Olivia = VoiceId' "Olivia"
+pattern VoiceIdOlivia :: VoiceId
+pattern VoiceIdOlivia = VoiceId' "Olivia"
 
-pattern Penelope :: VoiceId
-pattern Penelope = VoiceId' "Penelope"
+pattern VoiceIdPenelope :: VoiceId
+pattern VoiceIdPenelope = VoiceId' "Penelope"
 
-pattern Raveena :: VoiceId
-pattern Raveena = VoiceId' "Raveena"
+pattern VoiceIdRaveena :: VoiceId
+pattern VoiceIdRaveena = VoiceId' "Raveena"
 
-pattern Ricardo :: VoiceId
-pattern Ricardo = VoiceId' "Ricardo"
+pattern VoiceIdRicardo :: VoiceId
+pattern VoiceIdRicardo = VoiceId' "Ricardo"
 
-pattern Ruben :: VoiceId
-pattern Ruben = VoiceId' "Ruben"
+pattern VoiceIdRuben :: VoiceId
+pattern VoiceIdRuben = VoiceId' "Ruben"
 
-pattern Russell :: VoiceId
-pattern Russell = VoiceId' "Russell"
+pattern VoiceIdRussell :: VoiceId
+pattern VoiceIdRussell = VoiceId' "Russell"
 
-pattern Salli :: VoiceId
-pattern Salli = VoiceId' "Salli"
+pattern VoiceIdSalli :: VoiceId
+pattern VoiceIdSalli = VoiceId' "Salli"
 
-pattern Seoyeon :: VoiceId
-pattern Seoyeon = VoiceId' "Seoyeon"
+pattern VoiceIdSeoyeon :: VoiceId
+pattern VoiceIdSeoyeon = VoiceId' "Seoyeon"
 
-pattern Takumi :: VoiceId
-pattern Takumi = VoiceId' "Takumi"
+pattern VoiceIdTakumi :: VoiceId
+pattern VoiceIdTakumi = VoiceId' "Takumi"
 
-pattern Tatyana :: VoiceId
-pattern Tatyana = VoiceId' "Tatyana"
+pattern VoiceIdTatyana :: VoiceId
+pattern VoiceIdTatyana = VoiceId' "Tatyana"
 
-pattern Vicki :: VoiceId
-pattern Vicki = VoiceId' "Vicki"
+pattern VoiceIdVicki :: VoiceId
+pattern VoiceIdVicki = VoiceId' "Vicki"
 
-pattern Vitoria :: VoiceId
-pattern Vitoria = VoiceId' "Vitoria"
+pattern VoiceIdVitoria :: VoiceId
+pattern VoiceIdVitoria = VoiceId' "Vitoria"
 
-pattern Zeina :: VoiceId
-pattern Zeina = VoiceId' "Zeina"
+pattern VoiceIdZeina :: VoiceId
+pattern VoiceIdZeina = VoiceId' "Zeina"
 
-pattern Zhiyu :: VoiceId
-pattern Zhiyu = VoiceId' "Zhiyu"
+pattern VoiceIdZhiyu :: VoiceId
+pattern VoiceIdZhiyu = VoiceId' "Zhiyu"
 
 {-# COMPLETE
-  Aditi,
-  Amy,
-  Astrid,
-  Bianca,
-  Brian,
-  Camila,
-  Carla,
-  Carmen,
-  Celine,
-  Chantal,
-  Conchita,
-  Cristiano,
-  Dora,
-  Emma,
-  Enrique,
-  Ewa,
-  Filiz,
-  Geraint,
-  Giorgio,
-  Gwyneth,
-  Hans,
-  Ines,
-  Ivy,
-  Jacek,
-  Jan,
-  Joanna,
-  Joey,
-  Justin,
-  Karl,
-  Kendra,
-  Kevin,
-  Kimberly,
-  Lea,
-  Liv,
-  Lotte,
-  Lucia,
-  Lupe,
-  Mads,
-  Maja,
-  Marlene,
-  Mathieu,
-  Matthew,
-  Maxim,
-  Mia,
-  Miguel,
-  Mizuki,
-  Naja,
-  Nicole,
-  Olivia,
-  Penelope,
-  Raveena,
-  Ricardo,
-  Ruben,
-  Russell,
-  Salli,
-  Seoyeon,
-  Takumi,
-  Tatyana,
-  Vicki,
-  Vitoria,
-  Zeina,
-  Zhiyu,
+  VoiceIdAditi,
+  VoiceIdAmy,
+  VoiceIdAstrid,
+  VoiceIdBianca,
+  VoiceIdBrian,
+  VoiceIdCamila,
+  VoiceIdCarla,
+  VoiceIdCarmen,
+  VoiceIdCeline,
+  VoiceIdChantal,
+  VoiceIdConchita,
+  VoiceIdCristiano,
+  VoiceIdDora,
+  VoiceIdEmma,
+  VoiceIdEnrique,
+  VoiceIdEwa,
+  VoiceIdFiliz,
+  VoiceIdGeraint,
+  VoiceIdGiorgio,
+  VoiceIdGwyneth,
+  VoiceIdHans,
+  VoiceIdInes,
+  VoiceIdIvy,
+  VoiceIdJacek,
+  VoiceIdJan,
+  VoiceIdJoanna,
+  VoiceIdJoey,
+  VoiceIdJustin,
+  VoiceIdKarl,
+  VoiceIdKendra,
+  VoiceIdKevin,
+  VoiceIdKimberly,
+  VoiceIdLea,
+  VoiceIdLiv,
+  VoiceIdLotte,
+  VoiceIdLucia,
+  VoiceIdLupe,
+  VoiceIdMads,
+  VoiceIdMaja,
+  VoiceIdMarlene,
+  VoiceIdMathieu,
+  VoiceIdMatthew,
+  VoiceIdMaxim,
+  VoiceIdMia,
+  VoiceIdMiguel,
+  VoiceIdMizuki,
+  VoiceIdNaja,
+  VoiceIdNicole,
+  VoiceIdOlivia,
+  VoiceIdPenelope,
+  VoiceIdRaveena,
+  VoiceIdRicardo,
+  VoiceIdRuben,
+  VoiceIdRussell,
+  VoiceIdSalli,
+  VoiceIdSeoyeon,
+  VoiceIdTakumi,
+  VoiceIdTatyana,
+  VoiceIdVicki,
+  VoiceIdVitoria,
+  VoiceIdZeina,
+  VoiceIdZhiyu,
   VoiceId'
   #-}

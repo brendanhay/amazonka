@@ -20,132 +20,117 @@ module Network.AWS.Route53AutoNaming.GetInstance
     mkGetInstance,
 
     -- ** Request lenses
-    giInstanceId,
     giServiceId,
+    giInstanceId,
 
     -- * Destructuring the response
     GetInstanceResponse (..),
     mkGetInstanceResponse,
 
     -- ** Response lenses
-    girsInstance,
-    girsResponseStatus,
+    girrsInstance,
+    girrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkGetInstance' smart constructor.
 data GetInstance = GetInstance'
-  { -- | The ID of the instance that you want to get information about.
-    instanceId :: Lude.Text,
-    -- | The ID of the service that the instance is associated with.
-    serviceId :: Lude.Text
+  { -- | The ID of the service that the instance is associated with.
+    serviceId :: Types.ResourceId,
+    -- | The ID of the instance that you want to get information about.
+    instanceId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance that you want to get information about.
--- * 'serviceId' - The ID of the service that the instance is associated with.
+-- | Creates a 'GetInstance' value with any optional fields omitted.
 mkGetInstance ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'serviceId'
-  Lude.Text ->
+  Types.ResourceId ->
+  -- | 'instanceId'
+  Types.ResourceId ->
   GetInstance
-mkGetInstance pInstanceId_ pServiceId_ =
-  GetInstance' {instanceId = pInstanceId_, serviceId = pServiceId_}
-
--- | The ID of the instance that you want to get information about.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giInstanceId :: Lens.Lens' GetInstance Lude.Text
-giInstanceId = Lens.lens (instanceId :: GetInstance -> Lude.Text) (\s a -> s {instanceId = a} :: GetInstance)
-{-# DEPRECATED giInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+mkGetInstance serviceId instanceId =
+  GetInstance' {serviceId, instanceId}
 
 -- | The ID of the service that the instance is associated with.
 --
 -- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giServiceId :: Lens.Lens' GetInstance Lude.Text
-giServiceId = Lens.lens (serviceId :: GetInstance -> Lude.Text) (\s a -> s {serviceId = a} :: GetInstance)
+giServiceId :: Lens.Lens' GetInstance Types.ResourceId
+giServiceId = Lens.field @"serviceId"
 {-# DEPRECATED giServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance Lude.AWSRequest GetInstance where
+-- | The ID of the instance that you want to get information about.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giInstanceId :: Lens.Lens' GetInstance Types.ResourceId
+giInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED giInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON GetInstance where
+  toJSON GetInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceId" Core..= serviceId),
+            Core.Just ("InstanceId" Core..= instanceId)
+          ]
+      )
+
+instance Core.AWSRequest GetInstance where
   type Rs GetInstance = GetInstanceResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.GetInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceResponse'
-            Lude.<$> (x Lude..?> "Instance") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Instance") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.GetInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstance where
-  toJSON GetInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("ServiceId" Lude..= serviceId)
-          ]
-      )
-
-instance Lude.ToPath GetInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInstanceResponse' smart constructor.
 data GetInstanceResponse = GetInstanceResponse'
   { -- | A complex type that contains information about a specified instance.
-    instance' :: Lude.Maybe Instance,
+    instance' :: Core.Maybe Types.Instance,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceResponse' with the minimum fields required to make a request.
---
--- * 'instance'' - A complex type that contains information about a specified instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceResponse' value with any optional fields omitted.
 mkGetInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceResponse
-mkGetInstanceResponse pResponseStatus_ =
-  GetInstanceResponse'
-    { instance' = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetInstanceResponse responseStatus =
+  GetInstanceResponse' {instance' = Core.Nothing, responseStatus}
 
 -- | A complex type that contains information about a specified instance.
 --
 -- /Note:/ Consider using 'instance'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girsInstance :: Lens.Lens' GetInstanceResponse (Lude.Maybe Instance)
-girsInstance = Lens.lens (instance' :: GetInstanceResponse -> Lude.Maybe Instance) (\s a -> s {instance' = a} :: GetInstanceResponse)
-{-# DEPRECATED girsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
+girrsInstance :: Lens.Lens' GetInstanceResponse (Core.Maybe Types.Instance)
+girrsInstance = Lens.field @"instance'"
+{-# DEPRECATED girrsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girsResponseStatus :: Lens.Lens' GetInstanceResponse Lude.Int
-girsResponseStatus = Lens.lens (responseStatus :: GetInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceResponse)
-{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+girrsResponseStatus :: Lens.Lens' GetInstanceResponse Core.Int
+girrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED girrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,111 +27,99 @@ module Network.AWS.SageMaker.DeleteExperiment
     mkDeleteExperimentResponse,
 
     -- ** Response lenses
-    defrsExperimentARN,
-    defrsResponseStatus,
+    derfrsExperimentArn,
+    derfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteExperiment' smart constructor.
 newtype DeleteExperiment = DeleteExperiment'
   { -- | The name of the experiment to delete.
-    experimentName :: Lude.Text
+    experimentName :: Types.ExperimentEntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteExperiment' with the minimum fields required to make a request.
---
--- * 'experimentName' - The name of the experiment to delete.
+-- | Creates a 'DeleteExperiment' value with any optional fields omitted.
 mkDeleteExperiment ::
   -- | 'experimentName'
-  Lude.Text ->
+  Types.ExperimentEntityName ->
   DeleteExperiment
-mkDeleteExperiment pExperimentName_ =
-  DeleteExperiment' {experimentName = pExperimentName_}
+mkDeleteExperiment experimentName =
+  DeleteExperiment' {experimentName}
 
 -- | The name of the experiment to delete.
 --
 -- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExperimentName :: Lens.Lens' DeleteExperiment Lude.Text
-dExperimentName = Lens.lens (experimentName :: DeleteExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: DeleteExperiment)
+dExperimentName :: Lens.Lens' DeleteExperiment Types.ExperimentEntityName
+dExperimentName = Lens.field @"experimentName"
 {-# DEPRECATED dExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
-instance Lude.AWSRequest DeleteExperiment where
+instance Core.FromJSON DeleteExperiment where
+  toJSON DeleteExperiment {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ExperimentName" Core..= experimentName)]
+      )
+
+instance Core.AWSRequest DeleteExperiment where
   type Rs DeleteExperiment = DeleteExperimentResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteExperiment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteExperimentResponse'
-            Lude.<$> (x Lude..?> "ExperimentArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ExperimentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteExperiment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteExperiment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteExperiment where
-  toJSON DeleteExperiment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ExperimentName" Lude..= experimentName)]
-      )
-
-instance Lude.ToPath DeleteExperiment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteExperiment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteExperimentResponse' smart constructor.
 data DeleteExperimentResponse = DeleteExperimentResponse'
   { -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
-    experimentARN :: Lude.Maybe Lude.Text,
+    experimentArn :: Core.Maybe Types.ExperimentArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteExperimentResponse' with the minimum fields required to make a request.
---
--- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment that is being deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteExperimentResponse' value with any optional fields omitted.
 mkDeleteExperimentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteExperimentResponse
-mkDeleteExperimentResponse pResponseStatus_ =
+mkDeleteExperimentResponse responseStatus =
   DeleteExperimentResponse'
-    { experimentARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { experimentArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
 --
--- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defrsExperimentARN :: Lens.Lens' DeleteExperimentResponse (Lude.Maybe Lude.Text)
-defrsExperimentARN = Lens.lens (experimentARN :: DeleteExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: DeleteExperimentResponse)
-{-# DEPRECATED defrsExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
+-- /Note:/ Consider using 'experimentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derfrsExperimentArn :: Lens.Lens' DeleteExperimentResponse (Core.Maybe Types.ExperimentArn)
+derfrsExperimentArn = Lens.field @"experimentArn"
+{-# DEPRECATED derfrsExperimentArn "Use generic-lens or generic-optics with 'experimentArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defrsResponseStatus :: Lens.Lens' DeleteExperimentResponse Lude.Int
-defrsResponseStatus = Lens.lens (responseStatus :: DeleteExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExperimentResponse)
-{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derfrsResponseStatus :: Lens.Lens' DeleteExperimentResponse Core.Int
+derfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

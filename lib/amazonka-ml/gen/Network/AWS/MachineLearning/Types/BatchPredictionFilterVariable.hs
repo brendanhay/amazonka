@@ -13,19 +13,20 @@
 module Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
   ( BatchPredictionFilterVariable
       ( BatchPredictionFilterVariable',
-        BatchCreatedAt,
-        BatchLastUpdatedAt,
-        BatchStatus,
-        BatchName,
-        BatchIAMUser,
-        BatchMLModelId,
-        BatchDataSourceId,
-        BatchDataURI
+        BatchPredictionFilterVariableBatchCreatedAt,
+        BatchPredictionFilterVariableBatchLastUpdatedAt,
+        BatchPredictionFilterVariableBatchStatus,
+        BatchPredictionFilterVariableBatchName,
+        BatchPredictionFilterVariableBatchIAMUser,
+        BatchPredictionFilterVariableBatchMLModelId,
+        BatchPredictionFilterVariableBatchDataSourceId,
+        BatchPredictionFilterVariableBatchDataURI,
+        fromBatchPredictionFilterVariable
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of the variables to use in searching or filtering @BatchPrediction@ .
 --
@@ -43,62 +44,66 @@ import qualified Network.AWS.Prelude as Lude
 --     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .
 --
 --     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-newtype BatchPredictionFilterVariable = BatchPredictionFilterVariable' Lude.Text
+newtype BatchPredictionFilterVariable = BatchPredictionFilterVariable'
+  { fromBatchPredictionFilterVariable ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BatchCreatedAt :: BatchPredictionFilterVariable
-pattern BatchCreatedAt = BatchPredictionFilterVariable' "CreatedAt"
+pattern BatchPredictionFilterVariableBatchCreatedAt :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchCreatedAt = BatchPredictionFilterVariable' "CreatedAt"
 
-pattern BatchLastUpdatedAt :: BatchPredictionFilterVariable
-pattern BatchLastUpdatedAt = BatchPredictionFilterVariable' "LastUpdatedAt"
+pattern BatchPredictionFilterVariableBatchLastUpdatedAt :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchLastUpdatedAt = BatchPredictionFilterVariable' "LastUpdatedAt"
 
-pattern BatchStatus :: BatchPredictionFilterVariable
-pattern BatchStatus = BatchPredictionFilterVariable' "Status"
+pattern BatchPredictionFilterVariableBatchStatus :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchStatus = BatchPredictionFilterVariable' "Status"
 
-pattern BatchName :: BatchPredictionFilterVariable
-pattern BatchName = BatchPredictionFilterVariable' "Name"
+pattern BatchPredictionFilterVariableBatchName :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchName = BatchPredictionFilterVariable' "Name"
 
-pattern BatchIAMUser :: BatchPredictionFilterVariable
-pattern BatchIAMUser = BatchPredictionFilterVariable' "IAMUser"
+pattern BatchPredictionFilterVariableBatchIAMUser :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchIAMUser = BatchPredictionFilterVariable' "IAMUser"
 
-pattern BatchMLModelId :: BatchPredictionFilterVariable
-pattern BatchMLModelId = BatchPredictionFilterVariable' "MLModelId"
+pattern BatchPredictionFilterVariableBatchMLModelId :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchMLModelId = BatchPredictionFilterVariable' "MLModelId"
 
-pattern BatchDataSourceId :: BatchPredictionFilterVariable
-pattern BatchDataSourceId = BatchPredictionFilterVariable' "DataSourceId"
+pattern BatchPredictionFilterVariableBatchDataSourceId :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchDataSourceId = BatchPredictionFilterVariable' "DataSourceId"
 
-pattern BatchDataURI :: BatchPredictionFilterVariable
-pattern BatchDataURI = BatchPredictionFilterVariable' "DataURI"
+pattern BatchPredictionFilterVariableBatchDataURI :: BatchPredictionFilterVariable
+pattern BatchPredictionFilterVariableBatchDataURI = BatchPredictionFilterVariable' "DataURI"
 
 {-# COMPLETE
-  BatchCreatedAt,
-  BatchLastUpdatedAt,
-  BatchStatus,
-  BatchName,
-  BatchIAMUser,
-  BatchMLModelId,
-  BatchDataSourceId,
-  BatchDataURI,
+  BatchPredictionFilterVariableBatchCreatedAt,
+  BatchPredictionFilterVariableBatchLastUpdatedAt,
+  BatchPredictionFilterVariableBatchStatus,
+  BatchPredictionFilterVariableBatchName,
+  BatchPredictionFilterVariableBatchIAMUser,
+  BatchPredictionFilterVariableBatchMLModelId,
+  BatchPredictionFilterVariableBatchDataSourceId,
+  BatchPredictionFilterVariableBatchDataURI,
   BatchPredictionFilterVariable'
   #-}

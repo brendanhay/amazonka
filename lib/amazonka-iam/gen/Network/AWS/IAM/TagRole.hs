@@ -42,79 +42,76 @@ module Network.AWS.IAM.TagRole
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagRole' smart constructor.
 data TagRole = TagRole'
   { -- | The name of the role that you want to add tags to.
     --
     -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text,
+    roleName :: Types.RoleName,
     -- | The list of tags that you want to attach to the role. Each tag consists of a key name and an associated value. You can specify this with a JSON string.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagRole' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the role that you want to add tags to.
---
--- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'tags' - The list of tags that you want to attach to the role. Each tag consists of a key name and an associated value. You can specify this with a JSON string.
+-- | Creates a 'TagRole' value with any optional fields omitted.
 mkTagRole ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   TagRole
-mkTagRole pRoleName_ =
-  TagRole' {roleName = pRoleName_, tags = Lude.mempty}
+mkTagRole roleName = TagRole' {roleName, tags = Core.mempty}
 
 -- | The name of the role that you want to add tags to.
 --
 -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trRoleName :: Lens.Lens' TagRole Lude.Text
-trRoleName = Lens.lens (roleName :: TagRole -> Lude.Text) (\s a -> s {roleName = a} :: TagRole)
+trRoleName :: Lens.Lens' TagRole Types.RoleName
+trRoleName = Lens.field @"roleName"
 {-# DEPRECATED trRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The list of tags that you want to attach to the role. Each tag consists of a key name and an associated value. You can specify this with a JSON string.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagRole [Tag]
-trTags = Lens.lens (tags :: TagRole -> [Tag]) (\s a -> s {tags = a} :: TagRole)
+trTags :: Lens.Lens' TagRole [Types.Tag]
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagRole where
+instance Core.AWSRequest TagRole where
   type Rs TagRole = TagRoleResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull TagRoleResponse'
-
-instance Lude.ToHeaders TagRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath TagRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagRole where
-  toQuery TagRole' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("TagRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "Tags" Lude.=: Lude.toQueryList "member" tags
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "TagRole")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "member" tags))
+            )
+      }
+  response = Response.receiveNull TagRoleResponse'
 
 -- | /See:/ 'mkTagRoleResponse' smart constructor.
 data TagRoleResponse = TagRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagRoleResponse' value with any optional fields omitted.
 mkTagRoleResponse ::
   TagRoleResponse
 mkTagRoleResponse = TagRoleResponse'

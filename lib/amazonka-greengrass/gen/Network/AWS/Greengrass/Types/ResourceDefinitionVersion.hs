@@ -21,45 +21,39 @@ module Network.AWS.Greengrass.Types.ResourceDefinitionVersion
   )
 where
 
-import Network.AWS.Greengrass.Types.Resource
+import qualified Network.AWS.Greengrass.Types.Resource as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a resource definition version.
 --
 -- /See:/ 'mkResourceDefinitionVersion' smart constructor.
 newtype ResourceDefinitionVersion = ResourceDefinitionVersion'
   { -- | A list of resources.
-    resources :: Lude.Maybe [Resource]
+    resources :: Core.Maybe [Types.Resource]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'resources' - A list of resources.
+-- | Creates a 'ResourceDefinitionVersion' value with any optional fields omitted.
 mkResourceDefinitionVersion ::
   ResourceDefinitionVersion
 mkResourceDefinitionVersion =
-  ResourceDefinitionVersion' {resources = Lude.Nothing}
+  ResourceDefinitionVersion' {resources = Core.Nothing}
 
 -- | A list of resources.
 --
 -- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdvResources :: Lens.Lens' ResourceDefinitionVersion (Lude.Maybe [Resource])
-rdvResources = Lens.lens (resources :: ResourceDefinitionVersion -> Lude.Maybe [Resource]) (\s a -> s {resources = a} :: ResourceDefinitionVersion)
+rdvResources :: Lens.Lens' ResourceDefinitionVersion (Core.Maybe [Types.Resource])
+rdvResources = Lens.field @"resources"
 {-# DEPRECATED rdvResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
-instance Lude.FromJSON ResourceDefinitionVersion where
-  parseJSON =
-    Lude.withObject
-      "ResourceDefinitionVersion"
-      ( \x ->
-          ResourceDefinitionVersion'
-            Lude.<$> (x Lude..:? "Resources" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON ResourceDefinitionVersion where
+  toJSON ResourceDefinitionVersion {..} =
+    Core.object
+      (Core.catMaybes [("Resources" Core..=) Core.<$> resources])
 
-instance Lude.ToJSON ResourceDefinitionVersion where
-  toJSON ResourceDefinitionVersion' {..} =
-    Lude.object
-      (Lude.catMaybes [("Resources" Lude..=) Lude.<$> resources])
+instance Core.FromJSON ResourceDefinitionVersion where
+  parseJSON =
+    Core.withObject "ResourceDefinitionVersion" Core.$
+      \x -> ResourceDefinitionVersion' Core.<$> (x Core..:? "Resources")

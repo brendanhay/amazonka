@@ -20,130 +20,114 @@ module Network.AWS.SSM.GetParameter
     mkGetParameter,
 
     -- ** Request lenses
-    gWithDecryption,
     gName,
+    gWithDecryption,
 
     -- * Destructuring the response
     GetParameterResponse (..),
     mkGetParameterResponse,
 
     -- ** Response lenses
-    gpfrsParameter,
-    gpfrsResponseStatus,
+    gprfrsParameter,
+    gprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetParameter' smart constructor.
 data GetParameter = GetParameter'
-  { -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
-    withDecryption :: Lude.Maybe Lude.Bool,
-    -- | The name of the parameter you want to query.
-    name :: Lude.Text
+  { -- | The name of the parameter you want to query.
+    name :: Types.PSParameterName,
+    -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+    withDecryption :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetParameter' with the minimum fields required to make a request.
---
--- * 'withDecryption' - Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
--- * 'name' - The name of the parameter you want to query.
+-- | Creates a 'GetParameter' value with any optional fields omitted.
 mkGetParameter ::
   -- | 'name'
-  Lude.Text ->
+  Types.PSParameterName ->
   GetParameter
-mkGetParameter pName_ =
-  GetParameter' {withDecryption = Lude.Nothing, name = pName_}
-
--- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
---
--- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gWithDecryption :: Lens.Lens' GetParameter (Lude.Maybe Lude.Bool)
-gWithDecryption = Lens.lens (withDecryption :: GetParameter -> Lude.Maybe Lude.Bool) (\s a -> s {withDecryption = a} :: GetParameter)
-{-# DEPRECATED gWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
+mkGetParameter name =
+  GetParameter' {name, withDecryption = Core.Nothing}
 
 -- | The name of the parameter you want to query.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gName :: Lens.Lens' GetParameter Lude.Text
-gName = Lens.lens (name :: GetParameter -> Lude.Text) (\s a -> s {name = a} :: GetParameter)
+gName :: Lens.Lens' GetParameter Types.PSParameterName
+gName = Lens.field @"name"
 {-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetParameter where
+-- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+--
+-- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gWithDecryption :: Lens.Lens' GetParameter (Core.Maybe Core.Bool)
+gWithDecryption = Lens.field @"withDecryption"
+{-# DEPRECATED gWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
+
+instance Core.FromJSON GetParameter where
+  toJSON GetParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("WithDecryption" Core..=) Core.<$> withDecryption
+          ]
+      )
+
+instance Core.AWSRequest GetParameter where
   type Rs GetParameter = GetParameterResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetParameter")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetParameterResponse'
-            Lude.<$> (x Lude..?> "Parameter") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Parameter") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetParameter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetParameter" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetParameter where
-  toJSON GetParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("WithDecryption" Lude..=) Lude.<$> withDecryption,
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath GetParameter where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetParameter where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetParameterResponse' smart constructor.
 data GetParameterResponse = GetParameterResponse'
   { -- | Information about a parameter.
-    parameter :: Lude.Maybe Parameter,
+    parameter :: Core.Maybe Types.Parameter,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetParameterResponse' with the minimum fields required to make a request.
---
--- * 'parameter' - Information about a parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetParameterResponse' value with any optional fields omitted.
 mkGetParameterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetParameterResponse
-mkGetParameterResponse pResponseStatus_ =
-  GetParameterResponse'
-    { parameter = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetParameterResponse responseStatus =
+  GetParameterResponse' {parameter = Core.Nothing, responseStatus}
 
 -- | Information about a parameter.
 --
 -- /Note:/ Consider using 'parameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfrsParameter :: Lens.Lens' GetParameterResponse (Lude.Maybe Parameter)
-gpfrsParameter = Lens.lens (parameter :: GetParameterResponse -> Lude.Maybe Parameter) (\s a -> s {parameter = a} :: GetParameterResponse)
-{-# DEPRECATED gpfrsParameter "Use generic-lens or generic-optics with 'parameter' instead." #-}
+gprfrsParameter :: Lens.Lens' GetParameterResponse (Core.Maybe Types.Parameter)
+gprfrsParameter = Lens.field @"parameter"
+{-# DEPRECATED gprfrsParameter "Use generic-lens or generic-optics with 'parameter' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfrsResponseStatus :: Lens.Lens' GetParameterResponse Lude.Int
-gpfrsResponseStatus = Lens.lens (responseStatus :: GetParameterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParameterResponse)
-{-# DEPRECATED gpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprfrsResponseStatus :: Lens.Lens' GetParameterResponse Core.Int
+gprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

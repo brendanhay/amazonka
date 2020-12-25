@@ -36,82 +36,77 @@ module Network.AWS.EFS.PutLifecycleConfiguration
     plcLifecyclePolicies,
 
     -- * Destructuring the response
-    LifecycleConfigurationDescription (..),
-    mkLifecycleConfigurationDescription,
+    Types.LifecycleConfigurationDescription (..),
+    Types.mkLifecycleConfigurationDescription,
 
     -- ** Response lenses
-    lcdLifecyclePolicies,
+    Types.lcdLifecyclePolicies,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutLifecycleConfiguration' smart constructor.
 data PutLifecycleConfiguration = PutLifecycleConfiguration'
   { -- | The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
-    fileSystemId :: Lude.Text,
+    fileSystemId :: Types.FileSystemId,
     -- | An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
-    lifecyclePolicies :: [LifecyclePolicy]
+    lifecyclePolicies :: [Types.LifecyclePolicy]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLifecycleConfiguration' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
--- * 'lifecyclePolicies' - An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
+-- | Creates a 'PutLifecycleConfiguration' value with any optional fields omitted.
 mkPutLifecycleConfiguration ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   PutLifecycleConfiguration
-mkPutLifecycleConfiguration pFileSystemId_ =
+mkPutLifecycleConfiguration fileSystemId =
   PutLifecycleConfiguration'
-    { fileSystemId = pFileSystemId_,
-      lifecyclePolicies = Lude.mempty
+    { fileSystemId,
+      lifecyclePolicies = Core.mempty
     }
 
 -- | The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plcFileSystemId :: Lens.Lens' PutLifecycleConfiguration Lude.Text
-plcFileSystemId = Lens.lens (fileSystemId :: PutLifecycleConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: PutLifecycleConfiguration)
+plcFileSystemId :: Lens.Lens' PutLifecycleConfiguration Types.FileSystemId
+plcFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED plcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
 --
 -- /Note:/ Consider using 'lifecyclePolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plcLifecyclePolicies :: Lens.Lens' PutLifecycleConfiguration [LifecyclePolicy]
-plcLifecyclePolicies = Lens.lens (lifecyclePolicies :: PutLifecycleConfiguration -> [LifecyclePolicy]) (\s a -> s {lifecyclePolicies = a} :: PutLifecycleConfiguration)
+plcLifecyclePolicies :: Lens.Lens' PutLifecycleConfiguration [Types.LifecyclePolicy]
+plcLifecyclePolicies = Lens.field @"lifecyclePolicies"
 {-# DEPRECATED plcLifecyclePolicies "Use generic-lens or generic-optics with 'lifecyclePolicies' instead." #-}
 
-instance Lude.AWSRequest PutLifecycleConfiguration where
-  type
-    Rs PutLifecycleConfiguration =
-      LifecycleConfigurationDescription
-  request = Req.putJSON efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders PutLifecycleConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PutLifecycleConfiguration where
-  toJSON PutLifecycleConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("LifecyclePolicies" Lude..= lifecyclePolicies)]
+instance Core.FromJSON PutLifecycleConfiguration where
+  toJSON PutLifecycleConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LifecyclePolicies" Core..= lifecyclePolicies)]
       )
 
-instance Lude.ToPath PutLifecycleConfiguration where
-  toPath PutLifecycleConfiguration' {..} =
-    Lude.mconcat
-      [ "/2015-02-01/file-systems/",
-        Lude.toBS fileSystemId,
-        "/lifecycle-configuration"
-      ]
-
-instance Lude.ToQuery PutLifecycleConfiguration where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest PutLifecycleConfiguration where
+  type
+    Rs PutLifecycleConfiguration =
+      Types.LifecycleConfigurationDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)
+                Core.<> ("/lifecycle-configuration")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

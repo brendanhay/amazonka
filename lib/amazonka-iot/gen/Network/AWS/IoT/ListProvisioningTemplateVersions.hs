@@ -23,158 +23,153 @@ module Network.AWS.IoT.ListProvisioningTemplateVersions
 
     -- ** Request lenses
     lptvTemplateName,
-    lptvNextToken,
     lptvMaxResults,
+    lptvNextToken,
 
     -- * Destructuring the response
     ListProvisioningTemplateVersionsResponse (..),
     mkListProvisioningTemplateVersionsResponse,
 
     -- ** Response lenses
-    lptvrsVersions,
-    lptvrsNextToken,
-    lptvrsResponseStatus,
+    lptvrrsNextToken,
+    lptvrrsVersions,
+    lptvrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListProvisioningTemplateVersions' smart constructor.
 data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
   { -- | The name of the fleet provisioning template.
-    templateName :: Lude.Text,
-    -- | A token to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    templateName :: Types.TemplateName,
     -- | The maximum number of results to return at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProvisioningTemplateVersions' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the fleet provisioning template.
--- * 'nextToken' - A token to retrieve the next set of results.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- | Creates a 'ListProvisioningTemplateVersions' value with any optional fields omitted.
 mkListProvisioningTemplateVersions ::
   -- | 'templateName'
-  Lude.Text ->
+  Types.TemplateName ->
   ListProvisioningTemplateVersions
-mkListProvisioningTemplateVersions pTemplateName_ =
+mkListProvisioningTemplateVersions templateName =
   ListProvisioningTemplateVersions'
-    { templateName = pTemplateName_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { templateName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The name of the fleet provisioning template.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptvTemplateName :: Lens.Lens' ListProvisioningTemplateVersions Lude.Text
-lptvTemplateName = Lens.lens (templateName :: ListProvisioningTemplateVersions -> Lude.Text) (\s a -> s {templateName = a} :: ListProvisioningTemplateVersions)
+lptvTemplateName :: Lens.Lens' ListProvisioningTemplateVersions Types.TemplateName
+lptvTemplateName = Lens.field @"templateName"
 {-# DEPRECATED lptvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | A token to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptvNextToken :: Lens.Lens' ListProvisioningTemplateVersions (Lude.Maybe Lude.Text)
-lptvNextToken = Lens.lens (nextToken :: ListProvisioningTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProvisioningTemplateVersions)
-{-# DEPRECATED lptvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptvMaxResults :: Lens.Lens' ListProvisioningTemplateVersions (Lude.Maybe Lude.Natural)
-lptvMaxResults = Lens.lens (maxResults :: ListProvisioningTemplateVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListProvisioningTemplateVersions)
+lptvMaxResults :: Lens.Lens' ListProvisioningTemplateVersions (Core.Maybe Core.Natural)
+lptvMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lptvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListProvisioningTemplateVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. lptvrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lptvrsVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lptvNextToken Lens..~ rs Lens.^. lptvrsNextToken
-
-instance Lude.AWSRequest ListProvisioningTemplateVersions where
-  type
-    Rs ListProvisioningTemplateVersions =
-      ListProvisioningTemplateVersionsResponse
-  request = Req.get ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListProvisioningTemplateVersionsResponse'
-            Lude.<$> (x Lude..?> "versions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListProvisioningTemplateVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListProvisioningTemplateVersions where
-  toPath ListProvisioningTemplateVersions' {..} =
-    Lude.mconcat
-      ["/provisioning-templates/", Lude.toBS templateName, "/versions"]
-
-instance Lude.ToQuery ListProvisioningTemplateVersions where
-  toQuery ListProvisioningTemplateVersions' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
-
--- | /See:/ 'mkListProvisioningTemplateVersionsResponse' smart constructor.
-data ListProvisioningTemplateVersionsResponse = ListProvisioningTemplateVersionsResponse'
-  { -- | The list of fleet provisioning template versions.
-    versions :: Lude.Maybe [ProvisioningTemplateVersionSummary],
-    -- | A token to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListProvisioningTemplateVersionsResponse' with the minimum fields required to make a request.
---
--- * 'versions' - The list of fleet provisioning template versions.
--- * 'nextToken' - A token to retrieve the next set of results.
--- * 'responseStatus' - The response status code.
-mkListProvisioningTemplateVersionsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListProvisioningTemplateVersionsResponse
-mkListProvisioningTemplateVersionsResponse pResponseStatus_ =
-  ListProvisioningTemplateVersionsResponse'
-    { versions =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The list of fleet provisioning template versions.
---
--- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptvrsVersions :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Lude.Maybe [ProvisioningTemplateVersionSummary])
-lptvrsVersions = Lens.lens (versions :: ListProvisioningTemplateVersionsResponse -> Lude.Maybe [ProvisioningTemplateVersionSummary]) (\s a -> s {versions = a} :: ListProvisioningTemplateVersionsResponse)
-{-# DEPRECATED lptvrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | A token to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptvrsNextToken :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Lude.Maybe Lude.Text)
-lptvrsNextToken = Lens.lens (nextToken :: ListProvisioningTemplateVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProvisioningTemplateVersionsResponse)
-{-# DEPRECATED lptvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lptvNextToken :: Lens.Lens' ListProvisioningTemplateVersions (Core.Maybe Types.NextToken)
+lptvNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lptvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListProvisioningTemplateVersions where
+  type
+    Rs ListProvisioningTemplateVersions =
+      ListProvisioningTemplateVersionsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/provisioning-templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/versions")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListProvisioningTemplateVersionsResponse'
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "versions")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListProvisioningTemplateVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"versions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListProvisioningTemplateVersionsResponse' smart constructor.
+data ListProvisioningTemplateVersionsResponse = ListProvisioningTemplateVersionsResponse'
+  { -- | A token to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The list of fleet provisioning template versions.
+    versions :: Core.Maybe [Types.ProvisioningTemplateVersionSummary],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListProvisioningTemplateVersionsResponse' value with any optional fields omitted.
+mkListProvisioningTemplateVersionsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListProvisioningTemplateVersionsResponse
+mkListProvisioningTemplateVersionsResponse responseStatus =
+  ListProvisioningTemplateVersionsResponse'
+    { nextToken =
+        Core.Nothing,
+      versions = Core.Nothing,
+      responseStatus
+    }
+
+-- | A token to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lptvrrsNextToken :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Core.Maybe Types.NextToken)
+lptvrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lptvrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The list of fleet provisioning template versions.
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lptvrrsVersions :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Core.Maybe [Types.ProvisioningTemplateVersionSummary])
+lptvrrsVersions = Lens.field @"versions"
+{-# DEPRECATED lptvrrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptvrsResponseStatus :: Lens.Lens' ListProvisioningTemplateVersionsResponse Lude.Int
-lptvrsResponseStatus = Lens.lens (responseStatus :: ListProvisioningTemplateVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProvisioningTemplateVersionsResponse)
-{-# DEPRECATED lptvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lptvrrsResponseStatus :: Lens.Lens' ListProvisioningTemplateVersionsResponse Core.Int
+lptvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lptvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

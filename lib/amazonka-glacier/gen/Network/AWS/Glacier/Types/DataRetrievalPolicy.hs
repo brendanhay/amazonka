@@ -21,43 +21,37 @@ module Network.AWS.Glacier.Types.DataRetrievalPolicy
   )
 where
 
-import Network.AWS.Glacier.Types.DataRetrievalRule
+import qualified Network.AWS.Glacier.Types.DataRetrievalRule as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Data retrieval policy.
 --
 -- /See:/ 'mkDataRetrievalPolicy' smart constructor.
 newtype DataRetrievalPolicy = DataRetrievalPolicy'
   { -- | The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
-    rules :: Lude.Maybe [DataRetrievalRule]
+    rules :: Core.Maybe [Types.DataRetrievalRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataRetrievalPolicy' with the minimum fields required to make a request.
---
--- * 'rules' - The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
+-- | Creates a 'DataRetrievalPolicy' value with any optional fields omitted.
 mkDataRetrievalPolicy ::
   DataRetrievalPolicy
-mkDataRetrievalPolicy = DataRetrievalPolicy' {rules = Lude.Nothing}
+mkDataRetrievalPolicy = DataRetrievalPolicy' {rules = Core.Nothing}
 
 -- | The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpRules :: Lens.Lens' DataRetrievalPolicy (Lude.Maybe [DataRetrievalRule])
-drpRules = Lens.lens (rules :: DataRetrievalPolicy -> Lude.Maybe [DataRetrievalRule]) (\s a -> s {rules = a} :: DataRetrievalPolicy)
+drpRules :: Lens.Lens' DataRetrievalPolicy (Core.Maybe [Types.DataRetrievalRule])
+drpRules = Lens.field @"rules"
 {-# DEPRECATED drpRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.FromJSON DataRetrievalPolicy where
-  parseJSON =
-    Lude.withObject
-      "DataRetrievalPolicy"
-      ( \x ->
-          DataRetrievalPolicy'
-            Lude.<$> (x Lude..:? "Rules" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON DataRetrievalPolicy where
+  toJSON DataRetrievalPolicy {..} =
+    Core.object (Core.catMaybes [("Rules" Core..=) Core.<$> rules])
 
-instance Lude.ToJSON DataRetrievalPolicy where
-  toJSON DataRetrievalPolicy' {..} =
-    Lude.object (Lude.catMaybes [("Rules" Lude..=) Lude.<$> rules])
+instance Core.FromJSON DataRetrievalPolicy where
+  parseJSON =
+    Core.withObject "DataRetrievalPolicy" Core.$
+      \x -> DataRetrievalPolicy' Core.<$> (x Core..:? "Rules")

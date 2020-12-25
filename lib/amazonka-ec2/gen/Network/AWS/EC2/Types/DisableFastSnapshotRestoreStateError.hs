@@ -22,48 +22,46 @@ module Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an error that occurred when disabling fast snapshot restores.
 --
 -- /See:/ 'mkDisableFastSnapshotRestoreStateError' smart constructor.
 data DisableFastSnapshotRestoreStateError = DisableFastSnapshotRestoreStateError'
   { -- | The error code.
-    code :: Lude.Maybe Lude.Text,
+    code :: Core.Maybe Types.String,
     -- | The error message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableFastSnapshotRestoreStateError' with the minimum fields required to make a request.
---
--- * 'code' - The error code.
--- * 'message' - The error message.
+-- | Creates a 'DisableFastSnapshotRestoreStateError' value with any optional fields omitted.
 mkDisableFastSnapshotRestoreStateError ::
   DisableFastSnapshotRestoreStateError
 mkDisableFastSnapshotRestoreStateError =
   DisableFastSnapshotRestoreStateError'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrseCode :: Lens.Lens' DisableFastSnapshotRestoreStateError (Lude.Maybe Lude.Text)
-dfsrseCode = Lens.lens (code :: DisableFastSnapshotRestoreStateError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: DisableFastSnapshotRestoreStateError)
+dfsrseCode :: Lens.Lens' DisableFastSnapshotRestoreStateError (Core.Maybe Types.String)
+dfsrseCode = Lens.field @"code"
 {-# DEPRECATED dfsrseCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrseMessage :: Lens.Lens' DisableFastSnapshotRestoreStateError (Lude.Maybe Lude.Text)
-dfsrseMessage = Lens.lens (message :: DisableFastSnapshotRestoreStateError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DisableFastSnapshotRestoreStateError)
+dfsrseMessage :: Lens.Lens' DisableFastSnapshotRestoreStateError (Core.Maybe Types.String)
+dfsrseMessage = Lens.field @"message"
 {-# DEPRECATED dfsrseMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML DisableFastSnapshotRestoreStateError where
+instance Core.FromXML DisableFastSnapshotRestoreStateError where
   parseXML x =
     DisableFastSnapshotRestoreStateError'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

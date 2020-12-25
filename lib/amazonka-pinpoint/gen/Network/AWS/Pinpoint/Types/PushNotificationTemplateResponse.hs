@@ -17,243 +17,225 @@ module Network.AWS.Pinpoint.Types.PushNotificationTemplateResponse
     mkPushNotificationTemplateResponse,
 
     -- * Lenses
-    pntTemplateName,
-    pntLastModifiedDate,
-    pntARN,
-    pntTemplateType,
-    pntDefault,
-    pntTemplateDescription,
-    pntGCM,
-    pntAPNS,
-    pntDefaultSubstitutions,
-    pntVersion,
-    pntCreationDate,
-    pntADM,
-    pntBaidu,
-    pntRecommenderId,
-    pntTags,
+    pntrLastModifiedDate,
+    pntrCreationDate,
+    pntrTemplateType,
+    pntrTemplateName,
+    pntrADM,
+    pntrAPNS,
+    pntrArn,
+    pntrBaidu,
+    pntrDefault,
+    pntrDefaultSubstitutions,
+    pntrGCM,
+    pntrRecommenderId,
+    pntrTemplateDescription,
+    pntrVersion,
+    pntrTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.APNSPushNotificationTemplate
-import Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate
-import Network.AWS.Pinpoint.Types.DefaultPushNotificationTemplate
-import Network.AWS.Pinpoint.Types.TemplateType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.APNSPushNotificationTemplate as Types
+import qualified Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate as Types
+import qualified Network.AWS.Pinpoint.Types.DefaultPushNotificationTemplate as Types
+import qualified Network.AWS.Pinpoint.Types.TemplateType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.
 --
 -- /See:/ 'mkPushNotificationTemplateResponse' smart constructor.
 data PushNotificationTemplateResponse = PushNotificationTemplateResponse'
-  { -- | The name of the message template.
-    templateName :: Lude.Text,
-    -- | The date, in ISO 8601 format, when the message template was last modified.
-    lastModifiedDate :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the message template.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The type of channel that the message template is designed for. For a push notification template, this value is PUSH.
-    templateType :: TemplateType,
-    -- | The default message template that's used for push notification channels.
-    default' :: Lude.Maybe DefaultPushNotificationTemplate,
-    -- | The custom description of the message template.
-    templateDescription :: Lude.Maybe Lude.Text,
-    -- | The message template that's used for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
-    gcm :: Lude.Maybe AndroidPushNotificationTemplate,
-    -- | The message template that's used for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
-    apns :: Lude.Maybe APNSPushNotificationTemplate,
-    -- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
-    defaultSubstitutions :: Lude.Maybe Lude.Text,
-    -- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
-    version :: Lude.Maybe Lude.Text,
+  { -- | The date, in ISO 8601 format, when the message template was last modified.
+    lastModifiedDate :: Core.Text,
     -- | The date, in ISO 8601 format, when the message template was created.
-    creationDate :: Lude.Text,
+    creationDate :: Core.Text,
+    -- | The type of channel that the message template is designed for. For a push notification template, this value is PUSH.
+    templateType :: Types.TemplateType,
+    -- | The name of the message template.
+    templateName :: Core.Text,
     -- | The message template that's used for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
-    aDM :: Lude.Maybe AndroidPushNotificationTemplate,
+    adm :: Core.Maybe Types.AndroidPushNotificationTemplate,
+    -- | The message template that's used for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+    apns :: Core.Maybe Types.APNSPushNotificationTemplate,
+    -- | The Amazon Resource Name (ARN) of the message template.
+    arn :: Core.Maybe Core.Text,
     -- | The message template that's used for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
-    baidu :: Lude.Maybe AndroidPushNotificationTemplate,
+    baidu :: Core.Maybe Types.AndroidPushNotificationTemplate,
+    -- | The default message template that's used for push notification channels.
+    default' :: Core.Maybe Types.DefaultPushNotificationTemplate,
+    -- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
+    defaultSubstitutions :: Core.Maybe Core.Text,
+    -- | The message template that's used for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+    gcm :: Core.Maybe Types.AndroidPushNotificationTemplate,
     -- | The unique identifier for the recommender model that's used by the message template.
-    recommenderId :: Lude.Maybe Lude.Text,
+    recommenderId :: Core.Maybe Core.Text,
+    -- | The custom description of the message template.
+    templateDescription :: Core.Maybe Core.Text,
+    -- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
+    version :: Core.Maybe Core.Text,
     -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PushNotificationTemplateResponse' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template.
--- * 'lastModifiedDate' - The date, in ISO 8601 format, when the message template was last modified.
--- * 'arn' - The Amazon Resource Name (ARN) of the message template.
--- * 'templateType' - The type of channel that the message template is designed for. For a push notification template, this value is PUSH.
--- * 'default'' - The default message template that's used for push notification channels.
--- * 'templateDescription' - The custom description of the message template.
--- * 'gcm' - The message template that's used for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
--- * 'apns' - The message template that's used for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
--- * 'defaultSubstitutions' - The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
--- * 'version' - The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
--- * 'creationDate' - The date, in ISO 8601 format, when the message template was created.
--- * 'aDM' - The message template that's used for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
--- * 'baidu' - The message template that's used for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
--- * 'recommenderId' - The unique identifier for the recommender model that's used by the message template.
--- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
+-- | Creates a 'PushNotificationTemplateResponse' value with any optional fields omitted.
 mkPushNotificationTemplateResponse ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'lastModifiedDate'
-  Lude.Text ->
-  -- | 'templateType'
-  TemplateType ->
+  Core.Text ->
   -- | 'creationDate'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'templateType'
+  Types.TemplateType ->
+  -- | 'templateName'
+  Core.Text ->
   PushNotificationTemplateResponse
 mkPushNotificationTemplateResponse
-  pTemplateName_
-  pLastModifiedDate_
-  pTemplateType_
-  pCreationDate_ =
+  lastModifiedDate
+  creationDate
+  templateType
+  templateName =
     PushNotificationTemplateResponse'
-      { templateName = pTemplateName_,
-        lastModifiedDate = pLastModifiedDate_,
-        arn = Lude.Nothing,
-        templateType = pTemplateType_,
-        default' = Lude.Nothing,
-        templateDescription = Lude.Nothing,
-        gcm = Lude.Nothing,
-        apns = Lude.Nothing,
-        defaultSubstitutions = Lude.Nothing,
-        version = Lude.Nothing,
-        creationDate = pCreationDate_,
-        aDM = Lude.Nothing,
-        baidu = Lude.Nothing,
-        recommenderId = Lude.Nothing,
-        tags = Lude.Nothing
+      { lastModifiedDate,
+        creationDate,
+        templateType,
+        templateName,
+        adm = Core.Nothing,
+        apns = Core.Nothing,
+        arn = Core.Nothing,
+        baidu = Core.Nothing,
+        default' = Core.Nothing,
+        defaultSubstitutions = Core.Nothing,
+        gcm = Core.Nothing,
+        recommenderId = Core.Nothing,
+        templateDescription = Core.Nothing,
+        version = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | The name of the message template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntTemplateName :: Lens.Lens' PushNotificationTemplateResponse Lude.Text
-pntTemplateName = Lens.lens (templateName :: PushNotificationTemplateResponse -> Lude.Text) (\s a -> s {templateName = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The date, in ISO 8601 format, when the message template was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntLastModifiedDate :: Lens.Lens' PushNotificationTemplateResponse Lude.Text
-pntLastModifiedDate = Lens.lens (lastModifiedDate :: PushNotificationTemplateResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the message template.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntARN :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe Lude.Text)
-pntARN = Lens.lens (arn :: PushNotificationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The type of channel that the message template is designed for. For a push notification template, this value is PUSH.
---
--- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntTemplateType :: Lens.Lens' PushNotificationTemplateResponse TemplateType
-pntTemplateType = Lens.lens (templateType :: PushNotificationTemplateResponse -> TemplateType) (\s a -> s {templateType = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
-
--- | The default message template that's used for push notification channels.
---
--- /Note:/ Consider using 'default'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntDefault :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe DefaultPushNotificationTemplate)
-pntDefault = Lens.lens (default' :: PushNotificationTemplateResponse -> Lude.Maybe DefaultPushNotificationTemplate) (\s a -> s {default' = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntDefault "Use generic-lens or generic-optics with 'default'' instead." #-}
-
--- | The custom description of the message template.
---
--- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntTemplateDescription :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe Lude.Text)
-pntTemplateDescription = Lens.lens (templateDescription :: PushNotificationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
-
--- | The message template that's used for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
---
--- /Note:/ Consider using 'gcm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntGCM :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe AndroidPushNotificationTemplate)
-pntGCM = Lens.lens (gcm :: PushNotificationTemplateResponse -> Lude.Maybe AndroidPushNotificationTemplate) (\s a -> s {gcm = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntGCM "Use generic-lens or generic-optics with 'gcm' instead." #-}
-
--- | The message template that's used for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
---
--- /Note:/ Consider using 'apns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntAPNS :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe APNSPushNotificationTemplate)
-pntAPNS = Lens.lens (apns :: PushNotificationTemplateResponse -> Lude.Maybe APNSPushNotificationTemplate) (\s a -> s {apns = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntAPNS "Use generic-lens or generic-optics with 'apns' instead." #-}
-
--- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
---
--- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntDefaultSubstitutions :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe Lude.Text)
-pntDefaultSubstitutions = Lens.lens (defaultSubstitutions :: PushNotificationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
-
--- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntVersion :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe Lude.Text)
-pntVersion = Lens.lens (version :: PushNotificationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+pntrLastModifiedDate :: Lens.Lens' PushNotificationTemplateResponse Core.Text
+pntrLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED pntrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The date, in ISO 8601 format, when the message template was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntCreationDate :: Lens.Lens' PushNotificationTemplateResponse Lude.Text
-pntCreationDate = Lens.lens (creationDate :: PushNotificationTemplateResponse -> Lude.Text) (\s a -> s {creationDate = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+pntrCreationDate :: Lens.Lens' PushNotificationTemplateResponse Core.Text
+pntrCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED pntrCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The type of channel that the message template is designed for. For a push notification template, this value is PUSH.
+--
+-- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrTemplateType :: Lens.Lens' PushNotificationTemplateResponse Types.TemplateType
+pntrTemplateType = Lens.field @"templateType"
+{-# DEPRECATED pntrTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
+
+-- | The name of the message template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrTemplateName :: Lens.Lens' PushNotificationTemplateResponse Core.Text
+pntrTemplateName = Lens.field @"templateName"
+{-# DEPRECATED pntrTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The message template that's used for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
 --
--- /Note:/ Consider using 'aDM' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntADM :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe AndroidPushNotificationTemplate)
-pntADM = Lens.lens (aDM :: PushNotificationTemplateResponse -> Lude.Maybe AndroidPushNotificationTemplate) (\s a -> s {aDM = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntADM "Use generic-lens or generic-optics with 'aDM' instead." #-}
+-- /Note:/ Consider using 'adm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrADM :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Types.AndroidPushNotificationTemplate)
+pntrADM = Lens.field @"adm"
+{-# DEPRECATED pntrADM "Use generic-lens or generic-optics with 'adm' instead." #-}
+
+-- | The message template that's used for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+--
+-- /Note:/ Consider using 'apns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrAPNS :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Types.APNSPushNotificationTemplate)
+pntrAPNS = Lens.field @"apns"
+{-# DEPRECATED pntrAPNS "Use generic-lens or generic-optics with 'apns' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the message template.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrArn :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Core.Text)
+pntrArn = Lens.field @"arn"
+{-# DEPRECATED pntrArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The message template that's used for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
 --
 -- /Note:/ Consider using 'baidu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntBaidu :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe AndroidPushNotificationTemplate)
-pntBaidu = Lens.lens (baidu :: PushNotificationTemplateResponse -> Lude.Maybe AndroidPushNotificationTemplate) (\s a -> s {baidu = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntBaidu "Use generic-lens or generic-optics with 'baidu' instead." #-}
+pntrBaidu :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Types.AndroidPushNotificationTemplate)
+pntrBaidu = Lens.field @"baidu"
+{-# DEPRECATED pntrBaidu "Use generic-lens or generic-optics with 'baidu' instead." #-}
+
+-- | The default message template that's used for push notification channels.
+--
+-- /Note:/ Consider using 'default'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrDefault :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Types.DefaultPushNotificationTemplate)
+pntrDefault = Lens.field @"default'"
+{-# DEPRECATED pntrDefault "Use generic-lens or generic-optics with 'default'' instead." #-}
+
+-- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
+--
+-- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrDefaultSubstitutions :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Core.Text)
+pntrDefaultSubstitutions = Lens.field @"defaultSubstitutions"
+{-# DEPRECATED pntrDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
+
+-- | The message template that's used for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+--
+-- /Note:/ Consider using 'gcm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrGCM :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Types.AndroidPushNotificationTemplate)
+pntrGCM = Lens.field @"gcm"
+{-# DEPRECATED pntrGCM "Use generic-lens or generic-optics with 'gcm' instead." #-}
 
 -- | The unique identifier for the recommender model that's used by the message template.
 --
 -- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntRecommenderId :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe Lude.Text)
-pntRecommenderId = Lens.lens (recommenderId :: PushNotificationTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {recommenderId = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
+pntrRecommenderId :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Core.Text)
+pntrRecommenderId = Lens.field @"recommenderId"
+{-# DEPRECATED pntrRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
+
+-- | The custom description of the message template.
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrTemplateDescription :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Core.Text)
+pntrTemplateDescription = Lens.field @"templateDescription"
+{-# DEPRECATED pntrTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
+
+-- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pntrVersion :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe Core.Text)
+pntrVersion = Lens.field @"version"
+{-# DEPRECATED pntrVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pntTags :: Lens.Lens' PushNotificationTemplateResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-pntTags = Lens.lens (tags :: PushNotificationTemplateResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: PushNotificationTemplateResponse)
-{-# DEPRECATED pntTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+pntrTags :: Lens.Lens' PushNotificationTemplateResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+pntrTags = Lens.field @"tags"
+{-# DEPRECATED pntrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON PushNotificationTemplateResponse where
+instance Core.FromJSON PushNotificationTemplateResponse where
   parseJSON =
-    Lude.withObject
-      "PushNotificationTemplateResponse"
-      ( \x ->
-          PushNotificationTemplateResponse'
-            Lude.<$> (x Lude..: "TemplateName")
-            Lude.<*> (x Lude..: "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..: "TemplateType")
-            Lude.<*> (x Lude..:? "Default")
-            Lude.<*> (x Lude..:? "TemplateDescription")
-            Lude.<*> (x Lude..:? "GCM")
-            Lude.<*> (x Lude..:? "APNS")
-            Lude.<*> (x Lude..:? "DefaultSubstitutions")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..: "CreationDate")
-            Lude.<*> (x Lude..:? "ADM")
-            Lude.<*> (x Lude..:? "Baidu")
-            Lude.<*> (x Lude..:? "RecommenderId")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "PushNotificationTemplateResponse" Core.$
+      \x ->
+        PushNotificationTemplateResponse'
+          Core.<$> (x Core..: "LastModifiedDate")
+          Core.<*> (x Core..: "CreationDate")
+          Core.<*> (x Core..: "TemplateType")
+          Core.<*> (x Core..: "TemplateName")
+          Core.<*> (x Core..:? "ADM")
+          Core.<*> (x Core..:? "APNS")
+          Core.<*> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Baidu")
+          Core.<*> (x Core..:? "Default")
+          Core.<*> (x Core..:? "DefaultSubstitutions")
+          Core.<*> (x Core..:? "GCM")
+          Core.<*> (x Core..:? "RecommenderId")
+          Core.<*> (x Core..:? "TemplateDescription")
+          Core.<*> (x Core..:? "Version")
+          Core.<*> (x Core..:? "tags")

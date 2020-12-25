@@ -90,7 +90,7 @@ responseGetShardIterator =
   res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
-    dynamoDBStreamsService
+    mkServiceConfig
     (Proxy :: Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
@@ -98,7 +98,7 @@ responseGetRecords =
   res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
-    dynamoDBStreamsService
+    mkServiceConfig
     (Proxy :: Proxy GetRecords)
 
 responseListStreams :: ListStreamsResponse -> TestTree
@@ -106,7 +106,7 @@ responseListStreams =
   res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
-    dynamoDBStreamsService
+    mkServiceConfig
     (Proxy :: Proxy ListStreams)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
@@ -114,5 +114,5 @@ responseDescribeStream =
   res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
-    dynamoDBStreamsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStream)

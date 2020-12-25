@@ -22,62 +22,56 @@ module Network.AWS.Config.Types.ConformancePackComplianceSummary
   )
 where
 
-import Network.AWS.Config.Types.ConformancePackComplianceType
+import qualified Network.AWS.Config.Types.ConformancePackComplianceType as Types
+import qualified Network.AWS.Config.Types.ConformancePackName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary includes the name and status of the conformance pack.
 --
 -- /See:/ 'mkConformancePackComplianceSummary' smart constructor.
 data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
   { -- | The name of the conformance pack name.
-    conformancePackName :: Lude.Text,
+    conformancePackName :: Types.ConformancePackName,
     -- | The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
-    conformancePackComplianceStatus :: ConformancePackComplianceType
+    conformancePackComplianceStatus :: Types.ConformancePackComplianceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConformancePackComplianceSummary' with the minimum fields required to make a request.
---
--- * 'conformancePackName' - The name of the conformance pack name.
--- * 'conformancePackComplianceStatus' - The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
+-- | Creates a 'ConformancePackComplianceSummary' value with any optional fields omitted.
 mkConformancePackComplianceSummary ::
   -- | 'conformancePackName'
-  Lude.Text ->
+  Types.ConformancePackName ->
   -- | 'conformancePackComplianceStatus'
-  ConformancePackComplianceType ->
+  Types.ConformancePackComplianceType ->
   ConformancePackComplianceSummary
 mkConformancePackComplianceSummary
-  pConformancePackName_
-  pConformancePackComplianceStatus_ =
+  conformancePackName
+  conformancePackComplianceStatus =
     ConformancePackComplianceSummary'
-      { conformancePackName =
-          pConformancePackName_,
-        conformancePackComplianceStatus =
-          pConformancePackComplianceStatus_
+      { conformancePackName,
+        conformancePackComplianceStatus
       }
 
 -- | The name of the conformance pack name.
 --
 -- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcsConformancePackName :: Lens.Lens' ConformancePackComplianceSummary Lude.Text
-cpcsConformancePackName = Lens.lens (conformancePackName :: ConformancePackComplianceSummary -> Lude.Text) (\s a -> s {conformancePackName = a} :: ConformancePackComplianceSummary)
+cpcsConformancePackName :: Lens.Lens' ConformancePackComplianceSummary Types.ConformancePackName
+cpcsConformancePackName = Lens.field @"conformancePackName"
 {-# DEPRECATED cpcsConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
 --
 -- /Note:/ Consider using 'conformancePackComplianceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcsConformancePackComplianceStatus :: Lens.Lens' ConformancePackComplianceSummary ConformancePackComplianceType
-cpcsConformancePackComplianceStatus = Lens.lens (conformancePackComplianceStatus :: ConformancePackComplianceSummary -> ConformancePackComplianceType) (\s a -> s {conformancePackComplianceStatus = a} :: ConformancePackComplianceSummary)
+cpcsConformancePackComplianceStatus :: Lens.Lens' ConformancePackComplianceSummary Types.ConformancePackComplianceType
+cpcsConformancePackComplianceStatus = Lens.field @"conformancePackComplianceStatus"
 {-# DEPRECATED cpcsConformancePackComplianceStatus "Use generic-lens or generic-optics with 'conformancePackComplianceStatus' instead." #-}
 
-instance Lude.FromJSON ConformancePackComplianceSummary where
+instance Core.FromJSON ConformancePackComplianceSummary where
   parseJSON =
-    Lude.withObject
-      "ConformancePackComplianceSummary"
-      ( \x ->
-          ConformancePackComplianceSummary'
-            Lude.<$> (x Lude..: "ConformancePackName")
-            Lude.<*> (x Lude..: "ConformancePackComplianceStatus")
-      )
+    Core.withObject "ConformancePackComplianceSummary" Core.$
+      \x ->
+        ConformancePackComplianceSummary'
+          Core.<$> (x Core..: "ConformancePackName")
+          Core.<*> (x Core..: "ConformancePackComplianceStatus")

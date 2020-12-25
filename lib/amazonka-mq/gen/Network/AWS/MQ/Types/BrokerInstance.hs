@@ -17,71 +17,65 @@ module Network.AWS.MQ.Types.BrokerInstance
     mkBrokerInstance,
 
     -- * Lenses
-    biIPAddress,
     biConsoleURL,
     biEndpoints,
+    biIpAddress,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about all brokers.
 --
 -- /See:/ 'mkBrokerInstance' smart constructor.
 data BrokerInstance = BrokerInstance'
-  { -- | The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
-    ipAddress :: Lude.Maybe Lude.Text,
-    -- | The URL of the broker's Web Console.
-    consoleURL :: Lude.Maybe Lude.Text,
+  { -- | The URL of the broker's Web Console.
+    consoleURL :: Core.Maybe Core.Text,
     -- | The broker's wire-level protocol endpoints.
-    endpoints :: Lude.Maybe [Lude.Text]
+    endpoints :: Core.Maybe [Core.Text],
+    -- | The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
+    ipAddress :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BrokerInstance' with the minimum fields required to make a request.
---
--- * 'ipAddress' - The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
--- * 'consoleURL' - The URL of the broker's Web Console.
--- * 'endpoints' - The broker's wire-level protocol endpoints.
+-- | Creates a 'BrokerInstance' value with any optional fields omitted.
 mkBrokerInstance ::
   BrokerInstance
 mkBrokerInstance =
   BrokerInstance'
-    { ipAddress = Lude.Nothing,
-      consoleURL = Lude.Nothing,
-      endpoints = Lude.Nothing
+    { consoleURL = Core.Nothing,
+      endpoints = Core.Nothing,
+      ipAddress = Core.Nothing
     }
-
--- | The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biIPAddress :: Lens.Lens' BrokerInstance (Lude.Maybe Lude.Text)
-biIPAddress = Lens.lens (ipAddress :: BrokerInstance -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: BrokerInstance)
-{-# DEPRECATED biIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | The URL of the broker's Web Console.
 --
 -- /Note:/ Consider using 'consoleURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biConsoleURL :: Lens.Lens' BrokerInstance (Lude.Maybe Lude.Text)
-biConsoleURL = Lens.lens (consoleURL :: BrokerInstance -> Lude.Maybe Lude.Text) (\s a -> s {consoleURL = a} :: BrokerInstance)
+biConsoleURL :: Lens.Lens' BrokerInstance (Core.Maybe Core.Text)
+biConsoleURL = Lens.field @"consoleURL"
 {-# DEPRECATED biConsoleURL "Use generic-lens or generic-optics with 'consoleURL' instead." #-}
 
 -- | The broker's wire-level protocol endpoints.
 --
 -- /Note:/ Consider using 'endpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biEndpoints :: Lens.Lens' BrokerInstance (Lude.Maybe [Lude.Text])
-biEndpoints = Lens.lens (endpoints :: BrokerInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {endpoints = a} :: BrokerInstance)
+biEndpoints :: Lens.Lens' BrokerInstance (Core.Maybe [Core.Text])
+biEndpoints = Lens.field @"endpoints"
 {-# DEPRECATED biEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
 
-instance Lude.FromJSON BrokerInstance where
+-- | The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+biIpAddress :: Lens.Lens' BrokerInstance (Core.Maybe Core.Text)
+biIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED biIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
+
+instance Core.FromJSON BrokerInstance where
   parseJSON =
-    Lude.withObject
-      "BrokerInstance"
-      ( \x ->
-          BrokerInstance'
-            Lude.<$> (x Lude..:? "ipAddress")
-            Lude.<*> (x Lude..:? "consoleURL")
-            Lude.<*> (x Lude..:? "endpoints" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BrokerInstance" Core.$
+      \x ->
+        BrokerInstance'
+          Core.<$> (x Core..:? "consoleURL")
+          Core.<*> (x Core..:? "endpoints")
+          Core.<*> (x Core..:? "ipAddress")

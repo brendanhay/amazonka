@@ -17,114 +17,107 @@ module Network.AWS.KinesisAnalytics.Types.OutputDescription
     mkOutputDescription,
 
     -- * Lenses
-    odOutputId,
     odDestinationSchema,
     odKinesisFirehoseOutputDescription,
     odKinesisStreamsOutputDescription,
-    odName,
     odLambdaOutputDescription,
+    odName,
+    odOutputId,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.DestinationSchema
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputDescription
-import Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription
+import qualified Network.AWS.KinesisAnalytics.Types.DestinationSchema as Types
+import qualified Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription as Types
+import qualified Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputDescription as Types
+import qualified Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription as Types
+import qualified Network.AWS.KinesisAnalytics.Types.Name as Types
+import qualified Network.AWS.KinesisAnalytics.Types.OutputId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the application output configuration, which includes the in-application stream name and the destination where the stream data is written. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream.
 --
 -- /See:/ 'mkOutputDescription' smart constructor.
 data OutputDescription = OutputDescription'
-  { -- | A unique identifier for the output configuration.
-    outputId :: Lude.Maybe Lude.Text,
-    -- | Data format used for writing data to the destination.
-    destinationSchema :: Lude.Maybe DestinationSchema,
+  { -- | Data format used for writing data to the destination.
+    destinationSchema :: Core.Maybe Types.DestinationSchema,
     -- | Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written.
-    kinesisFirehoseOutputDescription :: Lude.Maybe KinesisFirehoseOutputDescription,
+    kinesisFirehoseOutputDescription :: Core.Maybe Types.KinesisFirehoseOutputDescription,
     -- | Describes Amazon Kinesis stream configured as the destination where output is written.
-    kinesisStreamsOutputDescription :: Lude.Maybe KinesisStreamsOutputDescription,
-    -- | Name of the in-application stream configured as output.
-    name :: Lude.Maybe Lude.Text,
+    kinesisStreamsOutputDescription :: Core.Maybe Types.KinesisStreamsOutputDescription,
     -- | Describes the AWS Lambda function configured as the destination where output is written.
-    lambdaOutputDescription :: Lude.Maybe LambdaOutputDescription
+    lambdaOutputDescription :: Core.Maybe Types.LambdaOutputDescription,
+    -- | Name of the in-application stream configured as output.
+    name :: Core.Maybe Types.Name,
+    -- | A unique identifier for the output configuration.
+    outputId :: Core.Maybe Types.OutputId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputDescription' with the minimum fields required to make a request.
---
--- * 'outputId' - A unique identifier for the output configuration.
--- * 'destinationSchema' - Data format used for writing data to the destination.
--- * 'kinesisFirehoseOutputDescription' - Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written.
--- * 'kinesisStreamsOutputDescription' - Describes Amazon Kinesis stream configured as the destination where output is written.
--- * 'name' - Name of the in-application stream configured as output.
--- * 'lambdaOutputDescription' - Describes the AWS Lambda function configured as the destination where output is written.
+-- | Creates a 'OutputDescription' value with any optional fields omitted.
 mkOutputDescription ::
   OutputDescription
 mkOutputDescription =
   OutputDescription'
-    { outputId = Lude.Nothing,
-      destinationSchema = Lude.Nothing,
-      kinesisFirehoseOutputDescription = Lude.Nothing,
-      kinesisStreamsOutputDescription = Lude.Nothing,
-      name = Lude.Nothing,
-      lambdaOutputDescription = Lude.Nothing
+    { destinationSchema = Core.Nothing,
+      kinesisFirehoseOutputDescription = Core.Nothing,
+      kinesisStreamsOutputDescription = Core.Nothing,
+      lambdaOutputDescription = Core.Nothing,
+      name = Core.Nothing,
+      outputId = Core.Nothing
     }
-
--- | A unique identifier for the output configuration.
---
--- /Note:/ Consider using 'outputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odOutputId :: Lens.Lens' OutputDescription (Lude.Maybe Lude.Text)
-odOutputId = Lens.lens (outputId :: OutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {outputId = a} :: OutputDescription)
-{-# DEPRECATED odOutputId "Use generic-lens or generic-optics with 'outputId' instead." #-}
 
 -- | Data format used for writing data to the destination.
 --
 -- /Note:/ Consider using 'destinationSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odDestinationSchema :: Lens.Lens' OutputDescription (Lude.Maybe DestinationSchema)
-odDestinationSchema = Lens.lens (destinationSchema :: OutputDescription -> Lude.Maybe DestinationSchema) (\s a -> s {destinationSchema = a} :: OutputDescription)
+odDestinationSchema :: Lens.Lens' OutputDescription (Core.Maybe Types.DestinationSchema)
+odDestinationSchema = Lens.field @"destinationSchema"
 {-# DEPRECATED odDestinationSchema "Use generic-lens or generic-optics with 'destinationSchema' instead." #-}
 
 -- | Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written.
 --
 -- /Note:/ Consider using 'kinesisFirehoseOutputDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odKinesisFirehoseOutputDescription :: Lens.Lens' OutputDescription (Lude.Maybe KinesisFirehoseOutputDescription)
-odKinesisFirehoseOutputDescription = Lens.lens (kinesisFirehoseOutputDescription :: OutputDescription -> Lude.Maybe KinesisFirehoseOutputDescription) (\s a -> s {kinesisFirehoseOutputDescription = a} :: OutputDescription)
+odKinesisFirehoseOutputDescription :: Lens.Lens' OutputDescription (Core.Maybe Types.KinesisFirehoseOutputDescription)
+odKinesisFirehoseOutputDescription = Lens.field @"kinesisFirehoseOutputDescription"
 {-# DEPRECATED odKinesisFirehoseOutputDescription "Use generic-lens or generic-optics with 'kinesisFirehoseOutputDescription' instead." #-}
 
 -- | Describes Amazon Kinesis stream configured as the destination where output is written.
 --
 -- /Note:/ Consider using 'kinesisStreamsOutputDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odKinesisStreamsOutputDescription :: Lens.Lens' OutputDescription (Lude.Maybe KinesisStreamsOutputDescription)
-odKinesisStreamsOutputDescription = Lens.lens (kinesisStreamsOutputDescription :: OutputDescription -> Lude.Maybe KinesisStreamsOutputDescription) (\s a -> s {kinesisStreamsOutputDescription = a} :: OutputDescription)
+odKinesisStreamsOutputDescription :: Lens.Lens' OutputDescription (Core.Maybe Types.KinesisStreamsOutputDescription)
+odKinesisStreamsOutputDescription = Lens.field @"kinesisStreamsOutputDescription"
 {-# DEPRECATED odKinesisStreamsOutputDescription "Use generic-lens or generic-optics with 'kinesisStreamsOutputDescription' instead." #-}
-
--- | Name of the in-application stream configured as output.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odName :: Lens.Lens' OutputDescription (Lude.Maybe Lude.Text)
-odName = Lens.lens (name :: OutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OutputDescription)
-{-# DEPRECATED odName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Describes the AWS Lambda function configured as the destination where output is written.
 --
 -- /Note:/ Consider using 'lambdaOutputDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odLambdaOutputDescription :: Lens.Lens' OutputDescription (Lude.Maybe LambdaOutputDescription)
-odLambdaOutputDescription = Lens.lens (lambdaOutputDescription :: OutputDescription -> Lude.Maybe LambdaOutputDescription) (\s a -> s {lambdaOutputDescription = a} :: OutputDescription)
+odLambdaOutputDescription :: Lens.Lens' OutputDescription (Core.Maybe Types.LambdaOutputDescription)
+odLambdaOutputDescription = Lens.field @"lambdaOutputDescription"
 {-# DEPRECATED odLambdaOutputDescription "Use generic-lens or generic-optics with 'lambdaOutputDescription' instead." #-}
 
-instance Lude.FromJSON OutputDescription where
+-- | Name of the in-application stream configured as output.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odName :: Lens.Lens' OutputDescription (Core.Maybe Types.Name)
+odName = Lens.field @"name"
+{-# DEPRECATED odName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A unique identifier for the output configuration.
+--
+-- /Note:/ Consider using 'outputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odOutputId :: Lens.Lens' OutputDescription (Core.Maybe Types.OutputId)
+odOutputId = Lens.field @"outputId"
+{-# DEPRECATED odOutputId "Use generic-lens or generic-optics with 'outputId' instead." #-}
+
+instance Core.FromJSON OutputDescription where
   parseJSON =
-    Lude.withObject
-      "OutputDescription"
-      ( \x ->
-          OutputDescription'
-            Lude.<$> (x Lude..:? "OutputId")
-            Lude.<*> (x Lude..:? "DestinationSchema")
-            Lude.<*> (x Lude..:? "KinesisFirehoseOutputDescription")
-            Lude.<*> (x Lude..:? "KinesisStreamsOutputDescription")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "LambdaOutputDescription")
-      )
+    Core.withObject "OutputDescription" Core.$
+      \x ->
+        OutputDescription'
+          Core.<$> (x Core..:? "DestinationSchema")
+          Core.<*> (x Core..:? "KinesisFirehoseOutputDescription")
+          Core.<*> (x Core..:? "KinesisStreamsOutputDescription")
+          Core.<*> (x Core..:? "LambdaOutputDescription")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "OutputId")

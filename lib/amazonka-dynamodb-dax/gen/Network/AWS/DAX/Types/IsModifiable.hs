@@ -13,51 +13,53 @@
 module Network.AWS.DAX.Types.IsModifiable
   ( IsModifiable
       ( IsModifiable',
-        True,
-        False,
-        Conditional
+        IsModifiableTrue,
+        IsModifiableFalse,
+        IsModifiableConditional,
+        fromIsModifiable
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype IsModifiable = IsModifiable' Lude.Text
+newtype IsModifiable = IsModifiable' {fromIsModifiable :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern True :: IsModifiable
-pattern True = IsModifiable' "TRUE"
+pattern IsModifiableTrue :: IsModifiable
+pattern IsModifiableTrue = IsModifiable' "TRUE"
 
-pattern False :: IsModifiable
-pattern False = IsModifiable' "FALSE"
+pattern IsModifiableFalse :: IsModifiable
+pattern IsModifiableFalse = IsModifiable' "FALSE"
 
-pattern Conditional :: IsModifiable
-pattern Conditional = IsModifiable' "CONDITIONAL"
+pattern IsModifiableConditional :: IsModifiable
+pattern IsModifiableConditional = IsModifiable' "CONDITIONAL"
 
 {-# COMPLETE
-  True,
-  False,
-  Conditional,
+  IsModifiableTrue,
+  IsModifiableFalse,
+  IsModifiableConditional,
   IsModifiable'
   #-}

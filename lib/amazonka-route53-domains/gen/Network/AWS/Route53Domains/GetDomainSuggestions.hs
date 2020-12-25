@@ -20,8 +20,8 @@ module Network.AWS.Route53Domains.GetDomainSuggestions
     mkGetDomainSuggestions,
 
     -- ** Request lenses
-    gdsSuggestionCount,
     gdsDomainName,
+    gdsSuggestionCount,
     gdsOnlyAvailable,
 
     -- * Destructuring the response
@@ -29,22 +29,20 @@ module Network.AWS.Route53Domains.GetDomainSuggestions
     mkGetDomainSuggestionsResponse,
 
     -- ** Response lenses
-    gdsrsSuggestionsList,
-    gdsrsResponseStatus,
+    gdsrrsSuggestionsList,
+    gdsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | /See:/ 'mkGetDomainSuggestions' smart constructor.
 data GetDomainSuggestions = GetDomainSuggestions'
-  { -- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
-    suggestionCount :: Lude.Int,
-    -- | A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
+  { -- | A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
     --
     -- The domain name can contain only the following characters:
     --
@@ -61,58 +59,26 @@ data GetDomainSuggestions = GetDomainSuggestions'
     --
     --
     -- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> .
-    domainName :: Lude.Text,
+    domainName :: Types.DomainName,
+    -- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
+    suggestionCount :: Core.Int,
     -- | If @OnlyAvailable@ is @true@ , Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
-    onlyAvailable :: Lude.Bool
+    onlyAvailable :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDomainSuggestions' with the minimum fields required to make a request.
---
--- * 'suggestionCount' - The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
--- * 'domainName' - A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
---
--- The domain name can contain only the following characters:
---
---     * Letters a through z. Domain names are not case sensitive.
---
---
---     * Numbers 0 through 9.
---
---
---     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.
---
---
---     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
---
---
--- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> .
--- * 'onlyAvailable' - If @OnlyAvailable@ is @true@ , Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
+-- | Creates a 'GetDomainSuggestions' value with any optional fields omitted.
 mkGetDomainSuggestions ::
-  -- | 'suggestionCount'
-  Lude.Int ->
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
+  -- | 'suggestionCount'
+  Core.Int ->
   -- | 'onlyAvailable'
-  Lude.Bool ->
+  Core.Bool ->
   GetDomainSuggestions
-mkGetDomainSuggestions
-  pSuggestionCount_
-  pDomainName_
-  pOnlyAvailable_ =
-    GetDomainSuggestions'
-      { suggestionCount = pSuggestionCount_,
-        domainName = pDomainName_,
-        onlyAvailable = pOnlyAvailable_
-      }
-
--- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
---
--- /Note:/ Consider using 'suggestionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsSuggestionCount :: Lens.Lens' GetDomainSuggestions Lude.Int
-gdsSuggestionCount = Lens.lens (suggestionCount :: GetDomainSuggestions -> Lude.Int) (\s a -> s {suggestionCount = a} :: GetDomainSuggestions)
-{-# DEPRECATED gdsSuggestionCount "Use generic-lens or generic-optics with 'suggestionCount' instead." #-}
+mkGetDomainSuggestions domainName suggestionCount onlyAvailable =
+  GetDomainSuggestions' {domainName, suggestionCount, onlyAvailable}
 
 -- | A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
@@ -133,91 +99,87 @@ gdsSuggestionCount = Lens.lens (suggestionCount :: GetDomainSuggestions -> Lude.
 -- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> .
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsDomainName :: Lens.Lens' GetDomainSuggestions Lude.Text
-gdsDomainName = Lens.lens (domainName :: GetDomainSuggestions -> Lude.Text) (\s a -> s {domainName = a} :: GetDomainSuggestions)
+gdsDomainName :: Lens.Lens' GetDomainSuggestions Types.DomainName
+gdsDomainName = Lens.field @"domainName"
 {-# DEPRECATED gdsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
+--
+-- /Note:/ Consider using 'suggestionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsSuggestionCount :: Lens.Lens' GetDomainSuggestions Core.Int
+gdsSuggestionCount = Lens.field @"suggestionCount"
+{-# DEPRECATED gdsSuggestionCount "Use generic-lens or generic-optics with 'suggestionCount' instead." #-}
 
 -- | If @OnlyAvailable@ is @true@ , Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
 --
 -- /Note:/ Consider using 'onlyAvailable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsOnlyAvailable :: Lens.Lens' GetDomainSuggestions Lude.Bool
-gdsOnlyAvailable = Lens.lens (onlyAvailable :: GetDomainSuggestions -> Lude.Bool) (\s a -> s {onlyAvailable = a} :: GetDomainSuggestions)
+gdsOnlyAvailable :: Lens.Lens' GetDomainSuggestions Core.Bool
+gdsOnlyAvailable = Lens.field @"onlyAvailable"
 {-# DEPRECATED gdsOnlyAvailable "Use generic-lens or generic-optics with 'onlyAvailable' instead." #-}
 
-instance Lude.AWSRequest GetDomainSuggestions where
+instance Core.FromJSON GetDomainSuggestions where
+  toJSON GetDomainSuggestions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainName" Core..= domainName),
+            Core.Just ("SuggestionCount" Core..= suggestionCount),
+            Core.Just ("OnlyAvailable" Core..= onlyAvailable)
+          ]
+      )
+
+instance Core.AWSRequest GetDomainSuggestions where
   type Rs GetDomainSuggestions = GetDomainSuggestionsResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.GetDomainSuggestions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDomainSuggestionsResponse'
-            Lude.<$> (x Lude..?> "SuggestionsList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SuggestionsList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDomainSuggestions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.GetDomainSuggestions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDomainSuggestions where
-  toJSON GetDomainSuggestions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SuggestionCount" Lude..= suggestionCount),
-            Lude.Just ("DomainName" Lude..= domainName),
-            Lude.Just ("OnlyAvailable" Lude..= onlyAvailable)
-          ]
-      )
-
-instance Lude.ToPath GetDomainSuggestions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDomainSuggestions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDomainSuggestionsResponse' smart constructor.
 data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
   { -- | A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
-    suggestionsList :: Lude.Maybe [DomainSuggestion],
+    suggestionsList :: Core.Maybe [Types.DomainSuggestion],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDomainSuggestionsResponse' with the minimum fields required to make a request.
---
--- * 'suggestionsList' - A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDomainSuggestionsResponse' value with any optional fields omitted.
 mkGetDomainSuggestionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDomainSuggestionsResponse
-mkGetDomainSuggestionsResponse pResponseStatus_ =
+mkGetDomainSuggestionsResponse responseStatus =
   GetDomainSuggestionsResponse'
-    { suggestionsList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { suggestionsList = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
 --
 -- /Note:/ Consider using 'suggestionsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsSuggestionsList :: Lens.Lens' GetDomainSuggestionsResponse (Lude.Maybe [DomainSuggestion])
-gdsrsSuggestionsList = Lens.lens (suggestionsList :: GetDomainSuggestionsResponse -> Lude.Maybe [DomainSuggestion]) (\s a -> s {suggestionsList = a} :: GetDomainSuggestionsResponse)
-{-# DEPRECATED gdsrsSuggestionsList "Use generic-lens or generic-optics with 'suggestionsList' instead." #-}
+gdsrrsSuggestionsList :: Lens.Lens' GetDomainSuggestionsResponse (Core.Maybe [Types.DomainSuggestion])
+gdsrrsSuggestionsList = Lens.field @"suggestionsList"
+{-# DEPRECATED gdsrrsSuggestionsList "Use generic-lens or generic-optics with 'suggestionsList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsResponseStatus :: Lens.Lens' GetDomainSuggestionsResponse Lude.Int
-gdsrsResponseStatus = Lens.lens (responseStatus :: GetDomainSuggestionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainSuggestionsResponse)
-{-# DEPRECATED gdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdsrrsResponseStatus :: Lens.Lens' GetDomainSuggestionsResponse Core.Int
+gdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
